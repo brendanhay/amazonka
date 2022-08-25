@@ -28,10 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAwsXrayEncryptionConfigDetails' smart constructor.
 data AwsXrayEncryptionConfigDetails = AwsXrayEncryptionConfigDetails'
   { -- | The type of encryption. @KMS@ indicates that the encryption uses KMS
-    -- keys. @NONE@ indicates to use the default encryption.
+    -- keys. @NONE@ indicates the default encryption.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the encryption configuration. When @Status@ is
-    -- @UPDATING@, X-Ray might use both the old and new encryption.
+    -- | The current status of the encryption configuration. Valid values are
+    -- @ACTIVE@ or @UPDATING@.
+    --
+    -- When @Status@ is equal to @UPDATING@, X-Ray might use both the old and
+    -- new encryption.
     status :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the KMS key that is used for encryption. Provided if
     -- @Type@ is @KMS@.
@@ -48,10 +51,13 @@ data AwsXrayEncryptionConfigDetails = AwsXrayEncryptionConfigDetails'
 -- for backwards compatibility:
 --
 -- 'type'', 'awsXrayEncryptionConfigDetails_type' - The type of encryption. @KMS@ indicates that the encryption uses KMS
--- keys. @NONE@ indicates to use the default encryption.
+-- keys. @NONE@ indicates the default encryption.
 --
--- 'status', 'awsXrayEncryptionConfigDetails_status' - The current status of the encryption configuration. When @Status@ is
--- @UPDATING@, X-Ray might use both the old and new encryption.
+-- 'status', 'awsXrayEncryptionConfigDetails_status' - The current status of the encryption configuration. Valid values are
+-- @ACTIVE@ or @UPDATING@.
+--
+-- When @Status@ is equal to @UPDATING@, X-Ray might use both the old and
+-- new encryption.
 --
 -- 'keyId', 'awsXrayEncryptionConfigDetails_keyId' - The identifier of the KMS key that is used for encryption. Provided if
 -- @Type@ is @KMS@.
@@ -66,12 +72,15 @@ newAwsXrayEncryptionConfigDetails =
     }
 
 -- | The type of encryption. @KMS@ indicates that the encryption uses KMS
--- keys. @NONE@ indicates to use the default encryption.
+-- keys. @NONE@ indicates the default encryption.
 awsXrayEncryptionConfigDetails_type :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
 awsXrayEncryptionConfigDetails_type = Lens.lens (\AwsXrayEncryptionConfigDetails' {type'} -> type') (\s@AwsXrayEncryptionConfigDetails' {} a -> s {type' = a} :: AwsXrayEncryptionConfigDetails)
 
--- | The current status of the encryption configuration. When @Status@ is
--- @UPDATING@, X-Ray might use both the old and new encryption.
+-- | The current status of the encryption configuration. Valid values are
+-- @ACTIVE@ or @UPDATING@.
+--
+-- When @Status@ is equal to @UPDATING@, X-Ray might use both the old and
+-- new encryption.
 awsXrayEncryptionConfigDetails_status :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
 awsXrayEncryptionConfigDetails_status = Lens.lens (\AwsXrayEncryptionConfigDetails' {status} -> status) (\s@AwsXrayEncryptionConfigDetails' {} a -> s {status = a} :: AwsXrayEncryptionConfigDetails)
 

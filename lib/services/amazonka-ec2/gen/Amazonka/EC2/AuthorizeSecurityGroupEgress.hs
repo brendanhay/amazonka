@@ -25,7 +25,9 @@
 --
 -- An outbound rule permits instances to send traffic to the specified IPv4
 -- or IPv6 CIDR address ranges, or to the instances that are associated
--- with the specified destination security groups.
+-- with the specified source security groups. When specifying an outbound
+-- rule for your security group in a VPC, the @IpPermissions@ must include
+-- a destination for the traffic.
 --
 -- You specify a protocol for each rule (for example, TCP). For the TCP and
 -- UDP protocols, you must also specify the destination port or port range.

@@ -48,7 +48,7 @@ data JobMetadata = JobMetadata'
     shippingDetails :: Prelude.Maybe ShippingDetails,
     -- | The role ARN associated with this job. This ARN was created using the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
-    -- API action in AWS Identity and Access Management (IAM).
+    -- API action in Identity and Access Management.
     roleARN :: Prelude.Maybe Prelude.Text,
     deviceConfiguration :: Prelude.Maybe DeviceConfiguration,
     -- | The creation date for this job.
@@ -62,10 +62,10 @@ data JobMetadata = JobMetadata'
     forwardingAddressId :: Prelude.Maybe Prelude.Text,
     -- | The description of the job, provided at job creation.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS
-    -- KMS) key associated with this job. This ARN was created using the
+    -- | The Amazon Resource Name (ARN) for the Key Management Service (KMS) key
+    -- associated with this job. This ARN was created using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
-    -- API action in AWS KMS.
+    -- API action in KMS.
     kmsKeyARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the long-term pricing type for the device.
     longTermPricingId :: Prelude.Maybe Prelude.Text,
@@ -75,9 +75,9 @@ data JobMetadata = JobMetadata'
     -- the @JobMetadata@ data type.
     notification :: Prelude.Maybe Notification,
     -- | A value that defines the real-time status of a Snow device\'s data
-    -- transfer while the device is at AWS. This data is only available while a
-    -- job has a @JobState@ value of @InProgress@, for both import and export
-    -- jobs.
+    -- transfer while the device is at Amazon Web Services. This data is only
+    -- available while a job has a @JobState@ value of @InProgress@, for both
+    -- import and export jobs.
     dataTransferProgress :: Prelude.Maybe DataTransfer,
     -- | Allows you to securely operate and manage Snowcone devices remotely from
     -- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
@@ -90,8 +90,8 @@ data JobMetadata = JobMetadata'
     clusterId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the jobs.
     jobState :: Prelude.Maybe JobState,
-    -- | The metadata associated with the tax documents required in your AWS
-    -- Region.
+    -- | The metadata associated with the tax documents required in your Amazon
+    -- Web Services Region.
     taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an
     -- Amazon S3 bucket that your transferred data will be exported from or
@@ -119,8 +119,8 @@ data JobMetadata = JobMetadata'
     -- available while the Snow device for your job part is being delivered to
     -- you.
     jobLogInfo :: Prelude.Maybe JobLogs,
-    -- | Represents metadata and configuration settings for services on an AWS
-    -- Snow Family device.
+    -- | Represents metadata and configuration settings for services on an Amazon
+    -- Web Services Snow Family device.
     onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -138,7 +138,7 @@ data JobMetadata = JobMetadata'
 --
 -- 'roleARN', 'jobMetadata_roleARN' - The role ARN associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- API action in AWS Identity and Access Management (IAM).
+-- API action in Identity and Access Management.
 --
 -- 'deviceConfiguration', 'jobMetadata_deviceConfiguration' - Undocumented member.
 --
@@ -153,10 +153,10 @@ data JobMetadata = JobMetadata'
 --
 -- 'description', 'jobMetadata_description' - The description of the job, provided at job creation.
 --
--- 'kmsKeyARN', 'jobMetadata_kmsKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS
--- KMS) key associated with this job. This ARN was created using the
+-- 'kmsKeyARN', 'jobMetadata_kmsKeyARN' - The Amazon Resource Name (ARN) for the Key Management Service (KMS) key
+-- associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- API action in AWS KMS.
+-- API action in KMS.
 --
 -- 'longTermPricingId', 'jobMetadata_longTermPricingId' - The ID of the long-term pricing type for the device.
 --
@@ -166,9 +166,9 @@ data JobMetadata = JobMetadata'
 -- the @JobMetadata@ data type.
 --
 -- 'dataTransferProgress', 'jobMetadata_dataTransferProgress' - A value that defines the real-time status of a Snow device\'s data
--- transfer while the device is at AWS. This data is only available while a
--- job has a @JobState@ value of @InProgress@, for both import and export
--- jobs.
+-- transfer while the device is at Amazon Web Services. This data is only
+-- available while a job has a @JobState@ value of @InProgress@, for both
+-- import and export jobs.
 --
 -- 'remoteManagement', 'jobMetadata_remoteManagement' - Allows you to securely operate and manage Snowcone devices remotely from
 -- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
@@ -181,8 +181,8 @@ data JobMetadata = JobMetadata'
 --
 -- 'jobState', 'jobMetadata_jobState' - The current status of the jobs.
 --
--- 'taxDocuments', 'jobMetadata_taxDocuments' - The metadata associated with the tax documents required in your AWS
--- Region.
+-- 'taxDocuments', 'jobMetadata_taxDocuments' - The metadata associated with the tax documents required in your Amazon
+-- Web Services Region.
 --
 -- 'resources', 'jobMetadata_resources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an
 -- Amazon S3 bucket that your transferred data will be exported from or
@@ -210,8 +210,8 @@ data JobMetadata = JobMetadata'
 -- available while the Snow device for your job part is being delivered to
 -- you.
 --
--- 'onDeviceServiceConfiguration', 'jobMetadata_onDeviceServiceConfiguration' - Represents metadata and configuration settings for services on an AWS
--- Snow Family device.
+-- 'onDeviceServiceConfiguration', 'jobMetadata_onDeviceServiceConfiguration' - Represents metadata and configuration settings for services on an Amazon
+-- Web Services Snow Family device.
 newJobMetadata ::
   JobMetadata
 newJobMetadata =
@@ -247,7 +247,7 @@ jobMetadata_shippingDetails = Lens.lens (\JobMetadata' {shippingDetails} -> ship
 
 -- | The role ARN associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- API action in AWS Identity and Access Management (IAM).
+-- API action in Identity and Access Management.
 jobMetadata_roleARN :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
 jobMetadata_roleARN = Lens.lens (\JobMetadata' {roleARN} -> roleARN) (\s@JobMetadata' {} a -> s {roleARN = a} :: JobMetadata)
 
@@ -274,10 +274,10 @@ jobMetadata_forwardingAddressId = Lens.lens (\JobMetadata' {forwardingAddressId}
 jobMetadata_description :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
 jobMetadata_description = Lens.lens (\JobMetadata' {description} -> description) (\s@JobMetadata' {} a -> s {description = a} :: JobMetadata)
 
--- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS
--- KMS) key associated with this job. This ARN was created using the
+-- | The Amazon Resource Name (ARN) for the Key Management Service (KMS) key
+-- associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- API action in AWS KMS.
+-- API action in KMS.
 jobMetadata_kmsKeyARN :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
 jobMetadata_kmsKeyARN = Lens.lens (\JobMetadata' {kmsKeyARN} -> kmsKeyARN) (\s@JobMetadata' {} a -> s {kmsKeyARN = a} :: JobMetadata)
 
@@ -293,9 +293,9 @@ jobMetadata_notification :: Lens.Lens' JobMetadata (Prelude.Maybe Notification)
 jobMetadata_notification = Lens.lens (\JobMetadata' {notification} -> notification) (\s@JobMetadata' {} a -> s {notification = a} :: JobMetadata)
 
 -- | A value that defines the real-time status of a Snow device\'s data
--- transfer while the device is at AWS. This data is only available while a
--- job has a @JobState@ value of @InProgress@, for both import and export
--- jobs.
+-- transfer while the device is at Amazon Web Services. This data is only
+-- available while a job has a @JobState@ value of @InProgress@, for both
+-- import and export jobs.
 jobMetadata_dataTransferProgress :: Lens.Lens' JobMetadata (Prelude.Maybe DataTransfer)
 jobMetadata_dataTransferProgress = Lens.lens (\JobMetadata' {dataTransferProgress} -> dataTransferProgress) (\s@JobMetadata' {} a -> s {dataTransferProgress = a} :: JobMetadata)
 
@@ -316,8 +316,8 @@ jobMetadata_clusterId = Lens.lens (\JobMetadata' {clusterId} -> clusterId) (\s@J
 jobMetadata_jobState :: Lens.Lens' JobMetadata (Prelude.Maybe JobState)
 jobMetadata_jobState = Lens.lens (\JobMetadata' {jobState} -> jobState) (\s@JobMetadata' {} a -> s {jobState = a} :: JobMetadata)
 
--- | The metadata associated with the tax documents required in your AWS
--- Region.
+-- | The metadata associated with the tax documents required in your Amazon
+-- Web Services Region.
 jobMetadata_taxDocuments :: Lens.Lens' JobMetadata (Prelude.Maybe TaxDocuments)
 jobMetadata_taxDocuments = Lens.lens (\JobMetadata' {taxDocuments} -> taxDocuments) (\s@JobMetadata' {} a -> s {taxDocuments = a} :: JobMetadata)
 
@@ -359,8 +359,8 @@ jobMetadata_jobType = Lens.lens (\JobMetadata' {jobType} -> jobType) (\s@JobMeta
 jobMetadata_jobLogInfo :: Lens.Lens' JobMetadata (Prelude.Maybe JobLogs)
 jobMetadata_jobLogInfo = Lens.lens (\JobMetadata' {jobLogInfo} -> jobLogInfo) (\s@JobMetadata' {} a -> s {jobLogInfo = a} :: JobMetadata)
 
--- | Represents metadata and configuration settings for services on an AWS
--- Snow Family device.
+-- | Represents metadata and configuration settings for services on an Amazon
+-- Web Services Snow Family device.
 jobMetadata_onDeviceServiceConfiguration :: Lens.Lens' JobMetadata (Prelude.Maybe OnDeviceServiceConfiguration)
 jobMetadata_onDeviceServiceConfiguration = Lens.lens (\JobMetadata' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@JobMetadata' {} a -> s {onDeviceServiceConfiguration = a} :: JobMetadata)
 

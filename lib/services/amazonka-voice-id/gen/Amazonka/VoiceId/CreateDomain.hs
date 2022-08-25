@@ -62,10 +62,10 @@ data CreateDomain = CreateDomain'
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the domain.
     name :: Core.Sensitive Prelude.Text,
-    -- | The configuration, containing the KMS Key Identifier, to be used by
+    -- | The configuration, containing the KMS key identifier, to be used by
     -- Voice ID for the server-side encryption of your data. Refer to
-    -- <https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid Amazon Connect VoiceID encryption at rest>
-    -- for more details on how the KMS Key is used.
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid Amazon Connect Voice ID encryption at rest>
+    -- for more details on how the KMS key is used.
     serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -87,10 +87,10 @@ data CreateDomain = CreateDomain'
 --
 -- 'name', 'createDomain_name' - The name of the domain.
 --
--- 'serverSideEncryptionConfiguration', 'createDomain_serverSideEncryptionConfiguration' - The configuration, containing the KMS Key Identifier, to be used by
+-- 'serverSideEncryptionConfiguration', 'createDomain_serverSideEncryptionConfiguration' - The configuration, containing the KMS key identifier, to be used by
 -- Voice ID for the server-side encryption of your data. Refer to
--- <https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid Amazon Connect VoiceID encryption at rest>
--- for more details on how the KMS Key is used.
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid Amazon Connect Voice ID encryption at rest>
+-- for more details on how the KMS key is used.
 newCreateDomain ::
   -- | 'name'
   Prelude.Text ->
@@ -126,10 +126,10 @@ createDomain_description = Lens.lens (\CreateDomain' {description} -> descriptio
 createDomain_name :: Lens.Lens' CreateDomain Prelude.Text
 createDomain_name = Lens.lens (\CreateDomain' {name} -> name) (\s@CreateDomain' {} a -> s {name = a} :: CreateDomain) Prelude.. Core._Sensitive
 
--- | The configuration, containing the KMS Key Identifier, to be used by
+-- | The configuration, containing the KMS key identifier, to be used by
 -- Voice ID for the server-side encryption of your data. Refer to
--- <https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid Amazon Connect VoiceID encryption at rest>
--- for more details on how the KMS Key is used.
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid Amazon Connect Voice ID encryption at rest>
+-- for more details on how the KMS key is used.
 createDomain_serverSideEncryptionConfiguration :: Lens.Lens' CreateDomain ServerSideEncryptionConfiguration
 createDomain_serverSideEncryptionConfiguration = Lens.lens (\CreateDomain' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateDomain' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateDomain)
 

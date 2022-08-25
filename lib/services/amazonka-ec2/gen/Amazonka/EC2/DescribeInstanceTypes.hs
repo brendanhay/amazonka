@@ -128,8 +128,8 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     -- -   @instance-storage-info.disk.type@ - The storage technology for the
     --     local instance storage disks (@hdd@ | @ssd@).
     --
-    -- -   @instance-storage-info.encryption-supported@ - Indicates whether
-    --     data is encrypted at rest (@required@ | @unsupported@).
+    -- -   @instance-storage-info.encryption-support@ - Indicates whether data
+    --     is encrypted at rest (@required@ | @supported@ | @unsupported@).
     --
     -- -   @instance-storage-info.nvme-support@ - Indicates whether
     --     non-volatile memory express (NVMe) is supported for instance store
@@ -168,6 +168,9 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     --
     -- -   @network-info.ipv6-supported@ - Indicates whether the instance type
     --     supports IPv6 (@true@ | @false@).
+    --
+    -- -   @network-info.maximum-network-cards@ - The maximum number of network
+    --     cards per instance.
     --
     -- -   @network-info.maximum-network-interfaces@ - The maximum number of
     --     network interfaces per instance.
@@ -298,8 +301,8 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 -- -   @instance-storage-info.disk.type@ - The storage technology for the
 --     local instance storage disks (@hdd@ | @ssd@).
 --
--- -   @instance-storage-info.encryption-supported@ - Indicates whether
---     data is encrypted at rest (@required@ | @unsupported@).
+-- -   @instance-storage-info.encryption-support@ - Indicates whether data
+--     is encrypted at rest (@required@ | @supported@ | @unsupported@).
 --
 -- -   @instance-storage-info.nvme-support@ - Indicates whether
 --     non-volatile memory express (NVMe) is supported for instance store
@@ -338,6 +341,9 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --
 -- -   @network-info.ipv6-supported@ - Indicates whether the instance type
 --     supports IPv6 (@true@ | @false@).
+--
+-- -   @network-info.maximum-network-cards@ - The maximum number of network
+--     cards per instance.
 --
 -- -   @network-info.maximum-network-interfaces@ - The maximum number of
 --     network interfaces per instance.
@@ -471,8 +477,8 @@ describeInstanceTypes_instanceTypes = Lens.lens (\DescribeInstanceTypes' {instan
 -- -   @instance-storage-info.disk.type@ - The storage technology for the
 --     local instance storage disks (@hdd@ | @ssd@).
 --
--- -   @instance-storage-info.encryption-supported@ - Indicates whether
---     data is encrypted at rest (@required@ | @unsupported@).
+-- -   @instance-storage-info.encryption-support@ - Indicates whether data
+--     is encrypted at rest (@required@ | @supported@ | @unsupported@).
 --
 -- -   @instance-storage-info.nvme-support@ - Indicates whether
 --     non-volatile memory express (NVMe) is supported for instance store
@@ -511,6 +517,9 @@ describeInstanceTypes_instanceTypes = Lens.lens (\DescribeInstanceTypes' {instan
 --
 -- -   @network-info.ipv6-supported@ - Indicates whether the instance type
 --     supports IPv6 (@true@ | @false@).
+--
+-- -   @network-info.maximum-network-cards@ - The maximum number of network
+--     cards per instance.
 --
 -- -   @network-info.maximum-network-interfaces@ - The maximum number of
 --     network interfaces per instance.

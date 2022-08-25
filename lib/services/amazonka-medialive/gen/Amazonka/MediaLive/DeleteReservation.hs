@@ -36,6 +36,7 @@ module Amazonka.MediaLive.DeleteReservation
     -- * Response Lenses
     deleteReservationResponse_tags,
     deleteReservationResponse_name,
+    deleteReservationResponse_renewalSettings,
     deleteReservationResponse_start,
     deleteReservationResponse_arn,
     deleteReservationResponse_resourceSpecification,
@@ -103,6 +104,7 @@ instance Core.AWSRequest DeleteReservation where
           DeleteReservationResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "renewalSettings")
             Prelude.<*> (x Core..?> "start")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "resourceSpecification")
@@ -157,6 +159,8 @@ data DeleteReservationResponse = DeleteReservationResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | User specified reservation name
     name :: Prelude.Maybe Prelude.Text,
+    -- | Renewal settings for the reservation
+    renewalSettings :: Prelude.Maybe RenewalSettings,
     -- | Reservation UTC start date and time in ISO-8601 format, e.g.
     -- \'2018-03-01T00:00:00\'
     start :: Prelude.Maybe Prelude.Text,
@@ -212,6 +216,8 @@ data DeleteReservationResponse = DeleteReservationResponse'
 --
 -- 'name', 'deleteReservationResponse_name' - User specified reservation name
 --
+-- 'renewalSettings', 'deleteReservationResponse_renewalSettings' - Renewal settings for the reservation
+--
 -- 'start', 'deleteReservationResponse_start' - Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
 --
@@ -259,6 +265,7 @@ newDeleteReservationResponse pHttpStatus_ =
   DeleteReservationResponse'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      renewalSettings = Prelude.Nothing,
       start = Prelude.Nothing,
       arn = Prelude.Nothing,
       resourceSpecification = Prelude.Nothing,
@@ -285,6 +292,10 @@ deleteReservationResponse_tags = Lens.lens (\DeleteReservationResponse' {tags} -
 -- | User specified reservation name
 deleteReservationResponse_name :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Text)
 deleteReservationResponse_name = Lens.lens (\DeleteReservationResponse' {name} -> name) (\s@DeleteReservationResponse' {} a -> s {name = a} :: DeleteReservationResponse)
+
+-- | Renewal settings for the reservation
+deleteReservationResponse_renewalSettings :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe RenewalSettings)
+deleteReservationResponse_renewalSettings = Lens.lens (\DeleteReservationResponse' {renewalSettings} -> renewalSettings) (\s@DeleteReservationResponse' {} a -> s {renewalSettings = a} :: DeleteReservationResponse)
 
 -- | Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
@@ -364,6 +375,7 @@ instance Prelude.NFData DeleteReservationResponse where
   rnf DeleteReservationResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSettings
       `Prelude.seq` Prelude.rnf start
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf resourceSpecification

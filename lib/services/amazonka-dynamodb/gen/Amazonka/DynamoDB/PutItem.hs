@@ -28,29 +28,6 @@
 -- has certain attribute values. You can return the item\'s attribute
 -- values in the same operation, using the @ReturnValues@ parameter.
 --
--- This topic provides general information about the @PutItem@ API.
---
--- For information on how to call the @PutItem@ API using the AWS SDK in
--- specific languages, see the following:
---
--- -   <http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem PutItem in the AWS Command Line Interface>
---
--- -   <http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for .NET>
---
--- -   <http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for C++>
---
--- -   <http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Go>
---
--- -   <http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Java>
---
--- -   <http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for JavaScript>
---
--- -   <http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for PHP V3>
---
--- -   <http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Python>
---
--- -   <http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Ruby V2>
---
 -- When you add an item, the primary key attributes are the only required
 -- attributes. Attribute values cannot be null.
 --
@@ -122,6 +99,12 @@ data PutItem = PutItem'
     --
     -- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
     --     then the content of the old item is returned.
+    --
+    -- The values returned are strongly consistent.
+    --
+    -- There is no additional cost associated with requesting a return value
+    -- aside from the small network and processing overhead of receiving a
+    -- larger response. No read capacity units are consumed.
     --
     -- The @ReturnValues@ parameter is used by several DynamoDB operations;
     -- however, @PutItem@ does not recognize any values other than @NONE@ or
@@ -265,6 +248,12 @@ data PutItem = PutItem'
 --
 -- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
 --     then the content of the old item is returned.
+--
+-- The values returned are strongly consistent.
+--
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No read capacity units are consumed.
 --
 -- The @ReturnValues@ parameter is used by several DynamoDB operations;
 -- however, @PutItem@ does not recognize any values other than @NONE@ or
@@ -415,6 +404,12 @@ newPutItem pTableName_ =
 --
 -- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
 --     then the content of the old item is returned.
+--
+-- The values returned are strongly consistent.
+--
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No read capacity units are consumed.
 --
 -- The @ReturnValues@ parameter is used by several DynamoDB operations;
 -- however, @PutItem@ does not recognize any values other than @NONE@ or

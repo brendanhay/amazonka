@@ -58,7 +58,7 @@ data DescribeGroup = DescribeGroup'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace of the group that you want described.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +77,7 @@ data DescribeGroup = DescribeGroup'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'describeGroup_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'describeGroup_namespace' - The namespace of the group that you want described.
 newDescribeGroup ::
   -- | 'groupName'
   Prelude.Text ->
@@ -106,7 +106,7 @@ describeGroup_groupName = Lens.lens (\DescribeGroup' {groupName} -> groupName) (
 describeGroup_awsAccountId :: Lens.Lens' DescribeGroup Prelude.Text
 describeGroup_awsAccountId = Lens.lens (\DescribeGroup' {awsAccountId} -> awsAccountId) (\s@DescribeGroup' {} a -> s {awsAccountId = a} :: DescribeGroup)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace of the group that you want described.
 describeGroup_namespace :: Lens.Lens' DescribeGroup Prelude.Text
 describeGroup_namespace = Lens.lens (\DescribeGroup' {namespace} -> namespace) (\s@DescribeGroup' {} a -> s {namespace = a} :: DescribeGroup)
 

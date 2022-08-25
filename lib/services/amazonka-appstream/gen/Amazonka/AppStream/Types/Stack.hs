@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.AccessEndpoint
 import Amazonka.AppStream.Types.ApplicationSettingsResponse
 import Amazonka.AppStream.Types.StackError
 import Amazonka.AppStream.Types.StorageConnector
+import Amazonka.AppStream.Types.StreamingExperienceSettings
 import Amazonka.AppStream.Types.UserSetting
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -56,6 +57,9 @@ data Stack = Stack'
     description :: Prelude.Maybe Prelude.Text,
     -- | The URL that users are redirected to after their streaming session ends.
     redirectURL :: Prelude.Maybe Prelude.Text,
+    -- | The streaming protocol you want your stack to prefer. This can be UDP or
+    -- TCP. Currently, UDP is only supported in the Windows native client.
+    streamingExperienceSettings :: Prelude.Maybe StreamingExperienceSettings,
     -- | The URL that users are redirected to after they click the Send Feedback
     -- link. If no URL is specified, no Send Feedback link is displayed.
     feedbackURL :: Prelude.Maybe Prelude.Text,
@@ -99,6 +103,9 @@ data Stack = Stack'
 --
 -- 'redirectURL', 'stack_redirectURL' - The URL that users are redirected to after their streaming session ends.
 --
+-- 'streamingExperienceSettings', 'stack_streamingExperienceSettings' - The streaming protocol you want your stack to prefer. This can be UDP or
+-- TCP. Currently, UDP is only supported in the Windows native client.
+--
 -- 'feedbackURL', 'stack_feedbackURL' - The URL that users are redirected to after they click the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
 --
@@ -122,6 +129,7 @@ newStack pName_ =
       accessEndpoints = Prelude.Nothing,
       description = Prelude.Nothing,
       redirectURL = Prelude.Nothing,
+      streamingExperienceSettings = Prelude.Nothing,
       feedbackURL = Prelude.Nothing,
       userSettings = Prelude.Nothing,
       name = pName_
@@ -171,6 +179,11 @@ stack_description = Lens.lens (\Stack' {description} -> description) (\s@Stack' 
 stack_redirectURL :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
 stack_redirectURL = Lens.lens (\Stack' {redirectURL} -> redirectURL) (\s@Stack' {} a -> s {redirectURL = a} :: Stack)
 
+-- | The streaming protocol you want your stack to prefer. This can be UDP or
+-- TCP. Currently, UDP is only supported in the Windows native client.
+stack_streamingExperienceSettings :: Lens.Lens' Stack (Prelude.Maybe StreamingExperienceSettings)
+stack_streamingExperienceSettings = Lens.lens (\Stack' {streamingExperienceSettings} -> streamingExperienceSettings) (\s@Stack' {} a -> s {streamingExperienceSettings = a} :: Stack)
+
 -- | The URL that users are redirected to after they click the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
 stack_feedbackURL :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
@@ -203,6 +216,7 @@ instance Core.FromJSON Stack where
             Prelude.<*> (x Core..:? "AccessEndpoints")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RedirectURL")
+            Prelude.<*> (x Core..:? "StreamingExperienceSettings")
             Prelude.<*> (x Core..:? "FeedbackURL")
             Prelude.<*> (x Core..:? "UserSettings")
             Prelude.<*> (x Core..: "Name")
@@ -220,6 +234,7 @@ instance Prelude.Hashable Stack where
       `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` redirectURL
+      `Prelude.hashWithSalt` streamingExperienceSettings
       `Prelude.hashWithSalt` feedbackURL
       `Prelude.hashWithSalt` userSettings
       `Prelude.hashWithSalt` name
@@ -236,6 +251,7 @@ instance Prelude.NFData Stack where
       `Prelude.seq` Prelude.rnf accessEndpoints
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf redirectURL
+      `Prelude.seq` Prelude.rnf streamingExperienceSettings
       `Prelude.seq` Prelude.rnf feedbackURL
       `Prelude.seq` Prelude.rnf userSettings
       `Prelude.seq` Prelude.rnf name

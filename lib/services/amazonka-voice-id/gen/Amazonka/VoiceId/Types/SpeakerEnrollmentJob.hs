@@ -34,7 +34,7 @@ import Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus
 -- /See:/ 'newSpeakerEnrollmentJob' smart constructor.
 data SpeakerEnrollmentJob = SpeakerEnrollmentJob'
   { -- | The output data config containing the S3 location where Voice ID writes
-    -- the job output file; you must also include a KMS Key ID to encrypt the
+    -- the job output file; you must also include a KMS key ID to encrypt the
     -- file.
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The configuration that defines the action to take when the speaker is
@@ -80,7 +80,7 @@ data SpeakerEnrollmentJob = SpeakerEnrollmentJob'
 -- for backwards compatibility:
 --
 -- 'outputDataConfig', 'speakerEnrollmentJob_outputDataConfig' - The output data config containing the S3 location where Voice ID writes
--- the job output file; you must also include a KMS Key ID to encrypt the
+-- the job output file; you must also include a KMS key ID to encrypt the
 -- file.
 --
 -- 'enrollmentConfig', 'speakerEnrollmentJob_enrollmentConfig' - The configuration that defines the action to take when the speaker is
@@ -133,7 +133,7 @@ newSpeakerEnrollmentJob =
     }
 
 -- | The output data config containing the S3 location where Voice ID writes
--- the job output file; you must also include a KMS Key ID to encrypt the
+-- the job output file; you must also include a KMS key ID to encrypt the
 -- file.
 speakerEnrollmentJob_outputDataConfig :: Lens.Lens' SpeakerEnrollmentJob (Prelude.Maybe OutputDataConfig)
 speakerEnrollmentJob_outputDataConfig = Lens.lens (\SpeakerEnrollmentJob' {outputDataConfig} -> outputDataConfig) (\s@SpeakerEnrollmentJob' {} a -> s {outputDataConfig = a} :: SpeakerEnrollmentJob)

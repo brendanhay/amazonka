@@ -63,9 +63,9 @@ data GetResource = GetResource'
     -- @\"methods\"@ string. For example,
     -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
     embed :: Prelude.Maybe [Prelude.Text],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier for the Resource resource.
+    -- | The identifier for the Resource resource.
     resourceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,9 +86,9 @@ data GetResource = GetResource'
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
 --
--- 'restApiId', 'getResource_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getResource_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'getResource_resourceId' - [Required] The identifier for the Resource resource.
+-- 'resourceId', 'getResource_resourceId' - The identifier for the Resource resource.
 newGetResource ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -112,11 +112,11 @@ newGetResource pRestApiId_ pResourceId_ =
 getResource_embed :: Lens.Lens' GetResource (Prelude.Maybe [Prelude.Text])
 getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getResource_restApiId :: Lens.Lens' GetResource Prelude.Text
 getResource_restApiId = Lens.lens (\GetResource' {restApiId} -> restApiId) (\s@GetResource' {} a -> s {restApiId = a} :: GetResource)
 
--- | [Required] The identifier for the Resource resource.
+-- | The identifier for the Resource resource.
 getResource_resourceId :: Lens.Lens' GetResource Prelude.Text
 getResource_resourceId = Lens.lens (\GetResource' {resourceId} -> resourceId) (\s@GetResource' {} a -> s {resourceId = a} :: GetResource)
 

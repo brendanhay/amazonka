@@ -30,8 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data Filters = Filters'
   { -- | The channel to use to filter the metrics.
     channels :: Prelude.Maybe [Channel],
-    -- | The queues to use to filter the metrics. You can specify up to 100
-    -- queues per request.
+    -- | The queues to use to filter the metrics. You should specify at least one
+    -- queue, and can specify up to 100 queues per request. The
+    -- @GetCurrentMetricsData@ API in particular requires a queue when you
+    -- include a @Filter@ in your request.
     queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +48,10 @@ data Filters = Filters'
 --
 -- 'channels', 'filters_channels' - The channel to use to filter the metrics.
 --
--- 'queues', 'filters_queues' - The queues to use to filter the metrics. You can specify up to 100
--- queues per request.
+-- 'queues', 'filters_queues' - The queues to use to filter the metrics. You should specify at least one
+-- queue, and can specify up to 100 queues per request. The
+-- @GetCurrentMetricsData@ API in particular requires a queue when you
+-- include a @Filter@ in your request.
 newFilters ::
   Filters
 newFilters =
@@ -60,8 +64,10 @@ newFilters =
 filters_channels :: Lens.Lens' Filters (Prelude.Maybe [Channel])
 filters_channels = Lens.lens (\Filters' {channels} -> channels) (\s@Filters' {} a -> s {channels = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 
--- | The queues to use to filter the metrics. You can specify up to 100
--- queues per request.
+-- | The queues to use to filter the metrics. You should specify at least one
+-- queue, and can specify up to 100 queues per request. The
+-- @GetCurrentMetricsData@ API in particular requires a queue when you
+-- include a @Filter@ in your request.
 filters_queues :: Lens.Lens' Filters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 filters_queues = Lens.lens (\Filters' {queues} -> queues) (\s@Filters' {} a -> s {queues = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 

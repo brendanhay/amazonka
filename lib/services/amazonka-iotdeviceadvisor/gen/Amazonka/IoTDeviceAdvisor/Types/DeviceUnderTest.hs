@@ -23,13 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Lists all the devices under test
+-- | Information of a test device. A thing ARN or a certificate ARN is
+-- required.
 --
 -- /See:/ 'newDeviceUnderTest' smart constructor.
 data DeviceUnderTest = DeviceUnderTest'
-  { -- | Lists devices thing arn
+  { -- | Lists devices thing ARN.
     thingArn :: Prelude.Maybe Prelude.Text,
-    -- | Lists devices certificate arn
+    -- | Lists devices certificate ARN.
     certificateArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +43,9 @@ data DeviceUnderTest = DeviceUnderTest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'deviceUnderTest_thingArn' - Lists devices thing arn
+-- 'thingArn', 'deviceUnderTest_thingArn' - Lists devices thing ARN.
 --
--- 'certificateArn', 'deviceUnderTest_certificateArn' - Lists devices certificate arn
+-- 'certificateArn', 'deviceUnderTest_certificateArn' - Lists devices certificate ARN.
 newDeviceUnderTest ::
   DeviceUnderTest
 newDeviceUnderTest =
@@ -53,11 +54,11 @@ newDeviceUnderTest =
       certificateArn = Prelude.Nothing
     }
 
--- | Lists devices thing arn
+-- | Lists devices thing ARN.
 deviceUnderTest_thingArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
 deviceUnderTest_thingArn = Lens.lens (\DeviceUnderTest' {thingArn} -> thingArn) (\s@DeviceUnderTest' {} a -> s {thingArn = a} :: DeviceUnderTest)
 
--- | Lists devices certificate arn
+-- | Lists devices certificate ARN.
 deviceUnderTest_certificateArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
 deviceUnderTest_certificateArn = Lens.lens (\DeviceUnderTest' {certificateArn} -> certificateArn) (\s@DeviceUnderTest' {} a -> s {certificateArn = a} :: DeviceUnderTest)
 

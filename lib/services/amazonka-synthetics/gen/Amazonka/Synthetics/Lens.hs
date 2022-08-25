@@ -14,6 +14,11 @@
 module Amazonka.Synthetics.Lens
   ( -- * Operations
 
+    -- ** AssociateResource
+    associateResource_groupIdentifier,
+    associateResource_resourceArn,
+    associateResourceResponse_httpStatus,
+
     -- ** CreateCanary
     createCanary_tags,
     createCanary_vpcConfig,
@@ -30,12 +35,24 @@ module Amazonka.Synthetics.Lens
     createCanaryResponse_canary,
     createCanaryResponse_httpStatus,
 
+    -- ** CreateGroup
+    createGroup_tags,
+    createGroup_name,
+    createGroupResponse_group,
+    createGroupResponse_httpStatus,
+
     -- ** DeleteCanary
+    deleteCanary_deleteLambda,
     deleteCanary_name,
     deleteCanaryResponse_httpStatus,
 
+    -- ** DeleteGroup
+    deleteGroup_groupIdentifier,
+    deleteGroupResponse_httpStatus,
+
     -- ** DescribeCanaries
     describeCanaries_nextToken,
+    describeCanaries_names,
     describeCanaries_maxResults,
     describeCanariesResponse_nextToken,
     describeCanariesResponse_canaries,
@@ -43,6 +60,7 @@ module Amazonka.Synthetics.Lens
 
     -- ** DescribeCanariesLastRun
     describeCanariesLastRun_nextToken,
+    describeCanariesLastRun_names,
     describeCanariesLastRun_maxResults,
     describeCanariesLastRunResponse_nextToken,
     describeCanariesLastRunResponse_canariesLastRun,
@@ -54,6 +72,11 @@ module Amazonka.Synthetics.Lens
     describeRuntimeVersionsResponse_nextToken,
     describeRuntimeVersionsResponse_runtimeVersions,
     describeRuntimeVersionsResponse_httpStatus,
+
+    -- ** DisassociateResource
+    disassociateResource_groupIdentifier,
+    disassociateResource_resourceArn,
+    disassociateResourceResponse_httpStatus,
 
     -- ** GetCanary
     getCanary_name,
@@ -67,6 +90,34 @@ module Amazonka.Synthetics.Lens
     getCanaryRunsResponse_nextToken,
     getCanaryRunsResponse_canaryRuns,
     getCanaryRunsResponse_httpStatus,
+
+    -- ** GetGroup
+    getGroup_groupIdentifier,
+    getGroupResponse_group,
+    getGroupResponse_httpStatus,
+
+    -- ** ListAssociatedGroups
+    listAssociatedGroups_nextToken,
+    listAssociatedGroups_maxResults,
+    listAssociatedGroups_resourceArn,
+    listAssociatedGroupsResponse_nextToken,
+    listAssociatedGroupsResponse_groups,
+    listAssociatedGroupsResponse_httpStatus,
+
+    -- ** ListGroupResources
+    listGroupResources_nextToken,
+    listGroupResources_maxResults,
+    listGroupResources_groupIdentifier,
+    listGroupResourcesResponse_nextToken,
+    listGroupResourcesResponse_resources,
+    listGroupResourcesResponse_httpStatus,
+
+    -- ** ListGroups
+    listGroups_nextToken,
+    listGroups_maxResults,
+    listGroupsResponse_nextToken,
+    listGroupsResponse_groups,
+    listGroupsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -198,6 +249,19 @@ module Amazonka.Synthetics.Lens
     canaryTimeline_lastModified,
     canaryTimeline_lastStopped,
 
+    -- ** Group
+    group_tags,
+    group_name,
+    group_createdTime,
+    group_arn,
+    group_id,
+    group_lastModifiedTime,
+
+    -- ** GroupSummary
+    groupSummary_name,
+    groupSummary_arn,
+    groupSummary_id,
+
     -- ** RuntimeVersion
     runtimeVersion_releaseDate,
     runtimeVersion_deprecationDate,
@@ -227,13 +291,21 @@ module Amazonka.Synthetics.Lens
   )
 where
 
+import Amazonka.Synthetics.AssociateResource
 import Amazonka.Synthetics.CreateCanary
+import Amazonka.Synthetics.CreateGroup
 import Amazonka.Synthetics.DeleteCanary
+import Amazonka.Synthetics.DeleteGroup
 import Amazonka.Synthetics.DescribeCanaries
 import Amazonka.Synthetics.DescribeCanariesLastRun
 import Amazonka.Synthetics.DescribeRuntimeVersions
+import Amazonka.Synthetics.DisassociateResource
 import Amazonka.Synthetics.GetCanary
 import Amazonka.Synthetics.GetCanaryRuns
+import Amazonka.Synthetics.GetGroup
+import Amazonka.Synthetics.ListAssociatedGroups
+import Amazonka.Synthetics.ListGroupResources
+import Amazonka.Synthetics.ListGroups
 import Amazonka.Synthetics.ListTagsForResource
 import Amazonka.Synthetics.StartCanary
 import Amazonka.Synthetics.StopCanary
@@ -254,6 +326,8 @@ import Amazonka.Synthetics.Types.CanaryScheduleInput
 import Amazonka.Synthetics.Types.CanaryScheduleOutput
 import Amazonka.Synthetics.Types.CanaryStatus
 import Amazonka.Synthetics.Types.CanaryTimeline
+import Amazonka.Synthetics.Types.Group
+import Amazonka.Synthetics.Types.GroupSummary
 import Amazonka.Synthetics.Types.RuntimeVersion
 import Amazonka.Synthetics.Types.S3EncryptionConfig
 import Amazonka.Synthetics.Types.VisualReferenceInput

@@ -35,6 +35,7 @@ module Amazonka.Lightsail.CreateContainerService
     createContainerService_tags,
     createContainerService_deployment,
     createContainerService_publicDomainNames,
+    createContainerService_privateRegistryAccess,
     createContainerService_serviceName,
     createContainerService_power,
     createContainerService_scale,
@@ -58,7 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContainerService' smart constructor.
 data CreateContainerService = CreateContainerService'
-  { -- | The tag keys and optional values to add to the certificate during
+  { -- | The tag keys and optional values to add to the container service during
     -- create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
@@ -94,6 +95,14 @@ data CreateContainerService = CreateContainerService'
     -- You can specify public domain names using a string to array map as shown
     -- in the example later on this page.
     publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | An object to describe the configuration for the container service to
+    -- access private container image repositories, such as Amazon Elastic
+    -- Container Registry (Amazon ECR) private repositories.
+    --
+    -- For more information, see
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+    -- in the /Amazon Lightsail Developer Guide/.
+    privateRegistryAccess :: Prelude.Maybe PrivateRegistryAccessRequest,
     -- | The name for the container service.
     --
     -- The name that you specify for your container service will make up part
@@ -107,7 +116,8 @@ data CreateContainerService = CreateContainerService'
     --
     -- The following are the requirements for container service names:
     --
-    -- -   Must be unique within each AWS Region in your Lightsail account.
+    -- -   Must be unique within each Amazon Web Services Region in your
+    --     Lightsail account.
     --
     -- -   Must contain 1 to 63 characters.
     --
@@ -147,7 +157,7 @@ data CreateContainerService = CreateContainerService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the certificate during
+-- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the container service during
 -- create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
@@ -183,6 +193,14 @@ data CreateContainerService = CreateContainerService'
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
 --
+-- 'privateRegistryAccess', 'createContainerService_privateRegistryAccess' - An object to describe the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+--
 -- 'serviceName', 'createContainerService_serviceName' - The name for the container service.
 --
 -- The name that you specify for your container service will make up part
@@ -196,7 +214,8 @@ data CreateContainerService = CreateContainerService'
 --
 -- The following are the requirements for container service names:
 --
--- -   Must be unique within each AWS Region in your Lightsail account.
+-- -   Must be unique within each Amazon Web Services Region in your
+--     Lightsail account.
 --
 -- -   Must contain 1 to 63 characters.
 --
@@ -240,12 +259,13 @@ newCreateContainerService
       { tags = Prelude.Nothing,
         deployment = Prelude.Nothing,
         publicDomainNames = Prelude.Nothing,
+        privateRegistryAccess = Prelude.Nothing,
         serviceName = pServiceName_,
         power = pPower_,
         scale = pScale_
       }
 
--- | The tag keys and optional values to add to the certificate during
+-- | The tag keys and optional values to add to the container service during
 -- create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
@@ -287,6 +307,16 @@ createContainerService_deployment = Lens.lens (\CreateContainerService' {deploym
 createContainerService_publicDomainNames :: Lens.Lens' CreateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {publicDomainNames} -> publicDomainNames) (\s@CreateContainerService' {} a -> s {publicDomainNames = a} :: CreateContainerService) Prelude.. Lens.mapping Lens.coerced
 
+-- | An object to describe the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+createContainerService_privateRegistryAccess :: Lens.Lens' CreateContainerService (Prelude.Maybe PrivateRegistryAccessRequest)
+createContainerService_privateRegistryAccess = Lens.lens (\CreateContainerService' {privateRegistryAccess} -> privateRegistryAccess) (\s@CreateContainerService' {} a -> s {privateRegistryAccess = a} :: CreateContainerService)
+
 -- | The name for the container service.
 --
 -- The name that you specify for your container service will make up part
@@ -300,7 +330,8 @@ createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {
 --
 -- The following are the requirements for container service names:
 --
--- -   Must be unique within each AWS Region in your Lightsail account.
+-- -   Must be unique within each Amazon Web Services Region in your
+--     Lightsail account.
 --
 -- -   Must contain 1 to 63 characters.
 --
@@ -353,6 +384,7 @@ instance Prelude.Hashable CreateContainerService where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` deployment
       `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` privateRegistryAccess
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` power
       `Prelude.hashWithSalt` scale
@@ -362,6 +394,7 @@ instance Prelude.NFData CreateContainerService where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf deployment
       `Prelude.seq` Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf privateRegistryAccess
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf power
       `Prelude.seq` Prelude.rnf scale
@@ -389,6 +422,8 @@ instance Core.ToJSON CreateContainerService where
             ("deployment" Core..=) Prelude.<$> deployment,
             ("publicDomainNames" Core..=)
               Prelude.<$> publicDomainNames,
+            ("privateRegistryAccess" Core..=)
+              Prelude.<$> privateRegistryAccess,
             Prelude.Just ("serviceName" Core..= serviceName),
             Prelude.Just ("power" Core..= power),
             Prelude.Just ("scale" Core..= scale)

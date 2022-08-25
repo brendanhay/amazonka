@@ -22,6 +22,8 @@
 --
 -- Shows the status of any inbound or outbound datashares available in the
 -- specified account.
+--
+-- This operation returns paginated results.
 module Amazonka.Redshift.DescribeDataShares
   ( -- * Creating a Request
     DescribeDataShares (..),
@@ -54,10 +56,10 @@ import qualified Amazonka.Response as Response
 data DescribeDataShares = DescribeDataShares'
   { -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeDataShares request
-    -- exceed the value specified in @MaxRecords@, AWS returns a value in the
-    -- @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
+    -- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+    -- a value in the @Marker@ field of the response. You can retrieve the next
+    -- set of response records by providing the returned marker value in the
+    -- @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
@@ -80,10 +82,10 @@ data DescribeDataShares = DescribeDataShares'
 --
 -- 'marker', 'describeDataShares_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeDataShares request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
 --
 -- 'maxRecords', 'describeDataShares_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -103,10 +105,10 @@ newDescribeDataShares =
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeDataShares request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
 describeDataShares_marker :: Lens.Lens' DescribeDataShares (Prelude.Maybe Prelude.Text)
 describeDataShares_marker = Lens.lens (\DescribeDataShares' {marker} -> marker) (\s@DescribeDataShares' {} a -> s {marker = a} :: DescribeDataShares)
 
@@ -121,6 +123,28 @@ describeDataShares_maxRecords = Lens.lens (\DescribeDataShares' {maxRecords} -> 
 -- | The identifier of the datashare to describe details of.
 describeDataShares_dataShareArn :: Lens.Lens' DescribeDataShares (Prelude.Maybe Prelude.Text)
 describeDataShares_dataShareArn = Lens.lens (\DescribeDataShares' {dataShareArn} -> dataShareArn) (\s@DescribeDataShares' {} a -> s {dataShareArn = a} :: DescribeDataShares)
+
+instance Core.AWSPager DescribeDataShares where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeDataSharesResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeDataSharesResponse_dataShares
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeDataShares_marker
+          Lens..~ rs
+          Lens.^? describeDataSharesResponse_marker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDataShares where
   type
@@ -173,10 +197,10 @@ instance Core.ToQuery DescribeDataShares where
 data DescribeDataSharesResponse = DescribeDataSharesResponse'
   { -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeDataShares request
-    -- exceed the value specified in @MaxRecords@, AWS returns a value in the
-    -- @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
+    -- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+    -- a value in the @Marker@ field of the response. You can retrieve the next
+    -- set of response records by providing the returned marker value in the
+    -- @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The results returned from describing datashares.
     dataShares :: Prelude.Maybe [DataShare],
@@ -195,10 +219,10 @@ data DescribeDataSharesResponse = DescribeDataSharesResponse'
 --
 -- 'marker', 'describeDataSharesResponse_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeDataShares request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
 --
 -- 'dataShares', 'describeDataSharesResponse_dataShares' - The results returned from describing datashares.
 --
@@ -217,10 +241,10 @@ newDescribeDataSharesResponse pHttpStatus_ =
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeDataShares request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
 describeDataSharesResponse_marker :: Lens.Lens' DescribeDataSharesResponse (Prelude.Maybe Prelude.Text)
 describeDataSharesResponse_marker = Lens.lens (\DescribeDataSharesResponse' {marker} -> marker) (\s@DescribeDataSharesResponse' {} a -> s {marker = a} :: DescribeDataSharesResponse)
 

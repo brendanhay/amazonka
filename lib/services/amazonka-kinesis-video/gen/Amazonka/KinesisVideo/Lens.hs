@@ -42,6 +42,18 @@ module Amazonka.KinesisVideo.Lens
     deleteStream_streamARN,
     deleteStreamResponse_httpStatus,
 
+    -- ** DescribeImageGenerationConfiguration
+    describeImageGenerationConfiguration_streamARN,
+    describeImageGenerationConfiguration_streamName,
+    describeImageGenerationConfigurationResponse_imageGenerationConfiguration,
+    describeImageGenerationConfigurationResponse_httpStatus,
+
+    -- ** DescribeNotificationConfiguration
+    describeNotificationConfiguration_streamARN,
+    describeNotificationConfiguration_streamName,
+    describeNotificationConfigurationResponse_notificationConfiguration,
+    describeNotificationConfigurationResponse_httpStatus,
+
     -- ** DescribeSignalingChannel
     describeSignalingChannel_channelName,
     describeSignalingChannel_channelARN,
@@ -128,6 +140,18 @@ module Amazonka.KinesisVideo.Lens
     updateDataRetention_dataRetentionChangeInHours,
     updateDataRetentionResponse_httpStatus,
 
+    -- ** UpdateImageGenerationConfiguration
+    updateImageGenerationConfiguration_imageGenerationConfiguration,
+    updateImageGenerationConfiguration_streamARN,
+    updateImageGenerationConfiguration_streamName,
+    updateImageGenerationConfigurationResponse_httpStatus,
+
+    -- ** UpdateNotificationConfiguration
+    updateNotificationConfiguration_notificationConfiguration,
+    updateNotificationConfiguration_streamARN,
+    updateNotificationConfiguration_streamName,
+    updateNotificationConfigurationResponse_httpStatus,
+
     -- ** UpdateSignalingChannel
     updateSignalingChannel_singleMasterConfiguration,
     updateSignalingChannel_channelARN,
@@ -156,6 +180,27 @@ module Amazonka.KinesisVideo.Lens
     -- ** ChannelNameCondition
     channelNameCondition_comparisonValue,
     channelNameCondition_comparisonOperator,
+
+    -- ** ImageGenerationConfiguration
+    imageGenerationConfiguration_formatConfig,
+    imageGenerationConfiguration_heightPixels,
+    imageGenerationConfiguration_widthPixels,
+    imageGenerationConfiguration_status,
+    imageGenerationConfiguration_imageSelectorType,
+    imageGenerationConfiguration_destinationConfig,
+    imageGenerationConfiguration_samplingInterval,
+    imageGenerationConfiguration_format,
+
+    -- ** ImageGenerationDestinationConfig
+    imageGenerationDestinationConfig_uri,
+    imageGenerationDestinationConfig_destinationRegion,
+
+    -- ** NotificationConfiguration
+    notificationConfiguration_status,
+    notificationConfiguration_destinationConfig,
+
+    -- ** NotificationDestinationConfig
+    notificationDestinationConfig_uri,
 
     -- ** ResourceEndpointListItem
     resourceEndpointListItem_protocol,
@@ -193,6 +238,8 @@ import Amazonka.KinesisVideo.CreateSignalingChannel
 import Amazonka.KinesisVideo.CreateStream
 import Amazonka.KinesisVideo.DeleteSignalingChannel
 import Amazonka.KinesisVideo.DeleteStream
+import Amazonka.KinesisVideo.DescribeImageGenerationConfiguration
+import Amazonka.KinesisVideo.DescribeNotificationConfiguration
 import Amazonka.KinesisVideo.DescribeSignalingChannel
 import Amazonka.KinesisVideo.DescribeStream
 import Amazonka.KinesisVideo.GetDataEndpoint
@@ -205,6 +252,10 @@ import Amazonka.KinesisVideo.TagResource
 import Amazonka.KinesisVideo.TagStream
 import Amazonka.KinesisVideo.Types.ChannelInfo
 import Amazonka.KinesisVideo.Types.ChannelNameCondition
+import Amazonka.KinesisVideo.Types.ImageGenerationConfiguration
+import Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
+import Amazonka.KinesisVideo.Types.NotificationConfiguration
+import Amazonka.KinesisVideo.Types.NotificationDestinationConfig
 import Amazonka.KinesisVideo.Types.ResourceEndpointListItem
 import Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
 import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
@@ -214,5 +265,7 @@ import Amazonka.KinesisVideo.Types.Tag
 import Amazonka.KinesisVideo.UntagResource
 import Amazonka.KinesisVideo.UntagStream
 import Amazonka.KinesisVideo.UpdateDataRetention
+import Amazonka.KinesisVideo.UpdateImageGenerationConfiguration
+import Amazonka.KinesisVideo.UpdateNotificationConfiguration
 import Amazonka.KinesisVideo.UpdateSignalingChannel
 import Amazonka.KinesisVideo.UpdateStream

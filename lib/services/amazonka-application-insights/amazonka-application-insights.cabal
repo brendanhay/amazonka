@@ -74,8 +74,10 @@ library
     Amazonka.ApplicationInsights.Types.ConfigurationEvent
     Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
     Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
+    Amazonka.ApplicationInsights.Types.DiscoveryType
     Amazonka.ApplicationInsights.Types.FeedbackKey
     Amazonka.ApplicationInsights.Types.FeedbackValue
+    Amazonka.ApplicationInsights.Types.GroupingType
     Amazonka.ApplicationInsights.Types.LogFilter
     Amazonka.ApplicationInsights.Types.LogPattern
     Amazonka.ApplicationInsights.Types.Observation

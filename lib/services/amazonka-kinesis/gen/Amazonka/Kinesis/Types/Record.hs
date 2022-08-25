@@ -35,7 +35,7 @@ data Record = Record'
     -- -   @NONE@: Do not encrypt the records in the stream.
     --
     -- -   @KMS@: Use server-side encryption on the records in the stream using
-    --     a customer-managed AWS KMS key.
+    --     a customer-managed Amazon Web Services KMS key.
     encryptionType :: Prelude.Maybe EncryptionType,
     -- | The approximate time that the record was inserted into the stream.
     approximateArrivalTimestamp :: Prelude.Maybe Core.POSIX,
@@ -66,7 +66,7 @@ data Record = Record'
 -- -   @NONE@: Do not encrypt the records in the stream.
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
---     a customer-managed AWS KMS key.
+--     a customer-managed Amazon Web Services KMS key.
 --
 -- 'approximateArrivalTimestamp', 'record_approximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
 --
@@ -106,7 +106,7 @@ newRecord pSequenceNumber_ pData_ pPartitionKey_ =
 -- -   @NONE@: Do not encrypt the records in the stream.
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
---     a customer-managed AWS KMS key.
+--     a customer-managed Amazon Web Services KMS key.
 record_encryptionType :: Lens.Lens' Record (Prelude.Maybe EncryptionType)
 record_encryptionType = Lens.lens (\Record' {encryptionType} -> encryptionType) (\s@Record' {} a -> s {encryptionType = a} :: Record)
 

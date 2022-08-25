@@ -28,7 +28,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Returns the size of the __CacheCluster__.
+-- | Returns the size of the CacheCluster.
 newtype CacheClusterSize = CacheClusterSize'
   { fromCacheClusterSize ::
       Core.Text

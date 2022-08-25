@@ -37,9 +37,9 @@ data DeploymentStrategy = DeploymentStrategy'
     id :: Prelude.Maybe Prelude.Text,
     -- | The description of the deployment strategy.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time AppConfig monitored for alarms before considering the
-    -- deployment to be complete and no longer eligible for automatic roll
-    -- back.
+    -- | The amount of time that AppConfig monitored for alarms before
+    -- considering the deployment to be complete and no longer eligible for
+    -- automatic rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Save the deployment strategy to a Systems Manager (SSM) document.
     replicateTo :: Prelude.Maybe ReplicateTo,
@@ -67,9 +67,9 @@ data DeploymentStrategy = DeploymentStrategy'
 --
 -- 'description', 'deploymentStrategy_description' - The description of the deployment strategy.
 --
--- 'finalBakeTimeInMinutes', 'deploymentStrategy_finalBakeTimeInMinutes' - The amount of time AppConfig monitored for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- 'finalBakeTimeInMinutes', 'deploymentStrategy_finalBakeTimeInMinutes' - The amount of time that AppConfig monitored for alarms before
+-- considering the deployment to be complete and no longer eligible for
+-- automatic rollback.
 --
 -- 'replicateTo', 'deploymentStrategy_replicateTo' - Save the deployment strategy to a Systems Manager (SSM) document.
 --
@@ -109,9 +109,9 @@ deploymentStrategy_id = Lens.lens (\DeploymentStrategy' {id} -> id) (\s@Deployme
 deploymentStrategy_description :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Text)
 deploymentStrategy_description = Lens.lens (\DeploymentStrategy' {description} -> description) (\s@DeploymentStrategy' {} a -> s {description = a} :: DeploymentStrategy)
 
--- | The amount of time AppConfig monitored for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- | The amount of time that AppConfig monitored for alarms before
+-- considering the deployment to be complete and no longer eligible for
+-- automatic rollback.
 deploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Natural)
 deploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\DeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@DeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: DeploymentStrategy)
 

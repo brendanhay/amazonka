@@ -24,12 +24,12 @@
 -- will remove any access that the policy has granted. If there is no
 -- policy attached to the private CA, this action will return successful.
 --
--- If you delete a policy that was applied through AWS Resource Access
--- Manager (RAM), the CA will be removed from all shares in which it was
--- included.
+-- If you delete a policy that was applied through Amazon Web Services
+-- Resource Access Manager (RAM), the CA will be removed from all shares in
+-- which it was included.
 --
--- The AWS Certificate Manager Service Linked Role that the policy supports
--- is not affected when you delete the policy.
+-- The Certificate Manager Service Linked Role that the policy supports is
+-- not affected when you delete the policy.
 --
 -- The current policy can be shown with
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html GetPolicy>
@@ -38,13 +38,14 @@
 --
 -- __About Policies__
 --
--- -   A policy grants access on a private CA to an AWS customer account,
---     to AWS Organizations, or to an AWS Organizations unit. Policies are
---     under the control of a CA administrator. For more information, see
+-- -   A policy grants access on a private CA to an Amazon Web Services
+--     customer account, to Amazon Web Services Organizations, or to an
+--     Amazon Web Services Organizations unit. Policies are under the
+--     control of a CA administrator. For more information, see
 --     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA>.
 --
--- -   A policy permits a user of AWS Certificate Manager (ACM) to issue
---     ACM certificates signed by a CA in another account.
+-- -   A policy permits a user of Certificate Manager (ACM) to issue ACM
+--     certificates signed by a CA in another account.
 --
 -- -   For ACM to manage automatic renewal of these certificates, the ACM
 --     user must configure a Service Linked Role (SLR). The SLR allows the
@@ -53,8 +54,8 @@
 --     information, see
 --     <https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html Using a Service Linked Role with ACM>.
 --
--- -   Updates made in AWS Resource Manager (RAM) are reflected in
---     policies. For more information, see
+-- -   Updates made in Amazon Web Services Resource Manager (RAM) are
+--     reflected in policies. For more information, see
 --     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
 module Amazonka.CertificateManagerPCA.DeletePolicy
   ( -- * Creating a Request

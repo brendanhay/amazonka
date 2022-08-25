@@ -35,6 +35,10 @@ data PasswordPolicy = PasswordPolicy'
     -- | Minimum length to require for IAM user passwords.
     minimumPasswordLength :: Prelude.Maybe Prelude.Natural,
     -- | Specifies whether IAM users are allowed to change their own password.
+    -- Gives IAM users permissions to @iam:ChangePassword@ for only their user
+    -- and to the @iam:GetAccountPasswordPolicy@ action. This option does not
+    -- attach a permissions policy to each user, rather the permissions are
+    -- applied at the account-level for all users by IAM.
     allowUsersToChangePassword :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the number of previous passwords that IAM users are prevented
     -- from reusing.
@@ -58,7 +62,11 @@ data PasswordPolicy = PasswordPolicy'
     -- character (A to Z).
     requireUppercaseCharacters :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether IAM users are prevented from setting a new password
-    -- after their password has expired.
+    -- via the Amazon Web Services Management Console after their password has
+    -- expired. The IAM user cannot access the console until an administrator
+    -- resets the password. IAM users with @iam:ChangePassword@ permission and
+    -- active access keys can reset their own expired console password using
+    -- the CLI or API.
     hardExpiry :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,6 +84,10 @@ data PasswordPolicy = PasswordPolicy'
 -- 'minimumPasswordLength', 'passwordPolicy_minimumPasswordLength' - Minimum length to require for IAM user passwords.
 --
 -- 'allowUsersToChangePassword', 'passwordPolicy_allowUsersToChangePassword' - Specifies whether IAM users are allowed to change their own password.
+-- Gives IAM users permissions to @iam:ChangePassword@ for only their user
+-- and to the @iam:GetAccountPasswordPolicy@ action. This option does not
+-- attach a permissions policy to each user, rather the permissions are
+-- applied at the account-level for all users by IAM.
 --
 -- 'passwordReusePrevention', 'passwordPolicy_passwordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
@@ -99,7 +111,11 @@ data PasswordPolicy = PasswordPolicy'
 -- character (A to Z).
 --
 -- 'hardExpiry', 'passwordPolicy_hardExpiry' - Specifies whether IAM users are prevented from setting a new password
--- after their password has expired.
+-- via the Amazon Web Services Management Console after their password has
+-- expired. The IAM user cannot access the console until an administrator
+-- resets the password. IAM users with @iam:ChangePassword@ permission and
+-- active access keys can reset their own expired console password using
+-- the CLI or API.
 newPasswordPolicy ::
   PasswordPolicy
 newPasswordPolicy =
@@ -125,6 +141,10 @@ passwordPolicy_minimumPasswordLength :: Lens.Lens' PasswordPolicy (Prelude.Maybe
 passwordPolicy_minimumPasswordLength = Lens.lens (\PasswordPolicy' {minimumPasswordLength} -> minimumPasswordLength) (\s@PasswordPolicy' {} a -> s {minimumPasswordLength = a} :: PasswordPolicy)
 
 -- | Specifies whether IAM users are allowed to change their own password.
+-- Gives IAM users permissions to @iam:ChangePassword@ for only their user
+-- and to the @iam:GetAccountPasswordPolicy@ action. This option does not
+-- attach a permissions policy to each user, rather the permissions are
+-- applied at the account-level for all users by IAM.
 passwordPolicy_allowUsersToChangePassword :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Bool)
 passwordPolicy_allowUsersToChangePassword = Lens.lens (\PasswordPolicy' {allowUsersToChangePassword} -> allowUsersToChangePassword) (\s@PasswordPolicy' {} a -> s {allowUsersToChangePassword = a} :: PasswordPolicy)
 
@@ -162,7 +182,11 @@ passwordPolicy_requireUppercaseCharacters :: Lens.Lens' PasswordPolicy (Prelude.
 passwordPolicy_requireUppercaseCharacters = Lens.lens (\PasswordPolicy' {requireUppercaseCharacters} -> requireUppercaseCharacters) (\s@PasswordPolicy' {} a -> s {requireUppercaseCharacters = a} :: PasswordPolicy)
 
 -- | Specifies whether IAM users are prevented from setting a new password
--- after their password has expired.
+-- via the Amazon Web Services Management Console after their password has
+-- expired. The IAM user cannot access the console until an administrator
+-- resets the password. IAM users with @iam:ChangePassword@ permission and
+-- active access keys can reset their own expired console password using
+-- the CLI or API.
 passwordPolicy_hardExpiry :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Bool)
 passwordPolicy_hardExpiry = Lens.lens (\PasswordPolicy' {hardExpiry} -> hardExpiry) (\s@PasswordPolicy' {} a -> s {hardExpiry = a} :: PasswordPolicy)
 

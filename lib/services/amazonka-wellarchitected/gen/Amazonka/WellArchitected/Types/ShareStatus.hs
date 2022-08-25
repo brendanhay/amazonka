@@ -21,7 +21,10 @@ module Amazonka.WellArchitected.Types.ShareStatus
   ( ShareStatus
       ( ..,
         ShareStatus_ACCEPTED,
+        ShareStatus_ASSOCIATED,
+        ShareStatus_ASSOCIATING,
         ShareStatus_EXPIRED,
+        ShareStatus_FAILED,
         ShareStatus_PENDING,
         ShareStatus_REJECTED,
         ShareStatus_REVOKED
@@ -64,8 +67,17 @@ newtype ShareStatus = ShareStatus'
 pattern ShareStatus_ACCEPTED :: ShareStatus
 pattern ShareStatus_ACCEPTED = ShareStatus' "ACCEPTED"
 
+pattern ShareStatus_ASSOCIATED :: ShareStatus
+pattern ShareStatus_ASSOCIATED = ShareStatus' "ASSOCIATED"
+
+pattern ShareStatus_ASSOCIATING :: ShareStatus
+pattern ShareStatus_ASSOCIATING = ShareStatus' "ASSOCIATING"
+
 pattern ShareStatus_EXPIRED :: ShareStatus
 pattern ShareStatus_EXPIRED = ShareStatus' "EXPIRED"
+
+pattern ShareStatus_FAILED :: ShareStatus
+pattern ShareStatus_FAILED = ShareStatus' "FAILED"
 
 pattern ShareStatus_PENDING :: ShareStatus
 pattern ShareStatus_PENDING = ShareStatus' "PENDING"
@@ -78,7 +90,10 @@ pattern ShareStatus_REVOKED = ShareStatus' "REVOKED"
 
 {-# COMPLETE
   ShareStatus_ACCEPTED,
+  ShareStatus_ASSOCIATED,
+  ShareStatus_ASSOCIATING,
   ShareStatus_EXPIRED,
+  ShareStatus_FAILED,
   ShareStatus_PENDING,
   ShareStatus_REJECTED,
   ShareStatus_REVOKED,

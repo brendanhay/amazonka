@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestDeleteFlow $
 --             newDeleteFlow
 --
+--         , requestDescribeConnector $
+--             newDescribeConnector
+--
 --         , requestDescribeConnectorEntity $
 --             newDescribeConnectorEntity
 --
@@ -57,11 +60,17 @@ import Test.Tasty
 --         , requestListConnectorEntities $
 --             newListConnectorEntities
 --
+--         , requestListConnectors $
+--             newListConnectors
+--
 --         , requestListFlows $
 --             newListFlows
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestRegisterConnector $
+--             newRegisterConnector
 --
 --         , requestStartFlow $
 --             newStartFlow
@@ -71,6 +80,9 @@ import Test.Tasty
 --
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestUnregisterConnector $
+--             newUnregisterConnector
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -96,6 +108,9 @@ import Test.Tasty
 --         , responseDeleteFlow $
 --             newDeleteFlowResponse
 --
+--         , responseDescribeConnector $
+--             newDescribeConnectorResponse
+--
 --         , responseDescribeConnectorEntity $
 --             newDescribeConnectorEntityResponse
 --
@@ -114,11 +129,17 @@ import Test.Tasty
 --         , responseListConnectorEntities $
 --             newListConnectorEntitiesResponse
 --
+--         , responseListConnectors $
+--             newListConnectorsResponse
+--
 --         , responseListFlows $
 --             newListFlowsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseRegisterConnector $
+--             newRegisterConnectorResponse
 --
 --         , responseStartFlow $
 --             newStartFlowResponse
@@ -128,6 +149,9 @@ import Test.Tasty
 --
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseUnregisterConnector $
+--             newUnregisterConnectorResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -167,6 +191,12 @@ requestDeleteFlow =
     "DeleteFlow"
     "fixture/DeleteFlow.yaml"
 
+requestDescribeConnector :: DescribeConnector -> TestTree
+requestDescribeConnector =
+  req
+    "DescribeConnector"
+    "fixture/DescribeConnector.yaml"
+
 requestDescribeConnectorEntity :: DescribeConnectorEntity -> TestTree
 requestDescribeConnectorEntity =
   req
@@ -203,6 +233,12 @@ requestListConnectorEntities =
     "ListConnectorEntities"
     "fixture/ListConnectorEntities.yaml"
 
+requestListConnectors :: ListConnectors -> TestTree
+requestListConnectors =
+  req
+    "ListConnectors"
+    "fixture/ListConnectors.yaml"
+
 requestListFlows :: ListFlows -> TestTree
 requestListFlows =
   req
@@ -214,6 +250,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestRegisterConnector :: RegisterConnector -> TestTree
+requestRegisterConnector =
+  req
+    "RegisterConnector"
+    "fixture/RegisterConnector.yaml"
 
 requestStartFlow :: StartFlow -> TestTree
 requestStartFlow =
@@ -232,6 +274,12 @@ requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestUnregisterConnector :: UnregisterConnector -> TestTree
+requestUnregisterConnector =
+  req
+    "UnregisterConnector"
+    "fixture/UnregisterConnector.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -285,6 +333,14 @@ responseDeleteFlow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
 
+responseDescribeConnector :: DescribeConnectorResponse -> TestTree
+responseDescribeConnector =
+  res
+    "DescribeConnectorResponse"
+    "fixture/DescribeConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnector)
+
 responseDescribeConnectorEntity :: DescribeConnectorEntityResponse -> TestTree
 responseDescribeConnectorEntity =
   res
@@ -333,6 +389,14 @@ responseListConnectorEntities =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListConnectorEntities)
 
+responseListConnectors :: ListConnectorsResponse -> TestTree
+responseListConnectors =
+  res
+    "ListConnectorsResponse"
+    "fixture/ListConnectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConnectors)
+
 responseListFlows :: ListFlowsResponse -> TestTree
 responseListFlows =
   res
@@ -348,6 +412,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseRegisterConnector :: RegisterConnectorResponse -> TestTree
+responseRegisterConnector =
+  res
+    "RegisterConnectorResponse"
+    "fixture/RegisterConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterConnector)
 
 responseStartFlow :: StartFlowResponse -> TestTree
 responseStartFlow =
@@ -372,6 +444,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUnregisterConnector :: UnregisterConnectorResponse -> TestTree
+responseUnregisterConnector =
+  res
+    "UnregisterConnectorResponse"
+    "fixture/UnregisterConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UnregisterConnector)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =

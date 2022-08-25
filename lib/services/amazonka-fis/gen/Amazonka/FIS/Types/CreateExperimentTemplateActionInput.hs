@@ -25,6 +25,10 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an action for an experiment template.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/fis/latest/userguide/actions.html Actions>
+-- in the /Fault Injection Simulator User Guide/.
+--
 -- /See:/ 'newCreateExperimentTemplateActionInput' smart constructor.
 data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
   { -- | The name of the action that must be completed before the current action
@@ -37,7 +41,8 @@ data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
     description :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the action, if applicable.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ID of the action.
+    -- | The ID of the action. The format of the action ID is:
+    -- aws:/service-name/:/action-type/.
     actionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +65,8 @@ data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
 --
 -- 'parameters', 'createExperimentTemplateActionInput_parameters' - The parameters for the action, if applicable.
 --
--- 'actionId', 'createExperimentTemplateActionInput_actionId' - The ID of the action.
+-- 'actionId', 'createExperimentTemplateActionInput_actionId' - The ID of the action. The format of the action ID is:
+-- aws:/service-name/:/action-type/.
 newCreateExperimentTemplateActionInput ::
   -- | 'actionId'
   Prelude.Text ->
@@ -93,7 +99,8 @@ createExperimentTemplateActionInput_description = Lens.lens (\CreateExperimentTe
 createExperimentTemplateActionInput_parameters :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperimentTemplateActionInput_parameters = Lens.lens (\CreateExperimentTemplateActionInput' {parameters} -> parameters) (\s@CreateExperimentTemplateActionInput' {} a -> s {parameters = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the action.
+-- | The ID of the action. The format of the action ID is:
+-- aws:/service-name/:/action-type/.
 createExperimentTemplateActionInput_actionId :: Lens.Lens' CreateExperimentTemplateActionInput Prelude.Text
 createExperimentTemplateActionInput_actionId = Lens.lens (\CreateExperimentTemplateActionInput' {actionId} -> actionId) (\s@CreateExperimentTemplateActionInput' {} a -> s {actionId = a} :: CreateExperimentTemplateActionInput)
 

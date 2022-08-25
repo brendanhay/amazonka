@@ -27,22 +27,32 @@ import Amazonka.Transcribe.Types.NonTalkTimeFilter
 import Amazonka.Transcribe.Types.SentimentFilter
 import Amazonka.Transcribe.Types.TranscriptFilter
 
--- | A condition in the call between the customer and the agent that you want
--- to filter for.
+-- | A rule is a set of criteria you can specify to flag an attribute in your
+-- Call Analytics output. Rules define a Call Analytics category.
+--
+-- Rules can include these parameters: , , , and . To learn more about
+-- these parameters, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>.
+--
+-- To learn more about Call Analytics categories, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html Creating categories>.
+--
+-- To learn more about Call Analytics, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html Analyzing call center audio with Call Analytics>.
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | A condition that catches particular words or phrases based on a exact
-    -- match. For example, if you set the phrase \"I want to speak to the
-    -- manager\", only that exact phrase will be returned.
+  { -- | Flag the presence or absence of specific words or phrases in your Call
+    -- Analytics transcription output. Refer to for more detail.
     transcriptFilter :: Prelude.Maybe TranscriptFilter,
-    -- | A condition for a time period when either the customer or agent was
-    -- interrupting the other person.
+    -- | Flag the presence or absence of interruptions in your Call Analytics
+    -- transcription output. Refer to for more detail.
     interruptionFilter :: Prelude.Maybe InterruptionFilter,
-    -- | A condition that is applied to a particular customer sentiment.
+    -- | Flag the presence or absence of specific sentiments in your Call
+    -- Analytics transcription output. Refer to for more detail.
     sentimentFilter :: Prelude.Maybe SentimentFilter,
-    -- | A condition for a time period when neither the customer nor the agent
-    -- was talking.
+    -- | Flag the presence or absence of periods of silence in your Call
+    -- Analytics transcription output. Refer to for more detail.
     nonTalkTimeFilter :: Prelude.Maybe NonTalkTimeFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,17 +65,17 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transcriptFilter', 'rule_transcriptFilter' - A condition that catches particular words or phrases based on a exact
--- match. For example, if you set the phrase \"I want to speak to the
--- manager\", only that exact phrase will be returned.
+-- 'transcriptFilter', 'rule_transcriptFilter' - Flag the presence or absence of specific words or phrases in your Call
+-- Analytics transcription output. Refer to for more detail.
 --
--- 'interruptionFilter', 'rule_interruptionFilter' - A condition for a time period when either the customer or agent was
--- interrupting the other person.
+-- 'interruptionFilter', 'rule_interruptionFilter' - Flag the presence or absence of interruptions in your Call Analytics
+-- transcription output. Refer to for more detail.
 --
--- 'sentimentFilter', 'rule_sentimentFilter' - A condition that is applied to a particular customer sentiment.
+-- 'sentimentFilter', 'rule_sentimentFilter' - Flag the presence or absence of specific sentiments in your Call
+-- Analytics transcription output. Refer to for more detail.
 --
--- 'nonTalkTimeFilter', 'rule_nonTalkTimeFilter' - A condition for a time period when neither the customer nor the agent
--- was talking.
+-- 'nonTalkTimeFilter', 'rule_nonTalkTimeFilter' - Flag the presence or absence of periods of silence in your Call
+-- Analytics transcription output. Refer to for more detail.
 newRule ::
   Rule
 newRule =
@@ -76,23 +86,23 @@ newRule =
       nonTalkTimeFilter = Prelude.Nothing
     }
 
--- | A condition that catches particular words or phrases based on a exact
--- match. For example, if you set the phrase \"I want to speak to the
--- manager\", only that exact phrase will be returned.
+-- | Flag the presence or absence of specific words or phrases in your Call
+-- Analytics transcription output. Refer to for more detail.
 rule_transcriptFilter :: Lens.Lens' Rule (Prelude.Maybe TranscriptFilter)
 rule_transcriptFilter = Lens.lens (\Rule' {transcriptFilter} -> transcriptFilter) (\s@Rule' {} a -> s {transcriptFilter = a} :: Rule)
 
--- | A condition for a time period when either the customer or agent was
--- interrupting the other person.
+-- | Flag the presence or absence of interruptions in your Call Analytics
+-- transcription output. Refer to for more detail.
 rule_interruptionFilter :: Lens.Lens' Rule (Prelude.Maybe InterruptionFilter)
 rule_interruptionFilter = Lens.lens (\Rule' {interruptionFilter} -> interruptionFilter) (\s@Rule' {} a -> s {interruptionFilter = a} :: Rule)
 
--- | A condition that is applied to a particular customer sentiment.
+-- | Flag the presence or absence of specific sentiments in your Call
+-- Analytics transcription output. Refer to for more detail.
 rule_sentimentFilter :: Lens.Lens' Rule (Prelude.Maybe SentimentFilter)
 rule_sentimentFilter = Lens.lens (\Rule' {sentimentFilter} -> sentimentFilter) (\s@Rule' {} a -> s {sentimentFilter = a} :: Rule)
 
--- | A condition for a time period when neither the customer nor the agent
--- was talking.
+-- | Flag the presence or absence of periods of silence in your Call
+-- Analytics transcription output. Refer to for more detail.
 rule_nonTalkTimeFilter :: Lens.Lens' Rule (Prelude.Maybe NonTalkTimeFilter)
 rule_nonTalkTimeFilter = Lens.lens (\Rule' {nonTalkTimeFilter} -> nonTalkTimeFilter) (\s@Rule' {} a -> s {nonTalkTimeFilter = a} :: Rule)
 

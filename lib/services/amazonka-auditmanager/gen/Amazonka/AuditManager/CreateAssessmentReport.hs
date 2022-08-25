@@ -54,7 +54,7 @@ data CreateAssessmentReport = CreateAssessmentReport'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the new assessment report.
     name :: Prelude.Text,
-    -- | The identifier for the specified assessment.
+    -- | The identifier for the assessment.
     assessmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +71,7 @@ data CreateAssessmentReport = CreateAssessmentReport'
 --
 -- 'name', 'createAssessmentReport_name' - The name of the new assessment report.
 --
--- 'assessmentId', 'createAssessmentReport_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'createAssessmentReport_assessmentId' - The identifier for the assessment.
 newCreateAssessmentReport ::
   -- | 'name'
   Prelude.Text ->
@@ -94,7 +94,7 @@ createAssessmentReport_description = Lens.lens (\CreateAssessmentReport' {descri
 createAssessmentReport_name :: Lens.Lens' CreateAssessmentReport Prelude.Text
 createAssessmentReport_name = Lens.lens (\CreateAssessmentReport' {name} -> name) (\s@CreateAssessmentReport' {} a -> s {name = a} :: CreateAssessmentReport)
 
--- | The identifier for the specified assessment.
+-- | The identifier for the assessment.
 createAssessmentReport_assessmentId :: Lens.Lens' CreateAssessmentReport Prelude.Text
 createAssessmentReport_assessmentId = Lens.lens (\CreateAssessmentReport' {assessmentId} -> assessmentId) (\s@CreateAssessmentReport' {} a -> s {assessmentId = a} :: CreateAssessmentReport)
 
@@ -153,7 +153,8 @@ instance Core.ToQuery CreateAssessmentReport where
 
 -- | /See:/ 'newCreateAssessmentReportResponse' smart constructor.
 data CreateAssessmentReportResponse = CreateAssessmentReportResponse'
-  { -- | The new assessment report returned by the @CreateAssessmentReport@ API.
+  { -- | The new assessment report that the @CreateAssessmentReport@ API
+    -- returned.
     assessmentReport :: Prelude.Maybe AssessmentReport,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,7 +169,8 @@ data CreateAssessmentReportResponse = CreateAssessmentReportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentReport', 'createAssessmentReportResponse_assessmentReport' - The new assessment report returned by the @CreateAssessmentReport@ API.
+-- 'assessmentReport', 'createAssessmentReportResponse_assessmentReport' - The new assessment report that the @CreateAssessmentReport@ API
+-- returned.
 --
 -- 'httpStatus', 'createAssessmentReportResponse_httpStatus' - The response's http status code.
 newCreateAssessmentReportResponse ::
@@ -182,7 +184,8 @@ newCreateAssessmentReportResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The new assessment report returned by the @CreateAssessmentReport@ API.
+-- | The new assessment report that the @CreateAssessmentReport@ API
+-- returned.
 createAssessmentReportResponse_assessmentReport :: Lens.Lens' CreateAssessmentReportResponse (Prelude.Maybe AssessmentReport)
 createAssessmentReportResponse_assessmentReport = Lens.lens (\CreateAssessmentReportResponse' {assessmentReport} -> assessmentReport) (\s@CreateAssessmentReportResponse' {} a -> s {assessmentReport = a} :: CreateAssessmentReportResponse)
 

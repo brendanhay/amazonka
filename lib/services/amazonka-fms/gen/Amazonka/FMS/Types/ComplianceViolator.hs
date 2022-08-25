@@ -36,6 +36,8 @@ data ComplianceViolator = ComplianceViolator'
     -- @AWS::CloudFront::Distribution@, or
     -- @AWS::NetworkFirewall::FirewallPolicy@.
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | Metadata about the resource that doesn\'t comply with the policy scope.
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The reason that the resource is not protected by the policy.
     violationReason :: Prelude.Maybe ViolationReason
   }
@@ -57,6 +59,8 @@ data ComplianceViolator = ComplianceViolator'
 -- @AWS::CloudFront::Distribution@, or
 -- @AWS::NetworkFirewall::FirewallPolicy@.
 --
+-- 'metadata', 'complianceViolator_metadata' - Metadata about the resource that doesn\'t comply with the policy scope.
+--
 -- 'violationReason', 'complianceViolator_violationReason' - The reason that the resource is not protected by the policy.
 newComplianceViolator ::
   ComplianceViolator
@@ -64,6 +68,7 @@ newComplianceViolator =
   ComplianceViolator'
     { resourceId = Prelude.Nothing,
       resourceType = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       violationReason = Prelude.Nothing
     }
 
@@ -79,6 +84,10 @@ complianceViolator_resourceId = Lens.lens (\ComplianceViolator' {resourceId} -> 
 complianceViolator_resourceType :: Lens.Lens' ComplianceViolator (Prelude.Maybe Prelude.Text)
 complianceViolator_resourceType = Lens.lens (\ComplianceViolator' {resourceType} -> resourceType) (\s@ComplianceViolator' {} a -> s {resourceType = a} :: ComplianceViolator)
 
+-- | Metadata about the resource that doesn\'t comply with the policy scope.
+complianceViolator_metadata :: Lens.Lens' ComplianceViolator (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+complianceViolator_metadata = Lens.lens (\ComplianceViolator' {metadata} -> metadata) (\s@ComplianceViolator' {} a -> s {metadata = a} :: ComplianceViolator) Prelude.. Lens.mapping Lens.coerced
+
 -- | The reason that the resource is not protected by the policy.
 complianceViolator_violationReason :: Lens.Lens' ComplianceViolator (Prelude.Maybe ViolationReason)
 complianceViolator_violationReason = Lens.lens (\ComplianceViolator' {violationReason} -> violationReason) (\s@ComplianceViolator' {} a -> s {violationReason = a} :: ComplianceViolator)
@@ -91,6 +100,7 @@ instance Core.FromJSON ComplianceViolator where
           ComplianceViolator'
             Prelude.<$> (x Core..:? "ResourceId")
             Prelude.<*> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ViolationReason")
       )
 
@@ -98,10 +108,12 @@ instance Prelude.Hashable ComplianceViolator where
   hashWithSalt _salt ComplianceViolator' {..} =
     _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` violationReason
 
 instance Prelude.NFData ComplianceViolator where
   rnf ComplianceViolator' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf violationReason

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- View detail data for a major or minor version of an environment
+-- Get detailed data for a major or minor version of an environment
 -- template.
 module Amazonka.Proton.GetEnvironmentTemplateVersion
   ( -- * Creating a Request
@@ -51,13 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEnvironmentTemplateVersion' smart constructor.
 data GetEnvironmentTemplateVersion = GetEnvironmentTemplateVersion'
-  { -- | To view environment template major version detail data, include
-    -- @majorVersion@.
+  { -- | To get environment template major version detail data, include
+    -- @major Version@.
     majorVersion :: Prelude.Text,
-    -- | To view environment template minor version detail data, include
+    -- | To get environment template minor version detail data, include
     -- @minorVersion@.
     minorVersion :: Prelude.Text,
-    -- | The name of the environment template.
+    -- | The name of the environment template a version of which you want to get
+    -- detailed data for..
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,13 +71,14 @@ data GetEnvironmentTemplateVersion = GetEnvironmentTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'majorVersion', 'getEnvironmentTemplateVersion_majorVersion' - To view environment template major version detail data, include
--- @majorVersion@.
+-- 'majorVersion', 'getEnvironmentTemplateVersion_majorVersion' - To get environment template major version detail data, include
+-- @major Version@.
 --
--- 'minorVersion', 'getEnvironmentTemplateVersion_minorVersion' - To view environment template minor version detail data, include
+-- 'minorVersion', 'getEnvironmentTemplateVersion_minorVersion' - To get environment template minor version detail data, include
 -- @minorVersion@.
 --
--- 'templateName', 'getEnvironmentTemplateVersion_templateName' - The name of the environment template.
+-- 'templateName', 'getEnvironmentTemplateVersion_templateName' - The name of the environment template a version of which you want to get
+-- detailed data for..
 newGetEnvironmentTemplateVersion ::
   -- | 'majorVersion'
   Prelude.Text ->
@@ -96,17 +98,18 @@ newGetEnvironmentTemplateVersion
         templateName = pTemplateName_
       }
 
--- | To view environment template major version detail data, include
--- @majorVersion@.
+-- | To get environment template major version detail data, include
+-- @major Version@.
 getEnvironmentTemplateVersion_majorVersion :: Lens.Lens' GetEnvironmentTemplateVersion Prelude.Text
 getEnvironmentTemplateVersion_majorVersion = Lens.lens (\GetEnvironmentTemplateVersion' {majorVersion} -> majorVersion) (\s@GetEnvironmentTemplateVersion' {} a -> s {majorVersion = a} :: GetEnvironmentTemplateVersion)
 
--- | To view environment template minor version detail data, include
+-- | To get environment template minor version detail data, include
 -- @minorVersion@.
 getEnvironmentTemplateVersion_minorVersion :: Lens.Lens' GetEnvironmentTemplateVersion Prelude.Text
 getEnvironmentTemplateVersion_minorVersion = Lens.lens (\GetEnvironmentTemplateVersion' {minorVersion} -> minorVersion) (\s@GetEnvironmentTemplateVersion' {} a -> s {minorVersion = a} :: GetEnvironmentTemplateVersion)
 
--- | The name of the environment template.
+-- | The name of the environment template a version of which you want to get
+-- detailed data for..
 getEnvironmentTemplateVersion_templateName :: Lens.Lens' GetEnvironmentTemplateVersion Prelude.Text
 getEnvironmentTemplateVersion_templateName = Lens.lens (\GetEnvironmentTemplateVersion' {templateName} -> templateName) (\s@GetEnvironmentTemplateVersion' {} a -> s {templateName = a} :: GetEnvironmentTemplateVersion)
 
@@ -176,8 +179,7 @@ instance Core.ToQuery GetEnvironmentTemplateVersion where
 data GetEnvironmentTemplateVersionResponse = GetEnvironmentTemplateVersionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment template version detail data that\'s returned by AWS
-    -- Proton.
+    -- | The detailed data of the requested environment template version.
     environmentTemplateVersion :: EnvironmentTemplateVersion
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -192,8 +194,7 @@ data GetEnvironmentTemplateVersionResponse = GetEnvironmentTemplateVersionRespon
 --
 -- 'httpStatus', 'getEnvironmentTemplateVersionResponse_httpStatus' - The response's http status code.
 --
--- 'environmentTemplateVersion', 'getEnvironmentTemplateVersionResponse_environmentTemplateVersion' - The environment template version detail data that\'s returned by AWS
--- Proton.
+-- 'environmentTemplateVersion', 'getEnvironmentTemplateVersionResponse_environmentTemplateVersion' - The detailed data of the requested environment template version.
 newGetEnvironmentTemplateVersionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -214,8 +215,7 @@ newGetEnvironmentTemplateVersionResponse
 getEnvironmentTemplateVersionResponse_httpStatus :: Lens.Lens' GetEnvironmentTemplateVersionResponse Prelude.Int
 getEnvironmentTemplateVersionResponse_httpStatus = Lens.lens (\GetEnvironmentTemplateVersionResponse' {httpStatus} -> httpStatus) (\s@GetEnvironmentTemplateVersionResponse' {} a -> s {httpStatus = a} :: GetEnvironmentTemplateVersionResponse)
 
--- | The environment template version detail data that\'s returned by AWS
--- Proton.
+-- | The detailed data of the requested environment template version.
 getEnvironmentTemplateVersionResponse_environmentTemplateVersion :: Lens.Lens' GetEnvironmentTemplateVersionResponse EnvironmentTemplateVersion
 getEnvironmentTemplateVersionResponse_environmentTemplateVersion = Lens.lens (\GetEnvironmentTemplateVersionResponse' {environmentTemplateVersion} -> environmentTemplateVersion) (\s@GetEnvironmentTemplateVersionResponse' {} a -> s {environmentTemplateVersion = a} :: GetEnvironmentTemplateVersionResponse)
 

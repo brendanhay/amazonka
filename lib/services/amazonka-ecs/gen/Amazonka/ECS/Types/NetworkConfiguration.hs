@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkConfiguration' smart constructor.
 data NetworkConfiguration = NetworkConfiguration'
-  { -- | The VPC subnets and security groups associated with a task.
+  { -- | The VPC subnets and security groups that are associated with a task.
     --
     -- All specified subnets and security groups must be from the same VPC.
     awsvpcConfiguration :: Prelude.Maybe AwsVpcConfiguration
@@ -43,7 +43,7 @@ data NetworkConfiguration = NetworkConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsvpcConfiguration', 'networkConfiguration_awsvpcConfiguration' - The VPC subnets and security groups associated with a task.
+-- 'awsvpcConfiguration', 'networkConfiguration_awsvpcConfiguration' - The VPC subnets and security groups that are associated with a task.
 --
 -- All specified subnets and security groups must be from the same VPC.
 newNetworkConfiguration ::
@@ -54,7 +54,7 @@ newNetworkConfiguration =
         Prelude.Nothing
     }
 
--- | The VPC subnets and security groups associated with a task.
+-- | The VPC subnets and security groups that are associated with a task.
 --
 -- All specified subnets and security groups must be from the same VPC.
 networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AwsVpcConfiguration)

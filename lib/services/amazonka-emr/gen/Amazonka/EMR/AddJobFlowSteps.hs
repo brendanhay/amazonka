@@ -45,12 +45,16 @@
 --
 -- You can only add steps to a cluster that is in one of the following
 -- states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
+--
+-- The string values passed into @HadoopJarStep@ object cannot exceed a
+-- total of 10240 characters.
 module Amazonka.EMR.AddJobFlowSteps
   ( -- * Creating a Request
     AddJobFlowSteps (..),
     newAddJobFlowSteps,
 
     -- * Request Lenses
+    addJobFlowSteps_executionRoleArn,
     addJobFlowSteps_jobFlowId,
     addJobFlowSteps_steps,
 
@@ -75,7 +79,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAddJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
-  { -- | A string that uniquely identifies the job flow. This identifier is
+  { -- | The Amazon Resource Name (ARN) of the runtime role for a step on the
+    -- cluster. The runtime role can be a cross-account IAM role. The runtime
+    -- role ARN is a combination of account ID, role name, and role type using
+    -- the following format: @arn:partition:service:region:account:resource@.
+    --
+    -- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+    -- formatted runtime role ARN.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A string that uniquely identifies the job flow. This identifier is
     -- returned by RunJobFlow and can also be obtained from ListClusters.
     jobFlowId :: Prelude.Text,
     -- | A list of StepConfig to be executed by the job flow.
@@ -91,6 +103,14 @@ data AddJobFlowSteps = AddJobFlowSteps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'executionRoleArn', 'addJobFlowSteps_executionRoleArn' - The Amazon Resource Name (ARN) of the runtime role for a step on the
+-- cluster. The runtime role can be a cross-account IAM role. The runtime
+-- role ARN is a combination of account ID, role name, and role type using
+-- the following format: @arn:partition:service:region:account:resource@.
+--
+-- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- formatted runtime role ARN.
+--
 -- 'jobFlowId', 'addJobFlowSteps_jobFlowId' - A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
 --
@@ -101,9 +121,21 @@ newAddJobFlowSteps ::
   AddJobFlowSteps
 newAddJobFlowSteps pJobFlowId_ =
   AddJobFlowSteps'
-    { jobFlowId = pJobFlowId_,
+    { executionRoleArn =
+        Prelude.Nothing,
+      jobFlowId = pJobFlowId_,
       steps = Prelude.mempty
     }
+
+-- | The Amazon Resource Name (ARN) of the runtime role for a step on the
+-- cluster. The runtime role can be a cross-account IAM role. The runtime
+-- role ARN is a combination of account ID, role name, and role type using
+-- the following format: @arn:partition:service:region:account:resource@.
+--
+-- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- formatted runtime role ARN.
+addJobFlowSteps_executionRoleArn :: Lens.Lens' AddJobFlowSteps (Prelude.Maybe Prelude.Text)
+addJobFlowSteps_executionRoleArn = Lens.lens (\AddJobFlowSteps' {executionRoleArn} -> executionRoleArn) (\s@AddJobFlowSteps' {} a -> s {executionRoleArn = a} :: AddJobFlowSteps)
 
 -- | A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
@@ -129,12 +161,14 @@ instance Core.AWSRequest AddJobFlowSteps where
 
 instance Prelude.Hashable AddJobFlowSteps where
   hashWithSalt _salt AddJobFlowSteps' {..} =
-    _salt `Prelude.hashWithSalt` jobFlowId
+    _salt `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` jobFlowId
       `Prelude.hashWithSalt` steps
 
 instance Prelude.NFData AddJobFlowSteps where
   rnf AddJobFlowSteps' {..} =
-    Prelude.rnf jobFlowId
+    Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf jobFlowId
       `Prelude.seq` Prelude.rnf steps
 
 instance Core.ToHeaders AddJobFlowSteps where
@@ -156,7 +190,9 @@ instance Core.ToJSON AddJobFlowSteps where
   toJSON AddJobFlowSteps' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobFlowId" Core..= jobFlowId),
+          [ ("ExecutionRoleArn" Core..=)
+              Prelude.<$> executionRoleArn,
+            Prelude.Just ("JobFlowId" Core..= jobFlowId),
             Prelude.Just ("Steps" Core..= steps)
           ]
       )

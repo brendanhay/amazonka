@@ -142,8 +142,8 @@ data CreateSchema = CreateSchema'
     -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
     -- No whitespace.
     schemaName :: Prelude.Text,
-    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
-    -- are supported.
+    -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+    -- @PROTOBUF@ are supported.
     dataFormat :: DataFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -218,8 +218,8 @@ data CreateSchema = CreateSchema'
 -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 -- No whitespace.
 --
--- 'dataFormat', 'createSchema_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- 'dataFormat', 'createSchema_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 newCreateSchema ::
   -- | 'schemaName'
   Prelude.Text ->
@@ -311,8 +311,8 @@ createSchema_schemaDefinition = Lens.lens (\CreateSchema' {schemaDefinition} -> 
 createSchema_schemaName :: Lens.Lens' CreateSchema Prelude.Text
 createSchema_schemaName = Lens.lens (\CreateSchema' {schemaName} -> schemaName) (\s@CreateSchema' {} a -> s {schemaName = a} :: CreateSchema)
 
--- | The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 createSchema_dataFormat :: Lens.Lens' CreateSchema DataFormat
 createSchema_dataFormat = Lens.lens (\CreateSchema' {dataFormat} -> dataFormat) (\s@CreateSchema' {} a -> s {dataFormat = a} :: CreateSchema)
 
@@ -404,8 +404,8 @@ data CreateSchemaResponse = CreateSchemaResponse'
     registryName :: Prelude.Maybe Prelude.Text,
     -- | The status of the schema.
     schemaStatus :: Prelude.Maybe SchemaStatus,
-    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
-    -- are supported.
+    -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+    -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
     -- | The status of the first schema version created.
     schemaVersionStatus :: Prelude.Maybe SchemaVersionStatus,
@@ -449,8 +449,8 @@ data CreateSchemaResponse = CreateSchemaResponse'
 --
 -- 'schemaStatus', 'createSchemaResponse_schemaStatus' - The status of the schema.
 --
--- 'dataFormat', 'createSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- 'dataFormat', 'createSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 --
 -- 'schemaVersionStatus', 'createSchemaResponse_schemaVersionStatus' - The status of the first schema version created.
 --
@@ -514,8 +514,8 @@ createSchemaResponse_registryName = Lens.lens (\CreateSchemaResponse' {registryN
 createSchemaResponse_schemaStatus :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe SchemaStatus)
 createSchemaResponse_schemaStatus = Lens.lens (\CreateSchemaResponse' {schemaStatus} -> schemaStatus) (\s@CreateSchemaResponse' {} a -> s {schemaStatus = a} :: CreateSchemaResponse)
 
--- | The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 createSchemaResponse_dataFormat :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe DataFormat)
 createSchemaResponse_dataFormat = Lens.lens (\CreateSchemaResponse' {dataFormat} -> dataFormat) (\s@CreateSchemaResponse' {} a -> s {dataFormat = a} :: CreateSchemaResponse)
 

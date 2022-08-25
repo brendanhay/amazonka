@@ -20,11 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of App Runner automatic scaling configurations in your
--- Amazon Web Services account. You can query the revisions for a specific
--- configuration name or the revisions for all configurations in your
--- account. You can optionally query only the latest revision of each
--- requested name.
+-- Returns a list of active App Runner automatic scaling configurations in
+-- your Amazon Web Services account. You can query the revisions for a
+-- specific configuration name or the revisions for all active
+-- configurations in your account. You can optionally query only the latest
+-- revision of each requested name.
+--
+-- To retrieve a full description of a particular configuration revision,
+-- call and provide one of the ARNs returned by
+-- @ListAutoScalingConfigurations@.
 module Amazonka.AppRunner.ListAutoScalingConfigurations
   ( -- * Creating a Request
     ListAutoScalingConfigurations (..),
@@ -66,10 +70,10 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
     -- | Set to @true@ to list only the latest revision for each requested
     -- configuration name.
     --
-    -- Keep as @false@ to list all revisions for each requested configuration
+    -- Set to @false@ to list all revisions for each requested configuration
     -- name.
     --
-    -- Default: @false@
+    -- Default: @true@
     latestOnly :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to include in each response (result page).
     -- It\'s used for a paginated request.
@@ -79,7 +83,8 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the App Runner auto scaling configuration that you want to
     -- list. If specified, App Runner lists revisions that share this name. If
-    -- not specified, App Runner returns revisions of all configurations.
+    -- not specified, App Runner returns revisions of all active
+    -- configurations.
     autoScalingConfigurationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,10 +107,10 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
 -- 'latestOnly', 'listAutoScalingConfigurations_latestOnly' - Set to @true@ to list only the latest revision for each requested
 -- configuration name.
 --
--- Keep as @false@ to list all revisions for each requested configuration
+-- Set to @false@ to list all revisions for each requested configuration
 -- name.
 --
--- Default: @false@
+-- Default: @true@
 --
 -- 'maxResults', 'listAutoScalingConfigurations_maxResults' - The maximum number of results to include in each response (result page).
 -- It\'s used for a paginated request.
@@ -115,7 +120,8 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
 --
 -- 'autoScalingConfigurationName', 'listAutoScalingConfigurations_autoScalingConfigurationName' - The name of the App Runner auto scaling configuration that you want to
 -- list. If specified, App Runner lists revisions that share this name. If
--- not specified, App Runner returns revisions of all configurations.
+-- not specified, App Runner returns revisions of all active
+-- configurations.
 newListAutoScalingConfigurations ::
   ListAutoScalingConfigurations
 newListAutoScalingConfigurations =
@@ -140,10 +146,10 @@ listAutoScalingConfigurations_nextToken = Lens.lens (\ListAutoScalingConfigurati
 -- | Set to @true@ to list only the latest revision for each requested
 -- configuration name.
 --
--- Keep as @false@ to list all revisions for each requested configuration
+-- Set to @false@ to list all revisions for each requested configuration
 -- name.
 --
--- Default: @false@
+-- Default: @true@
 listAutoScalingConfigurations_latestOnly :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Bool)
 listAutoScalingConfigurations_latestOnly = Lens.lens (\ListAutoScalingConfigurations' {latestOnly} -> latestOnly) (\s@ListAutoScalingConfigurations' {} a -> s {latestOnly = a} :: ListAutoScalingConfigurations)
 
@@ -157,7 +163,8 @@ listAutoScalingConfigurations_maxResults = Lens.lens (\ListAutoScalingConfigurat
 
 -- | The name of the App Runner auto scaling configuration that you want to
 -- list. If specified, App Runner lists revisions that share this name. If
--- not specified, App Runner returns revisions of all configurations.
+-- not specified, App Runner returns revisions of all active
+-- configurations.
 listAutoScalingConfigurations_autoScalingConfigurationName :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Text)
 listAutoScalingConfigurations_autoScalingConfigurationName = Lens.lens (\ListAutoScalingConfigurations' {autoScalingConfigurationName} -> autoScalingConfigurationName) (\s@ListAutoScalingConfigurations' {} a -> s {autoScalingConfigurationName = a} :: ListAutoScalingConfigurations)
 

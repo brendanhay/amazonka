@@ -52,6 +52,44 @@ newFunctionActive =
         ]
     }
 
+-- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 300 failed checks.
+newFunctionUpdatedV2 :: Core.Wait GetFunction
+newFunctionUpdatedV2 =
+  Core.Wait
+    { Core._waitName = "FunctionUpdatedV2",
+      Core._waitAttempts = 300,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Successful"
+            Core.AcceptSuccess
+            ( getFunctionResponse_configuration
+                Prelude.. Lens._Just
+                Prelude.. functionConfiguration_lastUpdateStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( getFunctionResponse_configuration
+                Prelude.. Lens._Just
+                Prelude.. functionConfiguration_lastUpdateStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "InProgress"
+            Core.AcceptRetry
+            ( getFunctionResponse_configuration
+                Prelude.. Lens._Just
+                Prelude.. functionConfiguration_lastUpdateStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newFunctionExists :: Core.Wait GetFunction
 newFunctionExists =
@@ -64,6 +102,44 @@ newFunctionExists =
           Core.matchError
             "ResourceNotFoundException"
             Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 300 failed checks.
+newFunctionActiveV2 :: Core.Wait GetFunction
+newFunctionActiveV2 =
+  Core.Wait
+    { Core._waitName = "FunctionActiveV2",
+      Core._waitAttempts = 300,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Active"
+            Core.AcceptSuccess
+            ( getFunctionResponse_configuration
+                Prelude.. Lens._Just
+                Prelude.. functionConfiguration_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( getFunctionResponse_configuration
+                Prelude.. Lens._Just
+                Prelude.. functionConfiguration_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Pending"
+            Core.AcceptRetry
+            ( getFunctionResponse_configuration
+                Prelude.. Lens._Just
+                Prelude.. functionConfiguration_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
         ]
     }
 

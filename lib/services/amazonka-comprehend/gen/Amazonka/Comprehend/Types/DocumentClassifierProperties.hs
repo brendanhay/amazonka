@@ -51,7 +51,7 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- | Configuration parameters for a private Virtual Private Cloud (VPC)
     -- containing the resources you are using for your custom classifier. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+    -- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The time that the document classifier was submitted for training.
     submitTime :: Prelude.Maybe Core.POSIX,
@@ -91,6 +91,10 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     mode :: Prelude.Maybe DocumentClassifierMode,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
     documentClassifierArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source model. This model was
+    -- imported from a different AWS account to create the document classifier
+    -- model in your AWS account.
+    sourceModelArn :: Prelude.Maybe Prelude.Text,
     -- | The input data configuration that you supplied when you created the
     -- document classifier for training.
     inputDataConfig :: Prelude.Maybe DocumentClassifierInputDataConfig,
@@ -131,7 +135,7 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 -- 'vpcConfig', 'documentClassifierProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your custom classifier. For
 -- more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+-- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 --
 -- 'submitTime', 'documentClassifierProperties_submitTime' - The time that the document classifier was submitted for training.
 --
@@ -171,6 +175,10 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 --
 -- 'documentClassifierArn', 'documentClassifierProperties_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.
 --
+-- 'sourceModelArn', 'documentClassifierProperties_sourceModelArn' - The Amazon Resource Name (ARN) of the source model. This model was
+-- imported from a different AWS account to create the document classifier
+-- model in your AWS account.
+--
 -- 'inputDataConfig', 'documentClassifierProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- document classifier for training.
 --
@@ -201,6 +209,7 @@ newDocumentClassifierProperties =
       versionName = Prelude.Nothing,
       mode = Prelude.Nothing,
       documentClassifierArn = Prelude.Nothing,
+      sourceModelArn = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       trainingEndTime = Prelude.Nothing,
       classifierMetadata = Prelude.Nothing
@@ -229,7 +238,7 @@ documentClassifierProperties_modelKmsKeyId = Lens.lens (\DocumentClassifierPrope
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your custom classifier. For
 -- more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+-- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 documentClassifierProperties_vpcConfig :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe VpcConfig)
 documentClassifierProperties_vpcConfig = Lens.lens (\DocumentClassifierProperties' {vpcConfig} -> vpcConfig) (\s@DocumentClassifierProperties' {} a -> s {vpcConfig = a} :: DocumentClassifierProperties)
 
@@ -291,6 +300,12 @@ documentClassifierProperties_mode = Lens.lens (\DocumentClassifierProperties' {m
 documentClassifierProperties_documentClassifierArn :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
 documentClassifierProperties_documentClassifierArn = Lens.lens (\DocumentClassifierProperties' {documentClassifierArn} -> documentClassifierArn) (\s@DocumentClassifierProperties' {} a -> s {documentClassifierArn = a} :: DocumentClassifierProperties)
 
+-- | The Amazon Resource Name (ARN) of the source model. This model was
+-- imported from a different AWS account to create the document classifier
+-- model in your AWS account.
+documentClassifierProperties_sourceModelArn :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
+documentClassifierProperties_sourceModelArn = Lens.lens (\DocumentClassifierProperties' {sourceModelArn} -> sourceModelArn) (\s@DocumentClassifierProperties' {} a -> s {sourceModelArn = a} :: DocumentClassifierProperties)
+
 -- | The input data configuration that you supplied when you created the
 -- document classifier for training.
 documentClassifierProperties_inputDataConfig :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe DocumentClassifierInputDataConfig)
@@ -329,6 +344,7 @@ instance Core.FromJSON DocumentClassifierProperties where
             Prelude.<*> (x Core..:? "VersionName")
             Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "DocumentClassifierArn")
+            Prelude.<*> (x Core..:? "SourceModelArn")
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "TrainingEndTime")
             Prelude.<*> (x Core..:? "ClassifierMetadata")
@@ -353,6 +369,7 @@ instance
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` documentClassifierArn
+      `Prelude.hashWithSalt` sourceModelArn
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` trainingEndTime
       `Prelude.hashWithSalt` classifierMetadata
@@ -373,6 +390,7 @@ instance Prelude.NFData DocumentClassifierProperties where
       `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf documentClassifierArn
+      `Prelude.seq` Prelude.rnf sourceModelArn
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf trainingEndTime
       `Prelude.seq` Prelude.rnf classifierMetadata

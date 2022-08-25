@@ -24,15 +24,14 @@ import Amazonka.Forecast.Types.S3Config
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The source of your training data, an AWS Identity and Access Management
--- (IAM) role that allows Amazon Forecast to access the data and,
--- optionally, an AWS Key Management Service (KMS) key. This object is
--- submitted in the CreateDatasetImportJob request.
+-- | The source of your data, an AWS Identity and Access Management (IAM)
+-- role that allows Amazon Forecast to access the data and, optionally, an
+-- AWS Key Management Service (KMS) key.
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
-  { -- | The path to the training data stored in an Amazon Simple Storage Service
-    -- (Amazon S3) bucket along with the credentials to access the data.
+  { -- | The path to the data stored in an Amazon Simple Storage Service (Amazon
+    -- S3) bucket along with the credentials to access the data.
     s3Config :: S3Config
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,8 +44,8 @@ data DataSource = DataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Config', 'dataSource_s3Config' - The path to the training data stored in an Amazon Simple Storage Service
--- (Amazon S3) bucket along with the credentials to access the data.
+-- 's3Config', 'dataSource_s3Config' - The path to the data stored in an Amazon Simple Storage Service (Amazon
+-- S3) bucket along with the credentials to access the data.
 newDataSource ::
   -- | 's3Config'
   S3Config ->
@@ -54,8 +53,8 @@ newDataSource ::
 newDataSource pS3Config_ =
   DataSource' {s3Config = pS3Config_}
 
--- | The path to the training data stored in an Amazon Simple Storage Service
--- (Amazon S3) bucket along with the credentials to access the data.
+-- | The path to the data stored in an Amazon Simple Storage Service (Amazon
+-- S3) bucket along with the credentials to access the data.
 dataSource_s3Config :: Lens.Lens' DataSource S3Config
 dataSource_s3Config = Lens.lens (\DataSource' {s3Config} -> s3Config) (\s@DataSource' {} a -> s {s3Config = a} :: DataSource)
 

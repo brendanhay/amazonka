@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all the domains in the Amazon Web Services account.
+--
+-- This operation returns paginated results.
 module Amazonka.VoiceId.ListDomains
   ( -- * Creating a Request
     ListDomains (..),
@@ -98,6 +100,26 @@ listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@L
 -- maximum allowed page size is also 100.
 listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
 listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
+
+instance Core.AWSPager ListDomains where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listDomainsResponse_domainSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listDomains_nextToken
+          Lens..~ rs
+          Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse

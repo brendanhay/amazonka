@@ -36,10 +36,12 @@ module Amazonka.CustomerProfiles.GetIntegration
 
     -- * Response Lenses
     getIntegrationResponse_tags,
+    getIntegrationResponse_objectTypeNames,
+    getIntegrationResponse_workflowId,
+    getIntegrationResponse_objectTypeName,
     getIntegrationResponse_httpStatus,
     getIntegrationResponse_domainName,
     getIntegrationResponse_uri,
-    getIntegrationResponse_objectTypeName,
     getIntegrationResponse_createdAt,
     getIntegrationResponse_lastUpdatedAt,
   )
@@ -102,10 +104,14 @@ instance Core.AWSRequest GetIntegration where
       ( \s h x ->
           GetIntegrationResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "ObjectTypeNames"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "WorkflowId")
+            Prelude.<*> (x Core..?> "ObjectTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainName")
             Prelude.<*> (x Core..:> "Uri")
-            Prelude.<*> (x Core..:> "ObjectTypeName")
             Prelude.<*> (x Core..:> "CreatedAt")
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
@@ -150,14 +156,24 @@ instance Core.ToQuery GetIntegration where
 data GetIntegrationResponse = GetIntegrationResponse'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map in which each key is an event type from an external application
+    -- such as Segment or Shopify, and each value is an @ObjectTypeName@
+    -- (template) used to ingest the event. It supports the following event
+    -- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+    -- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+    -- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+    -- @ShopifyUpdatedOrders@.
+    objectTypeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Unique identifier for the workflow.
+    workflowId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the profile object type.
+    objectTypeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Text,
-    -- | The name of the profile object type.
-    objectTypeName :: Prelude.Text,
     -- | The timestamp of when the domain was created.
     createdAt :: Core.POSIX,
     -- | The timestamp of when the domain was most recently edited.
@@ -175,13 +191,23 @@ data GetIntegrationResponse = GetIntegrationResponse'
 --
 -- 'tags', 'getIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
+-- 'objectTypeNames', 'getIntegrationResponse_objectTypeNames' - A map in which each key is an event type from an external application
+-- such as Segment or Shopify, and each value is an @ObjectTypeName@
+-- (template) used to ingest the event. It supports the following event
+-- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+-- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+-- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+-- @ShopifyUpdatedOrders@.
+--
+-- 'workflowId', 'getIntegrationResponse_workflowId' - Unique identifier for the workflow.
+--
+-- 'objectTypeName', 'getIntegrationResponse_objectTypeName' - The name of the profile object type.
+--
 -- 'httpStatus', 'getIntegrationResponse_httpStatus' - The response's http status code.
 --
 -- 'domainName', 'getIntegrationResponse_domainName' - The unique name of the domain.
 --
 -- 'uri', 'getIntegrationResponse_uri' - The URI of the S3 bucket or any other type of data source.
---
--- 'objectTypeName', 'getIntegrationResponse_objectTypeName' - The name of the profile object type.
 --
 -- 'createdAt', 'getIntegrationResponse_createdAt' - The timestamp of when the domain was created.
 --
@@ -193,8 +219,6 @@ newGetIntegrationResponse ::
   Prelude.Text ->
   -- | 'uri'
   Prelude.Text ->
-  -- | 'objectTypeName'
-  Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
   -- | 'lastUpdatedAt'
@@ -204,15 +228,16 @@ newGetIntegrationResponse
   pHttpStatus_
   pDomainName_
   pUri_
-  pObjectTypeName_
   pCreatedAt_
   pLastUpdatedAt_ =
     GetIntegrationResponse'
       { tags = Prelude.Nothing,
+        objectTypeNames = Prelude.Nothing,
+        workflowId = Prelude.Nothing,
+        objectTypeName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         uri = pUri_,
-        objectTypeName = pObjectTypeName_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
       }
@@ -220,6 +245,24 @@ newGetIntegrationResponse
 -- | The tags used to organize, track, or control access for this resource.
 getIntegrationResponse_tags :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getIntegrationResponse_tags = Lens.lens (\GetIntegrationResponse' {tags} -> tags) (\s@GetIntegrationResponse' {} a -> s {tags = a} :: GetIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map in which each key is an event type from an external application
+-- such as Segment or Shopify, and each value is an @ObjectTypeName@
+-- (template) used to ingest the event. It supports the following event
+-- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+-- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+-- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+-- @ShopifyUpdatedOrders@.
+getIntegrationResponse_objectTypeNames :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getIntegrationResponse_objectTypeNames = Lens.lens (\GetIntegrationResponse' {objectTypeNames} -> objectTypeNames) (\s@GetIntegrationResponse' {} a -> s {objectTypeNames = a} :: GetIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Unique identifier for the workflow.
+getIntegrationResponse_workflowId :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Text)
+getIntegrationResponse_workflowId = Lens.lens (\GetIntegrationResponse' {workflowId} -> workflowId) (\s@GetIntegrationResponse' {} a -> s {workflowId = a} :: GetIntegrationResponse)
+
+-- | The name of the profile object type.
+getIntegrationResponse_objectTypeName :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Text)
+getIntegrationResponse_objectTypeName = Lens.lens (\GetIntegrationResponse' {objectTypeName} -> objectTypeName) (\s@GetIntegrationResponse' {} a -> s {objectTypeName = a} :: GetIntegrationResponse)
 
 -- | The response's http status code.
 getIntegrationResponse_httpStatus :: Lens.Lens' GetIntegrationResponse Prelude.Int
@@ -233,10 +276,6 @@ getIntegrationResponse_domainName = Lens.lens (\GetIntegrationResponse' {domainN
 getIntegrationResponse_uri :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_uri = Lens.lens (\GetIntegrationResponse' {uri} -> uri) (\s@GetIntegrationResponse' {} a -> s {uri = a} :: GetIntegrationResponse)
 
--- | The name of the profile object type.
-getIntegrationResponse_objectTypeName :: Lens.Lens' GetIntegrationResponse Prelude.Text
-getIntegrationResponse_objectTypeName = Lens.lens (\GetIntegrationResponse' {objectTypeName} -> objectTypeName) (\s@GetIntegrationResponse' {} a -> s {objectTypeName = a} :: GetIntegrationResponse)
-
 -- | The timestamp of when the domain was created.
 getIntegrationResponse_createdAt :: Lens.Lens' GetIntegrationResponse Prelude.UTCTime
 getIntegrationResponse_createdAt = Lens.lens (\GetIntegrationResponse' {createdAt} -> createdAt) (\s@GetIntegrationResponse' {} a -> s {createdAt = a} :: GetIntegrationResponse) Prelude.. Core._Time
@@ -248,9 +287,11 @@ getIntegrationResponse_lastUpdatedAt = Lens.lens (\GetIntegrationResponse' {last
 instance Prelude.NFData GetIntegrationResponse where
   rnf GetIntegrationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf objectTypeNames
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastUpdatedAt

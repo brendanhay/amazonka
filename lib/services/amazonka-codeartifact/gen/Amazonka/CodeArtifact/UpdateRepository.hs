@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 data UpdateRepository = UpdateRepository'
   { -- | A list of upstream repositories to associate with the repository. The
     -- order of the upstream repositories in the list determines their priority
-    -- order when AWS CodeArtifact looks for a requested package version. For
-    -- more information, see
+    -- order when CodeArtifact looks for a requested package version. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
     upstreams :: Prelude.Maybe [UpstreamRepository],
     -- | An updated repository description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain associated with the repository to update.
     domain :: Prelude.Text,
@@ -80,14 +80,14 @@ data UpdateRepository = UpdateRepository'
 --
 -- 'upstreams', 'updateRepository_upstreams' - A list of upstream repositories to associate with the repository. The
 -- order of the upstream repositories in the list determines their priority
--- order when AWS CodeArtifact looks for a requested package version. For
--- more information, see
+-- order when CodeArtifact looks for a requested package version. For more
+-- information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 --
 -- 'description', 'updateRepository_description' - An updated repository description.
 --
--- 'domainOwner', 'updateRepository_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'updateRepository_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'updateRepository_domain' - The name of the domain associated with the repository to update.
 --
@@ -109,8 +109,8 @@ newUpdateRepository pDomain_ pRepository_ =
 
 -- | A list of upstream repositories to associate with the repository. The
 -- order of the upstream repositories in the list determines their priority
--- order when AWS CodeArtifact looks for a requested package version. For
--- more information, see
+-- order when CodeArtifact looks for a requested package version. For more
+-- information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 updateRepository_upstreams :: Lens.Lens' UpdateRepository (Prelude.Maybe [UpstreamRepository])
 updateRepository_upstreams = Lens.lens (\UpdateRepository' {upstreams} -> upstreams) (\s@UpdateRepository' {} a -> s {upstreams = a} :: UpdateRepository) Prelude.. Lens.mapping Lens.coerced
@@ -119,8 +119,8 @@ updateRepository_upstreams = Lens.lens (\UpdateRepository' {upstreams} -> upstre
 updateRepository_description :: Lens.Lens' UpdateRepository (Prelude.Maybe Prelude.Text)
 updateRepository_description = Lens.lens (\UpdateRepository' {description} -> description) (\s@UpdateRepository' {} a -> s {description = a} :: UpdateRepository)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 updateRepository_domainOwner :: Lens.Lens' UpdateRepository (Prelude.Maybe Prelude.Text)
 updateRepository_domainOwner = Lens.lens (\UpdateRepository' {domainOwner} -> domainOwner) (\s@UpdateRepository' {} a -> s {domainOwner = a} :: UpdateRepository)
 

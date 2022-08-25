@@ -149,8 +149,7 @@ data GetIPSetResponse = GetIPSetResponse'
     name :: Prelude.Text,
     -- | The format of the file that contains the IPSet.
     format :: IpSetFormat,
-    -- | The URI of the file that contains the IPSet. For example:
-    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    -- | The URI of the file that contains the IPSet.
     location :: Prelude.Text,
     -- | The status of IPSet file that was uploaded.
     status :: IpSetStatus
@@ -173,8 +172,7 @@ data GetIPSetResponse = GetIPSetResponse'
 --
 -- 'format', 'getIPSetResponse_format' - The format of the file that contains the IPSet.
 --
--- 'location', 'getIPSetResponse_location' - The URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- 'location', 'getIPSetResponse_location' - The URI of the file that contains the IPSet.
 --
 -- 'status', 'getIPSetResponse_status' - The status of IPSet file that was uploaded.
 newGetIPSetResponse ::
@@ -220,8 +218,7 @@ getIPSetResponse_name = Lens.lens (\GetIPSetResponse' {name} -> name) (\s@GetIPS
 getIPSetResponse_format :: Lens.Lens' GetIPSetResponse IpSetFormat
 getIPSetResponse_format = Lens.lens (\GetIPSetResponse' {format} -> format) (\s@GetIPSetResponse' {} a -> s {format = a} :: GetIPSetResponse)
 
--- | The URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- | The URI of the file that contains the IPSet.
 getIPSetResponse_location :: Lens.Lens' GetIPSetResponse Prelude.Text
 getIPSetResponse_location = Lens.lens (\GetIPSetResponse' {location} -> location) (\s@GetIPSetResponse' {} a -> s {location = a} :: GetIPSetResponse)
 

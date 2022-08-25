@@ -57,7 +57,7 @@ data GameSession = GameSession'
     -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
     -- Matchmaker data is useful when requesting match backfills, and is
     -- updated whenever new players are added during a successful backfill (see
-    -- StartMatchBackfill).
+    -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchBackfill.html StartMatchBackfill>).
     matchmakerData :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game session. A game session ARN has the
     -- following format:
@@ -76,7 +76,8 @@ data GameSession = GameSession'
     currentPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | A set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
-    -- object with a request to start a new game session.
+    -- object with a request to start a new game session (see
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
     gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether or not the game session is accepting new players.
     playerSessionCreationPolicy :: Prelude.Maybe PlayerSessionCreationPolicy,
@@ -89,7 +90,7 @@ data GameSession = GameSession'
     status :: Prelude.Maybe GameSessionStatus,
     -- | The fleet location where the game session is running. This value might
     -- specify the fleet\'s home Region or a remote location. Location is
-    -- expressed as an AWS Region code such as @us-west-2@.
+    -- expressed as an Amazon Web Services Region code such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -104,8 +105,9 @@ data GameSession = GameSession'
     maximumPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process in the
-    -- GameSession object with a request to start a new game session. You can
-    -- search for active game sessions based on this custom data with
+    -- GameSession object with a request to start a new game session (see
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
+    -- You can search for active game sessions based on this custom data with
     -- SearchGameSessions.
     gameProperties :: Prelude.Maybe [GameProperty],
     -- | A time stamp indicating when this data object was created. Format is a
@@ -150,7 +152,7 @@ data GameSession = GameSession'
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
 -- Matchmaker data is useful when requesting match backfills, and is
 -- updated whenever new players are added during a successful backfill (see
--- StartMatchBackfill).
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchBackfill.html StartMatchBackfill>).
 --
 -- 'gameSessionId', 'gameSession_gameSessionId' - A unique identifier for the game session. A game session ARN has the
 -- following format:
@@ -169,7 +171,8 @@ data GameSession = GameSession'
 --
 -- 'gameSessionData', 'gameSession_gameSessionData' - A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
--- object with a request to start a new game session.
+-- object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 --
 -- 'playerSessionCreationPolicy', 'gameSession_playerSessionCreationPolicy' - Indicates whether or not the game session is accepting new players.
 --
@@ -182,7 +185,7 @@ data GameSession = GameSession'
 --
 -- 'location', 'gameSession_location' - The fleet location where the game session is running. This value might
 -- specify the fleet\'s home Region or a remote location. Location is
--- expressed as an AWS Region code such as @us-west-2@.
+-- expressed as an Amazon Web Services Region code such as @us-west-2@.
 --
 -- 'fleetArn', 'gameSession_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -197,8 +200,9 @@ data GameSession = GameSession'
 --
 -- 'gameProperties', 'gameSession_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
--- GameSession object with a request to start a new game session. You can
--- search for active game sessions based on this custom data with
+-- GameSession object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
+-- You can search for active game sessions based on this custom data with
 -- SearchGameSessions.
 --
 -- 'creationTime', 'gameSession_creationTime' - A time stamp indicating when this data object was created. Format is a
@@ -258,7 +262,7 @@ gameSession_port = Lens.lens (\GameSession' {port} -> port) (\s@GameSession' {} 
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
 -- Matchmaker data is useful when requesting match backfills, and is
 -- updated whenever new players are added during a successful backfill (see
--- StartMatchBackfill).
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchBackfill.html StartMatchBackfill>).
 gameSession_matchmakerData :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Text)
 gameSession_matchmakerData = Lens.lens (\GameSession' {matchmakerData} -> matchmakerData) (\s@GameSession' {} a -> s {matchmakerData = a} :: GameSession)
 
@@ -289,7 +293,8 @@ gameSession_currentPlayerSessionCount = Lens.lens (\GameSession' {currentPlayerS
 
 -- | A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
--- object with a request to start a new game session.
+-- object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 gameSession_gameSessionData :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Text)
 gameSession_gameSessionData = Lens.lens (\GameSession' {gameSessionData} -> gameSessionData) (\s@GameSession' {} a -> s {gameSessionData = a} :: GameSession)
 
@@ -310,7 +315,7 @@ gameSession_status = Lens.lens (\GameSession' {status} -> status) (\s@GameSessio
 
 -- | The fleet location where the game session is running. This value might
 -- specify the fleet\'s home Region or a remote location. Location is
--- expressed as an AWS Region code such as @us-west-2@.
+-- expressed as an Amazon Web Services Region code such as @us-west-2@.
 gameSession_location :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Text)
 gameSession_location = Lens.lens (\GameSession' {location} -> location) (\s@GameSession' {} a -> s {location = a} :: GameSession)
 
@@ -333,8 +338,9 @@ gameSession_maximumPlayerSessionCount = Lens.lens (\GameSession' {maximumPlayerS
 
 -- | A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
--- GameSession object with a request to start a new game session. You can
--- search for active game sessions based on this custom data with
+-- GameSession object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
+-- You can search for active game sessions based on this custom data with
 -- SearchGameSessions.
 gameSession_gameProperties :: Lens.Lens' GameSession (Prelude.Maybe [GameProperty])
 gameSession_gameProperties = Lens.lens (\GameSession' {gameProperties} -> gameProperties) (\s@GameSession' {} a -> s {gameProperties = a} :: GameSession) Prelude.. Lens.mapping Lens.coerced

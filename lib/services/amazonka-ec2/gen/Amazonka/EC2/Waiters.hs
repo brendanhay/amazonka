@@ -23,6 +23,7 @@ import Amazonka.EC2.DescribeExportTasks
 import Amazonka.EC2.DescribeImages
 import Amazonka.EC2.DescribeInstanceStatus
 import Amazonka.EC2.DescribeInstances
+import Amazonka.EC2.DescribeInternetGateways
 import Amazonka.EC2.DescribeKeyPairs
 import Amazonka.EC2.DescribeNatGateways
 import Amazonka.EC2.DescribeNetworkInterfaces
@@ -738,6 +739,33 @@ newSystemStatusOk =
         ]
     }
 
+-- | Polls 'Amazonka.EC2.DescribeNatGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newNatGatewayDeleted :: Core.Wait DescribeNatGateways
+newNatGatewayDeleted =
+  Core.Wait
+    { Core._waitName = "NatGatewayDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "deleted"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeNatGatewaysResponse_natGateways
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. natGateway_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "NatGatewayNotFound"
+            Core.AcceptSuccess
+        ]
+    }
+
 -- | Polls 'Amazonka.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpnConnectionAvailable :: Core.Wait DescribeVpnConnections
 newVpnConnectionAvailable =
@@ -797,6 +825,31 @@ newVpcExists =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError
             "InvalidVpcID.NotFound"
+            Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.EC2.DescribeInternetGateways' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
+newInternetGatewayExists :: Core.Wait DescribeInternetGateways
+newInternetGatewayExists =
+  Core.Wait
+    { Core._waitName = "InternetGatewayExists",
+      Core._waitAttempts = 6,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInternetGatewaysResponse_internetGateways
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. internetGateway_internetGatewayId
+            ),
+          Core.matchError
+            "InvalidInternetGateway.NotFound"
             Core.AcceptRetry
         ]
     }

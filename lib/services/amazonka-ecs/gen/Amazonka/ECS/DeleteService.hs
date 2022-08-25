@@ -22,7 +22,7 @@
 --
 -- Deletes a specified service within a cluster. You can delete a service
 -- if you have no running tasks in it and the desired task count is zero.
--- If the service is actively maintaining tasks, you cannot delete it, and
+-- If the service is actively maintaining tasks, you can\'t delete it, and
 -- you must update the service to a desired task count of zero. For more
 -- information, see UpdateService.
 --
@@ -72,9 +72,9 @@ data DeleteService = DeleteService'
     -- hosts the service to delete. If you do not specify a cluster, the
     -- default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
-    -- | If @true@, allows you to delete a service even if it has not been scaled
-    -- down to zero tasks. It is only necessary to use this if the service is
-    -- using the @REPLICA@ scheduling strategy.
+    -- | If @true@, allows you to delete a service even if it wasn\'t scaled down
+    -- to zero tasks. It\'s only necessary to use this if the service uses the
+    -- @REPLICA@ scheduling strategy.
     force :: Prelude.Maybe Prelude.Bool,
     -- | The name of the service to delete.
     service :: Prelude.Text
@@ -93,9 +93,9 @@ data DeleteService = DeleteService'
 -- hosts the service to delete. If you do not specify a cluster, the
 -- default cluster is assumed.
 --
--- 'force', 'deleteService_force' - If @true@, allows you to delete a service even if it has not been scaled
--- down to zero tasks. It is only necessary to use this if the service is
--- using the @REPLICA@ scheduling strategy.
+-- 'force', 'deleteService_force' - If @true@, allows you to delete a service even if it wasn\'t scaled down
+-- to zero tasks. It\'s only necessary to use this if the service uses the
+-- @REPLICA@ scheduling strategy.
 --
 -- 'service', 'deleteService_service' - The name of the service to delete.
 newDeleteService ::
@@ -115,9 +115,9 @@ newDeleteService pService_ =
 deleteService_cluster :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Text)
 deleteService_cluster = Lens.lens (\DeleteService' {cluster} -> cluster) (\s@DeleteService' {} a -> s {cluster = a} :: DeleteService)
 
--- | If @true@, allows you to delete a service even if it has not been scaled
--- down to zero tasks. It is only necessary to use this if the service is
--- using the @REPLICA@ scheduling strategy.
+-- | If @true@, allows you to delete a service even if it wasn\'t scaled down
+-- to zero tasks. It\'s only necessary to use this if the service uses the
+-- @REPLICA@ scheduling strategy.
 deleteService_force :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Bool)
 deleteService_force = Lens.lens (\DeleteService' {force} -> force) (\s@DeleteService' {} a -> s {force = a} :: DeleteService)
 

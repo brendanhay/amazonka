@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetControl' smart constructor.
 data GetControl = GetControl'
-  { -- | The identifier for the specified control.
+  { -- | The identifier for the control.
     controlId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data GetControl = GetControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlId', 'getControl_controlId' - The identifier for the specified control.
+-- 'controlId', 'getControl_controlId' - The identifier for the control.
 newGetControl ::
   -- | 'controlId'
   Prelude.Text ->
@@ -69,7 +69,7 @@ newGetControl ::
 newGetControl pControlId_ =
   GetControl' {controlId = pControlId_}
 
--- | The identifier for the specified control.
+-- | The identifier for the control.
 getControl_controlId :: Lens.Lens' GetControl Prelude.Text
 getControl_controlId = Lens.lens (\GetControl' {controlId} -> controlId) (\s@GetControl' {} a -> s {controlId = a} :: GetControl)
 
@@ -111,7 +111,7 @@ instance Core.ToQuery GetControl where
 
 -- | /See:/ 'newGetControlResponse' smart constructor.
 data GetControlResponse = GetControlResponse'
-  { -- | The name of the control returned by the @GetControl@ API.
+  { -- | The name of the control that the @GetControl@ API returned.
     control :: Prelude.Maybe Control,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -126,7 +126,7 @@ data GetControlResponse = GetControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'getControlResponse_control' - The name of the control returned by the @GetControl@ API.
+-- 'control', 'getControlResponse_control' - The name of the control that the @GetControl@ API returned.
 --
 -- 'httpStatus', 'getControlResponse_httpStatus' - The response's http status code.
 newGetControlResponse ::
@@ -139,7 +139,7 @@ newGetControlResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the control returned by the @GetControl@ API.
+-- | The name of the control that the @GetControl@ API returned.
 getControlResponse_control :: Lens.Lens' GetControlResponse (Prelude.Maybe Control)
 getControlResponse_control = Lens.lens (\GetControlResponse' {control} -> control) (\s@GetControlResponse' {} a -> s {control = a} :: GetControlResponse)
 

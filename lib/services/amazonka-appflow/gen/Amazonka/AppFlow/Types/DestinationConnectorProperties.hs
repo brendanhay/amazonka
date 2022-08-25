@@ -19,12 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppFlow.Types.DestinationConnectorProperties where
 
+import Amazonka.AppFlow.Types.CustomConnectorDestinationProperties
 import Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties
 import Amazonka.AppFlow.Types.EventBridgeDestinationProperties
 import Amazonka.AppFlow.Types.HoneycodeDestinationProperties
 import Amazonka.AppFlow.Types.LookoutMetricsDestinationProperties
+import Amazonka.AppFlow.Types.MarketoDestinationProperties
 import Amazonka.AppFlow.Types.RedshiftDestinationProperties
 import Amazonka.AppFlow.Types.S3DestinationProperties
+import Amazonka.AppFlow.Types.SAPODataDestinationProperties
 import Amazonka.AppFlow.Types.SalesforceDestinationProperties
 import Amazonka.AppFlow.Types.SnowflakeDestinationProperties
 import Amazonka.AppFlow.Types.UpsolverDestinationProperties
@@ -48,12 +51,18 @@ data DestinationConnectorProperties = DestinationConnectorProperties'
     salesforce :: Prelude.Maybe SalesforceDestinationProperties,
     -- | The properties required to query Snowflake.
     snowflake :: Prelude.Maybe SnowflakeDestinationProperties,
+    -- | The properties required to query SAPOData.
+    sAPOData :: Prelude.Maybe SAPODataDestinationProperties,
+    -- | The properties required to query Marketo.
+    marketo :: Prelude.Maybe MarketoDestinationProperties,
     -- | The properties required to query Amazon Redshift.
     redshift :: Prelude.Maybe RedshiftDestinationProperties,
     -- | The properties required to query Amazon Connect Customer Profiles.
     customerProfiles :: Prelude.Maybe CustomerProfilesDestinationProperties,
     -- | The properties required to query Upsolver.
     upsolver :: Prelude.Maybe UpsolverDestinationProperties,
+    -- | The properties that are required to query the custom Connector.
+    customConnector :: Prelude.Maybe CustomConnectorDestinationProperties,
     -- | The properties required to query Amazon EventBridge.
     eventBridge :: Prelude.Maybe EventBridgeDestinationProperties,
     -- | The properties required to query Amazon Lookout for Metrics.
@@ -79,11 +88,17 @@ data DestinationConnectorProperties = DestinationConnectorProperties'
 --
 -- 'snowflake', 'destinationConnectorProperties_snowflake' - The properties required to query Snowflake.
 --
+-- 'sAPOData', 'destinationConnectorProperties_sAPOData' - The properties required to query SAPOData.
+--
+-- 'marketo', 'destinationConnectorProperties_marketo' - The properties required to query Marketo.
+--
 -- 'redshift', 'destinationConnectorProperties_redshift' - The properties required to query Amazon Redshift.
 --
 -- 'customerProfiles', 'destinationConnectorProperties_customerProfiles' - The properties required to query Amazon Connect Customer Profiles.
 --
 -- 'upsolver', 'destinationConnectorProperties_upsolver' - The properties required to query Upsolver.
+--
+-- 'customConnector', 'destinationConnectorProperties_customConnector' - The properties that are required to query the custom Connector.
 --
 -- 'eventBridge', 'destinationConnectorProperties_eventBridge' - The properties required to query Amazon EventBridge.
 --
@@ -98,9 +113,12 @@ newDestinationConnectorProperties =
       honeycode = Prelude.Nothing,
       salesforce = Prelude.Nothing,
       snowflake = Prelude.Nothing,
+      sAPOData = Prelude.Nothing,
+      marketo = Prelude.Nothing,
       redshift = Prelude.Nothing,
       customerProfiles = Prelude.Nothing,
       upsolver = Prelude.Nothing,
+      customConnector = Prelude.Nothing,
       eventBridge = Prelude.Nothing,
       lookoutMetrics = Prelude.Nothing
     }
@@ -125,6 +143,14 @@ destinationConnectorProperties_salesforce = Lens.lens (\DestinationConnectorProp
 destinationConnectorProperties_snowflake :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe SnowflakeDestinationProperties)
 destinationConnectorProperties_snowflake = Lens.lens (\DestinationConnectorProperties' {snowflake} -> snowflake) (\s@DestinationConnectorProperties' {} a -> s {snowflake = a} :: DestinationConnectorProperties)
 
+-- | The properties required to query SAPOData.
+destinationConnectorProperties_sAPOData :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe SAPODataDestinationProperties)
+destinationConnectorProperties_sAPOData = Lens.lens (\DestinationConnectorProperties' {sAPOData} -> sAPOData) (\s@DestinationConnectorProperties' {} a -> s {sAPOData = a} :: DestinationConnectorProperties)
+
+-- | The properties required to query Marketo.
+destinationConnectorProperties_marketo :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe MarketoDestinationProperties)
+destinationConnectorProperties_marketo = Lens.lens (\DestinationConnectorProperties' {marketo} -> marketo) (\s@DestinationConnectorProperties' {} a -> s {marketo = a} :: DestinationConnectorProperties)
+
 -- | The properties required to query Amazon Redshift.
 destinationConnectorProperties_redshift :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe RedshiftDestinationProperties)
 destinationConnectorProperties_redshift = Lens.lens (\DestinationConnectorProperties' {redshift} -> redshift) (\s@DestinationConnectorProperties' {} a -> s {redshift = a} :: DestinationConnectorProperties)
@@ -136,6 +162,10 @@ destinationConnectorProperties_customerProfiles = Lens.lens (\DestinationConnect
 -- | The properties required to query Upsolver.
 destinationConnectorProperties_upsolver :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe UpsolverDestinationProperties)
 destinationConnectorProperties_upsolver = Lens.lens (\DestinationConnectorProperties' {upsolver} -> upsolver) (\s@DestinationConnectorProperties' {} a -> s {upsolver = a} :: DestinationConnectorProperties)
+
+-- | The properties that are required to query the custom Connector.
+destinationConnectorProperties_customConnector :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe CustomConnectorDestinationProperties)
+destinationConnectorProperties_customConnector = Lens.lens (\DestinationConnectorProperties' {customConnector} -> customConnector) (\s@DestinationConnectorProperties' {} a -> s {customConnector = a} :: DestinationConnectorProperties)
 
 -- | The properties required to query Amazon EventBridge.
 destinationConnectorProperties_eventBridge :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe EventBridgeDestinationProperties)
@@ -156,9 +186,12 @@ instance Core.FromJSON DestinationConnectorProperties where
             Prelude.<*> (x Core..:? "Honeycode")
             Prelude.<*> (x Core..:? "Salesforce")
             Prelude.<*> (x Core..:? "Snowflake")
+            Prelude.<*> (x Core..:? "SAPOData")
+            Prelude.<*> (x Core..:? "Marketo")
             Prelude.<*> (x Core..:? "Redshift")
             Prelude.<*> (x Core..:? "CustomerProfiles")
             Prelude.<*> (x Core..:? "Upsolver")
+            Prelude.<*> (x Core..:? "CustomConnector")
             Prelude.<*> (x Core..:? "EventBridge")
             Prelude.<*> (x Core..:? "LookoutMetrics")
       )
@@ -175,9 +208,12 @@ instance
         `Prelude.hashWithSalt` honeycode
         `Prelude.hashWithSalt` salesforce
         `Prelude.hashWithSalt` snowflake
+        `Prelude.hashWithSalt` sAPOData
+        `Prelude.hashWithSalt` marketo
         `Prelude.hashWithSalt` redshift
         `Prelude.hashWithSalt` customerProfiles
         `Prelude.hashWithSalt` upsolver
+        `Prelude.hashWithSalt` customConnector
         `Prelude.hashWithSalt` eventBridge
         `Prelude.hashWithSalt` lookoutMetrics
 
@@ -191,9 +227,12 @@ instance
       `Prelude.seq` Prelude.rnf honeycode
       `Prelude.seq` Prelude.rnf salesforce
       `Prelude.seq` Prelude.rnf snowflake
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf marketo
       `Prelude.seq` Prelude.rnf redshift
       `Prelude.seq` Prelude.rnf customerProfiles
       `Prelude.seq` Prelude.rnf upsolver
+      `Prelude.seq` Prelude.rnf customConnector
       `Prelude.seq` Prelude.rnf eventBridge
       `Prelude.seq` Prelude.rnf lookoutMetrics
 
@@ -206,10 +245,14 @@ instance Core.ToJSON DestinationConnectorProperties where
             ("Honeycode" Core..=) Prelude.<$> honeycode,
             ("Salesforce" Core..=) Prelude.<$> salesforce,
             ("Snowflake" Core..=) Prelude.<$> snowflake,
+            ("SAPOData" Core..=) Prelude.<$> sAPOData,
+            ("Marketo" Core..=) Prelude.<$> marketo,
             ("Redshift" Core..=) Prelude.<$> redshift,
             ("CustomerProfiles" Core..=)
               Prelude.<$> customerProfiles,
             ("Upsolver" Core..=) Prelude.<$> upsolver,
+            ("CustomConnector" Core..=)
+              Prelude.<$> customConnector,
             ("EventBridge" Core..=) Prelude.<$> eventBridge,
             ("LookoutMetrics" Core..=)
               Prelude.<$> lookoutMetrics

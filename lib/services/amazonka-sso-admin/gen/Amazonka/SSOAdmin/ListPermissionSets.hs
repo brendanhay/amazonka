@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the PermissionSets in an SSO instance.
+-- Lists the PermissionSets in an Amazon Web Services SSO instance.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListPermissionSets
@@ -58,8 +58,8 @@ data ListPermissionSets = ListPermissionSets'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text
@@ -79,8 +79,8 @@ data ListPermissionSets = ListPermissionSets'
 --
 -- 'maxResults', 'listPermissionSets_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listPermissionSets_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'listPermissionSets_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 newListPermissionSets ::
@@ -103,8 +103,8 @@ listPermissionSets_nextToken = Lens.lens (\ListPermissionSets' {nextToken} -> ne
 listPermissionSets_maxResults :: Lens.Lens' ListPermissionSets (Prelude.Maybe Prelude.Natural)
 listPermissionSets_maxResults = Lens.lens (\ListPermissionSets' {maxResults} -> maxResults) (\s@ListPermissionSets' {} a -> s {maxResults = a} :: ListPermissionSets)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 listPermissionSets_instanceArn :: Lens.Lens' ListPermissionSets Prelude.Text

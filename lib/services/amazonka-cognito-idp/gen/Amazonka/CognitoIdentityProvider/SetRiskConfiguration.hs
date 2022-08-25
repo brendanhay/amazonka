@@ -24,7 +24,7 @@
 -- for @UserPoolId@ or @ClientId@, pass null values for all four
 -- configuration types.
 --
--- To enable Amazon Cognito advanced security features, update the user
+-- To activate Amazon Cognito advanced security features, update the user
 -- pool to include the @UserPoolAddOns@ key@AdvancedSecurityMode@.
 module Amazonka.CognitoIdentityProvider.SetRiskConfiguration
   ( -- * Creating a Request
@@ -61,7 +61,7 @@ data SetRiskConfiguration = SetRiskConfiguration'
     -- mapped to @userPoolId@. When the client ID is null, the same risk
     -- configuration is applied to all the clients in the userPool.
     --
-    -- Otherwise, @ClientId@ is mapped to the client. When the client ID is not
+    -- Otherwise, @ClientId@ is mapped to the client. When the client ID isn\'t
     -- null, the user pool configuration is overridden and the risk
     -- configuration for the client is used instead.
     clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -88,7 +88,7 @@ data SetRiskConfiguration = SetRiskConfiguration'
 -- mapped to @userPoolId@. When the client ID is null, the same risk
 -- configuration is applied to all the clients in the userPool.
 --
--- Otherwise, @ClientId@ is mapped to the client. When the client ID is not
+-- Otherwise, @ClientId@ is mapped to the client. When the client ID isn\'t
 -- null, the user pool configuration is overridden and the risk
 -- configuration for the client is used instead.
 --
@@ -117,7 +117,7 @@ newSetRiskConfiguration pUserPoolId_ =
 -- mapped to @userPoolId@. When the client ID is null, the same risk
 -- configuration is applied to all the clients in the userPool.
 --
--- Otherwise, @ClientId@ is mapped to the client. When the client ID is not
+-- Otherwise, @ClientId@ is mapped to the client. When the client ID isn\'t
 -- null, the user pool configuration is overridden and the risk
 -- configuration for the client is used instead.
 setRiskConfiguration_clientId :: Lens.Lens' SetRiskConfiguration (Prelude.Maybe Prelude.Text)

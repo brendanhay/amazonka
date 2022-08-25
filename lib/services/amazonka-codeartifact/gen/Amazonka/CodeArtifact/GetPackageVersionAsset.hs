@@ -64,18 +64,20 @@ data GetPackageVersionAsset = GetPackageVersionAsset'
   { -- | The name of the package version revision that contains the requested
     -- asset.
     packageVersionRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package version with the requested asset file. The
+    -- package version component that specifies its namespace depends on its
+    -- type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package version with the requested asset.
@@ -84,13 +86,7 @@ data GetPackageVersionAsset = GetPackageVersionAsset'
     -- asset.
     repository :: Prelude.Text,
     -- | A format that specifies the type of the package version with the
-    -- requested asset file. The valid values are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- requested asset file.
     format :: PackageFormat,
     -- | The name of the package that contains the requested asset.
     package :: Prelude.Text,
@@ -112,18 +108,20 @@ data GetPackageVersionAsset = GetPackageVersionAsset'
 -- 'packageVersionRevision', 'getPackageVersionAsset_packageVersionRevision' - The name of the package version revision that contains the requested
 -- asset.
 --
--- 'domainOwner', 'getPackageVersionAsset_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'getPackageVersionAsset_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'getPackageVersionAsset_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'getPackageVersionAsset_namespace' - The namespace of the package version with the requested asset file. The
+-- package version component that specifies its namespace depends on its
+-- type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'domain', 'getPackageVersionAsset_domain' - The name of the domain that contains the repository that contains the
 -- package version with the requested asset.
@@ -132,13 +130,7 @@ data GetPackageVersionAsset = GetPackageVersionAsset'
 -- asset.
 --
 -- 'format', 'getPackageVersionAsset_format' - A format that specifies the type of the package version with the
--- requested asset file. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- requested asset file.
 --
 -- 'package', 'getPackageVersionAsset_package' - The name of the package that contains the requested asset.
 --
@@ -184,20 +176,22 @@ newGetPackageVersionAsset
 getPackageVersionAsset_packageVersionRevision :: Lens.Lens' GetPackageVersionAsset (Prelude.Maybe Prelude.Text)
 getPackageVersionAsset_packageVersionRevision = Lens.lens (\GetPackageVersionAsset' {packageVersionRevision} -> packageVersionRevision) (\s@GetPackageVersionAsset' {} a -> s {packageVersionRevision = a} :: GetPackageVersionAsset)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 getPackageVersionAsset_domainOwner :: Lens.Lens' GetPackageVersionAsset (Prelude.Maybe Prelude.Text)
 getPackageVersionAsset_domainOwner = Lens.lens (\GetPackageVersionAsset' {domainOwner} -> domainOwner) (\s@GetPackageVersionAsset' {} a -> s {domainOwner = a} :: GetPackageVersionAsset)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package version with the requested asset file. The
+-- package version component that specifies its namespace depends on its
+-- type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 getPackageVersionAsset_namespace :: Lens.Lens' GetPackageVersionAsset (Prelude.Maybe Prelude.Text)
 getPackageVersionAsset_namespace = Lens.lens (\GetPackageVersionAsset' {namespace} -> namespace) (\s@GetPackageVersionAsset' {} a -> s {namespace = a} :: GetPackageVersionAsset)
 
@@ -212,13 +206,7 @@ getPackageVersionAsset_repository :: Lens.Lens' GetPackageVersionAsset Prelude.T
 getPackageVersionAsset_repository = Lens.lens (\GetPackageVersionAsset' {repository} -> repository) (\s@GetPackageVersionAsset' {} a -> s {repository = a} :: GetPackageVersionAsset)
 
 -- | A format that specifies the type of the package version with the
--- requested asset file. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- requested asset file.
 getPackageVersionAsset_format :: Lens.Lens' GetPackageVersionAsset PackageFormat
 getPackageVersionAsset_format = Lens.lens (\GetPackageVersionAsset' {format} -> format) (\s@GetPackageVersionAsset' {} a -> s {format = a} :: GetPackageVersionAsset)
 

@@ -31,8 +31,29 @@ module Amazonka.LookoutVision.Types
     -- * ModelHostingStatus
     ModelHostingStatus (..),
 
+    -- * ModelPackagingJobStatus
+    ModelPackagingJobStatus (..),
+
     -- * ModelStatus
     ModelStatus (..),
+
+    -- * TargetDevice
+    TargetDevice (..),
+
+    -- * TargetPlatformAccelerator
+    TargetPlatformAccelerator (..),
+
+    -- * TargetPlatformArch
+    TargetPlatformArch (..),
+
+    -- * TargetPlatformOs
+    TargetPlatformOs (..),
+
+    -- * Anomaly
+    Anomaly (..),
+    newAnomaly,
+    anomaly_name,
+    anomaly_pixelAnomaly,
 
     -- * DatasetDescription
     DatasetDescription (..),
@@ -74,9 +95,30 @@ module Amazonka.LookoutVision.Types
     -- * DetectAnomalyResult
     DetectAnomalyResult (..),
     newDetectAnomalyResult,
+    detectAnomalyResult_anomalies,
     detectAnomalyResult_confidence,
     detectAnomalyResult_source,
     detectAnomalyResult_isAnomalous,
+    detectAnomalyResult_anomalyMask,
+
+    -- * GreengrassConfiguration
+    GreengrassConfiguration (..),
+    newGreengrassConfiguration,
+    greengrassConfiguration_componentDescription,
+    greengrassConfiguration_tags,
+    greengrassConfiguration_componentVersion,
+    greengrassConfiguration_targetDevice,
+    greengrassConfiguration_targetPlatform,
+    greengrassConfiguration_compilerOptions,
+    greengrassConfiguration_s3OutputLocation,
+    greengrassConfiguration_componentName,
+
+    -- * GreengrassOutputDetails
+    GreengrassOutputDetails (..),
+    newGreengrassOutputDetails,
+    greengrassOutputDetails_componentVersion,
+    greengrassOutputDetails_componentName,
+    greengrassOutputDetails_componentVersionArn,
 
     -- * ImageSource
     ImageSource (..),
@@ -94,6 +136,7 @@ module Amazonka.LookoutVision.Types
     ModelDescription (..),
     newModelDescription,
     modelDescription_evaluationManifest,
+    modelDescription_minInferenceUnits,
     modelDescription_modelVersion,
     modelDescription_evaluationEndTimestamp,
     modelDescription_status,
@@ -103,6 +146,7 @@ module Amazonka.LookoutVision.Types
     modelDescription_modelArn,
     modelDescription_evaluationResult,
     modelDescription_kmsKeyId,
+    modelDescription_maxInferenceUnits,
     modelDescription_statusMessage,
     modelDescription_outputConfig,
 
@@ -116,6 +160,44 @@ module Amazonka.LookoutVision.Types
     modelMetadata_performance,
     modelMetadata_modelArn,
     modelMetadata_statusMessage,
+
+    -- * ModelPackagingConfiguration
+    ModelPackagingConfiguration (..),
+    newModelPackagingConfiguration,
+    modelPackagingConfiguration_greengrass,
+
+    -- * ModelPackagingDescription
+    ModelPackagingDescription (..),
+    newModelPackagingDescription,
+    modelPackagingDescription_lastUpdatedTimestamp,
+    modelPackagingDescription_jobName,
+    modelPackagingDescription_modelPackagingOutputDetails,
+    modelPackagingDescription_modelVersion,
+    modelPackagingDescription_status,
+    modelPackagingDescription_creationTimestamp,
+    modelPackagingDescription_modelPackagingJobDescription,
+    modelPackagingDescription_modelPackagingMethod,
+    modelPackagingDescription_projectName,
+    modelPackagingDescription_statusMessage,
+    modelPackagingDescription_modelPackagingConfiguration,
+
+    -- * ModelPackagingJobMetadata
+    ModelPackagingJobMetadata (..),
+    newModelPackagingJobMetadata,
+    modelPackagingJobMetadata_lastUpdatedTimestamp,
+    modelPackagingJobMetadata_jobName,
+    modelPackagingJobMetadata_modelVersion,
+    modelPackagingJobMetadata_status,
+    modelPackagingJobMetadata_creationTimestamp,
+    modelPackagingJobMetadata_modelPackagingJobDescription,
+    modelPackagingJobMetadata_modelPackagingMethod,
+    modelPackagingJobMetadata_projectName,
+    modelPackagingJobMetadata_statusMessage,
+
+    -- * ModelPackagingOutputDetails
+    ModelPackagingOutputDetails (..),
+    newModelPackagingOutputDetails,
+    modelPackagingOutputDetails_greengrass,
 
     -- * ModelPerformance
     ModelPerformance (..),
@@ -134,6 +216,12 @@ module Amazonka.LookoutVision.Types
     newOutputS3Object,
     outputS3Object_bucket,
     outputS3Object_key,
+
+    -- * PixelAnomaly
+    PixelAnomaly (..),
+    newPixelAnomaly,
+    pixelAnomaly_color,
+    pixelAnomaly_totalPercentageArea,
 
     -- * ProjectDescription
     ProjectDescription (..),
@@ -161,11 +249,19 @@ module Amazonka.LookoutVision.Types
     newTag,
     tag_key,
     tag_value,
+
+    -- * TargetPlatform
+    TargetPlatform (..),
+    newTargetPlatform,
+    targetPlatform_accelerator,
+    targetPlatform_os,
+    targetPlatform_arch,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutVision.Types.Anomaly
 import Amazonka.LookoutVision.Types.DatasetDescription
 import Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
 import Amazonka.LookoutVision.Types.DatasetImageStats
@@ -173,19 +269,32 @@ import Amazonka.LookoutVision.Types.DatasetMetadata
 import Amazonka.LookoutVision.Types.DatasetSource
 import Amazonka.LookoutVision.Types.DatasetStatus
 import Amazonka.LookoutVision.Types.DetectAnomalyResult
+import Amazonka.LookoutVision.Types.GreengrassConfiguration
+import Amazonka.LookoutVision.Types.GreengrassOutputDetails
 import Amazonka.LookoutVision.Types.ImageSource
 import Amazonka.LookoutVision.Types.InputS3Object
 import Amazonka.LookoutVision.Types.ModelDescription
 import Amazonka.LookoutVision.Types.ModelHostingStatus
 import Amazonka.LookoutVision.Types.ModelMetadata
+import Amazonka.LookoutVision.Types.ModelPackagingConfiguration
+import Amazonka.LookoutVision.Types.ModelPackagingDescription
+import Amazonka.LookoutVision.Types.ModelPackagingJobMetadata
+import Amazonka.LookoutVision.Types.ModelPackagingJobStatus
+import Amazonka.LookoutVision.Types.ModelPackagingOutputDetails
 import Amazonka.LookoutVision.Types.ModelPerformance
 import Amazonka.LookoutVision.Types.ModelStatus
 import Amazonka.LookoutVision.Types.OutputConfig
 import Amazonka.LookoutVision.Types.OutputS3Object
+import Amazonka.LookoutVision.Types.PixelAnomaly
 import Amazonka.LookoutVision.Types.ProjectDescription
 import Amazonka.LookoutVision.Types.ProjectMetadata
 import Amazonka.LookoutVision.Types.S3Location
 import Amazonka.LookoutVision.Types.Tag
+import Amazonka.LookoutVision.Types.TargetDevice
+import Amazonka.LookoutVision.Types.TargetPlatform
+import Amazonka.LookoutVision.Types.TargetPlatformAccelerator
+import Amazonka.LookoutVision.Types.TargetPlatformArch
+import Amazonka.LookoutVision.Types.TargetPlatformOs
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 

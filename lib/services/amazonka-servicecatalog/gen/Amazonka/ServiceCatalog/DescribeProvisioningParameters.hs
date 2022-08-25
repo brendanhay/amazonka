@@ -55,6 +55,7 @@ module Amazonka.ServiceCatalog.DescribeProvisioningParameters
     describeProvisioningParametersResponse_tagOptions,
     describeProvisioningParametersResponse_provisioningArtifactParameters,
     describeProvisioningParametersResponse_provisioningArtifactPreferences,
+    describeProvisioningParametersResponse_provisioningArtifactOutputKeys,
     describeProvisioningParametersResponse_httpStatus,
   )
 where
@@ -210,6 +211,9 @@ instance
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "ProvisioningArtifactPreferences")
+            Prelude.<*> ( x Core..?> "ProvisioningArtifactOutputKeys"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -296,9 +300,13 @@ data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResp
     tagOptions :: Prelude.Maybe [TagOptionSummary],
     -- | Information about the parameters used to provision the product.
     provisioningArtifactParameters :: Prelude.Maybe [ProvisioningArtifactParameter],
-    -- | An object that contains information about preferences, such as regions
+    -- | An object that contains information about preferences, such as Regions
     -- and accounts, for the provisioning artifact.
     provisioningArtifactPreferences :: Prelude.Maybe ProvisioningArtifactPreferences,
+    -- | A list of the keys and descriptions of the outputs. These outputs can be
+    -- referenced from a provisioned product launched from this provisioning
+    -- artifact.
+    provisioningArtifactOutputKeys :: Prelude.Maybe [ProvisioningArtifactOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -324,8 +332,12 @@ data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResp
 --
 -- 'provisioningArtifactParameters', 'describeProvisioningParametersResponse_provisioningArtifactParameters' - Information about the parameters used to provision the product.
 --
--- 'provisioningArtifactPreferences', 'describeProvisioningParametersResponse_provisioningArtifactPreferences' - An object that contains information about preferences, such as regions
+-- 'provisioningArtifactPreferences', 'describeProvisioningParametersResponse_provisioningArtifactPreferences' - An object that contains information about preferences, such as Regions
 -- and accounts, for the provisioning artifact.
+--
+-- 'provisioningArtifactOutputKeys', 'describeProvisioningParametersResponse_provisioningArtifactOutputKeys' - A list of the keys and descriptions of the outputs. These outputs can be
+-- referenced from a provisioned product launched from this provisioning
+-- artifact.
 --
 -- 'httpStatus', 'describeProvisioningParametersResponse_httpStatus' - The response's http status code.
 newDescribeProvisioningParametersResponse ::
@@ -344,6 +356,8 @@ newDescribeProvisioningParametersResponse
         provisioningArtifactParameters =
           Prelude.Nothing,
         provisioningArtifactPreferences =
+          Prelude.Nothing,
+        provisioningArtifactOutputKeys =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -370,10 +384,16 @@ describeProvisioningParametersResponse_tagOptions = Lens.lens (\DescribeProvisio
 describeProvisioningParametersResponse_provisioningArtifactParameters :: Lens.Lens' DescribeProvisioningParametersResponse (Prelude.Maybe [ProvisioningArtifactParameter])
 describeProvisioningParametersResponse_provisioningArtifactParameters = Lens.lens (\DescribeProvisioningParametersResponse' {provisioningArtifactParameters} -> provisioningArtifactParameters) (\s@DescribeProvisioningParametersResponse' {} a -> s {provisioningArtifactParameters = a} :: DescribeProvisioningParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that contains information about preferences, such as regions
+-- | An object that contains information about preferences, such as Regions
 -- and accounts, for the provisioning artifact.
 describeProvisioningParametersResponse_provisioningArtifactPreferences :: Lens.Lens' DescribeProvisioningParametersResponse (Prelude.Maybe ProvisioningArtifactPreferences)
 describeProvisioningParametersResponse_provisioningArtifactPreferences = Lens.lens (\DescribeProvisioningParametersResponse' {provisioningArtifactPreferences} -> provisioningArtifactPreferences) (\s@DescribeProvisioningParametersResponse' {} a -> s {provisioningArtifactPreferences = a} :: DescribeProvisioningParametersResponse)
+
+-- | A list of the keys and descriptions of the outputs. These outputs can be
+-- referenced from a provisioned product launched from this provisioning
+-- artifact.
+describeProvisioningParametersResponse_provisioningArtifactOutputKeys :: Lens.Lens' DescribeProvisioningParametersResponse (Prelude.Maybe [ProvisioningArtifactOutput])
+describeProvisioningParametersResponse_provisioningArtifactOutputKeys = Lens.lens (\DescribeProvisioningParametersResponse' {provisioningArtifactOutputKeys} -> provisioningArtifactOutputKeys) (\s@DescribeProvisioningParametersResponse' {} a -> s {provisioningArtifactOutputKeys = a} :: DescribeProvisioningParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeProvisioningParametersResponse_httpStatus :: Lens.Lens' DescribeProvisioningParametersResponse Prelude.Int
@@ -390,4 +410,5 @@ instance
       `Prelude.seq` Prelude.rnf tagOptions
       `Prelude.seq` Prelude.rnf provisioningArtifactParameters
       `Prelude.seq` Prelude.rnf provisioningArtifactPreferences
+      `Prelude.seq` Prelude.rnf provisioningArtifactOutputKeys
       `Prelude.seq` Prelude.rnf httpStatus

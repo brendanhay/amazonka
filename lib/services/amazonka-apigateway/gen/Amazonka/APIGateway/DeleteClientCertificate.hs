@@ -46,8 +46,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteClientCertificate' smart constructor.
 data DeleteClientCertificate = DeleteClientCertificate'
-  { -- | [Required] The identifier of the ClientCertificate resource to be
-    -- deleted.
+  { -- | The identifier of the ClientCertificate resource to be deleted.
     clientCertificateId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +59,7 @@ data DeleteClientCertificate = DeleteClientCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientCertificateId', 'deleteClientCertificate_clientCertificateId' - [Required] The identifier of the ClientCertificate resource to be
--- deleted.
+-- 'clientCertificateId', 'deleteClientCertificate_clientCertificateId' - The identifier of the ClientCertificate resource to be deleted.
 newDeleteClientCertificate ::
   -- | 'clientCertificateId'
   Prelude.Text ->
@@ -72,8 +70,7 @@ newDeleteClientCertificate pClientCertificateId_ =
         pClientCertificateId_
     }
 
--- | [Required] The identifier of the ClientCertificate resource to be
--- deleted.
+-- | The identifier of the ClientCertificate resource to be deleted.
 deleteClientCertificate_clientCertificateId :: Lens.Lens' DeleteClientCertificate Prelude.Text
 deleteClientCertificate_clientCertificateId = Lens.lens (\DeleteClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@DeleteClientCertificate' {} a -> s {clientCertificateId = a} :: DeleteClientCertificate)
 

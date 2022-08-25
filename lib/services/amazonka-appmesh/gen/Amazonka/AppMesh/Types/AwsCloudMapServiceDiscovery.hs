@@ -20,6 +20,7 @@
 module Amazonka.AppMesh.Types.AwsCloudMapServiceDiscovery where
 
 import Amazonka.AppMesh.Types.AwsCloudMapInstanceAttribute
+import Amazonka.AppMesh.Types.IpPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -31,7 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCloudMapServiceDiscovery' smart constructor.
 data AwsCloudMapServiceDiscovery = AwsCloudMapServiceDiscovery'
-  { -- | A string map that contains attributes with values that you can use to
+  { -- | The preferred IP version that this virtual node uses. Setting the IP
+    -- preference on the virtual node only overrides the IP preference set for
+    -- the mesh on this specific node.
+    ipPreference :: Prelude.Maybe IpPreference,
+    -- | A string map that contains attributes with values that you can use to
     -- filter instances by any custom attribute that you specified when you
     -- registered the instance. Only instances that match all of the specified
     -- key\/value pairs will be returned.
@@ -51,6 +56,10 @@ data AwsCloudMapServiceDiscovery = AwsCloudMapServiceDiscovery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipPreference', 'awsCloudMapServiceDiscovery_ipPreference' - The preferred IP version that this virtual node uses. Setting the IP
+-- preference on the virtual node only overrides the IP preference set for
+-- the mesh on this specific node.
+--
 -- 'attributes', 'awsCloudMapServiceDiscovery_attributes' - A string map that contains attributes with values that you can use to
 -- filter instances by any custom attribute that you specified when you
 -- registered the instance. Only instances that match all of the specified
@@ -69,11 +78,18 @@ newAwsCloudMapServiceDiscovery
   pNamespaceName_
   pServiceName_ =
     AwsCloudMapServiceDiscovery'
-      { attributes =
+      { ipPreference =
           Prelude.Nothing,
+        attributes = Prelude.Nothing,
         namespaceName = pNamespaceName_,
         serviceName = pServiceName_
       }
+
+-- | The preferred IP version that this virtual node uses. Setting the IP
+-- preference on the virtual node only overrides the IP preference set for
+-- the mesh on this specific node.
+awsCloudMapServiceDiscovery_ipPreference :: Lens.Lens' AwsCloudMapServiceDiscovery (Prelude.Maybe IpPreference)
+awsCloudMapServiceDiscovery_ipPreference = Lens.lens (\AwsCloudMapServiceDiscovery' {ipPreference} -> ipPreference) (\s@AwsCloudMapServiceDiscovery' {} a -> s {ipPreference = a} :: AwsCloudMapServiceDiscovery)
 
 -- | A string map that contains attributes with values that you can use to
 -- filter instances by any custom attribute that you specified when you
@@ -96,20 +112,23 @@ instance Core.FromJSON AwsCloudMapServiceDiscovery where
       "AwsCloudMapServiceDiscovery"
       ( \x ->
           AwsCloudMapServiceDiscovery'
-            Prelude.<$> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "ipPreference")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "namespaceName")
             Prelude.<*> (x Core..: "serviceName")
       )
 
 instance Prelude.Hashable AwsCloudMapServiceDiscovery where
   hashWithSalt _salt AwsCloudMapServiceDiscovery' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` ipPreference
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData AwsCloudMapServiceDiscovery where
   rnf AwsCloudMapServiceDiscovery' {..} =
-    Prelude.rnf attributes
+    Prelude.rnf ipPreference
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf serviceName
 
@@ -117,7 +136,8 @@ instance Core.ToJSON AwsCloudMapServiceDiscovery where
   toJSON AwsCloudMapServiceDiscovery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("attributes" Core..=) Prelude.<$> attributes,
+          [ ("ipPreference" Core..=) Prelude.<$> ipPreference,
+            ("attributes" Core..=) Prelude.<$> attributes,
             Prelude.Just ("namespaceName" Core..= namespaceName),
             Prelude.Just ("serviceName" Core..= serviceName)
           ]

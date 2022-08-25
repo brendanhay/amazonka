@@ -33,6 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 -- versions 4.8.0 and later, excluding 5.0.x versions. Spot Instance
 -- allocation strategy is available in Amazon EMR version 5.12.1 and later.
 --
+-- Spot Instances with a defined duration (also known as Spot blocks) are
+-- no longer available to new customers from July 1, 2021. For customers
+-- who have previously used the feature, we will continue to support Spot
+-- Instances with a defined duration until December 31, 2022.
+--
 -- /See:/ 'newSpotProvisioningSpecification' smart constructor.
 data SpotProvisioningSpecification = SpotProvisioningSpecification'
   { -- | The defined duration for Spot Instances (also known as Spot blocks) in
@@ -43,6 +48,11 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
     -- ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
     -- termination and provides a Spot Instance termination notice, which gives
     -- the instance a two-minute warning before it terminates.
+    --
+    -- Spot Instances with a defined duration (also known as Spot blocks) are
+    -- no longer available to new customers from July 1, 2021. For customers
+    -- who have previously used the feature, we will continue to support Spot
+    -- Instances with a defined duration until December 31, 2022.
     blockDurationMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the strategy to use in launching Spot Instance fleets.
     -- Currently, the only option is capacity-optimized (the default), which
@@ -81,6 +91,11 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
 -- ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
 -- termination and provides a Spot Instance termination notice, which gives
 -- the instance a two-minute warning before it terminates.
+--
+-- Spot Instances with a defined duration (also known as Spot blocks) are
+-- no longer available to new customers from July 1, 2021. For customers
+-- who have previously used the feature, we will continue to support Spot
+-- Instances with a defined duration until December 31, 2022.
 --
 -- 'allocationStrategy', 'spotProvisioningSpecification_allocationStrategy' - Specifies the strategy to use in launching Spot Instance fleets.
 -- Currently, the only option is capacity-optimized (the default), which
@@ -125,6 +140,11 @@ newSpotProvisioningSpecification
 -- ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
 -- termination and provides a Spot Instance termination notice, which gives
 -- the instance a two-minute warning before it terminates.
+--
+-- Spot Instances with a defined duration (also known as Spot blocks) are
+-- no longer available to new customers from July 1, 2021. For customers
+-- who have previously used the feature, we will continue to support Spot
+-- Instances with a defined duration until December 31, 2022.
 spotProvisioningSpecification_blockDurationMinutes :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe Prelude.Natural)
 spotProvisioningSpecification_blockDurationMinutes = Lens.lens (\SpotProvisioningSpecification' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotProvisioningSpecification' {} a -> s {blockDurationMinutes = a} :: SpotProvisioningSpecification)
 

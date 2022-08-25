@@ -48,10 +48,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource from which to delete
-    -- tags. Currently, the supported resources are Amazon ECS capacity
-    -- providers, tasks, services, task definitions, clusters, and container
-    -- instances.
+  { -- | The Amazon Resource Name (ARN) of the resource to delete tags from.
+    -- Currently, the supported resources are Amazon ECS capacity providers,
+    -- tasks, services, task definitions, clusters, and container instances.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to be removed.
     tagKeys :: [Prelude.Text]
@@ -66,10 +65,9 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource from which to delete
--- tags. Currently, the supported resources are Amazon ECS capacity
--- providers, tasks, services, task definitions, clusters, and container
--- instances.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to delete tags from.
+-- Currently, the supported resources are Amazon ECS capacity providers,
+-- tasks, services, task definitions, clusters, and container instances.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to be removed.
 newUntagResource ::
@@ -82,10 +80,9 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource from which to delete
--- tags. Currently, the supported resources are Amazon ECS capacity
--- providers, tasks, services, task definitions, clusters, and container
--- instances.
+-- | The Amazon Resource Name (ARN) of the resource to delete tags from.
+-- Currently, the supported resources are Amazon ECS capacity providers,
+-- tasks, services, task definitions, clusters, and container instances.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

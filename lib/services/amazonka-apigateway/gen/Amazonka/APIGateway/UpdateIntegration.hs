@@ -66,15 +66,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateIntegration' smart constructor.
 data UpdateIntegration = UpdateIntegration'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Represents an update integration request\'s resource
-    -- identifier.
+    -- | Represents an update integration request\'s resource identifier.
     resourceId :: Prelude.Text,
-    -- | [Required] Represents an update integration request\'s HTTP method.
+    -- | Represents an update integration request\'s HTTP method.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,15 +86,14 @@ data UpdateIntegration = UpdateIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateIntegration_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateIntegration_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateIntegration_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateIntegration_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'updateIntegration_resourceId' - [Required] Represents an update integration request\'s resource
--- identifier.
+-- 'resourceId', 'updateIntegration_resourceId' - Represents an update integration request\'s resource identifier.
 --
--- 'httpMethod', 'updateIntegration_httpMethod' - [Required] Represents an update integration request\'s HTTP method.
+-- 'httpMethod', 'updateIntegration_httpMethod' - Represents an update integration request\'s HTTP method.
 newUpdateIntegration ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -116,21 +114,20 @@ newUpdateIntegration
         httpMethod = pHttpMethod_
       }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateIntegration_patchOperations :: Lens.Lens' UpdateIntegration (Prelude.Maybe [PatchOperation])
 updateIntegration_patchOperations = Lens.lens (\UpdateIntegration' {patchOperations} -> patchOperations) (\s@UpdateIntegration' {} a -> s {patchOperations = a} :: UpdateIntegration) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateIntegration_restApiId :: Lens.Lens' UpdateIntegration Prelude.Text
 updateIntegration_restApiId = Lens.lens (\UpdateIntegration' {restApiId} -> restApiId) (\s@UpdateIntegration' {} a -> s {restApiId = a} :: UpdateIntegration)
 
--- | [Required] Represents an update integration request\'s resource
--- identifier.
+-- | Represents an update integration request\'s resource identifier.
 updateIntegration_resourceId :: Lens.Lens' UpdateIntegration Prelude.Text
 updateIntegration_resourceId = Lens.lens (\UpdateIntegration' {resourceId} -> resourceId) (\s@UpdateIntegration' {} a -> s {resourceId = a} :: UpdateIntegration)
 
--- | [Required] Represents an update integration request\'s HTTP method.
+-- | Represents an update integration request\'s HTTP method.
 updateIntegration_httpMethod :: Lens.Lens' UpdateIntegration Prelude.Text
 updateIntegration_httpMethod = Lens.lens (\UpdateIntegration' {httpMethod} -> httpMethod) (\s@UpdateIntegration' {} a -> s {httpMethod = a} :: UpdateIntegration)
 

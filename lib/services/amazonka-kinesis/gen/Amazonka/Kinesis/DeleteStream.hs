@@ -36,8 +36,8 @@
 -- When you delete a stream, any shards in that stream are also deleted,
 -- and any tags are dissociated from the stream.
 --
--- You can use the DescribeStream operation to check the state of the
--- stream, which is returned in @StreamStatus@.
+-- You can use the DescribeStreamSummary operation to check the state of
+-- the stream, which is returned in @StreamStatus@.
 --
 -- DeleteStream has a limit of five transactions per second per account.
 module Amazonka.Kinesis.DeleteStream

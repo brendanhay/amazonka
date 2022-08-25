@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists event source mappings. Specify an @EventSourceArn@ to only show
+-- Lists event source mappings. Specify an @EventSourceArn@ to show only
 -- event source mappings for a single event source.
 --
 -- This operation returns paginated results.

@@ -35,7 +35,7 @@ import Amazonka.Rekognition.Types.TextTypes
 -- of text in which the word appears. The word @Id@ is also an index for
 -- the word within a line of words.
 --
--- For more information, see Detecting Text in the Amazon Rekognition
+-- For more information, see Detecting text in the Amazon Rekognition
 -- Developer Guide.
 --
 -- /See:/ 'newTextDetection' smart constructor.

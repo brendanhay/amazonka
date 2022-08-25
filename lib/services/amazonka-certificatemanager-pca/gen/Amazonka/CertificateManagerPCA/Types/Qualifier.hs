@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a @PolicyInformation@ qualifier. ACM Private CA supports the
--- <https://tools.ietf.org/html/rfc5280#section-4.2.1.4 certification practice statement (CPS) qualifier>
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4 certification practice statement (CPS) qualifier>
 -- defined in RFC 5280.
 --
 -- /See:/ 'newQualifier' smart constructor.

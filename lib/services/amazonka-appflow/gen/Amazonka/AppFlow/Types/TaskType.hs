@@ -26,6 +26,7 @@ module Amazonka.AppFlow.Types.TaskType
         TaskType_Map_all,
         TaskType_Mask,
         TaskType_Merge,
+        TaskType_Passthrough,
         TaskType_Truncate,
         TaskType_Validate
       ),
@@ -81,6 +82,9 @@ pattern TaskType_Mask = TaskType' "Mask"
 pattern TaskType_Merge :: TaskType
 pattern TaskType_Merge = TaskType' "Merge"
 
+pattern TaskType_Passthrough :: TaskType
+pattern TaskType_Passthrough = TaskType' "Passthrough"
+
 pattern TaskType_Truncate :: TaskType
 pattern TaskType_Truncate = TaskType' "Truncate"
 
@@ -94,6 +98,7 @@ pattern TaskType_Validate = TaskType' "Validate"
   TaskType_Map_all,
   TaskType_Mask,
   TaskType_Merge,
+  TaskType_Passthrough,
   TaskType_Truncate,
   TaskType_Validate,
   TaskType'

@@ -27,6 +27,7 @@ module Amazonka.SageMaker.UpdateDomain
     newUpdateDomain,
 
     -- * Request Lenses
+    updateDomain_domainSettingsForUpdate,
     updateDomain_defaultUserSettings,
     updateDomain_domainId,
 
@@ -49,7 +50,9 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { -- | A collection of settings.
+  { -- | A collection of @DomainSettings@ configuration values to update.
+    domainSettingsForUpdate :: Prelude.Maybe DomainSettingsForUpdate,
+    -- | A collection of settings.
     defaultUserSettings :: Prelude.Maybe UserSettings,
     -- | The ID of the domain to be updated.
     domainId :: Prelude.Text
@@ -64,6 +67,8 @@ data UpdateDomain = UpdateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainSettingsForUpdate', 'updateDomain_domainSettingsForUpdate' - A collection of @DomainSettings@ configuration values to update.
+--
 -- 'defaultUserSettings', 'updateDomain_defaultUserSettings' - A collection of settings.
 --
 -- 'domainId', 'updateDomain_domainId' - The ID of the domain to be updated.
@@ -73,10 +78,15 @@ newUpdateDomain ::
   UpdateDomain
 newUpdateDomain pDomainId_ =
   UpdateDomain'
-    { defaultUserSettings =
+    { domainSettingsForUpdate =
         Prelude.Nothing,
+      defaultUserSettings = Prelude.Nothing,
       domainId = pDomainId_
     }
+
+-- | A collection of @DomainSettings@ configuration values to update.
+updateDomain_domainSettingsForUpdate :: Lens.Lens' UpdateDomain (Prelude.Maybe DomainSettingsForUpdate)
+updateDomain_domainSettingsForUpdate = Lens.lens (\UpdateDomain' {domainSettingsForUpdate} -> domainSettingsForUpdate) (\s@UpdateDomain' {} a -> s {domainSettingsForUpdate = a} :: UpdateDomain)
 
 -- | A collection of settings.
 updateDomain_defaultUserSettings :: Lens.Lens' UpdateDomain (Prelude.Maybe UserSettings)
@@ -99,12 +109,15 @@ instance Core.AWSRequest UpdateDomain where
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =
-    _salt `Prelude.hashWithSalt` defaultUserSettings
+    _salt
+      `Prelude.hashWithSalt` domainSettingsForUpdate
+      `Prelude.hashWithSalt` defaultUserSettings
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData UpdateDomain where
   rnf UpdateDomain' {..} =
-    Prelude.rnf defaultUserSettings
+    Prelude.rnf domainSettingsForUpdate
+      `Prelude.seq` Prelude.rnf defaultUserSettings
       `Prelude.seq` Prelude.rnf domainId
 
 instance Core.ToHeaders UpdateDomain where
@@ -124,7 +137,9 @@ instance Core.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultUserSettings" Core..=)
+          [ ("DomainSettingsForUpdate" Core..=)
+              Prelude.<$> domainSettingsForUpdate,
+            ("DefaultUserSettings" Core..=)
               Prelude.<$> defaultUserSettings,
             Prelude.Just ("DomainId" Core..= domainId)
           ]

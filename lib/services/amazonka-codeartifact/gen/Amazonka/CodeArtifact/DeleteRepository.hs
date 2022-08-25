@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository to delete.
     domain :: Prelude.Text,
@@ -68,8 +68,8 @@ data DeleteRepository = DeleteRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'deleteRepository_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'deleteRepository_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'deleteRepository_domain' - The name of the domain that contains the repository to delete.
 --
@@ -87,8 +87,8 @@ newDeleteRepository pDomain_ pRepository_ =
       repository = pRepository_
     }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 deleteRepository_domainOwner :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Text)
 deleteRepository_domainOwner = Lens.lens (\DeleteRepository' {domainOwner} -> domainOwner) (\s@DeleteRepository' {} a -> s {domainOwner = a} :: DeleteRepository)
 

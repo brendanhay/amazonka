@@ -331,6 +331,12 @@ module Amazonka.S3
     GetObjectAclResponse (GetObjectAclResponse'),
     newGetObjectAclResponse,
 
+    -- ** GetObjectAttributes
+    GetObjectAttributes (GetObjectAttributes'),
+    newGetObjectAttributes,
+    GetObjectAttributesResponse (GetObjectAttributesResponse'),
+    newGetObjectAttributesResponse,
+
     -- ** GetObjectLegalHold
     GetObjectLegalHold (GetObjectLegalHold'),
     newGetObjectLegalHold,
@@ -642,6 +648,12 @@ module Amazonka.S3
     -- ** BucketVersioningStatus
     BucketVersioningStatus (..),
 
+    -- ** ChecksumAlgorithm
+    ChecksumAlgorithm (..),
+
+    -- ** ChecksumMode
+    ChecksumMode (..),
+
     -- ** CompressionType
     CompressionType (..),
 
@@ -701,6 +713,9 @@ module Amazonka.S3
 
     -- ** MetricsStatus
     MetricsStatus (..),
+
+    -- ** ObjectAttributes
+    ObjectAttributes (..),
 
     -- ** ObjectCannedACL
     ObjectCannedACL (..),
@@ -850,6 +865,10 @@ module Amazonka.S3
     CSVOutput (CSVOutput'),
     newCSVOutput,
 
+    -- ** Checksum
+    Checksum (Checksum'),
+    newChecksum,
+
     -- ** CommonPrefix
     CommonPrefix (CommonPrefix'),
     newCommonPrefix,
@@ -922,6 +941,10 @@ module Amazonka.S3
     ErrorDocument (ErrorDocument'),
     newErrorDocument,
 
+    -- ** EventBridgeConfiguration
+    EventBridgeConfiguration (EventBridgeConfiguration'),
+    newEventBridgeConfiguration,
+
     -- ** ExistingObjectReplication
     ExistingObjectReplication (ExistingObjectReplication'),
     newExistingObjectReplication,
@@ -929,6 +952,10 @@ module Amazonka.S3
     -- ** FilterRule
     FilterRule (FilterRule'),
     newFilterRule,
+
+    -- ** GetObjectAttributesParts
+    GetObjectAttributesParts (GetObjectAttributesParts'),
+    newGetObjectAttributesParts,
 
     -- ** GlacierJobParameters
     GlacierJobParameters (GlacierJobParameters'),
@@ -1085,6 +1112,10 @@ module Amazonka.S3
     -- ** ObjectLockRule
     ObjectLockRule (ObjectLockRule'),
     newObjectLockRule,
+
+    -- ** ObjectPart
+    ObjectPart (ObjectPart'),
+    newObjectPart,
 
     -- ** ObjectVersion
     ObjectVersion (ObjectVersion'),
@@ -1340,6 +1371,7 @@ import Amazonka.S3.GetBucketVersioning
 import Amazonka.S3.GetBucketWebsite
 import Amazonka.S3.GetObject
 import Amazonka.S3.GetObjectAcl
+import Amazonka.S3.GetObjectAttributes
 import Amazonka.S3.GetObjectLegalHold
 import Amazonka.S3.GetObjectLockConfiguration
 import Amazonka.S3.GetObjectRetention

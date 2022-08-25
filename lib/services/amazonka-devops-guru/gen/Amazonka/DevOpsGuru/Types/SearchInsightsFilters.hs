@@ -35,7 +35,7 @@ data SearchInsightsFilters = SearchInsightsFilters'
   { -- | An array of severity values used to search for insights.
     severities :: Prelude.Maybe [InsightSeverity],
     resourceCollection :: Prelude.Maybe ResourceCollection,
-    -- | A collection of the names of AWS services.
+    -- | A collection of the names of Amazon Web Services services.
     serviceCollection :: Prelude.Maybe ServiceCollection,
     -- | An array of status values used to search for insights.
     statuses :: Prelude.Maybe [InsightStatus]
@@ -54,7 +54,7 @@ data SearchInsightsFilters = SearchInsightsFilters'
 --
 -- 'resourceCollection', 'searchInsightsFilters_resourceCollection' - Undocumented member.
 --
--- 'serviceCollection', 'searchInsightsFilters_serviceCollection' - A collection of the names of AWS services.
+-- 'serviceCollection', 'searchInsightsFilters_serviceCollection' - A collection of the names of Amazon Web Services services.
 --
 -- 'statuses', 'searchInsightsFilters_statuses' - An array of status values used to search for insights.
 newSearchInsightsFilters ::
@@ -76,7 +76,7 @@ searchInsightsFilters_severities = Lens.lens (\SearchInsightsFilters' {severitie
 searchInsightsFilters_resourceCollection :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe ResourceCollection)
 searchInsightsFilters_resourceCollection = Lens.lens (\SearchInsightsFilters' {resourceCollection} -> resourceCollection) (\s@SearchInsightsFilters' {} a -> s {resourceCollection = a} :: SearchInsightsFilters)
 
--- | A collection of the names of AWS services.
+-- | A collection of the names of Amazon Web Services services.
 searchInsightsFilters_serviceCollection :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe ServiceCollection)
 searchInsightsFilters_serviceCollection = Lens.lens (\SearchInsightsFilters' {serviceCollection} -> serviceCollection) (\s@SearchInsightsFilters' {} a -> s {serviceCollection = a} :: SearchInsightsFilters)
 

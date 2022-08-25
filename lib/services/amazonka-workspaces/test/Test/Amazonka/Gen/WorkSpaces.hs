@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestCopyWorkspaceImage $
 --             newCopyWorkspaceImage
 --
+--         , requestCreateConnectClientAddIn $
+--             newCreateConnectClientAddIn
+--
 --         , requestCreateConnectionAlias $
 --             newCreateConnectionAlias
 --
@@ -54,8 +57,17 @@ import Test.Tasty
 --         , requestCreateWorkspaceBundle $
 --             newCreateWorkspaceBundle
 --
+--         , requestCreateWorkspaceImage $
+--             newCreateWorkspaceImage
+--
 --         , requestCreateWorkspaces $
 --             newCreateWorkspaces
+--
+--         , requestDeleteClientBranding $
+--             newDeleteClientBranding
+--
+--         , requestDeleteConnectClientAddIn $
+--             newDeleteConnectClientAddIn
 --
 --         , requestDeleteConnectionAlias $
 --             newDeleteConnectionAlias
@@ -81,8 +93,14 @@ import Test.Tasty
 --         , requestDescribeAccountModifications $
 --             newDescribeAccountModifications
 --
+--         , requestDescribeClientBranding $
+--             newDescribeClientBranding
+--
 --         , requestDescribeClientProperties $
 --             newDescribeClientProperties
+--
+--         , requestDescribeConnectClientAddIns $
+--             newDescribeConnectClientAddIns
 --
 --         , requestDescribeConnectionAliasPermissions $
 --             newDescribeConnectionAliasPermissions
@@ -123,6 +141,9 @@ import Test.Tasty
 --         , requestDisassociateIpGroups $
 --             newDisassociateIpGroups
 --
+--         , requestImportClientBranding $
+--             newImportClientBranding
+--
 --         , requestImportWorkspaceImage $
 --             newImportWorkspaceImage
 --
@@ -137,6 +158,9 @@ import Test.Tasty
 --
 --         , requestModifyClientProperties $
 --             newModifyClientProperties
+--
+--         , requestModifySamlProperties $
+--             newModifySamlProperties
 --
 --         , requestModifySelfservicePermissions $
 --             newModifySelfservicePermissions
@@ -177,6 +201,9 @@ import Test.Tasty
 --         , requestTerminateWorkspaces $
 --             newTerminateWorkspaces
 --
+--         , requestUpdateConnectClientAddIn $
+--             newUpdateConnectClientAddIn
+--
 --         , requestUpdateConnectionAliasPermission $
 --             newUpdateConnectionAliasPermission
 --
@@ -204,6 +231,9 @@ import Test.Tasty
 --         , responseCopyWorkspaceImage $
 --             newCopyWorkspaceImageResponse
 --
+--         , responseCreateConnectClientAddIn $
+--             newCreateConnectClientAddInResponse
+--
 --         , responseCreateConnectionAlias $
 --             newCreateConnectionAliasResponse
 --
@@ -219,8 +249,17 @@ import Test.Tasty
 --         , responseCreateWorkspaceBundle $
 --             newCreateWorkspaceBundleResponse
 --
+--         , responseCreateWorkspaceImage $
+--             newCreateWorkspaceImageResponse
+--
 --         , responseCreateWorkspaces $
 --             newCreateWorkspacesResponse
+--
+--         , responseDeleteClientBranding $
+--             newDeleteClientBrandingResponse
+--
+--         , responseDeleteConnectClientAddIn $
+--             newDeleteConnectClientAddInResponse
 --
 --         , responseDeleteConnectionAlias $
 --             newDeleteConnectionAliasResponse
@@ -246,8 +285,14 @@ import Test.Tasty
 --         , responseDescribeAccountModifications $
 --             newDescribeAccountModificationsResponse
 --
+--         , responseDescribeClientBranding $
+--             newDescribeClientBrandingResponse
+--
 --         , responseDescribeClientProperties $
 --             newDescribeClientPropertiesResponse
+--
+--         , responseDescribeConnectClientAddIns $
+--             newDescribeConnectClientAddInsResponse
 --
 --         , responseDescribeConnectionAliasPermissions $
 --             newDescribeConnectionAliasPermissionsResponse
@@ -288,6 +333,9 @@ import Test.Tasty
 --         , responseDisassociateIpGroups $
 --             newDisassociateIpGroupsResponse
 --
+--         , responseImportClientBranding $
+--             newImportClientBrandingResponse
+--
 --         , responseImportWorkspaceImage $
 --             newImportWorkspaceImageResponse
 --
@@ -302,6 +350,9 @@ import Test.Tasty
 --
 --         , responseModifyClientProperties $
 --             newModifyClientPropertiesResponse
+--
+--         , responseModifySamlProperties $
+--             newModifySamlPropertiesResponse
 --
 --         , responseModifySelfservicePermissions $
 --             newModifySelfservicePermissionsResponse
@@ -341,6 +392,9 @@ import Test.Tasty
 --
 --         , responseTerminateWorkspaces $
 --             newTerminateWorkspacesResponse
+--
+--         , responseUpdateConnectClientAddIn $
+--             newUpdateConnectClientAddInResponse
 --
 --         , responseUpdateConnectionAliasPermission $
 --             newUpdateConnectionAliasPermissionResponse
@@ -383,6 +437,12 @@ requestCopyWorkspaceImage =
     "CopyWorkspaceImage"
     "fixture/CopyWorkspaceImage.yaml"
 
+requestCreateConnectClientAddIn :: CreateConnectClientAddIn -> TestTree
+requestCreateConnectClientAddIn =
+  req
+    "CreateConnectClientAddIn"
+    "fixture/CreateConnectClientAddIn.yaml"
+
 requestCreateConnectionAlias :: CreateConnectionAlias -> TestTree
 requestCreateConnectionAlias =
   req
@@ -413,11 +473,29 @@ requestCreateWorkspaceBundle =
     "CreateWorkspaceBundle"
     "fixture/CreateWorkspaceBundle.yaml"
 
+requestCreateWorkspaceImage :: CreateWorkspaceImage -> TestTree
+requestCreateWorkspaceImage =
+  req
+    "CreateWorkspaceImage"
+    "fixture/CreateWorkspaceImage.yaml"
+
 requestCreateWorkspaces :: CreateWorkspaces -> TestTree
 requestCreateWorkspaces =
   req
     "CreateWorkspaces"
     "fixture/CreateWorkspaces.yaml"
+
+requestDeleteClientBranding :: DeleteClientBranding -> TestTree
+requestDeleteClientBranding =
+  req
+    "DeleteClientBranding"
+    "fixture/DeleteClientBranding.yaml"
+
+requestDeleteConnectClientAddIn :: DeleteConnectClientAddIn -> TestTree
+requestDeleteConnectClientAddIn =
+  req
+    "DeleteConnectClientAddIn"
+    "fixture/DeleteConnectClientAddIn.yaml"
 
 requestDeleteConnectionAlias :: DeleteConnectionAlias -> TestTree
 requestDeleteConnectionAlias =
@@ -467,11 +545,23 @@ requestDescribeAccountModifications =
     "DescribeAccountModifications"
     "fixture/DescribeAccountModifications.yaml"
 
+requestDescribeClientBranding :: DescribeClientBranding -> TestTree
+requestDescribeClientBranding =
+  req
+    "DescribeClientBranding"
+    "fixture/DescribeClientBranding.yaml"
+
 requestDescribeClientProperties :: DescribeClientProperties -> TestTree
 requestDescribeClientProperties =
   req
     "DescribeClientProperties"
     "fixture/DescribeClientProperties.yaml"
+
+requestDescribeConnectClientAddIns :: DescribeConnectClientAddIns -> TestTree
+requestDescribeConnectClientAddIns =
+  req
+    "DescribeConnectClientAddIns"
+    "fixture/DescribeConnectClientAddIns.yaml"
 
 requestDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissions -> TestTree
 requestDescribeConnectionAliasPermissions =
@@ -551,6 +641,12 @@ requestDisassociateIpGroups =
     "DisassociateIpGroups"
     "fixture/DisassociateIpGroups.yaml"
 
+requestImportClientBranding :: ImportClientBranding -> TestTree
+requestImportClientBranding =
+  req
+    "ImportClientBranding"
+    "fixture/ImportClientBranding.yaml"
+
 requestImportWorkspaceImage :: ImportWorkspaceImage -> TestTree
 requestImportWorkspaceImage =
   req
@@ -580,6 +676,12 @@ requestModifyClientProperties =
   req
     "ModifyClientProperties"
     "fixture/ModifyClientProperties.yaml"
+
+requestModifySamlProperties :: ModifySamlProperties -> TestTree
+requestModifySamlProperties =
+  req
+    "ModifySamlProperties"
+    "fixture/ModifySamlProperties.yaml"
 
 requestModifySelfservicePermissions :: ModifySelfservicePermissions -> TestTree
 requestModifySelfservicePermissions =
@@ -659,6 +761,12 @@ requestTerminateWorkspaces =
     "TerminateWorkspaces"
     "fixture/TerminateWorkspaces.yaml"
 
+requestUpdateConnectClientAddIn :: UpdateConnectClientAddIn -> TestTree
+requestUpdateConnectClientAddIn =
+  req
+    "UpdateConnectClientAddIn"
+    "fixture/UpdateConnectClientAddIn.yaml"
+
 requestUpdateConnectionAliasPermission :: UpdateConnectionAliasPermission -> TestTree
 requestUpdateConnectionAliasPermission =
   req
@@ -717,6 +825,14 @@ responseCopyWorkspaceImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CopyWorkspaceImage)
 
+responseCreateConnectClientAddIn :: CreateConnectClientAddInResponse -> TestTree
+responseCreateConnectClientAddIn =
+  res
+    "CreateConnectClientAddInResponse"
+    "fixture/CreateConnectClientAddInResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateConnectClientAddIn)
+
 responseCreateConnectionAlias :: CreateConnectionAliasResponse -> TestTree
 responseCreateConnectionAlias =
   res
@@ -757,6 +873,14 @@ responseCreateWorkspaceBundle =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateWorkspaceBundle)
 
+responseCreateWorkspaceImage :: CreateWorkspaceImageResponse -> TestTree
+responseCreateWorkspaceImage =
+  res
+    "CreateWorkspaceImageResponse"
+    "fixture/CreateWorkspaceImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkspaceImage)
+
 responseCreateWorkspaces :: CreateWorkspacesResponse -> TestTree
 responseCreateWorkspaces =
   res
@@ -764,6 +888,22 @@ responseCreateWorkspaces =
     "fixture/CreateWorkspacesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateWorkspaces)
+
+responseDeleteClientBranding :: DeleteClientBrandingResponse -> TestTree
+responseDeleteClientBranding =
+  res
+    "DeleteClientBrandingResponse"
+    "fixture/DeleteClientBrandingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteClientBranding)
+
+responseDeleteConnectClientAddIn :: DeleteConnectClientAddInResponse -> TestTree
+responseDeleteConnectClientAddIn =
+  res
+    "DeleteConnectClientAddInResponse"
+    "fixture/DeleteConnectClientAddInResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnectClientAddIn)
 
 responseDeleteConnectionAlias :: DeleteConnectionAliasResponse -> TestTree
 responseDeleteConnectionAlias =
@@ -829,6 +969,14 @@ responseDescribeAccountModifications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccountModifications)
 
+responseDescribeClientBranding :: DescribeClientBrandingResponse -> TestTree
+responseDescribeClientBranding =
+  res
+    "DescribeClientBrandingResponse"
+    "fixture/DescribeClientBrandingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientBranding)
+
 responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
 responseDescribeClientProperties =
   res
@@ -836,6 +984,14 @@ responseDescribeClientProperties =
     "fixture/DescribeClientPropertiesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeClientProperties)
+
+responseDescribeConnectClientAddIns :: DescribeConnectClientAddInsResponse -> TestTree
+responseDescribeConnectClientAddIns =
+  res
+    "DescribeConnectClientAddInsResponse"
+    "fixture/DescribeConnectClientAddInsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectClientAddIns)
 
 responseDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> TestTree
 responseDescribeConnectionAliasPermissions =
@@ -941,6 +1097,14 @@ responseDisassociateIpGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateIpGroups)
 
+responseImportClientBranding :: ImportClientBrandingResponse -> TestTree
+responseImportClientBranding =
+  res
+    "ImportClientBrandingResponse"
+    "fixture/ImportClientBrandingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportClientBranding)
+
 responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
 responseImportWorkspaceImage =
   res
@@ -980,6 +1144,14 @@ responseModifyClientProperties =
     "fixture/ModifyClientPropertiesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyClientProperties)
+
+responseModifySamlProperties :: ModifySamlPropertiesResponse -> TestTree
+responseModifySamlProperties =
+  res
+    "ModifySamlPropertiesResponse"
+    "fixture/ModifySamlPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifySamlProperties)
 
 responseModifySelfservicePermissions :: ModifySelfservicePermissionsResponse -> TestTree
 responseModifySelfservicePermissions =
@@ -1084,6 +1256,14 @@ responseTerminateWorkspaces =
     "fixture/TerminateWorkspacesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TerminateWorkspaces)
+
+responseUpdateConnectClientAddIn :: UpdateConnectClientAddInResponse -> TestTree
+responseUpdateConnectClientAddIn =
+  res
+    "UpdateConnectClientAddInResponse"
+    "fixture/UpdateConnectClientAddInResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectClientAddIn)
 
 responseUpdateConnectionAliasPermission :: UpdateConnectionAliasPermissionResponse -> TestTree
 responseUpdateConnectionAliasPermission =

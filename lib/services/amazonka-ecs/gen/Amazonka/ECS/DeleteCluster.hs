@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified cluster. The cluster will transition to the
--- @INACTIVE@ state. Clusters with an @INACTIVE@ status may remain
--- discoverable in your account for a period of time. However, this
--- behavior is subject to change in the future, so you should not rely on
--- @INACTIVE@ clusters persisting.
+-- Deletes the specified cluster. The cluster transitions to the @INACTIVE@
+-- state. Clusters with an @INACTIVE@ status might remain discoverable in
+-- your account for a period of time. However, this behavior is subject to
+-- change in the future. We don\'t recommend that you rely on @INACTIVE@
+-- clusters persisting.
 --
 -- You must deregister all container instances from this cluster before you
 -- may delete it. You can list the container instances in a cluster with

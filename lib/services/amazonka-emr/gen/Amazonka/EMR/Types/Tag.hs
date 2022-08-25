@@ -33,8 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data Tag = Tag'
   { -- | A user-defined key, which is the minimum required information for a
     -- valid tag. For more information, see
-    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag>
-    -- .
+    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag>.
     key :: Prelude.Maybe Prelude.Text,
     -- | A user-defined value, which is optional in a tag. For more information,
     -- see
@@ -53,8 +52,7 @@ data Tag = Tag'
 --
 -- 'key', 'tag_key' - A user-defined key, which is the minimum required information for a
 -- valid tag. For more information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag>
--- .
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag>.
 --
 -- 'value', 'tag_value' - A user-defined value, which is optional in a tag. For more information,
 -- see
@@ -69,8 +67,7 @@ newTag =
 
 -- | A user-defined key, which is the minimum required information for a
 -- valid tag. For more information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag>
--- .
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag>.
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 

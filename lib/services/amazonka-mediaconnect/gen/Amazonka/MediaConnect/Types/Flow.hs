@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaConnect.Types.Entitlement
 import Amazonka.MediaConnect.Types.FailoverConfig
+import Amazonka.MediaConnect.Types.Maintenance
 import Amazonka.MediaConnect.Types.MediaStream
 import Amazonka.MediaConnect.Types.Output
 import Amazonka.MediaConnect.Types.Source
@@ -36,6 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newFlow' smart constructor.
 data Flow = Flow'
   { sources :: Prelude.Maybe [Source],
+    maintenance :: Prelude.Maybe Maintenance,
     -- | The VPC Interfaces for this flow.
     vpcInterfaces :: Prelude.Maybe [VpcInterface],
     -- | The IP address from which video will be sent to output destinations.
@@ -75,6 +77,8 @@ data Flow = Flow'
 -- for backwards compatibility:
 --
 -- 'sources', 'flow_sources' - Undocumented member.
+--
+-- 'maintenance', 'flow_maintenance' - Undocumented member.
 --
 -- 'vpcInterfaces', 'flow_vpcInterfaces' - The VPC Interfaces for this flow.
 --
@@ -124,6 +128,7 @@ newFlow
   pName_ =
     Flow'
       { sources = Prelude.Nothing,
+        maintenance = Prelude.Nothing,
         vpcInterfaces = Prelude.Nothing,
         egressIp = Prelude.Nothing,
         description = Prelude.Nothing,
@@ -141,6 +146,10 @@ newFlow
 -- | Undocumented member.
 flow_sources :: Lens.Lens' Flow (Prelude.Maybe [Source])
 flow_sources = Lens.lens (\Flow' {sources} -> sources) (\s@Flow' {} a -> s {sources = a} :: Flow) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+flow_maintenance :: Lens.Lens' Flow (Prelude.Maybe Maintenance)
+flow_maintenance = Lens.lens (\Flow' {maintenance} -> maintenance) (\s@Flow' {} a -> s {maintenance = a} :: Flow)
 
 -- | The VPC Interfaces for this flow.
 flow_vpcInterfaces :: Lens.Lens' Flow (Prelude.Maybe [VpcInterface])
@@ -202,6 +211,7 @@ instance Core.FromJSON Flow where
       ( \x ->
           Flow'
             Prelude.<$> (x Core..:? "sources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "maintenance")
             Prelude.<*> (x Core..:? "vpcInterfaces" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "egressIp")
             Prelude.<*> (x Core..:? "description")
@@ -219,6 +229,7 @@ instance Core.FromJSON Flow where
 instance Prelude.Hashable Flow where
   hashWithSalt _salt Flow' {..} =
     _salt `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` vpcInterfaces
       `Prelude.hashWithSalt` egressIp
       `Prelude.hashWithSalt` description
@@ -235,6 +246,7 @@ instance Prelude.Hashable Flow where
 instance Prelude.NFData Flow where
   rnf Flow' {..} =
     Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf vpcInterfaces
       `Prelude.seq` Prelude.rnf egressIp
       `Prelude.seq` Prelude.rnf description

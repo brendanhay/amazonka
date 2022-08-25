@@ -24,13 +24,23 @@ module Amazonka.PersonalizeRuntime.Types
     PredictedItem (..),
     newPredictedItem,
     predictedItem_score,
+    predictedItem_promotionName,
     predictedItem_itemId,
+
+    -- * Promotion
+    Promotion (..),
+    newPromotion,
+    promotion_name,
+    promotion_percentPromotedItems,
+    promotion_filterArn,
+    promotion_filterValues,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.PersonalizeRuntime.Types.PredictedItem
+import Amazonka.PersonalizeRuntime.Types.Promotion
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 

@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.PipelineExecution where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ParallelismConfiguration
 import Amazonka.SageMaker.Types.Parameter
 import Amazonka.SageMaker.Types.PipelineExecutionStatus
 import Amazonka.SageMaker.Types.PipelineExperimentConfig
@@ -38,6 +39,8 @@ data PipelineExecution = PipelineExecution'
     pipelineParameters :: Prelude.Maybe [Parameter],
     -- | The time that the pipeline execution was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The parallelism configuration applied to the pipeline execution.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The description of the pipeline execution.
     pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the pipeline execution.
@@ -71,6 +74,8 @@ data PipelineExecution = PipelineExecution'
 --
 -- 'lastModifiedTime', 'pipelineExecution_lastModifiedTime' - The time that the pipeline execution was last modified.
 --
+-- 'parallelismConfiguration', 'pipelineExecution_parallelismConfiguration' - The parallelism configuration applied to the pipeline execution.
+--
 -- 'pipelineExecutionDescription', 'pipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
 --
 -- 'creationTime', 'pipelineExecution_creationTime' - The creation time of the pipeline execution.
@@ -94,6 +99,7 @@ newPipelineExecution =
       pipelineExperimentConfig = Prelude.Nothing,
       pipelineParameters = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      parallelismConfiguration = Prelude.Nothing,
       pipelineExecutionDescription = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
@@ -119,6 +125,10 @@ pipelineExecution_pipelineParameters = Lens.lens (\PipelineExecution' {pipelineP
 -- | The time that the pipeline execution was last modified.
 pipelineExecution_lastModifiedTime :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.UTCTime)
 pipelineExecution_lastModifiedTime = Lens.lens (\PipelineExecution' {lastModifiedTime} -> lastModifiedTime) (\s@PipelineExecution' {} a -> s {lastModifiedTime = a} :: PipelineExecution) Prelude.. Lens.mapping Core._Time
+
+-- | The parallelism configuration applied to the pipeline execution.
+pipelineExecution_parallelismConfiguration :: Lens.Lens' PipelineExecution (Prelude.Maybe ParallelismConfiguration)
+pipelineExecution_parallelismConfiguration = Lens.lens (\PipelineExecution' {parallelismConfiguration} -> parallelismConfiguration) (\s@PipelineExecution' {} a -> s {parallelismConfiguration = a} :: PipelineExecution)
 
 -- | The description of the pipeline execution.
 pipelineExecution_pipelineExecutionDescription :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
@@ -164,6 +174,7 @@ instance Core.FromJSON PipelineExecution where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "ParallelismConfiguration")
             Prelude.<*> (x Core..:? "PipelineExecutionDescription")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "LastModifiedBy")
@@ -180,6 +191,7 @@ instance Prelude.Hashable PipelineExecution where
       `Prelude.hashWithSalt` pipelineExperimentConfig
       `Prelude.hashWithSalt` pipelineParameters
       `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` parallelismConfiguration
       `Prelude.hashWithSalt` pipelineExecutionDescription
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedBy
@@ -195,6 +207,7 @@ instance Prelude.NFData PipelineExecution where
       `Prelude.seq` Prelude.rnf pipelineExperimentConfig
       `Prelude.seq` Prelude.rnf pipelineParameters
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
       `Prelude.seq` Prelude.rnf pipelineExecutionDescription
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedBy

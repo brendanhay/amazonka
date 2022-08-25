@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes specified S3 resources from being monitored by Amazon Macie
--- Classic. If memberAccountId isn\'t specified, the action removes
--- specified S3 resources from Macie Classic for the current Macie Classic
--- administrator account. If memberAccountId is specified, the action
--- removes specified S3 resources from Macie Classic for the specified
--- member account.
+-- (Discontinued) Removes specified S3 resources from being monitored by
+-- Amazon Macie Classic. If @memberAccountId@ isn\'t specified, the action
+-- removes specified S3 resources from Macie Classic for the current Macie
+-- Classic administrator account. If @memberAccountId@ is specified, the
+-- action removes specified S3 resources from Macie Classic for the
+-- specified member account.
 module Amazonka.Macie.DisassociateS3Resources
   ( -- * Creating a Request
     DisassociateS3Resources (..),
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateS3Resources' smart constructor.
 data DisassociateS3Resources = DisassociateS3Resources'
-  { -- | The ID of the Amazon Macie Classic member account whose resources you
-    -- want to remove from being monitored by Macie Classic.
+  { -- | (Discontinued) The ID of the Amazon Macie Classic member account whose
+    -- resources you want to remove from being monitored by Macie Classic.
     memberAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 resources (buckets or prefixes) that you want to remove from
-    -- being monitored and classified by Amazon Macie Classic.
+    -- | (Discontinued) The S3 resources (buckets or prefixes) that you want to
+    -- remove from being monitored and classified by Amazon Macie Classic.
     associatedS3Resources :: [S3Resource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,11 +71,11 @@ data DisassociateS3Resources = DisassociateS3Resources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberAccountId', 'disassociateS3Resources_memberAccountId' - The ID of the Amazon Macie Classic member account whose resources you
--- want to remove from being monitored by Macie Classic.
+-- 'memberAccountId', 'disassociateS3Resources_memberAccountId' - (Discontinued) The ID of the Amazon Macie Classic member account whose
+-- resources you want to remove from being monitored by Macie Classic.
 --
--- 'associatedS3Resources', 'disassociateS3Resources_associatedS3Resources' - The S3 resources (buckets or prefixes) that you want to remove from
--- being monitored and classified by Amazon Macie Classic.
+-- 'associatedS3Resources', 'disassociateS3Resources_associatedS3Resources' - (Discontinued) The S3 resources (buckets or prefixes) that you want to
+-- remove from being monitored and classified by Amazon Macie Classic.
 newDisassociateS3Resources ::
   DisassociateS3Resources
 newDisassociateS3Resources =
@@ -85,13 +85,13 @@ newDisassociateS3Resources =
       associatedS3Resources = Prelude.mempty
     }
 
--- | The ID of the Amazon Macie Classic member account whose resources you
--- want to remove from being monitored by Macie Classic.
+-- | (Discontinued) The ID of the Amazon Macie Classic member account whose
+-- resources you want to remove from being monitored by Macie Classic.
 disassociateS3Resources_memberAccountId :: Lens.Lens' DisassociateS3Resources (Prelude.Maybe Prelude.Text)
 disassociateS3Resources_memberAccountId = Lens.lens (\DisassociateS3Resources' {memberAccountId} -> memberAccountId) (\s@DisassociateS3Resources' {} a -> s {memberAccountId = a} :: DisassociateS3Resources)
 
--- | The S3 resources (buckets or prefixes) that you want to remove from
--- being monitored and classified by Amazon Macie Classic.
+-- | (Discontinued) The S3 resources (buckets or prefixes) that you want to
+-- remove from being monitored and classified by Amazon Macie Classic.
 disassociateS3Resources_associatedS3Resources :: Lens.Lens' DisassociateS3Resources [S3Resource]
 disassociateS3Resources_associatedS3Resources = Lens.lens (\DisassociateS3Resources' {associatedS3Resources} -> associatedS3Resources) (\s@DisassociateS3Resources' {} a -> s {associatedS3Resources = a} :: DisassociateS3Resources) Prelude.. Lens.coerced
 
@@ -156,9 +156,9 @@ instance Core.ToQuery DisassociateS3Resources where
 
 -- | /See:/ 'newDisassociateS3ResourcesResponse' smart constructor.
 data DisassociateS3ResourcesResponse = DisassociateS3ResourcesResponse'
-  { -- | S3 resources that couldn\'t be removed from being monitored and
-    -- classified by Amazon Macie Classic. An error code and an error message
-    -- are provided for each failed item.
+  { -- | (Discontinued) S3 resources that couldn\'t be removed from being
+    -- monitored and classified by Amazon Macie Classic. An error code and an
+    -- error message are provided for each failed item.
     failedS3Resources :: Prelude.Maybe [FailedS3Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,9 +173,9 @@ data DisassociateS3ResourcesResponse = DisassociateS3ResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedS3Resources', 'disassociateS3ResourcesResponse_failedS3Resources' - S3 resources that couldn\'t be removed from being monitored and
--- classified by Amazon Macie Classic. An error code and an error message
--- are provided for each failed item.
+-- 'failedS3Resources', 'disassociateS3ResourcesResponse_failedS3Resources' - (Discontinued) S3 resources that couldn\'t be removed from being
+-- monitored and classified by Amazon Macie Classic. An error code and an
+-- error message are provided for each failed item.
 --
 -- 'httpStatus', 'disassociateS3ResourcesResponse_httpStatus' - The response's http status code.
 newDisassociateS3ResourcesResponse ::
@@ -189,9 +189,9 @@ newDisassociateS3ResourcesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | S3 resources that couldn\'t be removed from being monitored and
--- classified by Amazon Macie Classic. An error code and an error message
--- are provided for each failed item.
+-- | (Discontinued) S3 resources that couldn\'t be removed from being
+-- monitored and classified by Amazon Macie Classic. An error code and an
+-- error message are provided for each failed item.
 disassociateS3ResourcesResponse_failedS3Resources :: Lens.Lens' DisassociateS3ResourcesResponse (Prelude.Maybe [FailedS3Resource])
 disassociateS3ResourcesResponse_failedS3Resources = Lens.lens (\DisassociateS3ResourcesResponse' {failedS3Resources} -> failedS3Resources) (\s@DisassociateS3ResourcesResponse' {} a -> s {failedS3Resources = a} :: DisassociateS3ResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

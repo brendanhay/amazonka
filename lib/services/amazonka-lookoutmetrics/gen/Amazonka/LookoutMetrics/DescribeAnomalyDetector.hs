@@ -41,6 +41,7 @@ module Amazonka.LookoutMetrics.DescribeAnomalyDetector
     -- * Response Lenses
     describeAnomalyDetectorResponse_lastModificationTime,
     describeAnomalyDetectorResponse_anomalyDetectorArn,
+    describeAnomalyDetectorResponse_failureType,
     describeAnomalyDetectorResponse_status,
     describeAnomalyDetectorResponse_kmsKeyArn,
     describeAnomalyDetectorResponse_anomalyDetectorName,
@@ -100,6 +101,7 @@ instance Core.AWSRequest DescribeAnomalyDetector where
           DescribeAnomalyDetectorResponse'
             Prelude.<$> (x Core..?> "LastModificationTime")
             Prelude.<*> (x Core..?> "AnomalyDetectorArn")
+            Prelude.<*> (x Core..?> "FailureType")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "KmsKeyArn")
             Prelude.<*> (x Core..?> "AnomalyDetectorName")
@@ -150,6 +152,8 @@ data DescribeAnomalyDetectorResponse = DescribeAnomalyDetectorResponse'
     lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the detector.
     anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
+    -- | The process that caused the detector to fail.
+    failureType :: Prelude.Maybe AnomalyDetectorFailureType,
     -- | The status of the detector.
     status :: Prelude.Maybe AnomalyDetectorStatus,
     -- | The ARN of the KMS key to use to encrypt your data.
@@ -162,7 +166,7 @@ data DescribeAnomalyDetectorResponse = DescribeAnomalyDetectorResponse'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | Contains information about the detector\'s configuration.
     anomalyDetectorConfig :: Prelude.Maybe AnomalyDetectorConfigSummary,
-    -- | The reason that the detector failed, if any.
+    -- | The reason that the detector failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,6 +185,8 @@ data DescribeAnomalyDetectorResponse = DescribeAnomalyDetectorResponse'
 --
 -- 'anomalyDetectorArn', 'describeAnomalyDetectorResponse_anomalyDetectorArn' - The ARN of the detector.
 --
+-- 'failureType', 'describeAnomalyDetectorResponse_failureType' - The process that caused the detector to fail.
+--
 -- 'status', 'describeAnomalyDetectorResponse_status' - The status of the detector.
 --
 -- 'kmsKeyArn', 'describeAnomalyDetectorResponse_kmsKeyArn' - The ARN of the KMS key to use to encrypt your data.
@@ -193,7 +199,7 @@ data DescribeAnomalyDetectorResponse = DescribeAnomalyDetectorResponse'
 --
 -- 'anomalyDetectorConfig', 'describeAnomalyDetectorResponse_anomalyDetectorConfig' - Contains information about the detector\'s configuration.
 --
--- 'failureReason', 'describeAnomalyDetectorResponse_failureReason' - The reason that the detector failed, if any.
+-- 'failureReason', 'describeAnomalyDetectorResponse_failureReason' - The reason that the detector failed.
 --
 -- 'httpStatus', 'describeAnomalyDetectorResponse_httpStatus' - The response's http status code.
 newDescribeAnomalyDetectorResponse ::
@@ -205,6 +211,7 @@ newDescribeAnomalyDetectorResponse pHttpStatus_ =
     { lastModificationTime =
         Prelude.Nothing,
       anomalyDetectorArn = Prelude.Nothing,
+      failureType = Prelude.Nothing,
       status = Prelude.Nothing,
       kmsKeyArn = Prelude.Nothing,
       anomalyDetectorName = Prelude.Nothing,
@@ -223,6 +230,10 @@ describeAnomalyDetectorResponse_lastModificationTime = Lens.lens (\DescribeAnoma
 -- | The ARN of the detector.
 describeAnomalyDetectorResponse_anomalyDetectorArn :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectorResponse_anomalyDetectorArn = Lens.lens (\DescribeAnomalyDetectorResponse' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@DescribeAnomalyDetectorResponse' {} a -> s {anomalyDetectorArn = a} :: DescribeAnomalyDetectorResponse)
+
+-- | The process that caused the detector to fail.
+describeAnomalyDetectorResponse_failureType :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe AnomalyDetectorFailureType)
+describeAnomalyDetectorResponse_failureType = Lens.lens (\DescribeAnomalyDetectorResponse' {failureType} -> failureType) (\s@DescribeAnomalyDetectorResponse' {} a -> s {failureType = a} :: DescribeAnomalyDetectorResponse)
 
 -- | The status of the detector.
 describeAnomalyDetectorResponse_status :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe AnomalyDetectorStatus)
@@ -248,7 +259,7 @@ describeAnomalyDetectorResponse_creationTime = Lens.lens (\DescribeAnomalyDetect
 describeAnomalyDetectorResponse_anomalyDetectorConfig :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe AnomalyDetectorConfigSummary)
 describeAnomalyDetectorResponse_anomalyDetectorConfig = Lens.lens (\DescribeAnomalyDetectorResponse' {anomalyDetectorConfig} -> anomalyDetectorConfig) (\s@DescribeAnomalyDetectorResponse' {} a -> s {anomalyDetectorConfig = a} :: DescribeAnomalyDetectorResponse)
 
--- | The reason that the detector failed, if any.
+-- | The reason that the detector failed.
 describeAnomalyDetectorResponse_failureReason :: Lens.Lens' DescribeAnomalyDetectorResponse (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectorResponse_failureReason = Lens.lens (\DescribeAnomalyDetectorResponse' {failureReason} -> failureReason) (\s@DescribeAnomalyDetectorResponse' {} a -> s {failureReason = a} :: DescribeAnomalyDetectorResponse)
 
@@ -263,6 +274,7 @@ instance
   rnf DescribeAnomalyDetectorResponse' {..} =
     Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf failureType
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf anomalyDetectorName

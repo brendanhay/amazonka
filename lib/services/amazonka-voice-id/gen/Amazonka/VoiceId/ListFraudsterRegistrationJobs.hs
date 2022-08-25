@@ -23,6 +23,8 @@
 -- Lists all the fraudster registration jobs in the domain with the given
 -- @JobStatus@. If @JobStatus@ is not provided, this lists all fraudster
 -- registration jobs in the given domain.
+--
+-- This operation returns paginated results.
 module Amazonka.VoiceId.ListFraudsterRegistrationJobs
   ( -- * Creating a Request
     ListFraudsterRegistrationJobs (..),
@@ -123,6 +125,28 @@ listFraudsterRegistrationJobs_maxResults = Lens.lens (\ListFraudsterRegistration
 -- | The identifier of the domain containing the fraudster registration Jobs.
 listFraudsterRegistrationJobs_domainId :: Lens.Lens' ListFraudsterRegistrationJobs Prelude.Text
 listFraudsterRegistrationJobs_domainId = Lens.lens (\ListFraudsterRegistrationJobs' {domainId} -> domainId) (\s@ListFraudsterRegistrationJobs' {} a -> s {domainId = a} :: ListFraudsterRegistrationJobs)
+
+instance Core.AWSPager ListFraudsterRegistrationJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listFraudsterRegistrationJobsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listFraudsterRegistrationJobsResponse_jobSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listFraudsterRegistrationJobs_nextToken
+          Lens..~ rs
+          Lens.^? listFraudsterRegistrationJobsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

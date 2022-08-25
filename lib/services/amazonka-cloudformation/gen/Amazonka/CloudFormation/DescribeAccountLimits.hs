@@ -23,7 +23,7 @@
 -- Retrieves your account\'s CloudFormation limits, such as the maximum
 -- number of stacks that you can create in your account. For more
 -- information about account limits, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation Limits>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation Quotas>
 -- in the /CloudFormation User Guide/.
 --
 -- This operation returns paginated results.

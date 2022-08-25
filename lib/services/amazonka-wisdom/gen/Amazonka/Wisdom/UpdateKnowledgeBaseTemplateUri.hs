@@ -54,8 +54,8 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newUpdateKnowledgeBaseTemplateUri' smart constructor.
 data UpdateKnowledgeBaseTemplateUri = UpdateKnowledgeBaseTemplateUri'
-  { -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+  { -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text,
     -- | The template URI to update.
     templateUri :: Prelude.Text
@@ -70,8 +70,8 @@ data UpdateKnowledgeBaseTemplateUri = UpdateKnowledgeBaseTemplateUri'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'knowledgeBaseId', 'updateKnowledgeBaseTemplateUri_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'updateKnowledgeBaseTemplateUri_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 --
 -- 'templateUri', 'updateKnowledgeBaseTemplateUri_templateUri' - The template URI to update.
 newUpdateKnowledgeBaseTemplateUri ::
@@ -89,8 +89,8 @@ newUpdateKnowledgeBaseTemplateUri
         templateUri = pTemplateUri_
       }
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 updateKnowledgeBaseTemplateUri_knowledgeBaseId :: Lens.Lens' UpdateKnowledgeBaseTemplateUri Prelude.Text
 updateKnowledgeBaseTemplateUri_knowledgeBaseId = Lens.lens (\UpdateKnowledgeBaseTemplateUri' {knowledgeBaseId} -> knowledgeBaseId) (\s@UpdateKnowledgeBaseTemplateUri' {} a -> s {knowledgeBaseId = a} :: UpdateKnowledgeBaseTemplateUri)
 

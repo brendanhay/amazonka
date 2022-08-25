@@ -41,6 +41,8 @@ data Recommendation = Recommendation'
     relatedAnomalies :: Prelude.Maybe [RecommendationRelatedAnomaly],
     -- | The reason DevOps Guru flagged the anomalous behavior as a problem.
     reason :: Prelude.Maybe Prelude.Text,
+    -- | The category type of the recommendation.
+    category :: Prelude.Maybe Prelude.Text,
     -- | Events that are related to the problem. Use these events to learn more
     -- about what\'s happening and to help address the issue.
     relatedEvents :: Prelude.Maybe [RecommendationRelatedEvent]
@@ -66,6 +68,8 @@ data Recommendation = Recommendation'
 --
 -- 'reason', 'recommendation_reason' - The reason DevOps Guru flagged the anomalous behavior as a problem.
 --
+-- 'category', 'recommendation_category' - The category type of the recommendation.
+--
 -- 'relatedEvents', 'recommendation_relatedEvents' - Events that are related to the problem. Use these events to learn more
 -- about what\'s happening and to help address the issue.
 newRecommendation ::
@@ -77,6 +81,7 @@ newRecommendation =
       description = Prelude.Nothing,
       relatedAnomalies = Prelude.Nothing,
       reason = Prelude.Nothing,
+      category = Prelude.Nothing,
       relatedEvents = Prelude.Nothing
     }
 
@@ -101,6 +106,10 @@ recommendation_relatedAnomalies = Lens.lens (\Recommendation' {relatedAnomalies}
 recommendation_reason :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
 recommendation_reason = Lens.lens (\Recommendation' {reason} -> reason) (\s@Recommendation' {} a -> s {reason = a} :: Recommendation)
 
+-- | The category type of the recommendation.
+recommendation_category :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
+recommendation_category = Lens.lens (\Recommendation' {category} -> category) (\s@Recommendation' {} a -> s {category = a} :: Recommendation)
+
 -- | Events that are related to the problem. Use these events to learn more
 -- about what\'s happening and to help address the issue.
 recommendation_relatedEvents :: Lens.Lens' Recommendation (Prelude.Maybe [RecommendationRelatedEvent])
@@ -119,6 +128,7 @@ instance Core.FromJSON Recommendation where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "Reason")
+            Prelude.<*> (x Core..:? "Category")
             Prelude.<*> (x Core..:? "RelatedEvents" Core..!= Prelude.mempty)
       )
 
@@ -129,6 +139,7 @@ instance Prelude.Hashable Recommendation where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` relatedAnomalies
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` relatedEvents
 
 instance Prelude.NFData Recommendation where
@@ -138,4 +149,5 @@ instance Prelude.NFData Recommendation where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf relatedAnomalies
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf relatedEvents

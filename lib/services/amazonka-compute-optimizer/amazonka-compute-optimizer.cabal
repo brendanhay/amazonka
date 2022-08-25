@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.ComputeOptimizer
+    Amazonka.ComputeOptimizer.DeleteRecommendationPreferences
     Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
     Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
     Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
@@ -53,24 +54,33 @@ library
     Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
     Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
     Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+    Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
     Amazonka.ComputeOptimizer.GetEnrollmentStatus
     Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
     Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
+    Amazonka.ComputeOptimizer.GetRecommendationPreferences
     Amazonka.ComputeOptimizer.GetRecommendationSummaries
     Amazonka.ComputeOptimizer.Lens
+    Amazonka.ComputeOptimizer.PutRecommendationPreferences
     Amazonka.ComputeOptimizer.Types
     Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus
     Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
     Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
     Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
     Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
+    Amazonka.ComputeOptimizer.Types.Currency
+    Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
+    Amazonka.ComputeOptimizer.Types.CurrentPerformanceRiskRatings
     Amazonka.ComputeOptimizer.Types.EBSFilter
     Amazonka.ComputeOptimizer.Types.EBSFilterName
     Amazonka.ComputeOptimizer.Types.EBSFinding
     Amazonka.ComputeOptimizer.Types.EBSMetricName
     Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+    Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
+    Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
     Amazonka.ComputeOptimizer.Types.EnrollmentFilter
     Amazonka.ComputeOptimizer.Types.EnrollmentFilterName
+    Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
     Amazonka.ComputeOptimizer.Types.ExportableAutoScalingGroupField
     Amazonka.ComputeOptimizer.Types.ExportableInstanceField
     Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
@@ -82,6 +92,8 @@ library
     Amazonka.ComputeOptimizer.Types.Finding
     Amazonka.ComputeOptimizer.Types.FindingReasonCode
     Amazonka.ComputeOptimizer.Types.GetRecommendationError
+    Amazonka.ComputeOptimizer.Types.InferredWorkloadType
+    Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
     Amazonka.ComputeOptimizer.Types.InstanceRecommendation
     Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
     Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
@@ -102,11 +114,14 @@ library
     Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
     Amazonka.ComputeOptimizer.Types.MetricName
     Amazonka.ComputeOptimizer.Types.MetricStatistic
+    Amazonka.ComputeOptimizer.Types.MigrationEffort
     Amazonka.ComputeOptimizer.Types.PlatformDifference
     Amazonka.ComputeOptimizer.Types.ProjectedMetric
     Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
     Amazonka.ComputeOptimizer.Types.RecommendationExportJob
+    Amazonka.ComputeOptimizer.Types.RecommendationPreferenceName
     Amazonka.ComputeOptimizer.Types.RecommendationPreferences
+    Amazonka.ComputeOptimizer.Types.RecommendationPreferencesDetail
     Amazonka.ComputeOptimizer.Types.RecommendationSource
     Amazonka.ComputeOptimizer.Types.RecommendationSourceType
     Amazonka.ComputeOptimizer.Types.RecommendationSummary
@@ -114,6 +129,9 @@ library
     Amazonka.ComputeOptimizer.Types.ResourceType
     Amazonka.ComputeOptimizer.Types.S3Destination
     Amazonka.ComputeOptimizer.Types.S3DestinationConfig
+    Amazonka.ComputeOptimizer.Types.SavingsOpportunity
+    Amazonka.ComputeOptimizer.Types.Scope
+    Amazonka.ComputeOptimizer.Types.ScopeName
     Amazonka.ComputeOptimizer.Types.Status
     Amazonka.ComputeOptimizer.Types.Summary
     Amazonka.ComputeOptimizer.Types.UtilizationMetric

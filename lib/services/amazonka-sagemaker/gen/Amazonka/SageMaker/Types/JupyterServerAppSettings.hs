@@ -29,10 +29,15 @@ import Amazonka.SageMaker.Types.ResourceSpec
 -- /See:/ 'newJupyterServerAppSettings' smart constructor.
 data JupyterServerAppSettings = JupyterServerAppSettings'
   { -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
-    -- to the JupyterServerApp.
+    -- to the JupyterServerApp. If you use this parameter, the
+    -- @DefaultResourceSpec@ parameter is also required.
+    --
+    -- To remove a Lifecycle Config, you must set @LifecycleConfigArns@ to an
+    -- empty list.
     lifecycleConfigArns :: Prelude.Maybe [Prelude.Text],
     -- | The default instance type and the Amazon Resource Name (ARN) of the
-    -- default SageMaker image used by the JupyterServer app.
+    -- default SageMaker image used by the JupyterServer app. If you use the
+    -- @LifecycleConfigArns@ parameter, then this parameter is also required.
     defaultResourceSpec :: Prelude.Maybe ResourceSpec
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,10 +51,15 @@ data JupyterServerAppSettings = JupyterServerAppSettings'
 -- for backwards compatibility:
 --
 -- 'lifecycleConfigArns', 'jupyterServerAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
--- to the JupyterServerApp.
+-- to the JupyterServerApp. If you use this parameter, the
+-- @DefaultResourceSpec@ parameter is also required.
+--
+-- To remove a Lifecycle Config, you must set @LifecycleConfigArns@ to an
+-- empty list.
 --
 -- 'defaultResourceSpec', 'jupyterServerAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
--- default SageMaker image used by the JupyterServer app.
+-- default SageMaker image used by the JupyterServer app. If you use the
+-- @LifecycleConfigArns@ parameter, then this parameter is also required.
 newJupyterServerAppSettings ::
   JupyterServerAppSettings
 newJupyterServerAppSettings =
@@ -60,12 +70,17 @@ newJupyterServerAppSettings =
     }
 
 -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
--- to the JupyterServerApp.
+-- to the JupyterServerApp. If you use this parameter, the
+-- @DefaultResourceSpec@ parameter is also required.
+--
+-- To remove a Lifecycle Config, you must set @LifecycleConfigArns@ to an
+-- empty list.
 jupyterServerAppSettings_lifecycleConfigArns :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe [Prelude.Text])
 jupyterServerAppSettings_lifecycleConfigArns = Lens.lens (\JupyterServerAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@JupyterServerAppSettings' {} a -> s {lifecycleConfigArns = a} :: JupyterServerAppSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
--- default SageMaker image used by the JupyterServer app.
+-- default SageMaker image used by the JupyterServer app. If you use the
+-- @LifecycleConfigArns@ parameter, then this parameter is also required.
 jupyterServerAppSettings_defaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe ResourceSpec)
 jupyterServerAppSettings_defaultResourceSpec = Lens.lens (\JupyterServerAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@JupyterServerAppSettings' {} a -> s {defaultResourceSpec = a} :: JupyterServerAppSettings)
 

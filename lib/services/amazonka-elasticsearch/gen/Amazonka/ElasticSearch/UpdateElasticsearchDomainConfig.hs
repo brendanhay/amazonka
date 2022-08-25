@@ -35,6 +35,7 @@ module Amazonka.ElasticSearch.UpdateElasticsearchDomainConfig
     updateElasticsearchDomainConfig_advancedSecurityOptions,
     updateElasticsearchDomainConfig_cognitoOptions,
     updateElasticsearchDomainConfig_encryptionAtRestOptions,
+    updateElasticsearchDomainConfig_dryRun,
     updateElasticsearchDomainConfig_eBSOptions,
     updateElasticsearchDomainConfig_accessPolicies,
     updateElasticsearchDomainConfig_vPCOptions,
@@ -49,6 +50,7 @@ module Amazonka.ElasticSearch.UpdateElasticsearchDomainConfig
     newUpdateElasticsearchDomainConfigResponse,
 
     -- * Response Lenses
+    updateElasticsearchDomainConfigResponse_dryRunResults,
     updateElasticsearchDomainConfigResponse_httpStatus,
     updateElasticsearchDomainConfigResponse_domainConfig,
   )
@@ -85,6 +87,13 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
     cognitoOptions :: Prelude.Maybe CognitoOptions,
     -- | Specifies the Encryption At Rest Options.
     encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | This flag, when set to True, specifies whether the
+    -- @UpdateElasticsearchDomain@ request should return the results of
+    -- validation checks without actually applying the change. This flag, when
+    -- set to True, specifies the deployment mechanism through which the update
+    -- shall be applied on the domain. This will not actually perform the
+    -- Update.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Specify the type and size of the EBS volume that you want to use.
     eBSOptions :: Prelude.Maybe EBSOptions,
     -- | IAM access policy as a JSON-formatted string.
@@ -136,6 +145,13 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
 --
 -- 'encryptionAtRestOptions', 'updateElasticsearchDomainConfig_encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
 --
+-- 'dryRun', 'updateElasticsearchDomainConfig_dryRun' - This flag, when set to True, specifies whether the
+-- @UpdateElasticsearchDomain@ request should return the results of
+-- validation checks without actually applying the change. This flag, when
+-- set to True, specifies the deployment mechanism through which the update
+-- shall be applied on the domain. This will not actually perform the
+-- Update.
+--
 -- 'eBSOptions', 'updateElasticsearchDomainConfig_eBSOptions' - Specify the type and size of the EBS volume that you want to use.
 --
 -- 'accessPolicies', 'updateElasticsearchDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
@@ -171,6 +187,7 @@ newUpdateElasticsearchDomainConfig pDomainName_ =
       advancedSecurityOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       eBSOptions = Prelude.Nothing,
       accessPolicies = Prelude.Nothing,
       vPCOptions = Prelude.Nothing,
@@ -210,6 +227,15 @@ updateElasticsearchDomainConfig_cognitoOptions = Lens.lens (\UpdateElasticsearch
 -- | Specifies the Encryption At Rest Options.
 updateElasticsearchDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
 updateElasticsearchDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateElasticsearchDomainConfig)
+
+-- | This flag, when set to True, specifies whether the
+-- @UpdateElasticsearchDomain@ request should return the results of
+-- validation checks without actually applying the change. This flag, when
+-- set to True, specifies the deployment mechanism through which the update
+-- shall be applied on the domain. This will not actually perform the
+-- Update.
+updateElasticsearchDomainConfig_dryRun :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe Prelude.Bool)
+updateElasticsearchDomainConfig_dryRun = Lens.lens (\UpdateElasticsearchDomainConfig' {dryRun} -> dryRun) (\s@UpdateElasticsearchDomainConfig' {} a -> s {dryRun = a} :: UpdateElasticsearchDomainConfig)
 
 -- | Specify the type and size of the EBS volume that you want to use.
 updateElasticsearchDomainConfig_eBSOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe EBSOptions)
@@ -261,7 +287,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateElasticsearchDomainConfigResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "DryRunResults")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainConfig")
       )
 
@@ -279,6 +306,7 @@ instance
         `Prelude.hashWithSalt` advancedSecurityOptions
         `Prelude.hashWithSalt` cognitoOptions
         `Prelude.hashWithSalt` encryptionAtRestOptions
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` eBSOptions
         `Prelude.hashWithSalt` accessPolicies
         `Prelude.hashWithSalt` vPCOptions
@@ -299,6 +327,7 @@ instance
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf eBSOptions
       `Prelude.seq` Prelude.rnf accessPolicies
       `Prelude.seq` Prelude.rnf vPCOptions
@@ -330,6 +359,7 @@ instance Core.ToJSON UpdateElasticsearchDomainConfig where
               Prelude.<$> cognitoOptions,
             ("EncryptionAtRestOptions" Core..=)
               Prelude.<$> encryptionAtRestOptions,
+            ("DryRun" Core..=) Prelude.<$> dryRun,
             ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
             ("AccessPolicies" Core..=)
               Prelude.<$> accessPolicies,
@@ -361,7 +391,9 @@ instance Core.ToQuery UpdateElasticsearchDomainConfig where
 --
 -- /See:/ 'newUpdateElasticsearchDomainConfigResponse' smart constructor.
 data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigResponse'
-  { -- | The response's http status code.
+  { -- | Contains result of DryRun.
+    dryRunResults :: Prelude.Maybe DryRunResults,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of the updated Elasticsearch domain.
     domainConfig :: ElasticsearchDomainConfig
@@ -376,6 +408,8 @@ data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dryRunResults', 'updateElasticsearchDomainConfigResponse_dryRunResults' - Contains result of DryRun.
+--
 -- 'httpStatus', 'updateElasticsearchDomainConfigResponse_httpStatus' - The response's http status code.
 --
 -- 'domainConfig', 'updateElasticsearchDomainConfigResponse_domainConfig' - The status of the updated Elasticsearch domain.
@@ -389,10 +423,15 @@ newUpdateElasticsearchDomainConfigResponse
   pHttpStatus_
   pDomainConfig_ =
     UpdateElasticsearchDomainConfigResponse'
-      { httpStatus =
-          pHttpStatus_,
+      { dryRunResults =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         domainConfig = pDomainConfig_
       }
+
+-- | Contains result of DryRun.
+updateElasticsearchDomainConfigResponse_dryRunResults :: Lens.Lens' UpdateElasticsearchDomainConfigResponse (Prelude.Maybe DryRunResults)
+updateElasticsearchDomainConfigResponse_dryRunResults = Lens.lens (\UpdateElasticsearchDomainConfigResponse' {dryRunResults} -> dryRunResults) (\s@UpdateElasticsearchDomainConfigResponse' {} a -> s {dryRunResults = a} :: UpdateElasticsearchDomainConfigResponse)
 
 -- | The response's http status code.
 updateElasticsearchDomainConfigResponse_httpStatus :: Lens.Lens' UpdateElasticsearchDomainConfigResponse Prelude.Int
@@ -407,5 +446,6 @@ instance
     UpdateElasticsearchDomainConfigResponse
   where
   rnf UpdateElasticsearchDomainConfigResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf dryRunResults
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainConfig

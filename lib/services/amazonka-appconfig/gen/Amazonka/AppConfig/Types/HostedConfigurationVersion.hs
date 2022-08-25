@@ -37,7 +37,7 @@ data HostedConfigurationVersion = HostedConfigurationVersion'
     configurationProfileId :: Prelude.Maybe Prelude.Text,
     -- | A standard MIME type describing the format of the configuration content.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
+    -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
     contentType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data HostedConfigurationVersion = HostedConfigurationVersion'
 --
 -- 'contentType', 'hostedConfigurationVersion_contentType' - A standard MIME type describing the format of the configuration content.
 -- For more information, see
--- <https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
+-- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
 newHostedConfigurationVersion ::
   HostedConfigurationVersion
 newHostedConfigurationVersion =
@@ -98,7 +98,7 @@ hostedConfigurationVersion_configurationProfileId = Lens.lens (\HostedConfigurat
 
 -- | A standard MIME type describing the format of the configuration content.
 -- For more information, see
--- <https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
+-- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
 hostedConfigurationVersion_contentType :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.Text)
 hostedConfigurationVersion_contentType = Lens.lens (\HostedConfigurationVersion' {contentType} -> contentType) (\s@HostedConfigurationVersion' {} a -> s {contentType = a} :: HostedConfigurationVersion)
 

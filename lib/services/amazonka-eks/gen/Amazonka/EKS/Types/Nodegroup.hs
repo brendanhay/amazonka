@@ -38,10 +38,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newNodegroup' smart constructor.
 data Nodegroup = Nodegroup'
   { -- | The metadata applied to the node group to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value, both of
-    -- which you define. Node group tags do not propagate to any other
-    -- resources associated with the node group, such as the Amazon EC2
-    -- instances or subnets.
+    -- organization. Each tag consists of a key and an optional value. You
+    -- define both. Node group tags do not propagate to any other resources
+    -- associated with the node group, such as the Amazon EC2 instances or
+    -- subnets.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | If the node group was deployed using a launch template with a custom
     -- AMI, then this is the AMI ID that was specified in the launch template.
@@ -87,7 +87,9 @@ data Nodegroup = Nodegroup'
     -- | The Kubernetes taints to be applied to the nodes in the node group when
     -- they are created. Effect is one of @No_Schedule@, @Prefer_No_Schedule@,
     -- or @No_Execute@. Kubernetes taints can be used together with tolerations
-    -- to control how workloads are scheduled to your nodes.
+    -- to control how workloads are scheduled to your nodes. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
     taints :: Prelude.Maybe [Taint],
     -- | The IAM role associated with your node group. The Amazon EKS node
     -- @kubelet@ daemon makes calls to Amazon Web Services APIs on your behalf.
@@ -129,10 +131,10 @@ data Nodegroup = Nodegroup'
 -- for backwards compatibility:
 --
 -- 'tags', 'nodegroup_tags' - The metadata applied to the node group to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define. Node group tags do not propagate to any other
--- resources associated with the node group, such as the Amazon EC2
--- instances or subnets.
+-- organization. Each tag consists of a key and an optional value. You
+-- define both. Node group tags do not propagate to any other resources
+-- associated with the node group, such as the Amazon EC2 instances or
+-- subnets.
 --
 -- 'releaseVersion', 'nodegroup_releaseVersion' - If the node group was deployed using a launch template with a custom
 -- AMI, then this is the AMI ID that was specified in the launch template.
@@ -178,7 +180,9 @@ data Nodegroup = Nodegroup'
 -- 'taints', 'nodegroup_taints' - The Kubernetes taints to be applied to the nodes in the node group when
 -- they are created. Effect is one of @No_Schedule@, @Prefer_No_Schedule@,
 -- or @No_Execute@. Kubernetes taints can be used together with tolerations
--- to control how workloads are scheduled to your nodes.
+-- to control how workloads are scheduled to your nodes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
 --
 -- 'nodeRole', 'nodegroup_nodeRole' - The IAM role associated with your node group. The Amazon EKS node
 -- @kubelet@ daemon makes calls to Amazon Web Services APIs on your behalf.
@@ -237,10 +241,10 @@ newNodegroup =
     }
 
 -- | The metadata applied to the node group to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define. Node group tags do not propagate to any other
--- resources associated with the node group, such as the Amazon EC2
--- instances or subnets.
+-- organization. Each tag consists of a key and an optional value. You
+-- define both. Node group tags do not propagate to any other resources
+-- associated with the node group, such as the Amazon EC2 instances or
+-- subnets.
 nodegroup_tags :: Lens.Lens' Nodegroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 nodegroup_tags = Lens.lens (\Nodegroup' {tags} -> tags) (\s@Nodegroup' {} a -> s {tags = a} :: Nodegroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -312,7 +316,9 @@ nodegroup_nodegroupName = Lens.lens (\Nodegroup' {nodegroupName} -> nodegroupNam
 -- | The Kubernetes taints to be applied to the nodes in the node group when
 -- they are created. Effect is one of @No_Schedule@, @Prefer_No_Schedule@,
 -- or @No_Execute@. Kubernetes taints can be used together with tolerations
--- to control how workloads are scheduled to your nodes.
+-- to control how workloads are scheduled to your nodes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
 nodegroup_taints :: Lens.Lens' Nodegroup (Prelude.Maybe [Taint])
 nodegroup_taints = Lens.lens (\Nodegroup' {taints} -> taints) (\s@Nodegroup' {} a -> s {taints = a} :: Nodegroup) Prelude.. Lens.mapping Lens.coerced
 

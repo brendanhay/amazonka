@@ -140,8 +140,17 @@ module Amazonka.Chime.Types
     -- * SortOrder
     SortOrder (..),
 
+    -- * TranscribeContentIdentificationType
+    TranscribeContentIdentificationType (..),
+
+    -- * TranscribeContentRedactionType
+    TranscribeContentRedactionType (..),
+
     -- * TranscribeLanguageCode
     TranscribeLanguageCode (..),
+
+    -- * TranscribeMedicalContentIdentificationType
+    TranscribeMedicalContentIdentificationType (..),
 
     -- * TranscribeMedicalLanguageCode
     TranscribeMedicalLanguageCode (..),
@@ -154,6 +163,9 @@ module Amazonka.Chime.Types
 
     -- * TranscribeMedicalType
     TranscribeMedicalType (..),
+
+    -- * TranscribePartialResultsStability
+    TranscribePartialResultsStability (..),
 
     -- * TranscribeRegion
     TranscribeRegion (..),
@@ -188,6 +200,20 @@ module Amazonka.Chime.Types
     newAccountSettings,
     accountSettings_disableRemoteControl,
     accountSettings_enableDialOut,
+
+    -- * Address
+    Address (..),
+    newAddress,
+    address_postalCode,
+    address_streetSuffix,
+    address_country,
+    address_postDirectional,
+    address_state,
+    address_streetName,
+    address_postalCodePlus4,
+    address_city,
+    address_preDirectional,
+    address_streetNumber,
 
     -- * AlexaForBusinessMetadata
     AlexaForBusinessMetadata (..),
@@ -307,6 +333,17 @@ module Amazonka.Chime.Types
     BusinessCallingSettings (..),
     newBusinessCallingSettings,
     businessCallingSettings_cdrBucket,
+
+    -- * CandidateAddress
+    CandidateAddress (..),
+    newCandidateAddress,
+    candidateAddress_postalCode,
+    candidateAddress_country,
+    candidateAddress_state,
+    candidateAddress_streetInfo,
+    candidateAddress_postalCodePlus4,
+    candidateAddress_city,
+    candidateAddress_streetNumber,
 
     -- * Channel
     Channel (..),
@@ -468,6 +505,7 @@ module Amazonka.Chime.Types
     EngineTranscribeMedicalSettings (..),
     newEngineTranscribeMedicalSettings,
     engineTranscribeMedicalSettings_vocabularyName,
+    engineTranscribeMedicalSettings_contentIdentificationType,
     engineTranscribeMedicalSettings_region,
     engineTranscribeMedicalSettings_languageCode,
     engineTranscribeMedicalSettings_specialty,
@@ -478,8 +516,14 @@ module Amazonka.Chime.Types
     newEngineTranscribeSettings,
     engineTranscribeSettings_vocabularyFilterMethod,
     engineTranscribeSettings_vocabularyName,
+    engineTranscribeSettings_contentIdentificationType,
+    engineTranscribeSettings_enablePartialResultsStabilization,
+    engineTranscribeSettings_languageModelName,
+    engineTranscribeSettings_piiEntityTypes,
     engineTranscribeSettings_region,
     engineTranscribeSettings_vocabularyFilterName,
+    engineTranscribeSettings_contentRedactionType,
+    engineTranscribeSettings_partialResultsStability,
     engineTranscribeSettings_languageCode,
 
     -- * EventsConfiguration
@@ -513,6 +557,7 @@ module Amazonka.Chime.Types
     LoggingConfiguration (..),
     newLoggingConfiguration,
     loggingConfiguration_enableSIPLogs,
+    loggingConfiguration_enableMediaMetricLogs,
 
     -- * MediaCapturePipeline
     MediaCapturePipeline (..),
@@ -914,6 +959,7 @@ import Amazonka.Chime.Types.Account
 import Amazonka.Chime.Types.AccountSettings
 import Amazonka.Chime.Types.AccountStatus
 import Amazonka.Chime.Types.AccountType
+import Amazonka.Chime.Types.Address
 import Amazonka.Chime.Types.AlexaForBusinessMetadata
 import Amazonka.Chime.Types.AppInstance
 import Amazonka.Chime.Types.AppInstanceAdmin
@@ -936,6 +982,7 @@ import Amazonka.Chime.Types.Bot
 import Amazonka.Chime.Types.BotType
 import Amazonka.Chime.Types.BusinessCallingSettings
 import Amazonka.Chime.Types.CallingNameStatus
+import Amazonka.Chime.Types.CandidateAddress
 import Amazonka.Chime.Types.Capability
 import Amazonka.Chime.Types.Channel
 import Amazonka.Chime.Types.ChannelBan
@@ -1033,11 +1080,15 @@ import Amazonka.Chime.Types.Tag
 import Amazonka.Chime.Types.TelephonySettings
 import Amazonka.Chime.Types.Termination
 import Amazonka.Chime.Types.TerminationHealth
+import Amazonka.Chime.Types.TranscribeContentIdentificationType
+import Amazonka.Chime.Types.TranscribeContentRedactionType
 import Amazonka.Chime.Types.TranscribeLanguageCode
+import Amazonka.Chime.Types.TranscribeMedicalContentIdentificationType
 import Amazonka.Chime.Types.TranscribeMedicalLanguageCode
 import Amazonka.Chime.Types.TranscribeMedicalRegion
 import Amazonka.Chime.Types.TranscribeMedicalSpecialty
 import Amazonka.Chime.Types.TranscribeMedicalType
+import Amazonka.Chime.Types.TranscribePartialResultsStability
 import Amazonka.Chime.Types.TranscribeRegion
 import Amazonka.Chime.Types.TranscribeVocabularyFilterMethod
 import Amazonka.Chime.Types.TranscriptionConfiguration

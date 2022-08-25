@@ -39,9 +39,17 @@ data Container = Container'
     --
     -- Container images sourced from your Lightsail container service, that are
     -- registered and stored on your service, start with a colon (@:@). For
-    -- example, @:container-service-1.mystaticwebsite.1@. Container images
-    -- sourced from a public registry like Docker Hub don\'t start with a
-    -- colon. For example, @nginx:latest@ or @nginx@.
+    -- example, if your container service name is @container-service-1@, the
+    -- container image label is @mystaticsite@, and you want to use the third
+    -- (@3@) version of the registered container image, then you should specify
+    -- @:container-service-1.mystaticsite.3@. To use the latest version of a
+    -- container image, specify @latest@ instead of a version number (for
+    -- example, @:container-service-1.mystaticsite.latest@). Lightsail will
+    -- automatically use the highest numbered version of the registered
+    -- container image.
+    --
+    -- Container images sourced from a public registry like Docker Hub don\'t
+    -- start with a colon. For example, @nginx:latest@ or @nginx@.
     image :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +72,17 @@ data Container = Container'
 --
 -- Container images sourced from your Lightsail container service, that are
 -- registered and stored on your service, start with a colon (@:@). For
--- example, @:container-service-1.mystaticwebsite.1@. Container images
--- sourced from a public registry like Docker Hub don\'t start with a
--- colon. For example, @nginx:latest@ or @nginx@.
+-- example, if your container service name is @container-service-1@, the
+-- container image label is @mystaticsite@, and you want to use the third
+-- (@3@) version of the registered container image, then you should specify
+-- @:container-service-1.mystaticsite.3@. To use the latest version of a
+-- container image, specify @latest@ instead of a version number (for
+-- example, @:container-service-1.mystaticsite.latest@). Lightsail will
+-- automatically use the highest numbered version of the registered
+-- container image.
+--
+-- Container images sourced from a public registry like Docker Hub don\'t
+-- start with a colon. For example, @nginx:latest@ or @nginx@.
 newContainer ::
   Container
 newContainer =
@@ -93,9 +109,17 @@ container_command = Lens.lens (\Container' {command} -> command) (\s@Container' 
 --
 -- Container images sourced from your Lightsail container service, that are
 -- registered and stored on your service, start with a colon (@:@). For
--- example, @:container-service-1.mystaticwebsite.1@. Container images
--- sourced from a public registry like Docker Hub don\'t start with a
--- colon. For example, @nginx:latest@ or @nginx@.
+-- example, if your container service name is @container-service-1@, the
+-- container image label is @mystaticsite@, and you want to use the third
+-- (@3@) version of the registered container image, then you should specify
+-- @:container-service-1.mystaticsite.3@. To use the latest version of a
+-- container image, specify @latest@ instead of a version number (for
+-- example, @:container-service-1.mystaticsite.latest@). Lightsail will
+-- automatically use the highest numbered version of the registered
+-- container image.
+--
+-- Container images sourced from a public registry like Docker Hub don\'t
+-- start with a colon. For example, @nginx:latest@ or @nginx@.
 container_image :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -> s {image = a} :: Container)
 

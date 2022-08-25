@@ -20,22 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the resource-based permission policy attached to the secret.
+-- Deletes the resource-based permission policy attached to the secret. To
+-- attach a policy to a secret, use PutResourcePolicy.
 --
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:DeleteResourcePolicy
---
--- __Related operations__
---
--- -   To attach a resource policy to a secret, use PutResourcePolicy.
---
--- -   To retrieve the current resource-based policy attached to a secret,
---     use GetResourcePolicy.
---
--- -   To list all of the currently available secrets, use ListSecrets.
+-- __Required permissions:__ @secretsmanager:DeleteResourcePolicy@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.DeleteResourcePolicy
   ( -- * Creating a Request
     DeleteResourcePolicy (..),
@@ -64,12 +56,12 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newDeleteResourcePolicy' smart constructor.
 data DeleteResourcePolicy = DeleteResourcePolicy'
-  { -- | Specifies the secret that you want to delete the attached resource-based
-    -- policy for. You can specify either the Amazon Resource Name (ARN) or the
-    -- friendly name of the secret.
+  { -- | The ARN or name of the secret to delete the attached resource-based
+    -- policy for.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,12 +74,12 @@ data DeleteResourcePolicy = DeleteResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'deleteResourcePolicy_secretId' - Specifies the secret that you want to delete the attached resource-based
--- policy for. You can specify either the Amazon Resource Name (ARN) or the
--- friendly name of the secret.
+-- 'secretId', 'deleteResourcePolicy_secretId' - The ARN or name of the secret to delete the attached resource-based
+-- policy for.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 newDeleteResourcePolicy ::
   -- | 'secretId'
   Prelude.Text ->
@@ -95,12 +87,12 @@ newDeleteResourcePolicy ::
 newDeleteResourcePolicy pSecretId_ =
   DeleteResourcePolicy' {secretId = pSecretId_}
 
--- | Specifies the secret that you want to delete the attached resource-based
--- policy for. You can specify either the Amazon Resource Name (ARN) or the
--- friendly name of the secret.
+-- | The ARN or name of the secret to delete the attached resource-based
+-- policy for.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 deleteResourcePolicy_secretId :: Lens.Lens' DeleteResourcePolicy Prelude.Text
 deleteResourcePolicy_secretId = Lens.lens (\DeleteResourcePolicy' {secretId} -> secretId) (\s@DeleteResourcePolicy' {} a -> s {secretId = a} :: DeleteResourcePolicy)
 
@@ -155,8 +147,7 @@ instance Core.ToQuery DeleteResourcePolicy where
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.
 data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
-  { -- | The friendly name of the secret that the resource-based policy was
-    -- deleted for.
+  { -- | The name of the secret that the resource-based policy was deleted for.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret that the resource-based policy was deleted for.
     arn :: Prelude.Maybe Prelude.Text,
@@ -173,8 +164,7 @@ data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
--- deleted for.
+-- 'name', 'deleteResourcePolicyResponse_name' - The name of the secret that the resource-based policy was deleted for.
 --
 -- 'arn', 'deleteResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was deleted for.
 --
@@ -191,8 +181,7 @@ newDeleteResourcePolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The friendly name of the secret that the resource-based policy was
--- deleted for.
+-- | The name of the secret that the resource-based policy was deleted for.
 deleteResourcePolicyResponse_name :: Lens.Lens' DeleteResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 deleteResourcePolicyResponse_name = Lens.lens (\DeleteResourcePolicyResponse' {name} -> name) (\s@DeleteResourcePolicyResponse' {} a -> s {name = a} :: DeleteResourcePolicyResponse)
 

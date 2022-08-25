@@ -80,7 +80,8 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | CONTENT TODO
+    -- | The fleet location. If you don\'t specify this value, the response
+    -- contains the scaling policies of every location in the fleet.
     location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
@@ -105,8 +106,8 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   __ERROR__ -- An error occurred in creating the policy. It should be
     --     removed and recreated.
     statusFilter :: Prelude.Maybe ScalingStatusType,
-    -- | A unique identifier for the fleet to retrieve scaling policies for. You
-    -- can use either the fleet ID or ARN value.
+    -- | A unique identifier for the fleet for which to retrieve scaling
+    -- policies. You can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -123,7 +124,8 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
--- 'location', 'describeScalingPolicies_location' - CONTENT TODO
+-- 'location', 'describeScalingPolicies_location' - The fleet location. If you don\'t specify this value, the response
+-- contains the scaling policies of every location in the fleet.
 --
 -- 'limit', 'describeScalingPolicies_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -148,8 +150,8 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   __ERROR__ -- An error occurred in creating the policy. It should be
 --     removed and recreated.
 --
--- 'fleetId', 'describeScalingPolicies_fleetId' - A unique identifier for the fleet to retrieve scaling policies for. You
--- can use either the fleet ID or ARN value.
+-- 'fleetId', 'describeScalingPolicies_fleetId' - A unique identifier for the fleet for which to retrieve scaling
+-- policies. You can use either the fleet ID or ARN value.
 newDescribeScalingPolicies ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -170,7 +172,8 @@ newDescribeScalingPolicies pFleetId_ =
 describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextToken} -> nextToken) (\s@DescribeScalingPolicies' {} a -> s {nextToken = a} :: DescribeScalingPolicies)
 
--- | CONTENT TODO
+-- | The fleet location. If you don\'t specify this value, the response
+-- contains the scaling policies of every location in the fleet.
 describeScalingPolicies_location :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_location = Lens.lens (\DescribeScalingPolicies' {location} -> location) (\s@DescribeScalingPolicies' {} a -> s {location = a} :: DescribeScalingPolicies)
 
@@ -201,8 +204,8 @@ describeScalingPolicies_limit = Lens.lens (\DescribeScalingPolicies' {limit} -> 
 describeScalingPolicies_statusFilter :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalingStatusType)
 describeScalingPolicies_statusFilter = Lens.lens (\DescribeScalingPolicies' {statusFilter} -> statusFilter) (\s@DescribeScalingPolicies' {} a -> s {statusFilter = a} :: DescribeScalingPolicies)
 
--- | A unique identifier for the fleet to retrieve scaling policies for. You
--- can use either the fleet ID or ARN value.
+-- | A unique identifier for the fleet for which to retrieve scaling
+-- policies. You can use either the fleet ID or ARN value.
 describeScalingPolicies_fleetId :: Lens.Lens' DescribeScalingPolicies Prelude.Text
 describeScalingPolicies_fleetId = Lens.lens (\DescribeScalingPolicies' {fleetId} -> fleetId) (\s@DescribeScalingPolicies' {} a -> s {fleetId = a} :: DescribeScalingPolicies)
 

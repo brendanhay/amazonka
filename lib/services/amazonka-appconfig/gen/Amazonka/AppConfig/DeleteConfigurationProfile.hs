@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a configuration profile. Deleting a configuration profile does
+-- Deletes a configuration profile. Deleting a configuration profile does
 -- not delete a configuration from a host.
 module Amazonka.AppConfig.DeleteConfigurationProfile
   ( -- * Creating a Request

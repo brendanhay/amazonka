@@ -44,7 +44,9 @@ module Amazonka.EC2.ModifyImageAttribute
     modifyImageAttribute_userGroups,
     modifyImageAttribute_description,
     modifyImageAttribute_dryRun,
+    modifyImageAttribute_organizationArns,
     modifyImageAttribute_userIds,
+    modifyImageAttribute_organizationalUnitArns,
     modifyImageAttribute_value,
     modifyImageAttribute_imageId,
 
@@ -70,8 +72,9 @@ data ModifyImageAttribute = ModifyImageAttribute'
     -- | The operation type. This parameter can be used only when the @Attribute@
     -- parameter is @launchPermission@.
     operationType :: Prelude.Maybe OperationType,
-    -- | The name of the attribute to modify. The valid values are @description@
-    -- and @launchPermission@.
+    -- | The name of the attribute to modify.
+    --
+    -- Valid values: @description@ | @launchPermission@
     attribute :: Prelude.Maybe Prelude.Text,
     -- | Not supported.
     productCodes :: Prelude.Maybe [Prelude.Text],
@@ -85,9 +88,16 @@ data ModifyImageAttribute = ModifyImageAttribute'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of an organization. This parameter can be
+    -- used only when the @Attribute@ parameter is @launchPermission@.
+    organizationArns :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Web Services account IDs. This parameter can be used only
     -- when the @Attribute@ parameter is @launchPermission@.
     userIds :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of an organizational unit (OU). This
+    -- parameter can be used only when the @Attribute@ parameter is
+    -- @launchPermission@.
+    organizationalUnitArns :: Prelude.Maybe [Prelude.Text],
     -- | The value of the attribute being modified. This parameter can be used
     -- only when the @Attribute@ parameter is @description@.
     value :: Prelude.Maybe Prelude.Text,
@@ -109,8 +119,9 @@ data ModifyImageAttribute = ModifyImageAttribute'
 -- 'operationType', 'modifyImageAttribute_operationType' - The operation type. This parameter can be used only when the @Attribute@
 -- parameter is @launchPermission@.
 --
--- 'attribute', 'modifyImageAttribute_attribute' - The name of the attribute to modify. The valid values are @description@
--- and @launchPermission@.
+-- 'attribute', 'modifyImageAttribute_attribute' - The name of the attribute to modify.
+--
+-- Valid values: @description@ | @launchPermission@
 --
 -- 'productCodes', 'modifyImageAttribute_productCodes' - Not supported.
 --
@@ -124,8 +135,15 @@ data ModifyImageAttribute = ModifyImageAttribute'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'organizationArns', 'modifyImageAttribute_organizationArns' - The Amazon Resource Name (ARN) of an organization. This parameter can be
+-- used only when the @Attribute@ parameter is @launchPermission@.
+--
 -- 'userIds', 'modifyImageAttribute_userIds' - The Amazon Web Services account IDs. This parameter can be used only
 -- when the @Attribute@ parameter is @launchPermission@.
+--
+-- 'organizationalUnitArns', 'modifyImageAttribute_organizationalUnitArns' - The Amazon Resource Name (ARN) of an organizational unit (OU). This
+-- parameter can be used only when the @Attribute@ parameter is
+-- @launchPermission@.
 --
 -- 'value', 'modifyImageAttribute_value' - The value of the attribute being modified. This parameter can be used
 -- only when the @Attribute@ parameter is @description@.
@@ -145,7 +163,9 @@ newModifyImageAttribute pImageId_ =
       userGroups = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      organizationArns = Prelude.Nothing,
       userIds = Prelude.Nothing,
+      organizationalUnitArns = Prelude.Nothing,
       value = Prelude.Nothing,
       imageId = pImageId_
     }
@@ -159,8 +179,9 @@ modifyImageAttribute_launchPermission = Lens.lens (\ModifyImageAttribute' {launc
 modifyImageAttribute_operationType :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe OperationType)
 modifyImageAttribute_operationType = Lens.lens (\ModifyImageAttribute' {operationType} -> operationType) (\s@ModifyImageAttribute' {} a -> s {operationType = a} :: ModifyImageAttribute)
 
--- | The name of the attribute to modify. The valid values are @description@
--- and @launchPermission@.
+-- | The name of the attribute to modify.
+--
+-- Valid values: @description@ | @launchPermission@
 modifyImageAttribute_attribute :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
 modifyImageAttribute_attribute = Lens.lens (\ModifyImageAttribute' {attribute} -> attribute) (\s@ModifyImageAttribute' {} a -> s {attribute = a} :: ModifyImageAttribute)
 
@@ -184,10 +205,21 @@ modifyImageAttribute_description = Lens.lens (\ModifyImageAttribute' {descriptio
 modifyImageAttribute_dryRun :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Bool)
 modifyImageAttribute_dryRun = Lens.lens (\ModifyImageAttribute' {dryRun} -> dryRun) (\s@ModifyImageAttribute' {} a -> s {dryRun = a} :: ModifyImageAttribute)
 
+-- | The Amazon Resource Name (ARN) of an organization. This parameter can be
+-- used only when the @Attribute@ parameter is @launchPermission@.
+modifyImageAttribute_organizationArns :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_organizationArns = Lens.lens (\ModifyImageAttribute' {organizationArns} -> organizationArns) (\s@ModifyImageAttribute' {} a -> s {organizationArns = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Web Services account IDs. This parameter can be used only
 -- when the @Attribute@ parameter is @launchPermission@.
 modifyImageAttribute_userIds :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
 modifyImageAttribute_userIds = Lens.lens (\ModifyImageAttribute' {userIds} -> userIds) (\s@ModifyImageAttribute' {} a -> s {userIds = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of an organizational unit (OU). This
+-- parameter can be used only when the @Attribute@ parameter is
+-- @launchPermission@.
+modifyImageAttribute_organizationalUnitArns :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_organizationalUnitArns = Lens.lens (\ModifyImageAttribute' {organizationalUnitArns} -> organizationalUnitArns) (\s@ModifyImageAttribute' {} a -> s {organizationalUnitArns = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the attribute being modified. This parameter can be used
 -- only when the @Attribute@ parameter is @description@.
@@ -215,7 +247,9 @@ instance Prelude.Hashable ModifyImageAttribute where
       `Prelude.hashWithSalt` userGroups
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` organizationArns
       `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` organizationalUnitArns
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` imageId
 
@@ -228,7 +262,9 @@ instance Prelude.NFData ModifyImageAttribute where
       `Prelude.seq` Prelude.rnf userGroups
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf organizationArns
       `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf organizationalUnitArns
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf imageId
 
@@ -259,7 +295,15 @@ instance Core.ToQuery ModifyImageAttribute where
         "Description" Core.=: description,
         "DryRun" Core.=: dryRun,
         Core.toQuery
+          ( Core.toQueryList "OrganizationArn"
+              Prelude.<$> organizationArns
+          ),
+        Core.toQuery
           (Core.toQueryList "UserId" Prelude.<$> userIds),
+        Core.toQuery
+          ( Core.toQueryList "OrganizationalUnitArn"
+              Prelude.<$> organizationalUnitArns
+          ),
         "Value" Core.=: value,
         "ImageId" Core.=: imageId
       ]

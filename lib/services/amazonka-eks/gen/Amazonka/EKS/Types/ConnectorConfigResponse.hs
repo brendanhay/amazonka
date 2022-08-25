@@ -27,9 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorConfigResponse' smart constructor.
 data ConnectorConfigResponse = ConnectorConfigResponse'
-  { -- | The Amazon Resource Name (ARN) of the role that is used by the EKS
-    -- connector to communicate with AWS services from the connected Kubernetes
-    -- cluster.
+  { -- | The Amazon Resource Name (ARN) of the role to communicate with services
+    -- from the connected Kubernetes cluster.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The cluster\'s cloud service provider.
     provider :: Prelude.Maybe Prelude.Text,
@@ -51,9 +50,8 @@ data ConnectorConfigResponse = ConnectorConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'connectorConfigResponse_roleArn' - The Amazon Resource Name (ARN) of the role that is used by the EKS
--- connector to communicate with AWS services from the connected Kubernetes
--- cluster.
+-- 'roleArn', 'connectorConfigResponse_roleArn' - The Amazon Resource Name (ARN) of the role to communicate with services
+-- from the connected Kubernetes cluster.
 --
 -- 'provider', 'connectorConfigResponse_provider' - The cluster\'s cloud service provider.
 --
@@ -74,9 +72,8 @@ newConnectorConfigResponse =
       activationCode = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the role that is used by the EKS
--- connector to communicate with AWS services from the connected Kubernetes
--- cluster.
+-- | The Amazon Resource Name (ARN) of the role to communicate with services
+-- from the connected Kubernetes cluster.
 connectorConfigResponse_roleArn :: Lens.Lens' ConnectorConfigResponse (Prelude.Maybe Prelude.Text)
 connectorConfigResponse_roleArn = Lens.lens (\ConnectorConfigResponse' {roleArn} -> roleArn) (\s@ConnectorConfigResponse' {} a -> s {roleArn = a} :: ConnectorConfigResponse)
 

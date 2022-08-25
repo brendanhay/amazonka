@@ -38,7 +38,8 @@ import qualified Amazonka.Prelude as Prelude
 data LocationState = LocationState'
   { -- | The life-cycle status of a fleet location.
     status :: Prelude.Maybe FleetStatus,
-    -- | The fleet location, expressed as an AWS Region code such as @us-west-2@.
+    -- | The fleet location, expressed as an Amazon Web Services Region code such
+    -- as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,7 +54,8 @@ data LocationState = LocationState'
 --
 -- 'status', 'locationState_status' - The life-cycle status of a fleet location.
 --
--- 'location', 'locationState_location' - The fleet location, expressed as an AWS Region code such as @us-west-2@.
+-- 'location', 'locationState_location' - The fleet location, expressed as an Amazon Web Services Region code such
+-- as @us-west-2@.
 newLocationState ::
   LocationState
 newLocationState =
@@ -66,7 +68,8 @@ newLocationState =
 locationState_status :: Lens.Lens' LocationState (Prelude.Maybe FleetStatus)
 locationState_status = Lens.lens (\LocationState' {status} -> status) (\s@LocationState' {} a -> s {status = a} :: LocationState)
 
--- | The fleet location, expressed as an AWS Region code such as @us-west-2@.
+-- | The fleet location, expressed as an Amazon Web Services Region code such
+-- as @us-west-2@.
 locationState_location :: Lens.Lens' LocationState (Prelude.Maybe Prelude.Text)
 locationState_location = Lens.lens (\LocationState' {location} -> location) (\s@LocationState' {} a -> s {location = a} :: LocationState)
 

@@ -28,6 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 -- Amazon Resource Name (ARN) or at least one resource tag. You cannot
 -- specify both ARNs and tags.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/fis/latest/userguide/targets.html Targets>
+-- in the /Fault Injection Simulator User Guide/.
+--
 -- /See:/ 'newCreateExperimentTemplateTargetInput' smart constructor.
 data CreateExperimentTemplateTargetInput = CreateExperimentTemplateTargetInput'
   { -- | The filters to apply to identify target resources using specific
@@ -35,10 +39,12 @@ data CreateExperimentTemplateTargetInput = CreateExperimentTemplateTargetInput'
     filters :: Prelude.Maybe [ExperimentTemplateTargetInputFilter],
     -- | The tags for the target resources.
     resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The resource type parameters.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Names (ARNs) of the resources.
     resourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS resource type. The resource type must be supported for the
-    -- specified action.
+    -- | The resource type. The resource type must be supported for the specified
+    -- action.
     resourceType :: Prelude.Text,
     -- | Scopes the identified resources to a specific count of the resources at
     -- random, or a percentage of the resources. All identified resources are
@@ -70,10 +76,12 @@ data CreateExperimentTemplateTargetInput = CreateExperimentTemplateTargetInput'
 --
 -- 'resourceTags', 'createExperimentTemplateTargetInput_resourceTags' - The tags for the target resources.
 --
+-- 'parameters', 'createExperimentTemplateTargetInput_parameters' - The resource type parameters.
+--
 -- 'resourceArns', 'createExperimentTemplateTargetInput_resourceArns' - The Amazon Resource Names (ARNs) of the resources.
 --
--- 'resourceType', 'createExperimentTemplateTargetInput_resourceType' - The AWS resource type. The resource type must be supported for the
--- specified action.
+-- 'resourceType', 'createExperimentTemplateTargetInput_resourceType' - The resource type. The resource type must be supported for the specified
+-- action.
 --
 -- 'selectionMode', 'createExperimentTemplateTargetInput_selectionMode' - Scopes the identified resources to a specific count of the resources at
 -- random, or a percentage of the resources. All identified resources are
@@ -101,6 +109,7 @@ newCreateExperimentTemplateTargetInput
       { filters =
           Prelude.Nothing,
         resourceTags = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         resourceArns = Prelude.Nothing,
         resourceType = pResourceType_,
         selectionMode = pSelectionMode_
@@ -115,12 +124,16 @@ createExperimentTemplateTargetInput_filters = Lens.lens (\CreateExperimentTempla
 createExperimentTemplateTargetInput_resourceTags :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperimentTemplateTargetInput_resourceTags = Lens.lens (\CreateExperimentTemplateTargetInput' {resourceTags} -> resourceTags) (\s@CreateExperimentTemplateTargetInput' {} a -> s {resourceTags = a} :: CreateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
 
+-- | The resource type parameters.
+createExperimentTemplateTargetInput_parameters :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExperimentTemplateTargetInput_parameters = Lens.lens (\CreateExperimentTemplateTargetInput' {parameters} -> parameters) (\s@CreateExperimentTemplateTargetInput' {} a -> s {parameters = a} :: CreateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Resource Names (ARNs) of the resources.
 createExperimentTemplateTargetInput_resourceArns :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe [Prelude.Text])
 createExperimentTemplateTargetInput_resourceArns = Lens.lens (\CreateExperimentTemplateTargetInput' {resourceArns} -> resourceArns) (\s@CreateExperimentTemplateTargetInput' {} a -> s {resourceArns = a} :: CreateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
 
--- | The AWS resource type. The resource type must be supported for the
--- specified action.
+-- | The resource type. The resource type must be supported for the specified
+-- action.
 createExperimentTemplateTargetInput_resourceType :: Lens.Lens' CreateExperimentTemplateTargetInput Prelude.Text
 createExperimentTemplateTargetInput_resourceType = Lens.lens (\CreateExperimentTemplateTargetInput' {resourceType} -> resourceType) (\s@CreateExperimentTemplateTargetInput' {} a -> s {resourceType = a} :: CreateExperimentTemplateTargetInput)
 
@@ -149,6 +162,7 @@ instance
     CreateExperimentTemplateTargetInput' {..} =
       _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` resourceTags
+        `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` resourceArns
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` selectionMode
@@ -160,6 +174,7 @@ instance
   rnf CreateExperimentTemplateTargetInput' {..} =
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf resourceArns
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf selectionMode
@@ -173,6 +188,7 @@ instance
       ( Prelude.catMaybes
           [ ("filters" Core..=) Prelude.<$> filters,
             ("resourceTags" Core..=) Prelude.<$> resourceTags,
+            ("parameters" Core..=) Prelude.<$> parameters,
             ("resourceArns" Core..=) Prelude.<$> resourceArns,
             Prelude.Just ("resourceType" Core..= resourceType),
             Prelude.Just

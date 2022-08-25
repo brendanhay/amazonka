@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the specified AWS FIS action.
+-- Gets information about the specified FIS action.
 module Amazonka.FIS.GetAction
   ( -- * Creating a Request
     GetAction (..),

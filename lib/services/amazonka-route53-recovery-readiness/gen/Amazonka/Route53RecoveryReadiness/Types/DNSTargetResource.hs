@@ -24,19 +24,23 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.TargetResource
 
--- | A component for DNS\/Routing Control Readiness Checks
+-- | A component for DNS\/routing control readiness checks and architecture
+-- checks.
 --
 -- /See:/ 'newDNSTargetResource' smart constructor.
 data DNSTargetResource = DNSTargetResource'
-  { targetResource :: Prelude.Maybe TargetResource,
-    -- | The Hosted Zone ARN that contains the DNS record with the provided name
-    -- of target resource.
+  { -- | The target resource of the DNS target resource.
+    targetResource :: Prelude.Maybe TargetResource,
+    -- | The hosted zone Amazon Resource Name (ARN) that contains the DNS record
+    -- with the provided name of the target resource.
     hostedZoneArn :: Prelude.Maybe Prelude.Text,
-    -- | The DNS Name that acts as ingress point to a portion of application
+    -- | The domain name that acts as an ingress point to a portion of the
+    -- customer application.
     domainName :: Prelude.Maybe Prelude.Text,
-    -- | The R53 Set Id to uniquely identify a record given a Name and a Type
+    -- | The Route 53 record set ID that uniquely identifies a DNS record, given
+    -- a name and a type.
     recordSetId :: Prelude.Maybe Prelude.Text,
-    -- | The Type of DNS Record of target resource
+    -- | The type of DNS record of the target resource.
     recordType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,16 +53,18 @@ data DNSTargetResource = DNSTargetResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetResource', 'dNSTargetResource_targetResource' - Undocumented member.
+-- 'targetResource', 'dNSTargetResource_targetResource' - The target resource of the DNS target resource.
 --
--- 'hostedZoneArn', 'dNSTargetResource_hostedZoneArn' - The Hosted Zone ARN that contains the DNS record with the provided name
--- of target resource.
+-- 'hostedZoneArn', 'dNSTargetResource_hostedZoneArn' - The hosted zone Amazon Resource Name (ARN) that contains the DNS record
+-- with the provided name of the target resource.
 --
--- 'domainName', 'dNSTargetResource_domainName' - The DNS Name that acts as ingress point to a portion of application
+-- 'domainName', 'dNSTargetResource_domainName' - The domain name that acts as an ingress point to a portion of the
+-- customer application.
 --
--- 'recordSetId', 'dNSTargetResource_recordSetId' - The R53 Set Id to uniquely identify a record given a Name and a Type
+-- 'recordSetId', 'dNSTargetResource_recordSetId' - The Route 53 record set ID that uniquely identifies a DNS record, given
+-- a name and a type.
 --
--- 'recordType', 'dNSTargetResource_recordType' - The Type of DNS Record of target resource
+-- 'recordType', 'dNSTargetResource_recordType' - The type of DNS record of the target resource.
 newDNSTargetResource ::
   DNSTargetResource
 newDNSTargetResource =
@@ -71,24 +77,26 @@ newDNSTargetResource =
       recordType = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The target resource of the DNS target resource.
 dNSTargetResource_targetResource :: Lens.Lens' DNSTargetResource (Prelude.Maybe TargetResource)
 dNSTargetResource_targetResource = Lens.lens (\DNSTargetResource' {targetResource} -> targetResource) (\s@DNSTargetResource' {} a -> s {targetResource = a} :: DNSTargetResource)
 
--- | The Hosted Zone ARN that contains the DNS record with the provided name
--- of target resource.
+-- | The hosted zone Amazon Resource Name (ARN) that contains the DNS record
+-- with the provided name of the target resource.
 dNSTargetResource_hostedZoneArn :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_hostedZoneArn = Lens.lens (\DNSTargetResource' {hostedZoneArn} -> hostedZoneArn) (\s@DNSTargetResource' {} a -> s {hostedZoneArn = a} :: DNSTargetResource)
 
--- | The DNS Name that acts as ingress point to a portion of application
+-- | The domain name that acts as an ingress point to a portion of the
+-- customer application.
 dNSTargetResource_domainName :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_domainName = Lens.lens (\DNSTargetResource' {domainName} -> domainName) (\s@DNSTargetResource' {} a -> s {domainName = a} :: DNSTargetResource)
 
--- | The R53 Set Id to uniquely identify a record given a Name and a Type
+-- | The Route 53 record set ID that uniquely identifies a DNS record, given
+-- a name and a type.
 dNSTargetResource_recordSetId :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_recordSetId = Lens.lens (\DNSTargetResource' {recordSetId} -> recordSetId) (\s@DNSTargetResource' {} a -> s {recordSetId = a} :: DNSTargetResource)
 
--- | The Type of DNS Record of target resource
+-- | The type of DNS record of the target resource.
 dNSTargetResource_recordType :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_recordType = Lens.lens (\DNSTargetResource' {recordType} -> recordType) (\s@DNSTargetResource' {} a -> s {recordType = a} :: DNSTargetResource)
 

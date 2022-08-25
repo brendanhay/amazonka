@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStorageLocation' smart constructor.
 data StorageLocation = StorageLocation'
-  { -- | The location\'s bucket.
+  { -- | The location\'s binary prefix.
+    binaryPrefixLocation :: Prelude.Text,
+    -- | The location\'s bucket.
     bucket :: Prelude.Text,
-    -- | The location\'s repo prefix.
-    repoPrefixLocation :: Prelude.Text,
     -- | The location\'s generated prefix.
     generatedPrefixLocation :: Prelude.Text,
-    -- | The location\'s binary prefix.
-    binaryPrefixLocation :: Prelude.Text,
     -- | The location\'s manifest prefix.
-    manifestPrefixLocation :: Prelude.Text
+    manifestPrefixLocation :: Prelude.Text,
+    -- | The location\'s repo prefix.
+    repoPrefixLocation :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,60 +48,61 @@ data StorageLocation = StorageLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucket', 'storageLocation_bucket' - The location\'s bucket.
+-- 'binaryPrefixLocation', 'storageLocation_binaryPrefixLocation' - The location\'s binary prefix.
 --
--- 'repoPrefixLocation', 'storageLocation_repoPrefixLocation' - The location\'s repo prefix.
+-- 'bucket', 'storageLocation_bucket' - The location\'s bucket.
 --
 -- 'generatedPrefixLocation', 'storageLocation_generatedPrefixLocation' - The location\'s generated prefix.
 --
--- 'binaryPrefixLocation', 'storageLocation_binaryPrefixLocation' - The location\'s binary prefix.
---
 -- 'manifestPrefixLocation', 'storageLocation_manifestPrefixLocation' - The location\'s manifest prefix.
+--
+-- 'repoPrefixLocation', 'storageLocation_repoPrefixLocation' - The location\'s repo prefix.
 newStorageLocation ::
-  -- | 'bucket'
+  -- | 'binaryPrefixLocation'
   Prelude.Text ->
-  -- | 'repoPrefixLocation'
+  -- | 'bucket'
   Prelude.Text ->
   -- | 'generatedPrefixLocation'
   Prelude.Text ->
-  -- | 'binaryPrefixLocation'
-  Prelude.Text ->
   -- | 'manifestPrefixLocation'
+  Prelude.Text ->
+  -- | 'repoPrefixLocation'
   Prelude.Text ->
   StorageLocation
 newStorageLocation
-  pBucket_
-  pRepoPrefixLocation_
-  pGeneratedPrefixLocation_
   pBinaryPrefixLocation_
-  pManifestPrefixLocation_ =
+  pBucket_
+  pGeneratedPrefixLocation_
+  pManifestPrefixLocation_
+  pRepoPrefixLocation_ =
     StorageLocation'
-      { bucket = pBucket_,
-        repoPrefixLocation = pRepoPrefixLocation_,
+      { binaryPrefixLocation =
+          pBinaryPrefixLocation_,
+        bucket = pBucket_,
         generatedPrefixLocation = pGeneratedPrefixLocation_,
-        binaryPrefixLocation = pBinaryPrefixLocation_,
-        manifestPrefixLocation = pManifestPrefixLocation_
+        manifestPrefixLocation = pManifestPrefixLocation_,
+        repoPrefixLocation = pRepoPrefixLocation_
       }
-
--- | The location\'s bucket.
-storageLocation_bucket :: Lens.Lens' StorageLocation Prelude.Text
-storageLocation_bucket = Lens.lens (\StorageLocation' {bucket} -> bucket) (\s@StorageLocation' {} a -> s {bucket = a} :: StorageLocation)
-
--- | The location\'s repo prefix.
-storageLocation_repoPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
-storageLocation_repoPrefixLocation = Lens.lens (\StorageLocation' {repoPrefixLocation} -> repoPrefixLocation) (\s@StorageLocation' {} a -> s {repoPrefixLocation = a} :: StorageLocation)
-
--- | The location\'s generated prefix.
-storageLocation_generatedPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
-storageLocation_generatedPrefixLocation = Lens.lens (\StorageLocation' {generatedPrefixLocation} -> generatedPrefixLocation) (\s@StorageLocation' {} a -> s {generatedPrefixLocation = a} :: StorageLocation)
 
 -- | The location\'s binary prefix.
 storageLocation_binaryPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
 storageLocation_binaryPrefixLocation = Lens.lens (\StorageLocation' {binaryPrefixLocation} -> binaryPrefixLocation) (\s@StorageLocation' {} a -> s {binaryPrefixLocation = a} :: StorageLocation)
 
+-- | The location\'s bucket.
+storageLocation_bucket :: Lens.Lens' StorageLocation Prelude.Text
+storageLocation_bucket = Lens.lens (\StorageLocation' {bucket} -> bucket) (\s@StorageLocation' {} a -> s {bucket = a} :: StorageLocation)
+
+-- | The location\'s generated prefix.
+storageLocation_generatedPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
+storageLocation_generatedPrefixLocation = Lens.lens (\StorageLocation' {generatedPrefixLocation} -> generatedPrefixLocation) (\s@StorageLocation' {} a -> s {generatedPrefixLocation = a} :: StorageLocation)
+
 -- | The location\'s manifest prefix.
 storageLocation_manifestPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
 storageLocation_manifestPrefixLocation = Lens.lens (\StorageLocation' {manifestPrefixLocation} -> manifestPrefixLocation) (\s@StorageLocation' {} a -> s {manifestPrefixLocation = a} :: StorageLocation)
+
+-- | The location\'s repo prefix.
+storageLocation_repoPrefixLocation :: Lens.Lens' StorageLocation Prelude.Text
+storageLocation_repoPrefixLocation = Lens.lens (\StorageLocation' {repoPrefixLocation} -> repoPrefixLocation) (\s@StorageLocation' {} a -> s {repoPrefixLocation = a} :: StorageLocation)
 
 instance Core.FromJSON StorageLocation where
   parseJSON =
@@ -109,25 +110,25 @@ instance Core.FromJSON StorageLocation where
       "StorageLocation"
       ( \x ->
           StorageLocation'
-            Prelude.<$> (x Core..: "Bucket")
-            Prelude.<*> (x Core..: "RepoPrefixLocation")
+            Prelude.<$> (x Core..: "BinaryPrefixLocation")
+            Prelude.<*> (x Core..: "Bucket")
             Prelude.<*> (x Core..: "GeneratedPrefixLocation")
-            Prelude.<*> (x Core..: "BinaryPrefixLocation")
             Prelude.<*> (x Core..: "ManifestPrefixLocation")
+            Prelude.<*> (x Core..: "RepoPrefixLocation")
       )
 
 instance Prelude.Hashable StorageLocation where
   hashWithSalt _salt StorageLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
-      `Prelude.hashWithSalt` repoPrefixLocation
+    _salt `Prelude.hashWithSalt` binaryPrefixLocation
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` generatedPrefixLocation
-      `Prelude.hashWithSalt` binaryPrefixLocation
       `Prelude.hashWithSalt` manifestPrefixLocation
+      `Prelude.hashWithSalt` repoPrefixLocation
 
 instance Prelude.NFData StorageLocation where
   rnf StorageLocation' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf repoPrefixLocation
+    Prelude.rnf binaryPrefixLocation
+      `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf generatedPrefixLocation
-      `Prelude.seq` Prelude.rnf binaryPrefixLocation
       `Prelude.seq` Prelude.rnf manifestPrefixLocation
+      `Prelude.seq` Prelude.rnf repoPrefixLocation

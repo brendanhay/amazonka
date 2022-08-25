@@ -11,15 +11,23 @@
 --
 -- Derived from API version @2016-10-24@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Server Migration Service
+-- __Product update__
 --
--- AWS Server Migration Service (AWS SMS) makes it easier and faster for
--- you to migrate your on-premises workloads to AWS. To learn more about
--- AWS SMS, see the following resources:
+-- We recommend
+-- <http://aws.amazon.com/application-migration-service Amazon Web Services Application Migration Service>
+-- (Amazon Web Services MGN) as the primary migration service for
+-- lift-and-shift migrations. If Amazon Web Services MGN is unavailable in
+-- a specific Amazon Web Services Region, you can use the Server Migration
+-- Service APIs through March 2023.
 --
--- -   <http://aws.amazon.com/server-migration-service/ AWS Server Migration Service product page>
+-- Server Migration Service (Server Migration Service) makes it easier and
+-- faster for you to migrate your on-premises workloads to Amazon Web
+-- Services. To learn more about Server Migration Service, see the
+-- following resources:
 --
--- -   <https://docs.aws.amazon.com/server-migration-service/latest/userguide/ AWS Server Migration Service User Guide>
+-- -   <http://aws.amazon.com/server-migration-service/ Server Migration Service product page>
+--
+-- -   <https://docs.aws.amazon.com/server-migration-service/latest/userguide/ Server Migration Service User Guide>
 module Amazonka.SMS
   ( -- * Service Configuration
     defaultService,

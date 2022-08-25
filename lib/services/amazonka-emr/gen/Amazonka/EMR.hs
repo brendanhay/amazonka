@@ -439,6 +439,9 @@ module Amazonka.EMR
     -- ** PlacementGroupStrategy
     PlacementGroupStrategy (..),
 
+    -- ** ReconfigurationType
+    ReconfigurationType (..),
+
     -- ** RepoUpgradeOnBoot
     RepoUpgradeOnBoot (..),
 
@@ -685,6 +688,10 @@ module Amazonka.EMR
     -- ** NotebookExecutionSummary
     NotebookExecutionSummary (NotebookExecutionSummary'),
     newNotebookExecutionSummary,
+
+    -- ** OSRelease
+    OSRelease (OSRelease'),
+    newOSRelease,
 
     -- ** OnDemandCapacityReservationOptions
     OnDemandCapacityReservationOptions (OnDemandCapacityReservationOptions'),

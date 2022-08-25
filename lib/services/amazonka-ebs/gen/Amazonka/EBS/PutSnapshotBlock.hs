@@ -62,6 +62,12 @@ data PutSnapshotBlock = PutSnapshotBlock'
   { -- | The progress of the write process, as a percentage.
     progress :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the snapshot.
+    --
+    -- If the specified snapshot is encrypted, you must have permission to use
+    -- the KMS key that was used to encrypt the snapshot. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html Using encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/..
     snapshotId :: Prelude.Text,
     -- | The block index of the block in which to write the data. A block index
     -- is a logical index in units of @512@ KiB blocks. To identify the block
@@ -108,6 +114,12 @@ data PutSnapshotBlock = PutSnapshotBlock'
 -- 'progress', 'putSnapshotBlock_progress' - The progress of the write process, as a percentage.
 --
 -- 'snapshotId', 'putSnapshotBlock_snapshotId' - The ID of the snapshot.
+--
+-- If the specified snapshot is encrypted, you must have permission to use
+-- the KMS key that was used to encrypt the snapshot. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html Using encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/..
 --
 -- 'blockIndex', 'putSnapshotBlock_blockIndex' - The block index of the block in which to write the data. A block index
 -- is a logical index in units of @512@ KiB blocks. To identify the block
@@ -175,6 +187,12 @@ putSnapshotBlock_progress :: Lens.Lens' PutSnapshotBlock (Prelude.Maybe Prelude.
 putSnapshotBlock_progress = Lens.lens (\PutSnapshotBlock' {progress} -> progress) (\s@PutSnapshotBlock' {} a -> s {progress = a} :: PutSnapshotBlock)
 
 -- | The ID of the snapshot.
+--
+-- If the specified snapshot is encrypted, you must have permission to use
+-- the KMS key that was used to encrypt the snapshot. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html Using encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/..
 putSnapshotBlock_snapshotId :: Lens.Lens' PutSnapshotBlock Prelude.Text
 putSnapshotBlock_snapshotId = Lens.lens (\PutSnapshotBlock' {snapshotId} -> snapshotId) (\s@PutSnapshotBlock' {} a -> s {snapshotId = a} :: PutSnapshotBlock)
 

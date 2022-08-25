@@ -19,6 +19,7 @@ module Amazonka.CostExplorer.Types
     -- * Errors
     _RequestChangedException,
     _UnknownSubscriptionException,
+    _TooManyTagsException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
     _UnresolvableUsageUnitException,
@@ -39,6 +40,12 @@ module Amazonka.CostExplorer.Types
 
     -- * Context
     Context (..),
+
+    -- * CostAllocationTagStatus
+    CostAllocationTagStatus (..),
+
+    -- * CostAllocationTagType
+    CostAllocationTagType (..),
 
     -- * CostCategoryInheritedValueDimensionName
     CostCategoryInheritedValueDimensionName (..),
@@ -172,6 +179,19 @@ module Amazonka.CostExplorer.Types
     anomalySubscription_threshold,
     anomalySubscription_frequency,
     anomalySubscription_subscriptionName,
+
+    -- * CostAllocationTag
+    CostAllocationTag (..),
+    newCostAllocationTag,
+    costAllocationTag_tagKey,
+    costAllocationTag_type,
+    costAllocationTag_status,
+
+    -- * CostAllocationTagStatusEntry
+    CostAllocationTagStatusEntry (..),
+    newCostAllocationTagStatusEntry,
+    costAllocationTagStatusEntry_tagKey,
+    costAllocationTagStatusEntry_status,
 
     -- * CostCategory
     CostCategory (..),
@@ -556,6 +576,12 @@ module Amazonka.CostExplorer.Types
     newResourceDetails,
     resourceDetails_eC2ResourceDetails,
 
+    -- * ResourceTag
+    ResourceTag (..),
+    newResourceTag,
+    resourceTag_key,
+    resourceTag_value,
+
     -- * ResourceUtilization
     ResourceUtilization (..),
     newResourceUtilization,
@@ -778,6 +804,13 @@ module Amazonka.CostExplorer.Types
     totalImpactFilter_numericOperator,
     totalImpactFilter_startValue,
 
+    -- * UpdateCostAllocationTagsStatusError
+    UpdateCostAllocationTagsStatusError (..),
+    newUpdateCostAllocationTagsStatusError,
+    updateCostAllocationTagsStatusError_message,
+    updateCostAllocationTagsStatusError_code,
+    updateCostAllocationTagsStatusError_tagKey,
+
     -- * UtilizationByTime
     UtilizationByTime (..),
     newUtilizationByTime,
@@ -797,6 +830,10 @@ import Amazonka.CostExplorer.Types.AnomalyScore
 import Amazonka.CostExplorer.Types.AnomalySubscription
 import Amazonka.CostExplorer.Types.AnomalySubscriptionFrequency
 import Amazonka.CostExplorer.Types.Context
+import Amazonka.CostExplorer.Types.CostAllocationTag
+import Amazonka.CostExplorer.Types.CostAllocationTagStatus
+import Amazonka.CostExplorer.Types.CostAllocationTagStatusEntry
+import Amazonka.CostExplorer.Types.CostAllocationTagType
 import Amazonka.CostExplorer.Types.CostCategory
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimensionName
@@ -862,6 +899,7 @@ import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
 import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationSummary
 import Amazonka.CostExplorer.Types.ReservationUtilizationGroup
 import Amazonka.CostExplorer.Types.ResourceDetails
+import Amazonka.CostExplorer.Types.ResourceTag
 import Amazonka.CostExplorer.Types.ResourceUtilization
 import Amazonka.CostExplorer.Types.ResultByTime
 import Amazonka.CostExplorer.Types.RightsizingRecommendation
@@ -896,6 +934,7 @@ import Amazonka.CostExplorer.Types.TargetInstance
 import Amazonka.CostExplorer.Types.TermInYears
 import Amazonka.CostExplorer.Types.TerminateRecommendationDetail
 import Amazonka.CostExplorer.Types.TotalImpactFilter
+import Amazonka.CostExplorer.Types.UpdateCostAllocationTagsStatusError
 import Amazonka.CostExplorer.Types.UtilizationByTime
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -986,6 +1025,14 @@ _UnknownSubscriptionException =
   Core._MatchServiceError
     defaultService
     "UnknownSubscriptionException"
+
+-- | Can occur if you specify a number of tags for a resource greater than
+-- the maximum 50 user tags per resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
 -- | You\'ve reached the limit on the number of resources you can create, or
 -- exceeded the size of an individual resource.

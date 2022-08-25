@@ -124,7 +124,7 @@ instance Core.ToQuery DeleteEnvironmentTemplate where
 
 -- | /See:/ 'newDeleteEnvironmentTemplateResponse' smart constructor.
 data DeleteEnvironmentTemplateResponse = DeleteEnvironmentTemplateResponse'
-  { -- | The environment template detail data that\'s returned by AWS Proton.
+  { -- | The detailed data of the environment template being deleted.
     environmentTemplate :: Prelude.Maybe EnvironmentTemplate,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -139,7 +139,7 @@ data DeleteEnvironmentTemplateResponse = DeleteEnvironmentTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentTemplate', 'deleteEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by AWS Proton.
+-- 'environmentTemplate', 'deleteEnvironmentTemplateResponse_environmentTemplate' - The detailed data of the environment template being deleted.
 --
 -- 'httpStatus', 'deleteEnvironmentTemplateResponse_httpStatus' - The response's http status code.
 newDeleteEnvironmentTemplateResponse ::
@@ -153,7 +153,7 @@ newDeleteEnvironmentTemplateResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The environment template detail data that\'s returned by AWS Proton.
+-- | The detailed data of the environment template being deleted.
 deleteEnvironmentTemplateResponse_environmentTemplate :: Lens.Lens' DeleteEnvironmentTemplateResponse (Prelude.Maybe EnvironmentTemplate)
 deleteEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\DeleteEnvironmentTemplateResponse' {environmentTemplate} -> environmentTemplate) (\s@DeleteEnvironmentTemplateResponse' {} a -> s {environmentTemplate = a} :: DeleteEnvironmentTemplateResponse)
 

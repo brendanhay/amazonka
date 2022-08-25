@@ -24,12 +24,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that allows an admin to grant user permissions on certain
--- conditions. For example, granting a role access to all columns not
--- tagged \'PII\' of tables tagged \'Prod\'.
+-- conditions. For example, granting a role access to all columns that do
+-- not have the LF-tag \'PII\' in tables that have the LF-tag \'Prod\'.
 --
 -- /See:/ 'newLFTag' smart constructor.
 data LFTag = LFTag'
-  { -- | The key-name for the tag.
+  { -- | The key-name for the LF-tag.
     tagKey :: Prelude.Text,
     -- | A list of possible values an attribute can take.
     tagValues :: Prelude.NonEmpty Prelude.Text
@@ -44,7 +44,7 @@ data LFTag = LFTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKey', 'lFTag_tagKey' - The key-name for the tag.
+-- 'tagKey', 'lFTag_tagKey' - The key-name for the LF-tag.
 --
 -- 'tagValues', 'lFTag_tagValues' - A list of possible values an attribute can take.
 newLFTag ::
@@ -59,7 +59,7 @@ newLFTag pTagKey_ pTagValues_ =
       tagValues = Lens.coerced Lens.# pTagValues_
     }
 
--- | The key-name for the tag.
+-- | The key-name for the LF-tag.
 lFTag_tagKey :: Lens.Lens' LFTag Prelude.Text
 lFTag_tagKey = Lens.lens (\LFTag' {tagKey} -> tagKey) (\s@LFTag' {} a -> s {tagKey = a} :: LFTag)
 

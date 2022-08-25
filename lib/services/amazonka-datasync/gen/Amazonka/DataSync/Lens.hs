@@ -30,11 +30,40 @@ module Amazonka.DataSync.Lens
 
     -- ** CreateLocationEfs
     createLocationEfs_tags,
+    createLocationEfs_inTransitEncryption,
+    createLocationEfs_accessPointArn,
+    createLocationEfs_fileSystemAccessRoleArn,
     createLocationEfs_subdirectory,
     createLocationEfs_efsFilesystemArn,
     createLocationEfs_ec2Config,
     createLocationEfsResponse_locationArn,
     createLocationEfsResponse_httpStatus,
+
+    -- ** CreateLocationFsxLustre
+    createLocationFsxLustre_tags,
+    createLocationFsxLustre_subdirectory,
+    createLocationFsxLustre_fsxFilesystemArn,
+    createLocationFsxLustre_securityGroupArns,
+    createLocationFsxLustreResponse_locationArn,
+    createLocationFsxLustreResponse_httpStatus,
+
+    -- ** CreateLocationFsxOntap
+    createLocationFsxOntap_tags,
+    createLocationFsxOntap_subdirectory,
+    createLocationFsxOntap_protocol,
+    createLocationFsxOntap_securityGroupArns,
+    createLocationFsxOntap_storageVirtualMachineArn,
+    createLocationFsxOntapResponse_locationArn,
+    createLocationFsxOntapResponse_httpStatus,
+
+    -- ** CreateLocationFsxOpenZfs
+    createLocationFsxOpenZfs_tags,
+    createLocationFsxOpenZfs_subdirectory,
+    createLocationFsxOpenZfs_fsxFilesystemArn,
+    createLocationFsxOpenZfs_protocol,
+    createLocationFsxOpenZfs_securityGroupArns,
+    createLocationFsxOpenZfsResponse_locationArn,
+    createLocationFsxOpenZfsResponse_httpStatus,
 
     -- ** CreateLocationFsxWindows
     createLocationFsxWindows_tags,
@@ -46,6 +75,23 @@ module Amazonka.DataSync.Lens
     createLocationFsxWindows_password,
     createLocationFsxWindowsResponse_locationArn,
     createLocationFsxWindowsResponse_httpStatus,
+
+    -- ** CreateLocationHdfs
+    createLocationHdfs_tags,
+    createLocationHdfs_kerberosKrb5Conf,
+    createLocationHdfs_kerberosPrincipal,
+    createLocationHdfs_replicationFactor,
+    createLocationHdfs_kmsKeyProviderUri,
+    createLocationHdfs_qopConfiguration,
+    createLocationHdfs_simpleUser,
+    createLocationHdfs_blockSize,
+    createLocationHdfs_kerberosKeytab,
+    createLocationHdfs_subdirectory,
+    createLocationHdfs_nameNodes,
+    createLocationHdfs_authenticationType,
+    createLocationHdfs_agentArns,
+    createLocationHdfsResponse_locationArn,
+    createLocationHdfsResponse_httpStatus,
 
     -- ** CreateLocationNfs
     createLocationNfs_tags,
@@ -129,11 +175,42 @@ module Amazonka.DataSync.Lens
 
     -- ** DescribeLocationEfs
     describeLocationEfs_locationArn,
+    describeLocationEfsResponse_inTransitEncryption,
+    describeLocationEfsResponse_accessPointArn,
+    describeLocationEfsResponse_fileSystemAccessRoleArn,
     describeLocationEfsResponse_locationArn,
     describeLocationEfsResponse_ec2Config,
     describeLocationEfsResponse_locationUri,
     describeLocationEfsResponse_creationTime,
     describeLocationEfsResponse_httpStatus,
+
+    -- ** DescribeLocationFsxLustre
+    describeLocationFsxLustre_locationArn,
+    describeLocationFsxLustreResponse_locationArn,
+    describeLocationFsxLustreResponse_locationUri,
+    describeLocationFsxLustreResponse_securityGroupArns,
+    describeLocationFsxLustreResponse_creationTime,
+    describeLocationFsxLustreResponse_httpStatus,
+
+    -- ** DescribeLocationFsxOntap
+    describeLocationFsxOntap_locationArn,
+    describeLocationFsxOntapResponse_fsxFilesystemArn,
+    describeLocationFsxOntapResponse_storageVirtualMachineArn,
+    describeLocationFsxOntapResponse_locationArn,
+    describeLocationFsxOntapResponse_locationUri,
+    describeLocationFsxOntapResponse_securityGroupArns,
+    describeLocationFsxOntapResponse_creationTime,
+    describeLocationFsxOntapResponse_protocol,
+    describeLocationFsxOntapResponse_httpStatus,
+
+    -- ** DescribeLocationFsxOpenZfs
+    describeLocationFsxOpenZfs_locationArn,
+    describeLocationFsxOpenZfsResponse_locationArn,
+    describeLocationFsxOpenZfsResponse_locationUri,
+    describeLocationFsxOpenZfsResponse_securityGroupArns,
+    describeLocationFsxOpenZfsResponse_creationTime,
+    describeLocationFsxOpenZfsResponse_protocol,
+    describeLocationFsxOpenZfsResponse_httpStatus,
 
     -- ** DescribeLocationFsxWindows
     describeLocationFsxWindows_locationArn,
@@ -144,6 +221,22 @@ module Amazonka.DataSync.Lens
     describeLocationFsxWindowsResponse_securityGroupArns,
     describeLocationFsxWindowsResponse_creationTime,
     describeLocationFsxWindowsResponse_httpStatus,
+
+    -- ** DescribeLocationHdfs
+    describeLocationHdfs_locationArn,
+    describeLocationHdfsResponse_authenticationType,
+    describeLocationHdfsResponse_kerberosPrincipal,
+    describeLocationHdfsResponse_replicationFactor,
+    describeLocationHdfsResponse_locationArn,
+    describeLocationHdfsResponse_kmsKeyProviderUri,
+    describeLocationHdfsResponse_qopConfiguration,
+    describeLocationHdfsResponse_nameNodes,
+    describeLocationHdfsResponse_locationUri,
+    describeLocationHdfsResponse_creationTime,
+    describeLocationHdfsResponse_simpleUser,
+    describeLocationHdfsResponse_blockSize,
+    describeLocationHdfsResponse_agentArns,
+    describeLocationHdfsResponse_httpStatus,
 
     -- ** DescribeLocationNfs
     describeLocationNfs_locationArn,
@@ -284,6 +377,22 @@ module Amazonka.DataSync.Lens
     updateAgent_agentArn,
     updateAgentResponse_httpStatus,
 
+    -- ** UpdateLocationHdfs
+    updateLocationHdfs_authenticationType,
+    updateLocationHdfs_kerberosKrb5Conf,
+    updateLocationHdfs_kerberosPrincipal,
+    updateLocationHdfs_replicationFactor,
+    updateLocationHdfs_kmsKeyProviderUri,
+    updateLocationHdfs_qopConfiguration,
+    updateLocationHdfs_nameNodes,
+    updateLocationHdfs_simpleUser,
+    updateLocationHdfs_blockSize,
+    updateLocationHdfs_kerberosKeytab,
+    updateLocationHdfs_subdirectory,
+    updateLocationHdfs_agentArns,
+    updateLocationHdfs_locationArn,
+    updateLocationHdfsResponse_httpStatus,
+
     -- ** UpdateLocationNfs
     updateLocationNfs_onPremConfig,
     updateLocationNfs_mountOptions,
@@ -341,6 +450,23 @@ module Amazonka.DataSync.Lens
     filterRule_filterType,
     filterRule_value,
 
+    -- ** FsxProtocol
+    fsxProtocol_smb,
+    fsxProtocol_nfs,
+
+    -- ** FsxProtocolNfs
+    fsxProtocolNfs_mountOptions,
+
+    -- ** FsxProtocolSmb
+    fsxProtocolSmb_domain,
+    fsxProtocolSmb_mountOptions,
+    fsxProtocolSmb_password,
+    fsxProtocolSmb_user,
+
+    -- ** HdfsNameNode
+    hdfsNameNode_hostname,
+    hdfsNameNode_port,
+
     -- ** LocationFilter
     locationFilter_name,
     locationFilter_values,
@@ -357,6 +483,7 @@ module Amazonka.DataSync.Lens
     onPremConfig_agentArns,
 
     -- ** Options
+    options_objectTags,
     options_gid,
     options_logLevel,
     options_taskQueueing,
@@ -377,6 +504,10 @@ module Amazonka.DataSync.Lens
     privateLinkConfig_privateLinkEndpoint,
     privateLinkConfig_vpcEndpointId,
     privateLinkConfig_securityGroupArns,
+
+    -- ** QopConfiguration
+    qopConfiguration_dataTransferProtection,
+    qopConfiguration_rpcProtection,
 
     -- ** S3Config
     s3Config_bucketAccessRoleArn,
@@ -421,7 +552,11 @@ where
 import Amazonka.DataSync.CancelTaskExecution
 import Amazonka.DataSync.CreateAgent
 import Amazonka.DataSync.CreateLocationEfs
+import Amazonka.DataSync.CreateLocationFsxLustre
+import Amazonka.DataSync.CreateLocationFsxOntap
+import Amazonka.DataSync.CreateLocationFsxOpenZfs
 import Amazonka.DataSync.CreateLocationFsxWindows
+import Amazonka.DataSync.CreateLocationHdfs
 import Amazonka.DataSync.CreateLocationNfs
 import Amazonka.DataSync.CreateLocationObjectStorage
 import Amazonka.DataSync.CreateLocationS3
@@ -432,7 +567,11 @@ import Amazonka.DataSync.DeleteLocation
 import Amazonka.DataSync.DeleteTask
 import Amazonka.DataSync.DescribeAgent
 import Amazonka.DataSync.DescribeLocationEfs
+import Amazonka.DataSync.DescribeLocationFsxLustre
+import Amazonka.DataSync.DescribeLocationFsxOntap
+import Amazonka.DataSync.DescribeLocationFsxOpenZfs
 import Amazonka.DataSync.DescribeLocationFsxWindows
+import Amazonka.DataSync.DescribeLocationHdfs
 import Amazonka.DataSync.DescribeLocationNfs
 import Amazonka.DataSync.DescribeLocationObjectStorage
 import Amazonka.DataSync.DescribeLocationS3
@@ -449,12 +588,17 @@ import Amazonka.DataSync.TagResource
 import Amazonka.DataSync.Types.AgentListEntry
 import Amazonka.DataSync.Types.Ec2Config
 import Amazonka.DataSync.Types.FilterRule
+import Amazonka.DataSync.Types.FsxProtocol
+import Amazonka.DataSync.Types.FsxProtocolNfs
+import Amazonka.DataSync.Types.FsxProtocolSmb
+import Amazonka.DataSync.Types.HdfsNameNode
 import Amazonka.DataSync.Types.LocationFilter
 import Amazonka.DataSync.Types.LocationListEntry
 import Amazonka.DataSync.Types.NfsMountOptions
 import Amazonka.DataSync.Types.OnPremConfig
 import Amazonka.DataSync.Types.Options
 import Amazonka.DataSync.Types.PrivateLinkConfig
+import Amazonka.DataSync.Types.QopConfiguration
 import Amazonka.DataSync.Types.S3Config
 import Amazonka.DataSync.Types.SmbMountOptions
 import Amazonka.DataSync.Types.TagListEntry
@@ -465,6 +609,7 @@ import Amazonka.DataSync.Types.TaskListEntry
 import Amazonka.DataSync.Types.TaskSchedule
 import Amazonka.DataSync.UntagResource
 import Amazonka.DataSync.UpdateAgent
+import Amazonka.DataSync.UpdateLocationHdfs
 import Amazonka.DataSync.UpdateLocationNfs
 import Amazonka.DataSync.UpdateLocationObjectStorage
 import Amazonka.DataSync.UpdateLocationSmb

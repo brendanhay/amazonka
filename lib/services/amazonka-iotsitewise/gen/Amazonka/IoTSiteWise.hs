@@ -87,6 +87,12 @@ module Amazonka.IoTSiteWise
     AssociateAssetsResponse (AssociateAssetsResponse'),
     newAssociateAssetsResponse,
 
+    -- ** AssociateTimeSeriesToAssetProperty
+    AssociateTimeSeriesToAssetProperty (AssociateTimeSeriesToAssetProperty'),
+    newAssociateTimeSeriesToAssetProperty,
+    AssociateTimeSeriesToAssetPropertyResponse (AssociateTimeSeriesToAssetPropertyResponse'),
+    newAssociateTimeSeriesToAssetPropertyResponse,
+
     -- ** BatchAssociateProjectAssets
     BatchAssociateProjectAssets (BatchAssociateProjectAssets'),
     newBatchAssociateProjectAssets,
@@ -98,6 +104,24 @@ module Amazonka.IoTSiteWise
     newBatchDisassociateProjectAssets,
     BatchDisassociateProjectAssetsResponse (BatchDisassociateProjectAssetsResponse'),
     newBatchDisassociateProjectAssetsResponse,
+
+    -- ** BatchGetAssetPropertyAggregates
+    BatchGetAssetPropertyAggregates (BatchGetAssetPropertyAggregates'),
+    newBatchGetAssetPropertyAggregates,
+    BatchGetAssetPropertyAggregatesResponse (BatchGetAssetPropertyAggregatesResponse'),
+    newBatchGetAssetPropertyAggregatesResponse,
+
+    -- ** BatchGetAssetPropertyValue
+    BatchGetAssetPropertyValue (BatchGetAssetPropertyValue'),
+    newBatchGetAssetPropertyValue,
+    BatchGetAssetPropertyValueResponse (BatchGetAssetPropertyValueResponse'),
+    newBatchGetAssetPropertyValueResponse,
+
+    -- ** BatchGetAssetPropertyValueHistory
+    BatchGetAssetPropertyValueHistory (BatchGetAssetPropertyValueHistory'),
+    newBatchGetAssetPropertyValueHistory,
+    BatchGetAssetPropertyValueHistoryResponse (BatchGetAssetPropertyValueHistoryResponse'),
+    newBatchGetAssetPropertyValueHistoryResponse,
 
     -- ** BatchPutAssetPropertyValue
     BatchPutAssetPropertyValue (BatchPutAssetPropertyValue'),
@@ -122,6 +146,12 @@ module Amazonka.IoTSiteWise
     newCreateAssetModel,
     CreateAssetModelResponse (CreateAssetModelResponse'),
     newCreateAssetModelResponse,
+
+    -- ** CreateBulkImportJob
+    CreateBulkImportJob (CreateBulkImportJob'),
+    newCreateBulkImportJob,
+    CreateBulkImportJobResponse (CreateBulkImportJobResponse'),
+    newCreateBulkImportJobResponse,
 
     -- ** CreateDashboard
     CreateDashboard (CreateDashboard'),
@@ -189,6 +219,12 @@ module Amazonka.IoTSiteWise
     DeleteProjectResponse (DeleteProjectResponse'),
     newDeleteProjectResponse,
 
+    -- ** DeleteTimeSeries
+    DeleteTimeSeries (DeleteTimeSeries'),
+    newDeleteTimeSeries,
+    DeleteTimeSeriesResponse (DeleteTimeSeriesResponse'),
+    newDeleteTimeSeriesResponse,
+
     -- ** DescribeAccessPolicy
     DescribeAccessPolicy (DescribeAccessPolicy'),
     newDescribeAccessPolicy,
@@ -212,6 +248,12 @@ module Amazonka.IoTSiteWise
     newDescribeAssetProperty,
     DescribeAssetPropertyResponse (DescribeAssetPropertyResponse'),
     newDescribeAssetPropertyResponse,
+
+    -- ** DescribeBulkImportJob
+    DescribeBulkImportJob (DescribeBulkImportJob'),
+    newDescribeBulkImportJob,
+    DescribeBulkImportJobResponse (DescribeBulkImportJobResponse'),
+    newDescribeBulkImportJobResponse,
 
     -- ** DescribeDashboard
     DescribeDashboard (DescribeDashboard'),
@@ -261,11 +303,23 @@ module Amazonka.IoTSiteWise
     DescribeStorageConfigurationResponse (DescribeStorageConfigurationResponse'),
     newDescribeStorageConfigurationResponse,
 
+    -- ** DescribeTimeSeries
+    DescribeTimeSeries (DescribeTimeSeries'),
+    newDescribeTimeSeries,
+    DescribeTimeSeriesResponse (DescribeTimeSeriesResponse'),
+    newDescribeTimeSeriesResponse,
+
     -- ** DisassociateAssets
     DisassociateAssets (DisassociateAssets'),
     newDisassociateAssets,
     DisassociateAssetsResponse (DisassociateAssetsResponse'),
     newDisassociateAssetsResponse,
+
+    -- ** DisassociateTimeSeriesFromAssetProperty
+    DisassociateTimeSeriesFromAssetProperty (DisassociateTimeSeriesFromAssetProperty'),
+    newDisassociateTimeSeriesFromAssetProperty,
+    DisassociateTimeSeriesFromAssetPropertyResponse (DisassociateTimeSeriesFromAssetPropertyResponse'),
+    newDisassociateTimeSeriesFromAssetPropertyResponse,
 
     -- ** GetAssetPropertyAggregates (Paginated)
     GetAssetPropertyAggregates (GetAssetPropertyAggregates'),
@@ -321,6 +375,12 @@ module Amazonka.IoTSiteWise
     ListAssociatedAssetsResponse (ListAssociatedAssetsResponse'),
     newListAssociatedAssetsResponse,
 
+    -- ** ListBulkImportJobs (Paginated)
+    ListBulkImportJobs (ListBulkImportJobs'),
+    newListBulkImportJobs,
+    ListBulkImportJobsResponse (ListBulkImportJobsResponse'),
+    newListBulkImportJobsResponse,
+
     -- ** ListDashboards (Paginated)
     ListDashboards (ListDashboards'),
     newListDashboards,
@@ -356,6 +416,12 @@ module Amazonka.IoTSiteWise
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListTimeSeries (Paginated)
+    ListTimeSeries (ListTimeSeries'),
+    newListTimeSeries,
+    ListTimeSeriesResponse (ListTimeSeriesResponse'),
+    newListTimeSeriesResponse,
 
     -- ** PutDefaultEncryptionConfiguration
     PutDefaultEncryptionConfiguration (PutDefaultEncryptionConfiguration'),
@@ -461,11 +527,26 @@ module Amazonka.IoTSiteWise
     -- ** AuthMode
     AuthMode (..),
 
+    -- ** BatchEntryCompletionStatus
+    BatchEntryCompletionStatus (..),
+
+    -- ** BatchGetAssetPropertyAggregatesErrorCode
+    BatchGetAssetPropertyAggregatesErrorCode (..),
+
+    -- ** BatchGetAssetPropertyValueErrorCode
+    BatchGetAssetPropertyValueErrorCode (..),
+
+    -- ** BatchGetAssetPropertyValueHistoryErrorCode
+    BatchGetAssetPropertyValueHistoryErrorCode (..),
+
     -- ** BatchPutAssetPropertyValueErrorCode
     BatchPutAssetPropertyValueErrorCode (..),
 
     -- ** CapabilitySyncStatus
     CapabilitySyncStatus (..),
+
+    -- ** ColumnName
+    ColumnName (..),
 
     -- ** ComputeLocation
     ComputeLocation (..),
@@ -475,6 +556,9 @@ module Amazonka.IoTSiteWise
 
     -- ** DetailedErrorCode
     DetailedErrorCode (..),
+
+    -- ** DisassociatedDataStorageState
+    DisassociatedDataStorageState (..),
 
     -- ** EncryptionType
     EncryptionType (..),
@@ -491,8 +575,17 @@ module Amazonka.IoTSiteWise
     -- ** ImageFileType
     ImageFileType (..),
 
+    -- ** JobStatus
+    JobStatus (..),
+
     -- ** ListAssetsFilter
     ListAssetsFilter (..),
+
+    -- ** ListBulkImportJobsFilter
+    ListBulkImportJobsFilter (..),
+
+    -- ** ListTimeSeriesType
+    ListTimeSeriesType (..),
 
     -- ** LoggingLevel
     LoggingLevel (..),
@@ -622,6 +715,66 @@ module Amazonka.IoTSiteWise
     Attribute (Attribute'),
     newAttribute,
 
+    -- ** BatchGetAssetPropertyAggregatesEntry
+    BatchGetAssetPropertyAggregatesEntry (BatchGetAssetPropertyAggregatesEntry'),
+    newBatchGetAssetPropertyAggregatesEntry,
+
+    -- ** BatchGetAssetPropertyAggregatesErrorEntry
+    BatchGetAssetPropertyAggregatesErrorEntry (BatchGetAssetPropertyAggregatesErrorEntry'),
+    newBatchGetAssetPropertyAggregatesErrorEntry,
+
+    -- ** BatchGetAssetPropertyAggregatesErrorInfo
+    BatchGetAssetPropertyAggregatesErrorInfo (BatchGetAssetPropertyAggregatesErrorInfo'),
+    newBatchGetAssetPropertyAggregatesErrorInfo,
+
+    -- ** BatchGetAssetPropertyAggregatesSkippedEntry
+    BatchGetAssetPropertyAggregatesSkippedEntry (BatchGetAssetPropertyAggregatesSkippedEntry'),
+    newBatchGetAssetPropertyAggregatesSkippedEntry,
+
+    -- ** BatchGetAssetPropertyAggregatesSuccessEntry
+    BatchGetAssetPropertyAggregatesSuccessEntry (BatchGetAssetPropertyAggregatesSuccessEntry'),
+    newBatchGetAssetPropertyAggregatesSuccessEntry,
+
+    -- ** BatchGetAssetPropertyValueEntry
+    BatchGetAssetPropertyValueEntry (BatchGetAssetPropertyValueEntry'),
+    newBatchGetAssetPropertyValueEntry,
+
+    -- ** BatchGetAssetPropertyValueErrorEntry
+    BatchGetAssetPropertyValueErrorEntry (BatchGetAssetPropertyValueErrorEntry'),
+    newBatchGetAssetPropertyValueErrorEntry,
+
+    -- ** BatchGetAssetPropertyValueErrorInfo
+    BatchGetAssetPropertyValueErrorInfo (BatchGetAssetPropertyValueErrorInfo'),
+    newBatchGetAssetPropertyValueErrorInfo,
+
+    -- ** BatchGetAssetPropertyValueHistoryEntry
+    BatchGetAssetPropertyValueHistoryEntry (BatchGetAssetPropertyValueHistoryEntry'),
+    newBatchGetAssetPropertyValueHistoryEntry,
+
+    -- ** BatchGetAssetPropertyValueHistoryErrorEntry
+    BatchGetAssetPropertyValueHistoryErrorEntry (BatchGetAssetPropertyValueHistoryErrorEntry'),
+    newBatchGetAssetPropertyValueHistoryErrorEntry,
+
+    -- ** BatchGetAssetPropertyValueHistoryErrorInfo
+    BatchGetAssetPropertyValueHistoryErrorInfo (BatchGetAssetPropertyValueHistoryErrorInfo'),
+    newBatchGetAssetPropertyValueHistoryErrorInfo,
+
+    -- ** BatchGetAssetPropertyValueHistorySkippedEntry
+    BatchGetAssetPropertyValueHistorySkippedEntry (BatchGetAssetPropertyValueHistorySkippedEntry'),
+    newBatchGetAssetPropertyValueHistorySkippedEntry,
+
+    -- ** BatchGetAssetPropertyValueHistorySuccessEntry
+    BatchGetAssetPropertyValueHistorySuccessEntry (BatchGetAssetPropertyValueHistorySuccessEntry'),
+    newBatchGetAssetPropertyValueHistorySuccessEntry,
+
+    -- ** BatchGetAssetPropertyValueSkippedEntry
+    BatchGetAssetPropertyValueSkippedEntry (BatchGetAssetPropertyValueSkippedEntry'),
+    newBatchGetAssetPropertyValueSkippedEntry,
+
+    -- ** BatchGetAssetPropertyValueSuccessEntry
+    BatchGetAssetPropertyValueSuccessEntry (BatchGetAssetPropertyValueSuccessEntry'),
+    newBatchGetAssetPropertyValueSuccessEntry,
+
     -- ** BatchPutAssetPropertyError
     BatchPutAssetPropertyError (BatchPutAssetPropertyError'),
     newBatchPutAssetPropertyError,
@@ -642,6 +795,10 @@ module Amazonka.IoTSiteWise
     ConfigurationStatus (ConfigurationStatus'),
     newConfigurationStatus,
 
+    -- ** Csv
+    Csv (Csv'),
+    newCsv,
+
     -- ** CustomerManagedS3Storage
     CustomerManagedS3Storage (CustomerManagedS3Storage'),
     newCustomerManagedS3Storage,
@@ -658,9 +815,21 @@ module Amazonka.IoTSiteWise
     ErrorDetails (ErrorDetails'),
     newErrorDetails,
 
+    -- ** ErrorReportLocation
+    ErrorReportLocation (ErrorReportLocation'),
+    newErrorReportLocation,
+
     -- ** ExpressionVariable
     ExpressionVariable (ExpressionVariable'),
     newExpressionVariable,
+
+    -- ** File
+    File (File'),
+    newFile,
+
+    -- ** FileFormat
+    FileFormat (FileFormat'),
+    newFileFormat,
 
     -- ** ForwardingConfig
     ForwardingConfig (ForwardingConfig'),
@@ -717,6 +886,14 @@ module Amazonka.IoTSiteWise
     -- ** InterpolatedAssetPropertyValue
     InterpolatedAssetPropertyValue (InterpolatedAssetPropertyValue'),
     newInterpolatedAssetPropertyValue,
+
+    -- ** JobConfiguration
+    JobConfiguration (JobConfiguration'),
+    newJobConfiguration,
+
+    -- ** JobSummary
+    JobSummary (JobSummary'),
+    newJobSummary,
 
     -- ** LoggingOptions
     LoggingOptions (LoggingOptions'),
@@ -790,9 +967,17 @@ module Amazonka.IoTSiteWise
     Resource (Resource'),
     newResource,
 
+    -- ** RetentionPeriod
+    RetentionPeriod (RetentionPeriod'),
+    newRetentionPeriod,
+
     -- ** TimeInNanos
     TimeInNanos (TimeInNanos'),
     newTimeInNanos,
+
+    -- ** TimeSeriesSummary
+    TimeSeriesSummary (TimeSeriesSummary'),
+    newTimeSeriesSummary,
 
     -- ** Transform
     Transform (Transform'),
@@ -821,12 +1006,17 @@ module Amazonka.IoTSiteWise
 where
 
 import Amazonka.IoTSiteWise.AssociateAssets
+import Amazonka.IoTSiteWise.AssociateTimeSeriesToAssetProperty
 import Amazonka.IoTSiteWise.BatchAssociateProjectAssets
 import Amazonka.IoTSiteWise.BatchDisassociateProjectAssets
+import Amazonka.IoTSiteWise.BatchGetAssetPropertyAggregates
+import Amazonka.IoTSiteWise.BatchGetAssetPropertyValue
+import Amazonka.IoTSiteWise.BatchGetAssetPropertyValueHistory
 import Amazonka.IoTSiteWise.BatchPutAssetPropertyValue
 import Amazonka.IoTSiteWise.CreateAccessPolicy
 import Amazonka.IoTSiteWise.CreateAsset
 import Amazonka.IoTSiteWise.CreateAssetModel
+import Amazonka.IoTSiteWise.CreateBulkImportJob
 import Amazonka.IoTSiteWise.CreateDashboard
 import Amazonka.IoTSiteWise.CreateGateway
 import Amazonka.IoTSiteWise.CreatePortal
@@ -838,10 +1028,12 @@ import Amazonka.IoTSiteWise.DeleteDashboard
 import Amazonka.IoTSiteWise.DeleteGateway
 import Amazonka.IoTSiteWise.DeletePortal
 import Amazonka.IoTSiteWise.DeleteProject
+import Amazonka.IoTSiteWise.DeleteTimeSeries
 import Amazonka.IoTSiteWise.DescribeAccessPolicy
 import Amazonka.IoTSiteWise.DescribeAsset
 import Amazonka.IoTSiteWise.DescribeAssetModel
 import Amazonka.IoTSiteWise.DescribeAssetProperty
+import Amazonka.IoTSiteWise.DescribeBulkImportJob
 import Amazonka.IoTSiteWise.DescribeDashboard
 import Amazonka.IoTSiteWise.DescribeDefaultEncryptionConfiguration
 import Amazonka.IoTSiteWise.DescribeGateway
@@ -850,7 +1042,9 @@ import Amazonka.IoTSiteWise.DescribeLoggingOptions
 import Amazonka.IoTSiteWise.DescribePortal
 import Amazonka.IoTSiteWise.DescribeProject
 import Amazonka.IoTSiteWise.DescribeStorageConfiguration
+import Amazonka.IoTSiteWise.DescribeTimeSeries
 import Amazonka.IoTSiteWise.DisassociateAssets
+import Amazonka.IoTSiteWise.DisassociateTimeSeriesFromAssetProperty
 import Amazonka.IoTSiteWise.GetAssetPropertyAggregates
 import Amazonka.IoTSiteWise.GetAssetPropertyValue
 import Amazonka.IoTSiteWise.GetAssetPropertyValueHistory
@@ -861,12 +1055,14 @@ import Amazonka.IoTSiteWise.ListAssetModels
 import Amazonka.IoTSiteWise.ListAssetRelationships
 import Amazonka.IoTSiteWise.ListAssets
 import Amazonka.IoTSiteWise.ListAssociatedAssets
+import Amazonka.IoTSiteWise.ListBulkImportJobs
 import Amazonka.IoTSiteWise.ListDashboards
 import Amazonka.IoTSiteWise.ListGateways
 import Amazonka.IoTSiteWise.ListPortals
 import Amazonka.IoTSiteWise.ListProjectAssets
 import Amazonka.IoTSiteWise.ListProjects
 import Amazonka.IoTSiteWise.ListTagsForResource
+import Amazonka.IoTSiteWise.ListTimeSeries
 import Amazonka.IoTSiteWise.PutDefaultEncryptionConfiguration
 import Amazonka.IoTSiteWise.PutLoggingOptions
 import Amazonka.IoTSiteWise.PutStorageConfiguration

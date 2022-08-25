@@ -32,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data DBCluster = DBCluster'
   { -- | Specifies the port that the database engine is listening on.
     port :: Prelude.Maybe Prelude.Int,
+    -- | Identifies the clone group to which the DB cluster is associated.
+    cloneGroupId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the cluster.
     dbClusterArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
@@ -113,9 +115,9 @@ data DBCluster = DBCluster'
     -- | A list of log types that this cluster is configured to export to Amazon
     -- CloudWatch Logs.
     enabledCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
-    -- | The Region-unique, immutable identifier for the cluster. This identifier
-    -- is found in CloudTrail log entries whenever the KMS key for the cluster
-    -- is accessed.
+    -- | The Amazon Web Services Region-unique, immutable identifier for the
+    -- cluster. This identifier is found in CloudTrail log entries whenever the
+    -- KMS key for the cluster is accessed.
     dbClusterResourceId :: Prelude.Maybe Prelude.Text,
     -- | Provides a list of the Identity and Access Management (IAM) roles that
     -- are associated with the cluster. (IAM) roles that are associated with a
@@ -142,6 +144,8 @@ data DBCluster = DBCluster'
 -- for backwards compatibility:
 --
 -- 'port', 'dbCluster_port' - Specifies the port that the database engine is listening on.
+--
+-- 'cloneGroupId', 'dbCluster_cloneGroupId' - Identifies the clone group to which the DB cluster is associated.
 --
 -- 'dbClusterArn', 'dbCluster_dbClusterArn' - The Amazon Resource Name (ARN) for the cluster.
 --
@@ -224,9 +228,9 @@ data DBCluster = DBCluster'
 -- 'enabledCloudwatchLogsExports', 'dbCluster_enabledCloudwatchLogsExports' - A list of log types that this cluster is configured to export to Amazon
 -- CloudWatch Logs.
 --
--- 'dbClusterResourceId', 'dbCluster_dbClusterResourceId' - The Region-unique, immutable identifier for the cluster. This identifier
--- is found in CloudTrail log entries whenever the KMS key for the cluster
--- is accessed.
+-- 'dbClusterResourceId', 'dbCluster_dbClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
+-- cluster. This identifier is found in CloudTrail log entries whenever the
+-- KMS key for the cluster is accessed.
 --
 -- 'associatedRoles', 'dbCluster_associatedRoles' - Provides a list of the Identity and Access Management (IAM) roles that
 -- are associated with the cluster. (IAM) roles that are associated with a
@@ -245,6 +249,7 @@ newDBCluster ::
 newDBCluster =
   DBCluster'
     { port = Prelude.Nothing,
+      cloneGroupId = Prelude.Nothing,
       dbClusterArn = Prelude.Nothing,
       hostedZoneId = Prelude.Nothing,
       percentProgress = Prelude.Nothing,
@@ -280,6 +285,10 @@ newDBCluster =
 -- | Specifies the port that the database engine is listening on.
 dbCluster_port :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
 dbCluster_port = Lens.lens (\DBCluster' {port} -> port) (\s@DBCluster' {} a -> s {port = a} :: DBCluster)
+
+-- | Identifies the clone group to which the DB cluster is associated.
+dbCluster_cloneGroupId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_cloneGroupId = Lens.lens (\DBCluster' {cloneGroupId} -> cloneGroupId) (\s@DBCluster' {} a -> s {cloneGroupId = a} :: DBCluster)
 
 -- | The Amazon Resource Name (ARN) for the cluster.
 dbCluster_dbClusterArn :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
@@ -412,9 +421,9 @@ dbCluster_readReplicaIdentifiers = Lens.lens (\DBCluster' {readReplicaIdentifier
 dbCluster_enabledCloudwatchLogsExports :: Lens.Lens' DBCluster (Prelude.Maybe [Prelude.Text])
 dbCluster_enabledCloudwatchLogsExports = Lens.lens (\DBCluster' {enabledCloudwatchLogsExports} -> enabledCloudwatchLogsExports) (\s@DBCluster' {} a -> s {enabledCloudwatchLogsExports = a} :: DBCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The Region-unique, immutable identifier for the cluster. This identifier
--- is found in CloudTrail log entries whenever the KMS key for the cluster
--- is accessed.
+-- | The Amazon Web Services Region-unique, immutable identifier for the
+-- cluster. This identifier is found in CloudTrail log entries whenever the
+-- KMS key for the cluster is accessed.
 dbCluster_dbClusterResourceId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_dbClusterResourceId = Lens.lens (\DBCluster' {dbClusterResourceId} -> dbClusterResourceId) (\s@DBCluster' {} a -> s {dbClusterResourceId = a} :: DBCluster)
 
@@ -443,6 +452,7 @@ instance Core.FromXML DBCluster where
   parseXML x =
     DBCluster'
       Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "CloneGroupId")
       Prelude.<*> (x Core..@? "DBClusterArn")
       Prelude.<*> (x Core..@? "HostedZoneId")
       Prelude.<*> (x Core..@? "PercentProgress")
@@ -495,6 +505,7 @@ instance Core.FromXML DBCluster where
 instance Prelude.Hashable DBCluster where
   hashWithSalt _salt DBCluster' {..} =
     _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` cloneGroupId
       `Prelude.hashWithSalt` dbClusterArn
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` percentProgress
@@ -529,6 +540,7 @@ instance Prelude.Hashable DBCluster where
 instance Prelude.NFData DBCluster where
   rnf DBCluster' {..} =
     Prelude.rnf port
+      `Prelude.seq` Prelude.rnf cloneGroupId
       `Prelude.seq` Prelude.rnf dbClusterArn
       `Prelude.seq` Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf percentProgress
@@ -542,7 +554,8 @@ instance Prelude.NFData DBCluster where
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf dbSubnetGroup
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf replicationSourceIdentifier
+      `Prelude.seq` Prelude.rnf
+        replicationSourceIdentifier
       `Prelude.seq` Prelude.rnf storageEncrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf engine

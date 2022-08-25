@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- From a data producer account, authorizes the sharing of a datashare with
--- one or more consumer accounts. To authorize a datashare for a data
--- consumer, the producer account must have the correct access privileges.
+-- one or more consumer accounts or managing entities. To authorize a
+-- datashare for a data consumer, the producer account must have the
+-- correct access permissions.
 module Amazonka.Redshift.AuthorizeDataShare
   ( -- * Creating a Request
     AuthorizeDataShare (..),
@@ -41,6 +42,7 @@ module Amazonka.Redshift.AuthorizeDataShare
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
   )
 where
 
@@ -57,7 +59,8 @@ data AuthorizeDataShare = AuthorizeDataShare'
     -- authorize sharing for.
     dataShareArn :: Prelude.Text,
     -- | The identifier of the data consumer that is authorized to access the
-    -- datashare. This identifier is an AWS account ID.
+    -- datashare. This identifier is an Amazon Web Services account ID or a
+    -- keyword, such as ADX.
     consumerIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +77,8 @@ data AuthorizeDataShare = AuthorizeDataShare'
 -- authorize sharing for.
 --
 -- 'consumerIdentifier', 'authorizeDataShare_consumerIdentifier' - The identifier of the data consumer that is authorized to access the
--- datashare. This identifier is an AWS account ID.
+-- datashare. This identifier is an Amazon Web Services account ID or a
+-- keyword, such as ADX.
 newAuthorizeDataShare ::
   -- | 'dataShareArn'
   Prelude.Text ->
@@ -95,7 +99,8 @@ authorizeDataShare_dataShareArn :: Lens.Lens' AuthorizeDataShare Prelude.Text
 authorizeDataShare_dataShareArn = Lens.lens (\AuthorizeDataShare' {dataShareArn} -> dataShareArn) (\s@AuthorizeDataShare' {} a -> s {dataShareArn = a} :: AuthorizeDataShare)
 
 -- | The identifier of the data consumer that is authorized to access the
--- datashare. This identifier is an AWS account ID.
+-- datashare. This identifier is an Amazon Web Services account ID or a
+-- keyword, such as ADX.
 authorizeDataShare_consumerIdentifier :: Lens.Lens' AuthorizeDataShare Prelude.Text
 authorizeDataShare_consumerIdentifier = Lens.lens (\AuthorizeDataShare' {consumerIdentifier} -> consumerIdentifier) (\s@AuthorizeDataShare' {} a -> s {consumerIdentifier = a} :: AuthorizeDataShare)
 

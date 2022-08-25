@@ -84,7 +84,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newStartFleetActions' smart constructor.
 data StartFleetActions = StartFleetActions'
   { -- | The fleet location to restart fleet actions for. Specify a location in
-    -- the form of an AWS Region code, such as @us-west-2@.
+    -- the form of an Amazon Web Services Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet to restart actions on. You can use
     -- either the fleet ID or ARN value.
@@ -103,7 +103,7 @@ data StartFleetActions = StartFleetActions'
 -- for backwards compatibility:
 --
 -- 'location', 'startFleetActions_location' - The fleet location to restart fleet actions for. Specify a location in
--- the form of an AWS Region code, such as @us-west-2@.
+-- the form of an Amazon Web Services Region code, such as @us-west-2@.
 --
 -- 'fleetId', 'startFleetActions_fleetId' - A unique identifier for the fleet to restart actions on. You can use
 -- either the fleet ID or ARN value.
@@ -123,7 +123,7 @@ newStartFleetActions pFleetId_ pActions_ =
     }
 
 -- | The fleet location to restart fleet actions for. Specify a location in
--- the form of an AWS Region code, such as @us-west-2@.
+-- the form of an Amazon Web Services Region code, such as @us-west-2@.
 startFleetActions_location :: Lens.Lens' StartFleetActions (Prelude.Maybe Prelude.Text)
 startFleetActions_location = Lens.lens (\StartFleetActions' {location} -> location) (\s@StartFleetActions' {} a -> s {location = a} :: StartFleetActions)
 

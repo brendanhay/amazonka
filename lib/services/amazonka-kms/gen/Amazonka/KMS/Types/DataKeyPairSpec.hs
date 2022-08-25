@@ -26,7 +26,8 @@ module Amazonka.KMS.Types.DataKeyPairSpec
         DataKeyPairSpec_ECC_SECG_P256K1,
         DataKeyPairSpec_RSA_2048,
         DataKeyPairSpec_RSA_3072,
-        DataKeyPairSpec_RSA_4096
+        DataKeyPairSpec_RSA_4096,
+        DataKeyPairSpec_SM2
       ),
   )
 where
@@ -83,6 +84,9 @@ pattern DataKeyPairSpec_RSA_3072 = DataKeyPairSpec' "RSA_3072"
 pattern DataKeyPairSpec_RSA_4096 :: DataKeyPairSpec
 pattern DataKeyPairSpec_RSA_4096 = DataKeyPairSpec' "RSA_4096"
 
+pattern DataKeyPairSpec_SM2 :: DataKeyPairSpec
+pattern DataKeyPairSpec_SM2 = DataKeyPairSpec' "SM2"
+
 {-# COMPLETE
   DataKeyPairSpec_ECC_NIST_P256,
   DataKeyPairSpec_ECC_NIST_P384,
@@ -91,5 +95,6 @@ pattern DataKeyPairSpec_RSA_4096 = DataKeyPairSpec' "RSA_4096"
   DataKeyPairSpec_RSA_2048,
   DataKeyPairSpec_RSA_3072,
   DataKeyPairSpec_RSA_4096,
+  DataKeyPairSpec_SM2,
   DataKeyPairSpec'
   #-}

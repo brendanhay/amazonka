@@ -24,7 +24,7 @@
 --
 -- To list the current tags, use DescribeTags. For more information about
 -- tags, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tag your Amazon EC2 resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.DeleteTags
   ( -- * Creating a Request
@@ -60,6 +60,8 @@ data DeleteTags = DeleteTags'
     -- If you omit this parameter, we delete all user-defined tags for the
     -- specified resources. We do not delete Amazon Web Services-generated tags
     -- (tags that have the @aws:@ prefix).
+    --
+    -- Constraints: Up to 1000 tags.
     tags :: Prelude.Maybe [Tag],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -92,6 +94,8 @@ data DeleteTags = DeleteTags'
 -- specified resources. We do not delete Amazon Web Services-generated tags
 -- (tags that have the @aws:@ prefix).
 --
+-- Constraints: Up to 1000 tags.
+--
 -- 'dryRun', 'deleteTags_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -119,6 +123,8 @@ newDeleteTags =
 -- If you omit this parameter, we delete all user-defined tags for the
 -- specified resources. We do not delete Amazon Web Services-generated tags
 -- (tags that have the @aws:@ prefix).
+--
+-- Constraints: Up to 1000 tags.
 deleteTags_tags :: Lens.Lens' DeleteTags (Prelude.Maybe [Tag])
 deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens.coerced
 

@@ -30,8 +30,19 @@ import Amazonka.Nimble.Types.StudioComponentSubtype
 import Amazonka.Nimble.Types.StudioComponentType
 import qualified Amazonka.Prelude as Prelude
 
--- | A network that is used by a studio’s users and workflows, including
--- render farm, Active Directory, licensing, and file system.
+-- | A studio component represents a network resource to be used by a
+-- studio\'s users and workflows. A typical studio contains studio
+-- components for each of the following: render farm, Active Directory,
+-- licensing, and file system.
+--
+-- Access to a studio component is managed by specifying security groups
+-- for the resource, as well as its endpoint.
+--
+-- A studio component also has a set of initialization scripts that are
+-- returned by @GetLaunchProfileInitialization@. These initialization
+-- scripts run on streaming sessions when they start. They provide users
+-- with flexibility in controlling how the studio resources are configured
+-- on a streaming session.
 --
 -- /See:/ 'newStudioComponent' smart constructor.
 data StudioComponent = StudioComponent'
@@ -39,9 +50,9 @@ data StudioComponent = StudioComponent'
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Parameters for the studio component scripts.
-    scriptParameters :: Prelude.Maybe [ScriptParameterKeyValue],
+    scriptParameters :: Prelude.Maybe (Core.Sensitive [ScriptParameterKeyValue]),
     -- | A friendly name for the studio component resource.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
     -- | The user ID of the user that most recently updated the resource.
@@ -55,11 +66,19 @@ data StudioComponent = StudioComponent'
     -- | The current state.
     state :: Prelude.Maybe StudioComponentState,
     -- | A human-readable description for the studio component resource.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | An IAM role attached to Studio Component when the system initialization
+    -- script runs which give the studio component access to AWS resources when
+    -- the system initialization script runs.
+    secureInitializationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for a studio component resource.
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
     subtype :: Prelude.Maybe StudioComponentSubtype,
+    -- | An IAM role attached to a Studio Component that gives the studio
+    -- component access to AWS resources at anytime while the instance is
+    -- running.
+    runtimeRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The status code.
     statusCode :: Prelude.Maybe StudioComponentStatusCode,
     -- | The user ID of the user that created the studio component.
@@ -67,13 +86,13 @@ data StudioComponent = StudioComponent'
     -- | The status message for the studio component.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The EC2 security groups that control access to the studio component.
-    ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    ec2SecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The Unix epoch timestamp in seconds for when the resource was created.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StudioComponent' with all optional fields omitted.
@@ -104,9 +123,17 @@ data StudioComponent = StudioComponent'
 --
 -- 'description', 'studioComponent_description' - A human-readable description for the studio component resource.
 --
+-- 'secureInitializationRoleArn', 'studioComponent_secureInitializationRoleArn' - An IAM role attached to Studio Component when the system initialization
+-- script runs which give the studio component access to AWS resources when
+-- the system initialization script runs.
+--
 -- 'studioComponentId', 'studioComponent_studioComponentId' - The unique identifier for a studio component resource.
 --
 -- 'subtype', 'studioComponent_subtype' - The specific subtype of a studio component.
+--
+-- 'runtimeRoleArn', 'studioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
+-- component access to AWS resources at anytime while the instance is
+-- running.
 --
 -- 'statusCode', 'studioComponent_statusCode' - The status code.
 --
@@ -133,8 +160,10 @@ newStudioComponent =
       arn = Prelude.Nothing,
       state = Prelude.Nothing,
       description = Prelude.Nothing,
+      secureInitializationRoleArn = Prelude.Nothing,
       studioComponentId = Prelude.Nothing,
       subtype = Prelude.Nothing,
+      runtimeRoleArn = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
@@ -150,11 +179,11 @@ studioComponent_tags = Lens.lens (\StudioComponent' {tags} -> tags) (\s@StudioCo
 
 -- | Parameters for the studio component scripts.
 studioComponent_scriptParameters :: Lens.Lens' StudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
-studioComponent_scriptParameters = Lens.lens (\StudioComponent' {scriptParameters} -> scriptParameters) (\s@StudioComponent' {} a -> s {scriptParameters = a} :: StudioComponent) Prelude.. Lens.mapping Lens.coerced
+studioComponent_scriptParameters = Lens.lens (\StudioComponent' {scriptParameters} -> scriptParameters) (\s@StudioComponent' {} a -> s {scriptParameters = a} :: StudioComponent) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | A friendly name for the studio component resource.
 studioComponent_name :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
-studioComponent_name = Lens.lens (\StudioComponent' {name} -> name) (\s@StudioComponent' {} a -> s {name = a} :: StudioComponent)
+studioComponent_name = Lens.lens (\StudioComponent' {name} -> name) (\s@StudioComponent' {} a -> s {name = a} :: StudioComponent) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The type of the studio component.
 studioComponent_type :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentType)
@@ -182,7 +211,13 @@ studioComponent_state = Lens.lens (\StudioComponent' {state} -> state) (\s@Studi
 
 -- | A human-readable description for the studio component resource.
 studioComponent_description :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
-studioComponent_description = Lens.lens (\StudioComponent' {description} -> description) (\s@StudioComponent' {} a -> s {description = a} :: StudioComponent)
+studioComponent_description = Lens.lens (\StudioComponent' {description} -> description) (\s@StudioComponent' {} a -> s {description = a} :: StudioComponent) Prelude.. Lens.mapping Core._Sensitive
+
+-- | An IAM role attached to Studio Component when the system initialization
+-- script runs which give the studio component access to AWS resources when
+-- the system initialization script runs.
+studioComponent_secureInitializationRoleArn :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
+studioComponent_secureInitializationRoleArn = Lens.lens (\StudioComponent' {secureInitializationRoleArn} -> secureInitializationRoleArn) (\s@StudioComponent' {} a -> s {secureInitializationRoleArn = a} :: StudioComponent)
 
 -- | The unique identifier for a studio component resource.
 studioComponent_studioComponentId :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
@@ -191,6 +226,12 @@ studioComponent_studioComponentId = Lens.lens (\StudioComponent' {studioComponen
 -- | The specific subtype of a studio component.
 studioComponent_subtype :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentSubtype)
 studioComponent_subtype = Lens.lens (\StudioComponent' {subtype} -> subtype) (\s@StudioComponent' {} a -> s {subtype = a} :: StudioComponent)
+
+-- | An IAM role attached to a Studio Component that gives the studio
+-- component access to AWS resources at anytime while the instance is
+-- running.
+studioComponent_runtimeRoleArn :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
+studioComponent_runtimeRoleArn = Lens.lens (\StudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@StudioComponent' {} a -> s {runtimeRoleArn = a} :: StudioComponent)
 
 -- | The status code.
 studioComponent_statusCode :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentStatusCode)
@@ -205,7 +246,7 @@ studioComponent_statusMessage :: Lens.Lens' StudioComponent (Prelude.Maybe Prelu
 studioComponent_statusMessage = Lens.lens (\StudioComponent' {statusMessage} -> statusMessage) (\s@StudioComponent' {} a -> s {statusMessage = a} :: StudioComponent)
 
 -- | The EC2 security groups that control access to the studio component.
-studioComponent_ec2SecurityGroupIds :: Lens.Lens' StudioComponent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+studioComponent_ec2SecurityGroupIds :: Lens.Lens' StudioComponent (Prelude.Maybe [Prelude.Text])
 studioComponent_ec2SecurityGroupIds = Lens.lens (\StudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@StudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: StudioComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
@@ -236,12 +277,16 @@ instance Core.FromJSON StudioComponent where
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "secureInitializationRoleArn")
             Prelude.<*> (x Core..:? "studioComponentId")
             Prelude.<*> (x Core..:? "subtype")
+            Prelude.<*> (x Core..:? "runtimeRoleArn")
             Prelude.<*> (x Core..:? "statusCode")
             Prelude.<*> (x Core..:? "createdBy")
             Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "ec2SecurityGroupIds")
+            Prelude.<*> ( x Core..:? "ec2SecurityGroupIds"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "updatedAt")
       )
@@ -258,8 +303,10 @@ instance Prelude.Hashable StudioComponent where
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` secureInitializationRoleArn
       `Prelude.hashWithSalt` studioComponentId
       `Prelude.hashWithSalt` subtype
+      `Prelude.hashWithSalt` runtimeRoleArn
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` statusMessage
@@ -279,8 +326,10 @@ instance Prelude.NFData StudioComponent where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf secureInitializationRoleArn
       `Prelude.seq` Prelude.rnf studioComponentId
       `Prelude.seq` Prelude.rnf subtype
+      `Prelude.seq` Prelude.rnf runtimeRoleArn
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf statusMessage

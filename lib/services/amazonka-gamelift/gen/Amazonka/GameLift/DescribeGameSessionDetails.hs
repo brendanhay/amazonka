@@ -42,7 +42,8 @@
 --
 -- -   To retrieve details for a specific game session, provide the game
 --     session ID. This approach looks for the game session ID in all
---     fleets that reside in the AWS Region defined in the request.
+--     fleets that reside in the Amazon Web Services Region defined in the
+--     request.
 --
 -- Use the pagination parameters to retrieve results as a set of sequential
 -- pages.
@@ -112,8 +113,8 @@ data DescribeGameSessionDetails = DescribeGameSessionDetails'
     -- all game sessions for. You can use either the alias ID or ARN value.
     aliasId :: Prelude.Maybe Prelude.Text,
     -- | A fleet location to get game sessions for. You can specify a fleet\'s
-    -- home Region or a remote location. Use the AWS Region code format, such
-    -- as @us-west-2@.
+    -- home Region or a remote location. Use the Amazon Web Services Region
+    -- code format, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
@@ -146,8 +147,8 @@ data DescribeGameSessionDetails = DescribeGameSessionDetails'
 -- all game sessions for. You can use either the alias ID or ARN value.
 --
 -- 'location', 'describeGameSessionDetails_location' - A fleet location to get game sessions for. You can specify a fleet\'s
--- home Region or a remote location. Use the AWS Region code format, such
--- as @us-west-2@.
+-- home Region or a remote location. Use the Amazon Web Services Region
+-- code format, such as @us-west-2@.
 --
 -- 'limit', 'describeGameSessionDetails_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -190,8 +191,8 @@ describeGameSessionDetails_aliasId :: Lens.Lens' DescribeGameSessionDetails (Pre
 describeGameSessionDetails_aliasId = Lens.lens (\DescribeGameSessionDetails' {aliasId} -> aliasId) (\s@DescribeGameSessionDetails' {} a -> s {aliasId = a} :: DescribeGameSessionDetails)
 
 -- | A fleet location to get game sessions for. You can specify a fleet\'s
--- home Region or a remote location. Use the AWS Region code format, such
--- as @us-west-2@.
+-- home Region or a remote location. Use the Amazon Web Services Region
+-- code format, such as @us-west-2@.
 describeGameSessionDetails_location :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Text)
 describeGameSessionDetails_location = Lens.lens (\DescribeGameSessionDetails' {location} -> location) (\s@DescribeGameSessionDetails' {} a -> s {location = a} :: DescribeGameSessionDetails)
 

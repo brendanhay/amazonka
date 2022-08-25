@@ -69,9 +69,9 @@ data CreateRepository = CreateRepository'
     -- | The encryption configuration for the repository. This determines how the
     -- contents of your repository are encrypted at rest.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
-    -- | The AWS account ID associated with the registry to create the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+    -- | The Amazon Web Services account ID associated with the registry to
+    -- create the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The image scanning configuration for the repository. This determines
     -- whether images are scanned for known vulnerabilities after being pushed
@@ -107,9 +107,9 @@ data CreateRepository = CreateRepository'
 -- 'encryptionConfiguration', 'createRepository_encryptionConfiguration' - The encryption configuration for the repository. This determines how the
 -- contents of your repository are encrypted at rest.
 --
--- 'registryId', 'createRepository_registryId' - The AWS account ID associated with the registry to create the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'createRepository_registryId' - The Amazon Web Services account ID associated with the registry to
+-- create the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'imageScanningConfiguration', 'createRepository_imageScanningConfiguration' - The image scanning configuration for the repository. This determines
 -- whether images are scanned for known vulnerabilities after being pushed
@@ -153,9 +153,9 @@ createRepository_imageTagMutability = Lens.lens (\CreateRepository' {imageTagMut
 createRepository_encryptionConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe EncryptionConfiguration)
 createRepository_encryptionConfiguration = Lens.lens (\CreateRepository' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRepository' {} a -> s {encryptionConfiguration = a} :: CreateRepository)
 
--- | The AWS account ID associated with the registry to create the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry to
+-- create the repository. If you do not specify a registry, the default
+-- registry is assumed.
 createRepository_registryId :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
 createRepository_registryId = Lens.lens (\CreateRepository' {registryId} -> registryId) (\s@CreateRepository' {} a -> s {registryId = a} :: CreateRepository)
 

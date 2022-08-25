@@ -29,12 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConnectionPoolConfiguration' smart constructor.
 data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
   { -- | Controls how actively the proxy closes idle database connections in the
-    -- connection pool. A high value enables the proxy to leave a high
-    -- percentage of idle connections open. A low value causes the proxy to
-    -- close idle client connections and return the underlying database
-    -- connections to the connection pool. For Aurora MySQL, it is expressed as
-    -- a percentage of the @max_connections@ setting for the RDS DB instance or
-    -- Aurora DB cluster used by the target group.
+    -- connection pool. The value is expressed as a percentage of the
+    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+    -- used by the target group. With a high value, the proxy leaves a high
+    -- percentage of idle database connections open. A low value causes the
+    -- proxy to close more idle connections and return them to the database.
     --
     -- Default: 50
     --
@@ -59,9 +58,9 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
     -- Constraints: between 1 and 3600, or 0 representing unlimited
     connectionBorrowTimeout :: Prelude.Maybe Prelude.Int,
     -- | The maximum size of the connection pool for each target in a target
-    -- group. For Aurora MySQL, it is expressed as a percentage of the
-    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
-    -- used by the target group.
+    -- group. The value is expressed as a percentage of the @max_connections@
+    -- setting for the RDS DB instance or Aurora DB cluster used by the target
+    -- group.
     --
     -- Default: 100
     --
@@ -86,12 +85,11 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 -- for backwards compatibility:
 --
 -- 'maxIdleConnectionsPercent', 'connectionPoolConfiguration_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the
--- connection pool. A high value enables the proxy to leave a high
--- percentage of idle connections open. A low value causes the proxy to
--- close idle client connections and return the underlying database
--- connections to the connection pool. For Aurora MySQL, it is expressed as
--- a percentage of the @max_connections@ setting for the RDS DB instance or
--- Aurora DB cluster used by the target group.
+-- connection pool. The value is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group. With a high value, the proxy leaves a high
+-- percentage of idle database connections open. A low value causes the
+-- proxy to close more idle connections and return them to the database.
 --
 -- Default: 50
 --
@@ -116,9 +114,9 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 -- Constraints: between 1 and 3600, or 0 representing unlimited
 --
 -- 'maxConnectionsPercent', 'connectionPoolConfiguration_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target
--- group. For Aurora MySQL, it is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group.
+-- group. The value is expressed as a percentage of the @max_connections@
+-- setting for the RDS DB instance or Aurora DB cluster used by the target
+-- group.
 --
 -- Default: 100
 --
@@ -143,12 +141,11 @@ newConnectionPoolConfiguration =
     }
 
 -- | Controls how actively the proxy closes idle database connections in the
--- connection pool. A high value enables the proxy to leave a high
--- percentage of idle connections open. A low value causes the proxy to
--- close idle client connections and return the underlying database
--- connections to the connection pool. For Aurora MySQL, it is expressed as
--- a percentage of the @max_connections@ setting for the RDS DB instance or
--- Aurora DB cluster used by the target group.
+-- connection pool. The value is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group. With a high value, the proxy leaves a high
+-- percentage of idle database connections open. A low value causes the
+-- proxy to close more idle connections and return them to the database.
 --
 -- Default: 50
 --
@@ -179,9 +176,9 @@ connectionPoolConfiguration_connectionBorrowTimeout :: Lens.Lens' ConnectionPool
 connectionPoolConfiguration_connectionBorrowTimeout = Lens.lens (\ConnectionPoolConfiguration' {connectionBorrowTimeout} -> connectionBorrowTimeout) (\s@ConnectionPoolConfiguration' {} a -> s {connectionBorrowTimeout = a} :: ConnectionPoolConfiguration)
 
 -- | The maximum size of the connection pool for each target in a target
--- group. For Aurora MySQL, it is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group.
+-- group. The value is expressed as a percentage of the @max_connections@
+-- setting for the RDS DB instance or Aurora DB cluster used by the target
+-- group.
 --
 -- Default: 100
 --

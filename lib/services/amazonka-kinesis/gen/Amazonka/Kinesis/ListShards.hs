@@ -21,8 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the shards in a stream and provides information about each shard.
--- This operation has a limit of 100 transactions per second per data
+-- This operation has a limit of 1000 transactions per second per data
 -- stream.
+--
+-- This action does not list expired shards. For information about expired
+-- shards, see
+-- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing Data Routing, Data Persistence, and Shard State after a Reshard>.
 --
 -- This API is a new operation that is used by the Amazon Kinesis Client
 -- Library (KCL). If you have a fine-grained IAM policy that only allows
@@ -96,6 +100,28 @@ data ListShards = ListShards'
     --
     -- You cannot specify this parameter if you specify @NextToken@.
     exclusiveStartShardId :: Prelude.Maybe Prelude.Text,
+    -- | Enables you to filter out the response of the @ListShards@ API. You can
+    -- only specify one filter at a time.
+    --
+    -- If you use the @ShardFilter@ parameter when invoking the ListShards API,
+    -- the @Type@ is the required property and must be specified. If you
+    -- specify the @AT_TRIM_HORIZON@, @FROM_TRIM_HORIZON@, or @AT_LATEST@
+    -- types, you do not need to specify either the @ShardId@ or the
+    -- @Timestamp@ optional properties.
+    --
+    -- If you specify the @AFTER_SHARD_ID@ type, you must also provide the
+    -- value for the optional @ShardId@ property. The @ShardId@ property is
+    -- identical in fuctionality to the @ExclusiveStartShardId@ parameter of
+    -- the @ListShards@ API. When @ShardId@ property is specified, the response
+    -- includes the shards starting with the shard whose ID immediately follows
+    -- the @ShardId@ that you provided.
+    --
+    -- If you specify the @AT_TIMESTAMP@ or @FROM_TIMESTAMP_ID@ type, you must
+    -- also provide the value for the optional @Timestamp@ property. If you
+    -- specify the AT_TIMESTAMP type, then all shards that were open at the
+    -- provided timestamp are returned. If you specify the FROM_TIMESTAMP type,
+    -- then all shards starting from the provided timestamp to TIP are
+    -- returned.
     shardFilter :: Prelude.Maybe ShardFilter,
     -- | Specify this input parameter to distinguish data streams that have the
     -- same name. For example, if you create a data stream and then delete it,
@@ -107,8 +133,9 @@ data ListShards = ListShards'
     -- parameter.
     streamCreationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of shards to return in a single call to @ListShards@.
-    -- The minimum value you can specify for this parameter is 1, and the
-    -- maximum is 10,000, which is also the default.
+    -- The maximum number of shards to return in a single call. The default
+    -- value is 1000. If you specify a value greater than 1000, at most 1000
+    -- results are returned.
     --
     -- When the number of shards to be listed is greater than the value of
     -- @MaxResults@, the response contains a @NextToken@ value that you can use
@@ -162,7 +189,28 @@ data ListShards = ListShards'
 --
 -- You cannot specify this parameter if you specify @NextToken@.
 --
--- 'shardFilter', 'listShards_shardFilter' - Undocumented member.
+-- 'shardFilter', 'listShards_shardFilter' - Enables you to filter out the response of the @ListShards@ API. You can
+-- only specify one filter at a time.
+--
+-- If you use the @ShardFilter@ parameter when invoking the ListShards API,
+-- the @Type@ is the required property and must be specified. If you
+-- specify the @AT_TRIM_HORIZON@, @FROM_TRIM_HORIZON@, or @AT_LATEST@
+-- types, you do not need to specify either the @ShardId@ or the
+-- @Timestamp@ optional properties.
+--
+-- If you specify the @AFTER_SHARD_ID@ type, you must also provide the
+-- value for the optional @ShardId@ property. The @ShardId@ property is
+-- identical in fuctionality to the @ExclusiveStartShardId@ parameter of
+-- the @ListShards@ API. When @ShardId@ property is specified, the response
+-- includes the shards starting with the shard whose ID immediately follows
+-- the @ShardId@ that you provided.
+--
+-- If you specify the @AT_TIMESTAMP@ or @FROM_TIMESTAMP_ID@ type, you must
+-- also provide the value for the optional @Timestamp@ property. If you
+-- specify the AT_TIMESTAMP type, then all shards that were open at the
+-- provided timestamp are returned. If you specify the FROM_TIMESTAMP type,
+-- then all shards starting from the provided timestamp to TIP are
+-- returned.
 --
 -- 'streamCreationTimestamp', 'listShards_streamCreationTimestamp' - Specify this input parameter to distinguish data streams that have the
 -- same name. For example, if you create a data stream and then delete it,
@@ -174,8 +222,9 @@ data ListShards = ListShards'
 -- parameter.
 --
 -- 'maxResults', 'listShards_maxResults' - The maximum number of shards to return in a single call to @ListShards@.
--- The minimum value you can specify for this parameter is 1, and the
--- maximum is 10,000, which is also the default.
+-- The maximum number of shards to return in a single call. The default
+-- value is 1000. If you specify a value greater than 1000, at most 1000
+-- results are returned.
 --
 -- When the number of shards to be listed is greater than the value of
 -- @MaxResults@, the response contains a @NextToken@ value that you can use
@@ -233,7 +282,28 @@ listShards_nextToken = Lens.lens (\ListShards' {nextToken} -> nextToken) (\s@Lis
 listShards_exclusiveStartShardId :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
 listShards_exclusiveStartShardId = Lens.lens (\ListShards' {exclusiveStartShardId} -> exclusiveStartShardId) (\s@ListShards' {} a -> s {exclusiveStartShardId = a} :: ListShards)
 
--- | Undocumented member.
+-- | Enables you to filter out the response of the @ListShards@ API. You can
+-- only specify one filter at a time.
+--
+-- If you use the @ShardFilter@ parameter when invoking the ListShards API,
+-- the @Type@ is the required property and must be specified. If you
+-- specify the @AT_TRIM_HORIZON@, @FROM_TRIM_HORIZON@, or @AT_LATEST@
+-- types, you do not need to specify either the @ShardId@ or the
+-- @Timestamp@ optional properties.
+--
+-- If you specify the @AFTER_SHARD_ID@ type, you must also provide the
+-- value for the optional @ShardId@ property. The @ShardId@ property is
+-- identical in fuctionality to the @ExclusiveStartShardId@ parameter of
+-- the @ListShards@ API. When @ShardId@ property is specified, the response
+-- includes the shards starting with the shard whose ID immediately follows
+-- the @ShardId@ that you provided.
+--
+-- If you specify the @AT_TIMESTAMP@ or @FROM_TIMESTAMP_ID@ type, you must
+-- also provide the value for the optional @Timestamp@ property. If you
+-- specify the AT_TIMESTAMP type, then all shards that were open at the
+-- provided timestamp are returned. If you specify the FROM_TIMESTAMP type,
+-- then all shards starting from the provided timestamp to TIP are
+-- returned.
 listShards_shardFilter :: Lens.Lens' ListShards (Prelude.Maybe ShardFilter)
 listShards_shardFilter = Lens.lens (\ListShards' {shardFilter} -> shardFilter) (\s@ListShards' {} a -> s {shardFilter = a} :: ListShards)
 
@@ -249,8 +319,9 @@ listShards_streamCreationTimestamp :: Lens.Lens' ListShards (Prelude.Maybe Prelu
 listShards_streamCreationTimestamp = Lens.lens (\ListShards' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListShards' {} a -> s {streamCreationTimestamp = a} :: ListShards) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of shards to return in a single call to @ListShards@.
--- The minimum value you can specify for this parameter is 1, and the
--- maximum is 10,000, which is also the default.
+-- The maximum number of shards to return in a single call. The default
+-- value is 1000. If you specify a value greater than 1000, at most 1000
+-- results are returned.
 --
 -- When the number of shards to be listed is greater than the value of
 -- @MaxResults@, the response contains a @NextToken@ value that you can use

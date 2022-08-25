@@ -46,6 +46,7 @@ module Amazonka.DMS.CreateEndpoint
     createEndpoint_docDbSettings,
     createEndpoint_databaseName,
     createEndpoint_username,
+    createEndpoint_gcpMySQLSettings,
     createEndpoint_serviceAccessRoleArn,
     createEndpoint_extraConnectionAttributes,
     createEndpoint_neptuneSettings,
@@ -93,9 +94,9 @@ data CreateEndpoint = CreateEndpoint'
     tags :: Prelude.Maybe [Tag],
     -- | The port used by the endpoint database.
     port :: Prelude.Maybe Prelude.Int,
-    -- | Settings in JSON format for the target Elasticsearch endpoint. For more
+    -- | Settings in JSON format for the target OpenSearch endpoint. For more
     -- information about the available settings, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for DMS>
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using OpenSearch as a Target for DMS>
     -- in the /Database Migration Service User Guide/.
     elasticsearchSettings :: Prelude.Maybe ElasticsearchSettings,
     redshiftSettings :: Prelude.Maybe RedshiftSettings,
@@ -117,10 +118,13 @@ data CreateEndpoint = CreateEndpoint'
     serverName :: Prelude.Maybe Prelude.Text,
     docDbSettings :: Prelude.Maybe DocDbSettings,
     -- | The name of the endpoint database. For a MySQL source or target
-    -- endpoint, do not specify DatabaseName.
+    -- endpoint, do not specify DatabaseName. To migrate to a specific
+    -- database, use this setting and @targetDbType@.
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | The user name to be used to log in to the endpoint database.
     username :: Prelude.Maybe Prelude.Text,
+    -- | Settings in JSON format for the source GCP MySQL endpoint.
+    gcpMySQLSettings :: Prelude.Maybe GcpMySQLSettings,
     -- | The Amazon Resource Name (ARN) for the service access role that you want
     -- to use to create the endpoint. The role must allow the @iam:PassRole@
     -- action.
@@ -246,10 +250,10 @@ data CreateEndpoint = CreateEndpoint'
     endpointType :: ReplicationEndpointTypeValue,
     -- | The type of engine for the endpoint. Valid values, depending on the
     -- @EndpointType@ value, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
-    -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@,
-    -- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
-    -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
-    -- @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+    -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
+    -- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
+    -- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+    -- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
     engineName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -266,9 +270,9 @@ data CreateEndpoint = CreateEndpoint'
 --
 -- 'port', 'createEndpoint_port' - The port used by the endpoint database.
 --
--- 'elasticsearchSettings', 'createEndpoint_elasticsearchSettings' - Settings in JSON format for the target Elasticsearch endpoint. For more
+-- 'elasticsearchSettings', 'createEndpoint_elasticsearchSettings' - Settings in JSON format for the target OpenSearch endpoint. For more
 -- information about the available settings, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for DMS>
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using OpenSearch as a Target for DMS>
 -- in the /Database Migration Service User Guide/.
 --
 -- 'redshiftSettings', 'createEndpoint_redshiftSettings' - Undocumented member.
@@ -292,9 +296,12 @@ data CreateEndpoint = CreateEndpoint'
 -- 'docDbSettings', 'createEndpoint_docDbSettings' - Undocumented member.
 --
 -- 'databaseName', 'createEndpoint_databaseName' - The name of the endpoint database. For a MySQL source or target
--- endpoint, do not specify DatabaseName.
+-- endpoint, do not specify DatabaseName. To migrate to a specific
+-- database, use this setting and @targetDbType@.
 --
 -- 'username', 'createEndpoint_username' - The user name to be used to log in to the endpoint database.
+--
+-- 'gcpMySQLSettings', 'createEndpoint_gcpMySQLSettings' - Settings in JSON format for the source GCP MySQL endpoint.
 --
 -- 'serviceAccessRoleArn', 'createEndpoint_serviceAccessRoleArn' - The Amazon Resource Name (ARN) for the service access role that you want
 -- to use to create the endpoint. The role must allow the @iam:PassRole@
@@ -421,10 +428,10 @@ data CreateEndpoint = CreateEndpoint'
 --
 -- 'engineName', 'createEndpoint_engineName' - The type of engine for the endpoint. Valid values, depending on the
 -- @EndpointType@ value, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
--- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@,
--- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
--- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
--- @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
+-- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
+-- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+-- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
 newCreateEndpoint ::
   -- | 'endpointIdentifier'
   Prelude.Text ->
@@ -450,6 +457,7 @@ newCreateEndpoint
         docDbSettings = Prelude.Nothing,
         databaseName = Prelude.Nothing,
         username = Prelude.Nothing,
+        gcpMySQLSettings = Prelude.Nothing,
         serviceAccessRoleArn = Prelude.Nothing,
         extraConnectionAttributes = Prelude.Nothing,
         neptuneSettings = Prelude.Nothing,
@@ -481,9 +489,9 @@ createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndp
 createEndpoint_port :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Int)
 createEndpoint_port = Lens.lens (\CreateEndpoint' {port} -> port) (\s@CreateEndpoint' {} a -> s {port = a} :: CreateEndpoint)
 
--- | Settings in JSON format for the target Elasticsearch endpoint. For more
+-- | Settings in JSON format for the target OpenSearch endpoint. For more
 -- information about the available settings, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for DMS>
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using OpenSearch as a Target for DMS>
 -- in the /Database Migration Service User Guide/.
 createEndpoint_elasticsearchSettings :: Lens.Lens' CreateEndpoint (Prelude.Maybe ElasticsearchSettings)
 createEndpoint_elasticsearchSettings = Lens.lens (\CreateEndpoint' {elasticsearchSettings} -> elasticsearchSettings) (\s@CreateEndpoint' {} a -> s {elasticsearchSettings = a} :: CreateEndpoint)
@@ -523,13 +531,18 @@ createEndpoint_docDbSettings :: Lens.Lens' CreateEndpoint (Prelude.Maybe DocDbSe
 createEndpoint_docDbSettings = Lens.lens (\CreateEndpoint' {docDbSettings} -> docDbSettings) (\s@CreateEndpoint' {} a -> s {docDbSettings = a} :: CreateEndpoint)
 
 -- | The name of the endpoint database. For a MySQL source or target
--- endpoint, do not specify DatabaseName.
+-- endpoint, do not specify DatabaseName. To migrate to a specific
+-- database, use this setting and @targetDbType@.
 createEndpoint_databaseName :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_databaseName = Lens.lens (\CreateEndpoint' {databaseName} -> databaseName) (\s@CreateEndpoint' {} a -> s {databaseName = a} :: CreateEndpoint)
 
 -- | The user name to be used to log in to the endpoint database.
 createEndpoint_username :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_username = Lens.lens (\CreateEndpoint' {username} -> username) (\s@CreateEndpoint' {} a -> s {username = a} :: CreateEndpoint)
+
+-- | Settings in JSON format for the source GCP MySQL endpoint.
+createEndpoint_gcpMySQLSettings :: Lens.Lens' CreateEndpoint (Prelude.Maybe GcpMySQLSettings)
+createEndpoint_gcpMySQLSettings = Lens.lens (\CreateEndpoint' {gcpMySQLSettings} -> gcpMySQLSettings) (\s@CreateEndpoint' {} a -> s {gcpMySQLSettings = a} :: CreateEndpoint)
 
 -- | The Amazon Resource Name (ARN) for the service access role that you want
 -- to use to create the endpoint. The role must allow the @iam:PassRole@
@@ -696,10 +709,10 @@ createEndpoint_endpointType = Lens.lens (\CreateEndpoint' {endpointType} -> endp
 
 -- | The type of engine for the endpoint. Valid values, depending on the
 -- @EndpointType@ value, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
--- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@,
--- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
--- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
--- @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
+-- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
+-- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+-- @\"elasticsearch\"@, @\"docdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
 createEndpoint_engineName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_engineName = Lens.lens (\CreateEndpoint' {engineName} -> engineName) (\s@CreateEndpoint' {} a -> s {engineName = a} :: CreateEndpoint)
 
@@ -730,6 +743,7 @@ instance Prelude.Hashable CreateEndpoint where
       `Prelude.hashWithSalt` docDbSettings
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` gcpMySQLSettings
       `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` extraConnectionAttributes
       `Prelude.hashWithSalt` neptuneSettings
@@ -766,6 +780,7 @@ instance Prelude.NFData CreateEndpoint where
       `Prelude.seq` Prelude.rnf docDbSettings
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf gcpMySQLSettings
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf extraConnectionAttributes
       `Prelude.seq` Prelude.rnf neptuneSettings
@@ -832,6 +847,8 @@ instance Core.ToJSON CreateEndpoint where
             ("DocDbSettings" Core..=) Prelude.<$> docDbSettings,
             ("DatabaseName" Core..=) Prelude.<$> databaseName,
             ("Username" Core..=) Prelude.<$> username,
+            ("GcpMySQLSettings" Core..=)
+              Prelude.<$> gcpMySQLSettings,
             ("ServiceAccessRoleArn" Core..=)
               Prelude.<$> serviceAccessRoleArn,
             ("ExtraConnectionAttributes" Core..=)

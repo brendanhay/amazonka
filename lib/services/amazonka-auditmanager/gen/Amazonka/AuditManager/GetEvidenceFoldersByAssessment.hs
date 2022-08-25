@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEvidenceFoldersByAssessment' smart constructor.
 data GetEvidenceFoldersByAssessment = GetEvidenceFoldersByAssessment'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results per page, or per API request
+    -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier for the specified assessment.
+    -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,12 +70,12 @@ data GetEvidenceFoldersByAssessment = GetEvidenceFoldersByAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEvidenceFoldersByAssessment_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'getEvidenceFoldersByAssessment_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'maxResults', 'getEvidenceFoldersByAssessment_maxResults' - Represents the maximum number of results per page, or per API request
+-- 'maxResults', 'getEvidenceFoldersByAssessment_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
 --
--- 'assessmentId', 'getEvidenceFoldersByAssessment_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'getEvidenceFoldersByAssessment_assessmentId' - The unique identifier for the assessment.
 newGetEvidenceFoldersByAssessment ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -88,16 +88,16 @@ newGetEvidenceFoldersByAssessment pAssessmentId_ =
       assessmentId = pAssessmentId_
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 getEvidenceFoldersByAssessment_nextToken :: Lens.Lens' GetEvidenceFoldersByAssessment (Prelude.Maybe Prelude.Text)
 getEvidenceFoldersByAssessment_nextToken = Lens.lens (\GetEvidenceFoldersByAssessment' {nextToken} -> nextToken) (\s@GetEvidenceFoldersByAssessment' {} a -> s {nextToken = a} :: GetEvidenceFoldersByAssessment)
 
--- | Represents the maximum number of results per page, or per API request
+-- | Represents the maximum number of results on a page or for an API request
 -- call.
 getEvidenceFoldersByAssessment_maxResults :: Lens.Lens' GetEvidenceFoldersByAssessment (Prelude.Maybe Prelude.Natural)
 getEvidenceFoldersByAssessment_maxResults = Lens.lens (\GetEvidenceFoldersByAssessment' {maxResults} -> maxResults) (\s@GetEvidenceFoldersByAssessment' {} a -> s {maxResults = a} :: GetEvidenceFoldersByAssessment)
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 getEvidenceFoldersByAssessment_assessmentId :: Lens.Lens' GetEvidenceFoldersByAssessment Prelude.Text
 getEvidenceFoldersByAssessment_assessmentId = Lens.lens (\GetEvidenceFoldersByAssessment' {assessmentId} -> assessmentId) (\s@GetEvidenceFoldersByAssessment' {} a -> s {assessmentId = a} :: GetEvidenceFoldersByAssessment)
 
@@ -171,10 +171,10 @@ instance Core.ToQuery GetEvidenceFoldersByAssessment where
 
 -- | /See:/ 'newGetEvidenceFoldersByAssessmentResponse' smart constructor.
 data GetEvidenceFoldersByAssessmentResponse = GetEvidenceFoldersByAssessmentResponse'
-  { -- | The list of evidence folders returned by the
-    -- @GetEvidenceFoldersByAssessment@ API.
+  { -- | The list of evidence folders that the @GetEvidenceFoldersByAssessment@
+    -- API returned.
     evidenceFolders :: Prelude.Maybe [AssessmentEvidenceFolder],
-    -- | The pagination token used to fetch the next set of results.
+    -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -189,10 +189,10 @@ data GetEvidenceFoldersByAssessmentResponse = GetEvidenceFoldersByAssessmentResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evidenceFolders', 'getEvidenceFoldersByAssessmentResponse_evidenceFolders' - The list of evidence folders returned by the
--- @GetEvidenceFoldersByAssessment@ API.
+-- 'evidenceFolders', 'getEvidenceFoldersByAssessmentResponse_evidenceFolders' - The list of evidence folders that the @GetEvidenceFoldersByAssessment@
+-- API returned.
 --
--- 'nextToken', 'getEvidenceFoldersByAssessmentResponse_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'getEvidenceFoldersByAssessmentResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'getEvidenceFoldersByAssessmentResponse_httpStatus' - The response's http status code.
 newGetEvidenceFoldersByAssessmentResponse ::
@@ -208,12 +208,12 @@ newGetEvidenceFoldersByAssessmentResponse
         httpStatus = pHttpStatus_
       }
 
--- | The list of evidence folders returned by the
--- @GetEvidenceFoldersByAssessment@ API.
+-- | The list of evidence folders that the @GetEvidenceFoldersByAssessment@
+-- API returned.
 getEvidenceFoldersByAssessmentResponse_evidenceFolders :: Lens.Lens' GetEvidenceFoldersByAssessmentResponse (Prelude.Maybe [AssessmentEvidenceFolder])
 getEvidenceFoldersByAssessmentResponse_evidenceFolders = Lens.lens (\GetEvidenceFoldersByAssessmentResponse' {evidenceFolders} -> evidenceFolders) (\s@GetEvidenceFoldersByAssessmentResponse' {} a -> s {evidenceFolders = a} :: GetEvidenceFoldersByAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 getEvidenceFoldersByAssessmentResponse_nextToken :: Lens.Lens' GetEvidenceFoldersByAssessmentResponse (Prelude.Maybe Prelude.Text)
 getEvidenceFoldersByAssessmentResponse_nextToken = Lens.lens (\GetEvidenceFoldersByAssessmentResponse' {nextToken} -> nextToken) (\s@GetEvidenceFoldersByAssessmentResponse' {} a -> s {nextToken = a} :: GetEvidenceFoldersByAssessmentResponse)
 

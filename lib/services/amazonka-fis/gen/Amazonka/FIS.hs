@@ -11,10 +11,10 @@
 --
 -- Derived from API version @2020-12-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Fault Injection Simulator is a managed service that enables you to
--- perform fault injection experiments on your AWS workloads. For more
--- information, see the
--- <https://docs.aws.amazon.com/fis/latest/userguide/ AWS Fault Injection Simulator User Guide>.
+-- Fault Injection Simulator is a managed service that enables you to
+-- perform fault injection experiments on your Amazon Web Services
+-- workloads. For more information, see the
+-- <https://docs.aws.amazon.com/fis/latest/userguide/ Fault Injection Simulator User Guide>.
 module Amazonka.FIS
   ( -- * Service Configuration
     defaultService,
@@ -70,6 +70,12 @@ module Amazonka.FIS
     GetExperimentTemplateResponse (GetExperimentTemplateResponse'),
     newGetExperimentTemplateResponse,
 
+    -- ** GetTargetResourceType
+    GetTargetResourceType (GetTargetResourceType'),
+    newGetTargetResourceType,
+    GetTargetResourceTypeResponse (GetTargetResourceTypeResponse'),
+    newGetTargetResourceTypeResponse,
+
     -- ** ListActions
     ListActions (ListActions'),
     newListActions,
@@ -93,6 +99,12 @@ module Amazonka.FIS
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListTargetResourceTypes
+    ListTargetResourceTypes (ListTargetResourceTypes'),
+    newListTargetResourceTypes,
+    ListTargetResourceTypesResponse (ListTargetResourceTypesResponse'),
+    newListTargetResourceTypesResponse,
 
     -- ** StartExperiment
     StartExperiment (StartExperiment'),
@@ -152,6 +164,10 @@ module Amazonka.FIS
     CreateExperimentTemplateActionInput (CreateExperimentTemplateActionInput'),
     newCreateExperimentTemplateActionInput,
 
+    -- ** CreateExperimentTemplateLogConfigurationInput
+    CreateExperimentTemplateLogConfigurationInput (CreateExperimentTemplateLogConfigurationInput'),
+    newCreateExperimentTemplateLogConfigurationInput,
+
     -- ** CreateExperimentTemplateStopConditionInput
     CreateExperimentTemplateStopConditionInput (CreateExperimentTemplateStopConditionInput'),
     newCreateExperimentTemplateStopConditionInput,
@@ -171,6 +187,18 @@ module Amazonka.FIS
     -- ** ExperimentActionState
     ExperimentActionState (ExperimentActionState'),
     newExperimentActionState,
+
+    -- ** ExperimentCloudWatchLogsLogConfiguration
+    ExperimentCloudWatchLogsLogConfiguration (ExperimentCloudWatchLogsLogConfiguration'),
+    newExperimentCloudWatchLogsLogConfiguration,
+
+    -- ** ExperimentLogConfiguration
+    ExperimentLogConfiguration (ExperimentLogConfiguration'),
+    newExperimentLogConfiguration,
+
+    -- ** ExperimentS3LogConfiguration
+    ExperimentS3LogConfiguration (ExperimentS3LogConfiguration'),
+    newExperimentS3LogConfiguration,
 
     -- ** ExperimentState
     ExperimentState (ExperimentState'),
@@ -200,6 +228,26 @@ module Amazonka.FIS
     ExperimentTemplateAction (ExperimentTemplateAction'),
     newExperimentTemplateAction,
 
+    -- ** ExperimentTemplateCloudWatchLogsLogConfiguration
+    ExperimentTemplateCloudWatchLogsLogConfiguration (ExperimentTemplateCloudWatchLogsLogConfiguration'),
+    newExperimentTemplateCloudWatchLogsLogConfiguration,
+
+    -- ** ExperimentTemplateCloudWatchLogsLogConfigurationInput
+    ExperimentTemplateCloudWatchLogsLogConfigurationInput (ExperimentTemplateCloudWatchLogsLogConfigurationInput'),
+    newExperimentTemplateCloudWatchLogsLogConfigurationInput,
+
+    -- ** ExperimentTemplateLogConfiguration
+    ExperimentTemplateLogConfiguration (ExperimentTemplateLogConfiguration'),
+    newExperimentTemplateLogConfiguration,
+
+    -- ** ExperimentTemplateS3LogConfiguration
+    ExperimentTemplateS3LogConfiguration (ExperimentTemplateS3LogConfiguration'),
+    newExperimentTemplateS3LogConfiguration,
+
+    -- ** ExperimentTemplateS3LogConfigurationInput
+    ExperimentTemplateS3LogConfigurationInput (ExperimentTemplateS3LogConfigurationInput'),
+    newExperimentTemplateS3LogConfigurationInput,
+
     -- ** ExperimentTemplateStopCondition
     ExperimentTemplateStopCondition (ExperimentTemplateStopCondition'),
     newExperimentTemplateStopCondition,
@@ -220,9 +268,25 @@ module Amazonka.FIS
     ExperimentTemplateTargetInputFilter (ExperimentTemplateTargetInputFilter'),
     newExperimentTemplateTargetInputFilter,
 
+    -- ** TargetResourceType
+    TargetResourceType (TargetResourceType'),
+    newTargetResourceType,
+
+    -- ** TargetResourceTypeParameter
+    TargetResourceTypeParameter (TargetResourceTypeParameter'),
+    newTargetResourceTypeParameter,
+
+    -- ** TargetResourceTypeSummary
+    TargetResourceTypeSummary (TargetResourceTypeSummary'),
+    newTargetResourceTypeSummary,
+
     -- ** UpdateExperimentTemplateActionInputItem
     UpdateExperimentTemplateActionInputItem (UpdateExperimentTemplateActionInputItem'),
     newUpdateExperimentTemplateActionInputItem,
+
+    -- ** UpdateExperimentTemplateLogConfigurationInput
+    UpdateExperimentTemplateLogConfigurationInput (UpdateExperimentTemplateLogConfigurationInput'),
+    newUpdateExperimentTemplateLogConfigurationInput,
 
     -- ** UpdateExperimentTemplateStopConditionInput
     UpdateExperimentTemplateStopConditionInput (UpdateExperimentTemplateStopConditionInput'),
@@ -239,11 +303,13 @@ import Amazonka.FIS.DeleteExperimentTemplate
 import Amazonka.FIS.GetAction
 import Amazonka.FIS.GetExperiment
 import Amazonka.FIS.GetExperimentTemplate
+import Amazonka.FIS.GetTargetResourceType
 import Amazonka.FIS.Lens
 import Amazonka.FIS.ListActions
 import Amazonka.FIS.ListExperimentTemplates
 import Amazonka.FIS.ListExperiments
 import Amazonka.FIS.ListTagsForResource
+import Amazonka.FIS.ListTargetResourceTypes
 import Amazonka.FIS.StartExperiment
 import Amazonka.FIS.StopExperiment
 import Amazonka.FIS.TagResource

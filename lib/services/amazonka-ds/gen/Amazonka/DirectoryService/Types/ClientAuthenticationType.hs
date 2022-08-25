@@ -20,7 +20,8 @@
 module Amazonka.DirectoryService.Types.ClientAuthenticationType
   ( ClientAuthenticationType
       ( ..,
-        ClientAuthenticationType_SmartCard
+        ClientAuthenticationType_SmartCard,
+        ClientAuthenticationType_SmartCardOrPassword
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype ClientAuthenticationType = ClientAuthenticationType'
 pattern ClientAuthenticationType_SmartCard :: ClientAuthenticationType
 pattern ClientAuthenticationType_SmartCard = ClientAuthenticationType' "SmartCard"
 
+pattern ClientAuthenticationType_SmartCardOrPassword :: ClientAuthenticationType
+pattern ClientAuthenticationType_SmartCardOrPassword = ClientAuthenticationType' "SmartCardOrPassword"
+
 {-# COMPLETE
   ClientAuthenticationType_SmartCard,
+  ClientAuthenticationType_SmartCardOrPassword,
   ClientAuthenticationType'
   #-}

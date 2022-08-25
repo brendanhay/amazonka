@@ -51,9 +51,7 @@ import qualified Amazonka.Response as Response
 data DisassociateCustomerGateway = DisassociateCustomerGateway'
   { -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the customer gateway. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+    -- | The Amazon Resource Name (ARN) of the customer gateway.
     customerGatewayArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +66,7 @@ data DisassociateCustomerGateway = DisassociateCustomerGateway'
 --
 -- 'globalNetworkId', 'disassociateCustomerGateway_globalNetworkId' - The ID of the global network.
 --
--- 'customerGatewayArn', 'disassociateCustomerGateway_customerGatewayArn' - The Amazon Resource Name (ARN) of the customer gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+-- 'customerGatewayArn', 'disassociateCustomerGateway_customerGatewayArn' - The Amazon Resource Name (ARN) of the customer gateway.
 newDisassociateCustomerGateway ::
   -- | 'globalNetworkId'
   Prelude.Text ->
@@ -90,9 +86,7 @@ newDisassociateCustomerGateway
 disassociateCustomerGateway_globalNetworkId :: Lens.Lens' DisassociateCustomerGateway Prelude.Text
 disassociateCustomerGateway_globalNetworkId = Lens.lens (\DisassociateCustomerGateway' {globalNetworkId} -> globalNetworkId) (\s@DisassociateCustomerGateway' {} a -> s {globalNetworkId = a} :: DisassociateCustomerGateway)
 
--- | The Amazon Resource Name (ARN) of the customer gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+-- | The Amazon Resource Name (ARN) of the customer gateway.
 disassociateCustomerGateway_customerGatewayArn :: Lens.Lens' DisassociateCustomerGateway Prelude.Text
 disassociateCustomerGateway_customerGatewayArn = Lens.lens (\DisassociateCustomerGateway' {customerGatewayArn} -> customerGatewayArn) (\s@DisassociateCustomerGateway' {} a -> s {customerGatewayArn = a} :: DisassociateCustomerGateway)
 

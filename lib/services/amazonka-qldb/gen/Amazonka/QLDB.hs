@@ -177,6 +177,9 @@ module Amazonka.QLDB
     -- ** LedgerState
     LedgerState (..),
 
+    -- ** OutputFormat
+    OutputFormat (..),
+
     -- ** PermissionsMode
     PermissionsMode (..),
 

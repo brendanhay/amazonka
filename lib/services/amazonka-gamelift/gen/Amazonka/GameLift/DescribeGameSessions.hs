@@ -26,6 +26,14 @@
 -- game sessions that are filtered by certain criteria. To retrieve the
 -- protection policy for game sessions, use DescribeGameSessionDetails.
 --
+-- This operation is not designed to be continually called to track game
+-- session status. This practice can cause you to exceed your API limit,
+-- which results in errors. Instead, you must configure configure an Amazon
+-- Simple Notification Service (SNS) topic to receive notifications from
+-- FlexMatch or queues. Continuously polling with @DescribeGameSessions@
+-- should only be used for games in development with low game session
+-- usage.
+--
 -- This operation can be used in the following ways:
 --
 -- -   To retrieve all game sessions that are currently running on all
@@ -40,7 +48,7 @@
 --
 -- -   To retrieve a specific game session, provide the game session ID.
 --     This approach looks for the game session ID in all fleets that
---     reside in the AWS Region defined in the request.
+--     reside in the Amazon Web Services Region defined in the request.
 --
 -- Use the pagination parameters to retrieve results as a set of sequential
 -- pages.
@@ -48,7 +56,15 @@
 -- If successful, a @GameSession@ object is returned for each game session
 -- that matches the request.
 --
--- /Available in GameLift Local./
+-- This operation is not designed to be continually called to track
+-- matchmaking ticket status. This practice can cause you to exceed your
+-- API limit, which results in errors. Instead, as a best practice, set up
+-- an Amazon Simple Notification Service to receive notifications, and
+-- provide the topic ARN in the matchmaking configuration. Continuously
+-- poling ticket status with DescribeGameSessions should only be used for
+-- games in development with low matchmaking usage.
+--
+-- /Available in Amazon GameLift Local./
 --
 -- __Learn more__
 --
@@ -112,8 +128,8 @@ data DescribeGameSessions = DescribeGameSessions'
     -- game sessions for. You can use either the alias ID or ARN value.
     aliasId :: Prelude.Maybe Prelude.Text,
     -- | A fleet location to get game session details for. You can specify a
-    -- fleet\'s home Region or a remote location. Use the AWS Region code
-    -- format, such as @us-west-2@.
+    -- fleet\'s home Region or a remote location. Use the Amazon Web Services
+    -- Region code format, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
@@ -147,8 +163,8 @@ data DescribeGameSessions = DescribeGameSessions'
 -- game sessions for. You can use either the alias ID or ARN value.
 --
 -- 'location', 'describeGameSessions_location' - A fleet location to get game session details for. You can specify a
--- fleet\'s home Region or a remote location. Use the AWS Region code
--- format, such as @us-west-2@.
+-- fleet\'s home Region or a remote location. Use the Amazon Web Services
+-- Region code format, such as @us-west-2@.
 --
 -- 'limit', 'describeGameSessions_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -192,8 +208,8 @@ describeGameSessions_aliasId :: Lens.Lens' DescribeGameSessions (Prelude.Maybe P
 describeGameSessions_aliasId = Lens.lens (\DescribeGameSessions' {aliasId} -> aliasId) (\s@DescribeGameSessions' {} a -> s {aliasId = a} :: DescribeGameSessions)
 
 -- | A fleet location to get game session details for. You can specify a
--- fleet\'s home Region or a remote location. Use the AWS Region code
--- format, such as @us-west-2@.
+-- fleet\'s home Region or a remote location. Use the Amazon Web Services
+-- Region code format, such as @us-west-2@.
 describeGameSessions_location :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
 describeGameSessions_location = Lens.lens (\DescribeGameSessions' {location} -> location) (\s@DescribeGameSessions' {} a -> s {location = a} :: DescribeGameSessions)
 

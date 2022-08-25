@@ -168,7 +168,7 @@ instance Core.ToQuery ListChangeSets where
 -- /See:/ 'newListChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
   { -- | If the output exceeds 1 MB, a string that identifies the next page of
-    -- change sets. If there is no additional page, this value is null.
+    -- change sets. If there is no additional page, this value is @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @ChangeSetSummary@ structures that provides the ID and status
     -- of each change set for the specified stack.
@@ -187,7 +187,7 @@ data ListChangeSetsResponse = ListChangeSetsResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listChangeSetsResponse_nextToken' - If the output exceeds 1 MB, a string that identifies the next page of
--- change sets. If there is no additional page, this value is null.
+-- change sets. If there is no additional page, this value is @null@.
 --
 -- 'summaries', 'listChangeSetsResponse_summaries' - A list of @ChangeSetSummary@ structures that provides the ID and status
 -- of each change set for the specified stack.
@@ -206,7 +206,7 @@ newListChangeSetsResponse pHttpStatus_ =
     }
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of
--- change sets. If there is no additional page, this value is null.
+-- change sets. If there is no additional page, this value is @null@.
 listChangeSetsResponse_nextToken :: Lens.Lens' ListChangeSetsResponse (Prelude.Maybe Prelude.Text)
 listChangeSetsResponse_nextToken = Lens.lens (\ListChangeSetsResponse' {nextToken} -> nextToken) (\s@ListChangeSetsResponse' {} a -> s {nextToken = a} :: ListChangeSetsResponse)
 

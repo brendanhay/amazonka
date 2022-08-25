@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Indicates whether you want to enable or disable the Node Exporter.
+-- | Indicates whether you want to turn on or turn off the Node Exporter.
 --
 -- /See:/ 'newNodeExporterInfo' smart constructor.
 data NodeExporterInfo = NodeExporterInfo'
-  { -- | Indicates whether you want to enable or disable the Node Exporter.
+  { -- | Indicates whether you want to turn on or turn off the Node Exporter.
     enabledInBroker :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +40,7 @@ data NodeExporterInfo = NodeExporterInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabledInBroker', 'nodeExporterInfo_enabledInBroker' - Indicates whether you want to enable or disable the Node Exporter.
+-- 'enabledInBroker', 'nodeExporterInfo_enabledInBroker' - Indicates whether you want to turn on or turn off the Node Exporter.
 newNodeExporterInfo ::
   -- | 'enabledInBroker'
   Prelude.Bool ->
@@ -51,9 +51,18 @@ newNodeExporterInfo pEnabledInBroker_ =
         pEnabledInBroker_
     }
 
--- | Indicates whether you want to enable or disable the Node Exporter.
+-- | Indicates whether you want to turn on or turn off the Node Exporter.
 nodeExporterInfo_enabledInBroker :: Lens.Lens' NodeExporterInfo Prelude.Bool
 nodeExporterInfo_enabledInBroker = Lens.lens (\NodeExporterInfo' {enabledInBroker} -> enabledInBroker) (\s@NodeExporterInfo' {} a -> s {enabledInBroker = a} :: NodeExporterInfo)
+
+instance Core.FromJSON NodeExporterInfo where
+  parseJSON =
+    Core.withObject
+      "NodeExporterInfo"
+      ( \x ->
+          NodeExporterInfo'
+            Prelude.<$> (x Core..: "enabledInBroker")
+      )
 
 instance Prelude.Hashable NodeExporterInfo where
   hashWithSalt _salt NodeExporterInfo' {..} =

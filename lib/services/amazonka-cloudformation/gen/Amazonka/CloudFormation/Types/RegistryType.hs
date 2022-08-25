@@ -20,6 +20,7 @@
 module Amazonka.CloudFormation.Types.RegistryType
   ( RegistryType
       ( ..,
+        RegistryType_HOOK,
         RegistryType_MODULE,
         RegistryType_RESOURCE
       ),
@@ -57,6 +58,9 @@ newtype RegistryType = RegistryType'
       Core.ToXML
     )
 
+pattern RegistryType_HOOK :: RegistryType
+pattern RegistryType_HOOK = RegistryType' "HOOK"
+
 pattern RegistryType_MODULE :: RegistryType
 pattern RegistryType_MODULE = RegistryType' "MODULE"
 
@@ -64,6 +68,7 @@ pattern RegistryType_RESOURCE :: RegistryType
 pattern RegistryType_RESOURCE = RegistryType' "RESOURCE"
 
 {-# COMPLETE
+  RegistryType_HOOK,
   RegistryType_MODULE,
   RegistryType_RESOURCE,
   RegistryType'

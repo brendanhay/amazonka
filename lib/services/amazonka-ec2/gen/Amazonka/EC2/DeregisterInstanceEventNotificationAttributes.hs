@@ -20,8 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- c
---
 -- Deregisters tag keys to prevent tags that have the specified tag keys
 -- from being included in scheduled event notifications for resources in
 -- the Region.

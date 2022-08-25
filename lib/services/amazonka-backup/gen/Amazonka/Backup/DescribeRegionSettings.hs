@@ -35,6 +35,7 @@ module Amazonka.Backup.DescribeRegionSettings
     newDescribeRegionSettingsResponse,
 
     -- * Response Lenses
+    describeRegionSettingsResponse_resourceTypeManagementPreference,
     describeRegionSettingsResponse_resourceTypeOptInPreference,
     describeRegionSettingsResponse_httpStatus,
   )
@@ -70,7 +71,10 @@ instance Core.AWSRequest DescribeRegionSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegionSettingsResponse'
-            Prelude.<$> ( x Core..?> "ResourceTypeOptInPreference"
+            Prelude.<$> ( x Core..?> "ResourceTypeManagementPreference"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "ResourceTypeOptInPreference"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -102,7 +106,21 @@ instance Core.ToQuery DescribeRegionSettings where
 
 -- | /See:/ 'newDescribeRegionSettingsResponse' smart constructor.
 data DescribeRegionSettingsResponse = DescribeRegionSettingsResponse'
-  { -- | Returns a list of all services along with the opt-in preferences in the
+  { -- | Returns whether Backup fully manages the backups for a resource type.
+    --
+    -- For the benefits of full Backup management, see
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management Full Backup management>.
+    --
+    -- For a list of resource types and whether each supports full Backup
+    -- management, see the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+    -- table.
+    --
+    -- If @\"DynamoDB\":false@, you can enable full Backup management for
+    -- DynamoDB backup by enabling
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli Backup\'s advanced DynamoDB backup features>.
+    resourceTypeManagementPreference :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
+    -- | Returns a list of all services along with the opt-in preferences in the
     -- Region.
     resourceTypeOptInPreference :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
     -- | The response's http status code.
@@ -118,6 +136,20 @@ data DescribeRegionSettingsResponse = DescribeRegionSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceTypeManagementPreference', 'describeRegionSettingsResponse_resourceTypeManagementPreference' - Returns whether Backup fully manages the backups for a resource type.
+--
+-- For the benefits of full Backup management, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management Full Backup management>.
+--
+-- For a list of resource types and whether each supports full Backup
+-- management, see the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table.
+--
+-- If @\"DynamoDB\":false@, you can enable full Backup management for
+-- DynamoDB backup by enabling
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli Backup\'s advanced DynamoDB backup features>.
+--
 -- 'resourceTypeOptInPreference', 'describeRegionSettingsResponse_resourceTypeOptInPreference' - Returns a list of all services along with the opt-in preferences in the
 -- Region.
 --
@@ -128,10 +160,28 @@ newDescribeRegionSettingsResponse ::
   DescribeRegionSettingsResponse
 newDescribeRegionSettingsResponse pHttpStatus_ =
   DescribeRegionSettingsResponse'
-    { resourceTypeOptInPreference =
+    { resourceTypeManagementPreference =
+        Prelude.Nothing,
+      resourceTypeOptInPreference =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns whether Backup fully manages the backups for a resource type.
+--
+-- For the benefits of full Backup management, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management Full Backup management>.
+--
+-- For a list of resource types and whether each supports full Backup
+-- management, see the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table.
+--
+-- If @\"DynamoDB\":false@, you can enable full Backup management for
+-- DynamoDB backup by enabling
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli Backup\'s advanced DynamoDB backup features>.
+describeRegionSettingsResponse_resourceTypeManagementPreference :: Lens.Lens' DescribeRegionSettingsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
+describeRegionSettingsResponse_resourceTypeManagementPreference = Lens.lens (\DescribeRegionSettingsResponse' {resourceTypeManagementPreference} -> resourceTypeManagementPreference) (\s@DescribeRegionSettingsResponse' {} a -> s {resourceTypeManagementPreference = a} :: DescribeRegionSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns a list of all services along with the opt-in preferences in the
 -- Region.
@@ -147,5 +197,6 @@ instance
     DescribeRegionSettingsResponse
   where
   rnf DescribeRegionSettingsResponse' {..} =
-    Prelude.rnf resourceTypeOptInPreference
+    Prelude.rnf resourceTypeManagementPreference
+      `Prelude.seq` Prelude.rnf resourceTypeOptInPreference
       `Prelude.seq` Prelude.rnf httpStatus

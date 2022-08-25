@@ -132,7 +132,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Default: Uses existing setting
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The new compute and memory capacity of the DB instance, for example,
-    -- @db.m4.large@. Not all DB instance classes are available in all AWS
+    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
     -- Regions.
     --
     -- If you modify the DB instance class, an outage occurs during the change.
@@ -380,7 +380,7 @@ data ModifyDBInstance = ModifyDBInstance'
 -- Default: Uses existing setting
 --
 -- 'dbInstanceClass', 'modifyDBInstance_dbInstanceClass' - The new compute and memory capacity of the DB instance, for example,
--- @db.m4.large@. Not all DB instance classes are available in all AWS
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
 -- Regions.
 --
 -- If you modify the DB instance class, an outage occurs during the change.
@@ -670,7 +670,7 @@ modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.M
 modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {backupRetentionPeriod = a} :: ModifyDBInstance)
 
 -- | The new compute and memory capacity of the DB instance, for example,
--- @db.m4.large@. Not all DB instance classes are available in all AWS
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
 -- Regions.
 --
 -- If you modify the DB instance class, an outage occurs during the change.

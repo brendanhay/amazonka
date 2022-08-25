@@ -53,12 +53,10 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     --
     -- You can\'t delete the default subnet group.
     --
-    -- Constraints:
-    --
     -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
     -- be default.
     --
-    -- Example: @mySubnetgroup@
+    -- Example: @mydbsubnetgroup@
     dbSubnetGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,12 +73,10 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup'
 --
 -- You can\'t delete the default subnet group.
 --
--- Constraints:
---
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
 -- be default.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
 newDeleteDBSubnetGroup ::
   -- | 'dbSubnetGroupName'
   Prelude.Text ->
@@ -95,12 +91,10 @@ newDeleteDBSubnetGroup pDBSubnetGroupName_ =
 --
 -- You can\'t delete the default subnet group.
 --
--- Constraints:
---
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
 -- be default.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
 deleteDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Prelude.Text
 deleteDBSubnetGroup_dbSubnetGroupName = Lens.lens (\DeleteDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@DeleteDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: DeleteDBSubnetGroup)
 

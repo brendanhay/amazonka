@@ -25,10 +25,10 @@
 --
 -- This action calls on other describe actions to get instance information.
 -- Depending on your instance configuration, you may need to allow the
--- following actions in your IAM policy: DescribeSpotInstanceRequests,
--- DescribeInstanceCreditSpecifications, DescribeVolumes,
--- DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow
--- @describe*@ depending on your instance requirements.
+-- following actions in your IAM policy: @DescribeSpotInstanceRequests@,
+-- @DescribeInstanceCreditSpecifications@, @DescribeVolumes@,
+-- @DescribeInstanceAttribute@, and @DescribeElasticGpus@. Or, you can
+-- allow @describe*@ depending on your instance requirements.
 module Amazonka.EC2.GetLaunchTemplateData
   ( -- * Creating a Request
     GetLaunchTemplateData (..),

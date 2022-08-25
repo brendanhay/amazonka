@@ -75,7 +75,7 @@ data SuspendProcesses = SuspendProcesses'
     --
     -- -   @ScheduledActions@
     --
-    -- If you omit this parameter, all processes are specified.
+    -- If you omit this property, all processes are specified.
     scalingProcesses :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -110,7 +110,7 @@ data SuspendProcesses = SuspendProcesses'
 --
 -- -   @ScheduledActions@
 --
--- If you omit this parameter, all processes are specified.
+-- If you omit this property, all processes are specified.
 --
 -- 'autoScalingGroupName', 'suspendProcesses_autoScalingGroupName' - The name of the Auto Scaling group.
 newSuspendProcesses ::
@@ -144,7 +144,7 @@ newSuspendProcesses pAutoScalingGroupName_ =
 --
 -- -   @ScheduledActions@
 --
--- If you omit this parameter, all processes are specified.
+-- If you omit this property, all processes are specified.
 suspendProcesses_scalingProcesses :: Lens.Lens' SuspendProcesses (Prelude.Maybe [Prelude.Text])
 suspendProcesses_scalingProcesses = Lens.lens (\SuspendProcesses' {scalingProcesses} -> scalingProcesses) (\s@SuspendProcesses' {} a -> s {scalingProcesses = a} :: SuspendProcesses) Prelude.. Lens.mapping Lens.coerced
 

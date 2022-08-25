@@ -56,6 +56,8 @@ data ContactMethod = ContactMethod'
     -- -   @InValid@ - An attempt was made to verify the contact method, but
     --     the verification has expired.
     status :: Prelude.Maybe ContactMethodStatus,
+    -- | An object that describes the location of the contact method, such as the
+    -- Amazon Web Services Region and Availability Zone.
     location :: Prelude.Maybe ResourceLocation,
     -- | The protocol of the contact method, such as email or SMS (text
     -- messaging).
@@ -98,7 +100,8 @@ data ContactMethod = ContactMethod'
 -- -   @InValid@ - An attempt was made to verify the contact method, but
 --     the verification has expired.
 --
--- 'location', 'contactMethod_location' - Undocumented member.
+-- 'location', 'contactMethod_location' - An object that describes the location of the contact method, such as the
+-- Amazon Web Services Region and Availability Zone.
 --
 -- 'protocol', 'contactMethod_protocol' - The protocol of the contact method, such as email or SMS (text
 -- messaging).
@@ -154,7 +157,8 @@ contactMethod_arn = Lens.lens (\ContactMethod' {arn} -> arn) (\s@ContactMethod' 
 contactMethod_status :: Lens.Lens' ContactMethod (Prelude.Maybe ContactMethodStatus)
 contactMethod_status = Lens.lens (\ContactMethod' {status} -> status) (\s@ContactMethod' {} a -> s {status = a} :: ContactMethod)
 
--- | Undocumented member.
+-- | An object that describes the location of the contact method, such as the
+-- Amazon Web Services Region and Availability Zone.
 contactMethod_location :: Lens.Lens' ContactMethod (Prelude.Maybe ResourceLocation)
 contactMethod_location = Lens.lens (\ContactMethod' {location} -> location) (\s@ContactMethod' {} a -> s {location = a} :: ContactMethod)
 

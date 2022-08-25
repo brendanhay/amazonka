@@ -20,15 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can use the @GetMetricData@ API to retrieve as many as 500 different
--- metrics in a single request, with a total of as many as 100,800 data
--- points. You can also optionally perform math expressions on the values
--- of the returned statistics, to create new time series that represent new
--- insights into your data. For example, using Lambda metrics, you could
--- divide the Errors metric by the Invocations metric to get an error rate
--- time series. For more information about metric math expressions, see
+-- You can use the @GetMetricData@ API to retrieve CloudWatch metric
+-- values. The operation can also include a CloudWatch Metrics Insights
+-- query, and one or more metric math functions.
+--
+-- A @GetMetricData@ operation that does not include a query can retrieve
+-- as many as 500 different metrics in a single request, with a total of as
+-- many as 100,800 data points. You can also optionally perform metric math
+-- expressions on the values of the returned statistics, to create new time
+-- series that represent new insights into your data. For example, using
+-- Lambda metrics, you could divide the Errors metric by the Invocations
+-- metric to get an error rate time series. For more information about
+-- metric math expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions>
 -- in the /Amazon CloudWatch User Guide/.
+--
+-- If you include a Metrics Insights query, each @GetMetricData@ operation
+-- can include only one query. But the same @GetMetricData@ operation can
+-- also retrieve other metrics. Metrics Insights queries can query only the
+-- most recent three hours of metric data. For more information about
+-- Metrics Insights, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html Query your metrics with CloudWatch Metrics Insights>.
 --
 -- Calls to the @GetMetricData@ API have a different pricing structure than
 -- calls to @GetMetricStatistics@. For more information about pricing, see
@@ -65,6 +77,17 @@
 -- If you specify a unit that does not match the data collected, the
 -- results of the operation are null. CloudWatch does not perform unit
 -- conversions.
+--
+-- __Using Metrics Insights queries with metric math__
+--
+-- You can\'t mix a Metric Insights query and metric math syntax in the
+-- same expression, but you can reference results from a Metrics Insights
+-- query within other Metric math expressions. A Metrics Insights query
+-- without a __GROUP BY__ clause returns a single time-series (TS), and can
+-- be used as input for a metric math expression that expects a single time
+-- series. A Metrics Insights query with a __GROUP BY__ clause returns an
+-- array of time-series (TS[]), and can be used as input for a metric math
+-- expression that expects an array of time series.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudWatch.GetMetricData
@@ -119,8 +142,8 @@ data GetMetricData = GetMetricData'
     maxDatapoints :: Prelude.Maybe Prelude.Int,
     -- | The metric queries to be returned. A single @GetMetricData@ call can
     -- include as many as 500 @MetricDataQuery@ structures. Each of these
-    -- structures can specify either a metric to retrieve, or a math expression
-    -- to perform on retrieved data.
+    -- structures can specify either a metric to retrieve, a Metrics Insights
+    -- query, or a math expression to perform on retrieved data.
     metricDataQueries :: [MetricDataQuery],
     -- | The time stamp indicating the earliest data to be returned.
     --
@@ -194,8 +217,8 @@ data GetMetricData = GetMetricData'
 --
 -- 'metricDataQueries', 'getMetricData_metricDataQueries' - The metric queries to be returned. A single @GetMetricData@ call can
 -- include as many as 500 @MetricDataQuery@ structures. Each of these
--- structures can specify either a metric to retrieve, or a math expression
--- to perform on retrieved data.
+-- structures can specify either a metric to retrieve, a Metrics Insights
+-- query, or a math expression to perform on retrieved data.
 --
 -- 'startTime', 'getMetricData_startTime' - The time stamp indicating the earliest data to be returned.
 --
@@ -282,8 +305,8 @@ getMetricData_maxDatapoints = Lens.lens (\GetMetricData' {maxDatapoints} -> maxD
 
 -- | The metric queries to be returned. A single @GetMetricData@ call can
 -- include as many as 500 @MetricDataQuery@ structures. Each of these
--- structures can specify either a metric to retrieve, or a math expression
--- to perform on retrieved data.
+-- structures can specify either a metric to retrieve, a Metrics Insights
+-- query, or a math expression to perform on retrieved data.
 getMetricData_metricDataQueries :: Lens.Lens' GetMetricData [MetricDataQuery]
 getMetricData_metricDataQueries = Lens.lens (\GetMetricData' {metricDataQueries} -> metricDataQueries) (\s@GetMetricData' {} a -> s {metricDataQueries = a} :: GetMetricData) Prelude.. Lens.coerced
 

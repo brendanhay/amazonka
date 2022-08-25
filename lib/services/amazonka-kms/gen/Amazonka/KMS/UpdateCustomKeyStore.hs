@@ -55,7 +55,7 @@
 -- If the operation succeeds, it returns a JSON object with no properties.
 --
 -- This operation is part of the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store feature>
 -- feature in KMS, which combines the convenience and extensive integration
 -- of KMS with the isolation and control of a single-tenant key store.
 --

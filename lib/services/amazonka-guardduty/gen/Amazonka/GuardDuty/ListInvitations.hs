@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all GuardDuty membership invitations that were sent to the current
--- AWS account.
+-- Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.GuardDuty.ListInvitations

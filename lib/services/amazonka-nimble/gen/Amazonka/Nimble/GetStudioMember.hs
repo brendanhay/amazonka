@@ -27,8 +27,8 @@ module Amazonka.Nimble.GetStudioMember
     newGetStudioMember,
 
     -- * Request Lenses
-    getStudioMember_studioId,
     getStudioMember_principalId,
+    getStudioMember_studioId,
 
     -- * Destructuring the Response
     GetStudioMemberResponse (..),
@@ -49,10 +49,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetStudioMember' smart constructor.
 data GetStudioMember = GetStudioMember'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The principal ID.
-    principalId :: Prelude.Text
+  { -- | The principal ID. This currently supports a Amazon Web Services SSO
+    -- UserId.
+    principalId :: Prelude.Text,
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,28 +65,30 @@ data GetStudioMember = GetStudioMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioId', 'getStudioMember_studioId' - The studio ID.
+-- 'principalId', 'getStudioMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
 --
--- 'principalId', 'getStudioMember_principalId' - The principal ID.
+-- 'studioId', 'getStudioMember_studioId' - The studio ID.
 newGetStudioMember ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'principalId'
   Prelude.Text ->
+  -- | 'studioId'
+  Prelude.Text ->
   GetStudioMember
-newGetStudioMember pStudioId_ pPrincipalId_ =
+newGetStudioMember pPrincipalId_ pStudioId_ =
   GetStudioMember'
-    { studioId = pStudioId_,
-      principalId = pPrincipalId_
+    { principalId = pPrincipalId_,
+      studioId = pStudioId_
     }
+
+-- | The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
+getStudioMember_principalId :: Lens.Lens' GetStudioMember Prelude.Text
+getStudioMember_principalId = Lens.lens (\GetStudioMember' {principalId} -> principalId) (\s@GetStudioMember' {} a -> s {principalId = a} :: GetStudioMember)
 
 -- | The studio ID.
 getStudioMember_studioId :: Lens.Lens' GetStudioMember Prelude.Text
 getStudioMember_studioId = Lens.lens (\GetStudioMember' {studioId} -> studioId) (\s@GetStudioMember' {} a -> s {studioId = a} :: GetStudioMember)
-
--- | The principal ID.
-getStudioMember_principalId :: Lens.Lens' GetStudioMember Prelude.Text
-getStudioMember_principalId = Lens.lens (\GetStudioMember' {principalId} -> principalId) (\s@GetStudioMember' {} a -> s {principalId = a} :: GetStudioMember)
 
 instance Core.AWSRequest GetStudioMember where
   type
@@ -102,13 +105,13 @@ instance Core.AWSRequest GetStudioMember where
 
 instance Prelude.Hashable GetStudioMember where
   hashWithSalt _salt GetStudioMember' {..} =
-    _salt `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStudioMember where
   rnf GetStudioMember' {..} =
-    Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders GetStudioMember where
   toHeaders =

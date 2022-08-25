@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLensReviewReport' smart constructor.
 data LensReviewReport = LensReviewReport'
-  { lensAlias :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
+    lensAlias :: Prelude.Maybe Prelude.Text,
     base64String :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,6 +42,8 @@ data LensReviewReport = LensReviewReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lensArn', 'lensReviewReport_lensArn' - The ARN for the lens.
+--
 -- 'lensAlias', 'lensReviewReport_lensAlias' - Undocumented member.
 --
 -- 'base64String', 'lensReviewReport_base64String' - Undocumented member.
@@ -47,9 +51,14 @@ newLensReviewReport ::
   LensReviewReport
 newLensReviewReport =
   LensReviewReport'
-    { lensAlias = Prelude.Nothing,
+    { lensArn = Prelude.Nothing,
+      lensAlias = Prelude.Nothing,
       base64String = Prelude.Nothing
     }
+
+-- | The ARN for the lens.
+lensReviewReport_lensArn :: Lens.Lens' LensReviewReport (Prelude.Maybe Prelude.Text)
+lensReviewReport_lensArn = Lens.lens (\LensReviewReport' {lensArn} -> lensArn) (\s@LensReviewReport' {} a -> s {lensArn = a} :: LensReviewReport)
 
 -- | Undocumented member.
 lensReviewReport_lensAlias :: Lens.Lens' LensReviewReport (Prelude.Maybe Prelude.Text)
@@ -65,16 +74,19 @@ instance Core.FromJSON LensReviewReport where
       "LensReviewReport"
       ( \x ->
           LensReviewReport'
-            Prelude.<$> (x Core..:? "LensAlias")
+            Prelude.<$> (x Core..:? "LensArn")
+            Prelude.<*> (x Core..:? "LensAlias")
             Prelude.<*> (x Core..:? "Base64String")
       )
 
 instance Prelude.Hashable LensReviewReport where
   hashWithSalt _salt LensReviewReport' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt `Prelude.hashWithSalt` lensArn
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` base64String
 
 instance Prelude.NFData LensReviewReport where
   rnf LensReviewReport' {..} =
-    Prelude.rnf lensAlias
+    Prelude.rnf lensArn
+      `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf base64String

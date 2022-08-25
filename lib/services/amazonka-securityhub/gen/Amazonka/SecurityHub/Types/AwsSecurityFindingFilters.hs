@@ -22,6 +22,7 @@ module Amazonka.SecurityHub.Types.AwsSecurityFindingFilters where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.BooleanFilter
 import Amazonka.SecurityHub.Types.DateFilter
 import Amazonka.SecurityHub.Types.IpFilter
 import Amazonka.SecurityHub.Types.KeywordFilter
@@ -48,10 +49,6 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     -- solution that generated the finding.
     severityProduct :: Prelude.Maybe [NumberFilter],
     -- | The name of the solution (product) that generates findings.
-    --
-    -- Note that this is a filter against the @aws\/securityhub\/ProductName@
-    -- field in @ProductFields@. It is not a filter for the top-level
-    -- @ProductName@ field.
     productName :: Prelude.Maybe [StringFilter],
     -- | The protocol of network-related information about a finding.
     networkProtocol :: Prelude.Maybe [StringFilter],
@@ -93,10 +90,6 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     productFields :: Prelude.Maybe [MapFilter],
     -- | The name of the findings provider (company) that owns the solution
     -- (product) that generates findings.
-    --
-    -- Note that this is a filter against the @aws\/securityhub\/CompanyName@
-    -- field in @ProductFields@. It is not a filter for the top-level
-    -- @CompanyName@ field.
     companyName :: Prelude.Maybe [StringFilter],
     -- | The value of a threat intelligence indicator.
     threatIntelIndicatorValue :: Prelude.Maybe [StringFilter],
@@ -261,20 +254,43 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     --     Security Hub also resets the workflow status from @NOTIFIED@ or
     --     @RESOLVED@ to @NEW@ in the following cases:
     --
-    --     -   The record state changes from @ARCHIVED@ to @ACTIVE@.
+    --     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
     --
-    --     -   The compliance status changes from @PASSED@ to either @WARNING@,
+    --     -   @Compliance.Status@ changes from @PASSED@ to either @WARNING@,
     --         @FAILED@, or @NOT_AVAILABLE@.
     --
     -- -   @NOTIFIED@ - Indicates that the resource owner has been notified
     --     about the security issue. Used when the initial reviewer is not the
     --     resource owner, and needs intervention from the resource owner.
     --
-    -- -   @SUPPRESSED@ - The finding will not be reviewed again and will not
-    --     be acted upon.
+    --     If one of the following occurs, the workflow status is changed
+    --     automatically from @NOTIFIED@ to @NEW@:
+    --
+    --     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
+    --
+    --     -   @Compliance.Status@ changes from @PASSED@ to @FAILED@,
+    --         @WARNING@, or @NOT_AVAILABLE@.
+    --
+    -- -   @SUPPRESSED@ - Indicates that you reviewed the finding and do not
+    --     believe that any action is needed.
+    --
+    --     The workflow status of a @SUPPRESSED@ finding does not change if
+    --     @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
     --
     -- -   @RESOLVED@ - The finding was reviewed and remediated and is now
     --     considered resolved.
+    --
+    --     The finding remains @RESOLVED@ unless one of the following occurs:
+    --
+    --     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
+    --
+    --     -   @Compliance.Status@ changes from @PASSED@ to @FAILED@,
+    --         @WARNING@, or @NOT_AVAILABLE@.
+    --
+    --     In those cases, the workflow status is automatically reset to @NEW@.
+    --
+    --     For findings from controls, if @Compliance.Status@ is @PASSED@, then
+    --     Security Hub automatically sets the workflow status to @RESOLVED@.
     workflowStatus :: Prelude.Maybe [StringFilter],
     -- | A URL that links to a page about the current finding in the
     -- security-findings provider\'s solution.
@@ -307,6 +323,9 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     resourceContainerImageName :: Prelude.Maybe [StringFilter],
     -- | The path to the process executable.
     processPath :: Prelude.Maybe [StringFilter],
+    -- | Indicates whether or not sample findings are included in the filter
+    -- results.
+    sample :: Prelude.Maybe [BooleanFilter],
     -- | The ARN of the solution that generated a related finding.
     relatedFindingsProductArn :: Prelude.Maybe [StringFilter],
     -- | The details of a resource that doesn\'t have a specific subfield for the
@@ -333,10 +352,6 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 -- solution that generated the finding.
 --
 -- 'productName', 'awsSecurityFindingFilters_productName' - The name of the solution (product) that generates findings.
---
--- Note that this is a filter against the @aws\/securityhub\/ProductName@
--- field in @ProductFields@. It is not a filter for the top-level
--- @ProductName@ field.
 --
 -- 'networkProtocol', 'awsSecurityFindingFilters_networkProtocol' - The protocol of network-related information about a finding.
 --
@@ -378,10 +393,6 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 --
 -- 'companyName', 'awsSecurityFindingFilters_companyName' - The name of the findings provider (company) that owns the solution
 -- (product) that generates findings.
---
--- Note that this is a filter against the @aws\/securityhub\/CompanyName@
--- field in @ProductFields@. It is not a filter for the top-level
--- @CompanyName@ field.
 --
 -- 'threatIntelIndicatorValue', 'awsSecurityFindingFilters_threatIntelIndicatorValue' - The value of a threat intelligence indicator.
 --
@@ -546,20 +557,43 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 --     Security Hub also resets the workflow status from @NOTIFIED@ or
 --     @RESOLVED@ to @NEW@ in the following cases:
 --
---     -   The record state changes from @ARCHIVED@ to @ACTIVE@.
+--     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
 --
---     -   The compliance status changes from @PASSED@ to either @WARNING@,
+--     -   @Compliance.Status@ changes from @PASSED@ to either @WARNING@,
 --         @FAILED@, or @NOT_AVAILABLE@.
 --
 -- -   @NOTIFIED@ - Indicates that the resource owner has been notified
 --     about the security issue. Used when the initial reviewer is not the
 --     resource owner, and needs intervention from the resource owner.
 --
--- -   @SUPPRESSED@ - The finding will not be reviewed again and will not
---     be acted upon.
+--     If one of the following occurs, the workflow status is changed
+--     automatically from @NOTIFIED@ to @NEW@:
+--
+--     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
+--
+--     -   @Compliance.Status@ changes from @PASSED@ to @FAILED@,
+--         @WARNING@, or @NOT_AVAILABLE@.
+--
+-- -   @SUPPRESSED@ - Indicates that you reviewed the finding and do not
+--     believe that any action is needed.
+--
+--     The workflow status of a @SUPPRESSED@ finding does not change if
+--     @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
 --
 -- -   @RESOLVED@ - The finding was reviewed and remediated and is now
 --     considered resolved.
+--
+--     The finding remains @RESOLVED@ unless one of the following occurs:
+--
+--     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
+--
+--     -   @Compliance.Status@ changes from @PASSED@ to @FAILED@,
+--         @WARNING@, or @NOT_AVAILABLE@.
+--
+--     In those cases, the workflow status is automatically reset to @NEW@.
+--
+--     For findings from controls, if @Compliance.Status@ is @PASSED@, then
+--     Security Hub automatically sets the workflow status to @RESOLVED@.
 --
 -- 'sourceUrl', 'awsSecurityFindingFilters_sourceUrl' - A URL that links to a page about the current finding in the
 -- security-findings provider\'s solution.
@@ -591,6 +625,9 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 -- 'resourceContainerImageName', 'awsSecurityFindingFilters_resourceContainerImageName' - The name of the image related to a finding.
 --
 -- 'processPath', 'awsSecurityFindingFilters_processPath' - The path to the process executable.
+--
+-- 'sample', 'awsSecurityFindingFilters_sample' - Indicates whether or not sample findings are included in the filter
+-- results.
 --
 -- 'relatedFindingsProductArn', 'awsSecurityFindingFilters_relatedFindingsProductArn' - The ARN of the solution that generated a related finding.
 --
@@ -707,6 +744,7 @@ newAwsSecurityFindingFilters =
       resourceContainerImageId = Prelude.Nothing,
       resourceContainerImageName = Prelude.Nothing,
       processPath = Prelude.Nothing,
+      sample = Prelude.Nothing,
       relatedFindingsProductArn = Prelude.Nothing,
       resourceDetailsOther = Prelude.Nothing
     }
@@ -729,10 +767,6 @@ awsSecurityFindingFilters_severityProduct :: Lens.Lens' AwsSecurityFindingFilter
 awsSecurityFindingFilters_severityProduct = Lens.lens (\AwsSecurityFindingFilters' {severityProduct} -> severityProduct) (\s@AwsSecurityFindingFilters' {} a -> s {severityProduct = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the solution (product) that generates findings.
---
--- Note that this is a filter against the @aws\/securityhub\/ProductName@
--- field in @ProductFields@. It is not a filter for the top-level
--- @ProductName@ field.
 awsSecurityFindingFilters_productName :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_productName = Lens.lens (\AwsSecurityFindingFilters' {productName} -> productName) (\s@AwsSecurityFindingFilters' {} a -> s {productName = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -804,10 +838,6 @@ awsSecurityFindingFilters_productFields = Lens.lens (\AwsSecurityFindingFilters'
 
 -- | The name of the findings provider (company) that owns the solution
 -- (product) that generates findings.
---
--- Note that this is a filter against the @aws\/securityhub\/CompanyName@
--- field in @ProductFields@. It is not a filter for the top-level
--- @CompanyName@ field.
 awsSecurityFindingFilters_companyName :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_companyName = Lens.lens (\AwsSecurityFindingFilters' {companyName} -> companyName) (\s@AwsSecurityFindingFilters' {} a -> s {companyName = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -1094,20 +1124,43 @@ awsSecurityFindingFilters_findingProviderFieldsTypes = Lens.lens (\AwsSecurityFi
 --     Security Hub also resets the workflow status from @NOTIFIED@ or
 --     @RESOLVED@ to @NEW@ in the following cases:
 --
---     -   The record state changes from @ARCHIVED@ to @ACTIVE@.
+--     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
 --
---     -   The compliance status changes from @PASSED@ to either @WARNING@,
+--     -   @Compliance.Status@ changes from @PASSED@ to either @WARNING@,
 --         @FAILED@, or @NOT_AVAILABLE@.
 --
 -- -   @NOTIFIED@ - Indicates that the resource owner has been notified
 --     about the security issue. Used when the initial reviewer is not the
 --     resource owner, and needs intervention from the resource owner.
 --
--- -   @SUPPRESSED@ - The finding will not be reviewed again and will not
---     be acted upon.
+--     If one of the following occurs, the workflow status is changed
+--     automatically from @NOTIFIED@ to @NEW@:
+--
+--     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
+--
+--     -   @Compliance.Status@ changes from @PASSED@ to @FAILED@,
+--         @WARNING@, or @NOT_AVAILABLE@.
+--
+-- -   @SUPPRESSED@ - Indicates that you reviewed the finding and do not
+--     believe that any action is needed.
+--
+--     The workflow status of a @SUPPRESSED@ finding does not change if
+--     @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
 --
 -- -   @RESOLVED@ - The finding was reviewed and remediated and is now
 --     considered resolved.
+--
+--     The finding remains @RESOLVED@ unless one of the following occurs:
+--
+--     -   @RecordState@ changes from @ARCHIVED@ to @ACTIVE@.
+--
+--     -   @Compliance.Status@ changes from @PASSED@ to @FAILED@,
+--         @WARNING@, or @NOT_AVAILABLE@.
+--
+--     In those cases, the workflow status is automatically reset to @NEW@.
+--
+--     For findings from controls, if @Compliance.Status@ is @PASSED@, then
+--     Security Hub automatically sets the workflow status to @RESOLVED@.
 awsSecurityFindingFilters_workflowStatus :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_workflowStatus = Lens.lens (\AwsSecurityFindingFilters' {workflowStatus} -> workflowStatus) (\s@AwsSecurityFindingFilters' {} a -> s {workflowStatus = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -1163,6 +1216,11 @@ awsSecurityFindingFilters_resourceContainerImageName = Lens.lens (\AwsSecurityFi
 -- | The path to the process executable.
 awsSecurityFindingFilters_processPath :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_processPath = Lens.lens (\AwsSecurityFindingFilters' {processPath} -> processPath) (\s@AwsSecurityFindingFilters' {} a -> s {processPath = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether or not sample findings are included in the filter
+-- results.
+awsSecurityFindingFilters_sample :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [BooleanFilter])
+awsSecurityFindingFilters_sample = Lens.lens (\AwsSecurityFindingFilters' {sample} -> sample) (\s@AwsSecurityFindingFilters' {} a -> s {sample = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the solution that generated a related finding.
 awsSecurityFindingFilters_relatedFindingsProductArn :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
@@ -1385,6 +1443,7 @@ instance Core.FromJSON AwsSecurityFindingFilters where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "ProcessPath" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Sample" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "RelatedFindingsProductArn"
                             Core..!= Prelude.mempty
                         )
@@ -1487,6 +1546,7 @@ instance Prelude.Hashable AwsSecurityFindingFilters where
       `Prelude.hashWithSalt` resourceContainerImageId
       `Prelude.hashWithSalt` resourceContainerImageName
       `Prelude.hashWithSalt` processPath
+      `Prelude.hashWithSalt` sample
       `Prelude.hashWithSalt` relatedFindingsProductArn
       `Prelude.hashWithSalt` resourceDetailsOther
 
@@ -1658,6 +1718,8 @@ instance Prelude.NFData AwsSecurityFindingFilters where
       `Prelude.seq` Prelude.rnf
         processPath
       `Prelude.seq` Prelude.rnf
+        sample
+      `Prelude.seq` Prelude.rnf
         relatedFindingsProductArn
       `Prelude.seq` Prelude.rnf
         resourceDetailsOther
@@ -1821,6 +1883,7 @@ instance Core.ToJSON AwsSecurityFindingFilters where
             ("ResourceContainerImageName" Core..=)
               Prelude.<$> resourceContainerImageName,
             ("ProcessPath" Core..=) Prelude.<$> processPath,
+            ("Sample" Core..=) Prelude.<$> sample,
             ("RelatedFindingsProductArn" Core..=)
               Prelude.<$> relatedFindingsProductArn,
             ("ResourceDetailsOther" Core..=)

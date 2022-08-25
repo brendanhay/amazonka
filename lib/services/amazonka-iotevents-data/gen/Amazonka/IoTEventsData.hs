@@ -11,14 +11,14 @@
 --
 -- Derived from API version @2018-10-23@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS IoT Events monitors your equipment or device fleets for failures or
+-- IoT Events monitors your equipment or device fleets for failures or
 -- changes in operation, and triggers actions when such events occur. You
--- can use AWS IoT Events Data API commands to send inputs to detectors,
--- list detectors, and view or update a detector\'s status.
+-- can use IoT Events Data API commands to send inputs to detectors, list
+-- detectors, and view or update a detector\'s status.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html What is AWS IoT Events?>
--- in the /AWS IoT Events Developer Guide/.
+-- <https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html What is IoT Events?>
+-- in the /IoT Events Developer Guide/.
 module Amazonka.IoTEventsData
   ( -- * Service Configuration
     defaultService,
@@ -52,6 +52,12 @@ module Amazonka.IoTEventsData
     newBatchAcknowledgeAlarm,
     BatchAcknowledgeAlarmResponse (BatchAcknowledgeAlarmResponse'),
     newBatchAcknowledgeAlarmResponse,
+
+    -- ** BatchDeleteDetector
+    BatchDeleteDetector (BatchDeleteDetector'),
+    newBatchDeleteDetector,
+    BatchDeleteDetectorResponse (BatchDeleteDetectorResponse'),
+    newBatchDeleteDetectorResponse,
 
     -- ** BatchDisableAlarm
     BatchDisableAlarm (BatchDisableAlarm'),
@@ -157,6 +163,10 @@ module Amazonka.IoTEventsData
     BatchAlarmActionErrorEntry (BatchAlarmActionErrorEntry'),
     newBatchAlarmActionErrorEntry,
 
+    -- ** BatchDeleteDetectorErrorEntry
+    BatchDeleteDetectorErrorEntry (BatchDeleteDetectorErrorEntry'),
+    newBatchDeleteDetectorErrorEntry,
+
     -- ** BatchPutMessageErrorEntry
     BatchPutMessageErrorEntry (BatchPutMessageErrorEntry'),
     newBatchPutMessageErrorEntry,
@@ -168,6 +178,10 @@ module Amazonka.IoTEventsData
     -- ** CustomerAction
     CustomerAction (CustomerAction'),
     newCustomerAction,
+
+    -- ** DeleteDetectorRequest
+    DeleteDetectorRequest (DeleteDetectorRequest'),
+    newDeleteDetectorRequest,
 
     -- ** Detector
     Detector (Detector'),
@@ -268,6 +282,7 @@ module Amazonka.IoTEventsData
 where
 
 import Amazonka.IoTEventsData.BatchAcknowledgeAlarm
+import Amazonka.IoTEventsData.BatchDeleteDetector
 import Amazonka.IoTEventsData.BatchDisableAlarm
 import Amazonka.IoTEventsData.BatchEnableAlarm
 import Amazonka.IoTEventsData.BatchPutMessage

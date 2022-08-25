@@ -32,7 +32,7 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
   { -- | Specifies a custom @ExtendedKeyUsage@ with an object identifier (OID).
     extendedKeyUsageObjectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies a standard @ExtendedKeyUsage@ as defined as in
-    -- <https://tools.ietf.org/html/rfc5280#section-4.2.1.12 RFC 5280>.
+    -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12 RFC 5280>.
     extendedKeyUsageType :: Prelude.Maybe ExtendedKeyUsageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
 -- 'extendedKeyUsageObjectIdentifier', 'extendedKeyUsage_extendedKeyUsageObjectIdentifier' - Specifies a custom @ExtendedKeyUsage@ with an object identifier (OID).
 --
 -- 'extendedKeyUsageType', 'extendedKeyUsage_extendedKeyUsageType' - Specifies a standard @ExtendedKeyUsage@ as defined as in
--- <https://tools.ietf.org/html/rfc5280#section-4.2.1.12 RFC 5280>.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12 RFC 5280>.
 newExtendedKeyUsage ::
   ExtendedKeyUsage
 newExtendedKeyUsage =
@@ -63,7 +63,7 @@ extendedKeyUsage_extendedKeyUsageObjectIdentifier :: Lens.Lens' ExtendedKeyUsage
 extendedKeyUsage_extendedKeyUsageObjectIdentifier = Lens.lens (\ExtendedKeyUsage' {extendedKeyUsageObjectIdentifier} -> extendedKeyUsageObjectIdentifier) (\s@ExtendedKeyUsage' {} a -> s {extendedKeyUsageObjectIdentifier = a} :: ExtendedKeyUsage)
 
 -- | Specifies a standard @ExtendedKeyUsage@ as defined as in
--- <https://tools.ietf.org/html/rfc5280#section-4.2.1.12 RFC 5280>.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12 RFC 5280>.
 extendedKeyUsage_extendedKeyUsageType :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe ExtendedKeyUsageType)
 extendedKeyUsage_extendedKeyUsageType = Lens.lens (\ExtendedKeyUsage' {extendedKeyUsageType} -> extendedKeyUsageType) (\s@ExtendedKeyUsage' {} a -> s {extendedKeyUsageType = a} :: ExtendedKeyUsage)
 

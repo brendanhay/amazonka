@@ -22,8 +22,6 @@
 --
 -- Describe an existing Authorizers resource.
 --
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
---
 -- This operation returns paginated results.
 module Amazonka.APIGateway.GetAuthorizers
   ( -- * Creating a Request
@@ -62,7 +60,7 @@ data GetAuthorizers = GetAuthorizers'
     limit :: Prelude.Maybe Prelude.Int,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,7 +78,7 @@ data GetAuthorizers = GetAuthorizers'
 --
 -- 'position', 'getAuthorizers_position' - The current pagination position in the paged result set.
 --
--- 'restApiId', 'getAuthorizers_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getAuthorizers_restApiId' - The string identifier of the associated RestApi.
 newGetAuthorizers ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -101,7 +99,7 @@ getAuthorizers_limit = Lens.lens (\GetAuthorizers' {limit} -> limit) (\s@GetAuth
 getAuthorizers_position :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Text)
 getAuthorizers_position = Lens.lens (\GetAuthorizers' {position} -> position) (\s@GetAuthorizers' {} a -> s {position = a} :: GetAuthorizers)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getAuthorizers_restApiId :: Lens.Lens' GetAuthorizers Prelude.Text
 getAuthorizers_restApiId = Lens.lens (\GetAuthorizers' {restApiId} -> restApiId) (\s@GetAuthorizers' {} a -> s {restApiId = a} :: GetAuthorizers)
 
@@ -170,9 +168,6 @@ instance Core.ToQuery GetAuthorizers where
       ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of Authorizer resources.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer>
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer>
 --
 -- /See:/ 'newGetAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'

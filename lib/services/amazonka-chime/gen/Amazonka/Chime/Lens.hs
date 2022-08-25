@@ -1218,6 +1218,20 @@ module Amazonka.Chime.Lens
     updateVoiceConnectorGroupResponse_voiceConnectorGroup,
     updateVoiceConnectorGroupResponse_httpStatus,
 
+    -- ** ValidateE911Address
+    validateE911Address_awsAccountId,
+    validateE911Address_streetNumber,
+    validateE911Address_streetInfo,
+    validateE911Address_city,
+    validateE911Address_state,
+    validateE911Address_country,
+    validateE911Address_postalCode,
+    validateE911AddressResponse_validationResult,
+    validateE911AddressResponse_candidateAddressList,
+    validateE911AddressResponse_address,
+    validateE911AddressResponse_addressExternalId,
+    validateE911AddressResponse_httpStatus,
+
     -- * Types
 
     -- ** Account
@@ -1234,6 +1248,18 @@ module Amazonka.Chime.Lens
     -- ** AccountSettings
     accountSettings_disableRemoteControl,
     accountSettings_enableDialOut,
+
+    -- ** Address
+    address_postalCode,
+    address_streetSuffix,
+    address_country,
+    address_postDirectional,
+    address_state,
+    address_streetName,
+    address_postalCodePlus4,
+    address_city,
+    address_preDirectional,
+    address_streetNumber,
 
     -- ** AlexaForBusinessMetadata
     alexaForBusinessMetadata_alexaForBusinessRoomArn,
@@ -1319,6 +1345,15 @@ module Amazonka.Chime.Lens
 
     -- ** BusinessCallingSettings
     businessCallingSettings_cdrBucket,
+
+    -- ** CandidateAddress
+    candidateAddress_postalCode,
+    candidateAddress_country,
+    candidateAddress_state,
+    candidateAddress_streetInfo,
+    candidateAddress_postalCodePlus4,
+    candidateAddress_city,
+    candidateAddress_streetNumber,
 
     -- ** Channel
     channel_lastUpdatedTimestamp,
@@ -1436,6 +1471,7 @@ module Amazonka.Chime.Lens
 
     -- ** EngineTranscribeMedicalSettings
     engineTranscribeMedicalSettings_vocabularyName,
+    engineTranscribeMedicalSettings_contentIdentificationType,
     engineTranscribeMedicalSettings_region,
     engineTranscribeMedicalSettings_languageCode,
     engineTranscribeMedicalSettings_specialty,
@@ -1444,8 +1480,14 @@ module Amazonka.Chime.Lens
     -- ** EngineTranscribeSettings
     engineTranscribeSettings_vocabularyFilterMethod,
     engineTranscribeSettings_vocabularyName,
+    engineTranscribeSettings_contentIdentificationType,
+    engineTranscribeSettings_enablePartialResultsStabilization,
+    engineTranscribeSettings_languageModelName,
+    engineTranscribeSettings_piiEntityTypes,
     engineTranscribeSettings_region,
     engineTranscribeSettings_vocabularyFilterName,
+    engineTranscribeSettings_contentRedactionType,
+    engineTranscribeSettings_partialResultsStability,
     engineTranscribeSettings_languageCode,
 
     -- ** EventsConfiguration
@@ -1469,6 +1511,7 @@ module Amazonka.Chime.Lens
 
     -- ** LoggingConfiguration
     loggingConfiguration_enableSIPLogs,
+    loggingConfiguration_enableMediaMetricLogs,
 
     -- ** MediaCapturePipeline
     mediaCapturePipeline_sourceArn,
@@ -1934,6 +1977,7 @@ import Amazonka.Chime.TagMeeting
 import Amazonka.Chime.TagResource
 import Amazonka.Chime.Types.Account
 import Amazonka.Chime.Types.AccountSettings
+import Amazonka.Chime.Types.Address
 import Amazonka.Chime.Types.AlexaForBusinessMetadata
 import Amazonka.Chime.Types.AppInstance
 import Amazonka.Chime.Types.AppInstanceAdmin
@@ -1951,6 +1995,7 @@ import Amazonka.Chime.Types.BatchChannelMemberships
 import Amazonka.Chime.Types.BatchCreateChannelMembershipError
 import Amazonka.Chime.Types.Bot
 import Amazonka.Chime.Types.BusinessCallingSettings
+import Amazonka.Chime.Types.CandidateAddress
 import Amazonka.Chime.Types.Channel
 import Amazonka.Chime.Types.ChannelBan
 import Amazonka.Chime.Types.ChannelBanSummary
@@ -2053,3 +2098,4 @@ import Amazonka.Chime.UpdateUser
 import Amazonka.Chime.UpdateUserSettings
 import Amazonka.Chime.UpdateVoiceConnector
 import Amazonka.Chime.UpdateVoiceConnectorGroup
+import Amazonka.Chime.ValidateE911Address

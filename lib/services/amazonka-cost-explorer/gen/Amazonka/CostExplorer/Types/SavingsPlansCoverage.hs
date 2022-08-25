@@ -25,7 +25,7 @@ import Amazonka.CostExplorer.Types.SavingsPlansCoverageData
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The amount of Savings Plans eligible usage that is covered by Savings
+-- | The amount of Savings Plans eligible usage that\'s covered by Savings
 -- Plans. All calculations consider the On-Demand equivalent of your
 -- Savings Plans usage.
 --

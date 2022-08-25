@@ -48,12 +48,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteIntegration' smart constructor.
 data DeleteIntegration = DeleteIntegration'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a delete integration request\'s resource
-    -- identifier.
+    -- | Specifies a delete integration request\'s resource identifier.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies a delete integration request\'s HTTP method.
+    -- | Specifies a delete integration request\'s HTTP method.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,12 +65,11 @@ data DeleteIntegration = DeleteIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteIntegration_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteIntegration_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'deleteIntegration_resourceId' - [Required] Specifies a delete integration request\'s resource
--- identifier.
+-- 'resourceId', 'deleteIntegration_resourceId' - Specifies a delete integration request\'s resource identifier.
 --
--- 'httpMethod', 'deleteIntegration_httpMethod' - [Required] Specifies a delete integration request\'s HTTP method.
+-- 'httpMethod', 'deleteIntegration_httpMethod' - Specifies a delete integration request\'s HTTP method.
 newDeleteIntegration ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -90,16 +88,15 @@ newDeleteIntegration
         httpMethod = pHttpMethod_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteIntegration_restApiId :: Lens.Lens' DeleteIntegration Prelude.Text
 deleteIntegration_restApiId = Lens.lens (\DeleteIntegration' {restApiId} -> restApiId) (\s@DeleteIntegration' {} a -> s {restApiId = a} :: DeleteIntegration)
 
--- | [Required] Specifies a delete integration request\'s resource
--- identifier.
+-- | Specifies a delete integration request\'s resource identifier.
 deleteIntegration_resourceId :: Lens.Lens' DeleteIntegration Prelude.Text
 deleteIntegration_resourceId = Lens.lens (\DeleteIntegration' {resourceId} -> resourceId) (\s@DeleteIntegration' {} a -> s {resourceId = a} :: DeleteIntegration)
 
--- | [Required] Specifies a delete integration request\'s HTTP method.
+-- | Specifies a delete integration request\'s HTTP method.
 deleteIntegration_httpMethod :: Lens.Lens' DeleteIntegration Prelude.Text
 deleteIntegration_httpMethod = Lens.lens (\DeleteIntegration' {httpMethod} -> httpMethod) (\s@DeleteIntegration' {} a -> s {httpMethod = a} :: DeleteIntegration)
 

@@ -60,14 +60,13 @@ data CreateModel = CreateModel'
   { -- | The description of the model.
     description :: Prelude.Maybe Prelude.Text,
     -- | The schema for the model. For @application\/json@ models, this should be
-    -- <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4>
-    -- model.
+    -- JSON schema draft 4 model.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The RestApi identifier under which the Model will be created.
+    -- | The RestApi identifier under which the Model will be created.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the model. Must be alphanumeric.
+    -- | The name of the model. Must be alphanumeric.
     name :: Prelude.Text,
-    -- | [Required] The content-type for the model.
+    -- | The content-type for the model.
     contentType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,14 +82,13 @@ data CreateModel = CreateModel'
 -- 'description', 'createModel_description' - The description of the model.
 --
 -- 'schema', 'createModel_schema' - The schema for the model. For @application\/json@ models, this should be
--- <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4>
--- model.
+-- JSON schema draft 4 model.
 --
--- 'restApiId', 'createModel_restApiId' - [Required] The RestApi identifier under which the Model will be created.
+-- 'restApiId', 'createModel_restApiId' - The RestApi identifier under which the Model will be created.
 --
--- 'name', 'createModel_name' - [Required] The name of the model. Must be alphanumeric.
+-- 'name', 'createModel_name' - The name of the model. Must be alphanumeric.
 --
--- 'contentType', 'createModel_contentType' - [Required] The content-type for the model.
+-- 'contentType', 'createModel_contentType' - The content-type for the model.
 newCreateModel ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -113,20 +111,19 @@ createModel_description :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_description = Lens.lens (\CreateModel' {description} -> description) (\s@CreateModel' {} a -> s {description = a} :: CreateModel)
 
 -- | The schema for the model. For @application\/json@ models, this should be
--- <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4>
--- model.
+-- JSON schema draft 4 model.
 createModel_schema :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_schema = Lens.lens (\CreateModel' {schema} -> schema) (\s@CreateModel' {} a -> s {schema = a} :: CreateModel)
 
--- | [Required] The RestApi identifier under which the Model will be created.
+-- | The RestApi identifier under which the Model will be created.
 createModel_restApiId :: Lens.Lens' CreateModel Prelude.Text
 createModel_restApiId = Lens.lens (\CreateModel' {restApiId} -> restApiId) (\s@CreateModel' {} a -> s {restApiId = a} :: CreateModel)
 
--- | [Required] The name of the model. Must be alphanumeric.
+-- | The name of the model. Must be alphanumeric.
 createModel_name :: Lens.Lens' CreateModel Prelude.Text
 createModel_name = Lens.lens (\CreateModel' {name} -> name) (\s@CreateModel' {} a -> s {name = a} :: CreateModel)
 
--- | [Required] The content-type for the model.
+-- | The content-type for the model.
 createModel_contentType :: Lens.Lens' CreateModel Prelude.Text
 createModel_contentType = Lens.lens (\CreateModel' {contentType} -> contentType) (\s@CreateModel' {} a -> s {contentType = a} :: CreateModel)
 

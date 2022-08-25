@@ -24,14 +24,14 @@ import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimensionName
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | When creating or updating a cost category, you can define the
+-- | When you create or update a cost category, you can define the
 -- @CostCategoryRule@ rule type as @INHERITED_VALUE@. This rule type adds
--- the flexibility of defining a rule that dynamically inherits the cost
--- category value from the dimension value defined by
--- @CostCategoryInheritedValueDimension@. For example, if you want to
--- dynamically group costs that are based on the value of a specific tag
--- key, first choose an inherited value rule type, then choose the tag
--- dimension and specify the tag key to use.
+-- the flexibility to define a rule that dynamically inherits the cost
+-- category value from the dimension value that\'s defined by
+-- @CostCategoryInheritedValueDimension@. For example, suppose that you
+-- want to dynamically group costs that are based on the value of a
+-- specific tag key. First, choose an inherited value rule type, and then
+-- choose the tag dimension and specify the tag key to use.
 --
 -- /See:/ 'newCostCategoryInheritedValueDimension' smart constructor.
 data CostCategoryInheritedValueDimension = CostCategoryInheritedValueDimension'
@@ -40,8 +40,8 @@ data CostCategoryInheritedValueDimension = CostCategoryInheritedValueDimension'
     -- | The name of the dimension that\'s used to group costs.
     --
     -- If you specify @LINKED_ACCOUNT_NAME@, the cost category value is based
-    -- on account name. If you specify @TAG@, the cost category value will be
-    -- based on the value of the specified tag key.
+    -- on account name. If you specify @TAG@, the cost category value is based
+    -- on the value of the specified tag key.
     dimensionName :: Prelude.Maybe CostCategoryInheritedValueDimensionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,8 +59,8 @@ data CostCategoryInheritedValueDimension = CostCategoryInheritedValueDimension'
 -- 'dimensionName', 'costCategoryInheritedValueDimension_dimensionName' - The name of the dimension that\'s used to group costs.
 --
 -- If you specify @LINKED_ACCOUNT_NAME@, the cost category value is based
--- on account name. If you specify @TAG@, the cost category value will be
--- based on the value of the specified tag key.
+-- on account name. If you specify @TAG@, the cost category value is based
+-- on the value of the specified tag key.
 newCostCategoryInheritedValueDimension ::
   CostCategoryInheritedValueDimension
 newCostCategoryInheritedValueDimension =
@@ -77,8 +77,8 @@ costCategoryInheritedValueDimension_dimensionKey = Lens.lens (\CostCategoryInher
 -- | The name of the dimension that\'s used to group costs.
 --
 -- If you specify @LINKED_ACCOUNT_NAME@, the cost category value is based
--- on account name. If you specify @TAG@, the cost category value will be
--- based on the value of the specified tag key.
+-- on account name. If you specify @TAG@, the cost category value is based
+-- on the value of the specified tag key.
 costCategoryInheritedValueDimension_dimensionName :: Lens.Lens' CostCategoryInheritedValueDimension (Prelude.Maybe CostCategoryInheritedValueDimensionName)
 costCategoryInheritedValueDimension_dimensionName = Lens.lens (\CostCategoryInheritedValueDimension' {dimensionName} -> dimensionName) (\s@CostCategoryInheritedValueDimension' {} a -> s {dimensionName = a} :: CostCategoryInheritedValueDimension)
 

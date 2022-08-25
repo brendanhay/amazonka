@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
   { -- | The name of the feature for the DB cluster that the IAM role is to be
     -- disassociated from. For the list of supported feature names, see
-    -- DBEngineVersion.
+    -- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to disassociate the IAM role from.
     dbClusterIdentifier :: Prelude.Text,
@@ -70,7 +70,7 @@ data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
 --
 -- 'featureName', 'removeRoleFromDBCluster_featureName' - The name of the feature for the DB cluster that the IAM role is to be
 -- disassociated from. For the list of supported feature names, see
--- DBEngineVersion.
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
 --
 -- 'dbClusterIdentifier', 'removeRoleFromDBCluster_dbClusterIdentifier' - The name of the DB cluster to disassociate the IAM role from.
 --
@@ -95,7 +95,7 @@ newRemoveRoleFromDBCluster
 
 -- | The name of the feature for the DB cluster that the IAM role is to be
 -- disassociated from. For the list of supported feature names, see
--- DBEngineVersion.
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
 removeRoleFromDBCluster_featureName :: Lens.Lens' RemoveRoleFromDBCluster (Prelude.Maybe Prelude.Text)
 removeRoleFromDBCluster_featureName = Lens.lens (\RemoveRoleFromDBCluster' {featureName} -> featureName) (\s@RemoveRoleFromDBCluster' {} a -> s {featureName = a} :: RemoveRoleFromDBCluster)
 

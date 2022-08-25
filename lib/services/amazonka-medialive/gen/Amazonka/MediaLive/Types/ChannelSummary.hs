@@ -28,6 +28,7 @@ import Amazonka.MediaLive.Types.ChannelState
 import Amazonka.MediaLive.Types.InputAttachment
 import Amazonka.MediaLive.Types.InputSpecification
 import Amazonka.MediaLive.Types.LogLevel
+import Amazonka.MediaLive.Types.MaintenanceStatus
 import Amazonka.MediaLive.Types.OutputDestination
 import Amazonka.MediaLive.Types.VpcOutputSettingsDescription
 import qualified Amazonka.Prelude as Prelude
@@ -40,6 +41,8 @@ data ChannelSummary = ChannelSummary'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel. (user-mutable)
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceStatus,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -84,6 +87,8 @@ data ChannelSummary = ChannelSummary'
 --
 -- 'name', 'channelSummary_name' - The name of the channel. (user-mutable)
 --
+-- 'maintenance', 'channelSummary_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'channelSummary_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 --
@@ -119,6 +124,7 @@ newChannelSummary =
   ChannelSummary'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -141,6 +147,10 @@ channelSummary_tags = Lens.lens (\ChannelSummary' {tags} -> tags) (\s@ChannelSum
 -- | The name of the channel. (user-mutable)
 channelSummary_name :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
 channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary)
+
+-- | Maintenance settings for this channel.
+channelSummary_maintenance :: Lens.Lens' ChannelSummary (Prelude.Maybe MaintenanceStatus)
+channelSummary_maintenance = Lens.lens (\ChannelSummary' {maintenance} -> maintenance) (\s@ChannelSummary' {} a -> s {maintenance = a} :: ChannelSummary)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
@@ -206,6 +216,7 @@ instance Core.FromJSON ChannelSummary where
           ChannelSummary'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "maintenance")
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "vpc")
             Prelude.<*> (x Core..:? "logLevel")
@@ -229,6 +240,7 @@ instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` vpc
       `Prelude.hashWithSalt` logLevel
@@ -247,6 +259,7 @@ instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel

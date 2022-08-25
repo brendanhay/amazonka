@@ -144,6 +144,7 @@ module Amazonka.MwAA.Lens
 
     -- ** LastUpdate
     lastUpdate_status,
+    lastUpdate_source,
     lastUpdate_error,
     lastUpdate_createdAt,
 

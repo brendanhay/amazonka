@@ -21,7 +21,8 @@ module Amazonka.Config.Types.Owner
   ( Owner
       ( ..,
         Owner_AWS,
-        Owner_CUSTOM_LAMBDA
+        Owner_CUSTOM_LAMBDA,
+        Owner_CUSTOM_POLICY
       ),
   )
 where
@@ -60,8 +61,12 @@ pattern Owner_AWS = Owner' "AWS"
 pattern Owner_CUSTOM_LAMBDA :: Owner
 pattern Owner_CUSTOM_LAMBDA = Owner' "CUSTOM_LAMBDA"
 
+pattern Owner_CUSTOM_POLICY :: Owner
+pattern Owner_CUSTOM_POLICY = Owner' "CUSTOM_POLICY"
+
 {-# COMPLETE
   Owner_AWS,
   Owner_CUSTOM_LAMBDA,
+  Owner_CUSTOM_POLICY,
   Owner'
   #-}

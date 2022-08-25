@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing job definition.
+-- Updates an existing job definition. The previous job definition is
+-- completely overwritten by this information.
 module Amazonka.Glue.UpdateJob
   ( -- * Creating a Request
     UpdateJob (..),
@@ -52,9 +53,10 @@ data UpdateJob = UpdateJob'
   { -- | The name of the job definition to update.
     jobName :: Prelude.Text,
     -- | Specifies the values with which to update the job definition.
+    -- Unspecified configuration is removed or reset to default values.
     jobUpdate :: JobUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJob' with all optional fields omitted.
@@ -67,6 +69,7 @@ data UpdateJob = UpdateJob'
 -- 'jobName', 'updateJob_jobName' - The name of the job definition to update.
 --
 -- 'jobUpdate', 'updateJob_jobUpdate' - Specifies the values with which to update the job definition.
+-- Unspecified configuration is removed or reset to default values.
 newUpdateJob ::
   -- | 'jobName'
   Prelude.Text ->
@@ -84,6 +87,7 @@ updateJob_jobName :: Lens.Lens' UpdateJob Prelude.Text
 updateJob_jobName = Lens.lens (\UpdateJob' {jobName} -> jobName) (\s@UpdateJob' {} a -> s {jobName = a} :: UpdateJob)
 
 -- | Specifies the values with which to update the job definition.
+-- Unspecified configuration is removed or reset to default values.
 updateJob_jobUpdate :: Lens.Lens' UpdateJob JobUpdate
 updateJob_jobUpdate = Lens.lens (\UpdateJob' {jobUpdate} -> jobUpdate) (\s@UpdateJob' {} a -> s {jobUpdate = a} :: UpdateJob)
 

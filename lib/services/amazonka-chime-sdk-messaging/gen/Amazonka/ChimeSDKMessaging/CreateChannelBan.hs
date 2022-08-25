@@ -63,7 +63,7 @@ import qualified Amazonka.Response as Response
 data CreateChannelBan = CreateChannelBan'
   { -- | The ARN of the ban request.
     channelArn :: Prelude.Text,
-    -- | The ARN of the member being banned.
+    -- | The @AppInstanceUserArn@ of the member being banned.
     memberArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
@@ -80,7 +80,7 @@ data CreateChannelBan = CreateChannelBan'
 --
 -- 'channelArn', 'createChannelBan_channelArn' - The ARN of the ban request.
 --
--- 'memberArn', 'createChannelBan_memberArn' - The ARN of the member being banned.
+-- 'memberArn', 'createChannelBan_memberArn' - The @AppInstanceUserArn@ of the member being banned.
 --
 -- 'chimeBearer', 'createChannelBan_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 newCreateChannelBan ::
@@ -105,7 +105,7 @@ newCreateChannelBan
 createChannelBan_channelArn :: Lens.Lens' CreateChannelBan Prelude.Text
 createChannelBan_channelArn = Lens.lens (\CreateChannelBan' {channelArn} -> channelArn) (\s@CreateChannelBan' {} a -> s {channelArn = a} :: CreateChannelBan)
 
--- | The ARN of the member being banned.
+-- | The @AppInstanceUserArn@ of the member being banned.
 createChannelBan_memberArn :: Lens.Lens' CreateChannelBan Prelude.Text
 createChannelBan_memberArn = Lens.lens (\CreateChannelBan' {memberArn} -> memberArn) (\s@CreateChannelBan' {} a -> s {memberArn = a} :: CreateChannelBan)
 

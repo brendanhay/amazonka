@@ -32,16 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationEventFilter' smart constructor.
 data OrganizationEventFilter = OrganizationEventFilter'
-  { -- | A list of 12-digit AWS account numbers that contains the affected
-    -- entities.
+  { -- | A list of 12-digit Amazon Web Services account numbers that contains the
+    -- affected entities.
     awsAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of entity ARNs (unique identifiers).
     entityArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of AWS Regions.
+    -- | A list of Amazon Web Services Regions.
     regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     lastUpdatedTime :: Prelude.Maybe DateTimeRange,
     endTime :: Prelude.Maybe DateTimeRange,
-    -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
+    -- | The Amazon Web Services services associated with the event. For example,
+    -- @EC2@, @RDS@.
     services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event status codes.
     eventStatusCodes :: Prelude.Maybe (Prelude.NonEmpty EventStatusCode),
@@ -51,8 +52,9 @@ data OrganizationEventFilter = OrganizationEventFilter'
     -- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or
     -- EBS volumes (vol-426ab23e).
     entityValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of event type category codes (issue, scheduledChange, or
-    -- accountNotification).
+    -- | A list of event type category codes. Possible values are @issue@,
+    -- @accountNotification@, or @scheduledChange@. Currently, the
+    -- @investigation@ value isn\'t supported at this time.
     eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory),
     startTime :: Prelude.Maybe DateTimeRange
   }
@@ -66,18 +68,19 @@ data OrganizationEventFilter = OrganizationEventFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountIds', 'organizationEventFilter_awsAccountIds' - A list of 12-digit AWS account numbers that contains the affected
--- entities.
+-- 'awsAccountIds', 'organizationEventFilter_awsAccountIds' - A list of 12-digit Amazon Web Services account numbers that contains the
+-- affected entities.
 --
 -- 'entityArns', 'organizationEventFilter_entityArns' - A list of entity ARNs (unique identifiers).
 --
--- 'regions', 'organizationEventFilter_regions' - A list of AWS Regions.
+-- 'regions', 'organizationEventFilter_regions' - A list of Amazon Web Services Regions.
 --
 -- 'lastUpdatedTime', 'organizationEventFilter_lastUpdatedTime' - Undocumented member.
 --
 -- 'endTime', 'organizationEventFilter_endTime' - Undocumented member.
 --
--- 'services', 'organizationEventFilter_services' - The AWS services associated with the event. For example, @EC2@, @RDS@.
+-- 'services', 'organizationEventFilter_services' - The Amazon Web Services services associated with the event. For example,
+-- @EC2@, @RDS@.
 --
 -- 'eventStatusCodes', 'organizationEventFilter_eventStatusCodes' - A list of event status codes.
 --
@@ -87,8 +90,9 @@ data OrganizationEventFilter = OrganizationEventFilter'
 -- 'entityValues', 'organizationEventFilter_entityValues' - A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or
 -- EBS volumes (vol-426ab23e).
 --
--- 'eventTypeCategories', 'organizationEventFilter_eventTypeCategories' - A list of event type category codes (issue, scheduledChange, or
--- accountNotification).
+-- 'eventTypeCategories', 'organizationEventFilter_eventTypeCategories' - A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 --
 -- 'startTime', 'organizationEventFilter_startTime' - Undocumented member.
 newOrganizationEventFilter ::
@@ -109,8 +113,8 @@ newOrganizationEventFilter =
       startTime = Prelude.Nothing
     }
 
--- | A list of 12-digit AWS account numbers that contains the affected
--- entities.
+-- | A list of 12-digit Amazon Web Services account numbers that contains the
+-- affected entities.
 organizationEventFilter_awsAccountIds :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_awsAccountIds = Lens.lens (\OrganizationEventFilter' {awsAccountIds} -> awsAccountIds) (\s@OrganizationEventFilter' {} a -> s {awsAccountIds = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
@@ -118,7 +122,7 @@ organizationEventFilter_awsAccountIds = Lens.lens (\OrganizationEventFilter' {aw
 organizationEventFilter_entityArns :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_entityArns = Lens.lens (\OrganizationEventFilter' {entityArns} -> entityArns) (\s@OrganizationEventFilter' {} a -> s {entityArns = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of AWS Regions.
+-- | A list of Amazon Web Services Regions.
 organizationEventFilter_regions :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_regions = Lens.lens (\OrganizationEventFilter' {regions} -> regions) (\s@OrganizationEventFilter' {} a -> s {regions = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
@@ -130,7 +134,8 @@ organizationEventFilter_lastUpdatedTime = Lens.lens (\OrganizationEventFilter' {
 organizationEventFilter_endTime :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe DateTimeRange)
 organizationEventFilter_endTime = Lens.lens (\OrganizationEventFilter' {endTime} -> endTime) (\s@OrganizationEventFilter' {} a -> s {endTime = a} :: OrganizationEventFilter)
 
--- | The AWS services associated with the event. For example, @EC2@, @RDS@.
+-- | The Amazon Web Services services associated with the event. For example,
+-- @EC2@, @RDS@.
 organizationEventFilter_services :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_services = Lens.lens (\OrganizationEventFilter' {services} -> services) (\s@OrganizationEventFilter' {} a -> s {services = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
@@ -148,8 +153,9 @@ organizationEventFilter_eventTypeCodes = Lens.lens (\OrganizationEventFilter' {e
 organizationEventFilter_entityValues :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_entityValues = Lens.lens (\OrganizationEventFilter' {entityValues} -> entityValues) (\s@OrganizationEventFilter' {} a -> s {entityValues = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of event type category codes (issue, scheduledChange, or
--- accountNotification).
+-- | A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 organizationEventFilter_eventTypeCategories :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
 organizationEventFilter_eventTypeCategories = Lens.lens (\OrganizationEventFilter' {eventTypeCategories} -> eventTypeCategories) (\s@OrganizationEventFilter' {} a -> s {eventTypeCategories = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 

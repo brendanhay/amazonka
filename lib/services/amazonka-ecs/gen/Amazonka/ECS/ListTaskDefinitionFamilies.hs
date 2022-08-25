@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of task definition families that are registered to your
--- account (which may include task definition families that no longer have
--- any @ACTIVE@ task definition revisions).
+-- account. This list includes task definition families that no longer have
+-- any @ACTIVE@ task definition revisions.
 --
--- You can filter out task definition families that do not contain any
+-- You can filter out task definition families that don\'t contain any
 -- @ACTIVE@ task definition revisions by setting the @status@ parameter to
 -- @ACTIVE@. You can also filter the results with the @familyPrefix@
 -- parameter.
@@ -70,8 +70,8 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The task definition family status with which to filter the
-    -- @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and
+    -- | The task definition family status to filter the
+    -- @ListTaskDefinitionFamilies@ results with. By default, both @ACTIVE@ and
     -- @INACTIVE@ task definition families are listed. If this parameter is set
     -- to @ACTIVE@, only task definition families that have an @ACTIVE@ task
     -- definition revision are returned. If this parameter is set to
@@ -80,17 +80,17 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     -- output, be sure to keep the @status@ value constant in each subsequent
     -- request.
     status :: Prelude.Maybe TaskDefinitionFamilyStatus,
-    -- | The maximum number of task definition family results returned by
-    -- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is
-    -- used, @ListTaskDefinitions@ only returns @maxResults@ results in a
-    -- single page along with a @nextToken@ response element. The remaining
-    -- results of the initial request can be seen by sending another
+    -- | The maximum number of task definition family results that
+    -- @ListTaskDefinitionFamilies@ returned in paginated output. When this
+    -- parameter is used, @ListTaskDefinitions@ only returns @maxResults@
+    -- results in a single page along with a @nextToken@ response element. The
+    -- remaining results of the initial request can be seen by sending another
     -- @ListTaskDefinitionFamilies@ request with the returned @nextToken@
-    -- value. This value can be between 1 and 100. If this parameter is not
+    -- value. This value can be between 1 and 100. If this parameter isn\'t
     -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The @familyPrefix@ is a string that is used to filter the results of
+    -- | The @familyPrefix@ is a string that\'s used to filter the results of
     -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
     -- definition family names that begin with the @familyPrefix@ string are
     -- returned.
@@ -115,8 +115,8 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'status', 'listTaskDefinitionFamilies_status' - The task definition family status with which to filter the
--- @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and
+-- 'status', 'listTaskDefinitionFamilies_status' - The task definition family status to filter the
+-- @ListTaskDefinitionFamilies@ results with. By default, both @ACTIVE@ and
 -- @INACTIVE@ task definition families are listed. If this parameter is set
 -- to @ACTIVE@, only task definition families that have an @ACTIVE@ task
 -- definition revision are returned. If this parameter is set to
@@ -125,17 +125,17 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
 -- output, be sure to keep the @status@ value constant in each subsequent
 -- request.
 --
--- 'maxResults', 'listTaskDefinitionFamilies_maxResults' - The maximum number of task definition family results returned by
--- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is
--- used, @ListTaskDefinitions@ only returns @maxResults@ results in a
--- single page along with a @nextToken@ response element. The remaining
--- results of the initial request can be seen by sending another
+-- 'maxResults', 'listTaskDefinitionFamilies_maxResults' - The maximum number of task definition family results that
+-- @ListTaskDefinitionFamilies@ returned in paginated output. When this
+-- parameter is used, @ListTaskDefinitions@ only returns @maxResults@
+-- results in a single page along with a @nextToken@ response element. The
+-- remaining results of the initial request can be seen by sending another
 -- @ListTaskDefinitionFamilies@ request with the returned @nextToken@
--- value. This value can be between 1 and 100. If this parameter is not
+-- value. This value can be between 1 and 100. If this parameter isn\'t
 -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
 --
--- 'familyPrefix', 'listTaskDefinitionFamilies_familyPrefix' - The @familyPrefix@ is a string that is used to filter the results of
+-- 'familyPrefix', 'listTaskDefinitionFamilies_familyPrefix' - The @familyPrefix@ is a string that\'s used to filter the results of
 -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
 -- definition family names that begin with the @familyPrefix@ string are
 -- returned.
@@ -161,8 +161,8 @@ newListTaskDefinitionFamilies =
 listTaskDefinitionFamilies_nextToken :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe Prelude.Text)
 listTaskDefinitionFamilies_nextToken = Lens.lens (\ListTaskDefinitionFamilies' {nextToken} -> nextToken) (\s@ListTaskDefinitionFamilies' {} a -> s {nextToken = a} :: ListTaskDefinitionFamilies)
 
--- | The task definition family status with which to filter the
--- @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and
+-- | The task definition family status to filter the
+-- @ListTaskDefinitionFamilies@ results with. By default, both @ACTIVE@ and
 -- @INACTIVE@ task definition families are listed. If this parameter is set
 -- to @ACTIVE@, only task definition families that have an @ACTIVE@ task
 -- definition revision are returned. If this parameter is set to
@@ -173,19 +173,19 @@ listTaskDefinitionFamilies_nextToken = Lens.lens (\ListTaskDefinitionFamilies' {
 listTaskDefinitionFamilies_status :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe TaskDefinitionFamilyStatus)
 listTaskDefinitionFamilies_status = Lens.lens (\ListTaskDefinitionFamilies' {status} -> status) (\s@ListTaskDefinitionFamilies' {} a -> s {status = a} :: ListTaskDefinitionFamilies)
 
--- | The maximum number of task definition family results returned by
--- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is
--- used, @ListTaskDefinitions@ only returns @maxResults@ results in a
--- single page along with a @nextToken@ response element. The remaining
--- results of the initial request can be seen by sending another
+-- | The maximum number of task definition family results that
+-- @ListTaskDefinitionFamilies@ returned in paginated output. When this
+-- parameter is used, @ListTaskDefinitions@ only returns @maxResults@
+-- results in a single page along with a @nextToken@ response element. The
+-- remaining results of the initial request can be seen by sending another
 -- @ListTaskDefinitionFamilies@ request with the returned @nextToken@
--- value. This value can be between 1 and 100. If this parameter is not
+-- value. This value can be between 1 and 100. If this parameter isn\'t
 -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
 listTaskDefinitionFamilies_maxResults :: Lens.Lens' ListTaskDefinitionFamilies (Prelude.Maybe Prelude.Int)
 listTaskDefinitionFamilies_maxResults = Lens.lens (\ListTaskDefinitionFamilies' {maxResults} -> maxResults) (\s@ListTaskDefinitionFamilies' {} a -> s {maxResults = a} :: ListTaskDefinitionFamilies)
 
--- | The @familyPrefix@ is a string that is used to filter the results of
+-- | The @familyPrefix@ is a string that\'s used to filter the results of
 -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
 -- definition family names that begin with the @familyPrefix@ string are
 -- returned.

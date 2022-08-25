@@ -58,9 +58,9 @@ data StackResourceDetail = StackResourceDetail'
     physicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | The logical name of the resource specified in the template.
     logicalResourceId :: Prelude.Text,
-    -- | Type of resource. ((For more information, go to
+    -- | Type of resource. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
-    -- in the CloudFormation User Guide.)
+    -- in the CloudFormation User Guide.
     resourceType :: Prelude.Text,
     -- | Time the status was updated.
     lastUpdatedTimestamp :: Core.ISO8601,
@@ -105,9 +105,9 @@ data StackResourceDetail = StackResourceDetail'
 --
 -- 'logicalResourceId', 'stackResourceDetail_logicalResourceId' - The logical name of the resource specified in the template.
 --
--- 'resourceType', 'stackResourceDetail_resourceType' - Type of resource. ((For more information, go to
+-- 'resourceType', 'stackResourceDetail_resourceType' - Type of resource. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
--- in the CloudFormation User Guide.)
+-- in the CloudFormation User Guide.
 --
 -- 'lastUpdatedTimestamp', 'stackResourceDetail_lastUpdatedTimestamp' - Time the status was updated.
 --
@@ -189,9 +189,9 @@ stackResourceDetail_physicalResourceId = Lens.lens (\StackResourceDetail' {physi
 stackResourceDetail_logicalResourceId :: Lens.Lens' StackResourceDetail Prelude.Text
 stackResourceDetail_logicalResourceId = Lens.lens (\StackResourceDetail' {logicalResourceId} -> logicalResourceId) (\s@StackResourceDetail' {} a -> s {logicalResourceId = a} :: StackResourceDetail)
 
--- | Type of resource. ((For more information, go to
+-- | Type of resource. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
--- in the CloudFormation User Guide.)
+-- in the CloudFormation User Guide.
 stackResourceDetail_resourceType :: Lens.Lens' StackResourceDetail Prelude.Text
 stackResourceDetail_resourceType = Lens.lens (\StackResourceDetail' {resourceType} -> resourceType) (\s@StackResourceDetail' {} a -> s {resourceType = a} :: StackResourceDetail)
 

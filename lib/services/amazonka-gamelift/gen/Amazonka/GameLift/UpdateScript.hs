@@ -82,10 +82,10 @@ data UpdateScript = UpdateScript'
     -- file. The zip file can have one or multiple files. Maximum size of a zip
     -- file is 5 MB.
     --
-    -- When using the AWS CLI tool to create a script, this parameter is set to
-    -- the zip file name. It must be prepended with the string \"fileb:\/\/\"
-    -- to indicate that the file data is a binary object. For example:
-    -- @--zip-file fileb:\/\/myRealtimeScript.zip@.
+    -- When using the Amazon Web Services CLI tool to create a script, this
+    -- parameter is set to the zip file name. It must be prepended with the
+    -- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+    -- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.
     zipFile :: Prelude.Maybe Core.Base64,
     -- | The location of the Amazon S3 bucket where a zipped file containing your
     -- Realtime scripts is stored. The storage location must specify the Amazon
@@ -120,10 +120,10 @@ data UpdateScript = UpdateScript'
 -- file. The zip file can have one or multiple files. Maximum size of a zip
 -- file is 5 MB.
 --
--- When using the AWS CLI tool to create a script, this parameter is set to
--- the zip file name. It must be prepended with the string \"fileb:\/\/\"
--- to indicate that the file data is a binary object. For example:
--- @--zip-file fileb:\/\/myRealtimeScript.zip@.--
+-- When using the Amazon Web Services CLI tool to create a script, this
+-- parameter is set to the zip file name. It must be prepended with the
+-- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+-- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -165,10 +165,10 @@ updateScript_name = Lens.lens (\UpdateScript' {name} -> name) (\s@UpdateScript' 
 -- file. The zip file can have one or multiple files. Maximum size of a zip
 -- file is 5 MB.
 --
--- When using the AWS CLI tool to create a script, this parameter is set to
--- the zip file name. It must be prepended with the string \"fileb:\/\/\"
--- to indicate that the file data is a binary object. For example:
--- @--zip-file fileb:\/\/myRealtimeScript.zip@.--
+-- When using the Amazon Web Services CLI tool to create a script, this
+-- parameter is set to the zip file name. It must be prepended with the
+-- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+-- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.

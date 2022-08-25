@@ -72,6 +72,9 @@ import Test.Tasty
 --         , requestCreateEventSubscription $
 --             newCreateEventSubscription
 --
+--         , requestCreateGlobalCluster $
+--             newCreateGlobalCluster
+--
 --         , requestDeleteDBCluster $
 --             newDeleteDBCluster
 --
@@ -95,6 +98,9 @@ import Test.Tasty
 --
 --         , requestDeleteEventSubscription $
 --             newDeleteEventSubscription
+--
+--         , requestDeleteGlobalCluster $
+--             newDeleteGlobalCluster
 --
 --         , requestDescribeDBClusterEndpoints $
 --             newDescribeDBClusterEndpoints
@@ -144,6 +150,9 @@ import Test.Tasty
 --         , requestDescribeEvents $
 --             newDescribeEvents
 --
+--         , requestDescribeGlobalClusters $
+--             newDescribeGlobalClusters
+--
 --         , requestDescribeOrderableDBInstanceOptions $
 --             newDescribeOrderableDBInstanceOptions
 --
@@ -155,6 +164,9 @@ import Test.Tasty
 --
 --         , requestFailoverDBCluster $
 --             newFailoverDBCluster
+--
+--         , requestFailoverGlobalCluster $
+--             newFailoverGlobalCluster
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -183,11 +195,17 @@ import Test.Tasty
 --         , requestModifyEventSubscription $
 --             newModifyEventSubscription
 --
+--         , requestModifyGlobalCluster $
+--             newModifyGlobalCluster
+--
 --         , requestPromoteReadReplicaDBCluster $
 --             newPromoteReadReplicaDBCluster
 --
 --         , requestRebootDBInstance $
 --             newRebootDBInstance
+--
+--         , requestRemoveFromGlobalCluster $
+--             newRemoveFromGlobalCluster
 --
 --         , requestRemoveRoleFromDBCluster $
 --             newRemoveRoleFromDBCluster
@@ -264,6 +282,9 @@ import Test.Tasty
 --         , responseCreateEventSubscription $
 --             newCreateEventSubscriptionResponse
 --
+--         , responseCreateGlobalCluster $
+--             newCreateGlobalClusterResponse
+--
 --         , responseDeleteDBCluster $
 --             newDeleteDBClusterResponse
 --
@@ -287,6 +308,9 @@ import Test.Tasty
 --
 --         , responseDeleteEventSubscription $
 --             newDeleteEventSubscriptionResponse
+--
+--         , responseDeleteGlobalCluster $
+--             newDeleteGlobalClusterResponse
 --
 --         , responseDescribeDBClusterEndpoints $
 --             newDescribeDBClusterEndpointsResponse
@@ -336,6 +360,9 @@ import Test.Tasty
 --         , responseDescribeEvents $
 --             newDescribeEventsResponse
 --
+--         , responseDescribeGlobalClusters $
+--             newDescribeGlobalClustersResponse
+--
 --         , responseDescribeOrderableDBInstanceOptions $
 --             newDescribeOrderableDBInstanceOptionsResponse
 --
@@ -347,6 +374,9 @@ import Test.Tasty
 --
 --         , responseFailoverDBCluster $
 --             newFailoverDBClusterResponse
+--
+--         , responseFailoverGlobalCluster $
+--             newFailoverGlobalClusterResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -375,11 +405,17 @@ import Test.Tasty
 --         , responseModifyEventSubscription $
 --             newModifyEventSubscriptionResponse
 --
+--         , responseModifyGlobalCluster $
+--             newModifyGlobalClusterResponse
+--
 --         , responsePromoteReadReplicaDBCluster $
 --             newPromoteReadReplicaDBClusterResponse
 --
 --         , responseRebootDBInstance $
 --             newRebootDBInstanceResponse
+--
+--         , responseRemoveFromGlobalCluster $
+--             newRemoveFromGlobalClusterResponse
 --
 --         , responseRemoveRoleFromDBCluster $
 --             newRemoveRoleFromDBClusterResponse
@@ -503,6 +539,12 @@ requestCreateEventSubscription =
     "CreateEventSubscription"
     "fixture/CreateEventSubscription.yaml"
 
+requestCreateGlobalCluster :: CreateGlobalCluster -> TestTree
+requestCreateGlobalCluster =
+  req
+    "CreateGlobalCluster"
+    "fixture/CreateGlobalCluster.yaml"
+
 requestDeleteDBCluster :: DeleteDBCluster -> TestTree
 requestDeleteDBCluster =
   req
@@ -550,6 +592,12 @@ requestDeleteEventSubscription =
   req
     "DeleteEventSubscription"
     "fixture/DeleteEventSubscription.yaml"
+
+requestDeleteGlobalCluster :: DeleteGlobalCluster -> TestTree
+requestDeleteGlobalCluster =
+  req
+    "DeleteGlobalCluster"
+    "fixture/DeleteGlobalCluster.yaml"
 
 requestDescribeDBClusterEndpoints :: DescribeDBClusterEndpoints -> TestTree
 requestDescribeDBClusterEndpoints =
@@ -647,6 +695,12 @@ requestDescribeEvents =
     "DescribeEvents"
     "fixture/DescribeEvents.yaml"
 
+requestDescribeGlobalClusters :: DescribeGlobalClusters -> TestTree
+requestDescribeGlobalClusters =
+  req
+    "DescribeGlobalClusters"
+    "fixture/DescribeGlobalClusters.yaml"
+
 requestDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptions -> TestTree
 requestDescribeOrderableDBInstanceOptions =
   req
@@ -670,6 +724,12 @@ requestFailoverDBCluster =
   req
     "FailoverDBCluster"
     "fixture/FailoverDBCluster.yaml"
+
+requestFailoverGlobalCluster :: FailoverGlobalCluster -> TestTree
+requestFailoverGlobalCluster =
+  req
+    "FailoverGlobalCluster"
+    "fixture/FailoverGlobalCluster.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -725,6 +785,12 @@ requestModifyEventSubscription =
     "ModifyEventSubscription"
     "fixture/ModifyEventSubscription.yaml"
 
+requestModifyGlobalCluster :: ModifyGlobalCluster -> TestTree
+requestModifyGlobalCluster =
+  req
+    "ModifyGlobalCluster"
+    "fixture/ModifyGlobalCluster.yaml"
+
 requestPromoteReadReplicaDBCluster :: PromoteReadReplicaDBCluster -> TestTree
 requestPromoteReadReplicaDBCluster =
   req
@@ -736,6 +802,12 @@ requestRebootDBInstance =
   req
     "RebootDBInstance"
     "fixture/RebootDBInstance.yaml"
+
+requestRemoveFromGlobalCluster :: RemoveFromGlobalCluster -> TestTree
+requestRemoveFromGlobalCluster =
+  req
+    "RemoveFromGlobalCluster"
+    "fixture/RemoveFromGlobalCluster.yaml"
 
 requestRemoveRoleFromDBCluster :: RemoveRoleFromDBCluster -> TestTree
 requestRemoveRoleFromDBCluster =
@@ -913,6 +985,14 @@ responseCreateEventSubscription =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateEventSubscription)
 
+responseCreateGlobalCluster :: CreateGlobalClusterResponse -> TestTree
+responseCreateGlobalCluster =
+  res
+    "CreateGlobalClusterResponse"
+    "fixture/CreateGlobalClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateGlobalCluster)
+
 responseDeleteDBCluster :: DeleteDBClusterResponse -> TestTree
 responseDeleteDBCluster =
   res
@@ -976,6 +1056,14 @@ responseDeleteEventSubscription =
     "fixture/DeleteEventSubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEventSubscription)
+
+responseDeleteGlobalCluster :: DeleteGlobalClusterResponse -> TestTree
+responseDeleteGlobalCluster =
+  res
+    "DeleteGlobalClusterResponse"
+    "fixture/DeleteGlobalClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGlobalCluster)
 
 responseDescribeDBClusterEndpoints :: DescribeDBClusterEndpointsResponse -> TestTree
 responseDescribeDBClusterEndpoints =
@@ -1105,6 +1193,14 @@ responseDescribeEvents =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
+responseDescribeGlobalClusters :: DescribeGlobalClustersResponse -> TestTree
+responseDescribeGlobalClusters =
+  res
+    "DescribeGlobalClustersResponse"
+    "fixture/DescribeGlobalClustersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalClusters)
+
 responseDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
 responseDescribeOrderableDBInstanceOptions =
   res
@@ -1136,6 +1232,14 @@ responseFailoverDBCluster =
     "fixture/FailoverDBClusterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy FailoverDBCluster)
+
+responseFailoverGlobalCluster :: FailoverGlobalClusterResponse -> TestTree
+responseFailoverGlobalCluster =
+  res
+    "FailoverGlobalClusterResponse"
+    "fixture/FailoverGlobalClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy FailoverGlobalCluster)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1209,6 +1313,14 @@ responseModifyEventSubscription =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyEventSubscription)
 
+responseModifyGlobalCluster :: ModifyGlobalClusterResponse -> TestTree
+responseModifyGlobalCluster =
+  res
+    "ModifyGlobalClusterResponse"
+    "fixture/ModifyGlobalClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyGlobalCluster)
+
 responsePromoteReadReplicaDBCluster :: PromoteReadReplicaDBClusterResponse -> TestTree
 responsePromoteReadReplicaDBCluster =
   res
@@ -1224,6 +1336,14 @@ responseRebootDBInstance =
     "fixture/RebootDBInstanceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RebootDBInstance)
+
+responseRemoveFromGlobalCluster :: RemoveFromGlobalClusterResponse -> TestTree
+responseRemoveFromGlobalCluster =
+  res
+    "RemoveFromGlobalClusterResponse"
+    "fixture/RemoveFromGlobalClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveFromGlobalCluster)
 
 responseRemoveRoleFromDBCluster :: RemoveRoleFromDBClusterResponse -> TestTree
 responseRemoveRoleFromDBCluster =

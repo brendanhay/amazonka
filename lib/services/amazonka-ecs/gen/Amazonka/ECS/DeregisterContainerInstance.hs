@@ -24,18 +24,18 @@
 -- This instance is no longer available to run tasks.
 --
 -- If you intend to use the container instance for some other purpose after
--- deregistration, you should stop all of the tasks running on the
--- container instance before deregistration. That prevents any orphaned
+-- deregistration, we recommend that you stop all of the tasks running on
+-- the container instance before deregistration. That prevents any orphaned
 -- tasks from consuming resources.
 --
 -- Deregistering a container instance removes the instance from a cluster,
--- but it does not terminate the EC2 instance. If you are finished using
+-- but it doesn\'t terminate the EC2 instance. If you are finished using
 -- the instance, be sure to terminate it in the Amazon EC2 console to stop
 -- billing.
 --
 -- If you terminate a running container instance, Amazon ECS automatically
 -- deregisters the instance from your cluster (stopped container instances
--- or instances with disconnected agents are not automatically deregistered
+-- or instances with disconnected agents aren\'t automatically deregistered
 -- when terminated).
 module Amazonka.ECS.DeregisterContainerInstance
   ( -- * Creating a Request
@@ -70,10 +70,10 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
     -- hosts the container instance to deregister. If you do not specify a
     -- cluster, the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
-    -- | Forces the deregistration of the container instance. If you have tasks
+    -- | Forces the container instance to be deregistered. If you have tasks
     -- running on the container instance when you deregister it with the
     -- @force@ option, these tasks remain running until you terminate the
-    -- instance or the tasks stop through some other means, but they are
+    -- instance or the tasks stop through some other means, but they\'re
     -- orphaned (no longer monitored or accounted for by Amazon ECS). If an
     -- orphaned task on your container instance is part of an Amazon ECS
     -- service, then the service scheduler starts another copy of that task, on
@@ -85,11 +85,9 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
     -- on the load balancer or target group.
     force :: Prelude.Maybe Prelude.Bool,
     -- | The container instance ID or full ARN of the container instance to
-    -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
-    -- the Region of the container instance, the Amazon Web Services account ID
-    -- of the container instance owner, the @container-instance@ namespace, and
-    -- then the container instance ID. For example,
-    -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
+    -- deregister. For more information about the ARN format, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+    -- in the /Amazon ECS Developer Guide/.
     containerInstance :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,10 +104,10 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 -- hosts the container instance to deregister. If you do not specify a
 -- cluster, the default cluster is assumed.
 --
--- 'force', 'deregisterContainerInstance_force' - Forces the deregistration of the container instance. If you have tasks
+-- 'force', 'deregisterContainerInstance_force' - Forces the container instance to be deregistered. If you have tasks
 -- running on the container instance when you deregister it with the
 -- @force@ option, these tasks remain running until you terminate the
--- instance or the tasks stop through some other means, but they are
+-- instance or the tasks stop through some other means, but they\'re
 -- orphaned (no longer monitored or accounted for by Amazon ECS). If an
 -- orphaned task on your container instance is part of an Amazon ECS
 -- service, then the service scheduler starts another copy of that task, on
@@ -121,11 +119,9 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 -- on the load balancer or target group.
 --
 -- 'containerInstance', 'deregisterContainerInstance_containerInstance' - The container instance ID or full ARN of the container instance to
--- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
--- the Region of the container instance, the Amazon Web Services account ID
--- of the container instance owner, the @container-instance@ namespace, and
--- then the container instance ID. For example,
--- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
+-- deregister. For more information about the ARN format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 newDeregisterContainerInstance ::
   -- | 'containerInstance'
   Prelude.Text ->
@@ -144,10 +140,10 @@ newDeregisterContainerInstance pContainerInstance_ =
 deregisterContainerInstance_cluster :: Lens.Lens' DeregisterContainerInstance (Prelude.Maybe Prelude.Text)
 deregisterContainerInstance_cluster = Lens.lens (\DeregisterContainerInstance' {cluster} -> cluster) (\s@DeregisterContainerInstance' {} a -> s {cluster = a} :: DeregisterContainerInstance)
 
--- | Forces the deregistration of the container instance. If you have tasks
+-- | Forces the container instance to be deregistered. If you have tasks
 -- running on the container instance when you deregister it with the
 -- @force@ option, these tasks remain running until you terminate the
--- instance or the tasks stop through some other means, but they are
+-- instance or the tasks stop through some other means, but they\'re
 -- orphaned (no longer monitored or accounted for by Amazon ECS). If an
 -- orphaned task on your container instance is part of an Amazon ECS
 -- service, then the service scheduler starts another copy of that task, on
@@ -161,11 +157,9 @@ deregisterContainerInstance_force :: Lens.Lens' DeregisterContainerInstance (Pre
 deregisterContainerInstance_force = Lens.lens (\DeregisterContainerInstance' {force} -> force) (\s@DeregisterContainerInstance' {} a -> s {force = a} :: DeregisterContainerInstance)
 
 -- | The container instance ID or full ARN of the container instance to
--- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
--- the Region of the container instance, the Amazon Web Services account ID
--- of the container instance owner, the @container-instance@ namespace, and
--- then the container instance ID. For example,
--- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
+-- deregister. For more information about the ARN format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 deregisterContainerInstance_containerInstance :: Lens.Lens' DeregisterContainerInstance Prelude.Text
 deregisterContainerInstance_containerInstance = Lens.lens (\DeregisterContainerInstance' {containerInstance} -> containerInstance) (\s@DeregisterContainerInstance' {} a -> s {containerInstance = a} :: DeregisterContainerInstance)
 

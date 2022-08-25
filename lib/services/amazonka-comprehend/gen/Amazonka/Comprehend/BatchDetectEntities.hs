@@ -55,7 +55,7 @@ data BatchDetectEntities = BatchDetectEntities'
   { -- | A list containing the text of the input documents. The list can contain
     -- a maximum of 25 documents. Each document must contain fewer than 5,000
     -- bytes of UTF-8 encoded characters.
-    textList :: Core.Sensitive [Core.Sensitive Prelude.Text],
+    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
@@ -79,19 +79,23 @@ data BatchDetectEntities = BatchDetectEntities'
 -- languages supported by Amazon Comprehend. All documents must be in the
 -- same language.
 newBatchDetectEntities ::
+  -- | 'textList'
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   BatchDetectEntities
-newBatchDetectEntities pLanguageCode_ =
+newBatchDetectEntities pTextList_ pLanguageCode_ =
   BatchDetectEntities'
-    { textList = Prelude.mempty,
+    { textList =
+        Core._Sensitive Prelude.. Lens.coerced
+          Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document must contain fewer than 5,000
 -- bytes of UTF-8 encoded characters.
-batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities [Prelude.Text]
+batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities (Prelude.NonEmpty Prelude.Text)
 batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary

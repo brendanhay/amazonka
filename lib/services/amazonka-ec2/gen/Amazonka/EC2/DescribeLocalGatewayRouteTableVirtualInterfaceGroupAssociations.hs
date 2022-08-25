@@ -62,6 +62,9 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
+    -- -   @local-gateway-route-table-arn@ - The Amazon Resource Name (ARN) of
+    --     the local gateway route table for the virtual interface group.
+    --
     -- -   @local-gateway-route-table-id@ - The ID of the local gateway route
     --     table.
     --
@@ -70,6 +73,9 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
     --
     -- -   @local-gateway-route-table-virtual-interface-group-id@ - The ID of
     --     the virtual interface group.
+    --
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     local gateway virtual interface group association.
     --
     -- -   @state@ - The state of the association.
     filters :: Prelude.Maybe [Filter],
@@ -101,6 +107,9 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
 --
+-- -   @local-gateway-route-table-arn@ - The Amazon Resource Name (ARN) of
+--     the local gateway route table for the virtual interface group.
+--
 -- -   @local-gateway-route-table-id@ - The ID of the local gateway route
 --     table.
 --
@@ -109,6 +118,9 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
 --
 -- -   @local-gateway-route-table-virtual-interface-group-id@ - The ID of
 --     the virtual interface group.
+--
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway virtual interface group association.
 --
 -- -   @state@ - The state of the association.
 --
@@ -146,6 +158,9 @@ describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken = Lens
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
 --
+-- -   @local-gateway-route-table-arn@ - The Amazon Resource Name (ARN) of
+--     the local gateway route table for the virtual interface group.
+--
 -- -   @local-gateway-route-table-id@ - The ID of the local gateway route
 --     table.
 --
@@ -154,6 +169,9 @@ describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken = Lens
 --
 -- -   @local-gateway-route-table-virtual-interface-group-id@ - The ID of
 --     the virtual interface group.
+--
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway virtual interface group association.
 --
 -- -   @state@ - The state of the association.
 describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe [Filter])

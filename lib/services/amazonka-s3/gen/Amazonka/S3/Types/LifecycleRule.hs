@@ -47,7 +47,7 @@ data LifecycleRule = LifecycleRule'
     noncurrentVersionExpiration :: Prelude.Maybe NoncurrentVersionExpiration,
     -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
     -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
-    -- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+    -- specified. @Filter@ is required if the @LifecycleRule@ does not contain
     -- a @Prefix@ element.
     filter' :: Prelude.Maybe LifecycleRuleFilter,
     -- | Specifies the transition rule for the lifecycle rule that describes when
@@ -93,7 +93,7 @@ data LifecycleRule = LifecycleRule'
 --
 -- 'filter'', 'lifecycleRule_filter' - The @Filter@ is used to identify objects that a Lifecycle Rule applies
 -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
--- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+-- specified. @Filter@ is required if the @LifecycleRule@ does not contain
 -- a @Prefix@ element.
 --
 -- 'noncurrentVersionTransitions', 'lifecycleRule_noncurrentVersionTransitions' - Specifies the transition rule for the lifecycle rule that describes when
@@ -153,7 +153,7 @@ lifecycleRule_noncurrentVersionExpiration = Lens.lens (\LifecycleRule' {noncurre
 
 -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
 -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
--- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+-- specified. @Filter@ is required if the @LifecycleRule@ does not contain
 -- a @Prefix@ element.
 lifecycleRule_filter :: Lens.Lens' LifecycleRule (Prelude.Maybe LifecycleRuleFilter)
 lifecycleRule_filter = Lens.lens (\LifecycleRule' {filter'} -> filter') (\s@LifecycleRule' {} a -> s {filter' = a} :: LifecycleRule)

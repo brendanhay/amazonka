@@ -60,10 +60,12 @@ library
     Amazonka.Shield.DescribeProtection
     Amazonka.Shield.DescribeProtectionGroup
     Amazonka.Shield.DescribeSubscription
+    Amazonka.Shield.DisableApplicationLayerAutomaticResponse
     Amazonka.Shield.DisableProactiveEngagement
     Amazonka.Shield.DisassociateDRTLogBucket
     Amazonka.Shield.DisassociateDRTRole
     Amazonka.Shield.DisassociateHealthCheck
+    Amazonka.Shield.EnableApplicationLayerAutomaticResponse
     Amazonka.Shield.EnableProactiveEngagement
     Amazonka.Shield.GetSubscriptionState
     Amazonka.Shield.Lens
@@ -74,6 +76,8 @@ library
     Amazonka.Shield.ListTagsForResource
     Amazonka.Shield.TagResource
     Amazonka.Shield.Types
+    Amazonka.Shield.Types.ApplicationLayerAutomaticResponseConfiguration
+    Amazonka.Shield.Types.ApplicationLayerAutomaticResponseStatus
     Amazonka.Shield.Types.AttackDetail
     Amazonka.Shield.Types.AttackLayer
     Amazonka.Shield.Types.AttackProperty
@@ -84,8 +88,12 @@ library
     Amazonka.Shield.Types.AttackVolume
     Amazonka.Shield.Types.AttackVolumeStatistics
     Amazonka.Shield.Types.AutoRenew
+    Amazonka.Shield.Types.BlockAction
     Amazonka.Shield.Types.Contributor
+    Amazonka.Shield.Types.CountAction
     Amazonka.Shield.Types.EmergencyContact
+    Amazonka.Shield.Types.InclusionProtectionFilters
+    Amazonka.Shield.Types.InclusionProtectionGroupFilters
     Amazonka.Shield.Types.Limit
     Amazonka.Shield.Types.Mitigation
     Amazonka.Shield.Types.ProactiveEngagementStatus
@@ -98,6 +106,7 @@ library
     Amazonka.Shield.Types.ProtectionGroupPattern
     Amazonka.Shield.Types.ProtectionGroupPatternTypeLimits
     Amazonka.Shield.Types.ProtectionLimits
+    Amazonka.Shield.Types.ResponseAction
     Amazonka.Shield.Types.SubResourceSummary
     Amazonka.Shield.Types.SubResourceType
     Amazonka.Shield.Types.Subscription
@@ -109,6 +118,7 @@ library
     Amazonka.Shield.Types.TimeRange
     Amazonka.Shield.Types.Unit
     Amazonka.Shield.UntagResource
+    Amazonka.Shield.UpdateApplicationLayerAutomaticResponse
     Amazonka.Shield.UpdateEmergencyContactSettings
     Amazonka.Shield.UpdateProtectionGroup
     Amazonka.Shield.UpdateSubscription

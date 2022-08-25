@@ -25,7 +25,7 @@ import Amazonka.NetworkFirewall.Types.AttachmentStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration and status for a single subnet that you\'ve specified
--- for use by the AWS Network Firewall firewall. This is part of the
+-- for use by the Network Firewall firewall. This is part of the
 -- FirewallStatus.
 --
 -- /See:/ 'newAttachment' smart constructor.

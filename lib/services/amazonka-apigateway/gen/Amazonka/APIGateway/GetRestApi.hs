@@ -61,7 +61,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetRestApi' smart constructor.
 data GetRestApi = GetRestApi'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data GetRestApi = GetRestApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getRestApi_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getRestApi_restApiId' - The string identifier of the associated RestApi.
 newGetRestApi ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -82,7 +82,7 @@ newGetRestApi ::
 newGetRestApi pRestApiId_ =
   GetRestApi' {restApiId = pRestApiId_}
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getRestApi_restApiId :: Lens.Lens' GetRestApi Prelude.Text
 getRestApi_restApiId = Lens.lens (\GetRestApi' {restApiId} -> restApiId) (\s@GetRestApi' {} a -> s {restApiId = a} :: GetRestApi)
 

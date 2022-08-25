@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 --
--- Resources that do not currently support drift detection cannot be
+-- Resources that don\'t currently support drift detection can\'t be
 -- checked. For a list of resources that support drift detection, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection>.
 --
@@ -67,7 +67,7 @@ data StackResourceDrift = StackResourceDrift'
     propertyDifferences :: Prelude.Maybe [PropertyDifference],
     -- | Context information that enables CloudFormation to uniquely identify a
     -- resource. CloudFormation uses context key-value pairs in cases where a
-    -- resource\'s logical and physical IDs are not enough to uniquely identify
+    -- resource\'s logical and physical IDs aren\'t enough to uniquely identify
     -- that resource. Each context key-value pair specifies a unique resource
     -- that contains the targeted resource.
     physicalResourceIdContext :: Prelude.Maybe [PhysicalResourceIdContextKeyValuePair],
@@ -81,7 +81,7 @@ data StackResourceDrift = StackResourceDrift'
     -- | The type of the resource.
     resourceType :: Prelude.Text,
     -- | Status of the resource\'s actual configuration compared to its expected
-    -- configuration
+    -- configuration.
     --
     -- -   @DELETED@: The resource differs from its expected template
     --     configuration because the resource has been deleted.
@@ -90,8 +90,8 @@ data StackResourceDrift = StackResourceDrift'
     --     expected values (as defined in the stack template and any values
     --     specified as template parameters).
     --
-    -- -   @IN_SYNC@: The resources\'s actual configuration matches its
-    --     expected template configuration.
+    -- -   @IN_SYNC@: The resource\'s actual configuration matches its expected
+    --     template configuration.
     --
     -- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
     stackResourceDriftStatus :: StackResourceDriftStatus,
@@ -132,7 +132,7 @@ data StackResourceDrift = StackResourceDrift'
 --
 -- 'physicalResourceIdContext', 'stackResourceDrift_physicalResourceIdContext' - Context information that enables CloudFormation to uniquely identify a
 -- resource. CloudFormation uses context key-value pairs in cases where a
--- resource\'s logical and physical IDs are not enough to uniquely identify
+-- resource\'s logical and physical IDs aren\'t enough to uniquely identify
 -- that resource. Each context key-value pair specifies a unique resource
 -- that contains the targeted resource.
 --
@@ -146,7 +146,7 @@ data StackResourceDrift = StackResourceDrift'
 -- 'resourceType', 'stackResourceDrift_resourceType' - The type of the resource.
 --
 -- 'stackResourceDriftStatus', 'stackResourceDrift_stackResourceDriftStatus' - Status of the resource\'s actual configuration compared to its expected
--- configuration
+-- configuration.
 --
 -- -   @DELETED@: The resource differs from its expected template
 --     configuration because the resource has been deleted.
@@ -155,8 +155,8 @@ data StackResourceDrift = StackResourceDrift'
 --     expected values (as defined in the stack template and any values
 --     specified as template parameters).
 --
--- -   @IN_SYNC@: The resources\'s actual configuration matches its
---     expected template configuration.
+-- -   @IN_SYNC@: The resource\'s actual configuration matches its expected
+--     template configuration.
 --
 -- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 --
@@ -227,7 +227,7 @@ stackResourceDrift_propertyDifferences = Lens.lens (\StackResourceDrift' {proper
 
 -- | Context information that enables CloudFormation to uniquely identify a
 -- resource. CloudFormation uses context key-value pairs in cases where a
--- resource\'s logical and physical IDs are not enough to uniquely identify
+-- resource\'s logical and physical IDs aren\'t enough to uniquely identify
 -- that resource. Each context key-value pair specifies a unique resource
 -- that contains the targeted resource.
 stackResourceDrift_physicalResourceIdContext :: Lens.Lens' StackResourceDrift (Prelude.Maybe [PhysicalResourceIdContextKeyValuePair])
@@ -251,7 +251,7 @@ stackResourceDrift_resourceType :: Lens.Lens' StackResourceDrift Prelude.Text
 stackResourceDrift_resourceType = Lens.lens (\StackResourceDrift' {resourceType} -> resourceType) (\s@StackResourceDrift' {} a -> s {resourceType = a} :: StackResourceDrift)
 
 -- | Status of the resource\'s actual configuration compared to its expected
--- configuration
+-- configuration.
 --
 -- -   @DELETED@: The resource differs from its expected template
 --     configuration because the resource has been deleted.
@@ -260,8 +260,8 @@ stackResourceDrift_resourceType = Lens.lens (\StackResourceDrift' {resourceType}
 --     expected values (as defined in the stack template and any values
 --     specified as template parameters).
 --
--- -   @IN_SYNC@: The resources\'s actual configuration matches its
---     expected template configuration.
+-- -   @IN_SYNC@: The resource\'s actual configuration matches its expected
+--     template configuration.
 --
 -- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 stackResourceDrift_stackResourceDriftStatus :: Lens.Lens' StackResourceDrift StackResourceDriftStatus

@@ -25,7 +25,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper that contains the Audit Manager role information of the
--- current user, such as the role type and IAM Amazon Resource Name (ARN).
+-- current user. This includes the role type and IAM Amazon Resource Name
+-- (ARN).
 --
 -- /See:/ 'newRole' smart constructor.
 data Role = Role'
@@ -37,9 +38,9 @@ data Role = Role'
     --
     -- In @BatchCreateDelegationByAssessment@, @roleType@ can only be
     -- @RESOURCE_OWNER@.
-    roleType :: Prelude.Maybe RoleType,
+    roleType :: RoleType,
     -- | The Amazon Resource Name (ARN) of the IAM role.
-    roleArn :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,12 +63,13 @@ data Role = Role'
 --
 -- 'roleArn', 'role_roleArn' - The Amazon Resource Name (ARN) of the IAM role.
 newRole ::
+  -- | 'roleType'
+  RoleType ->
+  -- | 'roleArn'
+  Prelude.Text ->
   Role
-newRole =
-  Role'
-    { roleType = Prelude.Nothing,
-      roleArn = Prelude.Nothing
-    }
+newRole pRoleType_ pRoleArn_ =
+  Role' {roleType = pRoleType_, roleArn = pRoleArn_}
 
 -- | The type of customer persona.
 --
@@ -77,11 +79,11 @@ newRole =
 --
 -- In @BatchCreateDelegationByAssessment@, @roleType@ can only be
 -- @RESOURCE_OWNER@.
-role_roleType :: Lens.Lens' Role (Prelude.Maybe RoleType)
+role_roleType :: Lens.Lens' Role RoleType
 role_roleType = Lens.lens (\Role' {roleType} -> roleType) (\s@Role' {} a -> s {roleType = a} :: Role)
 
 -- | The Amazon Resource Name (ARN) of the IAM role.
-role_roleArn :: Lens.Lens' Role (Prelude.Maybe Prelude.Text)
+role_roleArn :: Lens.Lens' Role Prelude.Text
 role_roleArn = Lens.lens (\Role' {roleArn} -> roleArn) (\s@Role' {} a -> s {roleArn = a} :: Role)
 
 instance Core.FromJSON Role where
@@ -90,8 +92,8 @@ instance Core.FromJSON Role where
       "Role"
       ( \x ->
           Role'
-            Prelude.<$> (x Core..:? "roleType")
-            Prelude.<*> (x Core..:? "roleArn")
+            Prelude.<$> (x Core..: "roleType")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
 instance Prelude.Hashable Role where
@@ -108,7 +110,7 @@ instance Core.ToJSON Role where
   toJSON Role' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleType" Core..=) Prelude.<$> roleType,
-            ("roleArn" Core..=) Prelude.<$> roleArn
+          [ Prelude.Just ("roleType" Core..= roleType),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

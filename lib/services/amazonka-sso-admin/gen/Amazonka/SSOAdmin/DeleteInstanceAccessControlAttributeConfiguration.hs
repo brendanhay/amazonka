@@ -54,7 +54,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeleteInstanceAccessControlAttributeConfiguration' smart constructor.
 data DeleteInstanceAccessControlAttributeConfiguration = DeleteInstanceAccessControlAttributeConfiguration'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +68,8 @@ data DeleteInstanceAccessControlAttributeConfiguration = DeleteInstanceAccessCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deleteInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
+-- 'instanceArn', 'deleteInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 newDeleteInstanceAccessControlAttributeConfiguration ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -79,7 +81,8 @@ newDeleteInstanceAccessControlAttributeConfiguration
           pInstanceArn_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 deleteInstanceAccessControlAttributeConfiguration_instanceArn :: Lens.Lens' DeleteInstanceAccessControlAttributeConfiguration Prelude.Text
 deleteInstanceAccessControlAttributeConfiguration_instanceArn = Lens.lens (\DeleteInstanceAccessControlAttributeConfiguration' {instanceArn} -> instanceArn) (\s@DeleteInstanceAccessControlAttributeConfiguration' {} a -> s {instanceArn = a} :: DeleteInstanceAccessControlAttributeConfiguration)
 

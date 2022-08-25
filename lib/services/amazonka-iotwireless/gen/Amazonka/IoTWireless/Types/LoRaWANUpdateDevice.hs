@@ -20,6 +20,9 @@
 module Amazonka.IoTWireless.Types.LoRaWANUpdateDevice where
 
 import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types.UpdateAbpV1_0_x
+import Amazonka.IoTWireless.Types.UpdateAbpV1_1
+import Amazonka.IoTWireless.Types.UpdateFPorts
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -27,10 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANUpdateDevice' smart constructor.
 data LoRaWANUpdateDevice = LoRaWANUpdateDevice'
-  { -- | The ID of the device profile for the wireless device.
+  { -- | ABP device object for update APIs for v1.0.x
+    abpV1_0_x :: Prelude.Maybe UpdateAbpV1_0_x,
+    -- | The ID of the device profile for the wireless device.
     deviceProfileId :: Prelude.Maybe Prelude.Text,
+    -- | FPorts object for the positioning information of the device.
+    fPorts :: Prelude.Maybe UpdateFPorts,
     -- | The ID of the service profile.
-    serviceProfileId :: Prelude.Maybe Prelude.Text
+    serviceProfileId :: Prelude.Maybe Prelude.Text,
+    -- | ABP device object for update APIs for v1.1
+    abpV1_1 :: Prelude.Maybe UpdateAbpV1_1
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,43 +51,72 @@ data LoRaWANUpdateDevice = LoRaWANUpdateDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'abpV1_0_x', 'loRaWANUpdateDevice_abpV1_0_x' - ABP device object for update APIs for v1.0.x
+--
 -- 'deviceProfileId', 'loRaWANUpdateDevice_deviceProfileId' - The ID of the device profile for the wireless device.
 --
+-- 'fPorts', 'loRaWANUpdateDevice_fPorts' - FPorts object for the positioning information of the device.
+--
 -- 'serviceProfileId', 'loRaWANUpdateDevice_serviceProfileId' - The ID of the service profile.
+--
+-- 'abpV1_1', 'loRaWANUpdateDevice_abpV1_1' - ABP device object for update APIs for v1.1
 newLoRaWANUpdateDevice ::
   LoRaWANUpdateDevice
 newLoRaWANUpdateDevice =
   LoRaWANUpdateDevice'
-    { deviceProfileId =
-        Prelude.Nothing,
-      serviceProfileId = Prelude.Nothing
+    { abpV1_0_x = Prelude.Nothing,
+      deviceProfileId = Prelude.Nothing,
+      fPorts = Prelude.Nothing,
+      serviceProfileId = Prelude.Nothing,
+      abpV1_1 = Prelude.Nothing
     }
+
+-- | ABP device object for update APIs for v1.0.x
+loRaWANUpdateDevice_abpV1_0_x :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe UpdateAbpV1_0_x)
+loRaWANUpdateDevice_abpV1_0_x = Lens.lens (\LoRaWANUpdateDevice' {abpV1_0_x} -> abpV1_0_x) (\s@LoRaWANUpdateDevice' {} a -> s {abpV1_0_x = a} :: LoRaWANUpdateDevice)
 
 -- | The ID of the device profile for the wireless device.
 loRaWANUpdateDevice_deviceProfileId :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe Prelude.Text)
 loRaWANUpdateDevice_deviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {deviceProfileId} -> deviceProfileId) (\s@LoRaWANUpdateDevice' {} a -> s {deviceProfileId = a} :: LoRaWANUpdateDevice)
 
+-- | FPorts object for the positioning information of the device.
+loRaWANUpdateDevice_fPorts :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe UpdateFPorts)
+loRaWANUpdateDevice_fPorts = Lens.lens (\LoRaWANUpdateDevice' {fPorts} -> fPorts) (\s@LoRaWANUpdateDevice' {} a -> s {fPorts = a} :: LoRaWANUpdateDevice)
+
 -- | The ID of the service profile.
 loRaWANUpdateDevice_serviceProfileId :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe Prelude.Text)
 loRaWANUpdateDevice_serviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {serviceProfileId} -> serviceProfileId) (\s@LoRaWANUpdateDevice' {} a -> s {serviceProfileId = a} :: LoRaWANUpdateDevice)
 
+-- | ABP device object for update APIs for v1.1
+loRaWANUpdateDevice_abpV1_1 :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe UpdateAbpV1_1)
+loRaWANUpdateDevice_abpV1_1 = Lens.lens (\LoRaWANUpdateDevice' {abpV1_1} -> abpV1_1) (\s@LoRaWANUpdateDevice' {} a -> s {abpV1_1 = a} :: LoRaWANUpdateDevice)
+
 instance Prelude.Hashable LoRaWANUpdateDevice where
   hashWithSalt _salt LoRaWANUpdateDevice' {..} =
-    _salt `Prelude.hashWithSalt` deviceProfileId
+    _salt `Prelude.hashWithSalt` abpV1_0_x
+      `Prelude.hashWithSalt` deviceProfileId
+      `Prelude.hashWithSalt` fPorts
       `Prelude.hashWithSalt` serviceProfileId
+      `Prelude.hashWithSalt` abpV1_1
 
 instance Prelude.NFData LoRaWANUpdateDevice where
   rnf LoRaWANUpdateDevice' {..} =
-    Prelude.rnf deviceProfileId
+    Prelude.rnf abpV1_0_x
+      `Prelude.seq` Prelude.rnf deviceProfileId
+      `Prelude.seq` Prelude.rnf fPorts
       `Prelude.seq` Prelude.rnf serviceProfileId
+      `Prelude.seq` Prelude.rnf abpV1_1
 
 instance Core.ToJSON LoRaWANUpdateDevice where
   toJSON LoRaWANUpdateDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeviceProfileId" Core..=)
+          [ ("AbpV1_0_x" Core..=) Prelude.<$> abpV1_0_x,
+            ("DeviceProfileId" Core..=)
               Prelude.<$> deviceProfileId,
+            ("FPorts" Core..=) Prelude.<$> fPorts,
             ("ServiceProfileId" Core..=)
-              Prelude.<$> serviceProfileId
+              Prelude.<$> serviceProfileId,
+            ("AbpV1_1" Core..=) Prelude.<$> abpV1_1
           ]
       )

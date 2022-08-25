@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpPermission
 
--- | Details about an EC2 security group.
+-- | Details about an Amazon EC2 security group.
 --
 -- /See:/ 'newAwsEc2SecurityGroupDetails' smart constructor.
 data AwsEc2SecurityGroupDetails = AwsEc2SecurityGroupDetails'

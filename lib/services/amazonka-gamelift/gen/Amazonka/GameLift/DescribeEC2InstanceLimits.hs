@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The GameLift service limits and current utilization for an AWS Region or
--- location. Instance limits control the number of instances, per instance
--- type, per location, that your AWS account can use. Learn more at
+-- Retrieves the instance limits and current utilization for an Amazon Web
+-- Services Region or location. Instance limits control the number of
+-- instances, per instance type, per location, that your Amazon Web
+-- Services account can use. Learn more at
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
 -- The information returned includes the maximum number of instances
 -- allowed and your account\'s current usage across all fleets. This
@@ -33,10 +34,10 @@
 -- Instance limits differ based on whether the instances are deployed in a
 -- fleet\'s home Region or in a remote location. For remote locations,
 -- limits also differ based on the combination of home Region and remote
--- location. All requests must specify an AWS Region (either explicitly or
--- as your default settings). To get the limit for a remote location, you
--- must also specify the location. For example, the following requests all
--- return different results:
+-- location. All requests must specify an Amazon Web Services Region
+-- (either explicitly or as your default settings). To get the limit for a
+-- remote location, you must also specify the location. For example, the
+-- following requests all return different results:
 --
 -- -   Request specifies the Region @ap-northeast-1@ with no location. The
 --     result is limits and usage data on all instance types that are
@@ -57,14 +58,15 @@
 -- This operation can be used in the following ways:
 --
 -- -   To get limit and usage data for all instance types that are deployed
---     in an AWS Region by fleets that reside in the same Region: Specify
---     the Region only. Optionally, specify a single instance type to
---     retrieve information for.
+--     in an Amazon Web Services Region by fleets that reside in the same
+--     Region: Specify the Region only. Optionally, specify a single
+--     instance type to retrieve information for.
 --
 -- -   To get limit and usage data for all instance types that are deployed
---     to a remote location by fleets that reside in different AWS Region:
---     Provide both the AWS Region and the remote location. Optionally,
---     specify a single instance type to retrieve information for.
+--     to a remote location by fleets that reside in different Amazon Web
+--     Services Region: Provide both the Amazon Web Services Region and the
+--     remote location. Optionally, specify a single instance type to
+--     retrieve information for.
 --
 -- If successful, an @EC2InstanceLimits@ object is returned with limits and
 -- usage data for each requested instance type.
@@ -110,14 +112,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEC2InstanceLimits' smart constructor.
 data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
-  { -- | Name of an EC2 instance type that is supported in GameLift. A fleet
-    -- instance type determines the computing resources of each instance in the
-    -- fleet, including CPU, memory, storage, and networking capacity. Do not
-    -- specify a value for this parameter to retrieve limits for all instance
-    -- types.
+  { -- | Name of an Amazon EC2 instance type that is supported in GameLift. A
+    -- fleet instance type determines the computing resources of each instance
+    -- in the fleet, including CPU, memory, storage, and networking capacity.
+    -- Do not specify a value for this parameter to retrieve limits for all
+    -- instance types.
     eC2InstanceType :: Prelude.Maybe EC2InstanceType,
     -- | The name of a remote location to request instance limits for, in the
-    -- form of an AWS Region code such as @us-west-2@.
+    -- form of an Amazon Web Services Region code such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,14 +132,14 @@ data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eC2InstanceType', 'describeEC2InstanceLimits_eC2InstanceType' - Name of an EC2 instance type that is supported in GameLift. A fleet
--- instance type determines the computing resources of each instance in the
--- fleet, including CPU, memory, storage, and networking capacity. Do not
--- specify a value for this parameter to retrieve limits for all instance
--- types.
+-- 'eC2InstanceType', 'describeEC2InstanceLimits_eC2InstanceType' - Name of an Amazon EC2 instance type that is supported in GameLift. A
+-- fleet instance type determines the computing resources of each instance
+-- in the fleet, including CPU, memory, storage, and networking capacity.
+-- Do not specify a value for this parameter to retrieve limits for all
+-- instance types.
 --
 -- 'location', 'describeEC2InstanceLimits_location' - The name of a remote location to request instance limits for, in the
--- form of an AWS Region code such as @us-west-2@.
+-- form of an Amazon Web Services Region code such as @us-west-2@.
 newDescribeEC2InstanceLimits ::
   DescribeEC2InstanceLimits
 newDescribeEC2InstanceLimits =
@@ -147,16 +149,16 @@ newDescribeEC2InstanceLimits =
       location = Prelude.Nothing
     }
 
--- | Name of an EC2 instance type that is supported in GameLift. A fleet
--- instance type determines the computing resources of each instance in the
--- fleet, including CPU, memory, storage, and networking capacity. Do not
--- specify a value for this parameter to retrieve limits for all instance
--- types.
+-- | Name of an Amazon EC2 instance type that is supported in GameLift. A
+-- fleet instance type determines the computing resources of each instance
+-- in the fleet, including CPU, memory, storage, and networking capacity.
+-- Do not specify a value for this parameter to retrieve limits for all
+-- instance types.
 describeEC2InstanceLimits_eC2InstanceType :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe EC2InstanceType)
 describeEC2InstanceLimits_eC2InstanceType = Lens.lens (\DescribeEC2InstanceLimits' {eC2InstanceType} -> eC2InstanceType) (\s@DescribeEC2InstanceLimits' {} a -> s {eC2InstanceType = a} :: DescribeEC2InstanceLimits)
 
 -- | The name of a remote location to request instance limits for, in the
--- form of an AWS Region code such as @us-west-2@.
+-- form of an Amazon Web Services Region code such as @us-west-2@.
 describeEC2InstanceLimits_location :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe Prelude.Text)
 describeEC2InstanceLimits_location = Lens.lens (\DescribeEC2InstanceLimits' {location} -> location) (\s@DescribeEC2InstanceLimits' {} a -> s {location = a} :: DescribeEC2InstanceLimits)
 

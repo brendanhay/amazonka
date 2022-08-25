@@ -22,6 +22,8 @@ module Amazonka.AppStream.Types.FleetAttribute
       ( ..,
         FleetAttribute_DOMAIN_JOIN_INFO,
         FleetAttribute_IAM_ROLE_ARN,
+        FleetAttribute_SESSION_SCRIPT_S3_LOCATION,
+        FleetAttribute_USB_DEVICE_FILTER_STRINGS,
         FleetAttribute_VPC_CONFIGURATION,
         FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS
       ),
@@ -66,6 +68,12 @@ pattern FleetAttribute_DOMAIN_JOIN_INFO = FleetAttribute' "DOMAIN_JOIN_INFO"
 pattern FleetAttribute_IAM_ROLE_ARN :: FleetAttribute
 pattern FleetAttribute_IAM_ROLE_ARN = FleetAttribute' "IAM_ROLE_ARN"
 
+pattern FleetAttribute_SESSION_SCRIPT_S3_LOCATION :: FleetAttribute
+pattern FleetAttribute_SESSION_SCRIPT_S3_LOCATION = FleetAttribute' "SESSION_SCRIPT_S3_LOCATION"
+
+pattern FleetAttribute_USB_DEVICE_FILTER_STRINGS :: FleetAttribute
+pattern FleetAttribute_USB_DEVICE_FILTER_STRINGS = FleetAttribute' "USB_DEVICE_FILTER_STRINGS"
+
 pattern FleetAttribute_VPC_CONFIGURATION :: FleetAttribute
 pattern FleetAttribute_VPC_CONFIGURATION = FleetAttribute' "VPC_CONFIGURATION"
 
@@ -75,6 +83,8 @@ pattern FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS = FleetAttribute' "V
 {-# COMPLETE
   FleetAttribute_DOMAIN_JOIN_INFO,
   FleetAttribute_IAM_ROLE_ARN,
+  FleetAttribute_SESSION_SCRIPT_S3_LOCATION,
+  FleetAttribute_USB_DEVICE_FILTER_STRINGS,
   FleetAttribute_VPC_CONFIGURATION,
   FleetAttribute_VPC_CONFIGURATION_SECURITY_GROUP_IDS,
   FleetAttribute'

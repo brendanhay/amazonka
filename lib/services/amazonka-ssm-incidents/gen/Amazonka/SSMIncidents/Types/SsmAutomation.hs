@@ -22,6 +22,7 @@ module Amazonka.SSMIncidents.Types.SsmAutomation where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSMIncidents.Types.DynamicSsmParameterValue
 import Amazonka.SSMIncidents.Types.SsmTargetAccount
 
 -- | Details about the Systems Manager automation document that will be used
@@ -37,6 +38,9 @@ data SsmAutomation = SsmAutomation'
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The automation document\'s version to use when running.
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The key-value pair to resolve dynamic parameter values when processing a
+    -- Systems Manager Automation runbook.
+    dynamicParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text DynamicSsmParameterValue),
     -- | The automation document\'s name.
     documentName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role that the automation document
@@ -61,6 +65,9 @@ data SsmAutomation = SsmAutomation'
 --
 -- 'documentVersion', 'ssmAutomation_documentVersion' - The automation document\'s version to use when running.
 --
+-- 'dynamicParameters', 'ssmAutomation_dynamicParameters' - The key-value pair to resolve dynamic parameter values when processing a
+-- Systems Manager Automation runbook.
+--
 -- 'documentName', 'ssmAutomation_documentName' - The automation document\'s name.
 --
 -- 'roleArn', 'ssmAutomation_roleArn' - The Amazon Resource Name (ARN) of the role that the automation document
@@ -76,6 +83,7 @@ newSsmAutomation pDocumentName_ pRoleArn_ =
     { targetAccount = Prelude.Nothing,
       parameters = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
+      dynamicParameters = Prelude.Nothing,
       documentName = pDocumentName_,
       roleArn = pRoleArn_
     }
@@ -93,6 +101,11 @@ ssmAutomation_parameters = Lens.lens (\SsmAutomation' {parameters} -> parameters
 -- | The automation document\'s version to use when running.
 ssmAutomation_documentVersion :: Lens.Lens' SsmAutomation (Prelude.Maybe Prelude.Text)
 ssmAutomation_documentVersion = Lens.lens (\SsmAutomation' {documentVersion} -> documentVersion) (\s@SsmAutomation' {} a -> s {documentVersion = a} :: SsmAutomation)
+
+-- | The key-value pair to resolve dynamic parameter values when processing a
+-- Systems Manager Automation runbook.
+ssmAutomation_dynamicParameters :: Lens.Lens' SsmAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text DynamicSsmParameterValue))
+ssmAutomation_dynamicParameters = Lens.lens (\SsmAutomation' {dynamicParameters} -> dynamicParameters) (\s@SsmAutomation' {} a -> s {dynamicParameters = a} :: SsmAutomation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The automation document\'s name.
 ssmAutomation_documentName :: Lens.Lens' SsmAutomation Prelude.Text
@@ -112,6 +125,9 @@ instance Core.FromJSON SsmAutomation where
             Prelude.<$> (x Core..:? "targetAccount")
             Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "documentVersion")
+            Prelude.<*> ( x Core..:? "dynamicParameters"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..: "documentName")
             Prelude.<*> (x Core..: "roleArn")
       )
@@ -121,6 +137,7 @@ instance Prelude.Hashable SsmAutomation where
     _salt `Prelude.hashWithSalt` targetAccount
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` dynamicParameters
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` roleArn
 
@@ -129,6 +146,7 @@ instance Prelude.NFData SsmAutomation where
     Prelude.rnf targetAccount
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf dynamicParameters
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -140,6 +158,8 @@ instance Core.ToJSON SsmAutomation where
             ("parameters" Core..=) Prelude.<$> parameters,
             ("documentVersion" Core..=)
               Prelude.<$> documentVersion,
+            ("dynamicParameters" Core..=)
+              Prelude.<$> dynamicParameters,
             Prelude.Just ("documentName" Core..= documentName),
             Prelude.Just ("roleArn" Core..= roleArn)
           ]

@@ -312,9 +312,8 @@ instance Core.ToQuery ListTrainingJobs where
 
 -- | /See:/ 'newListTrainingJobsResponse' smart constructor.
 data ListTrainingJobsResponse = ListTrainingJobsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of training jobs, use it in the subsequent
-    -- request.
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of training jobs, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -331,9 +330,8 @@ data ListTrainingJobsResponse = ListTrainingJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTrainingJobsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of training jobs, use it in the subsequent
--- request.
+-- 'nextToken', 'listTrainingJobsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of training jobs, use it in the subsequent request.
 --
 -- 'httpStatus', 'listTrainingJobsResponse_httpStatus' - The response's http status code.
 --
@@ -350,9 +348,8 @@ newListTrainingJobsResponse pHttpStatus_ =
       trainingJobSummaries = Prelude.mempty
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of training jobs, use it in the subsequent
--- request.
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of training jobs, use it in the subsequent request.
 listTrainingJobsResponse_nextToken :: Lens.Lens' ListTrainingJobsResponse (Prelude.Maybe Prelude.Text)
 listTrainingJobsResponse_nextToken = Lens.lens (\ListTrainingJobsResponse' {nextToken} -> nextToken) (\s@ListTrainingJobsResponse' {} a -> s {nextToken = a} :: ListTrainingJobsResponse)
 

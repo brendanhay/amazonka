@@ -51,7 +51,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html Instance lifecycle>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     --
-    -- Valid Values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
+    -- Valid values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
     -- @Quarantined@ | @InService@ | @Terminating@ | @Terminating:Wait@ |
     -- @Terminating:Proceed@ | @Terminated@ | @Detaching@ | @Detached@ |
     -- @EnteringStandby@ | @Standby@ | @Warmed:Pending@ | @Warmed:Pending:Wait@
@@ -101,7 +101,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html Instance lifecycle>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- Valid Values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
+-- Valid values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
 -- @Quarantined@ | @InService@ | @Terminating@ | @Terminating:Wait@ |
 -- @Terminating:Proceed@ | @Terminated@ | @Detaching@ | @Detached@ |
 -- @EnteringStandby@ | @Standby@ | @Warmed:Pending@ | @Warmed:Pending:Wait@
@@ -188,7 +188,7 @@ autoScalingInstanceDetails_availabilityZone = Lens.lens (\AutoScalingInstanceDet
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html Instance lifecycle>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- Valid Values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
+-- Valid values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
 -- @Quarantined@ | @InService@ | @Terminating@ | @Terminating:Wait@ |
 -- @Terminating:Proceed@ | @Terminated@ | @Detaching@ | @Detached@ |
 -- @EnteringStandby@ | @Standby@ | @Warmed:Pending@ | @Warmed:Pending:Wait@

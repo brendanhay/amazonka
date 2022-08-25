@@ -26,8 +26,8 @@
 -- 25 @TransactGetItem@ objects, each of which contains a @Get@ structure
 -- that specifies an item to retrieve from a table in the account and
 -- Region. A call to @TransactGetItems@ cannot retrieve items from tables
--- in more than one AWS account or Region. The aggregate size of the items
--- in the transaction cannot exceed 4 MB.
+-- in more than one Amazon Web Services account or Region. The aggregate
+-- size of the items in the transaction cannot exceed 4 MB.
 --
 -- DynamoDB rejects the entire @TransactGetItems@ request if any of the
 -- following is true:

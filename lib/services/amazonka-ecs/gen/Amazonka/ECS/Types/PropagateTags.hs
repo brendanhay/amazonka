@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.PropagateTags
   ( PropagateTags
       ( ..,
+        PropagateTags_NONE,
         PropagateTags_SERVICE,
         PropagateTags_TASK_DEFINITION
       ),
@@ -57,6 +58,9 @@ newtype PropagateTags = PropagateTags'
       Core.ToXML
     )
 
+pattern PropagateTags_NONE :: PropagateTags
+pattern PropagateTags_NONE = PropagateTags' "NONE"
+
 pattern PropagateTags_SERVICE :: PropagateTags
 pattern PropagateTags_SERVICE = PropagateTags' "SERVICE"
 
@@ -64,6 +68,7 @@ pattern PropagateTags_TASK_DEFINITION :: PropagateTags
 pattern PropagateTags_TASK_DEFINITION = PropagateTags' "TASK_DEFINITION"
 
 {-# COMPLETE
+  PropagateTags_NONE,
   PropagateTags_SERVICE,
   PropagateTags_TASK_DEFINITION,
   PropagateTags'

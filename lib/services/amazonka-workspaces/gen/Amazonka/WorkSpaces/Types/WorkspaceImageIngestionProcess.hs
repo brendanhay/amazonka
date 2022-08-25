@@ -22,6 +22,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceImageIngestionProcess
       ( ..,
         WorkspaceImageIngestionProcess_BYOL_GRAPHICS,
         WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO,
+        WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN,
         WorkspaceImageIngestionProcess_BYOL_REGULAR,
         WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP
       ),
@@ -65,6 +66,9 @@ pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS = WorkspaceImageIngestionPr
 pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO :: WorkspaceImageIngestionProcess
 pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO = WorkspaceImageIngestionProcess' "BYOL_GRAPHICSPRO"
 
+pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN :: WorkspaceImageIngestionProcess
+pattern WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN = WorkspaceImageIngestionProcess' "BYOL_GRAPHICS_G4DN"
+
 pattern WorkspaceImageIngestionProcess_BYOL_REGULAR :: WorkspaceImageIngestionProcess
 pattern WorkspaceImageIngestionProcess_BYOL_REGULAR = WorkspaceImageIngestionProcess' "BYOL_REGULAR"
 
@@ -74,6 +78,7 @@ pattern WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP = WorkspaceImageIngestio
 {-# COMPLETE
   WorkspaceImageIngestionProcess_BYOL_GRAPHICS,
   WorkspaceImageIngestionProcess_BYOL_GRAPHICSPRO,
+  WorkspaceImageIngestionProcess_BYOL_GRAPHICS_G4DN,
   WorkspaceImageIngestionProcess_BYOL_REGULAR,
   WorkspaceImageIngestionProcess_BYOL_REGULAR_WSP,
   WorkspaceImageIngestionProcess'

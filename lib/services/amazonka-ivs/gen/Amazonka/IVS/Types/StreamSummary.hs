@@ -39,10 +39,13 @@ data StreamSummary = StreamSummary'
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The stream’s state.
     state :: Prelude.Maybe StreamState,
+    -- | Unique identifier for a live or previously live stream in the specified
+    -- channel.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | The stream’s health.
     health :: Prelude.Maybe StreamHealth,
-    -- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
-    -- string.
+    -- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
+    -- this is returned as a string/.
     startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,10 +68,13 @@ data StreamSummary = StreamSummary'
 --
 -- 'state', 'streamSummary_state' - The stream’s state.
 --
+-- 'streamId', 'streamSummary_streamId' - Unique identifier for a live or previously live stream in the specified
+-- channel.
+--
 -- 'health', 'streamSummary_health' - The stream’s health.
 --
--- 'startTime', 'streamSummary_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp returned as a
--- string.
+-- 'startTime', 'streamSummary_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp; /note that
+-- this is returned as a string/.
 newStreamSummary ::
   StreamSummary
 newStreamSummary =
@@ -76,6 +82,7 @@ newStreamSummary =
     { viewerCount = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       state = Prelude.Nothing,
+      streamId = Prelude.Nothing,
       health = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
@@ -96,12 +103,17 @@ streamSummary_channelArn = Lens.lens (\StreamSummary' {channelArn} -> channelArn
 streamSummary_state :: Lens.Lens' StreamSummary (Prelude.Maybe StreamState)
 streamSummary_state = Lens.lens (\StreamSummary' {state} -> state) (\s@StreamSummary' {} a -> s {state = a} :: StreamSummary)
 
+-- | Unique identifier for a live or previously live stream in the specified
+-- channel.
+streamSummary_streamId :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
+streamSummary_streamId = Lens.lens (\StreamSummary' {streamId} -> streamId) (\s@StreamSummary' {} a -> s {streamId = a} :: StreamSummary)
+
 -- | The stream’s health.
 streamSummary_health :: Lens.Lens' StreamSummary (Prelude.Maybe StreamHealth)
 streamSummary_health = Lens.lens (\StreamSummary' {health} -> health) (\s@StreamSummary' {} a -> s {health = a} :: StreamSummary)
 
--- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
--- string.
+-- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
+-- this is returned as a string/.
 streamSummary_startTime :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.UTCTime)
 streamSummary_startTime = Lens.lens (\StreamSummary' {startTime} -> startTime) (\s@StreamSummary' {} a -> s {startTime = a} :: StreamSummary) Prelude.. Lens.mapping Core._Time
 
@@ -114,6 +126,7 @@ instance Core.FromJSON StreamSummary where
             Prelude.<$> (x Core..:? "viewerCount")
             Prelude.<*> (x Core..:? "channelArn")
             Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "health")
             Prelude.<*> (x Core..:? "startTime")
       )
@@ -123,6 +136,7 @@ instance Prelude.Hashable StreamSummary where
     _salt `Prelude.hashWithSalt` viewerCount
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` health
       `Prelude.hashWithSalt` startTime
 
@@ -131,5 +145,6 @@ instance Prelude.NFData StreamSummary where
     Prelude.rnf viewerCount
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf health
       `Prelude.seq` Prelude.rnf startTime

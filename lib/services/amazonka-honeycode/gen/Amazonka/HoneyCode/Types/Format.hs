@@ -29,6 +29,7 @@ module Amazonka.HoneyCode.Types.Format
         Format_NUMBER,
         Format_PERCENTAGE,
         Format_ROWLINK,
+        Format_ROWSET,
         Format_TEXT,
         Format_TIME
       ),
@@ -90,6 +91,9 @@ pattern Format_PERCENTAGE = Format' "PERCENTAGE"
 pattern Format_ROWLINK :: Format
 pattern Format_ROWLINK = Format' "ROWLINK"
 
+pattern Format_ROWSET :: Format
+pattern Format_ROWSET = Format' "ROWSET"
+
 pattern Format_TEXT :: Format
 pattern Format_TEXT = Format' "TEXT"
 
@@ -106,6 +110,7 @@ pattern Format_TIME = Format' "TIME"
   Format_NUMBER,
   Format_PERCENTAGE,
   Format_ROWLINK,
+  Format_ROWSET,
   Format_TEXT,
   Format_TIME,
   Format'

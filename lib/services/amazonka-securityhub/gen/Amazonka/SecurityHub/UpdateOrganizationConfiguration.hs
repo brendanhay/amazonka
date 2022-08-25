@@ -28,6 +28,7 @@ module Amazonka.SecurityHub.UpdateOrganizationConfiguration
     newUpdateOrganizationConfiguration,
 
     -- * Request Lenses
+    updateOrganizationConfiguration_autoEnableStandards,
     updateOrganizationConfiguration_autoEnable,
 
     -- * Destructuring the Response
@@ -48,7 +49,17 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newUpdateOrganizationConfiguration' smart constructor.
 data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
-  { -- | Whether to automatically enable Security Hub for new accounts in the
+  { -- | Whether to automatically enable Security Hub
+    -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html default standards>
+    -- for new member accounts in the organization.
+    --
+    -- By default, this parameter is equal to @DEFAULT@, and new member
+    -- accounts are automatically enabled with default Security Hub standards.
+    --
+    -- To opt out of enabling default standards for new member accounts, set
+    -- this parameter equal to @NONE@.
+    autoEnableStandards :: Prelude.Maybe AutoEnableStandards,
+    -- | Whether to automatically enable Security Hub for new accounts in the
     -- organization.
     --
     -- By default, this is @false@, and new accounts are not added
@@ -68,6 +79,16 @@ data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoEnableStandards', 'updateOrganizationConfiguration_autoEnableStandards' - Whether to automatically enable Security Hub
+-- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html default standards>
+-- for new member accounts in the organization.
+--
+-- By default, this parameter is equal to @DEFAULT@, and new member
+-- accounts are automatically enabled with default Security Hub standards.
+--
+-- To opt out of enabling default standards for new member accounts, set
+-- this parameter equal to @NONE@.
+--
 -- 'autoEnable', 'updateOrganizationConfiguration_autoEnable' - Whether to automatically enable Security Hub for new accounts in the
 -- organization.
 --
@@ -82,9 +103,22 @@ newUpdateOrganizationConfiguration ::
   UpdateOrganizationConfiguration
 newUpdateOrganizationConfiguration pAutoEnable_ =
   UpdateOrganizationConfiguration'
-    { autoEnable =
-        pAutoEnable_
+    { autoEnableStandards =
+        Prelude.Nothing,
+      autoEnable = pAutoEnable_
     }
+
+-- | Whether to automatically enable Security Hub
+-- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html default standards>
+-- for new member accounts in the organization.
+--
+-- By default, this parameter is equal to @DEFAULT@, and new member
+-- accounts are automatically enabled with default Security Hub standards.
+--
+-- To opt out of enabling default standards for new member accounts, set
+-- this parameter equal to @NONE@.
+updateOrganizationConfiguration_autoEnableStandards :: Lens.Lens' UpdateOrganizationConfiguration (Prelude.Maybe AutoEnableStandards)
+updateOrganizationConfiguration_autoEnableStandards = Lens.lens (\UpdateOrganizationConfiguration' {autoEnableStandards} -> autoEnableStandards) (\s@UpdateOrganizationConfiguration' {} a -> s {autoEnableStandards = a} :: UpdateOrganizationConfiguration)
 
 -- | Whether to automatically enable Security Hub for new accounts in the
 -- organization.
@@ -119,14 +153,16 @@ instance
   hashWithSalt
     _salt
     UpdateOrganizationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoEnable
+      _salt `Prelude.hashWithSalt` autoEnableStandards
+        `Prelude.hashWithSalt` autoEnable
 
 instance
   Prelude.NFData
     UpdateOrganizationConfiguration
   where
   rnf UpdateOrganizationConfiguration' {..} =
-    Prelude.rnf autoEnable
+    Prelude.rnf autoEnableStandards
+      `Prelude.seq` Prelude.rnf autoEnable
 
 instance
   Core.ToHeaders
@@ -146,7 +182,10 @@ instance Core.ToJSON UpdateOrganizationConfiguration where
   toJSON UpdateOrganizationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AutoEnable" Core..= autoEnable)]
+          [ ("AutoEnableStandards" Core..=)
+              Prelude.<$> autoEnableStandards,
+            Prelude.Just ("AutoEnable" Core..= autoEnable)
+          ]
       )
 
 instance Core.ToPath UpdateOrganizationConfiguration where

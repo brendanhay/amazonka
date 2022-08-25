@@ -49,8 +49,7 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDescribeCluster' smart constructor.
 data DescribeCluster = DescribeCluster'
-  { -- | The Amazon Resource Name (ARN) of the cluster that you\'re getting
-    -- details for.
+  { -- | The Amazon Resource Name (ARN) of the cluster.
     clusterArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +62,7 @@ data DescribeCluster = DescribeCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterArn', 'describeCluster_clusterArn' - The Amazon Resource Name (ARN) of the cluster that you\'re getting
--- details for.
+-- 'clusterArn', 'describeCluster_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
 newDescribeCluster ::
   -- | 'clusterArn'
   Prelude.Text ->
@@ -72,8 +70,7 @@ newDescribeCluster ::
 newDescribeCluster pClusterArn_ =
   DescribeCluster' {clusterArn = pClusterArn_}
 
--- | The Amazon Resource Name (ARN) of the cluster that you\'re getting
--- details for.
+-- | The Amazon Resource Name (ARN) of the cluster.
 describeCluster_clusterArn :: Lens.Lens' DescribeCluster Prelude.Text
 describeCluster_clusterArn = Lens.lens (\DescribeCluster' {clusterArn} -> clusterArn) (\s@DescribeCluster' {} a -> s {clusterArn = a} :: DescribeCluster)
 

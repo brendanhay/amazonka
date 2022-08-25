@@ -24,14 +24,16 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input face recognition parameters for an Amazon Rekognition stream
--- processor. @FaceRecognitionSettings@ is a request parameter for
--- CreateStreamProcessor.
+-- processor. Includes the collection to use for face recognition and the
+-- face attributes to detect. Defining the settings is required in the
+-- request parameter for CreateStreamProcessor.
 --
 -- /See:/ 'newFaceSearchSettings' smart constructor.
 data FaceSearchSettings = FaceSearchSettings'
   { -- | Minimum face match confidence score that must be met to return a result
-    -- for a recognized face. Default is 80. 0 is the lowest confidence. 100 is
-    -- the highest confidence.
+    -- for a recognized face. The default is 80. 0 is the lowest confidence.
+    -- 100 is the highest confidence. Values between 0 and 100 are accepted,
+    -- and values lower than 80 are set to 80.
     faceMatchThreshold :: Prelude.Maybe Prelude.Double,
     -- | The ID of a collection that contains faces that you want to search for.
     collectionId :: Prelude.Maybe Prelude.Text
@@ -47,8 +49,9 @@ data FaceSearchSettings = FaceSearchSettings'
 -- for backwards compatibility:
 --
 -- 'faceMatchThreshold', 'faceSearchSettings_faceMatchThreshold' - Minimum face match confidence score that must be met to return a result
--- for a recognized face. Default is 80. 0 is the lowest confidence. 100 is
--- the highest confidence.
+-- for a recognized face. The default is 80. 0 is the lowest confidence.
+-- 100 is the highest confidence. Values between 0 and 100 are accepted,
+-- and values lower than 80 are set to 80.
 --
 -- 'collectionId', 'faceSearchSettings_collectionId' - The ID of a collection that contains faces that you want to search for.
 newFaceSearchSettings ::
@@ -61,8 +64,9 @@ newFaceSearchSettings =
     }
 
 -- | Minimum face match confidence score that must be met to return a result
--- for a recognized face. Default is 80. 0 is the lowest confidence. 100 is
--- the highest confidence.
+-- for a recognized face. The default is 80. 0 is the lowest confidence.
+-- 100 is the highest confidence. Values between 0 and 100 are accepted,
+-- and values lower than 80 are set to 80.
 faceSearchSettings_faceMatchThreshold :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Double)
 faceSearchSettings_faceMatchThreshold = Lens.lens (\FaceSearchSettings' {faceMatchThreshold} -> faceMatchThreshold) (\s@FaceSearchSettings' {} a -> s {faceMatchThreshold = a} :: FaceSearchSettings)
 

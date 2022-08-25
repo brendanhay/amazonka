@@ -70,7 +70,7 @@ data UpdateDistribution = UpdateDistribution'
     -- distribution.
     cacheBehaviors :: Prelude.Maybe [CacheBehaviorPerPath],
     -- | An object that describes the origin resource for the distribution, such
-    -- as a Lightsail instance or load balancer.
+    -- as a Lightsail instance, bucket, or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
     origin :: Prelude.Maybe InputOrigin,
@@ -106,7 +106,7 @@ data UpdateDistribution = UpdateDistribution'
 -- distribution.
 --
 -- 'origin', 'updateDistribution_origin' - An object that describes the origin resource for the distribution, such
--- as a Lightsail instance or load balancer.
+-- as a Lightsail instance, bucket, or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
 --
@@ -150,7 +150,7 @@ updateDistribution_cacheBehaviors :: Lens.Lens' UpdateDistribution (Prelude.Mayb
 updateDistribution_cacheBehaviors = Lens.lens (\UpdateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@UpdateDistribution' {} a -> s {cacheBehaviors = a} :: UpdateDistribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that describes the origin resource for the distribution, such
--- as a Lightsail instance or load balancer.
+-- as a Lightsail instance, bucket, or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
 updateDistribution_origin :: Lens.Lens' UpdateDistribution (Prelude.Maybe InputOrigin)

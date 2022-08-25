@@ -11,17 +11,18 @@
 --
 -- Derived from API version @2020-09-18@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS IoT Core Device Advisor is a cloud-based, fully managed test
--- capability for validating IoT devices during device software
--- development. Device Advisor provides pre-built tests that you can use to
--- validate IoT devices for reliable and secure connectivity with AWS IoT
--- Core before deploying devices to production. By using Device Advisor,
--- you can confirm that your devices can connect to AWS IoT Core, follow
--- security best practices and, if applicable, receive software updates
--- from IoT Device Management. You can also download signed qualification
--- reports to submit to the AWS Partner Network to get your device
--- qualified for the AWS Partner Device Catalog without the need to send
--- your device in and wait for it to be tested.
+-- Amazon Web Services IoT Core Device Advisor is a cloud-based, fully
+-- managed test capability for validating IoT devices during device
+-- software development. Device Advisor provides pre-built tests that you
+-- can use to validate IoT devices for reliable and secure connectivity
+-- with Amazon Web Services IoT Core before deploying devices to
+-- production. By using Device Advisor, you can confirm that your devices
+-- can connect to Amazon Web Services IoT Core, follow security best
+-- practices and, if applicable, receive software updates from IoT Device
+-- Management. You can also download signed qualification reports to submit
+-- to the Amazon Web Services Partner Network to get your device qualified
+-- for the Amazon Web Services Partner Device Catalog without the need to
+-- send your device in and wait for it to be tested.
 module Amazonka.IoTDeviceAdvisor
   ( -- * Service Configuration
     defaultService,
@@ -58,6 +59,12 @@ module Amazonka.IoTDeviceAdvisor
     newDeleteSuiteDefinition,
     DeleteSuiteDefinitionResponse (DeleteSuiteDefinitionResponse'),
     newDeleteSuiteDefinitionResponse,
+
+    -- ** GetEndpoint
+    GetEndpoint (GetEndpoint'),
+    newGetEndpoint,
+    GetEndpointResponse (GetEndpointResponse'),
+    newGetEndpointResponse,
 
     -- ** GetSuiteDefinition
     GetSuiteDefinition (GetSuiteDefinition'),
@@ -127,11 +134,20 @@ module Amazonka.IoTDeviceAdvisor
 
     -- * Types
 
+    -- ** Protocol
+    Protocol (..),
+
     -- ** Status
     Status (..),
 
     -- ** SuiteRunStatus
     SuiteRunStatus (..),
+
+    -- ** TestCaseScenarioStatus
+    TestCaseScenarioStatus (..),
+
+    -- ** TestCaseScenarioType
+    TestCaseScenarioType (..),
 
     -- ** DeviceUnderTest
     DeviceUnderTest (DeviceUnderTest'),
@@ -161,6 +177,10 @@ module Amazonka.IoTDeviceAdvisor
     TestCaseRun (TestCaseRun'),
     newTestCaseRun,
 
+    -- ** TestCaseScenario
+    TestCaseScenario (TestCaseScenario'),
+    newTestCaseScenario,
+
     -- ** TestResult
     TestResult (TestResult'),
     newTestResult,
@@ -169,6 +189,7 @@ where
 
 import Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
 import Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.GetEndpoint
 import Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
 import Amazonka.IoTDeviceAdvisor.GetSuiteRun
 import Amazonka.IoTDeviceAdvisor.GetSuiteRunReport

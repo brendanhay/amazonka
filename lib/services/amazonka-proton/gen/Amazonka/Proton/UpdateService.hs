@@ -29,6 +29,13 @@
 -- Use the @description@ parameter to modify the description.
 --
 -- Edit the @spec@ parameter to add or delete instances.
+--
+-- You can\'t delete a service instance (remove it from the spec) if it has
+-- an attached component.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
 module Amazonka.Proton.UpdateService
   ( -- * Creating a Request
     UpdateService (..),
@@ -64,9 +71,9 @@ data UpdateService = UpdateService'
     -- remain. Omit the existing service instances to delete from the list.
     -- /Don\'t/ include edits to the existing service instances or pipeline.
     -- For more information, see /Edit a service/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html AWS Proton Administrator Guide>
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html Proton Administrator Guide>
     -- or the
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html AWS Proton User Guide>.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html Proton User Guide>.
     spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the service to edit.
     name :: Prelude.Text
@@ -87,9 +94,9 @@ data UpdateService = UpdateService'
 -- remain. Omit the existing service instances to delete from the list.
 -- /Don\'t/ include edits to the existing service instances or pipeline.
 -- For more information, see /Edit a service/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html AWS Proton Administrator Guide>
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html Proton Administrator Guide>
 -- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html Proton User Guide>.
 --
 -- 'name', 'updateService_name' - The name of the service to edit.
 newUpdateService ::
@@ -111,9 +118,9 @@ updateService_description = Lens.lens (\UpdateService' {description} -> descript
 -- remain. Omit the existing service instances to delete from the list.
 -- /Don\'t/ include edits to the existing service instances or pipeline.
 -- For more information, see /Edit a service/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html AWS Proton Administrator Guide>
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html Proton Administrator Guide>
 -- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html Proton User Guide>.
 updateService_spec :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
 updateService_spec = Lens.lens (\UpdateService' {spec} -> spec) (\s@UpdateService' {} a -> s {spec = a} :: UpdateService) Prelude.. Lens.mapping Core._Sensitive
 
@@ -181,7 +188,7 @@ instance Core.ToQuery UpdateService where
 data UpdateServiceResponse = UpdateServiceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service detail data that\'s returned by AWS Proton.
+    -- | The service detail data that\'s returned by Proton.
     service :: Service
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -196,7 +203,7 @@ data UpdateServiceResponse = UpdateServiceResponse'
 --
 -- 'httpStatus', 'updateServiceResponse_httpStatus' - The response's http status code.
 --
--- 'service', 'updateServiceResponse_service' - The service detail data that\'s returned by AWS Proton.
+-- 'service', 'updateServiceResponse_service' - The service detail data that\'s returned by Proton.
 newUpdateServiceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -213,7 +220,7 @@ newUpdateServiceResponse pHttpStatus_ pService_ =
 updateServiceResponse_httpStatus :: Lens.Lens' UpdateServiceResponse Prelude.Int
 updateServiceResponse_httpStatus = Lens.lens (\UpdateServiceResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceResponse' {} a -> s {httpStatus = a} :: UpdateServiceResponse)
 
--- | The service detail data that\'s returned by AWS Proton.
+-- | The service detail data that\'s returned by Proton.
 updateServiceResponse_service :: Lens.Lens' UpdateServiceResponse Service
 updateServiceResponse_service = Lens.lens (\UpdateServiceResponse' {service} -> service) (\s@UpdateServiceResponse' {} a -> s {service = a} :: UpdateServiceResponse)
 

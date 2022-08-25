@@ -55,6 +55,8 @@ library
     Amazonka.RDSData.Types.ColumnMetadata
     Amazonka.RDSData.Types.DecimalReturnType
     Amazonka.RDSData.Types.Field
+    Amazonka.RDSData.Types.LongReturnType
+    Amazonka.RDSData.Types.RecordsFormatType
     Amazonka.RDSData.Types.ResultSetOptions
     Amazonka.RDSData.Types.SqlParameter
     Amazonka.RDSData.Types.TypeHint

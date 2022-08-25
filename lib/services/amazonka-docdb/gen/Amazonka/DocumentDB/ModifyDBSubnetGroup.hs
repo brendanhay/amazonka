@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing subnet group. subnet groups must contain at least
--- one subnet in at least two Availability Zones in the Region.
+-- one subnet in at least two Availability Zones in the Amazon Web Services
+-- Region.
 module Amazonka.DocumentDB.ModifyDBSubnetGroup
   ( -- * Creating a Request
     ModifyDBSubnetGroup (..),

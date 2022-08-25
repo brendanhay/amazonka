@@ -55,8 +55,7 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDescribeRoutingControl' smart constructor.
 data DescribeRoutingControl = DescribeRoutingControl'
-  { -- | The Amazon Resource Name (ARN) of the routing control that you\'re
-    -- getting details for.
+  { -- | The Amazon Resource Name (ARN) of the routing control.
     routingControlArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +68,7 @@ data DescribeRoutingControl = DescribeRoutingControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routingControlArn', 'describeRoutingControl_routingControlArn' - The Amazon Resource Name (ARN) of the routing control that you\'re
--- getting details for.
+-- 'routingControlArn', 'describeRoutingControl_routingControlArn' - The Amazon Resource Name (ARN) of the routing control.
 newDescribeRoutingControl ::
   -- | 'routingControlArn'
   Prelude.Text ->
@@ -81,8 +79,7 @@ newDescribeRoutingControl pRoutingControlArn_ =
         pRoutingControlArn_
     }
 
--- | The Amazon Resource Name (ARN) of the routing control that you\'re
--- getting details for.
+-- | The Amazon Resource Name (ARN) of the routing control.
 describeRoutingControl_routingControlArn :: Lens.Lens' DescribeRoutingControl Prelude.Text
 describeRoutingControl_routingControlArn = Lens.lens (\DescribeRoutingControl' {routingControlArn} -> routingControlArn) (\s@DescribeRoutingControl' {} a -> s {routingControlArn = a} :: DescribeRoutingControl)
 

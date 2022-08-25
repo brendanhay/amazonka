@@ -28,10 +28,10 @@ module Amazonka.Nimble.UpdateLaunchProfileMember
 
     -- * Request Lenses
     updateLaunchProfileMember_clientToken,
-    updateLaunchProfileMember_studioId,
+    updateLaunchProfileMember_launchProfileId,
     updateLaunchProfileMember_persona,
     updateLaunchProfileMember_principalId,
-    updateLaunchProfileMember_launchProfileId,
+    updateLaunchProfileMember_studioId,
 
     -- * Destructuring the Response
     UpdateLaunchProfileMemberResponse (..),
@@ -50,27 +50,22 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The principal ID.
---
--- /See:/ 'newUpdateLaunchProfileMember' smart constructor.
+-- | /See:/ 'newUpdateLaunchProfileMember' smart constructor.
 data UpdateLaunchProfileMember = UpdateLaunchProfileMember'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The studio ID.
-    studioId :: Prelude.Text,
+    -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
     -- | The persona.
     persona :: LaunchProfilePersona,
-    -- | The principal ID.
+    -- | The principal ID. This currently supports a Amazon Web Services SSO
+    -- UserId.
     principalId :: Prelude.Text,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,72 +77,66 @@ data UpdateLaunchProfileMember = UpdateLaunchProfileMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateLaunchProfileMember_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'updateLaunchProfileMember_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
--- 'studioId', 'updateLaunchProfileMember_studioId' - The studio ID.
+-- 'launchProfileId', 'updateLaunchProfileMember_launchProfileId' - The Launch Profile ID.
 --
 -- 'persona', 'updateLaunchProfileMember_persona' - The persona.
 --
--- 'principalId', 'updateLaunchProfileMember_principalId' - The principal ID.
+-- 'principalId', 'updateLaunchProfileMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
 --
--- 'launchProfileId', 'updateLaunchProfileMember_launchProfileId' - The launch profile ID.
+-- 'studioId', 'updateLaunchProfileMember_studioId' - The studio ID.
 newUpdateLaunchProfileMember ::
-  -- | 'studioId'
+  -- | 'launchProfileId'
   Prelude.Text ->
   -- | 'persona'
   LaunchProfilePersona ->
   -- | 'principalId'
   Prelude.Text ->
-  -- | 'launchProfileId'
+  -- | 'studioId'
   Prelude.Text ->
   UpdateLaunchProfileMember
 newUpdateLaunchProfileMember
-  pStudioId_
+  pLaunchProfileId_
   pPersona_
   pPrincipalId_
-  pLaunchProfileId_ =
+  pStudioId_ =
     UpdateLaunchProfileMember'
       { clientToken =
           Prelude.Nothing,
-        studioId = pStudioId_,
+        launchProfileId = pLaunchProfileId_,
         persona = pPersona_,
         principalId = pPrincipalId_,
-        launchProfileId = pLaunchProfileId_
+        studioId = pStudioId_
       }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 updateLaunchProfileMember_clientToken :: Lens.Lens' UpdateLaunchProfileMember (Prelude.Maybe Prelude.Text)
 updateLaunchProfileMember_clientToken = Lens.lens (\UpdateLaunchProfileMember' {clientToken} -> clientToken) (\s@UpdateLaunchProfileMember' {} a -> s {clientToken = a} :: UpdateLaunchProfileMember)
 
--- | The studio ID.
-updateLaunchProfileMember_studioId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
-updateLaunchProfileMember_studioId = Lens.lens (\UpdateLaunchProfileMember' {studioId} -> studioId) (\s@UpdateLaunchProfileMember' {} a -> s {studioId = a} :: UpdateLaunchProfileMember)
+-- | The Launch Profile ID.
+updateLaunchProfileMember_launchProfileId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
+updateLaunchProfileMember_launchProfileId = Lens.lens (\UpdateLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@UpdateLaunchProfileMember' {} a -> s {launchProfileId = a} :: UpdateLaunchProfileMember)
 
 -- | The persona.
 updateLaunchProfileMember_persona :: Lens.Lens' UpdateLaunchProfileMember LaunchProfilePersona
 updateLaunchProfileMember_persona = Lens.lens (\UpdateLaunchProfileMember' {persona} -> persona) (\s@UpdateLaunchProfileMember' {} a -> s {persona = a} :: UpdateLaunchProfileMember)
 
--- | The principal ID.
+-- | The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
 updateLaunchProfileMember_principalId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
 updateLaunchProfileMember_principalId = Lens.lens (\UpdateLaunchProfileMember' {principalId} -> principalId) (\s@UpdateLaunchProfileMember' {} a -> s {principalId = a} :: UpdateLaunchProfileMember)
 
--- | The launch profile ID.
-updateLaunchProfileMember_launchProfileId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
-updateLaunchProfileMember_launchProfileId = Lens.lens (\UpdateLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@UpdateLaunchProfileMember' {} a -> s {launchProfileId = a} :: UpdateLaunchProfileMember)
+-- | The studio ID.
+updateLaunchProfileMember_studioId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
+updateLaunchProfileMember_studioId = Lens.lens (\UpdateLaunchProfileMember' {studioId} -> studioId) (\s@UpdateLaunchProfileMember' {} a -> s {studioId = a} :: UpdateLaunchProfileMember)
 
 instance Core.AWSRequest UpdateLaunchProfileMember where
   type
@@ -165,18 +154,18 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
 instance Prelude.Hashable UpdateLaunchProfileMember where
   hashWithSalt _salt UpdateLaunchProfileMember' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateLaunchProfileMember where
   rnf UpdateLaunchProfileMember' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf persona
       `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders UpdateLaunchProfileMember where
   toHeaders UpdateLaunchProfileMember' {..} =
@@ -209,7 +198,7 @@ instance Core.ToQuery UpdateLaunchProfileMember where
 
 -- | /See:/ 'newUpdateLaunchProfileMemberResponse' smart constructor.
 data UpdateLaunchProfileMemberResponse = UpdateLaunchProfileMemberResponse'
-  { -- | The member.
+  { -- | The updated member.
     member :: Prelude.Maybe LaunchProfileMembership,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -224,7 +213,7 @@ data UpdateLaunchProfileMemberResponse = UpdateLaunchProfileMemberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'member', 'updateLaunchProfileMemberResponse_member' - The member.
+-- 'member', 'updateLaunchProfileMemberResponse_member' - The updated member.
 --
 -- 'httpStatus', 'updateLaunchProfileMemberResponse_httpStatus' - The response's http status code.
 newUpdateLaunchProfileMemberResponse ::
@@ -238,7 +227,7 @@ newUpdateLaunchProfileMemberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The member.
+-- | The updated member.
 updateLaunchProfileMemberResponse_member :: Lens.Lens' UpdateLaunchProfileMemberResponse (Prelude.Maybe LaunchProfileMembership)
 updateLaunchProfileMemberResponse_member = Lens.lens (\UpdateLaunchProfileMemberResponse' {member} -> member) (\s@UpdateLaunchProfileMemberResponse' {} a -> s {member = a} :: UpdateLaunchProfileMemberResponse)
 

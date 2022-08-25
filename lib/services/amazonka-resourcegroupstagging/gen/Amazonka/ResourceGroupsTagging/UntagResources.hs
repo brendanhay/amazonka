@@ -30,8 +30,20 @@
 --     for removing tags. For more information, see the documentation for
 --     the service whose resource you want to untag.
 --
--- -   You can only tag resources that are located in the specified AWS
---     Region for the calling AWS account.
+-- -   You can only tag resources that are located in the specified Amazon
+--     Web Services Region for the calling Amazon Web Services account.
+--
+-- __Minimum permissions__
+--
+-- In addition to the @tag:UntagResources@ permission required by this
+-- operation, you must also have the remove tags permission defined by the
+-- service that created the resource. For example, to remove the tags from
+-- an Amazon EC2 instance using the @UntagResources@ operation, you must
+-- have both of the following permissions:
+--
+-- -   @tag:UntagResource@
+--
+-- -   @ec2:DeleteTags@
 module Amazonka.ResourceGroupsTagging.UntagResources
   ( -- * Creating a Request
     UntagResources (..),
@@ -65,8 +77,8 @@ data UntagResources = UntagResources'
     --
     -- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
     -- information, see
-    -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+    -- in the /Amazon Web Services General Reference/.
     resourceARNList :: Prelude.NonEmpty Prelude.Text,
     -- | Specifies a list of tag keys that you want to remove from the specified
     -- resources.
@@ -87,8 +99,8 @@ data UntagResources = UntagResources'
 --
 -- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
 -- information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'tagKeys', 'untagResources_tagKeys' - Specifies a list of tag keys that you want to remove from the specified
 -- resources.
@@ -110,8 +122,8 @@ newUntagResources pResourceARNList_ pTagKeys_ =
 --
 -- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
 -- information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the /Amazon Web Services General Reference/.
 untagResources_resourceARNList :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
 untagResources_resourceARNList = Lens.lens (\UntagResources' {resourceARNList} -> resourceARNList) (\s@UntagResources' {} a -> s {resourceARNList = a} :: UntagResources) Prelude.. Lens.coerced
 

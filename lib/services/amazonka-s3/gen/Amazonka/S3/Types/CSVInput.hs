@@ -49,8 +49,8 @@ data CSVInput = CSVInput'
     -- character to indicate a comment line.
     comments :: Prelude.Maybe Prelude.Text,
     -- | A single character used for escaping the quotation mark character inside
-    -- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
-    -- parsed as \" a , b \".
+    -- an already escaped value. For example, the value @\"\"\" a , b \"\"\"@
+    -- is parsed as @\" a , b \"@.
     quoteEscapeCharacter :: Prelude.Maybe Prelude.Text,
     -- | A single character used to separate individual fields in a record. You
     -- can specify an arbitrary delimiter.
@@ -100,8 +100,8 @@ data CSVInput = CSVInput'
 -- character to indicate a comment line.
 --
 -- 'quoteEscapeCharacter', 'cSVInput_quoteEscapeCharacter' - A single character used for escaping the quotation mark character inside
--- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
--- parsed as \" a , b \".
+-- an already escaped value. For example, the value @\"\"\" a , b \"\"\"@
+-- is parsed as @\" a , b \"@.
 --
 -- 'fieldDelimiter', 'cSVInput_fieldDelimiter' - A single character used to separate individual fields in a record. You
 -- can specify an arbitrary delimiter.
@@ -158,8 +158,8 @@ cSVInput_comments :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
 cSVInput_comments = Lens.lens (\CSVInput' {comments} -> comments) (\s@CSVInput' {} a -> s {comments = a} :: CSVInput)
 
 -- | A single character used for escaping the quotation mark character inside
--- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
--- parsed as \" a , b \".
+-- an already escaped value. For example, the value @\"\"\" a , b \"\"\"@
+-- is parsed as @\" a , b \"@.
 cSVInput_quoteEscapeCharacter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
 cSVInput_quoteEscapeCharacter = Lens.lens (\CSVInput' {quoteEscapeCharacter} -> quoteEscapeCharacter) (\s@CSVInput' {} a -> s {quoteEscapeCharacter = a} :: CSVInput)
 

@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The ARN of the resource to be retrieved.
+  { -- | The ARN of the resource to be retrieved. The ARN must be URL-encoded.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The ARN of the resource to be retrieved.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The ARN of the resource to be retrieved. The ARN must be URL-encoded.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -69,7 +69,7 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The ARN of the resource to be retrieved.
+-- | The ARN of the resource to be retrieved. The ARN must be URL-encoded.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

@@ -25,13 +25,14 @@
 -- You can use a control panel to centrally view the operational status of
 -- applications across your organization, and trigger multi-app failovers
 -- in a single transaction, for example, to fail over an Availability Zone
--- or AWS Region.
+-- or Amazon Web Services Region.
 module Amazonka.Route53RecoveryControlConfig.CreateControlPanel
   ( -- * Creating a Request
     CreateControlPanel (..),
     newCreateControlPanel,
 
     -- * Request Lenses
+    createControlPanel_tags,
     createControlPanel_clientToken,
     createControlPanel_clusterArn,
     createControlPanel_controlPanelName,
@@ -57,7 +58,11 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newCreateControlPanel' smart constructor.
 data CreateControlPanel = CreateControlPanel'
-  { -- | Unique client idempotency token.
+  { -- | The tags associated with the control panel.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
+    -- idempotent API request with an action, specify a client token in the
+    -- request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the cluster for the control panel.
     clusterArn :: Prelude.Text,
@@ -74,7 +79,11 @@ data CreateControlPanel = CreateControlPanel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createControlPanel_clientToken' - Unique client idempotency token.
+-- 'tags', 'createControlPanel_tags' - The tags associated with the control panel.
+--
+-- 'clientToken', 'createControlPanel_clientToken' - A unique, case-sensitive string of up to 64 ASCII characters. To make an
+-- idempotent API request with an action, specify a client token in the
+-- request.
 --
 -- 'clusterArn', 'createControlPanel_clusterArn' - The Amazon Resource Name (ARN) of the cluster for the control panel.
 --
@@ -87,12 +96,19 @@ newCreateControlPanel ::
   CreateControlPanel
 newCreateControlPanel pClusterArn_ pControlPanelName_ =
   CreateControlPanel'
-    { clientToken = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       clusterArn = pClusterArn_,
       controlPanelName = pControlPanelName_
     }
 
--- | Unique client idempotency token.
+-- | The tags associated with the control panel.
+createControlPanel_tags :: Lens.Lens' CreateControlPanel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createControlPanel_tags = Lens.lens (\CreateControlPanel' {tags} -> tags) (\s@CreateControlPanel' {} a -> s {tags = a} :: CreateControlPanel) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
+-- idempotent API request with an action, specify a client token in the
+-- request.
 createControlPanel_clientToken :: Lens.Lens' CreateControlPanel (Prelude.Maybe Prelude.Text)
 createControlPanel_clientToken = Lens.lens (\CreateControlPanel' {clientToken} -> clientToken) (\s@CreateControlPanel' {} a -> s {clientToken = a} :: CreateControlPanel)
 
@@ -119,13 +135,15 @@ instance Core.AWSRequest CreateControlPanel where
 
 instance Prelude.Hashable CreateControlPanel where
   hashWithSalt _salt CreateControlPanel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` controlPanelName
 
 instance Prelude.NFData CreateControlPanel where
   rnf CreateControlPanel' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf controlPanelName
 
@@ -144,7 +162,8 @@ instance Core.ToJSON CreateControlPanel where
   toJSON CreateControlPanel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("ClusterArn" Core..= clusterArn),
             Prelude.Just
               ("ControlPanelName" Core..= controlPanelName)

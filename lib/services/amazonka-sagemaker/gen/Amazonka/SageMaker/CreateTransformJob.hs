@@ -36,7 +36,8 @@
 -- -   @ModelName@ - Identifies the model to use. @ModelName@ must be the
 --     name of an existing Amazon SageMaker model in the same Amazon Web
 --     Services Region and Amazon Web Services account. For information on
---     creating a model, see CreateModel.
+--     creating a model, see
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html CreateModel>.
 --
 -- -   @TransformInput@ - Describes the dataset to be transformed and the
 --     Amazon S3 location where it is stored.
@@ -116,6 +117,10 @@ data CreateTransformJob = CreateTransformJob'
     -- the number of records. To ensure that the records fit within the maximum
     -- payload size, we recommend using a slightly larger value. The default
     -- value is @6@ MB.
+    --
+    -- The value of @MaxPayloadInMB@ cannot be greater than 100 MB. If you
+    -- specify the @MaxConcurrentTransforms@ parameter, the value of
+    -- @(MaxConcurrentTransforms * MaxPayloadInMB)@ also cannot exceed 100 MB.
     --
     -- For cases where the payload might be arbitrarily large and is
     -- transmitted using HTTP chunked encoding, set the value to @0@. This
@@ -201,6 +206,10 @@ data CreateTransformJob = CreateTransformJob'
 -- the number of records. To ensure that the records fit within the maximum
 -- payload size, we recommend using a slightly larger value. The default
 -- value is @6@ MB.
+--
+-- The value of @MaxPayloadInMB@ cannot be greater than 100 MB. If you
+-- specify the @MaxConcurrentTransforms@ parameter, the value of
+-- @(MaxConcurrentTransforms * MaxPayloadInMB)@ also cannot exceed 100 MB.
 --
 -- For cases where the payload might be arbitrarily large and is
 -- transmitted using HTTP chunked encoding, set the value to @0@. This
@@ -318,6 +327,10 @@ createTransformJob_experimentConfig = Lens.lens (\CreateTransformJob' {experimen
 -- the number of records. To ensure that the records fit within the maximum
 -- payload size, we recommend using a slightly larger value. The default
 -- value is @6@ MB.
+--
+-- The value of @MaxPayloadInMB@ cannot be greater than 100 MB. If you
+-- specify the @MaxConcurrentTransforms@ parameter, the value of
+-- @(MaxConcurrentTransforms * MaxPayloadInMB)@ also cannot exceed 100 MB.
 --
 -- For cases where the payload might be arbitrarily large and is
 -- transmitted using HTTP chunked encoding, set the value to @0@. This

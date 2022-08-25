@@ -58,8 +58,8 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newTerminateProvisionedProduct' smart constructor.
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
-  { -- | If set to true, AWS Service Catalog stops managing the specified
-    -- provisioned product even if it cannot delete the underlying resources.
+  { -- | If set to true, Service Catalog stops managing the specified provisioned
+    -- product even if it cannot delete the underlying resources.
     ignoreErrors :: Prelude.Maybe Prelude.Bool,
     -- | The name of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
@@ -97,8 +97,8 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ignoreErrors', 'terminateProvisionedProduct_ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified
--- provisioned product even if it cannot delete the underlying resources.
+-- 'ignoreErrors', 'terminateProvisionedProduct_ignoreErrors' - If set to true, Service Catalog stops managing the specified provisioned
+-- product even if it cannot delete the underlying resources.
 --
 -- 'provisionedProductName', 'terminateProvisionedProduct_provisionedProductName' - The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
@@ -139,8 +139,8 @@ newTerminateProvisionedProduct pTerminateToken_ =
       terminateToken = pTerminateToken_
     }
 
--- | If set to true, AWS Service Catalog stops managing the specified
--- provisioned product even if it cannot delete the underlying resources.
+-- | If set to true, Service Catalog stops managing the specified provisioned
+-- product even if it cannot delete the underlying resources.
 terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
 terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProduct' {ignoreErrors} -> ignoreErrors) (\s@TerminateProvisionedProduct' {} a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
 

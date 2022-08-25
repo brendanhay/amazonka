@@ -25,7 +25,11 @@ import Amazonka.DLM.Types.EncryptionConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a rule for copying shared snapshots across Regions.
+-- | __[Event-based policies only]__ Specifies a cross-Region copy action for
+-- event-based policies.
+--
+-- To specify a cross-Region copy rule for snapshot and AMI policies, use
+-- CrossRegionCopyRule.
 --
 -- /See:/ 'newCrossRegionCopyAction' smart constructor.
 data CrossRegionCopyAction = CrossRegionCopyAction'

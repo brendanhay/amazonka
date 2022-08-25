@@ -43,6 +43,7 @@ module Amazonka.SageMaker.DescribeCompilationJob
     describeCompilationJobResponse_vpcConfig,
     describeCompilationJobResponse_modelDigests,
     describeCompilationJobResponse_compilationStartTime,
+    describeCompilationJobResponse_modelPackageVersionArn,
     describeCompilationJobResponse_httpStatus,
     describeCompilationJobResponse_compilationJobName,
     describeCompilationJobResponse_compilationJobArn,
@@ -109,6 +110,7 @@ instance Core.AWSRequest DescribeCompilationJob where
             Prelude.<*> (x Core..?> "VpcConfig")
             Prelude.<*> (x Core..?> "ModelDigests")
             Prelude.<*> (x Core..?> "CompilationStartTime")
+            Prelude.<*> (x Core..?> "ModelPackageVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CompilationJobName")
             Prelude.<*> (x Core..:> "CompilationJobArn")
@@ -188,6 +190,9 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- because it takes time to download the compilation job, which depends on
     -- the size of the compilation job container.
     compilationStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the versioned model package that was
+    -- provided to SageMaker Neo when you initiated a compilation job.
+    modelPackageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the model compilation job.
@@ -254,6 +259,9 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
 -- CloudWatch Logs, the start time might be later than this time. That\'s
 -- because it takes time to download the compilation job, which depends on
 -- the size of the compilation job container.
+--
+-- 'modelPackageVersionArn', 'describeCompilationJobResponse_modelPackageVersionArn' - The Amazon Resource Name (ARN) of the versioned model package that was
+-- provided to SageMaker Neo when you initiated a compilation job.
 --
 -- 'httpStatus', 'describeCompilationJobResponse_httpStatus' - The response's http status code.
 --
@@ -331,6 +339,7 @@ newDescribeCompilationJobResponse
         vpcConfig = Prelude.Nothing,
         modelDigests = Prelude.Nothing,
         compilationStartTime = Prelude.Nothing,
+        modelPackageVersionArn = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         compilationJobName = pCompilationJobName_,
         compilationJobArn = pCompilationJobArn_,
@@ -382,6 +391,11 @@ describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJob
 -- the size of the compilation job container.
 describeCompilationJobResponse_compilationStartTime :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeCompilationJobResponse_compilationStartTime = Lens.lens (\DescribeCompilationJobResponse' {compilationStartTime} -> compilationStartTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationStartTime = a} :: DescribeCompilationJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the versioned model package that was
+-- provided to SageMaker Neo when you initiated a compilation job.
+describeCompilationJobResponse_modelPackageVersionArn :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.Text)
+describeCompilationJobResponse_modelPackageVersionArn = Lens.lens (\DescribeCompilationJobResponse' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@DescribeCompilationJobResponse' {} a -> s {modelPackageVersionArn = a} :: DescribeCompilationJobResponse)
 
 -- | The response's http status code.
 describeCompilationJobResponse_httpStatus :: Lens.Lens' DescribeCompilationJobResponse Prelude.Int
@@ -448,6 +462,7 @@ instance
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf modelDigests
       `Prelude.seq` Prelude.rnf compilationStartTime
+      `Prelude.seq` Prelude.rnf modelPackageVersionArn
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf compilationJobName
       `Prelude.seq` Prelude.rnf compilationJobArn

@@ -38,14 +38,15 @@ data GatewayRouteRef = GatewayRouteRef'
     lastUpdatedAt :: Core.POSIX,
     -- | The name of the service mesh that the resource resides in.
     meshName :: Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Text,
-    -- | The AWS IAM account ID of the resource owner. If the account ID is not
-    -- your own, then it\'s the ID of the mesh owner or of another account that
-    -- the mesh is shared with. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the resource owner. If the
+    -- account ID is not your own, then it\'s the ID of the mesh owner or of
+    -- another account that the mesh is shared with. For more information about
+    -- mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     resourceOwner :: Prelude.Text,
     -- | The version of the resource. Resources are created at version 1, and
@@ -75,14 +76,15 @@ data GatewayRouteRef = GatewayRouteRef'
 --
 -- 'meshName', 'gatewayRouteRef_meshName' - The name of the service mesh that the resource resides in.
 --
--- 'meshOwner', 'gatewayRouteRef_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'gatewayRouteRef_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
--- 'resourceOwner', 'gatewayRouteRef_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- 'resourceOwner', 'gatewayRouteRef_resourceOwner' - The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'version', 'gatewayRouteRef_version' - The version of the resource. Resources are created at version 1, and
@@ -152,16 +154,17 @@ gatewayRouteRef_lastUpdatedAt = Lens.lens (\GatewayRouteRef' {lastUpdatedAt} -> 
 gatewayRouteRef_meshName :: Lens.Lens' GatewayRouteRef Prelude.Text
 gatewayRouteRef_meshName = Lens.lens (\GatewayRouteRef' {meshName} -> meshName) (\s@GatewayRouteRef' {} a -> s {meshName = a} :: GatewayRouteRef)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 gatewayRouteRef_meshOwner :: Lens.Lens' GatewayRouteRef Prelude.Text
 gatewayRouteRef_meshOwner = Lens.lens (\GatewayRouteRef' {meshOwner} -> meshOwner) (\s@GatewayRouteRef' {} a -> s {meshOwner = a} :: GatewayRouteRef)
 
--- | The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 gatewayRouteRef_resourceOwner :: Lens.Lens' GatewayRouteRef Prelude.Text
 gatewayRouteRef_resourceOwner = Lens.lens (\GatewayRouteRef' {resourceOwner} -> resourceOwner) (\s@GatewayRouteRef' {} a -> s {resourceOwner = a} :: GatewayRouteRef)

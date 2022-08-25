@@ -27,13 +27,21 @@ module Amazonka.Comprehend.Types.PiiEntityType
         PiiEntityType_AWS_SECRET_KEY,
         PiiEntityType_BANK_ACCOUNT_NUMBER,
         PiiEntityType_BANK_ROUTING,
+        PiiEntityType_CA_HEALTH_NUMBER,
+        PiiEntityType_CA_SOCIAL_INSURANCE_NUMBER,
         PiiEntityType_CREDIT_DEBIT_CVV,
         PiiEntityType_CREDIT_DEBIT_EXPIRY,
         PiiEntityType_CREDIT_DEBIT_NUMBER,
         PiiEntityType_DATE_TIME,
         PiiEntityType_DRIVER_ID,
         PiiEntityType_EMAIL,
+        PiiEntityType_INTERNATIONAL_BANK_ACCOUNT_NUMBER,
+        PiiEntityType_IN_AADHAAR,
+        PiiEntityType_IN_NREGA,
+        PiiEntityType_IN_PERMANENT_ACCOUNT_NUMBER,
+        PiiEntityType_IN_VOTER_NUMBER,
         PiiEntityType_IP_ADDRESS,
+        PiiEntityType_LICENSE_PLATE,
         PiiEntityType_MAC_ADDRESS,
         PiiEntityType_NAME,
         PiiEntityType_PASSPORT_NUMBER,
@@ -41,8 +49,14 @@ module Amazonka.Comprehend.Types.PiiEntityType
         PiiEntityType_PHONE,
         PiiEntityType_PIN,
         PiiEntityType_SSN,
+        PiiEntityType_SWIFT_CODE,
+        PiiEntityType_UK_NATIONAL_HEALTH_SERVICE_NUMBER,
+        PiiEntityType_UK_NATIONAL_INSURANCE_NUMBER,
+        PiiEntityType_UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER,
         PiiEntityType_URL,
-        PiiEntityType_USERNAME
+        PiiEntityType_USERNAME,
+        PiiEntityType_US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER,
+        PiiEntityType_VEHICLE_IDENTIFICATION_NUMBER
       ),
   )
 where
@@ -99,6 +113,12 @@ pattern PiiEntityType_BANK_ACCOUNT_NUMBER = PiiEntityType' "BANK_ACCOUNT_NUMBER"
 pattern PiiEntityType_BANK_ROUTING :: PiiEntityType
 pattern PiiEntityType_BANK_ROUTING = PiiEntityType' "BANK_ROUTING"
 
+pattern PiiEntityType_CA_HEALTH_NUMBER :: PiiEntityType
+pattern PiiEntityType_CA_HEALTH_NUMBER = PiiEntityType' "CA_HEALTH_NUMBER"
+
+pattern PiiEntityType_CA_SOCIAL_INSURANCE_NUMBER :: PiiEntityType
+pattern PiiEntityType_CA_SOCIAL_INSURANCE_NUMBER = PiiEntityType' "CA_SOCIAL_INSURANCE_NUMBER"
+
 pattern PiiEntityType_CREDIT_DEBIT_CVV :: PiiEntityType
 pattern PiiEntityType_CREDIT_DEBIT_CVV = PiiEntityType' "CREDIT_DEBIT_CVV"
 
@@ -117,8 +137,26 @@ pattern PiiEntityType_DRIVER_ID = PiiEntityType' "DRIVER_ID"
 pattern PiiEntityType_EMAIL :: PiiEntityType
 pattern PiiEntityType_EMAIL = PiiEntityType' "EMAIL"
 
+pattern PiiEntityType_INTERNATIONAL_BANK_ACCOUNT_NUMBER :: PiiEntityType
+pattern PiiEntityType_INTERNATIONAL_BANK_ACCOUNT_NUMBER = PiiEntityType' "INTERNATIONAL_BANK_ACCOUNT_NUMBER"
+
+pattern PiiEntityType_IN_AADHAAR :: PiiEntityType
+pattern PiiEntityType_IN_AADHAAR = PiiEntityType' "IN_AADHAAR"
+
+pattern PiiEntityType_IN_NREGA :: PiiEntityType
+pattern PiiEntityType_IN_NREGA = PiiEntityType' "IN_NREGA"
+
+pattern PiiEntityType_IN_PERMANENT_ACCOUNT_NUMBER :: PiiEntityType
+pattern PiiEntityType_IN_PERMANENT_ACCOUNT_NUMBER = PiiEntityType' "IN_PERMANENT_ACCOUNT_NUMBER"
+
+pattern PiiEntityType_IN_VOTER_NUMBER :: PiiEntityType
+pattern PiiEntityType_IN_VOTER_NUMBER = PiiEntityType' "IN_VOTER_NUMBER"
+
 pattern PiiEntityType_IP_ADDRESS :: PiiEntityType
 pattern PiiEntityType_IP_ADDRESS = PiiEntityType' "IP_ADDRESS"
+
+pattern PiiEntityType_LICENSE_PLATE :: PiiEntityType
+pattern PiiEntityType_LICENSE_PLATE = PiiEntityType' "LICENSE_PLATE"
 
 pattern PiiEntityType_MAC_ADDRESS :: PiiEntityType
 pattern PiiEntityType_MAC_ADDRESS = PiiEntityType' "MAC_ADDRESS"
@@ -141,11 +179,29 @@ pattern PiiEntityType_PIN = PiiEntityType' "PIN"
 pattern PiiEntityType_SSN :: PiiEntityType
 pattern PiiEntityType_SSN = PiiEntityType' "SSN"
 
+pattern PiiEntityType_SWIFT_CODE :: PiiEntityType
+pattern PiiEntityType_SWIFT_CODE = PiiEntityType' "SWIFT_CODE"
+
+pattern PiiEntityType_UK_NATIONAL_HEALTH_SERVICE_NUMBER :: PiiEntityType
+pattern PiiEntityType_UK_NATIONAL_HEALTH_SERVICE_NUMBER = PiiEntityType' "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
+
+pattern PiiEntityType_UK_NATIONAL_INSURANCE_NUMBER :: PiiEntityType
+pattern PiiEntityType_UK_NATIONAL_INSURANCE_NUMBER = PiiEntityType' "UK_NATIONAL_INSURANCE_NUMBER"
+
+pattern PiiEntityType_UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER :: PiiEntityType
+pattern PiiEntityType_UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER = PiiEntityType' "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"
+
 pattern PiiEntityType_URL :: PiiEntityType
 pattern PiiEntityType_URL = PiiEntityType' "URL"
 
 pattern PiiEntityType_USERNAME :: PiiEntityType
 pattern PiiEntityType_USERNAME = PiiEntityType' "USERNAME"
+
+pattern PiiEntityType_US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER :: PiiEntityType
+pattern PiiEntityType_US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER = PiiEntityType' "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
+
+pattern PiiEntityType_VEHICLE_IDENTIFICATION_NUMBER :: PiiEntityType
+pattern PiiEntityType_VEHICLE_IDENTIFICATION_NUMBER = PiiEntityType' "VEHICLE_IDENTIFICATION_NUMBER"
 
 {-# COMPLETE
   PiiEntityType_ADDRESS,
@@ -155,13 +211,21 @@ pattern PiiEntityType_USERNAME = PiiEntityType' "USERNAME"
   PiiEntityType_AWS_SECRET_KEY,
   PiiEntityType_BANK_ACCOUNT_NUMBER,
   PiiEntityType_BANK_ROUTING,
+  PiiEntityType_CA_HEALTH_NUMBER,
+  PiiEntityType_CA_SOCIAL_INSURANCE_NUMBER,
   PiiEntityType_CREDIT_DEBIT_CVV,
   PiiEntityType_CREDIT_DEBIT_EXPIRY,
   PiiEntityType_CREDIT_DEBIT_NUMBER,
   PiiEntityType_DATE_TIME,
   PiiEntityType_DRIVER_ID,
   PiiEntityType_EMAIL,
+  PiiEntityType_INTERNATIONAL_BANK_ACCOUNT_NUMBER,
+  PiiEntityType_IN_AADHAAR,
+  PiiEntityType_IN_NREGA,
+  PiiEntityType_IN_PERMANENT_ACCOUNT_NUMBER,
+  PiiEntityType_IN_VOTER_NUMBER,
   PiiEntityType_IP_ADDRESS,
+  PiiEntityType_LICENSE_PLATE,
   PiiEntityType_MAC_ADDRESS,
   PiiEntityType_NAME,
   PiiEntityType_PASSPORT_NUMBER,
@@ -169,7 +233,13 @@ pattern PiiEntityType_USERNAME = PiiEntityType' "USERNAME"
   PiiEntityType_PHONE,
   PiiEntityType_PIN,
   PiiEntityType_SSN,
+  PiiEntityType_SWIFT_CODE,
+  PiiEntityType_UK_NATIONAL_HEALTH_SERVICE_NUMBER,
+  PiiEntityType_UK_NATIONAL_INSURANCE_NUMBER,
+  PiiEntityType_UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER,
   PiiEntityType_URL,
   PiiEntityType_USERNAME,
+  PiiEntityType_US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER,
+  PiiEntityType_VEHICLE_IDENTIFICATION_NUMBER,
   PiiEntityType'
   #-}

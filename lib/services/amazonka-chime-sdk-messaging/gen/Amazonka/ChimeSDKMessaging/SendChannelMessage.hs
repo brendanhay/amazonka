@@ -36,6 +36,9 @@ module Amazonka.ChimeSDKMessaging.SendChannelMessage
 
     -- * Request Lenses
     sendChannelMessage_metadata,
+    sendChannelMessage_subChannelId,
+    sendChannelMessage_messageAttributes,
+    sendChannelMessage_pushNotification,
     sendChannelMessage_channelArn,
     sendChannelMessage_content,
     sendChannelMessage_type,
@@ -48,6 +51,7 @@ module Amazonka.ChimeSDKMessaging.SendChannelMessage
     newSendChannelMessageResponse,
 
     -- * Response Lenses
+    sendChannelMessageResponse_subChannelId,
     sendChannelMessageResponse_channelArn,
     sendChannelMessageResponse_messageId,
     sendChannelMessageResponse_status,
@@ -66,6 +70,13 @@ import qualified Amazonka.Response as Response
 data SendChannelMessage = SendChannelMessage'
   { -- | The optional metadata for each message.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the SubChannel in the request.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The attributes for the message, used for message filtering along with a
+    -- @FilterRule@ defined in the @PushNotificationPreferences@.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | The push notification configuration of the message.
+    pushNotification :: Prelude.Maybe PushNotificationConfiguration,
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The content of the message.
@@ -91,6 +102,13 @@ data SendChannelMessage = SendChannelMessage'
 -- for backwards compatibility:
 --
 -- 'metadata', 'sendChannelMessage_metadata' - The optional metadata for each message.
+--
+-- 'subChannelId', 'sendChannelMessage_subChannelId' - The ID of the SubChannel in the request.
+--
+-- 'messageAttributes', 'sendChannelMessage_messageAttributes' - The attributes for the message, used for message filtering along with a
+-- @FilterRule@ defined in the @PushNotificationPreferences@.
+--
+-- 'pushNotification', 'sendChannelMessage_pushNotification' - The push notification configuration of the message.
 --
 -- 'channelArn', 'sendChannelMessage_channelArn' - The ARN of the channel.
 --
@@ -127,6 +145,9 @@ newSendChannelMessage
   pChimeBearer_ =
     SendChannelMessage'
       { metadata = Prelude.Nothing,
+        subChannelId = Prelude.Nothing,
+        messageAttributes = Prelude.Nothing,
+        pushNotification = Prelude.Nothing,
         channelArn = pChannelArn_,
         content = Core._Sensitive Lens.# pContent_,
         type' = pType_,
@@ -139,6 +160,19 @@ newSendChannelMessage
 -- | The optional metadata for each message.
 sendChannelMessage_metadata :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
 sendChannelMessage_metadata = Lens.lens (\SendChannelMessage' {metadata} -> metadata) (\s@SendChannelMessage' {} a -> s {metadata = a} :: SendChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the SubChannel in the request.
+sendChannelMessage_subChannelId :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
+sendChannelMessage_subChannelId = Lens.lens (\SendChannelMessage' {subChannelId} -> subChannelId) (\s@SendChannelMessage' {} a -> s {subChannelId = a} :: SendChannelMessage)
+
+-- | The attributes for the message, used for message filtering along with a
+-- @FilterRule@ defined in the @PushNotificationPreferences@.
+sendChannelMessage_messageAttributes :: Lens.Lens' SendChannelMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+sendChannelMessage_messageAttributes = Lens.lens (\SendChannelMessage' {messageAttributes} -> messageAttributes) (\s@SendChannelMessage' {} a -> s {messageAttributes = a} :: SendChannelMessage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The push notification configuration of the message.
+sendChannelMessage_pushNotification :: Lens.Lens' SendChannelMessage (Prelude.Maybe PushNotificationConfiguration)
+sendChannelMessage_pushNotification = Lens.lens (\SendChannelMessage' {pushNotification} -> pushNotification) (\s@SendChannelMessage' {} a -> s {pushNotification = a} :: SendChannelMessage)
 
 -- | The ARN of the channel.
 sendChannelMessage_channelArn :: Lens.Lens' SendChannelMessage Prelude.Text
@@ -174,7 +208,8 @@ instance Core.AWSRequest SendChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           SendChannelMessageResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Core..?> "SubChannelId")
+            Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (x Core..?> "MessageId")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -183,6 +218,9 @@ instance Core.AWSRequest SendChannelMessage where
 instance Prelude.Hashable SendChannelMessage where
   hashWithSalt _salt SendChannelMessage' {..} =
     _salt `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` pushNotification
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` type'
@@ -193,6 +231,9 @@ instance Prelude.Hashable SendChannelMessage where
 instance Prelude.NFData SendChannelMessage where
   rnf SendChannelMessage' {..} =
     Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf pushNotification
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf type'
@@ -210,6 +251,11 @@ instance Core.ToJSON SendChannelMessage where
     Core.object
       ( Prelude.catMaybes
           [ ("Metadata" Core..=) Prelude.<$> metadata,
+            ("SubChannelId" Core..=) Prelude.<$> subChannelId,
+            ("MessageAttributes" Core..=)
+              Prelude.<$> messageAttributes,
+            ("PushNotification" Core..=)
+              Prelude.<$> pushNotification,
             Prelude.Just ("Content" Core..= content),
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just ("Persistence" Core..= persistence),
@@ -228,7 +274,9 @@ instance Core.ToQuery SendChannelMessage where
 
 -- | /See:/ 'newSendChannelMessageResponse' smart constructor.
 data SendChannelMessageResponse = SendChannelMessageResponse'
-  { -- | The ARN of the channel.
+  { -- | The ID of the SubChannel in the response.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The ID string assigned to each message.
     messageId :: Prelude.Maybe Prelude.Text,
@@ -247,6 +295,8 @@ data SendChannelMessageResponse = SendChannelMessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subChannelId', 'sendChannelMessageResponse_subChannelId' - The ID of the SubChannel in the response.
+--
 -- 'channelArn', 'sendChannelMessageResponse_channelArn' - The ARN of the channel.
 --
 -- 'messageId', 'sendChannelMessageResponse_messageId' - The ID string assigned to each message.
@@ -260,12 +310,17 @@ newSendChannelMessageResponse ::
   SendChannelMessageResponse
 newSendChannelMessageResponse pHttpStatus_ =
   SendChannelMessageResponse'
-    { channelArn =
+    { subChannelId =
         Prelude.Nothing,
+      channelArn = Prelude.Nothing,
       messageId = Prelude.Nothing,
       status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the SubChannel in the response.
+sendChannelMessageResponse_subChannelId :: Lens.Lens' SendChannelMessageResponse (Prelude.Maybe Prelude.Text)
+sendChannelMessageResponse_subChannelId = Lens.lens (\SendChannelMessageResponse' {subChannelId} -> subChannelId) (\s@SendChannelMessageResponse' {} a -> s {subChannelId = a} :: SendChannelMessageResponse)
 
 -- | The ARN of the channel.
 sendChannelMessageResponse_channelArn :: Lens.Lens' SendChannelMessageResponse (Prelude.Maybe Prelude.Text)
@@ -285,7 +340,8 @@ sendChannelMessageResponse_httpStatus = Lens.lens (\SendChannelMessageResponse' 
 
 instance Prelude.NFData SendChannelMessageResponse where
   rnf SendChannelMessageResponse' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates stack instances for the specified accounts, within the specified
--- Regions. A stack instance refers to a stack in a specific account and
--- Region. You must specify at least one value for either @Accounts@ or
--- @DeploymentTargets@, and you must specify at least one value for
--- @Regions@.
+-- Amazon Web Services Regions. A stack instance refers to a stack in a
+-- specific account and Region. You must specify at least one value for
+-- either @Accounts@ or @DeploymentTargets@, and you must specify at least
+-- one value for @Regions@.
 module Amazonka.CloudFormation.CreateStackInstances
   ( -- * Creating a Request
     CreateStackInstances (..),
@@ -82,26 +82,26 @@ data CreateStackInstances = CreateStackInstances'
     -- selected stack instances.
     --
     -- Any overridden parameter values will be applied to all stack instances
-    -- in the specified accounts and Regions. When specifying parameters and
-    -- their values, be aware of how CloudFormation sets parameter values
-    -- during stack instance operations:
+    -- in the specified accounts and Amazon Web Services Regions. When
+    -- specifying parameters and their values, be aware of how CloudFormation
+    -- sets parameter values during stack instance operations:
     --
     -- -   To override the current value for a parameter, include the parameter
     --     and specify its value.
     --
     -- -   To leave an overridden parameter set to its present value, include
-    --     the parameter and specify @UsePreviousValue@ as @true@. (You cannot
+    --     the parameter and specify @UsePreviousValue@ as @true@. (You can\'t
     --     specify both a value and set @UsePreviousValue@ to @true@.)
     --
     -- -   To set an overridden parameter back to the value specified in the
-    --     stack set, specify a parameter list but do not include the parameter
+    --     stack set, specify a parameter list but don\'t include the parameter
     --     in the list.
     --
-    -- -   To leave all parameters set to their present values, do not specify
+    -- -   To leave all parameters set to their present values, don\'t specify
     --     this property at all.
     --
     -- During stack set updates, any parameter values overridden for a stack
-    -- instance are not updated, but retain their overridden value.
+    -- instance aren\'t updated, but retain their overridden value.
     --
     -- You can only override the parameter /values/ that are specified in the
     -- stack set; to add or delete a parameter itself, use
@@ -128,15 +128,15 @@ data CreateStackInstances = CreateStackInstances'
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
     accounts :: Prelude.Maybe [Prelude.Text],
     -- | [Service-managed permissions] The Organizations accounts for which to
-    -- create stack instances in the specified Regions.
+    -- create stack instances in the specified Amazon Web Services Regions.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
     deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The name or unique ID of the stack set that you want to create stack
     -- instances from.
     stackSetName :: Prelude.Text,
-    -- | The names of one or more Regions where you want to create stack
-    -- instances using the specified Amazon Web Services accounts.
+    -- | The names of one or more Amazon Web Services Regions where you want to
+    -- create stack instances using the specified Amazon Web Services accounts.
     regions :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -172,26 +172,26 @@ data CreateStackInstances = CreateStackInstances'
 -- selected stack instances.
 --
 -- Any overridden parameter values will be applied to all stack instances
--- in the specified accounts and Regions. When specifying parameters and
--- their values, be aware of how CloudFormation sets parameter values
--- during stack instance operations:
+-- in the specified accounts and Amazon Web Services Regions. When
+-- specifying parameters and their values, be aware of how CloudFormation
+-- sets parameter values during stack instance operations:
 --
 -- -   To override the current value for a parameter, include the parameter
 --     and specify its value.
 --
 -- -   To leave an overridden parameter set to its present value, include
---     the parameter and specify @UsePreviousValue@ as @true@. (You cannot
+--     the parameter and specify @UsePreviousValue@ as @true@. (You can\'t
 --     specify both a value and set @UsePreviousValue@ to @true@.)
 --
 -- -   To set an overridden parameter back to the value specified in the
---     stack set, specify a parameter list but do not include the parameter
+--     stack set, specify a parameter list but don\'t include the parameter
 --     in the list.
 --
--- -   To leave all parameters set to their present values, do not specify
+-- -   To leave all parameters set to their present values, don\'t specify
 --     this property at all.
 --
 -- During stack set updates, any parameter values overridden for a stack
--- instance are not updated, but retain their overridden value.
+-- instance aren\'t updated, but retain their overridden value.
 --
 -- You can only override the parameter /values/ that are specified in the
 -- stack set; to add or delete a parameter itself, use
@@ -218,15 +218,15 @@ data CreateStackInstances = CreateStackInstances'
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
 -- 'deploymentTargets', 'createStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts for which to
--- create stack instances in the specified Regions.
+-- create stack instances in the specified Amazon Web Services Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
 -- 'stackSetName', 'createStackInstances_stackSetName' - The name or unique ID of the stack set that you want to create stack
 -- instances from.
 --
--- 'regions', 'createStackInstances_regions' - The names of one or more Regions where you want to create stack
--- instances using the specified Amazon Web Services accounts.
+-- 'regions', 'createStackInstances_regions' - The names of one or more Amazon Web Services Regions where you want to
+-- create stack instances using the specified Amazon Web Services accounts.
 newCreateStackInstances ::
   -- | 'stackSetName'
   Prelude.Text ->
@@ -271,26 +271,26 @@ createStackInstances_callAs = Lens.lens (\CreateStackInstances' {callAs} -> call
 -- selected stack instances.
 --
 -- Any overridden parameter values will be applied to all stack instances
--- in the specified accounts and Regions. When specifying parameters and
--- their values, be aware of how CloudFormation sets parameter values
--- during stack instance operations:
+-- in the specified accounts and Amazon Web Services Regions. When
+-- specifying parameters and their values, be aware of how CloudFormation
+-- sets parameter values during stack instance operations:
 --
 -- -   To override the current value for a parameter, include the parameter
 --     and specify its value.
 --
 -- -   To leave an overridden parameter set to its present value, include
---     the parameter and specify @UsePreviousValue@ as @true@. (You cannot
+--     the parameter and specify @UsePreviousValue@ as @true@. (You can\'t
 --     specify both a value and set @UsePreviousValue@ to @true@.)
 --
 -- -   To set an overridden parameter back to the value specified in the
---     stack set, specify a parameter list but do not include the parameter
+--     stack set, specify a parameter list but don\'t include the parameter
 --     in the list.
 --
--- -   To leave all parameters set to their present values, do not specify
+-- -   To leave all parameters set to their present values, don\'t specify
 --     this property at all.
 --
 -- During stack set updates, any parameter values overridden for a stack
--- instance are not updated, but retain their overridden value.
+-- instance aren\'t updated, but retain their overridden value.
 --
 -- You can only override the parameter /values/ that are specified in the
 -- stack set; to add or delete a parameter itself, use
@@ -323,7 +323,7 @@ createStackInstances_accounts :: Lens.Lens' CreateStackInstances (Prelude.Maybe 
 createStackInstances_accounts = Lens.lens (\CreateStackInstances' {accounts} -> accounts) (\s@CreateStackInstances' {} a -> s {accounts = a} :: CreateStackInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Service-managed permissions] The Organizations accounts for which to
--- create stack instances in the specified Regions.
+-- create stack instances in the specified Amazon Web Services Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 createStackInstances_deploymentTargets :: Lens.Lens' CreateStackInstances (Prelude.Maybe DeploymentTargets)
@@ -334,8 +334,8 @@ createStackInstances_deploymentTargets = Lens.lens (\CreateStackInstances' {depl
 createStackInstances_stackSetName :: Lens.Lens' CreateStackInstances Prelude.Text
 createStackInstances_stackSetName = Lens.lens (\CreateStackInstances' {stackSetName} -> stackSetName) (\s@CreateStackInstances' {} a -> s {stackSetName = a} :: CreateStackInstances)
 
--- | The names of one or more Regions where you want to create stack
--- instances using the specified Amazon Web Services accounts.
+-- | The names of one or more Amazon Web Services Regions where you want to
+-- create stack instances using the specified Amazon Web Services accounts.
 createStackInstances_regions :: Lens.Lens' CreateStackInstances [Prelude.Text]
 createStackInstances_regions = Lens.lens (\CreateStackInstances' {regions} -> regions) (\s@CreateStackInstances' {} a -> s {regions = a} :: CreateStackInstances) Prelude.. Lens.coerced
 

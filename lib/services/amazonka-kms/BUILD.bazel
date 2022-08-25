@@ -27,6 +27,7 @@ haskell_library(
         "gen/Amazonka/KMS/GenerateDataKeyPair.hs",
         "gen/Amazonka/KMS/GenerateDataKeyPairWithoutPlaintext.hs",
         "gen/Amazonka/KMS/GenerateDataKeyWithoutPlaintext.hs",
+        "gen/Amazonka/KMS/GenerateMac.hs",
         "gen/Amazonka/KMS/GenerateRandom.hs",
         "gen/Amazonka/KMS/GetKeyPolicy.hs",
         "gen/Amazonka/KMS/GetKeyRotationStatus.hs",
@@ -69,6 +70,7 @@ haskell_library(
         "gen/Amazonka/KMS/Types/KeyState.hs",
         "gen/Amazonka/KMS/Types/KeyUsageType.hs",
         "gen/Amazonka/KMS/Types/ListGrantsResponse.hs",
+        "gen/Amazonka/KMS/Types/MacAlgorithmSpec.hs",
         "gen/Amazonka/KMS/Types/MessageType.hs",
         "gen/Amazonka/KMS/Types/MultiRegionConfiguration.hs",
         "gen/Amazonka/KMS/Types/MultiRegionKey.hs",
@@ -83,6 +85,7 @@ haskell_library(
         "gen/Amazonka/KMS/UpdateKeyDescription.hs",
         "gen/Amazonka/KMS/UpdatePrimaryRegion.hs",
         "gen/Amazonka/KMS/Verify.hs",
+        "gen/Amazonka/KMS/VerifyMac.hs",
         "gen/Amazonka/KMS/Waiters.hs",
     ],
     compiler_flags = [

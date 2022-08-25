@@ -55,6 +55,9 @@ data DBEngineVersion = DBEngineVersion'
     -- | A list of the time zones supported by this engine for the @Timezone@
     -- parameter of the @CreateDBInstance@ action.
     supportedTimezones :: Prelude.Maybe [Timezone],
+    -- | A value that indicates whether you can use Aurora global databases with
+    -- a specific DB engine version.
+    supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the database engine.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The description of the database engine.
@@ -94,6 +97,9 @@ data DBEngineVersion = DBEngineVersion'
 -- 'supportedTimezones', 'dbEngineVersion_supportedTimezones' - A list of the time zones supported by this engine for the @Timezone@
 -- parameter of the @CreateDBInstance@ action.
 --
+-- 'supportsGlobalDatabases', 'dbEngineVersion_supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with
+-- a specific DB engine version.
+--
 -- 'engineVersion', 'dbEngineVersion_engineVersion' - The version number of the database engine.
 --
 -- 'dbEngineDescription', 'dbEngineVersion_dbEngineDescription' - The description of the database engine.
@@ -112,6 +118,7 @@ newDBEngineVersion =
       engine = Prelude.Nothing,
       dbParameterGroupFamily = Prelude.Nothing,
       supportedTimezones = Prelude.Nothing,
+      supportsGlobalDatabases = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       dbEngineDescription = Prelude.Nothing
     }
@@ -160,6 +167,11 @@ dbEngineVersion_dbParameterGroupFamily = Lens.lens (\DBEngineVersion' {dbParamet
 dbEngineVersion_supportedTimezones :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Timezone])
 dbEngineVersion_supportedTimezones = Lens.lens (\DBEngineVersion' {supportedTimezones} -> supportedTimezones) (\s@DBEngineVersion' {} a -> s {supportedTimezones = a} :: DBEngineVersion) Prelude.. Lens.mapping Lens.coerced
 
+-- | A value that indicates whether you can use Aurora global databases with
+-- a specific DB engine version.
+dbEngineVersion_supportsGlobalDatabases :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsGlobalDatabases = Lens.lens (\DBEngineVersion' {supportsGlobalDatabases} -> supportsGlobalDatabases) (\s@DBEngineVersion' {} a -> s {supportsGlobalDatabases = a} :: DBEngineVersion)
+
 -- | The version number of the database engine.
 dbEngineVersion_engineVersion :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_engineVersion = Lens.lens (\DBEngineVersion' {engineVersion} -> engineVersion) (\s@DBEngineVersion' {} a -> s {engineVersion = a} :: DBEngineVersion)
@@ -193,6 +205,7 @@ instance Core.FromXML DBEngineVersion where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Timezone")
                   )
+      Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "DBEngineDescription")
 
@@ -208,6 +221,7 @@ instance Prelude.Hashable DBEngineVersion where
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` supportedTimezones
+      `Prelude.hashWithSalt` supportsGlobalDatabases
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` dbEngineDescription
 
@@ -223,5 +237,6 @@ instance Prelude.NFData DBEngineVersion where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
       `Prelude.seq` Prelude.rnf supportedTimezones
+      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf dbEngineDescription

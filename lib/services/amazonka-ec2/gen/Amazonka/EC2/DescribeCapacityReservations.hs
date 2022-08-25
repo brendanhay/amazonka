@@ -67,13 +67,10 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
     --     Capacity Reservation.
     --
-    -- -   @availability-zone-id@ - The Availability Zone ID of the Capacity
-    --     Reservation.
-    --
     -- -   @instance-platform@ - The type of operating system for which the
     --     Capacity Reservation reserves capacity.
     --
-    -- -   @availability-zone@ - The Availability Zone ID of the Capacity
+    -- -   @availability-zone@ - The Availability Zone of the Capacity
     --     Reservation.
     --
     -- -   @tenancy@ - Indicates the tenancy of the Capacity Reservation. A
@@ -143,6 +140,9 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     --         Availability Zone), and explicitly target the Capacity
     --         Reservation. This ensures that only permitted instances can use
     --         the reserved capacity.
+    --
+    -- -   @placement-group-arn@ - The ARN of the cluster placement group in
+    --     which the Capacity Reservation was created.
     filters :: Prelude.Maybe [Filter],
     -- | The ID of the Capacity Reservation.
     capacityReservationIds :: Prelude.Maybe [Prelude.Text],
@@ -177,13 +177,10 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
 --     Capacity Reservation.
 --
--- -   @availability-zone-id@ - The Availability Zone ID of the Capacity
---     Reservation.
---
 -- -   @instance-platform@ - The type of operating system for which the
 --     Capacity Reservation reserves capacity.
 --
--- -   @availability-zone@ - The Availability Zone ID of the Capacity
+-- -   @availability-zone@ - The Availability Zone of the Capacity
 --     Reservation.
 --
 -- -   @tenancy@ - Indicates the tenancy of the Capacity Reservation. A
@@ -253,6 +250,9 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 --         Availability Zone), and explicitly target the Capacity
 --         Reservation. This ensures that only permitted instances can use
 --         the reserved capacity.
+--
+-- -   @placement-group-arn@ - The ARN of the cluster placement group in
+--     which the Capacity Reservation was created.
 --
 -- 'capacityReservationIds', 'describeCapacityReservations_capacityReservationIds' - The ID of the Capacity Reservation.
 --
@@ -289,13 +289,10 @@ describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservation
 -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
 --     Capacity Reservation.
 --
--- -   @availability-zone-id@ - The Availability Zone ID of the Capacity
---     Reservation.
---
 -- -   @instance-platform@ - The type of operating system for which the
 --     Capacity Reservation reserves capacity.
 --
--- -   @availability-zone@ - The Availability Zone ID of the Capacity
+-- -   @availability-zone@ - The Availability Zone of the Capacity
 --     Reservation.
 --
 -- -   @tenancy@ - Indicates the tenancy of the Capacity Reservation. A
@@ -365,6 +362,9 @@ describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservation
 --         Availability Zone), and explicitly target the Capacity
 --         Reservation. This ensures that only permitted instances can use
 --         the reserved capacity.
+--
+-- -   @placement-group-arn@ - The ARN of the cluster placement group in
+--     which the Capacity Reservation was created.
 describeCapacityReservations_filters :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Filter])
 describeCapacityReservations_filters = Lens.lens (\DescribeCapacityReservations' {filters} -> filters) (\s@DescribeCapacityReservations' {} a -> s {filters = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens.coerced
 

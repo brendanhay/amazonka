@@ -54,8 +54,9 @@ data DescribeClusters = DescribeClusters'
     -- (ARN) entries. If you do not specify a cluster, the default cluster is
     -- assumed.
     clusters :: Prelude.Maybe [Prelude.Text],
-    -- | Whether to include additional information about the clusters in the
-    -- response. If this field is omitted, this information isn\'t included.
+    -- | Determines whether to include additional information about the clusters
+    -- in the response. If this field is omitted, this information isn\'t
+    -- included.
     --
     -- If @ATTACHMENTS@ is specified, the attachments for the container
     -- instances or tasks within the cluster are included.
@@ -86,8 +87,9 @@ data DescribeClusters = DescribeClusters'
 -- (ARN) entries. If you do not specify a cluster, the default cluster is
 -- assumed.
 --
--- 'include', 'describeClusters_include' - Whether to include additional information about the clusters in the
--- response. If this field is omitted, this information isn\'t included.
+-- 'include', 'describeClusters_include' - Determines whether to include additional information about the clusters
+-- in the response. If this field is omitted, this information isn\'t
+-- included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container
 -- instances or tasks within the cluster are included.
@@ -116,8 +118,9 @@ newDescribeClusters =
 describeClusters_clusters :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
 describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters) (\s@DescribeClusters' {} a -> s {clusters = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether to include additional information about the clusters in the
--- response. If this field is omitted, this information isn\'t included.
+-- | Determines whether to include additional information about the clusters
+-- in the response. If this field is omitted, this information isn\'t
+-- included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container
 -- instances or tasks within the cluster are included.

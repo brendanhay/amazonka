@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified application. Optionally deletes the launched stack
--- associated with the application and all AWS SMS replication jobs for
--- servers in the application.
+-- associated with the application and all Server Migration Service
+-- replication jobs for servers in the application.
 module Amazonka.SMS.DeleteApp
   ( -- * Creating a Request
     DeleteApp (..),

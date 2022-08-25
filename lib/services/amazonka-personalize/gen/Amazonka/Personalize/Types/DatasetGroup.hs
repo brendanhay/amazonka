@@ -21,14 +21,17 @@ module Amazonka.Personalize.Types.DatasetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
 -- | A dataset group is a collection of related datasets (Interactions, User,
--- and Item). You create a dataset group by calling CreateDatasetGroup. You
--- then create a dataset and add it to a dataset group by calling
--- CreateDataset. The dataset group is used to create and train a solution
--- by calling CreateSolution. A dataset group can contain only one of each
--- type of dataset.
+-- and Item). You create a dataset group by calling
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>.
+-- You then create a dataset and add it to a dataset group by calling
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
+-- The dataset group is used to create and train a solution by calling
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>.
+-- A dataset group can contain only one of each type of dataset.
 --
 -- You can specify an Key Management Service (KMS) key to encrypt the
 -- datasets in the group.
@@ -42,6 +45,8 @@ data DatasetGroup = DatasetGroup'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time (in Unix time) of the dataset group.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The domain of a Domain dataset group.
+    domain :: Prelude.Maybe Domain,
     -- | The current status of the dataset group.
     --
     -- A dataset group can be in one of the following states:
@@ -77,6 +82,8 @@ data DatasetGroup = DatasetGroup'
 --
 -- 'creationDateTime', 'datasetGroup_creationDateTime' - The creation date and time (in Unix time) of the dataset group.
 --
+-- 'domain', 'datasetGroup_domain' - The domain of a Domain dataset group.
+--
 -- 'status', 'datasetGroup_status' - The current status of the dataset group.
 --
 -- A dataset group can be in one of the following states:
@@ -100,6 +107,7 @@ newDatasetGroup =
     { name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      domain = Prelude.Nothing,
       status = Prelude.Nothing,
       kmsKeyArn = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
@@ -119,6 +127,10 @@ datasetGroup_roleArn = Lens.lens (\DatasetGroup' {roleArn} -> roleArn) (\s@Datas
 -- | The creation date and time (in Unix time) of the dataset group.
 datasetGroup_creationDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
 datasetGroup_creationDateTime = Lens.lens (\DatasetGroup' {creationDateTime} -> creationDateTime) (\s@DatasetGroup' {} a -> s {creationDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Core._Time
+
+-- | The domain of a Domain dataset group.
+datasetGroup_domain :: Lens.Lens' DatasetGroup (Prelude.Maybe Domain)
+datasetGroup_domain = Lens.lens (\DatasetGroup' {domain} -> domain) (\s@DatasetGroup' {} a -> s {domain = a} :: DatasetGroup)
 
 -- | The current status of the dataset group.
 --
@@ -156,6 +168,7 @@ instance Core.FromJSON DatasetGroup where
             Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "domain")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "kmsKeyArn")
             Prelude.<*> (x Core..:? "datasetGroupArn")
@@ -168,6 +181,7 @@ instance Prelude.Hashable DatasetGroup where
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` datasetGroupArn
@@ -179,6 +193,7 @@ instance Prelude.NFData DatasetGroup where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf datasetGroupArn

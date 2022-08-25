@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 
--- | The service pipeline detail data.
+-- | Detailed data of an Proton service instance pipeline resource.
 --
 -- /See:/ 'newServicePipeline' smart constructor.
 data ServicePipeline = ServicePipeline'
@@ -42,11 +42,11 @@ data ServicePipeline = ServicePipeline'
     lastDeploymentAttemptedAt :: Core.POSIX,
     -- | The time when the service pipeline was last deployed successfully.
     lastDeploymentSucceededAt :: Core.POSIX,
-    -- | The ID of the major version of the service template that was used to
-    -- create the service pipeline.
+    -- | The major version of the service template that was used to create the
+    -- service pipeline.
     templateMajorVersion :: Prelude.Text,
-    -- | The ID of the minor version of the service template that was used to
-    -- create the service pipeline.
+    -- | The minor version of the service template that was used to create the
+    -- service pipeline.
     templateMinorVersion :: Prelude.Text,
     -- | The name of the service template that was used to create the service
     -- pipeline.
@@ -76,11 +76,11 @@ data ServicePipeline = ServicePipeline'
 --
 -- 'lastDeploymentSucceededAt', 'servicePipeline_lastDeploymentSucceededAt' - The time when the service pipeline was last deployed successfully.
 --
--- 'templateMajorVersion', 'servicePipeline_templateMajorVersion' - The ID of the major version of the service template that was used to
--- create the service pipeline.
+-- 'templateMajorVersion', 'servicePipeline_templateMajorVersion' - The major version of the service template that was used to create the
+-- service pipeline.
 --
--- 'templateMinorVersion', 'servicePipeline_templateMinorVersion' - The ID of the minor version of the service template that was used to
--- create the service pipeline.
+-- 'templateMinorVersion', 'servicePipeline_templateMinorVersion' - The minor version of the service template that was used to create the
+-- service pipeline.
 --
 -- 'templateName', 'servicePipeline_templateName' - The name of the service template that was used to create the service
 -- pipeline.
@@ -155,13 +155,13 @@ servicePipeline_lastDeploymentAttemptedAt = Lens.lens (\ServicePipeline' {lastDe
 servicePipeline_lastDeploymentSucceededAt :: Lens.Lens' ServicePipeline Prelude.UTCTime
 servicePipeline_lastDeploymentSucceededAt = Lens.lens (\ServicePipeline' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ServicePipeline' {} a -> s {lastDeploymentSucceededAt = a} :: ServicePipeline) Prelude.. Core._Time
 
--- | The ID of the major version of the service template that was used to
--- create the service pipeline.
+-- | The major version of the service template that was used to create the
+-- service pipeline.
 servicePipeline_templateMajorVersion :: Lens.Lens' ServicePipeline Prelude.Text
 servicePipeline_templateMajorVersion = Lens.lens (\ServicePipeline' {templateMajorVersion} -> templateMajorVersion) (\s@ServicePipeline' {} a -> s {templateMajorVersion = a} :: ServicePipeline)
 
--- | The ID of the minor version of the service template that was used to
--- create the service pipeline.
+-- | The minor version of the service template that was used to create the
+-- service pipeline.
 servicePipeline_templateMinorVersion :: Lens.Lens' ServicePipeline Prelude.Text
 servicePipeline_templateMinorVersion = Lens.lens (\ServicePipeline' {templateMinorVersion} -> templateMinorVersion) (\s@ServicePipeline' {} a -> s {templateMinorVersion = a} :: ServicePipeline)
 

@@ -65,10 +65,9 @@ data GetDeployment = GetDeployment'
     -- example,
     -- @GET \/restapis\/{restapi_id}\/deployments\/{deployment_id}?embed=apisummary@.
     embed :: Prelude.Maybe [Prelude.Text],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Deployment resource to get information
-    -- about.
+    -- | The identifier of the Deployment resource to get information about.
     deploymentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,10 +91,9 @@ data GetDeployment = GetDeployment'
 -- example,
 -- @GET \/restapis\/{restapi_id}\/deployments\/{deployment_id}?embed=apisummary@.
 --
--- 'restApiId', 'getDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getDeployment_restApiId' - The string identifier of the associated RestApi.
 --
--- 'deploymentId', 'getDeployment_deploymentId' - [Required] The identifier of the Deployment resource to get information
--- about.
+-- 'deploymentId', 'getDeployment_deploymentId' - The identifier of the Deployment resource to get information about.
 newGetDeployment ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -122,12 +120,11 @@ newGetDeployment pRestApiId_ pDeploymentId_ =
 getDeployment_embed :: Lens.Lens' GetDeployment (Prelude.Maybe [Prelude.Text])
 getDeployment_embed = Lens.lens (\GetDeployment' {embed} -> embed) (\s@GetDeployment' {} a -> s {embed = a} :: GetDeployment) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDeployment_restApiId :: Lens.Lens' GetDeployment Prelude.Text
 getDeployment_restApiId = Lens.lens (\GetDeployment' {restApiId} -> restApiId) (\s@GetDeployment' {} a -> s {restApiId = a} :: GetDeployment)
 
--- | [Required] The identifier of the Deployment resource to get information
--- about.
+-- | The identifier of the Deployment resource to get information about.
 getDeployment_deploymentId :: Lens.Lens' GetDeployment Prelude.Text
 getDeployment_deploymentId = Lens.lens (\GetDeployment' {deploymentId} -> deploymentId) (\s@GetDeployment' {} a -> s {deploymentId = a} :: GetDeployment)
 

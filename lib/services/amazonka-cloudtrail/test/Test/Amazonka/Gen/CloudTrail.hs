@@ -30,14 +30,29 @@ import Test.Tasty
 --         [ requestAddTags $
 --             newAddTags
 --
+--         , requestCancelQuery $
+--             newCancelQuery
+--
+--         , requestCreateEventDataStore $
+--             newCreateEventDataStore
+--
 --         , requestCreateTrail $
 --             newCreateTrail
+--
+--         , requestDeleteEventDataStore $
+--             newDeleteEventDataStore
 --
 --         , requestDeleteTrail $
 --             newDeleteTrail
 --
+--         , requestDescribeQuery $
+--             newDescribeQuery
+--
 --         , requestDescribeTrails $
 --             newDescribeTrails
+--
+--         , requestGetEventDataStore $
+--             newGetEventDataStore
 --
 --         , requestGetEventSelectors $
 --             newGetEventSelectors
@@ -45,14 +60,23 @@ import Test.Tasty
 --         , requestGetInsightSelectors $
 --             newGetInsightSelectors
 --
+--         , requestGetQueryResults $
+--             newGetQueryResults
+--
 --         , requestGetTrail $
 --             newGetTrail
 --
 --         , requestGetTrailStatus $
 --             newGetTrailStatus
 --
+--         , requestListEventDataStores $
+--             newListEventDataStores
+--
 --         , requestListPublicKeys $
 --             newListPublicKeys
+--
+--         , requestListQueries $
+--             newListQueries
 --
 --         , requestListTags $
 --             newListTags
@@ -72,11 +96,20 @@ import Test.Tasty
 --         , requestRemoveTags $
 --             newRemoveTags
 --
+--         , requestRestoreEventDataStore $
+--             newRestoreEventDataStore
+--
 --         , requestStartLogging $
 --             newStartLogging
 --
+--         , requestStartQuery $
+--             newStartQuery
+--
 --         , requestStopLogging $
 --             newStopLogging
+--
+--         , requestUpdateEventDataStore $
+--             newUpdateEventDataStore
 --
 --         , requestUpdateTrail $
 --             newUpdateTrail
@@ -87,14 +120,29 @@ import Test.Tasty
 --         [ responseAddTags $
 --             newAddTagsResponse
 --
+--         , responseCancelQuery $
+--             newCancelQueryResponse
+--
+--         , responseCreateEventDataStore $
+--             newCreateEventDataStoreResponse
+--
 --         , responseCreateTrail $
 --             newCreateTrailResponse
+--
+--         , responseDeleteEventDataStore $
+--             newDeleteEventDataStoreResponse
 --
 --         , responseDeleteTrail $
 --             newDeleteTrailResponse
 --
+--         , responseDescribeQuery $
+--             newDescribeQueryResponse
+--
 --         , responseDescribeTrails $
 --             newDescribeTrailsResponse
+--
+--         , responseGetEventDataStore $
+--             newGetEventDataStoreResponse
 --
 --         , responseGetEventSelectors $
 --             newGetEventSelectorsResponse
@@ -102,14 +150,23 @@ import Test.Tasty
 --         , responseGetInsightSelectors $
 --             newGetInsightSelectorsResponse
 --
+--         , responseGetQueryResults $
+--             newGetQueryResultsResponse
+--
 --         , responseGetTrail $
 --             newGetTrailResponse
 --
 --         , responseGetTrailStatus $
 --             newGetTrailStatusResponse
 --
+--         , responseListEventDataStores $
+--             newListEventDataStoresResponse
+--
 --         , responseListPublicKeys $
 --             newListPublicKeysResponse
+--
+--         , responseListQueries $
+--             newListQueriesResponse
 --
 --         , responseListTags $
 --             newListTagsResponse
@@ -129,11 +186,20 @@ import Test.Tasty
 --         , responseRemoveTags $
 --             newRemoveTagsResponse
 --
+--         , responseRestoreEventDataStore $
+--             newRestoreEventDataStoreResponse
+--
 --         , responseStartLogging $
 --             newStartLoggingResponse
 --
+--         , responseStartQuery $
+--             newStartQueryResponse
+--
 --         , responseStopLogging $
 --             newStopLoggingResponse
+--
+--         , responseUpdateEventDataStore $
+--             newUpdateEventDataStoreResponse
 --
 --         , responseUpdateTrail $
 --             newUpdateTrailResponse
@@ -149,11 +215,29 @@ requestAddTags =
     "AddTags"
     "fixture/AddTags.yaml"
 
+requestCancelQuery :: CancelQuery -> TestTree
+requestCancelQuery =
+  req
+    "CancelQuery"
+    "fixture/CancelQuery.yaml"
+
+requestCreateEventDataStore :: CreateEventDataStore -> TestTree
+requestCreateEventDataStore =
+  req
+    "CreateEventDataStore"
+    "fixture/CreateEventDataStore.yaml"
+
 requestCreateTrail :: CreateTrail -> TestTree
 requestCreateTrail =
   req
     "CreateTrail"
     "fixture/CreateTrail.yaml"
+
+requestDeleteEventDataStore :: DeleteEventDataStore -> TestTree
+requestDeleteEventDataStore =
+  req
+    "DeleteEventDataStore"
+    "fixture/DeleteEventDataStore.yaml"
 
 requestDeleteTrail :: DeleteTrail -> TestTree
 requestDeleteTrail =
@@ -161,11 +245,23 @@ requestDeleteTrail =
     "DeleteTrail"
     "fixture/DeleteTrail.yaml"
 
+requestDescribeQuery :: DescribeQuery -> TestTree
+requestDescribeQuery =
+  req
+    "DescribeQuery"
+    "fixture/DescribeQuery.yaml"
+
 requestDescribeTrails :: DescribeTrails -> TestTree
 requestDescribeTrails =
   req
     "DescribeTrails"
     "fixture/DescribeTrails.yaml"
+
+requestGetEventDataStore :: GetEventDataStore -> TestTree
+requestGetEventDataStore =
+  req
+    "GetEventDataStore"
+    "fixture/GetEventDataStore.yaml"
 
 requestGetEventSelectors :: GetEventSelectors -> TestTree
 requestGetEventSelectors =
@@ -179,6 +275,12 @@ requestGetInsightSelectors =
     "GetInsightSelectors"
     "fixture/GetInsightSelectors.yaml"
 
+requestGetQueryResults :: GetQueryResults -> TestTree
+requestGetQueryResults =
+  req
+    "GetQueryResults"
+    "fixture/GetQueryResults.yaml"
+
 requestGetTrail :: GetTrail -> TestTree
 requestGetTrail =
   req
@@ -191,11 +293,23 @@ requestGetTrailStatus =
     "GetTrailStatus"
     "fixture/GetTrailStatus.yaml"
 
+requestListEventDataStores :: ListEventDataStores -> TestTree
+requestListEventDataStores =
+  req
+    "ListEventDataStores"
+    "fixture/ListEventDataStores.yaml"
+
 requestListPublicKeys :: ListPublicKeys -> TestTree
 requestListPublicKeys =
   req
     "ListPublicKeys"
     "fixture/ListPublicKeys.yaml"
+
+requestListQueries :: ListQueries -> TestTree
+requestListQueries =
+  req
+    "ListQueries"
+    "fixture/ListQueries.yaml"
 
 requestListTags :: ListTags -> TestTree
 requestListTags =
@@ -233,17 +347,35 @@ requestRemoveTags =
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
+requestRestoreEventDataStore :: RestoreEventDataStore -> TestTree
+requestRestoreEventDataStore =
+  req
+    "RestoreEventDataStore"
+    "fixture/RestoreEventDataStore.yaml"
+
 requestStartLogging :: StartLogging -> TestTree
 requestStartLogging =
   req
     "StartLogging"
     "fixture/StartLogging.yaml"
 
+requestStartQuery :: StartQuery -> TestTree
+requestStartQuery =
+  req
+    "StartQuery"
+    "fixture/StartQuery.yaml"
+
 requestStopLogging :: StopLogging -> TestTree
 requestStopLogging =
   req
     "StopLogging"
     "fixture/StopLogging.yaml"
+
+requestUpdateEventDataStore :: UpdateEventDataStore -> TestTree
+requestUpdateEventDataStore =
+  req
+    "UpdateEventDataStore"
+    "fixture/UpdateEventDataStore.yaml"
 
 requestUpdateTrail :: UpdateTrail -> TestTree
 requestUpdateTrail =
@@ -261,6 +393,22 @@ responseAddTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddTags)
 
+responseCancelQuery :: CancelQueryResponse -> TestTree
+responseCancelQuery =
+  res
+    "CancelQueryResponse"
+    "fixture/CancelQueryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelQuery)
+
+responseCreateEventDataStore :: CreateEventDataStoreResponse -> TestTree
+responseCreateEventDataStore =
+  res
+    "CreateEventDataStoreResponse"
+    "fixture/CreateEventDataStoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEventDataStore)
+
 responseCreateTrail :: CreateTrailResponse -> TestTree
 responseCreateTrail =
   res
@@ -268,6 +416,14 @@ responseCreateTrail =
     "fixture/CreateTrailResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTrail)
+
+responseDeleteEventDataStore :: DeleteEventDataStoreResponse -> TestTree
+responseDeleteEventDataStore =
+  res
+    "DeleteEventDataStoreResponse"
+    "fixture/DeleteEventDataStoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventDataStore)
 
 responseDeleteTrail :: DeleteTrailResponse -> TestTree
 responseDeleteTrail =
@@ -277,6 +433,14 @@ responseDeleteTrail =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTrail)
 
+responseDescribeQuery :: DescribeQueryResponse -> TestTree
+responseDescribeQuery =
+  res
+    "DescribeQueryResponse"
+    "fixture/DescribeQueryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeQuery)
+
 responseDescribeTrails :: DescribeTrailsResponse -> TestTree
 responseDescribeTrails =
   res
@@ -284,6 +448,14 @@ responseDescribeTrails =
     "fixture/DescribeTrailsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTrails)
+
+responseGetEventDataStore :: GetEventDataStoreResponse -> TestTree
+responseGetEventDataStore =
+  res
+    "GetEventDataStoreResponse"
+    "fixture/GetEventDataStoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventDataStore)
 
 responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
 responseGetEventSelectors =
@@ -301,6 +473,14 @@ responseGetInsightSelectors =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetInsightSelectors)
 
+responseGetQueryResults :: GetQueryResultsResponse -> TestTree
+responseGetQueryResults =
+  res
+    "GetQueryResultsResponse"
+    "fixture/GetQueryResultsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetQueryResults)
+
 responseGetTrail :: GetTrailResponse -> TestTree
 responseGetTrail =
   res
@@ -317,6 +497,14 @@ responseGetTrailStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTrailStatus)
 
+responseListEventDataStores :: ListEventDataStoresResponse -> TestTree
+responseListEventDataStores =
+  res
+    "ListEventDataStoresResponse"
+    "fixture/ListEventDataStoresResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventDataStores)
+
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
 responseListPublicKeys =
   res
@@ -324,6 +512,14 @@ responseListPublicKeys =
     "fixture/ListPublicKeysResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPublicKeys)
+
+responseListQueries :: ListQueriesResponse -> TestTree
+responseListQueries =
+  res
+    "ListQueriesResponse"
+    "fixture/ListQueriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListQueries)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -373,6 +569,14 @@ responseRemoveTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
+responseRestoreEventDataStore :: RestoreEventDataStoreResponse -> TestTree
+responseRestoreEventDataStore =
+  res
+    "RestoreEventDataStoreResponse"
+    "fixture/RestoreEventDataStoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreEventDataStore)
+
 responseStartLogging :: StartLoggingResponse -> TestTree
 responseStartLogging =
   res
@@ -381,6 +585,14 @@ responseStartLogging =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartLogging)
 
+responseStartQuery :: StartQueryResponse -> TestTree
+responseStartQuery =
+  res
+    "StartQueryResponse"
+    "fixture/StartQueryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartQuery)
+
 responseStopLogging :: StopLoggingResponse -> TestTree
 responseStopLogging =
   res
@@ -388,6 +600,14 @@ responseStopLogging =
     "fixture/StopLoggingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopLogging)
+
+responseUpdateEventDataStore :: UpdateEventDataStoreResponse -> TestTree
+responseUpdateEventDataStore =
+  res
+    "UpdateEventDataStoreResponse"
+    "fixture/UpdateEventDataStoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventDataStore)
 
 responseUpdateTrail :: UpdateTrailResponse -> TestTree
 responseUpdateTrail =

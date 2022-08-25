@@ -102,6 +102,9 @@ import Test.Tasty
 --         , requestGetFirewallRuleGroupPolicy $
 --             newGetFirewallRuleGroupPolicy
 --
+--         , requestGetResolverConfig $
+--             newGetResolverConfig
+--
 --         , requestGetResolverDnssecConfig $
 --             newGetResolverDnssecConfig
 --
@@ -146,6 +149,9 @@ import Test.Tasty
 --
 --         , requestListFirewallRules $
 --             newListFirewallRules
+--
+--         , requestListResolverConfigs $
+--             newListResolverConfigs
 --
 --         , requestListResolverDnssecConfigs $
 --             newListResolverDnssecConfigs
@@ -197,6 +203,9 @@ import Test.Tasty
 --
 --         , requestUpdateFirewallRuleGroupAssociation $
 --             newUpdateFirewallRuleGroupAssociation
+--
+--         , requestUpdateResolverConfig $
+--             newUpdateResolverConfig
 --
 --         , requestUpdateResolverDnssecConfig $
 --             newUpdateResolverDnssecConfig
@@ -285,6 +294,9 @@ import Test.Tasty
 --         , responseGetFirewallRuleGroupPolicy $
 --             newGetFirewallRuleGroupPolicyResponse
 --
+--         , responseGetResolverConfig $
+--             newGetResolverConfigResponse
+--
 --         , responseGetResolverDnssecConfig $
 --             newGetResolverDnssecConfigResponse
 --
@@ -329,6 +341,9 @@ import Test.Tasty
 --
 --         , responseListFirewallRules $
 --             newListFirewallRulesResponse
+--
+--         , responseListResolverConfigs $
+--             newListResolverConfigsResponse
 --
 --         , responseListResolverDnssecConfigs $
 --             newListResolverDnssecConfigsResponse
@@ -380,6 +395,9 @@ import Test.Tasty
 --
 --         , responseUpdateFirewallRuleGroupAssociation $
 --             newUpdateFirewallRuleGroupAssociationResponse
+--
+--         , responseUpdateResolverConfig $
+--             newUpdateResolverConfigResponse
 --
 --         , responseUpdateResolverDnssecConfig $
 --             newUpdateResolverDnssecConfigResponse
@@ -545,6 +563,12 @@ requestGetFirewallRuleGroupPolicy =
     "GetFirewallRuleGroupPolicy"
     "fixture/GetFirewallRuleGroupPolicy.yaml"
 
+requestGetResolverConfig :: GetResolverConfig -> TestTree
+requestGetResolverConfig =
+  req
+    "GetResolverConfig"
+    "fixture/GetResolverConfig.yaml"
+
 requestGetResolverDnssecConfig :: GetResolverDnssecConfig -> TestTree
 requestGetResolverDnssecConfig =
   req
@@ -634,6 +658,12 @@ requestListFirewallRules =
   req
     "ListFirewallRules"
     "fixture/ListFirewallRules.yaml"
+
+requestListResolverConfigs :: ListResolverConfigs -> TestTree
+requestListResolverConfigs =
+  req
+    "ListResolverConfigs"
+    "fixture/ListResolverConfigs.yaml"
 
 requestListResolverDnssecConfigs :: ListResolverDnssecConfigs -> TestTree
 requestListResolverDnssecConfigs =
@@ -736,6 +766,12 @@ requestUpdateFirewallRuleGroupAssociation =
   req
     "UpdateFirewallRuleGroupAssociation"
     "fixture/UpdateFirewallRuleGroupAssociation.yaml"
+
+requestUpdateResolverConfig :: UpdateResolverConfig -> TestTree
+requestUpdateResolverConfig =
+  req
+    "UpdateResolverConfig"
+    "fixture/UpdateResolverConfig.yaml"
 
 requestUpdateResolverDnssecConfig :: UpdateResolverDnssecConfig -> TestTree
 requestUpdateResolverDnssecConfig =
@@ -957,6 +993,14 @@ responseGetFirewallRuleGroupPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupPolicy)
 
+responseGetResolverConfig :: GetResolverConfigResponse -> TestTree
+responseGetResolverConfig =
+  res
+    "GetResolverConfigResponse"
+    "fixture/GetResolverConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResolverConfig)
+
 responseGetResolverDnssecConfig :: GetResolverDnssecConfigResponse -> TestTree
 responseGetResolverDnssecConfig =
   res
@@ -1076,6 +1120,14 @@ responseListFirewallRules =
     "fixture/ListFirewallRulesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFirewallRules)
+
+responseListResolverConfigs :: ListResolverConfigsResponse -> TestTree
+responseListResolverConfigs =
+  res
+    "ListResolverConfigsResponse"
+    "fixture/ListResolverConfigsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverConfigs)
 
 responseListResolverDnssecConfigs :: ListResolverDnssecConfigsResponse -> TestTree
 responseListResolverDnssecConfigs =
@@ -1212,6 +1264,14 @@ responseUpdateFirewallRuleGroupAssociation =
     "fixture/UpdateFirewallRuleGroupAssociationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRuleGroupAssociation)
+
+responseUpdateResolverConfig :: UpdateResolverConfigResponse -> TestTree
+responseUpdateResolverConfig =
+  res
+    "UpdateResolverConfigResponse"
+    "fixture/UpdateResolverConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolverConfig)
 
 responseUpdateResolverDnssecConfig :: UpdateResolverDnssecConfigResponse -> TestTree
 responseUpdateResolverDnssecConfig =

@@ -29,7 +29,9 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newLensReviewSummary' smart constructor.
 data LensReviewSummary = LensReviewSummary'
-  { riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+  { -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
+    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     lensAlias :: Prelude.Maybe Prelude.Text,
     -- | The version of the lens.
     lensVersion :: Prelude.Maybe Prelude.Text,
@@ -48,6 +50,8 @@ data LensReviewSummary = LensReviewSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lensArn', 'lensReviewSummary_lensArn' - The ARN for the lens.
+--
 -- 'riskCounts', 'lensReviewSummary_riskCounts' - Undocumented member.
 --
 -- 'lensAlias', 'lensReviewSummary_lensAlias' - Undocumented member.
@@ -63,13 +67,18 @@ newLensReviewSummary ::
   LensReviewSummary
 newLensReviewSummary =
   LensReviewSummary'
-    { riskCounts = Prelude.Nothing,
+    { lensArn = Prelude.Nothing,
+      riskCounts = Prelude.Nothing,
       lensAlias = Prelude.Nothing,
       lensVersion = Prelude.Nothing,
       lensName = Prelude.Nothing,
       lensStatus = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
+
+-- | The ARN for the lens.
+lensReviewSummary_lensArn :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
+lensReviewSummary_lensArn = Lens.lens (\LensReviewSummary' {lensArn} -> lensArn) (\s@LensReviewSummary' {} a -> s {lensArn = a} :: LensReviewSummary)
 
 -- | Undocumented member.
 lensReviewSummary_riskCounts :: Lens.Lens' LensReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
@@ -101,7 +110,8 @@ instance Core.FromJSON LensReviewSummary where
       "LensReviewSummary"
       ( \x ->
           LensReviewSummary'
-            Prelude.<$> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "LensArn")
+            Prelude.<*> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LensAlias")
             Prelude.<*> (x Core..:? "LensVersion")
             Prelude.<*> (x Core..:? "LensName")
@@ -111,7 +121,8 @@ instance Core.FromJSON LensReviewSummary where
 
 instance Prelude.Hashable LensReviewSummary where
   hashWithSalt _salt LensReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` riskCounts
+    _salt `Prelude.hashWithSalt` lensArn
+      `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` lensName
@@ -120,7 +131,8 @@ instance Prelude.Hashable LensReviewSummary where
 
 instance Prelude.NFData LensReviewSummary where
   rnf LensReviewSummary' {..} =
-    Prelude.rnf riskCounts
+    Prelude.rnf lensArn
+      `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf lensVersion
       `Prelude.seq` Prelude.rnf lensName

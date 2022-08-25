@@ -30,9 +30,9 @@
 -- exports.
 --
 -- If you do not include an @agentIds@ filter, summary data is exported
--- that includes both AWS Agentless Discovery Connector data and summary
--- data from AWS Discovery Agents. Export of summary data is limited to two
--- exports per day.
+-- that includes both Amazon Web Services Agentless Discovery Connector
+-- data and summary data from Amazon Web Services Discovery Agents. Export
+-- of summary data is limited to two exports per day.
 module Amazonka.Discovery.StartExportTask
   ( -- * Creating a Request
     StartExportTask (..),

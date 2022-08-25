@@ -22,14 +22,16 @@
 --
 -- Creates the configuration for training a model. A trained model is known
 -- as a solution. After the configuration is created, you train the model
--- (create a solution) by calling the CreateSolutionVersion operation.
--- Every time you call @CreateSolutionVersion@, a new version of the
--- solution is created.
+-- (create a solution) by calling the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html CreateSolutionVersion>
+-- operation. Every time you call @CreateSolutionVersion@, a new version of
+-- the solution is created.
 --
 -- After creating a solution version, you check its accuracy by calling
--- GetSolutionMetrics. When you are satisfied with the version, you deploy
--- it using CreateCampaign. The campaign provides recommendations to a
--- client through the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html GetSolutionMetrics>.
+-- When you are satisfied with the version, you deploy it using
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html CreateCampaign>.
+-- The campaign provides recommendations to a client through the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html GetRecommendations>
 -- API.
 --
@@ -52,28 +54,31 @@
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
--- To get the status of the solution, call DescribeSolution. Wait until the
--- status shows as ACTIVE before calling @CreateSolutionVersion@.
+-- To get the status of the solution, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html DescribeSolution>.
+-- Wait until the status shows as ACTIVE before calling
+-- @CreateSolutionVersion@.
 --
 -- __Related APIs__
 --
--- -   ListSolutions
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html ListSolutions>
 --
--- -   CreateSolutionVersion
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html CreateSolutionVersion>
 --
--- -   DescribeSolution
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html DescribeSolution>
 --
--- -   DeleteSolution
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html DeleteSolution>
 --
--- -   ListSolutionVersions
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html ListSolutionVersions>
 --
--- -   DescribeSolutionVersion
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html DescribeSolutionVersion>
 module Amazonka.Personalize.CreateSolution
   ( -- * Creating a Request
     CreateSolution (..),
     newCreateSolution,
 
     -- * Request Lenses
+    createSolution_tags,
     createSolution_eventType,
     createSolution_performAutoML,
     createSolution_performHPO,
@@ -101,7 +106,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSolution' smart constructor.
 data CreateSolution = CreateSolution'
-  { -- | When your have multiple event types (using an @EVENT_TYPE@ schema
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the solution.
+    tags :: Prelude.Maybe [Tag],
+    -- | When your have multiple event types (using an @EVENT_TYPE@ schema
     -- field), this parameter specifies which event type (for example,
     -- \'click\' or \'like\') is used for training the model.
     --
@@ -150,6 +159,10 @@ data CreateSolution = CreateSolution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSolution_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the solution.
+--
 -- 'eventType', 'createSolution_eventType' - When your have multiple event types (using an @EVENT_TYPE@ schema
 -- field), this parameter specifies which event type (for example,
 -- \'click\' or \'like\') is used for training the model.
@@ -195,7 +208,8 @@ newCreateSolution ::
   CreateSolution
 newCreateSolution pName_ pDatasetGroupArn_ =
   CreateSolution'
-    { eventType = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      eventType = Prelude.Nothing,
       performAutoML = Prelude.Nothing,
       performHPO = Prelude.Nothing,
       solutionConfig = Prelude.Nothing,
@@ -203,6 +217,12 @@ newCreateSolution pName_ pDatasetGroupArn_ =
       name = pName_,
       datasetGroupArn = pDatasetGroupArn_
     }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the solution.
+createSolution_tags :: Lens.Lens' CreateSolution (Prelude.Maybe [Tag])
+createSolution_tags = Lens.lens (\CreateSolution' {tags} -> tags) (\s@CreateSolution' {} a -> s {tags = a} :: CreateSolution) Prelude.. Lens.mapping Lens.coerced
 
 -- | When your have multiple event types (using an @EVENT_TYPE@ schema
 -- field), this parameter specifies which event type (for example,
@@ -271,7 +291,8 @@ instance Core.AWSRequest CreateSolution where
 
 instance Prelude.Hashable CreateSolution where
   hashWithSalt _salt CreateSolution' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
       `Prelude.hashWithSalt` solutionConfig
@@ -281,7 +302,8 @@ instance Prelude.Hashable CreateSolution where
 
 instance Prelude.NFData CreateSolution where
   rnf CreateSolution' {..} =
-    Prelude.rnf eventType
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf performAutoML
       `Prelude.seq` Prelude.rnf performHPO
       `Prelude.seq` Prelude.rnf solutionConfig
@@ -308,7 +330,8 @@ instance Core.ToJSON CreateSolution where
   toJSON CreateSolution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("eventType" Core..=) Prelude.<$> eventType,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("eventType" Core..=) Prelude.<$> eventType,
             ("performAutoML" Core..=) Prelude.<$> performAutoML,
             ("performHPO" Core..=) Prelude.<$> performHPO,
             ("solutionConfig" Core..=)

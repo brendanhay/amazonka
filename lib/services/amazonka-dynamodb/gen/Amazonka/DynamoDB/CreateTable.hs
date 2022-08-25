@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @CreateTable@ operation adds a new table to your account. In an AWS
--- account, table names must be unique within each Region. That is, you can
--- have two tables with same name if you create the tables in different
--- Regions.
+-- The @CreateTable@ operation adds a new table to your account. In an
+-- Amazon Web Services account, table names must be unique within each
+-- Region. That is, you can have two tables with same name if you create
+-- the tables in different Regions.
 --
 -- @CreateTable@ is an asynchronous operation. Upon receiving a
 -- @CreateTable@ request, DynamoDB immediately returns a response with a
@@ -49,6 +49,7 @@ module Amazonka.DynamoDB.CreateTable
     createTable_billingMode,
     createTable_provisionedThroughput,
     createTable_sSESpecification,
+    createTable_tableClass,
     createTable_globalSecondaryIndexes,
     createTable_streamSpecification,
     createTable_attributeDefinitions,
@@ -141,6 +142,9 @@ data CreateTable = CreateTable'
     provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
     -- | Represents the settings used to enable server-side encryption.
     sSESpecification :: Prelude.Maybe SSESpecification,
+    -- | The table class of the new table. Valid values are @STANDARD@ and
+    -- @STANDARD_INFREQUENT_ACCESS@.
+    tableClass :: Prelude.Maybe TableClass,
     -- | One or more global secondary indexes (the maximum is 20) to be created
     -- on the table. Each global secondary index in the array includes the
     -- following:
@@ -320,6 +324,9 @@ data CreateTable = CreateTable'
 --
 -- 'sSESpecification', 'createTable_sSESpecification' - Represents the settings used to enable server-side encryption.
 --
+-- 'tableClass', 'createTable_tableClass' - The table class of the new table. Valid values are @STANDARD@ and
+-- @STANDARD_INFREQUENT_ACCESS@.
+--
 -- 'globalSecondaryIndexes', 'createTable_globalSecondaryIndexes' - One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
 -- following:
@@ -435,6 +442,7 @@ newCreateTable pTableName_ pKeySchema_ =
       billingMode = Prelude.Nothing,
       provisionedThroughput = Prelude.Nothing,
       sSESpecification = Prelude.Nothing,
+      tableClass = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
       streamSpecification = Prelude.Nothing,
       attributeDefinitions = Prelude.mempty,
@@ -516,6 +524,11 @@ createTable_provisionedThroughput = Lens.lens (\CreateTable' {provisionedThrough
 -- | Represents the settings used to enable server-side encryption.
 createTable_sSESpecification :: Lens.Lens' CreateTable (Prelude.Maybe SSESpecification)
 createTable_sSESpecification = Lens.lens (\CreateTable' {sSESpecification} -> sSESpecification) (\s@CreateTable' {} a -> s {sSESpecification = a} :: CreateTable)
+
+-- | The table class of the new table. Valid values are @STANDARD@ and
+-- @STANDARD_INFREQUENT_ACCESS@.
+createTable_tableClass :: Lens.Lens' CreateTable (Prelude.Maybe TableClass)
+createTable_tableClass = Lens.lens (\CreateTable' {tableClass} -> tableClass) (\s@CreateTable' {} a -> s {tableClass = a} :: CreateTable)
 
 -- | One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -648,6 +661,7 @@ instance Prelude.Hashable CreateTable where
       `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` sSESpecification
+      `Prelude.hashWithSalt` tableClass
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` streamSpecification
       `Prelude.hashWithSalt` attributeDefinitions
@@ -661,6 +675,7 @@ instance Prelude.NFData CreateTable where
       `Prelude.seq` Prelude.rnf billingMode
       `Prelude.seq` Prelude.rnf provisionedThroughput
       `Prelude.seq` Prelude.rnf sSESpecification
+      `Prelude.seq` Prelude.rnf tableClass
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf streamSpecification
       `Prelude.seq` Prelude.rnf attributeDefinitions
@@ -694,6 +709,7 @@ instance Core.ToJSON CreateTable where
               Prelude.<$> provisionedThroughput,
             ("SSESpecification" Core..=)
               Prelude.<$> sSESpecification,
+            ("TableClass" Core..=) Prelude.<$> tableClass,
             ("GlobalSecondaryIndexes" Core..=)
               Prelude.<$> globalSecondaryIndexes,
             ("StreamSpecification" Core..=)

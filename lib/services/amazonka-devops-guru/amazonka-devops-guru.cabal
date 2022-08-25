@@ -45,35 +45,53 @@ library
   exposed-modules:
     Amazonka.DevOpsGuru
     Amazonka.DevOpsGuru.AddNotificationChannel
+    Amazonka.DevOpsGuru.DeleteInsight
     Amazonka.DevOpsGuru.DescribeAccountHealth
     Amazonka.DevOpsGuru.DescribeAccountOverview
     Amazonka.DevOpsGuru.DescribeAnomaly
+    Amazonka.DevOpsGuru.DescribeEventSourcesConfig
     Amazonka.DevOpsGuru.DescribeFeedback
     Amazonka.DevOpsGuru.DescribeInsight
+    Amazonka.DevOpsGuru.DescribeOrganizationHealth
+    Amazonka.DevOpsGuru.DescribeOrganizationOverview
+    Amazonka.DevOpsGuru.DescribeOrganizationResourceCollectionHealth
     Amazonka.DevOpsGuru.DescribeResourceCollectionHealth
     Amazonka.DevOpsGuru.DescribeServiceIntegration
     Amazonka.DevOpsGuru.GetCostEstimation
     Amazonka.DevOpsGuru.GetResourceCollection
     Amazonka.DevOpsGuru.Lens
     Amazonka.DevOpsGuru.ListAnomaliesForInsight
+    Amazonka.DevOpsGuru.ListAnomalousLogGroups
     Amazonka.DevOpsGuru.ListEvents
     Amazonka.DevOpsGuru.ListInsights
+    Amazonka.DevOpsGuru.ListMonitoredResources
     Amazonka.DevOpsGuru.ListNotificationChannels
+    Amazonka.DevOpsGuru.ListOrganizationInsights
     Amazonka.DevOpsGuru.ListRecommendations
     Amazonka.DevOpsGuru.PutFeedback
     Amazonka.DevOpsGuru.RemoveNotificationChannel
     Amazonka.DevOpsGuru.SearchInsights
+    Amazonka.DevOpsGuru.SearchOrganizationInsights
     Amazonka.DevOpsGuru.StartCostEstimation
     Amazonka.DevOpsGuru.Types
+    Amazonka.DevOpsGuru.Types.AccountHealth
+    Amazonka.DevOpsGuru.Types.AccountInsightHealth
+    Amazonka.DevOpsGuru.Types.AmazonCodeGuruProfilerIntegration
+    Amazonka.DevOpsGuru.Types.AnomalousLogGroup
     Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
+    Amazonka.DevOpsGuru.Types.AnomalyResource
     Amazonka.DevOpsGuru.Types.AnomalySeverity
     Amazonka.DevOpsGuru.Types.AnomalySourceDetails
+    Amazonka.DevOpsGuru.Types.AnomalySourceMetadata
     Amazonka.DevOpsGuru.Types.AnomalyStatus
     Amazonka.DevOpsGuru.Types.AnomalyTimeRange
+    Amazonka.DevOpsGuru.Types.AnomalyType
     Amazonka.DevOpsGuru.Types.CloudFormationCollection
     Amazonka.DevOpsGuru.Types.CloudFormationCollectionFilter
     Amazonka.DevOpsGuru.Types.CloudFormationCostEstimationResourceCollectionFilter
     Amazonka.DevOpsGuru.Types.CloudFormationHealth
+    Amazonka.DevOpsGuru.Types.CloudWatchMetricDataStatusCode
+    Amazonka.DevOpsGuru.Types.CloudWatchMetricsDataSummary
     Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail
     Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension
     Amazonka.DevOpsGuru.Types.CloudWatchMetricsStat
@@ -86,6 +104,8 @@ library
     Amazonka.DevOpsGuru.Types.EventClass
     Amazonka.DevOpsGuru.Types.EventDataSource
     Amazonka.DevOpsGuru.Types.EventResource
+    Amazonka.DevOpsGuru.Types.EventSourceOptInStatus
+    Amazonka.DevOpsGuru.Types.EventSourcesConfig
     Amazonka.DevOpsGuru.Types.EventTimeRange
     Amazonka.DevOpsGuru.Types.InsightFeedback
     Amazonka.DevOpsGuru.Types.InsightFeedbackOption
@@ -99,21 +119,39 @@ library
     Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter
     Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter
     Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter
+    Amazonka.DevOpsGuru.Types.ListMonitoredResourcesFilters
     Amazonka.DevOpsGuru.Types.Locale
+    Amazonka.DevOpsGuru.Types.LogAnomalyClass
+    Amazonka.DevOpsGuru.Types.LogAnomalyShowcase
+    Amazonka.DevOpsGuru.Types.LogAnomalyType
+    Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegration
+    Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig
+    Amazonka.DevOpsGuru.Types.MonitoredResourceIdentifier
     Amazonka.DevOpsGuru.Types.NotificationChannel
     Amazonka.DevOpsGuru.Types.NotificationChannelConfig
     Amazonka.DevOpsGuru.Types.OpsCenterIntegration
     Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig
     Amazonka.DevOpsGuru.Types.OptInStatus
+    Amazonka.DevOpsGuru.Types.OrganizationResourceCollectionType
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricDimensionGroup
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricQuery
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricsDetail
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceComparisonValues
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceData
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceMetric
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceScalar
+    Amazonka.DevOpsGuru.Types.PerformanceInsightsStat
     Amazonka.DevOpsGuru.Types.PredictionTimeRange
     Amazonka.DevOpsGuru.Types.ProactiveAnomaly
     Amazonka.DevOpsGuru.Types.ProactiveAnomalySummary
     Amazonka.DevOpsGuru.Types.ProactiveInsight
     Amazonka.DevOpsGuru.Types.ProactiveInsightSummary
+    Amazonka.DevOpsGuru.Types.ProactiveOrganizationInsightSummary
     Amazonka.DevOpsGuru.Types.ReactiveAnomaly
     Amazonka.DevOpsGuru.Types.ReactiveAnomalySummary
     Amazonka.DevOpsGuru.Types.ReactiveInsight
     Amazonka.DevOpsGuru.Types.ReactiveInsightSummary
+    Amazonka.DevOpsGuru.Types.ReactiveOrganizationInsightSummary
     Amazonka.DevOpsGuru.Types.Recommendation
     Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomaly
     Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalyResource
@@ -124,7 +162,10 @@ library
     Amazonka.DevOpsGuru.Types.ResourceCollection
     Amazonka.DevOpsGuru.Types.ResourceCollectionFilter
     Amazonka.DevOpsGuru.Types.ResourceCollectionType
+    Amazonka.DevOpsGuru.Types.ResourcePermission
+    Amazonka.DevOpsGuru.Types.ResourceTypeFilter
     Amazonka.DevOpsGuru.Types.SearchInsightsFilters
+    Amazonka.DevOpsGuru.Types.SearchOrganizationInsightsFilters
     Amazonka.DevOpsGuru.Types.ServiceCollection
     Amazonka.DevOpsGuru.Types.ServiceHealth
     Amazonka.DevOpsGuru.Types.ServiceInsightHealth
@@ -133,10 +174,17 @@ library
     Amazonka.DevOpsGuru.Types.ServiceResourceCost
     Amazonka.DevOpsGuru.Types.SnsChannelConfig
     Amazonka.DevOpsGuru.Types.StartTimeRange
+    Amazonka.DevOpsGuru.Types.TagCollection
+    Amazonka.DevOpsGuru.Types.TagCollectionFilter
+    Amazonka.DevOpsGuru.Types.TagCostEstimationResourceCollectionFilter
+    Amazonka.DevOpsGuru.Types.TagHealth
+    Amazonka.DevOpsGuru.Types.TimestampMetricValuePair
     Amazonka.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter
     Amazonka.DevOpsGuru.Types.UpdateResourceCollectionAction
     Amazonka.DevOpsGuru.Types.UpdateResourceCollectionFilter
     Amazonka.DevOpsGuru.Types.UpdateServiceIntegrationConfig
+    Amazonka.DevOpsGuru.Types.UpdateTagCollectionFilter
+    Amazonka.DevOpsGuru.UpdateEventSourcesConfig
     Amazonka.DevOpsGuru.UpdateResourceCollection
     Amazonka.DevOpsGuru.UpdateServiceIntegration
     Amazonka.DevOpsGuru.Waiters

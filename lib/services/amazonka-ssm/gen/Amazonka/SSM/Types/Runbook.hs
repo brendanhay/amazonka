@@ -39,6 +39,9 @@ data Runbook = Runbook'
     -- | The name of the parameter used as the target resource for the
     -- rate-controlled runbook workflow. Required if you specify @Targets@.
     targetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | A key-value mapping of runbook parameters to target resources. Both
+    -- Targets and TargetMaps can\'t be specified together.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
     -- | A key-value mapping to target resources that the runbook operation
     -- performs tasks on. Required if you specify @TargetParameterName@.
     targets :: Prelude.Maybe [Target],
@@ -74,6 +77,9 @@ data Runbook = Runbook'
 -- 'targetParameterName', 'runbook_targetParameterName' - The name of the parameter used as the target resource for the
 -- rate-controlled runbook workflow. Required if you specify @Targets@.
 --
+-- 'targetMaps', 'runbook_targetMaps' - A key-value mapping of runbook parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+--
 -- 'targets', 'runbook_targets' - A key-value mapping to target resources that the runbook operation
 -- performs tasks on. Required if you specify @TargetParameterName@.
 --
@@ -99,6 +105,7 @@ newRunbook pDocumentName_ =
   Runbook'
     { targetLocations = Prelude.Nothing,
       targetParameterName = Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
       targets = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -116,6 +123,11 @@ runbook_targetLocations = Lens.lens (\Runbook' {targetLocations} -> targetLocati
 -- rate-controlled runbook workflow. Required if you specify @Targets@.
 runbook_targetParameterName :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
 runbook_targetParameterName = Lens.lens (\Runbook' {targetParameterName} -> targetParameterName) (\s@Runbook' {} a -> s {targetParameterName = a} :: Runbook)
+
+-- | A key-value mapping of runbook parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+runbook_targetMaps :: Lens.Lens' Runbook (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+runbook_targetMaps = Lens.lens (\Runbook' {targetMaps} -> targetMaps) (\s@Runbook' {} a -> s {targetMaps = a} :: Runbook) Prelude.. Lens.mapping Lens.coerced
 
 -- | A key-value mapping to target resources that the runbook operation
 -- performs tasks on. Required if you specify @TargetParameterName@.
@@ -155,6 +167,7 @@ instance Core.FromJSON Runbook where
           Runbook'
             Prelude.<$> (x Core..:? "TargetLocations")
             Prelude.<*> (x Core..:? "TargetParameterName")
+            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "MaxErrors")
@@ -167,6 +180,7 @@ instance Prelude.Hashable Runbook where
   hashWithSalt _salt Runbook' {..} =
     _salt `Prelude.hashWithSalt` targetLocations
       `Prelude.hashWithSalt` targetParameterName
+      `Prelude.hashWithSalt` targetMaps
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` maxErrors
@@ -178,6 +192,7 @@ instance Prelude.NFData Runbook where
   rnf Runbook' {..} =
     Prelude.rnf targetLocations
       `Prelude.seq` Prelude.rnf targetParameterName
+      `Prelude.seq` Prelude.rnf targetMaps
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors
@@ -193,6 +208,7 @@ instance Core.ToJSON Runbook where
               Prelude.<$> targetLocations,
             ("TargetParameterName" Core..=)
               Prelude.<$> targetParameterName,
+            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
             ("Targets" Core..=) Prelude.<$> targets,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,

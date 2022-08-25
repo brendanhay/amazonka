@@ -30,6 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data SourceFieldProperties = SourceFieldProperties'
   { -- | Indicates whether the field can be returned in a search result.
     isRetrievable :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates if this timestamp field can be used for incremental queries.
+    isTimestampFieldForIncrementalQueries :: Prelude.Maybe Prelude.Bool,
     -- | Indicates if the field can be queried.
     isQueryable :: Prelude.Maybe Prelude.Bool
   }
@@ -45,6 +47,8 @@ data SourceFieldProperties = SourceFieldProperties'
 --
 -- 'isRetrievable', 'sourceFieldProperties_isRetrievable' - Indicates whether the field can be returned in a search result.
 --
+-- 'isTimestampFieldForIncrementalQueries', 'sourceFieldProperties_isTimestampFieldForIncrementalQueries' - Indicates if this timestamp field can be used for incremental queries.
+--
 -- 'isQueryable', 'sourceFieldProperties_isQueryable' - Indicates if the field can be queried.
 newSourceFieldProperties ::
   SourceFieldProperties
@@ -52,12 +56,18 @@ newSourceFieldProperties =
   SourceFieldProperties'
     { isRetrievable =
         Prelude.Nothing,
+      isTimestampFieldForIncrementalQueries =
+        Prelude.Nothing,
       isQueryable = Prelude.Nothing
     }
 
 -- | Indicates whether the field can be returned in a search result.
 sourceFieldProperties_isRetrievable :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
 sourceFieldProperties_isRetrievable = Lens.lens (\SourceFieldProperties' {isRetrievable} -> isRetrievable) (\s@SourceFieldProperties' {} a -> s {isRetrievable = a} :: SourceFieldProperties)
+
+-- | Indicates if this timestamp field can be used for incremental queries.
+sourceFieldProperties_isTimestampFieldForIncrementalQueries :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
+sourceFieldProperties_isTimestampFieldForIncrementalQueries = Lens.lens (\SourceFieldProperties' {isTimestampFieldForIncrementalQueries} -> isTimestampFieldForIncrementalQueries) (\s@SourceFieldProperties' {} a -> s {isTimestampFieldForIncrementalQueries = a} :: SourceFieldProperties)
 
 -- | Indicates if the field can be queried.
 sourceFieldProperties_isQueryable :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
@@ -70,15 +80,18 @@ instance Core.FromJSON SourceFieldProperties where
       ( \x ->
           SourceFieldProperties'
             Prelude.<$> (x Core..:? "isRetrievable")
+            Prelude.<*> (x Core..:? "isTimestampFieldForIncrementalQueries")
             Prelude.<*> (x Core..:? "isQueryable")
       )
 
 instance Prelude.Hashable SourceFieldProperties where
   hashWithSalt _salt SourceFieldProperties' {..} =
     _salt `Prelude.hashWithSalt` isRetrievable
+      `Prelude.hashWithSalt` isTimestampFieldForIncrementalQueries
       `Prelude.hashWithSalt` isQueryable
 
 instance Prelude.NFData SourceFieldProperties where
   rnf SourceFieldProperties' {..} =
     Prelude.rnf isRetrievable
+      `Prelude.seq` Prelude.rnf isTimestampFieldForIncrementalQueries
       `Prelude.seq` Prelude.rnf isQueryable

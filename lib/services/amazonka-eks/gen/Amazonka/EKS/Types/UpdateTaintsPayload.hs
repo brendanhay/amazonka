@@ -24,7 +24,9 @@ import Amazonka.EKS.Types.Taint
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the details of an update to a taints payload.
+-- | An object representing the details of an update to a taints payload. For
+-- more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
 --
 -- /See:/ 'newUpdateTaintsPayload' smart constructor.
 data UpdateTaintsPayload = UpdateTaintsPayload'

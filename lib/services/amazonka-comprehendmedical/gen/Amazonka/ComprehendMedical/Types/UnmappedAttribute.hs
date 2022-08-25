@@ -25,12 +25,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An attribute that we extracted, but were unable to relate to an entity.
+-- | An attribute that was extracted, but Comprehend Medical; was unable to
+-- relate to an entity.
 --
 -- /See:/ 'newUnmappedAttribute' smart constructor.
 data UnmappedAttribute = UnmappedAttribute'
-  { -- | The type of the attribute, could be one of the following values:
-    -- \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
+  { -- | The type of the unmapped attribute, could be one of the following
+    -- values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
     -- \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".
     type' :: Prelude.Maybe EntityType,
     -- | The specific attribute that has been extracted but not mapped to an
@@ -47,8 +48,8 @@ data UnmappedAttribute = UnmappedAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'unmappedAttribute_type' - The type of the attribute, could be one of the following values:
--- \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
+-- 'type'', 'unmappedAttribute_type' - The type of the unmapped attribute, could be one of the following
+-- values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
 -- \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".
 --
 -- 'attribute', 'unmappedAttribute_attribute' - The specific attribute that has been extracted but not mapped to an
@@ -61,8 +62,8 @@ newUnmappedAttribute =
       attribute = Prelude.Nothing
     }
 
--- | The type of the attribute, could be one of the following values:
--- \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
+-- | The type of the unmapped attribute, could be one of the following
+-- values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
 -- \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".
 unmappedAttribute_type :: Lens.Lens' UnmappedAttribute (Prelude.Maybe EntityType)
 unmappedAttribute_type = Lens.lens (\UnmappedAttribute' {type'} -> type') (\s@UnmappedAttribute' {} a -> s {type' = a} :: UnmappedAttribute)

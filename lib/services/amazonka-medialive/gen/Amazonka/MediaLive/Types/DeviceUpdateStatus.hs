@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.DeviceUpdateStatus
   ( DeviceUpdateStatus
       ( ..,
         DeviceUpdateStatus_NOT_UP_TO_DATE,
+        DeviceUpdateStatus_UPDATING,
         DeviceUpdateStatus_UP_TO_DATE
       ),
   )
@@ -61,11 +62,15 @@ newtype DeviceUpdateStatus = DeviceUpdateStatus'
 pattern DeviceUpdateStatus_NOT_UP_TO_DATE :: DeviceUpdateStatus
 pattern DeviceUpdateStatus_NOT_UP_TO_DATE = DeviceUpdateStatus' "NOT_UP_TO_DATE"
 
+pattern DeviceUpdateStatus_UPDATING :: DeviceUpdateStatus
+pattern DeviceUpdateStatus_UPDATING = DeviceUpdateStatus' "UPDATING"
+
 pattern DeviceUpdateStatus_UP_TO_DATE :: DeviceUpdateStatus
 pattern DeviceUpdateStatus_UP_TO_DATE = DeviceUpdateStatus' "UP_TO_DATE"
 
 {-# COMPLETE
   DeviceUpdateStatus_NOT_UP_TO_DATE,
+  DeviceUpdateStatus_UPDATING,
   DeviceUpdateStatus_UP_TO_DATE,
   DeviceUpdateStatus'
   #-}

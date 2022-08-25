@@ -32,6 +32,7 @@ module Amazonka.EC2.DescribeKeyPairs
 
     -- * Request Lenses
     describeKeyPairs_keyPairIds,
+    describeKeyPairs_includePublicKey,
     describeKeyPairs_filters,
     describeKeyPairs_dryRun,
     describeKeyPairs_keyNames,
@@ -57,6 +58,10 @@ import qualified Amazonka.Response as Response
 data DescribeKeyPairs = DescribeKeyPairs'
   { -- | The IDs of the key pairs.
     keyPairIds :: Prelude.Maybe [Prelude.Text],
+    -- | If @true@, the public key material is included in the response.
+    --
+    -- Default: @false@
+    includePublicKey :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @key-pair-id@ - The ID of the key pair.
@@ -97,6 +102,10 @@ data DescribeKeyPairs = DescribeKeyPairs'
 --
 -- 'keyPairIds', 'describeKeyPairs_keyPairIds' - The IDs of the key pairs.
 --
+-- 'includePublicKey', 'describeKeyPairs_includePublicKey' - If @true@, the public key material is included in the response.
+--
+-- Default: @false@
+--
 -- 'filters', 'describeKeyPairs_filters' - The filters.
 --
 -- -   @key-pair-id@ - The ID of the key pair.
@@ -128,6 +137,7 @@ newDescribeKeyPairs ::
 newDescribeKeyPairs =
   DescribeKeyPairs'
     { keyPairIds = Prelude.Nothing,
+      includePublicKey = Prelude.Nothing,
       filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       keyNames = Prelude.Nothing
@@ -136,6 +146,12 @@ newDescribeKeyPairs =
 -- | The IDs of the key pairs.
 describeKeyPairs_keyPairIds :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
 describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyPairIds) (\s@DescribeKeyPairs' {} a -> s {keyPairIds = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens.coerced
+
+-- | If @true@, the public key material is included in the response.
+--
+-- Default: @false@
+describeKeyPairs_includePublicKey :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe Prelude.Bool)
+describeKeyPairs_includePublicKey = Lens.lens (\DescribeKeyPairs' {includePublicKey} -> includePublicKey) (\s@DescribeKeyPairs' {} a -> s {includePublicKey = a} :: DescribeKeyPairs)
 
 -- | The filters.
 --
@@ -188,6 +204,7 @@ instance Core.AWSRequest DescribeKeyPairs where
 instance Prelude.Hashable DescribeKeyPairs where
   hashWithSalt _salt DescribeKeyPairs' {..} =
     _salt `Prelude.hashWithSalt` keyPairIds
+      `Prelude.hashWithSalt` includePublicKey
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` keyNames
@@ -195,6 +212,7 @@ instance Prelude.Hashable DescribeKeyPairs where
 instance Prelude.NFData DescribeKeyPairs where
   rnf DescribeKeyPairs' {..} =
     Prelude.rnf keyPairIds
+      `Prelude.seq` Prelude.rnf includePublicKey
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf keyNames
@@ -216,6 +234,7 @@ instance Core.ToQuery DescribeKeyPairs where
           ( Core.toQueryList "KeyPairId"
               Prelude.<$> keyPairIds
           ),
+        "IncludePublicKey" Core.=: includePublicKey,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Core.=: dryRun,

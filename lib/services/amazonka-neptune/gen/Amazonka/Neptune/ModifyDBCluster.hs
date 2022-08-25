@@ -35,7 +35,9 @@ module Amazonka.Neptune.ModifyDBCluster
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_backupRetentionPeriod,
     modifyDBCluster_copyTagsToSnapshot,
+    modifyDBCluster_dbInstanceParameterGroupName,
     modifyDBCluster_applyImmediately,
+    modifyDBCluster_allowMajorVersionUpgrade,
     modifyDBCluster_optionGroupName,
     modifyDBCluster_enableIAMDatabaseAuthentication,
     modifyDBCluster_masterUserPassword,
@@ -115,6 +117,23 @@ data ModifyDBCluster = ModifyDBCluster'
     -- | /If set to @true@, tags are copied to any snapshot of the DB cluster
     -- that is created./
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the DB parameter group to apply to all instances of the DB
+    -- cluster.
+    --
+    -- When you apply a parameter group using @DBInstanceParameterGroupName@,
+    -- parameter changes aren\'t applied during the next maintenance window but
+    -- instead are applied immediately.
+    --
+    -- Default: The existing name setting
+    --
+    -- Constraints:
+    --
+    -- -   The DB parameter group must be in the same DB parameter group family
+    --     as the target DB cluster version.
+    --
+    -- -   The @DBInstanceParameterGroupName@ parameter is only valid in
+    --     combination with the @AllowMajorVersionUpgrade@ parameter.
+    dbInstanceParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that specifies whether the modifications in this request and any
     -- pending modifications are asynchronously applied as soon as possible,
     -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
@@ -129,6 +148,13 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- Default: @false@
     applyImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether upgrades between different major versions
+    -- are allowed.
+    --
+    -- Constraints: You must set the allow-major-version-upgrade flag when
+    -- providing an @EngineVersion@ parameter that uses a different major
+    -- version than the DB cluster\'s current version.
+    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | /Not supported by Neptune./
     optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | True to enable mapping of Amazon Identity and Access Management (IAM)
@@ -238,6 +264,23 @@ data ModifyDBCluster = ModifyDBCluster'
 -- 'copyTagsToSnapshot', 'modifyDBCluster_copyTagsToSnapshot' - /If set to @true@, tags are copied to any snapshot of the DB cluster
 -- that is created./
 --
+-- 'dbInstanceParameterGroupName', 'modifyDBCluster_dbInstanceParameterGroupName' - The name of the DB parameter group to apply to all instances of the DB
+-- cluster.
+--
+-- When you apply a parameter group using @DBInstanceParameterGroupName@,
+-- parameter changes aren\'t applied during the next maintenance window but
+-- instead are applied immediately.
+--
+-- Default: The existing name setting
+--
+-- Constraints:
+--
+-- -   The DB parameter group must be in the same DB parameter group family
+--     as the target DB cluster version.
+--
+-- -   The @DBInstanceParameterGroupName@ parameter is only valid in
+--     combination with the @AllowMajorVersionUpgrade@ parameter.
+--
 -- 'applyImmediately', 'modifyDBCluster_applyImmediately' - A value that specifies whether the modifications in this request and any
 -- pending modifications are asynchronously applied as soon as possible,
 -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
@@ -251,6 +294,13 @@ data ModifyDBCluster = ModifyDBCluster'
 -- regardless of the value of the @ApplyImmediately@ parameter.
 --
 -- Default: @false@
+--
+-- 'allowMajorVersionUpgrade', 'modifyDBCluster_allowMajorVersionUpgrade' - A value that indicates whether upgrades between different major versions
+-- are allowed.
+--
+-- Constraints: You must set the allow-major-version-upgrade flag when
+-- providing an @EngineVersion@ parameter that uses a different major
+-- version than the DB cluster\'s current version.
 --
 -- 'optionGroupName', 'modifyDBCluster_optionGroupName' - /Not supported by Neptune./
 --
@@ -312,7 +362,9 @@ newModifyDBCluster pDBClusterIdentifier_ =
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       copyTagsToSnapshot = Prelude.Nothing,
+      dbInstanceParameterGroupName = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
+      allowMajorVersionUpgrade = Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
       enableIAMDatabaseAuthentication = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
@@ -386,6 +438,25 @@ modifyDBCluster_backupRetentionPeriod = Lens.lens (\ModifyDBCluster' {backupRete
 modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBCluster' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBCluster)
 
+-- | The name of the DB parameter group to apply to all instances of the DB
+-- cluster.
+--
+-- When you apply a parameter group using @DBInstanceParameterGroupName@,
+-- parameter changes aren\'t applied during the next maintenance window but
+-- instead are applied immediately.
+--
+-- Default: The existing name setting
+--
+-- Constraints:
+--
+-- -   The DB parameter group must be in the same DB parameter group family
+--     as the target DB cluster version.
+--
+-- -   The @DBInstanceParameterGroupName@ parameter is only valid in
+--     combination with the @AllowMajorVersionUpgrade@ parameter.
+modifyDBCluster_dbInstanceParameterGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_dbInstanceParameterGroupName = Lens.lens (\ModifyDBCluster' {dbInstanceParameterGroupName} -> dbInstanceParameterGroupName) (\s@ModifyDBCluster' {} a -> s {dbInstanceParameterGroupName = a} :: ModifyDBCluster)
+
 -- | A value that specifies whether the modifications in this request and any
 -- pending modifications are asynchronously applied as soon as possible,
 -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
@@ -401,6 +472,15 @@ modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSna
 -- Default: @false@
 modifyDBCluster_applyImmediately :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_applyImmediately = Lens.lens (\ModifyDBCluster' {applyImmediately} -> applyImmediately) (\s@ModifyDBCluster' {} a -> s {applyImmediately = a} :: ModifyDBCluster)
+
+-- | A value that indicates whether upgrades between different major versions
+-- are allowed.
+--
+-- Constraints: You must set the allow-major-version-upgrade flag when
+-- providing an @EngineVersion@ parameter that uses a different major
+-- version than the DB cluster\'s current version.
+modifyDBCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
+modifyDBCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyDBCluster' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBCluster' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBCluster)
 
 -- | /Not supported by Neptune./
 modifyDBCluster_optionGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
@@ -491,7 +571,9 @@ instance Prelude.Hashable ModifyDBCluster where
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` dbInstanceParameterGroupName
       `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` allowMajorVersionUpgrade
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
       `Prelude.hashWithSalt` masterUserPassword
@@ -510,14 +592,18 @@ instance Prelude.NFData ModifyDBCluster where
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf dbInstanceParameterGroupName
       `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
       `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
+      `Prelude.seq` Prelude.rnf
+        cloudwatchLogsExportConfiguration
       `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf
+        dbClusterParameterGroupName
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
@@ -547,7 +633,11 @@ instance Core.ToQuery ModifyDBCluster where
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
+        "DBInstanceParameterGroupName"
+          Core.=: dbInstanceParameterGroupName,
         "ApplyImmediately" Core.=: applyImmediately,
+        "AllowMajorVersionUpgrade"
+          Core.=: allowMajorVersionUpgrade,
         "OptionGroupName" Core.=: optionGroupName,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,

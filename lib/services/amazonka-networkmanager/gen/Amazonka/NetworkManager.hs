@@ -11,13 +11,9 @@
 --
 -- Derived from API version @2019-07-05@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Transit Gateway Network Manager (Network Manager) enables you to create
--- a global network, in which you can monitor your AWS and on-premises
--- networks that are built around transit gateways.
---
--- The Network Manager APIs are supported in the US West (Oregon) Region
--- only. You must specify the @us-west-2@ Region in all requests made to
--- Network Manager.
+-- Amazon Web Services enables you to centrally manage your Amazon Web
+-- Services Cloud WAN core network and your Transit Gateway network across
+-- Amazon Web Services accounts, Regions, and on-premises locations.
 module Amazonka.NetworkManager
   ( -- * Service Configuration
     defaultService,
@@ -37,6 +33,9 @@ module Amazonka.NetworkManager
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** CoreNetworkPolicyException
+    _CoreNetworkPolicyException,
+
     -- ** ConflictException
     _ConflictException,
 
@@ -51,6 +50,18 @@ module Amazonka.NetworkManager
 
     -- * Operations
     -- $operations
+
+    -- ** AcceptAttachment
+    AcceptAttachment (AcceptAttachment'),
+    newAcceptAttachment,
+    AcceptAttachmentResponse (AcceptAttachmentResponse'),
+    newAcceptAttachmentResponse,
+
+    -- ** AssociateConnectPeer
+    AssociateConnectPeer (AssociateConnectPeer'),
+    newAssociateConnectPeer,
+    AssociateConnectPeerResponse (AssociateConnectPeerResponse'),
+    newAssociateConnectPeerResponse,
 
     -- ** AssociateCustomerGateway
     AssociateCustomerGateway (AssociateCustomerGateway'),
@@ -70,11 +81,29 @@ module Amazonka.NetworkManager
     AssociateTransitGatewayConnectPeerResponse (AssociateTransitGatewayConnectPeerResponse'),
     newAssociateTransitGatewayConnectPeerResponse,
 
+    -- ** CreateConnectAttachment
+    CreateConnectAttachment (CreateConnectAttachment'),
+    newCreateConnectAttachment,
+    CreateConnectAttachmentResponse (CreateConnectAttachmentResponse'),
+    newCreateConnectAttachmentResponse,
+
+    -- ** CreateConnectPeer
+    CreateConnectPeer (CreateConnectPeer'),
+    newCreateConnectPeer,
+    CreateConnectPeerResponse (CreateConnectPeerResponse'),
+    newCreateConnectPeerResponse,
+
     -- ** CreateConnection
     CreateConnection (CreateConnection'),
     newCreateConnection,
     CreateConnectionResponse (CreateConnectionResponse'),
     newCreateConnectionResponse,
+
+    -- ** CreateCoreNetwork
+    CreateCoreNetwork (CreateCoreNetwork'),
+    newCreateCoreNetwork,
+    CreateCoreNetworkResponse (CreateCoreNetworkResponse'),
+    newCreateCoreNetworkResponse,
 
     -- ** CreateDevice
     CreateDevice (CreateDevice'),
@@ -100,11 +129,59 @@ module Amazonka.NetworkManager
     CreateSiteResponse (CreateSiteResponse'),
     newCreateSiteResponse,
 
+    -- ** CreateSiteToSiteVpnAttachment
+    CreateSiteToSiteVpnAttachment (CreateSiteToSiteVpnAttachment'),
+    newCreateSiteToSiteVpnAttachment,
+    CreateSiteToSiteVpnAttachmentResponse (CreateSiteToSiteVpnAttachmentResponse'),
+    newCreateSiteToSiteVpnAttachmentResponse,
+
+    -- ** CreateTransitGatewayPeering
+    CreateTransitGatewayPeering (CreateTransitGatewayPeering'),
+    newCreateTransitGatewayPeering,
+    CreateTransitGatewayPeeringResponse (CreateTransitGatewayPeeringResponse'),
+    newCreateTransitGatewayPeeringResponse,
+
+    -- ** CreateTransitGatewayRouteTableAttachment
+    CreateTransitGatewayRouteTableAttachment (CreateTransitGatewayRouteTableAttachment'),
+    newCreateTransitGatewayRouteTableAttachment,
+    CreateTransitGatewayRouteTableAttachmentResponse (CreateTransitGatewayRouteTableAttachmentResponse'),
+    newCreateTransitGatewayRouteTableAttachmentResponse,
+
+    -- ** CreateVpcAttachment
+    CreateVpcAttachment (CreateVpcAttachment'),
+    newCreateVpcAttachment,
+    CreateVpcAttachmentResponse (CreateVpcAttachmentResponse'),
+    newCreateVpcAttachmentResponse,
+
+    -- ** DeleteAttachment
+    DeleteAttachment (DeleteAttachment'),
+    newDeleteAttachment,
+    DeleteAttachmentResponse (DeleteAttachmentResponse'),
+    newDeleteAttachmentResponse,
+
+    -- ** DeleteConnectPeer
+    DeleteConnectPeer (DeleteConnectPeer'),
+    newDeleteConnectPeer,
+    DeleteConnectPeerResponse (DeleteConnectPeerResponse'),
+    newDeleteConnectPeerResponse,
+
     -- ** DeleteConnection
     DeleteConnection (DeleteConnection'),
     newDeleteConnection,
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
+
+    -- ** DeleteCoreNetwork
+    DeleteCoreNetwork (DeleteCoreNetwork'),
+    newDeleteCoreNetwork,
+    DeleteCoreNetworkResponse (DeleteCoreNetworkResponse'),
+    newDeleteCoreNetworkResponse,
+
+    -- ** DeleteCoreNetworkPolicyVersion
+    DeleteCoreNetworkPolicyVersion (DeleteCoreNetworkPolicyVersion'),
+    newDeleteCoreNetworkPolicyVersion,
+    DeleteCoreNetworkPolicyVersionResponse (DeleteCoreNetworkPolicyVersionResponse'),
+    newDeleteCoreNetworkPolicyVersionResponse,
 
     -- ** DeleteDevice
     DeleteDevice (DeleteDevice'),
@@ -124,6 +201,18 @@ module Amazonka.NetworkManager
     DeleteLinkResponse (DeleteLinkResponse'),
     newDeleteLinkResponse,
 
+    -- ** DeletePeering
+    DeletePeering (DeletePeering'),
+    newDeletePeering,
+    DeletePeeringResponse (DeletePeeringResponse'),
+    newDeletePeeringResponse,
+
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
     -- ** DeleteSite
     DeleteSite (DeleteSite'),
     newDeleteSite,
@@ -141,6 +230,12 @@ module Amazonka.NetworkManager
     newDescribeGlobalNetworks,
     DescribeGlobalNetworksResponse (DescribeGlobalNetworksResponse'),
     newDescribeGlobalNetworksResponse,
+
+    -- ** DisassociateConnectPeer
+    DisassociateConnectPeer (DisassociateConnectPeer'),
+    newDisassociateConnectPeer,
+    DisassociateConnectPeerResponse (DisassociateConnectPeerResponse'),
+    newDisassociateConnectPeerResponse,
 
     -- ** DisassociateCustomerGateway
     DisassociateCustomerGateway (DisassociateCustomerGateway'),
@@ -160,11 +255,59 @@ module Amazonka.NetworkManager
     DisassociateTransitGatewayConnectPeerResponse (DisassociateTransitGatewayConnectPeerResponse'),
     newDisassociateTransitGatewayConnectPeerResponse,
 
+    -- ** ExecuteCoreNetworkChangeSet
+    ExecuteCoreNetworkChangeSet (ExecuteCoreNetworkChangeSet'),
+    newExecuteCoreNetworkChangeSet,
+    ExecuteCoreNetworkChangeSetResponse (ExecuteCoreNetworkChangeSetResponse'),
+    newExecuteCoreNetworkChangeSetResponse,
+
+    -- ** GetConnectAttachment
+    GetConnectAttachment (GetConnectAttachment'),
+    newGetConnectAttachment,
+    GetConnectAttachmentResponse (GetConnectAttachmentResponse'),
+    newGetConnectAttachmentResponse,
+
+    -- ** GetConnectPeer
+    GetConnectPeer (GetConnectPeer'),
+    newGetConnectPeer,
+    GetConnectPeerResponse (GetConnectPeerResponse'),
+    newGetConnectPeerResponse,
+
+    -- ** GetConnectPeerAssociations (Paginated)
+    GetConnectPeerAssociations (GetConnectPeerAssociations'),
+    newGetConnectPeerAssociations,
+    GetConnectPeerAssociationsResponse (GetConnectPeerAssociationsResponse'),
+    newGetConnectPeerAssociationsResponse,
+
     -- ** GetConnections (Paginated)
     GetConnections (GetConnections'),
     newGetConnections,
     GetConnectionsResponse (GetConnectionsResponse'),
     newGetConnectionsResponse,
+
+    -- ** GetCoreNetwork
+    GetCoreNetwork (GetCoreNetwork'),
+    newGetCoreNetwork,
+    GetCoreNetworkResponse (GetCoreNetworkResponse'),
+    newGetCoreNetworkResponse,
+
+    -- ** GetCoreNetworkChangeEvents (Paginated)
+    GetCoreNetworkChangeEvents (GetCoreNetworkChangeEvents'),
+    newGetCoreNetworkChangeEvents,
+    GetCoreNetworkChangeEventsResponse (GetCoreNetworkChangeEventsResponse'),
+    newGetCoreNetworkChangeEventsResponse,
+
+    -- ** GetCoreNetworkChangeSet (Paginated)
+    GetCoreNetworkChangeSet (GetCoreNetworkChangeSet'),
+    newGetCoreNetworkChangeSet,
+    GetCoreNetworkChangeSetResponse (GetCoreNetworkChangeSetResponse'),
+    newGetCoreNetworkChangeSetResponse,
+
+    -- ** GetCoreNetworkPolicy
+    GetCoreNetworkPolicy (GetCoreNetworkPolicy'),
+    newGetCoreNetworkPolicy,
+    GetCoreNetworkPolicyResponse (GetCoreNetworkPolicyResponse'),
+    newGetCoreNetworkPolicyResponse,
 
     -- ** GetCustomerGatewayAssociations (Paginated)
     GetCustomerGatewayAssociations (GetCustomerGatewayAssociations'),
@@ -190,6 +333,54 @@ module Amazonka.NetworkManager
     GetLinksResponse (GetLinksResponse'),
     newGetLinksResponse,
 
+    -- ** GetNetworkResourceCounts (Paginated)
+    GetNetworkResourceCounts (GetNetworkResourceCounts'),
+    newGetNetworkResourceCounts,
+    GetNetworkResourceCountsResponse (GetNetworkResourceCountsResponse'),
+    newGetNetworkResourceCountsResponse,
+
+    -- ** GetNetworkResourceRelationships (Paginated)
+    GetNetworkResourceRelationships (GetNetworkResourceRelationships'),
+    newGetNetworkResourceRelationships,
+    GetNetworkResourceRelationshipsResponse (GetNetworkResourceRelationshipsResponse'),
+    newGetNetworkResourceRelationshipsResponse,
+
+    -- ** GetNetworkResources (Paginated)
+    GetNetworkResources (GetNetworkResources'),
+    newGetNetworkResources,
+    GetNetworkResourcesResponse (GetNetworkResourcesResponse'),
+    newGetNetworkResourcesResponse,
+
+    -- ** GetNetworkRoutes
+    GetNetworkRoutes (GetNetworkRoutes'),
+    newGetNetworkRoutes,
+    GetNetworkRoutesResponse (GetNetworkRoutesResponse'),
+    newGetNetworkRoutesResponse,
+
+    -- ** GetNetworkTelemetry (Paginated)
+    GetNetworkTelemetry (GetNetworkTelemetry'),
+    newGetNetworkTelemetry,
+    GetNetworkTelemetryResponse (GetNetworkTelemetryResponse'),
+    newGetNetworkTelemetryResponse,
+
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** GetRouteAnalysis
+    GetRouteAnalysis (GetRouteAnalysis'),
+    newGetRouteAnalysis,
+    GetRouteAnalysisResponse (GetRouteAnalysisResponse'),
+    newGetRouteAnalysisResponse,
+
+    -- ** GetSiteToSiteVpnAttachment
+    GetSiteToSiteVpnAttachment (GetSiteToSiteVpnAttachment'),
+    newGetSiteToSiteVpnAttachment,
+    GetSiteToSiteVpnAttachmentResponse (GetSiteToSiteVpnAttachmentResponse'),
+    newGetSiteToSiteVpnAttachmentResponse,
+
     -- ** GetSites (Paginated)
     GetSites (GetSites'),
     newGetSites,
@@ -202,11 +393,65 @@ module Amazonka.NetworkManager
     GetTransitGatewayConnectPeerAssociationsResponse (GetTransitGatewayConnectPeerAssociationsResponse'),
     newGetTransitGatewayConnectPeerAssociationsResponse,
 
+    -- ** GetTransitGatewayPeering
+    GetTransitGatewayPeering (GetTransitGatewayPeering'),
+    newGetTransitGatewayPeering,
+    GetTransitGatewayPeeringResponse (GetTransitGatewayPeeringResponse'),
+    newGetTransitGatewayPeeringResponse,
+
     -- ** GetTransitGatewayRegistrations (Paginated)
     GetTransitGatewayRegistrations (GetTransitGatewayRegistrations'),
     newGetTransitGatewayRegistrations,
     GetTransitGatewayRegistrationsResponse (GetTransitGatewayRegistrationsResponse'),
     newGetTransitGatewayRegistrationsResponse,
+
+    -- ** GetTransitGatewayRouteTableAttachment
+    GetTransitGatewayRouteTableAttachment (GetTransitGatewayRouteTableAttachment'),
+    newGetTransitGatewayRouteTableAttachment,
+    GetTransitGatewayRouteTableAttachmentResponse (GetTransitGatewayRouteTableAttachmentResponse'),
+    newGetTransitGatewayRouteTableAttachmentResponse,
+
+    -- ** GetVpcAttachment
+    GetVpcAttachment (GetVpcAttachment'),
+    newGetVpcAttachment,
+    GetVpcAttachmentResponse (GetVpcAttachmentResponse'),
+    newGetVpcAttachmentResponse,
+
+    -- ** ListAttachments (Paginated)
+    ListAttachments (ListAttachments'),
+    newListAttachments,
+    ListAttachmentsResponse (ListAttachmentsResponse'),
+    newListAttachmentsResponse,
+
+    -- ** ListConnectPeers (Paginated)
+    ListConnectPeers (ListConnectPeers'),
+    newListConnectPeers,
+    ListConnectPeersResponse (ListConnectPeersResponse'),
+    newListConnectPeersResponse,
+
+    -- ** ListCoreNetworkPolicyVersions (Paginated)
+    ListCoreNetworkPolicyVersions (ListCoreNetworkPolicyVersions'),
+    newListCoreNetworkPolicyVersions,
+    ListCoreNetworkPolicyVersionsResponse (ListCoreNetworkPolicyVersionsResponse'),
+    newListCoreNetworkPolicyVersionsResponse,
+
+    -- ** ListCoreNetworks (Paginated)
+    ListCoreNetworks (ListCoreNetworks'),
+    newListCoreNetworks,
+    ListCoreNetworksResponse (ListCoreNetworksResponse'),
+    newListCoreNetworksResponse,
+
+    -- ** ListOrganizationServiceAccessStatus
+    ListOrganizationServiceAccessStatus (ListOrganizationServiceAccessStatus'),
+    newListOrganizationServiceAccessStatus,
+    ListOrganizationServiceAccessStatusResponse (ListOrganizationServiceAccessStatusResponse'),
+    newListOrganizationServiceAccessStatusResponse,
+
+    -- ** ListPeerings (Paginated)
+    ListPeerings (ListPeerings'),
+    newListPeerings,
+    ListPeeringsResponse (ListPeeringsResponse'),
+    newListPeeringsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -214,11 +459,47 @@ module Amazonka.NetworkManager
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** PutCoreNetworkPolicy
+    PutCoreNetworkPolicy (PutCoreNetworkPolicy'),
+    newPutCoreNetworkPolicy,
+    PutCoreNetworkPolicyResponse (PutCoreNetworkPolicyResponse'),
+    newPutCoreNetworkPolicyResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
+
     -- ** RegisterTransitGateway
     RegisterTransitGateway (RegisterTransitGateway'),
     newRegisterTransitGateway,
     RegisterTransitGatewayResponse (RegisterTransitGatewayResponse'),
     newRegisterTransitGatewayResponse,
+
+    -- ** RejectAttachment
+    RejectAttachment (RejectAttachment'),
+    newRejectAttachment,
+    RejectAttachmentResponse (RejectAttachmentResponse'),
+    newRejectAttachmentResponse,
+
+    -- ** RestoreCoreNetworkPolicyVersion
+    RestoreCoreNetworkPolicyVersion (RestoreCoreNetworkPolicyVersion'),
+    newRestoreCoreNetworkPolicyVersion,
+    RestoreCoreNetworkPolicyVersionResponse (RestoreCoreNetworkPolicyVersionResponse'),
+    newRestoreCoreNetworkPolicyVersionResponse,
+
+    -- ** StartOrganizationServiceAccessUpdate
+    StartOrganizationServiceAccessUpdate (StartOrganizationServiceAccessUpdate'),
+    newStartOrganizationServiceAccessUpdate,
+    StartOrganizationServiceAccessUpdateResponse (StartOrganizationServiceAccessUpdateResponse'),
+    newStartOrganizationServiceAccessUpdateResponse,
+
+    -- ** StartRouteAnalysis
+    StartRouteAnalysis (StartRouteAnalysis'),
+    newStartRouteAnalysis,
+    StartRouteAnalysisResponse (StartRouteAnalysisResponse'),
+    newStartRouteAnalysisResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -238,6 +519,12 @@ module Amazonka.NetworkManager
     UpdateConnectionResponse (UpdateConnectionResponse'),
     newUpdateConnectionResponse,
 
+    -- ** UpdateCoreNetwork
+    UpdateCoreNetwork (UpdateCoreNetwork'),
+    newUpdateCoreNetwork,
+    UpdateCoreNetworkResponse (UpdateCoreNetworkResponse'),
+    newUpdateCoreNetworkResponse,
+
     -- ** UpdateDevice
     UpdateDevice (UpdateDevice'),
     newUpdateDevice,
@@ -256,16 +543,64 @@ module Amazonka.NetworkManager
     UpdateLinkResponse (UpdateLinkResponse'),
     newUpdateLinkResponse,
 
+    -- ** UpdateNetworkResourceMetadata
+    UpdateNetworkResourceMetadata (UpdateNetworkResourceMetadata'),
+    newUpdateNetworkResourceMetadata,
+    UpdateNetworkResourceMetadataResponse (UpdateNetworkResourceMetadataResponse'),
+    newUpdateNetworkResourceMetadataResponse,
+
     -- ** UpdateSite
     UpdateSite (UpdateSite'),
     newUpdateSite,
     UpdateSiteResponse (UpdateSiteResponse'),
     newUpdateSiteResponse,
 
+    -- ** UpdateVpcAttachment
+    UpdateVpcAttachment (UpdateVpcAttachment'),
+    newUpdateVpcAttachment,
+    UpdateVpcAttachmentResponse (UpdateVpcAttachmentResponse'),
+    newUpdateVpcAttachmentResponse,
+
     -- * Types
+
+    -- ** AttachmentState
+    AttachmentState (..),
+
+    -- ** AttachmentType
+    AttachmentType (..),
+
+    -- ** ChangeAction
+    ChangeAction (..),
+
+    -- ** ChangeSetState
+    ChangeSetState (..),
+
+    -- ** ChangeStatus
+    ChangeStatus (..),
+
+    -- ** ChangeType
+    ChangeType (..),
+
+    -- ** ConnectPeerAssociationState
+    ConnectPeerAssociationState (..),
+
+    -- ** ConnectPeerState
+    ConnectPeerState (..),
 
     -- ** ConnectionState
     ConnectionState (..),
+
+    -- ** ConnectionStatus
+    ConnectionStatus (..),
+
+    -- ** ConnectionType
+    ConnectionType (..),
+
+    -- ** CoreNetworkPolicyAlias
+    CoreNetworkPolicyAlias (..),
+
+    -- ** CoreNetworkState
+    CoreNetworkState (..),
 
     -- ** CustomerGatewayAssociationState
     CustomerGatewayAssociationState (..),
@@ -282,6 +617,30 @@ module Amazonka.NetworkManager
     -- ** LinkState
     LinkState (..),
 
+    -- ** PeeringState
+    PeeringState (..),
+
+    -- ** PeeringType
+    PeeringType (..),
+
+    -- ** RouteAnalysisCompletionReasonCode
+    RouteAnalysisCompletionReasonCode (..),
+
+    -- ** RouteAnalysisCompletionResultCode
+    RouteAnalysisCompletionResultCode (..),
+
+    -- ** RouteAnalysisStatus
+    RouteAnalysisStatus (..),
+
+    -- ** RouteState
+    RouteState (..),
+
+    -- ** RouteTableType
+    RouteTableType (..),
+
+    -- ** RouteType
+    RouteType (..),
+
     -- ** SiteState
     SiteState (..),
 
@@ -291,17 +650,112 @@ module Amazonka.NetworkManager
     -- ** TransitGatewayRegistrationState
     TransitGatewayRegistrationState (..),
 
+    -- ** TunnelProtocol
+    TunnelProtocol (..),
+
     -- ** AWSLocation
     AWSLocation (AWSLocation'),
     newAWSLocation,
+
+    -- ** AccountStatus
+    AccountStatus (AccountStatus'),
+    newAccountStatus,
+
+    -- ** Attachment
+    Attachment (Attachment'),
+    newAttachment,
 
     -- ** Bandwidth
     Bandwidth (Bandwidth'),
     newBandwidth,
 
+    -- ** BgpOptions
+    BgpOptions (BgpOptions'),
+    newBgpOptions,
+
+    -- ** ConnectAttachment
+    ConnectAttachment (ConnectAttachment'),
+    newConnectAttachment,
+
+    -- ** ConnectAttachmentOptions
+    ConnectAttachmentOptions (ConnectAttachmentOptions'),
+    newConnectAttachmentOptions,
+
+    -- ** ConnectPeer
+    ConnectPeer (ConnectPeer'),
+    newConnectPeer,
+
+    -- ** ConnectPeerAssociation
+    ConnectPeerAssociation (ConnectPeerAssociation'),
+    newConnectPeerAssociation,
+
+    -- ** ConnectPeerBgpConfiguration
+    ConnectPeerBgpConfiguration (ConnectPeerBgpConfiguration'),
+    newConnectPeerBgpConfiguration,
+
+    -- ** ConnectPeerConfiguration
+    ConnectPeerConfiguration (ConnectPeerConfiguration'),
+    newConnectPeerConfiguration,
+
+    -- ** ConnectPeerSummary
+    ConnectPeerSummary (ConnectPeerSummary'),
+    newConnectPeerSummary,
+
     -- ** Connection
     Connection (Connection'),
     newConnection,
+
+    -- ** ConnectionHealth
+    ConnectionHealth (ConnectionHealth'),
+    newConnectionHealth,
+
+    -- ** CoreNetwork
+    CoreNetwork (CoreNetwork'),
+    newCoreNetwork,
+
+    -- ** CoreNetworkChange
+    CoreNetworkChange (CoreNetworkChange'),
+    newCoreNetworkChange,
+
+    -- ** CoreNetworkChangeEvent
+    CoreNetworkChangeEvent (CoreNetworkChangeEvent'),
+    newCoreNetworkChangeEvent,
+
+    -- ** CoreNetworkChangeEventValues
+    CoreNetworkChangeEventValues (CoreNetworkChangeEventValues'),
+    newCoreNetworkChangeEventValues,
+
+    -- ** CoreNetworkChangeValues
+    CoreNetworkChangeValues (CoreNetworkChangeValues'),
+    newCoreNetworkChangeValues,
+
+    -- ** CoreNetworkEdge
+    CoreNetworkEdge (CoreNetworkEdge'),
+    newCoreNetworkEdge,
+
+    -- ** CoreNetworkPolicy
+    CoreNetworkPolicy (CoreNetworkPolicy'),
+    newCoreNetworkPolicy,
+
+    -- ** CoreNetworkPolicyError
+    CoreNetworkPolicyError (CoreNetworkPolicyError'),
+    newCoreNetworkPolicyError,
+
+    -- ** CoreNetworkPolicyVersion
+    CoreNetworkPolicyVersion (CoreNetworkPolicyVersion'),
+    newCoreNetworkPolicyVersion,
+
+    -- ** CoreNetworkSegment
+    CoreNetworkSegment (CoreNetworkSegment'),
+    newCoreNetworkSegment,
+
+    -- ** CoreNetworkSegmentEdgeIdentifier
+    CoreNetworkSegmentEdgeIdentifier (CoreNetworkSegmentEdgeIdentifier'),
+    newCoreNetworkSegmentEdgeIdentifier,
+
+    -- ** CoreNetworkSummary
+    CoreNetworkSummary (CoreNetworkSummary'),
+    newCoreNetworkSummary,
 
     -- ** CustomerGatewayAssociation
     CustomerGatewayAssociation (CustomerGatewayAssociation'),
@@ -327,9 +781,81 @@ module Amazonka.NetworkManager
     Location (Location'),
     newLocation,
 
+    -- ** NetworkResource
+    NetworkResource (NetworkResource'),
+    newNetworkResource,
+
+    -- ** NetworkResourceCount
+    NetworkResourceCount (NetworkResourceCount'),
+    newNetworkResourceCount,
+
+    -- ** NetworkResourceSummary
+    NetworkResourceSummary (NetworkResourceSummary'),
+    newNetworkResourceSummary,
+
+    -- ** NetworkRoute
+    NetworkRoute (NetworkRoute'),
+    newNetworkRoute,
+
+    -- ** NetworkRouteDestination
+    NetworkRouteDestination (NetworkRouteDestination'),
+    newNetworkRouteDestination,
+
+    -- ** NetworkTelemetry
+    NetworkTelemetry (NetworkTelemetry'),
+    newNetworkTelemetry,
+
+    -- ** OrganizationStatus
+    OrganizationStatus (OrganizationStatus'),
+    newOrganizationStatus,
+
+    -- ** PathComponent
+    PathComponent (PathComponent'),
+    newPathComponent,
+
+    -- ** Peering
+    Peering (Peering'),
+    newPeering,
+
+    -- ** ProposedSegmentChange
+    ProposedSegmentChange (ProposedSegmentChange'),
+    newProposedSegmentChange,
+
+    -- ** Relationship
+    Relationship (Relationship'),
+    newRelationship,
+
+    -- ** RouteAnalysis
+    RouteAnalysis (RouteAnalysis'),
+    newRouteAnalysis,
+
+    -- ** RouteAnalysisCompletion
+    RouteAnalysisCompletion (RouteAnalysisCompletion'),
+    newRouteAnalysisCompletion,
+
+    -- ** RouteAnalysisEndpointOptions
+    RouteAnalysisEndpointOptions (RouteAnalysisEndpointOptions'),
+    newRouteAnalysisEndpointOptions,
+
+    -- ** RouteAnalysisEndpointOptionsSpecification
+    RouteAnalysisEndpointOptionsSpecification (RouteAnalysisEndpointOptionsSpecification'),
+    newRouteAnalysisEndpointOptionsSpecification,
+
+    -- ** RouteAnalysisPath
+    RouteAnalysisPath (RouteAnalysisPath'),
+    newRouteAnalysisPath,
+
+    -- ** RouteTableIdentifier
+    RouteTableIdentifier (RouteTableIdentifier'),
+    newRouteTableIdentifier,
+
     -- ** Site
     Site (Site'),
     newSite,
+
+    -- ** SiteToSiteVpnAttachment
+    SiteToSiteVpnAttachment (SiteToSiteVpnAttachment'),
+    newSiteToSiteVpnAttachment,
 
     -- ** Tag
     Tag (Tag'),
@@ -339,6 +865,10 @@ module Amazonka.NetworkManager
     TransitGatewayConnectPeerAssociation (TransitGatewayConnectPeerAssociation'),
     newTransitGatewayConnectPeerAssociation,
 
+    -- ** TransitGatewayPeering
+    TransitGatewayPeering (TransitGatewayPeering'),
+    newTransitGatewayPeering,
+
     -- ** TransitGatewayRegistration
     TransitGatewayRegistration (TransitGatewayRegistration'),
     newTransitGatewayRegistration,
@@ -346,46 +876,108 @@ module Amazonka.NetworkManager
     -- ** TransitGatewayRegistrationStateReason
     TransitGatewayRegistrationStateReason (TransitGatewayRegistrationStateReason'),
     newTransitGatewayRegistrationStateReason,
+
+    -- ** TransitGatewayRouteTableAttachment
+    TransitGatewayRouteTableAttachment (TransitGatewayRouteTableAttachment'),
+    newTransitGatewayRouteTableAttachment,
+
+    -- ** VpcAttachment
+    VpcAttachment (VpcAttachment'),
+    newVpcAttachment,
+
+    -- ** VpcOptions
+    VpcOptions (VpcOptions'),
+    newVpcOptions,
   )
 where
 
+import Amazonka.NetworkManager.AcceptAttachment
+import Amazonka.NetworkManager.AssociateConnectPeer
 import Amazonka.NetworkManager.AssociateCustomerGateway
 import Amazonka.NetworkManager.AssociateLink
 import Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer
+import Amazonka.NetworkManager.CreateConnectAttachment
+import Amazonka.NetworkManager.CreateConnectPeer
 import Amazonka.NetworkManager.CreateConnection
+import Amazonka.NetworkManager.CreateCoreNetwork
 import Amazonka.NetworkManager.CreateDevice
 import Amazonka.NetworkManager.CreateGlobalNetwork
 import Amazonka.NetworkManager.CreateLink
 import Amazonka.NetworkManager.CreateSite
+import Amazonka.NetworkManager.CreateSiteToSiteVpnAttachment
+import Amazonka.NetworkManager.CreateTransitGatewayPeering
+import Amazonka.NetworkManager.CreateTransitGatewayRouteTableAttachment
+import Amazonka.NetworkManager.CreateVpcAttachment
+import Amazonka.NetworkManager.DeleteAttachment
+import Amazonka.NetworkManager.DeleteConnectPeer
 import Amazonka.NetworkManager.DeleteConnection
+import Amazonka.NetworkManager.DeleteCoreNetwork
+import Amazonka.NetworkManager.DeleteCoreNetworkPolicyVersion
 import Amazonka.NetworkManager.DeleteDevice
 import Amazonka.NetworkManager.DeleteGlobalNetwork
 import Amazonka.NetworkManager.DeleteLink
+import Amazonka.NetworkManager.DeletePeering
+import Amazonka.NetworkManager.DeleteResourcePolicy
 import Amazonka.NetworkManager.DeleteSite
 import Amazonka.NetworkManager.DeregisterTransitGateway
 import Amazonka.NetworkManager.DescribeGlobalNetworks
+import Amazonka.NetworkManager.DisassociateConnectPeer
 import Amazonka.NetworkManager.DisassociateCustomerGateway
 import Amazonka.NetworkManager.DisassociateLink
 import Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer
+import Amazonka.NetworkManager.ExecuteCoreNetworkChangeSet
+import Amazonka.NetworkManager.GetConnectAttachment
+import Amazonka.NetworkManager.GetConnectPeer
+import Amazonka.NetworkManager.GetConnectPeerAssociations
 import Amazonka.NetworkManager.GetConnections
+import Amazonka.NetworkManager.GetCoreNetwork
+import Amazonka.NetworkManager.GetCoreNetworkChangeEvents
+import Amazonka.NetworkManager.GetCoreNetworkChangeSet
+import Amazonka.NetworkManager.GetCoreNetworkPolicy
 import Amazonka.NetworkManager.GetCustomerGatewayAssociations
 import Amazonka.NetworkManager.GetDevices
 import Amazonka.NetworkManager.GetLinkAssociations
 import Amazonka.NetworkManager.GetLinks
+import Amazonka.NetworkManager.GetNetworkResourceCounts
+import Amazonka.NetworkManager.GetNetworkResourceRelationships
+import Amazonka.NetworkManager.GetNetworkResources
+import Amazonka.NetworkManager.GetNetworkRoutes
+import Amazonka.NetworkManager.GetNetworkTelemetry
+import Amazonka.NetworkManager.GetResourcePolicy
+import Amazonka.NetworkManager.GetRouteAnalysis
+import Amazonka.NetworkManager.GetSiteToSiteVpnAttachment
 import Amazonka.NetworkManager.GetSites
 import Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
+import Amazonka.NetworkManager.GetTransitGatewayPeering
 import Amazonka.NetworkManager.GetTransitGatewayRegistrations
+import Amazonka.NetworkManager.GetTransitGatewayRouteTableAttachment
+import Amazonka.NetworkManager.GetVpcAttachment
 import Amazonka.NetworkManager.Lens
+import Amazonka.NetworkManager.ListAttachments
+import Amazonka.NetworkManager.ListConnectPeers
+import Amazonka.NetworkManager.ListCoreNetworkPolicyVersions
+import Amazonka.NetworkManager.ListCoreNetworks
+import Amazonka.NetworkManager.ListOrganizationServiceAccessStatus
+import Amazonka.NetworkManager.ListPeerings
 import Amazonka.NetworkManager.ListTagsForResource
+import Amazonka.NetworkManager.PutCoreNetworkPolicy
+import Amazonka.NetworkManager.PutResourcePolicy
 import Amazonka.NetworkManager.RegisterTransitGateway
+import Amazonka.NetworkManager.RejectAttachment
+import Amazonka.NetworkManager.RestoreCoreNetworkPolicyVersion
+import Amazonka.NetworkManager.StartOrganizationServiceAccessUpdate
+import Amazonka.NetworkManager.StartRouteAnalysis
 import Amazonka.NetworkManager.TagResource
 import Amazonka.NetworkManager.Types
 import Amazonka.NetworkManager.UntagResource
 import Amazonka.NetworkManager.UpdateConnection
+import Amazonka.NetworkManager.UpdateCoreNetwork
 import Amazonka.NetworkManager.UpdateDevice
 import Amazonka.NetworkManager.UpdateGlobalNetwork
 import Amazonka.NetworkManager.UpdateLink
+import Amazonka.NetworkManager.UpdateNetworkResourceMetadata
 import Amazonka.NetworkManager.UpdateSite
+import Amazonka.NetworkManager.UpdateVpcAttachment
 import Amazonka.NetworkManager.Waiters
 
 -- $errors

@@ -11,25 +11,25 @@
 --
 -- Derived from API version @2010-05-15@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS CloudFormation
+-- CloudFormation
 --
 -- CloudFormation allows you to create and manage Amazon Web Services
 -- infrastructure deployments predictably and repeatedly. You can use
 -- CloudFormation to leverage Amazon Web Services products, such as Amazon
 -- Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple
 -- Notification Service, Elastic Load Balancing, and Auto Scaling to build
--- highly-reliable, highly scalable, cost-effective applications without
+-- highly reliable, highly scalable, cost-effective applications without
 -- creating or configuring the underlying Amazon Web Services
 -- infrastructure.
 --
--- With CloudFormation, you declare all of your resources and dependencies
--- in a template file. The template defines a collection of resources as a
+-- With CloudFormation, you declare all your resources and dependencies in
+-- a template file. The template defines a collection of resources as a
 -- single unit called a stack. CloudFormation creates and deletes all
 -- member resources of the stack together and manages all dependencies
 -- between the resources for you.
 --
 -- For more information about CloudFormation, see the
--- <http://aws.amazon.com/cloudformation/ CloudFormation Product Page>.
+-- <http://aws.amazon.com/cloudformation/ CloudFormation product page>.
 --
 -- CloudFormation makes use of other Amazon Web Services products. If you
 -- need additional technical information about a specific Amazon Web
@@ -233,6 +233,12 @@ module Amazonka.CloudFormation
     newDescribeChangeSet,
     DescribeChangeSetResponse (DescribeChangeSetResponse'),
     newDescribeChangeSetResponse,
+
+    -- ** DescribeChangeSetHooks
+    DescribeChangeSetHooks (DescribeChangeSetHooks'),
+    newDescribeChangeSetHooks,
+    DescribeChangeSetHooksResponse (DescribeChangeSetHooksResponse'),
+    newDescribeChangeSetHooksResponse,
 
     -- ** DescribePublisher
     DescribePublisher (DescribePublisher'),
@@ -530,6 +536,9 @@ module Amazonka.CloudFormation
 
     -- * Types
 
+    -- ** AccountFilterType
+    AccountFilterType (..),
+
     -- ** AccountGateStatus
     AccountGateStatus (..),
 
@@ -544,6 +553,9 @@ module Amazonka.CloudFormation
 
     -- ** ChangeAction
     ChangeAction (..),
+
+    -- ** ChangeSetHooksStatus
+    ChangeSetHooksStatus (..),
 
     -- ** ChangeSetStatus
     ChangeSetStatus (..),
@@ -571,6 +583,18 @@ module Amazonka.CloudFormation
 
     -- ** HandlerErrorCode
     HandlerErrorCode (..),
+
+    -- ** HookFailureMode
+    HookFailureMode (..),
+
+    -- ** HookInvocationPoint
+    HookInvocationPoint (..),
+
+    -- ** HookStatus
+    HookStatus (..),
+
+    -- ** HookTargetType
+    HookTargetType (..),
 
     -- ** IdentityProvider
     IdentityProvider (..),
@@ -688,6 +712,18 @@ module Amazonka.CloudFormation
     Change (Change'),
     newChange,
 
+    -- ** ChangeSetHook
+    ChangeSetHook (ChangeSetHook'),
+    newChangeSetHook,
+
+    -- ** ChangeSetHookResourceTargetDetails
+    ChangeSetHookResourceTargetDetails (ChangeSetHookResourceTargetDetails'),
+    newChangeSetHookResourceTargetDetails,
+
+    -- ** ChangeSetHookTargetDetails
+    ChangeSetHookTargetDetails (ChangeSetHookTargetDetails'),
+    newChangeSetHookTargetDetails,
+
     -- ** ChangeSetSummary
     ChangeSetSummary (ChangeSetSummary'),
     newChangeSetSummary,
@@ -703,6 +739,10 @@ module Amazonka.CloudFormation
     -- ** LoggingConfig
     LoggingConfig (LoggingConfig'),
     newLoggingConfig,
+
+    -- ** ManagedExecution
+    ManagedExecution (ManagedExecution'),
+    newManagedExecution,
 
     -- ** ModuleInfo
     ModuleInfo (ModuleInfo'),
@@ -898,6 +938,7 @@ import Amazonka.CloudFormation.DeleteStackSet
 import Amazonka.CloudFormation.DeregisterType
 import Amazonka.CloudFormation.DescribeAccountLimits
 import Amazonka.CloudFormation.DescribeChangeSet
+import Amazonka.CloudFormation.DescribeChangeSetHooks
 import Amazonka.CloudFormation.DescribePublisher
 import Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
 import Amazonka.CloudFormation.DescribeStackEvents

@@ -27,6 +27,7 @@ module Amazonka.KMS.Types
     _CloudHsmClusterNotFoundException,
     _DependencyTimeoutException,
     _InvalidMarkerException,
+    _KMSInvalidMacException,
     _CloudHsmClusterNotRelatedException,
     _AlreadyExistsException,
     _LimitExceededException,
@@ -89,6 +90,9 @@ module Amazonka.KMS.Types
 
     -- * KeyUsageType
     KeyUsageType (..),
+
+    -- * MacAlgorithmSpec
+    MacAlgorithmSpec (..),
 
     -- * MessageType
     MessageType (..),
@@ -172,6 +176,7 @@ module Amazonka.KMS.Types
     keyMetadata_keyState,
     keyMetadata_deletionDate,
     keyMetadata_origin,
+    keyMetadata_macAlgorithms,
     keyMetadata_signingAlgorithms,
     keyMetadata_validTo,
     keyMetadata_keyId,
@@ -225,6 +230,7 @@ import Amazonka.KMS.Types.KeySpec
 import Amazonka.KMS.Types.KeyState
 import Amazonka.KMS.Types.KeyUsageType
 import Amazonka.KMS.Types.ListGrantsResponse
+import Amazonka.KMS.Types.MacAlgorithmSpec
 import Amazonka.KMS.Types.MessageType
 import Amazonka.KMS.Types.MultiRegionConfiguration
 import Amazonka.KMS.Types.MultiRegionKey
@@ -389,6 +395,16 @@ _InvalidMarkerException =
     defaultService
     "InvalidMarkerException"
 
+-- | The request was rejected because the HMAC verification failed. HMAC
+-- verification fails when the HMAC computed by using the specified
+-- message, HMAC KMS key, and MAC algorithm does not match the HMAC
+-- specified in the request.
+_KMSInvalidMacException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidMacException =
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidMacException"
+
 -- | The request was rejected because the specified CloudHSM cluster has a
 -- different cluster certificate than the original cluster. You cannot use
 -- the operation to specify an unrelated cluster.
@@ -485,9 +501,11 @@ _CustomKeyStoreInvalidStateException =
 --     key @(KeySpec@).
 --
 -- For encrypting, decrypting, re-encrypting, and generating data keys, the
--- @KeyUsage@ must be @ENCRYPT_DECRYPT@. For signing and verifying, the
--- @KeyUsage@ must be @SIGN_VERIFY@. To find the @KeyUsage@ of a KMS key,
--- use the DescribeKey operation.
+-- @KeyUsage@ must be @ENCRYPT_DECRYPT@. For signing and verifying
+-- messages, the @KeyUsage@ must be @SIGN_VERIFY@. For generating and
+-- verifying message authentication codes (MACs), the @KeyUsage@ must be
+-- @GENERATE_VERIFY_MAC@. To find the @KeyUsage@ of a KMS key, use the
+-- DescribeKey operation.
 --
 -- To find the encryption or signing algorithms supported for a particular
 -- KMS key, use the DescribeKey operation.
@@ -526,7 +544,7 @@ _InvalidCiphertextException =
 --
 -- For more information about how key state affects the use of a KMS key,
 -- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the //Key Management Service Developer Guide// .
 _KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateException =

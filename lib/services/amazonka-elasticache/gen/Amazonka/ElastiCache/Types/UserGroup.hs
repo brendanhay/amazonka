@@ -37,6 +37,8 @@ data UserGroup = UserGroup'
     -- | Indicates user group status. Can be \"creating\", \"active\",
     -- \"modifying\", \"deleting\".
     status :: Prelude.Maybe Prelude.Text,
+    -- | The minimum engine version required, which is Redis 6.0
+    minimumEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The current supported value is Redis.
     engine :: Prelude.Maybe Prelude.Text,
     -- | The list of user IDs that belong to the user group.
@@ -63,6 +65,8 @@ data UserGroup = UserGroup'
 -- 'status', 'userGroup_status' - Indicates user group status. Can be \"creating\", \"active\",
 -- \"modifying\", \"deleting\".
 --
+-- 'minimumEngineVersion', 'userGroup_minimumEngineVersion' - The minimum engine version required, which is Redis 6.0
+--
 -- 'engine', 'userGroup_engine' - The current supported value is Redis.
 --
 -- 'userIds', 'userGroup_userIds' - The list of user IDs that belong to the user group.
@@ -75,6 +79,7 @@ newUserGroup =
       arn = Prelude.Nothing,
       pendingChanges = Prelude.Nothing,
       status = Prelude.Nothing,
+      minimumEngineVersion = Prelude.Nothing,
       engine = Prelude.Nothing,
       userIds = Prelude.Nothing
     }
@@ -100,6 +105,10 @@ userGroup_pendingChanges = Lens.lens (\UserGroup' {pendingChanges} -> pendingCha
 userGroup_status :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
 userGroup_status = Lens.lens (\UserGroup' {status} -> status) (\s@UserGroup' {} a -> s {status = a} :: UserGroup)
 
+-- | The minimum engine version required, which is Redis 6.0
+userGroup_minimumEngineVersion :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
+userGroup_minimumEngineVersion = Lens.lens (\UserGroup' {minimumEngineVersion} -> minimumEngineVersion) (\s@UserGroup' {} a -> s {minimumEngineVersion = a} :: UserGroup)
+
 -- | The current supported value is Redis.
 userGroup_engine :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
 userGroup_engine = Lens.lens (\UserGroup' {engine} -> engine) (\s@UserGroup' {} a -> s {engine = a} :: UserGroup)
@@ -119,6 +128,7 @@ instance Core.FromXML UserGroup where
       Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "PendingChanges")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "MinimumEngineVersion")
       Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> ( x Core..@? "UserIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -131,6 +141,7 @@ instance Prelude.Hashable UserGroup where
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` pendingChanges
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` minimumEngineVersion
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` userIds
 
@@ -141,5 +152,6 @@ instance Prelude.NFData UserGroup where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf pendingChanges
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf minimumEngineVersion
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf userIds

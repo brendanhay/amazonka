@@ -28,22 +28,36 @@ import qualified Amazonka.Prelude as Prelude
 -- | The Spot Instance replacement strategy to use when Amazon EC2 emits a
 -- signal that your Spot Instance is at an elevated risk of being
 -- interrupted. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#spot-fleet-capacity-rebalance Capacity rebalancing>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html Capacity rebalancing>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- /See:/ 'newSpotCapacityRebalance' smart constructor.
 data SpotCapacityRebalance = SpotCapacityRebalance'
-  { -- | The replacement strategy to use. Only available for fleets of type
-    -- @maintain@. You must specify a value, otherwise you get an error.
+  { -- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+    -- the old Spot Instance after launching a new replacement Spot Instance.
     --
-    -- To allow Spot Fleet to launch a replacement Spot Instance when an
-    -- instance rebalance notification is emitted for a Spot Instance in the
-    -- fleet, specify @launch@.
+    -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
     --
-    -- When a replacement instance is launched, the instance marked for
-    -- rebalance is not automatically terminated. You can terminate it, or you
-    -- can leave it running. You are charged for all instances while they are
+    -- Not valid when @ReplacementStrategy@ is set to @launch@.
+    --
+    -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+    -- seconds.
+    terminationDelay :: Prelude.Maybe Prelude.Int,
+    -- | The replacement strategy to use. Only available for fleets of type
+    -- @maintain@.
+    --
+    -- @launch@ - Spot Fleet launches a new replacement Spot Instance when a
+    -- rebalance notification is emitted for an existing Spot Instance in the
+    -- fleet. Spot Fleet does not terminate the instances that receive a
+    -- rebalance notification. You can terminate the old instances, or you can
+    -- leave them running. You are charged for all instances while they are
     -- running.
+    --
+    -- @launch-before-terminate@ - Spot Fleet launches a new replacement Spot
+    -- Instance when a rebalance notification is emitted for an existing Spot
+    -- Instance in the fleet, and then, after a delay that you specify (in
+    -- @TerminationDelay@), terminates the instances that received a rebalance
+    -- notification.
     replacementStrategy :: Prelude.Maybe ReplacementStrategy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,53 +70,89 @@ data SpotCapacityRebalance = SpotCapacityRebalance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'terminationDelay', 'spotCapacityRebalance_terminationDelay' - The amount of time (in seconds) that Amazon EC2 waits before terminating
+-- the old Spot Instance after launching a new replacement Spot Instance.
+--
+-- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+--
+-- Not valid when @ReplacementStrategy@ is set to @launch@.
+--
+-- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+-- seconds.
+--
 -- 'replacementStrategy', 'spotCapacityRebalance_replacementStrategy' - The replacement strategy to use. Only available for fleets of type
--- @maintain@. You must specify a value, otherwise you get an error.
+-- @maintain@.
 --
--- To allow Spot Fleet to launch a replacement Spot Instance when an
--- instance rebalance notification is emitted for a Spot Instance in the
--- fleet, specify @launch@.
---
--- When a replacement instance is launched, the instance marked for
--- rebalance is not automatically terminated. You can terminate it, or you
--- can leave it running. You are charged for all instances while they are
+-- @launch@ - Spot Fleet launches a new replacement Spot Instance when a
+-- rebalance notification is emitted for an existing Spot Instance in the
+-- fleet. Spot Fleet does not terminate the instances that receive a
+-- rebalance notification. You can terminate the old instances, or you can
+-- leave them running. You are charged for all instances while they are
 -- running.
+--
+-- @launch-before-terminate@ - Spot Fleet launches a new replacement Spot
+-- Instance when a rebalance notification is emitted for an existing Spot
+-- Instance in the fleet, and then, after a delay that you specify (in
+-- @TerminationDelay@), terminates the instances that received a rebalance
+-- notification.
 newSpotCapacityRebalance ::
   SpotCapacityRebalance
 newSpotCapacityRebalance =
   SpotCapacityRebalance'
-    { replacementStrategy =
-        Prelude.Nothing
+    { terminationDelay =
+        Prelude.Nothing,
+      replacementStrategy = Prelude.Nothing
     }
 
+-- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+-- the old Spot Instance after launching a new replacement Spot Instance.
+--
+-- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+--
+-- Not valid when @ReplacementStrategy@ is set to @launch@.
+--
+-- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+-- seconds.
+spotCapacityRebalance_terminationDelay :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe Prelude.Int)
+spotCapacityRebalance_terminationDelay = Lens.lens (\SpotCapacityRebalance' {terminationDelay} -> terminationDelay) (\s@SpotCapacityRebalance' {} a -> s {terminationDelay = a} :: SpotCapacityRebalance)
+
 -- | The replacement strategy to use. Only available for fleets of type
--- @maintain@. You must specify a value, otherwise you get an error.
+-- @maintain@.
 --
--- To allow Spot Fleet to launch a replacement Spot Instance when an
--- instance rebalance notification is emitted for a Spot Instance in the
--- fleet, specify @launch@.
---
--- When a replacement instance is launched, the instance marked for
--- rebalance is not automatically terminated. You can terminate it, or you
--- can leave it running. You are charged for all instances while they are
+-- @launch@ - Spot Fleet launches a new replacement Spot Instance when a
+-- rebalance notification is emitted for an existing Spot Instance in the
+-- fleet. Spot Fleet does not terminate the instances that receive a
+-- rebalance notification. You can terminate the old instances, or you can
+-- leave them running. You are charged for all instances while they are
 -- running.
+--
+-- @launch-before-terminate@ - Spot Fleet launches a new replacement Spot
+-- Instance when a rebalance notification is emitted for an existing Spot
+-- Instance in the fleet, and then, after a delay that you specify (in
+-- @TerminationDelay@), terminates the instances that received a rebalance
+-- notification.
 spotCapacityRebalance_replacementStrategy :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe ReplacementStrategy)
 spotCapacityRebalance_replacementStrategy = Lens.lens (\SpotCapacityRebalance' {replacementStrategy} -> replacementStrategy) (\s@SpotCapacityRebalance' {} a -> s {replacementStrategy = a} :: SpotCapacityRebalance)
 
 instance Core.FromXML SpotCapacityRebalance where
   parseXML x =
     SpotCapacityRebalance'
-      Prelude.<$> (x Core..@? "replacementStrategy")
+      Prelude.<$> (x Core..@? "terminationDelay")
+      Prelude.<*> (x Core..@? "replacementStrategy")
 
 instance Prelude.Hashable SpotCapacityRebalance where
   hashWithSalt _salt SpotCapacityRebalance' {..} =
-    _salt `Prelude.hashWithSalt` replacementStrategy
+    _salt `Prelude.hashWithSalt` terminationDelay
+      `Prelude.hashWithSalt` replacementStrategy
 
 instance Prelude.NFData SpotCapacityRebalance where
   rnf SpotCapacityRebalance' {..} =
-    Prelude.rnf replacementStrategy
+    Prelude.rnf terminationDelay
+      `Prelude.seq` Prelude.rnf replacementStrategy
 
 instance Core.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =
     Prelude.mconcat
-      ["ReplacementStrategy" Core.=: replacementStrategy]
+      [ "TerminationDelay" Core.=: terminationDelay,
+        "ReplacementStrategy" Core.=: replacementStrategy
+      ]

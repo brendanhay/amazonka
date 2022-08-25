@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates Amazon QuickSight customizations the current Amazon Web Services
--- Region. Currently, you can add a custom default theme by using the
--- @CreateAccountCustomization@ or @UpdateAccountCustomization@ API
+-- Creates Amazon QuickSight customizations for the current Amazon Web
+-- Services Region. Currently, you can add a custom default theme by using
+-- the @CreateAccountCustomization@ or @UpdateAccountCustomization@ API
 -- operation. To further customize Amazon QuickSight by removing Amazon
 -- QuickSight sample assets and videos for all new users, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html Customizing Amazon QuickSight>
 -- in the /Amazon QuickSight User Guide./
 --
 -- You can create customizations for your Amazon Web Services account or,
--- if you specify a namespace, for a Amazon QuickSight namespace instead.
+-- if you specify a namespace, for a QuickSight namespace instead.
 -- Customizations that apply to a namespace always override customizations
 -- that apply to an Amazon Web Services account. To find out which
 -- customizations apply, use the @DescribeAccountCustomization@ API
@@ -85,7 +85,7 @@ data CreateAccountCustomization = CreateAccountCustomization'
     awsAccountId :: Prelude.Text,
     -- | The Amazon QuickSight customizations you\'re adding in the current
     -- Amazon Web Services Region. You can add these to an Amazon Web Services
-    -- account and a Amazon QuickSight namespace.
+    -- account and a QuickSight namespace.
     --
     -- For example, you can add a default theme by setting
     -- @AccountCustomization@ to the midnight theme:
@@ -113,7 +113,7 @@ data CreateAccountCustomization = CreateAccountCustomization'
 --
 -- 'accountCustomization', 'createAccountCustomization_accountCustomization' - The Amazon QuickSight customizations you\'re adding in the current
 -- Amazon Web Services Region. You can add these to an Amazon Web Services
--- account and a Amazon QuickSight namespace.
+-- account and a QuickSight namespace.
 --
 -- For example, you can add a default theme by setting
 -- @AccountCustomization@ to the midnight theme:
@@ -151,7 +151,7 @@ createAccountCustomization_awsAccountId = Lens.lens (\CreateAccountCustomization
 
 -- | The Amazon QuickSight customizations you\'re adding in the current
 -- Amazon Web Services Region. You can add these to an Amazon Web Services
--- account and a Amazon QuickSight namespace.
+-- account and a QuickSight namespace.
 --
 -- For example, you can add a default theme by setting
 -- @AccountCustomization@ to the midnight theme:

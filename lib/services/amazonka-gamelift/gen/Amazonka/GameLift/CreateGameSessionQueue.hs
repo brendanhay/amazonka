@@ -28,10 +28,10 @@
 -- A game session queue is configured with a set of destinations (GameLift
 -- fleets or aliases), which determine the locations where the queue can
 -- place new game sessions. These destinations can span multiple fleet
--- types (Spot and On-Demand), instance types, and AWS Regions. If the
--- queue includes multi-location fleets, the queue is able to place game
--- sessions in all of a fleet\'s remote locations. You can opt to filter
--- out individual locations if needed.
+-- types (Spot and On-Demand), instance types, and Amazon Web Services
+-- Regions. If the queue includes multi-location fleets, the queue is able
+-- to place game sessions in all of a fleet\'s remote locations. You can
+-- opt to filter out individual locations if needed.
 --
 -- The queue configuration also determines how FleetIQ selects the best
 -- available placement for a new game session. Before searching for an
@@ -50,8 +50,11 @@
 --
 -- If successful, a new @GameSessionQueue@ object is returned with an
 -- assigned queue ARN. New game session requests, which are submitted to
--- the queue with StartGameSessionPlacement or StartMatchmaking, reference
--- a queue\'s name or ARN.
+-- queue with
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html StartGameSessionPlacement>
+-- or
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html StartMatchmaking>,
+-- reference a queue\'s name or ARN.
 --
 -- __Learn more__
 --
@@ -61,8 +64,14 @@
 --
 -- __Related actions__
 --
--- CreateGameSessionQueue | DescribeGameSessionQueues |
--- UpdateGameSessionQueue | DeleteGameSessionQueue |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html CreateGameSessionQueue>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html DescribeGameSessionQueues>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html UpdateGameSessionQueue>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html DeleteGameSessionQueue>
+-- |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreateGameSessionQueue
   ( -- * Creating a Request
@@ -102,14 +111,15 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateGameSessionQueue' smart constructor.
 data CreateGameSessionQueue = CreateGameSessionQueue'
   { -- | A list of labels to assign to the new game session queue resource. Tags
-    -- are developer-defined key-value pairs. Tagging AWS resources are useful
-    -- for resource management, access management and cost allocation. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
+    -- are developer-defined key-value pairs. Tagging Amazon Web Services
+    -- resources are useful for resource management, access management and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use TagResource, UntagResource, and ListTagsForResource
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | An SNS topic ARN that is set up to receive game session placement
     -- notifications. See
@@ -137,9 +147,9 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
     -- placement preference.
     destinations :: Prelude.Maybe [GameSessionQueueDestination],
     -- | A list of locations where a queue is allowed to place new game sessions.
-    -- Locations are specified in the form of AWS Region codes, such as
-    -- @us-west-2@. If this parameter is not set, game sessions can be placed
-    -- in any queue location.
+    -- Locations are specified in the form of Amazon Web Services Region codes,
+    -- such as @us-west-2@. If this parameter is not set, game sessions can be
+    -- placed in any queue location.
     filterConfiguration :: Prelude.Maybe FilterConfiguration,
     -- | Information to be added to all events that are related to this game
     -- session queue.
@@ -159,14 +169,15 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
 -- for backwards compatibility:
 --
 -- 'tags', 'createGameSessionQueue_tags' - A list of labels to assign to the new game session queue resource. Tags
--- are developer-defined key-value pairs. Tagging AWS resources are useful
--- for resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- are developer-defined key-value pairs. Tagging Amazon Web Services
+-- resources are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 --
 -- 'notificationTarget', 'createGameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement
 -- notifications. See
@@ -194,9 +205,9 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
 -- placement preference.
 --
 -- 'filterConfiguration', 'createGameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.
--- Locations are specified in the form of AWS Region codes, such as
--- @us-west-2@. If this parameter is not set, game sessions can be placed
--- in any queue location.
+-- Locations are specified in the form of Amazon Web Services Region codes,
+-- such as @us-west-2@. If this parameter is not set, game sessions can be
+-- placed in any queue location.
 --
 -- 'customEventData', 'createGameSessionQueue_customEventData' - Information to be added to all events that are related to this game
 -- session queue.
@@ -221,14 +232,15 @@ newCreateGameSessionQueue pName_ =
     }
 
 -- | A list of labels to assign to the new game session queue resource. Tags
--- are developer-defined key-value pairs. Tagging AWS resources are useful
--- for resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- are developer-defined key-value pairs. Tagging Amazon Web Services
+-- resources are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 createGameSessionQueue_tags :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe [Tag])
 createGameSessionQueue_tags = Lens.lens (\CreateGameSessionQueue' {tags} -> tags) (\s@CreateGameSessionQueue' {} a -> s {tags = a} :: CreateGameSessionQueue) Prelude.. Lens.mapping Lens.coerced
 
@@ -268,9 +280,9 @@ createGameSessionQueue_destinations :: Lens.Lens' CreateGameSessionQueue (Prelud
 createGameSessionQueue_destinations = Lens.lens (\CreateGameSessionQueue' {destinations} -> destinations) (\s@CreateGameSessionQueue' {} a -> s {destinations = a} :: CreateGameSessionQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of locations where a queue is allowed to place new game sessions.
--- Locations are specified in the form of AWS Region codes, such as
--- @us-west-2@. If this parameter is not set, game sessions can be placed
--- in any queue location.
+-- Locations are specified in the form of Amazon Web Services Region codes,
+-- such as @us-west-2@. If this parameter is not set, game sessions can be
+-- placed in any queue location.
 createGameSessionQueue_filterConfiguration :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe FilterConfiguration)
 createGameSessionQueue_filterConfiguration = Lens.lens (\CreateGameSessionQueue' {filterConfiguration} -> filterConfiguration) (\s@CreateGameSessionQueue' {} a -> s {filterConfiguration = a} :: CreateGameSessionQueue)
 

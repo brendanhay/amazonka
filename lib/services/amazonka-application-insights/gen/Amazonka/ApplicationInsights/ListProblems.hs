@@ -28,6 +28,7 @@ module Amazonka.ApplicationInsights.ListProblems
 
     -- * Request Lenses
     listProblems_nextToken,
+    listProblems_componentName,
     listProblems_endTime,
     listProblems_resourceGroupName,
     listProblems_maxResults,
@@ -40,6 +41,7 @@ module Amazonka.ApplicationInsights.ListProblems
     -- * Response Lenses
     listProblemsResponse_nextToken,
     listProblemsResponse_problemList,
+    listProblemsResponse_resourceGroupName,
     listProblemsResponse_httpStatus,
   )
 where
@@ -55,6 +57,8 @@ import qualified Amazonka.Response as Response
 data ListProblems = ListProblems'
   { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the component.
+    componentName :: Prelude.Maybe Prelude.Text,
     -- | The time when the problem ended, in epoch seconds. If not specified,
     -- problems within the past seven days are returned.
     endTime :: Prelude.Maybe Core.POSIX,
@@ -81,6 +85,8 @@ data ListProblems = ListProblems'
 --
 -- 'nextToken', 'listProblems_nextToken' - The token to request the next page of results.
 --
+-- 'componentName', 'listProblems_componentName' - The name of the component.
+--
 -- 'endTime', 'listProblems_endTime' - The time when the problem ended, in epoch seconds. If not specified,
 -- problems within the past seven days are returned.
 --
@@ -98,6 +104,7 @@ newListProblems ::
 newListProblems =
   ListProblems'
     { nextToken = Prelude.Nothing,
+      componentName = Prelude.Nothing,
       endTime = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -107,6 +114,10 @@ newListProblems =
 -- | The token to request the next page of results.
 listProblems_nextToken :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
 listProblems_nextToken = Lens.lens (\ListProblems' {nextToken} -> nextToken) (\s@ListProblems' {} a -> s {nextToken = a} :: ListProblems)
+
+-- | The name of the component.
+listProblems_componentName :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
+listProblems_componentName = Lens.lens (\ListProblems' {componentName} -> componentName) (\s@ListProblems' {} a -> s {componentName = a} :: ListProblems)
 
 -- | The time when the problem ended, in epoch seconds. If not specified,
 -- problems within the past seven days are returned.
@@ -138,12 +149,14 @@ instance Core.AWSRequest ListProblems where
           ListProblemsResponse'
             Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "ProblemList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProblems where
   hashWithSalt _salt ListProblems' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` maxResults
@@ -152,6 +165,7 @@ instance Prelude.Hashable ListProblems where
 instance Prelude.NFData ListProblems where
   rnf ListProblems' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf maxResults
@@ -177,6 +191,7 @@ instance Core.ToJSON ListProblems where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ComponentName" Core..=) Prelude.<$> componentName,
             ("EndTime" Core..=) Prelude.<$> endTime,
             ("ResourceGroupName" Core..=)
               Prelude.<$> resourceGroupName,
@@ -198,6 +213,8 @@ data ListProblemsResponse = ListProblemsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of problems.
     problemList :: Prelude.Maybe [Problem],
+    -- | The name of the resource group.
+    resourceGroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,6 +233,8 @@ data ListProblemsResponse = ListProblemsResponse'
 --
 -- 'problemList', 'listProblemsResponse_problemList' - The list of problems.
 --
+-- 'resourceGroupName', 'listProblemsResponse_resourceGroupName' - The name of the resource group.
+--
 -- 'httpStatus', 'listProblemsResponse_httpStatus' - The response's http status code.
 newListProblemsResponse ::
   -- | 'httpStatus'
@@ -225,6 +244,7 @@ newListProblemsResponse pHttpStatus_ =
   ListProblemsResponse'
     { nextToken = Prelude.Nothing,
       problemList = Prelude.Nothing,
+      resourceGroupName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -237,6 +257,10 @@ listProblemsResponse_nextToken = Lens.lens (\ListProblemsResponse' {nextToken} -
 listProblemsResponse_problemList :: Lens.Lens' ListProblemsResponse (Prelude.Maybe [Problem])
 listProblemsResponse_problemList = Lens.lens (\ListProblemsResponse' {problemList} -> problemList) (\s@ListProblemsResponse' {} a -> s {problemList = a} :: ListProblemsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the resource group.
+listProblemsResponse_resourceGroupName :: Lens.Lens' ListProblemsResponse (Prelude.Maybe Prelude.Text)
+listProblemsResponse_resourceGroupName = Lens.lens (\ListProblemsResponse' {resourceGroupName} -> resourceGroupName) (\s@ListProblemsResponse' {} a -> s {resourceGroupName = a} :: ListProblemsResponse)
+
 -- | The response's http status code.
 listProblemsResponse_httpStatus :: Lens.Lens' ListProblemsResponse Prelude.Int
 listProblemsResponse_httpStatus = Lens.lens (\ListProblemsResponse' {httpStatus} -> httpStatus) (\s@ListProblemsResponse' {} a -> s {httpStatus = a} :: ListProblemsResponse)
@@ -245,4 +269,5 @@ instance Prelude.NFData ListProblemsResponse where
   rnf ListProblemsResponse' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf problemList
+      `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf httpStatus

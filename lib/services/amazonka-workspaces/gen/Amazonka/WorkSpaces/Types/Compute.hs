@@ -22,6 +22,8 @@ module Amazonka.WorkSpaces.Types.Compute
       ( ..,
         Compute_GRAPHICS,
         Compute_GRAPHICSPRO,
+        Compute_GRAPHICSPRO_G4DN,
+        Compute_GRAPHICS_G4DN,
         Compute_PERFORMANCE,
         Compute_POWER,
         Compute_POWERPRO,
@@ -65,6 +67,12 @@ pattern Compute_GRAPHICS = Compute' "GRAPHICS"
 pattern Compute_GRAPHICSPRO :: Compute
 pattern Compute_GRAPHICSPRO = Compute' "GRAPHICSPRO"
 
+pattern Compute_GRAPHICSPRO_G4DN :: Compute
+pattern Compute_GRAPHICSPRO_G4DN = Compute' "GRAPHICSPRO_G4DN"
+
+pattern Compute_GRAPHICS_G4DN :: Compute
+pattern Compute_GRAPHICS_G4DN = Compute' "GRAPHICS_G4DN"
+
 pattern Compute_PERFORMANCE :: Compute
 pattern Compute_PERFORMANCE = Compute' "PERFORMANCE"
 
@@ -83,6 +91,8 @@ pattern Compute_VALUE = Compute' "VALUE"
 {-# COMPLETE
   Compute_GRAPHICS,
   Compute_GRAPHICSPRO,
+  Compute_GRAPHICSPRO_G4DN,
+  Compute_GRAPHICS_G4DN,
   Compute_PERFORMANCE,
   Compute_POWER,
   Compute_POWERPRO,

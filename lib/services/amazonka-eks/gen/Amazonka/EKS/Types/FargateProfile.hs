@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data FargateProfile = FargateProfile'
   { -- | The metadata applied to the Fargate profile to assist with
     -- categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Fargate profile tags do not
-    -- propagate to any other resources associated with the Fargate profile,
-    -- such as the pods that are scheduled with it.
+    -- optional value. You define both. Fargate profile tags do not propagate
+    -- to any other resources associated with the Fargate profile, such as the
+    -- pods that are scheduled with it.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The full Amazon Resource Name (ARN) of the Fargate profile.
     fargateProfileArn :: Prelude.Maybe Prelude.Text,
@@ -69,9 +69,9 @@ data FargateProfile = FargateProfile'
 --
 -- 'tags', 'fargateProfile_tags' - The metadata applied to the Fargate profile to assist with
 -- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Fargate profile tags do not
--- propagate to any other resources associated with the Fargate profile,
--- such as the pods that are scheduled with it.
+-- optional value. You define both. Fargate profile tags do not propagate
+-- to any other resources associated with the Fargate profile, such as the
+-- pods that are scheduled with it.
 --
 -- 'fargateProfileArn', 'fargateProfile_fargateProfileArn' - The full Amazon Resource Name (ARN) of the Fargate profile.
 --
@@ -110,9 +110,9 @@ newFargateProfile =
 
 -- | The metadata applied to the Fargate profile to assist with
 -- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Fargate profile tags do not
--- propagate to any other resources associated with the Fargate profile,
--- such as the pods that are scheduled with it.
+-- optional value. You define both. Fargate profile tags do not propagate
+-- to any other resources associated with the Fargate profile, such as the
+-- pods that are scheduled with it.
 fargateProfile_tags :: Lens.Lens' FargateProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 fargateProfile_tags = Lens.lens (\FargateProfile' {tags} -> tags) (\s@FargateProfile' {} a -> s {tags = a} :: FargateProfile) Prelude.. Lens.mapping Lens.coerced
 

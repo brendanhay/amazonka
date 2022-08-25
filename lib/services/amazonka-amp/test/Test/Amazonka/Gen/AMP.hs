@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestCreateAlertManagerDefinition $
 --             newCreateAlertManagerDefinition
 --
+--         , requestCreateLoggingConfiguration $
+--             newCreateLoggingConfiguration
+--
 --         , requestCreateRuleGroupsNamespace $
 --             newCreateRuleGroupsNamespace
 --
@@ -39,6 +42,9 @@ import Test.Tasty
 --         , requestDeleteAlertManagerDefinition $
 --             newDeleteAlertManagerDefinition
 --
+--         , requestDeleteLoggingConfiguration $
+--             newDeleteLoggingConfiguration
+--
 --         , requestDeleteRuleGroupsNamespace $
 --             newDeleteRuleGroupsNamespace
 --
@@ -47,6 +53,9 @@ import Test.Tasty
 --
 --         , requestDescribeAlertManagerDefinition $
 --             newDescribeAlertManagerDefinition
+--
+--         , requestDescribeLoggingConfiguration $
+--             newDescribeLoggingConfiguration
 --
 --         , requestDescribeRuleGroupsNamespace $
 --             newDescribeRuleGroupsNamespace
@@ -75,6 +84,9 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateLoggingConfiguration $
+--             newUpdateLoggingConfiguration
+--
 --         , requestUpdateWorkspaceAlias $
 --             newUpdateWorkspaceAlias
 --
@@ -83,6 +95,9 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseCreateAlertManagerDefinition $
 --             newCreateAlertManagerDefinitionResponse
+--
+--         , responseCreateLoggingConfiguration $
+--             newCreateLoggingConfigurationResponse
 --
 --         , responseCreateRuleGroupsNamespace $
 --             newCreateRuleGroupsNamespaceResponse
@@ -93,6 +108,9 @@ import Test.Tasty
 --         , responseDeleteAlertManagerDefinition $
 --             newDeleteAlertManagerDefinitionResponse
 --
+--         , responseDeleteLoggingConfiguration $
+--             newDeleteLoggingConfigurationResponse
+--
 --         , responseDeleteRuleGroupsNamespace $
 --             newDeleteRuleGroupsNamespaceResponse
 --
@@ -101,6 +119,9 @@ import Test.Tasty
 --
 --         , responseDescribeAlertManagerDefinition $
 --             newDescribeAlertManagerDefinitionResponse
+--
+--         , responseDescribeLoggingConfiguration $
+--             newDescribeLoggingConfigurationResponse
 --
 --         , responseDescribeRuleGroupsNamespace $
 --             newDescribeRuleGroupsNamespaceResponse
@@ -129,6 +150,9 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateLoggingConfiguration $
+--             newUpdateLoggingConfigurationResponse
+--
 --         , responseUpdateWorkspaceAlias $
 --             newUpdateWorkspaceAliasResponse
 --
@@ -142,6 +166,12 @@ requestCreateAlertManagerDefinition =
   req
     "CreateAlertManagerDefinition"
     "fixture/CreateAlertManagerDefinition.yaml"
+
+requestCreateLoggingConfiguration :: CreateLoggingConfiguration -> TestTree
+requestCreateLoggingConfiguration =
+  req
+    "CreateLoggingConfiguration"
+    "fixture/CreateLoggingConfiguration.yaml"
 
 requestCreateRuleGroupsNamespace :: CreateRuleGroupsNamespace -> TestTree
 requestCreateRuleGroupsNamespace =
@@ -161,6 +191,12 @@ requestDeleteAlertManagerDefinition =
     "DeleteAlertManagerDefinition"
     "fixture/DeleteAlertManagerDefinition.yaml"
 
+requestDeleteLoggingConfiguration :: DeleteLoggingConfiguration -> TestTree
+requestDeleteLoggingConfiguration =
+  req
+    "DeleteLoggingConfiguration"
+    "fixture/DeleteLoggingConfiguration.yaml"
+
 requestDeleteRuleGroupsNamespace :: DeleteRuleGroupsNamespace -> TestTree
 requestDeleteRuleGroupsNamespace =
   req
@@ -178,6 +214,12 @@ requestDescribeAlertManagerDefinition =
   req
     "DescribeAlertManagerDefinition"
     "fixture/DescribeAlertManagerDefinition.yaml"
+
+requestDescribeLoggingConfiguration :: DescribeLoggingConfiguration -> TestTree
+requestDescribeLoggingConfiguration =
+  req
+    "DescribeLoggingConfiguration"
+    "fixture/DescribeLoggingConfiguration.yaml"
 
 requestDescribeRuleGroupsNamespace :: DescribeRuleGroupsNamespace -> TestTree
 requestDescribeRuleGroupsNamespace =
@@ -233,6 +275,12 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateLoggingConfiguration :: UpdateLoggingConfiguration -> TestTree
+requestUpdateLoggingConfiguration =
+  req
+    "UpdateLoggingConfiguration"
+    "fixture/UpdateLoggingConfiguration.yaml"
+
 requestUpdateWorkspaceAlias :: UpdateWorkspaceAlias -> TestTree
 requestUpdateWorkspaceAlias =
   req
@@ -248,6 +296,14 @@ responseCreateAlertManagerDefinition =
     "fixture/CreateAlertManagerDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAlertManagerDefinition)
+
+responseCreateLoggingConfiguration :: CreateLoggingConfigurationResponse -> TestTree
+responseCreateLoggingConfiguration =
+  res
+    "CreateLoggingConfigurationResponse"
+    "fixture/CreateLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLoggingConfiguration)
 
 responseCreateRuleGroupsNamespace :: CreateRuleGroupsNamespaceResponse -> TestTree
 responseCreateRuleGroupsNamespace =
@@ -273,6 +329,14 @@ responseDeleteAlertManagerDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAlertManagerDefinition)
 
+responseDeleteLoggingConfiguration :: DeleteLoggingConfigurationResponse -> TestTree
+responseDeleteLoggingConfiguration =
+  res
+    "DeleteLoggingConfigurationResponse"
+    "fixture/DeleteLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoggingConfiguration)
+
 responseDeleteRuleGroupsNamespace :: DeleteRuleGroupsNamespaceResponse -> TestTree
 responseDeleteRuleGroupsNamespace =
   res
@@ -296,6 +360,14 @@ responseDescribeAlertManagerDefinition =
     "fixture/DescribeAlertManagerDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAlertManagerDefinition)
+
+responseDescribeLoggingConfiguration :: DescribeLoggingConfigurationResponse -> TestTree
+responseDescribeLoggingConfiguration =
+  res
+    "DescribeLoggingConfigurationResponse"
+    "fixture/DescribeLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingConfiguration)
 
 responseDescribeRuleGroupsNamespace :: DescribeRuleGroupsNamespaceResponse -> TestTree
 responseDescribeRuleGroupsNamespace =
@@ -368,6 +440,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateLoggingConfiguration :: UpdateLoggingConfigurationResponse -> TestTree
+responseUpdateLoggingConfiguration =
+  res
+    "UpdateLoggingConfigurationResponse"
+    "fixture/UpdateLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoggingConfiguration)
 
 responseUpdateWorkspaceAlias :: UpdateWorkspaceAliasResponse -> TestTree
 responseUpdateWorkspaceAlias =

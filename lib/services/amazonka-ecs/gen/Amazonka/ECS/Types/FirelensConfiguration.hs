@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The FireLens configuration for the container. This is used to specify
 -- and configure a log router for container logs. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom Log Routing>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- /See:/ 'newFirelensConfiguration' smart constructor.
@@ -38,7 +38,7 @@ data FirelensConfiguration = FirelensConfiguration'
     -- use is
     -- @\"options\":{\"enable-ecs-log-metadata\":\"true|false\",\"config-file-type:\"s3|file\",\"config-file-value\":\"arn:aws:s3:::mybucket\/fluent.conf|filepath\"}@.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a task definition that uses a FireLens configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
     -- Tasks hosted on Fargate only support the @file@ configuration file type.
@@ -63,7 +63,7 @@ data FirelensConfiguration = FirelensConfiguration'
 -- use is
 -- @\"options\":{\"enable-ecs-log-metadata\":\"true|false\",\"config-file-type:\"s3|file\",\"config-file-value\":\"arn:aws:s3:::mybucket\/fluent.conf|filepath\"}@.
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a task definition that uses a FireLens configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- Tasks hosted on Fargate only support the @file@ configuration file type.
@@ -86,7 +86,7 @@ newFirelensConfiguration pType_ =
 -- use is
 -- @\"options\":{\"enable-ecs-log-metadata\":\"true|false\",\"config-file-type:\"s3|file\",\"config-file-value\":\"arn:aws:s3:::mybucket\/fluent.conf|filepath\"}@.
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a task definition that uses a FireLens configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- Tasks hosted on Fargate only support the @file@ configuration file type.

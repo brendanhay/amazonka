@@ -54,9 +54,7 @@ data DescribeComponentConfigurationRecommendation = DescribeComponentConfigurati
     resourceGroupName :: Prelude.Text,
     -- | The name of the component.
     componentName :: Prelude.Text,
-    -- | The tier of the application component. Supported tiers include
-    -- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
-    -- @DEFAULT@.
+    -- | The tier of the application component.
     tier :: Tier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,9 +71,7 @@ data DescribeComponentConfigurationRecommendation = DescribeComponentConfigurati
 --
 -- 'componentName', 'describeComponentConfigurationRecommendation_componentName' - The name of the component.
 --
--- 'tier', 'describeComponentConfigurationRecommendation_tier' - The tier of the application component. Supported tiers include
--- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
--- @DEFAULT@.
+-- 'tier', 'describeComponentConfigurationRecommendation_tier' - The tier of the application component.
 newDescribeComponentConfigurationRecommendation ::
   -- | 'resourceGroupName'
   Prelude.Text ->
@@ -104,9 +100,7 @@ describeComponentConfigurationRecommendation_resourceGroupName = Lens.lens (\Des
 describeComponentConfigurationRecommendation_componentName :: Lens.Lens' DescribeComponentConfigurationRecommendation Prelude.Text
 describeComponentConfigurationRecommendation_componentName = Lens.lens (\DescribeComponentConfigurationRecommendation' {componentName} -> componentName) (\s@DescribeComponentConfigurationRecommendation' {} a -> s {componentName = a} :: DescribeComponentConfigurationRecommendation)
 
--- | The tier of the application component. Supported tiers include
--- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
--- @DEFAULT@.
+-- | The tier of the application component.
 describeComponentConfigurationRecommendation_tier :: Lens.Lens' DescribeComponentConfigurationRecommendation Tier
 describeComponentConfigurationRecommendation_tier = Lens.lens (\DescribeComponentConfigurationRecommendation' {tier} -> tier) (\s@DescribeComponentConfigurationRecommendation' {} a -> s {tier = a} :: DescribeComponentConfigurationRecommendation)
 

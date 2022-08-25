@@ -57,7 +57,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDeletePortfolioShare' smart constructor.
 data DeletePortfolioShare = DeletePortfolioShare'
-  { -- | The AWS account ID.
+  { -- | The Amazon Web Services account ID.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The organization node to whom you are going to stop sharing.
     organizationNode :: Prelude.Maybe OrganizationNode,
@@ -82,7 +82,7 @@ data DeletePortfolioShare = DeletePortfolioShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'deletePortfolioShare_accountId' - The AWS account ID.
+-- 'accountId', 'deletePortfolioShare_accountId' - The Amazon Web Services account ID.
 --
 -- 'organizationNode', 'deletePortfolioShare_organizationNode' - The organization node to whom you are going to stop sharing.
 --
@@ -107,7 +107,7 @@ newDeletePortfolioShare pPortfolioId_ =
       portfolioId = pPortfolioId_
     }
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 deletePortfolioShare_accountId :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
 deletePortfolioShare_accountId = Lens.lens (\DeletePortfolioShare' {accountId} -> accountId) (\s@DeletePortfolioShare' {} a -> s {accountId = a} :: DeletePortfolioShare)
 

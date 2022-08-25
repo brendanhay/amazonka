@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Resource resource.
+    -- | The identifier of the Resource resource.
     resourceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data DeleteResource = DeleteResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteResource_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteResource_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'deleteResource_resourceId' - [Required] The identifier of the Resource resource.
+-- 'resourceId', 'deleteResource_resourceId' - The identifier of the Resource resource.
 newDeleteResource ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -77,11 +77,11 @@ newDeleteResource pRestApiId_ pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteResource_restApiId :: Lens.Lens' DeleteResource Prelude.Text
 deleteResource_restApiId = Lens.lens (\DeleteResource' {restApiId} -> restApiId) (\s@DeleteResource' {} a -> s {restApiId = a} :: DeleteResource)
 
--- | [Required] The identifier of the Resource resource.
+-- | The identifier of the Resource resource.
 deleteResource_resourceId :: Lens.Lens' DeleteResource Prelude.Text
 deleteResource_resourceId = Lens.lens (\DeleteResource' {resourceId} -> resourceId) (\s@DeleteResource' {} a -> s {resourceId = a} :: DeleteResource)
 

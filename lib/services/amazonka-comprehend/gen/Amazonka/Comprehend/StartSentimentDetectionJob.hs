@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts an asynchronous sentiment detection job for a collection of
--- documents. use the operation to track the status of a job.
+-- documents. Use the operation to track the status of a job.
 module Amazonka.Comprehend.StartSentimentDetectionJob
   ( -- * Creating a Request
     StartSentimentDetectionJob (..),

@@ -24,14 +24,14 @@
 -- Works on any user.
 --
 -- The password can be temporary or permanent. If it is temporary, the user
--- status will be placed into the @FORCE_CHANGE_PASSWORD@ state. When the
--- user next tries to sign in, the InitiateAuth\/AdminInitiateAuth response
--- will contain the @NEW_PASSWORD_REQUIRED@ challenge. If the user does not
--- sign in before it expires, the user will not be able to sign in and
--- their password will need to be reset by an administrator.
+-- status enters the @FORCE_CHANGE_PASSWORD@ state. When the user next
+-- tries to sign in, the InitiateAuth\/AdminInitiateAuth response will
+-- contain the @NEW_PASSWORD_REQUIRED@ challenge. If the user doesn\'t sign
+-- in before it expires, the user won\'t be able to sign in, and an
+-- administrator must reset their password.
 --
 -- Once the user has set a new password, or the password is permanent, the
--- user status will be set to @Confirmed@.
+-- user status is set to @Confirmed@.
 module Amazonka.CognitoIdentityProvider.AdminSetUserPassword
   ( -- * Creating a Request
     AdminSetUserPassword (..),
@@ -66,7 +66,7 @@ data AdminSetUserPassword = AdminSetUserPassword'
     -- | The user pool ID for the user pool where you want to set the user\'s
     -- password.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user whose password you wish to set.
+    -- | The user name of the user whose password you want to set.
     username :: Core.Sensitive Prelude.Text,
     -- | The password for the user.
     password :: Core.Sensitive Prelude.Text
@@ -86,7 +86,7 @@ data AdminSetUserPassword = AdminSetUserPassword'
 -- 'userPoolId', 'adminSetUserPassword_userPoolId' - The user pool ID for the user pool where you want to set the user\'s
 -- password.
 --
--- 'username', 'adminSetUserPassword_username' - The user name of the user whose password you wish to set.
+-- 'username', 'adminSetUserPassword_username' - The user name of the user whose password you want to set.
 --
 -- 'password', 'adminSetUserPassword_password' - The password for the user.
 newAdminSetUserPassword ::
@@ -117,7 +117,7 @@ adminSetUserPassword_permanent = Lens.lens (\AdminSetUserPassword' {permanent} -
 adminSetUserPassword_userPoolId :: Lens.Lens' AdminSetUserPassword Prelude.Text
 adminSetUserPassword_userPoolId = Lens.lens (\AdminSetUserPassword' {userPoolId} -> userPoolId) (\s@AdminSetUserPassword' {} a -> s {userPoolId = a} :: AdminSetUserPassword)
 
--- | The user name of the user whose password you wish to set.
+-- | The user name of the user whose password you want to set.
 adminSetUserPassword_username :: Lens.Lens' AdminSetUserPassword Prelude.Text
 adminSetUserPassword_username = Lens.lens (\AdminSetUserPassword' {username} -> username) (\s@AdminSetUserPassword' {} a -> s {username = a} :: AdminSetUserPassword) Prelude.. Core._Sensitive
 

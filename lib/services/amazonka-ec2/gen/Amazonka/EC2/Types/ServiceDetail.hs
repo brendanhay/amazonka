@@ -22,7 +22,9 @@ module Amazonka.EC2.Types.ServiceDetail where
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsNameState
+import Amazonka.EC2.Types.PayerResponsibility
 import Amazonka.EC2.Types.PrivateDnsDetails
+import Amazonka.EC2.Types.ServiceConnectivityType
 import Amazonka.EC2.Types.ServiceTypeDetail
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
@@ -37,12 +39,16 @@ data ServiceDetail = ServiceDetail'
     -- | Indicates whether VPC endpoint connection requests to the service must
     -- be accepted by the service owner.
     acceptanceRequired :: Prelude.Maybe Prelude.Bool,
+    -- | The supported IP address types.
+    supportedIpAddressTypes :: Prelude.Maybe [ServiceConnectivityType],
     -- | The Availability Zones in which the service is available.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The type of service.
     serviceType :: Prelude.Maybe [ServiceTypeDetail],
     -- | The Amazon Web Services account ID of the service owner.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | The payer responsibility.
+    payerResponsibility :: Prelude.Maybe PayerResponsibility,
     -- | Indicates whether the service manages its VPC endpoints. Management of
     -- the service VPC endpoints using the VPC endpoint API is restricted.
     managesVpcEndpoints :: Prelude.Maybe Prelude.Bool,
@@ -59,7 +65,7 @@ data ServiceDetail = ServiceDetail'
     privateDnsNames :: Prelude.Maybe [PrivateDnsDetails],
     -- | The private DNS name for the service.
     privateDnsName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the service.
+    -- | The name of the service.
     serviceName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the endpoint service.
     serviceId :: Prelude.Maybe Prelude.Text
@@ -79,11 +85,15 @@ data ServiceDetail = ServiceDetail'
 -- 'acceptanceRequired', 'serviceDetail_acceptanceRequired' - Indicates whether VPC endpoint connection requests to the service must
 -- be accepted by the service owner.
 --
+-- 'supportedIpAddressTypes', 'serviceDetail_supportedIpAddressTypes' - The supported IP address types.
+--
 -- 'availabilityZones', 'serviceDetail_availabilityZones' - The Availability Zones in which the service is available.
 --
 -- 'serviceType', 'serviceDetail_serviceType' - The type of service.
 --
 -- 'owner', 'serviceDetail_owner' - The Amazon Web Services account ID of the service owner.
+--
+-- 'payerResponsibility', 'serviceDetail_payerResponsibility' - The payer responsibility.
 --
 -- 'managesVpcEndpoints', 'serviceDetail_managesVpcEndpoints' - Indicates whether the service manages its VPC endpoints. Management of
 -- the service VPC endpoints using the VPC endpoint API is restricted.
@@ -101,7 +111,7 @@ data ServiceDetail = ServiceDetail'
 --
 -- 'privateDnsName', 'serviceDetail_privateDnsName' - The private DNS name for the service.
 --
--- 'serviceName', 'serviceDetail_serviceName' - The Amazon Resource Name (ARN) of the service.
+-- 'serviceName', 'serviceDetail_serviceName' - The name of the service.
 --
 -- 'serviceId', 'serviceDetail_serviceId' - The ID of the endpoint service.
 newServiceDetail ::
@@ -110,9 +120,11 @@ newServiceDetail =
   ServiceDetail'
     { tags = Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
+      supportedIpAddressTypes = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
       serviceType = Prelude.Nothing,
       owner = Prelude.Nothing,
+      payerResponsibility = Prelude.Nothing,
       managesVpcEndpoints = Prelude.Nothing,
       vpcEndpointPolicySupported = Prelude.Nothing,
       baseEndpointDnsNames = Prelude.Nothing,
@@ -132,6 +144,10 @@ serviceDetail_tags = Lens.lens (\ServiceDetail' {tags} -> tags) (\s@ServiceDetai
 serviceDetail_acceptanceRequired :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Bool)
 serviceDetail_acceptanceRequired = Lens.lens (\ServiceDetail' {acceptanceRequired} -> acceptanceRequired) (\s@ServiceDetail' {} a -> s {acceptanceRequired = a} :: ServiceDetail)
 
+-- | The supported IP address types.
+serviceDetail_supportedIpAddressTypes :: Lens.Lens' ServiceDetail (Prelude.Maybe [ServiceConnectivityType])
+serviceDetail_supportedIpAddressTypes = Lens.lens (\ServiceDetail' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@ServiceDetail' {} a -> s {supportedIpAddressTypes = a} :: ServiceDetail) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Availability Zones in which the service is available.
 serviceDetail_availabilityZones :: Lens.Lens' ServiceDetail (Prelude.Maybe [Prelude.Text])
 serviceDetail_availabilityZones = Lens.lens (\ServiceDetail' {availabilityZones} -> availabilityZones) (\s@ServiceDetail' {} a -> s {availabilityZones = a} :: ServiceDetail) Prelude.. Lens.mapping Lens.coerced
@@ -143,6 +159,10 @@ serviceDetail_serviceType = Lens.lens (\ServiceDetail' {serviceType} -> serviceT
 -- | The Amazon Web Services account ID of the service owner.
 serviceDetail_owner :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Text)
 serviceDetail_owner = Lens.lens (\ServiceDetail' {owner} -> owner) (\s@ServiceDetail' {} a -> s {owner = a} :: ServiceDetail)
+
+-- | The payer responsibility.
+serviceDetail_payerResponsibility :: Lens.Lens' ServiceDetail (Prelude.Maybe PayerResponsibility)
+serviceDetail_payerResponsibility = Lens.lens (\ServiceDetail' {payerResponsibility} -> payerResponsibility) (\s@ServiceDetail' {} a -> s {payerResponsibility = a} :: ServiceDetail)
 
 -- | Indicates whether the service manages its VPC endpoints. Management of
 -- the service VPC endpoints using the VPC endpoint API is restricted.
@@ -172,7 +192,7 @@ serviceDetail_privateDnsNames = Lens.lens (\ServiceDetail' {privateDnsNames} -> 
 serviceDetail_privateDnsName :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Text)
 serviceDetail_privateDnsName = Lens.lens (\ServiceDetail' {privateDnsName} -> privateDnsName) (\s@ServiceDetail' {} a -> s {privateDnsName = a} :: ServiceDetail)
 
--- | The Amazon Resource Name (ARN) of the service.
+-- | The name of the service.
 serviceDetail_serviceName :: Lens.Lens' ServiceDetail (Prelude.Maybe Prelude.Text)
 serviceDetail_serviceName = Lens.lens (\ServiceDetail' {serviceName} -> serviceName) (\s@ServiceDetail' {} a -> s {serviceName = a} :: ServiceDetail)
 
@@ -187,6 +207,10 @@ instance Core.FromXML ServiceDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "acceptanceRequired")
+      Prelude.<*> ( x Core..@? "supportedIpAddressTypeSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> ( x Core..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -195,6 +219,7 @@ instance Core.FromXML ServiceDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "owner")
+      Prelude.<*> (x Core..@? "payerResponsibility")
       Prelude.<*> (x Core..@? "managesVpcEndpoints")
       Prelude.<*> (x Core..@? "vpcEndpointPolicySupported")
       Prelude.<*> ( x Core..@? "baseEndpointDnsNameSet"
@@ -214,9 +239,11 @@ instance Prelude.Hashable ServiceDetail where
   hashWithSalt _salt ServiceDetail' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` acceptanceRequired
+      `Prelude.hashWithSalt` supportedIpAddressTypes
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` payerResponsibility
       `Prelude.hashWithSalt` managesVpcEndpoints
       `Prelude.hashWithSalt` vpcEndpointPolicySupported
       `Prelude.hashWithSalt` baseEndpointDnsNames
@@ -230,9 +257,11 @@ instance Prelude.NFData ServiceDetail where
   rnf ServiceDetail' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf payerResponsibility
       `Prelude.seq` Prelude.rnf managesVpcEndpoints
       `Prelude.seq` Prelude.rnf vpcEndpointPolicySupported
       `Prelude.seq` Prelude.rnf baseEndpointDnsNames

@@ -72,7 +72,7 @@ data CreateConnector = CreateConnector'
     capacity :: Capacity,
     -- | A map of keys to values that represent the configuration for the
     -- connector.
-    connectorConfiguration :: Prelude.HashMap Prelude.Text Prelude.Text,
+    connectorConfiguration :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the connector.
     connectorName :: Prelude.Text,
     -- | Specifies which Apache Kafka cluster to connect to.
@@ -93,7 +93,7 @@ data CreateConnector = CreateConnector'
     -- allow it to write to the S3 destination bucket.
     serviceExecutionRoleArn :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnector' with all optional fields omitted.
@@ -195,7 +195,7 @@ createConnector_capacity = Lens.lens (\CreateConnector' {capacity} -> capacity) 
 -- | A map of keys to values that represent the configuration for the
 -- connector.
 createConnector_connectorConfiguration :: Lens.Lens' CreateConnector (Prelude.HashMap Prelude.Text Prelude.Text)
-createConnector_connectorConfiguration = Lens.lens (\CreateConnector' {connectorConfiguration} -> connectorConfiguration) (\s@CreateConnector' {} a -> s {connectorConfiguration = a} :: CreateConnector) Prelude.. Lens.coerced
+createConnector_connectorConfiguration = Lens.lens (\CreateConnector' {connectorConfiguration} -> connectorConfiguration) (\s@CreateConnector' {} a -> s {connectorConfiguration = a} :: CreateConnector) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The name of the connector.
 createConnector_connectorName :: Lens.Lens' CreateConnector Prelude.Text

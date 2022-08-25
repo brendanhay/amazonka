@@ -54,7 +54,6 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Unit
 newtype Unit = Unit' {fromUnit :: Core.Text}
   deriving stock
     ( Prelude.Show,

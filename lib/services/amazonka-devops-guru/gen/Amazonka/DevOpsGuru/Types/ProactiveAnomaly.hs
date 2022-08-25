@@ -21,8 +21,10 @@ module Amazonka.DevOpsGuru.Types.ProactiveAnomaly where
 
 import qualified Amazonka.Core as Core
 import Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
+import Amazonka.DevOpsGuru.Types.AnomalyResource
 import Amazonka.DevOpsGuru.Types.AnomalySeverity
 import Amazonka.DevOpsGuru.Types.AnomalySourceDetails
+import Amazonka.DevOpsGuru.Types.AnomalySourceMetadata
 import Amazonka.DevOpsGuru.Types.AnomalyStatus
 import Amazonka.DevOpsGuru.Types.AnomalyTimeRange
 import Amazonka.DevOpsGuru.Types.PredictionTimeRange
@@ -36,14 +38,20 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProactiveAnomaly' smart constructor.
 data ProactiveAnomaly = ProactiveAnomaly'
   { anomalyTimeRange :: Prelude.Maybe AnomalyTimeRange,
-    -- | The severity of a proactive anomaly.
+    -- | The severity of the anomaly. The severity of anomalies that generate an
+    -- insight determine that insight\'s severity. For more information, see
+    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+    -- in the /Amazon DevOps Guru User Guide/.
     severity :: Prelude.Maybe AnomalySeverity,
-    -- | A @AnomalyReportedTimeRange@ object that specifies the time range
+    -- | An @AnomalyReportedTimeRange@ object that specifies the time range
     -- between when the anomaly is opened and the time when it is closed.
     anomalyReportedTimeRange :: Prelude.Maybe AnomalyReportedTimeRange,
     -- | The ID of the insight that contains this anomaly. An insight is composed
     -- of related anomalies.
     associatedInsightId :: Prelude.Maybe Prelude.Text,
+    -- | Information about a resource in which DevOps Guru detected anomalous
+    -- behavior.
+    anomalyResources :: Prelude.Maybe [AnomalyResource],
     resourceCollection :: Prelude.Maybe ResourceCollection,
     -- | Details about the source of the analyzed operational data that triggered
     -- the anomaly. The one supported source is Amazon CloudWatch metrics.
@@ -57,6 +65,8 @@ data ProactiveAnomaly = ProactiveAnomaly'
     -- Exceeding this threshold is related to the anomalous behavior that
     -- generated this anomaly.
     limit :: Prelude.Maybe Prelude.Double,
+    -- | The metadata for the anomaly.
+    sourceMetadata :: Prelude.Maybe AnomalySourceMetadata,
     -- | The time of the anomaly\'s most recent update.
     updateTime :: Prelude.Maybe Core.POSIX
   }
@@ -72,13 +82,19 @@ data ProactiveAnomaly = ProactiveAnomaly'
 --
 -- 'anomalyTimeRange', 'proactiveAnomaly_anomalyTimeRange' - Undocumented member.
 --
--- 'severity', 'proactiveAnomaly_severity' - The severity of a proactive anomaly.
+-- 'severity', 'proactiveAnomaly_severity' - The severity of the anomaly. The severity of anomalies that generate an
+-- insight determine that insight\'s severity. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 --
--- 'anomalyReportedTimeRange', 'proactiveAnomaly_anomalyReportedTimeRange' - A @AnomalyReportedTimeRange@ object that specifies the time range
+-- 'anomalyReportedTimeRange', 'proactiveAnomaly_anomalyReportedTimeRange' - An @AnomalyReportedTimeRange@ object that specifies the time range
 -- between when the anomaly is opened and the time when it is closed.
 --
 -- 'associatedInsightId', 'proactiveAnomaly_associatedInsightId' - The ID of the insight that contains this anomaly. An insight is composed
 -- of related anomalies.
+--
+-- 'anomalyResources', 'proactiveAnomaly_anomalyResources' - Information about a resource in which DevOps Guru detected anomalous
+-- behavior.
 --
 -- 'resourceCollection', 'proactiveAnomaly_resourceCollection' - Undocumented member.
 --
@@ -95,6 +111,8 @@ data ProactiveAnomaly = ProactiveAnomaly'
 -- Exceeding this threshold is related to the anomalous behavior that
 -- generated this anomaly.
 --
+-- 'sourceMetadata', 'proactiveAnomaly_sourceMetadata' - The metadata for the anomaly.
+--
 -- 'updateTime', 'proactiveAnomaly_updateTime' - The time of the anomaly\'s most recent update.
 newProactiveAnomaly ::
   ProactiveAnomaly
@@ -105,12 +123,14 @@ newProactiveAnomaly =
       severity = Prelude.Nothing,
       anomalyReportedTimeRange = Prelude.Nothing,
       associatedInsightId = Prelude.Nothing,
+      anomalyResources = Prelude.Nothing,
       resourceCollection = Prelude.Nothing,
       sourceDetails = Prelude.Nothing,
       status = Prelude.Nothing,
       id = Prelude.Nothing,
       predictionTimeRange = Prelude.Nothing,
       limit = Prelude.Nothing,
+      sourceMetadata = Prelude.Nothing,
       updateTime = Prelude.Nothing
     }
 
@@ -118,11 +138,14 @@ newProactiveAnomaly =
 proactiveAnomaly_anomalyTimeRange :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe AnomalyTimeRange)
 proactiveAnomaly_anomalyTimeRange = Lens.lens (\ProactiveAnomaly' {anomalyTimeRange} -> anomalyTimeRange) (\s@ProactiveAnomaly' {} a -> s {anomalyTimeRange = a} :: ProactiveAnomaly)
 
--- | The severity of a proactive anomaly.
+-- | The severity of the anomaly. The severity of anomalies that generate an
+-- insight determine that insight\'s severity. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 proactiveAnomaly_severity :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe AnomalySeverity)
 proactiveAnomaly_severity = Lens.lens (\ProactiveAnomaly' {severity} -> severity) (\s@ProactiveAnomaly' {} a -> s {severity = a} :: ProactiveAnomaly)
 
--- | A @AnomalyReportedTimeRange@ object that specifies the time range
+-- | An @AnomalyReportedTimeRange@ object that specifies the time range
 -- between when the anomaly is opened and the time when it is closed.
 proactiveAnomaly_anomalyReportedTimeRange :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe AnomalyReportedTimeRange)
 proactiveAnomaly_anomalyReportedTimeRange = Lens.lens (\ProactiveAnomaly' {anomalyReportedTimeRange} -> anomalyReportedTimeRange) (\s@ProactiveAnomaly' {} a -> s {anomalyReportedTimeRange = a} :: ProactiveAnomaly)
@@ -131,6 +154,11 @@ proactiveAnomaly_anomalyReportedTimeRange = Lens.lens (\ProactiveAnomaly' {anoma
 -- of related anomalies.
 proactiveAnomaly_associatedInsightId :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe Prelude.Text)
 proactiveAnomaly_associatedInsightId = Lens.lens (\ProactiveAnomaly' {associatedInsightId} -> associatedInsightId) (\s@ProactiveAnomaly' {} a -> s {associatedInsightId = a} :: ProactiveAnomaly)
+
+-- | Information about a resource in which DevOps Guru detected anomalous
+-- behavior.
+proactiveAnomaly_anomalyResources :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe [AnomalyResource])
+proactiveAnomaly_anomalyResources = Lens.lens (\ProactiveAnomaly' {anomalyResources} -> anomalyResources) (\s@ProactiveAnomaly' {} a -> s {anomalyResources = a} :: ProactiveAnomaly) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 proactiveAnomaly_resourceCollection :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe ResourceCollection)
@@ -159,6 +187,10 @@ proactiveAnomaly_predictionTimeRange = Lens.lens (\ProactiveAnomaly' {prediction
 proactiveAnomaly_limit :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe Prelude.Double)
 proactiveAnomaly_limit = Lens.lens (\ProactiveAnomaly' {limit} -> limit) (\s@ProactiveAnomaly' {} a -> s {limit = a} :: ProactiveAnomaly)
 
+-- | The metadata for the anomaly.
+proactiveAnomaly_sourceMetadata :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe AnomalySourceMetadata)
+proactiveAnomaly_sourceMetadata = Lens.lens (\ProactiveAnomaly' {sourceMetadata} -> sourceMetadata) (\s@ProactiveAnomaly' {} a -> s {sourceMetadata = a} :: ProactiveAnomaly)
+
 -- | The time of the anomaly\'s most recent update.
 proactiveAnomaly_updateTime :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe Prelude.UTCTime)
 proactiveAnomaly_updateTime = Lens.lens (\ProactiveAnomaly' {updateTime} -> updateTime) (\s@ProactiveAnomaly' {} a -> s {updateTime = a} :: ProactiveAnomaly) Prelude.. Lens.mapping Core._Time
@@ -173,12 +205,16 @@ instance Core.FromJSON ProactiveAnomaly where
             Prelude.<*> (x Core..:? "Severity")
             Prelude.<*> (x Core..:? "AnomalyReportedTimeRange")
             Prelude.<*> (x Core..:? "AssociatedInsightId")
+            Prelude.<*> ( x Core..:? "AnomalyResources"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "ResourceCollection")
             Prelude.<*> (x Core..:? "SourceDetails")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "PredictionTimeRange")
             Prelude.<*> (x Core..:? "Limit")
+            Prelude.<*> (x Core..:? "SourceMetadata")
             Prelude.<*> (x Core..:? "UpdateTime")
       )
 
@@ -188,12 +224,14 @@ instance Prelude.Hashable ProactiveAnomaly where
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` anomalyReportedTimeRange
       `Prelude.hashWithSalt` associatedInsightId
+      `Prelude.hashWithSalt` anomalyResources
       `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` sourceDetails
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` predictionTimeRange
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` sourceMetadata
       `Prelude.hashWithSalt` updateTime
 
 instance Prelude.NFData ProactiveAnomaly where
@@ -202,10 +240,12 @@ instance Prelude.NFData ProactiveAnomaly where
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf anomalyReportedTimeRange
       `Prelude.seq` Prelude.rnf associatedInsightId
+      `Prelude.seq` Prelude.rnf anomalyResources
       `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf sourceDetails
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf predictionTimeRange
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf sourceMetadata
       `Prelude.seq` Prelude.rnf updateTime

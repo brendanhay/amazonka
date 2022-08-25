@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.KeyUsageType
   ( KeyUsageType
       ( ..,
         KeyUsageType_ENCRYPT_DECRYPT,
+        KeyUsageType_GENERATE_VERIFY_MAC,
         KeyUsageType_SIGN_VERIFY
       ),
   )
@@ -60,11 +61,15 @@ newtype KeyUsageType = KeyUsageType'
 pattern KeyUsageType_ENCRYPT_DECRYPT :: KeyUsageType
 pattern KeyUsageType_ENCRYPT_DECRYPT = KeyUsageType' "ENCRYPT_DECRYPT"
 
+pattern KeyUsageType_GENERATE_VERIFY_MAC :: KeyUsageType
+pattern KeyUsageType_GENERATE_VERIFY_MAC = KeyUsageType' "GENERATE_VERIFY_MAC"
+
 pattern KeyUsageType_SIGN_VERIFY :: KeyUsageType
 pattern KeyUsageType_SIGN_VERIFY = KeyUsageType' "SIGN_VERIFY"
 
 {-# COMPLETE
   KeyUsageType_ENCRYPT_DECRYPT,
+  KeyUsageType_GENERATE_VERIFY_MAC,
   KeyUsageType_SIGN_VERIFY,
   KeyUsageType'
   #-}

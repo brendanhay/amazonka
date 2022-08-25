@@ -23,7 +23,7 @@
 -- Describes the specified tags for your EC2 resources.
 --
 -- For more information about tags, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tag your Amazon EC2 resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- This operation returns paginated results.

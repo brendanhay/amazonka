@@ -32,7 +32,7 @@ data Type = Type'
     name :: Prelude.Maybe Prelude.Text,
     -- | The type format: SDL or JSON.
     format :: Prelude.Maybe TypeDefinitionFormat,
-    -- | The type ARN.
+    -- | The type Amazon Resource Name (ARN).
     arn :: Prelude.Maybe Prelude.Text,
     -- | The type description.
     description :: Prelude.Maybe Prelude.Text,
@@ -53,7 +53,7 @@ data Type = Type'
 --
 -- 'format', 'type_format' - The type format: SDL or JSON.
 --
--- 'arn', 'type_arn' - The type ARN.
+-- 'arn', 'type_arn' - The type Amazon Resource Name (ARN).
 --
 -- 'description', 'type_description' - The type description.
 --
@@ -77,7 +77,7 @@ type_name = Lens.lens (\Type' {name} -> name) (\s@Type' {} a -> s {name = a} :: 
 type_format :: Lens.Lens' Type (Prelude.Maybe TypeDefinitionFormat)
 type_format = Lens.lens (\Type' {format} -> format) (\s@Type' {} a -> s {format = a} :: Type)
 
--- | The type ARN.
+-- | The type Amazon Resource Name (ARN).
 type_arn :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
 type_arn = Lens.lens (\Type' {arn} -> arn) (\s@Type' {} a -> s {arn = a} :: Type)
 

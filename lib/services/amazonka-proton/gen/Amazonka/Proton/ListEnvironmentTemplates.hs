@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironmentTemplates' smart constructor.
 data ListEnvironmentTemplates = ListEnvironmentTemplates'
-  { -- | A token to indicate the location of the next environment template in the
-    -- array of environment templates, after the list of environment templates
-    -- that was previously requested.
+  { -- | A token that indicates the location of the next environment template in
+    -- the array of environment templates, after the list of environment
+    -- templates that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of environment templates to list.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -69,9 +69,9 @@ data ListEnvironmentTemplates = ListEnvironmentTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentTemplates_nextToken' - A token to indicate the location of the next environment template in the
--- array of environment templates, after the list of environment templates
--- that was previously requested.
+-- 'nextToken', 'listEnvironmentTemplates_nextToken' - A token that indicates the location of the next environment template in
+-- the array of environment templates, after the list of environment
+-- templates that was previously requested.
 --
 -- 'maxResults', 'listEnvironmentTemplates_maxResults' - The maximum number of environment templates to list.
 newListEnvironmentTemplates ::
@@ -83,9 +83,9 @@ newListEnvironmentTemplates =
       maxResults = Prelude.Nothing
     }
 
--- | A token to indicate the location of the next environment template in the
--- array of environment templates, after the list of environment templates
--- that was previously requested.
+-- | A token that indicates the location of the next environment template in
+-- the array of environment templates, after the list of environment
+-- templates that was previously requested.
 listEnvironmentTemplates_nextToken :: Lens.Lens' ListEnvironmentTemplates (Prelude.Maybe Prelude.Text)
 listEnvironmentTemplates_nextToken = Lens.lens (\ListEnvironmentTemplates' {nextToken} -> nextToken) (\s@ListEnvironmentTemplates' {} a -> s {nextToken = a} :: ListEnvironmentTemplates)
 
@@ -170,8 +170,8 @@ instance Core.ToQuery ListEnvironmentTemplates where
 
 -- | /See:/ 'newListEnvironmentTemplatesResponse' smart constructor.
 data ListEnvironmentTemplatesResponse = ListEnvironmentTemplatesResponse'
-  { -- | A token to indicate the location of the next environment template in the
-    -- array of environment templates, after the current requested list of
+  { -- | A token that indicates the location of the next environment template in
+    -- the array of environment templates, after the current requested list of
     -- environment templates.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -189,8 +189,8 @@ data ListEnvironmentTemplatesResponse = ListEnvironmentTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentTemplatesResponse_nextToken' - A token to indicate the location of the next environment template in the
--- array of environment templates, after the current requested list of
+-- 'nextToken', 'listEnvironmentTemplatesResponse_nextToken' - A token that indicates the location of the next environment template in
+-- the array of environment templates, after the current requested list of
 -- environment templates.
 --
 -- 'httpStatus', 'listEnvironmentTemplatesResponse_httpStatus' - The response's http status code.
@@ -208,8 +208,8 @@ newListEnvironmentTemplatesResponse pHttpStatus_ =
       templates = Prelude.mempty
     }
 
--- | A token to indicate the location of the next environment template in the
--- array of environment templates, after the current requested list of
+-- | A token that indicates the location of the next environment template in
+-- the array of environment templates, after the current requested list of
 -- environment templates.
 listEnvironmentTemplatesResponse_nextToken :: Lens.Lens' ListEnvironmentTemplatesResponse (Prelude.Maybe Prelude.Text)
 listEnvironmentTemplatesResponse_nextToken = Lens.lens (\ListEnvironmentTemplatesResponse' {nextToken} -> nextToken) (\s@ListEnvironmentTemplatesResponse' {} a -> s {nextToken = a} :: ListEnvironmentTemplatesResponse)

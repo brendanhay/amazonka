@@ -186,6 +186,18 @@ module Amazonka.DataExchange
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** RevokeRevision
+    RevokeRevision (RevokeRevision'),
+    newRevokeRevision,
+    RevokeRevisionResponse (RevokeRevisionResponse'),
+    newRevokeRevisionResponse,
+
+    -- ** SendApiAsset
+    SendApiAsset (SendApiAsset'),
+    newSendApiAsset,
+    SendApiAssetResponse (SendApiAssetResponse'),
+    newSendApiAssetResponse,
+
     -- ** StartJob
     StartJob (StartJob'),
     newStartJob,
@@ -245,6 +257,9 @@ module Amazonka.DataExchange
     -- ** Origin
     Origin (..),
 
+    -- ** ProtocolType
+    ProtocolType (..),
+
     -- ** ServerSideEncryptionTypes
     ServerSideEncryptionTypes (..),
 
@@ -257,6 +272,10 @@ module Amazonka.DataExchange
     -- ** Action
     Action (Action'),
     newAction,
+
+    -- ** ApiGatewayApiAsset
+    ApiGatewayApiAsset (ApiGatewayApiAsset'),
+    newApiGatewayApiAsset,
 
     -- ** AssetDestinationEntry
     AssetDestinationEntry (AssetDestinationEntry'),
@@ -325,6 +344,14 @@ module Amazonka.DataExchange
     -- ** ExportServerSideEncryption
     ExportServerSideEncryption (ExportServerSideEncryption'),
     newExportServerSideEncryption,
+
+    -- ** ImportAssetFromApiGatewayApiRequestDetails
+    ImportAssetFromApiGatewayApiRequestDetails (ImportAssetFromApiGatewayApiRequestDetails'),
+    newImportAssetFromApiGatewayApiRequestDetails,
+
+    -- ** ImportAssetFromApiGatewayApiResponseDetails
+    ImportAssetFromApiGatewayApiResponseDetails (ImportAssetFromApiGatewayApiResponseDetails'),
+    newImportAssetFromApiGatewayApiResponseDetails,
 
     -- ** ImportAssetFromSignedUrlJobErrorDetails
     ImportAssetFromSignedUrlJobErrorDetails (ImportAssetFromSignedUrlJobErrorDetails'),
@@ -421,6 +448,8 @@ import Amazonka.DataExchange.ListEventActions
 import Amazonka.DataExchange.ListJobs
 import Amazonka.DataExchange.ListRevisionAssets
 import Amazonka.DataExchange.ListTagsForResource
+import Amazonka.DataExchange.RevokeRevision
+import Amazonka.DataExchange.SendApiAsset
 import Amazonka.DataExchange.StartJob
 import Amazonka.DataExchange.TagResource
 import Amazonka.DataExchange.Types

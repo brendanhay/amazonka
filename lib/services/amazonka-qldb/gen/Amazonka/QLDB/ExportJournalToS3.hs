@@ -21,8 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Exports journal contents within a date and time range from a ledger into
--- a specified Amazon Simple Storage Service (Amazon S3) bucket. The data
--- is written as files in Amazon Ion format.
+-- a specified Amazon Simple Storage Service (Amazon S3) bucket. A journal
+-- export job can write the data objects in either the text or binary
+-- representation of Amazon Ion format, or in /JSON Lines/ text format.
+--
+-- In JSON Lines format, each journal block in the exported data object is
+-- a valid JSON object that is delimited by a newline. You can use this
+-- format to easily integrate JSON exports with analytics tools such as
+-- Glue and Amazon Athena because these services can parse
+-- newline-delimited JSON automatically. For more information about the
+-- format, see <https://jsonlines.org/ JSON Lines>.
 --
 -- If the ledger with the given @Name@ doesn\'t exist, then throws
 -- @ResourceNotFoundException@.
@@ -39,6 +47,7 @@ module Amazonka.QLDB.ExportJournalToS3
     newExportJournalToS3,
 
     -- * Request Lenses
+    exportJournalToS3_outputFormat,
     exportJournalToS3_name,
     exportJournalToS3_inclusiveStartTime,
     exportJournalToS3_exclusiveEndTime,
@@ -64,7 +73,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportJournalToS3' smart constructor.
 data ExportJournalToS3 = ExportJournalToS3'
-  { -- | The name of the ledger.
+  { -- | The output format of your exported journal data. If this parameter is
+    -- not specified, the exported data defaults to @ION_TEXT@ format.
+    outputFormat :: Prelude.Maybe OutputFormat,
+    -- | The name of the ledger.
     name :: Prelude.Text,
     -- | The inclusive start date and time for the range of journal contents to
     -- export.
@@ -97,8 +109,12 @@ data ExportJournalToS3 = ExportJournalToS3'
     -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
     --     bucket.
     --
-    -- -   (Optional) Use your customer master key (CMK) in Key Management
-    --     Service (KMS) for server-side encryption of your exported data.
+    -- -   (Optional) Use your customer managed key in Key Management Service
+    --     (KMS) for server-side encryption of your exported data.
+    --
+    -- To pass a role to QLDB when requesting a journal export, you must have
+    -- permissions to perform the @iam:PassRole@ action on the IAM role
+    -- resource. This is required for all journal export requests.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -110,6 +126,9 @@ data ExportJournalToS3 = ExportJournalToS3'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'outputFormat', 'exportJournalToS3_outputFormat' - The output format of your exported journal data. If this parameter is
+-- not specified, the exported data defaults to @ION_TEXT@ format.
 --
 -- 'name', 'exportJournalToS3_name' - The name of the ledger.
 --
@@ -144,8 +163,12 @@ data ExportJournalToS3 = ExportJournalToS3'
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in Key Management
---     Service (KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer managed key in Key Management Service
+--     (KMS) for server-side encryption of your exported data.
+--
+-- To pass a role to QLDB when requesting a journal export, you must have
+-- permissions to perform the @iam:PassRole@ action on the IAM role
+-- resource. This is required for all journal export requests.
 newExportJournalToS3 ::
   -- | 'name'
   Prelude.Text ->
@@ -165,7 +188,8 @@ newExportJournalToS3
   pS3ExportConfiguration_
   pRoleArn_ =
     ExportJournalToS3'
-      { name = pName_,
+      { outputFormat = Prelude.Nothing,
+        name = pName_,
         inclusiveStartTime =
           Core._Time Lens.# pInclusiveStartTime_,
         exclusiveEndTime =
@@ -173,6 +197,11 @@ newExportJournalToS3
         s3ExportConfiguration = pS3ExportConfiguration_,
         roleArn = pRoleArn_
       }
+
+-- | The output format of your exported journal data. If this parameter is
+-- not specified, the exported data defaults to @ION_TEXT@ format.
+exportJournalToS3_outputFormat :: Lens.Lens' ExportJournalToS3 (Prelude.Maybe OutputFormat)
+exportJournalToS3_outputFormat = Lens.lens (\ExportJournalToS3' {outputFormat} -> outputFormat) (\s@ExportJournalToS3' {} a -> s {outputFormat = a} :: ExportJournalToS3)
 
 -- | The name of the ledger.
 exportJournalToS3_name :: Lens.Lens' ExportJournalToS3 Prelude.Text
@@ -215,8 +244,12 @@ exportJournalToS3_s3ExportConfiguration = Lens.lens (\ExportJournalToS3' {s3Expo
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in Key Management
---     Service (KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer managed key in Key Management Service
+--     (KMS) for server-side encryption of your exported data.
+--
+-- To pass a role to QLDB when requesting a journal export, you must have
+-- permissions to perform the @iam:PassRole@ action on the IAM role
+-- resource. This is required for all journal export requests.
 exportJournalToS3_roleArn :: Lens.Lens' ExportJournalToS3 Prelude.Text
 exportJournalToS3_roleArn = Lens.lens (\ExportJournalToS3' {roleArn} -> roleArn) (\s@ExportJournalToS3' {} a -> s {roleArn = a} :: ExportJournalToS3)
 
@@ -235,7 +268,8 @@ instance Core.AWSRequest ExportJournalToS3 where
 
 instance Prelude.Hashable ExportJournalToS3 where
   hashWithSalt _salt ExportJournalToS3' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inclusiveStartTime
       `Prelude.hashWithSalt` exclusiveEndTime
       `Prelude.hashWithSalt` s3ExportConfiguration
@@ -243,7 +277,8 @@ instance Prelude.Hashable ExportJournalToS3 where
 
 instance Prelude.NFData ExportJournalToS3 where
   rnf ExportJournalToS3' {..} =
-    Prelude.rnf name
+    Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inclusiveStartTime
       `Prelude.seq` Prelude.rnf exclusiveEndTime
       `Prelude.seq` Prelude.rnf s3ExportConfiguration
@@ -264,7 +299,8 @@ instance Core.ToJSON ExportJournalToS3 where
   toJSON ExportJournalToS3' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("OutputFormat" Core..=) Prelude.<$> outputFormat,
+            Prelude.Just
               ("InclusiveStartTime" Core..= inclusiveStartTime),
             Prelude.Just
               ("ExclusiveEndTime" Core..= exclusiveEndTime),

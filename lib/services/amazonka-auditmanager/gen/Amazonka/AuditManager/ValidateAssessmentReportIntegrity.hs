@@ -52,8 +52,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newValidateAssessmentReportIntegrity' smart constructor.
 data ValidateAssessmentReportIntegrity = ValidateAssessmentReportIntegrity'
-  { -- | The relative path of the specified Amazon S3 bucket in which the
-    -- assessment report is stored.
+  { -- | The relative path of the Amazon S3 bucket that the assessment report is
+    -- stored in.
     s3RelativePath :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,8 +66,8 @@ data ValidateAssessmentReportIntegrity = ValidateAssessmentReportIntegrity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3RelativePath', 'validateAssessmentReportIntegrity_s3RelativePath' - The relative path of the specified Amazon S3 bucket in which the
--- assessment report is stored.
+-- 's3RelativePath', 'validateAssessmentReportIntegrity_s3RelativePath' - The relative path of the Amazon S3 bucket that the assessment report is
+-- stored in.
 newValidateAssessmentReportIntegrity ::
   -- | 's3RelativePath'
   Prelude.Text ->
@@ -78,8 +78,8 @@ newValidateAssessmentReportIntegrity pS3RelativePath_ =
         pS3RelativePath_
     }
 
--- | The relative path of the specified Amazon S3 bucket in which the
--- assessment report is stored.
+-- | The relative path of the Amazon S3 bucket that the assessment report is
+-- stored in.
 validateAssessmentReportIntegrity_s3RelativePath :: Lens.Lens' ValidateAssessmentReportIntegrity Prelude.Text
 validateAssessmentReportIntegrity_s3RelativePath = Lens.lens (\ValidateAssessmentReportIntegrity' {s3RelativePath} -> s3RelativePath) (\s@ValidateAssessmentReportIntegrity' {} a -> s {s3RelativePath = a} :: ValidateAssessmentReportIntegrity)
 
@@ -166,7 +166,8 @@ data ValidateAssessmentReportIntegrityResponse = ValidateAssessmentReportIntegri
     validationErrors :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether the signature key is valid.
     signatureValid :: Prelude.Maybe Prelude.Bool,
-    -- | The signature algorithm used to code sign the assessment report file.
+    -- | The signature algorithm that\'s used to code sign the assessment report
+    -- file.
     signatureAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the validation signature key.
     signatureKeyId :: Prelude.Maybe Prelude.Text,
@@ -191,7 +192,8 @@ data ValidateAssessmentReportIntegrityResponse = ValidateAssessmentReportIntegri
 --
 -- 'signatureValid', 'validateAssessmentReportIntegrityResponse_signatureValid' - Specifies whether the signature key is valid.
 --
--- 'signatureAlgorithm', 'validateAssessmentReportIntegrityResponse_signatureAlgorithm' - The signature algorithm used to code sign the assessment report file.
+-- 'signatureAlgorithm', 'validateAssessmentReportIntegrityResponse_signatureAlgorithm' - The signature algorithm that\'s used to code sign the assessment report
+-- file.
 --
 -- 'signatureKeyId', 'validateAssessmentReportIntegrityResponse_signatureKeyId' - The unique identifier for the validation signature key.
 --
@@ -226,7 +228,8 @@ validateAssessmentReportIntegrityResponse_validationErrors = Lens.lens (\Validat
 validateAssessmentReportIntegrityResponse_signatureValid :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Bool)
 validateAssessmentReportIntegrityResponse_signatureValid = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureValid} -> signatureValid) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureValid = a} :: ValidateAssessmentReportIntegrityResponse)
 
--- | The signature algorithm used to code sign the assessment report file.
+-- | The signature algorithm that\'s used to code sign the assessment report
+-- file.
 validateAssessmentReportIntegrityResponse_signatureAlgorithm :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Text)
 validateAssessmentReportIntegrityResponse_signatureAlgorithm = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureAlgorithm} -> signatureAlgorithm) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureAlgorithm = a} :: ValidateAssessmentReportIntegrityResponse)
 

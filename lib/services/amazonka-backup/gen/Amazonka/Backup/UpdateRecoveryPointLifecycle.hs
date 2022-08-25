@@ -27,14 +27,17 @@
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 --
--- Does not support continuous backups.
+-- This operation does not support continuous backups.
 module Amazonka.Backup.UpdateRecoveryPointLifecycle
   ( -- * Creating a Request
     UpdateRecoveryPointLifecycle (..),
@@ -72,8 +75,8 @@ data UpdateRecoveryPointLifecycle = UpdateRecoveryPointLifecycle'
     -- automatically according to the lifecycle that you define.
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
-    -- a minimum of 90 days. Therefore, the “expire after days” setting must be
-    -- 90 days greater than the “transition to cold after days” setting. The
+    -- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+    -- greater than the “transition to cold after days” setting. The
     -- “transition to cold after days” setting cannot be changed after a backup
     -- has been transitioned to cold.
     lifecycle :: Prelude.Maybe Lifecycle,
@@ -102,8 +105,8 @@ data UpdateRecoveryPointLifecycle = UpdateRecoveryPointLifecycle'
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
@@ -136,8 +139,8 @@ newUpdateRecoveryPointLifecycle
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 updateRecoveryPointLifecycle_lifecycle :: Lens.Lens' UpdateRecoveryPointLifecycle (Prelude.Maybe Lifecycle)
@@ -224,12 +227,15 @@ data UpdateRecoveryPointLifecycleResponse = UpdateRecoveryPointLifecycleResponse
     -- automatically according to the lifecycle that you define.
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
-    -- a minimum of 90 days. Therefore, the “expire after days” setting must be
-    -- 90 days greater than the “transition to cold after days” setting. The
+    -- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+    -- greater than the “transition to cold after days” setting. The
     -- “transition to cold after days” setting cannot be changed after a backup
     -- has been transitioned to cold.
     --
-    -- Only Amazon EFS file system backups can be transitioned to cold storage.
+    -- Resource types that are able to be transitioned to cold storage are
+    -- listed in the \"Lifecycle to cold storage\" section of the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+    -- table. Backup ignores this expression for other resource types.
     lifecycle :: Prelude.Maybe Lifecycle,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
     -- for example,
@@ -259,12 +265,15 @@ data UpdateRecoveryPointLifecycleResponse = UpdateRecoveryPointLifecycleResponse
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 --
 -- 'recoveryPointArn', 'updateRecoveryPointLifecycleResponse_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 -- for example,
@@ -296,12 +305,15 @@ newUpdateRecoveryPointLifecycleResponse pHttpStatus_ =
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 updateRecoveryPointLifecycleResponse_lifecycle :: Lens.Lens' UpdateRecoveryPointLifecycleResponse (Prelude.Maybe Lifecycle)
 updateRecoveryPointLifecycleResponse_lifecycle = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {lifecycle} -> lifecycle) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {lifecycle = a} :: UpdateRecoveryPointLifecycleResponse)
 

@@ -21,11 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of dataset import jobs created using the
--- CreateDatasetImportJob operation. For each import job, this operation
--- returns a summary of its properties, including its Amazon Resource Name
--- (ARN). You can retrieve the complete set of properties by using the ARN
--- with the DescribeDatasetImportJob operation. You can filter the list by
--- providing an array of Filter objects.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation. For each import job, this operation returns a summary of its
+-- properties, including its Amazon Resource Name (ARN). You can retrieve
+-- the complete set of properties by using the ARN with the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html DescribeDatasetImportJob>
+-- operation. You can filter the list by providing an array of
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_Filter.html Filter>
+-- objects.
 --
 -- This operation returns paginated results.
 module Amazonka.Forecast.ListDatasetImportJobs

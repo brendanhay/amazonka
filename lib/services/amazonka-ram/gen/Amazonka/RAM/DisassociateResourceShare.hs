@@ -53,14 +53,53 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateResourceShare' smart constructor.
 data DisassociateResourceShare = DisassociateResourceShare'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | Specifies a unique, case-sensitive identifier that you provide to ensure
+    -- the idempotency of the request. This lets you safely retry the request
+    -- without accidentally performing the same operation a second time.
+    -- Passing the same value to a later call to an operation requires that you
+    -- also pass the same value for all other parameters. We recommend that you
+    -- use a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+    --
+    -- If you don\'t provide this value, then Amazon Web Services generates a
+    -- random one for you.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The principals.
+    -- | Specifies a list of one or more principals that no longer are to have
+    -- access to the resources in this resource share.
+    --
+    -- You can include the following values:
+    --
+    -- -   An Amazon Web Services account ID, for example: @123456789012@
+    --
+    -- -   An
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     of an organization in Organizations, for example:
+    --     @organizations::123456789012:organization\/o-exampleorgid@
+    --
+    -- -   An ARN of an organizational unit (OU) in Organizations, for example:
+    --     @organizations::123456789012:ou\/o-exampleorgid\/ou-examplerootid-exampleouid123@
+    --
+    -- -   An ARN of an IAM role, for example:
+    --     @iam::123456789012:role\/rolename@
+    --
+    -- -   An ARN of an IAM user, for example:
+    --     @iam::123456789012user\/username@
+    --
+    -- Not all resource types can be shared with IAM roles and users. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and users>
+    -- in the /Resource Access Manager User Guide/.
     principals :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Names (ARNs) of the resources.
+    -- | Specifies a list of
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- for one or more resources that you want to remove from the resource
+    -- share. After the operation runs, these resources are no longer shared
+    -- with principals outside of the Amazon Web Services account that created
+    -- the resources.
     resourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of the resource share.
+    -- | Specifies
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share that you want to remove resources from.
     resourceShareArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,14 +112,53 @@ data DisassociateResourceShare = DisassociateResourceShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'disassociateResourceShare_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'disassociateResourceShare_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
 --
--- 'principals', 'disassociateResourceShare_principals' - The principals.
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 --
--- 'resourceArns', 'disassociateResourceShare_resourceArns' - The Amazon Resource Names (ARNs) of the resources.
+-- 'principals', 'disassociateResourceShare_principals' - Specifies a list of one or more principals that no longer are to have
+-- access to the resources in this resource share.
 --
--- 'resourceShareArn', 'disassociateResourceShare_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- You can include the following values:
+--
+-- -   An Amazon Web Services account ID, for example: @123456789012@
+--
+-- -   An
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     of an organization in Organizations, for example:
+--     @organizations::123456789012:organization\/o-exampleorgid@
+--
+-- -   An ARN of an organizational unit (OU) in Organizations, for example:
+--     @organizations::123456789012:ou\/o-exampleorgid\/ou-examplerootid-exampleouid123@
+--
+-- -   An ARN of an IAM role, for example:
+--     @iam::123456789012:role\/rolename@
+--
+-- -   An ARN of an IAM user, for example:
+--     @iam::123456789012user\/username@
+--
+-- Not all resource types can be shared with IAM roles and users. For more
+-- information, see
+-- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and users>
+-- in the /Resource Access Manager User Guide/.
+--
+-- 'resourceArns', 'disassociateResourceShare_resourceArns' - Specifies a list of
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- for one or more resources that you want to remove from the resource
+-- share. After the operation runs, these resources are no longer shared
+-- with principals outside of the Amazon Web Services account that created
+-- the resources.
+--
+-- 'resourceShareArn', 'disassociateResourceShare_resourceShareArn' - Specifies
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share that you want to remove resources from.
 newDisassociateResourceShare ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -94,20 +172,59 @@ newDisassociateResourceShare pResourceShareArn_ =
       resourceShareArn = pResourceShareArn_
     }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+--
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 disassociateResourceShare_clientToken :: Lens.Lens' DisassociateResourceShare (Prelude.Maybe Prelude.Text)
 disassociateResourceShare_clientToken = Lens.lens (\DisassociateResourceShare' {clientToken} -> clientToken) (\s@DisassociateResourceShare' {} a -> s {clientToken = a} :: DisassociateResourceShare)
 
--- | The principals.
+-- | Specifies a list of one or more principals that no longer are to have
+-- access to the resources in this resource share.
+--
+-- You can include the following values:
+--
+-- -   An Amazon Web Services account ID, for example: @123456789012@
+--
+-- -   An
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     of an organization in Organizations, for example:
+--     @organizations::123456789012:organization\/o-exampleorgid@
+--
+-- -   An ARN of an organizational unit (OU) in Organizations, for example:
+--     @organizations::123456789012:ou\/o-exampleorgid\/ou-examplerootid-exampleouid123@
+--
+-- -   An ARN of an IAM role, for example:
+--     @iam::123456789012:role\/rolename@
+--
+-- -   An ARN of an IAM user, for example:
+--     @iam::123456789012user\/username@
+--
+-- Not all resource types can be shared with IAM roles and users. For more
+-- information, see
+-- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and users>
+-- in the /Resource Access Manager User Guide/.
 disassociateResourceShare_principals :: Lens.Lens' DisassociateResourceShare (Prelude.Maybe [Prelude.Text])
 disassociateResourceShare_principals = Lens.lens (\DisassociateResourceShare' {principals} -> principals) (\s@DisassociateResourceShare' {} a -> s {principals = a} :: DisassociateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Names (ARNs) of the resources.
+-- | Specifies a list of
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- for one or more resources that you want to remove from the resource
+-- share. After the operation runs, these resources are no longer shared
+-- with principals outside of the Amazon Web Services account that created
+-- the resources.
 disassociateResourceShare_resourceArns :: Lens.Lens' DisassociateResourceShare (Prelude.Maybe [Prelude.Text])
 disassociateResourceShare_resourceArns = Lens.lens (\DisassociateResourceShare' {resourceArns} -> resourceArns) (\s@DisassociateResourceShare' {} a -> s {resourceArns = a} :: DisassociateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | Specifies
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share that you want to remove resources from.
 disassociateResourceShare_resourceShareArn :: Lens.Lens' DisassociateResourceShare Prelude.Text
 disassociateResourceShare_resourceShareArn = Lens.lens (\DisassociateResourceShare' {resourceShareArn} -> resourceShareArn) (\s@DisassociateResourceShare' {} a -> s {resourceShareArn = a} :: DisassociateResourceShare)
 
@@ -172,10 +289,14 @@ instance Core.ToQuery DisassociateResourceShare where
 
 -- | /See:/ 'newDisassociateResourceShareResponse' smart constructor.
 data DisassociateResourceShareResponse = DisassociateResourceShareResponse'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | The idempotency identifier associated with this request. If you want to
+    -- repeat the same operation in an idempotent manner then you must include
+    -- this value in the @clientToken@ request parameter of that later call.
+    -- All other parameters must also have the same values that you used in the
+    -- first call.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the associations.
+    -- | An array of objects that contain information about the updated
+    -- associations for this resource share.
     resourceShareAssociations :: Prelude.Maybe [ResourceShareAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -190,10 +311,14 @@ data DisassociateResourceShareResponse = DisassociateResourceShareResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'disassociateResourceShareResponse_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'disassociateResourceShareResponse_clientToken' - The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 --
--- 'resourceShareAssociations', 'disassociateResourceShareResponse_resourceShareAssociations' - Information about the associations.
+-- 'resourceShareAssociations', 'disassociateResourceShareResponse_resourceShareAssociations' - An array of objects that contain information about the updated
+-- associations for this resource share.
 --
 -- 'httpStatus', 'disassociateResourceShareResponse_httpStatus' - The response's http status code.
 newDisassociateResourceShareResponse ::
@@ -209,12 +334,16 @@ newDisassociateResourceShareResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 disassociateResourceShareResponse_clientToken :: Lens.Lens' DisassociateResourceShareResponse (Prelude.Maybe Prelude.Text)
 disassociateResourceShareResponse_clientToken = Lens.lens (\DisassociateResourceShareResponse' {clientToken} -> clientToken) (\s@DisassociateResourceShareResponse' {} a -> s {clientToken = a} :: DisassociateResourceShareResponse)
 
--- | Information about the associations.
+-- | An array of objects that contain information about the updated
+-- associations for this resource share.
 disassociateResourceShareResponse_resourceShareAssociations :: Lens.Lens' DisassociateResourceShareResponse (Prelude.Maybe [ResourceShareAssociation])
 disassociateResourceShareResponse_resourceShareAssociations = Lens.lens (\DisassociateResourceShareResponse' {resourceShareAssociations} -> resourceShareAssociations) (\s@DisassociateResourceShareResponse' {} a -> s {resourceShareAssociations = a} :: DisassociateResourceShareResponse) Prelude.. Lens.mapping Lens.coerced
 

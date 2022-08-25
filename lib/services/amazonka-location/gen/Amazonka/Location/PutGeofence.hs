@@ -58,7 +58,9 @@ data PutGeofence = PutGeofence'
     collectionName :: Prelude.Text,
     -- | An identifier for the geofence. For example, @ExampleGeofence-1@.
     geofenceId :: Prelude.Text,
-    -- | Contains the polygon details to specify the position of the geofence.
+    -- | Contains the details to specify the position of the geofence. Can be
+    -- either a polygon or a circle. Including both will return a validation
+    -- error.
     --
     -- Each
     -- <https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html geofence polygon>
@@ -79,7 +81,9 @@ data PutGeofence = PutGeofence'
 --
 -- 'geofenceId', 'putGeofence_geofenceId' - An identifier for the geofence. For example, @ExampleGeofence-1@.
 --
--- 'geometry', 'putGeofence_geometry' - Contains the polygon details to specify the position of the geofence.
+-- 'geometry', 'putGeofence_geometry' - Contains the details to specify the position of the geofence. Can be
+-- either a polygon or a circle. Including both will return a validation
+-- error.
 --
 -- Each
 -- <https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html geofence polygon>
@@ -110,7 +114,9 @@ putGeofence_collectionName = Lens.lens (\PutGeofence' {collectionName} -> collec
 putGeofence_geofenceId :: Lens.Lens' PutGeofence Prelude.Text
 putGeofence_geofenceId = Lens.lens (\PutGeofence' {geofenceId} -> geofenceId) (\s@PutGeofence' {} a -> s {geofenceId = a} :: PutGeofence)
 
--- | Contains the polygon details to specify the position of the geofence.
+-- | Contains the details to specify the position of the geofence. Can be
+-- either a polygon or a circle. Including both will return a validation
+-- error.
 --
 -- Each
 -- <https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html geofence polygon>

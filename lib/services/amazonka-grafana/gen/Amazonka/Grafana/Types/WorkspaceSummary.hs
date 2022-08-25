@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkspaceSummary' smart constructor.
 data WorkspaceSummary = WorkspaceSummary'
-  { -- | The name of the workspace.
+  { -- | The list of tags associated with the workspace.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the workspace.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The customer-entered description of the workspace.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -64,6 +66,8 @@ data WorkspaceSummary = WorkspaceSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'workspaceSummary_tags' - The list of tags associated with the workspace.
 --
 -- 'name', 'workspaceSummary_name' - The name of the workspace.
 --
@@ -112,7 +116,8 @@ newWorkspaceSummary
   pModified_
   pStatus_ =
     WorkspaceSummary'
-      { name = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        name = Prelude.Nothing,
         description = Prelude.Nothing,
         notificationDestinations = Prelude.Nothing,
         authentication = pAuthentication_,
@@ -123,6 +128,10 @@ newWorkspaceSummary
         modified = Core._Time Lens.# pModified_,
         status = pStatus_
       }
+
+-- | The list of tags associated with the workspace.
+workspaceSummary_tags :: Lens.Lens' WorkspaceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+workspaceSummary_tags = Lens.lens (\WorkspaceSummary' {tags} -> tags) (\s@WorkspaceSummary' {} a -> s {tags = a} :: WorkspaceSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the workspace.
 workspaceSummary_name :: Lens.Lens' WorkspaceSummary (Prelude.Maybe Prelude.Text)
@@ -173,7 +182,8 @@ instance Core.FromJSON WorkspaceSummary where
       "WorkspaceSummary"
       ( \x ->
           WorkspaceSummary'
-            Prelude.<$> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> ( x Core..:? "notificationDestinations"
                             Core..!= Prelude.mempty
@@ -189,7 +199,8 @@ instance Core.FromJSON WorkspaceSummary where
 
 instance Prelude.Hashable WorkspaceSummary where
   hashWithSalt _salt WorkspaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` notificationDestinations
       `Prelude.hashWithSalt` authentication
@@ -202,7 +213,8 @@ instance Prelude.Hashable WorkspaceSummary where
 
 instance Prelude.NFData WorkspaceSummary where
   rnf WorkspaceSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf notificationDestinations
       `Prelude.seq` Prelude.rnf authentication

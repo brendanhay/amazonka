@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the SSO instances that the caller has access to.
+-- Lists the Amazon Web Services SSO instances that the caller has access
+-- to.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListInstances
@@ -164,7 +165,8 @@ instance Core.ToQuery ListInstances where
 
 -- | /See:/ 'newListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { -- | Lists the SSO instances that the caller has access to.
+  { -- | Lists the Amazon Web Services SSO instances that the caller has access
+    -- to.
     instances :: Prelude.Maybe [InstanceMetadata],
     -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
@@ -182,7 +184,8 @@ data ListInstancesResponse = ListInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instances', 'listInstancesResponse_instances' - Lists the SSO instances that the caller has access to.
+-- 'instances', 'listInstancesResponse_instances' - Lists the Amazon Web Services SSO instances that the caller has access
+-- to.
 --
 -- 'nextToken', 'listInstancesResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
@@ -199,7 +202,8 @@ newListInstancesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Lists the SSO instances that the caller has access to.
+-- | Lists the Amazon Web Services SSO instances that the caller has access
+-- to.
 listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceMetadata])
 listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 

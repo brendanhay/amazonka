@@ -33,7 +33,7 @@ data LaunchPathSummary = LaunchPathSummary'
     tags :: Prelude.Maybe [Tag],
     -- | The constraints on the portfolio-product relationship.
     constraintSummaries :: Prelude.Maybe [ConstraintSummary],
-    -- | The name of the portfolio to which the user was assigned.
+    -- | The name of the portfolio that contains the product.
     name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the product path.
     id :: Prelude.Maybe Prelude.Text
@@ -52,7 +52,7 @@ data LaunchPathSummary = LaunchPathSummary'
 --
 -- 'constraintSummaries', 'launchPathSummary_constraintSummaries' - The constraints on the portfolio-product relationship.
 --
--- 'name', 'launchPathSummary_name' - The name of the portfolio to which the user was assigned.
+-- 'name', 'launchPathSummary_name' - The name of the portfolio that contains the product.
 --
 -- 'id', 'launchPathSummary_id' - The identifier of the product path.
 newLaunchPathSummary ::
@@ -73,7 +73,7 @@ launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@Laun
 launchPathSummary_constraintSummaries :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [ConstraintSummary])
 launchPathSummary_constraintSummaries = Lens.lens (\LaunchPathSummary' {constraintSummaries} -> constraintSummaries) (\s@LaunchPathSummary' {} a -> s {constraintSummaries = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the portfolio to which the user was assigned.
+-- | The name of the portfolio that contains the product.
 launchPathSummary_name :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
 launchPathSummary_name = Lens.lens (\LaunchPathSummary' {name} -> name) (\s@LaunchPathSummary' {} a -> s {name = a} :: LaunchPathSummary)
 

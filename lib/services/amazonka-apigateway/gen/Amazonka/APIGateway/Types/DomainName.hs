@@ -30,29 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 -- | Represents a custom domain name as a user-friendly host name of an API
 -- (RestApi).
 --
--- When you deploy an API, API Gateway creates a default host name for the
--- API. This default API host name is of the
--- @{restapi-id}.execute-api.{region}.amazonaws.com@ format. With the
--- default host name, you can access the API\'s root resource with the URL
--- of
--- @https:\/\/{restapi-id}.execute-api.{region}.amazonaws.com\/{stage}\/@.
--- When you set up a custom domain name of @apis.example.com@ for this API,
--- you can then access the same resource using the URL of the
--- @https:\/\/apis.examples.com\/myApi@, where @myApi@ is the base path
--- mapping (BasePathMapping) of your API under the custom domain name.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Set a Custom Host Name for an API>
---
 -- /See:/ 'newDomainName' smart constructor.
 data DomainName = DomainName'
   { -- | The collection of tags. Each tag element is associated with a given
     -- resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The status of the DomainName migration. The valid values are
-    -- @AVAILABLE@, @UPDATING@, @PENDING_CERTIFICATE_REIMPORT@, and
-    -- @PENDING_OWNERSHIP_VERIFICATION@. If the status is @UPDATING@, the
-    -- domain cannot be modified further until the existing operation is
-    -- complete. If it is @AVAILABLE@, the domain can be updated.
+    -- | The status of the DomainName migration. The valid values are @AVAILABLE@
+    -- and @UPDATING@. If the status is @UPDATING@, the domain cannot be
+    -- modified further until the existing operation is complete. If it is
+    -- @AVAILABLE@, the domain can be updated.
     domainNameStatus :: Prelude.Maybe DomainNameStatus,
     -- | The mutual TLS authentication configuration for a custom domain name. If
     -- specified, API Gateway performs two-way authentication between the
@@ -81,10 +67,8 @@ data DomainName = DomainName'
     -- supported source.
     regionalCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The region-specific Amazon Route 53 Hosted Zone ID of the regional
-    -- endpoint. For more information, see
-    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
-    -- and
-    -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
+    -- endpoint. For more information, see Set up a Regional Custom Domain Name
+    -- and AWS Regions and Endpoints for API Gateway.
     regionalHostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | The name of the certificate that will be used by edge-optimized endpoint
     -- for this domain name.
@@ -100,8 +84,7 @@ data DomainName = DomainName'
     -- this custom domain name for an edge-optimized endpoint. You set up this
     -- association when adding a DNS record pointing the custom domain name to
     -- this distribution name. For more information about CloudFront
-    -- distributions, see the
-    -- <https://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation>.
+    -- distributions, see the Amazon CloudFront documentation.
     distributionDomainName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the certificate that was used by edge-optimized
     -- endpoint for this domain name was uploaded.
@@ -111,10 +94,8 @@ data DomainName = DomainName'
     endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
     -- | The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
     -- endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
-    -- and
-    -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
+    -- more information, see Set up a Regional Custom Domain Name and AWS
+    -- Regions and Endpoints for API Gateway.
     distributionHostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | The Transport Layer Security (TLS) version + cipher suite for this
     -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
@@ -133,11 +114,10 @@ data DomainName = DomainName'
 -- 'tags', 'domainName_tags' - The collection of tags. Each tag element is associated with a given
 -- resource.
 --
--- 'domainNameStatus', 'domainName_domainNameStatus' - The status of the DomainName migration. The valid values are
--- @AVAILABLE@, @UPDATING@, @PENDING_CERTIFICATE_REIMPORT@, and
--- @PENDING_OWNERSHIP_VERIFICATION@. If the status is @UPDATING@, the
--- domain cannot be modified further until the existing operation is
--- complete. If it is @AVAILABLE@, the domain can be updated.
+-- 'domainNameStatus', 'domainName_domainNameStatus' - The status of the DomainName migration. The valid values are @AVAILABLE@
+-- and @UPDATING@. If the status is @UPDATING@, the domain cannot be
+-- modified further until the existing operation is complete. If it is
+-- @AVAILABLE@, the domain can be updated.
 --
 -- 'mutualTlsAuthentication', 'domainName_mutualTlsAuthentication' - The mutual TLS authentication configuration for a custom domain name. If
 -- specified, API Gateway performs two-way authentication between the
@@ -166,10 +146,8 @@ data DomainName = DomainName'
 -- supported source.
 --
 -- 'regionalHostedZoneId', 'domainName_regionalHostedZoneId' - The region-specific Amazon Route 53 Hosted Zone ID of the regional
--- endpoint. For more information, see
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
--- and
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
+-- endpoint. For more information, see Set up a Regional Custom Domain Name
+-- and AWS Regions and Endpoints for API Gateway.
 --
 -- 'certificateName', 'domainName_certificateName' - The name of the certificate that will be used by edge-optimized endpoint
 -- for this domain name.
@@ -185,8 +163,7 @@ data DomainName = DomainName'
 -- this custom domain name for an edge-optimized endpoint. You set up this
 -- association when adding a DNS record pointing the custom domain name to
 -- this distribution name. For more information about CloudFront
--- distributions, see the
--- <https://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation>.
+-- distributions, see the Amazon CloudFront documentation.
 --
 -- 'certificateUploadDate', 'domainName_certificateUploadDate' - The timestamp when the certificate that was used by edge-optimized
 -- endpoint for this domain name was uploaded.
@@ -196,10 +173,8 @@ data DomainName = DomainName'
 --
 -- 'distributionHostedZoneId', 'domainName_distributionHostedZoneId' - The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
 -- endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For
--- more information, see
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
--- and
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
+-- more information, see Set up a Regional Custom Domain Name and AWS
+-- Regions and Endpoints for API Gateway.
 --
 -- 'securityPolicy', 'domainName_securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this
 -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
@@ -232,11 +207,10 @@ newDomainName =
 domainName_tags :: Lens.Lens' DomainName (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 domainName_tags = Lens.lens (\DomainName' {tags} -> tags) (\s@DomainName' {} a -> s {tags = a} :: DomainName) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the DomainName migration. The valid values are
--- @AVAILABLE@, @UPDATING@, @PENDING_CERTIFICATE_REIMPORT@, and
--- @PENDING_OWNERSHIP_VERIFICATION@. If the status is @UPDATING@, the
--- domain cannot be modified further until the existing operation is
--- complete. If it is @AVAILABLE@, the domain can be updated.
+-- | The status of the DomainName migration. The valid values are @AVAILABLE@
+-- and @UPDATING@. If the status is @UPDATING@, the domain cannot be
+-- modified further until the existing operation is complete. If it is
+-- @AVAILABLE@, the domain can be updated.
 domainName_domainNameStatus :: Lens.Lens' DomainName (Prelude.Maybe DomainNameStatus)
 domainName_domainNameStatus = Lens.lens (\DomainName' {domainNameStatus} -> domainNameStatus) (\s@DomainName' {} a -> s {domainNameStatus = a} :: DomainName)
 
@@ -279,10 +253,8 @@ domainName_regionalCertificateArn :: Lens.Lens' DomainName (Prelude.Maybe Prelud
 domainName_regionalCertificateArn = Lens.lens (\DomainName' {regionalCertificateArn} -> regionalCertificateArn) (\s@DomainName' {} a -> s {regionalCertificateArn = a} :: DomainName)
 
 -- | The region-specific Amazon Route 53 Hosted Zone ID of the regional
--- endpoint. For more information, see
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
--- and
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
+-- endpoint. For more information, see Set up a Regional Custom Domain Name
+-- and AWS Regions and Endpoints for API Gateway.
 domainName_regionalHostedZoneId :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
 domainName_regionalHostedZoneId = Lens.lens (\DomainName' {regionalHostedZoneId} -> regionalHostedZoneId) (\s@DomainName' {} a -> s {regionalHostedZoneId = a} :: DomainName)
 
@@ -306,8 +278,7 @@ domainName_certificateArn = Lens.lens (\DomainName' {certificateArn} -> certific
 -- this custom domain name for an edge-optimized endpoint. You set up this
 -- association when adding a DNS record pointing the custom domain name to
 -- this distribution name. For more information about CloudFront
--- distributions, see the
--- <https://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation>.
+-- distributions, see the Amazon CloudFront documentation.
 domainName_distributionDomainName :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
 domainName_distributionDomainName = Lens.lens (\DomainName' {distributionDomainName} -> distributionDomainName) (\s@DomainName' {} a -> s {distributionDomainName = a} :: DomainName)
 
@@ -323,10 +294,8 @@ domainName_endpointConfiguration = Lens.lens (\DomainName' {endpointConfiguratio
 
 -- | The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
 -- endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For
--- more information, see
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
--- and
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
+-- more information, see Set up a Regional Custom Domain Name and AWS
+-- Regions and Endpoints for API Gateway.
 domainName_distributionHostedZoneId :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
 domainName_distributionHostedZoneId = Lens.lens (\DomainName' {distributionHostedZoneId} -> distributionHostedZoneId) (\s@DomainName' {} a -> s {distributionHostedZoneId = a} :: DomainName)
 

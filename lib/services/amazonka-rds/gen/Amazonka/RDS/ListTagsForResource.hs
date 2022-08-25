@@ -149,7 +149,7 @@ instance Core.ToQuery ListTagsForResource where
 --
 -- /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | List of tags returned by the ListTagsForResource operation.
+  { -- | List of tags returned by the @ListTagsForResource@ operation.
     tagList :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -164,7 +164,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagList', 'listTagsForResourceResponse_tagList' - List of tags returned by the ListTagsForResource operation.
+-- 'tagList', 'listTagsForResourceResponse_tagList' - List of tags returned by the @ListTagsForResource@ operation.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -178,7 +178,7 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | List of tags returned by the ListTagsForResource operation.
+-- | List of tags returned by the @ListTagsForResource@ operation.
 listTagsForResourceResponse_tagList :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
 listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 

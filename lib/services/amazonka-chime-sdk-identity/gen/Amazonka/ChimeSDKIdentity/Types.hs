@@ -26,6 +26,18 @@ module Amazonka.ChimeSDKIdentity.Types
     _UnauthorizedClientException,
     _ServiceFailureException,
 
+    -- * AllowMessages
+    AllowMessages (..),
+
+    -- * AppInstanceUserEndpointType
+    AppInstanceUserEndpointType (..),
+
+    -- * EndpointStatus
+    EndpointStatus (..),
+
+    -- * EndpointStatusReason
+    EndpointStatusReason (..),
+
     -- * AppInstance
     AppInstance (..),
     newAppInstance,
@@ -68,6 +80,30 @@ module Amazonka.ChimeSDKIdentity.Types
     appInstanceUser_appInstanceUserArn,
     appInstanceUser_createdTimestamp,
 
+    -- * AppInstanceUserEndpoint
+    AppInstanceUserEndpoint (..),
+    newAppInstanceUserEndpoint,
+    appInstanceUserEndpoint_lastUpdatedTimestamp,
+    appInstanceUserEndpoint_name,
+    appInstanceUserEndpoint_type,
+    appInstanceUserEndpoint_endpointId,
+    appInstanceUserEndpoint_appInstanceUserArn,
+    appInstanceUserEndpoint_createdTimestamp,
+    appInstanceUserEndpoint_endpointAttributes,
+    appInstanceUserEndpoint_endpointState,
+    appInstanceUserEndpoint_resourceArn,
+    appInstanceUserEndpoint_allowMessages,
+
+    -- * AppInstanceUserEndpointSummary
+    AppInstanceUserEndpointSummary (..),
+    newAppInstanceUserEndpointSummary,
+    appInstanceUserEndpointSummary_name,
+    appInstanceUserEndpointSummary_type,
+    appInstanceUserEndpointSummary_endpointId,
+    appInstanceUserEndpointSummary_appInstanceUserArn,
+    appInstanceUserEndpointSummary_endpointState,
+    appInstanceUserEndpointSummary_allowMessages,
+
     -- * AppInstanceUserSummary
     AppInstanceUserSummary (..),
     newAppInstanceUserSummary,
@@ -79,6 +115,18 @@ module Amazonka.ChimeSDKIdentity.Types
     ChannelRetentionSettings (..),
     newChannelRetentionSettings,
     channelRetentionSettings_retentionDays,
+
+    -- * EndpointAttributes
+    EndpointAttributes (..),
+    newEndpointAttributes,
+    endpointAttributes_voipDeviceToken,
+    endpointAttributes_deviceToken,
+
+    -- * EndpointState
+    EndpointState (..),
+    newEndpointState,
+    endpointState_statusReason,
+    endpointState_status,
 
     -- * Identity
     Identity (..),
@@ -94,14 +142,22 @@ module Amazonka.ChimeSDKIdentity.Types
   )
 where
 
+import Amazonka.ChimeSDKIdentity.Types.AllowMessages
 import Amazonka.ChimeSDKIdentity.Types.AppInstance
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpoint
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointSummary
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
 import Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.EndpointAttributes
+import Amazonka.ChimeSDKIdentity.Types.EndpointState
+import Amazonka.ChimeSDKIdentity.Types.EndpointStatus
+import Amazonka.ChimeSDKIdentity.Types.EndpointStatusReason
 import Amazonka.ChimeSDKIdentity.Types.Identity
 import Amazonka.ChimeSDKIdentity.Types.Tag
 import qualified Amazonka.Core as Core

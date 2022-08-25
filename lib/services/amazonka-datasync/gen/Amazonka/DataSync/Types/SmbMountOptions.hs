@@ -24,15 +24,14 @@ import Amazonka.DataSync.Types.SmbVersion
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents the mount options that are available for DataSync to access
--- an SMB location.
+-- | Specifies how DataSync can access a location using the SMB protocol.
 --
 -- /See:/ 'newSmbMountOptions' smart constructor.
 data SmbMountOptions = SmbMountOptions'
-  { -- | The specific SMB version that you want DataSync to use to mount your SMB
-    -- share. If you don\'t specify a version, DataSync defaults to
-    -- @AUTOMATIC@. That is, DataSync automatically selects a version based on
-    -- negotiation with the SMB server.
+  { -- | Specifies the SMB version that you want DataSync to use when mounting
+    -- your SMB share. If you don\'t specify a version, DataSync defaults to
+    -- @AUTOMATIC@ and chooses a version based on negotiation with the SMB
+    -- server.
     version :: Prelude.Maybe SmbVersion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,19 +44,19 @@ data SmbMountOptions = SmbMountOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'smbMountOptions_version' - The specific SMB version that you want DataSync to use to mount your SMB
--- share. If you don\'t specify a version, DataSync defaults to
--- @AUTOMATIC@. That is, DataSync automatically selects a version based on
--- negotiation with the SMB server.
+-- 'version', 'smbMountOptions_version' - Specifies the SMB version that you want DataSync to use when mounting
+-- your SMB share. If you don\'t specify a version, DataSync defaults to
+-- @AUTOMATIC@ and chooses a version based on negotiation with the SMB
+-- server.
 newSmbMountOptions ::
   SmbMountOptions
 newSmbMountOptions =
   SmbMountOptions' {version = Prelude.Nothing}
 
--- | The specific SMB version that you want DataSync to use to mount your SMB
--- share. If you don\'t specify a version, DataSync defaults to
--- @AUTOMATIC@. That is, DataSync automatically selects a version based on
--- negotiation with the SMB server.
+-- | Specifies the SMB version that you want DataSync to use when mounting
+-- your SMB share. If you don\'t specify a version, DataSync defaults to
+-- @AUTOMATIC@ and chooses a version based on negotiation with the SMB
+-- server.
 smbMountOptions_version :: Lens.Lens' SmbMountOptions (Prelude.Maybe SmbVersion)
 smbMountOptions_version = Lens.lens (\SmbMountOptions' {version} -> version) (\s@SmbMountOptions' {} a -> s {version = a} :: SmbMountOptions)
 

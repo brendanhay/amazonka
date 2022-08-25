@@ -66,6 +66,12 @@ module Amazonka.ComputeOptimizer
     -- * Operations
     -- $operations
 
+    -- ** DeleteRecommendationPreferences
+    DeleteRecommendationPreferences (DeleteRecommendationPreferences'),
+    newDeleteRecommendationPreferences,
+    DeleteRecommendationPreferencesResponse (DeleteRecommendationPreferencesResponse'),
+    newDeleteRecommendationPreferencesResponse,
+
     -- ** DescribeRecommendationExportJobs
     DescribeRecommendationExportJobs (DescribeRecommendationExportJobs'),
     newDescribeRecommendationExportJobs,
@@ -120,6 +126,12 @@ module Amazonka.ComputeOptimizer
     GetEC2RecommendationProjectedMetricsResponse (GetEC2RecommendationProjectedMetricsResponse'),
     newGetEC2RecommendationProjectedMetricsResponse,
 
+    -- ** GetEffectiveRecommendationPreferences
+    GetEffectiveRecommendationPreferences (GetEffectiveRecommendationPreferences'),
+    newGetEffectiveRecommendationPreferences,
+    GetEffectiveRecommendationPreferencesResponse (GetEffectiveRecommendationPreferencesResponse'),
+    newGetEffectiveRecommendationPreferencesResponse,
+
     -- ** GetEnrollmentStatus
     GetEnrollmentStatus (GetEnrollmentStatus'),
     newGetEnrollmentStatus,
@@ -138,11 +150,23 @@ module Amazonka.ComputeOptimizer
     GetLambdaFunctionRecommendationsResponse (GetLambdaFunctionRecommendationsResponse'),
     newGetLambdaFunctionRecommendationsResponse,
 
+    -- ** GetRecommendationPreferences
+    GetRecommendationPreferences (GetRecommendationPreferences'),
+    newGetRecommendationPreferences,
+    GetRecommendationPreferencesResponse (GetRecommendationPreferencesResponse'),
+    newGetRecommendationPreferencesResponse,
+
     -- ** GetRecommendationSummaries
     GetRecommendationSummaries (GetRecommendationSummaries'),
     newGetRecommendationSummaries,
     GetRecommendationSummariesResponse (GetRecommendationSummariesResponse'),
     newGetRecommendationSummariesResponse,
+
+    -- ** PutRecommendationPreferences
+    PutRecommendationPreferences (PutRecommendationPreferences'),
+    newPutRecommendationPreferences,
+    PutRecommendationPreferencesResponse (PutRecommendationPreferencesResponse'),
+    newPutRecommendationPreferencesResponse,
 
     -- ** UpdateEnrollmentStatus
     UpdateEnrollmentStatus (UpdateEnrollmentStatus'),
@@ -155,6 +179,12 @@ module Amazonka.ComputeOptimizer
     -- ** CpuVendorArchitecture
     CpuVendorArchitecture (..),
 
+    -- ** Currency
+    Currency (..),
+
+    -- ** CurrentPerformanceRisk
+    CurrentPerformanceRisk (..),
+
     -- ** EBSFilterName
     EBSFilterName (..),
 
@@ -163,6 +193,9 @@ module Amazonka.ComputeOptimizer
 
     -- ** EBSMetricName
     EBSMetricName (..),
+
+    -- ** EnhancedInfrastructureMetrics
+    EnhancedInfrastructureMetrics (..),
 
     -- ** EnrollmentFilterName
     EnrollmentFilterName (..),
@@ -190,6 +223,12 @@ module Amazonka.ComputeOptimizer
 
     -- ** FindingReasonCode
     FindingReasonCode (..),
+
+    -- ** InferredWorkloadType
+    InferredWorkloadType (..),
+
+    -- ** InferredWorkloadTypesPreference
+    InferredWorkloadTypesPreference (..),
 
     -- ** InstanceRecommendationFindingReasonCode
     InstanceRecommendationFindingReasonCode (..),
@@ -227,14 +266,23 @@ module Amazonka.ComputeOptimizer
     -- ** MetricStatistic
     MetricStatistic (..),
 
+    -- ** MigrationEffort
+    MigrationEffort (..),
+
     -- ** PlatformDifference
     PlatformDifference (..),
+
+    -- ** RecommendationPreferenceName
+    RecommendationPreferenceName (..),
 
     -- ** RecommendationSourceType
     RecommendationSourceType (..),
 
     -- ** ResourceType
     ResourceType (..),
+
+    -- ** ScopeName
+    ScopeName (..),
 
     -- ** Status
     Status (..),
@@ -255,6 +303,10 @@ module Amazonka.ComputeOptimizer
     AutoScalingGroupRecommendationOption (AutoScalingGroupRecommendationOption'),
     newAutoScalingGroupRecommendationOption,
 
+    -- ** CurrentPerformanceRiskRatings
+    CurrentPerformanceRiskRatings (CurrentPerformanceRiskRatings'),
+    newCurrentPerformanceRiskRatings,
+
     -- ** EBSFilter
     EBSFilter (EBSFilter'),
     newEBSFilter,
@@ -263,9 +315,17 @@ module Amazonka.ComputeOptimizer
     EBSUtilizationMetric (EBSUtilizationMetric'),
     newEBSUtilizationMetric,
 
+    -- ** EffectiveRecommendationPreferences
+    EffectiveRecommendationPreferences (EffectiveRecommendationPreferences'),
+    newEffectiveRecommendationPreferences,
+
     -- ** EnrollmentFilter
     EnrollmentFilter (EnrollmentFilter'),
     newEnrollmentFilter,
+
+    -- ** EstimatedMonthlySavings
+    EstimatedMonthlySavings (EstimatedMonthlySavings'),
+    newEstimatedMonthlySavings,
 
     -- ** ExportDestination
     ExportDestination (ExportDestination'),
@@ -327,6 +387,10 @@ module Amazonka.ComputeOptimizer
     RecommendationPreferences (RecommendationPreferences'),
     newRecommendationPreferences,
 
+    -- ** RecommendationPreferencesDetail
+    RecommendationPreferencesDetail (RecommendationPreferencesDetail'),
+    newRecommendationPreferencesDetail,
+
     -- ** RecommendationSource
     RecommendationSource (RecommendationSource'),
     newRecommendationSource,
@@ -346,6 +410,14 @@ module Amazonka.ComputeOptimizer
     -- ** S3DestinationConfig
     S3DestinationConfig (S3DestinationConfig'),
     newS3DestinationConfig,
+
+    -- ** SavingsOpportunity
+    SavingsOpportunity (SavingsOpportunity'),
+    newSavingsOpportunity,
+
+    -- ** Scope
+    Scope (Scope'),
+    newScope,
 
     -- ** Summary
     Summary (Summary'),
@@ -369,6 +441,7 @@ module Amazonka.ComputeOptimizer
   )
 where
 
+import Amazonka.ComputeOptimizer.DeleteRecommendationPreferences
 import Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
 import Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
 import Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
@@ -378,11 +451,14 @@ import Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
 import Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
 import Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
 import Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.GetEnrollmentStatus
 import Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
 import Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
+import Amazonka.ComputeOptimizer.GetRecommendationPreferences
 import Amazonka.ComputeOptimizer.GetRecommendationSummaries
 import Amazonka.ComputeOptimizer.Lens
+import Amazonka.ComputeOptimizer.PutRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types
 import Amazonka.ComputeOptimizer.UpdateEnrollmentStatus
 import Amazonka.ComputeOptimizer.Waiters

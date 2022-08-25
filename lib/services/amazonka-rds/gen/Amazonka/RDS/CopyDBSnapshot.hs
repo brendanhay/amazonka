@@ -25,12 +25,14 @@
 --
 -- You can copy a snapshot from one Amazon Web Services Region to another.
 -- In that case, the Amazon Web Services Region where you call the
--- @CopyDBSnapshot@ action is the destination Amazon Web Services Region
+-- @CopyDBSnapshot@ operation is the destination Amazon Web Services Region
 -- for the DB snapshot copy.
+--
+-- This command doesn\'t apply to RDS Custom.
 --
 -- For more information about copying snapshots, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot Copying a DB Snapshot>
--- in the /Amazon RDS User Guide./
+-- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.CopyDBSnapshot
   ( -- * Creating a Request
     CopyDBSnapshot (..),
@@ -83,21 +85,20 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- option when copying across Amazon Web Services Regions. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
-    -- in the /Amazon RDS User Guide./
+    -- in the /Amazon RDS User Guide/.
     optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the source DB
     -- snapshot to the target DB snapshot. By default, tags are not copied.
     copyTags :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     --
     -- If you copy an encrypted DB snapshot from your Amazon Web Services
     -- account, you can specify a value for this parameter to encrypt the copy
-    -- with a new Amazon Web Services KMS CMK. If you don\'t specify a value
-    -- for this parameter, then the copy of the DB snapshot is encrypted with
-    -- the same Amazon Web Services KMS key as the source DB snapshot.
+    -- with a new KMS key. If you don\'t specify a value for this parameter,
+    -- then the copy of the DB snapshot is encrypted with the same Amazon Web
+    -- Services KMS key as the source DB snapshot.
     --
     -- If you copy an encrypted DB snapshot that is shared from another Amazon
     -- Web Services account, then you must specify a value for this parameter.
@@ -106,11 +107,11 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- copy is encrypted.
     --
     -- If you copy an encrypted snapshot to a different Amazon Web Services
-    -- Region, then you must specify a Amazon Web Services KMS key identifier
-    -- for the destination Amazon Web Services Region. Amazon Web Services KMS
-    -- CMKs are specific to the Amazon Web Services Region that they are
-    -- created in, and you can\'t use CMKs from one Amazon Web Services Region
-    -- in another Amazon Web Services Region.
+    -- Region, then you must specify an Amazon Web Services KMS key identifier
+    -- for the destination Amazon Web Services Region. KMS keys are specific to
+    -- the Amazon Web Services Region that they are created in, and you can\'t
+    -- use KMS keys from one Amazon Web Services Region in another Amazon Web
+    -- Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
     -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
@@ -118,40 +119,45 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
     -- @DST@.
     destinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | The URL that contains a Signature Version 4 signed request for the
-    -- @CopyDBSnapshot@ API action in the source Amazon Web Services Region
-    -- that contains the source DB snapshot to copy.
+    -- | When you are copying a snapshot from one Amazon Web Services GovCloud
+    -- (US) Region to another, the URL that contains a Signature Version 4
+    -- signed request for the @CopyDBSnapshot@ API operation in the source
+    -- Amazon Web Services Region that contains the source DB snapshot to copy.
+    --
+    -- This setting applies only to Amazon Web Services GovCloud (US) Regions.
+    -- It\'s ignored in other Amazon Web Services Regions.
     --
     -- You must specify this parameter when you copy an encrypted DB snapshot
     -- from another Amazon Web Services Region by using the Amazon RDS API.
     -- Don\'t specify @PreSignedUrl@ when you are copying an encrypted DB
     -- snapshot in the same Amazon Web Services Region.
     --
-    -- The presigned URL must be a valid request for the @CopyDBSnapshot@ API
-    -- action that can be executed in the source Amazon Web Services Region
-    -- that contains the encrypted DB snapshot to be copied. The presigned URL
-    -- request must contain the following parameter values:
+    -- The presigned URL must be a valid request for the
+    -- @CopyDBClusterSnapshot@ API operation that can run in the source Amazon
+    -- Web Services Region that contains the encrypted DB cluster snapshot to
+    -- copy. The presigned URL request must contain the following parameter
+    -- values:
     --
     -- -   @DestinationRegion@ - The Amazon Web Services Region that the
     --     encrypted DB snapshot is copied to. This Amazon Web Services Region
-    --     is the same one where the @CopyDBSnapshot@ action is called that
+    --     is the same one where the @CopyDBSnapshot@ operation is called that
     --     contains this presigned URL.
     --
     --     For example, if you copy an encrypted DB snapshot from the us-west-2
     --     Amazon Web Services Region to the us-east-1 Amazon Web Services
-    --     Region, then you call the @CopyDBSnapshot@ action in the us-east-1
-    --     Amazon Web Services Region and provide a presigned URL that contains
-    --     a call to the @CopyDBSnapshot@ action in the us-west-2 Amazon Web
-    --     Services Region. For this example, the @DestinationRegion@ in the
-    --     presigned URL must be set to the us-east-1 Amazon Web Services
-    --     Region.
+    --     Region, then you call the @CopyDBSnapshot@ operation in the
+    --     us-east-1 Amazon Web Services Region and provide a presigned URL
+    --     that contains a call to the @CopyDBSnapshot@ operation in the
+    --     us-west-2 Amazon Web Services Region. For this example, the
+    --     @DestinationRegion@ in the presigned URL must be set to the
+    --     us-east-1 Amazon Web Services Region.
     --
-    -- -   @KmsKeyId@ - The Amazon Web Services KMS key identifier for the
-    --     customer master key (CMK) to use to encrypt the copy of the DB
-    --     snapshot in the destination Amazon Web Services Region. This is the
-    --     same identifier for both the @CopyDBSnapshot@ action that is called
-    --     in the destination Amazon Web Services Region, and the action
-    --     contained in the presigned URL.
+    -- -   @KmsKeyId@ - The KMS key identifier for the KMS key to use to
+    --     encrypt the copy of the DB snapshot in the destination Amazon Web
+    --     Services Region. This is the same identifier for both the
+    --     @CopyDBSnapshot@ operation that is called in the destination Amazon
+    --     Web Services Region, and the operation contained in the presigned
+    --     URL.
     --
     -- -   @SourceDBSnapshotIdentifier@ - The DB snapshot identifier for the
     --     encrypted snapshot to be copied. This identifier must be in the
@@ -169,8 +175,8 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- If you are using an Amazon Web Services SDK tool or the CLI, you can
     -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
     -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
-    -- autogenerates a pre-signed URL that is a valid request for the operation
-    -- that can be executed in the source Amazon Web Services Region.
+    -- autogenerates a presigned URL that is a valid request for the operation
+    -- that can run in the source Amazon Web Services Region.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB snapshot.
     --
@@ -187,8 +193,7 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- be the Amazon Resource Name (ARN) of the shared DB snapshot.
     --
     -- If you are copying an encrypted snapshot this parameter must be in the
-    -- ARN format for the source Amazon Web Services Region, and must match the
-    -- @SourceDBSnapshotIdentifier@ in the @PreSignedUrl@ parameter.
+    -- ARN format for the source Amazon Web Services Region.
     --
     -- Constraints:
     --
@@ -240,21 +245,20 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- option when copying across Amazon Web Services Regions. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
--- in the /Amazon RDS User Guide./
+-- in the /Amazon RDS User Guide/.
 --
 -- 'copyTags', 'copyDBSnapshot_copyTags' - A value that indicates whether to copy all tags from the source DB
 -- snapshot to the target DB snapshot. By default, tags are not copied.
 --
 -- 'kmsKeyId', 'copyDBSnapshot_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- If you copy an encrypted DB snapshot from your Amazon Web Services
 -- account, you can specify a value for this parameter to encrypt the copy
--- with a new Amazon Web Services KMS CMK. If you don\'t specify a value
--- for this parameter, then the copy of the DB snapshot is encrypted with
--- the same Amazon Web Services KMS key as the source DB snapshot.
+-- with a new KMS key. If you don\'t specify a value for this parameter,
+-- then the copy of the DB snapshot is encrypted with the same Amazon Web
+-- Services KMS key as the source DB snapshot.
 --
 -- If you copy an encrypted DB snapshot that is shared from another Amazon
 -- Web Services account, then you must specify a value for this parameter.
@@ -263,11 +267,11 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- copy is encrypted.
 --
 -- If you copy an encrypted snapshot to a different Amazon Web Services
--- Region, then you must specify a Amazon Web Services KMS key identifier
--- for the destination Amazon Web Services Region. Amazon Web Services KMS
--- CMKs are specific to the Amazon Web Services Region that they are
--- created in, and you can\'t use CMKs from one Amazon Web Services Region
--- in another Amazon Web Services Region.
+-- Region, then you must specify an Amazon Web Services KMS key identifier
+-- for the destination Amazon Web Services Region. KMS keys are specific to
+-- the Amazon Web Services Region that they are created in, and you can\'t
+-- use KMS keys from one Amazon Web Services Region in another Amazon Web
+-- Services Region.
 --
 -- 'destinationRegion', 'copyDBSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
 -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
@@ -275,40 +279,45 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
 -- @DST@.
 --
--- 'preSignedUrl', 'copyDBSnapshot_preSignedUrl' - The URL that contains a Signature Version 4 signed request for the
--- @CopyDBSnapshot@ API action in the source Amazon Web Services Region
--- that contains the source DB snapshot to copy.
+-- 'preSignedUrl', 'copyDBSnapshot_preSignedUrl' - When you are copying a snapshot from one Amazon Web Services GovCloud
+-- (US) Region to another, the URL that contains a Signature Version 4
+-- signed request for the @CopyDBSnapshot@ API operation in the source
+-- Amazon Web Services Region that contains the source DB snapshot to copy.
+--
+-- This setting applies only to Amazon Web Services GovCloud (US) Regions.
+-- It\'s ignored in other Amazon Web Services Regions.
 --
 -- You must specify this parameter when you copy an encrypted DB snapshot
 -- from another Amazon Web Services Region by using the Amazon RDS API.
 -- Don\'t specify @PreSignedUrl@ when you are copying an encrypted DB
 -- snapshot in the same Amazon Web Services Region.
 --
--- The presigned URL must be a valid request for the @CopyDBSnapshot@ API
--- action that can be executed in the source Amazon Web Services Region
--- that contains the encrypted DB snapshot to be copied. The presigned URL
--- request must contain the following parameter values:
+-- The presigned URL must be a valid request for the
+-- @CopyDBClusterSnapshot@ API operation that can run in the source Amazon
+-- Web Services Region that contains the encrypted DB cluster snapshot to
+-- copy. The presigned URL request must contain the following parameter
+-- values:
 --
 -- -   @DestinationRegion@ - The Amazon Web Services Region that the
 --     encrypted DB snapshot is copied to. This Amazon Web Services Region
---     is the same one where the @CopyDBSnapshot@ action is called that
+--     is the same one where the @CopyDBSnapshot@ operation is called that
 --     contains this presigned URL.
 --
 --     For example, if you copy an encrypted DB snapshot from the us-west-2
 --     Amazon Web Services Region to the us-east-1 Amazon Web Services
---     Region, then you call the @CopyDBSnapshot@ action in the us-east-1
---     Amazon Web Services Region and provide a presigned URL that contains
---     a call to the @CopyDBSnapshot@ action in the us-west-2 Amazon Web
---     Services Region. For this example, the @DestinationRegion@ in the
---     presigned URL must be set to the us-east-1 Amazon Web Services
---     Region.
+--     Region, then you call the @CopyDBSnapshot@ operation in the
+--     us-east-1 Amazon Web Services Region and provide a presigned URL
+--     that contains a call to the @CopyDBSnapshot@ operation in the
+--     us-west-2 Amazon Web Services Region. For this example, the
+--     @DestinationRegion@ in the presigned URL must be set to the
+--     us-east-1 Amazon Web Services Region.
 --
--- -   @KmsKeyId@ - The Amazon Web Services KMS key identifier for the
---     customer master key (CMK) to use to encrypt the copy of the DB
---     snapshot in the destination Amazon Web Services Region. This is the
---     same identifier for both the @CopyDBSnapshot@ action that is called
---     in the destination Amazon Web Services Region, and the action
---     contained in the presigned URL.
+-- -   @KmsKeyId@ - The KMS key identifier for the KMS key to use to
+--     encrypt the copy of the DB snapshot in the destination Amazon Web
+--     Services Region. This is the same identifier for both the
+--     @CopyDBSnapshot@ operation that is called in the destination Amazon
+--     Web Services Region, and the operation contained in the presigned
+--     URL.
 --
 -- -   @SourceDBSnapshotIdentifier@ - The DB snapshot identifier for the
 --     encrypted snapshot to be copied. This identifier must be in the
@@ -326,8 +335,8 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- If you are using an Amazon Web Services SDK tool or the CLI, you can
 -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
 -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
--- autogenerates a pre-signed URL that is a valid request for the operation
--- that can be executed in the source Amazon Web Services Region.
+-- autogenerates a presigned URL that is a valid request for the operation
+-- that can run in the source Amazon Web Services Region.
 --
 -- 'sourceDBSnapshotIdentifier', 'copyDBSnapshot_sourceDBSnapshotIdentifier' - The identifier for the source DB snapshot.
 --
@@ -344,8 +353,7 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- be the Amazon Resource Name (ARN) of the shared DB snapshot.
 --
 -- If you are copying an encrypted snapshot this parameter must be in the
--- ARN format for the source Amazon Web Services Region, and must match the
--- @SourceDBSnapshotIdentifier@ in the @PreSignedUrl@ parameter.
+-- ARN format for the source Amazon Web Services Region.
 --
 -- Constraints:
 --
@@ -412,7 +420,7 @@ copyDBSnapshot_targetCustomAvailabilityZone = Lens.lens (\CopyDBSnapshot' {targe
 -- option when copying across Amazon Web Services Regions. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
--- in the /Amazon RDS User Guide./
+-- in the /Amazon RDS User Guide/.
 copyDBSnapshot_optionGroupName :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_optionGroupName = Lens.lens (\CopyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@CopyDBSnapshot' {} a -> s {optionGroupName = a} :: CopyDBSnapshot)
 
@@ -423,14 +431,13 @@ copyDBSnapshot_copyTags = Lens.lens (\CopyDBSnapshot' {copyTags} -> copyTags) (\
 
 -- | The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- If you copy an encrypted DB snapshot from your Amazon Web Services
 -- account, you can specify a value for this parameter to encrypt the copy
--- with a new Amazon Web Services KMS CMK. If you don\'t specify a value
--- for this parameter, then the copy of the DB snapshot is encrypted with
--- the same Amazon Web Services KMS key as the source DB snapshot.
+-- with a new KMS key. If you don\'t specify a value for this parameter,
+-- then the copy of the DB snapshot is encrypted with the same Amazon Web
+-- Services KMS key as the source DB snapshot.
 --
 -- If you copy an encrypted DB snapshot that is shared from another Amazon
 -- Web Services account, then you must specify a value for this parameter.
@@ -439,11 +446,11 @@ copyDBSnapshot_copyTags = Lens.lens (\CopyDBSnapshot' {copyTags} -> copyTags) (\
 -- copy is encrypted.
 --
 -- If you copy an encrypted snapshot to a different Amazon Web Services
--- Region, then you must specify a Amazon Web Services KMS key identifier
--- for the destination Amazon Web Services Region. Amazon Web Services KMS
--- CMKs are specific to the Amazon Web Services Region that they are
--- created in, and you can\'t use CMKs from one Amazon Web Services Region
--- in another Amazon Web Services Region.
+-- Region, then you must specify an Amazon Web Services KMS key identifier
+-- for the destination Amazon Web Services Region. KMS keys are specific to
+-- the Amazon Web Services Region that they are created in, and you can\'t
+-- use KMS keys from one Amazon Web Services Region in another Amazon Web
+-- Services Region.
 copyDBSnapshot_kmsKeyId :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_kmsKeyId = Lens.lens (\CopyDBSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopyDBSnapshot' {} a -> s {kmsKeyId = a} :: CopyDBSnapshot)
 
@@ -455,40 +462,45 @@ copyDBSnapshot_kmsKeyId = Lens.lens (\CopyDBSnapshot' {kmsKeyId} -> kmsKeyId) (\
 copyDBSnapshot_destinationRegion :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_destinationRegion = Lens.lens (\CopyDBSnapshot' {destinationRegion} -> destinationRegion) (\s@CopyDBSnapshot' {} a -> s {destinationRegion = a} :: CopyDBSnapshot)
 
--- | The URL that contains a Signature Version 4 signed request for the
--- @CopyDBSnapshot@ API action in the source Amazon Web Services Region
--- that contains the source DB snapshot to copy.
+-- | When you are copying a snapshot from one Amazon Web Services GovCloud
+-- (US) Region to another, the URL that contains a Signature Version 4
+-- signed request for the @CopyDBSnapshot@ API operation in the source
+-- Amazon Web Services Region that contains the source DB snapshot to copy.
+--
+-- This setting applies only to Amazon Web Services GovCloud (US) Regions.
+-- It\'s ignored in other Amazon Web Services Regions.
 --
 -- You must specify this parameter when you copy an encrypted DB snapshot
 -- from another Amazon Web Services Region by using the Amazon RDS API.
 -- Don\'t specify @PreSignedUrl@ when you are copying an encrypted DB
 -- snapshot in the same Amazon Web Services Region.
 --
--- The presigned URL must be a valid request for the @CopyDBSnapshot@ API
--- action that can be executed in the source Amazon Web Services Region
--- that contains the encrypted DB snapshot to be copied. The presigned URL
--- request must contain the following parameter values:
+-- The presigned URL must be a valid request for the
+-- @CopyDBClusterSnapshot@ API operation that can run in the source Amazon
+-- Web Services Region that contains the encrypted DB cluster snapshot to
+-- copy. The presigned URL request must contain the following parameter
+-- values:
 --
 -- -   @DestinationRegion@ - The Amazon Web Services Region that the
 --     encrypted DB snapshot is copied to. This Amazon Web Services Region
---     is the same one where the @CopyDBSnapshot@ action is called that
+--     is the same one where the @CopyDBSnapshot@ operation is called that
 --     contains this presigned URL.
 --
 --     For example, if you copy an encrypted DB snapshot from the us-west-2
 --     Amazon Web Services Region to the us-east-1 Amazon Web Services
---     Region, then you call the @CopyDBSnapshot@ action in the us-east-1
---     Amazon Web Services Region and provide a presigned URL that contains
---     a call to the @CopyDBSnapshot@ action in the us-west-2 Amazon Web
---     Services Region. For this example, the @DestinationRegion@ in the
---     presigned URL must be set to the us-east-1 Amazon Web Services
---     Region.
+--     Region, then you call the @CopyDBSnapshot@ operation in the
+--     us-east-1 Amazon Web Services Region and provide a presigned URL
+--     that contains a call to the @CopyDBSnapshot@ operation in the
+--     us-west-2 Amazon Web Services Region. For this example, the
+--     @DestinationRegion@ in the presigned URL must be set to the
+--     us-east-1 Amazon Web Services Region.
 --
--- -   @KmsKeyId@ - The Amazon Web Services KMS key identifier for the
---     customer master key (CMK) to use to encrypt the copy of the DB
---     snapshot in the destination Amazon Web Services Region. This is the
---     same identifier for both the @CopyDBSnapshot@ action that is called
---     in the destination Amazon Web Services Region, and the action
---     contained in the presigned URL.
+-- -   @KmsKeyId@ - The KMS key identifier for the KMS key to use to
+--     encrypt the copy of the DB snapshot in the destination Amazon Web
+--     Services Region. This is the same identifier for both the
+--     @CopyDBSnapshot@ operation that is called in the destination Amazon
+--     Web Services Region, and the operation contained in the presigned
+--     URL.
 --
 -- -   @SourceDBSnapshotIdentifier@ - The DB snapshot identifier for the
 --     encrypted snapshot to be copied. This identifier must be in the
@@ -506,8 +518,8 @@ copyDBSnapshot_destinationRegion = Lens.lens (\CopyDBSnapshot' {destinationRegio
 -- If you are using an Amazon Web Services SDK tool or the CLI, you can
 -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
 -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
--- autogenerates a pre-signed URL that is a valid request for the operation
--- that can be executed in the source Amazon Web Services Region.
+-- autogenerates a presigned URL that is a valid request for the operation
+-- that can run in the source Amazon Web Services Region.
 copyDBSnapshot_preSignedUrl :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_preSignedUrl = Lens.lens (\CopyDBSnapshot' {preSignedUrl} -> preSignedUrl) (\s@CopyDBSnapshot' {} a -> s {preSignedUrl = a} :: CopyDBSnapshot)
 
@@ -526,8 +538,7 @@ copyDBSnapshot_preSignedUrl = Lens.lens (\CopyDBSnapshot' {preSignedUrl} -> preS
 -- be the Amazon Resource Name (ARN) of the shared DB snapshot.
 --
 -- If you are copying an encrypted snapshot this parameter must be in the
--- ARN format for the source Amazon Web Services Region, and must match the
--- @SourceDBSnapshotIdentifier@ in the @PreSignedUrl@ parameter.
+-- ARN format for the source Amazon Web Services Region.
 --
 -- Constraints:
 --

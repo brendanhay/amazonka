@@ -20,6 +20,7 @@
 module Amazonka.KinesisVideo.Types.ChannelType
   ( ChannelType
       ( ..,
+        ChannelType_FULL_MESH,
         ChannelType_SINGLE_MASTER
       ),
   )
@@ -56,10 +57,14 @@ newtype ChannelType = ChannelType'
       Core.ToXML
     )
 
+pattern ChannelType_FULL_MESH :: ChannelType
+pattern ChannelType_FULL_MESH = ChannelType' "FULL_MESH"
+
 pattern ChannelType_SINGLE_MASTER :: ChannelType
 pattern ChannelType_SINGLE_MASTER = ChannelType' "SINGLE_MASTER"
 
 {-# COMPLETE
+  ChannelType_FULL_MESH,
   ChannelType_SINGLE_MASTER,
   ChannelType'
   #-}

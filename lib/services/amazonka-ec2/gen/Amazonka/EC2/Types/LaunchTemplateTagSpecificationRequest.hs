@@ -26,15 +26,21 @@ import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The tags specification for the launch template.
+-- | The tags specification for the resources that are created during
+-- instance launch.
 --
 -- /See:/ 'newLaunchTemplateTagSpecificationRequest' smart constructor.
 data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationRequest'
   { -- | The tags to apply to the resource.
     tags :: Prelude.Maybe [Tag],
-    -- | The type of resource to tag. Currently, the resource types that support
-    -- tagging on creation are @instance@ and @volume@. To tag a resource after
-    -- it has been created, see
+    -- | The type of resource to tag.
+    --
+    -- The @Valid Values@ are all the resource types that can be tagged.
+    -- However, when creating a launch template, you can specify tags for the
+    -- following resource types only: @instance@ | @volume@ | @elastic-gpu@ |
+    -- @network-interface@ | @spot-instances-request@
+    --
+    -- To tag a resource after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
     resourceType :: Prelude.Maybe ResourceType
   }
@@ -50,9 +56,14 @@ data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationReque
 --
 -- 'tags', 'launchTemplateTagSpecificationRequest_tags' - The tags to apply to the resource.
 --
--- 'resourceType', 'launchTemplateTagSpecificationRequest_resourceType' - The type of resource to tag. Currently, the resource types that support
--- tagging on creation are @instance@ and @volume@. To tag a resource after
--- it has been created, see
+-- 'resourceType', 'launchTemplateTagSpecificationRequest_resourceType' - The type of resource to tag.
+--
+-- The @Valid Values@ are all the resource types that can be tagged.
+-- However, when creating a launch template, you can specify tags for the
+-- following resource types only: @instance@ | @volume@ | @elastic-gpu@ |
+-- @network-interface@ | @spot-instances-request@
+--
+-- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
 newLaunchTemplateTagSpecificationRequest ::
   LaunchTemplateTagSpecificationRequest
@@ -67,9 +78,14 @@ newLaunchTemplateTagSpecificationRequest =
 launchTemplateTagSpecificationRequest_tags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe [Tag])
 launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of resource to tag. Currently, the resource types that support
--- tagging on creation are @instance@ and @volume@. To tag a resource after
--- it has been created, see
+-- | The type of resource to tag.
+--
+-- The @Valid Values@ are all the resource types that can be tagged.
+-- However, when creating a launch template, you can specify tags for the
+-- following resource types only: @instance@ | @volume@ | @elastic-gpu@ |
+-- @network-interface@ | @spot-instances-request@
+--
+-- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
 launchTemplateTagSpecificationRequest_resourceType :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe ResourceType)
 launchTemplateTagSpecificationRequest_resourceType = Lens.lens (\LaunchTemplateTagSpecificationRequest' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecificationRequest)

@@ -31,6 +31,7 @@ module Amazonka.ChimeSDKMessaging.UpdateChannelReadMarker
     newUpdateChannelReadMarker,
 
     -- * Request Lenses
+    updateChannelReadMarker_subChannelId,
     updateChannelReadMarker_channelArn,
     updateChannelReadMarker_chimeBearer,
 
@@ -39,6 +40,7 @@ module Amazonka.ChimeSDKMessaging.UpdateChannelReadMarker
     newUpdateChannelReadMarkerResponse,
 
     -- * Response Lenses
+    updateChannelReadMarkerResponse_subChannelId,
     updateChannelReadMarkerResponse_channelArn,
     updateChannelReadMarkerResponse_httpStatus,
   )
@@ -53,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannelReadMarker' smart constructor.
 data UpdateChannelReadMarker = UpdateChannelReadMarker'
-  { -- | The ARN of the channel.
+  { -- | The ID of the SubChannel in the request.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
@@ -68,6 +72,8 @@ data UpdateChannelReadMarker = UpdateChannelReadMarker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subChannelId', 'updateChannelReadMarker_subChannelId' - The ID of the SubChannel in the request.
+--
 -- 'channelArn', 'updateChannelReadMarker_channelArn' - The ARN of the channel.
 --
 -- 'chimeBearer', 'updateChannelReadMarker_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
@@ -79,9 +85,15 @@ newUpdateChannelReadMarker ::
   UpdateChannelReadMarker
 newUpdateChannelReadMarker pChannelArn_ pChimeBearer_ =
   UpdateChannelReadMarker'
-    { channelArn = pChannelArn_,
+    { subChannelId =
+        Prelude.Nothing,
+      channelArn = pChannelArn_,
       chimeBearer = pChimeBearer_
     }
+
+-- | The ID of the SubChannel in the request.
+updateChannelReadMarker_subChannelId :: Lens.Lens' UpdateChannelReadMarker (Prelude.Maybe Prelude.Text)
+updateChannelReadMarker_subChannelId = Lens.lens (\UpdateChannelReadMarker' {subChannelId} -> subChannelId) (\s@UpdateChannelReadMarker' {} a -> s {subChannelId = a} :: UpdateChannelReadMarker)
 
 -- | The ARN of the channel.
 updateChannelReadMarker_channelArn :: Lens.Lens' UpdateChannelReadMarker Prelude.Text
@@ -100,18 +112,21 @@ instance Core.AWSRequest UpdateChannelReadMarker where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelReadMarkerResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Core..?> "SubChannelId")
+            Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateChannelReadMarker where
   hashWithSalt _salt UpdateChannelReadMarker' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData UpdateChannelReadMarker where
   rnf UpdateChannelReadMarker' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Core.ToHeaders UpdateChannelReadMarker where
@@ -120,7 +135,11 @@ instance Core.ToHeaders UpdateChannelReadMarker where
       ["x-amz-chime-bearer" Core.=# chimeBearer]
 
 instance Core.ToJSON UpdateChannelReadMarker where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON UpdateChannelReadMarker' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("SubChannelId" Core..=) Prelude.<$> subChannelId]
+      )
 
 instance Core.ToPath UpdateChannelReadMarker where
   toPath UpdateChannelReadMarker' {..} =
@@ -132,7 +151,9 @@ instance Core.ToQuery UpdateChannelReadMarker where
 
 -- | /See:/ 'newUpdateChannelReadMarkerResponse' smart constructor.
 data UpdateChannelReadMarkerResponse = UpdateChannelReadMarkerResponse'
-  { -- | The ARN of the channel.
+  { -- | The ID of the SubChannel in the response.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -147,6 +168,8 @@ data UpdateChannelReadMarkerResponse = UpdateChannelReadMarkerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subChannelId', 'updateChannelReadMarkerResponse_subChannelId' - The ID of the SubChannel in the response.
+--
 -- 'channelArn', 'updateChannelReadMarkerResponse_channelArn' - The ARN of the channel.
 --
 -- 'httpStatus', 'updateChannelReadMarkerResponse_httpStatus' - The response's http status code.
@@ -156,10 +179,15 @@ newUpdateChannelReadMarkerResponse ::
   UpdateChannelReadMarkerResponse
 newUpdateChannelReadMarkerResponse pHttpStatus_ =
   UpdateChannelReadMarkerResponse'
-    { channelArn =
+    { subChannelId =
         Prelude.Nothing,
+      channelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the SubChannel in the response.
+updateChannelReadMarkerResponse_subChannelId :: Lens.Lens' UpdateChannelReadMarkerResponse (Prelude.Maybe Prelude.Text)
+updateChannelReadMarkerResponse_subChannelId = Lens.lens (\UpdateChannelReadMarkerResponse' {subChannelId} -> subChannelId) (\s@UpdateChannelReadMarkerResponse' {} a -> s {subChannelId = a} :: UpdateChannelReadMarkerResponse)
 
 -- | The ARN of the channel.
 updateChannelReadMarkerResponse_channelArn :: Lens.Lens' UpdateChannelReadMarkerResponse (Prelude.Maybe Prelude.Text)
@@ -174,5 +202,6 @@ instance
     UpdateChannelReadMarkerResponse
   where
   rnf UpdateChannelReadMarkerResponse' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

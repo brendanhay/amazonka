@@ -28,14 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkResourceUtilization' smart constructor.
 data NetworkResourceUtilization = NetworkResourceUtilization'
-  { -- | The network outbound throughput utilization measured in Bytes per
-    -- second.
+  { -- | The network outbound throughput utilization measured in Bytes per second
+    -- (Bps).
     networkOutBytesPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The network ingress packets that are measured in packets per second.
+    -- | The network inbound packets that are measured in packets per second.
     networkPacketsInPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The network outgress packets that are measured in packets per second.
+    -- | The network outbound packets that are measured in packets per second.
     networkPacketsOutPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The network inbound throughput utilization measured in Bytes per second.
+    -- | The network inbound throughput utilization measured in Bytes per second
+    -- (Bps).
     networkInBytesPerSecond :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,14 +49,15 @@ data NetworkResourceUtilization = NetworkResourceUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkOutBytesPerSecond', 'networkResourceUtilization_networkOutBytesPerSecond' - The network outbound throughput utilization measured in Bytes per
--- second.
+-- 'networkOutBytesPerSecond', 'networkResourceUtilization_networkOutBytesPerSecond' - The network outbound throughput utilization measured in Bytes per second
+-- (Bps).
 --
--- 'networkPacketsInPerSecond', 'networkResourceUtilization_networkPacketsInPerSecond' - The network ingress packets that are measured in packets per second.
+-- 'networkPacketsInPerSecond', 'networkResourceUtilization_networkPacketsInPerSecond' - The network inbound packets that are measured in packets per second.
 --
--- 'networkPacketsOutPerSecond', 'networkResourceUtilization_networkPacketsOutPerSecond' - The network outgress packets that are measured in packets per second.
+-- 'networkPacketsOutPerSecond', 'networkResourceUtilization_networkPacketsOutPerSecond' - The network outbound packets that are measured in packets per second.
 --
--- 'networkInBytesPerSecond', 'networkResourceUtilization_networkInBytesPerSecond' - The network inbound throughput utilization measured in Bytes per second.
+-- 'networkInBytesPerSecond', 'networkResourceUtilization_networkInBytesPerSecond' - The network inbound throughput utilization measured in Bytes per second
+-- (Bps).
 newNetworkResourceUtilization ::
   NetworkResourceUtilization
 newNetworkResourceUtilization =
@@ -67,20 +69,21 @@ newNetworkResourceUtilization =
       networkInBytesPerSecond = Prelude.Nothing
     }
 
--- | The network outbound throughput utilization measured in Bytes per
--- second.
+-- | The network outbound throughput utilization measured in Bytes per second
+-- (Bps).
 networkResourceUtilization_networkOutBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkOutBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkOutBytesPerSecond} -> networkOutBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkOutBytesPerSecond = a} :: NetworkResourceUtilization)
 
--- | The network ingress packets that are measured in packets per second.
+-- | The network inbound packets that are measured in packets per second.
 networkResourceUtilization_networkPacketsInPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkPacketsInPerSecond = Lens.lens (\NetworkResourceUtilization' {networkPacketsInPerSecond} -> networkPacketsInPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkPacketsInPerSecond = a} :: NetworkResourceUtilization)
 
--- | The network outgress packets that are measured in packets per second.
+-- | The network outbound packets that are measured in packets per second.
 networkResourceUtilization_networkPacketsOutPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkPacketsOutPerSecond = Lens.lens (\NetworkResourceUtilization' {networkPacketsOutPerSecond} -> networkPacketsOutPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkPacketsOutPerSecond = a} :: NetworkResourceUtilization)
 
--- | The network inbound throughput utilization measured in Bytes per second.
+-- | The network inbound throughput utilization measured in Bytes per second
+-- (Bps).
 networkResourceUtilization_networkInBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkInBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkInBytesPerSecond} -> networkInBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkInBytesPerSecond = a} :: NetworkResourceUtilization)
 

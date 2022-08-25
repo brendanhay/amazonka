@@ -76,6 +76,24 @@
 --
 --         @arn:aws:logs:us-east-1:123412341234:log-group:\/aws\/route53\/*@
 --
+--         To avoid the confused deputy problem, a security issue where an
+--         entity without a permission for an action can coerce a
+--         more-privileged entity to perform it, you can optionally limit
+--         the permissions that a service has to a resource in a
+--         resource-based policy by supplying the following values:
+--
+--         -   For @aws:SourceArn@, supply the hosted zone ARN used in
+--             creating the query logging configuration. For example,
+--             @aws:SourceArn: arn:aws:route53:::hostedzone\/hosted zone ID@.
+--
+--         -   For @aws:SourceAccount@, supply the account ID for the
+--             account that creates the query logging configuration. For
+--             example, @aws:SourceAccount:111111111111@.
+--
+--         For more information, see
+--         <https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html The confused deputy problem>
+--         in the /Amazon Web Services IAM User Guide/.
+--
 --         You can\'t use the CloudWatch console to create or edit a
 --         resource policy. You must use the CloudWatch API, one of the
 --         Amazon Web Services SDKs, or the CLI.

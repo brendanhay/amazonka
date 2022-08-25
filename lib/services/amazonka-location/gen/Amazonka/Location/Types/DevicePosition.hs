@@ -21,6 +21,7 @@ module Amazonka.Location.Types.DevicePosition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types.PositionalAccuracy
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the device position details.
@@ -29,6 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data DevicePosition = DevicePosition'
   { -- | The device whose position you retrieved.
     deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The accuracy of the device position.
+    accuracy :: Prelude.Maybe PositionalAccuracy,
+    -- | The properties associated with the position.
+    positionProperties :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The last known device position.
     position :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The timestamp for when the tracker resource received the device position
@@ -51,6 +56,10 @@ data DevicePosition = DevicePosition'
 -- for backwards compatibility:
 --
 -- 'deviceId', 'devicePosition_deviceId' - The device whose position you retrieved.
+--
+-- 'accuracy', 'devicePosition_accuracy' - The accuracy of the device position.
+--
+-- 'positionProperties', 'devicePosition_positionProperties' - The properties associated with the position.
 --
 -- 'position', 'devicePosition_position' - The last known device position.
 --
@@ -75,6 +84,8 @@ newDevicePosition
   pSampleTime_ =
     DevicePosition'
       { deviceId = Prelude.Nothing,
+        accuracy = Prelude.Nothing,
+        positionProperties = Prelude.Nothing,
         position =
           Core._Sensitive Prelude.. Lens.coerced
             Lens.# pPosition_,
@@ -85,6 +96,14 @@ newDevicePosition
 -- | The device whose position you retrieved.
 devicePosition_deviceId :: Lens.Lens' DevicePosition (Prelude.Maybe Prelude.Text)
 devicePosition_deviceId = Lens.lens (\DevicePosition' {deviceId} -> deviceId) (\s@DevicePosition' {} a -> s {deviceId = a} :: DevicePosition)
+
+-- | The accuracy of the device position.
+devicePosition_accuracy :: Lens.Lens' DevicePosition (Prelude.Maybe PositionalAccuracy)
+devicePosition_accuracy = Lens.lens (\DevicePosition' {accuracy} -> accuracy) (\s@DevicePosition' {} a -> s {accuracy = a} :: DevicePosition)
+
+-- | The properties associated with the position.
+devicePosition_positionProperties :: Lens.Lens' DevicePosition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+devicePosition_positionProperties = Lens.lens (\DevicePosition' {positionProperties} -> positionProperties) (\s@DevicePosition' {} a -> s {positionProperties = a} :: DevicePosition) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The last known device position.
 devicePosition_position :: Lens.Lens' DevicePosition (Prelude.NonEmpty Prelude.Double)
@@ -109,6 +128,10 @@ instance Core.FromJSON DevicePosition where
       ( \x ->
           DevicePosition'
             Prelude.<$> (x Core..:? "DeviceId")
+            Prelude.<*> (x Core..:? "Accuracy")
+            Prelude.<*> ( x Core..:? "PositionProperties"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..: "Position")
             Prelude.<*> (x Core..: "ReceivedTime")
             Prelude.<*> (x Core..: "SampleTime")
@@ -117,6 +140,8 @@ instance Core.FromJSON DevicePosition where
 instance Prelude.Hashable DevicePosition where
   hashWithSalt _salt DevicePosition' {..} =
     _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` accuracy
+      `Prelude.hashWithSalt` positionProperties
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` receivedTime
       `Prelude.hashWithSalt` sampleTime
@@ -124,6 +149,8 @@ instance Prelude.Hashable DevicePosition where
 instance Prelude.NFData DevicePosition where
   rnf DevicePosition' {..} =
     Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf accuracy
+      `Prelude.seq` Prelude.rnf positionProperties
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf receivedTime
       `Prelude.seq` Prelude.rnf sampleTime

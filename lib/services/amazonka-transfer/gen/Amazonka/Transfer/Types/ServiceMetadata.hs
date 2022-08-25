@@ -24,7 +24,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.UserDetails
 
--- | A container object for the session details associated with a workflow.
+-- | A container object for the session details that are associated with a
+-- workflow.
 --
 -- /See:/ 'newServiceMetadata' smart constructor.
 data ServiceMetadata = ServiceMetadata'

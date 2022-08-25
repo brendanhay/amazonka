@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAppInstance' smart constructor.
 data CreateAppInstance = CreateAppInstance'
-  { -- | Tags assigned to the @AppInstanceUser@.
+  { -- | Tags assigned to the @AppInstance@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -72,7 +72,7 @@ data CreateAppInstance = CreateAppInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAppInstance_tags' - Tags assigned to the @AppInstanceUser@.
+-- 'tags', 'createAppInstance_tags' - Tags assigned to the @AppInstance@.
 --
 -- 'metadata', 'createAppInstance_metadata' - The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
 --
@@ -94,7 +94,7 @@ newCreateAppInstance pName_ pClientRequestToken_ =
         Core._Sensitive Lens.# pClientRequestToken_
     }
 
--- | Tags assigned to the @AppInstanceUser@.
+-- | Tags assigned to the @AppInstance@.
 createAppInstance_tags :: Lens.Lens' CreateAppInstance (Prelude.Maybe (Prelude.NonEmpty Tag))
 createAppInstance_tags = Lens.lens (\CreateAppInstance' {tags} -> tags) (\s@CreateAppInstance' {} a -> s {tags = a} :: CreateAppInstance) Prelude.. Lens.mapping Lens.coerced
 

@@ -31,7 +31,7 @@ import Amazonka.Wisdom.Types.AssociationType
 data AssistantAssociationSummary = AssistantAssociationSummary'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the Wisdom assistant
+    -- | The Amazon Resource Name (ARN) of the Wisdom assistant.
     assistantArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the assistant association.
     assistantAssociationArn :: Prelude.Text,
@@ -56,7 +56,7 @@ data AssistantAssociationSummary = AssistantAssociationSummary'
 --
 -- 'tags', 'assistantAssociationSummary_tags' - The tags used to organize, track, or control access for this resource.
 --
--- 'assistantArn', 'assistantAssociationSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant
+-- 'assistantArn', 'assistantAssociationSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant.
 --
 -- 'assistantAssociationArn', 'assistantAssociationSummary_assistantAssociationArn' - The Amazon Resource Name (ARN) of the assistant association.
 --
@@ -105,7 +105,7 @@ newAssistantAssociationSummary
 assistantAssociationSummary_tags :: Lens.Lens' AssistantAssociationSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 assistantAssociationSummary_tags = Lens.lens (\AssistantAssociationSummary' {tags} -> tags) (\s@AssistantAssociationSummary' {} a -> s {tags = a} :: AssistantAssociationSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the Wisdom assistant
+-- | The Amazon Resource Name (ARN) of the Wisdom assistant.
 assistantAssociationSummary_assistantArn :: Lens.Lens' AssistantAssociationSummary Prelude.Text
 assistantAssociationSummary_assistantArn = Lens.lens (\AssistantAssociationSummary' {assistantArn} -> assistantArn) (\s@AssistantAssociationSummary' {} a -> s {assistantArn = a} :: AssistantAssociationSummary)
 

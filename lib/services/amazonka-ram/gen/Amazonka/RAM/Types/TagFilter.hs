@@ -23,13 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Used to filter information based on tags.
+-- | A tag key and optional list of possible values that you can use to
+-- filter results for tagged resources.
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | The tag values.
+  { -- | A list of zero or more tag values. If no values are provided, then the
+    -- filter matches any tag with the specified key, regardless of its value.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | The tag key.
+    -- | The tag key. This must have a valid string value and can\'t be empty.
     tagKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +44,10 @@ data TagFilter = TagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagValues', 'tagFilter_tagValues' - The tag values.
+-- 'tagValues', 'tagFilter_tagValues' - A list of zero or more tag values. If no values are provided, then the
+-- filter matches any tag with the specified key, regardless of its value.
 --
--- 'tagKey', 'tagFilter_tagKey' - The tag key.
+-- 'tagKey', 'tagFilter_tagKey' - The tag key. This must have a valid string value and can\'t be empty.
 newTagFilter ::
   TagFilter
 newTagFilter =
@@ -53,11 +56,12 @@ newTagFilter =
       tagKey = Prelude.Nothing
     }
 
--- | The tag values.
+-- | A list of zero or more tag values. If no values are provided, then the
+-- filter matches any tag with the specified key, regardless of its value.
 tagFilter_tagValues :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
 tagFilter_tagValues = Lens.lens (\TagFilter' {tagValues} -> tagValues) (\s@TagFilter' {} a -> s {tagValues = a} :: TagFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The tag key.
+-- | The tag key. This must have a valid string value and can\'t be empty.
 tagFilter_tagKey :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_tagKey = Lens.lens (\TagFilter' {tagKey} -> tagKey) (\s@TagFilter' {} a -> s {tagKey = a} :: TagFilter)
 

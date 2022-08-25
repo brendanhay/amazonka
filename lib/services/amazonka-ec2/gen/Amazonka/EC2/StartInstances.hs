@@ -45,7 +45,7 @@
 -- its tenancy to @default@ or @dedicated@.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping instances>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stop and start your instance>
 -- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.StartInstances
   ( -- * Creating a Request

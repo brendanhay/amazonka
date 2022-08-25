@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether the instance is configured for hibernation. This
 -- parameter is valid only if the instance meets the
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html hibernation prerequisites>.
 --
 -- /See:/ 'newLaunchTemplateHibernationOptionsRequest' smart constructor.
 data LaunchTemplateHibernationOptionsRequest = LaunchTemplateHibernationOptionsRequest'

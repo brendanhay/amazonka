@@ -26,20 +26,20 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Summary information about an AWS Health event.
+-- | Summary information about an Health event.
 --
--- AWS Health events can be public or account-specific:
+-- Health events can be public or account-specific:
 --
 -- -   /Public events/ might be service events that are not specific to an
---     AWS account. For example, if there is an issue with an AWS Region,
---     AWS Health provides information about the event, even if you don\'t
---     use services or resources in that Region.
+--     Amazon Web Services account. For example, if there is an issue with
+--     an Amazon Web Services Region, Health provides information about the
+--     event, even if you don\'t use services or resources in that Region.
 --
--- -   /Account-specific/ events are specific to either your AWS account or
---     an account in your organization. For example, if there\'s an issue
---     with Amazon Elastic Compute Cloud in a Region that you use, AWS
---     Health provides information about the event and the affected
---     resources in the account.
+-- -   /Account-specific/ events are specific to either your Amazon Web
+--     Services account or an account in your organization. For example, if
+--     there\'s an issue with Amazon Elastic Compute Cloud in a Region that
+--     you use, Health provides information about the event and the
+--     affected resources in the account.
 --
 -- You can determine if an event is public or account-specific by using the
 -- @eventScopeCode@ parameter. For more information, see
@@ -59,34 +59,37 @@ data Event = Event'
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the event ended.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Availability Zone of the event. For example, us-east-1a.
+    -- | The Amazon Web Services Availability Zone of the event. For example,
+    -- us-east-1a.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The AWS service that is affected by the event. For example, @EC2@,
-    -- @RDS@.
+    -- | The Amazon Web Services service that is affected by the event. For
+    -- example, @EC2@, @RDS@.
     service :: Prelude.Maybe Prelude.Text,
-    -- | This parameter specifies if the AWS Health event is a public AWS service
-    -- event or an account-specific event.
+    -- | This parameter specifies if the Health event is a public Amazon Web
+    -- Services service event or an account-specific event.
     --
     -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
     --     @affectedAccounts@ value is always empty.
     --
     -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
-    --     @affectedAccounts@ value lists the affected AWS accounts in your
-    --     organization. For example, if an event affects a service such as
-    --     Amazon Elastic Compute Cloud and you have AWS accounts that use that
-    --     service, those account IDs appear in the response.
+    --     @affectedAccounts@ value lists the affected Amazon Web Services
+    --     accounts in your organization. For example, if an event affects a
+    --     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+    --     Services accounts that use that service, those account IDs appear in
+    --     the response.
     --
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
     eventScopeCode :: Prelude.Maybe EventScopeCode,
-    -- | The AWS Region name of the event.
+    -- | The Amazon Web Services Region name of the event.
     region :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     eventTypeCode :: Prelude.Maybe Prelude.Text,
-    -- | The category of the event. Possible values are @issue@,
-    -- @scheduledChange@, and @accountNotification@.
+    -- | A list of event type category codes. Possible values are @issue@,
+    -- @accountNotification@, or @scheduledChange@. Currently, the
+    -- @investigation@ value isn\'t supported at this time.
     eventTypeCategory :: Prelude.Maybe EventTypeCategory,
     -- | The most recent status of the event. Possible values are @open@,
     -- @closed@, and @upcoming@.
@@ -116,34 +119,37 @@ data Event = Event'
 --
 -- 'endTime', 'event_endTime' - The date and time that the event ended.
 --
--- 'availabilityZone', 'event_availabilityZone' - The AWS Availability Zone of the event. For example, us-east-1a.
+-- 'availabilityZone', 'event_availabilityZone' - The Amazon Web Services Availability Zone of the event. For example,
+-- us-east-1a.
 --
--- 'service', 'event_service' - The AWS service that is affected by the event. For example, @EC2@,
--- @RDS@.
+-- 'service', 'event_service' - The Amazon Web Services service that is affected by the event. For
+-- example, @EC2@, @RDS@.
 --
--- 'eventScopeCode', 'event_eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service
--- event or an account-specific event.
+-- 'eventScopeCode', 'event_eventScopeCode' - This parameter specifies if the Health event is a public Amazon Web
+-- Services service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
 --
 -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
---     @affectedAccounts@ value lists the affected AWS accounts in your
---     organization. For example, if an event affects a service such as
---     Amazon Elastic Compute Cloud and you have AWS accounts that use that
---     service, those account IDs appear in the response.
+--     @affectedAccounts@ value lists the affected Amazon Web Services
+--     accounts in your organization. For example, if an event affects a
+--     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+--     Services accounts that use that service, those account IDs appear in
+--     the response.
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 --
--- 'region', 'event_region' - The AWS Region name of the event.
+-- 'region', 'event_region' - The Amazon Web Services Region name of the event.
 --
 -- 'eventTypeCode', 'event_eventTypeCode' - The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
--- 'eventTypeCategory', 'event_eventTypeCategory' - The category of the event. Possible values are @issue@,
--- @scheduledChange@, and @accountNotification@.
+-- 'eventTypeCategory', 'event_eventTypeCategory' - A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 --
 -- 'statusCode', 'event_statusCode' - The most recent status of the event. Possible values are @open@,
 -- @closed@, and @upcoming@.
@@ -184,33 +190,35 @@ event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime)
 event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
 event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Core._Time
 
--- | The AWS Availability Zone of the event. For example, us-east-1a.
+-- | The Amazon Web Services Availability Zone of the event. For example,
+-- us-east-1a.
 event_availabilityZone :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_availabilityZone = Lens.lens (\Event' {availabilityZone} -> availabilityZone) (\s@Event' {} a -> s {availabilityZone = a} :: Event)
 
--- | The AWS service that is affected by the event. For example, @EC2@,
--- @RDS@.
+-- | The Amazon Web Services service that is affected by the event. For
+-- example, @EC2@, @RDS@.
 event_service :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_service = Lens.lens (\Event' {service} -> service) (\s@Event' {} a -> s {service = a} :: Event)
 
--- | This parameter specifies if the AWS Health event is a public AWS service
--- event or an account-specific event.
+-- | This parameter specifies if the Health event is a public Amazon Web
+-- Services service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
 --
 -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
---     @affectedAccounts@ value lists the affected AWS accounts in your
---     organization. For example, if an event affects a service such as
---     Amazon Elastic Compute Cloud and you have AWS accounts that use that
---     service, those account IDs appear in the response.
+--     @affectedAccounts@ value lists the affected Amazon Web Services
+--     accounts in your organization. For example, if an event affects a
+--     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+--     Services accounts that use that service, those account IDs appear in
+--     the response.
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 event_eventScopeCode :: Lens.Lens' Event (Prelude.Maybe EventScopeCode)
 event_eventScopeCode = Lens.lens (\Event' {eventScopeCode} -> eventScopeCode) (\s@Event' {} a -> s {eventScopeCode = a} :: Event)
 
--- | The AWS Region name of the event.
+-- | The Amazon Web Services Region name of the event.
 event_region :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_region = Lens.lens (\Event' {region} -> region) (\s@Event' {} a -> s {region = a} :: Event)
 
@@ -220,8 +228,9 @@ event_region = Lens.lens (\Event' {region} -> region) (\s@Event' {} a -> s {regi
 event_eventTypeCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventTypeCode = Lens.lens (\Event' {eventTypeCode} -> eventTypeCode) (\s@Event' {} a -> s {eventTypeCode = a} :: Event)
 
--- | The category of the event. Possible values are @issue@,
--- @scheduledChange@, and @accountNotification@.
+-- | A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 event_eventTypeCategory :: Lens.Lens' Event (Prelude.Maybe EventTypeCategory)
 event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCategory) (\s@Event' {} a -> s {eventTypeCategory = a} :: Event)
 

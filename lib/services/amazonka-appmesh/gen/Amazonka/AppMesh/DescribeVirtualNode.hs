@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeVirtualNode' smart constructor.
 data DescribeVirtualNode = DescribeVirtualNode'
-  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+  { -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh that the virtual node resides in.
@@ -72,9 +72,9 @@ data DescribeVirtualNode = DescribeVirtualNode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meshOwner', 'describeVirtualNode_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'describeVirtualNode_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'describeVirtualNode_meshName' - The name of the service mesh that the virtual node resides in.
@@ -93,9 +93,9 @@ newDescribeVirtualNode pMeshName_ pVirtualNodeName_ =
       virtualNodeName = pVirtualNodeName_
     }
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 describeVirtualNode_meshOwner :: Lens.Lens' DescribeVirtualNode (Prelude.Maybe Prelude.Text)
 describeVirtualNode_meshOwner = Lens.lens (\DescribeVirtualNode' {meshOwner} -> meshOwner) (\s@DescribeVirtualNode' {} a -> s {meshOwner = a} :: DescribeVirtualNode)

@@ -43,11 +43,19 @@ data CanaryCodeInput = CanaryCodeInput'
     -- | If you input your canary script directly into the canary instead of
     -- referring to an S3 location, the value of this parameter is the
     -- base64-encoded contents of the .zip file that contains the script. It
-    -- must be smaller than 256 Kb.
+    -- must be smaller than 225 Kb.
+    --
+    -- For large canary scripts, we recommend that you use an S3 location
+    -- instead of inputting it directly with this parameter.
     zipFile :: Prelude.Maybe Core.Base64,
-    -- | The entry point to use for the source code when running the canary. This
-    -- value must end with the string @.handler@. The string is limited to 29
-    -- characters or fewer.
+    -- | The entry point to use for the source code when running the canary. For
+    -- canaries that use the @syn-python-selenium-1.0@ runtime or a
+    -- @syn-nodejs.puppeteer@ runtime earlier than @syn-nodejs.puppeteer-3.4@,
+    -- the handler must be specified as @ fileName.handler@. For
+    -- @syn-python-selenium-1.1@, @syn-nodejs.puppeteer-3.4@, and later
+    -- runtimes, the handler can be specified as @ fileName.functionName @, or
+    -- you can specify a folder where canary scripts reside as
+    -- @ folder\/fileName.functionName @.
     handler :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,15 +79,23 @@ data CanaryCodeInput = CanaryCodeInput'
 -- 'zipFile', 'canaryCodeInput_zipFile' - If you input your canary script directly into the canary instead of
 -- referring to an S3 location, the value of this parameter is the
 -- base64-encoded contents of the .zip file that contains the script. It
--- must be smaller than 256 Kb.--
+-- must be smaller than 225 Kb.
+--
+-- For large canary scripts, we recommend that you use an S3 location
+-- instead of inputting it directly with this parameter.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'handler', 'canaryCodeInput_handler' - The entry point to use for the source code when running the canary. This
--- value must end with the string @.handler@. The string is limited to 29
--- characters or fewer.
+-- 'handler', 'canaryCodeInput_handler' - The entry point to use for the source code when running the canary. For
+-- canaries that use the @syn-python-selenium-1.0@ runtime or a
+-- @syn-nodejs.puppeteer@ runtime earlier than @syn-nodejs.puppeteer-3.4@,
+-- the handler must be specified as @ fileName.handler@. For
+-- @syn-python-selenium-1.1@, @syn-nodejs.puppeteer-3.4@, and later
+-- runtimes, the handler can be specified as @ fileName.functionName @, or
+-- you can specify a folder where canary scripts reside as
+-- @ folder\/fileName.functionName @.
 newCanaryCodeInput ::
   -- | 'handler'
   Prelude.Text ->
@@ -110,7 +126,10 @@ canaryCodeInput_s3Key = Lens.lens (\CanaryCodeInput' {s3Key} -> s3Key) (\s@Canar
 -- | If you input your canary script directly into the canary instead of
 -- referring to an S3 location, the value of this parameter is the
 -- base64-encoded contents of the .zip file that contains the script. It
--- must be smaller than 256 Kb.--
+-- must be smaller than 225 Kb.
+--
+-- For large canary scripts, we recommend that you use an S3 location
+-- instead of inputting it directly with this parameter.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -118,9 +137,14 @@ canaryCodeInput_s3Key = Lens.lens (\CanaryCodeInput' {s3Key} -> s3Key) (\s@Canar
 canaryCodeInput_zipFile :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.ByteString)
 canaryCodeInput_zipFile = Lens.lens (\CanaryCodeInput' {zipFile} -> zipFile) (\s@CanaryCodeInput' {} a -> s {zipFile = a} :: CanaryCodeInput) Prelude.. Lens.mapping Core._Base64
 
--- | The entry point to use for the source code when running the canary. This
--- value must end with the string @.handler@. The string is limited to 29
--- characters or fewer.
+-- | The entry point to use for the source code when running the canary. For
+-- canaries that use the @syn-python-selenium-1.0@ runtime or a
+-- @syn-nodejs.puppeteer@ runtime earlier than @syn-nodejs.puppeteer-3.4@,
+-- the handler must be specified as @ fileName.handler@. For
+-- @syn-python-selenium-1.1@, @syn-nodejs.puppeteer-3.4@, and later
+-- runtimes, the handler can be specified as @ fileName.functionName @, or
+-- you can specify a folder where canary scripts reside as
+-- @ folder\/fileName.functionName @.
 canaryCodeInput_handler :: Lens.Lens' CanaryCodeInput Prelude.Text
 canaryCodeInput_handler = Lens.lens (\CanaryCodeInput' {handler} -> handler) (\s@CanaryCodeInput' {} a -> s {handler = a} :: CanaryCodeInput)
 

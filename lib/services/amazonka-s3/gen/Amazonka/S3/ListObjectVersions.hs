@@ -100,8 +100,8 @@ data ListObjectVersions = ListObjectVersions'
     -- additional keys, see key-marker and version-id-marker.
     maxKeys :: Prelude.Maybe Prelude.Int,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the key to start with when listing objects in a bucket.
     keyMarker :: Prelude.Maybe Prelude.Text,
@@ -143,8 +143,8 @@ data ListObjectVersions = ListObjectVersions'
 -- additional keys, see key-marker and version-id-marker.
 --
 -- 'expectedBucketOwner', 'listObjectVersions_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'keyMarker', 'listObjectVersions_keyMarker' - Specifies the key to start with when listing objects in a bucket.
 --
@@ -193,8 +193,8 @@ listObjectVersions_maxKeys :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelu
 listObjectVersions_maxKeys = Lens.lens (\ListObjectVersions' {maxKeys} -> maxKeys) (\s@ListObjectVersions' {} a -> s {maxKeys = a} :: ListObjectVersions)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 listObjectVersions_expectedBucketOwner :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_expectedBucketOwner = Lens.lens (\ListObjectVersions' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListObjectVersions' {} a -> s {expectedBucketOwner = a} :: ListObjectVersions)
 

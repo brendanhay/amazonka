@@ -40,6 +40,9 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     -- | The list of replications to different Amazon Web Services Regions
     -- associated with the automated backup.
     dbInstanceAutomatedBackupsReplications :: Prelude.Maybe [DBInstanceAutomatedBackupsReplication],
+    -- | Specifies where automated backups are stored: Amazon Web Services
+    -- Outposts or the Amazon Web Services Region.
+    backupTarget :: Prelude.Maybe Prelude.Text,
     -- | The retention period for the automated backups.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The license model of an automated backup.
@@ -85,8 +88,7 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     -- | The Amazon Web Services KMS key ID for an automated backup.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database engine for this automated backup.
     engine :: Prelude.Maybe Prelude.Text,
@@ -127,6 +129,9 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
 --
 -- 'dbInstanceAutomatedBackupsReplications', 'dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications' - The list of replications to different Amazon Web Services Regions
 -- associated with the automated backup.
+--
+-- 'backupTarget', 'dbInstanceAutomatedBackup_backupTarget' - Specifies where automated backups are stored: Amazon Web Services
+-- Outposts or the Amazon Web Services Region.
 --
 -- 'backupRetentionPeriod', 'dbInstanceAutomatedBackup_backupRetentionPeriod' - The retention period for the automated backups.
 --
@@ -173,8 +178,7 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
 -- 'kmsKeyId', 'dbInstanceAutomatedBackup_kmsKeyId' - The Amazon Web Services KMS key ID for an automated backup.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'engine', 'dbInstanceAutomatedBackup_engine' - The name of the database engine for this automated backup.
 --
@@ -202,6 +206,7 @@ newDBInstanceAutomatedBackup =
     { port = Prelude.Nothing,
       dbInstanceAutomatedBackupsReplications =
         Prelude.Nothing,
+      backupTarget = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
@@ -241,6 +246,11 @@ dbInstanceAutomatedBackup_port = Lens.lens (\DBInstanceAutomatedBackup' {port} -
 -- associated with the automated backup.
 dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe [DBInstanceAutomatedBackupsReplication])
 dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications = Lens.lens (\DBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsReplications} -> dbInstanceAutomatedBackupsReplications) (\s@DBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsReplications = a} :: DBInstanceAutomatedBackup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies where automated backups are stored: Amazon Web Services
+-- Outposts or the Amazon Web Services Region.
+dbInstanceAutomatedBackup_backupTarget :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
+dbInstanceAutomatedBackup_backupTarget = Lens.lens (\DBInstanceAutomatedBackup' {backupTarget} -> backupTarget) (\s@DBInstanceAutomatedBackup' {} a -> s {backupTarget = a} :: DBInstanceAutomatedBackup)
 
 -- | The retention period for the automated backups.
 dbInstanceAutomatedBackup_backupRetentionPeriod :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
@@ -315,8 +325,7 @@ dbInstanceAutomatedBackup_encrypted = Lens.lens (\DBInstanceAutomatedBackup' {en
 -- | The Amazon Web Services KMS key ID for an automated backup.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbInstanceAutomatedBackup_kmsKeyId :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_kmsKeyId = Lens.lens (\DBInstanceAutomatedBackup' {kmsKeyId} -> kmsKeyId) (\s@DBInstanceAutomatedBackup' {} a -> s {kmsKeyId = a} :: DBInstanceAutomatedBackup)
 
@@ -369,6 +378,7 @@ instance Core.FromXML DBInstanceAutomatedBackup where
                             "DBInstanceAutomatedBackupsReplication"
                         )
                   )
+      Prelude.<*> (x Core..@? "BackupTarget")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "MasterUsername")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
@@ -398,6 +408,7 @@ instance Prelude.Hashable DBInstanceAutomatedBackup where
   hashWithSalt _salt DBInstanceAutomatedBackup' {..} =
     _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` dbInstanceAutomatedBackupsReplications
+      `Prelude.hashWithSalt` backupTarget
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` dbInstanceIdentifier
@@ -427,6 +438,7 @@ instance Prelude.NFData DBInstanceAutomatedBackup where
   rnf DBInstanceAutomatedBackup' {..} =
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsReplications
+      `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf masterUsername
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
@@ -447,7 +459,8 @@ instance Prelude.NFData DBInstanceAutomatedBackup where
       `Prelude.seq` Prelude.rnf
         iAMDatabaseAuthenticationEnabled
       `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf
+        dbiResourceId
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf
         engineVersion

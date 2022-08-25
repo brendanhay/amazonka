@@ -25,10 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for
 -- instances in the compute environment. If @Ec2Configuration@ isn\'t
--- specified, the default is currently @ECS_AL1@
--- (<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>)
--- for non-GPU, non AWSGraviton instances. Starting on March 31, 2021, this
--- default will be changing to @ECS_AL2@
+-- specified, the default is @ECS_AL2@
 -- (<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>).
 --
 -- This object isn\'t applicable to jobs that are running on Fargate
@@ -39,19 +36,27 @@ data Ec2Configuration = Ec2Configuration'
   { -- | The AMI ID used for instances launched in the compute environment that
     -- match the image type. This setting overrides the @imageId@ set in the
     -- @computeResource@ object.
+    --
+    -- The AMI that you choose for a compute environment must match the
+    -- architecture of the instance types that you intend to use for that
+    -- compute environment. For example, if your compute environment uses A1
+    -- instance types, the compute resource AMI that you choose must support
+    -- ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon
+    -- ECS-optimized Amazon Linux 2 AMI. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
     imageIdOverride :: Prelude.Maybe Prelude.Text,
     -- | The image type to match with the instance type to select an AMI. If the
     -- @imageIdOverride@ parameter isn\'t specified, then a recent
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI>
-    -- (@ECS_AL1@) is used. Starting on March 31, 2021, this default will be
-    -- changing to @ECS_AL2@
-    -- (<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>).
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
+    -- (@ECS_AL2@) is used. If a new image type is specified in an update, but
+    -- neither an @imageId@ nor a @imageIdOverride@ parameter is specified,
+    -- then the latest Amazon ECS optimized AMI for that image type that\'s
+    -- supported by Batch is used.
     --
     -- [ECS_AL2]
     --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>−
-    --     Default for all Amazon Web Services Graviton-based instance families
-    --     (for example, @C6g@, @M6g@, @R6g@, and @T4g@) and can be used for
-    --     all non-GPU instance types.
+    --     Default for all non-GPU instance families.
     --
     -- [ECS_AL2_NVIDIA]
     --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>−Default
@@ -59,8 +64,7 @@ data Ec2Configuration = Ec2Configuration'
     --     used for all non Amazon Web Services Graviton-based instance types.
     --
     -- [ECS_AL1]
-    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>−Default
-    --     for all non-GPU, non Amazon Web Services Graviton instance families.
+    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
     --     Amazon Linux is reaching the end-of-life of standard support. For
     --     more information, see
     --     <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
@@ -80,18 +84,26 @@ data Ec2Configuration = Ec2Configuration'
 -- match the image type. This setting overrides the @imageId@ set in the
 -- @computeResource@ object.
 --
+-- The AMI that you choose for a compute environment must match the
+-- architecture of the instance types that you intend to use for that
+-- compute environment. For example, if your compute environment uses A1
+-- instance types, the compute resource AMI that you choose must support
+-- ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon
+-- ECS-optimized Amazon Linux 2 AMI. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
 -- 'imageType', 'ec2Configuration_imageType' - The image type to match with the instance type to select an AMI. If the
 -- @imageIdOverride@ parameter isn\'t specified, then a recent
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI>
--- (@ECS_AL1@) is used. Starting on March 31, 2021, this default will be
--- changing to @ECS_AL2@
--- (<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>).
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
+-- (@ECS_AL2@) is used. If a new image type is specified in an update, but
+-- neither an @imageId@ nor a @imageIdOverride@ parameter is specified,
+-- then the latest Amazon ECS optimized AMI for that image type that\'s
+-- supported by Batch is used.
 --
 -- [ECS_AL2]
 --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>−
---     Default for all Amazon Web Services Graviton-based instance families
---     (for example, @C6g@, @M6g@, @R6g@, and @T4g@) and can be used for
---     all non-GPU instance types.
+--     Default for all non-GPU instance families.
 --
 -- [ECS_AL2_NVIDIA]
 --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>−Default
@@ -99,8 +111,7 @@ data Ec2Configuration = Ec2Configuration'
 --     used for all non Amazon Web Services Graviton-based instance types.
 --
 -- [ECS_AL1]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>−Default
---     for all non-GPU, non Amazon Web Services Graviton instance families.
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
 --     Amazon Linux is reaching the end-of-life of standard support. For
 --     more information, see
 --     <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
@@ -118,21 +129,29 @@ newEc2Configuration pImageType_ =
 -- | The AMI ID used for instances launched in the compute environment that
 -- match the image type. This setting overrides the @imageId@ set in the
 -- @computeResource@ object.
+--
+-- The AMI that you choose for a compute environment must match the
+-- architecture of the instance types that you intend to use for that
+-- compute environment. For example, if your compute environment uses A1
+-- instance types, the compute resource AMI that you choose must support
+-- ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon
+-- ECS-optimized Amazon Linux 2 AMI. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 ec2Configuration_imageIdOverride :: Lens.Lens' Ec2Configuration (Prelude.Maybe Prelude.Text)
 ec2Configuration_imageIdOverride = Lens.lens (\Ec2Configuration' {imageIdOverride} -> imageIdOverride) (\s@Ec2Configuration' {} a -> s {imageIdOverride = a} :: Ec2Configuration)
 
 -- | The image type to match with the instance type to select an AMI. If the
 -- @imageIdOverride@ parameter isn\'t specified, then a recent
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI>
--- (@ECS_AL1@) is used. Starting on March 31, 2021, this default will be
--- changing to @ECS_AL2@
--- (<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>).
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon ECS-optimized Amazon Linux 2 AMI>
+-- (@ECS_AL2@) is used. If a new image type is specified in an update, but
+-- neither an @imageId@ nor a @imageIdOverride@ parameter is specified,
+-- then the latest Amazon ECS optimized AMI for that image type that\'s
+-- supported by Batch is used.
 --
 -- [ECS_AL2]
 --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2>−
---     Default for all Amazon Web Services Graviton-based instance families
---     (for example, @C6g@, @M6g@, @R6g@, and @T4g@) and can be used for
---     all non-GPU instance types.
+--     Default for all non-GPU instance families.
 --
 -- [ECS_AL2_NVIDIA]
 --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)>−Default
@@ -140,8 +159,7 @@ ec2Configuration_imageIdOverride = Lens.lens (\Ec2Configuration' {imageIdOverrid
 --     used for all non Amazon Web Services Graviton-based instance types.
 --
 -- [ECS_AL1]
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>−Default
---     for all non-GPU, non Amazon Web Services Graviton instance families.
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux>.
 --     Amazon Linux is reaching the end-of-life of standard support. For
 --     more information, see
 --     <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.

@@ -29,6 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 data LensUpgradeSummary = LensUpgradeSummary'
   { -- | The current version of the lens.
     currentLensVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
     lensAlias :: Prelude.Maybe Prelude.Text,
     workloadName :: Prelude.Maybe Prelude.Text,
     -- | The latest version of the lens.
@@ -47,6 +49,8 @@ data LensUpgradeSummary = LensUpgradeSummary'
 --
 -- 'currentLensVersion', 'lensUpgradeSummary_currentLensVersion' - The current version of the lens.
 --
+-- 'lensArn', 'lensUpgradeSummary_lensArn' - The ARN for the lens.
+--
 -- 'lensAlias', 'lensUpgradeSummary_lensAlias' - Undocumented member.
 --
 -- 'workloadName', 'lensUpgradeSummary_workloadName' - Undocumented member.
@@ -60,6 +64,7 @@ newLensUpgradeSummary =
   LensUpgradeSummary'
     { currentLensVersion =
         Prelude.Nothing,
+      lensArn = Prelude.Nothing,
       lensAlias = Prelude.Nothing,
       workloadName = Prelude.Nothing,
       latestLensVersion = Prelude.Nothing,
@@ -69,6 +74,10 @@ newLensUpgradeSummary =
 -- | The current version of the lens.
 lensUpgradeSummary_currentLensVersion :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
 lensUpgradeSummary_currentLensVersion = Lens.lens (\LensUpgradeSummary' {currentLensVersion} -> currentLensVersion) (\s@LensUpgradeSummary' {} a -> s {currentLensVersion = a} :: LensUpgradeSummary)
+
+-- | The ARN for the lens.
+lensUpgradeSummary_lensArn :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
+lensUpgradeSummary_lensArn = Lens.lens (\LensUpgradeSummary' {lensArn} -> lensArn) (\s@LensUpgradeSummary' {} a -> s {lensArn = a} :: LensUpgradeSummary)
 
 -- | Undocumented member.
 lensUpgradeSummary_lensAlias :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
@@ -93,6 +102,7 @@ instance Core.FromJSON LensUpgradeSummary where
       ( \x ->
           LensUpgradeSummary'
             Prelude.<$> (x Core..:? "CurrentLensVersion")
+            Prelude.<*> (x Core..:? "LensArn")
             Prelude.<*> (x Core..:? "LensAlias")
             Prelude.<*> (x Core..:? "WorkloadName")
             Prelude.<*> (x Core..:? "LatestLensVersion")
@@ -102,6 +112,7 @@ instance Core.FromJSON LensUpgradeSummary where
 instance Prelude.Hashable LensUpgradeSummary where
   hashWithSalt _salt LensUpgradeSummary' {..} =
     _salt `Prelude.hashWithSalt` currentLensVersion
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` workloadName
       `Prelude.hashWithSalt` latestLensVersion
@@ -110,6 +121,7 @@ instance Prelude.Hashable LensUpgradeSummary where
 instance Prelude.NFData LensUpgradeSummary where
   rnf LensUpgradeSummary' {..} =
     Prelude.rnf currentLensVersion
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf workloadName
       `Prelude.seq` Prelude.rnf latestLensVersion

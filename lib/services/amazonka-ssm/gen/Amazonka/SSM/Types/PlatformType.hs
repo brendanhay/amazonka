@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PlatformType
   ( PlatformType
       ( ..,
         PlatformType_Linux,
+        PlatformType_MacOS,
         PlatformType_Windows
       ),
   )
@@ -60,11 +61,15 @@ newtype PlatformType = PlatformType'
 pattern PlatformType_Linux :: PlatformType
 pattern PlatformType_Linux = PlatformType' "Linux"
 
+pattern PlatformType_MacOS :: PlatformType
+pattern PlatformType_MacOS = PlatformType' "MacOS"
+
 pattern PlatformType_Windows :: PlatformType
 pattern PlatformType_Windows = PlatformType' "Windows"
 
 {-# COMPLETE
   PlatformType_Linux,
+  PlatformType_MacOS,
   PlatformType_Windows,
   PlatformType'
   #-}

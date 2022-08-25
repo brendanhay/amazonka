@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a URL that you can use to connect to the Jupyter server from a
--- notebook instance. In the Amazon SageMaker console, when you choose
--- @Open@ next to a notebook instance, Amazon SageMaker opens a new tab
--- showing the Jupyter server home page from the notebook instance. The
--- console uses this API to get the URL and show the page.
+-- notebook instance. In the SageMaker console, when you choose @Open@ next
+-- to a notebook instance, SageMaker opens a new tab showing the Jupyter
+-- server home page from the notebook instance. The console uses this API
+-- to get the URL and show the page.
 --
 -- The IAM role or user used to call this API defines the permissions to
 -- access the notebook instance. Once the presigned URL is created, no

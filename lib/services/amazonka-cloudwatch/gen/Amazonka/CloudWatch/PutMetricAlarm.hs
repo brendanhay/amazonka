@@ -42,10 +42,10 @@
 -- -   The @iam:CreateServiceLinkedRole@ to create an alarm with Systems
 --     Manager OpsItem actions.
 --
--- The first time you create an alarm in the Management Console, the CLI,
--- or by using the PutMetricAlarm API, CloudWatch creates the necessary
--- service-linked role for you. The service-linked roles are called
--- @AWSServiceRoleForCloudWatchEvents@ and
+-- The first time you create an alarm in the Amazon Web Services Management
+-- Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates
+-- the necessary service-linked role for you. The service-linked roles are
+-- called @AWSServiceRoleForCloudWatchEvents@ and
 -- @AWSServiceRoleForCloudWatchAlarms_ActionSSM@. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role Amazon Web Services service-linked role>.
 --
@@ -209,6 +209,11 @@ data PutMetricAlarm = PutMetricAlarm'
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
     --
     -- Valid Values: @breaching | notBreaching | ignore | missing@
+    --
+    -- Alarms that evaluate metrics in the @AWS\/DynamoDB@ namespace always
+    -- @ignore@ missing data even if you choose a different option for
+    -- @TreatMissingData@. When an @AWS\/DynamoDB@ metric has missing data,
+    -- alarms that evaluate that metric remain in their current state.
     treatMissingData :: Prelude.Maybe Prelude.Text,
     -- | An array of @MetricDataQuery@ structures that enable you to create an
     -- alarm based on the result of a metric math expression. For each
@@ -308,7 +313,7 @@ data PutMetricAlarm = PutMetricAlarm'
     --
     -- However, if the metric is published with multiple types of units and you
     -- don\'t specify a unit, the alarm\'s behavior is not defined and it
-    -- behaves predictably.
+    -- behaves unpredictably.
     --
     -- We recommend omitting @Unit@ so that you don\'t inadvertently specify an
     -- incorrect unit that is not published for this metric. Doing so causes
@@ -440,6 +445,11 @@ data PutMetricAlarm = PutMetricAlarm'
 --
 -- Valid Values: @breaching | notBreaching | ignore | missing@
 --
+-- Alarms that evaluate metrics in the @AWS\/DynamoDB@ namespace always
+-- @ignore@ missing data even if you choose a different option for
+-- @TreatMissingData@. When an @AWS\/DynamoDB@ metric has missing data,
+-- alarms that evaluate that metric remain in their current state.
+--
 -- 'metrics', 'putMetricAlarm_metrics' - An array of @MetricDataQuery@ structures that enable you to create an
 -- alarm based on the result of a metric math expression. For each
 -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -538,7 +548,7 @@ data PutMetricAlarm = PutMetricAlarm'
 --
 -- However, if the metric is published with multiple types of units and you
 -- don\'t specify a unit, the alarm\'s behavior is not defined and it
--- behaves predictably.
+-- behaves unpredictably.
 --
 -- We recommend omitting @Unit@ so that you don\'t inadvertently specify an
 -- incorrect unit that is not published for this metric. Doing so causes
@@ -712,6 +722,11 @@ putMetricAlarm_thresholdMetricId = Lens.lens (\PutMetricAlarm' {thresholdMetricI
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
 --
 -- Valid Values: @breaching | notBreaching | ignore | missing@
+--
+-- Alarms that evaluate metrics in the @AWS\/DynamoDB@ namespace always
+-- @ignore@ missing data even if you choose a different option for
+-- @TreatMissingData@. When an @AWS\/DynamoDB@ metric has missing data,
+-- alarms that evaluate that metric remain in their current state.
 putMetricAlarm_treatMissingData :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
 putMetricAlarm_treatMissingData = Lens.lens (\PutMetricAlarm' {treatMissingData} -> treatMissingData) (\s@PutMetricAlarm' {} a -> s {treatMissingData = a} :: PutMetricAlarm)
 
@@ -829,7 +844,7 @@ putMetricAlarm_statistic = Lens.lens (\PutMetricAlarm' {statistic} -> statistic)
 --
 -- However, if the metric is published with multiple types of units and you
 -- don\'t specify a unit, the alarm\'s behavior is not defined and it
--- behaves predictably.
+-- behaves unpredictably.
 --
 -- We recommend omitting @Unit@ so that you don\'t inadvertently specify an
 -- incorrect unit that is not published for this metric. Doing so causes

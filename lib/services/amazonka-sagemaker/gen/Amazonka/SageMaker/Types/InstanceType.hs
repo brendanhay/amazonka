@@ -40,6 +40,14 @@ module Amazonka.SageMaker.Types.InstanceType
         InstanceType_Ml_g4dn_4xlarge,
         InstanceType_Ml_g4dn_8xlarge,
         InstanceType_Ml_g4dn_xlarge,
+        InstanceType_Ml_g5_12xlarge,
+        InstanceType_Ml_g5_16xlarge,
+        InstanceType_Ml_g5_24xlarge,
+        InstanceType_Ml_g5_2xlarge,
+        InstanceType_Ml_g5_48xlarge,
+        InstanceType_Ml_g5_4xlarge,
+        InstanceType_Ml_g5_8xlarge,
+        InstanceType_Ml_g5_xlarge,
         InstanceType_Ml_m4_10xlarge,
         InstanceType_Ml_m4_16xlarge,
         InstanceType_Ml_m4_2xlarge,
@@ -175,6 +183,30 @@ pattern InstanceType_Ml_g4dn_8xlarge = InstanceType' "ml.g4dn.8xlarge"
 
 pattern InstanceType_Ml_g4dn_xlarge :: InstanceType
 pattern InstanceType_Ml_g4dn_xlarge = InstanceType' "ml.g4dn.xlarge"
+
+pattern InstanceType_Ml_g5_12xlarge :: InstanceType
+pattern InstanceType_Ml_g5_12xlarge = InstanceType' "ml.g5.12xlarge"
+
+pattern InstanceType_Ml_g5_16xlarge :: InstanceType
+pattern InstanceType_Ml_g5_16xlarge = InstanceType' "ml.g5.16xlarge"
+
+pattern InstanceType_Ml_g5_24xlarge :: InstanceType
+pattern InstanceType_Ml_g5_24xlarge = InstanceType' "ml.g5.24xlarge"
+
+pattern InstanceType_Ml_g5_2xlarge :: InstanceType
+pattern InstanceType_Ml_g5_2xlarge = InstanceType' "ml.g5.2xlarge"
+
+pattern InstanceType_Ml_g5_48xlarge :: InstanceType
+pattern InstanceType_Ml_g5_48xlarge = InstanceType' "ml.g5.48xlarge"
+
+pattern InstanceType_Ml_g5_4xlarge :: InstanceType
+pattern InstanceType_Ml_g5_4xlarge = InstanceType' "ml.g5.4xlarge"
+
+pattern InstanceType_Ml_g5_8xlarge :: InstanceType
+pattern InstanceType_Ml_g5_8xlarge = InstanceType' "ml.g5.8xlarge"
+
+pattern InstanceType_Ml_g5_xlarge :: InstanceType
+pattern InstanceType_Ml_g5_xlarge = InstanceType' "ml.g5.xlarge"
 
 pattern InstanceType_Ml_m4_10xlarge :: InstanceType
 pattern InstanceType_Ml_m4_10xlarge = InstanceType' "ml.m4.10xlarge"
@@ -320,6 +352,14 @@ pattern InstanceType_Ml_t3_xlarge = InstanceType' "ml.t3.xlarge"
   InstanceType_Ml_g4dn_4xlarge,
   InstanceType_Ml_g4dn_8xlarge,
   InstanceType_Ml_g4dn_xlarge,
+  InstanceType_Ml_g5_12xlarge,
+  InstanceType_Ml_g5_16xlarge,
+  InstanceType_Ml_g5_24xlarge,
+  InstanceType_Ml_g5_2xlarge,
+  InstanceType_Ml_g5_48xlarge,
+  InstanceType_Ml_g5_4xlarge,
+  InstanceType_Ml_g5_8xlarge,
+  InstanceType_Ml_g5_xlarge,
   InstanceType_Ml_m4_10xlarge,
   InstanceType_Ml_m4_16xlarge,
   InstanceType_Ml_m4_2xlarge,

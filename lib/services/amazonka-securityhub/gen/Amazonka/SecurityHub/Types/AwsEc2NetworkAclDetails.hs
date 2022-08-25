@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclAssociation
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclEntry
 
--- | Contains details about an EC2 network access control list (ACL).
+-- | Contains details about an Amazon EC2 network access control list (ACL).
 --
 -- /See:/ 'newAwsEc2NetworkAclDetails' smart constructor.
 data AwsEc2NetworkAclDetails = AwsEc2NetworkAclDetails'

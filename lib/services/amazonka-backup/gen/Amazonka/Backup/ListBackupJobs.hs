@@ -23,6 +23,8 @@
 -- Returns a list of existing backup jobs for an authenticated account for
 -- the last 30 days. For a longer period of time, consider using these
 -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html monitoring tools>.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListBackupJobs
   ( -- * Creating a Request
     ListBackupJobs (..),
@@ -32,6 +34,8 @@ module Amazonka.Backup.ListBackupJobs
     listBackupJobs_byAccountId,
     listBackupJobs_nextToken,
     listBackupJobs_byCreatedAfter,
+    listBackupJobs_byCompleteAfter,
+    listBackupJobs_byCompleteBefore,
     listBackupJobs_byResourceType,
     listBackupJobs_byCreatedBefore,
     listBackupJobs_maxResults,
@@ -72,7 +76,17 @@ data ListBackupJobs = ListBackupJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only backup jobs that were created after the specified date.
     byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    -- | Returns only backup jobs completed after a date expressed in Unix format
+    -- and Coordinated Universal Time (UTC).
+    byCompleteAfter :: Prelude.Maybe Core.POSIX,
+    -- | Returns only backup jobs completed before a date expressed in Unix
+    -- format and Coordinated Universal Time (UTC).
+    byCompleteBefore :: Prelude.Maybe Core.POSIX,
     -- | Returns only backup jobs for the specified resources:
+    --
+    -- -   @Aurora@ for Amazon Aurora
+    --
+    -- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
     --
     -- -   @DynamoDB@ for Amazon DynamoDB
     --
@@ -82,11 +96,17 @@ data ListBackupJobs = ListBackupJobs'
     --
     -- -   @EFS@ for Amazon Elastic File System
     --
+    -- -   @FSx@ for Amazon FSx
+    --
+    -- -   @Neptune@ for Amazon Neptune
+    --
     -- -   @RDS@ for Amazon Relational Database Service
     --
-    -- -   @Aurora@ for Amazon Aurora
-    --
     -- -   @Storage Gateway@ for Storage Gateway
+    --
+    -- -   @S3@ for Amazon S3
+    --
+    -- -   @VirtualMachine@ for virtual machines
     byResourceType :: Prelude.Maybe Prelude.Text,
     -- | Returns only backup jobs that were created before the specified date.
     byCreatedBefore :: Prelude.Maybe Core.POSIX,
@@ -127,7 +147,17 @@ data ListBackupJobs = ListBackupJobs'
 --
 -- 'byCreatedAfter', 'listBackupJobs_byCreatedAfter' - Returns only backup jobs that were created after the specified date.
 --
+-- 'byCompleteAfter', 'listBackupJobs_byCompleteAfter' - Returns only backup jobs completed after a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+--
+-- 'byCompleteBefore', 'listBackupJobs_byCompleteBefore' - Returns only backup jobs completed before a date expressed in Unix
+-- format and Coordinated Universal Time (UTC).
+--
 -- 'byResourceType', 'listBackupJobs_byResourceType' - Returns only backup jobs for the specified resources:
+--
+-- -   @Aurora@ for Amazon Aurora
+--
+-- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
@@ -137,11 +167,17 @@ data ListBackupJobs = ListBackupJobs'
 --
 -- -   @EFS@ for Amazon Elastic File System
 --
+-- -   @FSx@ for Amazon FSx
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- -   @RDS@ for Amazon Relational Database Service
 --
--- -   @Aurora@ for Amazon Aurora
---
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @S3@ for Amazon S3
+--
+-- -   @VirtualMachine@ for virtual machines
 --
 -- 'byCreatedBefore', 'listBackupJobs_byCreatedBefore' - Returns only backup jobs that were created before the specified date.
 --
@@ -164,6 +200,8 @@ newListBackupJobs =
     { byAccountId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       byCreatedAfter = Prelude.Nothing,
+      byCompleteAfter = Prelude.Nothing,
+      byCompleteBefore = Prelude.Nothing,
       byResourceType = Prelude.Nothing,
       byCreatedBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -191,7 +229,21 @@ listBackupJobs_nextToken = Lens.lens (\ListBackupJobs' {nextToken} -> nextToken)
 listBackupJobs_byCreatedAfter :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
 listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListBackupJobs' {} a -> s {byCreatedAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
 
+-- | Returns only backup jobs completed after a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+listBackupJobs_byCompleteAfter :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
+listBackupJobs_byCompleteAfter = Lens.lens (\ListBackupJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListBackupJobs' {} a -> s {byCompleteAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+
+-- | Returns only backup jobs completed before a date expressed in Unix
+-- format and Coordinated Universal Time (UTC).
+listBackupJobs_byCompleteBefore :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
+listBackupJobs_byCompleteBefore = Lens.lens (\ListBackupJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListBackupJobs' {} a -> s {byCompleteBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+
 -- | Returns only backup jobs for the specified resources:
+--
+-- -   @Aurora@ for Amazon Aurora
+--
+-- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
@@ -201,11 +253,17 @@ listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> 
 --
 -- -   @EFS@ for Amazon Elastic File System
 --
+-- -   @FSx@ for Amazon FSx
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- -   @RDS@ for Amazon Relational Database Service
 --
--- -   @Aurora@ for Amazon Aurora
---
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @S3@ for Amazon S3
+--
+-- -   @VirtualMachine@ for virtual machines
 listBackupJobs_byResourceType :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
 listBackupJobs_byResourceType = Lens.lens (\ListBackupJobs' {byResourceType} -> byResourceType) (\s@ListBackupJobs' {} a -> s {byResourceType = a} :: ListBackupJobs)
 
@@ -234,6 +292,27 @@ listBackupJobs_byBackupVaultName = Lens.lens (\ListBackupJobs' {byBackupVaultNam
 listBackupJobs_byResourceArn :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
 listBackupJobs_byResourceArn = Lens.lens (\ListBackupJobs' {byResourceArn} -> byResourceArn) (\s@ListBackupJobs' {} a -> s {byResourceArn = a} :: ListBackupJobs)
 
+instance Core.AWSPager ListBackupJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBackupJobsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBackupJobsResponse_backupJobs
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBackupJobs_nextToken
+          Lens..~ rs
+          Lens.^? listBackupJobsResponse_nextToken Prelude.. Lens._Just
+
 instance Core.AWSRequest ListBackupJobs where
   type
     AWSResponse ListBackupJobs =
@@ -253,6 +332,8 @@ instance Prelude.Hashable ListBackupJobs where
     _salt `Prelude.hashWithSalt` byAccountId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` byCreatedAfter
+      `Prelude.hashWithSalt` byCompleteAfter
+      `Prelude.hashWithSalt` byCompleteBefore
       `Prelude.hashWithSalt` byResourceType
       `Prelude.hashWithSalt` byCreatedBefore
       `Prelude.hashWithSalt` maxResults
@@ -265,6 +346,8 @@ instance Prelude.NFData ListBackupJobs where
     Prelude.rnf byAccountId
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf byCreatedAfter
+      `Prelude.seq` Prelude.rnf byCompleteAfter
+      `Prelude.seq` Prelude.rnf byCompleteBefore
       `Prelude.seq` Prelude.rnf byResourceType
       `Prelude.seq` Prelude.rnf byCreatedBefore
       `Prelude.seq` Prelude.rnf maxResults
@@ -292,6 +375,8 @@ instance Core.ToQuery ListBackupJobs where
       [ "accountId" Core.=: byAccountId,
         "nextToken" Core.=: nextToken,
         "createdAfter" Core.=: byCreatedAfter,
+        "completeAfter" Core.=: byCompleteAfter,
+        "completeBefore" Core.=: byCompleteBefore,
         "resourceType" Core.=: byResourceType,
         "createdBefore" Core.=: byCreatedBefore,
         "maxResults" Core.=: maxResults,

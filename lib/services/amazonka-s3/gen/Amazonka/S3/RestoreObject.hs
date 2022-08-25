@@ -142,8 +142,8 @@
 -- specify one of the following data access tier options in the @Tier@
 -- element of the request body:
 --
--- -   __@Expedited@__ - Expedited retrievals allow you to quickly access
---     your data stored in the S3 Glacier storage class or S3
+-- -   @Expedited@ - Expedited retrievals allow you to quickly access your
+--     data stored in the S3 Glacier storage class or S3
 --     Intelligent-Tiering Archive tier when occasional urgent requests for
 --     a subset of archives are required. For all but the largest archived
 --     objects (250 MB+), data accessed using Expedited retrievals is
@@ -153,7 +153,7 @@
 --     capacity are not available for objects stored in the S3 Glacier Deep
 --     Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
 --
--- -   __@Standard@__ - Standard retrievals allow you to access any of your
+-- -   @Standard@ - Standard retrievals allow you to access any of your
 --     archived objects within several hours. This is the default option
 --     for retrieval requests that do not specify the retrieval option.
 --     Standard retrievals typically finish within 3–5 hours for objects
@@ -163,9 +163,9 @@
 --     Intelligent-Tiering Deep Archive tier. Standard retrievals are free
 --     for objects stored in S3 Intelligent-Tiering.
 --
--- -   __@Bulk@__ - Bulk retrievals are the lowest-cost retrieval option in
---     S3 Glacier, enabling you to retrieve large amounts, even petabytes,
---     of data inexpensively. Bulk retrievals typically finish within 5–12
+-- -   @Bulk@ - Bulk retrievals are the lowest-cost retrieval option in S3
+--     Glacier, enabling you to retrieve large amounts, even petabytes, of
+--     data inexpensively. Bulk retrievals typically finish within 5–12
 --     hours for objects stored in the S3 Glacier storage class or S3
 --     Intelligent-Tiering Archive tier. They typically finish within 48
 --     hours for objects stored in the S3 Glacier Deep Archive storage
@@ -256,6 +256,7 @@ module Amazonka.S3.RestoreObject
     newRestoreObject,
 
     -- * Request Lenses
+    restoreObject_checksumAlgorithm,
     restoreObject_expectedBucketOwner,
     restoreObject_requestPayer,
     restoreObject_restoreRequest,
@@ -283,9 +284,21 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newRestoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     restoreRequest :: Prelude.Maybe RestoreRequest,
@@ -305,11 +318,11 @@ data RestoreObject = RestoreObject'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the action was initiated.
@@ -325,9 +338,21 @@ data RestoreObject = RestoreObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'restoreObject_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'expectedBucketOwner', 'restoreObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'restoreObject_requestPayer' - Undocumented member.
 --
@@ -349,11 +374,11 @@ data RestoreObject = RestoreObject'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'restoreObject_key' - Object key for which the action was initiated.
@@ -365,8 +390,8 @@ newRestoreObject ::
   RestoreObject
 newRestoreObject pBucket_ pKey_ =
   RestoreObject'
-    { expectedBucketOwner =
-        Prelude.Nothing,
+    { checksumAlgorithm = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       restoreRequest = Prelude.Nothing,
       versionId = Prelude.Nothing,
@@ -374,9 +399,23 @@ newRestoreObject pBucket_ pKey_ =
       key = pKey_
     }
 
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+restoreObject_checksumAlgorithm :: Lens.Lens' RestoreObject (Prelude.Maybe ChecksumAlgorithm)
+restoreObject_checksumAlgorithm = Lens.lens (\RestoreObject' {checksumAlgorithm} -> checksumAlgorithm) (\s@RestoreObject' {} a -> s {checksumAlgorithm = a} :: RestoreObject)
+
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 restoreObject_expectedBucketOwner :: Lens.Lens' RestoreObject (Prelude.Maybe Prelude.Text)
 restoreObject_expectedBucketOwner = Lens.lens (\RestoreObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@RestoreObject' {} a -> s {expectedBucketOwner = a} :: RestoreObject)
 
@@ -406,11 +445,11 @@ restoreObject_versionId = Lens.lens (\RestoreObject' {versionId} -> versionId) (
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 restoreObject_bucket :: Lens.Lens' RestoreObject BucketName
 restoreObject_bucket = Lens.lens (\RestoreObject' {bucket} -> bucket) (\s@RestoreObject' {} a -> s {bucket = a} :: RestoreObject)
@@ -437,7 +476,8 @@ instance Core.AWSRequest RestoreObject where
 
 instance Prelude.Hashable RestoreObject where
   hashWithSalt _salt RestoreObject' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` restoreRequest
       `Prelude.hashWithSalt` versionId
@@ -446,7 +486,8 @@ instance Prelude.Hashable RestoreObject where
 
 instance Prelude.NFData RestoreObject where
   rnf RestoreObject' {..} =
-    Prelude.rnf expectedBucketOwner
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf restoreRequest
       `Prelude.seq` Prelude.rnf versionId
@@ -462,7 +503,9 @@ instance Core.ToElement RestoreObject where
 instance Core.ToHeaders RestoreObject where
   toHeaders RestoreObject' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer
       ]

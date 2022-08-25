@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The deployment controller to use for the service. For more information,
 -- see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS Deployment Types>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS deployment types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- /See:/ 'newDeploymentController' smart constructor.

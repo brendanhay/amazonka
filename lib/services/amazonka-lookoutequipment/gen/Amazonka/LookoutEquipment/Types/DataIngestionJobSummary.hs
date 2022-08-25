@@ -40,7 +40,7 @@ data DataIngestionJobSummary = DataIngestionJobSummary'
     -- job.
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies information for the input data for the data inference job,
-    -- including data S3 location parameters.
+    -- including data Amazon S3 location parameters.
     ingestionInputConfiguration :: Prelude.Maybe IngestionInputConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data DataIngestionJobSummary = DataIngestionJobSummary'
 -- job.
 --
 -- 'ingestionInputConfiguration', 'dataIngestionJobSummary_ingestionInputConfiguration' - Specifies information for the input data for the data inference job,
--- including data S3 location parameters.
+-- including data Amazon S3 location parameters.
 newDataIngestionJobSummary ::
   DataIngestionJobSummary
 newDataIngestionJobSummary =
@@ -94,7 +94,7 @@ dataIngestionJobSummary_datasetArn :: Lens.Lens' DataIngestionJobSummary (Prelud
 dataIngestionJobSummary_datasetArn = Lens.lens (\DataIngestionJobSummary' {datasetArn} -> datasetArn) (\s@DataIngestionJobSummary' {} a -> s {datasetArn = a} :: DataIngestionJobSummary)
 
 -- | Specifies information for the input data for the data inference job,
--- including data S3 location parameters.
+-- including data Amazon S3 location parameters.
 dataIngestionJobSummary_ingestionInputConfiguration :: Lens.Lens' DataIngestionJobSummary (Prelude.Maybe IngestionInputConfiguration)
 dataIngestionJobSummary_ingestionInputConfiguration = Lens.lens (\DataIngestionJobSummary' {ingestionInputConfiguration} -> ingestionInputConfiguration) (\s@DataIngestionJobSummary' {} a -> s {ingestionInputConfiguration = a} :: DataIngestionJobSummary)
 

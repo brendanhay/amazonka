@@ -24,10 +24,47 @@ import Amazonka.Kinesis.Types.ShardFilterType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newShardFilter' smart constructor.
+-- | The request parameter used to filter out the response of the
+-- @ListShards@ API.
+--
+-- /See:/ 'newShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { timestamp :: Prelude.Maybe Core.POSIX,
+  { -- | The timestamps specified in the @ShardFilter@ parameter. A timestamp is
+    -- a Unix epoch date with precision in milliseconds. For example,
+    -- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
+    -- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
+    timestamp :: Prelude.Maybe Core.POSIX,
+    -- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
+    -- This property can only be used if the @AFTER_SHARD_ID@ shard type is
+    -- specified.
     shardId :: Prelude.Maybe Prelude.Text,
+    -- | The shard type specified in the @ShardFilter@ parameter. This is a
+    -- required property of the @ShardFilter@ parameter.
+    --
+    -- You can specify the following valid values:
+    --
+    -- -   @AFTER_SHARD_ID@ - the response includes all the shards, starting
+    --     with the shard whose ID immediately follows the @ShardId@ that you
+    --     provided.
+    --
+    -- -   @AT_TRIM_HORIZON@ - the response includes all the shards that were
+    --     open at @TRIM_HORIZON@.
+    --
+    -- -   @FROM_TRIM_HORIZON@ - (default), the response includes all the
+    --     shards within the retention period of the data stream (trim to tip).
+    --
+    -- -   @AT_LATEST@ - the response includes only the currently open shards
+    --     of the data stream.
+    --
+    -- -   @AT_TIMESTAMP@ - the response includes all shards whose start
+    --     timestamp is less than or equal to the given timestamp and end
+    --     timestamp is greater than or equal to the given timestamp or still
+    --     open.
+    --
+    -- -   @FROM_TIMESTAMP@ - the response incldues all closed shards whose end
+    --     timestamp is greater than or equal to the given timestamp and also
+    --     all open shards. Corrected to @TRIM_HORIZON@ of the data stream if
+    --     @FROM_TIMESTAMP@ is less than the @TRIM_HORIZON@ value.
     type' :: ShardFilterType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,11 +77,42 @@ data ShardFilter = ShardFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamp', 'shardFilter_timestamp' - Undocumented member.
+-- 'timestamp', 'shardFilter_timestamp' - The timestamps specified in the @ShardFilter@ parameter. A timestamp is
+-- a Unix epoch date with precision in milliseconds. For example,
+-- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
+-- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
 --
--- 'shardId', 'shardFilter_shardId' - Undocumented member.
+-- 'shardId', 'shardFilter_shardId' - The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
+-- This property can only be used if the @AFTER_SHARD_ID@ shard type is
+-- specified.
 --
--- 'type'', 'shardFilter_type' - Undocumented member.
+-- 'type'', 'shardFilter_type' - The shard type specified in the @ShardFilter@ parameter. This is a
+-- required property of the @ShardFilter@ parameter.
+--
+-- You can specify the following valid values:
+--
+-- -   @AFTER_SHARD_ID@ - the response includes all the shards, starting
+--     with the shard whose ID immediately follows the @ShardId@ that you
+--     provided.
+--
+-- -   @AT_TRIM_HORIZON@ - the response includes all the shards that were
+--     open at @TRIM_HORIZON@.
+--
+-- -   @FROM_TRIM_HORIZON@ - (default), the response includes all the
+--     shards within the retention period of the data stream (trim to tip).
+--
+-- -   @AT_LATEST@ - the response includes only the currently open shards
+--     of the data stream.
+--
+-- -   @AT_TIMESTAMP@ - the response includes all shards whose start
+--     timestamp is less than or equal to the given timestamp and end
+--     timestamp is greater than or equal to the given timestamp or still
+--     open.
+--
+-- -   @FROM_TIMESTAMP@ - the response incldues all closed shards whose end
+--     timestamp is greater than or equal to the given timestamp and also
+--     all open shards. Corrected to @TRIM_HORIZON@ of the data stream if
+--     @FROM_TIMESTAMP@ is less than the @TRIM_HORIZON@ value.
 newShardFilter ::
   -- | 'type''
   ShardFilterType ->
@@ -56,15 +124,46 @@ newShardFilter pType_ =
       type' = pType_
     }
 
--- | Undocumented member.
+-- | The timestamps specified in the @ShardFilter@ parameter. A timestamp is
+-- a Unix epoch date with precision in milliseconds. For example,
+-- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
+-- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
 shardFilter_timestamp :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.UTCTime)
 shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Core._Time
 
--- | Undocumented member.
+-- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
+-- This property can only be used if the @AFTER_SHARD_ID@ shard type is
+-- specified.
 shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
 shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
 
--- | Undocumented member.
+-- | The shard type specified in the @ShardFilter@ parameter. This is a
+-- required property of the @ShardFilter@ parameter.
+--
+-- You can specify the following valid values:
+--
+-- -   @AFTER_SHARD_ID@ - the response includes all the shards, starting
+--     with the shard whose ID immediately follows the @ShardId@ that you
+--     provided.
+--
+-- -   @AT_TRIM_HORIZON@ - the response includes all the shards that were
+--     open at @TRIM_HORIZON@.
+--
+-- -   @FROM_TRIM_HORIZON@ - (default), the response includes all the
+--     shards within the retention period of the data stream (trim to tip).
+--
+-- -   @AT_LATEST@ - the response includes only the currently open shards
+--     of the data stream.
+--
+-- -   @AT_TIMESTAMP@ - the response includes all shards whose start
+--     timestamp is less than or equal to the given timestamp and end
+--     timestamp is greater than or equal to the given timestamp or still
+--     open.
+--
+-- -   @FROM_TIMESTAMP@ - the response incldues all closed shards whose end
+--     timestamp is greater than or equal to the given timestamp and also
+--     all open shards. Corrected to @TRIM_HORIZON@ of the data stream if
+--     @FROM_TIMESTAMP@ is less than the @TRIM_HORIZON@ value.
 shardFilter_type :: Lens.Lens' ShardFilter ShardFilterType
 shardFilter_type = Lens.lens (\ShardFilter' {type'} -> type') (\s@ShardFilter' {} a -> s {type' = a} :: ShardFilter)
 

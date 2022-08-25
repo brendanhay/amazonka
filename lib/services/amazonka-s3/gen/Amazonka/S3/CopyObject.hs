@@ -25,7 +25,8 @@
 -- You can store individual objects of up to 5 TB in Amazon S3. You create
 -- a copy of your object up to 5 GB in size in a single atomic action using
 -- this API. However, to copy an object greater than 5 GB, you must use the
--- multipart upload Upload Part - Copy API. For more information, see
+-- multipart upload Upload Part - Copy (UploadPartCopy) API. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html Copy Object Using the REST Multipart Upload API>.
 --
 -- All copy requests must be authenticated. Additionally, you must have
@@ -79,7 +80,7 @@
 -- condition keys, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>.
 --
--- __@x-amz-copy-source-if@ Headers__
+-- __x-amz-copy-source-if Headers__
 --
 -- To only copy an object under certain conditions, such as whether the
 -- @Etag@ matches or whether the object was modified before or after a
@@ -142,6 +143,28 @@
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html Managing ACLs Using the REST API>.
 --
+-- If the bucket that you\'re copying objects to uses the bucket owner
+-- enforced setting for S3 Object Ownership, ACLs are disabled and no
+-- longer affect permissions. Buckets that use this setting only accept PUT
+-- requests that don\'t specify an ACL or PUT requests that specify bucket
+-- owner full control ACLs, such as the @bucket-owner-full-control@ canned
+-- ACL or an equivalent form of this ACL expressed in the XML format.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling ownership of objects and disabling ACLs>
+-- in the /Amazon S3 User Guide/.
+--
+-- If your bucket uses the bucket owner enforced setting for Object
+-- Ownership, all objects written to the bucket by any account will be
+-- owned by the bucket owner.
+--
+-- __Checksums__
+--
+-- When copying an object, if it has a checksum, that checksum will be
+-- copied to the new object by default. When you copy the object over, you
+-- may optionally specify a different checksum algorithm to use with the
+-- @x-amz-checksum-algorithm@ header.
+--
 -- __Storage Class Options__
 --
 -- You can use the @CopyObject@ action to change the storage class of an
@@ -187,6 +210,7 @@ module Amazonka.S3.CopyObject
     -- * Request Lenses
     copyObject_copySourceIfNoneMatch,
     copyObject_serverSideEncryption,
+    copyObject_checksumAlgorithm,
     copyObject_copySourceSSECustomerKey,
     copyObject_copySourceSSECustomerKeyMD5,
     copyObject_objectLockMode,
@@ -261,6 +285,11 @@ data CopyObject = CopyObject'
     -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | Indicates the algorithm you want Amazon S3 to use to create the checksum
+    -- for the object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
     -- | Specifies the customer-provided encryption key for Amazon S3 to use to
     -- decrypt the source object. The encryption key provided in this header
     -- must be one that was used when the source object was created.
@@ -303,8 +332,8 @@ data CopyObject = CopyObject'
     -- example, AES256).
     copySourceSSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected destination bucket owner. If the
-    -- destination bucket is owned by a different account, the request will
-    -- fail with an HTTP @403 (Access Denied)@ error.
+    -- destination bucket is owned by a different account, the request fails
+    -- with the HTTP status code @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
@@ -322,7 +351,7 @@ data CopyObject = CopyObject'
     sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies presentational information for the object.
     contentDisposition :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether you want to apply a Legal Hold to the copied object.
+    -- | Specifies whether you want to apply a legal hold to the copied object.
     objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies whether the object tag-set are copied from the source object
@@ -338,8 +367,8 @@ data CopyObject = CopyObject'
     -- | Copies the object if it hasn\'t been modified since the specified time.
     copySourceIfUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
     -- | The account ID of the expected source bucket owner. If the source bucket
-    -- is owned by a different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- is owned by a different account, the request fails with the HTTP status
+    -- code @403 Forbidden@ (access denied).
     expectedSourceBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee to read the object data and its metadata.
     --
@@ -400,11 +429,11 @@ data CopyObject = CopyObject'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Specifies the source object for the copy operation. You specify the
@@ -416,8 +445,8 @@ data CopyObject = CopyObject'
     --     of the source bucket and the key of the source object, separated by
     --     a slash (\/). For example, to copy the object @reports\/january.pdf@
     --     from the bucket @awsexamplebucket@, use
-    --     @awsexamplebucket\/reports\/january.pdf@. The value must be URL
-    --     encoded.
+    --     @awsexamplebucket\/reports\/january.pdf@. The value must be
+    --     URL-encoded.
     --
     -- -   For objects accessed through access points, specify the Amazon
     --     Resource Name (ARN) of the object as accessed through the access
@@ -440,7 +469,7 @@ data CopyObject = CopyObject'
     --     outpost @my-outpost@ owned by account @123456789012@ in Region
     --     @us-west-2@, use the URL encoding of
     --     @arn:aws:s3-outposts:us-west-2:123456789012:outpost\/my-outpost\/object\/reports\/january.pdf@.
-    --     The value must be URL encoded.
+    --     The value must be URL-encoded.
     --
     -- To copy a specific version of an object, append
     -- @?versionId=\<version-id>@ to the value (for example,
@@ -466,6 +495,11 @@ data CopyObject = CopyObject'
 --
 -- 'serverSideEncryption', 'copyObject_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
+--
+-- 'checksumAlgorithm', 'copyObject_checksumAlgorithm' - Indicates the algorithm you want Amazon S3 to use to create the checksum
+-- for the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'copySourceSSECustomerKey', 'copyObject_copySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header
@@ -509,8 +543,8 @@ data CopyObject = CopyObject'
 -- example, AES256).
 --
 -- 'expectedBucketOwner', 'copyObject_expectedBucketOwner' - The account ID of the expected destination bucket owner. If the
--- destination bucket is owned by a different account, the request will
--- fail with an HTTP @403 (Access Denied)@ error.
+-- destination bucket is owned by a different account, the request fails
+-- with the HTTP status code @403 Forbidden@ (access denied).
 --
 -- 'metadata', 'copyObject_metadata' - A map of metadata to store with the object in S3.
 --
@@ -528,7 +562,7 @@ data CopyObject = CopyObject'
 --
 -- 'contentDisposition', 'copyObject_contentDisposition' - Specifies presentational information for the object.
 --
--- 'objectLockLegalHoldStatus', 'copyObject_objectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the copied object.
+-- 'objectLockLegalHoldStatus', 'copyObject_objectLockLegalHoldStatus' - Specifies whether you want to apply a legal hold to the copied object.
 --
 -- 'requestPayer', 'copyObject_requestPayer' - Undocumented member.
 --
@@ -545,8 +579,8 @@ data CopyObject = CopyObject'
 -- 'copySourceIfUnmodifiedSince', 'copyObject_copySourceIfUnmodifiedSince' - Copies the object if it hasn\'t been modified since the specified time.
 --
 -- 'expectedSourceBucketOwner', 'copyObject_expectedSourceBucketOwner' - The account ID of the expected source bucket owner. If the source bucket
--- is owned by a different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- is owned by a different account, the request fails with the HTTP status
+-- code @403 Forbidden@ (access denied).
 --
 -- 'grantRead', 'copyObject_grantRead' - Allows grantee to read the object data and its metadata.
 --
@@ -607,11 +641,11 @@ data CopyObject = CopyObject'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'copySource', 'copyObject_copySource' - Specifies the source object for the copy operation. You specify the
@@ -623,8 +657,8 @@ data CopyObject = CopyObject'
 --     of the source bucket and the key of the source object, separated by
 --     a slash (\/). For example, to copy the object @reports\/january.pdf@
 --     from the bucket @awsexamplebucket@, use
---     @awsexamplebucket\/reports\/january.pdf@. The value must be URL
---     encoded.
+--     @awsexamplebucket\/reports\/january.pdf@. The value must be
+--     URL-encoded.
 --
 -- -   For objects accessed through access points, specify the Amazon
 --     Resource Name (ARN) of the object as accessed through the access
@@ -647,7 +681,7 @@ data CopyObject = CopyObject'
 --     outpost @my-outpost@ owned by account @123456789012@ in Region
 --     @us-west-2@, use the URL encoding of
 --     @arn:aws:s3-outposts:us-west-2:123456789012:outpost\/my-outpost\/object\/reports\/january.pdf@.
---     The value must be URL encoded.
+--     The value must be URL-encoded.
 --
 -- To copy a specific version of an object, append
 -- @?versionId=\<version-id>@ to the value (for example,
@@ -669,6 +703,7 @@ newCopyObject pBucket_ pCopySource_ pKey_ =
     { copySourceIfNoneMatch =
         Prelude.Nothing,
       serverSideEncryption = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       copySourceSSECustomerKey = Prelude.Nothing,
       copySourceSSECustomerKeyMD5 = Prelude.Nothing,
       objectLockMode = Prelude.Nothing,
@@ -718,6 +753,13 @@ copyObject_copySourceIfNoneMatch = Lens.lens (\CopyObject' {copySourceIfNoneMatc
 -- Amazon S3 (for example, AES256, aws:kms).
 copyObject_serverSideEncryption :: Lens.Lens' CopyObject (Prelude.Maybe ServerSideEncryption)
 copyObject_serverSideEncryption = Lens.lens (\CopyObject' {serverSideEncryption} -> serverSideEncryption) (\s@CopyObject' {} a -> s {serverSideEncryption = a} :: CopyObject)
+
+-- | Indicates the algorithm you want Amazon S3 to use to create the checksum
+-- for the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+copyObject_checksumAlgorithm :: Lens.Lens' CopyObject (Prelude.Maybe ChecksumAlgorithm)
+copyObject_checksumAlgorithm = Lens.lens (\CopyObject' {checksumAlgorithm} -> checksumAlgorithm) (\s@CopyObject' {} a -> s {checksumAlgorithm = a} :: CopyObject)
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header
@@ -781,8 +823,8 @@ copyObject_copySourceSSECustomerAlgorithm :: Lens.Lens' CopyObject (Prelude.Mayb
 copyObject_copySourceSSECustomerAlgorithm = Lens.lens (\CopyObject' {copySourceSSECustomerAlgorithm} -> copySourceSSECustomerAlgorithm) (\s@CopyObject' {} a -> s {copySourceSSECustomerAlgorithm = a} :: CopyObject)
 
 -- | The account ID of the expected destination bucket owner. If the
--- destination bucket is owned by a different account, the request will
--- fail with an HTTP @403 (Access Denied)@ error.
+-- destination bucket is owned by a different account, the request fails
+-- with the HTTP status code @403 Forbidden@ (access denied).
 copyObject_expectedBucketOwner :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
 copyObject_expectedBucketOwner = Lens.lens (\CopyObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@CopyObject' {} a -> s {expectedBucketOwner = a} :: CopyObject)
 
@@ -812,7 +854,7 @@ copyObject_sSEKMSKeyId = Lens.lens (\CopyObject' {sSEKMSKeyId} -> sSEKMSKeyId) (
 copyObject_contentDisposition :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
 copyObject_contentDisposition = Lens.lens (\CopyObject' {contentDisposition} -> contentDisposition) (\s@CopyObject' {} a -> s {contentDisposition = a} :: CopyObject)
 
--- | Specifies whether you want to apply a Legal Hold to the copied object.
+-- | Specifies whether you want to apply a legal hold to the copied object.
 copyObject_objectLockLegalHoldStatus :: Lens.Lens' CopyObject (Prelude.Maybe ObjectLockLegalHoldStatus)
 copyObject_objectLockLegalHoldStatus = Lens.lens (\CopyObject' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@CopyObject' {} a -> s {objectLockLegalHoldStatus = a} :: CopyObject)
 
@@ -841,8 +883,8 @@ copyObject_copySourceIfUnmodifiedSince :: Lens.Lens' CopyObject (Prelude.Maybe P
 copyObject_copySourceIfUnmodifiedSince = Lens.lens (\CopyObject' {copySourceIfUnmodifiedSince} -> copySourceIfUnmodifiedSince) (\s@CopyObject' {} a -> s {copySourceIfUnmodifiedSince = a} :: CopyObject) Prelude.. Lens.mapping Core._Time
 
 -- | The account ID of the expected source bucket owner. If the source bucket
--- is owned by a different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- is owned by a different account, the request fails with the HTTP status
+-- code @403 Forbidden@ (access denied).
 copyObject_expectedSourceBucketOwner :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
 copyObject_expectedSourceBucketOwner = Lens.lens (\CopyObject' {expectedSourceBucketOwner} -> expectedSourceBucketOwner) (\s@CopyObject' {} a -> s {expectedSourceBucketOwner = a} :: CopyObject)
 
@@ -929,11 +971,11 @@ copyObject_sSECustomerKey = Lens.lens (\CopyObject' {sSECustomerKey} -> sSECusto
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 copyObject_bucket :: Lens.Lens' CopyObject BucketName
 copyObject_bucket = Lens.lens (\CopyObject' {bucket} -> bucket) (\s@CopyObject' {} a -> s {bucket = a} :: CopyObject)
@@ -947,8 +989,8 @@ copyObject_bucket = Lens.lens (\CopyObject' {bucket} -> bucket) (\s@CopyObject' 
 --     of the source bucket and the key of the source object, separated by
 --     a slash (\/). For example, to copy the object @reports\/january.pdf@
 --     from the bucket @awsexamplebucket@, use
---     @awsexamplebucket\/reports\/january.pdf@. The value must be URL
---     encoded.
+--     @awsexamplebucket\/reports\/january.pdf@. The value must be
+--     URL-encoded.
 --
 -- -   For objects accessed through access points, specify the Amazon
 --     Resource Name (ARN) of the object as accessed through the access
@@ -971,7 +1013,7 @@ copyObject_bucket = Lens.lens (\CopyObject' {bucket} -> bucket) (\s@CopyObject' 
 --     outpost @my-outpost@ owned by account @123456789012@ in Region
 --     @us-west-2@, use the URL encoding of
 --     @arn:aws:s3-outposts:us-west-2:123456789012:outpost\/my-outpost\/object\/reports\/january.pdf@.
---     The value must be URL encoded.
+--     The value must be URL-encoded.
 --
 -- To copy a specific version of an object, append
 -- @?versionId=\<version-id>@ to the value (for example,
@@ -1020,6 +1062,7 @@ instance Prelude.Hashable CopyObject where
   hashWithSalt _salt CopyObject' {..} =
     _salt `Prelude.hashWithSalt` copySourceIfNoneMatch
       `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` copySourceSSECustomerKey
       `Prelude.hashWithSalt` copySourceSSECustomerKeyMD5
       `Prelude.hashWithSalt` objectLockMode
@@ -1063,6 +1106,7 @@ instance Prelude.NFData CopyObject where
   rnf CopyObject' {..} =
     Prelude.rnf copySourceIfNoneMatch
       `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf copySourceSSECustomerKey
       `Prelude.seq` Prelude.rnf copySourceSSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf objectLockMode
@@ -1076,13 +1120,15 @@ instance Prelude.NFData CopyObject where
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf contentLanguage
-      `Prelude.seq` Prelude.rnf copySourceIfModifiedSince
+      `Prelude.seq` Prelude.rnf
+        copySourceIfModifiedSince
       `Prelude.seq` Prelude.rnf sSEKMSKeyId
       `Prelude.seq` Prelude.rnf contentDisposition
       `Prelude.seq` Prelude.rnf
         objectLockLegalHoldStatus
       `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf taggingDirective
+      `Prelude.seq` Prelude.rnf
+        taggingDirective
       `Prelude.seq` Prelude.rnf
         sSEKMSEncryptionContext
       `Prelude.seq` Prelude.rnf
@@ -1129,6 +1175,7 @@ instance Core.ToHeaders CopyObject where
           Core.=# copySourceIfNoneMatch,
         "x-amz-server-side-encryption"
           Core.=# serverSideEncryption,
+        "x-amz-checksum-algorithm" Core.=# checksumAlgorithm,
         "x-amz-copy-source-server-side-encryption-customer-key"
           Core.=# copySourceSSECustomerKey,
         "x-amz-copy-source-server-side-encryption-customer-key-MD5"

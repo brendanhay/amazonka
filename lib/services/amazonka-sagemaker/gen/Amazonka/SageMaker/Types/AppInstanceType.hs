@@ -34,6 +34,14 @@ module Amazonka.SageMaker.Types.AppInstanceType
         AppInstanceType_Ml_g4dn_4xlarge,
         AppInstanceType_Ml_g4dn_8xlarge,
         AppInstanceType_Ml_g4dn_xlarge,
+        AppInstanceType_Ml_g5_12xlarge,
+        AppInstanceType_Ml_g5_16xlarge,
+        AppInstanceType_Ml_g5_24xlarge,
+        AppInstanceType_Ml_g5_2xlarge,
+        AppInstanceType_Ml_g5_48xlarge,
+        AppInstanceType_Ml_g5_4xlarge,
+        AppInstanceType_Ml_g5_8xlarge,
+        AppInstanceType_Ml_g5_xlarge,
         AppInstanceType_Ml_m5_12xlarge,
         AppInstanceType_Ml_m5_16xlarge,
         AppInstanceType_Ml_m5_24xlarge,
@@ -145,6 +153,30 @@ pattern AppInstanceType_Ml_g4dn_8xlarge = AppInstanceType' "ml.g4dn.8xlarge"
 
 pattern AppInstanceType_Ml_g4dn_xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_g4dn_xlarge = AppInstanceType' "ml.g4dn.xlarge"
+
+pattern AppInstanceType_Ml_g5_12xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_12xlarge = AppInstanceType' "ml.g5.12xlarge"
+
+pattern AppInstanceType_Ml_g5_16xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_16xlarge = AppInstanceType' "ml.g5.16xlarge"
+
+pattern AppInstanceType_Ml_g5_24xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_24xlarge = AppInstanceType' "ml.g5.24xlarge"
+
+pattern AppInstanceType_Ml_g5_2xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_2xlarge = AppInstanceType' "ml.g5.2xlarge"
+
+pattern AppInstanceType_Ml_g5_48xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_48xlarge = AppInstanceType' "ml.g5.48xlarge"
+
+pattern AppInstanceType_Ml_g5_4xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_4xlarge = AppInstanceType' "ml.g5.4xlarge"
+
+pattern AppInstanceType_Ml_g5_8xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_8xlarge = AppInstanceType' "ml.g5.8xlarge"
+
+pattern AppInstanceType_Ml_g5_xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_g5_xlarge = AppInstanceType' "ml.g5.xlarge"
 
 pattern AppInstanceType_Ml_m5_12xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_m5_12xlarge = AppInstanceType' "ml.m5.12xlarge"
@@ -266,6 +298,14 @@ pattern AppInstanceType_System = AppInstanceType' "system"
   AppInstanceType_Ml_g4dn_4xlarge,
   AppInstanceType_Ml_g4dn_8xlarge,
   AppInstanceType_Ml_g4dn_xlarge,
+  AppInstanceType_Ml_g5_12xlarge,
+  AppInstanceType_Ml_g5_16xlarge,
+  AppInstanceType_Ml_g5_24xlarge,
+  AppInstanceType_Ml_g5_2xlarge,
+  AppInstanceType_Ml_g5_48xlarge,
+  AppInstanceType_Ml_g5_4xlarge,
+  AppInstanceType_Ml_g5_8xlarge,
+  AppInstanceType_Ml_g5_xlarge,
   AppInstanceType_Ml_m5_12xlarge,
   AppInstanceType_Ml_m5_16xlarge,
   AppInstanceType_Ml_m5_24xlarge,

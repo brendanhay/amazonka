@@ -58,7 +58,7 @@ data DescribeCertificates = DescribeCertificates'
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | Filters applied to the certificates described in the form of key-value
-    -- pairs.
+    -- pairs. Valid values are @certificate-arn@ and @certificate-id@.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -83,7 +83,7 @@ data DescribeCertificates = DescribeCertificates'
 -- marker, up to the value specified by @MaxRecords@.
 --
 -- 'filters', 'describeCertificates_filters' - Filters applied to the certificates described in the form of key-value
--- pairs.
+-- pairs. Valid values are @certificate-arn@ and @certificate-id@.
 --
 -- 'maxRecords', 'describeCertificates_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -107,7 +107,7 @@ describeCertificates_marker :: Lens.Lens' DescribeCertificates (Prelude.Maybe Pr
 describeCertificates_marker = Lens.lens (\DescribeCertificates' {marker} -> marker) (\s@DescribeCertificates' {} a -> s {marker = a} :: DescribeCertificates)
 
 -- | Filters applied to the certificates described in the form of key-value
--- pairs.
+-- pairs. Valid values are @certificate-arn@ and @certificate-id@.
 describeCertificates_filters :: Lens.Lens' DescribeCertificates (Prelude.Maybe [Filter])
 describeCertificates_filters = Lens.lens (\DescribeCertificates' {filters} -> filters) (\s@DescribeCertificates' {} a -> s {filters = a} :: DescribeCertificates) Prelude.. Lens.mapping Lens.coerced
 

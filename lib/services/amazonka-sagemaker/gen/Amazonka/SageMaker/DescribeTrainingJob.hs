@@ -231,7 +231,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- | Evaluation status of Debugger rules for profiling on a training job.
     profilerRuleEvaluationStatuses :: Prelude.Maybe [ProfilerRuleEvaluationStatus],
     -- | The S3 path where model artifacts that you configured when creating the
-    -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+    -- job are stored. SageMaker creates subfolders for model artifacts.
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | A Boolean indicating whether managed spot training is enabled (@True@)
     -- or not (@False@).
@@ -258,8 +258,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- | If you want to allow inbound or outbound network calls, except for calls
     -- between peers within a training cluster for distributed training, choose
     -- @True@. If you enable network isolation for training jobs that are
-    -- configured to use a VPC, Amazon SageMaker downloads and uploads customer
-    -- data and model artifacts through the specified VPC, but the training
+    -- configured to use a VPC, SageMaker downloads and uploads customer data
+    -- and model artifacts through the specified VPC, but the training
     -- container does not have network access.
     enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
     -- | Configuration information for Debugger rules for profiling system and
@@ -296,8 +296,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- | Configuration information for Debugger rules for debugging output
     -- tensors.
     debugRuleConfigurations :: Prelude.Maybe [DebugRuleConfiguration],
-    -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
-    -- labeling job that created the transform or training job.
+    -- | The Amazon Resource Name (ARN) of the SageMaker Ground Truth labeling
+    -- job that created the transform or training job.
     labelingJobArn :: Prelude.Maybe Prelude.Text,
     -- | Profiling status of a training job.
     profilingStatus :: Prelude.Maybe ProfilingStatus,
@@ -307,8 +307,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     --
     -- Multiply @BillableTimeInSeconds@ by the number of instances
     -- (@InstanceCount@) in your training cluster to get the total compute time
-    -- SageMaker will bill you if you run distributed training. The formula is
-    -- as follows: @BillableTimeInSeconds * InstanceCount@ .
+    -- SageMaker bills you if you run distributed training. The formula is as
+    -- follows: @BillableTimeInSeconds * InstanceCount@ .
     --
     -- You can calculate the savings from using managed spot training using the
     -- formula @(1 - BillableTimeInSeconds \/ TrainingTimeInSeconds) * 100@.
@@ -325,7 +325,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
-    -- this is the time when Amazon SageMaker detects a job failure.
+    -- this is the time when SageMaker detects a job failure.
     trainingEndTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -338,7 +338,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     modelArtifacts :: ModelArtifacts,
     -- | The status of the training job.
     --
-    -- Amazon SageMaker provides the following training job statuses:
+    -- SageMaker provides the following training job statuses:
     --
     -- -   @InProgress@ - The training is in progress.
     --
@@ -358,8 +358,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- detailed information on the secondary status of the training job, see
     -- @StatusMessage@ under SecondaryStatusTransition.
     --
-    -- Amazon SageMaker provides primary statuses and secondary statuses that
-    -- apply to each of them:
+    -- SageMaker provides primary statuses and secondary statuses that apply to
+    -- each of them:
     --
     -- [InProgress]
     --     -   @Starting@ - Starting the training job.
@@ -414,12 +414,12 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     resourceConfig :: ResourceConfig,
     -- | Specifies a limit to how long a model training job can run. It also
     -- specifies how long a managed Spot training job has to complete. When the
-    -- job reaches the time limit, Amazon SageMaker ends the training job. Use
-    -- this API to cap model training costs.
+    -- job reaches the time limit, SageMaker ends the training job. Use this
+    -- API to cap model training costs.
     --
-    -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
-    -- signal, which delays job termination for 120 seconds. Algorithms can use
-    -- this 120-second window to save the model artifacts, so the results of
+    -- To stop a job, SageMaker sends the algorithm the @SIGTERM@ signal, which
+    -- delays job termination for 120 seconds. Algorithms can use this
+    -- 120-second window to save the model artifacts, so the results of
     -- training are not lost.
     stoppingCondition :: StoppingCondition,
     -- | A timestamp that indicates when the training job was created.
@@ -440,7 +440,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- 'profilerRuleEvaluationStatuses', 'describeTrainingJobResponse_profilerRuleEvaluationStatuses' - Evaluation status of Debugger rules for profiling on a training job.
 --
 -- 'outputDataConfig', 'describeTrainingJobResponse_outputDataConfig' - The S3 path where model artifacts that you configured when creating the
--- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+-- job are stored. SageMaker creates subfolders for model artifacts.
 --
 -- 'enableManagedSpotTraining', 'describeTrainingJobResponse_enableManagedSpotTraining' - A Boolean indicating whether managed spot training is enabled (@True@)
 -- or not (@False@).
@@ -467,8 +467,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- 'enableNetworkIsolation', 'describeTrainingJobResponse_enableNetworkIsolation' - If you want to allow inbound or outbound network calls, except for calls
 -- between peers within a training cluster for distributed training, choose
 -- @True@. If you enable network isolation for training jobs that are
--- configured to use a VPC, Amazon SageMaker downloads and uploads customer
--- data and model artifacts through the specified VPC, but the training
+-- configured to use a VPC, SageMaker downloads and uploads customer data
+-- and model artifacts through the specified VPC, but the training
 -- container does not have network access.
 --
 -- 'profilerRuleConfigurations', 'describeTrainingJobResponse_profilerRuleConfigurations' - Configuration information for Debugger rules for profiling system and
@@ -508,8 +508,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- 'debugRuleConfigurations', 'describeTrainingJobResponse_debugRuleConfigurations' - Configuration information for Debugger rules for debugging output
 -- tensors.
 --
--- 'labelingJobArn', 'describeTrainingJobResponse_labelingJobArn' - The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
--- labeling job that created the transform or training job.
+-- 'labelingJobArn', 'describeTrainingJobResponse_labelingJobArn' - The Amazon Resource Name (ARN) of the SageMaker Ground Truth labeling
+-- job that created the transform or training job.
 --
 -- 'profilingStatus', 'describeTrainingJobResponse_profilingStatus' - Profiling status of a training job.
 --
@@ -520,8 +520,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 --
 -- Multiply @BillableTimeInSeconds@ by the number of instances
 -- (@InstanceCount@) in your training cluster to get the total compute time
--- SageMaker will bill you if you run distributed training. The formula is
--- as follows: @BillableTimeInSeconds * InstanceCount@ .
+-- SageMaker bills you if you run distributed training. The formula is as
+-- follows: @BillableTimeInSeconds * InstanceCount@ .
 --
 -- You can calculate the savings from using managed spot training using the
 -- formula @(1 - BillableTimeInSeconds \/ TrainingTimeInSeconds) * 100@.
@@ -538,7 +538,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
--- this is the time when Amazon SageMaker detects a job failure.
+-- this is the time when SageMaker detects a job failure.
 --
 -- 'httpStatus', 'describeTrainingJobResponse_httpStatus' - The response's http status code.
 --
@@ -551,7 +551,7 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 --
 -- 'trainingJobStatus', 'describeTrainingJobResponse_trainingJobStatus' - The status of the training job.
 --
--- Amazon SageMaker provides the following training job statuses:
+-- SageMaker provides the following training job statuses:
 --
 -- -   @InProgress@ - The training is in progress.
 --
@@ -571,8 +571,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- detailed information on the secondary status of the training job, see
 -- @StatusMessage@ under SecondaryStatusTransition.
 --
--- Amazon SageMaker provides primary statuses and secondary statuses that
--- apply to each of them:
+-- SageMaker provides primary statuses and secondary statuses that apply to
+-- each of them:
 --
 -- [InProgress]
 --     -   @Starting@ - Starting the training job.
@@ -627,12 +627,12 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 --
 -- 'stoppingCondition', 'describeTrainingJobResponse_stoppingCondition' - Specifies a limit to how long a model training job can run. It also
 -- specifies how long a managed Spot training job has to complete. When the
--- job reaches the time limit, Amazon SageMaker ends the training job. Use
--- this API to cap model training costs.
+-- job reaches the time limit, SageMaker ends the training job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
--- signal, which delays job termination for 120 seconds. Algorithms can use
--- this 120-second window to save the model artifacts, so the results of
+-- To stop a job, SageMaker sends the algorithm the @SIGTERM@ signal, which
+-- delays job termination for 120 seconds. Algorithms can use this
+-- 120-second window to save the model artifacts, so the results of
 -- training are not lost.
 --
 -- 'creationTime', 'describeTrainingJobResponse_creationTime' - A timestamp that indicates when the training job was created.
@@ -727,7 +727,7 @@ describeTrainingJobResponse_profilerRuleEvaluationStatuses :: Lens.Lens' Describ
 describeTrainingJobResponse_profilerRuleEvaluationStatuses = Lens.lens (\DescribeTrainingJobResponse' {profilerRuleEvaluationStatuses} -> profilerRuleEvaluationStatuses) (\s@DescribeTrainingJobResponse' {} a -> s {profilerRuleEvaluationStatuses = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The S3 path where model artifacts that you configured when creating the
--- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+-- job are stored. SageMaker creates subfolders for model artifacts.
 describeTrainingJobResponse_outputDataConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe OutputDataConfig)
 describeTrainingJobResponse_outputDataConfig = Lens.lens (\DescribeTrainingJobResponse' {outputDataConfig} -> outputDataConfig) (\s@DescribeTrainingJobResponse' {} a -> s {outputDataConfig = a} :: DescribeTrainingJobResponse)
 
@@ -772,8 +772,8 @@ describeTrainingJobResponse_secondaryStatusTransitions = Lens.lens (\DescribeTra
 -- | If you want to allow inbound or outbound network calls, except for calls
 -- between peers within a training cluster for distributed training, choose
 -- @True@. If you enable network isolation for training jobs that are
--- configured to use a VPC, Amazon SageMaker downloads and uploads customer
--- data and model artifacts through the specified VPC, but the training
+-- configured to use a VPC, SageMaker downloads and uploads customer data
+-- and model artifacts through the specified VPC, but the training
 -- container does not have network access.
 describeTrainingJobResponse_enableNetworkIsolation :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Bool)
 describeTrainingJobResponse_enableNetworkIsolation = Lens.lens (\DescribeTrainingJobResponse' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@DescribeTrainingJobResponse' {} a -> s {enableNetworkIsolation = a} :: DescribeTrainingJobResponse)
@@ -837,8 +837,8 @@ describeTrainingJobResponse_finalMetricDataList = Lens.lens (\DescribeTrainingJo
 describeTrainingJobResponse_debugRuleConfigurations :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [DebugRuleConfiguration])
 describeTrainingJobResponse_debugRuleConfigurations = Lens.lens (\DescribeTrainingJobResponse' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@DescribeTrainingJobResponse' {} a -> s {debugRuleConfigurations = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
--- labeling job that created the transform or training job.
+-- | The Amazon Resource Name (ARN) of the SageMaker Ground Truth labeling
+-- job that created the transform or training job.
 describeTrainingJobResponse_labelingJobArn :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
 describeTrainingJobResponse_labelingJobArn = Lens.lens (\DescribeTrainingJobResponse' {labelingJobArn} -> labelingJobArn) (\s@DescribeTrainingJobResponse' {} a -> s {labelingJobArn = a} :: DescribeTrainingJobResponse)
 
@@ -855,8 +855,8 @@ describeTrainingJobResponse_tensorBoardOutputConfig = Lens.lens (\DescribeTraini
 --
 -- Multiply @BillableTimeInSeconds@ by the number of instances
 -- (@InstanceCount@) in your training cluster to get the total compute time
--- SageMaker will bill you if you run distributed training. The formula is
--- as follows: @BillableTimeInSeconds * InstanceCount@ .
+-- SageMaker bills you if you run distributed training. The formula is as
+-- follows: @BillableTimeInSeconds * InstanceCount@ .
 --
 -- You can calculate the savings from using managed spot training using the
 -- formula @(1 - BillableTimeInSeconds \/ TrainingTimeInSeconds) * 100@.
@@ -881,7 +881,7 @@ describeTrainingJobResponse_failureReason = Lens.lens (\DescribeTrainingJobRespo
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
--- this is the time when Amazon SageMaker detects a job failure.
+-- this is the time when SageMaker detects a job failure.
 describeTrainingJobResponse_trainingEndTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeTrainingJobResponse_trainingEndTime = Lens.lens (\DescribeTrainingJobResponse' {trainingEndTime} -> trainingEndTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingEndTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Core._Time
 
@@ -904,7 +904,7 @@ describeTrainingJobResponse_modelArtifacts = Lens.lens (\DescribeTrainingJobResp
 
 -- | The status of the training job.
 --
--- Amazon SageMaker provides the following training job statuses:
+-- SageMaker provides the following training job statuses:
 --
 -- -   @InProgress@ - The training is in progress.
 --
@@ -926,8 +926,8 @@ describeTrainingJobResponse_trainingJobStatus = Lens.lens (\DescribeTrainingJobR
 -- detailed information on the secondary status of the training job, see
 -- @StatusMessage@ under SecondaryStatusTransition.
 --
--- Amazon SageMaker provides primary statuses and secondary statuses that
--- apply to each of them:
+-- SageMaker provides primary statuses and secondary statuses that apply to
+-- each of them:
 --
 -- [InProgress]
 --     -   @Starting@ - Starting the training job.
@@ -988,12 +988,12 @@ describeTrainingJobResponse_resourceConfig = Lens.lens (\DescribeTrainingJobResp
 
 -- | Specifies a limit to how long a model training job can run. It also
 -- specifies how long a managed Spot training job has to complete. When the
--- job reaches the time limit, Amazon SageMaker ends the training job. Use
--- this API to cap model training costs.
+-- job reaches the time limit, SageMaker ends the training job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
--- signal, which delays job termination for 120 seconds. Algorithms can use
--- this 120-second window to save the model artifacts, so the results of
+-- To stop a job, SageMaker sends the algorithm the @SIGTERM@ signal, which
+-- delays job termination for 120 seconds. Algorithms can use this
+-- 120-second window to save the model artifacts, so the results of
 -- training are not lost.
 describeTrainingJobResponse_stoppingCondition :: Lens.Lens' DescribeTrainingJobResponse StoppingCondition
 describeTrainingJobResponse_stoppingCondition = Lens.lens (\DescribeTrainingJobResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeTrainingJobResponse' {} a -> s {stoppingCondition = a} :: DescribeTrainingJobResponse)

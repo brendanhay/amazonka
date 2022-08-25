@@ -300,7 +300,7 @@ data PutRecordResponse = PutRecordResponse'
     -- -   @NONE@: Do not encrypt the records in the stream.
     --
     -- -   @KMS@: Use server-side encryption on the records in the stream using
-    --     a customer-managed AWS KMS key.
+    --     a customer-managed Amazon Web Services KMS key.
     encryptionType :: Prelude.Maybe EncryptionType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -328,7 +328,7 @@ data PutRecordResponse = PutRecordResponse'
 -- -   @NONE@: Do not encrypt the records in the stream.
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
---     a customer-managed AWS KMS key.
+--     a customer-managed Amazon Web Services KMS key.
 --
 -- 'httpStatus', 'putRecordResponse_httpStatus' - The response's http status code.
 --
@@ -364,7 +364,7 @@ newPutRecordResponse
 -- -   @NONE@: Do not encrypt the records in the stream.
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
---     a customer-managed AWS KMS key.
+--     a customer-managed Amazon Web Services KMS key.
 putRecordResponse_encryptionType :: Lens.Lens' PutRecordResponse (Prelude.Maybe EncryptionType)
 putRecordResponse_encryptionType = Lens.lens (\PutRecordResponse' {encryptionType} -> encryptionType) (\s@PutRecordResponse' {} a -> s {encryptionType = a} :: PutRecordResponse)
 

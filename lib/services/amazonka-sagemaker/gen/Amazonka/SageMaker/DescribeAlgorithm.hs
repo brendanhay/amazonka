@@ -147,7 +147,7 @@ instance Core.ToQuery DescribeAlgorithm where
 
 -- | /See:/ 'newDescribeAlgorithmResponse' smart constructor.
 data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
-  { -- | Details about configurations for one or more training jobs that Amazon
+  { -- | Details about configurations for one or more training jobs that
     -- SageMaker runs to test the algorithm.
     validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
     -- | Whether the algorithm is certified to be listed in Amazon Web Services
@@ -184,7 +184,7 @@ data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validationSpecification', 'describeAlgorithmResponse_validationSpecification' - Details about configurations for one or more training jobs that Amazon
+-- 'validationSpecification', 'describeAlgorithmResponse_validationSpecification' - Details about configurations for one or more training jobs that
 -- SageMaker runs to test the algorithm.
 --
 -- 'certifyForMarketplace', 'describeAlgorithmResponse_certifyForMarketplace' - Whether the algorithm is certified to be listed in Amazon Web Services
@@ -250,7 +250,7 @@ newDescribeAlgorithmResponse
           pAlgorithmStatusDetails_
       }
 
--- | Details about configurations for one or more training jobs that Amazon
+-- | Details about configurations for one or more training jobs that
 -- SageMaker runs to test the algorithm.
 describeAlgorithmResponse_validationSpecification :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe AlgorithmValidationSpecification)
 describeAlgorithmResponse_validationSpecification = Lens.lens (\DescribeAlgorithmResponse' {validationSpecification} -> validationSpecification) (\s@DescribeAlgorithmResponse' {} a -> s {validationSpecification = a} :: DescribeAlgorithmResponse)

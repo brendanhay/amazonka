@@ -57,8 +57,8 @@ data ListRelatedItems = ListRelatedItems'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of related items per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the incident record that you are
-    -- listing related items for.
+    -- | The Amazon Resource Name (ARN) of the incident record containing the
+    -- listed related items.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,8 +75,8 @@ data ListRelatedItems = ListRelatedItems'
 --
 -- 'maxResults', 'listRelatedItems_maxResults' - The maximum number of related items per page.
 --
--- 'incidentRecordArn', 'listRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record that you are
--- listing related items for.
+-- 'incidentRecordArn', 'listRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record containing the
+-- listed related items.
 newListRelatedItems ::
   -- | 'incidentRecordArn'
   Prelude.Text ->
@@ -96,8 +96,8 @@ listRelatedItems_nextToken = Lens.lens (\ListRelatedItems' {nextToken} -> nextTo
 listRelatedItems_maxResults :: Lens.Lens' ListRelatedItems (Prelude.Maybe Prelude.Natural)
 listRelatedItems_maxResults = Lens.lens (\ListRelatedItems' {maxResults} -> maxResults) (\s@ListRelatedItems' {} a -> s {maxResults = a} :: ListRelatedItems)
 
--- | The Amazon Resource Name (ARN) of the incident record that you are
--- listing related items for.
+-- | The Amazon Resource Name (ARN) of the incident record containing the
+-- listed related items.
 listRelatedItems_incidentRecordArn :: Lens.Lens' ListRelatedItems Prelude.Text
 listRelatedItems_incidentRecordArn = Lens.lens (\ListRelatedItems' {incidentRecordArn} -> incidentRecordArn) (\s@ListRelatedItems' {} a -> s {incidentRecordArn = a} :: ListRelatedItems)
 

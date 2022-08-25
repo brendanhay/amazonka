@@ -23,14 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the names of AWS CloudFormation stacks used to update a
--- collection of stacks. You can specify up to 500 AWS CloudFormation
--- stacks.
+-- | Contains the names of Amazon Web Services CloudFormation stacks used to
+-- update a collection of stacks. You can specify up to 500 Amazon Web
+-- Services CloudFormation stacks.
 --
 -- /See:/ 'newUpdateCloudFormationCollectionFilter' smart constructor.
 data UpdateCloudFormationCollectionFilter = UpdateCloudFormationCollectionFilter'
-  { -- | An array of the names of the AWS CloudFormation stacks to update. You
-    -- can specify up to 500 AWS CloudFormation stacks.
+  { -- | An array of the names of the Amazon Web Services CloudFormation stacks
+    -- to update. You can specify up to 500 Amazon Web Services CloudFormation
+    -- stacks.
     stackNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +44,9 @@ data UpdateCloudFormationCollectionFilter = UpdateCloudFormationCollectionFilter
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackNames', 'updateCloudFormationCollectionFilter_stackNames' - An array of the names of the AWS CloudFormation stacks to update. You
--- can specify up to 500 AWS CloudFormation stacks.
+-- 'stackNames', 'updateCloudFormationCollectionFilter_stackNames' - An array of the names of the Amazon Web Services CloudFormation stacks
+-- to update. You can specify up to 500 Amazon Web Services CloudFormation
+-- stacks.
 newUpdateCloudFormationCollectionFilter ::
   UpdateCloudFormationCollectionFilter
 newUpdateCloudFormationCollectionFilter =
@@ -53,8 +55,9 @@ newUpdateCloudFormationCollectionFilter =
         Prelude.Nothing
     }
 
--- | An array of the names of the AWS CloudFormation stacks to update. You
--- can specify up to 500 AWS CloudFormation stacks.
+-- | An array of the names of the Amazon Web Services CloudFormation stacks
+-- to update. You can specify up to 500 Amazon Web Services CloudFormation
+-- stacks.
 updateCloudFormationCollectionFilter_stackNames :: Lens.Lens' UpdateCloudFormationCollectionFilter (Prelude.Maybe [Prelude.Text])
 updateCloudFormationCollectionFilter_stackNames = Lens.lens (\UpdateCloudFormationCollectionFilter' {stackNames} -> stackNames) (\s@UpdateCloudFormationCollectionFilter' {} a -> s {stackNames = a} :: UpdateCloudFormationCollectionFilter) Prelude.. Lens.mapping Lens.coerced
 

@@ -23,6 +23,15 @@ module Amazonka.ForecastQuery.Lens
     queryForecastResponse_forecast,
     queryForecastResponse_httpStatus,
 
+    -- ** QueryWhatIfForecast
+    queryWhatIfForecast_nextToken,
+    queryWhatIfForecast_endDate,
+    queryWhatIfForecast_startDate,
+    queryWhatIfForecast_whatIfForecastArn,
+    queryWhatIfForecast_filters,
+    queryWhatIfForecastResponse_forecast,
+    queryWhatIfForecastResponse_httpStatus,
+
     -- * Types
 
     -- ** DataPoint
@@ -35,5 +44,6 @@ module Amazonka.ForecastQuery.Lens
 where
 
 import Amazonka.ForecastQuery.QueryForecast
+import Amazonka.ForecastQuery.QueryWhatIfForecast
 import Amazonka.ForecastQuery.Types.DataPoint
 import Amazonka.ForecastQuery.Types.Forecast

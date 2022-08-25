@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteStage' smart constructor.
 data DeleteStage = DeleteStage'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the Stage resource to delete.
+    -- | The name of the Stage resource to delete.
     stageName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data DeleteStage = DeleteStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteStage_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteStage_restApiId' - The string identifier of the associated RestApi.
 --
--- 'stageName', 'deleteStage_stageName' - [Required] The name of the Stage resource to delete.
+-- 'stageName', 'deleteStage_stageName' - The name of the Stage resource to delete.
 newDeleteStage ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -77,11 +77,11 @@ newDeleteStage pRestApiId_ pStageName_ =
       stageName = pStageName_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteStage_restApiId :: Lens.Lens' DeleteStage Prelude.Text
 deleteStage_restApiId = Lens.lens (\DeleteStage' {restApiId} -> restApiId) (\s@DeleteStage' {} a -> s {restApiId = a} :: DeleteStage)
 
--- | [Required] The name of the Stage resource to delete.
+-- | The name of the Stage resource to delete.
 deleteStage_stageName :: Lens.Lens' DeleteStage Prelude.Text
 deleteStage_stageName = Lens.lens (\DeleteStage' {stageName} -> stageName) (\s@DeleteStage' {} a -> s {stageName = a} :: DeleteStage)
 

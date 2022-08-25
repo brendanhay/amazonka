@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data EbsBlockDevice = EbsBlockDevice'
   { -- | The device name that is exposed to the instance, such as \/dev\/sdh.
     device :: Prelude.Maybe Prelude.Text,
-    -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
-    -- will be requested for the EBS volume attached to an EC2 instance in the
-    -- cluster.
+    -- | EBS volume specifications such as volume type, IOPS, size (GiB) and
+    -- throughput (MiB\/s) that are requested for the EBS volume attached to an
+    -- EC2 instance in the cluster.
     volumeSpecification :: Prelude.Maybe VolumeSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +48,9 @@ data EbsBlockDevice = EbsBlockDevice'
 --
 -- 'device', 'ebsBlockDevice_device' - The device name that is exposed to the instance, such as \/dev\/sdh.
 --
--- 'volumeSpecification', 'ebsBlockDevice_volumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that
--- will be requested for the EBS volume attached to an EC2 instance in the
--- cluster.
+-- 'volumeSpecification', 'ebsBlockDevice_volumeSpecification' - EBS volume specifications such as volume type, IOPS, size (GiB) and
+-- throughput (MiB\/s) that are requested for the EBS volume attached to an
+-- EC2 instance in the cluster.
 newEbsBlockDevice ::
   EbsBlockDevice
 newEbsBlockDevice =
@@ -63,9 +63,9 @@ newEbsBlockDevice =
 ebsBlockDevice_device :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
 ebsBlockDevice_device = Lens.lens (\EbsBlockDevice' {device} -> device) (\s@EbsBlockDevice' {} a -> s {device = a} :: EbsBlockDevice)
 
--- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
--- will be requested for the EBS volume attached to an EC2 instance in the
--- cluster.
+-- | EBS volume specifications such as volume type, IOPS, size (GiB) and
+-- throughput (MiB\/s) that are requested for the EBS volume attached to an
+-- EC2 instance in the cluster.
 ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeSpecification)
 ebsBlockDevice_volumeSpecification = Lens.lens (\EbsBlockDevice' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDevice' {} a -> s {volumeSpecification = a} :: EbsBlockDevice)
 

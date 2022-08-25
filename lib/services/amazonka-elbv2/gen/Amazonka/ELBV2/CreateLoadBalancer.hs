@@ -89,7 +89,9 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- | The type of load balancer. The default is @application@.
     type' :: Prelude.Maybe LoadBalancerTypeEnum,
     -- | The IDs of the public subnets. You can specify only one subnet per
-    -- Availability Zone. You must specify either subnets or subnet mappings.
+    -- Availability Zone. You must specify either subnets or subnet mappings,
+    -- but not both. To specify an Elastic IP address, specify subnet mappings
+    -- instead of subnets.
     --
     -- [Application Load Balancers] You must specify subnets from at least two
     -- Availability Zones.
@@ -113,7 +115,8 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- balancer.
     securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The IDs of the public subnets. You can specify only one subnet per
-    -- Availability Zone. You must specify either subnets or subnet mappings.
+    -- Availability Zone. You must specify either subnets or subnet mappings,
+    -- but not both.
     --
     -- [Application Load Balancers] You must specify subnets from at least two
     -- Availability Zones. You cannot specify Elastic IP addresses for your
@@ -138,7 +141,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
     subnetMappings :: Prelude.Maybe [SubnetMapping],
     -- | The type of IP addresses used by the subnets for your load balancer. The
     -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
-    -- IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@.
+    -- IPv4 and IPv6 addresses).
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The name of the load balancer.
     --
@@ -178,7 +181,9 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- 'type'', 'createLoadBalancer_type' - The type of load balancer. The default is @application@.
 --
 -- 'subnets', 'createLoadBalancer_subnets' - The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings.
+-- Availability Zone. You must specify either subnets or subnet mappings,
+-- but not both. To specify an Elastic IP address, specify subnet mappings
+-- instead of subnets.
 --
 -- [Application Load Balancers] You must specify subnets from at least two
 -- Availability Zones.
@@ -202,7 +207,8 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- balancer.
 --
 -- 'subnetMappings', 'createLoadBalancer_subnetMappings' - The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings.
+-- Availability Zone. You must specify either subnets or subnet mappings,
+-- but not both.
 --
 -- [Application Load Balancers] You must specify subnets from at least two
 -- Availability Zones. You cannot specify Elastic IP addresses for your
@@ -227,7 +233,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- 'ipAddressType', 'createLoadBalancer_ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The
 -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
--- IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@.
+-- IPv4 and IPv6 addresses).
 --
 -- 'name', 'createLoadBalancer_name' - The name of the load balancer.
 --
@@ -278,7 +284,9 @@ createLoadBalancer_type :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe LoadBala
 createLoadBalancer_type = Lens.lens (\CreateLoadBalancer' {type'} -> type') (\s@CreateLoadBalancer' {} a -> s {type' = a} :: CreateLoadBalancer)
 
 -- | The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings.
+-- Availability Zone. You must specify either subnets or subnet mappings,
+-- but not both. To specify an Elastic IP address, specify subnet mappings
+-- instead of subnets.
 --
 -- [Application Load Balancers] You must specify subnets from at least two
 -- Availability Zones.
@@ -308,7 +316,8 @@ createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Prelude.Mayb
 createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings.
+-- Availability Zone. You must specify either subnets or subnet mappings,
+-- but not both.
 --
 -- [Application Load Balancers] You must specify subnets from at least two
 -- Availability Zones. You cannot specify Elastic IP addresses for your
@@ -335,7 +344,7 @@ createLoadBalancer_subnetMappings = Lens.lens (\CreateLoadBalancer' {subnetMappi
 
 -- | The type of IP addresses used by the subnets for your load balancer. The
 -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
--- IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@.
+-- IPv4 and IPv6 addresses).
 createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
 createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
 

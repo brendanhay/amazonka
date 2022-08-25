@@ -38,6 +38,8 @@ data AwsCodeBuildProjectDetails = AwsCodeBuildProjectDetails'
     environment :: Prelude.Maybe AwsCodeBuildProjectEnvironment,
     -- | Information about the VPC configuration that CodeBuild accesses.
     vpcConfig :: Prelude.Maybe AwsCodeBuildProjectVpcConfig,
+    -- | Information about the secondary artifacts for the CodeBuild project.
+    secondaryArtifacts :: Prelude.Maybe [AwsCodeBuildProjectArtifactsDetails],
     -- | The ARN of the IAM role that enables CodeBuild to interact with
     -- dependent Amazon Web Services services on behalf of the Amazon Web
     -- Services account.
@@ -70,6 +72,8 @@ data AwsCodeBuildProjectDetails = AwsCodeBuildProjectDetails'
 --
 -- 'vpcConfig', 'awsCodeBuildProjectDetails_vpcConfig' - Information about the VPC configuration that CodeBuild accesses.
 --
+-- 'secondaryArtifacts', 'awsCodeBuildProjectDetails_secondaryArtifacts' - Information about the secondary artifacts for the CodeBuild project.
+--
 -- 'serviceRole', 'awsCodeBuildProjectDetails_serviceRole' - The ARN of the IAM role that enables CodeBuild to interact with
 -- dependent Amazon Web Services services on behalf of the Amazon Web
 -- Services account.
@@ -91,6 +95,7 @@ newAwsCodeBuildProjectDetails =
     { name = Prelude.Nothing,
       environment = Prelude.Nothing,
       vpcConfig = Prelude.Nothing,
+      secondaryArtifacts = Prelude.Nothing,
       serviceRole = Prelude.Nothing,
       source = Prelude.Nothing,
       logsConfig = Prelude.Nothing,
@@ -109,6 +114,10 @@ awsCodeBuildProjectDetails_environment = Lens.lens (\AwsCodeBuildProjectDetails'
 -- | Information about the VPC configuration that CodeBuild accesses.
 awsCodeBuildProjectDetails_vpcConfig :: Lens.Lens' AwsCodeBuildProjectDetails (Prelude.Maybe AwsCodeBuildProjectVpcConfig)
 awsCodeBuildProjectDetails_vpcConfig = Lens.lens (\AwsCodeBuildProjectDetails' {vpcConfig} -> vpcConfig) (\s@AwsCodeBuildProjectDetails' {} a -> s {vpcConfig = a} :: AwsCodeBuildProjectDetails)
+
+-- | Information about the secondary artifacts for the CodeBuild project.
+awsCodeBuildProjectDetails_secondaryArtifacts :: Lens.Lens' AwsCodeBuildProjectDetails (Prelude.Maybe [AwsCodeBuildProjectArtifactsDetails])
+awsCodeBuildProjectDetails_secondaryArtifacts = Lens.lens (\AwsCodeBuildProjectDetails' {secondaryArtifacts} -> secondaryArtifacts) (\s@AwsCodeBuildProjectDetails' {} a -> s {secondaryArtifacts = a} :: AwsCodeBuildProjectDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the IAM role that enables CodeBuild to interact with
 -- dependent Amazon Web Services services on behalf of the Amazon Web
@@ -144,6 +153,9 @@ instance Core.FromJSON AwsCodeBuildProjectDetails where
             Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Environment")
             Prelude.<*> (x Core..:? "VpcConfig")
+            Prelude.<*> ( x Core..:? "SecondaryArtifacts"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "LogsConfig")
@@ -156,6 +168,7 @@ instance Prelude.Hashable AwsCodeBuildProjectDetails where
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` secondaryArtifacts
       `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` logsConfig
@@ -167,6 +180,7 @@ instance Prelude.NFData AwsCodeBuildProjectDetails where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf secondaryArtifacts
       `Prelude.seq` Prelude.rnf serviceRole
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf logsConfig
@@ -180,6 +194,8 @@ instance Core.ToJSON AwsCodeBuildProjectDetails where
           [ ("Name" Core..=) Prelude.<$> name,
             ("Environment" Core..=) Prelude.<$> environment,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("SecondaryArtifacts" Core..=)
+              Prelude.<$> secondaryArtifacts,
             ("ServiceRole" Core..=) Prelude.<$> serviceRole,
             ("Source" Core..=) Prelude.<$> source,
             ("LogsConfig" Core..=) Prelude.<$> logsConfig,

@@ -32,7 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpGatewayRouteMatch' smart constructor.
 data HttpGatewayRouteMatch = HttpGatewayRouteMatch'
-  { -- | The client request headers to match on.
+  { -- | The port number to match on.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | The client request headers to match on.
     headers :: Prelude.Maybe (Prelude.NonEmpty HttpGatewayRouteHeader),
     -- | The method to match on.
     method :: Prelude.Maybe HttpMethod,
@@ -60,6 +62,8 @@ data HttpGatewayRouteMatch = HttpGatewayRouteMatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'httpGatewayRouteMatch_port' - The port number to match on.
+--
 -- 'headers', 'httpGatewayRouteMatch_headers' - The client request headers to match on.
 --
 -- 'method', 'httpGatewayRouteMatch_method' - The method to match on.
@@ -80,13 +84,18 @@ newHttpGatewayRouteMatch ::
   HttpGatewayRouteMatch
 newHttpGatewayRouteMatch =
   HttpGatewayRouteMatch'
-    { headers = Prelude.Nothing,
+    { port = Prelude.Nothing,
+      headers = Prelude.Nothing,
       method = Prelude.Nothing,
       path = Prelude.Nothing,
       hostname = Prelude.Nothing,
       queryParameters = Prelude.Nothing,
       prefix = Prelude.Nothing
     }
+
+-- | The port number to match on.
+httpGatewayRouteMatch_port :: Lens.Lens' HttpGatewayRouteMatch (Prelude.Maybe Prelude.Natural)
+httpGatewayRouteMatch_port = Lens.lens (\HttpGatewayRouteMatch' {port} -> port) (\s@HttpGatewayRouteMatch' {} a -> s {port = a} :: HttpGatewayRouteMatch)
 
 -- | The client request headers to match on.
 httpGatewayRouteMatch_headers :: Lens.Lens' HttpGatewayRouteMatch (Prelude.Maybe (Prelude.NonEmpty HttpGatewayRouteHeader))
@@ -123,7 +132,8 @@ instance Core.FromJSON HttpGatewayRouteMatch where
       "HttpGatewayRouteMatch"
       ( \x ->
           HttpGatewayRouteMatch'
-            Prelude.<$> (x Core..:? "headers")
+            Prelude.<$> (x Core..:? "port")
+            Prelude.<*> (x Core..:? "headers")
             Prelude.<*> (x Core..:? "method")
             Prelude.<*> (x Core..:? "path")
             Prelude.<*> (x Core..:? "hostname")
@@ -133,7 +143,8 @@ instance Core.FromJSON HttpGatewayRouteMatch where
 
 instance Prelude.Hashable HttpGatewayRouteMatch where
   hashWithSalt _salt HttpGatewayRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` method
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` hostname
@@ -142,7 +153,8 @@ instance Prelude.Hashable HttpGatewayRouteMatch where
 
 instance Prelude.NFData HttpGatewayRouteMatch where
   rnf HttpGatewayRouteMatch' {..} =
-    Prelude.rnf headers
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf headers
       `Prelude.seq` Prelude.rnf method
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf hostname
@@ -153,7 +165,8 @@ instance Core.ToJSON HttpGatewayRouteMatch where
   toJSON HttpGatewayRouteMatch' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("headers" Core..=) Prelude.<$> headers,
+          [ ("port" Core..=) Prelude.<$> port,
+            ("headers" Core..=) Prelude.<$> headers,
             ("method" Core..=) Prelude.<$> method,
             ("path" Core..=) Prelude.<$> path,
             ("hostname" Core..=) Prelude.<$> hostname,

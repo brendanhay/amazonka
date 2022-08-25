@@ -21,19 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- A State Manager association defines the state that you want to maintain
--- on your instances. For example, an association can specify that
--- anti-virus software must be installed and running on your instances, or
--- that certain ports must be closed. For static targets, the association
--- specifies a schedule for when the configuration is reapplied. For
--- dynamic targets, such as an Amazon Web Services resource group or an
--- Amazon Web Services autoscaling group, State Manager, a capability of
--- Amazon Web Services Systems Manager applies the configuration when new
--- instances are added to the group. The association also specifies actions
--- to take when applying the configuration. For example, an association for
--- anti-virus software might run once a day. If the software isn\'t
--- installed, then State Manager installs it. If the software is installed,
--- but the service isn\'t running, then the association might instruct
--- State Manager to start the service.
+-- on your managed nodes. For example, an association can specify that
+-- anti-virus software must be installed and running on your managed nodes,
+-- or that certain ports must be closed. For static targets, the
+-- association specifies a schedule for when the configuration is
+-- reapplied. For dynamic targets, such as an Amazon Web Services resource
+-- group or an Amazon Web Services autoscaling group, State Manager, a
+-- capability of Amazon Web Services Systems Manager applies the
+-- configuration when new managed nodes are added to the group. The
+-- association also specifies actions to take when applying the
+-- configuration. For example, an association for anti-virus software might
+-- run once a day. If the software isn\'t installed, then State Manager
+-- installs it. If the software is installed, but the service isn\'t
+-- running, then the association might instruct State Manager to start the
+-- service.
 module Amazonka.SSM.CreateAssociation
   ( -- * Creating a Request
     CreateAssociation (..),
@@ -43,10 +44,12 @@ module Amazonka.SSM.CreateAssociation
     createAssociation_associationName,
     createAssociation_targetLocations,
     createAssociation_automationTargetParameterName,
+    createAssociation_targetMaps,
     createAssociation_outputLocation,
     createAssociation_targets,
     createAssociation_calendarNames,
     createAssociation_scheduleExpression,
+    createAssociation_scheduleOffset,
     createAssociation_instanceId,
     createAssociation_maxConcurrency,
     createAssociation_applyOnlyAtCronInterval,
@@ -83,19 +86,22 @@ data CreateAssociation = CreateAssociation'
     -- action to create an association in multiple Regions and multiple
     -- accounts.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
-    -- | Specify the target for the association. This target is required for
-    -- associations that use an Automation runbook and target resources by
-    -- using rate controls. Automation is a capability of Amazon Web Services
-    -- Systems Manager.
+    -- | Choose the parameter that will define how your automation will branch
+    -- out. This target is required for associations that use an Automation
+    -- runbook and target resources by using rate controls. Automation is a
+    -- capability of Amazon Web Services Systems Manager.
     automationTargetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | A key-value mapping of document parameters to target resources. Both
+    -- Targets and TargetMaps can\'t be specified together.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
     -- | An Amazon Simple Storage Service (Amazon S3) bucket where you want to
     -- store the output details of the request.
     outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
-    -- | The targets for the association. You can target instances by using tags,
-    -- Amazon Web Services resource groups, all instances in an Amazon Web
-    -- Services account, or individual instance IDs. You can target all
-    -- instances in an Amazon Web Services account by specifying the
-    -- @InstanceIds@ key with a value of @*@. For more information about
+    -- | The targets for the association. You can target managed nodes by using
+    -- tags, Amazon Web Services resource groups, all managed nodes in an
+    -- Amazon Web Services account, or individual managed node IDs. You can
+    -- target all managed nodes in an Amazon Web Services account by specifying
+    -- the @InstanceIds@ key with a value of @*@. For more information about
     -- choosing targets for an association, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations>
     -- in the /Amazon Web Services Systems Manager User Guide/.
@@ -107,9 +113,21 @@ data CreateAssociation = CreateAssociation'
     calendarNames :: Prelude.Maybe [Prelude.Text],
     -- | A cron expression when the association will be applied to the target(s).
     scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID.
+    -- | Number of days to wait after the scheduled day to run an association.
+    -- For example, if you specified a cron schedule of
+    -- @cron(0 0 ? * THU#2 *)@, you could specify an offset of 3 to run the
+    -- association each Sunday after the second Thursday of the month. For more
+    -- information about cron schedules for associations, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html Reference: Cron and rate expressions for Systems Manager>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     --
-    -- @InstanceId@ has been deprecated. To specify an instance ID for an
+    -- To use offsets, you must specify the @ApplyOnlyAtCronInterval@
+    -- parameter. This option tells the system not to run an association
+    -- immediately after you create it.
+    scheduleOffset :: Prelude.Maybe Prelude.Natural,
+    -- | The managed node ID.
+    --
+    -- @InstanceId@ has been deprecated. To specify a managed node ID for an
     -- association, use the @Targets@ parameter. Requests that include the
     -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
     -- that use schema version 2.0 or later will fail. In addition, if you use
@@ -123,11 +141,11 @@ data CreateAssociation = CreateAssociation'
     -- target set, for example 10%. The default value is 100%, which means all
     -- targets run the association at the same time.
     --
-    -- If a new instance starts and attempts to run an association while
+    -- If a new managed node starts and attempts to run an association while
     -- Systems Manager is running @MaxConcurrency@ associations, the
     -- association is allowed to run. During the next association interval, the
-    -- new instance will process its association within the limit specified for
-    -- @MaxConcurrency@.
+    -- new managed node will process its association within the limit specified
+    -- for @MaxConcurrency@.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | By default, when you create a new association, the system runs it
     -- immediately after it is created and then according to the schedule you
@@ -141,7 +159,7 @@ data CreateAssociation = CreateAssociation'
     -- the target set, for example 10%. If you specify 3, for example, the
     -- system stops sending requests when the fourth error is received. If you
     -- specify 0, then the system stops sending requests after the first error
-    -- is returned. If you run an association on 50 instances and set
+    -- is returned. If you run an association on 50 managed nodes and set
     -- @MaxError@ to 10%, then the system stops sending the request when the
     -- sixth error is received.
     --
@@ -169,11 +187,19 @@ data CreateAssociation = CreateAssociation'
     syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
     -- | The document version you want to associate with the target(s). Can be a
     -- specific version or the default version.
+    --
+    -- State Manager doesn\'t support running associations that use a new
+    -- version of a document if that document is shared from another account.
+    -- State Manager always runs the @default@ version of a document if shared
+    -- from another account, even though the Systems Manager console shows that
+    -- a new version was processed. If you want to run an association using a
+    -- new version of a document shared form another account, you must set the
+    -- document version to @default@.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the runtime configuration of the document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The name of the SSM Command document or Automation runbook that contains
-    -- the configuration information for the instance.
+    -- the configuration information for the managed node.
     --
     -- You can specify Amazon Web Services-predefined documents, documents you
     -- created, or a document that is shared with you from another account.
@@ -193,7 +219,7 @@ data CreateAssociation = CreateAssociation'
     -- example, @AWS-ApplyPatchBaseline@ or @My-Document@.
     name :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociation' with all optional fields omitted.
@@ -210,19 +236,22 @@ data CreateAssociation = CreateAssociation'
 -- action to create an association in multiple Regions and multiple
 -- accounts.
 --
--- 'automationTargetParameterName', 'createAssociation_automationTargetParameterName' - Specify the target for the association. This target is required for
--- associations that use an Automation runbook and target resources by
--- using rate controls. Automation is a capability of Amazon Web Services
--- Systems Manager.
+-- 'automationTargetParameterName', 'createAssociation_automationTargetParameterName' - Choose the parameter that will define how your automation will branch
+-- out. This target is required for associations that use an Automation
+-- runbook and target resources by using rate controls. Automation is a
+-- capability of Amazon Web Services Systems Manager.
+--
+-- 'targetMaps', 'createAssociation_targetMaps' - A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
 --
 -- 'outputLocation', 'createAssociation_outputLocation' - An Amazon Simple Storage Service (Amazon S3) bucket where you want to
 -- store the output details of the request.
 --
--- 'targets', 'createAssociation_targets' - The targets for the association. You can target instances by using tags,
--- Amazon Web Services resource groups, all instances in an Amazon Web
--- Services account, or individual instance IDs. You can target all
--- instances in an Amazon Web Services account by specifying the
--- @InstanceIds@ key with a value of @*@. For more information about
+-- 'targets', 'createAssociation_targets' - The targets for the association. You can target managed nodes by using
+-- tags, Amazon Web Services resource groups, all managed nodes in an
+-- Amazon Web Services account, or individual managed node IDs. You can
+-- target all managed nodes in an Amazon Web Services account by specifying
+-- the @InstanceIds@ key with a value of @*@. For more information about
 -- choosing targets for an association, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations>
 -- in the /Amazon Web Services Systems Manager User Guide/.
@@ -234,9 +263,21 @@ data CreateAssociation = CreateAssociation'
 --
 -- 'scheduleExpression', 'createAssociation_scheduleExpression' - A cron expression when the association will be applied to the target(s).
 --
--- 'instanceId', 'createAssociation_instanceId' - The instance ID.
+-- 'scheduleOffset', 'createAssociation_scheduleOffset' - Number of days to wait after the scheduled day to run an association.
+-- For example, if you specified a cron schedule of
+-- @cron(0 0 ? * THU#2 *)@, you could specify an offset of 3 to run the
+-- association each Sunday after the second Thursday of the month. For more
+-- information about cron schedules for associations, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html Reference: Cron and rate expressions for Systems Manager>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- To use offsets, you must specify the @ApplyOnlyAtCronInterval@
+-- parameter. This option tells the system not to run an association
+-- immediately after you create it.
+--
+-- 'instanceId', 'createAssociation_instanceId' - The managed node ID.
+--
+-- @InstanceId@ has been deprecated. To specify a managed node ID for an
 -- association, use the @Targets@ parameter. Requests that include the
 -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
 -- that use schema version 2.0 or later will fail. In addition, if you use
@@ -250,11 +291,11 @@ data CreateAssociation = CreateAssociation'
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 --
 -- 'applyOnlyAtCronInterval', 'createAssociation_applyOnlyAtCronInterval' - By default, when you create a new association, the system runs it
 -- immediately after it is created and then according to the schedule you
@@ -268,7 +309,7 @@ data CreateAssociation = CreateAssociation'
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -297,10 +338,18 @@ data CreateAssociation = CreateAssociation'
 -- 'documentVersion', 'createAssociation_documentVersion' - The document version you want to associate with the target(s). Can be a
 -- specific version or the default version.
 --
+-- State Manager doesn\'t support running associations that use a new
+-- version of a document if that document is shared from another account.
+-- State Manager always runs the @default@ version of a document if shared
+-- from another account, even though the Systems Manager console shows that
+-- a new version was processed. If you want to run an association using a
+-- new version of a document shared form another account, you must set the
+-- document version to @default@.
+--
 -- 'parameters', 'createAssociation_parameters' - The parameters for the runtime configuration of the document.
 --
 -- 'name', 'createAssociation_name' - The name of the SSM Command document or Automation runbook that contains
--- the configuration information for the instance.
+-- the configuration information for the managed node.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
 -- created, or a document that is shared with you from another account.
@@ -328,10 +377,12 @@ newCreateAssociation pName_ =
         Prelude.Nothing,
       targetLocations = Prelude.Nothing,
       automationTargetParameterName = Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       targets = Prelude.Nothing,
       calendarNames = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
+      scheduleOffset = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval = Prelude.Nothing,
@@ -354,23 +405,28 @@ createAssociation_associationName = Lens.lens (\CreateAssociation' {associationN
 createAssociation_targetLocations :: Lens.Lens' CreateAssociation (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 createAssociation_targetLocations = Lens.lens (\CreateAssociation' {targetLocations} -> targetLocations) (\s@CreateAssociation' {} a -> s {targetLocations = a} :: CreateAssociation) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify the target for the association. This target is required for
--- associations that use an Automation runbook and target resources by
--- using rate controls. Automation is a capability of Amazon Web Services
--- Systems Manager.
+-- | Choose the parameter that will define how your automation will branch
+-- out. This target is required for associations that use an Automation
+-- runbook and target resources by using rate controls. Automation is a
+-- capability of Amazon Web Services Systems Manager.
 createAssociation_automationTargetParameterName :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_automationTargetParameterName = Lens.lens (\CreateAssociation' {automationTargetParameterName} -> automationTargetParameterName) (\s@CreateAssociation' {} a -> s {automationTargetParameterName = a} :: CreateAssociation)
+
+-- | A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+createAssociation_targetMaps :: Lens.Lens' CreateAssociation (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+createAssociation_targetMaps = Lens.lens (\CreateAssociation' {targetMaps} -> targetMaps) (\s@CreateAssociation' {} a -> s {targetMaps = a} :: CreateAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Amazon Simple Storage Service (Amazon S3) bucket where you want to
 -- store the output details of the request.
 createAssociation_outputLocation :: Lens.Lens' CreateAssociation (Prelude.Maybe InstanceAssociationOutputLocation)
 createAssociation_outputLocation = Lens.lens (\CreateAssociation' {outputLocation} -> outputLocation) (\s@CreateAssociation' {} a -> s {outputLocation = a} :: CreateAssociation)
 
--- | The targets for the association. You can target instances by using tags,
--- Amazon Web Services resource groups, all instances in an Amazon Web
--- Services account, or individual instance IDs. You can target all
--- instances in an Amazon Web Services account by specifying the
--- @InstanceIds@ key with a value of @*@. For more information about
+-- | The targets for the association. You can target managed nodes by using
+-- tags, Amazon Web Services resource groups, all managed nodes in an
+-- Amazon Web Services account, or individual managed node IDs. You can
+-- target all managed nodes in an Amazon Web Services account by specifying
+-- the @InstanceIds@ key with a value of @*@. For more information about
 -- choosing targets for an association, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations>
 -- in the /Amazon Web Services Systems Manager User Guide/.
@@ -388,9 +444,23 @@ createAssociation_calendarNames = Lens.lens (\CreateAssociation' {calendarNames}
 createAssociation_scheduleExpression :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_scheduleExpression = Lens.lens (\CreateAssociation' {scheduleExpression} -> scheduleExpression) (\s@CreateAssociation' {} a -> s {scheduleExpression = a} :: CreateAssociation)
 
--- | The instance ID.
+-- | Number of days to wait after the scheduled day to run an association.
+-- For example, if you specified a cron schedule of
+-- @cron(0 0 ? * THU#2 *)@, you could specify an offset of 3 to run the
+-- association each Sunday after the second Thursday of the month. For more
+-- information about cron schedules for associations, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html Reference: Cron and rate expressions for Systems Manager>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- To use offsets, you must specify the @ApplyOnlyAtCronInterval@
+-- parameter. This option tells the system not to run an association
+-- immediately after you create it.
+createAssociation_scheduleOffset :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Natural)
+createAssociation_scheduleOffset = Lens.lens (\CreateAssociation' {scheduleOffset} -> scheduleOffset) (\s@CreateAssociation' {} a -> s {scheduleOffset = a} :: CreateAssociation)
+
+-- | The managed node ID.
+--
+-- @InstanceId@ has been deprecated. To specify a managed node ID for an
 -- association, use the @Targets@ parameter. Requests that include the
 -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
 -- that use schema version 2.0 or later will fail. In addition, if you use
@@ -406,11 +476,11 @@ createAssociation_instanceId = Lens.lens (\CreateAssociation' {instanceId} -> in
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 createAssociation_maxConcurrency :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_maxConcurrency = Lens.lens (\CreateAssociation' {maxConcurrency} -> maxConcurrency) (\s@CreateAssociation' {} a -> s {maxConcurrency = a} :: CreateAssociation)
 
@@ -428,7 +498,7 @@ createAssociation_applyOnlyAtCronInterval = Lens.lens (\CreateAssociation' {appl
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -462,15 +532,23 @@ createAssociation_syncCompliance = Lens.lens (\CreateAssociation' {syncComplianc
 
 -- | The document version you want to associate with the target(s). Can be a
 -- specific version or the default version.
+--
+-- State Manager doesn\'t support running associations that use a new
+-- version of a document if that document is shared from another account.
+-- State Manager always runs the @default@ version of a document if shared
+-- from another account, even though the Systems Manager console shows that
+-- a new version was processed. If you want to run an association using a
+-- new version of a document shared form another account, you must set the
+-- document version to @default@.
 createAssociation_documentVersion :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_documentVersion = Lens.lens (\CreateAssociation' {documentVersion} -> documentVersion) (\s@CreateAssociation' {} a -> s {documentVersion = a} :: CreateAssociation)
 
 -- | The parameters for the runtime configuration of the document.
 createAssociation_parameters :: Lens.Lens' CreateAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-createAssociation_parameters = Lens.lens (\CreateAssociation' {parameters} -> parameters) (\s@CreateAssociation' {} a -> s {parameters = a} :: CreateAssociation) Prelude.. Lens.mapping Lens.coerced
+createAssociation_parameters = Lens.lens (\CreateAssociation' {parameters} -> parameters) (\s@CreateAssociation' {} a -> s {parameters = a} :: CreateAssociation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the SSM Command document or Automation runbook that contains
--- the configuration information for the instance.
+-- the configuration information for the managed node.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
 -- created, or a document that is shared with you from another account.
@@ -509,10 +587,12 @@ instance Prelude.Hashable CreateAssociation where
     _salt `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` targetLocations
       `Prelude.hashWithSalt` automationTargetParameterName
+      `Prelude.hashWithSalt` targetMaps
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` calendarNames
       `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` scheduleOffset
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
@@ -528,10 +608,12 @@ instance Prelude.NFData CreateAssociation where
     Prelude.rnf associationName
       `Prelude.seq` Prelude.rnf targetLocations
       `Prelude.seq` Prelude.rnf automationTargetParameterName
+      `Prelude.seq` Prelude.rnf targetMaps
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf calendarNames
       `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
@@ -567,12 +649,15 @@ instance Core.ToJSON CreateAssociation where
               Prelude.<$> targetLocations,
             ("AutomationTargetParameterName" Core..=)
               Prelude.<$> automationTargetParameterName,
+            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
             ("OutputLocation" Core..=)
               Prelude.<$> outputLocation,
             ("Targets" Core..=) Prelude.<$> targets,
             ("CalendarNames" Core..=) Prelude.<$> calendarNames,
             ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
+            ("ScheduleOffset" Core..=)
+              Prelude.<$> scheduleOffset,
             ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
@@ -603,7 +688,7 @@ data CreateAssociationResponse = CreateAssociationResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociationResponse' with all optional fields omitted.

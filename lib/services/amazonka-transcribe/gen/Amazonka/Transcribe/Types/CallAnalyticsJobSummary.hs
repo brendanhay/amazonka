@@ -25,23 +25,44 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.CallAnalyticsJobStatus
 import Amazonka.Transcribe.Types.LanguageCode
 
--- | Provides summary information about a call analytics job.
+-- | Provides detailed information about a specific Call Analytics job.
 --
 -- /See:/ 'newCallAnalyticsJobSummary' smart constructor.
 data CallAnalyticsJobSummary = CallAnalyticsJobSummary'
-  { -- | The status of the call analytics job.
+  { -- | Provides the status of your Call Analytics job.
+    --
+    -- If the status is @COMPLETED@, the job is finished and you can find the
+    -- results at the location specified in @TranscriptFileUri@ (or
+    -- @RedactedTranscriptFileUri@, if you requested transcript redaction). If
+    -- the status is @FAILED@, @FailureReason@ provides details on why your
+    -- transcription job failed.
     callAnalyticsJobStatus :: Prelude.Maybe CallAnalyticsJobStatus,
-    -- | A timestamp that shows when the job was completed.
+    -- | The date and time the specified Call Analytics job finished processing.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
+    -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
     completionTime :: Prelude.Maybe Core.POSIX,
-    -- | The language of the transcript in the source audio file.
+    -- | The language code used to create your Call Analytics transcription.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the call analytics job.
+    -- | The name of the Call Analytics job. Job names are case sensitive and
+    -- must be unique within an Amazon Web Services account.
     callAnalyticsJobName :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp that shows when the call analytics job was created.
+    -- | The date and time the specified Call Analytics job request was made.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+    -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A timestamp that shows when the job began processing.
+    -- | The date and time your Call Analytics job began processing.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
+    -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
+    -- | If @CallAnalyticsJobStatus@ is @FAILED@, @FailureReason@ contains
+    -- information about why the Call Analytics job failed. See also:
+    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
     failureReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,19 +75,40 @@ data CallAnalyticsJobSummary = CallAnalyticsJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callAnalyticsJobStatus', 'callAnalyticsJobSummary_callAnalyticsJobStatus' - The status of the call analytics job.
+-- 'callAnalyticsJobStatus', 'callAnalyticsJobSummary_callAnalyticsJobStatus' - Provides the status of your Call Analytics job.
 --
--- 'completionTime', 'callAnalyticsJobSummary_completionTime' - A timestamp that shows when the job was completed.
+-- If the status is @COMPLETED@, the job is finished and you can find the
+-- results at the location specified in @TranscriptFileUri@ (or
+-- @RedactedTranscriptFileUri@, if you requested transcript redaction). If
+-- the status is @FAILED@, @FailureReason@ provides details on why your
+-- transcription job failed.
 --
--- 'languageCode', 'callAnalyticsJobSummary_languageCode' - The language of the transcript in the source audio file.
+-- 'completionTime', 'callAnalyticsJobSummary_completionTime' - The date and time the specified Call Analytics job finished processing.
 --
--- 'callAnalyticsJobName', 'callAnalyticsJobSummary_callAnalyticsJobName' - The name of the call analytics job.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
+-- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 --
--- 'creationTime', 'callAnalyticsJobSummary_creationTime' - A timestamp that shows when the call analytics job was created.
+-- 'languageCode', 'callAnalyticsJobSummary_languageCode' - The language code used to create your Call Analytics transcription.
 --
--- 'startTime', 'callAnalyticsJobSummary_startTime' - A timestamp that shows when the job began processing.
+-- 'callAnalyticsJobName', 'callAnalyticsJobSummary_callAnalyticsJobName' - The name of the Call Analytics job. Job names are case sensitive and
+-- must be unique within an Amazon Web Services account.
 --
--- 'failureReason', 'callAnalyticsJobSummary_failureReason' - If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
+-- 'creationTime', 'callAnalyticsJobSummary_creationTime' - The date and time the specified Call Analytics job request was made.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
+--
+-- 'startTime', 'callAnalyticsJobSummary_startTime' - The date and time your Call Analytics job began processing.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
+--
+-- 'failureReason', 'callAnalyticsJobSummary_failureReason' - If @CallAnalyticsJobStatus@ is @FAILED@, @FailureReason@ contains
+-- information about why the Call Analytics job failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
 newCallAnalyticsJobSummary ::
   CallAnalyticsJobSummary
 newCallAnalyticsJobSummary =
@@ -81,31 +123,52 @@ newCallAnalyticsJobSummary =
       failureReason = Prelude.Nothing
     }
 
--- | The status of the call analytics job.
+-- | Provides the status of your Call Analytics job.
+--
+-- If the status is @COMPLETED@, the job is finished and you can find the
+-- results at the location specified in @TranscriptFileUri@ (or
+-- @RedactedTranscriptFileUri@, if you requested transcript redaction). If
+-- the status is @FAILED@, @FailureReason@ provides details on why your
+-- transcription job failed.
 callAnalyticsJobSummary_callAnalyticsJobStatus :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe CallAnalyticsJobStatus)
 callAnalyticsJobSummary_callAnalyticsJobStatus = Lens.lens (\CallAnalyticsJobSummary' {callAnalyticsJobStatus} -> callAnalyticsJobStatus) (\s@CallAnalyticsJobSummary' {} a -> s {callAnalyticsJobStatus = a} :: CallAnalyticsJobSummary)
 
--- | A timestamp that shows when the job was completed.
+-- | The date and time the specified Call Analytics job finished processing.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
+-- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 callAnalyticsJobSummary_completionTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJobSummary_completionTime = Lens.lens (\CallAnalyticsJobSummary' {completionTime} -> completionTime) (\s@CallAnalyticsJobSummary' {} a -> s {completionTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | The language of the transcript in the source audio file.
+-- | The language code used to create your Call Analytics transcription.
 callAnalyticsJobSummary_languageCode :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe LanguageCode)
 callAnalyticsJobSummary_languageCode = Lens.lens (\CallAnalyticsJobSummary' {languageCode} -> languageCode) (\s@CallAnalyticsJobSummary' {} a -> s {languageCode = a} :: CallAnalyticsJobSummary)
 
--- | The name of the call analytics job.
+-- | The name of the Call Analytics job. Job names are case sensitive and
+-- must be unique within an Amazon Web Services account.
 callAnalyticsJobSummary_callAnalyticsJobName :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.Text)
 callAnalyticsJobSummary_callAnalyticsJobName = Lens.lens (\CallAnalyticsJobSummary' {callAnalyticsJobName} -> callAnalyticsJobName) (\s@CallAnalyticsJobSummary' {} a -> s {callAnalyticsJobName = a} :: CallAnalyticsJobSummary)
 
--- | A timestamp that shows when the call analytics job was created.
+-- | The date and time the specified Call Analytics job request was made.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 callAnalyticsJobSummary_creationTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJobSummary_creationTime = Lens.lens (\CallAnalyticsJobSummary' {creationTime} -> creationTime) (\s@CallAnalyticsJobSummary' {} a -> s {creationTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | A timestamp that shows when the job began processing.
+-- | The date and time your Call Analytics job began processing.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 callAnalyticsJobSummary_startTime :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJobSummary_startTime = Lens.lens (\CallAnalyticsJobSummary' {startTime} -> startTime) (\s@CallAnalyticsJobSummary' {} a -> s {startTime = a} :: CallAnalyticsJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.
+-- | If @CallAnalyticsJobStatus@ is @FAILED@, @FailureReason@ contains
+-- information about why the Call Analytics job failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
 callAnalyticsJobSummary_failureReason :: Lens.Lens' CallAnalyticsJobSummary (Prelude.Maybe Prelude.Text)
 callAnalyticsJobSummary_failureReason = Lens.lens (\CallAnalyticsJobSummary' {failureReason} -> failureReason) (\s@CallAnalyticsJobSummary' {} a -> s {failureReason = a} :: CallAnalyticsJobSummary)
 

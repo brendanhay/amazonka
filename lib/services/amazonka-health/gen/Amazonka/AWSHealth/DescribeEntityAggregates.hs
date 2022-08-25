@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the number of entities that are affected by each of the
--- specified events. If no events are specified, the counts of all affected
--- entities are returned.
+-- specified events.
 module Amazonka.AWSHealth.DescribeEntityAggregates
   ( -- * Creating a Request
     DescribeEntityAggregates (..),

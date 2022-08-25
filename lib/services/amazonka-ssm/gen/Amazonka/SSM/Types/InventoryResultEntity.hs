@@ -28,8 +28,8 @@ import Amazonka.SSM.Types.InventoryResultItem
 --
 -- /See:/ 'newInventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
-  { -- | ID of the inventory result entity. For example, for managed instance
-    -- inventory the result will be the managed instance ID. For EC2 instance
+  { -- | ID of the inventory result entity. For example, for managed node
+    -- inventory the result will be the managed node ID. For EC2 instance
     -- inventory, the result will be the instance ID.
     id :: Prelude.Maybe Prelude.Text,
     -- | The data section in the inventory result entity JSON.
@@ -45,8 +45,8 @@ data InventoryResultEntity = InventoryResultEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'inventoryResultEntity_id' - ID of the inventory result entity. For example, for managed instance
--- inventory the result will be the managed instance ID. For EC2 instance
+-- 'id', 'inventoryResultEntity_id' - ID of the inventory result entity. For example, for managed node
+-- inventory the result will be the managed node ID. For EC2 instance
 -- inventory, the result will be the instance ID.
 --
 -- 'data'', 'inventoryResultEntity_data' - The data section in the inventory result entity JSON.
@@ -58,8 +58,8 @@ newInventoryResultEntity =
       data' = Prelude.Nothing
     }
 
--- | ID of the inventory result entity. For example, for managed instance
--- inventory the result will be the managed instance ID. For EC2 instance
+-- | ID of the inventory result entity. For example, for managed node
+-- inventory the result will be the managed node ID. For EC2 instance
 -- inventory, the result will be the instance ID.
 inventoryResultEntity_id :: Lens.Lens' InventoryResultEntity (Prelude.Maybe Prelude.Text)
 inventoryResultEntity_id = Lens.lens (\InventoryResultEntity' {id} -> id) (\s@InventoryResultEntity' {} a -> s {id = a} :: InventoryResultEntity)

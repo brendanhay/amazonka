@@ -35,7 +35,7 @@ data IncidentRecord = IncidentRecord'
   { -- | The chat channel used for collaboration during an incident.
     chatChannel :: Prelude.Maybe ChatChannel,
     -- | The summary of the incident. The summary is a brief synopsis of what
-    -- occurred, what is currently happening, and context.
+    -- occurred, what\'s currently happening, and context of the incident.
     summary :: Prelude.Maybe Prelude.Text,
     -- | The runbook, or automation document, that\'s run at the beginning of the
     -- incident.
@@ -43,14 +43,15 @@ data IncidentRecord = IncidentRecord'
     -- | The time at which the incident was resolved. This appears as a timeline
     -- event.
     resolvedTime :: Prelude.Maybe Core.POSIX,
-    -- | The SNS targets that are notified when updates are made to an incident.
+    -- | The Amazon SNS targets that are notified when updates are made to an
+    -- incident.
     notificationTargets :: Prelude.Maybe [NotificationTargetItem],
     -- | The Amazon Resource Name (ARN) of the incident record.
     arn :: Prelude.Text,
     -- | The time that Incident Manager created the incident record.
     creationTime :: Core.POSIX,
     -- | The string Incident Manager uses to prevent duplicate incidents from
-    -- being created by the same incident.
+    -- being created by the same incident in the same account.
     dedupeString :: Prelude.Text,
     -- | The impact of the incident on customers and applications.
     impact :: Prelude.Natural,
@@ -78,7 +79,7 @@ data IncidentRecord = IncidentRecord'
 -- 'chatChannel', 'incidentRecord_chatChannel' - The chat channel used for collaboration during an incident.
 --
 -- 'summary', 'incidentRecord_summary' - The summary of the incident. The summary is a brief synopsis of what
--- occurred, what is currently happening, and context.
+-- occurred, what\'s currently happening, and context of the incident.
 --
 -- 'automationExecutions', 'incidentRecord_automationExecutions' - The runbook, or automation document, that\'s run at the beginning of the
 -- incident.
@@ -86,14 +87,15 @@ data IncidentRecord = IncidentRecord'
 -- 'resolvedTime', 'incidentRecord_resolvedTime' - The time at which the incident was resolved. This appears as a timeline
 -- event.
 --
--- 'notificationTargets', 'incidentRecord_notificationTargets' - The SNS targets that are notified when updates are made to an incident.
+-- 'notificationTargets', 'incidentRecord_notificationTargets' - The Amazon SNS targets that are notified when updates are made to an
+-- incident.
 --
 -- 'arn', 'incidentRecord_arn' - The Amazon Resource Name (ARN) of the incident record.
 --
 -- 'creationTime', 'incidentRecord_creationTime' - The time that Incident Manager created the incident record.
 --
 -- 'dedupeString', 'incidentRecord_dedupeString' - The string Incident Manager uses to prevent duplicate incidents from
--- being created by the same incident.
+-- being created by the same incident in the same account.
 --
 -- 'impact', 'incidentRecord_impact' - The impact of the incident on customers and applications.
 --
@@ -159,7 +161,7 @@ incidentRecord_chatChannel :: Lens.Lens' IncidentRecord (Prelude.Maybe ChatChann
 incidentRecord_chatChannel = Lens.lens (\IncidentRecord' {chatChannel} -> chatChannel) (\s@IncidentRecord' {} a -> s {chatChannel = a} :: IncidentRecord)
 
 -- | The summary of the incident. The summary is a brief synopsis of what
--- occurred, what is currently happening, and context.
+-- occurred, what\'s currently happening, and context of the incident.
 incidentRecord_summary :: Lens.Lens' IncidentRecord (Prelude.Maybe Prelude.Text)
 incidentRecord_summary = Lens.lens (\IncidentRecord' {summary} -> summary) (\s@IncidentRecord' {} a -> s {summary = a} :: IncidentRecord)
 
@@ -173,7 +175,8 @@ incidentRecord_automationExecutions = Lens.lens (\IncidentRecord' {automationExe
 incidentRecord_resolvedTime :: Lens.Lens' IncidentRecord (Prelude.Maybe Prelude.UTCTime)
 incidentRecord_resolvedTime = Lens.lens (\IncidentRecord' {resolvedTime} -> resolvedTime) (\s@IncidentRecord' {} a -> s {resolvedTime = a} :: IncidentRecord) Prelude.. Lens.mapping Core._Time
 
--- | The SNS targets that are notified when updates are made to an incident.
+-- | The Amazon SNS targets that are notified when updates are made to an
+-- incident.
 incidentRecord_notificationTargets :: Lens.Lens' IncidentRecord (Prelude.Maybe [NotificationTargetItem])
 incidentRecord_notificationTargets = Lens.lens (\IncidentRecord' {notificationTargets} -> notificationTargets) (\s@IncidentRecord' {} a -> s {notificationTargets = a} :: IncidentRecord) Prelude.. Lens.mapping Lens.coerced
 
@@ -186,7 +189,7 @@ incidentRecord_creationTime :: Lens.Lens' IncidentRecord Prelude.UTCTime
 incidentRecord_creationTime = Lens.lens (\IncidentRecord' {creationTime} -> creationTime) (\s@IncidentRecord' {} a -> s {creationTime = a} :: IncidentRecord) Prelude.. Core._Time
 
 -- | The string Incident Manager uses to prevent duplicate incidents from
--- being created by the same incident.
+-- being created by the same incident in the same account.
 incidentRecord_dedupeString :: Lens.Lens' IncidentRecord Prelude.Text
 incidentRecord_dedupeString = Lens.lens (\IncidentRecord' {dedupeString} -> dedupeString) (\s@IncidentRecord' {} a -> s {dedupeString = a} :: IncidentRecord)
 

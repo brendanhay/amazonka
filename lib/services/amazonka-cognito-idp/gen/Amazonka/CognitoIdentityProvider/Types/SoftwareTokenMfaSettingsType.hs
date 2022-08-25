@@ -24,20 +24,20 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type used for enabling software token MFA at the user level. If an
--- MFA type is enabled for a user, the user will be prompted for MFA during
--- all sign in attempts, unless device tracking is turned on and the device
--- has been trusted. If you would like MFA to be applied selectively based
--- on the assessed risk level of sign in attempts, disable MFA for users
+-- MFA type is activated for a user, the user will be prompted for MFA
+-- during all sign-in attempts, unless device tracking is turned on and the
+-- device has been trusted. If you want MFA to be applied selectively based
+-- on the assessed risk level of sign-in attempts, deactivate MFA for users
 -- and turn on Adaptive Authentication for the user pool.
 --
 -- /See:/ 'newSoftwareTokenMfaSettingsType' smart constructor.
 data SoftwareTokenMfaSettingsType = SoftwareTokenMfaSettingsType'
   { -- | Specifies whether software token MFA is the preferred MFA method.
     preferredMfa :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether software token MFA is enabled. If an MFA type is
-    -- enabled for a user, the user will be prompted for MFA during all sign in
-    -- attempts, unless device tracking is turned on and the device has been
-    -- trusted.
+    -- | Specifies whether software token MFA is activated. If an MFA type is
+    -- activated for a user, the user will be prompted for MFA during all
+    -- sign-in attempts, unless device tracking is turned on and the device has
+    -- been trusted.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,10 +52,10 @@ data SoftwareTokenMfaSettingsType = SoftwareTokenMfaSettingsType'
 --
 -- 'preferredMfa', 'softwareTokenMfaSettingsType_preferredMfa' - Specifies whether software token MFA is the preferred MFA method.
 --
--- 'enabled', 'softwareTokenMfaSettingsType_enabled' - Specifies whether software token MFA is enabled. If an MFA type is
--- enabled for a user, the user will be prompted for MFA during all sign in
--- attempts, unless device tracking is turned on and the device has been
--- trusted.
+-- 'enabled', 'softwareTokenMfaSettingsType_enabled' - Specifies whether software token MFA is activated. If an MFA type is
+-- activated for a user, the user will be prompted for MFA during all
+-- sign-in attempts, unless device tracking is turned on and the device has
+-- been trusted.
 newSoftwareTokenMfaSettingsType ::
   SoftwareTokenMfaSettingsType
 newSoftwareTokenMfaSettingsType =
@@ -69,10 +69,10 @@ newSoftwareTokenMfaSettingsType =
 softwareTokenMfaSettingsType_preferredMfa :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaSettingsType_preferredMfa = Lens.lens (\SoftwareTokenMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SoftwareTokenMfaSettingsType' {} a -> s {preferredMfa = a} :: SoftwareTokenMfaSettingsType)
 
--- | Specifies whether software token MFA is enabled. If an MFA type is
--- enabled for a user, the user will be prompted for MFA during all sign in
--- attempts, unless device tracking is turned on and the device has been
--- trusted.
+-- | Specifies whether software token MFA is activated. If an MFA type is
+-- activated for a user, the user will be prompted for MFA during all
+-- sign-in attempts, unless device tracking is turned on and the device has
+-- been trusted.
 softwareTokenMfaSettingsType_enabled :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaSettingsType_enabled = Lens.lens (\SoftwareTokenMfaSettingsType' {enabled} -> enabled) (\s@SoftwareTokenMfaSettingsType' {} a -> s {enabled = a} :: SoftwareTokenMfaSettingsType)
 

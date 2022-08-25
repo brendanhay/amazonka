@@ -66,7 +66,7 @@ import qualified Amazonka.Response as Response
 data ListTasks = ListTasks'
   { -- | The @nextToken@ value returned from a @ListTasks@ request indicating
     -- that more results are available to fulfill the request and further calls
-    -- will be needed. If @maxResults@ was provided, it is possible the number
+    -- will be needed. If @maxResults@ was provided, it\'s possible the number
     -- of results to be fewer than @maxResults@.
     --
     -- This token should be treated as an opaque identifier that is only used
@@ -84,25 +84,25 @@ data ListTasks = ListTasks'
     -- | The task desired status to use when filtering the @ListTasks@ results.
     -- Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks
     -- that Amazon ECS has set the desired status to @STOPPED@. This can be
-    -- useful for debugging tasks that are not starting properly or have died
+    -- useful for debugging tasks that aren\'t starting properly or have died
     -- or finished. The default status filter is @RUNNING@, which shows tasks
     -- that Amazon ECS has set the desired status to @RUNNING@.
     --
     -- Although you can filter results based on a desired status of @PENDING@,
-    -- this does not return any results. Amazon ECS never sets the desired
+    -- this doesn\'t return any results. Amazon ECS never sets the desired
     -- status of a task to that value (only a task\'s @lastStatus@ may have a
     -- value of @PENDING@).
     desiredStatus :: Prelude.Maybe DesiredStatus,
-    -- | The @startedBy@ value with which to filter the task results. Specifying
-    -- a @startedBy@ value limits the results to tasks that were started with
+    -- | The @startedBy@ value to filter the task results with. Specifying a
+    -- @startedBy@ value limits the results to tasks that were started with
     -- that value.
     startedBy :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of task results returned by @ListTasks@ in paginated
-    -- output. When this parameter is used, @ListTasks@ only returns
+    -- | The maximum number of task results that @ListTasks@ returned in
+    -- paginated output. When this parameter is used, @ListTasks@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
     -- element. The remaining results of the initial request can be seen by
     -- sending another @ListTasks@ request with the returned @nextToken@ value.
-    -- This value can be between 1 and 100. If this parameter is not used, then
+    -- This value can be between 1 and 100. If this parameter isn\'t used, then
     -- @ListTasks@ returns up to 100 results and a @nextToken@ value if
     -- applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
@@ -129,7 +129,7 @@ data ListTasks = ListTasks'
 --
 -- 'nextToken', 'listTasks_nextToken' - The @nextToken@ value returned from a @ListTasks@ request indicating
 -- that more results are available to fulfill the request and further calls
--- will be needed. If @maxResults@ was provided, it is possible the number
+-- will be needed. If @maxResults@ was provided, it\'s possible the number
 -- of results to be fewer than @maxResults@.
 --
 -- This token should be treated as an opaque identifier that is only used
@@ -147,25 +147,25 @@ data ListTasks = ListTasks'
 -- 'desiredStatus', 'listTasks_desiredStatus' - The task desired status to use when filtering the @ListTasks@ results.
 -- Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks
 -- that Amazon ECS has set the desired status to @STOPPED@. This can be
--- useful for debugging tasks that are not starting properly or have died
+-- useful for debugging tasks that aren\'t starting properly or have died
 -- or finished. The default status filter is @RUNNING@, which shows tasks
 -- that Amazon ECS has set the desired status to @RUNNING@.
 --
 -- Although you can filter results based on a desired status of @PENDING@,
--- this does not return any results. Amazon ECS never sets the desired
+-- this doesn\'t return any results. Amazon ECS never sets the desired
 -- status of a task to that value (only a task\'s @lastStatus@ may have a
 -- value of @PENDING@).
 --
--- 'startedBy', 'listTasks_startedBy' - The @startedBy@ value with which to filter the task results. Specifying
--- a @startedBy@ value limits the results to tasks that were started with
+-- 'startedBy', 'listTasks_startedBy' - The @startedBy@ value to filter the task results with. Specifying a
+-- @startedBy@ value limits the results to tasks that were started with
 -- that value.
 --
--- 'maxResults', 'listTasks_maxResults' - The maximum number of task results returned by @ListTasks@ in paginated
--- output. When this parameter is used, @ListTasks@ only returns
+-- 'maxResults', 'listTasks_maxResults' - The maximum number of task results that @ListTasks@ returned in
+-- paginated output. When this parameter is used, @ListTasks@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
 -- element. The remaining results of the initial request can be seen by
 -- sending another @ListTasks@ request with the returned @nextToken@ value.
--- This value can be between 1 and 100. If this parameter is not used, then
+-- This value can be between 1 and 100. If this parameter isn\'t used, then
 -- @ListTasks@ returns up to 100 results and a @nextToken@ value if
 -- applicable.
 --
@@ -195,7 +195,7 @@ newListTasks =
 
 -- | The @nextToken@ value returned from a @ListTasks@ request indicating
 -- that more results are available to fulfill the request and further calls
--- will be needed. If @maxResults@ was provided, it is possible the number
+-- will be needed. If @maxResults@ was provided, it\'s possible the number
 -- of results to be fewer than @maxResults@.
 --
 -- This token should be treated as an opaque identifier that is only used
@@ -219,29 +219,29 @@ listTasks_cluster = Lens.lens (\ListTasks' {cluster} -> cluster) (\s@ListTasks' 
 -- | The task desired status to use when filtering the @ListTasks@ results.
 -- Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks
 -- that Amazon ECS has set the desired status to @STOPPED@. This can be
--- useful for debugging tasks that are not starting properly or have died
+-- useful for debugging tasks that aren\'t starting properly or have died
 -- or finished. The default status filter is @RUNNING@, which shows tasks
 -- that Amazon ECS has set the desired status to @RUNNING@.
 --
 -- Although you can filter results based on a desired status of @PENDING@,
--- this does not return any results. Amazon ECS never sets the desired
+-- this doesn\'t return any results. Amazon ECS never sets the desired
 -- status of a task to that value (only a task\'s @lastStatus@ may have a
 -- value of @PENDING@).
 listTasks_desiredStatus :: Lens.Lens' ListTasks (Prelude.Maybe DesiredStatus)
 listTasks_desiredStatus = Lens.lens (\ListTasks' {desiredStatus} -> desiredStatus) (\s@ListTasks' {} a -> s {desiredStatus = a} :: ListTasks)
 
--- | The @startedBy@ value with which to filter the task results. Specifying
--- a @startedBy@ value limits the results to tasks that were started with
+-- | The @startedBy@ value to filter the task results with. Specifying a
+-- @startedBy@ value limits the results to tasks that were started with
 -- that value.
 listTasks_startedBy :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
 listTasks_startedBy = Lens.lens (\ListTasks' {startedBy} -> startedBy) (\s@ListTasks' {} a -> s {startedBy = a} :: ListTasks)
 
--- | The maximum number of task results returned by @ListTasks@ in paginated
--- output. When this parameter is used, @ListTasks@ only returns
+-- | The maximum number of task results that @ListTasks@ returned in
+-- paginated output. When this parameter is used, @ListTasks@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
 -- element. The remaining results of the initial request can be seen by
 -- sending another @ListTasks@ request with the returned @nextToken@ value.
--- This value can be between 1 and 100. If this parameter is not used, then
+-- This value can be between 1 and 100. If this parameter isn\'t used, then
 -- @ListTasks@ returns up to 100 results and a @nextToken@ value if
 -- applicable.
 listTasks_maxResults :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Int)

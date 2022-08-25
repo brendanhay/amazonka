@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateApiCache' smart constructor.
 data CreateApiCache = CreateApiCache'
-  { -- | Transit encryption flag when connecting to cache. This setting cannot be
-    -- updated after creation.
+  { -- | Transit encryption flag when connecting to cache. You cannot update this
+    -- setting after creation.
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | At rest encryption flag for cache. This setting cannot be updated after
+    -- | At-rest encryption flag for cache. You cannot update this setting after
     -- creation.
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The GraphQL API Id.
+    -- | The GraphQL API ID.
     apiId :: Prelude.Text,
     -- | TTL in seconds for cache entries.
     --
-    -- Valid values are between 1 and 3600 seconds.
+    -- Valid values are 1–3,600 seconds.
     ttl :: Prelude.Integer,
     -- | Caching behavior.
     --
@@ -124,17 +124,17 @@ data CreateApiCache = CreateApiCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitEncryptionEnabled', 'createApiCache_transitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be
--- updated after creation.
+-- 'transitEncryptionEnabled', 'createApiCache_transitEncryptionEnabled' - Transit encryption flag when connecting to cache. You cannot update this
+-- setting after creation.
 --
--- 'atRestEncryptionEnabled', 'createApiCache_atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after
+-- 'atRestEncryptionEnabled', 'createApiCache_atRestEncryptionEnabled' - At-rest encryption flag for cache. You cannot update this setting after
 -- creation.
 --
--- 'apiId', 'createApiCache_apiId' - The GraphQL API Id.
+-- 'apiId', 'createApiCache_apiId' - The GraphQL API ID.
 --
 -- 'ttl', 'createApiCache_ttl' - TTL in seconds for cache entries.
 --
--- Valid values are between 1 and 3600 seconds.
+-- Valid values are 1–3,600 seconds.
 --
 -- 'apiCachingBehavior', 'createApiCache_apiCachingBehavior' - Caching behavior.
 --
@@ -206,23 +206,23 @@ newCreateApiCache
         type' = pType_
       }
 
--- | Transit encryption flag when connecting to cache. This setting cannot be
--- updated after creation.
+-- | Transit encryption flag when connecting to cache. You cannot update this
+-- setting after creation.
 createApiCache_transitEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
 createApiCache_transitEncryptionEnabled = Lens.lens (\CreateApiCache' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateApiCache' {} a -> s {transitEncryptionEnabled = a} :: CreateApiCache)
 
--- | At rest encryption flag for cache. This setting cannot be updated after
+-- | At-rest encryption flag for cache. You cannot update this setting after
 -- creation.
 createApiCache_atRestEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
 createApiCache_atRestEncryptionEnabled = Lens.lens (\CreateApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CreateApiCache' {} a -> s {atRestEncryptionEnabled = a} :: CreateApiCache)
 
--- | The GraphQL API Id.
+-- | The GraphQL API ID.
 createApiCache_apiId :: Lens.Lens' CreateApiCache Prelude.Text
 createApiCache_apiId = Lens.lens (\CreateApiCache' {apiId} -> apiId) (\s@CreateApiCache' {} a -> s {apiId = a} :: CreateApiCache)
 
 -- | TTL in seconds for cache entries.
 --
--- Valid values are between 1 and 3600 seconds.
+-- Valid values are 1–3,600 seconds.
 createApiCache_ttl :: Lens.Lens' CreateApiCache Prelude.Integer
 createApiCache_ttl = Lens.lens (\CreateApiCache' {ttl} -> ttl) (\s@CreateApiCache' {} a -> s {ttl = a} :: CreateApiCache)
 

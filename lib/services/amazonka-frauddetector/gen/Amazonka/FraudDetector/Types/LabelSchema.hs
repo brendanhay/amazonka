@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelSchema' smart constructor.
 data LabelSchema = LabelSchema'
-  { -- | The action to take for unlabeled events.
-    unlabeledEventsTreatment :: Prelude.Maybe UnlabeledEventsTreatment,
-    -- | The label mapper maps the Amazon Fraud Detector supported model
+  { -- | The label mapper maps the Amazon Fraud Detector supported model
     -- classification labels (@FRAUD@, @LEGIT@) to the appropriate event type
     -- labels. For example, if \"@FRAUD@\" and \"@LEGIT@\" are Amazon Fraud
     -- Detector supported labels, this mapper could be:
@@ -40,7 +38,9 @@ data LabelSchema = LabelSchema'
     -- @\"LEGIT\" => [\"legit\", \"safe\"]}@. The value part of the mapper is a
     -- list, because you may have multiple label variants from your event type
     -- for a single Amazon Fraud Detector label.
-    labelMapper :: Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text)
+    labelMapper :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The action to take for unlabeled events.
+    unlabeledEventsTreatment :: Prelude.Maybe UnlabeledEventsTreatment
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,8 +52,6 @@ data LabelSchema = LabelSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unlabeledEventsTreatment', 'labelSchema_unlabeledEventsTreatment' - The action to take for unlabeled events.
---
 -- 'labelMapper', 'labelSchema_labelMapper' - The label mapper maps the Amazon Fraud Detector supported model
 -- classification labels (@FRAUD@, @LEGIT@) to the appropriate event type
 -- labels. For example, if \"@FRAUD@\" and \"@LEGIT@\" are Amazon Fraud
@@ -64,18 +62,15 @@ data LabelSchema = LabelSchema'
 -- @\"LEGIT\" => [\"legit\", \"safe\"]}@. The value part of the mapper is a
 -- list, because you may have multiple label variants from your event type
 -- for a single Amazon Fraud Detector label.
+--
+-- 'unlabeledEventsTreatment', 'labelSchema_unlabeledEventsTreatment' - The action to take for unlabeled events.
 newLabelSchema ::
   LabelSchema
 newLabelSchema =
   LabelSchema'
-    { unlabeledEventsTreatment =
-        Prelude.Nothing,
-      labelMapper = Prelude.mempty
+    { labelMapper = Prelude.Nothing,
+      unlabeledEventsTreatment = Prelude.Nothing
     }
-
--- | The action to take for unlabeled events.
-labelSchema_unlabeledEventsTreatment :: Lens.Lens' LabelSchema (Prelude.Maybe UnlabeledEventsTreatment)
-labelSchema_unlabeledEventsTreatment = Lens.lens (\LabelSchema' {unlabeledEventsTreatment} -> unlabeledEventsTreatment) (\s@LabelSchema' {} a -> s {unlabeledEventsTreatment = a} :: LabelSchema)
 
 -- | The label mapper maps the Amazon Fraud Detector supported model
 -- classification labels (@FRAUD@, @LEGIT@) to the appropriate event type
@@ -87,8 +82,12 @@ labelSchema_unlabeledEventsTreatment = Lens.lens (\LabelSchema' {unlabeledEvents
 -- @\"LEGIT\" => [\"legit\", \"safe\"]}@. The value part of the mapper is a
 -- list, because you may have multiple label variants from your event type
 -- for a single Amazon Fraud Detector label.
-labelSchema_labelMapper :: Lens.Lens' LabelSchema (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text))
-labelSchema_labelMapper = Lens.lens (\LabelSchema' {labelMapper} -> labelMapper) (\s@LabelSchema' {} a -> s {labelMapper = a} :: LabelSchema) Prelude.. Lens.coerced
+labelSchema_labelMapper :: Lens.Lens' LabelSchema (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+labelSchema_labelMapper = Lens.lens (\LabelSchema' {labelMapper} -> labelMapper) (\s@LabelSchema' {} a -> s {labelMapper = a} :: LabelSchema) Prelude.. Lens.mapping Lens.coerced
+
+-- | The action to take for unlabeled events.
+labelSchema_unlabeledEventsTreatment :: Lens.Lens' LabelSchema (Prelude.Maybe UnlabeledEventsTreatment)
+labelSchema_unlabeledEventsTreatment = Lens.lens (\LabelSchema' {unlabeledEventsTreatment} -> unlabeledEventsTreatment) (\s@LabelSchema' {} a -> s {unlabeledEventsTreatment = a} :: LabelSchema)
 
 instance Core.FromJSON LabelSchema where
   parseJSON =
@@ -96,27 +95,26 @@ instance Core.FromJSON LabelSchema where
       "LabelSchema"
       ( \x ->
           LabelSchema'
-            Prelude.<$> (x Core..:? "unlabeledEventsTreatment")
-            Prelude.<*> (x Core..:? "labelMapper" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "labelMapper" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "unlabeledEventsTreatment")
       )
 
 instance Prelude.Hashable LabelSchema where
   hashWithSalt _salt LabelSchema' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` labelMapper
       `Prelude.hashWithSalt` unlabeledEventsTreatment
-      `Prelude.hashWithSalt` labelMapper
 
 instance Prelude.NFData LabelSchema where
   rnf LabelSchema' {..} =
-    Prelude.rnf unlabeledEventsTreatment
-      `Prelude.seq` Prelude.rnf labelMapper
+    Prelude.rnf labelMapper
+      `Prelude.seq` Prelude.rnf unlabeledEventsTreatment
 
 instance Core.ToJSON LabelSchema where
   toJSON LabelSchema' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("unlabeledEventsTreatment" Core..=)
-              Prelude.<$> unlabeledEventsTreatment,
-            Prelude.Just ("labelMapper" Core..= labelMapper)
+          [ ("labelMapper" Core..=) Prelude.<$> labelMapper,
+            ("unlabeledEventsTreatment" Core..=)
+              Prelude.<$> unlabeledEventsTreatment
           ]
       )

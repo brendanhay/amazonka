@@ -22,13 +22,13 @@
 --
 -- Create a new workload.
 --
--- The owner of a workload can share the workload with other AWS accounts
--- and IAM users in the same AWS Region. Only the owner of a workload can
--- delete it.
+-- The owner of a workload can share the workload with other Amazon Web
+-- Services accounts and IAM users in the same Amazon Web Services Region.
+-- Only the owner of a workload can delete it.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html Defining a Workload>
--- in the /AWS Well-Architected Tool User Guide/.
+-- in the /Well-Architected Tool User Guide/.
 module Amazonka.WellArchitected.CreateWorkload
   ( -- * Creating a Request
     CreateWorkload (..),
@@ -39,6 +39,7 @@ module Amazonka.WellArchitected.CreateWorkload
     createWorkload_accountIds,
     createWorkload_industry,
     createWorkload_awsRegions,
+    createWorkload_reviewOwner,
     createWorkload_nonAwsRegions,
     createWorkload_notes,
     createWorkload_industryType,
@@ -47,7 +48,6 @@ module Amazonka.WellArchitected.CreateWorkload
     createWorkload_workloadName,
     createWorkload_description,
     createWorkload_environment,
-    createWorkload_reviewOwner,
     createWorkload_lenses,
     createWorkload_clientRequestToken,
 
@@ -78,6 +78,7 @@ data CreateWorkload = CreateWorkload'
     accountIds :: Prelude.Maybe [Prelude.Text],
     industry :: Prelude.Maybe Prelude.Text,
     awsRegions :: Prelude.Maybe [Prelude.Text],
+    reviewOwner :: Prelude.Maybe Prelude.Text,
     nonAwsRegions :: Prelude.Maybe [Prelude.Text],
     notes :: Prelude.Maybe Prelude.Text,
     industryType :: Prelude.Maybe Prelude.Text,
@@ -86,7 +87,6 @@ data CreateWorkload = CreateWorkload'
     workloadName :: Prelude.Text,
     description :: Prelude.Text,
     environment :: WorkloadEnvironment,
-    reviewOwner :: Prelude.Text,
     lenses :: [Prelude.Text],
     clientRequestToken :: Prelude.Text
   }
@@ -108,6 +108,8 @@ data CreateWorkload = CreateWorkload'
 --
 -- 'awsRegions', 'createWorkload_awsRegions' - Undocumented member.
 --
+-- 'reviewOwner', 'createWorkload_reviewOwner' - Undocumented member.
+--
 -- 'nonAwsRegions', 'createWorkload_nonAwsRegions' - Undocumented member.
 --
 -- 'notes', 'createWorkload_notes' - Undocumented member.
@@ -124,8 +126,6 @@ data CreateWorkload = CreateWorkload'
 --
 -- 'environment', 'createWorkload_environment' - Undocumented member.
 --
--- 'reviewOwner', 'createWorkload_reviewOwner' - Undocumented member.
---
 -- 'lenses', 'createWorkload_lenses' - Undocumented member.
 --
 -- 'clientRequestToken', 'createWorkload_clientRequestToken' - Undocumented member.
@@ -136,8 +136,6 @@ newCreateWorkload ::
   Prelude.Text ->
   -- | 'environment'
   WorkloadEnvironment ->
-  -- | 'reviewOwner'
-  Prelude.Text ->
   -- | 'clientRequestToken'
   Prelude.Text ->
   CreateWorkload
@@ -145,13 +143,13 @@ newCreateWorkload
   pWorkloadName_
   pDescription_
   pEnvironment_
-  pReviewOwner_
   pClientRequestToken_ =
     CreateWorkload'
       { tags = Prelude.Nothing,
         accountIds = Prelude.Nothing,
         industry = Prelude.Nothing,
         awsRegions = Prelude.Nothing,
+        reviewOwner = Prelude.Nothing,
         nonAwsRegions = Prelude.Nothing,
         notes = Prelude.Nothing,
         industryType = Prelude.Nothing,
@@ -160,7 +158,6 @@ newCreateWorkload
         workloadName = pWorkloadName_,
         description = pDescription_,
         environment = pEnvironment_,
-        reviewOwner = pReviewOwner_,
         lenses = Prelude.mempty,
         clientRequestToken = pClientRequestToken_
       }
@@ -180,6 +177,10 @@ createWorkload_industry = Lens.lens (\CreateWorkload' {industry} -> industry) (\
 -- | Undocumented member.
 createWorkload_awsRegions :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
 createWorkload_awsRegions = Lens.lens (\CreateWorkload' {awsRegions} -> awsRegions) (\s@CreateWorkload' {} a -> s {awsRegions = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createWorkload_reviewOwner :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
+createWorkload_reviewOwner = Lens.lens (\CreateWorkload' {reviewOwner} -> reviewOwner) (\s@CreateWorkload' {} a -> s {reviewOwner = a} :: CreateWorkload)
 
 -- | Undocumented member.
 createWorkload_nonAwsRegions :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
@@ -214,10 +215,6 @@ createWorkload_environment :: Lens.Lens' CreateWorkload WorkloadEnvironment
 createWorkload_environment = Lens.lens (\CreateWorkload' {environment} -> environment) (\s@CreateWorkload' {} a -> s {environment = a} :: CreateWorkload)
 
 -- | Undocumented member.
-createWorkload_reviewOwner :: Lens.Lens' CreateWorkload Prelude.Text
-createWorkload_reviewOwner = Lens.lens (\CreateWorkload' {reviewOwner} -> reviewOwner) (\s@CreateWorkload' {} a -> s {reviewOwner = a} :: CreateWorkload)
-
--- | Undocumented member.
 createWorkload_lenses :: Lens.Lens' CreateWorkload [Prelude.Text]
 createWorkload_lenses = Lens.lens (\CreateWorkload' {lenses} -> lenses) (\s@CreateWorkload' {} a -> s {lenses = a} :: CreateWorkload) Prelude.. Lens.coerced
 
@@ -245,6 +242,7 @@ instance Prelude.Hashable CreateWorkload where
       `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` industry
       `Prelude.hashWithSalt` awsRegions
+      `Prelude.hashWithSalt` reviewOwner
       `Prelude.hashWithSalt` nonAwsRegions
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` industryType
@@ -253,7 +251,6 @@ instance Prelude.Hashable CreateWorkload where
       `Prelude.hashWithSalt` workloadName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` reviewOwner
       `Prelude.hashWithSalt` lenses
       `Prelude.hashWithSalt` clientRequestToken
 
@@ -263,6 +260,7 @@ instance Prelude.NFData CreateWorkload where
       `Prelude.seq` Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf industry
       `Prelude.seq` Prelude.rnf awsRegions
+      `Prelude.seq` Prelude.rnf reviewOwner
       `Prelude.seq` Prelude.rnf nonAwsRegions
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf industryType
@@ -271,7 +269,6 @@ instance Prelude.NFData CreateWorkload where
       `Prelude.seq` Prelude.rnf workloadName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf reviewOwner
       `Prelude.seq` Prelude.rnf lenses
       `Prelude.seq` Prelude.rnf clientRequestToken
 
@@ -294,6 +291,7 @@ instance Core.ToJSON CreateWorkload where
             ("AccountIds" Core..=) Prelude.<$> accountIds,
             ("Industry" Core..=) Prelude.<$> industry,
             ("AwsRegions" Core..=) Prelude.<$> awsRegions,
+            ("ReviewOwner" Core..=) Prelude.<$> reviewOwner,
             ("NonAwsRegions" Core..=) Prelude.<$> nonAwsRegions,
             ("Notes" Core..=) Prelude.<$> notes,
             ("IndustryType" Core..=) Prelude.<$> industryType,
@@ -304,7 +302,6 @@ instance Core.ToJSON CreateWorkload where
             Prelude.Just ("WorkloadName" Core..= workloadName),
             Prelude.Just ("Description" Core..= description),
             Prelude.Just ("Environment" Core..= environment),
-            Prelude.Just ("ReviewOwner" Core..= reviewOwner),
             Prelude.Just ("Lenses" Core..= lenses),
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)

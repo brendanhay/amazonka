@@ -32,6 +32,7 @@ module Amazonka.DevOpsGuru.ListEvents
 
     -- * Request Lenses
     listEvents_nextToken,
+    listEvents_accountId,
     listEvents_maxResults,
     listEvents_filters,
 
@@ -58,6 +59,8 @@ data ListEvents = ListEvents'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -78,6 +81,8 @@ data ListEvents = ListEvents'
 -- 'nextToken', 'listEvents_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
+-- 'accountId', 'listEvents_accountId' - The ID of the Amazon Web Services account.
+--
 -- 'maxResults', 'listEvents_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
@@ -90,6 +95,7 @@ newListEvents ::
 newListEvents pFilters_ =
   ListEvents'
     { nextToken = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       filters = pFilters_
     }
@@ -98,6 +104,10 @@ newListEvents pFilters_ =
 -- this operation. If this value is null, it retrieves the first page.
 listEvents_nextToken :: Lens.Lens' ListEvents (Prelude.Maybe Prelude.Text)
 listEvents_nextToken = Lens.lens (\ListEvents' {nextToken} -> nextToken) (\s@ListEvents' {} a -> s {nextToken = a} :: ListEvents)
+
+-- | The ID of the Amazon Web Services account.
+listEvents_accountId :: Lens.Lens' ListEvents (Prelude.Maybe Prelude.Text)
+listEvents_accountId = Lens.lens (\ListEvents' {accountId} -> accountId) (\s@ListEvents' {} a -> s {accountId = a} :: ListEvents)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -140,12 +150,14 @@ instance Core.AWSRequest ListEvents where
 instance Prelude.Hashable ListEvents where
   hashWithSalt _salt ListEvents' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData ListEvents where
   rnf ListEvents' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf filters
 
@@ -165,6 +177,7 @@ instance Core.ToJSON ListEvents where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("Filters" Core..= filters)
           ]

@@ -67,8 +67,8 @@ instance Core.FromJSON ProductCode where
       "ProductCode"
       ( \x ->
           ProductCode'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "productType")
+            Prelude.<$> (x Core..:? "productCodeId")
+            Prelude.<*> (x Core..:? "productCodeType")
       )
 
 instance Prelude.Hashable ProductCode where

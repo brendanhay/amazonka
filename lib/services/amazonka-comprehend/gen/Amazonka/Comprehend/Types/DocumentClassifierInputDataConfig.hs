@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The input properties for training a document classifier.
 --
 -- For more information on how the input file is formatted, see
--- how-document-classification-training-data.
+-- prep-classifier-data.
 --
 -- /See:/ 'newDocumentClassifierInputDataConfig' smart constructor.
 data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'

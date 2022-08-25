@@ -49,8 +49,8 @@ data Channel = Channel'
     -- epoch might be sent to a different node on the second epoch.
     shuffleConfig :: Prelude.Maybe ShuffleConfig,
     -- | (Optional) The input mode to use for the data channel in a training job.
-    -- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
-    -- value set for @TrainingInputMode@. Use this parameter to override the
+    -- If you don\'t set a value for @InputMode@, SageMaker uses the value set
+    -- for @TrainingInputMode@. Use this parameter to override the
     -- @TrainingInputMode@ setting in a AlgorithmSpecification request when you
     -- have a channel that needs a different input mode from the training
     -- job\'s general setting. To download the data from Amazon Simple Storage
@@ -65,10 +65,10 @@ data Channel = Channel'
     -- mode, leave this field unset or set it to None.
     compressionType :: Prelude.Maybe CompressionType,
     -- | Specify RecordIO as the value when input data is in raw format but the
-    -- training algorithm requires the RecordIO format. In this case, Amazon
-    -- SageMaker wraps each individual S3 object in a RecordIO record. If the
-    -- input data is already in RecordIO format, you don\'t need to set this
-    -- attribute. For more information, see
+    -- training algorithm requires the RecordIO format. In this case, SageMaker
+    -- wraps each individual S3 object in a RecordIO record. If the input data
+    -- is already in RecordIO format, you don\'t need to set this attribute.
+    -- For more information, see
     -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
     --
     -- In File mode, leave this field unset or set it to None.
@@ -107,8 +107,8 @@ data Channel = Channel'
 -- epoch might be sent to a different node on the second epoch.
 --
 -- 'inputMode', 'channel_inputMode' - (Optional) The input mode to use for the data channel in a training job.
--- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
--- value set for @TrainingInputMode@. Use this parameter to override the
+-- If you don\'t set a value for @InputMode@, SageMaker uses the value set
+-- for @TrainingInputMode@. Use this parameter to override the
 -- @TrainingInputMode@ setting in a AlgorithmSpecification request when you
 -- have a channel that needs a different input mode from the training
 -- job\'s general setting. To download the data from Amazon Simple Storage
@@ -123,10 +123,10 @@ data Channel = Channel'
 -- mode, leave this field unset or set it to None.
 --
 -- 'recordWrapperType', 'channel_recordWrapperType' - Specify RecordIO as the value when input data is in raw format but the
--- training algorithm requires the RecordIO format. In this case, Amazon
--- SageMaker wraps each individual S3 object in a RecordIO record. If the
--- input data is already in RecordIO format, you don\'t need to set this
--- attribute. For more information, see
+-- training algorithm requires the RecordIO format. In this case, SageMaker
+-- wraps each individual S3 object in a RecordIO record. If the input data
+-- is already in RecordIO format, you don\'t need to set this attribute.
+-- For more information, see
 -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
 --
 -- In File mode, leave this field unset or set it to None.
@@ -172,8 +172,8 @@ channel_shuffleConfig :: Lens.Lens' Channel (Prelude.Maybe ShuffleConfig)
 channel_shuffleConfig = Lens.lens (\Channel' {shuffleConfig} -> shuffleConfig) (\s@Channel' {} a -> s {shuffleConfig = a} :: Channel)
 
 -- | (Optional) The input mode to use for the data channel in a training job.
--- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
--- value set for @TrainingInputMode@. Use this parameter to override the
+-- If you don\'t set a value for @InputMode@, SageMaker uses the value set
+-- for @TrainingInputMode@. Use this parameter to override the
 -- @TrainingInputMode@ setting in a AlgorithmSpecification request when you
 -- have a channel that needs a different input mode from the training
 -- job\'s general setting. To download the data from Amazon Simple Storage
@@ -192,10 +192,10 @@ channel_compressionType :: Lens.Lens' Channel (Prelude.Maybe CompressionType)
 channel_compressionType = Lens.lens (\Channel' {compressionType} -> compressionType) (\s@Channel' {} a -> s {compressionType = a} :: Channel)
 
 -- | Specify RecordIO as the value when input data is in raw format but the
--- training algorithm requires the RecordIO format. In this case, Amazon
--- SageMaker wraps each individual S3 object in a RecordIO record. If the
--- input data is already in RecordIO format, you don\'t need to set this
--- attribute. For more information, see
+-- training algorithm requires the RecordIO format. In this case, SageMaker
+-- wraps each individual S3 object in a RecordIO record. If the input data
+-- is already in RecordIO format, you don\'t need to set this attribute.
+-- For more information, see
 -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
 --
 -- In File mode, leave this field unset or set it to None.

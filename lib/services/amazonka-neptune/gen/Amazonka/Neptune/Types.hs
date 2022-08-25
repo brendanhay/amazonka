@@ -44,6 +44,7 @@ module Amazonka.Neptune.Types
     _DBClusterRoleAlreadyExistsFault,
     _InvalidDBClusterStateFault,
     _InvalidDBInstanceStateFault,
+    _GlobalClusterNotFoundFault,
     _AuthorizationNotFoundFault,
     _DBSubnetGroupQuotaExceededFault,
     _InsufficientStorageClusterCapacityFault,
@@ -52,6 +53,7 @@ module Amazonka.Neptune.Types
     _KMSKeyNotAccessibleFault,
     _SNSTopicArnNotFoundFault,
     _DBSubnetGroupDoesNotCoverEnoughAZs,
+    _GlobalClusterQuotaExceededFault,
     _StorageTypeNotSupportedFault,
     _CertificateNotFoundFault,
     _DBClusterEndpointQuotaExceededFault,
@@ -61,6 +63,7 @@ module Amazonka.Neptune.Types
     _DBClusterQuotaExceededFault,
     _DBClusterParameterGroupNotFoundFault,
     _DBSubnetQuotaExceededFault,
+    _GlobalClusterAlreadyExistsFault,
     _ResourceNotFoundFault,
     _InsufficientDBClusterCapacityFault,
     _SourceNotFoundFault,
@@ -70,6 +73,7 @@ module Amazonka.Neptune.Types
     _DBClusterNotFoundFault,
     _DBClusterRoleNotFoundFault,
     _ProvisionedIopsNotAvailableInAZFault,
+    _InvalidGlobalClusterStateFault,
     _InvalidDBClusterEndpointStateFault,
     _InvalidEventSubscriptionStateFault,
     _StorageQuotaExceededFault,
@@ -245,6 +249,7 @@ module Amazonka.Neptune.Types
     dbEngineVersion_engine,
     dbEngineVersion_dbParameterGroupFamily,
     dbEngineVersion_supportedTimezones,
+    dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_engineVersion,
     dbEngineVersion_dbEngineDescription,
 
@@ -412,6 +417,26 @@ module Amazonka.Neptune.Types
     filter_name,
     filter_values,
 
+    -- * GlobalCluster
+    GlobalCluster (..),
+    newGlobalCluster,
+    globalCluster_globalClusterMembers,
+    globalCluster_status,
+    globalCluster_globalClusterArn,
+    globalCluster_storageEncrypted,
+    globalCluster_globalClusterIdentifier,
+    globalCluster_engine,
+    globalCluster_deletionProtection,
+    globalCluster_globalClusterResourceId,
+    globalCluster_engineVersion,
+
+    -- * GlobalClusterMember
+    GlobalClusterMember (..),
+    newGlobalClusterMember,
+    globalClusterMember_dbClusterArn,
+    globalClusterMember_isWriter,
+    globalClusterMember_readers,
+
     -- * OptionGroupMembership
     OptionGroupMembership (..),
     newOptionGroupMembership,
@@ -437,6 +462,7 @@ module Amazonka.Neptune.Types
     orderableDBInstanceOption_supportsEnhancedMonitoring,
     orderableDBInstanceOption_engine,
     orderableDBInstanceOption_readReplicaCapable,
+    orderableDBInstanceOption_supportsGlobalDatabases,
     orderableDBInstanceOption_maxIopsPerGib,
     orderableDBInstanceOption_engineVersion,
     orderableDBInstanceOption_minIopsPerGib,
@@ -527,6 +553,7 @@ module Amazonka.Neptune.Types
     upgradeTarget_autoUpgrade,
     upgradeTarget_description,
     upgradeTarget_engine,
+    upgradeTarget_supportsGlobalDatabases,
     upgradeTarget_engineVersion,
     upgradeTarget_isMajorVersionUpgrade,
 
@@ -583,6 +610,8 @@ import Amazonka.Neptune.Types.Event
 import Amazonka.Neptune.Types.EventCategoriesMap
 import Amazonka.Neptune.Types.EventSubscription
 import Amazonka.Neptune.Types.Filter
+import Amazonka.Neptune.Types.GlobalCluster
+import Amazonka.Neptune.Types.GlobalClusterMember
 import Amazonka.Neptune.Types.OptionGroupMembership
 import Amazonka.Neptune.Types.OrderableDBInstanceOption
 import Amazonka.Neptune.Types.Parameter
@@ -898,6 +927,15 @@ _InvalidDBInstanceStateFault =
     "InvalidDBInstanceState"
     Prelude.. Core.hasStatus 400
 
+-- | The @GlobalClusterIdentifier@ doesn\'t refer to an existing global
+-- database cluster.
+_GlobalClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalClusterNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "GlobalClusterNotFoundFault"
+    Prelude.. Core.hasStatus 404
+
 -- | Specified CIDRIP or EC2 security group is not authorized for the
 -- specified DB security group.
 --
@@ -968,6 +1006,15 @@ _DBSubnetGroupDoesNotCoverEnoughAZs =
   Core._MatchServiceError
     defaultService
     "DBSubnetGroupDoesNotCoverEnoughAZs"
+    Prelude.. Core.hasStatus 400
+
+-- | The number of global database clusters for this account is already at
+-- the maximum allowed.
+_GlobalClusterQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalClusterQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "GlobalClusterQuotaExceededFault"
     Prelude.. Core.hasStatus 400
 
 -- | /StorageType/ specified cannot be associated with the DB Instance.
@@ -1045,6 +1092,16 @@ _DBSubnetQuotaExceededFault =
     "DBSubnetQuotaExceededFault"
     Prelude.. Core.hasStatus 400
 
+-- | The @GlobalClusterIdentifier@ already exists. Choose a new global
+-- database identifier (unique name) to create a new global database
+-- cluster.
+_GlobalClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalClusterAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "GlobalClusterAlreadyExistsFault"
+    Prelude.. Core.hasStatus 400
+
 -- | The specified resource ID was not found.
 _ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundFault =
@@ -1117,6 +1174,15 @@ _ProvisionedIopsNotAvailableInAZFault =
   Core._MatchServiceError
     defaultService
     "ProvisionedIopsNotAvailableInAZFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The global cluster is in an invalid state and can\'t perform the
+-- requested operation.
+_InvalidGlobalClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidGlobalClusterStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidGlobalClusterStateFault"
     Prelude.. Core.hasStatus 400
 
 -- | The requested operation cannot be performed on the endpoint while the

@@ -33,6 +33,7 @@ module Amazonka.ChimeSDKMessaging.DeleteChannelMessage
     newDeleteChannelMessage,
 
     -- * Request Lenses
+    deleteChannelMessage_subChannelId,
     deleteChannelMessage_channelArn,
     deleteChannelMessage_messageId,
     deleteChannelMessage_chimeBearer,
@@ -52,7 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteChannelMessage' smart constructor.
 data DeleteChannelMessage = DeleteChannelMessage'
-  { -- | The ARN of the channel.
+  { -- | The ID of the SubChannel in the request.
+    --
+    -- Only required when deleting messages in a SubChannel that the user
+    -- belongs to.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The ID of the message being deleted.
     messageId :: Prelude.Text,
@@ -68,6 +74,11 @@ data DeleteChannelMessage = DeleteChannelMessage'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'subChannelId', 'deleteChannelMessage_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only required when deleting messages in a SubChannel that the user
+-- belongs to.
 --
 -- 'channelArn', 'deleteChannelMessage_channelArn' - The ARN of the channel.
 --
@@ -87,10 +98,19 @@ newDeleteChannelMessage
   pMessageId_
   pChimeBearer_ =
     DeleteChannelMessage'
-      { channelArn = pChannelArn_,
+      { subChannelId =
+          Prelude.Nothing,
+        channelArn = pChannelArn_,
         messageId = pMessageId_,
         chimeBearer = pChimeBearer_
       }
+
+-- | The ID of the SubChannel in the request.
+--
+-- Only required when deleting messages in a SubChannel that the user
+-- belongs to.
+deleteChannelMessage_subChannelId :: Lens.Lens' DeleteChannelMessage (Prelude.Maybe Prelude.Text)
+deleteChannelMessage_subChannelId = Lens.lens (\DeleteChannelMessage' {subChannelId} -> subChannelId) (\s@DeleteChannelMessage' {} a -> s {subChannelId = a} :: DeleteChannelMessage)
 
 -- | The ARN of the channel.
 deleteChannelMessage_channelArn :: Lens.Lens' DeleteChannelMessage Prelude.Text
@@ -114,13 +134,15 @@ instance Core.AWSRequest DeleteChannelMessage where
 
 instance Prelude.Hashable DeleteChannelMessage where
   hashWithSalt _salt DeleteChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData DeleteChannelMessage where
   rnf DeleteChannelMessage' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf chimeBearer
 
@@ -139,7 +161,9 @@ instance Core.ToPath DeleteChannelMessage where
       ]
 
 instance Core.ToQuery DeleteChannelMessage where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery DeleteChannelMessage' {..} =
+    Prelude.mconcat
+      ["sub-channel-id" Core.=: subChannelId]
 
 -- | /See:/ 'newDeleteChannelMessageResponse' smart constructor.
 data DeleteChannelMessageResponse = DeleteChannelMessageResponse'

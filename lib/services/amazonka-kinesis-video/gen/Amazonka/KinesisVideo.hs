@@ -23,6 +23,9 @@ module Amazonka.KinesisVideo
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
 
+    -- ** NoDataRetentionException
+    _NoDataRetentionException,
+
     -- ** AccessDeniedException
     _AccessDeniedException,
 
@@ -85,6 +88,18 @@ module Amazonka.KinesisVideo
     newDeleteStream,
     DeleteStreamResponse (DeleteStreamResponse'),
     newDeleteStreamResponse,
+
+    -- ** DescribeImageGenerationConfiguration
+    DescribeImageGenerationConfiguration (DescribeImageGenerationConfiguration'),
+    newDescribeImageGenerationConfiguration,
+    DescribeImageGenerationConfigurationResponse (DescribeImageGenerationConfigurationResponse'),
+    newDescribeImageGenerationConfigurationResponse,
+
+    -- ** DescribeNotificationConfiguration
+    DescribeNotificationConfiguration (DescribeNotificationConfiguration'),
+    newDescribeNotificationConfiguration,
+    DescribeNotificationConfigurationResponse (DescribeNotificationConfigurationResponse'),
+    newDescribeNotificationConfigurationResponse,
 
     -- ** DescribeSignalingChannel
     DescribeSignalingChannel (DescribeSignalingChannel'),
@@ -164,6 +179,18 @@ module Amazonka.KinesisVideo
     UpdateDataRetentionResponse (UpdateDataRetentionResponse'),
     newUpdateDataRetentionResponse,
 
+    -- ** UpdateImageGenerationConfiguration
+    UpdateImageGenerationConfiguration (UpdateImageGenerationConfiguration'),
+    newUpdateImageGenerationConfiguration,
+    UpdateImageGenerationConfigurationResponse (UpdateImageGenerationConfigurationResponse'),
+    newUpdateImageGenerationConfigurationResponse,
+
+    -- ** UpdateNotificationConfiguration
+    UpdateNotificationConfiguration (UpdateNotificationConfiguration'),
+    newUpdateNotificationConfiguration,
+    UpdateNotificationConfigurationResponse (UpdateNotificationConfigurationResponse'),
+    newUpdateNotificationConfigurationResponse,
+
     -- ** UpdateSignalingChannel
     UpdateSignalingChannel (UpdateSignalingChannel'),
     newUpdateSignalingChannel,
@@ -193,6 +220,18 @@ module Amazonka.KinesisVideo
     -- ** ComparisonOperator
     ComparisonOperator (..),
 
+    -- ** ConfigurationStatus
+    ConfigurationStatus (..),
+
+    -- ** Format
+    Format (..),
+
+    -- ** FormatConfigKey
+    FormatConfigKey (..),
+
+    -- ** ImageSelectorType
+    ImageSelectorType (..),
+
     -- ** StreamStatus
     StreamStatus (..),
 
@@ -206,6 +245,22 @@ module Amazonka.KinesisVideo
     -- ** ChannelNameCondition
     ChannelNameCondition (ChannelNameCondition'),
     newChannelNameCondition,
+
+    -- ** ImageGenerationConfiguration
+    ImageGenerationConfiguration (ImageGenerationConfiguration'),
+    newImageGenerationConfiguration,
+
+    -- ** ImageGenerationDestinationConfig
+    ImageGenerationDestinationConfig (ImageGenerationDestinationConfig'),
+    newImageGenerationDestinationConfig,
+
+    -- ** NotificationConfiguration
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
+
+    -- ** NotificationDestinationConfig
+    NotificationDestinationConfig (NotificationDestinationConfig'),
+    newNotificationDestinationConfig,
 
     -- ** ResourceEndpointListItem
     ResourceEndpointListItem (ResourceEndpointListItem'),
@@ -237,6 +292,8 @@ import Amazonka.KinesisVideo.CreateSignalingChannel
 import Amazonka.KinesisVideo.CreateStream
 import Amazonka.KinesisVideo.DeleteSignalingChannel
 import Amazonka.KinesisVideo.DeleteStream
+import Amazonka.KinesisVideo.DescribeImageGenerationConfiguration
+import Amazonka.KinesisVideo.DescribeNotificationConfiguration
 import Amazonka.KinesisVideo.DescribeSignalingChannel
 import Amazonka.KinesisVideo.DescribeStream
 import Amazonka.KinesisVideo.GetDataEndpoint
@@ -252,6 +309,8 @@ import Amazonka.KinesisVideo.Types
 import Amazonka.KinesisVideo.UntagResource
 import Amazonka.KinesisVideo.UntagStream
 import Amazonka.KinesisVideo.UpdateDataRetention
+import Amazonka.KinesisVideo.UpdateImageGenerationConfiguration
+import Amazonka.KinesisVideo.UpdateNotificationConfiguration
 import Amazonka.KinesisVideo.UpdateSignalingChannel
 import Amazonka.KinesisVideo.UpdateStream
 import Amazonka.KinesisVideo.Waiters

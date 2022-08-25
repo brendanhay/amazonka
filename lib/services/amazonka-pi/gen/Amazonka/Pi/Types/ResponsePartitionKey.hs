@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResponsePartitionKey' smart constructor.
 data ResponsePartitionKey = ResponsePartitionKey'
-  { -- | A dimension map that contains the dimension(s) for this partition.
+  { -- | A dimension map that contains the dimensions for this partition.
     dimensions :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,13 +42,13 @@ data ResponsePartitionKey = ResponsePartitionKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dimensions', 'responsePartitionKey_dimensions' - A dimension map that contains the dimension(s) for this partition.
+-- 'dimensions', 'responsePartitionKey_dimensions' - A dimension map that contains the dimensions for this partition.
 newResponsePartitionKey ::
   ResponsePartitionKey
 newResponsePartitionKey =
   ResponsePartitionKey' {dimensions = Prelude.mempty}
 
--- | A dimension map that contains the dimension(s) for this partition.
+-- | A dimension map that contains the dimensions for this partition.
 responsePartitionKey_dimensions :: Lens.Lens' ResponsePartitionKey (Prelude.HashMap Prelude.Text Prelude.Text)
 responsePartitionKey_dimensions = Lens.lens (\ResponsePartitionKey' {dimensions} -> dimensions) (\s@ResponsePartitionKey' {} a -> s {dimensions = a} :: ResponsePartitionKey) Prelude.. Lens.coerced
 

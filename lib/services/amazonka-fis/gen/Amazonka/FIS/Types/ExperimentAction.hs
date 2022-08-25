@@ -36,8 +36,12 @@ data ExperimentAction = ExperimentAction'
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description for the action.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The time that the action ended.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the action.
     actionId :: Prelude.Maybe Prelude.Text,
+    -- | The time that the action started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The parameters for the action.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -59,7 +63,11 @@ data ExperimentAction = ExperimentAction'
 --
 -- 'description', 'experimentAction_description' - The description for the action.
 --
+-- 'endTime', 'experimentAction_endTime' - The time that the action ended.
+--
 -- 'actionId', 'experimentAction_actionId' - The ID of the action.
+--
+-- 'startTime', 'experimentAction_startTime' - The time that the action started.
 --
 -- 'parameters', 'experimentAction_parameters' - The parameters for the action.
 newExperimentAction ::
@@ -70,7 +78,9 @@ newExperimentAction =
       state = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       actionId = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       parameters = Prelude.Nothing
     }
 
@@ -90,9 +100,17 @@ experimentAction_targets = Lens.lens (\ExperimentAction' {targets} -> targets) (
 experimentAction_description :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.Text)
 experimentAction_description = Lens.lens (\ExperimentAction' {description} -> description) (\s@ExperimentAction' {} a -> s {description = a} :: ExperimentAction)
 
+-- | The time that the action ended.
+experimentAction_endTime :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.UTCTime)
+experimentAction_endTime = Lens.lens (\ExperimentAction' {endTime} -> endTime) (\s@ExperimentAction' {} a -> s {endTime = a} :: ExperimentAction) Prelude.. Lens.mapping Core._Time
+
 -- | The ID of the action.
 experimentAction_actionId :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.Text)
 experimentAction_actionId = Lens.lens (\ExperimentAction' {actionId} -> actionId) (\s@ExperimentAction' {} a -> s {actionId = a} :: ExperimentAction)
+
+-- | The time that the action started.
+experimentAction_startTime :: Lens.Lens' ExperimentAction (Prelude.Maybe Prelude.UTCTime)
+experimentAction_startTime = Lens.lens (\ExperimentAction' {startTime} -> startTime) (\s@ExperimentAction' {} a -> s {startTime = a} :: ExperimentAction) Prelude.. Lens.mapping Core._Time
 
 -- | The parameters for the action.
 experimentAction_parameters :: Lens.Lens' ExperimentAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -108,7 +126,9 @@ instance Core.FromJSON ExperimentAction where
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..:? "actionId")
+            Prelude.<*> (x Core..:? "startTime")
             Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
       )
 
@@ -118,7 +138,9 @@ instance Prelude.Hashable ExperimentAction where
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData ExperimentAction where
@@ -127,5 +149,7 @@ instance Prelude.NFData ExperimentAction where
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf parameters

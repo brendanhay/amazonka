@@ -34,8 +34,10 @@ module Amazonka.MediaConnect.UpdateFlowSource
     updateFlowSource_maxSyncBuffer,
     updateFlowSource_maxBitrate,
     updateFlowSource_streamId,
+    updateFlowSource_senderIpAddress,
     updateFlowSource_decryption,
     updateFlowSource_description,
+    updateFlowSource_senderControlPort,
     updateFlowSource_protocol,
     updateFlowSource_ingestPort,
     updateFlowSource_whitelistCidr,
@@ -66,7 +68,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newUpdateFlowSource' smart constructor.
 data UpdateFlowSource = UpdateFlowSource'
   { -- | The maximum latency in milliseconds. This parameter applies only to
-    -- RIST-based and Zixi-based streams.
+    -- RIST-based, Zixi-based, and Fujitsu-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
     -- | The media streams that are associated with the source, and the
     -- parameters for those associations.
@@ -85,11 +87,17 @@ data UpdateFlowSource = UpdateFlowSource'
     -- | The stream ID that you want to use for this transport. This parameter
     -- applies only to Zixi-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address that the flow communicates with to initiate connection
+    -- with the sender.
+    senderIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption used on the content ingested from this source.
     decryption :: Prelude.Maybe UpdateEncryption,
     -- | A description for the source. This value is not used or seen outside of
     -- the current AWS Elemental MediaConnect account.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
     -- | The protocol that is used by the source.
     protocol :: Prelude.Maybe Protocol,
     -- | The port that the flow will be listening on for incoming content.
@@ -120,7 +128,7 @@ data UpdateFlowSource = UpdateFlowSource'
 -- for backwards compatibility:
 --
 -- 'maxLatency', 'updateFlowSource_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
--- RIST-based and Zixi-based streams.
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 --
 -- 'mediaStreamSourceConfigurations', 'updateFlowSource_mediaStreamSourceConfigurations' - The media streams that are associated with the source, and the
 -- parameters for those associations.
@@ -139,10 +147,16 @@ data UpdateFlowSource = UpdateFlowSource'
 -- 'streamId', 'updateFlowSource_streamId' - The stream ID that you want to use for this transport. This parameter
 -- applies only to Zixi-based streams.
 --
+-- 'senderIpAddress', 'updateFlowSource_senderIpAddress' - The IP address that the flow communicates with to initiate connection
+-- with the sender.
+--
 -- 'decryption', 'updateFlowSource_decryption' - The type of encryption used on the content ingested from this source.
 --
 -- 'description', 'updateFlowSource_description' - A description for the source. This value is not used or seen outside of
 -- the current AWS Elemental MediaConnect account.
+--
+-- 'senderControlPort', 'updateFlowSource_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
 --
 -- 'protocol', 'updateFlowSource_protocol' - The protocol that is used by the source.
 --
@@ -176,8 +190,10 @@ newUpdateFlowSource pFlowArn_ pSourceArn_ =
       maxSyncBuffer = Prelude.Nothing,
       maxBitrate = Prelude.Nothing,
       streamId = Prelude.Nothing,
+      senderIpAddress = Prelude.Nothing,
       decryption = Prelude.Nothing,
       description = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
       protocol = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       whitelistCidr = Prelude.Nothing,
@@ -187,7 +203,7 @@ newUpdateFlowSource pFlowArn_ pSourceArn_ =
     }
 
 -- | The maximum latency in milliseconds. This parameter applies only to
--- RIST-based and Zixi-based streams.
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 updateFlowSource_maxLatency :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
 updateFlowSource_maxLatency = Lens.lens (\UpdateFlowSource' {maxLatency} -> maxLatency) (\s@UpdateFlowSource' {} a -> s {maxLatency = a} :: UpdateFlowSource)
 
@@ -220,6 +236,11 @@ updateFlowSource_maxBitrate = Lens.lens (\UpdateFlowSource' {maxBitrate} -> maxB
 updateFlowSource_streamId :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
 updateFlowSource_streamId = Lens.lens (\UpdateFlowSource' {streamId} -> streamId) (\s@UpdateFlowSource' {} a -> s {streamId = a} :: UpdateFlowSource)
 
+-- | The IP address that the flow communicates with to initiate connection
+-- with the sender.
+updateFlowSource_senderIpAddress :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_senderIpAddress = Lens.lens (\UpdateFlowSource' {senderIpAddress} -> senderIpAddress) (\s@UpdateFlowSource' {} a -> s {senderIpAddress = a} :: UpdateFlowSource)
+
 -- | The type of encryption used on the content ingested from this source.
 updateFlowSource_decryption :: Lens.Lens' UpdateFlowSource (Prelude.Maybe UpdateEncryption)
 updateFlowSource_decryption = Lens.lens (\UpdateFlowSource' {decryption} -> decryption) (\s@UpdateFlowSource' {} a -> s {decryption = a} :: UpdateFlowSource)
@@ -228,6 +249,11 @@ updateFlowSource_decryption = Lens.lens (\UpdateFlowSource' {decryption} -> decr
 -- the current AWS Elemental MediaConnect account.
 updateFlowSource_description :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
 updateFlowSource_description = Lens.lens (\UpdateFlowSource' {description} -> description) (\s@UpdateFlowSource' {} a -> s {description = a} :: UpdateFlowSource)
+
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+updateFlowSource_senderControlPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
+updateFlowSource_senderControlPort = Lens.lens (\UpdateFlowSource' {senderControlPort} -> senderControlPort) (\s@UpdateFlowSource' {} a -> s {senderControlPort = a} :: UpdateFlowSource)
 
 -- | The protocol that is used by the source.
 updateFlowSource_protocol :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Protocol)
@@ -282,8 +308,10 @@ instance Prelude.Hashable UpdateFlowSource where
       `Prelude.hashWithSalt` maxSyncBuffer
       `Prelude.hashWithSalt` maxBitrate
       `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` senderIpAddress
       `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` whitelistCidr
@@ -300,8 +328,10 @@ instance Prelude.NFData UpdateFlowSource where
       `Prelude.seq` Prelude.rnf maxSyncBuffer
       `Prelude.seq` Prelude.rnf maxBitrate
       `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf senderIpAddress
       `Prelude.seq` Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf whitelistCidr
@@ -334,8 +364,12 @@ instance Core.ToJSON UpdateFlowSource where
             ("maxSyncBuffer" Core..=) Prelude.<$> maxSyncBuffer,
             ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
             ("streamId" Core..=) Prelude.<$> streamId,
+            ("senderIpAddress" Core..=)
+              Prelude.<$> senderIpAddress,
             ("decryption" Core..=) Prelude.<$> decryption,
             ("description" Core..=) Prelude.<$> description,
+            ("senderControlPort" Core..=)
+              Prelude.<$> senderControlPort,
             ("protocol" Core..=) Prelude.<$> protocol,
             ("ingestPort" Core..=) Prelude.<$> ingestPort,
             ("whitelistCidr" Core..=) Prelude.<$> whitelistCidr,

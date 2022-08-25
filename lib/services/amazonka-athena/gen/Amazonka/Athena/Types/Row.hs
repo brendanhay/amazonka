@@ -24,7 +24,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The rows that comprise a query result table.
+-- | The rows that make up a query result table.
 --
 -- /See:/ 'newRow' smart constructor.
 data Row = Row'

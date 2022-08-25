@@ -34,7 +34,7 @@
 --     in the //Amazon EC2 Windows Guide// .
 --
 -- -   To delete a container image from Amazon ECR, see
---     <https://docs.aws.amazon.com/https:/docs.aws.amazon.comAmazonECR/latest/userguide/delete_image.html Deleting an image>
+--     <https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html Deleting an image>
 --     in the /Amazon ECR User Guide/.
 module Amazonka.ImageBuilder.DeleteImage
   ( -- * Creating a Request

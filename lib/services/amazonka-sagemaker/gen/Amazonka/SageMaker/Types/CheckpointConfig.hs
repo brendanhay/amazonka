@@ -31,8 +31,8 @@ data CheckpointConfig = CheckpointConfig'
   { -- | (Optional) The local directory where checkpoints are written. The
     -- default directory is @\/opt\/ml\/checkpoints\/@.
     localPath :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the S3 path where you want Amazon SageMaker to store
-    -- checkpoints. For example, @s3:\/\/bucket-name\/key-name-prefix@.
+    -- | Identifies the S3 path where you want SageMaker to store checkpoints.
+    -- For example, @s3:\/\/bucket-name\/key-name-prefix@.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,8 +48,8 @@ data CheckpointConfig = CheckpointConfig'
 -- 'localPath', 'checkpointConfig_localPath' - (Optional) The local directory where checkpoints are written. The
 -- default directory is @\/opt\/ml\/checkpoints\/@.
 --
--- 's3Uri', 'checkpointConfig_s3Uri' - Identifies the S3 path where you want Amazon SageMaker to store
--- checkpoints. For example, @s3:\/\/bucket-name\/key-name-prefix@.
+-- 's3Uri', 'checkpointConfig_s3Uri' - Identifies the S3 path where you want SageMaker to store checkpoints.
+-- For example, @s3:\/\/bucket-name\/key-name-prefix@.
 newCheckpointConfig ::
   -- | 's3Uri'
   Prelude.Text ->
@@ -65,8 +65,8 @@ newCheckpointConfig pS3Uri_ =
 checkpointConfig_localPath :: Lens.Lens' CheckpointConfig (Prelude.Maybe Prelude.Text)
 checkpointConfig_localPath = Lens.lens (\CheckpointConfig' {localPath} -> localPath) (\s@CheckpointConfig' {} a -> s {localPath = a} :: CheckpointConfig)
 
--- | Identifies the S3 path where you want Amazon SageMaker to store
--- checkpoints. For example, @s3:\/\/bucket-name\/key-name-prefix@.
+-- | Identifies the S3 path where you want SageMaker to store checkpoints.
+-- For example, @s3:\/\/bucket-name\/key-name-prefix@.
 checkpointConfig_s3Uri :: Lens.Lens' CheckpointConfig Prelude.Text
 checkpointConfig_s3Uri = Lens.lens (\CheckpointConfig' {s3Uri} -> s3Uri) (\s@CheckpointConfig' {} a -> s {s3Uri = a} :: CheckpointConfig)
 

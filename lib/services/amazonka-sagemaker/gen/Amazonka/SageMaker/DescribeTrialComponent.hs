@@ -44,6 +44,7 @@ module Amazonka.SageMaker.DescribeTrialComponent
     describeTrialComponentResponse_endTime,
     describeTrialComponentResponse_lastModifiedTime,
     describeTrialComponentResponse_source,
+    describeTrialComponentResponse_lineageGroupArn,
     describeTrialComponentResponse_creationTime,
     describeTrialComponentResponse_inputArtifacts,
     describeTrialComponentResponse_lastModifiedBy,
@@ -112,6 +113,7 @@ instance Core.AWSRequest DescribeTrialComponent where
             Prelude.<*> (x Core..?> "EndTime")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "Source")
+            Prelude.<*> (x Core..?> "LineageGroupArn")
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "InputArtifacts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "LastModifiedBy")
@@ -188,6 +190,8 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
     -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
     -- type.
     source :: Prelude.Maybe TrialComponentSource,
+    -- | The Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the component was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The input artifacts of the component.
@@ -241,6 +245,8 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
 -- 'source', 'describeTrialComponentResponse_source' - The Amazon Resource Name (ARN) of the source and, optionally, the job
 -- type.
 --
+-- 'lineageGroupArn', 'describeTrialComponentResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
+--
 -- 'creationTime', 'describeTrialComponentResponse_creationTime' - When the component was created.
 --
 -- 'inputArtifacts', 'describeTrialComponentResponse_inputArtifacts' - The input artifacts of the component.
@@ -271,6 +277,7 @@ newDescribeTrialComponentResponse pHttpStatus_ =
       endTime = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
+      lineageGroupArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
@@ -328,6 +335,10 @@ describeTrialComponentResponse_lastModifiedTime = Lens.lens (\DescribeTrialCompo
 describeTrialComponentResponse_source :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe TrialComponentSource)
 describeTrialComponentResponse_source = Lens.lens (\DescribeTrialComponentResponse' {source} -> source) (\s@DescribeTrialComponentResponse' {} a -> s {source = a} :: DescribeTrialComponentResponse)
 
+-- | The Amazon Resource Name (ARN) of the lineage group.
+describeTrialComponentResponse_lineageGroupArn :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
+describeTrialComponentResponse_lineageGroupArn = Lens.lens (\DescribeTrialComponentResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeTrialComponentResponse' {} a -> s {lineageGroupArn = a} :: DescribeTrialComponentResponse)
+
 -- | When the component was created.
 describeTrialComponentResponse_creationTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
 describeTrialComponentResponse_creationTime = Lens.lens (\DescribeTrialComponentResponse' {creationTime} -> creationTime) (\s@DescribeTrialComponentResponse' {} a -> s {creationTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
@@ -371,6 +382,7 @@ instance
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf lineageGroupArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf inputArtifacts
       `Prelude.seq` Prelude.rnf lastModifiedBy

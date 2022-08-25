@@ -42,6 +42,7 @@ module Amazonka.SSM.Lens
     createActivation_tags,
     createActivation_defaultInstanceName,
     createActivation_description,
+    createActivation_registrationMetadata,
     createActivation_registrationLimit,
     createActivation_expirationDate,
     createActivation_iamRole,
@@ -53,10 +54,12 @@ module Amazonka.SSM.Lens
     createAssociation_associationName,
     createAssociation_targetLocations,
     createAssociation_automationTargetParameterName,
+    createAssociation_targetMaps,
     createAssociation_outputLocation,
     createAssociation_targets,
     createAssociation_calendarNames,
     createAssociation_scheduleExpression,
+    createAssociation_scheduleOffset,
     createAssociation_instanceId,
     createAssociation_maxConcurrency,
     createAssociation_applyOnlyAtCronInterval,
@@ -1120,6 +1123,7 @@ module Amazonka.SSM.Lens
 
     -- ** StartSession
     startSession_documentName,
+    startSession_reason,
     startSession_parameters,
     startSession_target,
     startSessionResponse_tokenValue,
@@ -1151,10 +1155,12 @@ module Amazonka.SSM.Lens
     updateAssociation_associationVersion,
     updateAssociation_targetLocations,
     updateAssociation_automationTargetParameterName,
+    updateAssociation_targetMaps,
     updateAssociation_outputLocation,
     updateAssociation_targets,
     updateAssociation_calendarNames,
     updateAssociation_scheduleExpression,
+    updateAssociation_scheduleOffset,
     updateAssociation_maxConcurrency,
     updateAssociation_applyOnlyAtCronInterval,
     updateAssociation_maxErrors,
@@ -1365,8 +1371,10 @@ module Amazonka.SSM.Lens
     association_associationName,
     association_name,
     association_associationVersion,
+    association_targetMaps,
     association_targets,
     association_scheduleExpression,
+    association_scheduleOffset,
     association_instanceId,
     association_overview,
     association_lastExecutionDate,
@@ -1381,11 +1389,13 @@ module Amazonka.SSM.Lens
     associationDescription_targetLocations,
     associationDescription_date,
     associationDescription_automationTargetParameterName,
+    associationDescription_targetMaps,
     associationDescription_outputLocation,
     associationDescription_status,
     associationDescription_targets,
     associationDescription_calendarNames,
     associationDescription_scheduleExpression,
+    associationDescription_scheduleOffset,
     associationDescription_instanceId,
     associationDescription_overview,
     associationDescription_lastUpdateAssociationDate,
@@ -1449,10 +1459,12 @@ module Amazonka.SSM.Lens
     associationVersionInfo_name,
     associationVersionInfo_associationVersion,
     associationVersionInfo_targetLocations,
+    associationVersionInfo_targetMaps,
     associationVersionInfo_outputLocation,
     associationVersionInfo_targets,
     associationVersionInfo_calendarNames,
     associationVersionInfo_scheduleExpression,
+    associationVersionInfo_scheduleOffset,
     associationVersionInfo_maxConcurrency,
     associationVersionInfo_applyOnlyAtCronInterval,
     associationVersionInfo_maxErrors,
@@ -1663,10 +1675,12 @@ module Amazonka.SSM.Lens
     createAssociationBatchRequestEntry_associationName,
     createAssociationBatchRequestEntry_targetLocations,
     createAssociationBatchRequestEntry_automationTargetParameterName,
+    createAssociationBatchRequestEntry_targetMaps,
     createAssociationBatchRequestEntry_outputLocation,
     createAssociationBatchRequestEntry_targets,
     createAssociationBatchRequestEntry_calendarNames,
     createAssociationBatchRequestEntry_scheduleExpression,
+    createAssociationBatchRequestEntry_scheduleOffset,
     createAssociationBatchRequestEntry_instanceId,
     createAssociationBatchRequestEntry_maxConcurrency,
     createAssociationBatchRequestEntry_applyOnlyAtCronInterval,
@@ -1706,7 +1720,9 @@ module Amazonka.SSM.Lens
     documentDescription_versionName,
     documentDescription_reviewInformation,
     documentDescription_platformTypes,
+    documentDescription_categoryEnum,
     documentDescription_statusInformation,
+    documentDescription_category,
     documentDescription_schemaVersion,
     documentDescription_createdDate,
     documentDescription_approvedVersion,
@@ -1830,6 +1846,7 @@ module Amazonka.SSM.Lens
     instanceInformation_pingStatus,
     instanceInformation_name,
     instanceInformation_iamRole,
+    instanceInformation_sourceId,
     instanceInformation_registrationDate,
     instanceInformation_lastPingDateTime,
     instanceInformation_platformType,
@@ -1837,6 +1854,7 @@ module Amazonka.SSM.Lens
     instanceInformation_computerName,
     instanceInformation_lastAssociationExecutionDate,
     instanceInformation_associationStatus,
+    instanceInformation_sourceType,
     instanceInformation_activationId,
     instanceInformation_isLatestVersion,
     instanceInformation_instanceId,
@@ -2338,6 +2356,10 @@ module Amazonka.SSM.Lens
     progressCounters_successSteps,
     progressCounters_totalSteps,
 
+    -- ** RegistrationMetadataItem
+    registrationMetadataItem_key,
+    registrationMetadataItem_value,
+
     -- ** RelatedOpsItem
     relatedOpsItem_opsItemId,
 
@@ -2411,6 +2433,7 @@ module Amazonka.SSM.Lens
     -- ** Runbook
     runbook_targetLocations,
     runbook_targetParameterName,
+    runbook_targetMaps,
     runbook_targets,
     runbook_maxConcurrency,
     runbook_maxErrors,
@@ -2449,6 +2472,8 @@ module Amazonka.SSM.Lens
     session_startDate,
     session_documentName,
     session_sessionId,
+    session_reason,
+    session_maxSessionDuration,
 
     -- ** SessionFilter
     sessionFilter_key,
@@ -2753,6 +2778,7 @@ import Amazonka.SSM.Types.PatchRuleGroup
 import Amazonka.SSM.Types.PatchSource
 import Amazonka.SSM.Types.PatchStatus
 import Amazonka.SSM.Types.ProgressCounters
+import Amazonka.SSM.Types.RegistrationMetadataItem
 import Amazonka.SSM.Types.RelatedOpsItem
 import Amazonka.SSM.Types.ResolvedTargets
 import Amazonka.SSM.Types.ResourceComplianceSummaryItem

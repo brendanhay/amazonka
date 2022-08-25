@@ -20,6 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This operation is only valid for legacy predictors created with
+-- CreatePredictor. If you are not using a legacy predictor, use
+-- DescribeAutoPredictor.
+--
 -- Describes a predictor created using the CreatePredictor operation.
 --
 -- In addition to listing the properties provided in the @CreatePredictor@
@@ -58,6 +62,7 @@ module Amazonka.Forecast.DescribePredictor
     describePredictorResponse_performHPO,
     describePredictorResponse_optimizationMetric,
     describePredictorResponse_evaluationParameters,
+    describePredictorResponse_isAutoPredictor,
     describePredictorResponse_forecastTypes,
     describePredictorResponse_predictorName,
     describePredictorResponse_status,
@@ -131,6 +136,7 @@ instance Core.AWSRequest DescribePredictor where
             Prelude.<*> (x Core..?> "PerformHPO")
             Prelude.<*> (x Core..?> "OptimizationMetric")
             Prelude.<*> (x Core..?> "EvaluationParameters")
+            Prelude.<*> (x Core..?> "IsAutoPredictor")
             Prelude.<*> (x Core..?> "ForecastTypes")
             Prelude.<*> (x Core..?> "PredictorName")
             Prelude.<*> (x Core..?> "Status")
@@ -223,6 +229,8 @@ data DescribePredictorResponse = DescribePredictorResponse'
     -- into training data and testing data. The evaluation parameters define
     -- how to perform the split and the number of iterations.
     evaluationParameters :: Prelude.Maybe EvaluationParameters,
+    -- | Whether the predictor was created with CreateAutoPredictor.
+    isAutoPredictor :: Prelude.Maybe Prelude.Bool,
     -- | The forecast types used during predictor training. Default value is
     -- @[\"0.1\",\"0.5\",\"0.9\"]@
     forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -327,6 +335,8 @@ data DescribePredictorResponse = DescribePredictorResponse'
 -- into training data and testing data. The evaluation parameters define
 -- how to perform the split and the number of iterations.
 --
+-- 'isAutoPredictor', 'describePredictorResponse_isAutoPredictor' - Whether the predictor was created with CreateAutoPredictor.
+--
 -- 'forecastTypes', 'describePredictorResponse_forecastTypes' - The forecast types used during predictor training. Default value is
 -- @[\"0.1\",\"0.5\",\"0.9\"]@
 --
@@ -403,6 +413,7 @@ newDescribePredictorResponse pHttpStatus_ =
       performHPO = Prelude.Nothing,
       optimizationMetric = Prelude.Nothing,
       evaluationParameters = Prelude.Nothing,
+      isAutoPredictor = Prelude.Nothing,
       forecastTypes = Prelude.Nothing,
       predictorName = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -466,6 +477,10 @@ describePredictorResponse_optimizationMetric = Lens.lens (\DescribePredictorResp
 -- how to perform the split and the number of iterations.
 describePredictorResponse_evaluationParameters :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe EvaluationParameters)
 describePredictorResponse_evaluationParameters = Lens.lens (\DescribePredictorResponse' {evaluationParameters} -> evaluationParameters) (\s@DescribePredictorResponse' {} a -> s {evaluationParameters = a} :: DescribePredictorResponse)
+
+-- | Whether the predictor was created with CreateAutoPredictor.
+describePredictorResponse_isAutoPredictor :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe Prelude.Bool)
+describePredictorResponse_isAutoPredictor = Lens.lens (\DescribePredictorResponse' {isAutoPredictor} -> isAutoPredictor) (\s@DescribePredictorResponse' {} a -> s {isAutoPredictor = a} :: DescribePredictorResponse)
 
 -- | The forecast types used during predictor training. Default value is
 -- @[\"0.1\",\"0.5\",\"0.9\"]@
@@ -573,23 +588,28 @@ instance Prelude.NFData DescribePredictorResponse where
       `Prelude.seq` Prelude.rnf performHPO
       `Prelude.seq` Prelude.rnf optimizationMetric
       `Prelude.seq` Prelude.rnf evaluationParameters
+      `Prelude.seq` Prelude.rnf isAutoPredictor
       `Prelude.seq` Prelude.rnf forecastTypes
       `Prelude.seq` Prelude.rnf predictorName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf algorithmArn
       `Prelude.seq` Prelude.rnf featurizationConfig
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf
+        estimatedTimeRemainingInMinutes
       `Prelude.seq` Prelude.rnf forecastHorizon
       `Prelude.seq` Prelude.rnf predictorArn
       `Prelude.seq` Prelude.rnf datasetImportJobArns
       `Prelude.seq` Prelude.rnf
         predictorExecutionDetails
-      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
+      `Prelude.seq` Prelude.rnf
+        autoMLOverrideStrategy
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf
         autoMLAlgorithmArns
-      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf
+        inputDataConfig
       `Prelude.seq` Prelude.rnf hPOConfig
       `Prelude.seq` Prelude.rnf
         trainingParameters
-      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf
+        httpStatus

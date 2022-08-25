@@ -52,8 +52,8 @@ data GetContentSummary = GetContentSummary'
   { -- | The identifier of the content. Can be either the ID or the ARN. URLs
     -- cannot contain the ARN.
     contentId :: Prelude.Text,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +69,8 @@ data GetContentSummary = GetContentSummary'
 -- 'contentId', 'getContentSummary_contentId' - The identifier of the content. Can be either the ID or the ARN. URLs
 -- cannot contain the ARN.
 --
--- 'knowledgeBaseId', 'getContentSummary_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'getContentSummary_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newGetContentSummary ::
   -- | 'contentId'
   Prelude.Text ->
@@ -88,8 +88,8 @@ newGetContentSummary pContentId_ pKnowledgeBaseId_ =
 getContentSummary_contentId :: Lens.Lens' GetContentSummary Prelude.Text
 getContentSummary_contentId = Lens.lens (\GetContentSummary' {contentId} -> contentId) (\s@GetContentSummary' {} a -> s {contentId = a} :: GetContentSummary)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 getContentSummary_knowledgeBaseId :: Lens.Lens' GetContentSummary Prelude.Text
 getContentSummary_knowledgeBaseId = Lens.lens (\GetContentSummary' {knowledgeBaseId} -> knowledgeBaseId) (\s@GetContentSummary' {} a -> s {knowledgeBaseId = a} :: GetContentSummary)
 

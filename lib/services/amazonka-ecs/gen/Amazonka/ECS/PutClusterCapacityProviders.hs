@@ -27,16 +27,16 @@
 -- capacity provider strategy for the cluster. If the specified cluster has
 -- existing capacity providers associated with it, you must specify all
 -- existing capacity providers in addition to any new ones you want to add.
--- Any existing capacity providers associated with a cluster that are
--- omitted from a PutClusterCapacityProviders API call will be
+-- Any existing capacity providers that are associated with a cluster that
+-- are omitted from a PutClusterCapacityProviders API call will be
 -- disassociated with the cluster. You can only disassociate an existing
 -- capacity provider from a cluster if it\'s not being used by any existing
 -- tasks.
 --
 -- When creating a service or running a task on a cluster, if no capacity
 -- provider or launch type is specified, then the cluster\'s default
--- capacity provider strategy is used. It is recommended to define a
--- default capacity provider strategy for your cluster, however you may
+-- capacity provider strategy is used. We recommend that you define a
+-- default capacity provider strategy for your cluster. However, you must
 -- specify an empty array (@[]@) to bypass defining a default strategy.
 module Amazonka.ECS.PutClusterCapacityProviders
   ( -- * Creating a Request
@@ -68,7 +68,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutClusterCapacityProviders' smart constructor.
 data PutClusterCapacityProviders = PutClusterCapacityProviders'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster to
-    -- modify the capacity provider settings for. If you do not specify a
+    -- modify the capacity provider settings for. If you don\'t specify a
     -- cluster, the default cluster is assumed.
     cluster :: Prelude.Text,
     -- | The name of one or more capacity providers to associate with the
@@ -117,7 +117,7 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
 -- for backwards compatibility:
 --
 -- 'cluster', 'putClusterCapacityProviders_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to
--- modify the capacity provider settings for. If you do not specify a
+-- modify the capacity provider settings for. If you don\'t specify a
 -- cluster, the default cluster is assumed.
 --
 -- 'capacityProviders', 'putClusterCapacityProviders_capacityProviders' - The name of one or more capacity providers to associate with the
@@ -166,7 +166,7 @@ newPutClusterCapacityProviders pCluster_ =
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to
--- modify the capacity provider settings for. If you do not specify a
+-- modify the capacity provider settings for. If you don\'t specify a
 -- cluster, the default cluster is assumed.
 putClusterCapacityProviders_cluster :: Lens.Lens' PutClusterCapacityProviders Prelude.Text
 putClusterCapacityProviders_cluster = Lens.lens (\PutClusterCapacityProviders' {cluster} -> cluster) (\s@PutClusterCapacityProviders' {} a -> s {cluster = a} :: PutClusterCapacityProviders)

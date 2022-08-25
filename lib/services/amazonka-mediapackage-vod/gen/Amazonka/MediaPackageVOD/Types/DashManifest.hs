@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaPackageVOD.Types.ManifestLayout
 import Amazonka.MediaPackageVOD.Types.Profile
+import Amazonka.MediaPackageVOD.Types.ScteMarkersSource
 import Amazonka.MediaPackageVOD.Types.StreamSelection
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,6 +43,11 @@ data DashManifest = DashManifest'
     -- COMPACT, duplicate elements are combined and presented at the
     -- AdaptationSet level.
     manifestLayout :: Prelude.Maybe ManifestLayout,
+    -- | The source of scte markers used. When set to SEGMENTS, the scte markers
+    -- are sourced from the segments of the ingested content. When set to
+    -- MANIFEST, the scte markers are sourced from the manifest of the ingested
+    -- content.
+    scteMarkersSource :: Prelude.Maybe ScteMarkersSource,
     -- | Minimum duration (in seconds) that a player will buffer media before
     -- starting the presentation.
     minBufferTimeSeconds :: Prelude.Maybe Prelude.Int
@@ -69,6 +75,11 @@ data DashManifest = DashManifest'
 -- COMPACT, duplicate elements are combined and presented at the
 -- AdaptationSet level.
 --
+-- 'scteMarkersSource', 'dashManifest_scteMarkersSource' - The source of scte markers used. When set to SEGMENTS, the scte markers
+-- are sourced from the segments of the ingested content. When set to
+-- MANIFEST, the scte markers are sourced from the manifest of the ingested
+-- content.
+--
 -- 'minBufferTimeSeconds', 'dashManifest_minBufferTimeSeconds' - Minimum duration (in seconds) that a player will buffer media before
 -- starting the presentation.
 newDashManifest ::
@@ -79,6 +90,7 @@ newDashManifest =
       streamSelection = Prelude.Nothing,
       manifestName = Prelude.Nothing,
       manifestLayout = Prelude.Nothing,
+      scteMarkersSource = Prelude.Nothing,
       minBufferTimeSeconds = Prelude.Nothing
     }
 
@@ -103,6 +115,13 @@ dashManifest_manifestName = Lens.lens (\DashManifest' {manifestName} -> manifest
 dashManifest_manifestLayout :: Lens.Lens' DashManifest (Prelude.Maybe ManifestLayout)
 dashManifest_manifestLayout = Lens.lens (\DashManifest' {manifestLayout} -> manifestLayout) (\s@DashManifest' {} a -> s {manifestLayout = a} :: DashManifest)
 
+-- | The source of scte markers used. When set to SEGMENTS, the scte markers
+-- are sourced from the segments of the ingested content. When set to
+-- MANIFEST, the scte markers are sourced from the manifest of the ingested
+-- content.
+dashManifest_scteMarkersSource :: Lens.Lens' DashManifest (Prelude.Maybe ScteMarkersSource)
+dashManifest_scteMarkersSource = Lens.lens (\DashManifest' {scteMarkersSource} -> scteMarkersSource) (\s@DashManifest' {} a -> s {scteMarkersSource = a} :: DashManifest)
+
 -- | Minimum duration (in seconds) that a player will buffer media before
 -- starting the presentation.
 dashManifest_minBufferTimeSeconds :: Lens.Lens' DashManifest (Prelude.Maybe Prelude.Int)
@@ -118,6 +137,7 @@ instance Core.FromJSON DashManifest where
             Prelude.<*> (x Core..:? "streamSelection")
             Prelude.<*> (x Core..:? "manifestName")
             Prelude.<*> (x Core..:? "manifestLayout")
+            Prelude.<*> (x Core..:? "scteMarkersSource")
             Prelude.<*> (x Core..:? "minBufferTimeSeconds")
       )
 
@@ -127,6 +147,7 @@ instance Prelude.Hashable DashManifest where
       `Prelude.hashWithSalt` streamSelection
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` manifestLayout
+      `Prelude.hashWithSalt` scteMarkersSource
       `Prelude.hashWithSalt` minBufferTimeSeconds
 
 instance Prelude.NFData DashManifest where
@@ -135,6 +156,7 @@ instance Prelude.NFData DashManifest where
       `Prelude.seq` Prelude.rnf streamSelection
       `Prelude.seq` Prelude.rnf manifestName
       `Prelude.seq` Prelude.rnf manifestLayout
+      `Prelude.seq` Prelude.rnf scteMarkersSource
       `Prelude.seq` Prelude.rnf minBufferTimeSeconds
 
 instance Core.ToJSON DashManifest where
@@ -147,6 +169,8 @@ instance Core.ToJSON DashManifest where
             ("manifestName" Core..=) Prelude.<$> manifestName,
             ("manifestLayout" Core..=)
               Prelude.<$> manifestLayout,
+            ("scteMarkersSource" Core..=)
+              Prelude.<$> scteMarkersSource,
             ("minBufferTimeSeconds" Core..=)
               Prelude.<$> minBufferTimeSeconds
           ]

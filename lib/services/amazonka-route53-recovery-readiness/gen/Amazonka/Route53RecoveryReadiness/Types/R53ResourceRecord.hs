@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The Route 53 resource a DNS Target Resource record points to
+-- | The Route 53 resource that a DNS target resource record points to.
 --
 -- /See:/ 'newR53ResourceRecord' smart constructor.
 data R53ResourceRecord = R53ResourceRecord'
-  { -- | The DNS target name
+  { -- | The DNS target domain name.
     domainName :: Prelude.Maybe Prelude.Text,
-    -- | The Resource Record set id
+    -- | The Route 53 Resource Record Set ID.
     recordSetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data R53ResourceRecord = R53ResourceRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'r53ResourceRecord_domainName' - The DNS target name
+-- 'domainName', 'r53ResourceRecord_domainName' - The DNS target domain name.
 --
--- 'recordSetId', 'r53ResourceRecord_recordSetId' - The Resource Record set id
+-- 'recordSetId', 'r53ResourceRecord_recordSetId' - The Route 53 Resource Record Set ID.
 newR53ResourceRecord ::
   R53ResourceRecord
 newR53ResourceRecord =
@@ -53,11 +53,11 @@ newR53ResourceRecord =
       recordSetId = Prelude.Nothing
     }
 
--- | The DNS target name
+-- | The DNS target domain name.
 r53ResourceRecord_domainName :: Lens.Lens' R53ResourceRecord (Prelude.Maybe Prelude.Text)
 r53ResourceRecord_domainName = Lens.lens (\R53ResourceRecord' {domainName} -> domainName) (\s@R53ResourceRecord' {} a -> s {domainName = a} :: R53ResourceRecord)
 
--- | The Resource Record set id
+-- | The Route 53 Resource Record Set ID.
 r53ResourceRecord_recordSetId :: Lens.Lens' R53ResourceRecord (Prelude.Maybe Prelude.Text)
 r53ResourceRecord_recordSetId = Lens.lens (\R53ResourceRecord' {recordSetId} -> recordSetId) (\s@R53ResourceRecord' {} a -> s {recordSetId = a} :: R53ResourceRecord)
 

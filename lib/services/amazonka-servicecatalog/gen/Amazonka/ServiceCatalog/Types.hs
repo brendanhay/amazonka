@@ -749,9 +749,9 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An operation requiring TagOptions failed because the TagOptions
--- migration process has not been performed for this account. Please use
--- the AWS console to perform the migration process before retrying the
--- operation.
+-- migration process has not been performed for this account. Use the
+-- Amazon Web Services Management Console to perform the migration process
+-- before retrying the operation.
 _TagOptionNotMigratedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TagOptionNotMigratedException =
   Core._MatchServiceError

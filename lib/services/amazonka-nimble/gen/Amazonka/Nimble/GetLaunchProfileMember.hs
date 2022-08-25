@@ -27,9 +27,9 @@ module Amazonka.Nimble.GetLaunchProfileMember
     newGetLaunchProfileMember,
 
     -- * Request Lenses
-    getLaunchProfileMember_studioId,
-    getLaunchProfileMember_principalId,
     getLaunchProfileMember_launchProfileId,
+    getLaunchProfileMember_principalId,
+    getLaunchProfileMember_studioId,
 
     -- * Destructuring the Response
     GetLaunchProfileMemberResponse (..),
@@ -50,12 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfileMember' smart constructor.
 data GetLaunchProfileMember = GetLaunchProfileMember'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The principal ID.
+  { -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
+    -- | The principal ID. This currently supports a Amazon Web Services SSO
+    -- UserId.
     principalId :: Prelude.Text,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,40 +68,43 @@ data GetLaunchProfileMember = GetLaunchProfileMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchProfileId', 'getLaunchProfileMember_launchProfileId' - The Launch Profile ID.
+--
+-- 'principalId', 'getLaunchProfileMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
+--
 -- 'studioId', 'getLaunchProfileMember_studioId' - The studio ID.
---
--- 'principalId', 'getLaunchProfileMember_principalId' - The principal ID.
---
--- 'launchProfileId', 'getLaunchProfileMember_launchProfileId' - The launch profile ID.
 newGetLaunchProfileMember ::
-  -- | 'studioId'
+  -- | 'launchProfileId'
   Prelude.Text ->
   -- | 'principalId'
   Prelude.Text ->
-  -- | 'launchProfileId'
+  -- | 'studioId'
   Prelude.Text ->
   GetLaunchProfileMember
 newGetLaunchProfileMember
-  pStudioId_
+  pLaunchProfileId_
   pPrincipalId_
-  pLaunchProfileId_ =
+  pStudioId_ =
     GetLaunchProfileMember'
-      { studioId = pStudioId_,
+      { launchProfileId =
+          pLaunchProfileId_,
         principalId = pPrincipalId_,
-        launchProfileId = pLaunchProfileId_
+        studioId = pStudioId_
       }
+
+-- | The Launch Profile ID.
+getLaunchProfileMember_launchProfileId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
+getLaunchProfileMember_launchProfileId = Lens.lens (\GetLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileMember' {} a -> s {launchProfileId = a} :: GetLaunchProfileMember)
+
+-- | The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
+getLaunchProfileMember_principalId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
+getLaunchProfileMember_principalId = Lens.lens (\GetLaunchProfileMember' {principalId} -> principalId) (\s@GetLaunchProfileMember' {} a -> s {principalId = a} :: GetLaunchProfileMember)
 
 -- | The studio ID.
 getLaunchProfileMember_studioId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
 getLaunchProfileMember_studioId = Lens.lens (\GetLaunchProfileMember' {studioId} -> studioId) (\s@GetLaunchProfileMember' {} a -> s {studioId = a} :: GetLaunchProfileMember)
-
--- | The principal ID.
-getLaunchProfileMember_principalId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
-getLaunchProfileMember_principalId = Lens.lens (\GetLaunchProfileMember' {principalId} -> principalId) (\s@GetLaunchProfileMember' {} a -> s {principalId = a} :: GetLaunchProfileMember)
-
--- | The launch profile ID.
-getLaunchProfileMember_launchProfileId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
-getLaunchProfileMember_launchProfileId = Lens.lens (\GetLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileMember' {} a -> s {launchProfileId = a} :: GetLaunchProfileMember)
 
 instance Core.AWSRequest GetLaunchProfileMember where
   type
@@ -117,15 +121,15 @@ instance Core.AWSRequest GetLaunchProfileMember where
 
 instance Prelude.Hashable GetLaunchProfileMember where
   hashWithSalt _salt GetLaunchProfileMember' {..} =
-    _salt `Prelude.hashWithSalt` studioId
+    _salt `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetLaunchProfileMember where
   rnf GetLaunchProfileMember' {..} =
-    Prelude.rnf studioId
+    Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders GetLaunchProfileMember where
   toHeaders =

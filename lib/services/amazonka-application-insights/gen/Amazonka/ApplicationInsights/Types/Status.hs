@@ -22,6 +22,7 @@ module Amazonka.ApplicationInsights.Types.Status
       ( ..,
         Status_IGNORE,
         Status_PENDING,
+        Status_RECURRING,
         Status_RESOLVED
       ),
   )
@@ -61,12 +62,16 @@ pattern Status_IGNORE = Status' "IGNORE"
 pattern Status_PENDING :: Status
 pattern Status_PENDING = Status' "PENDING"
 
+pattern Status_RECURRING :: Status
+pattern Status_RECURRING = Status' "RECURRING"
+
 pattern Status_RESOLVED :: Status
 pattern Status_RESOLVED = Status' "RESOLVED"
 
 {-# COMPLETE
   Status_IGNORE,
   Status_PENDING,
+  Status_RECURRING,
   Status_RESOLVED,
   Status'
   #-}

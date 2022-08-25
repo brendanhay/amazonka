@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Batch compute resource. For more information,
 -- see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute environments>
 -- in the /Batch User Guide/.
 --
 -- /See:/ 'newComputeResource' smart constructor.
@@ -39,11 +39,11 @@ data ComputeResource = ComputeResource'
     -- \"String2\", where String1 is the tag key and String2 is the tag
     -- value−for example, @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This
     -- is helpful for recognizing your Batch instances in the Amazon EC2
-    -- console. These tags can\'t be updated or removed after the compute
-    -- environment is created.Aany changes to these tags require that you
-    -- create a new compute environment and remove the old compute environment.
-    -- These tags aren\'t seen when using the Batch @ListTagsForResource@ API
-    -- operation.
+    -- console. Updating these tags requires an infrastructure update to the
+    -- compute environment. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+    -- in the /Batch User Guide/. These tags aren\'t seen when using the Batch
+    -- @ListTagsForResource@ API operation.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources, and shouldn\'t be specified.
@@ -57,7 +57,9 @@ data ComputeResource = ComputeResource'
     ec2KeyPair :: Prelude.Maybe Prelude.Text,
     -- | Provides information used to select Amazon Machine Images (AMIs) for EC2
     -- instances in the compute environment. If @Ec2Configuration@ isn\'t
-    -- specified, the default is @ECS_AL1@.
+    -- specified, the default is @ECS_AL2@.
+    --
+    -- One or two values can be provided.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources, and shouldn\'t be specified.
@@ -109,7 +111,7 @@ data ComputeResource = ComputeResource'
     -- operation override the same parameters in the launch template. You must
     -- specify either the launch template ID or launch template name in the
     -- request, but not both. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Launch Template Support>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Launch template support>
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -130,7 +132,7 @@ data ComputeResource = ComputeResource'
     -- applied to a @SPOT@ compute environment. This role is required if the
     -- allocation strategy set to @BEST_FIT@ or if the allocation strategy
     -- isn\'t specified. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 Spot Fleet Role>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 spot fleet role>
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -141,7 +143,7 @@ data ComputeResource = ComputeResource'
     -- managed policy. The previously recommended __AmazonEC2SpotFleetRole__
     -- managed policy doesn\'t have the required permissions to tag Spot
     -- Instances. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot Instances not tagged on creation>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot instances not tagged on creation>
     -- in the /Batch User Guide/.
     spotIamFleetRole :: Prelude.Maybe Prelude.Text,
     -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
@@ -150,7 +152,7 @@ data ComputeResource = ComputeResource'
     -- @ ecsInstanceRole @ or
     -- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS Instance Role>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -161,7 +163,7 @@ data ComputeResource = ComputeResource'
     -- be because of availability of the instance type in the Region or
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html Amazon EC2 service limits>.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation Strategies>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation strategies>
     -- in the /Batch User Guide/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -177,7 +179,11 @@ data ComputeResource = ComputeResource'
     --     then additional jobs aren\'t run until the currently running jobs
     --     have completed. This allocation strategy keeps costs lower but can
     --     limit scaling. If you are using Spot Fleets with @BEST_FIT@ then the
-    --     Spot Fleet IAM Role must be specified.
+    --     Spot Fleet IAM Role must be specified. Compute resources that use a
+    --     @BEST_FIT@ allocation strategy don\'t support infrastructure updates
+    --     and can\'t update some parameters. For more information, see
+    --     <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+    --     in the /Batch User Guide/.
     --
     -- [BEST_FIT_PROGRESSIVE]
     --     Batch will select additional instance types that are large enough to
@@ -205,7 +211,7 @@ data ComputeResource = ComputeResource'
     -- parallel job on a logical grouping of instances within a single
     -- Availability Zone with high network flow potential. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -229,12 +235,12 @@ data ComputeResource = ComputeResource'
     imageId :: Prelude.Maybe Prelude.Text,
     -- | The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
     -- @FARGATE_SPOT@. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute environments>
     -- in the /Batch User Guide/.
     --
     -- If you choose @SPOT@, you must also specify an Amazon EC2 Spot Fleet
     -- role with the @spotIamFleetRole@ parameter. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 Spot Fleet role>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 spot fleet role>
     -- in the /Batch User Guide/.
     type' :: CRType,
     -- | The maximum number of Amazon EC2 vCPUs that a compute environment can
@@ -250,7 +256,7 @@ data ComputeResource = ComputeResource'
     -- | The VPC subnets where the compute resources are launched. These subnets
     -- must be within the same VPC. Fargate compute resources can contain up to
     -- 16 subnets. For more information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and subnets>
     -- in the /Amazon VPC User Guide/.
     subnets :: [Prelude.Text]
   }
@@ -269,11 +275,11 @@ data ComputeResource = ComputeResource'
 -- \"String2\", where String1 is the tag key and String2 is the tag
 -- value−for example, @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This
 -- is helpful for recognizing your Batch instances in the Amazon EC2
--- console. These tags can\'t be updated or removed after the compute
--- environment is created.Aany changes to these tags require that you
--- create a new compute environment and remove the old compute environment.
--- These tags aren\'t seen when using the Batch @ListTagsForResource@ API
--- operation.
+-- console. Updating these tags requires an infrastructure update to the
+-- compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+-- in the /Batch User Guide/. These tags aren\'t seen when using the Batch
+-- @ListTagsForResource@ API operation.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
@@ -287,7 +293,9 @@ data ComputeResource = ComputeResource'
 --
 -- 'ec2Configuration', 'computeResource_ec2Configuration' - Provides information used to select Amazon Machine Images (AMIs) for EC2
 -- instances in the compute environment. If @Ec2Configuration@ isn\'t
--- specified, the default is @ECS_AL1@.
+-- specified, the default is @ECS_AL2@.
+--
+-- One or two values can be provided.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
@@ -339,7 +347,7 @@ data ComputeResource = ComputeResource'
 -- operation override the same parameters in the launch template. You must
 -- specify either the launch template ID or launch template name in the
 -- request, but not both. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Launch Template Support>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Launch template support>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -360,7 +368,7 @@ data ComputeResource = ComputeResource'
 -- applied to a @SPOT@ compute environment. This role is required if the
 -- allocation strategy set to @BEST_FIT@ or if the allocation strategy
 -- isn\'t specified. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 Spot Fleet Role>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 spot fleet role>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -371,7 +379,7 @@ data ComputeResource = ComputeResource'
 -- managed policy. The previously recommended __AmazonEC2SpotFleetRole__
 -- managed policy doesn\'t have the required permissions to tag Spot
 -- Instances. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot Instances not tagged on creation>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot instances not tagged on creation>
 -- in the /Batch User Guide/.
 --
 -- 'instanceRole', 'computeResource_instanceRole' - The Amazon ECS instance profile applied to Amazon EC2 instances in a
@@ -380,7 +388,7 @@ data ComputeResource = ComputeResource'
 -- @ ecsInstanceRole @ or
 -- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
 -- more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS Instance Role>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -391,7 +399,7 @@ data ComputeResource = ComputeResource'
 -- be because of availability of the instance type in the Region or
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html Amazon EC2 service limits>.
 -- For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation Strategies>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation strategies>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -407,7 +415,11 @@ data ComputeResource = ComputeResource'
 --     then additional jobs aren\'t run until the currently running jobs
 --     have completed. This allocation strategy keeps costs lower but can
 --     limit scaling. If you are using Spot Fleets with @BEST_FIT@ then the
---     Spot Fleet IAM Role must be specified.
+--     Spot Fleet IAM Role must be specified. Compute resources that use a
+--     @BEST_FIT@ allocation strategy don\'t support infrastructure updates
+--     and can\'t update some parameters. For more information, see
+--     <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+--     in the /Batch User Guide/.
 --
 -- [BEST_FIT_PROGRESSIVE]
 --     Batch will select additional instance types that are large enough to
@@ -435,7 +447,7 @@ data ComputeResource = ComputeResource'
 -- parallel job on a logical grouping of instances within a single
 -- Availability Zone with high network flow potential. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -459,12 +471,12 @@ data ComputeResource = ComputeResource'
 --
 -- 'type'', 'computeResource_type' - The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
 -- @FARGATE_SPOT@. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute environments>
 -- in the /Batch User Guide/.
 --
 -- If you choose @SPOT@, you must also specify an Amazon EC2 Spot Fleet
 -- role with the @spotIamFleetRole@ parameter. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 Spot Fleet role>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 spot fleet role>
 -- in the /Batch User Guide/.
 --
 -- 'maxvCpus', 'computeResource_maxvCpus' - The maximum number of Amazon EC2 vCPUs that a compute environment can
@@ -480,7 +492,7 @@ data ComputeResource = ComputeResource'
 -- 'subnets', 'computeResource_subnets' - The VPC subnets where the compute resources are launched. These subnets
 -- must be within the same VPC. Fargate compute resources can contain up to
 -- 16 subnets. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and subnets>
 -- in the /Amazon VPC User Guide/.
 newComputeResource ::
   -- | 'type''
@@ -514,11 +526,11 @@ newComputeResource pType_ pMaxvCpus_ =
 -- \"String2\", where String1 is the tag key and String2 is the tag
 -- value−for example, @{ \"Name\": \"Batch Instance - C4OnDemand\" }@. This
 -- is helpful for recognizing your Batch instances in the Amazon EC2
--- console. These tags can\'t be updated or removed after the compute
--- environment is created.Aany changes to these tags require that you
--- create a new compute environment and remove the old compute environment.
--- These tags aren\'t seen when using the Batch @ListTagsForResource@ API
--- operation.
+-- console. Updating these tags requires an infrastructure update to the
+-- compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+-- in the /Batch User Guide/. These tags aren\'t seen when using the Batch
+-- @ListTagsForResource@ API operation.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
@@ -536,7 +548,9 @@ computeResource_ec2KeyPair = Lens.lens (\ComputeResource' {ec2KeyPair} -> ec2Key
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for EC2
 -- instances in the compute environment. If @Ec2Configuration@ isn\'t
--- specified, the default is @ECS_AL1@.
+-- specified, the default is @ECS_AL2@.
+--
+-- One or two values can be provided.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
@@ -598,7 +612,7 @@ computeResource_desiredvCpus = Lens.lens (\ComputeResource' {desiredvCpus} -> de
 -- operation override the same parameters in the launch template. You must
 -- specify either the launch template ID or launch template name in the
 -- request, but not both. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Launch Template Support>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Launch template support>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -623,7 +637,7 @@ computeResource_bidPercentage = Lens.lens (\ComputeResource' {bidPercentage} -> 
 -- applied to a @SPOT@ compute environment. This role is required if the
 -- allocation strategy set to @BEST_FIT@ or if the allocation strategy
 -- isn\'t specified. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 Spot Fleet Role>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 spot fleet role>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -634,7 +648,7 @@ computeResource_bidPercentage = Lens.lens (\ComputeResource' {bidPercentage} -> 
 -- managed policy. The previously recommended __AmazonEC2SpotFleetRole__
 -- managed policy doesn\'t have the required permissions to tag Spot
 -- Instances. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot Instances not tagged on creation>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot instances not tagged on creation>
 -- in the /Batch User Guide/.
 computeResource_spotIamFleetRole :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Text)
 computeResource_spotIamFleetRole = Lens.lens (\ComputeResource' {spotIamFleetRole} -> spotIamFleetRole) (\s@ComputeResource' {} a -> s {spotIamFleetRole = a} :: ComputeResource)
@@ -645,7 +659,7 @@ computeResource_spotIamFleetRole = Lens.lens (\ComputeResource' {spotIamFleetRol
 -- @ ecsInstanceRole @ or
 -- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
 -- more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS Instance Role>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -658,7 +672,7 @@ computeResource_instanceRole = Lens.lens (\ComputeResource' {instanceRole} -> in
 -- be because of availability of the instance type in the Region or
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html Amazon EC2 service limits>.
 -- For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation Strategies>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html Allocation strategies>
 -- in the /Batch User Guide/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -674,7 +688,11 @@ computeResource_instanceRole = Lens.lens (\ComputeResource' {instanceRole} -> in
 --     then additional jobs aren\'t run until the currently running jobs
 --     have completed. This allocation strategy keeps costs lower but can
 --     limit scaling. If you are using Spot Fleets with @BEST_FIT@ then the
---     Spot Fleet IAM Role must be specified.
+--     Spot Fleet IAM Role must be specified. Compute resources that use a
+--     @BEST_FIT@ allocation strategy don\'t support infrastructure updates
+--     and can\'t update some parameters. For more information, see
+--     <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+--     in the /Batch User Guide/.
 --
 -- [BEST_FIT_PROGRESSIVE]
 --     Batch will select additional instance types that are large enough to
@@ -704,7 +722,7 @@ computeResource_allocationStrategy = Lens.lens (\ComputeResource' {allocationStr
 -- parallel job on a logical grouping of instances within a single
 -- Availability Zone with high network flow potential. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement groups>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -732,12 +750,12 @@ computeResource_imageId = Lens.lens (\ComputeResource' {imageId} -> imageId) (\s
 
 -- | The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
 -- @FARGATE_SPOT@. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute environments>
 -- in the /Batch User Guide/.
 --
 -- If you choose @SPOT@, you must also specify an Amazon EC2 Spot Fleet
 -- role with the @spotIamFleetRole@ parameter. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 Spot Fleet role>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html Amazon EC2 spot fleet role>
 -- in the /Batch User Guide/.
 computeResource_type :: Lens.Lens' ComputeResource CRType
 computeResource_type = Lens.lens (\ComputeResource' {type'} -> type') (\s@ComputeResource' {} a -> s {type' = a} :: ComputeResource)
@@ -757,7 +775,7 @@ computeResource_maxvCpus = Lens.lens (\ComputeResource' {maxvCpus} -> maxvCpus) 
 -- | The VPC subnets where the compute resources are launched. These subnets
 -- must be within the same VPC. Fargate compute resources can contain up to
 -- 16 subnets. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and subnets>
 -- in the /Amazon VPC User Guide/.
 computeResource_subnets :: Lens.Lens' ComputeResource [Prelude.Text]
 computeResource_subnets = Lens.lens (\ComputeResource' {subnets} -> subnets) (\s@ComputeResource' {} a -> s {subnets = a} :: ComputeResource) Prelude.. Lens.coerced

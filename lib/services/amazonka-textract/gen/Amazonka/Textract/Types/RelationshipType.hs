@@ -20,8 +20,11 @@
 module Amazonka.Textract.Types.RelationshipType
   ( RelationshipType
       ( ..,
+        RelationshipType_ANSWER,
         RelationshipType_CHILD,
         RelationshipType_COMPLEX_FEATURES,
+        RelationshipType_MERGED_CELL,
+        RelationshipType_TITLE,
         RelationshipType_VALUE
       ),
   )
@@ -58,18 +61,30 @@ newtype RelationshipType = RelationshipType'
       Core.ToXML
     )
 
+pattern RelationshipType_ANSWER :: RelationshipType
+pattern RelationshipType_ANSWER = RelationshipType' "ANSWER"
+
 pattern RelationshipType_CHILD :: RelationshipType
 pattern RelationshipType_CHILD = RelationshipType' "CHILD"
 
 pattern RelationshipType_COMPLEX_FEATURES :: RelationshipType
 pattern RelationshipType_COMPLEX_FEATURES = RelationshipType' "COMPLEX_FEATURES"
 
+pattern RelationshipType_MERGED_CELL :: RelationshipType
+pattern RelationshipType_MERGED_CELL = RelationshipType' "MERGED_CELL"
+
+pattern RelationshipType_TITLE :: RelationshipType
+pattern RelationshipType_TITLE = RelationshipType' "TITLE"
+
 pattern RelationshipType_VALUE :: RelationshipType
 pattern RelationshipType_VALUE = RelationshipType' "VALUE"
 
 {-# COMPLETE
+  RelationshipType_ANSWER,
   RelationshipType_CHILD,
   RelationshipType_COMPLEX_FEATURES,
+  RelationshipType_MERGED_CELL,
+  RelationshipType_TITLE,
   RelationshipType_VALUE,
   RelationshipType'
   #-}

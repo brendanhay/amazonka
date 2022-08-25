@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' smart constructor.
 data AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails = AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails'
   { -- | The number of Availability Zones that the domain uses. Valid values are
-    -- 2 and 3. The default is 2.
+    -- @2@ or @3@. The default is @2@.
     availabilityZoneCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +42,7 @@ data AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails = AwsOpen
 -- for backwards compatibility:
 --
 -- 'availabilityZoneCount', 'awsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails_availabilityZoneCount' - The number of Availability Zones that the domain uses. Valid values are
--- 2 and 3. The default is 2.
+-- @2@ or @3@. The default is @2@.
 newAwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails ::
   AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
 newAwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails =
@@ -52,7 +52,7 @@ newAwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails =
     }
 
 -- | The number of Availability Zones that the domain uses. Valid values are
--- 2 and 3. The default is 2.
+-- @2@ or @3@. The default is @2@.
 awsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails_availabilityZoneCount :: Lens.Lens' AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails (Prelude.Maybe Prelude.Int)
 awsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails_availabilityZoneCount = Lens.lens (\AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {availabilityZoneCount} -> availabilityZoneCount) (\s@AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails' {} a -> s {availabilityZoneCount = a} :: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails)
 

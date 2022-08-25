@@ -37,6 +37,7 @@ module Amazonka.Batch.CreateJobQueue
     -- * Request Lenses
     createJobQueue_tags,
     createJobQueue_state,
+    createJobQueue_schedulingPolicyArn,
     createJobQueue_jobQueueName,
     createJobQueue_priority,
     createJobQueue_computeEnvironmentOrder,
@@ -73,8 +74,18 @@ data CreateJobQueue = CreateJobQueue'
     -- able to accept jobs. If the job queue state is @DISABLED@, new jobs
     -- can\'t be added to the queue, but jobs already in the queue can finish.
     state :: Prelude.Maybe JQState,
-    -- | The name of the job queue. Up to 128 letters (uppercase and lowercase),
-    -- numbers, and underscores are allowed.
+    -- | The Amazon Resource Name (ARN) of the fair share scheduling policy. If
+    -- this parameter is specified, the job queue uses a fair share scheduling
+    -- policy. If this parameter isn\'t specified, the job queue uses a first
+    -- in, first out (FIFO) scheduling policy. After a job queue is created,
+    -- you can replace but can\'t remove the fair share scheduling policy. The
+    -- format is @aws:Partition:batch:Region:Account:scheduling-policy\/Name @.
+    -- An example is
+    -- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+    schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the job queue. It can be up to 128 letters long. It can
+    -- contain uppercase and lowercase letters, numbers, hyphens (-), and
+    -- underscores (_).
     jobQueueName :: Prelude.Text,
     -- | The priority of the job queue. Job queues with a higher priority (or a
     -- higher integer value for the @priority@ parameter) are evaluated first
@@ -87,7 +98,7 @@ data CreateJobQueue = CreateJobQueue'
     priority :: Prelude.Int,
     -- | The set of compute environments mapped to a job queue and their order
     -- relative to each other. The job scheduler uses this parameter to
-    -- determine which compute environment should run a specific job. Compute
+    -- determine which compute environment runs a specific job. Compute
     -- environments must be in the @VALID@ state before you can associate them
     -- with a job queue. You can associate up to three compute environments
     -- with a job queue. All of the compute environments must be either EC2
@@ -119,8 +130,18 @@ data CreateJobQueue = CreateJobQueue'
 -- able to accept jobs. If the job queue state is @DISABLED@, new jobs
 -- can\'t be added to the queue, but jobs already in the queue can finish.
 --
--- 'jobQueueName', 'createJobQueue_jobQueueName' - The name of the job queue. Up to 128 letters (uppercase and lowercase),
--- numbers, and underscores are allowed.
+-- 'schedulingPolicyArn', 'createJobQueue_schedulingPolicyArn' - The Amazon Resource Name (ARN) of the fair share scheduling policy. If
+-- this parameter is specified, the job queue uses a fair share scheduling
+-- policy. If this parameter isn\'t specified, the job queue uses a first
+-- in, first out (FIFO) scheduling policy. After a job queue is created,
+-- you can replace but can\'t remove the fair share scheduling policy. The
+-- format is @aws:Partition:batch:Region:Account:scheduling-policy\/Name @.
+-- An example is
+-- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+--
+-- 'jobQueueName', 'createJobQueue_jobQueueName' - The name of the job queue. It can be up to 128 letters long. It can
+-- contain uppercase and lowercase letters, numbers, hyphens (-), and
+-- underscores (_).
 --
 -- 'priority', 'createJobQueue_priority' - The priority of the job queue. Job queues with a higher priority (or a
 -- higher integer value for the @priority@ parameter) are evaluated first
@@ -133,7 +154,7 @@ data CreateJobQueue = CreateJobQueue'
 --
 -- 'computeEnvironmentOrder', 'createJobQueue_computeEnvironmentOrder' - The set of compute environments mapped to a job queue and their order
 -- relative to each other. The job scheduler uses this parameter to
--- determine which compute environment should run a specific job. Compute
+-- determine which compute environment runs a specific job. Compute
 -- environments must be in the @VALID@ state before you can associate them
 -- with a job queue. You can associate up to three compute environments
 -- with a job queue. All of the compute environments must be either EC2
@@ -153,6 +174,7 @@ newCreateJobQueue pJobQueueName_ pPriority_ =
   CreateJobQueue'
     { tags = Prelude.Nothing,
       state = Prelude.Nothing,
+      schedulingPolicyArn = Prelude.Nothing,
       jobQueueName = pJobQueueName_,
       priority = pPriority_,
       computeEnvironmentOrder = Prelude.mempty
@@ -172,8 +194,20 @@ createJobQueue_tags = Lens.lens (\CreateJobQueue' {tags} -> tags) (\s@CreateJobQ
 createJobQueue_state :: Lens.Lens' CreateJobQueue (Prelude.Maybe JQState)
 createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJobQueue' {} a -> s {state = a} :: CreateJobQueue)
 
--- | The name of the job queue. Up to 128 letters (uppercase and lowercase),
--- numbers, and underscores are allowed.
+-- | The Amazon Resource Name (ARN) of the fair share scheduling policy. If
+-- this parameter is specified, the job queue uses a fair share scheduling
+-- policy. If this parameter isn\'t specified, the job queue uses a first
+-- in, first out (FIFO) scheduling policy. After a job queue is created,
+-- you can replace but can\'t remove the fair share scheduling policy. The
+-- format is @aws:Partition:batch:Region:Account:scheduling-policy\/Name @.
+-- An example is
+-- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+createJobQueue_schedulingPolicyArn :: Lens.Lens' CreateJobQueue (Prelude.Maybe Prelude.Text)
+createJobQueue_schedulingPolicyArn = Lens.lens (\CreateJobQueue' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@CreateJobQueue' {} a -> s {schedulingPolicyArn = a} :: CreateJobQueue)
+
+-- | The name of the job queue. It can be up to 128 letters long. It can
+-- contain uppercase and lowercase letters, numbers, hyphens (-), and
+-- underscores (_).
 createJobQueue_jobQueueName :: Lens.Lens' CreateJobQueue Prelude.Text
 createJobQueue_jobQueueName = Lens.lens (\CreateJobQueue' {jobQueueName} -> jobQueueName) (\s@CreateJobQueue' {} a -> s {jobQueueName = a} :: CreateJobQueue)
 
@@ -190,7 +224,7 @@ createJobQueue_priority = Lens.lens (\CreateJobQueue' {priority} -> priority) (\
 
 -- | The set of compute environments mapped to a job queue and their order
 -- relative to each other. The job scheduler uses this parameter to
--- determine which compute environment should run a specific job. Compute
+-- determine which compute environment runs a specific job. Compute
 -- environments must be in the @VALID@ state before you can associate them
 -- with a job queue. You can associate up to three compute environments
 -- with a job queue. All of the compute environments must be either EC2
@@ -221,6 +255,7 @@ instance Prelude.Hashable CreateJobQueue where
   hashWithSalt _salt CreateJobQueue' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` schedulingPolicyArn
       `Prelude.hashWithSalt` jobQueueName
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` computeEnvironmentOrder
@@ -229,6 +264,7 @@ instance Prelude.NFData CreateJobQueue where
   rnf CreateJobQueue' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf schedulingPolicyArn
       `Prelude.seq` Prelude.rnf jobQueueName
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf computeEnvironmentOrder
@@ -250,6 +286,8 @@ instance Core.ToJSON CreateJobQueue where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("state" Core..=) Prelude.<$> state,
+            ("schedulingPolicyArn" Core..=)
+              Prelude.<$> schedulingPolicyArn,
             Prelude.Just ("jobQueueName" Core..= jobQueueName),
             Prelude.Just ("priority" Core..= priority),
             Prelude.Just

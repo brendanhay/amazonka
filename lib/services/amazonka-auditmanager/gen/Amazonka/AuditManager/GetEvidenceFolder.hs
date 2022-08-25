@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEvidenceFolder' smart constructor.
 data GetEvidenceFolder = GetEvidenceFolder'
-  { -- | The identifier for the specified assessment.
+  { -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the specified control set.
+    -- | The unique identifier for the control set.
     controlSetId :: Prelude.Text,
-    -- | The identifier for the folder in which the evidence is stored.
+    -- | The unique identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,11 +68,11 @@ data GetEvidenceFolder = GetEvidenceFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'getEvidenceFolder_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'getEvidenceFolder_assessmentId' - The unique identifier for the assessment.
 --
--- 'controlSetId', 'getEvidenceFolder_controlSetId' - The identifier for the specified control set.
+-- 'controlSetId', 'getEvidenceFolder_controlSetId' - The unique identifier for the control set.
 --
--- 'evidenceFolderId', 'getEvidenceFolder_evidenceFolderId' - The identifier for the folder in which the evidence is stored.
+-- 'evidenceFolderId', 'getEvidenceFolder_evidenceFolderId' - The unique identifier for the folder that the evidence is stored in.
 newGetEvidenceFolder ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -91,15 +91,15 @@ newGetEvidenceFolder
         evidenceFolderId = pEvidenceFolderId_
       }
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 getEvidenceFolder_assessmentId :: Lens.Lens' GetEvidenceFolder Prelude.Text
 getEvidenceFolder_assessmentId = Lens.lens (\GetEvidenceFolder' {assessmentId} -> assessmentId) (\s@GetEvidenceFolder' {} a -> s {assessmentId = a} :: GetEvidenceFolder)
 
--- | The identifier for the specified control set.
+-- | The unique identifier for the control set.
 getEvidenceFolder_controlSetId :: Lens.Lens' GetEvidenceFolder Prelude.Text
 getEvidenceFolder_controlSetId = Lens.lens (\GetEvidenceFolder' {controlSetId} -> controlSetId) (\s@GetEvidenceFolder' {} a -> s {controlSetId = a} :: GetEvidenceFolder)
 
--- | The identifier for the folder in which the evidence is stored.
+-- | The unique identifier for the folder that the evidence is stored in.
 getEvidenceFolder_evidenceFolderId :: Lens.Lens' GetEvidenceFolder Prelude.Text
 getEvidenceFolder_evidenceFolderId = Lens.lens (\GetEvidenceFolder' {evidenceFolderId} -> evidenceFolderId) (\s@GetEvidenceFolder' {} a -> s {evidenceFolderId = a} :: GetEvidenceFolder)
 
@@ -155,7 +155,7 @@ instance Core.ToQuery GetEvidenceFolder where
 
 -- | /See:/ 'newGetEvidenceFolderResponse' smart constructor.
 data GetEvidenceFolderResponse = GetEvidenceFolderResponse'
-  { -- | The folder in which evidence is stored.
+  { -- | The folder that the evidence is stored in.
     evidenceFolder :: Prelude.Maybe AssessmentEvidenceFolder,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -170,7 +170,7 @@ data GetEvidenceFolderResponse = GetEvidenceFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evidenceFolder', 'getEvidenceFolderResponse_evidenceFolder' - The folder in which evidence is stored.
+-- 'evidenceFolder', 'getEvidenceFolderResponse_evidenceFolder' - The folder that the evidence is stored in.
 --
 -- 'httpStatus', 'getEvidenceFolderResponse_httpStatus' - The response's http status code.
 newGetEvidenceFolderResponse ::
@@ -184,7 +184,7 @@ newGetEvidenceFolderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The folder in which evidence is stored.
+-- | The folder that the evidence is stored in.
 getEvidenceFolderResponse_evidenceFolder :: Lens.Lens' GetEvidenceFolderResponse (Prelude.Maybe AssessmentEvidenceFolder)
 getEvidenceFolderResponse_evidenceFolder = Lens.lens (\GetEvidenceFolderResponse' {evidenceFolder} -> evidenceFolder) (\s@GetEvidenceFolderResponse' {} a -> s {evidenceFolder = a} :: GetEvidenceFolderResponse)
 

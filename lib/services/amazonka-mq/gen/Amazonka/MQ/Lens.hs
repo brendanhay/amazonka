@@ -99,6 +99,7 @@ module Amazonka.MQ.Lens
     describeBrokerResponse_logs,
     describeBrokerResponse_pendingHostInstanceType,
     describeBrokerResponse_securityGroups,
+    describeBrokerResponse_actionsRequired,
     describeBrokerResponse_hostInstanceType,
     describeBrokerResponse_authenticationStrategy,
     describeBrokerResponse_maintenanceWindowStartTime,
@@ -252,6 +253,10 @@ module Amazonka.MQ.Lens
 
     -- * Types
 
+    -- ** ActionRequired
+    actionRequired_actionRequiredInfo,
+    actionRequired_actionRequiredCode,
+
     -- ** AvailabilityZone
     availabilityZone_name,
 
@@ -401,6 +406,7 @@ import Amazonka.MQ.ListConfigurations
 import Amazonka.MQ.ListTags
 import Amazonka.MQ.ListUsers
 import Amazonka.MQ.RebootBroker
+import Amazonka.MQ.Types.ActionRequired
 import Amazonka.MQ.Types.AvailabilityZone
 import Amazonka.MQ.Types.BrokerEngineType
 import Amazonka.MQ.Types.BrokerInstance

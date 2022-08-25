@@ -26,6 +26,7 @@ module Amazonka.Route53.Types
     _NoSuchHealthCheck,
     _VPCAssociationNotFound,
     _InvalidSigningStatus,
+    _NoSuchCidrCollectionException,
     _TooManyTrafficPolicies,
     _IncompatibleVersion,
     _KeySigningKeyInUse,
@@ -45,14 +46,18 @@ module Amazonka.Route53.Types
     _KeySigningKeyWithActiveStatusNotFound,
     _TooManyVPCAssociationAuthorizations,
     _InvalidKMSArn,
+    _CidrCollectionAlreadyExistsException,
     _InvalidArgument,
     _DelegationSetAlreadyCreated,
+    _CidrCollectionInUseException,
     _NoSuchDelegationSet,
     _VPCAssociationAuthorizationNotFound,
     _HostedZoneNotFound,
     _DelegationSetInUse,
     _HealthCheckVersionMismatch,
+    _NoSuchCidrLocationException,
     _ThrottlingException,
+    _CidrBlockInUseException,
     _NoSuchHostedZone,
     _HostedZoneAlreadyExists,
     _DNSSECNotFound,
@@ -67,6 +72,7 @@ module Amazonka.Route53.Types
     _ConflictingTypes,
     _InvalidKeySigningKeyName,
     _TooManyTrafficPolicyVersionsForCurrentPolicy,
+    _CidrCollectionVersionMismatchException,
     _HostedZoneNotEmpty,
     _DelegationSetNotReusable,
     _HostedZonePartiallyDelegated,
@@ -92,6 +98,9 @@ module Amazonka.Route53.Types
 
     -- * ChangeStatus
     ChangeStatus (..),
+
+    -- * CidrCollectionChangeAction
+    CidrCollectionChangeAction (..),
 
     -- * CloudWatchRegion
     CloudWatchRegion (..),
@@ -171,6 +180,33 @@ module Amazonka.Route53.Types
     changeInfo_status,
     changeInfo_submittedAt,
 
+    -- * CidrBlockSummary
+    CidrBlockSummary (..),
+    newCidrBlockSummary,
+    cidrBlockSummary_cidrBlock,
+    cidrBlockSummary_locationName,
+
+    -- * CidrCollection
+    CidrCollection (..),
+    newCidrCollection,
+    cidrCollection_name,
+    cidrCollection_arn,
+    cidrCollection_id,
+    cidrCollection_version,
+
+    -- * CidrCollectionChange
+    CidrCollectionChange (..),
+    newCidrCollectionChange,
+    cidrCollectionChange_locationName,
+    cidrCollectionChange_action,
+    cidrCollectionChange_cidrList,
+
+    -- * CidrRoutingConfig
+    CidrRoutingConfig (..),
+    newCidrRoutingConfig,
+    cidrRoutingConfig_collectionId,
+    cidrRoutingConfig_locationName,
+
     -- * CloudWatchAlarmConfiguration
     CloudWatchAlarmConfiguration (..),
     newCloudWatchAlarmConfiguration,
@@ -182,6 +218,14 @@ module Amazonka.Route53.Types
     cloudWatchAlarmConfiguration_metricName,
     cloudWatchAlarmConfiguration_namespace,
     cloudWatchAlarmConfiguration_statistic,
+
+    -- * CollectionSummary
+    CollectionSummary (..),
+    newCollectionSummary,
+    collectionSummary_name,
+    collectionSummary_arn,
+    collectionSummary_id,
+    collectionSummary_version,
 
     -- * DNSSECStatus
     DNSSECStatus (..),
@@ -319,6 +363,11 @@ module Amazonka.Route53.Types
     linkedService_description,
     linkedService_servicePrincipal,
 
+    -- * LocationSummary
+    LocationSummary (..),
+    newLocationSummary,
+    locationSummary_locationName,
+
     -- * QueryLoggingConfig
     QueryLoggingConfig (..),
     newQueryLoggingConfig,
@@ -334,6 +383,7 @@ module Amazonka.Route53.Types
     -- * ResourceRecordSet
     ResourceRecordSet (..),
     newResourceRecordSet,
+    resourceRecordSet_cidrRoutingConfig,
     resourceRecordSet_ttl,
     resourceRecordSet_multiValueAnswer,
     resourceRecordSet_trafficPolicyInstanceId,
@@ -426,8 +476,14 @@ import Amazonka.Route53.Types.ChangeAction
 import Amazonka.Route53.Types.ChangeBatch
 import Amazonka.Route53.Types.ChangeInfo
 import Amazonka.Route53.Types.ChangeStatus
+import Amazonka.Route53.Types.CidrBlockSummary
+import Amazonka.Route53.Types.CidrCollection
+import Amazonka.Route53.Types.CidrCollectionChange
+import Amazonka.Route53.Types.CidrCollectionChangeAction
+import Amazonka.Route53.Types.CidrRoutingConfig
 import Amazonka.Route53.Types.CloudWatchAlarmConfiguration
 import Amazonka.Route53.Types.CloudWatchRegion
+import Amazonka.Route53.Types.CollectionSummary
 import Amazonka.Route53.Types.ComparisonOperator
 import Amazonka.Route53.Types.DNSSECStatus
 import Amazonka.Route53.Types.DelegationSet
@@ -448,6 +504,7 @@ import Amazonka.Route53.Types.HostedZoneSummary
 import Amazonka.Route53.Types.InsufficientDataHealthStatus
 import Amazonka.Route53.Types.KeySigningKey
 import Amazonka.Route53.Types.LinkedService
+import Amazonka.Route53.Types.LocationSummary
 import Amazonka.Route53.Types.QueryLoggingConfig
 import Amazonka.Route53.Types.RRType
 import Amazonka.Route53.Types.ResettableElementName
@@ -626,6 +683,14 @@ _InvalidSigningStatus =
   Core._MatchServiceError
     defaultService
     "InvalidSigningStatus"
+
+-- | The CIDR collection you specified, doesn\'t exist.
+_NoSuchCidrCollectionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchCidrCollectionException =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchCidrCollectionException"
+    Prelude.. Core.hasStatus 404
 
 -- | This traffic policy can\'t be created because the current account has
 -- reached the limit on the number of traffic policies.
@@ -816,6 +881,14 @@ _InvalidKMSArn =
     defaultService
     "InvalidKMSArn"
 
+-- | A CIDR collection with this name and a different caller reference
+-- already exists in this account.
+_CidrCollectionAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CidrCollectionAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "CidrCollectionAlreadyExistsException"
+
 -- | Parameter name is not valid.
 _InvalidArgument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidArgument =
@@ -830,6 +903,14 @@ _DelegationSetAlreadyCreated =
   Core._MatchServiceError
     defaultService
     "DelegationSetAlreadyCreated"
+
+-- | This CIDR collection is in use, and isn\'t empty.
+_CidrCollectionInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CidrCollectionInUseException =
+  Core._MatchServiceError
+    defaultService
+    "CidrCollectionInUseException"
+    Prelude.. Core.hasStatus 400
 
 -- | A reusable delegation set with the specified ID does not exist.
 _NoSuchDelegationSet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -871,12 +952,29 @@ _HealthCheckVersionMismatch =
     "HealthCheckVersionMismatch"
     Prelude.. Core.hasStatus 409
 
+-- | The CIDR collection location doesn\'t match any locations in your
+-- account.
+_NoSuchCidrLocationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchCidrLocationException =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchCidrLocationException"
+    Prelude.. Core.hasStatus 404
+
 -- | The limit on the number of requests per second was exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
+    Prelude.. Core.hasStatus 400
+
+-- | This CIDR block is already in use.
+_CidrBlockInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CidrBlockInUseException =
+  Core._MatchServiceError
+    defaultService
+    "CidrBlockInUseException"
     Prelude.. Core.hasStatus 400
 
 -- | No hosted zone exists with the ID that you specified.
@@ -971,7 +1069,7 @@ _TooManyHealthChecks =
     "TooManyHealthChecks"
 
 -- | You\'ve already created a key-signing key (KSK) with this name or with
--- the same customer managed customer master key (CMK) ARN.
+-- the same customer managed key ARN.
 _KeySigningKeyAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KeySigningKeyAlreadyExists =
   Core._MatchServiceError
@@ -1056,6 +1154,15 @@ _TooManyTrafficPolicyVersionsForCurrentPolicy =
     "TooManyTrafficPolicyVersionsForCurrentPolicy"
     Prelude.. Core.hasStatus 400
 
+-- | The CIDR collection version you provided, doesn\'t match the one in the
+-- @ListCidrCollections@ operation.
+_CidrCollectionVersionMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CidrCollectionVersionMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "CidrCollectionVersionMismatchException"
+    Prelude.. Core.hasStatus 409
+
 -- | The hosted zone contains resource records that are not SOA or NS
 -- records.
 _HostedZoneNotEmpty :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1105,18 +1212,10 @@ _ConflictingDomainExists =
     defaultService
     "ConflictingDomainExists"
 
--- | This operation can\'t be completed either because the current account
--- has reached the limit on reusable delegation sets that it can create or
--- because you\'ve reached the limit on the number of Amazon VPCs that you
--- can associate with a private hosted zone. To get the current limit on
--- the number of reusable delegation sets, see
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html GetAccountLimit>.
--- To get the current limit on the number of Amazon VPCs that you can
--- associate with a private hosted zone, see
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html GetHostedZoneLimit>.
--- To request a higher limit,
--- <http://aws.amazon.com/route53-request create a case> with the Amazon
--- Web Services Support Center.
+-- | This operation can\'t be completed because the current account has
+-- reached the limit on the resource you are trying to create. To request a
+-- higher limit, <http://aws.amazon.com/route53-request create a case> with
+-- the Amazon Web Services Support Center.
 _LimitsExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitsExceeded =
   Core._MatchServiceError

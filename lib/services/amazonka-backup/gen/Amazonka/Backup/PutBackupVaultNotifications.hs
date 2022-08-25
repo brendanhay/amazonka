@@ -59,19 +59,22 @@ data PutBackupVaultNotifications = PutBackupVaultNotifications'
     -- | An array of events that indicate the status of jobs to back up resources
     -- to the backup vault.
     --
+    -- For common use cases and code samples, see
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html Using Amazon SNS to track Backup events>.
+    --
     -- The following events are supported:
     --
-    -- @BACKUP_JOB_STARTED@, @BACKUP_JOB_COMPLETED@,
+    -- -   @BACKUP_JOB_STARTED@ | @BACKUP_JOB_COMPLETED@
     --
-    -- @COPY_JOB_STARTED@, @COPY_JOB_SUCCESSFUL@, @COPY_JOB_FAILED@,
+    -- -   @COPY_JOB_STARTED@ | @COPY_JOB_SUCCESSFUL@ | @COPY_JOB_FAILED@
     --
-    -- @RESTORE_JOB_STARTED@, @RESTORE_JOB_COMPLETED@, and
-    -- @RECOVERY_POINT_MODIFIED@.
+    -- -   @RESTORE_JOB_STARTED@ | @RESTORE_JOB_COMPLETED@ |
+    --     @RECOVERY_POINT_MODIFIED@
     --
-    -- To find failed backup jobs, use @BACKUP_JOB_COMPLETED@ and filter using
-    -- event metadata.
+    -- -   @S3_BACKUP_OBJECT_FAILED@ | @S3_RESTORE_OBJECT_FAILED@
     --
-    -- Other events in the following list are deprecated.
+    -- Ignore the list below because it includes deprecated events. Refer to
+    -- the list above.
     backupVaultEvents :: [BackupVaultEvent]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,19 +99,22 @@ data PutBackupVaultNotifications = PutBackupVaultNotifications'
 -- 'backupVaultEvents', 'putBackupVaultNotifications_backupVaultEvents' - An array of events that indicate the status of jobs to back up resources
 -- to the backup vault.
 --
+-- For common use cases and code samples, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html Using Amazon SNS to track Backup events>.
+--
 -- The following events are supported:
 --
--- @BACKUP_JOB_STARTED@, @BACKUP_JOB_COMPLETED@,
+-- -   @BACKUP_JOB_STARTED@ | @BACKUP_JOB_COMPLETED@
 --
--- @COPY_JOB_STARTED@, @COPY_JOB_SUCCESSFUL@, @COPY_JOB_FAILED@,
+-- -   @COPY_JOB_STARTED@ | @COPY_JOB_SUCCESSFUL@ | @COPY_JOB_FAILED@
 --
--- @RESTORE_JOB_STARTED@, @RESTORE_JOB_COMPLETED@, and
--- @RECOVERY_POINT_MODIFIED@.
+-- -   @RESTORE_JOB_STARTED@ | @RESTORE_JOB_COMPLETED@ |
+--     @RECOVERY_POINT_MODIFIED@
 --
--- To find failed backup jobs, use @BACKUP_JOB_COMPLETED@ and filter using
--- event metadata.
+-- -   @S3_BACKUP_OBJECT_FAILED@ | @S3_RESTORE_OBJECT_FAILED@
 --
--- Other events in the following list are deprecated.
+-- Ignore the list below because it includes deprecated events. Refer to
+-- the list above.
 newPutBackupVaultNotifications ::
   -- | 'backupVaultName'
   Prelude.Text ->
@@ -141,19 +147,22 @@ putBackupVaultNotifications_sNSTopicArn = Lens.lens (\PutBackupVaultNotification
 -- | An array of events that indicate the status of jobs to back up resources
 -- to the backup vault.
 --
+-- For common use cases and code samples, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html Using Amazon SNS to track Backup events>.
+--
 -- The following events are supported:
 --
--- @BACKUP_JOB_STARTED@, @BACKUP_JOB_COMPLETED@,
+-- -   @BACKUP_JOB_STARTED@ | @BACKUP_JOB_COMPLETED@
 --
--- @COPY_JOB_STARTED@, @COPY_JOB_SUCCESSFUL@, @COPY_JOB_FAILED@,
+-- -   @COPY_JOB_STARTED@ | @COPY_JOB_SUCCESSFUL@ | @COPY_JOB_FAILED@
 --
--- @RESTORE_JOB_STARTED@, @RESTORE_JOB_COMPLETED@, and
--- @RECOVERY_POINT_MODIFIED@.
+-- -   @RESTORE_JOB_STARTED@ | @RESTORE_JOB_COMPLETED@ |
+--     @RECOVERY_POINT_MODIFIED@
 --
--- To find failed backup jobs, use @BACKUP_JOB_COMPLETED@ and filter using
--- event metadata.
+-- -   @S3_BACKUP_OBJECT_FAILED@ | @S3_RESTORE_OBJECT_FAILED@
 --
--- Other events in the following list are deprecated.
+-- Ignore the list below because it includes deprecated events. Refer to
+-- the list above.
 putBackupVaultNotifications_backupVaultEvents :: Lens.Lens' PutBackupVaultNotifications [BackupVaultEvent]
 putBackupVaultNotifications_backupVaultEvents = Lens.lens (\PutBackupVaultNotifications' {backupVaultEvents} -> backupVaultEvents) (\s@PutBackupVaultNotifications' {} a -> s {backupVaultEvents = a} :: PutBackupVaultNotifications) Prelude.. Lens.coerced
 

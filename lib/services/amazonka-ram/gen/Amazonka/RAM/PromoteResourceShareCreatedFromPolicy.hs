@@ -20,16 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resource shares that were created by attaching a policy to a resource
--- are visible only to the resource share owner, and the resource share
--- cannot be modified in RAM.
+-- When you attach a resource-based permission policy to a resource, it
+-- automatically creates a resource share. However, resource shares created
+-- this way are visible only to the resource share owner, and the resource
+-- share can\'t be modified in RAM.
 --
--- Use this API action to promote the resource share. When you promote the
--- resource share, it becomes:
---
--- -   Visible to all principals that it is shared with.
---
--- -   Modifiable in RAM.
+-- You can use this operation to promote the resource share to a full RAM
+-- resource share. When you promote a resource share, you can then manage
+-- the resource share in RAM and it becomes visible to all of the
+-- principals you shared it with.
 module Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
   ( -- * Creating a Request
     PromoteResourceShareCreatedFromPolicy (..),
@@ -57,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPromoteResourceShareCreatedFromPolicy' smart constructor.
 data PromoteResourceShareCreatedFromPolicy = PromoteResourceShareCreatedFromPolicy'
-  { -- | The Amazon Resource Name (ARN) of the resource share to promote.
+  { -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share to promote.
     resourceShareArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +71,9 @@ data PromoteResourceShareCreatedFromPolicy = PromoteResourceShareCreatedFromPoli
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceShareArn', 'promoteResourceShareCreatedFromPolicy_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share to promote.
+-- 'resourceShareArn', 'promoteResourceShareCreatedFromPolicy_resourceShareArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share to promote.
 newPromoteResourceShareCreatedFromPolicy ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -82,7 +85,9 @@ newPromoteResourceShareCreatedFromPolicy
           pResourceShareArn_
       }
 
--- | The Amazon Resource Name (ARN) of the resource share to promote.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share to promote.
 promoteResourceShareCreatedFromPolicy_resourceShareArn :: Lens.Lens' PromoteResourceShareCreatedFromPolicy Prelude.Text
 promoteResourceShareCreatedFromPolicy_resourceShareArn = Lens.lens (\PromoteResourceShareCreatedFromPolicy' {resourceShareArn} -> resourceShareArn) (\s@PromoteResourceShareCreatedFromPolicy' {} a -> s {resourceShareArn = a} :: PromoteResourceShareCreatedFromPolicy)
 
@@ -157,7 +162,8 @@ instance
 
 -- | /See:/ 'newPromoteResourceShareCreatedFromPolicyResponse' smart constructor.
 data PromoteResourceShareCreatedFromPolicyResponse = PromoteResourceShareCreatedFromPolicyResponse'
-  { -- | Indicates whether the request succeeded.
+  { -- | A return value of @true@ indicates that the request succeeded. A value
+    -- of @false@ indicates that the request failed.
     returnValue :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -172,7 +178,8 @@ data PromoteResourceShareCreatedFromPolicyResponse = PromoteResourceShareCreated
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'returnValue', 'promoteResourceShareCreatedFromPolicyResponse_returnValue' - Indicates whether the request succeeded.
+-- 'returnValue', 'promoteResourceShareCreatedFromPolicyResponse_returnValue' - A return value of @true@ indicates that the request succeeded. A value
+-- of @false@ indicates that the request failed.
 --
 -- 'httpStatus', 'promoteResourceShareCreatedFromPolicyResponse_httpStatus' - The response's http status code.
 newPromoteResourceShareCreatedFromPolicyResponse ::
@@ -187,7 +194,8 @@ newPromoteResourceShareCreatedFromPolicyResponse
         httpStatus = pHttpStatus_
       }
 
--- | Indicates whether the request succeeded.
+-- | A return value of @true@ indicates that the request succeeded. A value
+-- of @false@ indicates that the request failed.
 promoteResourceShareCreatedFromPolicyResponse_returnValue :: Lens.Lens' PromoteResourceShareCreatedFromPolicyResponse (Prelude.Maybe Prelude.Bool)
 promoteResourceShareCreatedFromPolicyResponse_returnValue = Lens.lens (\PromoteResourceShareCreatedFromPolicyResponse' {returnValue} -> returnValue) (\s@PromoteResourceShareCreatedFromPolicyResponse' {} a -> s {returnValue = a} :: PromoteResourceShareCreatedFromPolicyResponse)
 

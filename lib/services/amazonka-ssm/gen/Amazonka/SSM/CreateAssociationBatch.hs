@@ -21,14 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates the specified Amazon Web Services Systems Manager document
--- (SSM document) with the specified instances or targets.
+-- (SSM document) with the specified managed nodes or targets.
 --
--- When you associate a document with one or more instances using instance
--- IDs or tags, Amazon Web Services Systems Manager Agent (SSM Agent)
--- running on the instance processes the document and configures the
--- instance as specified.
+-- When you associate a document with one or more managed nodes using IDs
+-- or tags, Amazon Web Services Systems Manager Agent (SSM Agent) running
+-- on the managed node processes the document and configures the node as
+-- specified.
 --
--- If you associate a document with an instance that already has an
+-- If you associate a document with a managed node that already has an
 -- associated document, the system returns the AssociationAlreadyExists
 -- exception.
 module Amazonka.SSM.CreateAssociationBatch
@@ -62,7 +62,7 @@ data CreateAssociationBatch = CreateAssociationBatch'
   { -- | One or more associations.
     entries :: Prelude.NonEmpty CreateAssociationBatchRequestEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociationBatch' with all optional fields omitted.
@@ -145,7 +145,7 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociationBatchResponse' with all optional fields omitted.

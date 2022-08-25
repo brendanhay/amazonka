@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+import Amazonka.WorkSpaces.Types.SamlProperties
 import Amazonka.WorkSpaces.Types.SelfservicePermissions
 import Amazonka.WorkSpaces.Types.Tenancy
 import Amazonka.WorkSpaces.Types.WorkspaceAccessProperties
@@ -57,6 +58,10 @@ data WorkspaceDirectory = WorkspaceDirectory'
     state :: Prelude.Maybe WorkspaceDirectoryState,
     -- | The user name for the service account.
     customerUserName :: Prelude.Maybe Prelude.Text,
+    -- | Describes the enablement status, user access URL, and relay state
+    -- parameter name that are used for configuring federation with an SAML 2.0
+    -- identity provider.
+    samlProperties :: Prelude.Maybe SamlProperties,
     -- | The IP addresses of the DNS servers for the directory.
     dnsIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the IAM role. This is the role that allows Amazon
@@ -116,6 +121,10 @@ data WorkspaceDirectory = WorkspaceDirectory'
 --
 -- 'customerUserName', 'workspaceDirectory_customerUserName' - The user name for the service account.
 --
+-- 'samlProperties', 'workspaceDirectory_samlProperties' - Describes the enablement status, user access URL, and relay state
+-- parameter name that are used for configuring federation with an SAML 2.0
+-- identity provider.
+--
 -- 'dnsIpAddresses', 'workspaceDirectory_dnsIpAddresses' - The IP addresses of the DNS servers for the directory.
 --
 -- 'iamRoleId', 'workspaceDirectory_iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon
@@ -151,6 +160,7 @@ newWorkspaceDirectory =
       directoryType = Prelude.Nothing,
       state = Prelude.Nothing,
       customerUserName = Prelude.Nothing,
+      samlProperties = Prelude.Nothing,
       dnsIpAddresses = Prelude.Nothing,
       iamRoleId = Prelude.Nothing,
       registrationCode = Prelude.Nothing,
@@ -200,6 +210,12 @@ workspaceDirectory_state = Lens.lens (\WorkspaceDirectory' {state} -> state) (\s
 -- | The user name for the service account.
 workspaceDirectory_customerUserName :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_customerUserName = Lens.lens (\WorkspaceDirectory' {customerUserName} -> customerUserName) (\s@WorkspaceDirectory' {} a -> s {customerUserName = a} :: WorkspaceDirectory)
+
+-- | Describes the enablement status, user access URL, and relay state
+-- parameter name that are used for configuring federation with an SAML 2.0
+-- identity provider.
+workspaceDirectory_samlProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe SamlProperties)
+workspaceDirectory_samlProperties = Lens.lens (\WorkspaceDirectory' {samlProperties} -> samlProperties) (\s@WorkspaceDirectory' {} a -> s {samlProperties = a} :: WorkspaceDirectory)
 
 -- | The IP addresses of the DNS servers for the directory.
 workspaceDirectory_dnsIpAddresses :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
@@ -255,6 +271,7 @@ instance Core.FromJSON WorkspaceDirectory where
             Prelude.<*> (x Core..:? "DirectoryType")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "CustomerUserName")
+            Prelude.<*> (x Core..:? "SamlProperties")
             Prelude.<*> (x Core..:? "DnsIpAddresses" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "IamRoleId")
             Prelude.<*> (x Core..:? "RegistrationCode")
@@ -275,6 +292,7 @@ instance Prelude.Hashable WorkspaceDirectory where
       `Prelude.hashWithSalt` directoryType
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` customerUserName
+      `Prelude.hashWithSalt` samlProperties
       `Prelude.hashWithSalt` dnsIpAddresses
       `Prelude.hashWithSalt` iamRoleId
       `Prelude.hashWithSalt` registrationCode
@@ -294,6 +312,7 @@ instance Prelude.NFData WorkspaceDirectory where
       `Prelude.seq` Prelude.rnf directoryType
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf customerUserName
+      `Prelude.seq` Prelude.rnf samlProperties
       `Prelude.seq` Prelude.rnf dnsIpAddresses
       `Prelude.seq` Prelude.rnf iamRoleId
       `Prelude.seq` Prelude.rnf registrationCode

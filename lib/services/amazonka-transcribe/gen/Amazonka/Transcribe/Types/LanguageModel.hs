@@ -27,32 +27,67 @@ import Amazonka.Transcribe.Types.CLMLanguageCode
 import Amazonka.Transcribe.Types.InputDataConfig
 import Amazonka.Transcribe.Types.ModelStatus
 
--- | The structure used to describe a custom language model.
+-- | Provides information about a custom language model, including the base
+-- model name, when the model was created, the location of the files used
+-- to train the model, when the model was last modified, the name you chose
+-- for the model, its language, its processing state, and if there is an
+-- upgrade available for the base model.
 --
 -- /See:/ 'newLanguageModel' smart constructor.
 data LanguageModel = LanguageModel'
-  { -- | The creation status of a custom language model. When the status is
-    -- @COMPLETED@ the model is ready for use.
+  { -- | The status of the specified custom language model. When the status
+    -- displays as @COMPLETED@ the model is ready for use.
     modelStatus :: Prelude.Maybe ModelStatus,
-    -- | Whether the base model used for the custom language model is up to date.
-    -- If this field is @true@ then you are running the most up-to-date version
-    -- of the base model in your custom language model.
+    -- | Shows if a more current base model is available for use with the
+    -- specified custom language model.
+    --
+    -- If @false@, your language model is using the most up-to-date base model.
+    --
+    -- If @true@, there is a newer base model available than the one your
+    -- language model is using.
+    --
+    -- Note that to update a base model, you must recreate the custom language
+    -- model using the new base model. Base model upgrades for existing custom
+    -- language models are not supported.
     upgradeAvailability :: Prelude.Maybe Prelude.Bool,
-    -- | The most recent time the custom language model was modified.
+    -- | The date and time the specified language model was last modified.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+    -- May 4, 2022.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The language code you used to create your custom language model.
+    -- | The language code used to create your custom language model. Each
+    -- language model must contain terms in only one language, and the language
+    -- you select for your model must match the language of your training and
+    -- tuning data.
+    --
+    -- For a list of supported languages and their associated language codes,
+    -- refer to the
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+    -- table. Note that U.S. English (@en-US@) is the only language supported
+    -- with Amazon Transcribe Medical.
     languageCode :: Prelude.Maybe CLMLanguageCode,
-    -- | The name of the custom language model.
+    -- | A unique name, chosen by you, for your custom language model.
+    --
+    -- This name is case sensitive, cannot contain spaces, and must be unique
+    -- within an Amazon Web Services account.
     modelName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Transcribe standard language model, or base model used to
-    -- create the custom language model.
+    -- | The Amazon Transcribe standard language model, or base model, used to
+    -- create your custom language model.
     baseModelName :: Prelude.Maybe BaseModelName,
-    -- | The time the custom language model was created.
+    -- | The date and time the specified custom language model was created.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+    -- May 4, 2022.
     createTime :: Prelude.Maybe Core.POSIX,
-    -- | The data access role and Amazon S3 prefixes for the input files used to
-    -- train the custom language model.
+    -- | The Amazon S3 location of the input files used to train and tune your
+    -- custom language model, in addition to the data access role ARN (Amazon
+    -- Resource Name) that has permissions to access these data.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
-    -- | The reason why the custom language model couldn\'t be created.
+    -- | If @ModelStatus@ is @FAILED@, @FailureReason@ contains information about
+    -- why the custom language model request failed. See also:
+    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
     failureReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,28 +100,59 @@ data LanguageModel = LanguageModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelStatus', 'languageModel_modelStatus' - The creation status of a custom language model. When the status is
--- @COMPLETED@ the model is ready for use.
+-- 'modelStatus', 'languageModel_modelStatus' - The status of the specified custom language model. When the status
+-- displays as @COMPLETED@ the model is ready for use.
 --
--- 'upgradeAvailability', 'languageModel_upgradeAvailability' - Whether the base model used for the custom language model is up to date.
--- If this field is @true@ then you are running the most up-to-date version
--- of the base model in your custom language model.
+-- 'upgradeAvailability', 'languageModel_upgradeAvailability' - Shows if a more current base model is available for use with the
+-- specified custom language model.
 --
--- 'lastModifiedTime', 'languageModel_lastModifiedTime' - The most recent time the custom language model was modified.
+-- If @false@, your language model is using the most up-to-date base model.
 --
--- 'languageCode', 'languageModel_languageCode' - The language code you used to create your custom language model.
+-- If @true@, there is a newer base model available than the one your
+-- language model is using.
 --
--- 'modelName', 'languageModel_modelName' - The name of the custom language model.
+-- Note that to update a base model, you must recreate the custom language
+-- model using the new base model. Base model upgrades for existing custom
+-- language models are not supported.
 --
--- 'baseModelName', 'languageModel_baseModelName' - The Amazon Transcribe standard language model, or base model used to
--- create the custom language model.
+-- 'lastModifiedTime', 'languageModel_lastModifiedTime' - The date and time the specified language model was last modified.
 --
--- 'createTime', 'languageModel_createTime' - The time the custom language model was created.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 --
--- 'inputDataConfig', 'languageModel_inputDataConfig' - The data access role and Amazon S3 prefixes for the input files used to
--- train the custom language model.
+-- 'languageCode', 'languageModel_languageCode' - The language code used to create your custom language model. Each
+-- language model must contain terms in only one language, and the language
+-- you select for your model must match the language of your training and
+-- tuning data.
 --
--- 'failureReason', 'languageModel_failureReason' - The reason why the custom language model couldn\'t be created.
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table. Note that U.S. English (@en-US@) is the only language supported
+-- with Amazon Transcribe Medical.
+--
+-- 'modelName', 'languageModel_modelName' - A unique name, chosen by you, for your custom language model.
+--
+-- This name is case sensitive, cannot contain spaces, and must be unique
+-- within an Amazon Web Services account.
+--
+-- 'baseModelName', 'languageModel_baseModelName' - The Amazon Transcribe standard language model, or base model, used to
+-- create your custom language model.
+--
+-- 'createTime', 'languageModel_createTime' - The date and time the specified custom language model was created.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
+--
+-- 'inputDataConfig', 'languageModel_inputDataConfig' - The Amazon S3 location of the input files used to train and tune your
+-- custom language model, in addition to the data access role ARN (Amazon
+-- Resource Name) that has permissions to access these data.
+--
+-- 'failureReason', 'languageModel_failureReason' - If @ModelStatus@ is @FAILED@, @FailureReason@ contains information about
+-- why the custom language model request failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
 newLanguageModel ::
   LanguageModel
 newLanguageModel =
@@ -102,44 +168,75 @@ newLanguageModel =
       failureReason = Prelude.Nothing
     }
 
--- | The creation status of a custom language model. When the status is
--- @COMPLETED@ the model is ready for use.
+-- | The status of the specified custom language model. When the status
+-- displays as @COMPLETED@ the model is ready for use.
 languageModel_modelStatus :: Lens.Lens' LanguageModel (Prelude.Maybe ModelStatus)
 languageModel_modelStatus = Lens.lens (\LanguageModel' {modelStatus} -> modelStatus) (\s@LanguageModel' {} a -> s {modelStatus = a} :: LanguageModel)
 
--- | Whether the base model used for the custom language model is up to date.
--- If this field is @true@ then you are running the most up-to-date version
--- of the base model in your custom language model.
+-- | Shows if a more current base model is available for use with the
+-- specified custom language model.
+--
+-- If @false@, your language model is using the most up-to-date base model.
+--
+-- If @true@, there is a newer base model available than the one your
+-- language model is using.
+--
+-- Note that to update a base model, you must recreate the custom language
+-- model using the new base model. Base model upgrades for existing custom
+-- language models are not supported.
 languageModel_upgradeAvailability :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.Bool)
 languageModel_upgradeAvailability = Lens.lens (\LanguageModel' {upgradeAvailability} -> upgradeAvailability) (\s@LanguageModel' {} a -> s {upgradeAvailability = a} :: LanguageModel)
 
--- | The most recent time the custom language model was modified.
+-- | The date and time the specified language model was last modified.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 languageModel_lastModifiedTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
 languageModel_lastModifiedTime = Lens.lens (\LanguageModel' {lastModifiedTime} -> lastModifiedTime) (\s@LanguageModel' {} a -> s {lastModifiedTime = a} :: LanguageModel) Prelude.. Lens.mapping Core._Time
 
--- | The language code you used to create your custom language model.
+-- | The language code used to create your custom language model. Each
+-- language model must contain terms in only one language, and the language
+-- you select for your model must match the language of your training and
+-- tuning data.
+--
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table. Note that U.S. English (@en-US@) is the only language supported
+-- with Amazon Transcribe Medical.
 languageModel_languageCode :: Lens.Lens' LanguageModel (Prelude.Maybe CLMLanguageCode)
 languageModel_languageCode = Lens.lens (\LanguageModel' {languageCode} -> languageCode) (\s@LanguageModel' {} a -> s {languageCode = a} :: LanguageModel)
 
--- | The name of the custom language model.
+-- | A unique name, chosen by you, for your custom language model.
+--
+-- This name is case sensitive, cannot contain spaces, and must be unique
+-- within an Amazon Web Services account.
 languageModel_modelName :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.Text)
 languageModel_modelName = Lens.lens (\LanguageModel' {modelName} -> modelName) (\s@LanguageModel' {} a -> s {modelName = a} :: LanguageModel)
 
--- | The Amazon Transcribe standard language model, or base model used to
--- create the custom language model.
+-- | The Amazon Transcribe standard language model, or base model, used to
+-- create your custom language model.
 languageModel_baseModelName :: Lens.Lens' LanguageModel (Prelude.Maybe BaseModelName)
 languageModel_baseModelName = Lens.lens (\LanguageModel' {baseModelName} -> baseModelName) (\s@LanguageModel' {} a -> s {baseModelName = a} :: LanguageModel)
 
--- | The time the custom language model was created.
+-- | The date and time the specified custom language model was created.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 languageModel_createTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
 languageModel_createTime = Lens.lens (\LanguageModel' {createTime} -> createTime) (\s@LanguageModel' {} a -> s {createTime = a} :: LanguageModel) Prelude.. Lens.mapping Core._Time
 
--- | The data access role and Amazon S3 prefixes for the input files used to
--- train the custom language model.
+-- | The Amazon S3 location of the input files used to train and tune your
+-- custom language model, in addition to the data access role ARN (Amazon
+-- Resource Name) that has permissions to access these data.
 languageModel_inputDataConfig :: Lens.Lens' LanguageModel (Prelude.Maybe InputDataConfig)
 languageModel_inputDataConfig = Lens.lens (\LanguageModel' {inputDataConfig} -> inputDataConfig) (\s@LanguageModel' {} a -> s {inputDataConfig = a} :: LanguageModel)
 
--- | The reason why the custom language model couldn\'t be created.
+-- | If @ModelStatus@ is @FAILED@, @FailureReason@ contains information about
+-- why the custom language model request failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
 languageModel_failureReason :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.Text)
 languageModel_failureReason = Lens.lens (\LanguageModel' {failureReason} -> failureReason) (\s@LanguageModel' {} a -> s {failureReason = a} :: LanguageModel)
 

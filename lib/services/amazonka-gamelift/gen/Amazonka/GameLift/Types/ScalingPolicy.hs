@@ -85,6 +85,7 @@ data ScalingPolicy = ScalingPolicy'
     -- | Length of time (in minutes) the metric must be at or beyond the
     -- threshold before a scaling event is triggered.
     evaluationPeriods :: Prelude.Maybe Prelude.Natural,
+    -- | The fleet location.
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -209,7 +210,7 @@ data ScalingPolicy = ScalingPolicy'
 -- 'evaluationPeriods', 'scalingPolicy_evaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the
 -- threshold before a scaling event is triggered.
 --
--- 'location', 'scalingPolicy_location' -
+-- 'location', 'scalingPolicy_location' - The fleet location.
 --
 -- 'fleetArn', 'scalingPolicy_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -354,7 +355,7 @@ scalingPolicy_status = Lens.lens (\ScalingPolicy' {status} -> status) (\s@Scalin
 scalingPolicy_evaluationPeriods :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Natural)
 scalingPolicy_evaluationPeriods = Lens.lens (\ScalingPolicy' {evaluationPeriods} -> evaluationPeriods) (\s@ScalingPolicy' {} a -> s {evaluationPeriods = a} :: ScalingPolicy)
 
--- |
+-- | The fleet location.
 scalingPolicy_location :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_location = Lens.lens (\ScalingPolicy' {location} -> location) (\s@ScalingPolicy' {} a -> s {location = a} :: ScalingPolicy)
 

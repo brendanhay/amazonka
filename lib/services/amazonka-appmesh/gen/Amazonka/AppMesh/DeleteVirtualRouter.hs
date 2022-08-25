@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteVirtualRouter' smart constructor.
 data DeleteVirtualRouter = DeleteVirtualRouter'
-  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+  { -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to delete the virtual router in.
@@ -75,9 +75,9 @@ data DeleteVirtualRouter = DeleteVirtualRouter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meshOwner', 'deleteVirtualRouter_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'deleteVirtualRouter_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'deleteVirtualRouter_meshName' - The name of the service mesh to delete the virtual router in.
@@ -96,9 +96,9 @@ newDeleteVirtualRouter pMeshName_ pVirtualRouterName_ =
       virtualRouterName = pVirtualRouterName_
     }
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 deleteVirtualRouter_meshOwner :: Lens.Lens' DeleteVirtualRouter (Prelude.Maybe Prelude.Text)
 deleteVirtualRouter_meshOwner = Lens.lens (\DeleteVirtualRouter' {meshOwner} -> meshOwner) (\s@DeleteVirtualRouter' {} a -> s {meshOwner = a} :: DeleteVirtualRouter)

@@ -46,8 +46,10 @@ library
     Amazonka.Route53
     Amazonka.Route53.ActivateKeySigningKey
     Amazonka.Route53.AssociateVPCWithHostedZone
+    Amazonka.Route53.ChangeCidrCollection
     Amazonka.Route53.ChangeResourceRecordSets
     Amazonka.Route53.ChangeTagsForResource
+    Amazonka.Route53.CreateCidrCollection
     Amazonka.Route53.CreateHealthCheck
     Amazonka.Route53.CreateHostedZone
     Amazonka.Route53.CreateKeySigningKey
@@ -58,6 +60,7 @@ library
     Amazonka.Route53.CreateTrafficPolicyVersion
     Amazonka.Route53.CreateVPCAssociationAuthorization
     Amazonka.Route53.DeactivateKeySigningKey
+    Amazonka.Route53.DeleteCidrCollection
     Amazonka.Route53.DeleteHealthCheck
     Amazonka.Route53.DeleteHostedZone
     Amazonka.Route53.DeleteKeySigningKey
@@ -89,6 +92,9 @@ library
     Amazonka.Route53.GetTrafficPolicyInstanceCount
     Amazonka.Route53.Internal
     Amazonka.Route53.Lens
+    Amazonka.Route53.ListCidrBlocks
+    Amazonka.Route53.ListCidrCollections
+    Amazonka.Route53.ListCidrLocations
     Amazonka.Route53.ListGeoLocations
     Amazonka.Route53.ListHealthChecks
     Amazonka.Route53.ListHostedZones
@@ -116,8 +122,14 @@ library
     Amazonka.Route53.Types.ChangeBatch
     Amazonka.Route53.Types.ChangeInfo
     Amazonka.Route53.Types.ChangeStatus
+    Amazonka.Route53.Types.CidrBlockSummary
+    Amazonka.Route53.Types.CidrCollection
+    Amazonka.Route53.Types.CidrCollectionChange
+    Amazonka.Route53.Types.CidrCollectionChangeAction
+    Amazonka.Route53.Types.CidrRoutingConfig
     Amazonka.Route53.Types.CloudWatchAlarmConfiguration
     Amazonka.Route53.Types.CloudWatchRegion
+    Amazonka.Route53.Types.CollectionSummary
     Amazonka.Route53.Types.ComparisonOperator
     Amazonka.Route53.Types.DelegationSet
     Amazonka.Route53.Types.Dimension
@@ -138,6 +150,7 @@ library
     Amazonka.Route53.Types.InsufficientDataHealthStatus
     Amazonka.Route53.Types.KeySigningKey
     Amazonka.Route53.Types.LinkedService
+    Amazonka.Route53.Types.LocationSummary
     Amazonka.Route53.Types.QueryLoggingConfig
     Amazonka.Route53.Types.ResettableElementName
     Amazonka.Route53.Types.ResourceRecord

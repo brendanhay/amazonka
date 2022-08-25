@@ -32,8 +32,8 @@ data DBInstanceRole = DBInstanceRole'
     -- the DB instance.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the feature associated with the Amazon Web Services Identity
-    -- and Access Management (IAM) role. For the list of supported feature
-    -- names, see @DBEngineVersion@.
+    -- and Access Management (IAM) role. For information about supported
+    -- feature names, see @DBEngineVersion@.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of association between the IAM role and the DB
     -- instance. The Status property returns one of the following values:
@@ -64,8 +64,8 @@ data DBInstanceRole = DBInstanceRole'
 -- the DB instance.
 --
 -- 'featureName', 'dbInstanceRole_featureName' - The name of the feature associated with the Amazon Web Services Identity
--- and Access Management (IAM) role. For the list of supported feature
--- names, see @DBEngineVersion@.
+-- and Access Management (IAM) role. For information about supported
+-- feature names, see @DBEngineVersion@.
 --
 -- 'status', 'dbInstanceRole_status' - Describes the state of association between the IAM role and the DB
 -- instance. The Status property returns one of the following values:
@@ -95,8 +95,8 @@ dbInstanceRole_roleArn :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_roleArn = Lens.lens (\DBInstanceRole' {roleArn} -> roleArn) (\s@DBInstanceRole' {} a -> s {roleArn = a} :: DBInstanceRole)
 
 -- | The name of the feature associated with the Amazon Web Services Identity
--- and Access Management (IAM) role. For the list of supported feature
--- names, see @DBEngineVersion@.
+-- and Access Management (IAM) role. For information about supported
+-- feature names, see @DBEngineVersion@.
 dbInstanceRole_featureName :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_featureName = Lens.lens (\DBInstanceRole' {featureName} -> featureName) (\s@DBInstanceRole' {} a -> s {featureName = a} :: DBInstanceRole)
 

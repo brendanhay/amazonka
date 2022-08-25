@@ -7,6 +7,7 @@ haskell_library(
         "gen/Amazonka/ForecastQuery.hs",
         "gen/Amazonka/ForecastQuery/Lens.hs",
         "gen/Amazonka/ForecastQuery/QueryForecast.hs",
+        "gen/Amazonka/ForecastQuery/QueryWhatIfForecast.hs",
         "gen/Amazonka/ForecastQuery/Types.hs",
         "gen/Amazonka/ForecastQuery/Types/DataPoint.hs",
         "gen/Amazonka/ForecastQuery/Types/Forecast.hs",

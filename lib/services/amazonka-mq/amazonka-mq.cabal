@@ -65,6 +65,7 @@ library
     Amazonka.MQ.ListUsers
     Amazonka.MQ.RebootBroker
     Amazonka.MQ.Types
+    Amazonka.MQ.Types.ActionRequired
     Amazonka.MQ.Types.AuthenticationStrategy
     Amazonka.MQ.Types.AvailabilityZone
     Amazonka.MQ.Types.BrokerEngineType

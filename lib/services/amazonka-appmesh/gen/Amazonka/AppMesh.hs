@@ -326,6 +326,9 @@ module Amazonka.AppMesh
     -- ** HttpScheme
     HttpScheme (..),
 
+    -- ** IpPreference
+    IpPreference (..),
+
     -- ** ListenerTlsMode
     ListenerTlsMode (..),
 
@@ -559,6 +562,10 @@ module Amazonka.AppMesh
     HttpTimeout (HttpTimeout'),
     newHttpTimeout,
 
+    -- ** JsonFormatRef
+    JsonFormatRef (JsonFormatRef'),
+    newJsonFormatRef,
+
     -- ** Listener
     Listener (Listener'),
     newListener,
@@ -599,6 +606,10 @@ module Amazonka.AppMesh
     Logging (Logging'),
     newLogging,
 
+    -- ** LoggingFormat
+    LoggingFormat (LoggingFormat'),
+    newLoggingFormat,
+
     -- ** MatchRange
     MatchRange (MatchRange'),
     newMatchRange,
@@ -610,6 +621,10 @@ module Amazonka.AppMesh
     -- ** MeshRef
     MeshRef (MeshRef'),
     newMeshRef,
+
+    -- ** MeshServiceDiscovery
+    MeshServiceDiscovery (MeshServiceDiscovery'),
+    newMeshServiceDiscovery,
 
     -- ** MeshSpec
     MeshSpec (MeshSpec'),
@@ -674,6 +689,10 @@ module Amazonka.AppMesh
     -- ** TcpRouteAction
     TcpRouteAction (TcpRouteAction'),
     newTcpRouteAction,
+
+    -- ** TcpRouteMatch
+    TcpRouteMatch (TcpRouteMatch'),
+    newTcpRouteMatch,
 
     -- ** TcpTimeout
     TcpTimeout (TcpTimeout'),

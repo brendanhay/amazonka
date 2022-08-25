@@ -98,13 +98,16 @@ library
     Amazonka.Config.GetComplianceSummaryByResourceType
     Amazonka.Config.GetConformancePackComplianceDetails
     Amazonka.Config.GetConformancePackComplianceSummary
+    Amazonka.Config.GetCustomRulePolicy
     Amazonka.Config.GetDiscoveredResourceCounts
     Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
     Amazonka.Config.GetOrganizationConformancePackDetailedStatus
+    Amazonka.Config.GetOrganizationCustomRulePolicy
     Amazonka.Config.GetResourceConfigHistory
     Amazonka.Config.GetStoredQuery
     Amazonka.Config.Lens
     Amazonka.Config.ListAggregateDiscoveredResources
+    Amazonka.Config.ListConformancePackComplianceScores
     Amazonka.Config.ListDiscoveredResources
     Amazonka.Config.ListStoredQueries
     Amazonka.Config.ListTagsForResource
@@ -171,6 +174,8 @@ library
     Amazonka.Config.Types.ConfigurationRecorder
     Amazonka.Config.Types.ConfigurationRecorderStatus
     Amazonka.Config.Types.ConformancePackComplianceFilters
+    Amazonka.Config.Types.ConformancePackComplianceScore
+    Amazonka.Config.Types.ConformancePackComplianceScoresFilters
     Amazonka.Config.Types.ConformancePackComplianceSummary
     Amazonka.Config.Types.ConformancePackComplianceType
     Amazonka.Config.Types.ConformancePackDetail
@@ -180,6 +185,7 @@ library
     Amazonka.Config.Types.ConformancePackRuleCompliance
     Amazonka.Config.Types.ConformancePackState
     Amazonka.Config.Types.ConformancePackStatusDetail
+    Amazonka.Config.Types.CustomPolicyDetails
     Amazonka.Config.Types.DeliveryChannel
     Amazonka.Config.Types.DeliveryChannelStatus
     Amazonka.Config.Types.DeliveryStatus
@@ -203,9 +209,12 @@ library
     Amazonka.Config.Types.OrganizationConfigRule
     Amazonka.Config.Types.OrganizationConfigRuleStatus
     Amazonka.Config.Types.OrganizationConfigRuleTriggerType
+    Amazonka.Config.Types.OrganizationConfigRuleTriggerTypeNoSN
     Amazonka.Config.Types.OrganizationConformancePack
     Amazonka.Config.Types.OrganizationConformancePackDetailedStatus
     Amazonka.Config.Types.OrganizationConformancePackStatus
+    Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadata
+    Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadataNoPolicy
     Amazonka.Config.Types.OrganizationCustomRuleMetadata
     Amazonka.Config.Types.OrganizationManagedRuleMetadata
     Amazonka.Config.Types.OrganizationResourceDetailedStatus
@@ -238,6 +247,8 @@ library
     Amazonka.Config.Types.ResourceValueType
     Amazonka.Config.Types.RetentionConfiguration
     Amazonka.Config.Types.Scope
+    Amazonka.Config.Types.SortBy
+    Amazonka.Config.Types.SortOrder
     Amazonka.Config.Types.Source
     Amazonka.Config.Types.SourceDetail
     Amazonka.Config.Types.SsmControls

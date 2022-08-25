@@ -48,9 +48,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDeployment' smart constructor.
 data DeleteDeployment = DeleteDeployment'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Deployment resource to delete.
+    -- | The identifier of the Deployment resource to delete.
     deploymentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +63,9 @@ data DeleteDeployment = DeleteDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteDeployment_restApiId' - The string identifier of the associated RestApi.
 --
--- 'deploymentId', 'deleteDeployment_deploymentId' - [Required] The identifier of the Deployment resource to delete.
+-- 'deploymentId', 'deleteDeployment_deploymentId' - The identifier of the Deployment resource to delete.
 newDeleteDeployment ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -78,11 +78,11 @@ newDeleteDeployment pRestApiId_ pDeploymentId_ =
       deploymentId = pDeploymentId_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteDeployment_restApiId :: Lens.Lens' DeleteDeployment Prelude.Text
 deleteDeployment_restApiId = Lens.lens (\DeleteDeployment' {restApiId} -> restApiId) (\s@DeleteDeployment' {} a -> s {restApiId = a} :: DeleteDeployment)
 
--- | [Required] The identifier of the Deployment resource to delete.
+-- | The identifier of the Deployment resource to delete.
 deleteDeployment_deploymentId :: Lens.Lens' DeleteDeployment Prelude.Text
 deleteDeployment_deploymentId = Lens.lens (\DeleteDeployment' {deploymentId} -> deploymentId) (\s@DeleteDeployment' {} a -> s {deploymentId = a} :: DeleteDeployment)
 

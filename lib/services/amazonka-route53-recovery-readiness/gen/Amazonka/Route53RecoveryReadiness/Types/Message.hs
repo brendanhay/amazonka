@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information relating to readiness check status
+-- | Information relating to readiness check status.
 --
 -- /See:/ 'newMessage' smart constructor.
 data Message = Message'
-  { -- | The text of a readiness check message
+  { -- | The text of a readiness check message.
     messageText :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,12 +40,12 @@ data Message = Message'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageText', 'message_messageText' - The text of a readiness check message
+-- 'messageText', 'message_messageText' - The text of a readiness check message.
 newMessage ::
   Message
 newMessage = Message' {messageText = Prelude.Nothing}
 
--- | The text of a readiness check message
+-- | The text of a readiness check message.
 message_messageText :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_messageText = Lens.lens (\Message' {messageText} -> messageText) (\s@Message' {} a -> s {messageText = a} :: Message)
 

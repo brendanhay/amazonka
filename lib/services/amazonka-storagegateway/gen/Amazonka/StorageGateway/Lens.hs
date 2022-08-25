@@ -352,6 +352,7 @@ module Amazonka.StorageGateway.Lens
     describeGatewayInformationResponse_gatewayNetworkInterfaces,
     describeGatewayInformationResponse_supportedGatewayCapacities,
     describeGatewayInformationResponse_gatewayTimezone,
+    describeGatewayInformationResponse_hostEnvironmentId,
     describeGatewayInformationResponse_vPCEndpoint,
     describeGatewayInformationResponse_hostEnvironment,
     describeGatewayInformationResponse_httpStatus,
@@ -864,6 +865,8 @@ module Amazonka.StorageGateway.Lens
     gatewayInfo_gatewayOperationalState,
     gatewayInfo_gatewayId,
     gatewayInfo_ec2InstanceRegion,
+    gatewayInfo_hostEnvironmentId,
+    gatewayInfo_hostEnvironment,
 
     -- ** NFSFileShareDefaults
     nFSFileShareDefaults_fileMode,

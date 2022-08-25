@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuotaSettings' smart constructor.
 data QuotaSettings = QuotaSettings'
-  { -- | The day that a time period starts. For example, with a time period of
-    -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
-    -- on Monday.
+  { -- | The number of requests subtracted from the given limit in the initial
+    -- time period.
     offset :: Prelude.Maybe Prelude.Int,
     -- | The time period in which the limit applies. Valid values are \"DAY\",
     -- \"WEEK\" or \"MONTH\".
     period :: Prelude.Maybe QuotaPeriodType,
-    -- | The maximum number of requests that can be made in a given time period.
+    -- | The target maximum number of requests that can be made in a given time
+    -- period.
     limit :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,14 +48,14 @@ data QuotaSettings = QuotaSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'offset', 'quotaSettings_offset' - The day that a time period starts. For example, with a time period of
--- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
--- on Monday.
+-- 'offset', 'quotaSettings_offset' - The number of requests subtracted from the given limit in the initial
+-- time period.
 --
 -- 'period', 'quotaSettings_period' - The time period in which the limit applies. Valid values are \"DAY\",
 -- \"WEEK\" or \"MONTH\".
 --
--- 'limit', 'quotaSettings_limit' - The maximum number of requests that can be made in a given time period.
+-- 'limit', 'quotaSettings_limit' - The target maximum number of requests that can be made in a given time
+-- period.
 newQuotaSettings ::
   QuotaSettings
 newQuotaSettings =
@@ -65,9 +65,8 @@ newQuotaSettings =
       limit = Prelude.Nothing
     }
 
--- | The day that a time period starts. For example, with a time period of
--- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
--- on Monday.
+-- | The number of requests subtracted from the given limit in the initial
+-- time period.
 quotaSettings_offset :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
 quotaSettings_offset = Lens.lens (\QuotaSettings' {offset} -> offset) (\s@QuotaSettings' {} a -> s {offset = a} :: QuotaSettings)
 
@@ -76,7 +75,8 @@ quotaSettings_offset = Lens.lens (\QuotaSettings' {offset} -> offset) (\s@QuotaS
 quotaSettings_period :: Lens.Lens' QuotaSettings (Prelude.Maybe QuotaPeriodType)
 quotaSettings_period = Lens.lens (\QuotaSettings' {period} -> period) (\s@QuotaSettings' {} a -> s {period = a} :: QuotaSettings)
 
--- | The maximum number of requests that can be made in a given time period.
+-- | The target maximum number of requests that can be made in a given time
+-- period.
 quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
 quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 

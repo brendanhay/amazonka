@@ -45,6 +45,7 @@ library
   exposed-modules:
     Amazonka.Athena
     Amazonka.Athena.BatchGetNamedQuery
+    Amazonka.Athena.BatchGetPreparedStatement
     Amazonka.Athena.BatchGetQueryExecution
     Amazonka.Athena.CreateDataCatalog
     Amazonka.Athena.CreateNamedQuery
@@ -60,6 +61,7 @@ library
     Amazonka.Athena.GetPreparedStatement
     Amazonka.Athena.GetQueryExecution
     Amazonka.Athena.GetQueryResults
+    Amazonka.Athena.GetQueryRuntimeStatistics
     Amazonka.Athena.GetTableMetadata
     Amazonka.Athena.GetWorkGroup
     Amazonka.Athena.Lens
@@ -76,6 +78,8 @@ library
     Amazonka.Athena.StopQueryExecution
     Amazonka.Athena.TagResource
     Amazonka.Athena.Types
+    Amazonka.Athena.Types.AclConfiguration
+    Amazonka.Athena.Types.AthenaError
     Amazonka.Athena.Types.Column
     Amazonka.Athena.Types.ColumnInfo
     Amazonka.Athena.Types.ColumnNullable
@@ -95,15 +99,22 @@ library
     Amazonka.Athena.Types.QueryExecutionState
     Amazonka.Athena.Types.QueryExecutionStatistics
     Amazonka.Athena.Types.QueryExecutionStatus
+    Amazonka.Athena.Types.QueryRuntimeStatistics
+    Amazonka.Athena.Types.QueryRuntimeStatisticsRows
+    Amazonka.Athena.Types.QueryRuntimeStatisticsTimeline
+    Amazonka.Athena.Types.QueryStage
+    Amazonka.Athena.Types.QueryStagePlanNode
     Amazonka.Athena.Types.ResultConfiguration
     Amazonka.Athena.Types.ResultConfigurationUpdates
     Amazonka.Athena.Types.ResultSet
     Amazonka.Athena.Types.ResultSetMetadata
     Amazonka.Athena.Types.Row
+    Amazonka.Athena.Types.S3AclOption
     Amazonka.Athena.Types.StatementType
     Amazonka.Athena.Types.TableMetadata
     Amazonka.Athena.Types.Tag
     Amazonka.Athena.Types.UnprocessedNamedQueryId
+    Amazonka.Athena.Types.UnprocessedPreparedStatementName
     Amazonka.Athena.Types.UnprocessedQueryExecutionId
     Amazonka.Athena.Types.WorkGroup
     Amazonka.Athena.Types.WorkGroupConfiguration
@@ -112,6 +123,7 @@ library
     Amazonka.Athena.Types.WorkGroupSummary
     Amazonka.Athena.UntagResource
     Amazonka.Athena.UpdateDataCatalog
+    Amazonka.Athena.UpdateNamedQuery
     Amazonka.Athena.UpdatePreparedStatement
     Amazonka.Athena.UpdateWorkGroup
     Amazonka.Athena.Waiters

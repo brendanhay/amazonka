@@ -28,6 +28,7 @@ haskell_library(
         "gen/Amazonka/CodeGuruReviewer/Types/CodeReviewSummary.hs",
         "gen/Amazonka/CodeGuruReviewer/Types/CodeReviewType.hs",
         "gen/Amazonka/CodeGuruReviewer/Types/CommitDiffSourceCodeType.hs",
+        "gen/Amazonka/CodeGuruReviewer/Types/ConfigFileState.hs",
         "gen/Amazonka/CodeGuruReviewer/Types/EncryptionOption.hs",
         "gen/Amazonka/CodeGuruReviewer/Types/EventInfo.hs",
         "gen/Amazonka/CodeGuruReviewer/Types/JobState.hs",

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information to AWS SMS about whether application validation is
--- successful.
+-- Provides information to Server Migration Service about whether
+-- application validation is successful.
 module Amazonka.SMS.NotifyAppValidationOutput
   ( -- * Creating a Request
     NotifyAppValidationOutput (..),

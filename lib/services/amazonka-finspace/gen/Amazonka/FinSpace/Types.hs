@@ -57,6 +57,13 @@ module Amazonka.FinSpace.Types
     federationParameters_samlMetadataURL,
     federationParameters_applicationCallBackURL,
     federationParameters_attributeMap,
+
+    -- * SuperuserParameters
+    SuperuserParameters (..),
+    newSuperuserParameters,
+    superuserParameters_emailAddress,
+    superuserParameters_firstName,
+    superuserParameters_lastName,
   )
 where
 
@@ -65,6 +72,7 @@ import Amazonka.FinSpace.Types.Environment
 import Amazonka.FinSpace.Types.EnvironmentStatus
 import Amazonka.FinSpace.Types.FederationMode
 import Amazonka.FinSpace.Types.FederationParameters
+import Amazonka.FinSpace.Types.SuperuserParameters
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign

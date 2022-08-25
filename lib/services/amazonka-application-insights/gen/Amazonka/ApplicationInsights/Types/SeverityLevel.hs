@@ -21,6 +21,7 @@ module Amazonka.ApplicationInsights.Types.SeverityLevel
   ( SeverityLevel
       ( ..,
         SeverityLevel_High,
+        SeverityLevel_Informative,
         SeverityLevel_Low,
         SeverityLevel_Medium
       ),
@@ -61,6 +62,9 @@ newtype SeverityLevel = SeverityLevel'
 pattern SeverityLevel_High :: SeverityLevel
 pattern SeverityLevel_High = SeverityLevel' "High"
 
+pattern SeverityLevel_Informative :: SeverityLevel
+pattern SeverityLevel_Informative = SeverityLevel' "Informative"
+
 pattern SeverityLevel_Low :: SeverityLevel
 pattern SeverityLevel_Low = SeverityLevel' "Low"
 
@@ -69,6 +73,7 @@ pattern SeverityLevel_Medium = SeverityLevel' "Medium"
 
 {-# COMPLETE
   SeverityLevel_High,
+  SeverityLevel_Informative,
   SeverityLevel_Low,
   SeverityLevel_Medium,
   SeverityLevel'

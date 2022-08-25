@@ -27,6 +27,7 @@ module Amazonka.Proton.UpdateServiceTemplateVersion
     newUpdateServiceTemplateVersion,
 
     -- * Request Lenses
+    updateServiceTemplateVersion_supportedComponentSources,
     updateServiceTemplateVersion_status,
     updateServiceTemplateVersion_description,
     updateServiceTemplateVersion_compatibleEnvironmentTemplates,
@@ -53,14 +54,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServiceTemplateVersion' smart constructor.
 data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
-  { -- | The status of the service template minor version to update.
+  { -- | An array of supported component sources. Components with supported
+    -- sources can be attached to service instances based on this service
+    -- template version.
+    --
+    -- A change to @supportedComponentSources@ doesn\'t impact existing
+    -- component attachments to instances based on this template version. A
+    -- change only affects later associations.
+    --
+    -- For more information about components, see
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+    -- in the /Proton Administrator Guide/.
+    supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
+    -- | The status of the service template minor version to update.
     status :: Prelude.Maybe TemplateVersionStatus,
     -- | A description of a service template version to update.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | An array of compatible environment names for a service template major or
-    -- minor version to update.
+    -- | An array of environment template objects that are compatible with this
+    -- service template version. A service instance based on this service
+    -- template version can run in environments based on compatible templates.
     compatibleEnvironmentTemplates :: Prelude.Maybe (Prelude.NonEmpty CompatibleEnvironmentTemplateInput),
-    -- | To update a major version of a service template, include @majorVersion@.
+    -- | To update a major version of a service template, include
+    -- @major Version@.
     majorVersion :: Prelude.Text,
     -- | To update a minor version of a service template, include @minorVersion@.
     minorVersion :: Prelude.Text,
@@ -77,14 +92,28 @@ data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'supportedComponentSources', 'updateServiceTemplateVersion_supportedComponentSources' - An array of supported component sources. Components with supported
+-- sources can be attached to service instances based on this service
+-- template version.
+--
+-- A change to @supportedComponentSources@ doesn\'t impact existing
+-- component attachments to instances based on this template version. A
+-- change only affects later associations.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
+--
 -- 'status', 'updateServiceTemplateVersion_status' - The status of the service template minor version to update.
 --
 -- 'description', 'updateServiceTemplateVersion_description' - A description of a service template version to update.
 --
--- 'compatibleEnvironmentTemplates', 'updateServiceTemplateVersion_compatibleEnvironmentTemplates' - An array of compatible environment names for a service template major or
--- minor version to update.
+-- 'compatibleEnvironmentTemplates', 'updateServiceTemplateVersion_compatibleEnvironmentTemplates' - An array of environment template objects that are compatible with this
+-- service template version. A service instance based on this service
+-- template version can run in environments based on compatible templates.
 --
--- 'majorVersion', 'updateServiceTemplateVersion_majorVersion' - To update a major version of a service template, include @majorVersion@.
+-- 'majorVersion', 'updateServiceTemplateVersion_majorVersion' - To update a major version of a service template, include
+-- @major Version@.
 --
 -- 'minorVersion', 'updateServiceTemplateVersion_minorVersion' - To update a minor version of a service template, include @minorVersion@.
 --
@@ -102,8 +131,9 @@ newUpdateServiceTemplateVersion
   pMinorVersion_
   pTemplateName_ =
     UpdateServiceTemplateVersion'
-      { status =
+      { supportedComponentSources =
           Prelude.Nothing,
+        status = Prelude.Nothing,
         description = Prelude.Nothing,
         compatibleEnvironmentTemplates =
           Prelude.Nothing,
@@ -111,6 +141,20 @@ newUpdateServiceTemplateVersion
         minorVersion = pMinorVersion_,
         templateName = pTemplateName_
       }
+
+-- | An array of supported component sources. Components with supported
+-- sources can be attached to service instances based on this service
+-- template version.
+--
+-- A change to @supportedComponentSources@ doesn\'t impact existing
+-- component attachments to instances based on this template version. A
+-- change only affects later associations.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
+updateServiceTemplateVersion_supportedComponentSources :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe [ServiceTemplateSupportedComponentSourceType])
+updateServiceTemplateVersion_supportedComponentSources = Lens.lens (\UpdateServiceTemplateVersion' {supportedComponentSources} -> supportedComponentSources) (\s@UpdateServiceTemplateVersion' {} a -> s {supportedComponentSources = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the service template minor version to update.
 updateServiceTemplateVersion_status :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe TemplateVersionStatus)
@@ -120,12 +164,14 @@ updateServiceTemplateVersion_status = Lens.lens (\UpdateServiceTemplateVersion' 
 updateServiceTemplateVersion_description :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
 updateServiceTemplateVersion_description = Lens.lens (\UpdateServiceTemplateVersion' {description} -> description) (\s@UpdateServiceTemplateVersion' {} a -> s {description = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
 
--- | An array of compatible environment names for a service template major or
--- minor version to update.
+-- | An array of environment template objects that are compatible with this
+-- service template version. A service instance based on this service
+-- template version can run in environments based on compatible templates.
 updateServiceTemplateVersion_compatibleEnvironmentTemplates :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe (Prelude.NonEmpty CompatibleEnvironmentTemplateInput))
 updateServiceTemplateVersion_compatibleEnvironmentTemplates = Lens.lens (\UpdateServiceTemplateVersion' {compatibleEnvironmentTemplates} -> compatibleEnvironmentTemplates) (\s@UpdateServiceTemplateVersion' {} a -> s {compatibleEnvironmentTemplates = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
--- | To update a major version of a service template, include @majorVersion@.
+-- | To update a major version of a service template, include
+-- @major Version@.
 updateServiceTemplateVersion_majorVersion :: Lens.Lens' UpdateServiceTemplateVersion Prelude.Text
 updateServiceTemplateVersion_majorVersion = Lens.lens (\UpdateServiceTemplateVersion' {majorVersion} -> majorVersion) (\s@UpdateServiceTemplateVersion' {} a -> s {majorVersion = a} :: UpdateServiceTemplateVersion)
 
@@ -155,7 +201,9 @@ instance
     UpdateServiceTemplateVersion
   where
   hashWithSalt _salt UpdateServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` supportedComponentSources
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` compatibleEnvironmentTemplates
       `Prelude.hashWithSalt` majorVersion
@@ -164,7 +212,8 @@ instance
 
 instance Prelude.NFData UpdateServiceTemplateVersion where
   rnf UpdateServiceTemplateVersion' {..} =
-    Prelude.rnf status
+    Prelude.rnf supportedComponentSources
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
       `Prelude.seq` Prelude.rnf majorVersion
@@ -190,7 +239,9 @@ instance Core.ToJSON UpdateServiceTemplateVersion where
   toJSON UpdateServiceTemplateVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
+          [ ("supportedComponentSources" Core..=)
+              Prelude.<$> supportedComponentSources,
+            ("status" Core..=) Prelude.<$> status,
             ("description" Core..=) Prelude.<$> description,
             ("compatibleEnvironmentTemplates" Core..=)
               Prelude.<$> compatibleEnvironmentTemplates,
@@ -210,7 +261,7 @@ instance Core.ToQuery UpdateServiceTemplateVersion where
 data UpdateServiceTemplateVersionResponse = UpdateServiceTemplateVersionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service template version detail data that\'s returned by AWS Proton.
+    -- | The service template version detail data that\'s returned by Proton.
     serviceTemplateVersion :: ServiceTemplateVersion
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -225,7 +276,7 @@ data UpdateServiceTemplateVersionResponse = UpdateServiceTemplateVersionResponse
 --
 -- 'httpStatus', 'updateServiceTemplateVersionResponse_httpStatus' - The response's http status code.
 --
--- 'serviceTemplateVersion', 'updateServiceTemplateVersionResponse_serviceTemplateVersion' - The service template version detail data that\'s returned by AWS Proton.
+-- 'serviceTemplateVersion', 'updateServiceTemplateVersionResponse_serviceTemplateVersion' - The service template version detail data that\'s returned by Proton.
 newUpdateServiceTemplateVersionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -246,7 +297,7 @@ newUpdateServiceTemplateVersionResponse
 updateServiceTemplateVersionResponse_httpStatus :: Lens.Lens' UpdateServiceTemplateVersionResponse Prelude.Int
 updateServiceTemplateVersionResponse_httpStatus = Lens.lens (\UpdateServiceTemplateVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceTemplateVersionResponse' {} a -> s {httpStatus = a} :: UpdateServiceTemplateVersionResponse)
 
--- | The service template version detail data that\'s returned by AWS Proton.
+-- | The service template version detail data that\'s returned by Proton.
 updateServiceTemplateVersionResponse_serviceTemplateVersion :: Lens.Lens' UpdateServiceTemplateVersionResponse ServiceTemplateVersion
 updateServiceTemplateVersionResponse_serviceTemplateVersion = Lens.lens (\UpdateServiceTemplateVersionResponse' {serviceTemplateVersion} -> serviceTemplateVersion) (\s@UpdateServiceTemplateVersionResponse' {} a -> s {serviceTemplateVersion = a} :: UpdateServiceTemplateVersionResponse)
 

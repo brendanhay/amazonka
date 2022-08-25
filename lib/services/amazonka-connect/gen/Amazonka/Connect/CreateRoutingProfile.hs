@@ -55,7 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRoutingProfile' smart constructor.
 data CreateRoutingProfile = CreateRoutingProfile'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The inbound queues associated with the routing profile. If no queue is
     -- added, the agent can make only outbound calls.
@@ -84,7 +85,8 @@ data CreateRoutingProfile = CreateRoutingProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRoutingProfile_tags' - One or more tags.
+-- 'tags', 'createRoutingProfile_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'queueConfigs', 'createRoutingProfile_queueConfigs' - The inbound queues associated with the routing profile. If no queue is
 -- added, the agent can make only outbound calls.
@@ -126,7 +128,8 @@ newCreateRoutingProfile
         mediaConcurrencies = Prelude.mempty
       }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createRoutingProfile_tags :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
 

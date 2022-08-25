@@ -20,6 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This API is in preview release for Amazon Connect and is subject to
+-- change.
+--
 -- Creates hours of operation.
 module Amazonka.Connect.CreateHoursOfOperation
   ( -- * Creating a Request
@@ -54,7 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateHoursOfOperation' smart constructor.
 data CreateHoursOfOperation = CreateHoursOfOperation'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the hours of operation.
     description :: Prelude.Maybe Prelude.Text,
@@ -79,7 +83,8 @@ data CreateHoursOfOperation = CreateHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createHoursOfOperation_tags' - One or more tags.
+-- 'tags', 'createHoursOfOperation_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'description', 'createHoursOfOperation_description' - The description of the hours of operation.
 --
@@ -113,7 +118,8 @@ newCreateHoursOfOperation
         config = Prelude.mempty
       }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createHoursOfOperation_tags :: Lens.Lens' CreateHoursOfOperation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createHoursOfOperation_tags = Lens.lens (\CreateHoursOfOperation' {tags} -> tags) (\s@CreateHoursOfOperation' {} a -> s {tags = a} :: CreateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 

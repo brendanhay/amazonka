@@ -68,6 +68,17 @@ data InputTemplate = InputTemplate'
     -- Specified start (SPECIFIEDSTART). For more information about timecodes,
     -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
     timecodeStart :: Prelude.Maybe Prelude.Text,
+    -- | Use this setting only when your video source has Dolby Vision studio
+    -- mastering metadata that is carried in a separate XML file. Specify the
+    -- Amazon S3 location for the metadata XML file. MediaConvert uses this
+    -- file to provide global and frame-level metadata for Dolby Vision
+    -- preprocessing. When you specify a file here and your input also has
+    -- interleaved global and frame level metadata, MediaConvert ignores the
+    -- interleaved metadata and uses only the the metadata from this external
+    -- XML file. Note that your IAM service role must grant MediaConvert read
+    -- permissions to this file. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
+    dolbyVisionMetadataXml :: Prelude.Maybe Prelude.Text,
     -- | (InputClippings) contains sets of start and end times that together
     -- specify a portion of the input to be used in the outputs. If you provide
     -- only a start time, the clip will be the entire input from that point to
@@ -181,6 +192,17 @@ data InputTemplate = InputTemplate'
 -- Specified start (SPECIFIEDSTART). For more information about timecodes,
 -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 --
+-- 'dolbyVisionMetadataXml', 'inputTemplate_dolbyVisionMetadataXml' - Use this setting only when your video source has Dolby Vision studio
+-- mastering metadata that is carried in a separate XML file. Specify the
+-- Amazon S3 location for the metadata XML file. MediaConvert uses this
+-- file to provide global and frame-level metadata for Dolby Vision
+-- preprocessing. When you specify a file here and your input also has
+-- interleaved global and frame level metadata, MediaConvert ignores the
+-- interleaved metadata and uses only the the metadata from this external
+-- XML file. Note that your IAM service role must grant MediaConvert read
+-- permissions to this file. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
+--
 -- 'inputClippings', 'inputTemplate_inputClippings' - (InputClippings) contains sets of start and end times that together
 -- specify a portion of the input to be used in the outputs. If you provide
 -- only a start time, the clip will be the entire input from that point to
@@ -264,6 +286,7 @@ newInputTemplate =
       audioSelectorGroups = Prelude.Nothing,
       filterStrength = Prelude.Nothing,
       timecodeStart = Prelude.Nothing,
+      dolbyVisionMetadataXml = Prelude.Nothing,
       inputClippings = Prelude.Nothing,
       audioSelectors = Prelude.Nothing,
       timecodeSource = Prelude.Nothing,
@@ -316,6 +339,19 @@ inputTemplate_filterStrength = Lens.lens (\InputTemplate' {filterStrength} -> fi
 -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 inputTemplate_timecodeStart :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Text)
 inputTemplate_timecodeStart = Lens.lens (\InputTemplate' {timecodeStart} -> timecodeStart) (\s@InputTemplate' {} a -> s {timecodeStart = a} :: InputTemplate)
+
+-- | Use this setting only when your video source has Dolby Vision studio
+-- mastering metadata that is carried in a separate XML file. Specify the
+-- Amazon S3 location for the metadata XML file. MediaConvert uses this
+-- file to provide global and frame-level metadata for Dolby Vision
+-- preprocessing. When you specify a file here and your input also has
+-- interleaved global and frame level metadata, MediaConvert ignores the
+-- interleaved metadata and uses only the the metadata from this external
+-- XML file. Note that your IAM service role must grant MediaConvert read
+-- permissions to this file. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
+inputTemplate_dolbyVisionMetadataXml :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Text)
+inputTemplate_dolbyVisionMetadataXml = Lens.lens (\InputTemplate' {dolbyVisionMetadataXml} -> dolbyVisionMetadataXml) (\s@InputTemplate' {} a -> s {dolbyVisionMetadataXml = a} :: InputTemplate)
 
 -- | (InputClippings) contains sets of start and end times that together
 -- specify a portion of the input to be used in the outputs. If you provide
@@ -429,6 +465,7 @@ instance Core.FromJSON InputTemplate where
                         )
             Prelude.<*> (x Core..:? "filterStrength")
             Prelude.<*> (x Core..:? "timecodeStart")
+            Prelude.<*> (x Core..:? "dolbyVisionMetadataXml")
             Prelude.<*> (x Core..:? "inputClippings" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "timecodeSource")
@@ -450,6 +487,7 @@ instance Prelude.Hashable InputTemplate where
       `Prelude.hashWithSalt` audioSelectorGroups
       `Prelude.hashWithSalt` filterStrength
       `Prelude.hashWithSalt` timecodeStart
+      `Prelude.hashWithSalt` dolbyVisionMetadataXml
       `Prelude.hashWithSalt` inputClippings
       `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` timecodeSource
@@ -470,6 +508,7 @@ instance Prelude.NFData InputTemplate where
       `Prelude.seq` Prelude.rnf audioSelectorGroups
       `Prelude.seq` Prelude.rnf filterStrength
       `Prelude.seq` Prelude.rnf timecodeStart
+      `Prelude.seq` Prelude.rnf dolbyVisionMetadataXml
       `Prelude.seq` Prelude.rnf inputClippings
       `Prelude.seq` Prelude.rnf audioSelectors
       `Prelude.seq` Prelude.rnf timecodeSource
@@ -495,6 +534,8 @@ instance Core.ToJSON InputTemplate where
             ("filterStrength" Core..=)
               Prelude.<$> filterStrength,
             ("timecodeStart" Core..=) Prelude.<$> timecodeStart,
+            ("dolbyVisionMetadataXml" Core..=)
+              Prelude.<$> dolbyVisionMetadataXml,
             ("inputClippings" Core..=)
               Prelude.<$> inputClippings,
             ("audioSelectors" Core..=)

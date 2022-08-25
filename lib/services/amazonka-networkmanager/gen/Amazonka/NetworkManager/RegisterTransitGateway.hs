@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a transit gateway in your global network. The transit gateway
--- can be in any AWS Region, but it must be owned by the same AWS account
--- that owns the global network. You cannot register a transit gateway in
--- more than one global network.
+-- can be in any Amazon Web Services Region, but it must be owned by the
+-- same Amazon Web Services account that owns the global network. You
+-- cannot register a transit gateway in more than one global network.
 module Amazonka.NetworkManager.RegisterTransitGateway
   ( -- * Creating a Request
     RegisterTransitGateway (..),
@@ -54,9 +54,7 @@ import qualified Amazonka.Response as Response
 data RegisterTransitGateway = RegisterTransitGateway'
   { -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the transit gateway. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+    -- | The Amazon Resource Name (ARN) of the transit gateway.
     transitGatewayArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,9 +69,7 @@ data RegisterTransitGateway = RegisterTransitGateway'
 --
 -- 'globalNetworkId', 'registerTransitGateway_globalNetworkId' - The ID of the global network.
 --
--- 'transitGatewayArn', 'registerTransitGateway_transitGatewayArn' - The Amazon Resource Name (ARN) of the transit gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+-- 'transitGatewayArn', 'registerTransitGateway_transitGatewayArn' - The Amazon Resource Name (ARN) of the transit gateway.
 newRegisterTransitGateway ::
   -- | 'globalNetworkId'
   Prelude.Text ->
@@ -93,9 +89,7 @@ newRegisterTransitGateway
 registerTransitGateway_globalNetworkId :: Lens.Lens' RegisterTransitGateway Prelude.Text
 registerTransitGateway_globalNetworkId = Lens.lens (\RegisterTransitGateway' {globalNetworkId} -> globalNetworkId) (\s@RegisterTransitGateway' {} a -> s {globalNetworkId = a} :: RegisterTransitGateway)
 
--- | The Amazon Resource Name (ARN) of the transit gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+-- | The Amazon Resource Name (ARN) of the transit gateway.
 registerTransitGateway_transitGatewayArn :: Lens.Lens' RegisterTransitGateway Prelude.Text
 registerTransitGateway_transitGatewayArn = Lens.lens (\RegisterTransitGateway' {transitGatewayArn} -> transitGatewayArn) (\s@RegisterTransitGateway' {} a -> s {transitGatewayArn = a} :: RegisterTransitGateway)
 

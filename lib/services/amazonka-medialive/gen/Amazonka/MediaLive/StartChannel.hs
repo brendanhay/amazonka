@@ -36,6 +36,7 @@ module Amazonka.MediaLive.StartChannel
     -- * Response Lenses
     startChannelResponse_tags,
     startChannelResponse_name,
+    startChannelResponse_maintenance,
     startChannelResponse_roleArn,
     startChannelResponse_vpc,
     startChannelResponse_logLevel,
@@ -100,6 +101,7 @@ instance Core.AWSRequest StartChannel where
           StartChannelResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "maintenance")
             Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (x Core..?> "vpc")
             Prelude.<*> (x Core..?> "logLevel")
@@ -161,6 +163,8 @@ data StartChannelResponse = StartChannelResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel. (user-mutable)
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceStatus,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -210,6 +214,8 @@ data StartChannelResponse = StartChannelResponse'
 --
 -- 'name', 'startChannelResponse_name' - The name of the channel. (user-mutable)
 --
+-- 'maintenance', 'startChannelResponse_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'startChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 --
@@ -253,6 +259,7 @@ newStartChannelResponse pHttpStatus_ =
   StartChannelResponse'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -278,6 +285,10 @@ startChannelResponse_tags = Lens.lens (\StartChannelResponse' {tags} -> tags) (\
 -- | The name of the channel. (user-mutable)
 startChannelResponse_name :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
 startChannelResponse_name = Lens.lens (\StartChannelResponse' {name} -> name) (\s@StartChannelResponse' {} a -> s {name = a} :: StartChannelResponse)
+
+-- | Maintenance settings for this channel.
+startChannelResponse_maintenance :: Lens.Lens' StartChannelResponse (Prelude.Maybe MaintenanceStatus)
+startChannelResponse_maintenance = Lens.lens (\StartChannelResponse' {maintenance} -> maintenance) (\s@StartChannelResponse' {} a -> s {maintenance = a} :: StartChannelResponse)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
@@ -351,6 +362,7 @@ instance Prelude.NFData StartChannelResponse where
   rnf StartChannelResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel

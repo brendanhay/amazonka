@@ -47,9 +47,9 @@ data Projection = Projection'
     -- index.
     --
     -- For local secondary indexes, the total count of @NonKeyAttributes@
-    -- summed across all of the local secondary indexes, must not exceed 20. If
-    -- you project the same attribute into two different indexes, this counts
-    -- as two distinct attributes when determining the total.
+    -- summed across all of the local secondary indexes, must not exceed 100.
+    -- If you project the same attribute into two different indexes, this
+    -- counts as two distinct attributes when determining the total.
     nonKeyAttributes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,9 +77,9 @@ data Projection = Projection'
 -- index.
 --
 -- For local secondary indexes, the total count of @NonKeyAttributes@
--- summed across all of the local secondary indexes, must not exceed 20. If
--- you project the same attribute into two different indexes, this counts
--- as two distinct attributes when determining the total.
+-- summed across all of the local secondary indexes, must not exceed 100.
+-- If you project the same attribute into two different indexes, this
+-- counts as two distinct attributes when determining the total.
 newProjection ::
   Projection
 newProjection =
@@ -105,9 +105,9 @@ projection_projectionType = Lens.lens (\Projection' {projectionType} -> projecti
 -- index.
 --
 -- For local secondary indexes, the total count of @NonKeyAttributes@
--- summed across all of the local secondary indexes, must not exceed 20. If
--- you project the same attribute into two different indexes, this counts
--- as two distinct attributes when determining the total.
+-- summed across all of the local secondary indexes, must not exceed 100.
+-- If you project the same attribute into two different indexes, this
+-- counts as two distinct attributes when determining the total.
 projection_nonKeyAttributes :: Lens.Lens' Projection (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonKeyAttributes) (\s@Projection' {} a -> s {nonKeyAttributes = a} :: Projection) Prelude.. Lens.mapping Lens.coerced
 

@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 data UpdateLink = UpdateLink'
   { -- | The type of the link.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The upload and download speed in Mbps.
     bandwidth :: Prelude.Maybe Bandwidth,
     -- | The provider of the link.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     provider :: Prelude.Maybe Prelude.Text,
     -- | A description of the link.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
@@ -85,17 +85,17 @@ data UpdateLink = UpdateLink'
 --
 -- 'type'', 'updateLink_type' - The type of the link.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'bandwidth', 'updateLink_bandwidth' - The upload and download speed in Mbps.
 --
 -- 'provider', 'updateLink_provider' - The provider of the link.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'description', 'updateLink_description' - A description of the link.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'globalNetworkId', 'updateLink_globalNetworkId' - The ID of the global network.
 --
@@ -118,7 +118,7 @@ newUpdateLink pGlobalNetworkId_ pLinkId_ =
 
 -- | The type of the link.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 updateLink_type :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
 updateLink_type = Lens.lens (\UpdateLink' {type'} -> type') (\s@UpdateLink' {} a -> s {type' = a} :: UpdateLink)
 
@@ -128,13 +128,13 @@ updateLink_bandwidth = Lens.lens (\UpdateLink' {bandwidth} -> bandwidth) (\s@Upd
 
 -- | The provider of the link.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 updateLink_provider :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
 updateLink_provider = Lens.lens (\UpdateLink' {provider} -> provider) (\s@UpdateLink' {} a -> s {provider = a} :: UpdateLink)
 
 -- | A description of the link.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 updateLink_description :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
 updateLink_description = Lens.lens (\UpdateLink' {description} -> description) (\s@UpdateLink' {} a -> s {description = a} :: UpdateLink)
 

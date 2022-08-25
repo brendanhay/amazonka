@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListControls' smart constructor.
 data ListControls = ListControls'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results per page, or per API request
+    -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The type of control, such as standard or custom.
+    -- | The type of control, such as a standard control or a custom control.
     controlType :: ControlType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,12 +69,12 @@ data ListControls = ListControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControls_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'listControls_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'maxResults', 'listControls_maxResults' - Represents the maximum number of results per page, or per API request
+-- 'maxResults', 'listControls_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
 --
--- 'controlType', 'listControls_controlType' - The type of control, such as standard or custom.
+-- 'controlType', 'listControls_controlType' - The type of control, such as a standard control or a custom control.
 newListControls ::
   -- | 'controlType'
   ControlType ->
@@ -86,16 +86,16 @@ newListControls pControlType_ =
       controlType = pControlType_
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 listControls_nextToken :: Lens.Lens' ListControls (Prelude.Maybe Prelude.Text)
 listControls_nextToken = Lens.lens (\ListControls' {nextToken} -> nextToken) (\s@ListControls' {} a -> s {nextToken = a} :: ListControls)
 
--- | Represents the maximum number of results per page, or per API request
+-- | Represents the maximum number of results on a page or for an API request
 -- call.
 listControls_maxResults :: Lens.Lens' ListControls (Prelude.Maybe Prelude.Natural)
 listControls_maxResults = Lens.lens (\ListControls' {maxResults} -> maxResults) (\s@ListControls' {} a -> s {maxResults = a} :: ListControls)
 
--- | The type of control, such as standard or custom.
+-- | The type of control, such as a standard control or a custom control.
 listControls_controlType :: Lens.Lens' ListControls ControlType
 listControls_controlType = Lens.lens (\ListControls' {controlType} -> controlType) (\s@ListControls' {} a -> s {controlType = a} :: ListControls)
 
@@ -149,9 +149,10 @@ instance Core.ToQuery ListControls where
 
 -- | /See:/ 'newListControlsResponse' smart constructor.
 data ListControlsResponse = ListControlsResponse'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of control metadata objects returned by the @ListControls@ API.
+    -- | The list of control metadata objects that the @ListControls@ API
+    -- returned.
     controlMetadataList :: Prelude.Maybe [ControlMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -166,9 +167,10 @@ data ListControlsResponse = ListControlsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlsResponse_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'listControlsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'controlMetadataList', 'listControlsResponse_controlMetadataList' - The list of control metadata objects returned by the @ListControls@ API.
+-- 'controlMetadataList', 'listControlsResponse_controlMetadataList' - The list of control metadata objects that the @ListControls@ API
+-- returned.
 --
 -- 'httpStatus', 'listControlsResponse_httpStatus' - The response's http status code.
 newListControlsResponse ::
@@ -182,11 +184,12 @@ newListControlsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 listControlsResponse_nextToken :: Lens.Lens' ListControlsResponse (Prelude.Maybe Prelude.Text)
 listControlsResponse_nextToken = Lens.lens (\ListControlsResponse' {nextToken} -> nextToken) (\s@ListControlsResponse' {} a -> s {nextToken = a} :: ListControlsResponse)
 
--- | The list of control metadata objects returned by the @ListControls@ API.
+-- | The list of control metadata objects that the @ListControls@ API
+-- returned.
 listControlsResponse_controlMetadataList :: Lens.Lens' ListControlsResponse (Prelude.Maybe [ControlMetadata])
 listControlsResponse_controlMetadataList = Lens.lens (\ListControlsResponse' {controlMetadataList} -> controlMetadataList) (\s@ListControlsResponse' {} a -> s {controlMetadataList = a} :: ListControlsResponse) Prelude.. Lens.mapping Lens.coerced
 

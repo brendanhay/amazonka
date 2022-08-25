@@ -29,7 +29,7 @@ import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroups
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOrigins
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionViewerCertificate
 
--- | A distribution configuration.
+-- | A CloudFront distribution configuration.
 --
 -- /See:/ 'newAwsCloudFrontDistributionDetails' smart constructor.
 data AwsCloudFrontDistributionDetails = AwsCloudFrontDistributionDetails'

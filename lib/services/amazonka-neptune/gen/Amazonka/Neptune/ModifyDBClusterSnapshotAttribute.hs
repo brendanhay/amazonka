@@ -88,7 +88,7 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     -- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
     -- Amazon account. Do not add the @all@ value for any manual DB cluster
     -- snapshots that contain private information that you don\'t want
-    -- available to all AWS accounts.
+    -- available to all Amazon accounts.
     valuesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the DB cluster snapshot to modify the attributes for.
     dbClusterSnapshotIdentifier :: Prelude.Text,
@@ -127,7 +127,7 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
 -- Amazon account. Do not add the @all@ value for any manual DB cluster
 -- snapshots that contain private information that you don\'t want
--- available to all AWS accounts.
+-- available to all Amazon accounts.
 --
 -- 'dbClusterSnapshotIdentifier', 'modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
 --
@@ -174,7 +174,7 @@ modifyDBClusterSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBClusterSna
 -- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
 -- Amazon account. Do not add the @all@ value for any manual DB cluster
 -- snapshots that contain private information that you don\'t want
--- available to all AWS accounts.
+-- available to all Amazon accounts.
 modifyDBClusterSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifyDBClusterSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
 

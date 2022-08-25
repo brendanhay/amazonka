@@ -49,6 +49,7 @@ module Amazonka.Forecast.CreateForecastExportJob
 
     -- * Request Lenses
     createForecastExportJob_tags,
+    createForecastExportJob_format,
     createForecastExportJob_forecastExportJobName,
     createForecastExportJob_forecastArn,
     createForecastExportJob_destination,
@@ -103,6 +104,9 @@ data CreateForecastExportJob = CreateForecastExportJob'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | The format of the exported data, CSV or PARQUET. The default value is
+    -- CSV.
+    format :: Prelude.Maybe Prelude.Text,
     -- | The name for the forecast export job.
     forecastExportJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the forecast that you want to export.
@@ -157,6 +161,9 @@ data CreateForecastExportJob = CreateForecastExportJob'
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
 --
+-- 'format', 'createForecastExportJob_format' - The format of the exported data, CSV or PARQUET. The default value is
+-- CSV.
+--
 -- 'forecastExportJobName', 'createForecastExportJob_forecastExportJobName' - The name for the forecast export job.
 --
 -- 'forecastArn', 'createForecastExportJob_forecastArn' - The Amazon Resource Name (ARN) of the forecast that you want to export.
@@ -182,6 +189,7 @@ newCreateForecastExportJob
   pDestination_ =
     CreateForecastExportJob'
       { tags = Prelude.Nothing,
+        format = Prelude.Nothing,
         forecastExportJobName = pForecastExportJobName_,
         forecastArn = pForecastArn_,
         destination = pDestination_
@@ -220,6 +228,11 @@ newCreateForecastExportJob
 createForecastExportJob_tags :: Lens.Lens' CreateForecastExportJob (Prelude.Maybe [Tag])
 createForecastExportJob_tags = Lens.lens (\CreateForecastExportJob' {tags} -> tags) (\s@CreateForecastExportJob' {} a -> s {tags = a} :: CreateForecastExportJob) Prelude.. Lens.mapping Lens.coerced
 
+-- | The format of the exported data, CSV or PARQUET. The default value is
+-- CSV.
+createForecastExportJob_format :: Lens.Lens' CreateForecastExportJob (Prelude.Maybe Prelude.Text)
+createForecastExportJob_format = Lens.lens (\CreateForecastExportJob' {format} -> format) (\s@CreateForecastExportJob' {} a -> s {format = a} :: CreateForecastExportJob)
+
 -- | The name for the forecast export job.
 createForecastExportJob_forecastExportJobName :: Lens.Lens' CreateForecastExportJob Prelude.Text
 createForecastExportJob_forecastExportJobName = Lens.lens (\CreateForecastExportJob' {forecastExportJobName} -> forecastExportJobName) (\s@CreateForecastExportJob' {} a -> s {forecastExportJobName = a} :: CreateForecastExportJob)
@@ -254,6 +267,7 @@ instance Core.AWSRequest CreateForecastExportJob where
 instance Prelude.Hashable CreateForecastExportJob where
   hashWithSalt _salt CreateForecastExportJob' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` forecastExportJobName
       `Prelude.hashWithSalt` forecastArn
       `Prelude.hashWithSalt` destination
@@ -261,6 +275,7 @@ instance Prelude.Hashable CreateForecastExportJob where
 instance Prelude.NFData CreateForecastExportJob where
   rnf CreateForecastExportJob' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf forecastExportJobName
       `Prelude.seq` Prelude.rnf forecastArn
       `Prelude.seq` Prelude.rnf destination
@@ -285,6 +300,7 @@ instance Core.ToJSON CreateForecastExportJob where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Format" Core..=) Prelude.<$> format,
             Prelude.Just
               ( "ForecastExportJobName"
                   Core..= forecastExportJobName

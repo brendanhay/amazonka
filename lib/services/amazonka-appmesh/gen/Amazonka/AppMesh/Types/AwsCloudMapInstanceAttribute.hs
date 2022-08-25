@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | An object that represents the Cloud Map attribute information for your
 -- virtual node.
 --
--- AWS Cloud Map is not available in the eu-south-1 Region.
+-- Cloud Map is not available in the eu-south-1 Region.
 --
 -- /See:/ 'newAwsCloudMapInstanceAttribute' smart constructor.
 data AwsCloudMapInstanceAttribute = AwsCloudMapInstanceAttribute'

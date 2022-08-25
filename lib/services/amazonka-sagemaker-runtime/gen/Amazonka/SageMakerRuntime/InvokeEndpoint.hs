@@ -32,9 +32,9 @@
 -- on the behavior of headers outside those enumerated in the request
 -- syntax.
 --
--- Calls to @InvokeEndpoint@ are authenticated by using AWS Signature
--- Version 4. For information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (AWS Signature Version 4)>
+-- Calls to @InvokeEndpoint@ are authenticated by using Amazon Web Services
+-- Signature Version 4. For information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (Amazon Web Services Signature Version 4)>
 -- in the /Amazon S3 API Reference/.
 --
 -- A customer\'s model containers must respond to requests within 60
@@ -115,8 +115,8 @@ data InvokeEndpoint = InvokeEndpoint'
     -- represents the trace ID, your model can prepend the custom attribute
     -- with @Trace ID:@ in your post-processing function.
     --
-    -- This feature is currently supported in the AWS SDKs but not in the
-    -- Amazon SageMaker Python SDK.
+    -- This feature is currently supported in the Amazon Web Services SDKs but
+    -- not in the Amazon SageMaker Python SDK.
     customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The model to request for inference when invoking a multi-model endpoint.
     targetModel :: Prelude.Maybe Prelude.Text,
@@ -180,8 +180,8 @@ data InvokeEndpoint = InvokeEndpoint'
 -- represents the trace ID, your model can prepend the custom attribute
 -- with @Trace ID:@ in your post-processing function.
 --
--- This feature is currently supported in the AWS SDKs but not in the
--- Amazon SageMaker Python SDK.
+-- This feature is currently supported in the Amazon Web Services SDKs but
+-- not in the Amazon SageMaker Python SDK.
 --
 -- 'targetModel', 'invokeEndpoint_targetModel' - The model to request for inference when invoking a multi-model endpoint.
 --
@@ -259,8 +259,8 @@ invokeEndpoint_targetVariant = Lens.lens (\InvokeEndpoint' {targetVariant} -> ta
 -- represents the trace ID, your model can prepend the custom attribute
 -- with @Trace ID:@ in your post-processing function.
 --
--- This feature is currently supported in the AWS SDKs but not in the
--- Amazon SageMaker Python SDK.
+-- This feature is currently supported in the Amazon Web Services SDKs but
+-- not in the Amazon SageMaker Python SDK.
 invokeEndpoint_customAttributes :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
 invokeEndpoint_customAttributes = Lens.lens (\InvokeEndpoint' {customAttributes} -> customAttributes) (\s@InvokeEndpoint' {} a -> s {customAttributes = a} :: InvokeEndpoint) Prelude.. Lens.mapping Core._Sensitive
 
@@ -384,8 +384,8 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
     -- represents the trace ID, your model can prepend the custom attribute
     -- with @Trace ID:@ in your post-processing function.
     --
-    -- This feature is currently supported in the AWS SDKs but not in the
-    -- Amazon SageMaker Python SDK.
+    -- This feature is currently supported in the Amazon Web Services SDKs but
+    -- not in the Amazon SageMaker Python SDK.
     customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Identifies the production variant that was invoked.
     invokedProductionVariant :: Prelude.Maybe Prelude.Text,
@@ -427,8 +427,8 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
 -- represents the trace ID, your model can prepend the custom attribute
 -- with @Trace ID:@ in your post-processing function.
 --
--- This feature is currently supported in the AWS SDKs but not in the
--- Amazon SageMaker Python SDK.
+-- This feature is currently supported in the Amazon Web Services SDKs but
+-- not in the Amazon SageMaker Python SDK.
 --
 -- 'invokedProductionVariant', 'invokeEndpointResponse_invokedProductionVariant' - Identifies the production variant that was invoked.
 --
@@ -474,8 +474,8 @@ newInvokeEndpointResponse pHttpStatus_ pBody_ =
 -- represents the trace ID, your model can prepend the custom attribute
 -- with @Trace ID:@ in your post-processing function.
 --
--- This feature is currently supported in the AWS SDKs but not in the
--- Amazon SageMaker Python SDK.
+-- This feature is currently supported in the Amazon Web Services SDKs but
+-- not in the Amazon SageMaker Python SDK.
 invokeEndpointResponse_customAttributes :: Lens.Lens' InvokeEndpointResponse (Prelude.Maybe Prelude.Text)
 invokeEndpointResponse_customAttributes = Lens.lens (\InvokeEndpointResponse' {customAttributes} -> customAttributes) (\s@InvokeEndpointResponse' {} a -> s {customAttributes = a} :: InvokeEndpointResponse) Prelude.. Lens.mapping Core._Sensitive
 

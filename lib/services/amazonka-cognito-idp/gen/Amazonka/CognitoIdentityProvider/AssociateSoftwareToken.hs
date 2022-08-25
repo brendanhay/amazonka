@@ -20,16 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a unique generated shared secret key code for the user account.
--- The request takes an access token or a session string, but not both.
+-- Begins setup of time-based one-time password (TOTP) multi-factor
+-- authentication (MFA) for a user, with a unique private key that Amazon
+-- Cognito generates and returns in the API response. You can authorize an
+-- @AssociateSoftwareToken@ request with either the user\'s access token,
+-- or a session string from a challenge response that you received from
+-- Amazon Cognito.
 --
--- Calling AssociateSoftwareToken immediately disassociates the existing
--- software token from the user account. If the user doesn\'t subsequently
--- verify the software token, their account is essentially set up to
--- authenticate without MFA. If MFA config is set to Optional at the user
--- pool level, the user can then login without MFA. However, if MFA is set
--- to Required for the user pool, the user will be asked to setup a new
--- software token MFA during sign in.
+-- Amazon Cognito disassociates an existing software token when you verify
+-- the new token in a
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html VerifySoftwareToken>
+-- API request. If you don\'t verify the software token and your user pool
+-- doesn\'t require MFA, the user can then authenticate with user name and
+-- password credentials alone. If your user pool requires TOTP MFA, Amazon
+-- Cognito generates an @MFA_SETUP@ or @SOFTWARE_TOKEN_SETUP@ challenge
+-- each time your user signs. Complete setup with @AssociateSoftwareToken@
+-- and @VerifySoftwareToken@.
+--
+-- After you set up software token MFA for your user, Amazon Cognito
+-- generates a @SOFTWARE_TOKEN_MFA@ challenge when they authenticate.
+-- Respond to this challenge with your user\'s TOTP.
 module Amazonka.CognitoIdentityProvider.AssociateSoftwareToken
   ( -- * Creating a Request
     AssociateSoftwareToken (..),
@@ -59,9 +69,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateSoftwareToken' smart constructor.
 data AssociateSoftwareToken = AssociateSoftwareToken'
-  { -- | The access token.
+  { -- | A valid access token that Amazon Cognito issued to the user whose
+    -- software token you want to generate.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The session which should be passed both ways in challenge-response calls
+    -- | The session that should be passed both ways in challenge-response calls
     -- to the service. This allows authentication of the user as part of the
     -- MFA setup process.
     session :: Prelude.Maybe Prelude.Text
@@ -76,9 +87,10 @@ data AssociateSoftwareToken = AssociateSoftwareToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'associateSoftwareToken_accessToken' - The access token.
+-- 'accessToken', 'associateSoftwareToken_accessToken' - A valid access token that Amazon Cognito issued to the user whose
+-- software token you want to generate.
 --
--- 'session', 'associateSoftwareToken_session' - The session which should be passed both ways in challenge-response calls
+-- 'session', 'associateSoftwareToken_session' - The session that should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
 -- MFA setup process.
 newAssociateSoftwareToken ::
@@ -90,11 +102,12 @@ newAssociateSoftwareToken =
       session = Prelude.Nothing
     }
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user whose
+-- software token you want to generate.
 associateSoftwareToken_accessToken :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
 associateSoftwareToken_accessToken = Lens.lens (\AssociateSoftwareToken' {accessToken} -> accessToken) (\s@AssociateSoftwareToken' {} a -> s {accessToken = a} :: AssociateSoftwareToken) Prelude.. Lens.mapping Core._Sensitive
 
--- | The session which should be passed both ways in challenge-response calls
+-- | The session that should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
 -- MFA setup process.
 associateSoftwareToken_session :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
@@ -157,9 +170,9 @@ instance Core.ToQuery AssociateSoftwareToken where
 -- | /See:/ 'newAssociateSoftwareTokenResponse' smart constructor.
 data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
   { -- | A unique generated shared secret code that is used in the TOTP algorithm
-    -- to generate a one time code.
+    -- to generate a one-time code.
     secretCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The session which should be passed both ways in challenge-response calls
+    -- | The session that should be passed both ways in challenge-response calls
     -- to the service. This allows authentication of the user as part of the
     -- MFA setup process.
     session :: Prelude.Maybe Prelude.Text,
@@ -177,9 +190,9 @@ data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
 -- for backwards compatibility:
 --
 -- 'secretCode', 'associateSoftwareTokenResponse_secretCode' - A unique generated shared secret code that is used in the TOTP algorithm
--- to generate a one time code.
+-- to generate a one-time code.
 --
--- 'session', 'associateSoftwareTokenResponse_session' - The session which should be passed both ways in challenge-response calls
+-- 'session', 'associateSoftwareTokenResponse_session' - The session that should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
 -- MFA setup process.
 --
@@ -197,11 +210,11 @@ newAssociateSoftwareTokenResponse pHttpStatus_ =
     }
 
 -- | A unique generated shared secret code that is used in the TOTP algorithm
--- to generate a one time code.
+-- to generate a one-time code.
 associateSoftwareTokenResponse_secretCode :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)
 associateSoftwareTokenResponse_secretCode = Lens.lens (\AssociateSoftwareTokenResponse' {secretCode} -> secretCode) (\s@AssociateSoftwareTokenResponse' {} a -> s {secretCode = a} :: AssociateSoftwareTokenResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The session which should be passed both ways in challenge-response calls
+-- | The session that should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
 -- MFA setup process.
 associateSoftwareTokenResponse_session :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)

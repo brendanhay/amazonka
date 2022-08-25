@@ -48,6 +48,42 @@ module Amazonka.Nimble
     -- * Waiters
     -- $waiters
 
+    -- ** StudioReady
+    newStudioReady,
+
+    -- ** StudioComponentReady
+    newStudioComponentReady,
+
+    -- ** StreamingSessionStopped
+    newStreamingSessionStopped,
+
+    -- ** StreamingSessionStreamReady
+    newStreamingSessionStreamReady,
+
+    -- ** StreamingImageReady
+    newStreamingImageReady,
+
+    -- ** StudioDeleted
+    newStudioDeleted,
+
+    -- ** StudioComponentDeleted
+    newStudioComponentDeleted,
+
+    -- ** StreamingSessionDeleted
+    newStreamingSessionDeleted,
+
+    -- ** StreamingSessionReady
+    newStreamingSessionReady,
+
+    -- ** LaunchProfileReady
+    newLaunchProfileReady,
+
+    -- ** LaunchProfileDeleted
+    newLaunchProfileDeleted,
+
+    -- ** StreamingImageDeleted
+    newStreamingImageDeleted,
+
     -- * Operations
     -- $operations
 
@@ -273,11 +309,23 @@ module Amazonka.Nimble
     PutStudioMembersResponse (PutStudioMembersResponse'),
     newPutStudioMembersResponse,
 
+    -- ** StartStreamingSession
+    StartStreamingSession (StartStreamingSession'),
+    newStartStreamingSession,
+    StartStreamingSessionResponse (StartStreamingSessionResponse'),
+    newStartStreamingSessionResponse,
+
     -- ** StartStudioSSOConfigurationRepair
     StartStudioSSOConfigurationRepair (StartStudioSSOConfigurationRepair'),
     newStartStudioSSOConfigurationRepair,
     StartStudioSSOConfigurationRepairResponse (StartStudioSSOConfigurationRepairResponse'),
     newStartStudioSSOConfigurationRepairResponse,
+
+    -- ** StopStreamingSession
+    StopStreamingSession (StopStreamingSession'),
+    newStopStreamingSession,
+    StopStreamingSessionResponse (StopStreamingSessionResponse'),
+    newStopStreamingSessionResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -335,6 +383,15 @@ module Amazonka.Nimble
     -- ** LaunchProfileStatusCode
     LaunchProfileStatusCode (..),
 
+    -- ** LaunchProfileValidationState
+    LaunchProfileValidationState (..),
+
+    -- ** LaunchProfileValidationStatusCode
+    LaunchProfileValidationStatusCode (..),
+
+    -- ** LaunchProfileValidationType
+    LaunchProfileValidationType (..),
+
     -- ** StreamingClipboardMode
     StreamingClipboardMode (..),
 
@@ -355,6 +412,9 @@ module Amazonka.Nimble
 
     -- ** StreamingSessionStatusCode
     StreamingSessionStatusCode (..),
+
+    -- ** StreamingSessionStorageMode
+    StreamingSessionStorageMode (..),
 
     -- ** StreamingSessionStreamState
     StreamingSessionStreamState (..),
@@ -457,6 +517,10 @@ module Amazonka.Nimble
     StreamConfigurationCreate (StreamConfigurationCreate'),
     newStreamConfigurationCreate,
 
+    -- ** StreamConfigurationSessionStorage
+    StreamConfigurationSessionStorage (StreamConfigurationSessionStorage'),
+    newStreamConfigurationSessionStorage,
+
     -- ** StreamingImage
     StreamingImage (StreamingImage'),
     newStreamingImage,
@@ -468,6 +532,10 @@ module Amazonka.Nimble
     -- ** StreamingSession
     StreamingSession (StreamingSession'),
     newStreamingSession,
+
+    -- ** StreamingSessionStorageRoot
+    StreamingSessionStorageRoot (StreamingSessionStorageRoot'),
+    newStreamingSessionStorageRoot,
 
     -- ** StreamingSessionStream
     StreamingSessionStream (StreamingSessionStream'),
@@ -500,6 +568,10 @@ module Amazonka.Nimble
     -- ** StudioMembership
     StudioMembership (StudioMembership'),
     newStudioMembership,
+
+    -- ** ValidationResult
+    ValidationResult (ValidationResult'),
+    newValidationResult,
   )
 where
 
@@ -541,7 +613,9 @@ import Amazonka.Nimble.ListStudios
 import Amazonka.Nimble.ListTagsForResource
 import Amazonka.Nimble.PutLaunchProfileMembers
 import Amazonka.Nimble.PutStudioMembers
+import Amazonka.Nimble.StartStreamingSession
 import Amazonka.Nimble.StartStudioSSOConfigurationRepair
+import Amazonka.Nimble.StopStreamingSession
 import Amazonka.Nimble.TagResource
 import Amazonka.Nimble.Types
 import Amazonka.Nimble.UntagResource

@@ -34,7 +34,7 @@ import Amazonka.S3.Types.Tag
 data MetricsAndOperator = MetricsAndOperator'
   { -- | The list of tags used when evaluating an AND predicate.
     tags :: Prelude.Maybe [Tag],
-    -- | The access point ARN used when evaluating an AND predicate.
+    -- | The access point ARN used when evaluating an @AND@ predicate.
     accessPointArn :: Prelude.Maybe Prelude.Text,
     -- | The prefix used when evaluating an AND predicate.
     prefix :: Prelude.Maybe Prelude.Text
@@ -51,7 +51,7 @@ data MetricsAndOperator = MetricsAndOperator'
 --
 -- 'tags', 'metricsAndOperator_tags' - The list of tags used when evaluating an AND predicate.
 --
--- 'accessPointArn', 'metricsAndOperator_accessPointArn' - The access point ARN used when evaluating an AND predicate.
+-- 'accessPointArn', 'metricsAndOperator_accessPointArn' - The access point ARN used when evaluating an @AND@ predicate.
 --
 -- 'prefix', 'metricsAndOperator_prefix' - The prefix used when evaluating an AND predicate.
 newMetricsAndOperator ::
@@ -67,7 +67,7 @@ newMetricsAndOperator =
 metricsAndOperator_tags :: Lens.Lens' MetricsAndOperator (Prelude.Maybe [Tag])
 metricsAndOperator_tags = Lens.lens (\MetricsAndOperator' {tags} -> tags) (\s@MetricsAndOperator' {} a -> s {tags = a} :: MetricsAndOperator) Prelude.. Lens.mapping Lens.coerced
 
--- | The access point ARN used when evaluating an AND predicate.
+-- | The access point ARN used when evaluating an @AND@ predicate.
 metricsAndOperator_accessPointArn :: Lens.Lens' MetricsAndOperator (Prelude.Maybe Prelude.Text)
 metricsAndOperator_accessPointArn = Lens.lens (\MetricsAndOperator' {accessPointArn} -> accessPointArn) (\s@MetricsAndOperator' {} a -> s {accessPointArn = a} :: MetricsAndOperator)
 

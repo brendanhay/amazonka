@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified secret.
+-- Removes specific tags from a secret.
 --
 -- This operation is idempotent. If a requested tag is not attached to the
 -- secret, no error is returned and the secret metadata is unchanged.
@@ -30,18 +30,11 @@
 -- result in you losing your permissions for this secret, then the
 -- operation is blocked and returns an Access Denied error.
 --
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:UntagResource
---
--- __Related operations__
---
--- -   To add one or more tags to the collection attached to a secret, use
---     TagResource.
---
--- -   To view the list of tags attached to a secret, use DescribeSecret.
+-- __Required permissions:__ @secretsmanager:UntagResource@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -66,17 +59,16 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The identifier for the secret that you want to remove tags from. You can
-    -- specify either the Amazon Resource Name (ARN) or the friendly name of
-    -- the secret.
+  { -- | The ARN or name of the secret.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text,
     -- | A list of tag key names to remove from the secret. You don\'t specify
     -- the value. Both the key and its associated value are removed.
     --
-    -- This parameter to the API requires a JSON text string argument.
+    -- This parameter requires a JSON text string argument.
     --
     -- For storing multiple values, we recommend that you use a JSON text
     -- string argument and specify key\/value pairs. For more information, see
@@ -94,17 +86,16 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'untagResource_secretId' - The identifier for the secret that you want to remove tags from. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret.
+-- 'secretId', 'untagResource_secretId' - The ARN or name of the secret.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - A list of tag key names to remove from the secret. You don\'t specify
 -- the value. Both the key and its associated value are removed.
 --
--- This parameter to the API requires a JSON text string argument.
+-- This parameter requires a JSON text string argument.
 --
 -- For storing multiple values, we recommend that you use a JSON text
 -- string argument and specify key\/value pairs. For more information, see
@@ -120,19 +111,18 @@ newUntagResource pSecretId_ =
       tagKeys = Prelude.mempty
     }
 
--- | The identifier for the secret that you want to remove tags from. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret.
+-- | The ARN or name of the secret.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 untagResource_secretId :: Lens.Lens' UntagResource Prelude.Text
 untagResource_secretId = Lens.lens (\UntagResource' {secretId} -> secretId) (\s@UntagResource' {} a -> s {secretId = a} :: UntagResource)
 
 -- | A list of tag key names to remove from the secret. You don\'t specify
 -- the value. Both the key and its associated value are removed.
 --
--- This parameter to the API requires a JSON text string argument.
+-- This parameter requires a JSON text string argument.
 --
 -- For storing multiple values, we recommend that you use a JSON text
 -- string argument and specify key\/value pairs. For more information, see

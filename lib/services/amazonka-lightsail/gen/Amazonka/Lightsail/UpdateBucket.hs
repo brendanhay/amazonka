@@ -23,8 +23,8 @@
 -- Updates an existing Amazon Lightsail bucket.
 --
 -- Use this action to update the configuration of an existing bucket, such
--- as versioning, public accessibility, and the AWS accounts that can
--- access the bucket.
+-- as versioning, public accessibility, and the Amazon Web Services
+-- accounts that can access the bucket.
 module Amazonka.Lightsail.UpdateBucket
   ( -- * Creating a Request
     UpdateBucket (..),
@@ -34,6 +34,7 @@ module Amazonka.Lightsail.UpdateBucket
     updateBucket_readonlyAccessAccounts,
     updateBucket_versioning,
     updateBucket_accessRules,
+    updateBucket_accessLogConfig,
     updateBucket_bucketName,
 
     -- * Destructuring the Response
@@ -56,10 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateBucket' smart constructor.
 data UpdateBucket = UpdateBucket'
-  { -- | An array of strings to specify the AWS account IDs that can access the
-    -- bucket.
+  { -- | An array of strings to specify the Amazon Web Services account IDs that
+    -- can access the bucket.
     --
-    -- You can give a maximum of 10 AWS accounts access to a bucket.
+    -- You can give a maximum of 10 Amazon Web Services accounts access to a
+    -- bucket.
     readonlyAccessAccounts :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether to enable or suspend versioning of objects in the
     -- bucket.
@@ -74,6 +76,8 @@ data UpdateBucket = UpdateBucket'
     -- | An object that sets the public accessibility of objects in the specified
     -- bucket.
     accessRules :: Prelude.Maybe AccessRules,
+    -- | An object that describes the access log configuration for the bucket.
+    accessLogConfig :: Prelude.Maybe BucketAccessLogConfig,
     -- | The name of the bucket to update.
     bucketName :: Prelude.Text
   }
@@ -87,10 +91,11 @@ data UpdateBucket = UpdateBucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readonlyAccessAccounts', 'updateBucket_readonlyAccessAccounts' - An array of strings to specify the AWS account IDs that can access the
--- bucket.
+-- 'readonlyAccessAccounts', 'updateBucket_readonlyAccessAccounts' - An array of strings to specify the Amazon Web Services account IDs that
+-- can access the bucket.
 --
--- You can give a maximum of 10 AWS accounts access to a bucket.
+-- You can give a maximum of 10 Amazon Web Services accounts access to a
+-- bucket.
 --
 -- 'versioning', 'updateBucket_versioning' - Specifies whether to enable or suspend versioning of objects in the
 -- bucket.
@@ -105,6 +110,8 @@ data UpdateBucket = UpdateBucket'
 -- 'accessRules', 'updateBucket_accessRules' - An object that sets the public accessibility of objects in the specified
 -- bucket.
 --
+-- 'accessLogConfig', 'updateBucket_accessLogConfig' - An object that describes the access log configuration for the bucket.
+--
 -- 'bucketName', 'updateBucket_bucketName' - The name of the bucket to update.
 newUpdateBucket ::
   -- | 'bucketName'
@@ -116,13 +123,15 @@ newUpdateBucket pBucketName_ =
         Prelude.Nothing,
       versioning = Prelude.Nothing,
       accessRules = Prelude.Nothing,
+      accessLogConfig = Prelude.Nothing,
       bucketName = pBucketName_
     }
 
--- | An array of strings to specify the AWS account IDs that can access the
--- bucket.
+-- | An array of strings to specify the Amazon Web Services account IDs that
+-- can access the bucket.
 --
--- You can give a maximum of 10 AWS accounts access to a bucket.
+-- You can give a maximum of 10 Amazon Web Services accounts access to a
+-- bucket.
 updateBucket_readonlyAccessAccounts :: Lens.Lens' UpdateBucket (Prelude.Maybe [Prelude.Text])
 updateBucket_readonlyAccessAccounts = Lens.lens (\UpdateBucket' {readonlyAccessAccounts} -> readonlyAccessAccounts) (\s@UpdateBucket' {} a -> s {readonlyAccessAccounts = a} :: UpdateBucket) Prelude.. Lens.mapping Lens.coerced
 
@@ -142,6 +151,10 @@ updateBucket_versioning = Lens.lens (\UpdateBucket' {versioning} -> versioning) 
 -- bucket.
 updateBucket_accessRules :: Lens.Lens' UpdateBucket (Prelude.Maybe AccessRules)
 updateBucket_accessRules = Lens.lens (\UpdateBucket' {accessRules} -> accessRules) (\s@UpdateBucket' {} a -> s {accessRules = a} :: UpdateBucket)
+
+-- | An object that describes the access log configuration for the bucket.
+updateBucket_accessLogConfig :: Lens.Lens' UpdateBucket (Prelude.Maybe BucketAccessLogConfig)
+updateBucket_accessLogConfig = Lens.lens (\UpdateBucket' {accessLogConfig} -> accessLogConfig) (\s@UpdateBucket' {} a -> s {accessLogConfig = a} :: UpdateBucket)
 
 -- | The name of the bucket to update.
 updateBucket_bucketName :: Lens.Lens' UpdateBucket Prelude.Text
@@ -164,6 +177,7 @@ instance Prelude.Hashable UpdateBucket where
     _salt `Prelude.hashWithSalt` readonlyAccessAccounts
       `Prelude.hashWithSalt` versioning
       `Prelude.hashWithSalt` accessRules
+      `Prelude.hashWithSalt` accessLogConfig
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData UpdateBucket where
@@ -171,6 +185,7 @@ instance Prelude.NFData UpdateBucket where
     Prelude.rnf readonlyAccessAccounts
       `Prelude.seq` Prelude.rnf versioning
       `Prelude.seq` Prelude.rnf accessRules
+      `Prelude.seq` Prelude.rnf accessLogConfig
       `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToHeaders UpdateBucket where
@@ -196,6 +211,8 @@ instance Core.ToJSON UpdateBucket where
               Prelude.<$> readonlyAccessAccounts,
             ("versioning" Core..=) Prelude.<$> versioning,
             ("accessRules" Core..=) Prelude.<$> accessRules,
+            ("accessLogConfig" Core..=)
+              Prelude.<$> accessLogConfig,
             Prelude.Just ("bucketName" Core..= bucketName)
           ]
       )

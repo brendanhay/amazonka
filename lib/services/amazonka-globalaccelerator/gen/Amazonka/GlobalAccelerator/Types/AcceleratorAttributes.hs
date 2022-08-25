@@ -32,21 +32,19 @@ data AcceleratorAttributes = AcceleratorAttributes'
     -- specified.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow Logs>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow logs>
+    -- in the /Global Accelerator Developer Guide/.
     flowLogsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Amazon S3 bucket for the flow logs. Attribute is
     -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
-    -- a bucket policy that grants AWS Global Accelerator permission to write
-    -- to the bucket.
+    -- a bucket policy that grants Global Accelerator permission to write to
+    -- the bucket.
     flowLogsS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the location in the Amazon S3 bucket for the flow logs.
     -- Attribute is required if @FlowLogsEnabled@ is @true@.
     --
-    -- If you don’t specify a prefix, the flow logs are stored in the root of
-    -- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
-    -- file bucket folder structure will include a double slash (\/\/), like
-    -- the following:
+    -- If you specify slash (\/) for the S3 bucket prefix, the log file bucket
+    -- folder structure will include a double slash (\/\/), like the following:
     --
     -- s3-bucket_name\/\/AWSLogs\/aws_account_id
     flowLogsS3Prefix :: Prelude.Maybe Prelude.Text
@@ -66,21 +64,19 @@ data AcceleratorAttributes = AcceleratorAttributes'
 -- specified.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow Logs>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow logs>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'flowLogsS3Bucket', 'acceleratorAttributes_flowLogsS3Bucket' - The name of the Amazon S3 bucket for the flow logs. Attribute is
 -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
--- a bucket policy that grants AWS Global Accelerator permission to write
--- to the bucket.
+-- a bucket policy that grants Global Accelerator permission to write to
+-- the bucket.
 --
 -- 'flowLogsS3Prefix', 'acceleratorAttributes_flowLogsS3Prefix' - The prefix for the location in the Amazon S3 bucket for the flow logs.
 -- Attribute is required if @FlowLogsEnabled@ is @true@.
 --
--- If you don’t specify a prefix, the flow logs are stored in the root of
--- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
--- file bucket folder structure will include a double slash (\/\/), like
--- the following:
+-- If you specify slash (\/) for the S3 bucket prefix, the log file bucket
+-- folder structure will include a double slash (\/\/), like the following:
 --
 -- s3-bucket_name\/\/AWSLogs\/aws_account_id
 newAcceleratorAttributes ::
@@ -98,25 +94,23 @@ newAcceleratorAttributes =
 -- specified.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow Logs>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow logs>
+-- in the /Global Accelerator Developer Guide/.
 acceleratorAttributes_flowLogsEnabled :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Bool)
 acceleratorAttributes_flowLogsEnabled = Lens.lens (\AcceleratorAttributes' {flowLogsEnabled} -> flowLogsEnabled) (\s@AcceleratorAttributes' {} a -> s {flowLogsEnabled = a} :: AcceleratorAttributes)
 
 -- | The name of the Amazon S3 bucket for the flow logs. Attribute is
 -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
--- a bucket policy that grants AWS Global Accelerator permission to write
--- to the bucket.
+-- a bucket policy that grants Global Accelerator permission to write to
+-- the bucket.
 acceleratorAttributes_flowLogsS3Bucket :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Text)
 acceleratorAttributes_flowLogsS3Bucket = Lens.lens (\AcceleratorAttributes' {flowLogsS3Bucket} -> flowLogsS3Bucket) (\s@AcceleratorAttributes' {} a -> s {flowLogsS3Bucket = a} :: AcceleratorAttributes)
 
 -- | The prefix for the location in the Amazon S3 bucket for the flow logs.
 -- Attribute is required if @FlowLogsEnabled@ is @true@.
 --
--- If you don’t specify a prefix, the flow logs are stored in the root of
--- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
--- file bucket folder structure will include a double slash (\/\/), like
--- the following:
+-- If you specify slash (\/) for the S3 bucket prefix, the log file bucket
+-- folder structure will include a double slash (\/\/), like the following:
 --
 -- s3-bucket_name\/\/AWSLogs\/aws_account_id
 acceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Text)

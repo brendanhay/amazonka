@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the status of one or more versions of a package.
+-- Updates the status of one or more versions of a package. Using
+-- @UpdatePackageVersionsStatus@, you can update the status of package
+-- versions to @Archived@, @Published@, or @Unlisted@. To set the status of
+-- a package version to @Disposed@, use
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html DisposePackageVersions>.
 module Amazonka.CodeArtifact.UpdatePackageVersionsStatus
   ( -- * Creating a Request
     UpdatePackageVersionsStatus (..),
@@ -67,18 +71,19 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
     -- only if its status at the time @UpdatePackageVersionsStatus@ is called
     -- matches @expectedStatus@.
     expectedStatus :: Prelude.Maybe PackageVersionStatus,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package version to be updated. The package version
+    -- component that specifies its namespace depends on its type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package versions with a status to be updated.
@@ -87,13 +92,7 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
     -- want to update.
     repository :: Prelude.Text,
     -- | A format that specifies the type of the package with the statuses to
-    -- update. The valid values are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- update.
     format :: PackageFormat,
     -- | The name of the package with the version statuses to update.
     package :: Prelude.Text,
@@ -122,18 +121,19 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
 -- only if its status at the time @UpdatePackageVersionsStatus@ is called
 -- matches @expectedStatus@.
 --
--- 'domainOwner', 'updatePackageVersionsStatus_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'updatePackageVersionsStatus_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'updatePackageVersionsStatus_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'updatePackageVersionsStatus_namespace' - The namespace of the package version to be updated. The package version
+-- component that specifies its namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'domain', 'updatePackageVersionsStatus_domain' - The name of the domain that contains the repository that contains the
 -- package versions with a status to be updated.
@@ -142,13 +142,7 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
 -- want to update.
 --
 -- 'format', 'updatePackageVersionsStatus_format' - A format that specifies the type of the package with the statuses to
--- update. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- update.
 --
 -- 'package', 'updatePackageVersionsStatus_package' - The name of the package with the version statuses to update.
 --
@@ -201,20 +195,21 @@ updatePackageVersionsStatus_versionRevisions = Lens.lens (\UpdatePackageVersions
 updatePackageVersionsStatus_expectedStatus :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe PackageVersionStatus)
 updatePackageVersionsStatus_expectedStatus = Lens.lens (\UpdatePackageVersionsStatus' {expectedStatus} -> expectedStatus) (\s@UpdatePackageVersionsStatus' {} a -> s {expectedStatus = a} :: UpdatePackageVersionsStatus)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 updatePackageVersionsStatus_domainOwner :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe Prelude.Text)
 updatePackageVersionsStatus_domainOwner = Lens.lens (\UpdatePackageVersionsStatus' {domainOwner} -> domainOwner) (\s@UpdatePackageVersionsStatus' {} a -> s {domainOwner = a} :: UpdatePackageVersionsStatus)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package version to be updated. The package version
+-- component that specifies its namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 updatePackageVersionsStatus_namespace :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe Prelude.Text)
 updatePackageVersionsStatus_namespace = Lens.lens (\UpdatePackageVersionsStatus' {namespace} -> namespace) (\s@UpdatePackageVersionsStatus' {} a -> s {namespace = a} :: UpdatePackageVersionsStatus)
 
@@ -229,13 +224,7 @@ updatePackageVersionsStatus_repository :: Lens.Lens' UpdatePackageVersionsStatus
 updatePackageVersionsStatus_repository = Lens.lens (\UpdatePackageVersionsStatus' {repository} -> repository) (\s@UpdatePackageVersionsStatus' {} a -> s {repository = a} :: UpdatePackageVersionsStatus)
 
 -- | A format that specifies the type of the package with the statuses to
--- update. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- update.
 updatePackageVersionsStatus_format :: Lens.Lens' UpdatePackageVersionsStatus PackageFormat
 updatePackageVersionsStatus_format = Lens.lens (\UpdatePackageVersionsStatus' {format} -> format) (\s@UpdatePackageVersionsStatus' {} a -> s {format = a} :: UpdatePackageVersionsStatus)
 

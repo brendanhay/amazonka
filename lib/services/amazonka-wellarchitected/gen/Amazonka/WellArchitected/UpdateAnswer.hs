@@ -41,6 +41,7 @@ module Amazonka.WellArchitected.UpdateAnswer
     newUpdateAnswerResponse,
 
     -- * Response Lenses
+    updateAnswerResponse_lensArn,
     updateAnswerResponse_lensAlias,
     updateAnswerResponse_answer,
     updateAnswerResponse_workloadId,
@@ -157,7 +158,8 @@ instance Core.AWSRequest UpdateAnswer where
     Response.receiveJSON
       ( \s h x ->
           UpdateAnswerResponse'
-            Prelude.<$> (x Core..?> "LensAlias")
+            Prelude.<$> (x Core..?> "LensArn")
+            Prelude.<*> (x Core..?> "LensAlias")
             Prelude.<*> (x Core..?> "Answer")
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -227,7 +229,9 @@ instance Core.ToQuery UpdateAnswer where
 --
 -- /See:/ 'newUpdateAnswerResponse' smart constructor.
 data UpdateAnswerResponse = UpdateAnswerResponse'
-  { lensAlias :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
+    lensAlias :: Prelude.Maybe Prelude.Text,
     answer :: Prelude.Maybe Answer,
     workloadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -243,6 +247,8 @@ data UpdateAnswerResponse = UpdateAnswerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lensArn', 'updateAnswerResponse_lensArn' - The ARN for the lens.
+--
 -- 'lensAlias', 'updateAnswerResponse_lensAlias' - Undocumented member.
 --
 -- 'answer', 'updateAnswerResponse_answer' - Undocumented member.
@@ -256,11 +262,16 @@ newUpdateAnswerResponse ::
   UpdateAnswerResponse
 newUpdateAnswerResponse pHttpStatus_ =
   UpdateAnswerResponse'
-    { lensAlias = Prelude.Nothing,
+    { lensArn = Prelude.Nothing,
+      lensAlias = Prelude.Nothing,
       answer = Prelude.Nothing,
       workloadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN for the lens.
+updateAnswerResponse_lensArn :: Lens.Lens' UpdateAnswerResponse (Prelude.Maybe Prelude.Text)
+updateAnswerResponse_lensArn = Lens.lens (\UpdateAnswerResponse' {lensArn} -> lensArn) (\s@UpdateAnswerResponse' {} a -> s {lensArn = a} :: UpdateAnswerResponse)
 
 -- | Undocumented member.
 updateAnswerResponse_lensAlias :: Lens.Lens' UpdateAnswerResponse (Prelude.Maybe Prelude.Text)
@@ -280,7 +291,8 @@ updateAnswerResponse_httpStatus = Lens.lens (\UpdateAnswerResponse' {httpStatus}
 
 instance Prelude.NFData UpdateAnswerResponse where
   rnf UpdateAnswerResponse' {..} =
-    Prelude.rnf lensAlias
+    Prelude.rnf lensArn
+      `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf answer
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf httpStatus

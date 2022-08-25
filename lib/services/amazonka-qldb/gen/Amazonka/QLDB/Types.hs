@@ -36,6 +36,9 @@ module Amazonka.QLDB.Types
     -- * LedgerState
     LedgerState (..),
 
+    -- * OutputFormat
+    OutputFormat (..),
+
     -- * PermissionsMode
     PermissionsMode (..),
 
@@ -63,6 +66,7 @@ module Amazonka.QLDB.Types
     -- * JournalS3ExportDescription
     JournalS3ExportDescription (..),
     newJournalS3ExportDescription,
+    journalS3ExportDescription_outputFormat,
     journalS3ExportDescription_ledgerName,
     journalS3ExportDescription_exportId,
     journalS3ExportDescription_exportCreationTime,
@@ -124,6 +128,7 @@ import Amazonka.QLDB.Types.KinesisConfiguration
 import Amazonka.QLDB.Types.LedgerEncryptionDescription
 import Amazonka.QLDB.Types.LedgerState
 import Amazonka.QLDB.Types.LedgerSummary
+import Amazonka.QLDB.Types.OutputFormat
 import Amazonka.QLDB.Types.PermissionsMode
 import Amazonka.QLDB.Types.S3EncryptionConfiguration
 import Amazonka.QLDB.Types.S3ExportConfiguration

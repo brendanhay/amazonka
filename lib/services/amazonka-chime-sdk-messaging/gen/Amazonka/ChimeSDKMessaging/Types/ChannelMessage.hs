@@ -23,6 +23,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelMessagePersistenceType
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageType
 import Amazonka.ChimeSDKMessaging.Types.Identity
+import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -39,6 +40,8 @@ data ChannelMessage = ChannelMessage'
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The time at which the message was created.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the SubChannel.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | Hides the content of a message.
     redacted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the channel.
@@ -47,6 +50,9 @@ data ChannelMessage = ChannelMessage'
     messageId :: Prelude.Maybe Prelude.Text,
     -- | The status of the channel message.
     status :: Prelude.Maybe ChannelMessageStatusStructure,
+    -- | The attributes for the message, used for message filtering along with a
+    -- @FilterRule@ defined in the @PushNotificationPreferences@.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The time at which a message was edited.
     lastEditedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The message sender.
@@ -74,6 +80,8 @@ data ChannelMessage = ChannelMessage'
 --
 -- 'createdTimestamp', 'channelMessage_createdTimestamp' - The time at which the message was created.
 --
+-- 'subChannelId', 'channelMessage_subChannelId' - The ID of the SubChannel.
+--
 -- 'redacted', 'channelMessage_redacted' - Hides the content of a message.
 --
 -- 'channelArn', 'channelMessage_channelArn' - The ARN of the channel.
@@ -81,6 +89,9 @@ data ChannelMessage = ChannelMessage'
 -- 'messageId', 'channelMessage_messageId' - The ID of a message.
 --
 -- 'status', 'channelMessage_status' - The status of the channel message.
+--
+-- 'messageAttributes', 'channelMessage_messageAttributes' - The attributes for the message, used for message filtering along with a
+-- @FilterRule@ defined in the @PushNotificationPreferences@.
 --
 -- 'lastEditedTimestamp', 'channelMessage_lastEditedTimestamp' - The time at which a message was edited.
 --
@@ -98,10 +109,12 @@ newChannelMessage =
       type' = Prelude.Nothing,
       metadata = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       redacted = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       messageId = Prelude.Nothing,
       status = Prelude.Nothing,
+      messageAttributes = Prelude.Nothing,
       lastEditedTimestamp = Prelude.Nothing,
       sender = Prelude.Nothing,
       persistence = Prelude.Nothing,
@@ -124,6 +137,10 @@ channelMessage_metadata = Lens.lens (\ChannelMessage' {metadata} -> metadata) (\
 channelMessage_createdTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
 channelMessage_createdTimestamp = Lens.lens (\ChannelMessage' {createdTimestamp} -> createdTimestamp) (\s@ChannelMessage' {} a -> s {createdTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Core._Time
 
+-- | The ID of the SubChannel.
+channelMessage_subChannelId :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
+channelMessage_subChannelId = Lens.lens (\ChannelMessage' {subChannelId} -> subChannelId) (\s@ChannelMessage' {} a -> s {subChannelId = a} :: ChannelMessage)
+
 -- | Hides the content of a message.
 channelMessage_redacted :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Bool)
 channelMessage_redacted = Lens.lens (\ChannelMessage' {redacted} -> redacted) (\s@ChannelMessage' {} a -> s {redacted = a} :: ChannelMessage)
@@ -139,6 +156,11 @@ channelMessage_messageId = Lens.lens (\ChannelMessage' {messageId} -> messageId)
 -- | The status of the channel message.
 channelMessage_status :: Lens.Lens' ChannelMessage (Prelude.Maybe ChannelMessageStatusStructure)
 channelMessage_status = Lens.lens (\ChannelMessage' {status} -> status) (\s@ChannelMessage' {} a -> s {status = a} :: ChannelMessage)
+
+-- | The attributes for the message, used for message filtering along with a
+-- @FilterRule@ defined in the @PushNotificationPreferences@.
+channelMessage_messageAttributes :: Lens.Lens' ChannelMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+channelMessage_messageAttributes = Lens.lens (\ChannelMessage' {messageAttributes} -> messageAttributes) (\s@ChannelMessage' {} a -> s {messageAttributes = a} :: ChannelMessage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time at which a message was edited.
 channelMessage_lastEditedTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
@@ -166,10 +188,14 @@ instance Core.FromJSON ChannelMessage where
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Metadata")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
+            Prelude.<*> (x Core..:? "SubChannelId")
             Prelude.<*> (x Core..:? "Redacted")
             Prelude.<*> (x Core..:? "ChannelArn")
             Prelude.<*> (x Core..:? "MessageId")
             Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> ( x Core..:? "MessageAttributes"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "LastEditedTimestamp")
             Prelude.<*> (x Core..:? "Sender")
             Prelude.<*> (x Core..:? "Persistence")
@@ -182,10 +208,12 @@ instance Prelude.Hashable ChannelMessage where
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` redacted
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` lastEditedTimestamp
       `Prelude.hashWithSalt` sender
       `Prelude.hashWithSalt` persistence
@@ -197,10 +225,12 @@ instance Prelude.NFData ChannelMessage where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf redacted
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf messageAttributes
       `Prelude.seq` Prelude.rnf lastEditedTimestamp
       `Prelude.seq` Prelude.rnf sender
       `Prelude.seq` Prelude.rnf persistence

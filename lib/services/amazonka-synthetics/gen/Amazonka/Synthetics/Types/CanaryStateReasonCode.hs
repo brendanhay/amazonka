@@ -20,7 +20,18 @@
 module Amazonka.Synthetics.Types.CanaryStateReasonCode
   ( CanaryStateReasonCode
       ( ..,
-        CanaryStateReasonCode_INVALID_PERMISSIONS
+        CanaryStateReasonCode_CREATE_FAILED,
+        CanaryStateReasonCode_CREATE_IN_PROGRESS,
+        CanaryStateReasonCode_CREATE_PENDING,
+        CanaryStateReasonCode_DELETE_FAILED,
+        CanaryStateReasonCode_DELETE_IN_PROGRESS,
+        CanaryStateReasonCode_INVALID_PERMISSIONS,
+        CanaryStateReasonCode_ROLLBACK_COMPLETE,
+        CanaryStateReasonCode_ROLLBACK_FAILED,
+        CanaryStateReasonCode_SYNC_DELETE_IN_PROGRESS,
+        CanaryStateReasonCode_UPDATE_COMPLETE,
+        CanaryStateReasonCode_UPDATE_IN_PROGRESS,
+        CanaryStateReasonCode_UPDATE_PENDING
       ),
   )
 where
@@ -56,10 +67,54 @@ newtype CanaryStateReasonCode = CanaryStateReasonCode'
       Core.ToXML
     )
 
+pattern CanaryStateReasonCode_CREATE_FAILED :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_CREATE_FAILED = CanaryStateReasonCode' "CREATE_FAILED"
+
+pattern CanaryStateReasonCode_CREATE_IN_PROGRESS :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_CREATE_IN_PROGRESS = CanaryStateReasonCode' "CREATE_IN_PROGRESS"
+
+pattern CanaryStateReasonCode_CREATE_PENDING :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_CREATE_PENDING = CanaryStateReasonCode' "CREATE_PENDING"
+
+pattern CanaryStateReasonCode_DELETE_FAILED :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_DELETE_FAILED = CanaryStateReasonCode' "DELETE_FAILED"
+
+pattern CanaryStateReasonCode_DELETE_IN_PROGRESS :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_DELETE_IN_PROGRESS = CanaryStateReasonCode' "DELETE_IN_PROGRESS"
+
 pattern CanaryStateReasonCode_INVALID_PERMISSIONS :: CanaryStateReasonCode
 pattern CanaryStateReasonCode_INVALID_PERMISSIONS = CanaryStateReasonCode' "INVALID_PERMISSIONS"
 
+pattern CanaryStateReasonCode_ROLLBACK_COMPLETE :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_ROLLBACK_COMPLETE = CanaryStateReasonCode' "ROLLBACK_COMPLETE"
+
+pattern CanaryStateReasonCode_ROLLBACK_FAILED :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_ROLLBACK_FAILED = CanaryStateReasonCode' "ROLLBACK_FAILED"
+
+pattern CanaryStateReasonCode_SYNC_DELETE_IN_PROGRESS :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_SYNC_DELETE_IN_PROGRESS = CanaryStateReasonCode' "SYNC_DELETE_IN_PROGRESS"
+
+pattern CanaryStateReasonCode_UPDATE_COMPLETE :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_UPDATE_COMPLETE = CanaryStateReasonCode' "UPDATE_COMPLETE"
+
+pattern CanaryStateReasonCode_UPDATE_IN_PROGRESS :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_UPDATE_IN_PROGRESS = CanaryStateReasonCode' "UPDATE_IN_PROGRESS"
+
+pattern CanaryStateReasonCode_UPDATE_PENDING :: CanaryStateReasonCode
+pattern CanaryStateReasonCode_UPDATE_PENDING = CanaryStateReasonCode' "UPDATE_PENDING"
+
 {-# COMPLETE
+  CanaryStateReasonCode_CREATE_FAILED,
+  CanaryStateReasonCode_CREATE_IN_PROGRESS,
+  CanaryStateReasonCode_CREATE_PENDING,
+  CanaryStateReasonCode_DELETE_FAILED,
+  CanaryStateReasonCode_DELETE_IN_PROGRESS,
   CanaryStateReasonCode_INVALID_PERMISSIONS,
+  CanaryStateReasonCode_ROLLBACK_COMPLETE,
+  CanaryStateReasonCode_ROLLBACK_FAILED,
+  CanaryStateReasonCode_SYNC_DELETE_IN_PROGRESS,
+  CanaryStateReasonCode_UPDATE_COMPLETE,
+  CanaryStateReasonCode_UPDATE_IN_PROGRESS,
+  CanaryStateReasonCode_UPDATE_PENDING,
   CanaryStateReasonCode'
   #-}

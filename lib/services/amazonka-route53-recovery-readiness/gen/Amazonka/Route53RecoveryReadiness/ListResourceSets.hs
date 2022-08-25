@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a collection of Resource Sets.
+-- Lists the resource sets in an account.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53RecoveryReadiness.ListResourceSets
@@ -52,9 +52,9 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListResourceSets' smart constructor.
 data ListResourceSets = ListResourceSets'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data ListResourceSets = ListResourceSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSets_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'nextToken', 'listResourceSets_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'listResourceSets_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'listResourceSets_maxResults' - The number of objects that you want to return with this call.
 newListResourceSets ::
   ListResourceSets
 newListResourceSets =
@@ -78,11 +78,11 @@ newListResourceSets =
       maxResults = Prelude.Nothing
     }
 
--- | A token used to resume pagination from the end of a previous request.
+-- | The token that identifies which batch of results you want to see.
 listResourceSets_nextToken :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Text)
 listResourceSets_nextToken = Lens.lens (\ListResourceSets' {nextToken} -> nextToken) (\s@ListResourceSets' {} a -> s {nextToken = a} :: ListResourceSets)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 listResourceSets_maxResults :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Natural)
 listResourceSets_maxResults = Lens.lens (\ListResourceSets' {maxResults} -> maxResults) (\s@ListResourceSets' {} a -> s {maxResults = a} :: ListResourceSets)
 
@@ -155,10 +155,9 @@ instance Core.ToQuery ListResourceSets where
 
 -- | /See:/ 'newListResourceSetsResponse' smart constructor.
 data ListResourceSetsResponse = ListResourceSetsResponse'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of ResourceSets associated with the account
+    -- | A list of resource sets associated with the account.
     resourceSets :: Prelude.Maybe [ResourceSetOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,10 +172,9 @@ data ListResourceSetsResponse = ListResourceSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSetsResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'listResourceSetsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'resourceSets', 'listResourceSetsResponse_resourceSets' - A list of ResourceSets associated with the account
+-- 'resourceSets', 'listResourceSetsResponse_resourceSets' - A list of resource sets associated with the account.
 --
 -- 'httpStatus', 'listResourceSetsResponse_httpStatus' - The response's http status code.
 newListResourceSetsResponse ::
@@ -191,12 +189,11 @@ newListResourceSetsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 listResourceSetsResponse_nextToken :: Lens.Lens' ListResourceSetsResponse (Prelude.Maybe Prelude.Text)
 listResourceSetsResponse_nextToken = Lens.lens (\ListResourceSetsResponse' {nextToken} -> nextToken) (\s@ListResourceSetsResponse' {} a -> s {nextToken = a} :: ListResourceSetsResponse)
 
--- | A list of ResourceSets associated with the account
+-- | A list of resource sets associated with the account.
 listResourceSetsResponse_resourceSets :: Lens.Lens' ListResourceSetsResponse (Prelude.Maybe [ResourceSetOutput])
 listResourceSetsResponse_resourceSets = Lens.lens (\ListResourceSetsResponse' {resourceSets} -> resourceSets) (\s@ListResourceSetsResponse' {} a -> s {resourceSets = a} :: ListResourceSetsResponse) Prelude.. Lens.mapping Lens.coerced
 

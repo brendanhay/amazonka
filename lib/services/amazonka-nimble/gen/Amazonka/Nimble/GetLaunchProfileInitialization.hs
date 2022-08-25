@@ -27,11 +27,11 @@ module Amazonka.Nimble.GetLaunchProfileInitialization
     newGetLaunchProfileInitialization,
 
     -- * Request Lenses
-    getLaunchProfileInitialization_studioId,
+    getLaunchProfileInitialization_launchProfileId,
     getLaunchProfileInitialization_launchProfileProtocolVersions,
     getLaunchProfileInitialization_launchPurpose,
-    getLaunchProfileInitialization_launchProfileId,
     getLaunchProfileInitialization_platform,
+    getLaunchProfileInitialization_studioId,
 
     -- * Destructuring the Response
     GetLaunchProfileInitializationResponse (..),
@@ -52,16 +52,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfileInitialization' smart constructor.
 data GetLaunchProfileInitialization = GetLaunchProfileInitialization'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | A collection of launch profile protocol versions.
+  { -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
+    -- | The launch profile protocol versions supported by the client.
     launchProfileProtocolVersions :: [Prelude.Text],
     -- | The launch purpose.
     launchPurpose :: Prelude.Text,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text,
-    -- | The platform.
-    platform :: Prelude.Text
+    -- | The platform where this Launch Profile will be used, either WINDOWS or
+    -- LINUX.
+    platform :: Prelude.Text,
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,45 +74,46 @@ data GetLaunchProfileInitialization = GetLaunchProfileInitialization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioId', 'getLaunchProfileInitialization_studioId' - The studio ID.
+-- 'launchProfileId', 'getLaunchProfileInitialization_launchProfileId' - The Launch Profile ID.
 --
--- 'launchProfileProtocolVersions', 'getLaunchProfileInitialization_launchProfileProtocolVersions' - A collection of launch profile protocol versions.
+-- 'launchProfileProtocolVersions', 'getLaunchProfileInitialization_launchProfileProtocolVersions' - The launch profile protocol versions supported by the client.
 --
 -- 'launchPurpose', 'getLaunchProfileInitialization_launchPurpose' - The launch purpose.
 --
--- 'launchProfileId', 'getLaunchProfileInitialization_launchProfileId' - The launch profile ID.
+-- 'platform', 'getLaunchProfileInitialization_platform' - The platform where this Launch Profile will be used, either WINDOWS or
+-- LINUX.
 --
--- 'platform', 'getLaunchProfileInitialization_platform' - The platform.
+-- 'studioId', 'getLaunchProfileInitialization_studioId' - The studio ID.
 newGetLaunchProfileInitialization ::
-  -- | 'studioId'
+  -- | 'launchProfileId'
   Prelude.Text ->
   -- | 'launchPurpose'
   Prelude.Text ->
-  -- | 'launchProfileId'
-  Prelude.Text ->
   -- | 'platform'
+  Prelude.Text ->
+  -- | 'studioId'
   Prelude.Text ->
   GetLaunchProfileInitialization
 newGetLaunchProfileInitialization
-  pStudioId_
-  pLaunchPurpose_
   pLaunchProfileId_
-  pPlatform_ =
+  pLaunchPurpose_
+  pPlatform_
+  pStudioId_ =
     GetLaunchProfileInitialization'
-      { studioId =
-          pStudioId_,
+      { launchProfileId =
+          pLaunchProfileId_,
         launchProfileProtocolVersions =
           Prelude.mempty,
         launchPurpose = pLaunchPurpose_,
-        launchProfileId = pLaunchProfileId_,
-        platform = pPlatform_
+        platform = pPlatform_,
+        studioId = pStudioId_
       }
 
--- | The studio ID.
-getLaunchProfileInitialization_studioId :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
-getLaunchProfileInitialization_studioId = Lens.lens (\GetLaunchProfileInitialization' {studioId} -> studioId) (\s@GetLaunchProfileInitialization' {} a -> s {studioId = a} :: GetLaunchProfileInitialization)
+-- | The Launch Profile ID.
+getLaunchProfileInitialization_launchProfileId :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
+getLaunchProfileInitialization_launchProfileId = Lens.lens (\GetLaunchProfileInitialization' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileInitialization' {} a -> s {launchProfileId = a} :: GetLaunchProfileInitialization)
 
--- | A collection of launch profile protocol versions.
+-- | The launch profile protocol versions supported by the client.
 getLaunchProfileInitialization_launchProfileProtocolVersions :: Lens.Lens' GetLaunchProfileInitialization [Prelude.Text]
 getLaunchProfileInitialization_launchProfileProtocolVersions = Lens.lens (\GetLaunchProfileInitialization' {launchProfileProtocolVersions} -> launchProfileProtocolVersions) (\s@GetLaunchProfileInitialization' {} a -> s {launchProfileProtocolVersions = a} :: GetLaunchProfileInitialization) Prelude.. Lens.coerced
 
@@ -119,13 +121,14 @@ getLaunchProfileInitialization_launchProfileProtocolVersions = Lens.lens (\GetLa
 getLaunchProfileInitialization_launchPurpose :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
 getLaunchProfileInitialization_launchPurpose = Lens.lens (\GetLaunchProfileInitialization' {launchPurpose} -> launchPurpose) (\s@GetLaunchProfileInitialization' {} a -> s {launchPurpose = a} :: GetLaunchProfileInitialization)
 
--- | The launch profile ID.
-getLaunchProfileInitialization_launchProfileId :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
-getLaunchProfileInitialization_launchProfileId = Lens.lens (\GetLaunchProfileInitialization' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileInitialization' {} a -> s {launchProfileId = a} :: GetLaunchProfileInitialization)
-
--- | The platform.
+-- | The platform where this Launch Profile will be used, either WINDOWS or
+-- LINUX.
 getLaunchProfileInitialization_platform :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
 getLaunchProfileInitialization_platform = Lens.lens (\GetLaunchProfileInitialization' {platform} -> platform) (\s@GetLaunchProfileInitialization' {} a -> s {platform = a} :: GetLaunchProfileInitialization)
+
+-- | The studio ID.
+getLaunchProfileInitialization_studioId :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
+getLaunchProfileInitialization_studioId = Lens.lens (\GetLaunchProfileInitialization' {studioId} -> studioId) (\s@GetLaunchProfileInitialization' {} a -> s {studioId = a} :: GetLaunchProfileInitialization)
 
 instance
   Core.AWSRequest
@@ -150,22 +153,22 @@ instance
   hashWithSalt
     _salt
     GetLaunchProfileInitialization' {..} =
-      _salt `Prelude.hashWithSalt` studioId
+      _salt `Prelude.hashWithSalt` launchProfileId
         `Prelude.hashWithSalt` launchProfileProtocolVersions
         `Prelude.hashWithSalt` launchPurpose
-        `Prelude.hashWithSalt` launchProfileId
         `Prelude.hashWithSalt` platform
+        `Prelude.hashWithSalt` studioId
 
 instance
   Prelude.NFData
     GetLaunchProfileInitialization
   where
   rnf GetLaunchProfileInitialization' {..} =
-    Prelude.rnf studioId
+    Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
       `Prelude.seq` Prelude.rnf launchPurpose
-      `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf studioId
 
 instance
   Core.ToHeaders
@@ -209,7 +212,7 @@ data GetLaunchProfileInitializationResponse = GetLaunchProfileInitializationResp
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLaunchProfileInitializationResponse' with all optional fields omitted.

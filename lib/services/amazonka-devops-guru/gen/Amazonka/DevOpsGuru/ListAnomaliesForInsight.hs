@@ -32,6 +32,7 @@ module Amazonka.DevOpsGuru.ListAnomaliesForInsight
     -- * Request Lenses
     listAnomaliesForInsight_nextToken,
     listAnomaliesForInsight_startTimeRange,
+    listAnomaliesForInsight_accountId,
     listAnomaliesForInsight_maxResults,
     listAnomaliesForInsight_insightId,
 
@@ -62,6 +63,8 @@ data ListAnomaliesForInsight = ListAnomaliesForInsight'
     -- | A time range used to specify when the requested anomalies started. All
     -- returned anomalies started during this time range.
     startTimeRange :: Prelude.Maybe StartTimeRange,
+    -- | The ID of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -85,6 +88,8 @@ data ListAnomaliesForInsight = ListAnomaliesForInsight'
 -- 'startTimeRange', 'listAnomaliesForInsight_startTimeRange' - A time range used to specify when the requested anomalies started. All
 -- returned anomalies started during this time range.
 --
+-- 'accountId', 'listAnomaliesForInsight_accountId' - The ID of the Amazon Web Services account.
+--
 -- 'maxResults', 'listAnomaliesForInsight_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
@@ -99,6 +104,7 @@ newListAnomaliesForInsight pInsightId_ =
     { nextToken =
         Prelude.Nothing,
       startTimeRange = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       insightId = pInsightId_
     }
@@ -112,6 +118,10 @@ listAnomaliesForInsight_nextToken = Lens.lens (\ListAnomaliesForInsight' {nextTo
 -- returned anomalies started during this time range.
 listAnomaliesForInsight_startTimeRange :: Lens.Lens' ListAnomaliesForInsight (Prelude.Maybe StartTimeRange)
 listAnomaliesForInsight_startTimeRange = Lens.lens (\ListAnomaliesForInsight' {startTimeRange} -> startTimeRange) (\s@ListAnomaliesForInsight' {} a -> s {startTimeRange = a} :: ListAnomaliesForInsight)
+
+-- | The ID of the Amazon Web Services account.
+listAnomaliesForInsight_accountId :: Lens.Lens' ListAnomaliesForInsight (Prelude.Maybe Prelude.Text)
+listAnomaliesForInsight_accountId = Lens.lens (\ListAnomaliesForInsight' {accountId} -> accountId) (\s@ListAnomaliesForInsight' {} a -> s {accountId = a} :: ListAnomaliesForInsight)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -174,6 +184,7 @@ instance Prelude.Hashable ListAnomaliesForInsight where
   hashWithSalt _salt ListAnomaliesForInsight' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeRange
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` insightId
 
@@ -181,6 +192,7 @@ instance Prelude.NFData ListAnomaliesForInsight where
   rnf ListAnomaliesForInsight' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTimeRange
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf insightId
 
@@ -202,6 +214,7 @@ instance Core.ToJSON ListAnomaliesForInsight where
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("StartTimeRange" Core..=)
               Prelude.<$> startTimeRange,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

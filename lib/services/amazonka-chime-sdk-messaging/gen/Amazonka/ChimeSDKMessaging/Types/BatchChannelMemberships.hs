@@ -34,6 +34,8 @@ data BatchChannelMemberships = BatchChannelMemberships'
     type' :: Prelude.Maybe ChannelMembershipType,
     -- | The users successfully added to the request.
     members :: Prelude.Maybe [Identity],
+    -- | The ID of the SubChannel.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel to which you\'re adding users.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the member who invited another member.
@@ -53,6 +55,8 @@ data BatchChannelMemberships = BatchChannelMemberships'
 --
 -- 'members', 'batchChannelMemberships_members' - The users successfully added to the request.
 --
+-- 'subChannelId', 'batchChannelMemberships_subChannelId' - The ID of the SubChannel.
+--
 -- 'channelArn', 'batchChannelMemberships_channelArn' - The ARN of the channel to which you\'re adding users.
 --
 -- 'invitedBy', 'batchChannelMemberships_invitedBy' - The identifier of the member who invited another member.
@@ -62,6 +66,7 @@ newBatchChannelMemberships =
   BatchChannelMemberships'
     { type' = Prelude.Nothing,
       members = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       invitedBy = Prelude.Nothing
     }
@@ -73,6 +78,10 @@ batchChannelMemberships_type = Lens.lens (\BatchChannelMemberships' {type'} -> t
 -- | The users successfully added to the request.
 batchChannelMemberships_members :: Lens.Lens' BatchChannelMemberships (Prelude.Maybe [Identity])
 batchChannelMemberships_members = Lens.lens (\BatchChannelMemberships' {members} -> members) (\s@BatchChannelMemberships' {} a -> s {members = a} :: BatchChannelMemberships) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the SubChannel.
+batchChannelMemberships_subChannelId :: Lens.Lens' BatchChannelMemberships (Prelude.Maybe Prelude.Text)
+batchChannelMemberships_subChannelId = Lens.lens (\BatchChannelMemberships' {subChannelId} -> subChannelId) (\s@BatchChannelMemberships' {} a -> s {subChannelId = a} :: BatchChannelMemberships)
 
 -- | The ARN of the channel to which you\'re adding users.
 batchChannelMemberships_channelArn :: Lens.Lens' BatchChannelMemberships (Prelude.Maybe Prelude.Text)
@@ -90,6 +99,7 @@ instance Core.FromJSON BatchChannelMemberships where
           BatchChannelMemberships'
             Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Members" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SubChannelId")
             Prelude.<*> (x Core..:? "ChannelArn")
             Prelude.<*> (x Core..:? "InvitedBy")
       )
@@ -98,6 +108,7 @@ instance Prelude.Hashable BatchChannelMemberships where
   hashWithSalt _salt BatchChannelMemberships' {..} =
     _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` invitedBy
 
@@ -105,5 +116,6 @@ instance Prelude.NFData BatchChannelMemberships where
   rnf BatchChannelMemberships' {..} =
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf members
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf invitedBy

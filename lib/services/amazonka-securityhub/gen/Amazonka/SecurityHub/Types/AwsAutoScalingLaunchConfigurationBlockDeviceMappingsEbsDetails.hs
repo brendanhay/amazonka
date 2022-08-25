@@ -34,7 +34,19 @@ data AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails = AwsAutoSca
     --
     -- You must specify either @VolumeSize@ or @SnapshotId@.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The volume type.
+    -- | The volume type. Valid values are as follows:
+    --
+    -- -   @gp2@
+    --
+    -- -   @gp3@
+    --
+    -- -   @io1@
+    --
+    -- -   @sc1@
+    --
+    -- -   @st1@
+    --
+    -- -   @standard@
     volumeType :: Prelude.Maybe Prelude.Text,
     -- | The volume size, in GiBs. The following are the supported volumes sizes
     -- for each volume type:
@@ -76,7 +88,19 @@ data AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails = AwsAutoSca
 --
 -- You must specify either @VolumeSize@ or @SnapshotId@.
 --
--- 'volumeType', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_volumeType' - The volume type.
+-- 'volumeType', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_volumeType' - The volume type. Valid values are as follows:
+--
+-- -   @gp2@
+--
+-- -   @gp3@
+--
+-- -   @io1@
+--
+-- -   @sc1@
+--
+-- -   @st1@
+--
+-- -   @standard@
 --
 -- 'volumeSize', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_volumeSize' - The volume size, in GiBs. The following are the supported volumes sizes
 -- for each volume type:
@@ -128,7 +152,19 @@ awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_deleteOnTerminati
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_snapshotId :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_snapshotId = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {snapshotId} -> snapshotId) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {} a -> s {snapshotId = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails)
 
--- | The volume type.
+-- | The volume type. Valid values are as follows:
+--
+-- -   @gp2@
+--
+-- -   @gp3@
+--
+-- -   @io1@
+--
+-- -   @sc1@
+--
+-- -   @st1@
+--
+-- -   @standard@
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_volumeType :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_volumeType = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {volumeType} -> volumeType) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {} a -> s {volumeType = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails)
 

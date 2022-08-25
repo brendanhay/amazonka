@@ -90,11 +90,12 @@ data ListStreamConsumers = ListStreamConsumers'
     -- parameter.
     streamCreationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of consumers that you want a single call of
-    -- @ListStreamConsumers@ to return.
+    -- @ListStreamConsumers@ to return. The default value is 100. If you
+    -- specify a value greater than 100, at most 100 results are returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the Kinesis data stream for which you want to list the
     -- registered consumers. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     streamARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -140,11 +141,12 @@ data ListStreamConsumers = ListStreamConsumers'
 -- parameter.
 --
 -- 'maxResults', 'listStreamConsumers_maxResults' - The maximum number of consumers that you want a single call of
--- @ListStreamConsumers@ to return.
+-- @ListStreamConsumers@ to return. The default value is 100. If you
+-- specify a value greater than 100, at most 100 results are returned.
 --
 -- 'streamARN', 'listStreamConsumers_streamARN' - The ARN of the Kinesis data stream for which you want to list the
 -- registered consumers. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 newListStreamConsumers ::
   -- | 'streamARN'
   Prelude.Text ->
@@ -194,13 +196,14 @@ listStreamConsumers_streamCreationTimestamp :: Lens.Lens' ListStreamConsumers (P
 listStreamConsumers_streamCreationTimestamp = Lens.lens (\ListStreamConsumers' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListStreamConsumers' {} a -> s {streamCreationTimestamp = a} :: ListStreamConsumers) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of consumers that you want a single call of
--- @ListStreamConsumers@ to return.
+-- @ListStreamConsumers@ to return. The default value is 100. If you
+-- specify a value greater than 100, at most 100 results are returned.
 listStreamConsumers_maxResults :: Lens.Lens' ListStreamConsumers (Prelude.Maybe Prelude.Natural)
 listStreamConsumers_maxResults = Lens.lens (\ListStreamConsumers' {maxResults} -> maxResults) (\s@ListStreamConsumers' {} a -> s {maxResults = a} :: ListStreamConsumers)
 
 -- | The ARN of the Kinesis data stream for which you want to list the
 -- registered consumers. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 listStreamConsumers_streamARN :: Lens.Lens' ListStreamConsumers Prelude.Text
 listStreamConsumers_streamARN = Lens.lens (\ListStreamConsumers' {streamARN} -> streamARN) (\s@ListStreamConsumers' {} a -> s {streamARN = a} :: ListStreamConsumers)
 

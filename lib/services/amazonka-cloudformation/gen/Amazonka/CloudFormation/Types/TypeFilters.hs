@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data TypeFilters = TypeFilters'
   { -- | The id of the publisher of the extension.
     --
-    -- Extensions published by Amazon are not assigned a publisher ID. Use the
-    -- @AWS-TYPES@ category to specify a list of types published by Amazon.
+    -- Extensions published by Amazon aren\'t assigned a publisher ID. Use the
+    -- @AWS_TYPES@ category to specify a list of types published by Amazon.
     publisherId :: Prelude.Maybe Prelude.Text,
     -- | A prefix to use as a filter for results.
     typeNamePrefix :: Prelude.Maybe Prelude.Text,
@@ -43,7 +43,7 @@ data TypeFilters = TypeFilters'
     -- -   @ACTIVATED@: Public extensions that have been activated for this
     --     account and region.
     --
-    -- -   @THIRD-PARTY@: Extensions available for use from publishers other
+    -- -   @THIRD_PARTY@: Extensions available for use from publishers other
     --     than Amazon. This includes:
     --
     --     -   Private extensions registered in the account.
@@ -51,7 +51,7 @@ data TypeFilters = TypeFilters'
     --     -   Public extensions from publishers other than Amazon, whether
     --         activated or not.
     --
-    -- -   @AWS-TYPES@: Extensions available for use from Amazon.
+    -- -   @AWS_TYPES@: Extensions available for use from Amazon.
     category :: Prelude.Maybe Category
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,8 +66,8 @@ data TypeFilters = TypeFilters'
 --
 -- 'publisherId', 'typeFilters_publisherId' - The id of the publisher of the extension.
 --
--- Extensions published by Amazon are not assigned a publisher ID. Use the
--- @AWS-TYPES@ category to specify a list of types published by Amazon.
+-- Extensions published by Amazon aren\'t assigned a publisher ID. Use the
+-- @AWS_TYPES@ category to specify a list of types published by Amazon.
 --
 -- 'typeNamePrefix', 'typeFilters_typeNamePrefix' - A prefix to use as a filter for results.
 --
@@ -79,7 +79,7 @@ data TypeFilters = TypeFilters'
 -- -   @ACTIVATED@: Public extensions that have been activated for this
 --     account and region.
 --
--- -   @THIRD-PARTY@: Extensions available for use from publishers other
+-- -   @THIRD_PARTY@: Extensions available for use from publishers other
 --     than Amazon. This includes:
 --
 --     -   Private extensions registered in the account.
@@ -87,7 +87,7 @@ data TypeFilters = TypeFilters'
 --     -   Public extensions from publishers other than Amazon, whether
 --         activated or not.
 --
--- -   @AWS-TYPES@: Extensions available for use from Amazon.
+-- -   @AWS_TYPES@: Extensions available for use from Amazon.
 newTypeFilters ::
   TypeFilters
 newTypeFilters =
@@ -99,8 +99,8 @@ newTypeFilters =
 
 -- | The id of the publisher of the extension.
 --
--- Extensions published by Amazon are not assigned a publisher ID. Use the
--- @AWS-TYPES@ category to specify a list of types published by Amazon.
+-- Extensions published by Amazon aren\'t assigned a publisher ID. Use the
+-- @AWS_TYPES@ category to specify a list of types published by Amazon.
 typeFilters_publisherId :: Lens.Lens' TypeFilters (Prelude.Maybe Prelude.Text)
 typeFilters_publisherId = Lens.lens (\TypeFilters' {publisherId} -> publisherId) (\s@TypeFilters' {} a -> s {publisherId = a} :: TypeFilters)
 
@@ -116,7 +116,7 @@ typeFilters_typeNamePrefix = Lens.lens (\TypeFilters' {typeNamePrefix} -> typeNa
 -- -   @ACTIVATED@: Public extensions that have been activated for this
 --     account and region.
 --
--- -   @THIRD-PARTY@: Extensions available for use from publishers other
+-- -   @THIRD_PARTY@: Extensions available for use from publishers other
 --     than Amazon. This includes:
 --
 --     -   Private extensions registered in the account.
@@ -124,7 +124,7 @@ typeFilters_typeNamePrefix = Lens.lens (\TypeFilters' {typeNamePrefix} -> typeNa
 --     -   Public extensions from publishers other than Amazon, whether
 --         activated or not.
 --
--- -   @AWS-TYPES@: Extensions available for use from Amazon.
+-- -   @AWS_TYPES@: Extensions available for use from Amazon.
 typeFilters_category :: Lens.Lens' TypeFilters (Prelude.Maybe Category)
 typeFilters_category = Lens.lens (\TypeFilters' {category} -> category) (\s@TypeFilters' {} a -> s {category = a} :: TypeFilters)
 

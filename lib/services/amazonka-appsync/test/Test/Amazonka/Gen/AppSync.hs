@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateApiCache $
+--         [ requestAssociateApi $
+--             newAssociateApi
+--
+--         , requestCreateApiCache $
 --             newCreateApiCache
 --
 --         , requestCreateApiKey $
@@ -35,6 +38,9 @@ import Test.Tasty
 --
 --         , requestCreateDataSource $
 --             newCreateDataSource
+--
+--         , requestCreateDomainName $
+--             newCreateDomainName
 --
 --         , requestCreateFunction $
 --             newCreateFunction
@@ -57,6 +63,9 @@ import Test.Tasty
 --         , requestDeleteDataSource $
 --             newDeleteDataSource
 --
+--         , requestDeleteDomainName $
+--             newDeleteDomainName
+--
 --         , requestDeleteFunction $
 --             newDeleteFunction
 --
@@ -69,14 +78,26 @@ import Test.Tasty
 --         , requestDeleteType $
 --             newDeleteType
 --
+--         , requestDisassociateApi $
+--             newDisassociateApi
+--
+--         , requestEvaluateMappingTemplate $
+--             newEvaluateMappingTemplate
+--
 --         , requestFlushApiCache $
 --             newFlushApiCache
+--
+--         , requestGetApiAssociation $
+--             newGetApiAssociation
 --
 --         , requestGetApiCache $
 --             newGetApiCache
 --
 --         , requestGetDataSource $
 --             newGetDataSource
+--
+--         , requestGetDomainName $
+--             newGetDomainName
 --
 --         , requestGetFunction $
 --             newGetFunction
@@ -101,6 +122,9 @@ import Test.Tasty
 --
 --         , requestListDataSources $
 --             newListDataSources
+--
+--         , requestListDomainNames $
+--             newListDomainNames
 --
 --         , requestListFunctions $
 --             newListFunctions
@@ -138,6 +162,9 @@ import Test.Tasty
 --         , requestUpdateDataSource $
 --             newUpdateDataSource
 --
+--         , requestUpdateDomainName $
+--             newUpdateDomainName
+--
 --         , requestUpdateFunction $
 --             newUpdateFunction
 --
@@ -153,7 +180,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateApiCache $
+--         [ responseAssociateApi $
+--             newAssociateApiResponse
+--
+--         , responseCreateApiCache $
 --             newCreateApiCacheResponse
 --
 --         , responseCreateApiKey $
@@ -161,6 +191,9 @@ import Test.Tasty
 --
 --         , responseCreateDataSource $
 --             newCreateDataSourceResponse
+--
+--         , responseCreateDomainName $
+--             newCreateDomainNameResponse
 --
 --         , responseCreateFunction $
 --             newCreateFunctionResponse
@@ -183,6 +216,9 @@ import Test.Tasty
 --         , responseDeleteDataSource $
 --             newDeleteDataSourceResponse
 --
+--         , responseDeleteDomainName $
+--             newDeleteDomainNameResponse
+--
 --         , responseDeleteFunction $
 --             newDeleteFunctionResponse
 --
@@ -195,14 +231,26 @@ import Test.Tasty
 --         , responseDeleteType $
 --             newDeleteTypeResponse
 --
+--         , responseDisassociateApi $
+--             newDisassociateApiResponse
+--
+--         , responseEvaluateMappingTemplate $
+--             newEvaluateMappingTemplateResponse
+--
 --         , responseFlushApiCache $
 --             newFlushApiCacheResponse
+--
+--         , responseGetApiAssociation $
+--             newGetApiAssociationResponse
 --
 --         , responseGetApiCache $
 --             newGetApiCacheResponse
 --
 --         , responseGetDataSource $
 --             newGetDataSourceResponse
+--
+--         , responseGetDomainName $
+--             newGetDomainNameResponse
 --
 --         , responseGetFunction $
 --             newGetFunctionResponse
@@ -227,6 +275,9 @@ import Test.Tasty
 --
 --         , responseListDataSources $
 --             newListDataSourcesResponse
+--
+--         , responseListDomainNames $
+--             newListDomainNamesResponse
 --
 --         , responseListFunctions $
 --             newListFunctionsResponse
@@ -264,6 +315,9 @@ import Test.Tasty
 --         , responseUpdateDataSource $
 --             newUpdateDataSourceResponse
 --
+--         , responseUpdateDomainName $
+--             newUpdateDomainNameResponse
+--
 --         , responseUpdateFunction $
 --             newUpdateFunctionResponse
 --
@@ -280,6 +334,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestAssociateApi :: AssociateApi -> TestTree
+requestAssociateApi =
+  req
+    "AssociateApi"
+    "fixture/AssociateApi.yaml"
 
 requestCreateApiCache :: CreateApiCache -> TestTree
 requestCreateApiCache =
@@ -298,6 +358,12 @@ requestCreateDataSource =
   req
     "CreateDataSource"
     "fixture/CreateDataSource.yaml"
+
+requestCreateDomainName :: CreateDomainName -> TestTree
+requestCreateDomainName =
+  req
+    "CreateDomainName"
+    "fixture/CreateDomainName.yaml"
 
 requestCreateFunction :: CreateFunction -> TestTree
 requestCreateFunction =
@@ -341,6 +407,12 @@ requestDeleteDataSource =
     "DeleteDataSource"
     "fixture/DeleteDataSource.yaml"
 
+requestDeleteDomainName :: DeleteDomainName -> TestTree
+requestDeleteDomainName =
+  req
+    "DeleteDomainName"
+    "fixture/DeleteDomainName.yaml"
+
 requestDeleteFunction :: DeleteFunction -> TestTree
 requestDeleteFunction =
   req
@@ -365,11 +437,29 @@ requestDeleteType =
     "DeleteType"
     "fixture/DeleteType.yaml"
 
+requestDisassociateApi :: DisassociateApi -> TestTree
+requestDisassociateApi =
+  req
+    "DisassociateApi"
+    "fixture/DisassociateApi.yaml"
+
+requestEvaluateMappingTemplate :: EvaluateMappingTemplate -> TestTree
+requestEvaluateMappingTemplate =
+  req
+    "EvaluateMappingTemplate"
+    "fixture/EvaluateMappingTemplate.yaml"
+
 requestFlushApiCache :: FlushApiCache -> TestTree
 requestFlushApiCache =
   req
     "FlushApiCache"
     "fixture/FlushApiCache.yaml"
+
+requestGetApiAssociation :: GetApiAssociation -> TestTree
+requestGetApiAssociation =
+  req
+    "GetApiAssociation"
+    "fixture/GetApiAssociation.yaml"
 
 requestGetApiCache :: GetApiCache -> TestTree
 requestGetApiCache =
@@ -382,6 +472,12 @@ requestGetDataSource =
   req
     "GetDataSource"
     "fixture/GetDataSource.yaml"
+
+requestGetDomainName :: GetDomainName -> TestTree
+requestGetDomainName =
+  req
+    "GetDomainName"
+    "fixture/GetDomainName.yaml"
 
 requestGetFunction :: GetFunction -> TestTree
 requestGetFunction =
@@ -430,6 +526,12 @@ requestListDataSources =
   req
     "ListDataSources"
     "fixture/ListDataSources.yaml"
+
+requestListDomainNames :: ListDomainNames -> TestTree
+requestListDomainNames =
+  req
+    "ListDomainNames"
+    "fixture/ListDomainNames.yaml"
 
 requestListFunctions :: ListFunctions -> TestTree
 requestListFunctions =
@@ -503,6 +605,12 @@ requestUpdateDataSource =
     "UpdateDataSource"
     "fixture/UpdateDataSource.yaml"
 
+requestUpdateDomainName :: UpdateDomainName -> TestTree
+requestUpdateDomainName =
+  req
+    "UpdateDomainName"
+    "fixture/UpdateDomainName.yaml"
+
 requestUpdateFunction :: UpdateFunction -> TestTree
 requestUpdateFunction =
   req
@@ -529,6 +637,14 @@ requestUpdateType =
 
 -- Responses
 
+responseAssociateApi :: AssociateApiResponse -> TestTree
+responseAssociateApi =
+  res
+    "AssociateApiResponse"
+    "fixture/AssociateApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateApi)
+
 responseCreateApiCache :: CreateApiCacheResponse -> TestTree
 responseCreateApiCache =
   res
@@ -552,6 +668,14 @@ responseCreateDataSource =
     "fixture/CreateDataSourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDataSource)
+
+responseCreateDomainName :: CreateDomainNameResponse -> TestTree
+responseCreateDomainName =
+  res
+    "CreateDomainNameResponse"
+    "fixture/CreateDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDomainName)
 
 responseCreateFunction :: CreateFunctionResponse -> TestTree
 responseCreateFunction =
@@ -609,6 +733,14 @@ responseDeleteDataSource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
 
+responseDeleteDomainName :: DeleteDomainNameResponse -> TestTree
+responseDeleteDomainName =
+  res
+    "DeleteDomainNameResponse"
+    "fixture/DeleteDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainName)
+
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
 responseDeleteFunction =
   res
@@ -641,6 +773,22 @@ responseDeleteType =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteType)
 
+responseDisassociateApi :: DisassociateApiResponse -> TestTree
+responseDisassociateApi =
+  res
+    "DisassociateApiResponse"
+    "fixture/DisassociateApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateApi)
+
+responseEvaluateMappingTemplate :: EvaluateMappingTemplateResponse -> TestTree
+responseEvaluateMappingTemplate =
+  res
+    "EvaluateMappingTemplateResponse"
+    "fixture/EvaluateMappingTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EvaluateMappingTemplate)
+
 responseFlushApiCache :: FlushApiCacheResponse -> TestTree
 responseFlushApiCache =
   res
@@ -648,6 +796,14 @@ responseFlushApiCache =
     "fixture/FlushApiCacheResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy FlushApiCache)
+
+responseGetApiAssociation :: GetApiAssociationResponse -> TestTree
+responseGetApiAssociation =
+  res
+    "GetApiAssociationResponse"
+    "fixture/GetApiAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApiAssociation)
 
 responseGetApiCache :: GetApiCacheResponse -> TestTree
 responseGetApiCache =
@@ -664,6 +820,14 @@ responseGetDataSource =
     "fixture/GetDataSourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDataSource)
+
+responseGetDomainName :: GetDomainNameResponse -> TestTree
+responseGetDomainName =
+  res
+    "GetDomainNameResponse"
+    "fixture/GetDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDomainName)
 
 responseGetFunction :: GetFunctionResponse -> TestTree
 responseGetFunction =
@@ -728,6 +892,14 @@ responseListDataSources =
     "fixture/ListDataSourcesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDataSources)
+
+responseListDomainNames :: ListDomainNamesResponse -> TestTree
+responseListDomainNames =
+  res
+    "ListDomainNamesResponse"
+    "fixture/ListDomainNamesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomainNames)
 
 responseListFunctions :: ListFunctionsResponse -> TestTree
 responseListFunctions =
@@ -824,6 +996,14 @@ responseUpdateDataSource =
     "fixture/UpdateDataSourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
+
+responseUpdateDomainName :: UpdateDomainNameResponse -> TestTree
+responseUpdateDomainName =
+  res
+    "UpdateDomainNameResponse"
+    "fixture/UpdateDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainName)
 
 responseUpdateFunction :: UpdateFunctionResponse -> TestTree
 responseUpdateFunction =

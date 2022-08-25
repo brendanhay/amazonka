@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of all existing endpoints that you\'ve created.
+-- Gets a list of all existing endpoints that you\'ve created. For
+-- information about endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 module Amazonka.Comprehend.ListEndpoints
   ( -- * Creating a Request
     ListEndpoints (..),

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.KinesisDataStream
+import Amazonka.Rekognition.Types.S3Destination
 
 -- | Information about the Amazon Kinesis Data Streams stream to which a
 -- Amazon Rekognition Video stream processor streams the results of a video
@@ -31,7 +32,10 @@ import Amazonka.Rekognition.Types.KinesisDataStream
 --
 -- /See:/ 'newStreamProcessorOutput' smart constructor.
 data StreamProcessorOutput = StreamProcessorOutput'
-  { -- | The Amazon Kinesis Data Streams stream to which the Amazon Rekognition
+  { -- | The Amazon S3 bucket location to which Amazon Rekognition publishes the
+    -- detailed inference results of a video analysis operation.
+    s3Destination :: Prelude.Maybe S3Destination,
+    -- | The Amazon Kinesis Data Streams stream to which the Amazon Rekognition
     -- stream processor streams the analysis results.
     kinesisDataStream :: Prelude.Maybe KinesisDataStream
   }
@@ -45,15 +49,24 @@ data StreamProcessorOutput = StreamProcessorOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3Destination', 'streamProcessorOutput_s3Destination' - The Amazon S3 bucket location to which Amazon Rekognition publishes the
+-- detailed inference results of a video analysis operation.
+--
 -- 'kinesisDataStream', 'streamProcessorOutput_kinesisDataStream' - The Amazon Kinesis Data Streams stream to which the Amazon Rekognition
 -- stream processor streams the analysis results.
 newStreamProcessorOutput ::
   StreamProcessorOutput
 newStreamProcessorOutput =
   StreamProcessorOutput'
-    { kinesisDataStream =
-        Prelude.Nothing
+    { s3Destination =
+        Prelude.Nothing,
+      kinesisDataStream = Prelude.Nothing
     }
+
+-- | The Amazon S3 bucket location to which Amazon Rekognition publishes the
+-- detailed inference results of a video analysis operation.
+streamProcessorOutput_s3Destination :: Lens.Lens' StreamProcessorOutput (Prelude.Maybe S3Destination)
+streamProcessorOutput_s3Destination = Lens.lens (\StreamProcessorOutput' {s3Destination} -> s3Destination) (\s@StreamProcessorOutput' {} a -> s {s3Destination = a} :: StreamProcessorOutput)
 
 -- | The Amazon Kinesis Data Streams stream to which the Amazon Rekognition
 -- stream processor streams the analysis results.
@@ -66,22 +79,26 @@ instance Core.FromJSON StreamProcessorOutput where
       "StreamProcessorOutput"
       ( \x ->
           StreamProcessorOutput'
-            Prelude.<$> (x Core..:? "KinesisDataStream")
+            Prelude.<$> (x Core..:? "S3Destination")
+            Prelude.<*> (x Core..:? "KinesisDataStream")
       )
 
 instance Prelude.Hashable StreamProcessorOutput where
   hashWithSalt _salt StreamProcessorOutput' {..} =
-    _salt `Prelude.hashWithSalt` kinesisDataStream
+    _salt `Prelude.hashWithSalt` s3Destination
+      `Prelude.hashWithSalt` kinesisDataStream
 
 instance Prelude.NFData StreamProcessorOutput where
   rnf StreamProcessorOutput' {..} =
-    Prelude.rnf kinesisDataStream
+    Prelude.rnf s3Destination
+      `Prelude.seq` Prelude.rnf kinesisDataStream
 
 instance Core.ToJSON StreamProcessorOutput where
   toJSON StreamProcessorOutput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KinesisDataStream" Core..=)
+          [ ("S3Destination" Core..=) Prelude.<$> s3Destination,
+            ("KinesisDataStream" Core..=)
               Prelude.<$> kinesisDataStream
           ]
       )

@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes permissions on a private CA granted to the AWS Certificate
--- Manager (ACM) service principal (acm.amazonaws.com).
+-- Revokes permissions on a private CA granted to the Certificate Manager
+-- (ACM) service principal (acm.amazonaws.com).
 --
 -- These permissions allow ACM to issue and renew ACM certificates that
--- reside in the same AWS account as the CA. If you revoke these
--- permissions, ACM will no longer renew the affected certificates
+-- reside in the same Amazon Web Services account as the CA. If you revoke
+-- these permissions, ACM will no longer renew the affected certificates
 -- automatically.
 --
 -- Permissions can be granted with the
@@ -75,7 +75,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePermission' smart constructor.
 data DeletePermission = DeletePermission'
-  { -- | The AWS account that calls this action.
+  { -- | The Amazon Web Services account that calls this action.
     sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the private CA that issued the
     -- permissions. You can find the CA\'s ARN by calling the
@@ -84,8 +84,9 @@ data DeletePermission = DeletePermission'
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
     certificateAuthorityArn :: Prelude.Text,
-    -- | The AWS service or identity that will have its CA permissions revoked.
-    -- At this time, the only valid service principal is @acm.amazonaws.com@
+    -- | The Amazon Web Services service or identity that will have its CA
+    -- permissions revoked. At this time, the only valid service principal is
+    -- @acm.amazonaws.com@
     principal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,7 +99,7 @@ data DeletePermission = DeletePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceAccount', 'deletePermission_sourceAccount' - The AWS account that calls this action.
+-- 'sourceAccount', 'deletePermission_sourceAccount' - The Amazon Web Services account that calls this action.
 --
 -- 'certificateAuthorityArn', 'deletePermission_certificateAuthorityArn' - The Amazon Resource Number (ARN) of the private CA that issued the
 -- permissions. You can find the CA\'s ARN by calling the
@@ -107,8 +108,9 @@ data DeletePermission = DeletePermission'
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
 --
--- 'principal', 'deletePermission_principal' - The AWS service or identity that will have its CA permissions revoked.
--- At this time, the only valid service principal is @acm.amazonaws.com@
+-- 'principal', 'deletePermission_principal' - The Amazon Web Services service or identity that will have its CA
+-- permissions revoked. At this time, the only valid service principal is
+-- @acm.amazonaws.com@
 newDeletePermission ::
   -- | 'certificateAuthorityArn'
   Prelude.Text ->
@@ -124,7 +126,7 @@ newDeletePermission
         principal = pPrincipal_
       }
 
--- | The AWS account that calls this action.
+-- | The Amazon Web Services account that calls this action.
 deletePermission_sourceAccount :: Lens.Lens' DeletePermission (Prelude.Maybe Prelude.Text)
 deletePermission_sourceAccount = Lens.lens (\DeletePermission' {sourceAccount} -> sourceAccount) (\s@DeletePermission' {} a -> s {sourceAccount = a} :: DeletePermission)
 
@@ -137,8 +139,9 @@ deletePermission_sourceAccount = Lens.lens (\DeletePermission' {sourceAccount} -
 deletePermission_certificateAuthorityArn :: Lens.Lens' DeletePermission Prelude.Text
 deletePermission_certificateAuthorityArn = Lens.lens (\DeletePermission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DeletePermission' {} a -> s {certificateAuthorityArn = a} :: DeletePermission)
 
--- | The AWS service or identity that will have its CA permissions revoked.
--- At this time, the only valid service principal is @acm.amazonaws.com@
+-- | The Amazon Web Services service or identity that will have its CA
+-- permissions revoked. At this time, the only valid service principal is
+-- @acm.amazonaws.com@
 deletePermission_principal :: Lens.Lens' DeletePermission Prelude.Text
 deletePermission_principal = Lens.lens (\DeletePermission' {principal} -> principal) (\s@DeletePermission' {} a -> s {principal = a} :: DeletePermission)
 

@@ -44,7 +44,8 @@ data AvailabilityZone = AvailabilityZone'
     zoneName :: Prelude.Maybe Prelude.Text,
     -- | The name of the network border group.
     networkBorderGroup :: Prelude.Maybe Prelude.Text,
-    -- | The state of the Availability Zone, Local Zone, or Wavelength Zone.
+    -- | The state of the Availability Zone, Local Zone, or Wavelength Zone. This
+    -- value is always @available@.
     state :: Prelude.Maybe AvailabilityZoneState,
     -- | For Availability Zones, this parameter always has the value of
     -- @opt-in-not-required@.
@@ -92,7 +93,8 @@ data AvailabilityZone = AvailabilityZone'
 --
 -- 'networkBorderGroup', 'availabilityZone_networkBorderGroup' - The name of the network border group.
 --
--- 'state', 'availabilityZone_state' - The state of the Availability Zone, Local Zone, or Wavelength Zone.
+-- 'state', 'availabilityZone_state' - The state of the Availability Zone, Local Zone, or Wavelength Zone. This
+-- value is always @available@.
 --
 -- 'optInStatus', 'availabilityZone_optInStatus' - For Availability Zones, this parameter always has the value of
 -- @opt-in-not-required@.
@@ -155,7 +157,8 @@ availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName
 availabilityZone_networkBorderGroup :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_networkBorderGroup = Lens.lens (\AvailabilityZone' {networkBorderGroup} -> networkBorderGroup) (\s@AvailabilityZone' {} a -> s {networkBorderGroup = a} :: AvailabilityZone)
 
--- | The state of the Availability Zone, Local Zone, or Wavelength Zone.
+-- | The state of the Availability Zone, Local Zone, or Wavelength Zone. This
+-- value is always @available@.
 availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe AvailabilityZoneState)
 availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
 

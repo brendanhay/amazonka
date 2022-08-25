@@ -21,6 +21,7 @@ module Amazonka.S3.Types.InventoryOptionalField
   ( InventoryOptionalField
       ( ..,
         InventoryOptionalField_BucketKeyStatus,
+        InventoryOptionalField_ChecksumAlgorithm,
         InventoryOptionalField_ETag,
         InventoryOptionalField_EncryptionStatus,
         InventoryOptionalField_IntelligentTieringAccessTier,
@@ -71,6 +72,9 @@ newtype InventoryOptionalField = InventoryOptionalField'
 pattern InventoryOptionalField_BucketKeyStatus :: InventoryOptionalField
 pattern InventoryOptionalField_BucketKeyStatus = InventoryOptionalField' "BucketKeyStatus"
 
+pattern InventoryOptionalField_ChecksumAlgorithm :: InventoryOptionalField
+pattern InventoryOptionalField_ChecksumAlgorithm = InventoryOptionalField' "ChecksumAlgorithm"
+
 pattern InventoryOptionalField_ETag :: InventoryOptionalField
 pattern InventoryOptionalField_ETag = InventoryOptionalField' "ETag"
 
@@ -106,6 +110,7 @@ pattern InventoryOptionalField_StorageClass = InventoryOptionalField' "StorageCl
 
 {-# COMPLETE
   InventoryOptionalField_BucketKeyStatus,
+  InventoryOptionalField_ChecksumAlgorithm,
   InventoryOptionalField_ETag,
   InventoryOptionalField_EncryptionStatus,
   InventoryOptionalField_IntelligentTieringAccessTier,

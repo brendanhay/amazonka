@@ -21,16 +21,20 @@ module Amazonka.Kafka.Types.BrokerNodeGroupInfo where
 
 import qualified Amazonka.Core as Core
 import Amazonka.Kafka.Types.BrokerAZDistribution
+import Amazonka.Kafka.Types.ConnectivityInfo
 import Amazonka.Kafka.Types.StorageInfo
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the setup to be used for Kafka broker nodes in the cluster.
+-- | Describes the setup to be used for Apache Kafka broker nodes in the
+-- cluster.
 --
 -- /See:/ 'newBrokerNodeGroupInfo' smart constructor.
 data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
   { -- | Contains information about storage volumes attached to MSK broker nodes.
     storageInfo :: Prelude.Maybe StorageInfo,
+    -- | Information about the broker access configuration.
+    connectivityInfo :: Prelude.Maybe ConnectivityInfo,
     -- | The AWS security groups to associate with the elastic network interfaces
     -- in order to specify who can connect to and communicate with the Amazon
     -- MSK cluster. If you don\'t specify a security group, Amazon MSK uses the
@@ -48,10 +52,11 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
     -- | The list of subnets to connect to in the client virtual private cloud
     -- (VPC). AWS creates elastic network interfaces inside these subnets.
     -- Client applications use elastic network interfaces to produce and
-    -- consume data. Client subnets can\'t be in Availability Zone us-east-1e.
+    -- consume data. Client subnets can\'t occupy the Availability Zone with ID
+    -- use use1-az3.
     clientSubnets :: [Prelude.Text],
-    -- | The type of Amazon EC2 instances to use for Kafka brokers. The following
-    -- instance types are allowed: kafka.m5.large, kafka.m5.xlarge,
+    -- | The type of Amazon EC2 instances to use for Apache Kafka brokers. The
+    -- following instance types are allowed: kafka.m5.large, kafka.m5.xlarge,
     -- kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.12xlarge, and
     -- kafka.m5.24xlarge.
     instanceType :: Prelude.Text
@@ -67,6 +72,8 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
 -- for backwards compatibility:
 --
 -- 'storageInfo', 'brokerNodeGroupInfo_storageInfo' - Contains information about storage volumes attached to MSK broker nodes.
+--
+-- 'connectivityInfo', 'brokerNodeGroupInfo_connectivityInfo' - Information about the broker access configuration.
 --
 -- 'securityGroups', 'brokerNodeGroupInfo_securityGroups' - The AWS security groups to associate with the elastic network interfaces
 -- in order to specify who can connect to and communicate with the Amazon
@@ -85,10 +92,11 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
 -- 'clientSubnets', 'brokerNodeGroupInfo_clientSubnets' - The list of subnets to connect to in the client virtual private cloud
 -- (VPC). AWS creates elastic network interfaces inside these subnets.
 -- Client applications use elastic network interfaces to produce and
--- consume data. Client subnets can\'t be in Availability Zone us-east-1e.
+-- consume data. Client subnets can\'t occupy the Availability Zone with ID
+-- use use1-az3.
 --
--- 'instanceType', 'brokerNodeGroupInfo_instanceType' - The type of Amazon EC2 instances to use for Kafka brokers. The following
--- instance types are allowed: kafka.m5.large, kafka.m5.xlarge,
+-- 'instanceType', 'brokerNodeGroupInfo_instanceType' - The type of Amazon EC2 instances to use for Apache Kafka brokers. The
+-- following instance types are allowed: kafka.m5.large, kafka.m5.xlarge,
 -- kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.12xlarge, and
 -- kafka.m5.24xlarge.
 newBrokerNodeGroupInfo ::
@@ -98,6 +106,7 @@ newBrokerNodeGroupInfo ::
 newBrokerNodeGroupInfo pInstanceType_ =
   BrokerNodeGroupInfo'
     { storageInfo = Prelude.Nothing,
+      connectivityInfo = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
       brokerAZDistribution = Prelude.Nothing,
       clientSubnets = Prelude.mempty,
@@ -107,6 +116,10 @@ newBrokerNodeGroupInfo pInstanceType_ =
 -- | Contains information about storage volumes attached to MSK broker nodes.
 brokerNodeGroupInfo_storageInfo :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe StorageInfo)
 brokerNodeGroupInfo_storageInfo = Lens.lens (\BrokerNodeGroupInfo' {storageInfo} -> storageInfo) (\s@BrokerNodeGroupInfo' {} a -> s {storageInfo = a} :: BrokerNodeGroupInfo)
+
+-- | Information about the broker access configuration.
+brokerNodeGroupInfo_connectivityInfo :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe ConnectivityInfo)
+brokerNodeGroupInfo_connectivityInfo = Lens.lens (\BrokerNodeGroupInfo' {connectivityInfo} -> connectivityInfo) (\s@BrokerNodeGroupInfo' {} a -> s {connectivityInfo = a} :: BrokerNodeGroupInfo)
 
 -- | The AWS security groups to associate with the elastic network interfaces
 -- in order to specify who can connect to and communicate with the Amazon
@@ -129,12 +142,13 @@ brokerNodeGroupInfo_brokerAZDistribution = Lens.lens (\BrokerNodeGroupInfo' {bro
 -- | The list of subnets to connect to in the client virtual private cloud
 -- (VPC). AWS creates elastic network interfaces inside these subnets.
 -- Client applications use elastic network interfaces to produce and
--- consume data. Client subnets can\'t be in Availability Zone us-east-1e.
+-- consume data. Client subnets can\'t occupy the Availability Zone with ID
+-- use use1-az3.
 brokerNodeGroupInfo_clientSubnets :: Lens.Lens' BrokerNodeGroupInfo [Prelude.Text]
 brokerNodeGroupInfo_clientSubnets = Lens.lens (\BrokerNodeGroupInfo' {clientSubnets} -> clientSubnets) (\s@BrokerNodeGroupInfo' {} a -> s {clientSubnets = a} :: BrokerNodeGroupInfo) Prelude.. Lens.coerced
 
--- | The type of Amazon EC2 instances to use for Kafka brokers. The following
--- instance types are allowed: kafka.m5.large, kafka.m5.xlarge,
+-- | The type of Amazon EC2 instances to use for Apache Kafka brokers. The
+-- following instance types are allowed: kafka.m5.large, kafka.m5.xlarge,
 -- kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.12xlarge, and
 -- kafka.m5.24xlarge.
 brokerNodeGroupInfo_instanceType :: Lens.Lens' BrokerNodeGroupInfo Prelude.Text
@@ -147,6 +161,7 @@ instance Core.FromJSON BrokerNodeGroupInfo where
       ( \x ->
           BrokerNodeGroupInfo'
             Prelude.<$> (x Core..:? "storageInfo")
+            Prelude.<*> (x Core..:? "connectivityInfo")
             Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "brokerAZDistribution")
             Prelude.<*> (x Core..:? "clientSubnets" Core..!= Prelude.mempty)
@@ -156,6 +171,7 @@ instance Core.FromJSON BrokerNodeGroupInfo where
 instance Prelude.Hashable BrokerNodeGroupInfo where
   hashWithSalt _salt BrokerNodeGroupInfo' {..} =
     _salt `Prelude.hashWithSalt` storageInfo
+      `Prelude.hashWithSalt` connectivityInfo
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` brokerAZDistribution
       `Prelude.hashWithSalt` clientSubnets
@@ -164,6 +180,7 @@ instance Prelude.Hashable BrokerNodeGroupInfo where
 instance Prelude.NFData BrokerNodeGroupInfo where
   rnf BrokerNodeGroupInfo' {..} =
     Prelude.rnf storageInfo
+      `Prelude.seq` Prelude.rnf connectivityInfo
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf brokerAZDistribution
       `Prelude.seq` Prelude.rnf clientSubnets
@@ -174,6 +191,8 @@ instance Core.ToJSON BrokerNodeGroupInfo where
     Core.object
       ( Prelude.catMaybes
           [ ("storageInfo" Core..=) Prelude.<$> storageInfo,
+            ("connectivityInfo" Core..=)
+              Prelude.<$> connectivityInfo,
             ("securityGroups" Core..=)
               Prelude.<$> securityGroups,
             ("brokerAZDistribution" Core..=)

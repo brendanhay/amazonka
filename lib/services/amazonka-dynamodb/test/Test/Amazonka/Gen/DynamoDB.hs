@@ -75,6 +75,9 @@ import Test.Tasty
 --         , requestDescribeGlobalTableSettings $
 --             newDescribeGlobalTableSettings
 --
+--         , requestDescribeImport $
+--             newDescribeImport
+--
 --         , requestDescribeKinesisStreamingDestination $
 --             newDescribeKinesisStreamingDestination
 --
@@ -108,6 +111,9 @@ import Test.Tasty
 --         , requestGetItem $
 --             newGetItem
 --
+--         , requestImportTable $
+--             newImportTable
+--
 --         , requestListBackups $
 --             newListBackups
 --
@@ -119,6 +125,9 @@ import Test.Tasty
 --
 --         , requestListGlobalTables $
 --             newListGlobalTables
+--
+--         , requestListImports $
+--             newListImports
 --
 --         , requestListTables $
 --             newListTables
@@ -228,6 +237,9 @@ import Test.Tasty
 --         , responseDescribeGlobalTableSettings $
 --             newDescribeGlobalTableSettingsResponse
 --
+--         , responseDescribeImport $
+--             newDescribeImportResponse
+--
 --         , responseDescribeKinesisStreamingDestination $
 --             newDescribeKinesisStreamingDestinationResponse
 --
@@ -261,6 +273,9 @@ import Test.Tasty
 --         , responseGetItem $
 --             newGetItemResponse
 --
+--         , responseImportTable $
+--             newImportTableResponse
+--
 --         , responseListBackups $
 --             newListBackupsResponse
 --
@@ -272,6 +287,9 @@ import Test.Tasty
 --
 --         , responseListGlobalTables $
 --             newListGlobalTablesResponse
+--
+--         , responseListImports $
+--             newListImportsResponse
 --
 --         , responseListTables $
 --             newListTablesResponse
@@ -431,6 +449,12 @@ requestDescribeGlobalTableSettings =
     "DescribeGlobalTableSettings"
     "fixture/DescribeGlobalTableSettings.yaml"
 
+requestDescribeImport :: DescribeImport -> TestTree
+requestDescribeImport =
+  req
+    "DescribeImport"
+    "fixture/DescribeImport.yaml"
+
 requestDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestination -> TestTree
 requestDescribeKinesisStreamingDestination =
   req
@@ -497,6 +521,12 @@ requestGetItem =
     "GetItem"
     "fixture/GetItem.yaml"
 
+requestImportTable :: ImportTable -> TestTree
+requestImportTable =
+  req
+    "ImportTable"
+    "fixture/ImportTable.yaml"
+
 requestListBackups :: ListBackups -> TestTree
 requestListBackups =
   req
@@ -520,6 +550,12 @@ requestListGlobalTables =
   req
     "ListGlobalTables"
     "fixture/ListGlobalTables.yaml"
+
+requestListImports :: ListImports -> TestTree
+requestListImports =
+  req
+    "ListImports"
+    "fixture/ListImports.yaml"
 
 requestListTables :: ListTables -> TestTree
 requestListTables =
@@ -765,6 +801,14 @@ responseDescribeGlobalTableSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTableSettings)
 
+responseDescribeImport :: DescribeImportResponse -> TestTree
+responseDescribeImport =
+  res
+    "DescribeImportResponse"
+    "fixture/DescribeImportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeImport)
+
 responseDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestinationResponse -> TestTree
 responseDescribeKinesisStreamingDestination =
   res
@@ -853,6 +897,14 @@ responseGetItem =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetItem)
 
+responseImportTable :: ImportTableResponse -> TestTree
+responseImportTable =
+  res
+    "ImportTableResponse"
+    "fixture/ImportTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportTable)
+
 responseListBackups :: ListBackupsResponse -> TestTree
 responseListBackups =
   res
@@ -884,6 +936,14 @@ responseListGlobalTables =
     "fixture/ListGlobalTablesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGlobalTables)
+
+responseListImports :: ListImportsResponse -> TestTree
+responseListImports =
+  res
+    "ListImportsResponse"
+    "fixture/ListImportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImports)
 
 responseListTables :: ListTablesResponse -> TestTree
 responseListTables =

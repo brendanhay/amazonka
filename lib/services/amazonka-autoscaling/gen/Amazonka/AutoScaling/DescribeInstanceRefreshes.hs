@@ -205,7 +205,8 @@ data DescribeInstanceRefreshesResponse = DescribeInstanceRefreshesResponse'
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance refreshes for the specified group.
+    -- | The instance refreshes for the specified group, sorted by creation
+    -- timestamp in descending order.
     instanceRefreshes :: Prelude.Maybe [InstanceRefresh],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -225,7 +226,8 @@ data DescribeInstanceRefreshesResponse = DescribeInstanceRefreshesResponse'
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
 --
--- 'instanceRefreshes', 'describeInstanceRefreshesResponse_instanceRefreshes' - The instance refreshes for the specified group.
+-- 'instanceRefreshes', 'describeInstanceRefreshesResponse_instanceRefreshes' - The instance refreshes for the specified group, sorted by creation
+-- timestamp in descending order.
 --
 -- 'httpStatus', 'describeInstanceRefreshesResponse_httpStatus' - The response's http status code.
 newDescribeInstanceRefreshesResponse ::
@@ -247,7 +249,8 @@ newDescribeInstanceRefreshesResponse pHttpStatus_ =
 describeInstanceRefreshesResponse_nextToken :: Lens.Lens' DescribeInstanceRefreshesResponse (Prelude.Maybe Prelude.Text)
 describeInstanceRefreshesResponse_nextToken = Lens.lens (\DescribeInstanceRefreshesResponse' {nextToken} -> nextToken) (\s@DescribeInstanceRefreshesResponse' {} a -> s {nextToken = a} :: DescribeInstanceRefreshesResponse)
 
--- | The instance refreshes for the specified group.
+-- | The instance refreshes for the specified group, sorted by creation
+-- timestamp in descending order.
 describeInstanceRefreshesResponse_instanceRefreshes :: Lens.Lens' DescribeInstanceRefreshesResponse (Prelude.Maybe [InstanceRefresh])
 describeInstanceRefreshesResponse_instanceRefreshes = Lens.lens (\DescribeInstanceRefreshesResponse' {instanceRefreshes} -> instanceRefreshes) (\s@DescribeInstanceRefreshesResponse' {} a -> s {instanceRefreshes = a} :: DescribeInstanceRefreshesResponse) Prelude.. Lens.mapping Lens.coerced
 

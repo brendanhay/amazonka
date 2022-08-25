@@ -25,7 +25,12 @@ import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes whether a VPC is enabled for ClassicLink.
+-- | We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Describes whether a VPC is enabled for ClassicLink.
 --
 -- /See:/ 'newVpcClassicLink' smart constructor.
 data VpcClassicLink = VpcClassicLink'

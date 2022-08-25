@@ -45,7 +45,7 @@ data InferenceExecutionSummary = InferenceExecutionSummary'
     -- | Specifies the reason for failure when an inference execution has failed.
     failedReason :: Prelude.Maybe Prelude.Text,
     -- | Specifies configuration information for the output results from for the
-    -- inference execution, including the output S3 location.
+    -- inference execution, including the output Amazon S3 location.
     dataOutputConfiguration :: Prelude.Maybe InferenceOutputConfiguration,
     -- | Indicates the time reference in the dataset at which the inference
     -- execution stopped.
@@ -87,7 +87,7 @@ data InferenceExecutionSummary = InferenceExecutionSummary'
 -- 'failedReason', 'inferenceExecutionSummary_failedReason' - Specifies the reason for failure when an inference execution has failed.
 --
 -- 'dataOutputConfiguration', 'inferenceExecutionSummary_dataOutputConfiguration' - Specifies configuration information for the output results from for the
--- inference execution, including the output S3 location.
+-- inference execution, including the output Amazon S3 location.
 --
 -- 'dataEndTime', 'inferenceExecutionSummary_dataEndTime' - Indicates the time reference in the dataset at which the inference
 -- execution stopped.
@@ -145,7 +145,7 @@ inferenceExecutionSummary_failedReason :: Lens.Lens' InferenceExecutionSummary (
 inferenceExecutionSummary_failedReason = Lens.lens (\InferenceExecutionSummary' {failedReason} -> failedReason) (\s@InferenceExecutionSummary' {} a -> s {failedReason = a} :: InferenceExecutionSummary)
 
 -- | Specifies configuration information for the output results from for the
--- inference execution, including the output S3 location.
+-- inference execution, including the output Amazon S3 location.
 inferenceExecutionSummary_dataOutputConfiguration :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe InferenceOutputConfiguration)
 inferenceExecutionSummary_dataOutputConfiguration = Lens.lens (\InferenceExecutionSummary' {dataOutputConfiguration} -> dataOutputConfiguration) (\s@InferenceExecutionSummary' {} a -> s {dataOutputConfiguration = a} :: InferenceExecutionSummary)
 

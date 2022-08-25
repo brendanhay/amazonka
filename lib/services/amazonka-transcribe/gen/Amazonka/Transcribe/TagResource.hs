@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tags a Amazon Transcribe resource with the given list of tags.
+-- Adds one or more custom tags, each in the form of a key:value pair, to
+-- the specified resource.
+--
+-- To learn more about using tags with Amazon Transcribe, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
 module Amazonka.Transcribe.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -48,10 +52,22 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
-    -- want to tag.
+  { -- | The Amazon Resource Name (ARN) of the resource you want to tag. ARNs
+    -- have the format
+    -- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+    --
+    -- For example,
+    -- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+    --
+    -- Valid values for @resource-type@ are: @transcription-job@,
+    -- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+    -- @vocabulary-filter@, and @language-model@.
     resourceArn :: Prelude.Text,
-    -- | The tags you are assigning to a given Amazon Transcribe resource.
+    -- | Adds one or more custom tags, each in the form of a key:value pair, to
+    -- the specified resource.
+    --
+    -- To learn more about using tags with Amazon Transcribe, refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
     tags :: Prelude.NonEmpty Tag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,10 +80,22 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
--- want to tag.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource you want to tag. ARNs
+-- have the format
+-- @arn:partition:service:region:account-id:resource-type\/resource-id@.
 --
--- 'tags', 'tagResource_tags' - The tags you are assigning to a given Amazon Transcribe resource.
+-- For example,
+-- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+--
+-- Valid values for @resource-type@ are: @transcription-job@,
+-- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+-- @vocabulary-filter@, and @language-model@.
+--
+-- 'tags', 'tagResource_tags' - Adds one or more custom tags, each in the form of a key:value pair, to
+-- the specified resource.
+--
+-- To learn more about using tags with Amazon Transcribe, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -80,12 +108,24 @@ newTagResource pResourceArn_ pTags_ =
       tags = Lens.coerced Lens.# pTags_
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
--- want to tag.
+-- | The Amazon Resource Name (ARN) of the resource you want to tag. ARNs
+-- have the format
+-- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+--
+-- For example,
+-- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+--
+-- Valid values for @resource-type@ are: @transcription-job@,
+-- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+-- @vocabulary-filter@, and @language-model@.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | The tags you are assigning to a given Amazon Transcribe resource.
+-- | Adds one or more custom tags, each in the form of a key:value pair, to
+-- the specified resource.
+--
+-- To learn more about using tags with Amazon Transcribe, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

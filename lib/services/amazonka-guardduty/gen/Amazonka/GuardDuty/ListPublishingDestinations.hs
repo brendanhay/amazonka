@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of publishing destinations associated with the specified
--- @dectectorId@.
+-- @detectorId@.
 module Amazonka.GuardDuty.ListPublishingDestinations
   ( -- * Creating a Request
     ListPublishingDestinations (..),

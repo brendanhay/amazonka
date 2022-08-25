@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified speaker from the Amazon Connect Voice ID system.
+-- Deletes the specified speaker from Voice ID.
 module Amazonka.VoiceId.DeleteSpeaker
   ( -- * Creating a Request
     DeleteSpeaker (..),

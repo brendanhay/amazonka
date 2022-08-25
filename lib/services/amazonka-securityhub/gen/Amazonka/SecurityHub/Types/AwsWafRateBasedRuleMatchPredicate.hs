@@ -28,7 +28,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsWafRateBasedRuleMatchPredicate' smart constructor.
 data AwsWafRateBasedRuleMatchPredicate = AwsWafRateBasedRuleMatchPredicate'
-  { -- | The type of predicate.
+  { -- | The type of predicate. Valid values are as follows:
+    --
+    -- -   @ByteMatch@
+    --
+    -- -   @GeoMatch@
+    --
+    -- -   @IPMatch@
+    --
+    -- -   @RegexMatch@
+    --
+    -- -   @SizeConstraint@
+    --
+    -- -   @SqlInjectionMatch@
+    --
+    -- -   @XssMatch@
     type' :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the predicate.
     dataId :: Prelude.Maybe Prelude.Text,
@@ -49,7 +63,21 @@ data AwsWafRateBasedRuleMatchPredicate = AwsWafRateBasedRuleMatchPredicate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafRateBasedRuleMatchPredicate_type' - The type of predicate.
+-- 'type'', 'awsWafRateBasedRuleMatchPredicate_type' - The type of predicate. Valid values are as follows:
+--
+-- -   @ByteMatch@
+--
+-- -   @GeoMatch@
+--
+-- -   @IPMatch@
+--
+-- -   @RegexMatch@
+--
+-- -   @SizeConstraint@
+--
+-- -   @SqlInjectionMatch@
+--
+-- -   @XssMatch@
 --
 -- 'dataId', 'awsWafRateBasedRuleMatchPredicate_dataId' - The unique identifier for the predicate.
 --
@@ -68,7 +96,21 @@ newAwsWafRateBasedRuleMatchPredicate =
       negated = Prelude.Nothing
     }
 
--- | The type of predicate.
+-- | The type of predicate. Valid values are as follows:
+--
+-- -   @ByteMatch@
+--
+-- -   @GeoMatch@
+--
+-- -   @IPMatch@
+--
+-- -   @RegexMatch@
+--
+-- -   @SizeConstraint@
+--
+-- -   @SqlInjectionMatch@
+--
+-- -   @XssMatch@
 awsWafRateBasedRuleMatchPredicate_type :: Lens.Lens' AwsWafRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Text)
 awsWafRateBasedRuleMatchPredicate_type = Lens.lens (\AwsWafRateBasedRuleMatchPredicate' {type'} -> type') (\s@AwsWafRateBasedRuleMatchPredicate' {} a -> s {type' = a} :: AwsWafRateBasedRuleMatchPredicate)
 

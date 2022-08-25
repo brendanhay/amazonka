@@ -56,8 +56,7 @@ data ListSafetyRules = ListSafetyRules'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
-    -- details for.
+    -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +73,7 @@ data ListSafetyRules = ListSafetyRules'
 --
 -- 'maxResults', 'listSafetyRules_maxResults' - The number of objects that you want to return with this call.
 --
--- 'controlPanelArn', 'listSafetyRules_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that you\'re getting
--- details for.
+-- 'controlPanelArn', 'listSafetyRules_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 newListSafetyRules ::
   -- | 'controlPanelArn'
   Prelude.Text ->
@@ -95,8 +93,7 @@ listSafetyRules_nextToken = Lens.lens (\ListSafetyRules' {nextToken} -> nextToke
 listSafetyRules_maxResults :: Lens.Lens' ListSafetyRules (Prelude.Maybe Prelude.Natural)
 listSafetyRules_maxResults = Lens.lens (\ListSafetyRules' {maxResults} -> maxResults) (\s@ListSafetyRules' {} a -> s {maxResults = a} :: ListSafetyRules)
 
--- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
--- details for.
+-- | The Amazon Resource Name (ARN) of the control panel.
 listSafetyRules_controlPanelArn :: Lens.Lens' ListSafetyRules Prelude.Text
 listSafetyRules_controlPanelArn = Lens.lens (\ListSafetyRules' {controlPanelArn} -> controlPanelArn) (\s@ListSafetyRules' {} a -> s {controlPanelArn = a} :: ListSafetyRules)
 

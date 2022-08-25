@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List tags for a resource. For more information, see /AWS Proton
--- resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- List tags for a resource. For more information, see /Proton resources
+-- and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 --
 -- This operation returns paginated results.
 module Amazonka.Proton.ListTagsForResource
@@ -57,9 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | A token to indicate the location of the next resource tag in the array
-    -- of resource tags, after the list of resource tags that was previously
-    -- requested.
+  { -- | A token that indicates the location of the next resource tag in the
+    -- array of resource tags, after the list of resource tags that was
+    -- previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tags to list.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -76,9 +76,9 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResource_nextToken' - A token to indicate the location of the next resource tag in the array
--- of resource tags, after the list of resource tags that was previously
--- requested.
+-- 'nextToken', 'listTagsForResource_nextToken' - A token that indicates the location of the next resource tag in the
+-- array of resource tags, after the list of resource tags that was
+-- previously requested.
 --
 -- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of tags to list.
 --
@@ -94,9 +94,9 @@ newListTagsForResource pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- | A token to indicate the location of the next resource tag in the array
--- of resource tags, after the list of resource tags that was previously
--- requested.
+-- | A token that indicates the location of the next resource tag in the
+-- array of resource tags, after the list of resource tags that was
+-- previously requested.
 listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
@@ -186,12 +186,13 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | A token to indicate the location of the next resource tag in the array
-    -- of resource tags, after the current requested list of resource tags.
+  { -- | A token that indicates the location of the next resource tag in the
+    -- array of resource tags, after the current requested list of resource
+    -- tags.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | An array of resource tags with detail data.
+    -- | A list of resource tags with detail data.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -204,12 +205,13 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResourceResponse_nextToken' - A token to indicate the location of the next resource tag in the array
--- of resource tags, after the current requested list of resource tags.
+-- 'nextToken', 'listTagsForResourceResponse_nextToken' - A token that indicates the location of the next resource tag in the
+-- array of resource tags, after the current requested list of resource
+-- tags.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 --
--- 'tags', 'listTagsForResourceResponse_tags' - An array of resource tags with detail data.
+-- 'tags', 'listTagsForResourceResponse_tags' - A list of resource tags with detail data.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -222,8 +224,9 @@ newListTagsForResourceResponse pHttpStatus_ =
       tags = Prelude.mempty
     }
 
--- | A token to indicate the location of the next resource tag in the array
--- of resource tags, after the current requested list of resource tags.
+-- | A token that indicates the location of the next resource tag in the
+-- array of resource tags, after the current requested list of resource
+-- tags.
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
@@ -231,7 +234,7 @@ listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse'
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
--- | An array of resource tags with detail data.
+-- | A list of resource tags with detail data.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse [Tag]
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.coerced
 

@@ -156,6 +156,9 @@ module Amazonka.CodeGuruReviewer
     -- ** AnalysisType
     AnalysisType (..),
 
+    -- ** ConfigFileState
+    ConfigFileState (..),
+
     -- ** EncryptionOption
     EncryptionOption (..),
 

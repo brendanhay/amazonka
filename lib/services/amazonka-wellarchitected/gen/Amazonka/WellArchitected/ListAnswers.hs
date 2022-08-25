@@ -41,6 +41,7 @@ module Amazonka.WellArchitected.ListAnswers
     -- * Response Lenses
     listAnswersResponse_answerSummaries,
     listAnswersResponse_nextToken,
+    listAnswersResponse_lensArn,
     listAnswersResponse_lensAlias,
     listAnswersResponse_milestoneNumber,
     listAnswersResponse_workloadId,
@@ -139,6 +140,7 @@ instance Core.AWSRequest ListAnswers where
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "LensArn")
             Prelude.<*> (x Core..?> "LensAlias")
             Prelude.<*> (x Core..?> "MilestoneNumber")
             Prelude.<*> (x Core..?> "WorkloadId")
@@ -199,6 +201,8 @@ instance Core.ToQuery ListAnswers where
 data ListAnswersResponse = ListAnswersResponse'
   { answerSummaries :: Prelude.Maybe [AnswerSummary],
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
     lensAlias :: Prelude.Maybe Prelude.Text,
     milestoneNumber :: Prelude.Maybe Prelude.Natural,
     workloadId :: Prelude.Maybe Prelude.Text,
@@ -219,6 +223,8 @@ data ListAnswersResponse = ListAnswersResponse'
 --
 -- 'nextToken', 'listAnswersResponse_nextToken' - Undocumented member.
 --
+-- 'lensArn', 'listAnswersResponse_lensArn' - The ARN for the lens.
+--
 -- 'lensAlias', 'listAnswersResponse_lensAlias' - Undocumented member.
 --
 -- 'milestoneNumber', 'listAnswersResponse_milestoneNumber' - Undocumented member.
@@ -235,6 +241,7 @@ newListAnswersResponse pHttpStatus_ =
     { answerSummaries =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      lensArn = Prelude.Nothing,
       lensAlias = Prelude.Nothing,
       milestoneNumber = Prelude.Nothing,
       workloadId = Prelude.Nothing,
@@ -248,6 +255,10 @@ listAnswersResponse_answerSummaries = Lens.lens (\ListAnswersResponse' {answerSu
 -- | Undocumented member.
 listAnswersResponse_nextToken :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
 listAnswersResponse_nextToken = Lens.lens (\ListAnswersResponse' {nextToken} -> nextToken) (\s@ListAnswersResponse' {} a -> s {nextToken = a} :: ListAnswersResponse)
+
+-- | The ARN for the lens.
+listAnswersResponse_lensArn :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
+listAnswersResponse_lensArn = Lens.lens (\ListAnswersResponse' {lensArn} -> lensArn) (\s@ListAnswersResponse' {} a -> s {lensArn = a} :: ListAnswersResponse)
 
 -- | Undocumented member.
 listAnswersResponse_lensAlias :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
@@ -269,6 +280,7 @@ instance Prelude.NFData ListAnswersResponse where
   rnf ListAnswersResponse' {..} =
     Prelude.rnf answerSummaries
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf workloadId

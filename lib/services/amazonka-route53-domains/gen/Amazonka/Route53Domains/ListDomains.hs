@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation returns all the domain names registered with Amazon Route
--- 53 for the current AWS account.
+-- 53 for the current Amazon Web Services account if no filtering
+-- conditions are used.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53Domains.ListDomains
@@ -32,6 +33,8 @@ module Amazonka.Route53Domains.ListDomains
     -- * Request Lenses
     listDomains_marker,
     listDomains_maxItems,
+    listDomains_sortCondition,
+    listDomains_filterConditions,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
@@ -56,11 +59,12 @@ import Amazonka.Route53Domains.Types
 -- /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
   { -- | For an initial request for a list of domains, omit this element. If the
-    -- number of domains that are associated with the current AWS account is
-    -- greater than the value that you specified for @MaxItems@, you can use
-    -- @Marker@ to return additional domains. Get the value of @NextPageMarker@
-    -- from the previous response, and submit another request that includes the
-    -- value of @NextPageMarker@ in the @Marker@ element.
+    -- number of domains that are associated with the current Amazon Web
+    -- Services account is greater than the value that you specified for
+    -- @MaxItems@, you can use @Marker@ to return additional domains. Get the
+    -- value of @NextPageMarker@ from the previous response, and submit another
+    -- request that includes the value of @NextPageMarker@ in the @Marker@
+    -- element.
     --
     -- Constraints: The marker must match the value specified in the previous
     -- request.
@@ -68,7 +72,14 @@ data ListDomains = ListDomains'
     -- | Number of domains to be returned.
     --
     -- Default: 20
-    maxItems :: Prelude.Maybe Prelude.Int
+    maxItems :: Prelude.Maybe Prelude.Int,
+    -- | A complex type that contains information about the requested ordering of
+    -- domains in the returned list.
+    sortCondition :: Prelude.Maybe SortCondition,
+    -- | A complex type that contains information about the filters applied
+    -- during the @ListDomains@ request. The filter conditions can include
+    -- domain name and domain expiration.
+    filterConditions :: Prelude.Maybe [FilterCondition]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,11 +92,12 @@ data ListDomains = ListDomains'
 -- for backwards compatibility:
 --
 -- 'marker', 'listDomains_marker' - For an initial request for a list of domains, omit this element. If the
--- number of domains that are associated with the current AWS account is
--- greater than the value that you specified for @MaxItems@, you can use
--- @Marker@ to return additional domains. Get the value of @NextPageMarker@
--- from the previous response, and submit another request that includes the
--- value of @NextPageMarker@ in the @Marker@ element.
+-- number of domains that are associated with the current Amazon Web
+-- Services account is greater than the value that you specified for
+-- @MaxItems@, you can use @Marker@ to return additional domains. Get the
+-- value of @NextPageMarker@ from the previous response, and submit another
+-- request that includes the value of @NextPageMarker@ in the @Marker@
+-- element.
 --
 -- Constraints: The marker must match the value specified in the previous
 -- request.
@@ -93,20 +105,30 @@ data ListDomains = ListDomains'
 -- 'maxItems', 'listDomains_maxItems' - Number of domains to be returned.
 --
 -- Default: 20
+--
+-- 'sortCondition', 'listDomains_sortCondition' - A complex type that contains information about the requested ordering of
+-- domains in the returned list.
+--
+-- 'filterConditions', 'listDomains_filterConditions' - A complex type that contains information about the filters applied
+-- during the @ListDomains@ request. The filter conditions can include
+-- domain name and domain expiration.
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
     { marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      sortCondition = Prelude.Nothing,
+      filterConditions = Prelude.Nothing
     }
 
 -- | For an initial request for a list of domains, omit this element. If the
--- number of domains that are associated with the current AWS account is
--- greater than the value that you specified for @MaxItems@, you can use
--- @Marker@ to return additional domains. Get the value of @NextPageMarker@
--- from the previous response, and submit another request that includes the
--- value of @NextPageMarker@ in the @Marker@ element.
+-- number of domains that are associated with the current Amazon Web
+-- Services account is greater than the value that you specified for
+-- @MaxItems@, you can use @Marker@ to return additional domains. Get the
+-- value of @NextPageMarker@ from the previous response, and submit another
+-- request that includes the value of @NextPageMarker@ in the @Marker@
+-- element.
 --
 -- Constraints: The marker must match the value specified in the previous
 -- request.
@@ -118,6 +140,17 @@ listDomains_marker = Lens.lens (\ListDomains' {marker} -> marker) (\s@ListDomain
 -- Default: 20
 listDomains_maxItems :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Int)
 listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@ListDomains' {} a -> s {maxItems = a} :: ListDomains)
+
+-- | A complex type that contains information about the requested ordering of
+-- domains in the returned list.
+listDomains_sortCondition :: Lens.Lens' ListDomains (Prelude.Maybe SortCondition)
+listDomains_sortCondition = Lens.lens (\ListDomains' {sortCondition} -> sortCondition) (\s@ListDomains' {} a -> s {sortCondition = a} :: ListDomains)
+
+-- | A complex type that contains information about the filters applied
+-- during the @ListDomains@ request. The filter conditions can include
+-- domain name and domain expiration.
+listDomains_filterConditions :: Lens.Lens' ListDomains (Prelude.Maybe [FilterCondition])
+listDomains_filterConditions = Lens.lens (\ListDomains' {filterConditions} -> filterConditions) (\s@ListDomains' {} a -> s {filterConditions = a} :: ListDomains) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListDomains where
   page rq rs
@@ -153,11 +186,15 @@ instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
     _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` sortCondition
+      `Prelude.hashWithSalt` filterConditions
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf sortCondition
+      `Prelude.seq` Prelude.rnf filterConditions
 
 instance Core.ToHeaders ListDomains where
   toHeaders =
@@ -179,7 +216,10 @@ instance Core.ToJSON ListDomains where
     Core.object
       ( Prelude.catMaybes
           [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxItems" Core..=) Prelude.<$> maxItems
+            ("MaxItems" Core..=) Prelude.<$> maxItems,
+            ("SortCondition" Core..=) Prelude.<$> sortCondition,
+            ("FilterConditions" Core..=)
+              Prelude.<$> filterConditions
           ]
       )
 
@@ -199,7 +239,7 @@ data ListDomainsResponse = ListDomainsResponse'
     nextPageMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A summary of domains.
+    -- | A list of domains.
     domains :: [DomainSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -218,7 +258,7 @@ data ListDomainsResponse = ListDomainsResponse'
 --
 -- 'httpStatus', 'listDomainsResponse_httpStatus' - The response's http status code.
 --
--- 'domains', 'listDomainsResponse_domains' - A summary of domains.
+-- 'domains', 'listDomainsResponse_domains' - A list of domains.
 newListDomainsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -241,7 +281,7 @@ listDomainsResponse_nextPageMarker = Lens.lens (\ListDomainsResponse' {nextPageM
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
--- | A summary of domains.
+-- | A list of domains.
 listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse [DomainSummary]
 listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.coerced
 

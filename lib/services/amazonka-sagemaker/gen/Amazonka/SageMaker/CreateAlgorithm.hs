@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a machine learning algorithm that you can use in Amazon SageMaker
--- and list in the Amazon Web Services Marketplace.
+-- Create a machine learning algorithm that you can use in SageMaker and
+-- list in the Amazon Web Services Marketplace.
 module Amazonka.SageMaker.CreateAlgorithm
   ( -- * Creating a Request
     CreateAlgorithm (..),
@@ -60,9 +60,9 @@ data CreateAlgorithm = CreateAlgorithm'
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | Specifies configurations for one or more training jobs and that Amazon
+    -- | Specifies configurations for one or more training jobs and that
     -- SageMaker runs to test the algorithm\'s training code and, optionally,
-    -- one or more batch transform jobs that Amazon SageMaker runs to test the
+    -- one or more batch transform jobs that SageMaker runs to test the
     -- algorithm\'s inference code.
     validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
     -- | Whether to certify the algorithm so that it can be listed in Amazon Web
@@ -121,9 +121,9 @@ data CreateAlgorithm = CreateAlgorithm'
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
--- 'validationSpecification', 'createAlgorithm_validationSpecification' - Specifies configurations for one or more training jobs and that Amazon
+-- 'validationSpecification', 'createAlgorithm_validationSpecification' - Specifies configurations for one or more training jobs and that
 -- SageMaker runs to test the algorithm\'s training code and, optionally,
--- one or more batch transform jobs that Amazon SageMaker runs to test the
+-- one or more batch transform jobs that SageMaker runs to test the
 -- algorithm\'s inference code.
 --
 -- 'certifyForMarketplace', 'createAlgorithm_certifyForMarketplace' - Whether to certify the algorithm so that it can be listed in Amazon Web
@@ -191,9 +191,9 @@ newCreateAlgorithm
 createAlgorithm_tags :: Lens.Lens' CreateAlgorithm (Prelude.Maybe [Tag])
 createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAlgorithm' {} a -> s {tags = a} :: CreateAlgorithm) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies configurations for one or more training jobs and that Amazon
+-- | Specifies configurations for one or more training jobs and that
 -- SageMaker runs to test the algorithm\'s training code and, optionally,
--- one or more batch transform jobs that Amazon SageMaker runs to test the
+-- one or more batch transform jobs that SageMaker runs to test the
 -- algorithm\'s inference code.
 createAlgorithm_validationSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe AlgorithmValidationSpecification)
 createAlgorithm_validationSpecification = Lens.lens (\CreateAlgorithm' {validationSpecification} -> validationSpecification) (\s@CreateAlgorithm' {} a -> s {validationSpecification = a} :: CreateAlgorithm)

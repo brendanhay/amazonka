@@ -135,6 +135,7 @@ library
     Amazonka.AccessAnalyzer.Types.Type
     Amazonka.AccessAnalyzer.Types.ValidatePolicyFinding
     Amazonka.AccessAnalyzer.Types.ValidatePolicyFindingType
+    Amazonka.AccessAnalyzer.Types.ValidatePolicyResourceType
     Amazonka.AccessAnalyzer.Types.VpcConfiguration
     Amazonka.AccessAnalyzer.UntagResource
     Amazonka.AccessAnalyzer.UpdateArchiveRule

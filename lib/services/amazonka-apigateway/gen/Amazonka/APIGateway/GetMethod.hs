@@ -61,11 +61,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetMethod' smart constructor.
 data GetMethod = GetMethod'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The Resource identifier for the Method resource.
+    -- | The Resource identifier for the Method resource.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies the method request\'s HTTP method type.
+    -- | Specifies the method request\'s HTTP method type.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,11 +78,11 @@ data GetMethod = GetMethod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getMethod_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getMethod_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'getMethod_resourceId' - [Required] The Resource identifier for the Method resource.
+-- 'resourceId', 'getMethod_resourceId' - The Resource identifier for the Method resource.
 --
--- 'httpMethod', 'getMethod_httpMethod' - [Required] Specifies the method request\'s HTTP method type.
+-- 'httpMethod', 'getMethod_httpMethod' - Specifies the method request\'s HTTP method type.
 newGetMethod ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -98,15 +98,15 @@ newGetMethod pRestApiId_ pResourceId_ pHttpMethod_ =
       httpMethod = pHttpMethod_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getMethod_restApiId :: Lens.Lens' GetMethod Prelude.Text
 getMethod_restApiId = Lens.lens (\GetMethod' {restApiId} -> restApiId) (\s@GetMethod' {} a -> s {restApiId = a} :: GetMethod)
 
--- | [Required] The Resource identifier for the Method resource.
+-- | The Resource identifier for the Method resource.
 getMethod_resourceId :: Lens.Lens' GetMethod Prelude.Text
 getMethod_resourceId = Lens.lens (\GetMethod' {resourceId} -> resourceId) (\s@GetMethod' {} a -> s {resourceId = a} :: GetMethod)
 
--- | [Required] Specifies the method request\'s HTTP method type.
+-- | Specifies the method request\'s HTTP method type.
 getMethod_httpMethod :: Lens.Lens' GetMethod Prelude.Text
 getMethod_httpMethod = Lens.lens (\GetMethod' {httpMethod} -> httpMethod) (\s@GetMethod' {} a -> s {httpMethod = a} :: GetMethod)
 

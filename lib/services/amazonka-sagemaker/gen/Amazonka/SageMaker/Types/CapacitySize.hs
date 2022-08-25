@@ -24,12 +24,20 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CapacitySizeType
 
--- | Currently, the @CapacitySize@ API is not supported.
+-- | Specifies the endpoint capacity to activate for production.
 --
 -- /See:/ 'newCapacitySize' smart constructor.
 data CapacitySize = CapacitySize'
-  { -- | This API is not supported.
+  { -- | Specifies the endpoint capacity type.
+    --
+    -- -   @INSTANCE_COUNT@: The endpoint activates based on the number of
+    --     instances.
+    --
+    -- -   @CAPACITY_PERCENT@: The endpoint activates based on the specified
+    --     percentage of capacity.
     type' :: CapacitySizeType,
+    -- | Defines the capacity size, either as a number of instances or a capacity
+    -- percentage.
     value :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +50,16 @@ data CapacitySize = CapacitySize'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'capacitySize_type' - This API is not supported.
+-- 'type'', 'capacitySize_type' - Specifies the endpoint capacity type.
 --
--- 'value', 'capacitySize_value' -
+-- -   @INSTANCE_COUNT@: The endpoint activates based on the number of
+--     instances.
+--
+-- -   @CAPACITY_PERCENT@: The endpoint activates based on the specified
+--     percentage of capacity.
+--
+-- 'value', 'capacitySize_value' - Defines the capacity size, either as a number of instances or a capacity
+-- percentage.
 newCapacitySize ::
   -- | 'type''
   CapacitySizeType ->
@@ -54,11 +69,18 @@ newCapacitySize ::
 newCapacitySize pType_ pValue_ =
   CapacitySize' {type' = pType_, value = pValue_}
 
--- | This API is not supported.
+-- | Specifies the endpoint capacity type.
+--
+-- -   @INSTANCE_COUNT@: The endpoint activates based on the number of
+--     instances.
+--
+-- -   @CAPACITY_PERCENT@: The endpoint activates based on the specified
+--     percentage of capacity.
 capacitySize_type :: Lens.Lens' CapacitySize CapacitySizeType
 capacitySize_type = Lens.lens (\CapacitySize' {type'} -> type') (\s@CapacitySize' {} a -> s {type' = a} :: CapacitySize)
 
--- |
+-- | Defines the capacity size, either as a number of instances or a capacity
+-- percentage.
 capacitySize_value :: Lens.Lens' CapacitySize Prelude.Natural
 capacitySize_value = Lens.lens (\CapacitySize' {value} -> value) (\s@CapacitySize' {} a -> s {value = a} :: CapacitySize)
 

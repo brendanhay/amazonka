@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an existing IAMpolicy assignment, as specified by the
+-- Describes an existing IAM policy assignment, as specified by the
 -- assignment name.
 module Amazonka.QuickSight.DescribeIAMPolicyAssignment
   ( -- * Creating a Request
@@ -163,7 +163,7 @@ instance Core.ToQuery DescribeIAMPolicyAssignment where
 data DescribeIAMPolicyAssignmentResponse = DescribeIAMPolicyAssignmentResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | Information describing the IAMpolicy assignment.
+    -- | Information describing the IAM policy assignment.
     iAMPolicyAssignment :: Prelude.Maybe IAMPolicyAssignment,
     -- | The HTTP status of the request.
     status :: Prelude.Int
@@ -180,7 +180,7 @@ data DescribeIAMPolicyAssignmentResponse = DescribeIAMPolicyAssignmentResponse'
 --
 -- 'requestId', 'describeIAMPolicyAssignmentResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'iAMPolicyAssignment', 'describeIAMPolicyAssignmentResponse_iAMPolicyAssignment' - Information describing the IAMpolicy assignment.
+-- 'iAMPolicyAssignment', 'describeIAMPolicyAssignmentResponse_iAMPolicyAssignment' - Information describing the IAM policy assignment.
 --
 -- 'status', 'describeIAMPolicyAssignmentResponse_status' - The HTTP status of the request.
 newDescribeIAMPolicyAssignmentResponse ::
@@ -199,7 +199,7 @@ newDescribeIAMPolicyAssignmentResponse pStatus_ =
 describeIAMPolicyAssignmentResponse_requestId :: Lens.Lens' DescribeIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 describeIAMPolicyAssignmentResponse_requestId = Lens.lens (\DescribeIAMPolicyAssignmentResponse' {requestId} -> requestId) (\s@DescribeIAMPolicyAssignmentResponse' {} a -> s {requestId = a} :: DescribeIAMPolicyAssignmentResponse)
 
--- | Information describing the IAMpolicy assignment.
+-- | Information describing the IAM policy assignment.
 describeIAMPolicyAssignmentResponse_iAMPolicyAssignment :: Lens.Lens' DescribeIAMPolicyAssignmentResponse (Prelude.Maybe IAMPolicyAssignment)
 describeIAMPolicyAssignmentResponse_iAMPolicyAssignment = Lens.lens (\DescribeIAMPolicyAssignmentResponse' {iAMPolicyAssignment} -> iAMPolicyAssignment) (\s@DescribeIAMPolicyAssignmentResponse' {} a -> s {iAMPolicyAssignment = a} :: DescribeIAMPolicyAssignmentResponse)
 

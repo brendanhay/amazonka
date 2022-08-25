@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTypeSummary' smart constructor.
 data TypeSummary = TypeSummary'
   { -- | The ID of the default version of the extension. The default version is
-    -- used when the extension version is not specified.
+    -- used when the extension version isn\'t specified.
     --
     -- This applies only to private extensions you have registered in your
     -- account. For public extensions, both those provided by Amazon and
@@ -48,17 +48,17 @@ data TypeSummary = TypeSummary'
     typeArn :: Prelude.Maybe Prelude.Text,
     -- | For public extensions that have been activated for this account and
     -- region, the version of the public extension to be used for
-    -- CloudFormation operations in this account and region.
+    -- CloudFormation operations in this account and Region.
     --
     -- How you specified @AutoUpdate@ when enabling the extension affects
-    -- whether CloudFormation automatically updates the extention in this
+    -- whether CloudFormation automatically updates the extension in this
     -- account and region when a new version is released. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
     -- in the /CloudFormation User Guide/.
     publicVersionNumber :: Prelude.Maybe Prelude.Text,
     -- | The ID of the extension publisher, if the extension is published by a
-    -- third party. Extensions published by Amazon do not return a publisher
+    -- third party. Extensions published by Amazon don\'t return a publisher
     -- ID.
     publisherId :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension.
@@ -105,13 +105,13 @@ data TypeSummary = TypeSummary'
     -- CloudFormation returns @null@.
     --
     -- How you specified @AutoUpdate@ when enabling the extension affects
-    -- whether CloudFormation automatically updates the extention in this
+    -- whether CloudFormation automatically updates the extension in this
     -- account and region when a new version is released. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
     -- in the /CloudFormation User Guide/.
     latestPublicVersion :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not the extension is activated for this account and region.
+    -- | Whether the extension is activated for this account and region.
     --
     -- This applies only to third-party public extensions. Extensions published
     -- by Amazon are activated by default.
@@ -131,7 +131,7 @@ data TypeSummary = TypeSummary'
 -- for backwards compatibility:
 --
 -- 'defaultVersionId', 'typeSummary_defaultVersionId' - The ID of the default version of the extension. The default version is
--- used when the extension version is not specified.
+-- used when the extension version isn\'t specified.
 --
 -- This applies only to private extensions you have registered in your
 -- account. For public extensions, both those provided by Amazon and
@@ -148,17 +148,17 @@ data TypeSummary = TypeSummary'
 --
 -- 'publicVersionNumber', 'typeSummary_publicVersionNumber' - For public extensions that have been activated for this account and
 -- region, the version of the public extension to be used for
--- CloudFormation operations in this account and region.
+-- CloudFormation operations in this account and Region.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
--- whether CloudFormation automatically updates the extention in this
+-- whether CloudFormation automatically updates the extension in this
 -- account and region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
 --
 -- 'publisherId', 'typeSummary_publisherId' - The ID of the extension publisher, if the extension is published by a
--- third party. Extensions published by Amazon do not return a publisher
+-- third party. Extensions published by Amazon don\'t return a publisher
 -- ID.
 --
 -- 'typeName', 'typeSummary_typeName' - The name of the extension.
@@ -205,13 +205,13 @@ data TypeSummary = TypeSummary'
 -- CloudFormation returns @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
--- whether CloudFormation automatically updates the extention in this
+-- whether CloudFormation automatically updates the extension in this
 -- account and region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
 --
--- 'isActivated', 'typeSummary_isActivated' - Whether or not the extension is activated for this account and region.
+-- 'isActivated', 'typeSummary_isActivated' - Whether the extension is activated for this account and region.
 --
 -- This applies only to third-party public extensions. Extensions published
 -- by Amazon are activated by default.
@@ -238,7 +238,7 @@ newTypeSummary =
     }
 
 -- | The ID of the default version of the extension. The default version is
--- used when the extension version is not specified.
+-- used when the extension version isn\'t specified.
 --
 -- This applies only to private extensions you have registered in your
 -- account. For public extensions, both those provided by Amazon and
@@ -261,10 +261,10 @@ typeSummary_typeArn = Lens.lens (\TypeSummary' {typeArn} -> typeArn) (\s@TypeSum
 
 -- | For public extensions that have been activated for this account and
 -- region, the version of the public extension to be used for
--- CloudFormation operations in this account and region.
+-- CloudFormation operations in this account and Region.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
--- whether CloudFormation automatically updates the extention in this
+-- whether CloudFormation automatically updates the extension in this
 -- account and region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
@@ -273,7 +273,7 @@ typeSummary_publicVersionNumber :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude
 typeSummary_publicVersionNumber = Lens.lens (\TypeSummary' {publicVersionNumber} -> publicVersionNumber) (\s@TypeSummary' {} a -> s {publicVersionNumber = a} :: TypeSummary)
 
 -- | The ID of the extension publisher, if the extension is published by a
--- third party. Extensions published by Amazon do not return a publisher
+-- third party. Extensions published by Amazon don\'t return a publisher
 -- ID.
 typeSummary_publisherId :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_publisherId = Lens.lens (\TypeSummary' {publisherId} -> publisherId) (\s@TypeSummary' {} a -> s {publisherId = a} :: TypeSummary)
@@ -332,7 +332,7 @@ typeSummary_originalTypeName = Lens.lens (\TypeSummary' {originalTypeName} -> or
 -- CloudFormation returns @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
--- whether CloudFormation automatically updates the extention in this
+-- whether CloudFormation automatically updates the extension in this
 -- account and region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
@@ -340,7 +340,7 @@ typeSummary_originalTypeName = Lens.lens (\TypeSummary' {originalTypeName} -> or
 typeSummary_latestPublicVersion :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_latestPublicVersion = Lens.lens (\TypeSummary' {latestPublicVersion} -> latestPublicVersion) (\s@TypeSummary' {} a -> s {latestPublicVersion = a} :: TypeSummary)
 
--- | Whether or not the extension is activated for this account and region.
+-- | Whether the extension is activated for this account and region.
 --
 -- This applies only to third-party public extensions. Extensions published
 -- by Amazon are activated by default.

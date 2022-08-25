@@ -34,12 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 data CostCategoryRule = CostCategoryRule'
   { -- | You can define the @CostCategoryRule@ rule type as either @REGULAR@ or
     -- @INHERITED_VALUE@. The @INHERITED_VALUE@ rule type adds the flexibility
-    -- of defining a rule that dynamically inherits the cost category value
-    -- from the dimension value defined by
-    -- @CostCategoryInheritedValueDimension@. For example, if you want to
-    -- dynamically group costs based on the value of a specific tag key, first
-    -- choose an inherited value rule type, then choose the tag dimension and
-    -- specify the tag key to use.
+    -- to define a rule that dynamically inherits the cost category value. This
+    -- value is from the dimension value that\'s defined by
+    -- @CostCategoryInheritedValueDimension@. For example, suppose that you
+    -- want to costs to be dynamically grouped based on the value of a specific
+    -- tag key. First, choose an inherited value rule type, and then choose the
+    -- tag dimension and specify the tag key to use.
     type' :: Prelude.Maybe CostCategoryRuleType,
     -- | The value the line item is categorized as if the line item contains the
     -- matched dimension.
@@ -75,12 +75,12 @@ data CostCategoryRule = CostCategoryRule'
 --
 -- 'type'', 'costCategoryRule_type' - You can define the @CostCategoryRule@ rule type as either @REGULAR@ or
 -- @INHERITED_VALUE@. The @INHERITED_VALUE@ rule type adds the flexibility
--- of defining a rule that dynamically inherits the cost category value
--- from the dimension value defined by
--- @CostCategoryInheritedValueDimension@. For example, if you want to
--- dynamically group costs based on the value of a specific tag key, first
--- choose an inherited value rule type, then choose the tag dimension and
--- specify the tag key to use.
+-- to define a rule that dynamically inherits the cost category value. This
+-- value is from the dimension value that\'s defined by
+-- @CostCategoryInheritedValueDimension@. For example, suppose that you
+-- want to costs to be dynamically grouped based on the value of a specific
+-- tag key. First, choose an inherited value rule type, and then choose the
+-- tag dimension and specify the tag key to use.
 --
 -- 'inheritedValue', 'costCategoryRule_inheritedValue' - The value the line item is categorized as if the line item contains the
 -- matched dimension.
@@ -115,12 +115,12 @@ newCostCategoryRule =
 
 -- | You can define the @CostCategoryRule@ rule type as either @REGULAR@ or
 -- @INHERITED_VALUE@. The @INHERITED_VALUE@ rule type adds the flexibility
--- of defining a rule that dynamically inherits the cost category value
--- from the dimension value defined by
--- @CostCategoryInheritedValueDimension@. For example, if you want to
--- dynamically group costs based on the value of a specific tag key, first
--- choose an inherited value rule type, then choose the tag dimension and
--- specify the tag key to use.
+-- to define a rule that dynamically inherits the cost category value. This
+-- value is from the dimension value that\'s defined by
+-- @CostCategoryInheritedValueDimension@. For example, suppose that you
+-- want to costs to be dynamically grouped based on the value of a specific
+-- tag key. First, choose an inherited value rule type, and then choose the
+-- tag dimension and specify the tag key to use.
 costCategoryRule_type :: Lens.Lens' CostCategoryRule (Prelude.Maybe CostCategoryRuleType)
 costCategoryRule_type = Lens.lens (\CostCategoryRule' {type'} -> type') (\s@CostCategoryRule' {} a -> s {type' = a} :: CostCategoryRule)
 

@@ -20,19 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified member AWS account as a delegated administrator
--- for the specified AWS service.
+-- Removes the specified member Amazon Web Services account as a delegated
+-- administrator for the specified Amazon Web Services service.
 --
 -- Deregistering a delegated administrator can have unintended impacts on
--- the functionality of the enabled AWS service. See the documentation for
--- the enabled service before you deregister a delegated administrator so
--- that you understand any potential impacts.
+-- the functionality of the enabled Amazon Web Services service. See the
+-- documentation for the enabled service before you deregister a delegated
+-- administrator so that you understand any potential impacts.
 --
--- You can run this action only for AWS services that support this feature.
--- For a current list of services that support it, see the column /Supports
--- Delegated Administrator/ in the table at
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html AWS Services that you can use with AWS Organizations>
--- in the /AWS Organizations User Guide./
+-- You can run this action only for Amazon Web Services services that
+-- support this feature. For a current list of services that support it,
+-- see the column /Supports Delegated Administrator/ in the table at
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html Amazon Web Services Services that you can use with Organizations>
+-- in the /Organizations User Guide./
 --
 -- This operation can be called only from the organization\'s management
 -- account.
@@ -63,13 +63,14 @@ data DeregisterDelegatedAdministrator = DeregisterDelegatedAdministrator'
   { -- | The account ID number of the member account in the organization that you
     -- want to deregister as a delegated administrator.
     accountId :: Prelude.Text,
-    -- | The service principal name of an AWS service for which the account is a
-    -- delegated administrator.
+    -- | The service principal name of an Amazon Web Services service for which
+    -- the account is a delegated administrator.
     --
     -- Delegated administrator privileges are revoked for only the specified
-    -- AWS service from the member account. If the specified service is the
-    -- only service for which the member account is a delegated administrator,
-    -- the operation also revokes Organizations read action permissions.
+    -- Amazon Web Services service from the member account. If the specified
+    -- service is the only service for which the member account is a delegated
+    -- administrator, the operation also revokes Organizations read action
+    -- permissions.
     servicePrincipal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,13 +86,14 @@ data DeregisterDelegatedAdministrator = DeregisterDelegatedAdministrator'
 -- 'accountId', 'deregisterDelegatedAdministrator_accountId' - The account ID number of the member account in the organization that you
 -- want to deregister as a delegated administrator.
 --
--- 'servicePrincipal', 'deregisterDelegatedAdministrator_servicePrincipal' - The service principal name of an AWS service for which the account is a
--- delegated administrator.
+-- 'servicePrincipal', 'deregisterDelegatedAdministrator_servicePrincipal' - The service principal name of an Amazon Web Services service for which
+-- the account is a delegated administrator.
 --
 -- Delegated administrator privileges are revoked for only the specified
--- AWS service from the member account. If the specified service is the
--- only service for which the member account is a delegated administrator,
--- the operation also revokes Organizations read action permissions.
+-- Amazon Web Services service from the member account. If the specified
+-- service is the only service for which the member account is a delegated
+-- administrator, the operation also revokes Organizations read action
+-- permissions.
 newDeregisterDelegatedAdministrator ::
   -- | 'accountId'
   Prelude.Text ->
@@ -112,13 +114,14 @@ newDeregisterDelegatedAdministrator
 deregisterDelegatedAdministrator_accountId :: Lens.Lens' DeregisterDelegatedAdministrator Prelude.Text
 deregisterDelegatedAdministrator_accountId = Lens.lens (\DeregisterDelegatedAdministrator' {accountId} -> accountId) (\s@DeregisterDelegatedAdministrator' {} a -> s {accountId = a} :: DeregisterDelegatedAdministrator)
 
--- | The service principal name of an AWS service for which the account is a
--- delegated administrator.
+-- | The service principal name of an Amazon Web Services service for which
+-- the account is a delegated administrator.
 --
 -- Delegated administrator privileges are revoked for only the specified
--- AWS service from the member account. If the specified service is the
--- only service for which the member account is a delegated administrator,
--- the operation also revokes Organizations read action permissions.
+-- Amazon Web Services service from the member account. If the specified
+-- service is the only service for which the member account is a delegated
+-- administrator, the operation also revokes Organizations read action
+-- permissions.
 deregisterDelegatedAdministrator_servicePrincipal :: Lens.Lens' DeregisterDelegatedAdministrator Prelude.Text
 deregisterDelegatedAdministrator_servicePrincipal = Lens.lens (\DeregisterDelegatedAdministrator' {servicePrincipal} -> servicePrincipal) (\s@DeregisterDelegatedAdministrator' {} a -> s {servicePrincipal = a} :: DeregisterDelegatedAdministrator)
 

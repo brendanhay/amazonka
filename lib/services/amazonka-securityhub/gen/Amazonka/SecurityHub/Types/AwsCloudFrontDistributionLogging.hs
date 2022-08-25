@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls whether access logs are written for the
--- distribution.
+-- CloudFront distribution.
 --
 -- /See:/ 'newAwsCloudFrontDistributionLogging' smart constructor.
 data AwsCloudFrontDistributionLogging = AwsCloudFrontDistributionLogging'

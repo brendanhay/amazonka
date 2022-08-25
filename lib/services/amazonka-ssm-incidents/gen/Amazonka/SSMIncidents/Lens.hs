@@ -204,6 +204,7 @@ module Amazonka.SSMIncidents.Lens
     updateResponsePlan_clientToken,
     updateResponsePlan_incidentTemplateDedupeString,
     updateResponsePlan_incidentTemplateNotificationTargets,
+    updateResponsePlan_incidentTemplateTags,
     updateResponsePlan_chatChannel,
     updateResponsePlan_displayName,
     updateResponsePlan_incidentTemplateImpact,
@@ -251,6 +252,9 @@ module Amazonka.SSMIncidents.Lens
     -- ** DeleteRegionAction
     deleteRegionAction_regionName,
 
+    -- ** DynamicSsmParameterValue
+    dynamicSsmParameterValue_variable,
+
     -- ** EmptyChatChannel
 
     -- ** EventSummary
@@ -296,6 +300,7 @@ module Amazonka.SSMIncidents.Lens
     incidentRecordSummary_title,
 
     -- ** IncidentTemplate
+    incidentTemplate_incidentTags,
     incidentTemplate_summary,
     incidentTemplate_notificationTargets,
     incidentTemplate_dedupeString,
@@ -355,6 +360,7 @@ module Amazonka.SSMIncidents.Lens
     ssmAutomation_targetAccount,
     ssmAutomation_parameters,
     ssmAutomation_documentVersion,
+    ssmAutomation_dynamicParameters,
     ssmAutomation_documentName,
     ssmAutomation_roleArn,
 
@@ -407,6 +413,7 @@ import Amazonka.SSMIncidents.Types.AutomationExecution
 import Amazonka.SSMIncidents.Types.ChatChannel
 import Amazonka.SSMIncidents.Types.Condition
 import Amazonka.SSMIncidents.Types.DeleteRegionAction
+import Amazonka.SSMIncidents.Types.DynamicSsmParameterValue
 import Amazonka.SSMIncidents.Types.EmptyChatChannel
 import Amazonka.SSMIncidents.Types.EventSummary
 import Amazonka.SSMIncidents.Types.Filter

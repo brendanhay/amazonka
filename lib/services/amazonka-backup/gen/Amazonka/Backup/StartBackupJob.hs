@@ -67,12 +67,15 @@ data StartBackupJob = StartBackupJob'
     -- automatically according to the lifecycle that you define.
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
-    -- a minimum of 90 days. Therefore, the “expire after days” setting must be
-    -- 90 days greater than the “transition to cold after days” setting. The
+    -- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+    -- greater than the “transition to cold after days” setting. The
     -- “transition to cold after days” setting cannot be changed after a backup
     -- has been transitioned to cold.
     --
-    -- Only Amazon EFS file system backups can be transitioned to cold storage.
+    -- Resource types that are able to be transitioned to cold storage are
+    -- listed in the \"Lifecycle to cold storage\" section of the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+    -- table. Backup ignores this expression for other resource types.
     lifecycle :: Prelude.Maybe Lifecycle,
     -- | A customer-chosen string that you can use to distinguish between
     -- otherwise identical calls to @StartBackupJob@. Retrying a successful
@@ -88,10 +91,10 @@ data StartBackupJob = StartBackupJob'
     -- @WindowsVSS@ option is not enabled by default.
     backupOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A value in minutes during which a successfully started backup must
-    -- complete, or else AWS Backup will cancel the job. This value is
-    -- optional. This value begins counting down from when the backup was
-    -- scheduled. It does not add additional time for @StartWindowMinutes@, or
-    -- if the backup started later than scheduled.
+    -- complete, or else Backup will cancel the job. This value is optional.
+    -- This value begins counting down from when the backup was scheduled. It
+    -- does not add additional time for @StartWindowMinutes@, or if the backup
+    -- started later than scheduled.
     completeWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | To help organize your resources, you can assign your own metadata to the
     -- resources that you create. Each tag is a key-value pair.
@@ -127,12 +130,15 @@ data StartBackupJob = StartBackupJob'
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 --
 -- 'idempotencyToken', 'startBackupJob_idempotencyToken' - A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @StartBackupJob@. Retrying a successful
@@ -148,10 +154,10 @@ data StartBackupJob = StartBackupJob'
 -- @WindowsVSS@ option is not enabled by default.
 --
 -- 'completeWindowMinutes', 'startBackupJob_completeWindowMinutes' - A value in minutes during which a successfully started backup must
--- complete, or else AWS Backup will cancel the job. This value is
--- optional. This value begins counting down from when the backup was
--- scheduled. It does not add additional time for @StartWindowMinutes@, or
--- if the backup started later than scheduled.
+-- complete, or else Backup will cancel the job. This value is optional.
+-- This value begins counting down from when the backup was scheduled. It
+-- does not add additional time for @StartWindowMinutes@, or if the backup
+-- started later than scheduled.
 --
 -- 'recoveryPointTags', 'startBackupJob_recoveryPointTags' - To help organize your resources, you can assign your own metadata to the
 -- resources that you create. Each tag is a key-value pair.
@@ -202,12 +208,15 @@ startBackupJob_startWindowMinutes = Lens.lens (\StartBackupJob' {startWindowMinu
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 startBackupJob_lifecycle :: Lens.Lens' StartBackupJob (Prelude.Maybe Lifecycle)
 startBackupJob_lifecycle = Lens.lens (\StartBackupJob' {lifecycle} -> lifecycle) (\s@StartBackupJob' {} a -> s {lifecycle = a} :: StartBackupJob)
 
@@ -229,10 +238,10 @@ startBackupJob_backupOptions :: Lens.Lens' StartBackupJob (Prelude.Maybe (Prelud
 startBackupJob_backupOptions = Lens.lens (\StartBackupJob' {backupOptions} -> backupOptions) (\s@StartBackupJob' {} a -> s {backupOptions = a} :: StartBackupJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value in minutes during which a successfully started backup must
--- complete, or else AWS Backup will cancel the job. This value is
--- optional. This value begins counting down from when the backup was
--- scheduled. It does not add additional time for @StartWindowMinutes@, or
--- if the backup started later than scheduled.
+-- complete, or else Backup will cancel the job. This value is optional.
+-- This value begins counting down from when the backup was scheduled. It
+-- does not add additional time for @StartWindowMinutes@, or if the backup
+-- started later than scheduled.
 startBackupJob_completeWindowMinutes :: Lens.Lens' StartBackupJob (Prelude.Maybe Prelude.Integer)
 startBackupJob_completeWindowMinutes = Lens.lens (\StartBackupJob' {completeWindowMinutes} -> completeWindowMinutes) (\s@StartBackupJob' {} a -> s {completeWindowMinutes = a} :: StartBackupJob)
 

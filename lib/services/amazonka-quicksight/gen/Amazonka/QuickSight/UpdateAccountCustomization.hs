@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates Amazon QuickSight customizations the current Amazon Web Services
--- Region. Currently, the only customization you can use is a theme.
+-- Updates Amazon QuickSight customizations for the current Amazon Web
+-- Services Region. Currently, the only customization that you can use is a
+-- theme.
 --
 -- You can use customizations for your Amazon Web Services account or, if
 -- you specify a namespace, for a Amazon QuickSight namespace instead.

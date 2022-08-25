@@ -27,6 +27,7 @@ import Amazonka.MediaConvert.Types.HlsAdditionalManifest
 import Amazonka.MediaConvert.Types.HlsAudioOnlyHeader
 import Amazonka.MediaConvert.Types.HlsCaptionLanguageMapping
 import Amazonka.MediaConvert.Types.HlsCaptionLanguageSetting
+import Amazonka.MediaConvert.Types.HlsCaptionSegmentLengthControl
 import Amazonka.MediaConvert.Types.HlsClientCache
 import Amazonka.MediaConvert.Types.HlsCodecSpecification
 import Amazonka.MediaConvert.Types.HlsDirectoryStructure
@@ -112,7 +113,11 @@ data HlsGroupSettings = HlsGroupSettings'
     -- | Indicates whether the output manifest should use floating point values
     -- for segment duration.
     manifestDurationFormat :: Prelude.Maybe HlsManifestDurationFormat,
-    -- | Indicates ID3 frame that has the timecode.
+    -- | Specify the type of the ID3 frame (timedMetadataId3Frame) to use for ID3
+    -- timestamps (timedMetadataId3Period) in your output. To include ID3
+    -- timestamps: Specify PRIV (PRIV) or TDRL (TDRL) and set ID3 metadata
+    -- (timedMetadata) to Passthrough (PASSTHROUGH). To exclude ID3 timestamps:
+    -- Set ID3 timestamp frame type to None (NONE).
     timedMetadataId3Frame :: Prelude.Maybe HlsTimedMetadataId3Frame,
     -- | Applies only to 608 Embedded output captions. Insert: Include
     -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
@@ -128,6 +133,13 @@ data HlsGroupSettings = HlsGroupSettings'
     -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
     -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
     segmentControl :: Prelude.Maybe HlsSegmentControl,
+    -- | Set Caption segment length control (CaptionSegmentLengthControl) to
+    -- Match video (MATCH_VIDEO) to create caption segments that align with the
+    -- video segments from the first video output in this output group. For
+    -- example, if the video segments are 2 seconds long, your WebVTT segments
+    -- will also be 2 seconds long. Keep the default setting, Large segments
+    -- (LARGE_SEGMENTS) to create caption segments that are 300 seconds long.
+    captionSegmentLengthControl :: Prelude.Maybe HlsCaptionSegmentLengthControl,
     -- | DRM settings.
     encryption :: Prelude.Maybe HlsEncryptionSettings,
     -- | Specify whether MediaConvert generates images for trick play. Keep the
@@ -158,7 +170,13 @@ data HlsGroupSettings = HlsGroupSettings'
     -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
     -- the encoder round up the segment lengths to match the next GOP boundary.
     segmentLengthControl :: Prelude.Maybe HlsSegmentLengthControl,
-    -- | Timed Metadata interval in seconds.
+    -- | Specify the interval in seconds to write ID3 timestamps in your output.
+    -- The first timestamp starts at the output timecode and date, and
+    -- increases incrementally with each ID3 timestamp. To use the default
+    -- interval of 10 seconds: Leave blank. To include this metadata in your
+    -- output: Set ID3 timestamp frame type (timedMetadataId3Frame) to PRIV
+    -- (PRIV) or TDRL (TDRL), and set ID3 metadata (timedMetadata) to
+    -- Passthrough (PASSTHROUGH).
     timedMetadataId3Period :: Prelude.Maybe Prelude.Int,
     -- | Provides an extra millisecond delta offset to fine tune the timestamps.
     timestampDeltaMilliseconds :: Prelude.Maybe Prelude.Int,
@@ -263,7 +281,11 @@ data HlsGroupSettings = HlsGroupSettings'
 -- 'manifestDurationFormat', 'hlsGroupSettings_manifestDurationFormat' - Indicates whether the output manifest should use floating point values
 -- for segment duration.
 --
--- 'timedMetadataId3Frame', 'hlsGroupSettings_timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+-- 'timedMetadataId3Frame', 'hlsGroupSettings_timedMetadataId3Frame' - Specify the type of the ID3 frame (timedMetadataId3Frame) to use for ID3
+-- timestamps (timedMetadataId3Period) in your output. To include ID3
+-- timestamps: Specify PRIV (PRIV) or TDRL (TDRL) and set ID3 metadata
+-- (timedMetadata) to Passthrough (PASSTHROUGH). To exclude ID3 timestamps:
+-- Set ID3 timestamp frame type to None (NONE).
 --
 -- 'captionLanguageSetting', 'hlsGroupSettings_captionLanguageSetting' - Applies only to 608 Embedded output captions. Insert: Include
 -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
@@ -278,6 +300,13 @@ data HlsGroupSettings = HlsGroupSettings'
 --
 -- 'segmentControl', 'hlsGroupSettings_segmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+--
+-- 'captionSegmentLengthControl', 'hlsGroupSettings_captionSegmentLengthControl' - Set Caption segment length control (CaptionSegmentLengthControl) to
+-- Match video (MATCH_VIDEO) to create caption segments that align with the
+-- video segments from the first video output in this output group. For
+-- example, if the video segments are 2 seconds long, your WebVTT segments
+-- will also be 2 seconds long. Keep the default setting, Large segments
+-- (LARGE_SEGMENTS) to create caption segments that are 300 seconds long.
 --
 -- 'encryption', 'hlsGroupSettings_encryption' - DRM settings.
 --
@@ -309,7 +338,13 @@ data HlsGroupSettings = HlsGroupSettings'
 -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
 -- the encoder round up the segment lengths to match the next GOP boundary.
 --
--- 'timedMetadataId3Period', 'hlsGroupSettings_timedMetadataId3Period' - Timed Metadata interval in seconds.
+-- 'timedMetadataId3Period', 'hlsGroupSettings_timedMetadataId3Period' - Specify the interval in seconds to write ID3 timestamps in your output.
+-- The first timestamp starts at the output timecode and date, and
+-- increases incrementally with each ID3 timestamp. To use the default
+-- interval of 10 seconds: Leave blank. To include this metadata in your
+-- output: Set ID3 timestamp frame type (timedMetadataId3Frame) to PRIV
+-- (PRIV) or TDRL (TDRL), and set ID3 metadata (timedMetadata) to
+-- Passthrough (PASSTHROUGH).
 --
 -- 'timestampDeltaMilliseconds', 'hlsGroupSettings_timestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
 --
@@ -365,6 +400,7 @@ newHlsGroupSettings =
       timedMetadataId3Frame = Prelude.Nothing,
       captionLanguageSetting = Prelude.Nothing,
       segmentControl = Prelude.Nothing,
+      captionSegmentLengthControl = Prelude.Nothing,
       encryption = Prelude.Nothing,
       imageBasedTrickPlay = Prelude.Nothing,
       clientCache = Prelude.Nothing,
@@ -470,7 +506,11 @@ hlsGroupSettings_adMarkers = Lens.lens (\HlsGroupSettings' {adMarkers} -> adMark
 hlsGroupSettings_manifestDurationFormat :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestDurationFormat)
 hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifestDurationFormat} -> manifestDurationFormat) (\s@HlsGroupSettings' {} a -> s {manifestDurationFormat = a} :: HlsGroupSettings)
 
--- | Indicates ID3 frame that has the timecode.
+-- | Specify the type of the ID3 frame (timedMetadataId3Frame) to use for ID3
+-- timestamps (timedMetadataId3Period) in your output. To include ID3
+-- timestamps: Specify PRIV (PRIV) or TDRL (TDRL) and set ID3 metadata
+-- (timedMetadata) to Passthrough (PASSTHROUGH). To exclude ID3 timestamps:
+-- Set ID3 timestamp frame type to None (NONE).
 hlsGroupSettings_timedMetadataId3Frame :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsTimedMetadataId3Frame)
 hlsGroupSettings_timedMetadataId3Frame = Lens.lens (\HlsGroupSettings' {timedMetadataId3Frame} -> timedMetadataId3Frame) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Frame = a} :: HlsGroupSettings)
 
@@ -491,6 +531,15 @@ hlsGroupSettings_captionLanguageSetting = Lens.lens (\HlsGroupSettings' {caption
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
 hlsGroupSettings_segmentControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentControl)
 hlsGroupSettings_segmentControl = Lens.lens (\HlsGroupSettings' {segmentControl} -> segmentControl) (\s@HlsGroupSettings' {} a -> s {segmentControl = a} :: HlsGroupSettings)
+
+-- | Set Caption segment length control (CaptionSegmentLengthControl) to
+-- Match video (MATCH_VIDEO) to create caption segments that align with the
+-- video segments from the first video output in this output group. For
+-- example, if the video segments are 2 seconds long, your WebVTT segments
+-- will also be 2 seconds long. Keep the default setting, Large segments
+-- (LARGE_SEGMENTS) to create caption segments that are 300 seconds long.
+hlsGroupSettings_captionSegmentLengthControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsCaptionSegmentLengthControl)
+hlsGroupSettings_captionSegmentLengthControl = Lens.lens (\HlsGroupSettings' {captionSegmentLengthControl} -> captionSegmentLengthControl) (\s@HlsGroupSettings' {} a -> s {captionSegmentLengthControl = a} :: HlsGroupSettings)
 
 -- | DRM settings.
 hlsGroupSettings_encryption :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsEncryptionSettings)
@@ -532,7 +581,13 @@ hlsGroupSettings_additionalManifests = Lens.lens (\HlsGroupSettings' {additional
 hlsGroupSettings_segmentLengthControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentLengthControl)
 hlsGroupSettings_segmentLengthControl = Lens.lens (\HlsGroupSettings' {segmentLengthControl} -> segmentLengthControl) (\s@HlsGroupSettings' {} a -> s {segmentLengthControl = a} :: HlsGroupSettings)
 
--- | Timed Metadata interval in seconds.
+-- | Specify the interval in seconds to write ID3 timestamps in your output.
+-- The first timestamp starts at the output timecode and date, and
+-- increases incrementally with each ID3 timestamp. To use the default
+-- interval of 10 seconds: Leave blank. To include this metadata in your
+-- output: Set ID3 timestamp frame type (timedMetadataId3Frame) to PRIV
+-- (PRIV) or TDRL (TDRL), and set ID3 metadata (timedMetadata) to
+-- Passthrough (PASSTHROUGH).
 hlsGroupSettings_timedMetadataId3Period :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Int)
 hlsGroupSettings_timedMetadataId3Period = Lens.lens (\HlsGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Period = a} :: HlsGroupSettings)
 
@@ -605,6 +660,7 @@ instance Core.FromJSON HlsGroupSettings where
             Prelude.<*> (x Core..:? "timedMetadataId3Frame")
             Prelude.<*> (x Core..:? "captionLanguageSetting")
             Prelude.<*> (x Core..:? "segmentControl")
+            Prelude.<*> (x Core..:? "captionSegmentLengthControl")
             Prelude.<*> (x Core..:? "encryption")
             Prelude.<*> (x Core..:? "imageBasedTrickPlay")
             Prelude.<*> (x Core..:? "clientCache")
@@ -641,6 +697,7 @@ instance Prelude.Hashable HlsGroupSettings where
       `Prelude.hashWithSalt` timedMetadataId3Frame
       `Prelude.hashWithSalt` captionLanguageSetting
       `Prelude.hashWithSalt` segmentControl
+      `Prelude.hashWithSalt` captionSegmentLengthControl
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` imageBasedTrickPlay
       `Prelude.hashWithSalt` clientCache
@@ -674,6 +731,8 @@ instance Prelude.NFData HlsGroupSettings where
       `Prelude.seq` Prelude.rnf timedMetadataId3Frame
       `Prelude.seq` Prelude.rnf captionLanguageSetting
       `Prelude.seq` Prelude.rnf segmentControl
+      `Prelude.seq` Prelude.rnf
+        captionSegmentLengthControl
       `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf
         imageBasedTrickPlay
@@ -733,6 +792,8 @@ instance Core.ToJSON HlsGroupSettings where
               Prelude.<$> captionLanguageSetting,
             ("segmentControl" Core..=)
               Prelude.<$> segmentControl,
+            ("captionSegmentLengthControl" Core..=)
+              Prelude.<$> captionSegmentLengthControl,
             ("encryption" Core..=) Prelude.<$> encryption,
             ("imageBasedTrickPlay" Core..=)
               Prelude.<$> imageBasedTrickPlay,

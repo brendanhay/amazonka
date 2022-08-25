@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation provides status information on enabling or disabling AWS
+-- This operation provides status information on enabling or disabling
 -- Health to work with your organization. To call this operation, you must
 -- sign in as an IAM user, assume an IAM role, or sign in as the root user
 -- (not recommended) in the organization\'s management account.
@@ -131,8 +131,8 @@ instance
 
 -- | /See:/ 'newDescribeHealthServiceStatusForOrganizationResponse' smart constructor.
 data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceStatusForOrganizationResponse'
-  { -- | Information about the status of enabling or disabling AWS Health
-    -- Organizational View in your organization.
+  { -- | Information about the status of enabling or disabling the Health
+    -- organizational view feature in your organization.
     --
     -- Valid values are @ENABLED | DISABLED | PENDING@.
     healthServiceAccessStatusForOrganization :: Prelude.Maybe Prelude.Text,
@@ -149,8 +149,8 @@ data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceS
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'healthServiceAccessStatusForOrganization', 'describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization' - Information about the status of enabling or disabling AWS Health
--- Organizational View in your organization.
+-- 'healthServiceAccessStatusForOrganization', 'describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization' - Information about the status of enabling or disabling the Health
+-- organizational view feature in your organization.
 --
 -- Valid values are @ENABLED | DISABLED | PENDING@.
 --
@@ -168,8 +168,8 @@ newDescribeHealthServiceStatusForOrganizationResponse
           pHttpStatus_
       }
 
--- | Information about the status of enabling or disabling AWS Health
--- Organizational View in your organization.
+-- | Information about the status of enabling or disabling the Health
+-- organizational view feature in your organization.
 --
 -- Valid values are @ENABLED | DISABLED | PENDING@.
 describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Prelude.Maybe Prelude.Text)

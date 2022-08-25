@@ -67,11 +67,9 @@ data PutGatewayResponse = PutGatewayResponse'
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The HTTP status code of the GatewayResponse.
     statusCode :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required]
-    --
-    -- The response type of the associated GatewayResponse.
+    -- | The response type of the associated GatewayResponse
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,11 +90,9 @@ data PutGatewayResponse = PutGatewayResponse'
 --
 -- 'statusCode', 'putGatewayResponse_statusCode' - The HTTP status code of the GatewayResponse.
 --
--- 'restApiId', 'putGatewayResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'putGatewayResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'responseType', 'putGatewayResponse_responseType' - [Required]
---
--- The response type of the associated GatewayResponse.
+-- 'responseType', 'putGatewayResponse_responseType' - The response type of the associated GatewayResponse
 newPutGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -127,13 +123,11 @@ putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {response
 putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Prelude.Maybe Prelude.Text)
 putGatewayResponse_statusCode = Lens.lens (\PutGatewayResponse' {statusCode} -> statusCode) (\s@PutGatewayResponse' {} a -> s {statusCode = a} :: PutGatewayResponse)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Prelude.Text
 putGatewayResponse_restApiId = Lens.lens (\PutGatewayResponse' {restApiId} -> restApiId) (\s@PutGatewayResponse' {} a -> s {restApiId = a} :: PutGatewayResponse)
 
--- | [Required]
---
--- The response type of the associated GatewayResponse.
+-- | The response type of the associated GatewayResponse
 putGatewayResponse_responseType :: Lens.Lens' PutGatewayResponse GatewayResponseType
 putGatewayResponse_responseType = Lens.lens (\PutGatewayResponse' {responseType} -> responseType) (\s@PutGatewayResponse' {} a -> s {responseType = a} :: PutGatewayResponse)
 

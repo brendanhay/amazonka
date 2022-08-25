@@ -46,7 +46,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteRestApi' smart constructor.
 data DeleteRestApi = DeleteRestApi'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data DeleteRestApi = DeleteRestApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteRestApi_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteRestApi_restApiId' - The string identifier of the associated RestApi.
 newDeleteRestApi ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -67,7 +67,7 @@ newDeleteRestApi ::
 newDeleteRestApi pRestApiId_ =
   DeleteRestApi' {restApiId = pRestApiId_}
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteRestApi_restApiId :: Lens.Lens' DeleteRestApi Prelude.Text
 deleteRestApi_restApiId = Lens.lens (\DeleteRestApi' {restApiId} -> restApiId) (\s@DeleteRestApi' {} a -> s {restApiId = a} :: DeleteRestApi)
 

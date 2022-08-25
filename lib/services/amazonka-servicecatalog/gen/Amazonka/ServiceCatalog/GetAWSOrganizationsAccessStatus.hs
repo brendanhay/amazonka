@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get the Access Status for AWS Organization portfolio share feature. This
+-- Get the Access Status for Organizations portfolio share feature. This
 -- API can only be called by the management account in the organization or
 -- by a delegated admin.
 module Amazonka.ServiceCatalog.GetAWSOrganizationsAccessStatus

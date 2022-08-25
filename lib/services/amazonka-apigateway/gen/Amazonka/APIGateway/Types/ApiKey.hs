@@ -28,8 +28,6 @@ import qualified Amazonka.Prelude as Prelude
 -- on any RestApi, which indicates that the callers with the API key can
 -- make requests to that stage.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
---
 -- /See:/ 'newApiKey' smart constructor.
 data ApiKey = ApiKey'
   { -- | The collection of tags. Each tag element is associated with a given

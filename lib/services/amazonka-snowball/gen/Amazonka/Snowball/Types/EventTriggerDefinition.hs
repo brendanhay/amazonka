@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEventTriggerDefinition' smart constructor.
 data EventTriggerDefinition = EventTriggerDefinition'
   { -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
-    -- an AWS Lambda function\'s event trigger associated with this job.
+    -- an Lambda function\'s event trigger associated with this job.
     eventResourceARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +42,7 @@ data EventTriggerDefinition = EventTriggerDefinition'
 -- for backwards compatibility:
 --
 -- 'eventResourceARN', 'eventTriggerDefinition_eventResourceARN' - The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
--- an AWS Lambda function\'s event trigger associated with this job.
+-- an Lambda function\'s event trigger associated with this job.
 newEventTriggerDefinition ::
   EventTriggerDefinition
 newEventTriggerDefinition =
@@ -52,7 +52,7 @@ newEventTriggerDefinition =
     }
 
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
--- an AWS Lambda function\'s event trigger associated with this job.
+-- an Lambda function\'s event trigger associated with this job.
 eventTriggerDefinition_eventResourceARN :: Lens.Lens' EventTriggerDefinition (Prelude.Maybe Prelude.Text)
 eventTriggerDefinition_eventResourceARN = Lens.lens (\EventTriggerDefinition' {eventResourceARN} -> eventResourceARN) (\s@EventTriggerDefinition' {} a -> s {eventResourceARN = a} :: EventTriggerDefinition)
 

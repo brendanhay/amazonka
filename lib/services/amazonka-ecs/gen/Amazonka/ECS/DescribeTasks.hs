@@ -21,6 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a specified task or tasks.
+--
+-- Currently, stopped tasks appear in the returned results for at least one
+-- hour.
 module Amazonka.ECS.DescribeTasks
   ( -- * Creating a Request
     DescribeTasks (..),
@@ -59,7 +62,7 @@ data DescribeTasks = DescribeTasks'
     cluster :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether you want to see the resource tags for the task. If
     -- @TAGS@ is specified, the tags are included in the response. If this
-    -- field is omitted, tags are not included in the response.
+    -- field is omitted, tags aren\'t included in the response.
     include :: Prelude.Maybe [TaskField],
     -- | A list of up to 100 task IDs or full ARN entries.
     tasks :: [Prelude.Text]
@@ -82,7 +85,7 @@ data DescribeTasks = DescribeTasks'
 --
 -- 'include', 'describeTasks_include' - Specifies whether you want to see the resource tags for the task. If
 -- @TAGS@ is specified, the tags are included in the response. If this
--- field is omitted, tags are not included in the response.
+-- field is omitted, tags aren\'t included in the response.
 --
 -- 'tasks', 'describeTasks_tasks' - A list of up to 100 task IDs or full ARN entries.
 newDescribeTasks ::
@@ -104,7 +107,7 @@ describeTasks_cluster = Lens.lens (\DescribeTasks' {cluster} -> cluster) (\s@Des
 
 -- | Specifies whether you want to see the resource tags for the task. If
 -- @TAGS@ is specified, the tags are included in the response. If this
--- field is omitted, tags are not included in the response.
+-- field is omitted, tags aren\'t included in the response.
 describeTasks_include :: Lens.Lens' DescribeTasks (Prelude.Maybe [TaskField])
 describeTasks_include = Lens.lens (\DescribeTasks' {include} -> include) (\s@DescribeTasks' {} a -> s {include = a} :: DescribeTasks) Prelude.. Lens.mapping Lens.coerced
 

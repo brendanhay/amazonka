@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
   { -- | Replication Configuration template Tags.
     tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Replication Configuration template bandwidth throtting.
+    -- | Replication Configuration template bandwidth throttling.
     bandwidthThrottling :: Prelude.Maybe Prelude.Natural,
     -- | Replication Configuration template server instance type.
     replicationServerInstanceType :: Prelude.Maybe Prelude.Text,
@@ -39,7 +39,7 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
     -- | Replication Configuration template associate default Application
     -- Migration Service Security group.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
-    -- | Replication Configuration template use dedault large Staging Disk type.
+    -- | Replication Configuration template use default large Staging Disk type.
     defaultLargeStagingDiskType :: Prelude.Maybe ReplicationConfigurationDefaultLargeStagingDiskType,
     -- | Replication Configuration template ARN.
     arn :: Prelude.Maybe Prelude.Text,
@@ -57,7 +57,7 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
     replicationServersSecurityGroupsIDs :: Prelude.Maybe [Prelude.Text],
     -- | Replication Configuration template EBS encryption key ARN.
     ebsEncryptionKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | Replication Configuration template template ID.
+    -- | Replication Configuration template ID.
     replicationConfigurationTemplateID :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
 --
 -- 'tags', 'replicationConfigurationTemplate_tags' - Replication Configuration template Tags.
 --
--- 'bandwidthThrottling', 'replicationConfigurationTemplate_bandwidthThrottling' - Replication Configuration template bandwidth throtting.
+-- 'bandwidthThrottling', 'replicationConfigurationTemplate_bandwidthThrottling' - Replication Configuration template bandwidth throttling.
 --
 -- 'replicationServerInstanceType', 'replicationConfigurationTemplate_replicationServerInstanceType' - Replication Configuration template server instance type.
 --
@@ -81,7 +81,7 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
 -- 'associateDefaultSecurityGroup', 'replicationConfigurationTemplate_associateDefaultSecurityGroup' - Replication Configuration template associate default Application
 -- Migration Service Security group.
 --
--- 'defaultLargeStagingDiskType', 'replicationConfigurationTemplate_defaultLargeStagingDiskType' - Replication Configuration template use dedault large Staging Disk type.
+-- 'defaultLargeStagingDiskType', 'replicationConfigurationTemplate_defaultLargeStagingDiskType' - Replication Configuration template use default large Staging Disk type.
 --
 -- 'arn', 'replicationConfigurationTemplate_arn' - Replication Configuration template ARN.
 --
@@ -99,7 +99,7 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
 --
 -- 'ebsEncryptionKeyArn', 'replicationConfigurationTemplate_ebsEncryptionKeyArn' - Replication Configuration template EBS encryption key ARN.
 --
--- 'replicationConfigurationTemplateID', 'replicationConfigurationTemplate_replicationConfigurationTemplateID' - Replication Configuration template template ID.
+-- 'replicationConfigurationTemplateID', 'replicationConfigurationTemplate_replicationConfigurationTemplateID' - Replication Configuration template ID.
 newReplicationConfigurationTemplate ::
   -- | 'replicationConfigurationTemplateID'
   Prelude.Text ->
@@ -135,7 +135,7 @@ newReplicationConfigurationTemplate
 replicationConfigurationTemplate_tags :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 replicationConfigurationTemplate_tags = Lens.lens (\ReplicationConfigurationTemplate' {tags} -> tags) (\s@ReplicationConfigurationTemplate' {} a -> s {tags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | Replication Configuration template bandwidth throtting.
+-- | Replication Configuration template bandwidth throttling.
 replicationConfigurationTemplate_bandwidthThrottling :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe Prelude.Natural)
 replicationConfigurationTemplate_bandwidthThrottling = Lens.lens (\ReplicationConfigurationTemplate' {bandwidthThrottling} -> bandwidthThrottling) (\s@ReplicationConfigurationTemplate' {} a -> s {bandwidthThrottling = a} :: ReplicationConfigurationTemplate)
 
@@ -152,7 +152,7 @@ replicationConfigurationTemplate_stagingAreaTags = Lens.lens (\ReplicationConfig
 replicationConfigurationTemplate_associateDefaultSecurityGroup :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe Prelude.Bool)
 replicationConfigurationTemplate_associateDefaultSecurityGroup = Lens.lens (\ReplicationConfigurationTemplate' {associateDefaultSecurityGroup} -> associateDefaultSecurityGroup) (\s@ReplicationConfigurationTemplate' {} a -> s {associateDefaultSecurityGroup = a} :: ReplicationConfigurationTemplate)
 
--- | Replication Configuration template use dedault large Staging Disk type.
+-- | Replication Configuration template use default large Staging Disk type.
 replicationConfigurationTemplate_defaultLargeStagingDiskType :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
 replicationConfigurationTemplate_defaultLargeStagingDiskType = Lens.lens (\ReplicationConfigurationTemplate' {defaultLargeStagingDiskType} -> defaultLargeStagingDiskType) (\s@ReplicationConfigurationTemplate' {} a -> s {defaultLargeStagingDiskType = a} :: ReplicationConfigurationTemplate)
 
@@ -188,7 +188,7 @@ replicationConfigurationTemplate_replicationServersSecurityGroupsIDs = Lens.lens
 replicationConfigurationTemplate_ebsEncryptionKeyArn :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe Prelude.Text)
 replicationConfigurationTemplate_ebsEncryptionKeyArn = Lens.lens (\ReplicationConfigurationTemplate' {ebsEncryptionKeyArn} -> ebsEncryptionKeyArn) (\s@ReplicationConfigurationTemplate' {} a -> s {ebsEncryptionKeyArn = a} :: ReplicationConfigurationTemplate)
 
--- | Replication Configuration template template ID.
+-- | Replication Configuration template ID.
 replicationConfigurationTemplate_replicationConfigurationTemplateID :: Lens.Lens' ReplicationConfigurationTemplate Prelude.Text
 replicationConfigurationTemplate_replicationConfigurationTemplateID = Lens.lens (\ReplicationConfigurationTemplate' {replicationConfigurationTemplateID} -> replicationConfigurationTemplateID) (\s@ReplicationConfigurationTemplate' {} a -> s {replicationConfigurationTemplateID = a} :: ReplicationConfigurationTemplate)
 

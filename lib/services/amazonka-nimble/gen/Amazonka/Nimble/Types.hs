@@ -37,6 +37,15 @@ module Amazonka.Nimble.Types
     -- * LaunchProfileStatusCode
     LaunchProfileStatusCode (..),
 
+    -- * LaunchProfileValidationState
+    LaunchProfileValidationState (..),
+
+    -- * LaunchProfileValidationStatusCode
+    LaunchProfileValidationStatusCode (..),
+
+    -- * LaunchProfileValidationType
+    LaunchProfileValidationType (..),
+
     -- * StreamingClipboardMode
     StreamingClipboardMode (..),
 
@@ -57,6 +66,9 @@ module Amazonka.Nimble.Types
 
     -- * StreamingSessionStatusCode
     StreamingSessionStatusCode (..),
+
+    -- * StreamingSessionStorageMode
+    StreamingSessionStorageMode (..),
 
     -- * StreamingSessionStreamState
     StreamingSessionStreamState (..),
@@ -141,6 +153,7 @@ module Amazonka.Nimble.Types
     launchProfile_state,
     launchProfile_description,
     launchProfile_streamConfiguration,
+    launchProfile_validationResults,
     launchProfile_launchProfileProtocolVersions,
     launchProfile_statusCode,
     launchProfile_createdBy,
@@ -175,7 +188,9 @@ module Amazonka.Nimble.Types
     -- * LaunchProfileInitializationScript
     LaunchProfileInitializationScript (..),
     newLaunchProfileInitializationScript,
+    launchProfileInitializationScript_secureInitializationRoleArn,
     launchProfileInitializationScript_studioComponentId,
+    launchProfileInitializationScript_runtimeRoleArn,
     launchProfileInitializationScript_studioComponentName,
     launchProfileInitializationScript_script,
 
@@ -184,6 +199,7 @@ module Amazonka.Nimble.Types
     newLaunchProfileMembership,
     launchProfileMembership_principalId,
     launchProfileMembership_persona,
+    launchProfileMembership_sid,
     launchProfileMembership_identityStoreId,
 
     -- * LicenseServiceConfiguration
@@ -221,18 +237,28 @@ module Amazonka.Nimble.Types
     -- * StreamConfiguration
     StreamConfiguration (..),
     newStreamConfiguration,
+    streamConfiguration_maxStoppedSessionLengthInMinutes,
     streamConfiguration_maxSessionLengthInMinutes,
-    streamConfiguration_streamingImageIds,
-    streamConfiguration_ec2InstanceTypes,
+    streamConfiguration_sessionStorage,
     streamConfiguration_clipboardMode,
+    streamConfiguration_ec2InstanceTypes,
+    streamConfiguration_streamingImageIds,
 
     -- * StreamConfigurationCreate
     StreamConfigurationCreate (..),
     newStreamConfigurationCreate,
+    streamConfigurationCreate_maxStoppedSessionLengthInMinutes,
     streamConfigurationCreate_maxSessionLengthInMinutes,
+    streamConfigurationCreate_sessionStorage,
     streamConfigurationCreate_clipboardMode,
-    streamConfigurationCreate_streamingImageIds,
     streamConfigurationCreate_ec2InstanceTypes,
+    streamConfigurationCreate_streamingImageIds,
+
+    -- * StreamConfigurationSessionStorage
+    StreamConfigurationSessionStorage (..),
+    newStreamConfigurationSessionStorage,
+    streamConfigurationSessionStorage_root,
+    streamConfigurationSessionStorage_mode,
 
     -- * StreamingImage
     StreamingImage (..),
@@ -263,18 +289,29 @@ module Amazonka.Nimble.Types
     streamingSession_tags,
     streamingSession_launchProfileId,
     streamingSession_streamingImageId,
+    streamingSession_stopAt,
     streamingSession_updatedBy,
     streamingSession_ec2InstanceType,
     streamingSession_terminateAt,
+    streamingSession_stoppedBy,
     streamingSession_arn,
     streamingSession_state,
+    streamingSession_startedBy,
+    streamingSession_startedAt,
     streamingSession_sessionId,
+    streamingSession_stoppedAt,
     streamingSession_statusCode,
     streamingSession_createdBy,
     streamingSession_statusMessage,
     streamingSession_ownedBy,
     streamingSession_createdAt,
     streamingSession_updatedAt,
+
+    -- * StreamingSessionStorageRoot
+    StreamingSessionStorageRoot (..),
+    newStreamingSessionStorageRoot,
+    streamingSessionStorageRoot_windows,
+    streamingSessionStorageRoot_linux,
 
     -- * StreamingSessionStream
     StreamingSessionStream (..),
@@ -321,8 +358,10 @@ module Amazonka.Nimble.Types
     studioComponent_arn,
     studioComponent_state,
     studioComponent_description,
+    studioComponent_secureInitializationRoleArn,
     studioComponent_studioComponentId,
     studioComponent_subtype,
+    studioComponent_runtimeRoleArn,
     studioComponent_statusCode,
     studioComponent_createdBy,
     studioComponent_statusMessage,
@@ -370,7 +409,16 @@ module Amazonka.Nimble.Types
     newStudioMembership,
     studioMembership_principalId,
     studioMembership_persona,
+    studioMembership_sid,
     studioMembership_identityStoreId,
+
+    -- * ValidationResult
+    ValidationResult (..),
+    newValidationResult,
+    validationResult_state,
+    validationResult_statusCode,
+    validationResult_statusMessage,
+    validationResult_type,
   )
 where
 
@@ -390,6 +438,9 @@ import Amazonka.Nimble.Types.LaunchProfilePersona
 import Amazonka.Nimble.Types.LaunchProfilePlatform
 import Amazonka.Nimble.Types.LaunchProfileState
 import Amazonka.Nimble.Types.LaunchProfileStatusCode
+import Amazonka.Nimble.Types.LaunchProfileValidationState
+import Amazonka.Nimble.Types.LaunchProfileValidationStatusCode
+import Amazonka.Nimble.Types.LaunchProfileValidationType
 import Amazonka.Nimble.Types.LicenseServiceConfiguration
 import Amazonka.Nimble.Types.NewLaunchProfileMember
 import Amazonka.Nimble.Types.NewStudioMember
@@ -397,6 +448,7 @@ import Amazonka.Nimble.Types.ScriptParameterKeyValue
 import Amazonka.Nimble.Types.SharedFileSystemConfiguration
 import Amazonka.Nimble.Types.StreamConfiguration
 import Amazonka.Nimble.Types.StreamConfigurationCreate
+import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingClipboardMode
 import Amazonka.Nimble.Types.StreamingImage
 import Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
@@ -407,6 +459,8 @@ import Amazonka.Nimble.Types.StreamingInstanceType
 import Amazonka.Nimble.Types.StreamingSession
 import Amazonka.Nimble.Types.StreamingSessionState
 import Amazonka.Nimble.Types.StreamingSessionStatusCode
+import Amazonka.Nimble.Types.StreamingSessionStorageMode
+import Amazonka.Nimble.Types.StreamingSessionStorageRoot
 import Amazonka.Nimble.Types.StreamingSessionStream
 import Amazonka.Nimble.Types.StreamingSessionStreamState
 import Amazonka.Nimble.Types.StreamingSessionStreamStatusCode
@@ -426,6 +480,7 @@ import Amazonka.Nimble.Types.StudioMembership
 import Amazonka.Nimble.Types.StudioPersona
 import Amazonka.Nimble.Types.StudioState
 import Amazonka.Nimble.Types.StudioStatusCode
+import Amazonka.Nimble.Types.ValidationResult
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -499,7 +554,8 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- |
+-- | You are not authorized to perform this operation. Check your IAM
+-- policies, and ensure that you are using the correct access keys.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
@@ -507,7 +563,11 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- |
+-- | Your current quota does not allow you to perform the request action. You
+-- can request increases for some quotas, and other quotas cannot be
+-- increased.
+--
+-- Please use AWS Service Quotas to request an increase.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
@@ -515,7 +575,7 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- |
+-- | The specified resource could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -523,7 +583,7 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- |
+-- | An internal error has occurred. Please retry your request.
 _InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
@@ -531,7 +591,7 @@ _InternalServerErrorException =
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
 
--- |
+-- | Another operation is in progress.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
@@ -539,7 +599,7 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- |
+-- | The request throughput limit was exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
@@ -547,7 +607,7 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- |
+-- | One of the parameters in the request is invalid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError

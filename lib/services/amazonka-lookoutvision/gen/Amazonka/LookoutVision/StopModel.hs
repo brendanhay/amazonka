@@ -57,13 +57,19 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStopModel' smart constructor.
 data StopModel = StopModel'
   { -- | ClientToken is an idempotency token that ensures a call to @StopModel@
-    -- completes only once. You choose the value to pass. For example, An
-    -- issue, such as an network outage, might prevent you from getting a
-    -- response from @StopModel@. In this case, safely retry your call to
-    -- @StopModel@ by using the same @ClientToken@ parameter value. An error
-    -- occurs if the other input parameters are not the same as in the first
-    -- request. Using a different value for @ClientToken@ is considered a new
-    -- call to @StopModel@. An idempotency token is active for 8 hours.
+    -- completes only once. You choose the value to pass. For example, An issue
+    -- might prevent you from getting a response from @StopModel@. In this
+    -- case, safely retry your call to @StopModel@ by using the same
+    -- @ClientToken@ parameter value.
+    --
+    -- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+    -- using inserts a value for you. This prevents retries after a network
+    -- error from making multiple stop requests. You\'ll need to provide your
+    -- own value for other use cases.
+    --
+    -- An error occurs if the other input parameters are not the same as in the
+    -- first request. Using a different value for @ClientToken@ is considered a
+    -- new call to @StopModel@. An idempotency token is active for 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the project that contains the model that you want to stop.
     projectName :: Prelude.Text,
@@ -81,13 +87,19 @@ data StopModel = StopModel'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'stopModel_clientToken' - ClientToken is an idempotency token that ensures a call to @StopModel@
--- completes only once. You choose the value to pass. For example, An
--- issue, such as an network outage, might prevent you from getting a
--- response from @StopModel@. In this case, safely retry your call to
--- @StopModel@ by using the same @ClientToken@ parameter value. An error
--- occurs if the other input parameters are not the same as in the first
--- request. Using a different value for @ClientToken@ is considered a new
--- call to @StopModel@. An idempotency token is active for 8 hours.
+-- completes only once. You choose the value to pass. For example, An issue
+-- might prevent you from getting a response from @StopModel@. In this
+-- case, safely retry your call to @StopModel@ by using the same
+-- @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+-- using inserts a value for you. This prevents retries after a network
+-- error from making multiple stop requests. You\'ll need to provide your
+-- own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @StopModel@. An idempotency token is active for 8 hours.
 --
 -- 'projectName', 'stopModel_projectName' - The name of the project that contains the model that you want to stop.
 --
@@ -106,13 +118,19 @@ newStopModel pProjectName_ pModelVersion_ =
     }
 
 -- | ClientToken is an idempotency token that ensures a call to @StopModel@
--- completes only once. You choose the value to pass. For example, An
--- issue, such as an network outage, might prevent you from getting a
--- response from @StopModel@. In this case, safely retry your call to
--- @StopModel@ by using the same @ClientToken@ parameter value. An error
--- occurs if the other input parameters are not the same as in the first
--- request. Using a different value for @ClientToken@ is considered a new
--- call to @StopModel@. An idempotency token is active for 8 hours.
+-- completes only once. You choose the value to pass. For example, An issue
+-- might prevent you from getting a response from @StopModel@. In this
+-- case, safely retry your call to @StopModel@ by using the same
+-- @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+-- using inserts a value for you. This prevents retries after a network
+-- error from making multiple stop requests. You\'ll need to provide your
+-- own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @StopModel@. An idempotency token is active for 8 hours.
 stopModel_clientToken :: Lens.Lens' StopModel (Prelude.Maybe Prelude.Text)
 stopModel_clientToken = Lens.lens (\StopModel' {clientToken} -> clientToken) (\s@StopModel' {} a -> s {clientToken = a} :: StopModel)
 

@@ -123,8 +123,7 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The default storage class for objects put into an Amazon S3 bucket by
-    -- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
-    -- Optional.
+    -- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
     -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
@@ -222,8 +221,7 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 -- Valid Values: @true@ | @false@
 --
 -- 'defaultStorageClass', 'updateNFSFileShare_defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by
--- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
--- Optional.
+-- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
@@ -346,8 +344,7 @@ updateNFSFileShare_kmsEncrypted :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe 
 updateNFSFileShare_kmsEncrypted = Lens.lens (\UpdateNFSFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@UpdateNFSFileShare' {} a -> s {kmsEncrypted = a} :: UpdateNFSFileShare)
 
 -- | The default storage class for objects put into an Amazon S3 bucket by
--- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
--- Optional.
+-- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@

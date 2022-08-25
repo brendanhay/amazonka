@@ -28,28 +28,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { -- | Parameters used to automatically set up EBS volumes when an instance is
-    -- launched.
-    --
-    -- You can specify either @VirtualName@ or @Ebs@, but not both.
+  { -- | Information to attach an EBS volume to an instance at launch.
     ebs :: Prelude.Maybe Ebs,
-    -- | Setting this value to @true@ suppresses the specified device included in
-    -- the block device mapping of the AMI.
+    -- | Setting this value to @true@ prevents a volume that is included in the
+    -- block device mapping of the AMI from being mapped to the specified
+    -- device name at launch.
     --
     -- If @NoDevice@ is @true@ for the root device, instances might fail the
     -- EC2 health check. In that case, Amazon EC2 Auto Scaling launches
     -- replacement instances.
-    --
-    -- If you specify @NoDevice@, you cannot specify @Ebs@.
     noDevice :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the virtual device (for example, @ephemeral0@).
-    --
-    -- You can specify either @VirtualName@ or @Ebs@, but not both.
+    -- | The name of the instance store volume (virtual device) to attach to an
+    -- instance at launch. The name must be in the form ephemeral/X/ where /X/
+    -- is a number starting from zero (0), for example, @ephemeral0@.
     virtualName :: Prelude.Maybe Prelude.Text,
-    -- | The device name exposed to the EC2 instance (for example, @\/dev\/sdh@
-    -- or @xvdh@). For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances>
+    -- | The device name assigned to the volume (for example, @\/dev\/sdh@ or
+    -- @xvdh@). For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device naming on Linux instances>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
+    --
+    -- To define a block device mapping, set the device name and exactly one of
+    -- the following properties: @Ebs@, @NoDevice@, or @VirtualName@.
     deviceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,28 +61,27 @@ data BlockDeviceMapping = BlockDeviceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'blockDeviceMapping_ebs' - Parameters used to automatically set up EBS volumes when an instance is
--- launched.
+-- 'ebs', 'blockDeviceMapping_ebs' - Information to attach an EBS volume to an instance at launch.
 --
--- You can specify either @VirtualName@ or @Ebs@, but not both.
---
--- 'noDevice', 'blockDeviceMapping_noDevice' - Setting this value to @true@ suppresses the specified device included in
--- the block device mapping of the AMI.
+-- 'noDevice', 'blockDeviceMapping_noDevice' - Setting this value to @true@ prevents a volume that is included in the
+-- block device mapping of the AMI from being mapped to the specified
+-- device name at launch.
 --
 -- If @NoDevice@ is @true@ for the root device, instances might fail the
 -- EC2 health check. In that case, Amazon EC2 Auto Scaling launches
 -- replacement instances.
 --
--- If you specify @NoDevice@, you cannot specify @Ebs@.
+-- 'virtualName', 'blockDeviceMapping_virtualName' - The name of the instance store volume (virtual device) to attach to an
+-- instance at launch. The name must be in the form ephemeral/X/ where /X/
+-- is a number starting from zero (0), for example, @ephemeral0@.
 --
--- 'virtualName', 'blockDeviceMapping_virtualName' - The name of the virtual device (for example, @ephemeral0@).
---
--- You can specify either @VirtualName@ or @Ebs@, but not both.
---
--- 'deviceName', 'blockDeviceMapping_deviceName' - The device name exposed to the EC2 instance (for example, @\/dev\/sdh@
--- or @xvdh@). For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances>
+-- 'deviceName', 'blockDeviceMapping_deviceName' - The device name assigned to the volume (for example, @\/dev\/sdh@ or
+-- @xvdh@). For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device naming on Linux instances>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- To define a block device mapping, set the device name and exactly one of
+-- the following properties: @Ebs@, @NoDevice@, or @VirtualName@.
 newBlockDeviceMapping ::
   -- | 'deviceName'
   Prelude.Text ->
@@ -96,34 +94,33 @@ newBlockDeviceMapping pDeviceName_ =
       deviceName = pDeviceName_
     }
 
--- | Parameters used to automatically set up EBS volumes when an instance is
--- launched.
---
--- You can specify either @VirtualName@ or @Ebs@, but not both.
+-- | Information to attach an EBS volume to an instance at launch.
 blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Ebs)
 blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
--- | Setting this value to @true@ suppresses the specified device included in
--- the block device mapping of the AMI.
+-- | Setting this value to @true@ prevents a volume that is included in the
+-- block device mapping of the AMI from being mapped to the specified
+-- device name at launch.
 --
 -- If @NoDevice@ is @true@ for the root device, instances might fail the
 -- EC2 health check. In that case, Amazon EC2 Auto Scaling launches
 -- replacement instances.
---
--- If you specify @NoDevice@, you cannot specify @Ebs@.
 blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Bool)
 blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDevice) (\s@BlockDeviceMapping' {} a -> s {noDevice = a} :: BlockDeviceMapping)
 
--- | The name of the virtual device (for example, @ephemeral0@).
---
--- You can specify either @VirtualName@ or @Ebs@, but not both.
+-- | The name of the instance store volume (virtual device) to attach to an
+-- instance at launch. The name must be in the form ephemeral/X/ where /X/
+-- is a number starting from zero (0), for example, @ephemeral0@.
 blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
 
--- | The device name exposed to the EC2 instance (for example, @\/dev\/sdh@
--- or @xvdh@). For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances>
+-- | The device name assigned to the volume (for example, @\/dev\/sdh@ or
+-- @xvdh@). For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device naming on Linux instances>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- To define a block device mapping, set the device name and exactly one of
+-- the following properties: @Ebs@, @NoDevice@, or @VirtualName@.
 blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping Prelude.Text
 blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> deviceName) (\s@BlockDeviceMapping' {} a -> s {deviceName = a} :: BlockDeviceMapping)
 

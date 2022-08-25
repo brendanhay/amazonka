@@ -25,17 +25,21 @@ import Amazonka.Forecast.Types.Domain
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides a summary of the dataset properties used in the ListDatasets
+-- | Provides a summary of the dataset properties used in the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html ListDatasets>
 -- operation. To get the complete set of properties, call the
--- DescribeDataset operation, and provide the @DatasetArn@.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html DescribeDataset>
+-- operation, and provide the @DatasetArn@.
 --
 -- /See:/ 'newDatasetSummary' smart constructor.
 data DatasetSummary = DatasetSummary'
   { -- | When you create a dataset, @LastModificationTime@ is the same as
     -- @CreationTime@. While data is being imported to the dataset,
     -- @LastModificationTime@ is the current time of the @ListDatasets@ call.
-    -- After a CreateDatasetImportJob operation has finished,
-    -- @LastModificationTime@ is when the import job completed or failed.
+    -- After a
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+    -- operation has finished, @LastModificationTime@ is when the import job
+    -- completed or failed.
     lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | The domain associated with the dataset.
     domain :: Prelude.Maybe Domain,
@@ -61,8 +65,10 @@ data DatasetSummary = DatasetSummary'
 -- 'lastModificationTime', 'datasetSummary_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
 -- @CreationTime@. While data is being imported to the dataset,
 -- @LastModificationTime@ is the current time of the @ListDatasets@ call.
--- After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
+-- After a
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation has finished, @LastModificationTime@ is when the import job
+-- completed or failed.
 --
 -- 'domain', 'datasetSummary_domain' - The domain associated with the dataset.
 --
@@ -89,8 +95,10 @@ newDatasetSummary =
 -- | When you create a dataset, @LastModificationTime@ is the same as
 -- @CreationTime@. While data is being imported to the dataset,
 -- @LastModificationTime@ is the current time of the @ListDatasets@ call.
--- After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
+-- After a
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation has finished, @LastModificationTime@ is when the import job
+-- completed or failed.
 datasetSummary_lastModificationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
 datasetSummary_lastModificationTime = Lens.lens (\DatasetSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetSummary' {} a -> s {lastModificationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
 

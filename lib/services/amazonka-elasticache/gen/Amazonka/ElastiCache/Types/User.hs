@@ -37,6 +37,8 @@ data User = User'
     -- | Indicates the user status. Can be \"active\", \"modifying\" or
     -- \"deleting\".
     status :: Prelude.Maybe Prelude.Text,
+    -- | The minimum engine version required, which is Redis 6.0
+    minimumEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | Returns a list of the user group IDs the user belongs to.
     userGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the user.
@@ -65,6 +67,8 @@ data User = User'
 -- 'status', 'user_status' - Indicates the user status. Can be \"active\", \"modifying\" or
 -- \"deleting\".
 --
+-- 'minimumEngineVersion', 'user_minimumEngineVersion' - The minimum engine version required, which is Redis 6.0
+--
 -- 'userGroupIds', 'user_userGroupIds' - Returns a list of the user group IDs the user belongs to.
 --
 -- 'userId', 'user_userId' - The ID of the user.
@@ -79,6 +83,7 @@ newUser =
       userName = Prelude.Nothing,
       arn = Prelude.Nothing,
       status = Prelude.Nothing,
+      minimumEngineVersion = Prelude.Nothing,
       userGroupIds = Prelude.Nothing,
       userId = Prelude.Nothing,
       engine = Prelude.Nothing
@@ -105,6 +110,10 @@ user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User
 user_status :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_status = Lens.lens (\User' {status} -> status) (\s@User' {} a -> s {status = a} :: User)
 
+-- | The minimum engine version required, which is Redis 6.0
+user_minimumEngineVersion :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_minimumEngineVersion = Lens.lens (\User' {minimumEngineVersion} -> minimumEngineVersion) (\s@User' {} a -> s {minimumEngineVersion = a} :: User)
+
 -- | Returns a list of the user group IDs the user belongs to.
 user_userGroupIds :: Lens.Lens' User (Prelude.Maybe [Prelude.Text])
 user_userGroupIds = Lens.lens (\User' {userGroupIds} -> userGroupIds) (\s@User' {} a -> s {userGroupIds = a} :: User) Prelude.. Lens.mapping Lens.coerced
@@ -125,6 +134,7 @@ instance Core.FromXML User where
       Prelude.<*> (x Core..@? "UserName")
       Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "MinimumEngineVersion")
       Prelude.<*> ( x Core..@? "UserGroupIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
@@ -138,6 +148,7 @@ instance Prelude.Hashable User where
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` minimumEngineVersion
       `Prelude.hashWithSalt` userGroupIds
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` engine
@@ -149,6 +160,7 @@ instance Prelude.NFData User where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf minimumEngineVersion
       `Prelude.seq` Prelude.rnf userGroupIds
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf engine

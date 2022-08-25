@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ReplicationGroup where
 
 import qualified Amazonka.Core as Core
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.Endpoint
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
 import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
@@ -56,6 +57,10 @@ data ReplicationGroup = ReplicationGroup'
     --
     -- Valid values: @true@ | @false@
     clusterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the cluster was created.
     replicationGroupCreateTime :: Prelude.Maybe Core.ISO8601,
     -- | Indicates the status of automatic failover for this Redis replication
@@ -122,6 +127,11 @@ data ReplicationGroup = ReplicationGroup'
     -- | A group of settings to be applied to the replication group, either
     -- immediately or during the next maintenance window.
     pendingModifiedValues :: Prelude.Maybe ReplicationGroupPendingModifiedValues,
+    -- | Enables data tiering. Data tiering is only supported for replication
+    -- groups using the r6gd node type. This parameter must be set to true when
+    -- using r6gd nodes. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+    dataTiering :: Prelude.Maybe DataTieringStatus,
     -- | The date the auth token was last modified
     authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
     -- | The identifier for the replication group.
@@ -168,6 +178,10 @@ data ReplicationGroup = ReplicationGroup'
 -- shards (API\/CLI: node groups).
 --
 -- Valid values: @true@ | @false@
+--
+-- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'replicationGroupCreateTime', 'replicationGroup_replicationGroupCreateTime' - The date and time when the cluster was created.
 --
@@ -235,6 +249,11 @@ data ReplicationGroup = ReplicationGroup'
 -- 'pendingModifiedValues', 'replicationGroup_pendingModifiedValues' - A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
 --
+-- 'dataTiering', 'replicationGroup_dataTiering' - Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+--
 -- 'authTokenLastModifiedDate', 'replicationGroup_authTokenLastModifiedDate' - The date the auth token was last modified
 --
 -- 'replicationGroupId', 'replicationGroup_replicationGroupId' - The identifier for the replication group.
@@ -257,6 +276,7 @@ newReplicationGroup =
       memberClustersOutpostArns = Prelude.Nothing,
       globalReplicationGroupInfo = Prelude.Nothing,
       clusterEnabled = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       replicationGroupCreateTime = Prelude.Nothing,
       automaticFailover = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -273,6 +293,7 @@ newReplicationGroup =
       userGroupIds = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       pendingModifiedValues = Prelude.Nothing,
+      dataTiering = Prelude.Nothing,
       authTokenLastModifiedDate = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
       memberClusters = Prelude.Nothing,
@@ -309,6 +330,12 @@ replicationGroup_globalReplicationGroupInfo = Lens.lens (\ReplicationGroup' {glo
 -- Valid values: @true@ | @false@
 replicationGroup_clusterEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_clusterEnabled = Lens.lens (\ReplicationGroup' {clusterEnabled} -> clusterEnabled) (\s@ReplicationGroup' {} a -> s {clusterEnabled = a} :: ReplicationGroup)
+
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
+replicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
+replicationGroup_autoMinorVersionUpgrade = Lens.lens (\ReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ReplicationGroup)
 
 -- | The date and time when the cluster was created.
 replicationGroup_replicationGroupCreateTime :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
@@ -408,6 +435,13 @@ replicationGroup_kmsKeyId = Lens.lens (\ReplicationGroup' {kmsKeyId} -> kmsKeyId
 replicationGroup_pendingModifiedValues :: Lens.Lens' ReplicationGroup (Prelude.Maybe ReplicationGroupPendingModifiedValues)
 replicationGroup_pendingModifiedValues = Lens.lens (\ReplicationGroup' {pendingModifiedValues} -> pendingModifiedValues) (\s@ReplicationGroup' {} a -> s {pendingModifiedValues = a} :: ReplicationGroup)
 
+-- | Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+replicationGroup_dataTiering :: Lens.Lens' ReplicationGroup (Prelude.Maybe DataTieringStatus)
+replicationGroup_dataTiering = Lens.lens (\ReplicationGroup' {dataTiering} -> dataTiering) (\s@ReplicationGroup' {} a -> s {dataTiering = a} :: ReplicationGroup)
+
 -- | The date the auth token was last modified
 replicationGroup_authTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
 replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Core._Time
@@ -443,6 +477,7 @@ instance Core.FromXML ReplicationGroup where
                   )
       Prelude.<*> (x Core..@? "GlobalReplicationGroupInfo")
       Prelude.<*> (x Core..@? "ClusterEnabled")
+      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
       Prelude.<*> (x Core..@? "ReplicationGroupCreateTime")
       Prelude.<*> (x Core..@? "AutomaticFailover")
       Prelude.<*> (x Core..@? "ARN")
@@ -467,6 +502,7 @@ instance Core.FromXML ReplicationGroup where
                   )
       Prelude.<*> (x Core..@? "KmsKeyId")
       Prelude.<*> (x Core..@? "PendingModifiedValues")
+      Prelude.<*> (x Core..@? "DataTiering")
       Prelude.<*> (x Core..@? "AuthTokenLastModifiedDate")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
       Prelude.<*> ( x Core..@? "MemberClusters" Core..!@ Prelude.mempty
@@ -482,6 +518,7 @@ instance Prelude.Hashable ReplicationGroup where
       `Prelude.hashWithSalt` memberClustersOutpostArns
       `Prelude.hashWithSalt` globalReplicationGroupInfo
       `Prelude.hashWithSalt` clusterEnabled
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` replicationGroupCreateTime
       `Prelude.hashWithSalt` automaticFailover
       `Prelude.hashWithSalt` arn
@@ -498,6 +535,7 @@ instance Prelude.Hashable ReplicationGroup where
       `Prelude.hashWithSalt` userGroupIds
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` dataTiering
       `Prelude.hashWithSalt` authTokenLastModifiedDate
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` memberClusters
@@ -510,6 +548,7 @@ instance Prelude.NFData ReplicationGroup where
       `Prelude.seq` Prelude.rnf memberClustersOutpostArns
       `Prelude.seq` Prelude.rnf globalReplicationGroupInfo
       `Prelude.seq` Prelude.rnf clusterEnabled
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf replicationGroupCreateTime
       `Prelude.seq` Prelude.rnf automaticFailover
       `Prelude.seq` Prelude.rnf arn
@@ -527,12 +566,14 @@ instance Prelude.NFData ReplicationGroup where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf
         pendingModifiedValues
+      `Prelude.seq` Prelude.rnf dataTiering
       `Prelude.seq` Prelude.rnf
         authTokenLastModifiedDate
       `Prelude.seq` Prelude.rnf
         replicationGroupId
       `Prelude.seq` Prelude.rnf
         memberClusters
-      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf
+        multiAZ
       `Prelude.seq` Prelude.rnf
         configurationEndpoint

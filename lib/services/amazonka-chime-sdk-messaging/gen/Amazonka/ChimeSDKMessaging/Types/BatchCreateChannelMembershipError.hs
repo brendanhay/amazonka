@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchCreateChannelMembershipError' smart constructor.
 data BatchCreateChannelMembershipError = BatchCreateChannelMembershipError'
-  { -- | The ARN of the member that the service couldn\'t add.
+  { -- | The @AppInstanceUserArn@ of the member that the service couldn\'t add.
     memberArn :: Prelude.Maybe Prelude.Text,
     -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
@@ -45,7 +45,7 @@ data BatchCreateChannelMembershipError = BatchCreateChannelMembershipError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberArn', 'batchCreateChannelMembershipError_memberArn' - The ARN of the member that the service couldn\'t add.
+-- 'memberArn', 'batchCreateChannelMembershipError_memberArn' - The @AppInstanceUserArn@ of the member that the service couldn\'t add.
 --
 -- 'errorMessage', 'batchCreateChannelMembershipError_errorMessage' - The error message.
 --
@@ -60,7 +60,7 @@ newBatchCreateChannelMembershipError =
       errorCode = Prelude.Nothing
     }
 
--- | The ARN of the member that the service couldn\'t add.
+-- | The @AppInstanceUserArn@ of the member that the service couldn\'t add.
 batchCreateChannelMembershipError_memberArn :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe Prelude.Text)
 batchCreateChannelMembershipError_memberArn = Lens.lens (\BatchCreateChannelMembershipError' {memberArn} -> memberArn) (\s@BatchCreateChannelMembershipError' {} a -> s {memberArn = a} :: BatchCreateChannelMembershipError)
 

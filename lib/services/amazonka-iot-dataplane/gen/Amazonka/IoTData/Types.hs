@@ -50,7 +50,7 @@ defaultService =
   Core.Service
     { Core._serviceAbbrev = "IoTData",
       Core._serviceSigner = Sign.v4,
-      Core._serviceEndpointPrefix = "data.iot",
+      Core._serviceEndpointPrefix = "data-ats.iot",
       Core._serviceSigningName = "iotdata",
       Core._serviceVersion = "2015-05-28",
       Core._serviceEndpoint =

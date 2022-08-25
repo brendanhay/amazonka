@@ -101,6 +101,8 @@ data VirtualInterface = VirtualInterface'
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region where the virtual interface is located.
     region :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether SiteLink is enabled.
+    siteLinkEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface.
@@ -208,6 +210,8 @@ data VirtualInterface = VirtualInterface'
 --
 -- 'region', 'virtualInterface_region' - The Amazon Web Services Region where the virtual interface is located.
 --
+-- 'siteLinkEnabled', 'virtualInterface_siteLinkEnabled' - Indicates whether SiteLink is enabled.
+--
 -- 'amazonAddress', 'virtualInterface_amazonAddress' - The IP address assigned to the Amazon interface.
 --
 -- 'virtualInterfaceId', 'virtualInterface_virtualInterfaceId' - The ID of the virtual interface.
@@ -253,6 +257,7 @@ newVirtualInterface =
       asn = Prelude.Nothing,
       location = Prelude.Nothing,
       region = Prelude.Nothing,
+      siteLinkEnabled = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
       virtualInterfaceId = Prelude.Nothing,
       bgpPeers = Prelude.Nothing,
@@ -364,6 +369,10 @@ virtualInterface_location = Lens.lens (\VirtualInterface' {location} -> location
 virtualInterface_region :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_region = Lens.lens (\VirtualInterface' {region} -> region) (\s@VirtualInterface' {} a -> s {region = a} :: VirtualInterface)
 
+-- | Indicates whether SiteLink is enabled.
+virtualInterface_siteLinkEnabled :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Bool)
+virtualInterface_siteLinkEnabled = Lens.lens (\VirtualInterface' {siteLinkEnabled} -> siteLinkEnabled) (\s@VirtualInterface' {} a -> s {siteLinkEnabled = a} :: VirtualInterface)
+
 -- | The IP address assigned to the Amazon interface.
 virtualInterface_amazonAddress :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_amazonAddress = Lens.lens (\VirtualInterface' {amazonAddress} -> amazonAddress) (\s@VirtualInterface' {} a -> s {amazonAddress = a} :: VirtualInterface)
@@ -434,6 +443,7 @@ instance Core.FromJSON VirtualInterface where
             Prelude.<*> (x Core..:? "asn")
             Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "region")
+            Prelude.<*> (x Core..:? "siteLinkEnabled")
             Prelude.<*> (x Core..:? "amazonAddress")
             Prelude.<*> (x Core..:? "virtualInterfaceId")
             Prelude.<*> (x Core..:? "bgpPeers" Core..!= Prelude.mempty)
@@ -463,6 +473,7 @@ instance Prelude.Hashable VirtualInterface where
       `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` siteLinkEnabled
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` virtualInterfaceId
       `Prelude.hashWithSalt` bgpPeers
@@ -491,10 +502,12 @@ instance Prelude.NFData VirtualInterface where
       `Prelude.seq` Prelude.rnf asn
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf siteLinkEnabled
       `Prelude.seq` Prelude.rnf amazonAddress
       `Prelude.seq` Prelude.rnf virtualInterfaceId
       `Prelude.seq` Prelude.rnf bgpPeers
-      `Prelude.seq` Prelude.rnf customerRouterConfig
+      `Prelude.seq` Prelude.rnf
+        customerRouterConfig
       `Prelude.seq` Prelude.rnf amazonSideAsn
       `Prelude.seq` Prelude.rnf mtu
       `Prelude.seq` Prelude.rnf ownerAccount

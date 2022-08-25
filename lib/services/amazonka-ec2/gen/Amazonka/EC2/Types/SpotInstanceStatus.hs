@@ -31,7 +31,7 @@ data SpotInstanceStatus = SpotInstanceStatus'
   { -- | The description for the status code.
     message :: Prelude.Maybe Prelude.Text,
     -- | The status code. For a list of status codes, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot status codes>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand Spot request status codes>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     code :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the most recent status update, in UTC format (for
@@ -51,7 +51,7 @@ data SpotInstanceStatus = SpotInstanceStatus'
 -- 'message', 'spotInstanceStatus_message' - The description for the status code.
 --
 -- 'code', 'spotInstanceStatus_code' - The status code. For a list of status codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot status codes>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand Spot request status codes>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- 'updateTime', 'spotInstanceStatus_updateTime' - The date and time of the most recent status update, in UTC format (for
@@ -70,7 +70,7 @@ spotInstanceStatus_message :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelu
 spotInstanceStatus_message = Lens.lens (\SpotInstanceStatus' {message} -> message) (\s@SpotInstanceStatus' {} a -> s {message = a} :: SpotInstanceStatus)
 
 -- | The status code. For a list of status codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot status codes>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand Spot request status codes>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 spotInstanceStatus_code :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.Text)
 spotInstanceStatus_code = Lens.lens (\SpotInstanceStatus' {code} -> code) (\s@SpotInstanceStatus' {} a -> s {code = a} :: SpotInstanceStatus)

@@ -90,6 +90,12 @@ module Amazonka.ChimeSDKIdentity
     DeleteAppInstanceUserResponse (DeleteAppInstanceUserResponse'),
     newDeleteAppInstanceUserResponse,
 
+    -- ** DeregisterAppInstanceUserEndpoint
+    DeregisterAppInstanceUserEndpoint (DeregisterAppInstanceUserEndpoint'),
+    newDeregisterAppInstanceUserEndpoint,
+    DeregisterAppInstanceUserEndpointResponse (DeregisterAppInstanceUserEndpointResponse'),
+    newDeregisterAppInstanceUserEndpointResponse,
+
     -- ** DescribeAppInstance
     DescribeAppInstance (DescribeAppInstance'),
     newDescribeAppInstance,
@@ -108,6 +114,12 @@ module Amazonka.ChimeSDKIdentity
     DescribeAppInstanceUserResponse (DescribeAppInstanceUserResponse'),
     newDescribeAppInstanceUserResponse,
 
+    -- ** DescribeAppInstanceUserEndpoint
+    DescribeAppInstanceUserEndpoint (DescribeAppInstanceUserEndpoint'),
+    newDescribeAppInstanceUserEndpoint,
+    DescribeAppInstanceUserEndpointResponse (DescribeAppInstanceUserEndpointResponse'),
+    newDescribeAppInstanceUserEndpointResponse,
+
     -- ** GetAppInstanceRetentionSettings
     GetAppInstanceRetentionSettings (GetAppInstanceRetentionSettings'),
     newGetAppInstanceRetentionSettings,
@@ -119,6 +131,12 @@ module Amazonka.ChimeSDKIdentity
     newListAppInstanceAdmins,
     ListAppInstanceAdminsResponse (ListAppInstanceAdminsResponse'),
     newListAppInstanceAdminsResponse,
+
+    -- ** ListAppInstanceUserEndpoints
+    ListAppInstanceUserEndpoints (ListAppInstanceUserEndpoints'),
+    newListAppInstanceUserEndpoints,
+    ListAppInstanceUserEndpointsResponse (ListAppInstanceUserEndpointsResponse'),
+    newListAppInstanceUserEndpointsResponse,
 
     -- ** ListAppInstanceUsers
     ListAppInstanceUsers (ListAppInstanceUsers'),
@@ -132,11 +150,35 @@ module Amazonka.ChimeSDKIdentity
     ListAppInstancesResponse (ListAppInstancesResponse'),
     newListAppInstancesResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** PutAppInstanceRetentionSettings
     PutAppInstanceRetentionSettings (PutAppInstanceRetentionSettings'),
     newPutAppInstanceRetentionSettings,
     PutAppInstanceRetentionSettingsResponse (PutAppInstanceRetentionSettingsResponse'),
     newPutAppInstanceRetentionSettingsResponse,
+
+    -- ** RegisterAppInstanceUserEndpoint
+    RegisterAppInstanceUserEndpoint (RegisterAppInstanceUserEndpoint'),
+    newRegisterAppInstanceUserEndpoint,
+    RegisterAppInstanceUserEndpointResponse (RegisterAppInstanceUserEndpointResponse'),
+    newRegisterAppInstanceUserEndpointResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateAppInstance
     UpdateAppInstance (UpdateAppInstance'),
@@ -150,7 +192,25 @@ module Amazonka.ChimeSDKIdentity
     UpdateAppInstanceUserResponse (UpdateAppInstanceUserResponse'),
     newUpdateAppInstanceUserResponse,
 
+    -- ** UpdateAppInstanceUserEndpoint
+    UpdateAppInstanceUserEndpoint (UpdateAppInstanceUserEndpoint'),
+    newUpdateAppInstanceUserEndpoint,
+    UpdateAppInstanceUserEndpointResponse (UpdateAppInstanceUserEndpointResponse'),
+    newUpdateAppInstanceUserEndpointResponse,
+
     -- * Types
+
+    -- ** AllowMessages
+    AllowMessages (..),
+
+    -- ** AppInstanceUserEndpointType
+    AppInstanceUserEndpointType (..),
+
+    -- ** EndpointStatus
+    EndpointStatus (..),
+
+    -- ** EndpointStatusReason
+    EndpointStatusReason (..),
 
     -- ** AppInstance
     AppInstance (AppInstance'),
@@ -176,6 +236,14 @@ module Amazonka.ChimeSDKIdentity
     AppInstanceUser (AppInstanceUser'),
     newAppInstanceUser,
 
+    -- ** AppInstanceUserEndpoint
+    AppInstanceUserEndpoint (AppInstanceUserEndpoint'),
+    newAppInstanceUserEndpoint,
+
+    -- ** AppInstanceUserEndpointSummary
+    AppInstanceUserEndpointSummary (AppInstanceUserEndpointSummary'),
+    newAppInstanceUserEndpointSummary,
+
     -- ** AppInstanceUserSummary
     AppInstanceUserSummary (AppInstanceUserSummary'),
     newAppInstanceUserSummary,
@@ -183,6 +251,14 @@ module Amazonka.ChimeSDKIdentity
     -- ** ChannelRetentionSettings
     ChannelRetentionSettings (ChannelRetentionSettings'),
     newChannelRetentionSettings,
+
+    -- ** EndpointAttributes
+    EndpointAttributes (EndpointAttributes'),
+    newEndpointAttributes,
+
+    -- ** EndpointState
+    EndpointState (EndpointState'),
+    newEndpointState,
 
     -- ** Identity
     Identity (Identity'),
@@ -200,18 +276,26 @@ import Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
 import Amazonka.ChimeSDKIdentity.DeleteAppInstance
 import Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DeregisterAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.DescribeAppInstance
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
 import Amazonka.ChimeSDKIdentity.Lens
 import Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+import Amazonka.ChimeSDKIdentity.ListAppInstanceUserEndpoints
 import Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
 import Amazonka.ChimeSDKIdentity.ListAppInstances
+import Amazonka.ChimeSDKIdentity.ListTagsForResource
 import Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.RegisterAppInstanceUserEndpoint
+import Amazonka.ChimeSDKIdentity.TagResource
 import Amazonka.ChimeSDKIdentity.Types
+import Amazonka.ChimeSDKIdentity.UntagResource
 import Amazonka.ChimeSDKIdentity.UpdateAppInstance
 import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
+import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.Waiters
 
 -- $errors

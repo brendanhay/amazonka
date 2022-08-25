@@ -35,6 +35,7 @@ module Amazonka.ComprehendMedical.Types.RelationshipType
         RelationshipType_ROUTE_OR_MODE,
         RelationshipType_STRENGTH,
         RelationshipType_SYSTEM_ORGAN_SITE,
+        RelationshipType_TEST_UNIT,
         RelationshipType_TEST_UNITS,
         RelationshipType_TEST_VALUE,
         RelationshipType_WITH_DOSAGE
@@ -118,6 +119,9 @@ pattern RelationshipType_STRENGTH = RelationshipType' "STRENGTH"
 pattern RelationshipType_SYSTEM_ORGAN_SITE :: RelationshipType
 pattern RelationshipType_SYSTEM_ORGAN_SITE = RelationshipType' "SYSTEM_ORGAN_SITE"
 
+pattern RelationshipType_TEST_UNIT :: RelationshipType
+pattern RelationshipType_TEST_UNIT = RelationshipType' "TEST_UNIT"
+
 pattern RelationshipType_TEST_UNITS :: RelationshipType
 pattern RelationshipType_TEST_UNITS = RelationshipType' "TEST_UNITS"
 
@@ -143,6 +147,7 @@ pattern RelationshipType_WITH_DOSAGE = RelationshipType' "WITH_DOSAGE"
   RelationshipType_ROUTE_OR_MODE,
   RelationshipType_STRENGTH,
   RelationshipType_SYSTEM_ORGAN_SITE,
+  RelationshipType_TEST_UNIT,
   RelationshipType_TEST_UNITS,
   RelationshipType_TEST_VALUE,
   RelationshipType_WITH_DOSAGE,

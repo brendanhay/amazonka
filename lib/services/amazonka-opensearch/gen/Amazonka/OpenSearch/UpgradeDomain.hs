@@ -40,6 +40,7 @@ module Amazonka.OpenSearch.UpgradeDomain
 
     -- * Response Lenses
     upgradeDomainResponse_advancedOptions,
+    upgradeDomainResponse_changeProgressDetails,
     upgradeDomainResponse_domainName,
     upgradeDomainResponse_targetVersion,
     upgradeDomainResponse_performCheckOnly,
@@ -128,6 +129,7 @@ instance Core.AWSRequest UpgradeDomain where
             Prelude.<$> ( x Core..?> "AdvancedOptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "ChangeProgressDetails")
             Prelude.<*> (x Core..?> "DomainName")
             Prelude.<*> (x Core..?> "TargetVersion")
             Prelude.<*> (x Core..?> "PerformCheckOnly")
@@ -179,6 +181,7 @@ instance Core.ToQuery UpgradeDomain where
 -- /See:/ 'newUpgradeDomainResponse' smart constructor.
 data UpgradeDomainResponse = UpgradeDomainResponse'
   { advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The version of OpenSearch that you intend to upgrade the domain to.
     targetVersion :: Prelude.Maybe Prelude.Text,
@@ -201,6 +204,8 @@ data UpgradeDomainResponse = UpgradeDomainResponse'
 --
 -- 'advancedOptions', 'upgradeDomainResponse_advancedOptions' - Undocumented member.
 --
+-- 'changeProgressDetails', 'upgradeDomainResponse_changeProgressDetails' - Undocumented member.
+--
 -- 'domainName', 'upgradeDomainResponse_domainName' - Undocumented member.
 --
 -- 'targetVersion', 'upgradeDomainResponse_targetVersion' - The version of OpenSearch that you intend to upgrade the domain to.
@@ -219,6 +224,7 @@ newUpgradeDomainResponse pHttpStatus_ =
   UpgradeDomainResponse'
     { advancedOptions =
         Prelude.Nothing,
+      changeProgressDetails = Prelude.Nothing,
       domainName = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
       performCheckOnly = Prelude.Nothing,
@@ -229,6 +235,10 @@ newUpgradeDomainResponse pHttpStatus_ =
 -- | Undocumented member.
 upgradeDomainResponse_advancedOptions :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 upgradeDomainResponse_advancedOptions = Lens.lens (\UpgradeDomainResponse' {advancedOptions} -> advancedOptions) (\s@UpgradeDomainResponse' {} a -> s {advancedOptions = a} :: UpgradeDomainResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+upgradeDomainResponse_changeProgressDetails :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe ChangeProgressDetails)
+upgradeDomainResponse_changeProgressDetails = Lens.lens (\UpgradeDomainResponse' {changeProgressDetails} -> changeProgressDetails) (\s@UpgradeDomainResponse' {} a -> s {changeProgressDetails = a} :: UpgradeDomainResponse)
 
 -- | Undocumented member.
 upgradeDomainResponse_domainName :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
@@ -254,6 +264,7 @@ upgradeDomainResponse_httpStatus = Lens.lens (\UpgradeDomainResponse' {httpStatu
 instance Prelude.NFData UpgradeDomainResponse where
   rnf UpgradeDomainResponse' {..} =
     Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf changeProgressDetails
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf targetVersion
       `Prelude.seq` Prelude.rnf performCheckOnly

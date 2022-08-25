@@ -30,6 +30,7 @@ module Amazonka.Outposts.CreateOutpost
 
     -- * Request Lenses
     createOutpost_tags,
+    createOutpost_supportedHardwareType,
     createOutpost_availabilityZone,
     createOutpost_description,
     createOutpost_availabilityZoneId,
@@ -57,10 +58,19 @@ import qualified Amazonka.Response as Response
 data CreateOutpost = CreateOutpost'
   { -- | The tags to apply to the Outpost.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of hardware for this Outpost.
+    supportedHardwareType :: Prelude.Maybe SupportedHardwareType,
     availabilityZone :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Text,
+    -- | The ID or the Amazon Resource Name (ARN) of the site.
+    --
+    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+    -- API. To address backwards compatibility, the parameter names @OutpostID@
+    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
+    -- request with an ARN.
     siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,6 +85,8 @@ data CreateOutpost = CreateOutpost'
 --
 -- 'tags', 'createOutpost_tags' - The tags to apply to the Outpost.
 --
+-- 'supportedHardwareType', 'createOutpost_supportedHardwareType' - The type of hardware for this Outpost.
+--
 -- 'availabilityZone', 'createOutpost_availabilityZone' - Undocumented member.
 --
 -- 'description', 'createOutpost_description' - Undocumented member.
@@ -83,7 +95,13 @@ data CreateOutpost = CreateOutpost'
 --
 -- 'name', 'createOutpost_name' - Undocumented member.
 --
--- 'siteId', 'createOutpost_siteId' - Undocumented member.
+-- 'siteId', 'createOutpost_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
+--
+-- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+-- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+-- API. To address backwards compatibility, the parameter names @OutpostID@
+-- or @SiteID@ remain in use. Despite the parameter name, you can make the
+-- request with an ARN.
 newCreateOutpost ::
   -- | 'name'
   Prelude.Text ->
@@ -93,6 +111,7 @@ newCreateOutpost ::
 newCreateOutpost pName_ pSiteId_ =
   CreateOutpost'
     { tags = Prelude.Nothing,
+      supportedHardwareType = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       description = Prelude.Nothing,
       availabilityZoneId = Prelude.Nothing,
@@ -103,6 +122,10 @@ newCreateOutpost pName_ pSiteId_ =
 -- | The tags to apply to the Outpost.
 createOutpost_tags :: Lens.Lens' CreateOutpost (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createOutpost_tags = Lens.lens (\CreateOutpost' {tags} -> tags) (\s@CreateOutpost' {} a -> s {tags = a} :: CreateOutpost) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of hardware for this Outpost.
+createOutpost_supportedHardwareType :: Lens.Lens' CreateOutpost (Prelude.Maybe SupportedHardwareType)
+createOutpost_supportedHardwareType = Lens.lens (\CreateOutpost' {supportedHardwareType} -> supportedHardwareType) (\s@CreateOutpost' {} a -> s {supportedHardwareType = a} :: CreateOutpost)
 
 -- | Undocumented member.
 createOutpost_availabilityZone :: Lens.Lens' CreateOutpost (Prelude.Maybe Prelude.Text)
@@ -120,7 +143,13 @@ createOutpost_availabilityZoneId = Lens.lens (\CreateOutpost' {availabilityZoneI
 createOutpost_name :: Lens.Lens' CreateOutpost Prelude.Text
 createOutpost_name = Lens.lens (\CreateOutpost' {name} -> name) (\s@CreateOutpost' {} a -> s {name = a} :: CreateOutpost)
 
--- | Undocumented member.
+-- | The ID or the Amazon Resource Name (ARN) of the site.
+--
+-- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+-- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+-- API. To address backwards compatibility, the parameter names @OutpostID@
+-- or @SiteID@ remain in use. Despite the parameter name, you can make the
+-- request with an ARN.
 createOutpost_siteId :: Lens.Lens' CreateOutpost Prelude.Text
 createOutpost_siteId = Lens.lens (\CreateOutpost' {siteId} -> siteId) (\s@CreateOutpost' {} a -> s {siteId = a} :: CreateOutpost)
 
@@ -140,6 +169,7 @@ instance Core.AWSRequest CreateOutpost where
 instance Prelude.Hashable CreateOutpost where
   hashWithSalt _salt CreateOutpost' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` supportedHardwareType
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` availabilityZoneId
@@ -149,6 +179,7 @@ instance Prelude.Hashable CreateOutpost where
 instance Prelude.NFData CreateOutpost where
   rnf CreateOutpost' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf supportedHardwareType
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf availabilityZoneId
@@ -171,6 +202,8 @@ instance Core.ToJSON CreateOutpost where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("SupportedHardwareType" Core..=)
+              Prelude.<$> supportedHardwareType,
             ("AvailabilityZone" Core..=)
               Prelude.<$> availabilityZone,
             ("Description" Core..=) Prelude.<$> description,

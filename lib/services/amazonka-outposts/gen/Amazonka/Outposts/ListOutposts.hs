@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a list of the Outposts for your AWS account. Add filters to your
--- request to return a more specific list of results. Use filters to match
--- an Outpost lifecycle status, Availibility Zone (@us-east-1a@), and AZ ID
--- (@use1-az1@).
+-- Lists the Outposts for your Amazon Web Services account. Add filters to
+-- your request to return a more specific list of results. Use filters to
+-- match an Outpost lifecycle status, Availability Zone (@us-east-1a@), and
+-- AZ ID (@use1-az1@).
 --
 -- If you specify multiple filters, the filters are joined with an @AND@,
 -- and the request returns only results that match all of the specified
@@ -68,7 +68,7 @@ data ListOutposts = ListOutposts'
     -- filter, the values are joined with an @OR@, and the request returns all
     -- results that match any of the specified values.
     lifeCycleStatusFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+    -- | A filter for the Availability Zone (@us-east-1a@) of the Outpost.
     --
     -- Filter values are case sensitive. If you specify multiple values for a
     -- filter, the values are joined with an @OR@, and the request returns all
@@ -101,7 +101,7 @@ data ListOutposts = ListOutposts'
 -- filter, the values are joined with an @OR@, and the request returns all
 -- results that match any of the specified values.
 --
--- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+-- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - A filter for the Availability Zone (@us-east-1a@) of the Outpost.
 --
 -- Filter values are case sensitive. If you specify multiple values for a
 -- filter, the values are joined with an @OR@, and the request returns all
@@ -139,7 +139,7 @@ listOutposts_maxResults = Lens.lens (\ListOutposts' {maxResults} -> maxResults) 
 listOutposts_lifeCycleStatusFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_lifeCycleStatusFilter = Lens.lens (\ListOutposts' {lifeCycleStatusFilter} -> lifeCycleStatusFilter) (\s@ListOutposts' {} a -> s {lifeCycleStatusFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 
--- | A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+-- | A filter for the Availability Zone (@us-east-1a@) of the Outpost.
 --
 -- Filter values are case sensitive. If you specify multiple values for a
 -- filter, the values are joined with an @OR@, and the request returns all

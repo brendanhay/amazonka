@@ -26,7 +26,7 @@ import Amazonka.SageMaker.Types.FinalHyperParameterTuningJobObjectiveMetric
 import Amazonka.SageMaker.Types.ObjectiveStatus
 import Amazonka.SageMaker.Types.TrainingJobStatus
 
--- | Specifies summary information about a training job.
+-- | The container for the summary information about a training job.
 --
 -- /See:/ 'newHyperParameterTrainingJobSummary' smart constructor.
 data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
@@ -60,7 +60,7 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
-    -- this is the time when Amazon SageMaker detects a job failure.
+    -- this is the time when SageMaker detects a job failure.
     trainingEndTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the training job.
     trainingJobName :: Prelude.Text,
@@ -113,7 +113,7 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
--- this is the time when Amazon SageMaker detects a job failure.
+-- this is the time when SageMaker detects a job failure.
 --
 -- 'trainingJobName', 'hyperParameterTrainingJobSummary_trainingJobName' - The name of the training job.
 --
@@ -200,7 +200,7 @@ hyperParameterTrainingJobSummary_failureReason = Lens.lens (\HyperParameterTrain
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
--- this is the time when Amazon SageMaker detects a job failure.
+-- this is the time when SageMaker detects a job failure.
 hyperParameterTrainingJobSummary_trainingEndTime :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
 hyperParameterTrainingJobSummary_trainingEndTime = Lens.lens (\HyperParameterTrainingJobSummary' {trainingEndTime} -> trainingEndTime) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingEndTime = a} :: HyperParameterTrainingJobSummary) Prelude.. Lens.mapping Core._Time
 

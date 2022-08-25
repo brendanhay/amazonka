@@ -23,12 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The @LambdaConflictHandlerConfig@ object when configuring LAMBDA as the
--- Conflict Handler.
+-- | The @LambdaConflictHandlerConfig@ object when configuring @LAMBDA@ as
+-- the Conflict Handler.
 --
 -- /See:/ 'newLambdaConflictHandlerConfig' smart constructor.
 data LambdaConflictHandlerConfig = LambdaConflictHandlerConfig'
-  { -- | The Arn for the Lambda function to use as the Conflict Handler.
+  { -- | The Amazon Resource Name (ARN) for the Lambda function to use as the
+    -- Conflict Handler.
     lambdaConflictHandlerArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +42,8 @@ data LambdaConflictHandlerConfig = LambdaConflictHandlerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaConflictHandlerArn', 'lambdaConflictHandlerConfig_lambdaConflictHandlerArn' - The Arn for the Lambda function to use as the Conflict Handler.
+-- 'lambdaConflictHandlerArn', 'lambdaConflictHandlerConfig_lambdaConflictHandlerArn' - The Amazon Resource Name (ARN) for the Lambda function to use as the
+-- Conflict Handler.
 newLambdaConflictHandlerConfig ::
   LambdaConflictHandlerConfig
 newLambdaConflictHandlerConfig =
@@ -50,7 +52,8 @@ newLambdaConflictHandlerConfig =
         Prelude.Nothing
     }
 
--- | The Arn for the Lambda function to use as the Conflict Handler.
+-- | The Amazon Resource Name (ARN) for the Lambda function to use as the
+-- Conflict Handler.
 lambdaConflictHandlerConfig_lambdaConflictHandlerArn :: Lens.Lens' LambdaConflictHandlerConfig (Prelude.Maybe Prelude.Text)
 lambdaConflictHandlerConfig_lambdaConflictHandlerArn = Lens.lens (\LambdaConflictHandlerConfig' {lambdaConflictHandlerArn} -> lambdaConflictHandlerArn) (\s@LambdaConflictHandlerConfig' {} a -> s {lambdaConflictHandlerArn = a} :: LambdaConflictHandlerConfig)
 

@@ -36,6 +36,9 @@ module Amazonka.Kafka.GetBootstrapBrokers
     -- * Response Lenses
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram,
     getBootstrapBrokersResponse_bootstrapBrokerString,
+    getBootstrapBrokersResponse_bootstrapBrokerStringPublicTls,
+    getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslScram,
+    getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslIam,
     getBootstrapBrokersResponse_bootstrapBrokerStringTls,
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam,
     getBootstrapBrokersResponse_httpStatus,
@@ -87,6 +90,9 @@ instance Core.AWSRequest GetBootstrapBrokers where
           GetBootstrapBrokersResponse'
             Prelude.<$> (x Core..?> "bootstrapBrokerStringSaslScram")
             Prelude.<*> (x Core..?> "bootstrapBrokerString")
+            Prelude.<*> (x Core..?> "bootstrapBrokerStringPublicTls")
+            Prelude.<*> (x Core..?> "bootstrapBrokerStringPublicSaslScram")
+            Prelude.<*> (x Core..?> "bootstrapBrokerStringPublicSaslIam")
             Prelude.<*> (x Core..?> "bootstrapBrokerStringTls")
             Prelude.<*> (x Core..?> "bootstrapBrokerStringSaslIam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,6 +135,14 @@ data GetBootstrapBrokersResponse = GetBootstrapBrokersResponse'
     -- | A string containing one or more hostname:port pairs.
     bootstrapBrokerString :: Prelude.Maybe Prelude.Text,
     -- | A string containing one or more DNS names (or IP) and TLS port pairs.
+    bootstrapBrokerStringPublicTls :: Prelude.Maybe Prelude.Text,
+    -- | A string containing one or more DNS names (or IP) and Sasl Scram port
+    -- pairs.
+    bootstrapBrokerStringPublicSaslScram :: Prelude.Maybe Prelude.Text,
+    -- | A string that contains one or more DNS names (or IP addresses) and SASL
+    -- IAM port pairs.
+    bootstrapBrokerStringPublicSaslIam :: Prelude.Maybe Prelude.Text,
+    -- | A string containing one or more DNS names (or IP) and TLS port pairs.
     bootstrapBrokerStringTls :: Prelude.Maybe Prelude.Text,
     -- | A string that contains one or more DNS names (or IP addresses) and SASL
     -- IAM port pairs.
@@ -151,6 +165,14 @@ data GetBootstrapBrokersResponse = GetBootstrapBrokersResponse'
 --
 -- 'bootstrapBrokerString', 'getBootstrapBrokersResponse_bootstrapBrokerString' - A string containing one or more hostname:port pairs.
 --
+-- 'bootstrapBrokerStringPublicTls', 'getBootstrapBrokersResponse_bootstrapBrokerStringPublicTls' - A string containing one or more DNS names (or IP) and TLS port pairs.
+--
+-- 'bootstrapBrokerStringPublicSaslScram', 'getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslScram' - A string containing one or more DNS names (or IP) and Sasl Scram port
+-- pairs.
+--
+-- 'bootstrapBrokerStringPublicSaslIam', 'getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslIam' - A string that contains one or more DNS names (or IP addresses) and SASL
+-- IAM port pairs.
+--
 -- 'bootstrapBrokerStringTls', 'getBootstrapBrokersResponse_bootstrapBrokerStringTls' - A string containing one or more DNS names (or IP) and TLS port pairs.
 --
 -- 'bootstrapBrokerStringSaslIam', 'getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam' - A string that contains one or more DNS names (or IP addresses) and SASL
@@ -166,6 +188,12 @@ newGetBootstrapBrokersResponse pHttpStatus_ =
     { bootstrapBrokerStringSaslScram =
         Prelude.Nothing,
       bootstrapBrokerString = Prelude.Nothing,
+      bootstrapBrokerStringPublicTls =
+        Prelude.Nothing,
+      bootstrapBrokerStringPublicSaslScram =
+        Prelude.Nothing,
+      bootstrapBrokerStringPublicSaslIam =
+        Prelude.Nothing,
       bootstrapBrokerStringTls = Prelude.Nothing,
       bootstrapBrokerStringSaslIam = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -179,6 +207,20 @@ getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram = Lens.lens (\GetBoot
 -- | A string containing one or more hostname:port pairs.
 getBootstrapBrokersResponse_bootstrapBrokerString :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
 getBootstrapBrokersResponse_bootstrapBrokerString = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerString} -> bootstrapBrokerString) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerString = a} :: GetBootstrapBrokersResponse)
+
+-- | A string containing one or more DNS names (or IP) and TLS port pairs.
+getBootstrapBrokersResponse_bootstrapBrokerStringPublicTls :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
+getBootstrapBrokersResponse_bootstrapBrokerStringPublicTls = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringPublicTls} -> bootstrapBrokerStringPublicTls) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringPublicTls = a} :: GetBootstrapBrokersResponse)
+
+-- | A string containing one or more DNS names (or IP) and Sasl Scram port
+-- pairs.
+getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslScram :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
+getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslScram = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringPublicSaslScram} -> bootstrapBrokerStringPublicSaslScram) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringPublicSaslScram = a} :: GetBootstrapBrokersResponse)
+
+-- | A string that contains one or more DNS names (or IP addresses) and SASL
+-- IAM port pairs.
+getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslIam :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
+getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslIam = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringPublicSaslIam} -> bootstrapBrokerStringPublicSaslIam) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringPublicSaslIam = a} :: GetBootstrapBrokersResponse)
 
 -- | A string containing one or more DNS names (or IP) and TLS port pairs.
 getBootstrapBrokersResponse_bootstrapBrokerStringTls :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
@@ -197,6 +239,9 @@ instance Prelude.NFData GetBootstrapBrokersResponse where
   rnf GetBootstrapBrokersResponse' {..} =
     Prelude.rnf bootstrapBrokerStringSaslScram
       `Prelude.seq` Prelude.rnf bootstrapBrokerString
+      `Prelude.seq` Prelude.rnf bootstrapBrokerStringPublicTls
+      `Prelude.seq` Prelude.rnf bootstrapBrokerStringPublicSaslScram
+      `Prelude.seq` Prelude.rnf bootstrapBrokerStringPublicSaslIam
       `Prelude.seq` Prelude.rnf bootstrapBrokerStringTls
       `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslIam
       `Prelude.seq` Prelude.rnf httpStatus

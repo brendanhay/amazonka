@@ -32,7 +32,7 @@ data GroupResult = GroupResult'
     tests :: Prelude.Maybe [TestCaseRun],
     -- | Group Result Name.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | Group result Id.
+    -- | Group result ID.
     groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +49,7 @@ data GroupResult = GroupResult'
 --
 -- 'groupName', 'groupResult_groupName' - Group Result Name.
 --
--- 'groupId', 'groupResult_groupId' - Group result Id.
+-- 'groupId', 'groupResult_groupId' - Group result ID.
 newGroupResult ::
   GroupResult
 newGroupResult =
@@ -67,7 +67,7 @@ groupResult_tests = Lens.lens (\GroupResult' {tests} -> tests) (\s@GroupResult' 
 groupResult_groupName :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
 groupResult_groupName = Lens.lens (\GroupResult' {groupName} -> groupName) (\s@GroupResult' {} a -> s {groupName = a} :: GroupResult)
 
--- | Group result Id.
+-- | Group result ID.
 groupResult_groupId :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
 groupResult_groupId = Lens.lens (\GroupResult' {groupId} -> groupId) (\s@GroupResult' {} a -> s {groupId = a} :: GroupResult)
 

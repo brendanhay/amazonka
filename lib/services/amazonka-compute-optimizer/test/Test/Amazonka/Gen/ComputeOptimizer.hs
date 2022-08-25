@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeRecommendationExportJobs $
+--         [ requestDeleteRecommendationPreferences $
+--             newDeleteRecommendationPreferences
+--
+--         , requestDescribeRecommendationExportJobs $
 --             newDescribeRecommendationExportJobs
 --
 --         , requestExportAutoScalingGroupRecommendations $
@@ -54,6 +57,9 @@ import Test.Tasty
 --         , requestGetEC2RecommendationProjectedMetrics $
 --             newGetEC2RecommendationProjectedMetrics
 --
+--         , requestGetEffectiveRecommendationPreferences $
+--             newGetEffectiveRecommendationPreferences
+--
 --         , requestGetEnrollmentStatus $
 --             newGetEnrollmentStatus
 --
@@ -63,8 +69,14 @@ import Test.Tasty
 --         , requestGetLambdaFunctionRecommendations $
 --             newGetLambdaFunctionRecommendations
 --
+--         , requestGetRecommendationPreferences $
+--             newGetRecommendationPreferences
+--
 --         , requestGetRecommendationSummaries $
 --             newGetRecommendationSummaries
+--
+--         , requestPutRecommendationPreferences $
+--             newPutRecommendationPreferences
 --
 --         , requestUpdateEnrollmentStatus $
 --             newUpdateEnrollmentStatus
@@ -72,7 +84,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeRecommendationExportJobs $
+--         [ responseDeleteRecommendationPreferences $
+--             newDeleteRecommendationPreferencesResponse
+--
+--         , responseDescribeRecommendationExportJobs $
 --             newDescribeRecommendationExportJobsResponse
 --
 --         , responseExportAutoScalingGroupRecommendations $
@@ -99,6 +114,9 @@ import Test.Tasty
 --         , responseGetEC2RecommendationProjectedMetrics $
 --             newGetEC2RecommendationProjectedMetricsResponse
 --
+--         , responseGetEffectiveRecommendationPreferences $
+--             newGetEffectiveRecommendationPreferencesResponse
+--
 --         , responseGetEnrollmentStatus $
 --             newGetEnrollmentStatusResponse
 --
@@ -108,8 +126,14 @@ import Test.Tasty
 --         , responseGetLambdaFunctionRecommendations $
 --             newGetLambdaFunctionRecommendationsResponse
 --
+--         , responseGetRecommendationPreferences $
+--             newGetRecommendationPreferencesResponse
+--
 --         , responseGetRecommendationSummaries $
 --             newGetRecommendationSummariesResponse
+--
+--         , responsePutRecommendationPreferences $
+--             newPutRecommendationPreferencesResponse
 --
 --         , responseUpdateEnrollmentStatus $
 --             newUpdateEnrollmentStatusResponse
@@ -118,6 +142,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestDeleteRecommendationPreferences :: DeleteRecommendationPreferences -> TestTree
+requestDeleteRecommendationPreferences =
+  req
+    "DeleteRecommendationPreferences"
+    "fixture/DeleteRecommendationPreferences.yaml"
 
 requestDescribeRecommendationExportJobs :: DescribeRecommendationExportJobs -> TestTree
 requestDescribeRecommendationExportJobs =
@@ -173,6 +203,12 @@ requestGetEC2RecommendationProjectedMetrics =
     "GetEC2RecommendationProjectedMetrics"
     "fixture/GetEC2RecommendationProjectedMetrics.yaml"
 
+requestGetEffectiveRecommendationPreferences :: GetEffectiveRecommendationPreferences -> TestTree
+requestGetEffectiveRecommendationPreferences =
+  req
+    "GetEffectiveRecommendationPreferences"
+    "fixture/GetEffectiveRecommendationPreferences.yaml"
+
 requestGetEnrollmentStatus :: GetEnrollmentStatus -> TestTree
 requestGetEnrollmentStatus =
   req
@@ -191,11 +227,23 @@ requestGetLambdaFunctionRecommendations =
     "GetLambdaFunctionRecommendations"
     "fixture/GetLambdaFunctionRecommendations.yaml"
 
+requestGetRecommendationPreferences :: GetRecommendationPreferences -> TestTree
+requestGetRecommendationPreferences =
+  req
+    "GetRecommendationPreferences"
+    "fixture/GetRecommendationPreferences.yaml"
+
 requestGetRecommendationSummaries :: GetRecommendationSummaries -> TestTree
 requestGetRecommendationSummaries =
   req
     "GetRecommendationSummaries"
     "fixture/GetRecommendationSummaries.yaml"
+
+requestPutRecommendationPreferences :: PutRecommendationPreferences -> TestTree
+requestPutRecommendationPreferences =
+  req
+    "PutRecommendationPreferences"
+    "fixture/PutRecommendationPreferences.yaml"
 
 requestUpdateEnrollmentStatus :: UpdateEnrollmentStatus -> TestTree
 requestUpdateEnrollmentStatus =
@@ -204,6 +252,14 @@ requestUpdateEnrollmentStatus =
     "fixture/UpdateEnrollmentStatus.yaml"
 
 -- Responses
+
+responseDeleteRecommendationPreferences :: DeleteRecommendationPreferencesResponse -> TestTree
+responseDeleteRecommendationPreferences =
+  res
+    "DeleteRecommendationPreferencesResponse"
+    "fixture/DeleteRecommendationPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecommendationPreferences)
 
 responseDescribeRecommendationExportJobs :: DescribeRecommendationExportJobsResponse -> TestTree
 responseDescribeRecommendationExportJobs =
@@ -277,6 +333,14 @@ responseGetEC2RecommendationProjectedMetrics =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEC2RecommendationProjectedMetrics)
 
+responseGetEffectiveRecommendationPreferences :: GetEffectiveRecommendationPreferencesResponse -> TestTree
+responseGetEffectiveRecommendationPreferences =
+  res
+    "GetEffectiveRecommendationPreferencesResponse"
+    "fixture/GetEffectiveRecommendationPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEffectiveRecommendationPreferences)
+
 responseGetEnrollmentStatus :: GetEnrollmentStatusResponse -> TestTree
 responseGetEnrollmentStatus =
   res
@@ -301,6 +365,14 @@ responseGetLambdaFunctionRecommendations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLambdaFunctionRecommendations)
 
+responseGetRecommendationPreferences :: GetRecommendationPreferencesResponse -> TestTree
+responseGetRecommendationPreferences =
+  res
+    "GetRecommendationPreferencesResponse"
+    "fixture/GetRecommendationPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendationPreferences)
+
 responseGetRecommendationSummaries :: GetRecommendationSummariesResponse -> TestTree
 responseGetRecommendationSummaries =
   res
@@ -308,6 +380,14 @@ responseGetRecommendationSummaries =
     "fixture/GetRecommendationSummariesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRecommendationSummaries)
+
+responsePutRecommendationPreferences :: PutRecommendationPreferencesResponse -> TestTree
+responsePutRecommendationPreferences =
+  res
+    "PutRecommendationPreferencesResponse"
+    "fixture/PutRecommendationPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRecommendationPreferences)
 
 responseUpdateEnrollmentStatus :: UpdateEnrollmentStatusResponse -> TestTree
 responseUpdateEnrollmentStatus =

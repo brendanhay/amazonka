@@ -78,6 +78,10 @@ data EntityRecognizerProperties = EntityRecognizerProperties'
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The version name you assigned to the entity recognizer.
     versionName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source model. This model was
+    -- imported from a different AWS account to create the entity recognizer
+    -- model in your AWS account.
+    sourceModelArn :: Prelude.Maybe Prelude.Text,
     -- | The input data properties of an entity recognizer.
     inputDataConfig :: Prelude.Maybe EntityRecognizerInputDataConfig,
     -- | The time that training of the entity recognizer was completed.
@@ -139,6 +143,10 @@ data EntityRecognizerProperties = EntityRecognizerProperties'
 --
 -- 'versionName', 'entityRecognizerProperties_versionName' - The version name you assigned to the entity recognizer.
 --
+-- 'sourceModelArn', 'entityRecognizerProperties_sourceModelArn' - The Amazon Resource Name (ARN) of the source model. This model was
+-- imported from a different AWS account to create the entity recognizer
+-- model in your AWS account.
+--
 -- 'inputDataConfig', 'entityRecognizerProperties_inputDataConfig' - The input data properties of an entity recognizer.
 --
 -- 'trainingEndTime', 'entityRecognizerProperties_trainingEndTime' - The time that training of the entity recognizer was completed.
@@ -160,6 +168,7 @@ newEntityRecognizerProperties =
       endTime = Prelude.Nothing,
       languageCode = Prelude.Nothing,
       versionName = Prelude.Nothing,
+      sourceModelArn = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       trainingEndTime = Prelude.Nothing
     }
@@ -236,6 +245,12 @@ entityRecognizerProperties_languageCode = Lens.lens (\EntityRecognizerProperties
 entityRecognizerProperties_versionName :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
 entityRecognizerProperties_versionName = Lens.lens (\EntityRecognizerProperties' {versionName} -> versionName) (\s@EntityRecognizerProperties' {} a -> s {versionName = a} :: EntityRecognizerProperties)
 
+-- | The Amazon Resource Name (ARN) of the source model. This model was
+-- imported from a different AWS account to create the entity recognizer
+-- model in your AWS account.
+entityRecognizerProperties_sourceModelArn :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
+entityRecognizerProperties_sourceModelArn = Lens.lens (\EntityRecognizerProperties' {sourceModelArn} -> sourceModelArn) (\s@EntityRecognizerProperties' {} a -> s {sourceModelArn = a} :: EntityRecognizerProperties)
+
 -- | The input data properties of an entity recognizer.
 entityRecognizerProperties_inputDataConfig :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe EntityRecognizerInputDataConfig)
 entityRecognizerProperties_inputDataConfig = Lens.lens (\EntityRecognizerProperties' {inputDataConfig} -> inputDataConfig) (\s@EntityRecognizerProperties' {} a -> s {inputDataConfig = a} :: EntityRecognizerProperties)
@@ -263,6 +278,7 @@ instance Core.FromJSON EntityRecognizerProperties where
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "VersionName")
+            Prelude.<*> (x Core..:? "SourceModelArn")
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "TrainingEndTime")
       )
@@ -282,6 +298,7 @@ instance Prelude.Hashable EntityRecognizerProperties where
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` sourceModelArn
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` trainingEndTime
 
@@ -300,5 +317,6 @@ instance Prelude.NFData EntityRecognizerProperties where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf sourceModelArn
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf trainingEndTime

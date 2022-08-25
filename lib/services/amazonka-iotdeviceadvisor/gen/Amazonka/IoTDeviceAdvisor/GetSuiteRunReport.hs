@@ -22,6 +22,10 @@
 --
 -- Gets a report download link for a successful Device Advisor qualifying
 -- test suite run.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetSuiteRunReport>
+-- action.
 module Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
   ( -- * Creating a Request
     GetSuiteRunReport (..),
@@ -50,9 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSuiteRunReport' smart constructor.
 data GetSuiteRunReport = GetSuiteRunReport'
-  { -- | Suite definition Id of the test suite.
+  { -- | Suite definition ID of the test suite.
     suiteDefinitionId :: Prelude.Text,
-    -- | Suite run Id of the test suite run.
+    -- | Suite run ID of the test suite run.
     suiteRunId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,9 +69,9 @@ data GetSuiteRunReport = GetSuiteRunReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionId', 'getSuiteRunReport_suiteDefinitionId' - Suite definition Id of the test suite.
+-- 'suiteDefinitionId', 'getSuiteRunReport_suiteDefinitionId' - Suite definition ID of the test suite.
 --
--- 'suiteRunId', 'getSuiteRunReport_suiteRunId' - Suite run Id of the test suite run.
+-- 'suiteRunId', 'getSuiteRunReport_suiteRunId' - Suite run ID of the test suite run.
 newGetSuiteRunReport ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -81,11 +85,11 @@ newGetSuiteRunReport pSuiteDefinitionId_ pSuiteRunId_ =
       suiteRunId = pSuiteRunId_
     }
 
--- | Suite definition Id of the test suite.
+-- | Suite definition ID of the test suite.
 getSuiteRunReport_suiteDefinitionId :: Lens.Lens' GetSuiteRunReport Prelude.Text
 getSuiteRunReport_suiteDefinitionId = Lens.lens (\GetSuiteRunReport' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteRunReport' {} a -> s {suiteDefinitionId = a} :: GetSuiteRunReport)
 
--- | Suite run Id of the test suite run.
+-- | Suite run ID of the test suite run.
 getSuiteRunReport_suiteRunId :: Lens.Lens' GetSuiteRunReport Prelude.Text
 getSuiteRunReport_suiteRunId = Lens.lens (\GetSuiteRunReport' {suiteRunId} -> suiteRunId) (\s@GetSuiteRunReport' {} a -> s {suiteRunId = a} :: GetSuiteRunReport)
 

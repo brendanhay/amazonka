@@ -49,9 +49,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | ARN of the resource for which tags are to be added or updated.
+  { -- | ARN of the resource for which tags are to be added or updated. The ARN
+    -- must be URL-encoded.
     resourceArn :: Prelude.Text,
-    -- | Array of tags to be added or updated.
+    -- | Array of tags to be added or updated. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +69,14 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - ARN of the resource for which tags are to be added or updated.
+-- 'resourceArn', 'tagResource_resourceArn' - ARN of the resource for which tags are to be added or updated. The ARN
+-- must be URL-encoded.
 --
--- 'tags', 'tagResource_tags' - Array of tags to be added or updated.
+-- 'tags', 'tagResource_tags' - Array of tags to be added or updated. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -77,11 +87,16 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | ARN of the resource for which tags are to be added or updated.
+-- | ARN of the resource for which tags are to be added or updated. The ARN
+-- must be URL-encoded.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | Array of tags to be added or updated.
+-- | Array of tags to be added or updated. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

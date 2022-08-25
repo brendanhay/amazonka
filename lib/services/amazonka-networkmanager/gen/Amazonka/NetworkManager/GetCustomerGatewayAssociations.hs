@@ -57,10 +57,8 @@ import qualified Amazonka.Response as Response
 data GetCustomerGatewayAssociations = GetCustomerGatewayAssociations'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more customer gateway Amazon Resource Names (ARNs). For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
-    -- The maximum is 10.
+    -- | One or more customer gateway Amazon Resource Names (ARNs). The maximum
+    -- is 10.
     customerGatewayArns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -79,10 +77,8 @@ data GetCustomerGatewayAssociations = GetCustomerGatewayAssociations'
 --
 -- 'nextToken', 'getCustomerGatewayAssociations_nextToken' - The token for the next page of results.
 --
--- 'customerGatewayArns', 'getCustomerGatewayAssociations_customerGatewayArns' - One or more customer gateway Amazon Resource Names (ARNs). For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
--- The maximum is 10.
+-- 'customerGatewayArns', 'getCustomerGatewayAssociations_customerGatewayArns' - One or more customer gateway Amazon Resource Names (ARNs). The maximum
+-- is 10.
 --
 -- 'maxResults', 'getCustomerGatewayAssociations_maxResults' - The maximum number of results to return.
 --
@@ -104,10 +100,8 @@ newGetCustomerGatewayAssociations pGlobalNetworkId_ =
 getCustomerGatewayAssociations_nextToken :: Lens.Lens' GetCustomerGatewayAssociations (Prelude.Maybe Prelude.Text)
 getCustomerGatewayAssociations_nextToken = Lens.lens (\GetCustomerGatewayAssociations' {nextToken} -> nextToken) (\s@GetCustomerGatewayAssociations' {} a -> s {nextToken = a} :: GetCustomerGatewayAssociations)
 
--- | One or more customer gateway Amazon Resource Names (ARNs). For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
--- The maximum is 10.
+-- | One or more customer gateway Amazon Resource Names (ARNs). The maximum
+-- is 10.
 getCustomerGatewayAssociations_customerGatewayArns :: Lens.Lens' GetCustomerGatewayAssociations (Prelude.Maybe [Prelude.Text])
 getCustomerGatewayAssociations_customerGatewayArns = Lens.lens (\GetCustomerGatewayAssociations' {customerGatewayArns} -> customerGatewayArns) (\s@GetCustomerGatewayAssociations' {} a -> s {customerGatewayArns = a} :: GetCustomerGatewayAssociations) Prelude.. Lens.mapping Lens.coerced
 

@@ -26,12 +26,15 @@ import Amazonka.SSM.Types.CommandFilterKey
 
 -- | Describes a command filter.
 --
--- An instance ID can\'t be specified when a command status is @Pending@
--- because the command hasn\'t run on the instance yet.
+-- A managed node ID can\'t be specified when a command status is @Pending@
+-- because the command hasn\'t run on the node yet.
 --
 -- /See:/ 'newCommandFilter' smart constructor.
 data CommandFilter = CommandFilter'
   { -- | The name of the filter.
+    --
+    -- The @ExecutionStage@ filter can\'t be used with the
+    -- @ListCommandInvocations@ operation, only with @ListCommands@.
     key :: CommandFilterKey,
     -- | The filter value. Valid values for each filter key are as follows:
     --
@@ -105,9 +108,10 @@ data CommandFilter = CommandFilter'
     --     Manager document (SSM document) for which you want to see command
     --     execution results. For example, specify @AWS-RunPatchBaseline@ to
     --     see command executions that used this SSM document to perform
-    --     security patching operations on instances.
+    --     security patching operations on managed nodes.
     --
-    -- -   __ExecutionStage__: Specify one of the following values:
+    -- -   __ExecutionStage__: Specify one of the following values
+    --     (@ListCommands@ operations only):
     --
     --     -   @Executing@: Returns a list of command executions that are
     --         currently still running.
@@ -127,6 +131,9 @@ data CommandFilter = CommandFilter'
 -- for backwards compatibility:
 --
 -- 'key', 'commandFilter_key' - The name of the filter.
+--
+-- The @ExecutionStage@ filter can\'t be used with the
+-- @ListCommandInvocations@ operation, only with @ListCommands@.
 --
 -- 'value', 'commandFilter_value' - The filter value. Valid values for each filter key are as follows:
 --
@@ -200,9 +207,10 @@ data CommandFilter = CommandFilter'
 --     Manager document (SSM document) for which you want to see command
 --     execution results. For example, specify @AWS-RunPatchBaseline@ to
 --     see command executions that used this SSM document to perform
---     security patching operations on instances.
+--     security patching operations on managed nodes.
 --
--- -   __ExecutionStage__: Specify one of the following values:
+-- -   __ExecutionStage__: Specify one of the following values
+--     (@ListCommands@ operations only):
 --
 --     -   @Executing@: Returns a list of command executions that are
 --         currently still running.
@@ -219,6 +227,9 @@ newCommandFilter pKey_ pValue_ =
   CommandFilter' {key = pKey_, value = pValue_}
 
 -- | The name of the filter.
+--
+-- The @ExecutionStage@ filter can\'t be used with the
+-- @ListCommandInvocations@ operation, only with @ListCommands@.
 commandFilter_key :: Lens.Lens' CommandFilter CommandFilterKey
 commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' {} a -> s {key = a} :: CommandFilter)
 
@@ -294,9 +305,10 @@ commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' 
 --     Manager document (SSM document) for which you want to see command
 --     execution results. For example, specify @AWS-RunPatchBaseline@ to
 --     see command executions that used this SSM document to perform
---     security patching operations on instances.
+--     security patching operations on managed nodes.
 --
--- -   __ExecutionStage__: Specify one of the following values:
+-- -   __ExecutionStage__: Specify one of the following values
+--     (@ListCommands@ operations only):
 --
 --     -   @Executing@: Returns a list of command executions that are
 --         currently still running.

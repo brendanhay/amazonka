@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.ModelPackageContainerDefinition where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ModelInput
 
 -- | Describes the Docker container for the model package.
 --
@@ -40,19 +41,29 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
     -- The model artifacts must be in an S3 bucket that is in the same region
     -- as the model package.
     modelDataUrl :: Prelude.Maybe Prelude.Text,
+    -- | A structure with Model Input details.
+    modelInput :: Prelude.Maybe ModelInput,
     -- | The Amazon Web Services Marketplace product ID of the model package.
     productId :: Prelude.Maybe Prelude.Text,
+    -- | The name of a pre-trained machine learning benchmarked by Amazon
+    -- SageMaker Inference Recommender model that matches your model. You can
+    -- find a list of benchmarked models by calling @ListModelMetadata@.
+    nearestModelName :: Prelude.Maybe Prelude.Text,
+    -- | The framework version of the Model Package Container Image.
+    frameworkVersion :: Prelude.Maybe Prelude.Text,
     -- | An MD5 hash of the training algorithm that identifies the Docker image
     -- used for training.
     imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The machine learning framework of the model package container image.
+    framework :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
     -- is stored.
     --
     -- If you are using your own custom algorithm instead of an algorithm
-    -- provided by Amazon SageMaker, the inference code must meet Amazon
-    -- SageMaker requirements. Amazon SageMaker supports both
-    -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
-    -- path formats. For more information, see
+    -- provided by SageMaker, the inference code must meet SageMaker
+    -- requirements. SageMaker supports both @registry\/repository[:tag]@ and
+    -- @registry\/repository[\@digest]@ image path formats. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
     image :: Prelude.Text
   }
@@ -79,19 +90,29 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model package.
 --
+-- 'modelInput', 'modelPackageContainerDefinition_modelInput' - A structure with Model Input details.
+--
 -- 'productId', 'modelPackageContainerDefinition_productId' - The Amazon Web Services Marketplace product ID of the model package.
+--
+-- 'nearestModelName', 'modelPackageContainerDefinition_nearestModelName' - The name of a pre-trained machine learning benchmarked by Amazon
+-- SageMaker Inference Recommender model that matches your model. You can
+-- find a list of benchmarked models by calling @ListModelMetadata@.
+--
+-- 'frameworkVersion', 'modelPackageContainerDefinition_frameworkVersion' - The framework version of the Model Package Container Image.
 --
 -- 'imageDigest', 'modelPackageContainerDefinition_imageDigest' - An MD5 hash of the training algorithm that identifies the Docker image
 -- used for training.
+--
+-- 'framework', 'modelPackageContainerDefinition_framework' - The machine learning framework of the model package container image.
 --
 -- 'image', 'modelPackageContainerDefinition_image' - The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 -- is stored.
 --
 -- If you are using your own custom algorithm instead of an algorithm
--- provided by Amazon SageMaker, the inference code must meet Amazon
--- SageMaker requirements. Amazon SageMaker supports both
--- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
--- path formats. For more information, see
+-- provided by SageMaker, the inference code must meet SageMaker
+-- requirements. SageMaker supports both @registry\/repository[:tag]@ and
+-- @registry\/repository[\@digest]@ image path formats. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
 newModelPackageContainerDefinition ::
   -- | 'image'
@@ -103,8 +124,12 @@ newModelPackageContainerDefinition pImage_ =
         Prelude.Nothing,
       containerHostname = Prelude.Nothing,
       modelDataUrl = Prelude.Nothing,
+      modelInput = Prelude.Nothing,
       productId = Prelude.Nothing,
+      nearestModelName = Prelude.Nothing,
+      frameworkVersion = Prelude.Nothing,
       imageDigest = Prelude.Nothing,
+      framework = Prelude.Nothing,
       image = pImage_
     }
 
@@ -127,23 +152,41 @@ modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageCont
 modelPackageContainerDefinition_modelDataUrl :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_modelDataUrl = Lens.lens (\ModelPackageContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@ModelPackageContainerDefinition' {} a -> s {modelDataUrl = a} :: ModelPackageContainerDefinition)
 
+-- | A structure with Model Input details.
+modelPackageContainerDefinition_modelInput :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe ModelInput)
+modelPackageContainerDefinition_modelInput = Lens.lens (\ModelPackageContainerDefinition' {modelInput} -> modelInput) (\s@ModelPackageContainerDefinition' {} a -> s {modelInput = a} :: ModelPackageContainerDefinition)
+
 -- | The Amazon Web Services Marketplace product ID of the model package.
 modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_productId = Lens.lens (\ModelPackageContainerDefinition' {productId} -> productId) (\s@ModelPackageContainerDefinition' {} a -> s {productId = a} :: ModelPackageContainerDefinition)
+
+-- | The name of a pre-trained machine learning benchmarked by Amazon
+-- SageMaker Inference Recommender model that matches your model. You can
+-- find a list of benchmarked models by calling @ListModelMetadata@.
+modelPackageContainerDefinition_nearestModelName :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_nearestModelName = Lens.lens (\ModelPackageContainerDefinition' {nearestModelName} -> nearestModelName) (\s@ModelPackageContainerDefinition' {} a -> s {nearestModelName = a} :: ModelPackageContainerDefinition)
+
+-- | The framework version of the Model Package Container Image.
+modelPackageContainerDefinition_frameworkVersion :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_frameworkVersion = Lens.lens (\ModelPackageContainerDefinition' {frameworkVersion} -> frameworkVersion) (\s@ModelPackageContainerDefinition' {} a -> s {frameworkVersion = a} :: ModelPackageContainerDefinition)
 
 -- | An MD5 hash of the training algorithm that identifies the Docker image
 -- used for training.
 modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerDefinition' {imageDigest} -> imageDigest) (\s@ModelPackageContainerDefinition' {} a -> s {imageDigest = a} :: ModelPackageContainerDefinition)
 
+-- | The machine learning framework of the model package container image.
+modelPackageContainerDefinition_framework :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_framework = Lens.lens (\ModelPackageContainerDefinition' {framework} -> framework) (\s@ModelPackageContainerDefinition' {} a -> s {framework = a} :: ModelPackageContainerDefinition)
+
 -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 -- is stored.
 --
 -- If you are using your own custom algorithm instead of an algorithm
--- provided by Amazon SageMaker, the inference code must meet Amazon
--- SageMaker requirements. Amazon SageMaker supports both
--- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
--- path formats. For more information, see
+-- provided by SageMaker, the inference code must meet SageMaker
+-- requirements. SageMaker supports both @registry\/repository[:tag]@ and
+-- @registry\/repository[\@digest]@ image path formats. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
 modelPackageContainerDefinition_image :: Lens.Lens' ModelPackageContainerDefinition Prelude.Text
 modelPackageContainerDefinition_image = Lens.lens (\ModelPackageContainerDefinition' {image} -> image) (\s@ModelPackageContainerDefinition' {} a -> s {image = a} :: ModelPackageContainerDefinition)
@@ -160,8 +203,12 @@ instance
             Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ContainerHostname")
             Prelude.<*> (x Core..:? "ModelDataUrl")
+            Prelude.<*> (x Core..:? "ModelInput")
             Prelude.<*> (x Core..:? "ProductId")
+            Prelude.<*> (x Core..:? "NearestModelName")
+            Prelude.<*> (x Core..:? "FrameworkVersion")
             Prelude.<*> (x Core..:? "ImageDigest")
+            Prelude.<*> (x Core..:? "Framework")
             Prelude.<*> (x Core..: "Image")
       )
 
@@ -175,8 +222,12 @@ instance
       _salt `Prelude.hashWithSalt` environment
         `Prelude.hashWithSalt` containerHostname
         `Prelude.hashWithSalt` modelDataUrl
+        `Prelude.hashWithSalt` modelInput
         `Prelude.hashWithSalt` productId
+        `Prelude.hashWithSalt` nearestModelName
+        `Prelude.hashWithSalt` frameworkVersion
         `Prelude.hashWithSalt` imageDigest
+        `Prelude.hashWithSalt` framework
         `Prelude.hashWithSalt` image
 
 instance
@@ -187,8 +238,12 @@ instance
     Prelude.rnf environment
       `Prelude.seq` Prelude.rnf containerHostname
       `Prelude.seq` Prelude.rnf modelDataUrl
+      `Prelude.seq` Prelude.rnf modelInput
       `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf nearestModelName
+      `Prelude.seq` Prelude.rnf frameworkVersion
       `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf framework
       `Prelude.seq` Prelude.rnf image
 
 instance Core.ToJSON ModelPackageContainerDefinition where
@@ -199,8 +254,14 @@ instance Core.ToJSON ModelPackageContainerDefinition where
             ("ContainerHostname" Core..=)
               Prelude.<$> containerHostname,
             ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+            ("ModelInput" Core..=) Prelude.<$> modelInput,
             ("ProductId" Core..=) Prelude.<$> productId,
+            ("NearestModelName" Core..=)
+              Prelude.<$> nearestModelName,
+            ("FrameworkVersion" Core..=)
+              Prelude.<$> frameworkVersion,
             ("ImageDigest" Core..=) Prelude.<$> imageDigest,
+            ("Framework" Core..=) Prelude.<$> framework,
             Prelude.Just ("Image" Core..= image)
           ]
       )

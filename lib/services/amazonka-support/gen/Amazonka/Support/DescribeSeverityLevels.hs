@@ -24,14 +24,14 @@
 -- case. The severity level for a case is also a field in the CaseDetails
 -- data type that you include for a CreateCase request.
 --
--- -   You must have a Business or Enterprise Support plan to use the AWS
---     Support API.
+-- -   You must have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan to use the Amazon Web Services Support API.
 --
--- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise Support plan, the
---     @SubscriptionRequiredException@ error message appears. For
+-- -   If you call the Amazon Web Services Support API from an account that
+--     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
---     <http://aws.amazon.com/premiumsupport/ AWS Support>.
+--     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
 module Amazonka.Support.DescribeSeverityLevels
   ( -- * Creating a Request
     DescribeSeverityLevels (..),
@@ -59,10 +59,10 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeSeverityLevels' smart constructor.
 data DescribeSeverityLevels = DescribeSeverityLevels'
-  { -- | The ISO 639-1 code for the language in which AWS provides support. AWS
-    -- Support currently supports English (\"en\") and Japanese (\"ja\").
-    -- Language parameters must be passed explicitly for operations that take
-    -- them.
+  { -- | The ISO 639-1 code for the language in which Amazon Web Services
+    -- provides support. Amazon Web Services Support currently supports English
+    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+    -- explicitly for operations that take them.
     language :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,19 +75,19 @@ data DescribeSeverityLevels = DescribeSeverityLevels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'language', 'describeSeverityLevels_language' - The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- 'language', 'describeSeverityLevels_language' - The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 newDescribeSeverityLevels ::
   DescribeSeverityLevels
 newDescribeSeverityLevels =
   DescribeSeverityLevels' {language = Prelude.Nothing}
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 describeSeverityLevels_language :: Lens.Lens' DescribeSeverityLevels (Prelude.Maybe Prelude.Text)
 describeSeverityLevels_language = Lens.lens (\DescribeSeverityLevels' {language} -> language) (\s@DescribeSeverityLevels' {} a -> s {language = a} :: DescribeSeverityLevels)
 
@@ -146,7 +146,8 @@ instance Core.ToQuery DescribeSeverityLevels where
 -- /See:/ 'newDescribeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
   { -- | The available severity levels for the support case. Available severity
-    -- levels are defined by your service level agreement with AWS.
+    -- levels are defined by your service level agreement with Amazon Web
+    -- Services.
     severityLevels :: Prelude.Maybe [SeverityLevel],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -162,7 +163,8 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
 -- for backwards compatibility:
 --
 -- 'severityLevels', 'describeSeverityLevelsResponse_severityLevels' - The available severity levels for the support case. Available severity
--- levels are defined by your service level agreement with AWS.
+-- levels are defined by your service level agreement with Amazon Web
+-- Services.
 --
 -- 'httpStatus', 'describeSeverityLevelsResponse_httpStatus' - The response's http status code.
 newDescribeSeverityLevelsResponse ::
@@ -177,7 +179,8 @@ newDescribeSeverityLevelsResponse pHttpStatus_ =
     }
 
 -- | The available severity levels for the support case. Available severity
--- levels are defined by your service level agreement with AWS.
+-- levels are defined by your service level agreement with Amazon Web
+-- Services.
 describeSeverityLevelsResponse_severityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Prelude.Maybe [SeverityLevel])
 describeSeverityLevelsResponse_severityLevels = Lens.lens (\DescribeSeverityLevelsResponse' {severityLevels} -> severityLevels) (\s@DescribeSeverityLevelsResponse' {} a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse) Prelude.. Lens.mapping Lens.coerced
 

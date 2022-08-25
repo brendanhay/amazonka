@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.ApplicationInstanceStatus
   ( ApplicationInstanceStatus
       ( ..,
         ApplicationInstanceStatus_DEPLOYMENT_ERROR,
+        ApplicationInstanceStatus_DEPLOYMENT_FAILED,
         ApplicationInstanceStatus_DEPLOYMENT_IN_PROGRESS,
         ApplicationInstanceStatus_DEPLOYMENT_PENDING,
         ApplicationInstanceStatus_DEPLOYMENT_REQUESTED,
@@ -68,6 +69,9 @@ newtype ApplicationInstanceStatus = ApplicationInstanceStatus'
 pattern ApplicationInstanceStatus_DEPLOYMENT_ERROR :: ApplicationInstanceStatus
 pattern ApplicationInstanceStatus_DEPLOYMENT_ERROR = ApplicationInstanceStatus' "DEPLOYMENT_ERROR"
 
+pattern ApplicationInstanceStatus_DEPLOYMENT_FAILED :: ApplicationInstanceStatus
+pattern ApplicationInstanceStatus_DEPLOYMENT_FAILED = ApplicationInstanceStatus' "DEPLOYMENT_FAILED"
+
 pattern ApplicationInstanceStatus_DEPLOYMENT_IN_PROGRESS :: ApplicationInstanceStatus
 pattern ApplicationInstanceStatus_DEPLOYMENT_IN_PROGRESS = ApplicationInstanceStatus' "DEPLOYMENT_IN_PROGRESS"
 
@@ -97,6 +101,7 @@ pattern ApplicationInstanceStatus_REMOVAL_SUCCEEDED = ApplicationInstanceStatus'
 
 {-# COMPLETE
   ApplicationInstanceStatus_DEPLOYMENT_ERROR,
+  ApplicationInstanceStatus_DEPLOYMENT_FAILED,
   ApplicationInstanceStatus_DEPLOYMENT_IN_PROGRESS,
   ApplicationInstanceStatus_DEPLOYMENT_PENDING,
   ApplicationInstanceStatus_DEPLOYMENT_REQUESTED,

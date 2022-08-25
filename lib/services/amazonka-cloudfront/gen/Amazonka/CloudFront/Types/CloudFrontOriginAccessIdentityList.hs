@@ -36,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
   { -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@
     -- element for each origin access identity that was created by the current
-    -- account.
+    -- Amazon Web Services account.
     items :: Prelude.Maybe [CloudFrontOriginAccessIdentitySummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value you can use for the @Marker@ request parameter to continue listing
@@ -57,7 +57,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
     -- items in the list.
     isTruncated :: Prelude.Bool,
     -- | The number of CloudFront origin access identities that were created by
-    -- the current account.
+    -- the current Amazon Web Services account.
     quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
 --
 -- 'items', 'cloudFrontOriginAccessIdentityList_items' - A complex type that contains one @CloudFrontOriginAccessIdentitySummary@
 -- element for each origin access identity that was created by the current
--- account.
+-- Amazon Web Services account.
 --
 -- 'nextMarker', 'cloudFrontOriginAccessIdentityList_nextMarker' - If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing
@@ -93,7 +93,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
 -- items in the list.
 --
 -- 'quantity', 'cloudFrontOriginAccessIdentityList_quantity' - The number of CloudFront origin access identities that were created by
--- the current account.
+-- the current Amazon Web Services account.
 newCloudFrontOriginAccessIdentityList ::
   -- | 'marker'
   Prelude.Text ->
@@ -121,7 +121,7 @@ newCloudFrontOriginAccessIdentityList
 
 -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@
 -- element for each origin access identity that was created by the current
--- account.
+-- Amazon Web Services account.
 cloudFrontOriginAccessIdentityList_items :: Lens.Lens' CloudFrontOriginAccessIdentityList (Prelude.Maybe [CloudFrontOriginAccessIdentitySummary])
 cloudFrontOriginAccessIdentityList_items = Lens.lens (\CloudFrontOriginAccessIdentityList' {items} -> items) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {items = a} :: CloudFrontOriginAccessIdentityList) Prelude.. Lens.mapping Lens.coerced
 
@@ -152,7 +152,7 @@ cloudFrontOriginAccessIdentityList_isTruncated :: Lens.Lens' CloudFrontOriginAcc
 cloudFrontOriginAccessIdentityList_isTruncated = Lens.lens (\CloudFrontOriginAccessIdentityList' {isTruncated} -> isTruncated) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {isTruncated = a} :: CloudFrontOriginAccessIdentityList)
 
 -- | The number of CloudFront origin access identities that were created by
--- the current account.
+-- the current Amazon Web Services account.
 cloudFrontOriginAccessIdentityList_quantity :: Lens.Lens' CloudFrontOriginAccessIdentityList Prelude.Int
 cloudFrontOriginAccessIdentityList_quantity = Lens.lens (\CloudFrontOriginAccessIdentityList' {quantity} -> quantity) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {quantity = a} :: CloudFrontOriginAccessIdentityList)
 

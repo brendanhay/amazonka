@@ -22,7 +22,7 @@
 --
 -- Returns a list of Jobs. Use the JobsID and fromDate and toData filters
 -- to limit which jobs are returned. The response is sorted by
--- creationDataTime - latest date first. Jobs are normaly created by the
+-- creationDataTime - latest date first. Jobs are normally created by the
 -- StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are
 -- also created by DiagnosticLaunch and TerminateDiagnosticInstances, which
 -- are APIs available only to *Support* and only used in response to
@@ -36,8 +36,8 @@ module Amazonka.MGN.DescribeJobs
 
     -- * Request Lenses
     describeJobs_nextToken,
-    describeJobs_maxResults,
     describeJobs_filters,
+    describeJobs_maxResults,
 
     -- * Destructuring the Response
     DescribeJobsResponse (..),
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeJobs' smart constructor.
 data DescribeJobs = DescribeJobs'
-  { -- | Request to describe Job logby next token.
+  { -- | Request to describe job log items by next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Request to describe Job log by max results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Request to describe Job log filters.
-    filters :: DescribeJobsRequestFilters
+    filters :: Prelude.Maybe DescribeJobsRequestFilters,
+    -- | Request to describe job log items by max results.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,33 +76,31 @@ data DescribeJobs = DescribeJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeJobs_nextToken' - Request to describe Job logby next token.
---
--- 'maxResults', 'describeJobs_maxResults' - Request to describe Job log by max results.
+-- 'nextToken', 'describeJobs_nextToken' - Request to describe job log items by next token.
 --
 -- 'filters', 'describeJobs_filters' - Request to describe Job log filters.
+--
+-- 'maxResults', 'describeJobs_maxResults' - Request to describe job log items by max results.
 newDescribeJobs ::
-  -- | 'filters'
-  DescribeJobsRequestFilters ->
   DescribeJobs
-newDescribeJobs pFilters_ =
+newDescribeJobs =
   DescribeJobs'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = pFilters_
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
--- | Request to describe Job logby next token.
+-- | Request to describe job log items by next token.
 describeJobs_nextToken :: Lens.Lens' DescribeJobs (Prelude.Maybe Prelude.Text)
 describeJobs_nextToken = Lens.lens (\DescribeJobs' {nextToken} -> nextToken) (\s@DescribeJobs' {} a -> s {nextToken = a} :: DescribeJobs)
 
--- | Request to describe Job log by max results.
+-- | Request to describe Job log filters.
+describeJobs_filters :: Lens.Lens' DescribeJobs (Prelude.Maybe DescribeJobsRequestFilters)
+describeJobs_filters = Lens.lens (\DescribeJobs' {filters} -> filters) (\s@DescribeJobs' {} a -> s {filters = a} :: DescribeJobs)
+
+-- | Request to describe job log items by max results.
 describeJobs_maxResults :: Lens.Lens' DescribeJobs (Prelude.Maybe Prelude.Natural)
 describeJobs_maxResults = Lens.lens (\DescribeJobs' {maxResults} -> maxResults) (\s@DescribeJobs' {} a -> s {maxResults = a} :: DescribeJobs)
-
--- | Request to describe Job log filters.
-describeJobs_filters :: Lens.Lens' DescribeJobs DescribeJobsRequestFilters
-describeJobs_filters = Lens.lens (\DescribeJobs' {filters} -> filters) (\s@DescribeJobs' {} a -> s {filters = a} :: DescribeJobs)
 
 instance Core.AWSPager DescribeJobs where
   page rq rs
@@ -138,14 +136,14 @@ instance Core.AWSRequest DescribeJobs where
 instance Prelude.Hashable DescribeJobs where
   hashWithSalt _salt DescribeJobs' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeJobs where
   rnf DescribeJobs' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeJobs where
   toHeaders =
@@ -163,8 +161,8 @@ instance Core.ToJSON DescribeJobs where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("filters" Core..= filters)
+            ("filters" Core..=) Prelude.<$> filters,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

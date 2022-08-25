@@ -105,6 +105,7 @@ module Amazonka.Lightsail.Lens
     createContainerService_tags,
     createContainerService_deployment,
     createContainerService_publicDomainNames,
+    createContainerService_privateRegistryAccess,
     createContainerService_serviceName,
     createContainerService_power,
     createContainerService_scale,
@@ -231,6 +232,7 @@ module Amazonka.Lightsail.Lens
     createLoadBalancer_certificateName,
     createLoadBalancer_ipAddressType,
     createLoadBalancer_certificateDomainName,
+    createLoadBalancer_tlsPolicyName,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_instancePort,
     createLoadBalancerResponse_operations,
@@ -361,6 +363,7 @@ module Amazonka.Lightsail.Lens
     deleteInstanceSnapshotResponse_httpStatus,
 
     -- ** DeleteKeyPair
+    deleteKeyPair_expectedFingerprint,
     deleteKeyPair_keyPairName,
     deleteKeyPairResponse_operation,
     deleteKeyPairResponse_httpStatus,
@@ -424,6 +427,7 @@ module Amazonka.Lightsail.Lens
     -- ** DownloadDefaultKeyPair
     downloadDefaultKeyPairResponse_publicKeyBase64,
     downloadDefaultKeyPairResponse_privateKeyBase64,
+    downloadDefaultKeyPairResponse_createdAt,
     downloadDefaultKeyPairResponse_httpStatus,
 
     -- ** EnableAddOn
@@ -492,6 +496,7 @@ module Amazonka.Lightsail.Lens
     getBuckets_pageToken,
     getBuckets_bucketName,
     getBucketsResponse_nextPageToken,
+    getBucketsResponse_accountLevelBpaSync,
     getBucketsResponse_buckets,
     getBucketsResponse_httpStatus,
 
@@ -689,6 +694,7 @@ module Amazonka.Lightsail.Lens
     getKeyPairResponse_httpStatus,
 
     -- ** GetKeyPairs
+    getKeyPairs_includeDefaultKeyPair,
     getKeyPairs_pageToken,
     getKeyPairsResponse_keyPairs,
     getKeyPairsResponse_nextPageToken,
@@ -715,6 +721,12 @@ module Amazonka.Lightsail.Lens
     getLoadBalancerTlsCertificates_loadBalancerName,
     getLoadBalancerTlsCertificatesResponse_tlsCertificates,
     getLoadBalancerTlsCertificatesResponse_httpStatus,
+
+    -- ** GetLoadBalancerTlsPolicies
+    getLoadBalancerTlsPolicies_pageToken,
+    getLoadBalancerTlsPoliciesResponse_tlsPolicies,
+    getLoadBalancerTlsPoliciesResponse_nextPageToken,
+    getLoadBalancerTlsPoliciesResponse_httpStatus,
 
     -- ** GetLoadBalancers
     getLoadBalancers_pageToken,
@@ -759,6 +771,7 @@ module Amazonka.Lightsail.Lens
     getRelationalDatabaseBlueprintsResponse_httpStatus,
 
     -- ** GetRelationalDatabaseBundles
+    getRelationalDatabaseBundles_includeInactive,
     getRelationalDatabaseBundles_pageToken,
     getRelationalDatabaseBundlesResponse_nextPageToken,
     getRelationalDatabaseBundlesResponse_bundles,
@@ -982,6 +995,7 @@ module Amazonka.Lightsail.Lens
     updateBucket_readonlyAccessAccounts,
     updateBucket_versioning,
     updateBucket_accessRules,
+    updateBucket_accessLogConfig,
     updateBucket_bucketName,
     updateBucketResponse_operations,
     updateBucketResponse_bucket,
@@ -997,6 +1011,7 @@ module Amazonka.Lightsail.Lens
     updateContainerService_power,
     updateContainerService_scale,
     updateContainerService_publicDomainNames,
+    updateContainerService_privateRegistryAccess,
     updateContainerService_isDisabled,
     updateContainerService_serviceName,
     updateContainerServiceResponse_containerService,
@@ -1068,6 +1083,12 @@ module Amazonka.Lightsail.Lens
     -- ** AccessRules
     accessRules_allowPublicOverrides,
     accessRules_getObject,
+
+    -- ** AccountLevelBpaSync
+    accountLevelBpaSync_message,
+    accountLevelBpaSync_status,
+    accountLevelBpaSync_lastSyncedAt,
+    accountLevelBpaSync_bpaImpactsLightsail,
 
     -- ** AddOn
     addOn_name,
@@ -1148,6 +1169,12 @@ module Amazonka.Lightsail.Lens
     bucket_accessRules,
     bucket_supportCode,
     bucket_createdAt,
+    bucket_accessLogConfig,
+
+    -- ** BucketAccessLogConfig
+    bucketAccessLogConfig_destination,
+    bucketAccessLogConfig_prefix,
+    bucketAccessLogConfig_enabled,
 
     -- ** BucketBundle
     bucketBundle_isActive,
@@ -1275,6 +1302,7 @@ module Amazonka.Lightsail.Lens
     containerService_scale,
     containerService_createdAt,
     containerService_publicDomainNames,
+    containerService_privateRegistryAccess,
     containerService_isDisabled,
     containerService_nextDeployment,
 
@@ -1288,6 +1316,13 @@ module Amazonka.Lightsail.Lens
     -- ** ContainerServiceDeploymentRequest
     containerServiceDeploymentRequest_containers,
     containerServiceDeploymentRequest_publicEndpoint,
+
+    -- ** ContainerServiceECRImagePullerRole
+    containerServiceECRImagePullerRole_isActive,
+    containerServiceECRImagePullerRole_principalArn,
+
+    -- ** ContainerServiceECRImagePullerRoleRequest
+    containerServiceECRImagePullerRoleRequest_isActive,
 
     -- ** ContainerServiceEndpoint
     containerServiceEndpoint_containerPort,
@@ -1593,6 +1628,7 @@ module Amazonka.Lightsail.Lens
     loadBalancer_tags,
     loadBalancer_resourceType,
     loadBalancer_name,
+    loadBalancer_httpsRedirectionEnabled,
     loadBalancer_healthCheckPath,
     loadBalancer_instanceHealthSummary,
     loadBalancer_configurationOptions,
@@ -1607,6 +1643,7 @@ module Amazonka.Lightsail.Lens
     loadBalancer_supportCode,
     loadBalancer_ipAddressType,
     loadBalancer_createdAt,
+    loadBalancer_tlsPolicyName,
 
     -- ** LoadBalancerTlsCertificate
     loadBalancerTlsCertificate_tags,
@@ -1653,6 +1690,13 @@ module Amazonka.Lightsail.Lens
     -- ** LoadBalancerTlsCertificateSummary
     loadBalancerTlsCertificateSummary_name,
     loadBalancerTlsCertificateSummary_isAttached,
+
+    -- ** LoadBalancerTlsPolicy
+    loadBalancerTlsPolicy_name,
+    loadBalancerTlsPolicy_protocols,
+    loadBalancerTlsPolicy_description,
+    loadBalancerTlsPolicy_isDefault,
+    loadBalancerTlsPolicy_ciphers,
 
     -- ** LogEvent
     logEvent_message,
@@ -1716,6 +1760,12 @@ module Amazonka.Lightsail.Lens
     portInfo_cidrs,
     portInfo_protocol,
     portInfo_fromPort,
+
+    -- ** PrivateRegistryAccess
+    privateRegistryAccess_ecrImagePullerRole,
+
+    -- ** PrivateRegistryAccessRequest
+    privateRegistryAccessRequest_ecrImagePullerRole,
 
     -- ** QueryStringObject
     queryStringObject_queryStringsAllowList,
@@ -1957,6 +2007,7 @@ import Amazonka.Lightsail.GetKeyPairs
 import Amazonka.Lightsail.GetLoadBalancer
 import Amazonka.Lightsail.GetLoadBalancerMetricData
 import Amazonka.Lightsail.GetLoadBalancerTlsCertificates
+import Amazonka.Lightsail.GetLoadBalancerTlsPolicies
 import Amazonka.Lightsail.GetLoadBalancers
 import Amazonka.Lightsail.GetOperation
 import Amazonka.Lightsail.GetOperations
@@ -1999,6 +2050,7 @@ import Amazonka.Lightsail.TestAlarm
 import Amazonka.Lightsail.Types.AccessKey
 import Amazonka.Lightsail.Types.AccessKeyLastUsed
 import Amazonka.Lightsail.Types.AccessRules
+import Amazonka.Lightsail.Types.AccountLevelBpaSync
 import Amazonka.Lightsail.Types.AddOn
 import Amazonka.Lightsail.Types.AddOnRequest
 import Amazonka.Lightsail.Types.Alarm
@@ -2008,6 +2060,7 @@ import Amazonka.Lightsail.Types.AutoSnapshotDetails
 import Amazonka.Lightsail.Types.AvailabilityZone
 import Amazonka.Lightsail.Types.Blueprint
 import Amazonka.Lightsail.Types.Bucket
+import Amazonka.Lightsail.Types.BucketAccessLogConfig
 import Amazonka.Lightsail.Types.BucketBundle
 import Amazonka.Lightsail.Types.BucketState
 import Amazonka.Lightsail.Types.Bundle
@@ -2024,6 +2077,8 @@ import Amazonka.Lightsail.Types.ContainerImage
 import Amazonka.Lightsail.Types.ContainerService
 import Amazonka.Lightsail.Types.ContainerServiceDeployment
 import Amazonka.Lightsail.Types.ContainerServiceDeploymentRequest
+import Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRole
+import Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRoleRequest
 import Amazonka.Lightsail.Types.ContainerServiceEndpoint
 import Amazonka.Lightsail.Types.ContainerServiceHealthCheckConfig
 import Amazonka.Lightsail.Types.ContainerServiceLogEvent
@@ -2066,6 +2121,7 @@ import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateSummary
+import Amazonka.Lightsail.Types.LoadBalancerTlsPolicy
 import Amazonka.Lightsail.Types.LogEvent
 import Amazonka.Lightsail.Types.MetricDatapoint
 import Amazonka.Lightsail.Types.MonitoredResourceInfo
@@ -2076,6 +2132,8 @@ import Amazonka.Lightsail.Types.PasswordData
 import Amazonka.Lightsail.Types.PendingMaintenanceAction
 import Amazonka.Lightsail.Types.PendingModifiedRelationalDatabaseValues
 import Amazonka.Lightsail.Types.PortInfo
+import Amazonka.Lightsail.Types.PrivateRegistryAccess
+import Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
 import Amazonka.Lightsail.Types.QueryStringObject
 import Amazonka.Lightsail.Types.RegionInfo
 import Amazonka.Lightsail.Types.RelationalDatabase

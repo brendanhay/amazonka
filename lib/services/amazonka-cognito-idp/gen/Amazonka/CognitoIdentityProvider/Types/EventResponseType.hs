@@ -20,8 +20,9 @@
 module Amazonka.CognitoIdentityProvider.Types.EventResponseType
   ( EventResponseType
       ( ..,
-        EventResponseType_Failure,
-        EventResponseType_Success
+        EventResponseType_Fail,
+        EventResponseType_InProgress,
+        EventResponseType_Pass
       ),
   )
 where
@@ -57,14 +58,18 @@ newtype EventResponseType = EventResponseType'
       Core.ToXML
     )
 
-pattern EventResponseType_Failure :: EventResponseType
-pattern EventResponseType_Failure = EventResponseType' "Failure"
+pattern EventResponseType_Fail :: EventResponseType
+pattern EventResponseType_Fail = EventResponseType' "Fail"
 
-pattern EventResponseType_Success :: EventResponseType
-pattern EventResponseType_Success = EventResponseType' "Success"
+pattern EventResponseType_InProgress :: EventResponseType
+pattern EventResponseType_InProgress = EventResponseType' "InProgress"
+
+pattern EventResponseType_Pass :: EventResponseType
+pattern EventResponseType_Pass = EventResponseType' "Pass"
 
 {-# COMPLETE
-  EventResponseType_Failure,
-  EventResponseType_Success,
+  EventResponseType_Fail,
+  EventResponseType_InProgress,
+  EventResponseType_Pass,
   EventResponseType'
   #-}

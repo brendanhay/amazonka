@@ -15,12 +15,14 @@ module Amazonka.Route53RecoveryControlConfig.Lens
   ( -- * Operations
 
     -- ** CreateCluster
+    createCluster_tags,
     createCluster_clientToken,
     createCluster_clusterName,
     createClusterResponse_cluster,
     createClusterResponse_httpStatus,
 
     -- ** CreateControlPanel
+    createControlPanel_tags,
     createControlPanel_clientToken,
     createControlPanel_clusterArn,
     createControlPanel_controlPanelName,
@@ -36,6 +38,7 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     createRoutingControlResponse_httpStatus,
 
     -- ** CreateSafetyRule
+    createSafetyRule_tags,
     createSafetyRule_clientToken,
     createSafetyRule_gatingRule,
     createSafetyRule_assertionRule,
@@ -118,6 +121,21 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     listSafetyRulesResponse_nextToken,
     listSafetyRulesResponse_safetyRules,
     listSafetyRulesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateControlPanel
     updateControlPanel_controlPanelArn,
@@ -236,6 +254,8 @@ import Amazonka.Route53RecoveryControlConfig.ListClusters
 import Amazonka.Route53RecoveryControlConfig.ListControlPanels
 import Amazonka.Route53RecoveryControlConfig.ListRoutingControls
 import Amazonka.Route53RecoveryControlConfig.ListSafetyRules
+import Amazonka.Route53RecoveryControlConfig.ListTagsForResource
+import Amazonka.Route53RecoveryControlConfig.TagResource
 import Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
 import Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
 import Amazonka.Route53RecoveryControlConfig.Types.Cluster
@@ -248,6 +268,7 @@ import Amazonka.Route53RecoveryControlConfig.Types.NewGatingRule
 import Amazonka.Route53RecoveryControlConfig.Types.RoutingControl
 import Amazonka.Route53RecoveryControlConfig.Types.Rule
 import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
+import Amazonka.Route53RecoveryControlConfig.UntagResource
 import Amazonka.Route53RecoveryControlConfig.UpdateControlPanel
 import Amazonka.Route53RecoveryControlConfig.UpdateRoutingControl
 import Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule

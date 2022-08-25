@@ -15,9 +15,10 @@
 -- developers to perform key tasks, such as creating and managing Amazon
 -- Chime accounts, users, and Voice Connectors. This guide provides
 -- detailed information about the Amazon Chime API, including operations,
--- types, inputs and outputs, and error codes. It also includes some
--- server-side API actions to use with the Amazon Chime SDK. For more
--- information about the Amazon Chime SDK, see
+-- types, inputs and outputs, and error codes. It also includes API actions
+-- for use with the Amazon Chime SDK, which developers use to build their
+-- own communication applications. For more information about the Amazon
+-- Chime SDK, see
 -- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
 -- in the /Amazon Chime Developer Guide/.
 --
@@ -1241,6 +1242,12 @@ module Amazonka.Chime
     UpdateVoiceConnectorGroupResponse (UpdateVoiceConnectorGroupResponse'),
     newUpdateVoiceConnectorGroupResponse,
 
+    -- ** ValidateE911Address
+    ValidateE911Address (ValidateE911Address'),
+    newValidateE911Address,
+    ValidateE911AddressResponse (ValidateE911AddressResponse'),
+    newValidateE911AddressResponse,
+
     -- * Types
 
     -- ** AccountStatus
@@ -1354,8 +1361,17 @@ module Amazonka.Chime
     -- ** SortOrder
     SortOrder (..),
 
+    -- ** TranscribeContentIdentificationType
+    TranscribeContentIdentificationType (..),
+
+    -- ** TranscribeContentRedactionType
+    TranscribeContentRedactionType (..),
+
     -- ** TranscribeLanguageCode
     TranscribeLanguageCode (..),
+
+    -- ** TranscribeMedicalContentIdentificationType
+    TranscribeMedicalContentIdentificationType (..),
 
     -- ** TranscribeMedicalLanguageCode
     TranscribeMedicalLanguageCode (..),
@@ -1368,6 +1384,9 @@ module Amazonka.Chime
 
     -- ** TranscribeMedicalType
     TranscribeMedicalType (..),
+
+    -- ** TranscribePartialResultsStability
+    TranscribePartialResultsStability (..),
 
     -- ** TranscribeRegion
     TranscribeRegion (..),
@@ -1391,6 +1410,10 @@ module Amazonka.Chime
     -- ** AccountSettings
     AccountSettings (AccountSettings'),
     newAccountSettings,
+
+    -- ** Address
+    Address (Address'),
+    newAddress,
 
     -- ** AlexaForBusinessMetadata
     AlexaForBusinessMetadata (AlexaForBusinessMetadata'),
@@ -1459,6 +1482,10 @@ module Amazonka.Chime
     -- ** BusinessCallingSettings
     BusinessCallingSettings (BusinessCallingSettings'),
     newBusinessCallingSettings,
+
+    -- ** CandidateAddress
+    CandidateAddress (CandidateAddress'),
+    newCandidateAddress,
 
     -- ** Channel
     Channel (Channel'),
@@ -1966,6 +1993,7 @@ import Amazonka.Chime.UpdateUser
 import Amazonka.Chime.UpdateUserSettings
 import Amazonka.Chime.UpdateVoiceConnector
 import Amazonka.Chime.UpdateVoiceConnectorGroup
+import Amazonka.Chime.ValidateE911Address
 import Amazonka.Chime.Waiters
 
 -- $errors

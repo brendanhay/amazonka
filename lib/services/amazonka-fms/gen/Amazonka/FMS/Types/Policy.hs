@@ -66,11 +66,18 @@ data Policy = Policy'
     --     comma. For example, the following is a valid map:
     --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
     excludeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
-    -- | Indicates whether Firewall Manager should delete Firewall Manager
-    -- managed resources, such as web ACLs and security groups, when they are
-    -- not in use by the Firewall Manager policy. By default, Firewall Manager
-    -- doesn\'t delete unused Firewall Manager managed resources. This option
-    -- is not available for Shield Advanced or WAF Classic policies.
+    -- | Indicates whether Firewall Manager should automatically remove
+    -- protections from resources that leave the policy scope and clean up
+    -- resources that Firewall Manager is managing for accounts when those
+    -- accounts leave policy scope. For example, Firewall Manager will
+    -- disassociate a Firewall Manager managed web ACL from a protected
+    -- customer resource when the customer resource leaves policy scope.
+    --
+    -- By default, Firewall Manager doesn\'t remove protections or delete
+    -- Firewall Manager managed resources.
+    --
+    -- This option is not available for Shield Advanced or WAF Classic
+    -- policies.
     deleteUnusedFMManagedResources :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the Amazon Web Services account IDs and Organizations
     -- organizational units (OUs) to include in the policy. Specifying an OU is
@@ -113,8 +120,9 @@ data Policy = Policy'
     -- of @ResourceTypeList@ and then specify the resource types in a
     -- @ResourceTypeList@.
     --
-    -- For WAF and Shield Advanced, example resource types include
-    -- @AWS::ElasticLoadBalancingV2::LoadBalancer@ and
+    -- For WAF and Shield Advanced, resource types include
+    -- @AWS::ElasticLoadBalancingV2::LoadBalancer@,
+    -- @AWS::ElasticLoadBalancing::LoadBalancer@, @AWS::EC2::EIP@, and
     -- @AWS::CloudFront::Distribution@. For a security group common policy,
     -- valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@.
     -- For a security group content audit policy, valid values are
@@ -178,11 +186,18 @@ data Policy = Policy'
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
 --
--- 'deleteUnusedFMManagedResources', 'policy_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should delete Firewall Manager
--- managed resources, such as web ACLs and security groups, when they are
--- not in use by the Firewall Manager policy. By default, Firewall Manager
--- doesn\'t delete unused Firewall Manager managed resources. This option
--- is not available for Shield Advanced or WAF Classic policies.
+-- 'deleteUnusedFMManagedResources', 'policy_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should automatically remove
+-- protections from resources that leave the policy scope and clean up
+-- resources that Firewall Manager is managing for accounts when those
+-- accounts leave policy scope. For example, Firewall Manager will
+-- disassociate a Firewall Manager managed web ACL from a protected
+-- customer resource when the customer resource leaves policy scope.
+--
+-- By default, Firewall Manager doesn\'t remove protections or delete
+-- Firewall Manager managed resources.
+--
+-- This option is not available for Shield Advanced or WAF Classic
+-- policies.
 --
 -- 'includeMap', 'policy_includeMap' - Specifies the Amazon Web Services account IDs and Organizations
 -- organizational units (OUs) to include in the policy. Specifying an OU is
@@ -225,8 +240,9 @@ data Policy = Policy'
 -- of @ResourceTypeList@ and then specify the resource types in a
 -- @ResourceTypeList@.
 --
--- For WAF and Shield Advanced, example resource types include
--- @AWS::ElasticLoadBalancingV2::LoadBalancer@ and
+-- For WAF and Shield Advanced, resource types include
+-- @AWS::ElasticLoadBalancingV2::LoadBalancer@,
+-- @AWS::ElasticLoadBalancing::LoadBalancer@, @AWS::EC2::EIP@, and
 -- @AWS::CloudFront::Distribution@. For a security group common policy,
 -- valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@.
 -- For a security group content audit policy, valid values are
@@ -320,11 +336,18 @@ policy_resourceTags = Lens.lens (\Policy' {resourceTags} -> resourceTags) (\s@Po
 policy_excludeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
 policy_excludeMap = Lens.lens (\Policy' {excludeMap} -> excludeMap) (\s@Policy' {} a -> s {excludeMap = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether Firewall Manager should delete Firewall Manager
--- managed resources, such as web ACLs and security groups, when they are
--- not in use by the Firewall Manager policy. By default, Firewall Manager
--- doesn\'t delete unused Firewall Manager managed resources. This option
--- is not available for Shield Advanced or WAF Classic policies.
+-- | Indicates whether Firewall Manager should automatically remove
+-- protections from resources that leave the policy scope and clean up
+-- resources that Firewall Manager is managing for accounts when those
+-- accounts leave policy scope. For example, Firewall Manager will
+-- disassociate a Firewall Manager managed web ACL from a protected
+-- customer resource when the customer resource leaves policy scope.
+--
+-- By default, Firewall Manager doesn\'t remove protections or delete
+-- Firewall Manager managed resources.
+--
+-- This option is not available for Shield Advanced or WAF Classic
+-- policies.
 policy_deleteUnusedFMManagedResources :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
 policy_deleteUnusedFMManagedResources = Lens.lens (\Policy' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@Policy' {} a -> s {deleteUnusedFMManagedResources = a} :: Policy)
 
@@ -377,8 +400,9 @@ policy_securityServicePolicyData = Lens.lens (\Policy' {securityServicePolicyDat
 -- of @ResourceTypeList@ and then specify the resource types in a
 -- @ResourceTypeList@.
 --
--- For WAF and Shield Advanced, example resource types include
--- @AWS::ElasticLoadBalancingV2::LoadBalancer@ and
+-- For WAF and Shield Advanced, resource types include
+-- @AWS::ElasticLoadBalancingV2::LoadBalancer@,
+-- @AWS::ElasticLoadBalancing::LoadBalancer@, @AWS::EC2::EIP@, and
 -- @AWS::CloudFront::Distribution@. For a security group common policy,
 -- valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@.
 -- For a security group content audit policy, valid values are

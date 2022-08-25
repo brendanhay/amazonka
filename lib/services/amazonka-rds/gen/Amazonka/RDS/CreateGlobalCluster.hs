@@ -31,7 +31,7 @@
 -- existing Aurora cluster during the create operation, and this cluster
 -- becomes the primary cluster of the global database.
 --
--- This action only applies to Aurora DB clusters.
+-- This action applies only to Aurora DB clusters.
 module Amazonka.RDS.CreateGlobalCluster
   ( -- * Creating a Request
     CreateGlobalCluster (..),
@@ -68,7 +68,7 @@ data CreateGlobalCluster = CreateGlobalCluster'
   { -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
     -- global database. This parameter is optional.
     sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The name for your database of up to 64 alpha-numeric characters. If you
+    -- | The name for your database of up to 64 alphanumeric characters. If you
     -- do not provide a name, Amazon Aurora will not create a database in the
     -- global database cluster you are creating.
     databaseName :: Prelude.Maybe Prelude.Text,
@@ -97,7 +97,7 @@ data CreateGlobalCluster = CreateGlobalCluster'
 -- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the
 -- global database. This parameter is optional.
 --
--- 'databaseName', 'createGlobalCluster_databaseName' - The name for your database of up to 64 alpha-numeric characters. If you
+-- 'databaseName', 'createGlobalCluster_databaseName' - The name for your database of up to 64 alphanumeric characters. If you
 -- do not provide a name, Amazon Aurora will not create a database in the
 -- global database cluster you are creating.
 --
@@ -130,7 +130,7 @@ newCreateGlobalCluster =
 createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
 
--- | The name for your database of up to 64 alpha-numeric characters. If you
+-- | The name for your database of up to 64 alphanumeric characters. If you
 -- do not provide a name, Amazon Aurora will not create a database in the
 -- global database cluster you are creating.
 createGlobalCluster_databaseName :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)

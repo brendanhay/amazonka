@@ -40,6 +40,7 @@ module Amazonka.WellArchitected.ListLensReviewImprovements
 
     -- * Response Lenses
     listLensReviewImprovementsResponse_nextToken,
+    listLensReviewImprovementsResponse_lensArn,
     listLensReviewImprovementsResponse_lensAlias,
     listLensReviewImprovementsResponse_improvementSummaries,
     listLensReviewImprovementsResponse_milestoneNumber,
@@ -141,6 +142,7 @@ instance Core.AWSRequest ListLensReviewImprovements where
       ( \s h x ->
           ListLensReviewImprovementsResponse'
             Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "LensArn")
             Prelude.<*> (x Core..?> "LensAlias")
             Prelude.<*> ( x Core..?> "ImprovementSummaries"
                             Core..!@ Prelude.mempty
@@ -203,6 +205,8 @@ instance Core.ToQuery ListLensReviewImprovements where
 -- /See:/ 'newListLensReviewImprovementsResponse' smart constructor.
 data ListLensReviewImprovementsResponse = ListLensReviewImprovementsResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
     lensAlias :: Prelude.Maybe Prelude.Text,
     improvementSummaries :: Prelude.Maybe [ImprovementSummary],
     milestoneNumber :: Prelude.Maybe Prelude.Natural,
@@ -222,6 +226,8 @@ data ListLensReviewImprovementsResponse = ListLensReviewImprovementsResponse'
 --
 -- 'nextToken', 'listLensReviewImprovementsResponse_nextToken' - Undocumented member.
 --
+-- 'lensArn', 'listLensReviewImprovementsResponse_lensArn' - The ARN for the lens.
+--
 -- 'lensAlias', 'listLensReviewImprovementsResponse_lensAlias' - Undocumented member.
 --
 -- 'improvementSummaries', 'listLensReviewImprovementsResponse_improvementSummaries' - Undocumented member.
@@ -239,6 +245,7 @@ newListLensReviewImprovementsResponse pHttpStatus_ =
   ListLensReviewImprovementsResponse'
     { nextToken =
         Prelude.Nothing,
+      lensArn = Prelude.Nothing,
       lensAlias = Prelude.Nothing,
       improvementSummaries = Prelude.Nothing,
       milestoneNumber = Prelude.Nothing,
@@ -249,6 +256,10 @@ newListLensReviewImprovementsResponse pHttpStatus_ =
 -- | Undocumented member.
 listLensReviewImprovementsResponse_nextToken :: Lens.Lens' ListLensReviewImprovementsResponse (Prelude.Maybe Prelude.Text)
 listLensReviewImprovementsResponse_nextToken = Lens.lens (\ListLensReviewImprovementsResponse' {nextToken} -> nextToken) (\s@ListLensReviewImprovementsResponse' {} a -> s {nextToken = a} :: ListLensReviewImprovementsResponse)
+
+-- | The ARN for the lens.
+listLensReviewImprovementsResponse_lensArn :: Lens.Lens' ListLensReviewImprovementsResponse (Prelude.Maybe Prelude.Text)
+listLensReviewImprovementsResponse_lensArn = Lens.lens (\ListLensReviewImprovementsResponse' {lensArn} -> lensArn) (\s@ListLensReviewImprovementsResponse' {} a -> s {lensArn = a} :: ListLensReviewImprovementsResponse)
 
 -- | Undocumented member.
 listLensReviewImprovementsResponse_lensAlias :: Lens.Lens' ListLensReviewImprovementsResponse (Prelude.Maybe Prelude.Text)
@@ -276,6 +287,7 @@ instance
   where
   rnf ListLensReviewImprovementsResponse' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf improvementSummaries
       `Prelude.seq` Prelude.rnf milestoneNumber

@@ -61,7 +61,7 @@ data GetChange = GetChange'
   { -- | The ID of the change batch request. The value that you specify here is
     -- the value that @ChangeResourceRecordSets@ returned in the @Id@ element
     -- when you submitted the request.
-    id :: ResourceId
+    id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,14 +78,14 @@ data GetChange = GetChange'
 -- when you submitted the request.
 newGetChange ::
   -- | 'id'
-  ResourceId ->
+  Prelude.Text ->
   GetChange
 newGetChange pId_ = GetChange' {id = pId_}
 
 -- | The ID of the change batch request. The value that you specify here is
 -- the value that @ChangeResourceRecordSets@ returned in the @Id@ element
 -- when you submitted the request.
-getChange_id :: Lens.Lens' GetChange ResourceId
+getChange_id :: Lens.Lens' GetChange Prelude.Text
 getChange_id = Lens.lens (\GetChange' {id} -> id) (\s@GetChange' {} a -> s {id = a} :: GetChange)
 
 instance Core.AWSRequest GetChange where

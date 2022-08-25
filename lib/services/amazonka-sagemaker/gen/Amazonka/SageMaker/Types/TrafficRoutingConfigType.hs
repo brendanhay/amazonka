@@ -21,7 +21,8 @@ module Amazonka.SageMaker.Types.TrafficRoutingConfigType
   ( TrafficRoutingConfigType
       ( ..,
         TrafficRoutingConfigType_ALL_AT_ONCE,
-        TrafficRoutingConfigType_CANARY
+        TrafficRoutingConfigType_CANARY,
+        TrafficRoutingConfigType_LINEAR
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern TrafficRoutingConfigType_ALL_AT_ONCE = TrafficRoutingConfigType' "ALL_AT
 pattern TrafficRoutingConfigType_CANARY :: TrafficRoutingConfigType
 pattern TrafficRoutingConfigType_CANARY = TrafficRoutingConfigType' "CANARY"
 
+pattern TrafficRoutingConfigType_LINEAR :: TrafficRoutingConfigType
+pattern TrafficRoutingConfigType_LINEAR = TrafficRoutingConfigType' "LINEAR"
+
 {-# COMPLETE
   TrafficRoutingConfigType_ALL_AT_ONCE,
   TrafficRoutingConfigType_CANARY,
+  TrafficRoutingConfigType_LINEAR,
   TrafficRoutingConfigType'
   #-}

@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Endpoint for mobile app and device.
+-- | The endpoint for mobile app and device.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | Attributes for endpoint.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | EndpointArn for mobile app and device.
+    -- | The @EndpointArn@ for mobile app and device.
     endpointArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data Endpoint = Endpoint'
 --
 -- 'attributes', 'endpoint_attributes' - Attributes for endpoint.
 --
--- 'endpointArn', 'endpoint_endpointArn' - EndpointArn for mobile app and device.
+-- 'endpointArn', 'endpoint_endpointArn' - The @EndpointArn@ for mobile app and device.
 newEndpoint ::
   Endpoint
 newEndpoint =
@@ -57,7 +57,7 @@ newEndpoint =
 endpoint_attributes :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | EndpointArn for mobile app and device.
+-- | The @EndpointArn@ for mobile app and device.
 endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@Endpoint' {} a -> s {endpointArn = a} :: Endpoint)
 

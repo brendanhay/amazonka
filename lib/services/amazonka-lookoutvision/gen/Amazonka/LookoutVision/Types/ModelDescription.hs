@@ -35,6 +35,9 @@ data ModelDescription = ModelDescription'
     -- that was used to test the trained model and generate the performance
     -- scores.
     evaluationManifest :: Prelude.Maybe OutputS3Object,
+    -- | The minimum number of inference units used by the model. For more
+    -- information, see StartModel
+    minInferenceUnits :: Prelude.Maybe Prelude.Natural,
     -- | The version of the model
     modelVersion :: Prelude.Maybe Prelude.Text,
     -- | The unix timestamp for the date and time that the evaluation ended.
@@ -55,6 +58,9 @@ data ModelDescription = ModelDescription'
     -- | The identifer for the AWS Key Management Service (AWS KMS) key that was
     -- used to encrypt the model during training.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of inference units Amazon Lookout for Vision uses to
+    -- auto-scale the model. For more information, see StartModel.
+    maxInferenceUnits :: Prelude.Maybe Prelude.Natural,
     -- | The status message for the model.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The S3 location where Amazon Lookout for Vision saves model training
@@ -74,6 +80,9 @@ data ModelDescription = ModelDescription'
 -- 'evaluationManifest', 'modelDescription_evaluationManifest' - The S3 location where Amazon Lookout for Vision saves the manifest file
 -- that was used to test the trained model and generate the performance
 -- scores.
+--
+-- 'minInferenceUnits', 'modelDescription_minInferenceUnits' - The minimum number of inference units used by the model. For more
+-- information, see StartModel
 --
 -- 'modelVersion', 'modelDescription_modelVersion' - The version of the model
 --
@@ -95,6 +104,9 @@ data ModelDescription = ModelDescription'
 -- 'kmsKeyId', 'modelDescription_kmsKeyId' - The identifer for the AWS Key Management Service (AWS KMS) key that was
 -- used to encrypt the model during training.
 --
+-- 'maxInferenceUnits', 'modelDescription_maxInferenceUnits' - The maximum number of inference units Amazon Lookout for Vision uses to
+-- auto-scale the model. For more information, see StartModel.
+--
 -- 'statusMessage', 'modelDescription_statusMessage' - The status message for the model.
 --
 -- 'outputConfig', 'modelDescription_outputConfig' - The S3 location where Amazon Lookout for Vision saves model training
@@ -105,6 +117,7 @@ newModelDescription =
   ModelDescription'
     { evaluationManifest =
         Prelude.Nothing,
+      minInferenceUnits = Prelude.Nothing,
       modelVersion = Prelude.Nothing,
       evaluationEndTimestamp = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -114,6 +127,7 @@ newModelDescription =
       modelArn = Prelude.Nothing,
       evaluationResult = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      maxInferenceUnits = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
       outputConfig = Prelude.Nothing
     }
@@ -123,6 +137,11 @@ newModelDescription =
 -- scores.
 modelDescription_evaluationManifest :: Lens.Lens' ModelDescription (Prelude.Maybe OutputS3Object)
 modelDescription_evaluationManifest = Lens.lens (\ModelDescription' {evaluationManifest} -> evaluationManifest) (\s@ModelDescription' {} a -> s {evaluationManifest = a} :: ModelDescription)
+
+-- | The minimum number of inference units used by the model. For more
+-- information, see StartModel
+modelDescription_minInferenceUnits :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.Natural)
+modelDescription_minInferenceUnits = Lens.lens (\ModelDescription' {minInferenceUnits} -> minInferenceUnits) (\s@ModelDescription' {} a -> s {minInferenceUnits = a} :: ModelDescription)
 
 -- | The version of the model
 modelDescription_modelVersion :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.Text)
@@ -162,6 +181,11 @@ modelDescription_evaluationResult = Lens.lens (\ModelDescription' {evaluationRes
 modelDescription_kmsKeyId :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.Text)
 modelDescription_kmsKeyId = Lens.lens (\ModelDescription' {kmsKeyId} -> kmsKeyId) (\s@ModelDescription' {} a -> s {kmsKeyId = a} :: ModelDescription)
 
+-- | The maximum number of inference units Amazon Lookout for Vision uses to
+-- auto-scale the model. For more information, see StartModel.
+modelDescription_maxInferenceUnits :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.Natural)
+modelDescription_maxInferenceUnits = Lens.lens (\ModelDescription' {maxInferenceUnits} -> maxInferenceUnits) (\s@ModelDescription' {} a -> s {maxInferenceUnits = a} :: ModelDescription)
+
 -- | The status message for the model.
 modelDescription_statusMessage :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.Text)
 modelDescription_statusMessage = Lens.lens (\ModelDescription' {statusMessage} -> statusMessage) (\s@ModelDescription' {} a -> s {statusMessage = a} :: ModelDescription)
@@ -178,6 +202,7 @@ instance Core.FromJSON ModelDescription where
       ( \x ->
           ModelDescription'
             Prelude.<$> (x Core..:? "EvaluationManifest")
+            Prelude.<*> (x Core..:? "MinInferenceUnits")
             Prelude.<*> (x Core..:? "ModelVersion")
             Prelude.<*> (x Core..:? "EvaluationEndTimestamp")
             Prelude.<*> (x Core..:? "Status")
@@ -187,6 +212,7 @@ instance Core.FromJSON ModelDescription where
             Prelude.<*> (x Core..:? "ModelArn")
             Prelude.<*> (x Core..:? "EvaluationResult")
             Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "MaxInferenceUnits")
             Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "OutputConfig")
       )
@@ -194,6 +220,7 @@ instance Core.FromJSON ModelDescription where
 instance Prelude.Hashable ModelDescription where
   hashWithSalt _salt ModelDescription' {..} =
     _salt `Prelude.hashWithSalt` evaluationManifest
+      `Prelude.hashWithSalt` minInferenceUnits
       `Prelude.hashWithSalt` modelVersion
       `Prelude.hashWithSalt` evaluationEndTimestamp
       `Prelude.hashWithSalt` status
@@ -203,12 +230,14 @@ instance Prelude.Hashable ModelDescription where
       `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` evaluationResult
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` maxInferenceUnits
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData ModelDescription where
   rnf ModelDescription' {..} =
     Prelude.rnf evaluationManifest
+      `Prelude.seq` Prelude.rnf minInferenceUnits
       `Prelude.seq` Prelude.rnf modelVersion
       `Prelude.seq` Prelude.rnf evaluationEndTimestamp
       `Prelude.seq` Prelude.rnf status
@@ -218,5 +247,6 @@ instance Prelude.NFData ModelDescription where
       `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf evaluationResult
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf maxInferenceUnits
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf outputConfig

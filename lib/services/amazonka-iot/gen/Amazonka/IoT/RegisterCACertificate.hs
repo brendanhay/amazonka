@@ -20,14 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a CA certificate with IoT. This CA certificate can then be
--- used to sign device certificates, which can be then registered with IoT.
--- You can register up to 10 CA certificates per Amazon Web Services
--- account that have the same subject field. This enables you to have up to
--- 10 certificate authorities sign your device certificates. If you have
--- more than one CA certificate registered, make sure you pass the CA
--- certificate when you register your device certificates with the
--- RegisterCertificate action.
+-- Registers a CA certificate with Amazon Web Services IoT Core. There is
+-- no limit to the number of CA certificates you can register in your
+-- Amazon Web Services account. You can register up to 10 CA certificates
+-- with the same @CA subject field@ per Amazon Web Services account.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RegisterCACertificate>
@@ -41,9 +37,10 @@ module Amazonka.IoT.RegisterCACertificate
     registerCACertificate_tags,
     registerCACertificate_allowAutoRegistration,
     registerCACertificate_registrationConfig,
-    registerCACertificate_setAsActive,
-    registerCACertificate_caCertificate,
     registerCACertificate_verificationCertificate,
+    registerCACertificate_setAsActive,
+    registerCACertificate_certificateMode,
+    registerCACertificate_caCertificate,
 
     -- * Destructuring the Response
     RegisterCACertificateResponse (..),
@@ -82,12 +79,27 @@ data RegisterCACertificate = RegisterCACertificate'
     allowAutoRegistration :: Prelude.Maybe Prelude.Bool,
     -- | Information about the registration configuration.
     registrationConfig :: Prelude.Maybe RegistrationConfig,
+    -- | The private key verification certificate. If @certificateMode@ is
+    -- @SNI_ONLY@, the @verificationCertificate@ field must be empty. If
+    -- @certificateMode@ is @DEFAULT@ or not provided, the
+    -- @verificationCertificate@ field must not be empty.
+    verificationCertificate :: Prelude.Maybe Prelude.Text,
     -- | A boolean value that specifies if the CA certificate is set to active.
+    --
+    -- Valid values: @ACTIVE | INACTIVE@
     setAsActive :: Prelude.Maybe Prelude.Bool,
+    -- | Describes the certificate mode in which the Certificate Authority (CA)
+    -- will be registered. If the @verificationCertificate@ field is not
+    -- provided, set @certificateMode@ to be @SNI_ONLY@. If the
+    -- @verificationCertificate@ field is provided, set @certificateMode@ to be
+    -- @DEFAULT@. When @certificateMode@ is not provided, it defaults to
+    -- @DEFAULT@. All the device certificates that are registered using this CA
+    -- will be registered in the same certificate mode as the CA. For more
+    -- information about certificate mode for device certificates, see
+    -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
+    certificateMode :: Prelude.Maybe CertificateMode,
     -- | The CA certificate.
-    caCertificate :: Prelude.Text,
-    -- | The private key verification certificate.
-    verificationCertificate :: Prelude.Text
+    caCertificate :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,28 +126,40 @@ data RegisterCACertificate = RegisterCACertificate'
 --
 -- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.
 --
+-- 'verificationCertificate', 'registerCACertificate_verificationCertificate' - The private key verification certificate. If @certificateMode@ is
+-- @SNI_ONLY@, the @verificationCertificate@ field must be empty. If
+-- @certificateMode@ is @DEFAULT@ or not provided, the
+-- @verificationCertificate@ field must not be empty.
+--
 -- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.
 --
--- 'caCertificate', 'registerCACertificate_caCertificate' - The CA certificate.
+-- Valid values: @ACTIVE | INACTIVE@
 --
--- 'verificationCertificate', 'registerCACertificate_verificationCertificate' - The private key verification certificate.
+-- 'certificateMode', 'registerCACertificate_certificateMode' - Describes the certificate mode in which the Certificate Authority (CA)
+-- will be registered. If the @verificationCertificate@ field is not
+-- provided, set @certificateMode@ to be @SNI_ONLY@. If the
+-- @verificationCertificate@ field is provided, set @certificateMode@ to be
+-- @DEFAULT@. When @certificateMode@ is not provided, it defaults to
+-- @DEFAULT@. All the device certificates that are registered using this CA
+-- will be registered in the same certificate mode as the CA. For more
+-- information about certificate mode for device certificates, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
+--
+-- 'caCertificate', 'registerCACertificate_caCertificate' - The CA certificate.
 newRegisterCACertificate ::
   -- | 'caCertificate'
   Prelude.Text ->
-  -- | 'verificationCertificate'
-  Prelude.Text ->
   RegisterCACertificate
-newRegisterCACertificate
-  pCaCertificate_
-  pVerificationCertificate_ =
-    RegisterCACertificate'
-      { tags = Prelude.Nothing,
-        allowAutoRegistration = Prelude.Nothing,
-        registrationConfig = Prelude.Nothing,
-        setAsActive = Prelude.Nothing,
-        caCertificate = pCaCertificate_,
-        verificationCertificate = pVerificationCertificate_
-      }
+newRegisterCACertificate pCaCertificate_ =
+  RegisterCACertificate'
+    { tags = Prelude.Nothing,
+      allowAutoRegistration = Prelude.Nothing,
+      registrationConfig = Prelude.Nothing,
+      verificationCertificate = Prelude.Nothing,
+      setAsActive = Prelude.Nothing,
+      certificateMode = Prelude.Nothing,
+      caCertificate = pCaCertificate_
+    }
 
 -- | Metadata which can be used to manage the CA certificate.
 --
@@ -158,17 +182,34 @@ registerCACertificate_allowAutoRegistration = Lens.lens (\RegisterCACertificate'
 registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Prelude.Maybe RegistrationConfig)
 registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {registrationConfig} -> registrationConfig) (\s@RegisterCACertificate' {} a -> s {registrationConfig = a} :: RegisterCACertificate)
 
+-- | The private key verification certificate. If @certificateMode@ is
+-- @SNI_ONLY@, the @verificationCertificate@ field must be empty. If
+-- @certificateMode@ is @DEFAULT@ or not provided, the
+-- @verificationCertificate@ field must not be empty.
+registerCACertificate_verificationCertificate :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Text)
+registerCACertificate_verificationCertificate = Lens.lens (\RegisterCACertificate' {verificationCertificate} -> verificationCertificate) (\s@RegisterCACertificate' {} a -> s {verificationCertificate = a} :: RegisterCACertificate)
+
 -- | A boolean value that specifies if the CA certificate is set to active.
+--
+-- Valid values: @ACTIVE | INACTIVE@
 registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
 registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsActive} -> setAsActive) (\s@RegisterCACertificate' {} a -> s {setAsActive = a} :: RegisterCACertificate)
+
+-- | Describes the certificate mode in which the Certificate Authority (CA)
+-- will be registered. If the @verificationCertificate@ field is not
+-- provided, set @certificateMode@ to be @SNI_ONLY@. If the
+-- @verificationCertificate@ field is provided, set @certificateMode@ to be
+-- @DEFAULT@. When @certificateMode@ is not provided, it defaults to
+-- @DEFAULT@. All the device certificates that are registered using this CA
+-- will be registered in the same certificate mode as the CA. For more
+-- information about certificate mode for device certificates, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
+registerCACertificate_certificateMode :: Lens.Lens' RegisterCACertificate (Prelude.Maybe CertificateMode)
+registerCACertificate_certificateMode = Lens.lens (\RegisterCACertificate' {certificateMode} -> certificateMode) (\s@RegisterCACertificate' {} a -> s {certificateMode = a} :: RegisterCACertificate)
 
 -- | The CA certificate.
 registerCACertificate_caCertificate :: Lens.Lens' RegisterCACertificate Prelude.Text
 registerCACertificate_caCertificate = Lens.lens (\RegisterCACertificate' {caCertificate} -> caCertificate) (\s@RegisterCACertificate' {} a -> s {caCertificate = a} :: RegisterCACertificate)
-
--- | The private key verification certificate.
-registerCACertificate_verificationCertificate :: Lens.Lens' RegisterCACertificate Prelude.Text
-registerCACertificate_verificationCertificate = Lens.lens (\RegisterCACertificate' {verificationCertificate} -> verificationCertificate) (\s@RegisterCACertificate' {} a -> s {verificationCertificate = a} :: RegisterCACertificate)
 
 instance Core.AWSRequest RegisterCACertificate where
   type
@@ -189,18 +230,20 @@ instance Prelude.Hashable RegisterCACertificate where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` allowAutoRegistration
       `Prelude.hashWithSalt` registrationConfig
-      `Prelude.hashWithSalt` setAsActive
-      `Prelude.hashWithSalt` caCertificate
       `Prelude.hashWithSalt` verificationCertificate
+      `Prelude.hashWithSalt` setAsActive
+      `Prelude.hashWithSalt` certificateMode
+      `Prelude.hashWithSalt` caCertificate
 
 instance Prelude.NFData RegisterCACertificate where
   rnf RegisterCACertificate' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf allowAutoRegistration
       `Prelude.seq` Prelude.rnf registrationConfig
-      `Prelude.seq` Prelude.rnf setAsActive
-      `Prelude.seq` Prelude.rnf caCertificate
       `Prelude.seq` Prelude.rnf verificationCertificate
+      `Prelude.seq` Prelude.rnf setAsActive
+      `Prelude.seq` Prelude.rnf certificateMode
+      `Prelude.seq` Prelude.rnf caCertificate
 
 instance Core.ToHeaders RegisterCACertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,11 +255,12 @@ instance Core.ToJSON RegisterCACertificate where
           [ ("tags" Core..=) Prelude.<$> tags,
             ("registrationConfig" Core..=)
               Prelude.<$> registrationConfig,
-            Prelude.Just ("caCertificate" Core..= caCertificate),
+            ("verificationCertificate" Core..=)
+              Prelude.<$> verificationCertificate,
+            ("certificateMode" Core..=)
+              Prelude.<$> certificateMode,
             Prelude.Just
-              ( "verificationCertificate"
-                  Core..= verificationCertificate
-              )
+              ("caCertificate" Core..= caCertificate)
           ]
       )
 

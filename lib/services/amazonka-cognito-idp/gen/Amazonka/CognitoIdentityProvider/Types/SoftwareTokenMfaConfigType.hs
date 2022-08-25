@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSoftwareTokenMfaConfigType' smart constructor.
 data SoftwareTokenMfaConfigType = SoftwareTokenMfaConfigType'
-  { -- | Specifies whether software token MFA is enabled.
+  { -- | Specifies whether software token MFA is activated.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +40,7 @@ data SoftwareTokenMfaConfigType = SoftwareTokenMfaConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'softwareTokenMfaConfigType_enabled' - Specifies whether software token MFA is enabled.
+-- 'enabled', 'softwareTokenMfaConfigType_enabled' - Specifies whether software token MFA is activated.
 newSoftwareTokenMfaConfigType ::
   SoftwareTokenMfaConfigType
 newSoftwareTokenMfaConfigType =
@@ -49,7 +49,7 @@ newSoftwareTokenMfaConfigType =
         Prelude.Nothing
     }
 
--- | Specifies whether software token MFA is enabled.
+-- | Specifies whether software token MFA is activated.
 softwareTokenMfaConfigType_enabled :: Lens.Lens' SoftwareTokenMfaConfigType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaConfigType_enabled = Lens.lens (\SoftwareTokenMfaConfigType' {enabled} -> enabled) (\s@SoftwareTokenMfaConfigType' {} a -> s {enabled = a} :: SoftwareTokenMfaConfigType)
 

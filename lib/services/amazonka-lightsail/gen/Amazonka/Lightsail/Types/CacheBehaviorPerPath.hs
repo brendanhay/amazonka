@@ -35,8 +35,6 @@ import qualified Amazonka.Prelude as Prelude
 -- @dont-cache@, then a per-path cache behavior can be used to specify a
 -- directory, file, or file type that your distribution will not cache.
 --
--- if the cacheBehavior\'s behavior is set to \'cache\', then
---
 -- /See:/ 'newCacheBehaviorPerPath' smart constructor.
 data CacheBehaviorPerPath = CacheBehaviorPerPath'
   { -- | The path to a directory or file to cached, or not cache. Use an asterisk

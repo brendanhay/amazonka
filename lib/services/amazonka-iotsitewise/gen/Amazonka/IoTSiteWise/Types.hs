@@ -46,11 +46,26 @@ module Amazonka.IoTSiteWise.Types
     -- * AuthMode
     AuthMode (..),
 
+    -- * BatchEntryCompletionStatus
+    BatchEntryCompletionStatus (..),
+
+    -- * BatchGetAssetPropertyAggregatesErrorCode
+    BatchGetAssetPropertyAggregatesErrorCode (..),
+
+    -- * BatchGetAssetPropertyValueErrorCode
+    BatchGetAssetPropertyValueErrorCode (..),
+
+    -- * BatchGetAssetPropertyValueHistoryErrorCode
+    BatchGetAssetPropertyValueHistoryErrorCode (..),
+
     -- * BatchPutAssetPropertyValueErrorCode
     BatchPutAssetPropertyValueErrorCode (..),
 
     -- * CapabilitySyncStatus
     CapabilitySyncStatus (..),
+
+    -- * ColumnName
+    ColumnName (..),
 
     -- * ComputeLocation
     ComputeLocation (..),
@@ -60,6 +75,9 @@ module Amazonka.IoTSiteWise.Types
 
     -- * DetailedErrorCode
     DetailedErrorCode (..),
+
+    -- * DisassociatedDataStorageState
+    DisassociatedDataStorageState (..),
 
     -- * EncryptionType
     EncryptionType (..),
@@ -76,8 +94,17 @@ module Amazonka.IoTSiteWise.Types
     -- * ImageFileType
     ImageFileType (..),
 
+    -- * JobStatus
+    JobStatus (..),
+
     -- * ListAssetsFilter
     ListAssetsFilter (..),
+
+    -- * ListBulkImportJobsFilter
+    ListBulkImportJobsFilter (..),
+
+    -- * ListTimeSeriesType
+    ListTimeSeriesType (..),
 
     -- * LoggingLevel
     LoggingLevel (..),
@@ -273,6 +300,7 @@ module Amazonka.IoTSiteWise.Types
     -- * AssetSummary
     AssetSummary (..),
     newAssetSummary,
+    assetSummary_description,
     assetSummary_id,
     assetSummary_arn,
     assetSummary_name,
@@ -285,6 +313,7 @@ module Amazonka.IoTSiteWise.Types
     -- * AssociatedAssetsSummary
     AssociatedAssetsSummary (..),
     newAssociatedAssetsSummary,
+    associatedAssetsSummary_description,
     associatedAssetsSummary_id,
     associatedAssetsSummary_arn,
     associatedAssetsSummary_name,
@@ -298,6 +327,118 @@ module Amazonka.IoTSiteWise.Types
     Attribute (..),
     newAttribute,
     attribute_defaultValue,
+
+    -- * BatchGetAssetPropertyAggregatesEntry
+    BatchGetAssetPropertyAggregatesEntry (..),
+    newBatchGetAssetPropertyAggregatesEntry,
+    batchGetAssetPropertyAggregatesEntry_propertyAlias,
+    batchGetAssetPropertyAggregatesEntry_assetId,
+    batchGetAssetPropertyAggregatesEntry_qualities,
+    batchGetAssetPropertyAggregatesEntry_propertyId,
+    batchGetAssetPropertyAggregatesEntry_timeOrdering,
+    batchGetAssetPropertyAggregatesEntry_entryId,
+    batchGetAssetPropertyAggregatesEntry_aggregateTypes,
+    batchGetAssetPropertyAggregatesEntry_resolution,
+    batchGetAssetPropertyAggregatesEntry_startDate,
+    batchGetAssetPropertyAggregatesEntry_endDate,
+
+    -- * BatchGetAssetPropertyAggregatesErrorEntry
+    BatchGetAssetPropertyAggregatesErrorEntry (..),
+    newBatchGetAssetPropertyAggregatesErrorEntry,
+    batchGetAssetPropertyAggregatesErrorEntry_errorCode,
+    batchGetAssetPropertyAggregatesErrorEntry_errorMessage,
+    batchGetAssetPropertyAggregatesErrorEntry_entryId,
+
+    -- * BatchGetAssetPropertyAggregatesErrorInfo
+    BatchGetAssetPropertyAggregatesErrorInfo (..),
+    newBatchGetAssetPropertyAggregatesErrorInfo,
+    batchGetAssetPropertyAggregatesErrorInfo_errorCode,
+    batchGetAssetPropertyAggregatesErrorInfo_errorTimestamp,
+
+    -- * BatchGetAssetPropertyAggregatesSkippedEntry
+    BatchGetAssetPropertyAggregatesSkippedEntry (..),
+    newBatchGetAssetPropertyAggregatesSkippedEntry,
+    batchGetAssetPropertyAggregatesSkippedEntry_errorInfo,
+    batchGetAssetPropertyAggregatesSkippedEntry_entryId,
+    batchGetAssetPropertyAggregatesSkippedEntry_completionStatus,
+
+    -- * BatchGetAssetPropertyAggregatesSuccessEntry
+    BatchGetAssetPropertyAggregatesSuccessEntry (..),
+    newBatchGetAssetPropertyAggregatesSuccessEntry,
+    batchGetAssetPropertyAggregatesSuccessEntry_entryId,
+    batchGetAssetPropertyAggregatesSuccessEntry_aggregatedValues,
+
+    -- * BatchGetAssetPropertyValueEntry
+    BatchGetAssetPropertyValueEntry (..),
+    newBatchGetAssetPropertyValueEntry,
+    batchGetAssetPropertyValueEntry_propertyAlias,
+    batchGetAssetPropertyValueEntry_assetId,
+    batchGetAssetPropertyValueEntry_propertyId,
+    batchGetAssetPropertyValueEntry_entryId,
+
+    -- * BatchGetAssetPropertyValueErrorEntry
+    BatchGetAssetPropertyValueErrorEntry (..),
+    newBatchGetAssetPropertyValueErrorEntry,
+    batchGetAssetPropertyValueErrorEntry_errorCode,
+    batchGetAssetPropertyValueErrorEntry_errorMessage,
+    batchGetAssetPropertyValueErrorEntry_entryId,
+
+    -- * BatchGetAssetPropertyValueErrorInfo
+    BatchGetAssetPropertyValueErrorInfo (..),
+    newBatchGetAssetPropertyValueErrorInfo,
+    batchGetAssetPropertyValueErrorInfo_errorCode,
+    batchGetAssetPropertyValueErrorInfo_errorTimestamp,
+
+    -- * BatchGetAssetPropertyValueHistoryEntry
+    BatchGetAssetPropertyValueHistoryEntry (..),
+    newBatchGetAssetPropertyValueHistoryEntry,
+    batchGetAssetPropertyValueHistoryEntry_propertyAlias,
+    batchGetAssetPropertyValueHistoryEntry_assetId,
+    batchGetAssetPropertyValueHistoryEntry_endDate,
+    batchGetAssetPropertyValueHistoryEntry_qualities,
+    batchGetAssetPropertyValueHistoryEntry_propertyId,
+    batchGetAssetPropertyValueHistoryEntry_startDate,
+    batchGetAssetPropertyValueHistoryEntry_timeOrdering,
+    batchGetAssetPropertyValueHistoryEntry_entryId,
+
+    -- * BatchGetAssetPropertyValueHistoryErrorEntry
+    BatchGetAssetPropertyValueHistoryErrorEntry (..),
+    newBatchGetAssetPropertyValueHistoryErrorEntry,
+    batchGetAssetPropertyValueHistoryErrorEntry_errorCode,
+    batchGetAssetPropertyValueHistoryErrorEntry_errorMessage,
+    batchGetAssetPropertyValueHistoryErrorEntry_entryId,
+
+    -- * BatchGetAssetPropertyValueHistoryErrorInfo
+    BatchGetAssetPropertyValueHistoryErrorInfo (..),
+    newBatchGetAssetPropertyValueHistoryErrorInfo,
+    batchGetAssetPropertyValueHistoryErrorInfo_errorCode,
+    batchGetAssetPropertyValueHistoryErrorInfo_errorTimestamp,
+
+    -- * BatchGetAssetPropertyValueHistorySkippedEntry
+    BatchGetAssetPropertyValueHistorySkippedEntry (..),
+    newBatchGetAssetPropertyValueHistorySkippedEntry,
+    batchGetAssetPropertyValueHistorySkippedEntry_errorInfo,
+    batchGetAssetPropertyValueHistorySkippedEntry_entryId,
+    batchGetAssetPropertyValueHistorySkippedEntry_completionStatus,
+
+    -- * BatchGetAssetPropertyValueHistorySuccessEntry
+    BatchGetAssetPropertyValueHistorySuccessEntry (..),
+    newBatchGetAssetPropertyValueHistorySuccessEntry,
+    batchGetAssetPropertyValueHistorySuccessEntry_entryId,
+    batchGetAssetPropertyValueHistorySuccessEntry_assetPropertyValueHistory,
+
+    -- * BatchGetAssetPropertyValueSkippedEntry
+    BatchGetAssetPropertyValueSkippedEntry (..),
+    newBatchGetAssetPropertyValueSkippedEntry,
+    batchGetAssetPropertyValueSkippedEntry_errorInfo,
+    batchGetAssetPropertyValueSkippedEntry_entryId,
+    batchGetAssetPropertyValueSkippedEntry_completionStatus,
+
+    -- * BatchGetAssetPropertyValueSuccessEntry
+    BatchGetAssetPropertyValueSuccessEntry (..),
+    newBatchGetAssetPropertyValueSuccessEntry,
+    batchGetAssetPropertyValueSuccessEntry_assetPropertyValue,
+    batchGetAssetPropertyValueSuccessEntry_entryId,
 
     -- * BatchPutAssetPropertyError
     BatchPutAssetPropertyError (..),
@@ -331,6 +472,11 @@ module Amazonka.IoTSiteWise.Types
     configurationStatus_error,
     configurationStatus_state,
 
+    -- * Csv
+    Csv (..),
+    newCsv,
+    csv_columnNames,
+
     -- * CustomerManagedS3Storage
     CustomerManagedS3Storage (..),
     newCustomerManagedS3Storage,
@@ -359,11 +505,29 @@ module Amazonka.IoTSiteWise.Types
     errorDetails_code,
     errorDetails_message,
 
+    -- * ErrorReportLocation
+    ErrorReportLocation (..),
+    newErrorReportLocation,
+    errorReportLocation_bucket,
+    errorReportLocation_prefix,
+
     -- * ExpressionVariable
     ExpressionVariable (..),
     newExpressionVariable,
     expressionVariable_name,
     expressionVariable_value,
+
+    -- * File
+    File (..),
+    newFile,
+    file_versionId,
+    file_bucket,
+    file_key,
+
+    -- * FileFormat
+    FileFormat (..),
+    newFileFormat,
+    fileFormat_csv,
 
     -- * ForwardingConfig
     ForwardingConfig (..),
@@ -448,6 +612,18 @@ module Amazonka.IoTSiteWise.Types
     newInterpolatedAssetPropertyValue,
     interpolatedAssetPropertyValue_timestamp,
     interpolatedAssetPropertyValue_value,
+
+    -- * JobConfiguration
+    JobConfiguration (..),
+    newJobConfiguration,
+    jobConfiguration_fileFormat,
+
+    -- * JobSummary
+    JobSummary (..),
+    newJobSummary,
+    jobSummary_id,
+    jobSummary_name,
+    jobSummary_status,
 
     -- * LoggingOptions
     LoggingOptions (..),
@@ -570,11 +746,29 @@ module Amazonka.IoTSiteWise.Types
     resource_project,
     resource_portal,
 
+    -- * RetentionPeriod
+    RetentionPeriod (..),
+    newRetentionPeriod,
+    retentionPeriod_numberOfDays,
+    retentionPeriod_unlimited,
+
     -- * TimeInNanos
     TimeInNanos (..),
     newTimeInNanos,
     timeInNanos_offsetInNanos,
     timeInNanos_timeInSeconds,
+
+    -- * TimeSeriesSummary
+    TimeSeriesSummary (..),
+    newTimeSeriesSummary,
+    timeSeriesSummary_alias,
+    timeSeriesSummary_dataTypeSpec,
+    timeSeriesSummary_assetId,
+    timeSeriesSummary_propertyId,
+    timeSeriesSummary_timeSeriesId,
+    timeSeriesSummary_dataType,
+    timeSeriesSummary_timeSeriesCreationDate,
+    timeSeriesSummary_timeSeriesLastUpdateDate,
 
     -- * Transform
     Transform (..),
@@ -646,23 +840,48 @@ import Amazonka.IoTSiteWise.Types.AssetSummary
 import Amazonka.IoTSiteWise.Types.AssociatedAssetsSummary
 import Amazonka.IoTSiteWise.Types.Attribute
 import Amazonka.IoTSiteWise.Types.AuthMode
+import Amazonka.IoTSiteWise.Types.BatchEntryCompletionStatus
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorCode
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorInfo
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesSkippedEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesSuccessEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorCode
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorInfo
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorCode
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorInfo
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistorySkippedEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistorySuccessEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSkippedEntry
+import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSuccessEntry
 import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyError
 import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry
 import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyValueErrorCode
 import Amazonka.IoTSiteWise.Types.CapabilitySyncStatus
+import Amazonka.IoTSiteWise.Types.ColumnName
 import Amazonka.IoTSiteWise.Types.CompositeModelProperty
 import Amazonka.IoTSiteWise.Types.ComputeLocation
 import Amazonka.IoTSiteWise.Types.ConfigurationErrorDetails
 import Amazonka.IoTSiteWise.Types.ConfigurationState
 import Amazonka.IoTSiteWise.Types.ConfigurationStatus
+import Amazonka.IoTSiteWise.Types.Csv
 import Amazonka.IoTSiteWise.Types.CustomerManagedS3Storage
 import Amazonka.IoTSiteWise.Types.DashboardSummary
 import Amazonka.IoTSiteWise.Types.DetailedError
 import Amazonka.IoTSiteWise.Types.DetailedErrorCode
+import Amazonka.IoTSiteWise.Types.DisassociatedDataStorageState
 import Amazonka.IoTSiteWise.Types.EncryptionType
 import Amazonka.IoTSiteWise.Types.ErrorCode
 import Amazonka.IoTSiteWise.Types.ErrorDetails
+import Amazonka.IoTSiteWise.Types.ErrorReportLocation
 import Amazonka.IoTSiteWise.Types.ExpressionVariable
+import Amazonka.IoTSiteWise.Types.File
+import Amazonka.IoTSiteWise.Types.FileFormat
 import Amazonka.IoTSiteWise.Types.ForwardingConfig
 import Amazonka.IoTSiteWise.Types.ForwardingConfigState
 import Amazonka.IoTSiteWise.Types.GatewayCapabilitySummary
@@ -680,7 +899,12 @@ import Amazonka.IoTSiteWise.Types.ImageFile
 import Amazonka.IoTSiteWise.Types.ImageFileType
 import Amazonka.IoTSiteWise.Types.ImageLocation
 import Amazonka.IoTSiteWise.Types.InterpolatedAssetPropertyValue
+import Amazonka.IoTSiteWise.Types.JobConfiguration
+import Amazonka.IoTSiteWise.Types.JobStatus
+import Amazonka.IoTSiteWise.Types.JobSummary
 import Amazonka.IoTSiteWise.Types.ListAssetsFilter
+import Amazonka.IoTSiteWise.Types.ListBulkImportJobsFilter
+import Amazonka.IoTSiteWise.Types.ListTimeSeriesType
 import Amazonka.IoTSiteWise.Types.LoggingLevel
 import Amazonka.IoTSiteWise.Types.LoggingOptions
 import Amazonka.IoTSiteWise.Types.Measurement
@@ -707,9 +931,11 @@ import Amazonka.IoTSiteWise.Types.PutAssetPropertyValueEntry
 import Amazonka.IoTSiteWise.Types.Quality
 import Amazonka.IoTSiteWise.Types.Resource
 import Amazonka.IoTSiteWise.Types.ResourceType
+import Amazonka.IoTSiteWise.Types.RetentionPeriod
 import Amazonka.IoTSiteWise.Types.StorageType
 import Amazonka.IoTSiteWise.Types.TimeInNanos
 import Amazonka.IoTSiteWise.Types.TimeOrdering
+import Amazonka.IoTSiteWise.Types.TimeSeriesSummary
 import Amazonka.IoTSiteWise.Types.Transform
 import Amazonka.IoTSiteWise.Types.TransformProcessingConfig
 import Amazonka.IoTSiteWise.Types.TraversalDirection

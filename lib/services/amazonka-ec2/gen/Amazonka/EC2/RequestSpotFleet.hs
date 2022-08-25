@@ -49,6 +49,12 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet requests>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- We strongly discourage using the RequestSpotFleet API because it is a
+-- legacy API with no planned investment. For options for requesting Spot
+-- Instances, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use Which is the best Spot request method to use?>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 module Amazonka.EC2.RequestSpotFleet
   ( -- * Creating a Request
     RequestSpotFleet (..),

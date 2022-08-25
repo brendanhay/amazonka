@@ -20,6 +20,9 @@
 module Amazonka.Rekognition.Types.ProjectVersionStatus
   ( ProjectVersionStatus
       ( ..,
+        ProjectVersionStatus_COPYING_COMPLETED,
+        ProjectVersionStatus_COPYING_FAILED,
+        ProjectVersionStatus_COPYING_IN_PROGRESS,
         ProjectVersionStatus_DELETING,
         ProjectVersionStatus_FAILED,
         ProjectVersionStatus_RUNNING,
@@ -64,6 +67,15 @@ newtype ProjectVersionStatus = ProjectVersionStatus'
       Core.ToXML
     )
 
+pattern ProjectVersionStatus_COPYING_COMPLETED :: ProjectVersionStatus
+pattern ProjectVersionStatus_COPYING_COMPLETED = ProjectVersionStatus' "COPYING_COMPLETED"
+
+pattern ProjectVersionStatus_COPYING_FAILED :: ProjectVersionStatus
+pattern ProjectVersionStatus_COPYING_FAILED = ProjectVersionStatus' "COPYING_FAILED"
+
+pattern ProjectVersionStatus_COPYING_IN_PROGRESS :: ProjectVersionStatus
+pattern ProjectVersionStatus_COPYING_IN_PROGRESS = ProjectVersionStatus' "COPYING_IN_PROGRESS"
+
 pattern ProjectVersionStatus_DELETING :: ProjectVersionStatus
 pattern ProjectVersionStatus_DELETING = ProjectVersionStatus' "DELETING"
 
@@ -92,6 +104,9 @@ pattern ProjectVersionStatus_TRAINING_IN_PROGRESS :: ProjectVersionStatus
 pattern ProjectVersionStatus_TRAINING_IN_PROGRESS = ProjectVersionStatus' "TRAINING_IN_PROGRESS"
 
 {-# COMPLETE
+  ProjectVersionStatus_COPYING_COMPLETED,
+  ProjectVersionStatus_COPYING_FAILED,
+  ProjectVersionStatus_COPYING_IN_PROGRESS,
   ProjectVersionStatus_DELETING,
   ProjectVersionStatus_FAILED,
   ProjectVersionStatus_RUNNING,

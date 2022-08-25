@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the IAM managed policy that is attached to a specified permission
--- set.
+-- Lists the Amazon Web Services managed policy that is attached to a
+-- specified permission set.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
@@ -60,8 +60,8 @@ data ListManagedPoliciesInPermissionSet = ListManagedPoliciesInPermissionSet'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to display for the PermissionSet.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -83,8 +83,8 @@ data ListManagedPoliciesInPermissionSet = ListManagedPoliciesInPermissionSet'
 --
 -- 'maxResults', 'listManagedPoliciesInPermissionSet_maxResults' - The maximum number of results to display for the PermissionSet.
 --
--- 'instanceArn', 'listManagedPoliciesInPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'listManagedPoliciesInPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -115,8 +115,8 @@ listManagedPoliciesInPermissionSet_nextToken = Lens.lens (\ListManagedPoliciesIn
 listManagedPoliciesInPermissionSet_maxResults :: Lens.Lens' ListManagedPoliciesInPermissionSet (Prelude.Maybe Prelude.Natural)
 listManagedPoliciesInPermissionSet_maxResults = Lens.lens (\ListManagedPoliciesInPermissionSet' {maxResults} -> maxResults) (\s@ListManagedPoliciesInPermissionSet' {} a -> s {maxResults = a} :: ListManagedPoliciesInPermissionSet)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 listManagedPoliciesInPermissionSet_instanceArn :: Lens.Lens' ListManagedPoliciesInPermissionSet Prelude.Text
@@ -242,7 +242,7 @@ data ListManagedPoliciesInPermissionSetResponse = ListManagedPoliciesInPermissio
   { -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The array of the AttachedManagedPolicy data type object.
+    -- | An array of the AttachedManagedPolicy data type object.
     attachedManagedPolicies :: Prelude.Maybe [AttachedManagedPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -260,7 +260,7 @@ data ListManagedPoliciesInPermissionSetResponse = ListManagedPoliciesInPermissio
 -- 'nextToken', 'listManagedPoliciesInPermissionSetResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 --
--- 'attachedManagedPolicies', 'listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies' - The array of the AttachedManagedPolicy data type object.
+-- 'attachedManagedPolicies', 'listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies' - An array of the AttachedManagedPolicy data type object.
 --
 -- 'httpStatus', 'listManagedPoliciesInPermissionSetResponse_httpStatus' - The response's http status code.
 newListManagedPoliciesInPermissionSetResponse ::
@@ -282,7 +282,7 @@ newListManagedPoliciesInPermissionSetResponse
 listManagedPoliciesInPermissionSetResponse_nextToken :: Lens.Lens' ListManagedPoliciesInPermissionSetResponse (Prelude.Maybe Prelude.Text)
 listManagedPoliciesInPermissionSetResponse_nextToken = Lens.lens (\ListManagedPoliciesInPermissionSetResponse' {nextToken} -> nextToken) (\s@ListManagedPoliciesInPermissionSetResponse' {} a -> s {nextToken = a} :: ListManagedPoliciesInPermissionSetResponse)
 
--- | The array of the AttachedManagedPolicy data type object.
+-- | An array of the AttachedManagedPolicy data type object.
 listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies :: Lens.Lens' ListManagedPoliciesInPermissionSetResponse (Prelude.Maybe [AttachedManagedPolicy])
 listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies = Lens.lens (\ListManagedPoliciesInPermissionSetResponse' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@ListManagedPoliciesInPermissionSetResponse' {} a -> s {attachedManagedPolicies = a} :: ListManagedPoliciesInPermissionSetResponse) Prelude.. Lens.mapping Lens.coerced
 

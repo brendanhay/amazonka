@@ -87,7 +87,7 @@ data ListTypeVersions = ListTypeVersions'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The publisher ID of the extension publisher.
     --
-    -- Extensions published by Amazon are not assigned a publisher ID.
+    -- Extensions published by Amazon aren\'t assigned a publisher ID.
     publisherId :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension for which you want version summary
     -- information.
@@ -142,7 +142,7 @@ data ListTypeVersions = ListTypeVersions'
 --
 -- 'publisherId', 'listTypeVersions_publisherId' - The publisher ID of the extension publisher.
 --
--- Extensions published by Amazon are not assigned a publisher ID.
+-- Extensions published by Amazon aren\'t assigned a publisher ID.
 --
 -- 'typeName', 'listTypeVersions_typeName' - The name of the extension for which you want version summary
 -- information.
@@ -207,7 +207,7 @@ listTypeVersions_arn = Lens.lens (\ListTypeVersions' {arn} -> arn) (\s@ListTypeV
 
 -- | The publisher ID of the extension publisher.
 --
--- Extensions published by Amazon are not assigned a publisher ID.
+-- Extensions published by Amazon aren\'t assigned a publisher ID.
 listTypeVersions_publisherId :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Text)
 listTypeVersions_publisherId = Lens.lens (\ListTypeVersions' {publisherId} -> publisherId) (\s@ListTypeVersions' {} a -> s {publisherId = a} :: ListTypeVersions)
 

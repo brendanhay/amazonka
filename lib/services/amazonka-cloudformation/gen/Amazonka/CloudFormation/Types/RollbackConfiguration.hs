@@ -42,7 +42,7 @@ data RollbackConfiguration = RollbackConfiguration'
     --
     -- The default is 0 minutes.
     --
-    -- If you specify a monitoring period but do not specify any rollback
+    -- If you specify a monitoring period but don\'t specify any rollback
     -- triggers, CloudFormation still waits the specified period of time before
     -- cleaning up old resources after update operations. You can use this
     -- monitoring period to perform any manual stack validation desired, and
@@ -68,7 +68,7 @@ data RollbackConfiguration = RollbackConfiguration'
     --
     -- -   To specify new or updated rollback triggers, you must specify /all/
     --     the triggers that you want used for this stack, even triggers
-    --     you\'ve specifed before (for example, when creating the stack or
+    --     you\'ve specified before (for example, when creating the stack or
     --     during a previous stack update). Any triggers that you don\'t
     --     include in the updated list of triggers are no longer applied to the
     --     stack.
@@ -96,7 +96,7 @@ data RollbackConfiguration = RollbackConfiguration'
 --
 -- The default is 0 minutes.
 --
--- If you specify a monitoring period but do not specify any rollback
+-- If you specify a monitoring period but don\'t specify any rollback
 -- triggers, CloudFormation still waits the specified period of time before
 -- cleaning up old resources after update operations. You can use this
 -- monitoring period to perform any manual stack validation desired, and
@@ -122,7 +122,7 @@ data RollbackConfiguration = RollbackConfiguration'
 --
 -- -   To specify new or updated rollback triggers, you must specify /all/
 --     the triggers that you want used for this stack, even triggers
---     you\'ve specifed before (for example, when creating the stack or
+--     you\'ve specified before (for example, when creating the stack or
 --     during a previous stack update). Any triggers that you don\'t
 --     include in the updated list of triggers are no longer applied to the
 --     stack.
@@ -147,7 +147,7 @@ newRollbackConfiguration =
 --
 -- The default is 0 minutes.
 --
--- If you specify a monitoring period but do not specify any rollback
+-- If you specify a monitoring period but don\'t specify any rollback
 -- triggers, CloudFormation still waits the specified period of time before
 -- cleaning up old resources after update operations. You can use this
 -- monitoring period to perform any manual stack validation desired, and
@@ -175,7 +175,7 @@ rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguratio
 --
 -- -   To specify new or updated rollback triggers, you must specify /all/
 --     the triggers that you want used for this stack, even triggers
---     you\'ve specifed before (for example, when creating the stack or
+--     you\'ve specified before (for example, when creating the stack or
 --     during a previous stack update). Any triggers that you don\'t
 --     include in the updated list of triggers are no longer applied to the
 --     stack.

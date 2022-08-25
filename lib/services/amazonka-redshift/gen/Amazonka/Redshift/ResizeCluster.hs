@@ -56,10 +56,12 @@ module Amazonka.Redshift.ResizeCluster
     newResizeCluster,
 
     -- * Request Lenses
+    resizeCluster_reservedNodeId,
     resizeCluster_nodeType,
     resizeCluster_classic,
     resizeCluster_numberOfNodes,
     resizeCluster_clusterType,
+    resizeCluster_targetReservedNodeOfferingId,
     resizeCluster_clusterIdentifier,
 
     -- * Destructuring the Response
@@ -84,7 +86,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newResizeCluster' smart constructor.
 data ResizeCluster = ResizeCluster'
-  { -- | The new node type for the nodes you are adding. If not specified, the
+  { -- | The identifier of the reserved node.
+    reservedNodeId :: Prelude.Maybe Prelude.Text,
+    -- | The new node type for the nodes you are adding. If not specified, the
     -- cluster\'s current node type is used.
     nodeType :: Prelude.Maybe Prelude.Text,
     -- | A boolean value indicating whether the resize operation is using the
@@ -96,6 +100,8 @@ data ResizeCluster = ResizeCluster'
     numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The new cluster type for the specified cluster.
     clusterType :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the target reserved node offering.
+    targetReservedNodeOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the cluster to resize.
     clusterIdentifier :: Prelude.Text
   }
@@ -109,6 +115,8 @@ data ResizeCluster = ResizeCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reservedNodeId', 'resizeCluster_reservedNodeId' - The identifier of the reserved node.
+--
 -- 'nodeType', 'resizeCluster_nodeType' - The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
 --
@@ -121,6 +129,8 @@ data ResizeCluster = ResizeCluster'
 --
 -- 'clusterType', 'resizeCluster_clusterType' - The new cluster type for the specified cluster.
 --
+-- 'targetReservedNodeOfferingId', 'resizeCluster_targetReservedNodeOfferingId' - The identifier of the target reserved node offering.
+--
 -- 'clusterIdentifier', 'resizeCluster_clusterIdentifier' - The unique identifier for the cluster to resize.
 newResizeCluster ::
   -- | 'clusterIdentifier'
@@ -128,12 +138,18 @@ newResizeCluster ::
   ResizeCluster
 newResizeCluster pClusterIdentifier_ =
   ResizeCluster'
-    { nodeType = Prelude.Nothing,
+    { reservedNodeId = Prelude.Nothing,
+      nodeType = Prelude.Nothing,
       classic = Prelude.Nothing,
       numberOfNodes = Prelude.Nothing,
       clusterType = Prelude.Nothing,
+      targetReservedNodeOfferingId = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
+
+-- | The identifier of the reserved node.
+resizeCluster_reservedNodeId :: Lens.Lens' ResizeCluster (Prelude.Maybe Prelude.Text)
+resizeCluster_reservedNodeId = Lens.lens (\ResizeCluster' {reservedNodeId} -> reservedNodeId) (\s@ResizeCluster' {} a -> s {reservedNodeId = a} :: ResizeCluster)
 
 -- | The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
@@ -155,6 +171,10 @@ resizeCluster_numberOfNodes = Lens.lens (\ResizeCluster' {numberOfNodes} -> numb
 resizeCluster_clusterType :: Lens.Lens' ResizeCluster (Prelude.Maybe Prelude.Text)
 resizeCluster_clusterType = Lens.lens (\ResizeCluster' {clusterType} -> clusterType) (\s@ResizeCluster' {} a -> s {clusterType = a} :: ResizeCluster)
 
+-- | The identifier of the target reserved node offering.
+resizeCluster_targetReservedNodeOfferingId :: Lens.Lens' ResizeCluster (Prelude.Maybe Prelude.Text)
+resizeCluster_targetReservedNodeOfferingId = Lens.lens (\ResizeCluster' {targetReservedNodeOfferingId} -> targetReservedNodeOfferingId) (\s@ResizeCluster' {} a -> s {targetReservedNodeOfferingId = a} :: ResizeCluster)
+
 -- | The unique identifier for the cluster to resize.
 resizeCluster_clusterIdentifier :: Lens.Lens' ResizeCluster Prelude.Text
 resizeCluster_clusterIdentifier = Lens.lens (\ResizeCluster' {clusterIdentifier} -> clusterIdentifier) (\s@ResizeCluster' {} a -> s {clusterIdentifier = a} :: ResizeCluster)
@@ -175,18 +195,22 @@ instance Core.AWSRequest ResizeCluster where
 
 instance Prelude.Hashable ResizeCluster where
   hashWithSalt _salt ResizeCluster' {..} =
-    _salt `Prelude.hashWithSalt` nodeType
+    _salt `Prelude.hashWithSalt` reservedNodeId
+      `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` classic
       `Prelude.hashWithSalt` numberOfNodes
       `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` targetReservedNodeOfferingId
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData ResizeCluster where
   rnf ResizeCluster' {..} =
-    Prelude.rnf nodeType
+    Prelude.rnf reservedNodeId
+      `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf classic
       `Prelude.seq` Prelude.rnf numberOfNodes
       `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders ResizeCluster where
@@ -202,10 +226,13 @@ instance Core.ToQuery ResizeCluster where
           Core.=: ("ResizeCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "ReservedNodeId" Core.=: reservedNodeId,
         "NodeType" Core.=: nodeType,
         "Classic" Core.=: classic,
         "NumberOfNodes" Core.=: numberOfNodes,
         "ClusterType" Core.=: clusterType,
+        "TargetReservedNodeOfferingId"
+          Core.=: targetReservedNodeOfferingId,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 

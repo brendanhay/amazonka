@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a collection of cross account readiness authorizations.
+-- Lists the cross-account readiness authorizations that are in place for
+-- an account.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations
@@ -52,9 +53,9 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListCrossAccountAuthorizations' smart constructor.
 data ListCrossAccountAuthorizations = ListCrossAccountAuthorizations'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +68,9 @@ data ListCrossAccountAuthorizations = ListCrossAccountAuthorizations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCrossAccountAuthorizations_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'nextToken', 'listCrossAccountAuthorizations_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'listCrossAccountAuthorizations_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'listCrossAccountAuthorizations_maxResults' - The number of objects that you want to return with this call.
 newListCrossAccountAuthorizations ::
   ListCrossAccountAuthorizations
 newListCrossAccountAuthorizations =
@@ -79,11 +80,11 @@ newListCrossAccountAuthorizations =
       maxResults = Prelude.Nothing
     }
 
--- | A token used to resume pagination from the end of a previous request.
+-- | The token that identifies which batch of results you want to see.
 listCrossAccountAuthorizations_nextToken :: Lens.Lens' ListCrossAccountAuthorizations (Prelude.Maybe Prelude.Text)
 listCrossAccountAuthorizations_nextToken = Lens.lens (\ListCrossAccountAuthorizations' {nextToken} -> nextToken) (\s@ListCrossAccountAuthorizations' {} a -> s {nextToken = a} :: ListCrossAccountAuthorizations)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 listCrossAccountAuthorizations_maxResults :: Lens.Lens' ListCrossAccountAuthorizations (Prelude.Maybe Prelude.Natural)
 listCrossAccountAuthorizations_maxResults = Lens.lens (\ListCrossAccountAuthorizations' {maxResults} -> maxResults) (\s@ListCrossAccountAuthorizations' {} a -> s {maxResults = a} :: ListCrossAccountAuthorizations)
 
@@ -172,10 +173,9 @@ instance Core.ToQuery ListCrossAccountAuthorizations where
 
 -- | /See:/ 'newListCrossAccountAuthorizationsResponse' smart constructor.
 data ListCrossAccountAuthorizationsResponse = ListCrossAccountAuthorizationsResponse'
-  { -- | A list of CrossAccountAuthorizations
+  { -- | A list of cross-account authorizations.
     crossAccountAuthorizations :: Prelude.Maybe [Prelude.Text],
-    -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+    -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -190,10 +190,9 @@ data ListCrossAccountAuthorizationsResponse = ListCrossAccountAuthorizationsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crossAccountAuthorizations', 'listCrossAccountAuthorizationsResponse_crossAccountAuthorizations' - A list of CrossAccountAuthorizations
+-- 'crossAccountAuthorizations', 'listCrossAccountAuthorizationsResponse_crossAccountAuthorizations' - A list of cross-account authorizations.
 --
--- 'nextToken', 'listCrossAccountAuthorizationsResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'listCrossAccountAuthorizationsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'httpStatus', 'listCrossAccountAuthorizationsResponse_httpStatus' - The response's http status code.
 newListCrossAccountAuthorizationsResponse ::
@@ -209,12 +208,11 @@ newListCrossAccountAuthorizationsResponse
         httpStatus = pHttpStatus_
       }
 
--- | A list of CrossAccountAuthorizations
+-- | A list of cross-account authorizations.
 listCrossAccountAuthorizationsResponse_crossAccountAuthorizations :: Lens.Lens' ListCrossAccountAuthorizationsResponse (Prelude.Maybe [Prelude.Text])
 listCrossAccountAuthorizationsResponse_crossAccountAuthorizations = Lens.lens (\ListCrossAccountAuthorizationsResponse' {crossAccountAuthorizations} -> crossAccountAuthorizations) (\s@ListCrossAccountAuthorizationsResponse' {} a -> s {crossAccountAuthorizations = a} :: ListCrossAccountAuthorizationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 listCrossAccountAuthorizationsResponse_nextToken :: Lens.Lens' ListCrossAccountAuthorizationsResponse (Prelude.Maybe Prelude.Text)
 listCrossAccountAuthorizationsResponse_nextToken = Lens.lens (\ListCrossAccountAuthorizationsResponse' {nextToken} -> nextToken) (\s@ListCrossAccountAuthorizationsResponse' {} a -> s {nextToken = a} :: ListCrossAccountAuthorizationsResponse)
 

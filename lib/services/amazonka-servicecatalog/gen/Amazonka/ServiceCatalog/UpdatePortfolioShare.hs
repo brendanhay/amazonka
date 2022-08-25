@@ -69,8 +69,8 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdatePortfolioShare' smart constructor.
 data UpdatePortfolioShare = UpdatePortfolioShare'
-  { -- | The AWS Account Id of the recipient account. This field is required when
-    -- updating an external account to account type share.
+  { -- | The Amazon Web Services account Id of the recipient account. This field
+    -- is required when updating an external account to account type share.
     accountId :: Prelude.Maybe Prelude.Text,
     organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
@@ -99,8 +99,8 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'updatePortfolioShare_accountId' - The AWS Account Id of the recipient account. This field is required when
--- updating an external account to account type share.
+-- 'accountId', 'updatePortfolioShare_accountId' - The Amazon Web Services account Id of the recipient account. This field
+-- is required when updating an external account to account type share.
 --
 -- 'organizationNode', 'updatePortfolioShare_organizationNode' - Undocumented member.
 --
@@ -131,8 +131,8 @@ newUpdatePortfolioShare pPortfolioId_ =
       portfolioId = pPortfolioId_
     }
 
--- | The AWS Account Id of the recipient account. This field is required when
--- updating an external account to account type share.
+-- | The Amazon Web Services account Id of the recipient account. This field
+-- is required when updating an external account to account type share.
 updatePortfolioShare_accountId :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Text)
 updatePortfolioShare_accountId = Lens.lens (\UpdatePortfolioShare' {accountId} -> accountId) (\s@UpdatePortfolioShare' {} a -> s {accountId = a} :: UpdatePortfolioShare)
 

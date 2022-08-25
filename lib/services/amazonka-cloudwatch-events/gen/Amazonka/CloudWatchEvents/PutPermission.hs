@@ -94,6 +94,8 @@ data PutPermission = PutPermission'
     -- permissions to. If you later want to revoke the permission for this
     -- external account, specify this @StatementId@ when you run
     -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
+    --
+    -- Each @StatementId@ must be unique.
     statementId :: Prelude.Maybe Prelude.Text,
     -- | This parameter enables you to limit the permission to accounts that
     -- fulfill a certain condition, such as being a member of a certain Amazon
@@ -143,6 +145,8 @@ data PutPermission = PutPermission'
 -- permissions to. If you later want to revoke the permission for this
 -- external account, specify this @StatementId@ when you run
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
+--
+-- Each @StatementId@ must be unique.
 --
 -- 'condition', 'putPermission_condition' - This parameter enables you to limit the permission to accounts that
 -- fulfill a certain condition, such as being a member of a certain Amazon
@@ -198,6 +202,8 @@ putPermission_eventBusName = Lens.lens (\PutPermission' {eventBusName} -> eventB
 -- permissions to. If you later want to revoke the permission for this
 -- external account, specify this @StatementId@ when you run
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
+--
+-- Each @StatementId@ must be unique.
 putPermission_statementId :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
 putPermission_statementId = Lens.lens (\PutPermission' {statementId} -> statementId) (\s@PutPermission' {} a -> s {statementId = a} :: PutPermission)
 

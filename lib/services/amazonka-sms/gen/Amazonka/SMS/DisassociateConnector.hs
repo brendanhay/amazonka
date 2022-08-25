@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the specified connector from AWS SMS.
+-- Disassociates the specified connector from Server Migration Service.
 --
 -- After you disassociate a connector, it is no longer available to support
 -- replication jobs.

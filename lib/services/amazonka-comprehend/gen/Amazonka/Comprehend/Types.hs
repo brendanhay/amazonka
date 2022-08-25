@@ -233,6 +233,7 @@ module Amazonka.Comprehend.Types
     documentClassifierProperties_versionName,
     documentClassifierProperties_mode,
     documentClassifierProperties_documentClassifierArn,
+    documentClassifierProperties_sourceModelArn,
     documentClassifierProperties_inputDataConfig,
     documentClassifierProperties_trainingEndTime,
     documentClassifierProperties_classifierMetadata,
@@ -427,6 +428,7 @@ module Amazonka.Comprehend.Types
     entityRecognizerProperties_endTime,
     entityRecognizerProperties_languageCode,
     entityRecognizerProperties_versionName,
+    entityRecognizerProperties_sourceModelArn,
     entityRecognizerProperties_inputDataConfig,
     entityRecognizerProperties_trainingEndTime,
 
@@ -621,6 +623,31 @@ module Amazonka.Comprehend.Types
     tag_value,
     tag_key,
 
+    -- * TargetedSentimentDetectionJobFilter
+    TargetedSentimentDetectionJobFilter (..),
+    newTargetedSentimentDetectionJobFilter,
+    targetedSentimentDetectionJobFilter_jobStatus,
+    targetedSentimentDetectionJobFilter_jobName,
+    targetedSentimentDetectionJobFilter_submitTimeBefore,
+    targetedSentimentDetectionJobFilter_submitTimeAfter,
+
+    -- * TargetedSentimentDetectionJobProperties
+    TargetedSentimentDetectionJobProperties (..),
+    newTargetedSentimentDetectionJobProperties,
+    targetedSentimentDetectionJobProperties_outputDataConfig,
+    targetedSentimentDetectionJobProperties_message,
+    targetedSentimentDetectionJobProperties_jobStatus,
+    targetedSentimentDetectionJobProperties_vpcConfig,
+    targetedSentimentDetectionJobProperties_jobName,
+    targetedSentimentDetectionJobProperties_submitTime,
+    targetedSentimentDetectionJobProperties_jobId,
+    targetedSentimentDetectionJobProperties_volumeKmsKeyId,
+    targetedSentimentDetectionJobProperties_dataAccessRoleArn,
+    targetedSentimentDetectionJobProperties_endTime,
+    targetedSentimentDetectionJobProperties_languageCode,
+    targetedSentimentDetectionJobProperties_jobArn,
+    targetedSentimentDetectionJobProperties_inputDataConfig,
+
     -- * TopicsDetectionJobFilter
     TopicsDetectionJobFilter (..),
     newTopicsDetectionJobFilter,
@@ -732,6 +759,8 @@ import Amazonka.Comprehend.Types.Split
 import Amazonka.Comprehend.Types.SyntaxLanguageCode
 import Amazonka.Comprehend.Types.SyntaxToken
 import Amazonka.Comprehend.Types.Tag
+import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
+import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
 import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
 import Amazonka.Comprehend.Types.VpcConfig

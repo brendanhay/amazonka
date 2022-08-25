@@ -20,6 +20,7 @@
 module Amazonka.Location.Types.PositionFiltering
   ( PositionFiltering
       ( ..,
+        PositionFiltering_AccuracyBased,
         PositionFiltering_DistanceBased,
         PositionFiltering_TimeBased
       ),
@@ -57,6 +58,9 @@ newtype PositionFiltering = PositionFiltering'
       Core.ToXML
     )
 
+pattern PositionFiltering_AccuracyBased :: PositionFiltering
+pattern PositionFiltering_AccuracyBased = PositionFiltering' "AccuracyBased"
+
 pattern PositionFiltering_DistanceBased :: PositionFiltering
 pattern PositionFiltering_DistanceBased = PositionFiltering' "DistanceBased"
 
@@ -64,6 +68,7 @@ pattern PositionFiltering_TimeBased :: PositionFiltering
 pattern PositionFiltering_TimeBased = PositionFiltering' "TimeBased"
 
 {-# COMPLETE
+  PositionFiltering_AccuracyBased,
   PositionFiltering_DistanceBased,
   PositionFiltering_TimeBased,
   PositionFiltering'

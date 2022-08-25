@@ -35,14 +35,14 @@ data ResourceRequestStatusFilter = ResourceRequestStatusFilter'
     --
     -- -   @PENDING@: The operation has been requested, but not yet initiated.
     --
-    -- -   @IN_PROGRESS@: The operation is currently in progress.
+    -- -   @IN_PROGRESS@: The operation is in progress.
     --
-    -- -   @SUCCESS@: The operation has successfully completed.
+    -- -   @SUCCESS@: The operation completed.
     --
-    -- -   @FAILED@: The operation has failed.
+    -- -   @FAILED@: The operation failed.
     --
-    -- -   @CANCEL_IN_PROGRESS@: The operation is currently in the process of
-    --     being canceled.
+    -- -   @CANCEL_IN_PROGRESS@: The operation is in the process of being
+    --     canceled.
     --
     -- -   @CANCEL_COMPLETE@: The operation has been canceled.
     operationStatuses :: Prelude.Maybe [OperationStatus]
@@ -63,14 +63,14 @@ data ResourceRequestStatusFilter = ResourceRequestStatusFilter'
 --
 -- -   @PENDING@: The operation has been requested, but not yet initiated.
 --
--- -   @IN_PROGRESS@: The operation is currently in progress.
+-- -   @IN_PROGRESS@: The operation is in progress.
 --
--- -   @SUCCESS@: The operation has successfully completed.
+-- -   @SUCCESS@: The operation completed.
 --
--- -   @FAILED@: The operation has failed.
+-- -   @FAILED@: The operation failed.
 --
--- -   @CANCEL_IN_PROGRESS@: The operation is currently in the process of
---     being canceled.
+-- -   @CANCEL_IN_PROGRESS@: The operation is in the process of being
+--     canceled.
 --
 -- -   @CANCEL_COMPLETE@: The operation has been canceled.
 newResourceRequestStatusFilter ::
@@ -90,14 +90,14 @@ resourceRequestStatusFilter_operations = Lens.lens (\ResourceRequestStatusFilter
 --
 -- -   @PENDING@: The operation has been requested, but not yet initiated.
 --
--- -   @IN_PROGRESS@: The operation is currently in progress.
+-- -   @IN_PROGRESS@: The operation is in progress.
 --
--- -   @SUCCESS@: The operation has successfully completed.
+-- -   @SUCCESS@: The operation completed.
 --
--- -   @FAILED@: The operation has failed.
+-- -   @FAILED@: The operation failed.
 --
--- -   @CANCEL_IN_PROGRESS@: The operation is currently in the process of
---     being canceled.
+-- -   @CANCEL_IN_PROGRESS@: The operation is in the process of being
+--     canceled.
 --
 -- -   @CANCEL_COMPLETE@: The operation has been canceled.
 resourceRequestStatusFilter_operationStatuses :: Lens.Lens' ResourceRequestStatusFilter (Prelude.Maybe [OperationStatus])

@@ -38,7 +38,7 @@ data StreamingDistribution = StreamingDistribution'
     id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
-    -- @123456789012@ is your account ID.
+    -- @123456789012@ is your Amazon Web Services account ID.
     arn :: Prelude.Text,
     -- | The current status of the RTMP distribution. When the status is
     -- @Deployed@, the distribution\'s information is propagated to all
@@ -47,15 +47,16 @@ data StreamingDistribution = StreamingDistribution'
     -- | The domain name that corresponds to the streaming distribution, for
     -- example, @s5c39gqb8ow64r.cloudfront.net@.
     domainName :: Prelude.Text,
-    -- | A complex type that lists the accounts, if any, that you included in the
-    -- @TrustedSigners@ complex type for this distribution. These are the
-    -- accounts that you want to allow to create signed URLs for private
-    -- content.
+    -- | A complex type that lists the Amazon Web Services accounts, if any, that
+    -- you included in the @TrustedSigners@ complex type for this distribution.
+    -- These are the accounts that you want to allow to create signed URLs for
+    -- private content.
     --
-    -- The @Signer@ complex type lists the account number of the trusted signer
-    -- or @self@ if the signer is the account that created the distribution.
-    -- The @Signer@ element also includes the IDs of any active CloudFront key
-    -- pairs that are associated with the trusted signer\'s account. If no
+    -- The @Signer@ complex type lists the Amazon Web Services account number
+    -- of the trusted signer or @self@ if the signer is the Amazon Web Services
+    -- account that created the distribution. The @Signer@ element also
+    -- includes the IDs of any active CloudFront key pairs that are associated
+    -- with the trusted signer\'s Amazon Web Services account. If no
     -- @KeyPairId@ element appears for a @Signer@, that signer can\'t create
     -- signed URLs.
     --
@@ -83,7 +84,7 @@ data StreamingDistribution = StreamingDistribution'
 --
 -- 'arn', 'streamingDistribution_arn' - The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your account ID.
+-- @123456789012@ is your Amazon Web Services account ID.
 --
 -- 'status', 'streamingDistribution_status' - The current status of the RTMP distribution. When the status is
 -- @Deployed@, the distribution\'s information is propagated to all
@@ -92,15 +93,16 @@ data StreamingDistribution = StreamingDistribution'
 -- 'domainName', 'streamingDistribution_domainName' - The domain name that corresponds to the streaming distribution, for
 -- example, @s5c39gqb8ow64r.cloudfront.net@.
 --
--- 'activeTrustedSigners', 'streamingDistribution_activeTrustedSigners' - A complex type that lists the accounts, if any, that you included in the
--- @TrustedSigners@ complex type for this distribution. These are the
--- accounts that you want to allow to create signed URLs for private
--- content.
+-- 'activeTrustedSigners', 'streamingDistribution_activeTrustedSigners' - A complex type that lists the Amazon Web Services accounts, if any, that
+-- you included in the @TrustedSigners@ complex type for this distribution.
+-- These are the accounts that you want to allow to create signed URLs for
+-- private content.
 --
--- The @Signer@ complex type lists the account number of the trusted signer
--- or @self@ if the signer is the account that created the distribution.
--- The @Signer@ element also includes the IDs of any active CloudFront key
--- pairs that are associated with the trusted signer\'s account. If no
+-- The @Signer@ complex type lists the Amazon Web Services account number
+-- of the trusted signer or @self@ if the signer is the Amazon Web Services
+-- account that created the distribution. The @Signer@ element also
+-- includes the IDs of any active CloudFront key pairs that are associated
+-- with the trusted signer\'s Amazon Web Services account. If no
 -- @KeyPairId@ element appears for a @Signer@, that signer can\'t create
 -- signed URLs.
 --
@@ -153,7 +155,7 @@ streamingDistribution_id = Lens.lens (\StreamingDistribution' {id} -> id) (\s@St
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your account ID.
+-- @123456789012@ is your Amazon Web Services account ID.
 streamingDistribution_arn :: Lens.Lens' StreamingDistribution Prelude.Text
 streamingDistribution_arn = Lens.lens (\StreamingDistribution' {arn} -> arn) (\s@StreamingDistribution' {} a -> s {arn = a} :: StreamingDistribution)
 
@@ -168,15 +170,16 @@ streamingDistribution_status = Lens.lens (\StreamingDistribution' {status} -> st
 streamingDistribution_domainName :: Lens.Lens' StreamingDistribution Prelude.Text
 streamingDistribution_domainName = Lens.lens (\StreamingDistribution' {domainName} -> domainName) (\s@StreamingDistribution' {} a -> s {domainName = a} :: StreamingDistribution)
 
--- | A complex type that lists the accounts, if any, that you included in the
--- @TrustedSigners@ complex type for this distribution. These are the
--- accounts that you want to allow to create signed URLs for private
--- content.
+-- | A complex type that lists the Amazon Web Services accounts, if any, that
+-- you included in the @TrustedSigners@ complex type for this distribution.
+-- These are the accounts that you want to allow to create signed URLs for
+-- private content.
 --
--- The @Signer@ complex type lists the account number of the trusted signer
--- or @self@ if the signer is the account that created the distribution.
--- The @Signer@ element also includes the IDs of any active CloudFront key
--- pairs that are associated with the trusted signer\'s account. If no
+-- The @Signer@ complex type lists the Amazon Web Services account number
+-- of the trusted signer or @self@ if the signer is the Amazon Web Services
+-- account that created the distribution. The @Signer@ element also
+-- includes the IDs of any active CloudFront key pairs that are associated
+-- with the trusted signer\'s Amazon Web Services account. If no
 -- @KeyPairId@ element appears for a @Signer@, that signer can\'t create
 -- signed URLs.
 --

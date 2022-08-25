@@ -23,19 +23,21 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The Amazon RDS HTTP endpoint configuration.
+-- | The Amazon Relational Database Service (Amazon RDS) HTTP endpoint
+-- configuration.
 --
 -- /See:/ 'newRdsHttpEndpointConfig' smart constructor.
 data RdsHttpEndpointConfig = RdsHttpEndpointConfig'
   { -- | Logical database name.
     databaseName :: Prelude.Maybe Prelude.Text,
-    -- | Amazon RDS cluster ARN.
+    -- | Amazon RDS cluster Amazon Resource Name (ARN).
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services Region for RDS HTTP endpoint.
+    -- | Amazon Web Services Region for Amazon RDS HTTP endpoint.
     awsRegion :: Prelude.Maybe Prelude.Text,
     -- | Logical schema name.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services secret store ARN for database credentials.
+    -- | Amazon Web Services secret store Amazon Resource Name (ARN) for database
+    -- credentials.
     awsSecretStoreArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +52,14 @@ data RdsHttpEndpointConfig = RdsHttpEndpointConfig'
 --
 -- 'databaseName', 'rdsHttpEndpointConfig_databaseName' - Logical database name.
 --
--- 'dbClusterIdentifier', 'rdsHttpEndpointConfig_dbClusterIdentifier' - Amazon RDS cluster ARN.
+-- 'dbClusterIdentifier', 'rdsHttpEndpointConfig_dbClusterIdentifier' - Amazon RDS cluster Amazon Resource Name (ARN).
 --
--- 'awsRegion', 'rdsHttpEndpointConfig_awsRegion' - Amazon Web Services Region for RDS HTTP endpoint.
+-- 'awsRegion', 'rdsHttpEndpointConfig_awsRegion' - Amazon Web Services Region for Amazon RDS HTTP endpoint.
 --
 -- 'schema', 'rdsHttpEndpointConfig_schema' - Logical schema name.
 --
--- 'awsSecretStoreArn', 'rdsHttpEndpointConfig_awsSecretStoreArn' - Amazon Web Services secret store ARN for database credentials.
+-- 'awsSecretStoreArn', 'rdsHttpEndpointConfig_awsSecretStoreArn' - Amazon Web Services secret store Amazon Resource Name (ARN) for database
+-- credentials.
 newRdsHttpEndpointConfig ::
   RdsHttpEndpointConfig
 newRdsHttpEndpointConfig =
@@ -73,11 +76,11 @@ newRdsHttpEndpointConfig =
 rdsHttpEndpointConfig_databaseName :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_databaseName = Lens.lens (\RdsHttpEndpointConfig' {databaseName} -> databaseName) (\s@RdsHttpEndpointConfig' {} a -> s {databaseName = a} :: RdsHttpEndpointConfig)
 
--- | Amazon RDS cluster ARN.
+-- | Amazon RDS cluster Amazon Resource Name (ARN).
 rdsHttpEndpointConfig_dbClusterIdentifier :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_dbClusterIdentifier = Lens.lens (\RdsHttpEndpointConfig' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@RdsHttpEndpointConfig' {} a -> s {dbClusterIdentifier = a} :: RdsHttpEndpointConfig)
 
--- | Amazon Web Services Region for RDS HTTP endpoint.
+-- | Amazon Web Services Region for Amazon RDS HTTP endpoint.
 rdsHttpEndpointConfig_awsRegion :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_awsRegion = Lens.lens (\RdsHttpEndpointConfig' {awsRegion} -> awsRegion) (\s@RdsHttpEndpointConfig' {} a -> s {awsRegion = a} :: RdsHttpEndpointConfig)
 
@@ -85,7 +88,8 @@ rdsHttpEndpointConfig_awsRegion = Lens.lens (\RdsHttpEndpointConfig' {awsRegion}
 rdsHttpEndpointConfig_schema :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_schema = Lens.lens (\RdsHttpEndpointConfig' {schema} -> schema) (\s@RdsHttpEndpointConfig' {} a -> s {schema = a} :: RdsHttpEndpointConfig)
 
--- | Amazon Web Services secret store ARN for database credentials.
+-- | Amazon Web Services secret store Amazon Resource Name (ARN) for database
+-- credentials.
 rdsHttpEndpointConfig_awsSecretStoreArn :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_awsSecretStoreArn = Lens.lens (\RdsHttpEndpointConfig' {awsSecretStoreArn} -> awsSecretStoreArn) (\s@RdsHttpEndpointConfig' {} a -> s {awsSecretStoreArn = a} :: RdsHttpEndpointConfig)
 

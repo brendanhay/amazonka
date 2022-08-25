@@ -169,7 +169,9 @@ instance Core.ToQuery GetAsset where
 data GetAssetResponse = GetAssetResponse'
   { -- | The name of the asset. When importing from Amazon S3, the S3 object key
     -- is used as the asset name. When exporting to Amazon S3, the asset name
-    -- is used as default target S3 object key.
+    -- is used as default target S3 object key. When importing from Amazon API
+    -- Gateway API, the API name is used as the asset name. When importing from
+    -- Amazon Redshift, the datashare name is used as the asset name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The asset ID of the owned asset corresponding to the entitled asset
     -- being viewed. This parameter is returned when an asset owner is viewing
@@ -206,7 +208,9 @@ data GetAssetResponse = GetAssetResponse'
 --
 -- 'name', 'getAssetResponse_name' - The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
+-- is used as default target S3 object key. When importing from Amazon API
+-- Gateway API, the API name is used as the asset name. When importing from
+-- Amazon Redshift, the datashare name is used as the asset name.
 --
 -- 'sourceId', 'getAssetResponse_sourceId' - The asset ID of the owned asset corresponding to the entitled asset
 -- being viewed. This parameter is returned when an asset owner is viewing
@@ -250,7 +254,9 @@ newGetAssetResponse pHttpStatus_ =
 
 -- | The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
+-- is used as default target S3 object key. When importing from Amazon API
+-- Gateway API, the API name is used as the asset name. When importing from
+-- Amazon Redshift, the datashare name is used as the asset name.
 getAssetResponse_name :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
 getAssetResponse_name = Lens.lens (\GetAssetResponse' {name} -> name) (\s@GetAssetResponse' {} a -> s {name = a} :: GetAssetResponse)
 

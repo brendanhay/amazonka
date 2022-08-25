@@ -35,8 +35,10 @@ module Amazonka.MediaConnect.UpdateFlowOutput
     updateFlowOutput_cidrAllowList,
     updateFlowOutput_streamId,
     updateFlowOutput_remoteId,
+    updateFlowOutput_senderIpAddress,
     updateFlowOutput_vpcInterfaceAttachment,
     updateFlowOutput_description,
+    updateFlowOutput_senderControlPort,
     updateFlowOutput_encryption,
     updateFlowOutput_protocol,
     updateFlowOutput_minLatency,
@@ -69,7 +71,8 @@ data UpdateFlowOutput = UpdateFlowOutput'
     destination :: Prelude.Maybe Prelude.Text,
     -- | The port to use when content is distributed to this output.
     port :: Prelude.Maybe Prelude.Int,
-    -- | The maximum latency in milliseconds for Zixi-based streams.
+    -- | The maximum latency in milliseconds. This parameter applies only to
+    -- RIST-based, Zixi-based, and Fujitsu-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
     -- | The media streams that are associated with the output, and the
     -- parameters for those associations.
@@ -86,11 +89,17 @@ data UpdateFlowOutput = UpdateFlowOutput'
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The remote ID for the Zixi-pull stream.
     remoteId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address that the flow communicates with to initiate connection
+    -- with the sender.
+    senderIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC interface attachment to use for this output.
     vpcInterfaceAttachment :: Prelude.Maybe VpcInterfaceAttachment,
     -- | A description of the output. This description appears only on the AWS
     -- Elemental MediaConnect console and will not be seen by the end user.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
     -- | The type of key used for the encryption. If no keyType is provided, the
     -- service will use the default setting (static-key).
     encryption :: Prelude.Maybe UpdateEncryption,
@@ -121,7 +130,8 @@ data UpdateFlowOutput = UpdateFlowOutput'
 --
 -- 'port', 'updateFlowOutput_port' - The port to use when content is distributed to this output.
 --
--- 'maxLatency', 'updateFlowOutput_maxLatency' - The maximum latency in milliseconds for Zixi-based streams.
+-- 'maxLatency', 'updateFlowOutput_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 --
 -- 'mediaStreamOutputConfigurations', 'updateFlowOutput_mediaStreamOutputConfigurations' - The media streams that are associated with the output, and the
 -- parameters for those associations.
@@ -138,10 +148,16 @@ data UpdateFlowOutput = UpdateFlowOutput'
 --
 -- 'remoteId', 'updateFlowOutput_remoteId' - The remote ID for the Zixi-pull stream.
 --
+-- 'senderIpAddress', 'updateFlowOutput_senderIpAddress' - The IP address that the flow communicates with to initiate connection
+-- with the sender.
+--
 -- 'vpcInterfaceAttachment', 'updateFlowOutput_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.
 --
 -- 'description', 'updateFlowOutput_description' - A description of the output. This description appears only on the AWS
 -- Elemental MediaConnect console and will not be seen by the end user.
+--
+-- 'senderControlPort', 'updateFlowOutput_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
 --
 -- 'encryption', 'updateFlowOutput_encryption' - The type of key used for the encryption. If no keyType is provided, the
 -- service will use the default setting (static-key).
@@ -173,8 +189,10 @@ newUpdateFlowOutput pFlowArn_ pOutputArn_ =
       cidrAllowList = Prelude.Nothing,
       streamId = Prelude.Nothing,
       remoteId = Prelude.Nothing,
+      senderIpAddress = Prelude.Nothing,
       vpcInterfaceAttachment = Prelude.Nothing,
       description = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
       encryption = Prelude.Nothing,
       protocol = Prelude.Nothing,
       minLatency = Prelude.Nothing,
@@ -190,7 +208,8 @@ updateFlowOutput_destination = Lens.lens (\UpdateFlowOutput' {destination} -> de
 updateFlowOutput_port :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
 updateFlowOutput_port = Lens.lens (\UpdateFlowOutput' {port} -> port) (\s@UpdateFlowOutput' {} a -> s {port = a} :: UpdateFlowOutput)
 
--- | The maximum latency in milliseconds for Zixi-based streams.
+-- | The maximum latency in milliseconds. This parameter applies only to
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 updateFlowOutput_maxLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
 updateFlowOutput_maxLatency = Lens.lens (\UpdateFlowOutput' {maxLatency} -> maxLatency) (\s@UpdateFlowOutput' {} a -> s {maxLatency = a} :: UpdateFlowOutput)
 
@@ -219,6 +238,11 @@ updateFlowOutput_streamId = Lens.lens (\UpdateFlowOutput' {streamId} -> streamId
 updateFlowOutput_remoteId :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
 updateFlowOutput_remoteId = Lens.lens (\UpdateFlowOutput' {remoteId} -> remoteId) (\s@UpdateFlowOutput' {} a -> s {remoteId = a} :: UpdateFlowOutput)
 
+-- | The IP address that the flow communicates with to initiate connection
+-- with the sender.
+updateFlowOutput_senderIpAddress :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
+updateFlowOutput_senderIpAddress = Lens.lens (\UpdateFlowOutput' {senderIpAddress} -> senderIpAddress) (\s@UpdateFlowOutput' {} a -> s {senderIpAddress = a} :: UpdateFlowOutput)
+
 -- | The name of the VPC interface attachment to use for this output.
 updateFlowOutput_vpcInterfaceAttachment :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe VpcInterfaceAttachment)
 updateFlowOutput_vpcInterfaceAttachment = Lens.lens (\UpdateFlowOutput' {vpcInterfaceAttachment} -> vpcInterfaceAttachment) (\s@UpdateFlowOutput' {} a -> s {vpcInterfaceAttachment = a} :: UpdateFlowOutput)
@@ -227,6 +251,11 @@ updateFlowOutput_vpcInterfaceAttachment = Lens.lens (\UpdateFlowOutput' {vpcInte
 -- Elemental MediaConnect console and will not be seen by the end user.
 updateFlowOutput_description :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
 updateFlowOutput_description = Lens.lens (\UpdateFlowOutput' {description} -> description) (\s@UpdateFlowOutput' {} a -> s {description = a} :: UpdateFlowOutput)
+
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+updateFlowOutput_senderControlPort :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
+updateFlowOutput_senderControlPort = Lens.lens (\UpdateFlowOutput' {senderControlPort} -> senderControlPort) (\s@UpdateFlowOutput' {} a -> s {senderControlPort = a} :: UpdateFlowOutput)
 
 -- | The type of key used for the encryption. If no keyType is provided, the
 -- service will use the default setting (static-key).
@@ -277,8 +306,10 @@ instance Prelude.Hashable UpdateFlowOutput where
       `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` remoteId
+      `Prelude.hashWithSalt` senderIpAddress
       `Prelude.hashWithSalt` vpcInterfaceAttachment
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` minLatency
@@ -295,8 +326,10 @@ instance Prelude.NFData UpdateFlowOutput where
       `Prelude.seq` Prelude.rnf cidrAllowList
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf remoteId
+      `Prelude.seq` Prelude.rnf senderIpAddress
       `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf minLatency
@@ -328,9 +361,13 @@ instance Core.ToJSON UpdateFlowOutput where
             ("cidrAllowList" Core..=) Prelude.<$> cidrAllowList,
             ("streamId" Core..=) Prelude.<$> streamId,
             ("remoteId" Core..=) Prelude.<$> remoteId,
+            ("senderIpAddress" Core..=)
+              Prelude.<$> senderIpAddress,
             ("vpcInterfaceAttachment" Core..=)
               Prelude.<$> vpcInterfaceAttachment,
             ("description" Core..=) Prelude.<$> description,
+            ("senderControlPort" Core..=)
+              Prelude.<$> senderControlPort,
             ("encryption" Core..=) Prelude.<$> encryption,
             ("protocol" Core..=) Prelude.<$> protocol,
             ("minLatency" Core..=) Prelude.<$> minLatency

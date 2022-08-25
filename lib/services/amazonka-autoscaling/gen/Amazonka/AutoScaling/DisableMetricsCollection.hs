@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables group metrics for the specified Auto Scaling group.
+-- Disables group metrics collection for the specified Auto Scaling group.
 module Amazonka.AutoScaling.DisableMetricsCollection
   ( -- * Creating a Request
     DisableMetricsCollection (..),
@@ -45,7 +45,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisableMetricsCollection' smart constructor.
 data DisableMetricsCollection = DisableMetricsCollection'
-  { -- | Specifies one or more of the following metrics:
+  { -- | Identifies the metrics to disable.
+    --
+    -- You can specify one or more of the following metrics:
     --
     -- -   @GroupMinSize@
     --
@@ -87,7 +89,11 @@ data DisableMetricsCollection = DisableMetricsCollection'
     --
     -- -   @GroupAndWarmPoolTotalCapacity@
     --
-    -- If you omit this parameter, all metrics are disabled.
+    -- If you omit this property, all metrics are disabled.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics Auto Scaling group metrics>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
     metrics :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -102,7 +108,9 @@ data DisableMetricsCollection = DisableMetricsCollection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metrics', 'disableMetricsCollection_metrics' - Specifies one or more of the following metrics:
+-- 'metrics', 'disableMetricsCollection_metrics' - Identifies the metrics to disable.
+--
+-- You can specify one or more of the following metrics:
 --
 -- -   @GroupMinSize@
 --
@@ -144,7 +152,11 @@ data DisableMetricsCollection = DisableMetricsCollection'
 --
 -- -   @GroupAndWarmPoolTotalCapacity@
 --
--- If you omit this parameter, all metrics are disabled.
+-- If you omit this property, all metrics are disabled.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics Auto Scaling group metrics>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'autoScalingGroupName', 'disableMetricsCollection_autoScalingGroupName' - The name of the Auto Scaling group.
 newDisableMetricsCollection ::
@@ -158,7 +170,9 @@ newDisableMetricsCollection pAutoScalingGroupName_ =
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | Specifies one or more of the following metrics:
+-- | Identifies the metrics to disable.
+--
+-- You can specify one or more of the following metrics:
 --
 -- -   @GroupMinSize@
 --
@@ -200,7 +214,11 @@ newDisableMetricsCollection pAutoScalingGroupName_ =
 --
 -- -   @GroupAndWarmPoolTotalCapacity@
 --
--- If you omit this parameter, all metrics are disabled.
+-- If you omit this property, all metrics are disabled.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics Auto Scaling group metrics>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Prelude.Maybe [Prelude.Text])
 disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Prelude.. Lens.mapping Lens.coerced
 

@@ -25,11 +25,13 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.NLBResource
 import Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord
 
--- | The target resource the R53 record points to
+-- | The target resource that the Route 53 record points to.
 --
 -- /See:/ 'newTargetResource' smart constructor.
 data TargetResource = TargetResource'
-  { nLBResource :: Prelude.Maybe NLBResource,
+  { -- | The Network Load Balancer Resource.
+    nLBResource :: Prelude.Maybe NLBResource,
+    -- | The Route 53 resource.
     r53Resource :: Prelude.Maybe R53ResourceRecord
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +44,9 @@ data TargetResource = TargetResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nLBResource', 'targetResource_nLBResource' - Undocumented member.
+-- 'nLBResource', 'targetResource_nLBResource' - The Network Load Balancer Resource.
 --
--- 'r53Resource', 'targetResource_r53Resource' - Undocumented member.
+-- 'r53Resource', 'targetResource_r53Resource' - The Route 53 resource.
 newTargetResource ::
   TargetResource
 newTargetResource =
@@ -53,11 +55,11 @@ newTargetResource =
       r53Resource = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The Network Load Balancer Resource.
 targetResource_nLBResource :: Lens.Lens' TargetResource (Prelude.Maybe NLBResource)
 targetResource_nLBResource = Lens.lens (\TargetResource' {nLBResource} -> nLBResource) (\s@TargetResource' {} a -> s {nLBResource = a} :: TargetResource)
 
--- | Undocumented member.
+-- | The Route 53 resource.
 targetResource_r53Resource :: Lens.Lens' TargetResource (Prelude.Maybe R53ResourceRecord)
 targetResource_r53Resource = Lens.lens (\TargetResource' {r53Resource} -> r53Resource) (\s@TargetResource' {} a -> s {r53Resource = a} :: TargetResource)
 

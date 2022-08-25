@@ -73,7 +73,7 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
     -- | The status used to filter job definitions.
     status :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 100 job definitions. Each entry in the list can either
-    -- be an ARN of the form
+    -- be an ARN in the format
     -- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
     -- or a short version using the form @${JobDefinitionName}:${Revision}@.
     jobDefinitions :: Prelude.Maybe [Prelude.Text],
@@ -112,7 +112,7 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
 -- 'status', 'describeJobDefinitions_status' - The status used to filter job definitions.
 --
 -- 'jobDefinitions', 'describeJobDefinitions_jobDefinitions' - A list of up to 100 job definitions. Each entry in the list can either
--- be an ARN of the form
+-- be an ARN in the format
 -- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
 -- or a short version using the form @${JobDefinitionName}:${Revision}@.
 --
@@ -157,7 +157,7 @@ describeJobDefinitions_status :: Lens.Lens' DescribeJobDefinitions (Prelude.Mayb
 describeJobDefinitions_status = Lens.lens (\DescribeJobDefinitions' {status} -> status) (\s@DescribeJobDefinitions' {} a -> s {status = a} :: DescribeJobDefinitions)
 
 -- | A list of up to 100 job definitions. Each entry in the list can either
--- be an ARN of the form
+-- be an ARN in the format
 -- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
 -- or a short version using the form @${JobDefinitionName}:${Revision}@.
 describeJobDefinitions_jobDefinitions :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe [Prelude.Text])

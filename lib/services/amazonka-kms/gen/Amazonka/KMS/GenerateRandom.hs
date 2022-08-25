@@ -22,6 +22,9 @@
 --
 -- Returns a random byte string that is cryptographically secure.
 --
+-- You must use the @NumberOfBytes@ parameter to specify the length of the
+-- random byte string. There is no default value for string length.
+--
 -- By default, the random byte string is generated in KMS. To generate the
 -- byte string in the CloudHSM cluster that is associated with a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>,
@@ -36,6 +39,9 @@
 --
 -- For more information about entropy and random number generation, see
 -- <https://docs.aws.amazon.com/kms/latest/cryptographic-details/ Key Management Service Cryptographic Details>.
+--
+-- __Cross-account use__: Not applicable. @GenerateRandom@ does not use any
+-- account-specific resources, such as KMS keys.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GenerateRandom>
@@ -74,7 +80,7 @@ data GenerateRandom = GenerateRandom'
     -- To find the ID of a custom key store, use the DescribeCustomKeyStores
     -- operation.
     customKeyStoreId :: Prelude.Maybe Prelude.Text,
-    -- | The length of the byte string.
+    -- | The length of the random byte string. This parameter is required.
     numberOfBytes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,7 +99,7 @@ data GenerateRandom = GenerateRandom'
 -- To find the ID of a custom key store, use the DescribeCustomKeyStores
 -- operation.
 --
--- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the byte string.
+-- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the random byte string. This parameter is required.
 newGenerateRandom ::
   GenerateRandom
 newGenerateRandom =
@@ -110,7 +116,7 @@ newGenerateRandom =
 generateRandom_customKeyStoreId :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Text)
 generateRandom_customKeyStoreId = Lens.lens (\GenerateRandom' {customKeyStoreId} -> customKeyStoreId) (\s@GenerateRandom' {} a -> s {customKeyStoreId = a} :: GenerateRandom)
 
--- | The length of the byte string.
+-- | The length of the random byte string. This parameter is required.
 generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Natural)
 generateRandom_numberOfBytes = Lens.lens (\GenerateRandom' {numberOfBytes} -> numberOfBytes) (\s@GenerateRandom' {} a -> s {numberOfBytes = a} :: GenerateRandom)
 

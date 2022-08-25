@@ -36,8 +36,14 @@ import Test.Tasty
 --         , requestCreateConnection $
 --             newCreateConnection
 --
+--         , requestCreateObservabilityConfiguration $
+--             newCreateObservabilityConfiguration
+--
 --         , requestCreateService $
 --             newCreateService
+--
+--         , requestCreateVpcConnector $
+--             newCreateVpcConnector
 --
 --         , requestDeleteAutoScalingConfiguration $
 --             newDeleteAutoScalingConfiguration
@@ -45,8 +51,14 @@ import Test.Tasty
 --         , requestDeleteConnection $
 --             newDeleteConnection
 --
+--         , requestDeleteObservabilityConfiguration $
+--             newDeleteObservabilityConfiguration
+--
 --         , requestDeleteService $
 --             newDeleteService
+--
+--         , requestDeleteVpcConnector $
+--             newDeleteVpcConnector
 --
 --         , requestDescribeAutoScalingConfiguration $
 --             newDescribeAutoScalingConfiguration
@@ -54,8 +66,14 @@ import Test.Tasty
 --         , requestDescribeCustomDomains $
 --             newDescribeCustomDomains
 --
+--         , requestDescribeObservabilityConfiguration $
+--             newDescribeObservabilityConfiguration
+--
 --         , requestDescribeService $
 --             newDescribeService
+--
+--         , requestDescribeVpcConnector $
+--             newDescribeVpcConnector
 --
 --         , requestDisassociateCustomDomain $
 --             newDisassociateCustomDomain
@@ -66,6 +84,9 @@ import Test.Tasty
 --         , requestListConnections $
 --             newListConnections
 --
+--         , requestListObservabilityConfigurations $
+--             newListObservabilityConfigurations
+--
 --         , requestListOperations $
 --             newListOperations
 --
@@ -74,6 +95,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListVpcConnectors $
+--             newListVpcConnectors
 --
 --         , requestPauseService $
 --             newPauseService
@@ -105,8 +129,14 @@ import Test.Tasty
 --         , responseCreateConnection $
 --             newCreateConnectionResponse
 --
+--         , responseCreateObservabilityConfiguration $
+--             newCreateObservabilityConfigurationResponse
+--
 --         , responseCreateService $
 --             newCreateServiceResponse
+--
+--         , responseCreateVpcConnector $
+--             newCreateVpcConnectorResponse
 --
 --         , responseDeleteAutoScalingConfiguration $
 --             newDeleteAutoScalingConfigurationResponse
@@ -114,8 +144,14 @@ import Test.Tasty
 --         , responseDeleteConnection $
 --             newDeleteConnectionResponse
 --
+--         , responseDeleteObservabilityConfiguration $
+--             newDeleteObservabilityConfigurationResponse
+--
 --         , responseDeleteService $
 --             newDeleteServiceResponse
+--
+--         , responseDeleteVpcConnector $
+--             newDeleteVpcConnectorResponse
 --
 --         , responseDescribeAutoScalingConfiguration $
 --             newDescribeAutoScalingConfigurationResponse
@@ -123,8 +159,14 @@ import Test.Tasty
 --         , responseDescribeCustomDomains $
 --             newDescribeCustomDomainsResponse
 --
+--         , responseDescribeObservabilityConfiguration $
+--             newDescribeObservabilityConfigurationResponse
+--
 --         , responseDescribeService $
 --             newDescribeServiceResponse
+--
+--         , responseDescribeVpcConnector $
+--             newDescribeVpcConnectorResponse
 --
 --         , responseDisassociateCustomDomain $
 --             newDisassociateCustomDomainResponse
@@ -135,6 +177,9 @@ import Test.Tasty
 --         , responseListConnections $
 --             newListConnectionsResponse
 --
+--         , responseListObservabilityConfigurations $
+--             newListObservabilityConfigurationsResponse
+--
 --         , responseListOperations $
 --             newListOperationsResponse
 --
@@ -143,6 +188,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListVpcConnectors $
+--             newListVpcConnectorsResponse
 --
 --         , responsePauseService $
 --             newPauseServiceResponse
@@ -185,11 +233,23 @@ requestCreateConnection =
     "CreateConnection"
     "fixture/CreateConnection.yaml"
 
+requestCreateObservabilityConfiguration :: CreateObservabilityConfiguration -> TestTree
+requestCreateObservabilityConfiguration =
+  req
+    "CreateObservabilityConfiguration"
+    "fixture/CreateObservabilityConfiguration.yaml"
+
 requestCreateService :: CreateService -> TestTree
 requestCreateService =
   req
     "CreateService"
     "fixture/CreateService.yaml"
+
+requestCreateVpcConnector :: CreateVpcConnector -> TestTree
+requestCreateVpcConnector =
+  req
+    "CreateVpcConnector"
+    "fixture/CreateVpcConnector.yaml"
 
 requestDeleteAutoScalingConfiguration :: DeleteAutoScalingConfiguration -> TestTree
 requestDeleteAutoScalingConfiguration =
@@ -203,11 +263,23 @@ requestDeleteConnection =
     "DeleteConnection"
     "fixture/DeleteConnection.yaml"
 
+requestDeleteObservabilityConfiguration :: DeleteObservabilityConfiguration -> TestTree
+requestDeleteObservabilityConfiguration =
+  req
+    "DeleteObservabilityConfiguration"
+    "fixture/DeleteObservabilityConfiguration.yaml"
+
 requestDeleteService :: DeleteService -> TestTree
 requestDeleteService =
   req
     "DeleteService"
     "fixture/DeleteService.yaml"
+
+requestDeleteVpcConnector :: DeleteVpcConnector -> TestTree
+requestDeleteVpcConnector =
+  req
+    "DeleteVpcConnector"
+    "fixture/DeleteVpcConnector.yaml"
 
 requestDescribeAutoScalingConfiguration :: DescribeAutoScalingConfiguration -> TestTree
 requestDescribeAutoScalingConfiguration =
@@ -221,11 +293,23 @@ requestDescribeCustomDomains =
     "DescribeCustomDomains"
     "fixture/DescribeCustomDomains.yaml"
 
+requestDescribeObservabilityConfiguration :: DescribeObservabilityConfiguration -> TestTree
+requestDescribeObservabilityConfiguration =
+  req
+    "DescribeObservabilityConfiguration"
+    "fixture/DescribeObservabilityConfiguration.yaml"
+
 requestDescribeService :: DescribeService -> TestTree
 requestDescribeService =
   req
     "DescribeService"
     "fixture/DescribeService.yaml"
+
+requestDescribeVpcConnector :: DescribeVpcConnector -> TestTree
+requestDescribeVpcConnector =
+  req
+    "DescribeVpcConnector"
+    "fixture/DescribeVpcConnector.yaml"
 
 requestDisassociateCustomDomain :: DisassociateCustomDomain -> TestTree
 requestDisassociateCustomDomain =
@@ -245,6 +329,12 @@ requestListConnections =
     "ListConnections"
     "fixture/ListConnections.yaml"
 
+requestListObservabilityConfigurations :: ListObservabilityConfigurations -> TestTree
+requestListObservabilityConfigurations =
+  req
+    "ListObservabilityConfigurations"
+    "fixture/ListObservabilityConfigurations.yaml"
+
 requestListOperations :: ListOperations -> TestTree
 requestListOperations =
   req
@@ -262,6 +352,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListVpcConnectors :: ListVpcConnectors -> TestTree
+requestListVpcConnectors =
+  req
+    "ListVpcConnectors"
+    "fixture/ListVpcConnectors.yaml"
 
 requestPauseService :: PauseService -> TestTree
 requestPauseService =
@@ -325,6 +421,14 @@ responseCreateConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
+responseCreateObservabilityConfiguration :: CreateObservabilityConfigurationResponse -> TestTree
+responseCreateObservabilityConfiguration =
+  res
+    "CreateObservabilityConfigurationResponse"
+    "fixture/CreateObservabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateObservabilityConfiguration)
+
 responseCreateService :: CreateServiceResponse -> TestTree
 responseCreateService =
   res
@@ -332,6 +436,14 @@ responseCreateService =
     "fixture/CreateServiceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateService)
+
+responseCreateVpcConnector :: CreateVpcConnectorResponse -> TestTree
+responseCreateVpcConnector =
+  res
+    "CreateVpcConnectorResponse"
+    "fixture/CreateVpcConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcConnector)
 
 responseDeleteAutoScalingConfiguration :: DeleteAutoScalingConfigurationResponse -> TestTree
 responseDeleteAutoScalingConfiguration =
@@ -349,6 +461,14 @@ responseDeleteConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
+responseDeleteObservabilityConfiguration :: DeleteObservabilityConfigurationResponse -> TestTree
+responseDeleteObservabilityConfiguration =
+  res
+    "DeleteObservabilityConfigurationResponse"
+    "fixture/DeleteObservabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteObservabilityConfiguration)
+
 responseDeleteService :: DeleteServiceResponse -> TestTree
 responseDeleteService =
   res
@@ -356,6 +476,14 @@ responseDeleteService =
     "fixture/DeleteServiceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteService)
+
+responseDeleteVpcConnector :: DeleteVpcConnectorResponse -> TestTree
+responseDeleteVpcConnector =
+  res
+    "DeleteVpcConnectorResponse"
+    "fixture/DeleteVpcConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcConnector)
 
 responseDescribeAutoScalingConfiguration :: DescribeAutoScalingConfigurationResponse -> TestTree
 responseDescribeAutoScalingConfiguration =
@@ -373,6 +501,14 @@ responseDescribeCustomDomains =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeCustomDomains)
 
+responseDescribeObservabilityConfiguration :: DescribeObservabilityConfigurationResponse -> TestTree
+responseDescribeObservabilityConfiguration =
+  res
+    "DescribeObservabilityConfigurationResponse"
+    "fixture/DescribeObservabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeObservabilityConfiguration)
+
 responseDescribeService :: DescribeServiceResponse -> TestTree
 responseDescribeService =
   res
@@ -380,6 +516,14 @@ responseDescribeService =
     "fixture/DescribeServiceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeService)
+
+responseDescribeVpcConnector :: DescribeVpcConnectorResponse -> TestTree
+responseDescribeVpcConnector =
+  res
+    "DescribeVpcConnectorResponse"
+    "fixture/DescribeVpcConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcConnector)
 
 responseDisassociateCustomDomain :: DisassociateCustomDomainResponse -> TestTree
 responseDisassociateCustomDomain =
@@ -405,6 +549,14 @@ responseListConnections =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListConnections)
 
+responseListObservabilityConfigurations :: ListObservabilityConfigurationsResponse -> TestTree
+responseListObservabilityConfigurations =
+  res
+    "ListObservabilityConfigurationsResponse"
+    "fixture/ListObservabilityConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListObservabilityConfigurations)
+
 responseListOperations :: ListOperationsResponse -> TestTree
 responseListOperations =
   res
@@ -428,6 +580,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListVpcConnectors :: ListVpcConnectorsResponse -> TestTree
+responseListVpcConnectors =
+  res
+    "ListVpcConnectorsResponse"
+    "fixture/ListVpcConnectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcConnectors)
 
 responsePauseService :: PauseServiceResponse -> TestTree
 responsePauseService =

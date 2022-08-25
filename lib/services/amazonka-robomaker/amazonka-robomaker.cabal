@@ -46,14 +46,10 @@ library
     Amazonka.RobOMaker
     Amazonka.RobOMaker.BatchDeleteWorlds
     Amazonka.RobOMaker.BatchDescribeSimulationJob
-    Amazonka.RobOMaker.CancelDeploymentJob
     Amazonka.RobOMaker.CancelSimulationJob
     Amazonka.RobOMaker.CancelSimulationJobBatch
     Amazonka.RobOMaker.CancelWorldExportJob
     Amazonka.RobOMaker.CancelWorldGenerationJob
-    Amazonka.RobOMaker.CreateDeploymentJob
-    Amazonka.RobOMaker.CreateFleet
-    Amazonka.RobOMaker.CreateRobot
     Amazonka.RobOMaker.CreateRobotApplication
     Amazonka.RobOMaker.CreateRobotApplicationVersion
     Amazonka.RobOMaker.CreateSimulationApplication
@@ -62,15 +58,9 @@ library
     Amazonka.RobOMaker.CreateWorldExportJob
     Amazonka.RobOMaker.CreateWorldGenerationJob
     Amazonka.RobOMaker.CreateWorldTemplate
-    Amazonka.RobOMaker.DeleteFleet
-    Amazonka.RobOMaker.DeleteRobot
     Amazonka.RobOMaker.DeleteRobotApplication
     Amazonka.RobOMaker.DeleteSimulationApplication
     Amazonka.RobOMaker.DeleteWorldTemplate
-    Amazonka.RobOMaker.DeregisterRobot
-    Amazonka.RobOMaker.DescribeDeploymentJob
-    Amazonka.RobOMaker.DescribeFleet
-    Amazonka.RobOMaker.DescribeRobot
     Amazonka.RobOMaker.DescribeRobotApplication
     Amazonka.RobOMaker.DescribeSimulationApplication
     Amazonka.RobOMaker.DescribeSimulationJob
@@ -81,10 +71,7 @@ library
     Amazonka.RobOMaker.DescribeWorldTemplate
     Amazonka.RobOMaker.GetWorldTemplateBody
     Amazonka.RobOMaker.Lens
-    Amazonka.RobOMaker.ListDeploymentJobs
-    Amazonka.RobOMaker.ListFleets
     Amazonka.RobOMaker.ListRobotApplications
-    Amazonka.RobOMaker.ListRobots
     Amazonka.RobOMaker.ListSimulationApplications
     Amazonka.RobOMaker.ListSimulationJobBatches
     Amazonka.RobOMaker.ListSimulationJobs
@@ -93,10 +80,8 @@ library
     Amazonka.RobOMaker.ListWorldGenerationJobs
     Amazonka.RobOMaker.ListWorlds
     Amazonka.RobOMaker.ListWorldTemplates
-    Amazonka.RobOMaker.RegisterRobot
     Amazonka.RobOMaker.RestartSimulationJob
     Amazonka.RobOMaker.StartSimulationJobBatch
-    Amazonka.RobOMaker.SyncDeploymentJob
     Amazonka.RobOMaker.TagResource
     Amazonka.RobOMaker.Types
     Amazonka.RobOMaker.Types.Architecture
@@ -107,12 +92,6 @@ library
     Amazonka.RobOMaker.Types.DataSource
     Amazonka.RobOMaker.Types.DataSourceConfig
     Amazonka.RobOMaker.Types.DataSourceType
-    Amazonka.RobOMaker.Types.DeploymentApplicationConfig
-    Amazonka.RobOMaker.Types.DeploymentConfig
-    Amazonka.RobOMaker.Types.DeploymentJob
-    Amazonka.RobOMaker.Types.DeploymentJobErrorCode
-    Amazonka.RobOMaker.Types.DeploymentLaunchConfig
-    Amazonka.RobOMaker.Types.DeploymentStatus
     Amazonka.RobOMaker.Types.Environment
     Amazonka.RobOMaker.Types.ExitBehavior
     Amazonka.RobOMaker.Types.FailedCreateSimulationJobRequest
@@ -120,27 +99,20 @@ library
     Amazonka.RobOMaker.Types.FailureSummary
     Amazonka.RobOMaker.Types.Filter
     Amazonka.RobOMaker.Types.FinishedWorldsSummary
-    Amazonka.RobOMaker.Types.Fleet
     Amazonka.RobOMaker.Types.LaunchConfig
     Amazonka.RobOMaker.Types.LoggingConfig
     Amazonka.RobOMaker.Types.NetworkInterface
     Amazonka.RobOMaker.Types.OutputLocation
     Amazonka.RobOMaker.Types.PortForwardingConfig
     Amazonka.RobOMaker.Types.PortMapping
-    Amazonka.RobOMaker.Types.ProgressDetail
     Amazonka.RobOMaker.Types.RenderingEngine
     Amazonka.RobOMaker.Types.RenderingEngineType
-    Amazonka.RobOMaker.Types.Robot
     Amazonka.RobOMaker.Types.RobotApplicationConfig
     Amazonka.RobOMaker.Types.RobotApplicationSummary
-    Amazonka.RobOMaker.Types.RobotDeployment
-    Amazonka.RobOMaker.Types.RobotDeploymentStep
     Amazonka.RobOMaker.Types.RobotSoftwareSuite
     Amazonka.RobOMaker.Types.RobotSoftwareSuiteType
     Amazonka.RobOMaker.Types.RobotSoftwareSuiteVersionType
-    Amazonka.RobOMaker.Types.RobotStatus
     Amazonka.RobOMaker.Types.S3KeyOutput
-    Amazonka.RobOMaker.Types.S3Object
     Amazonka.RobOMaker.Types.SimulationApplicationConfig
     Amazonka.RobOMaker.Types.SimulationApplicationSummary
     Amazonka.RobOMaker.Types.SimulationJob

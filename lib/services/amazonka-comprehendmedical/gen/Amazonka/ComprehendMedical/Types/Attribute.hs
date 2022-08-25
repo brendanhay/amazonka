@@ -37,15 +37,15 @@ data Attribute = Attribute'
   { -- | The 0-based character offset in the input text that shows where the
     -- attribute begins. The offset returns the UTF-8 code point in the string.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The level of confidence that Amazon Comprehend Medical has that this
-    -- attribute is correctly related to this entity.
+    -- | The level of confidence that Comprehend Medical; has that this attribute
+    -- is correctly related to this entity.
     relationshipScore :: Prelude.Maybe Prelude.Double,
     -- | The type of attribute.
     type' :: Prelude.Maybe EntitySubType,
     -- | Contextual information for this attribute.
     traits :: Prelude.Maybe [Trait],
-    -- | The level of confidence that Amazon Comprehend Medical has that the
-    -- segment of text is correctly recognized as an attribute.
+    -- | The level of confidence that Comprehend Medical; has that the segment of
+    -- text is correctly recognized as an attribute.
     score :: Prelude.Maybe Prelude.Double,
     -- | The numeric identifier for this attribute. This is a monotonically
     -- increasing id unique within this response rather than a global unique
@@ -76,15 +76,15 @@ data Attribute = Attribute'
 -- 'beginOffset', 'attribute_beginOffset' - The 0-based character offset in the input text that shows where the
 -- attribute begins. The offset returns the UTF-8 code point in the string.
 --
--- 'relationshipScore', 'attribute_relationshipScore' - The level of confidence that Amazon Comprehend Medical has that this
--- attribute is correctly related to this entity.
+-- 'relationshipScore', 'attribute_relationshipScore' - The level of confidence that Comprehend Medical; has that this attribute
+-- is correctly related to this entity.
 --
 -- 'type'', 'attribute_type' - The type of attribute.
 --
 -- 'traits', 'attribute_traits' - Contextual information for this attribute.
 --
--- 'score', 'attribute_score' - The level of confidence that Amazon Comprehend Medical has that the
--- segment of text is correctly recognized as an attribute.
+-- 'score', 'attribute_score' - The level of confidence that Comprehend Medical; has that the segment of
+-- text is correctly recognized as an attribute.
 --
 -- 'id', 'attribute_id' - The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
@@ -121,8 +121,8 @@ newAttribute =
 attribute_beginOffset :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Int)
 attribute_beginOffset = Lens.lens (\Attribute' {beginOffset} -> beginOffset) (\s@Attribute' {} a -> s {beginOffset = a} :: Attribute)
 
--- | The level of confidence that Amazon Comprehend Medical has that this
--- attribute is correctly related to this entity.
+-- | The level of confidence that Comprehend Medical; has that this attribute
+-- is correctly related to this entity.
 attribute_relationshipScore :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Double)
 attribute_relationshipScore = Lens.lens (\Attribute' {relationshipScore} -> relationshipScore) (\s@Attribute' {} a -> s {relationshipScore = a} :: Attribute)
 
@@ -134,8 +134,8 @@ attribute_type = Lens.lens (\Attribute' {type'} -> type') (\s@Attribute' {} a ->
 attribute_traits :: Lens.Lens' Attribute (Prelude.Maybe [Trait])
 attribute_traits = Lens.lens (\Attribute' {traits} -> traits) (\s@Attribute' {} a -> s {traits = a} :: Attribute) Prelude.. Lens.mapping Lens.coerced
 
--- | The level of confidence that Amazon Comprehend Medical has that the
--- segment of text is correctly recognized as an attribute.
+-- | The level of confidence that Comprehend Medical; has that the segment of
+-- text is correctly recognized as an attribute.
 attribute_score :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Double)
 attribute_score = Lens.lens (\Attribute' {score} -> score) (\s@Attribute' {} a -> s {score = a} :: Attribute)
 

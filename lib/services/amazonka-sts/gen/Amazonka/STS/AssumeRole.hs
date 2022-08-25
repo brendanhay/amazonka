@@ -29,15 +29,15 @@
 -- credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the Amazon Web Services STS API operations>
 -- in the /IAM User Guide/.
 --
 -- __Permissions__
 --
 -- The temporary security credentials created by @AssumeRole@ can be used
 -- to make API calls to any Amazon Web Services service with the following
--- exception: You cannot call the STS @GetFederationToken@ or
--- @GetSessionToken@ API operations.
+-- exception: You cannot call the Amazon Web Services STS
+-- @GetFederationToken@ or @GetSessionToken@ API operations.
 --
 -- (Optional) You can pass inline or managed
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policies>
@@ -56,27 +56,36 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
--- To assume a role from a different account, your account must be trusted
--- by the role. The trust relationship is defined in the role\'s trust
--- policy when the role is created. That trust policy states which accounts
--- are allowed to delegate that access to users in the account.
+-- When you create a role, you create two policies: A role trust policy
+-- that specifies /who/ can assume the role and a permissions policy that
+-- specifies /what/ can be done with the role. You specify the trusted
+-- principal who is allowed to assume the role in the role trust policy.
+--
+-- To assume a role from a different account, your Amazon Web Services
+-- account must be trusted by the role. The trust relationship is defined
+-- in the role\'s trust policy when the role is created. That trust policy
+-- states which accounts are allowed to delegate that access to users in
+-- the account.
 --
 -- A user who wants to access a role in a different account must also have
 -- permissions that are delegated from the user account administrator. The
 -- administrator must attach a policy that allows the user to call
--- @AssumeRole@ for the ARN of the role in the other account. If the user
--- is in the same account as the role, then you can do either of the
--- following:
+-- @AssumeRole@ for the ARN of the role in the other account.
 --
--- -   Attach a policy to the user (identical to the previous user in a
---     different account).
+-- To allow a user to assume a role in the same account, you can do either
+-- of the following:
+--
+-- -   Attach a policy to the user that allows the user to call
+--     @AssumeRole@ (as long as the role\'s trust policy trusts the
+--     account).
 --
 -- -   Add the user as a principal directly in the role\'s trust policy.
 --
--- In this case, the trust policy acts as an IAM resource-based policy.
--- Users in the same account as the role do not need explicit permission to
--- assume the role. For more information about trust policies and
--- resource-based policies, see
+-- You can do either because the role’s trust policy acts as an IAM
+-- resource-based policy. When a resource-based policy grants access to a
+-- principal in the same account, no additional identity-based policy is
+-- required. For more information about trust policies and resource-based
+-- policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html IAM Policies>
 -- in the /IAM User Guide/.
 --
@@ -163,7 +172,7 @@ data AssumeRole = AssumeRole'
   { -- | A list of session tags that you want to pass. Each session tag consists
     -- of a key name and an associated value. For more information about
     -- session tags, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging STS Sessions>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging Amazon Web Services STS Sessions>
     -- in the /IAM User Guide/.
     --
     -- This parameter is optional. You can pass up to 50 session tags. The
@@ -195,7 +204,7 @@ data AssumeRole = AssumeRole'
     -- calling session. If you pass a session tag with the same key as an
     -- inherited tag, the operation fails. To view the inherited tags for a
     -- session, see the CloudTrail logs. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | An IAM policy in JSON format that you want to use as an inline session
@@ -285,14 +294,23 @@ data AssumeRole = AssumeRole'
     -- characters: =,.\@:\/-
     externalId :: Prelude.Maybe Prelude.Text,
     -- | The duration, in seconds, of the role session. The value specified can
-    -- can range from 900 seconds (15 minutes) up to the maximum session
-    -- duration that is set for the role. The maximum session duration setting
-    -- can have a value from 1 hour to 12 hours. If you specify a value higher
-    -- than this setting or the administrator setting (whichever is lower), the
-    -- operation fails. For example, if you specify a session duration of 12
-    -- hours, but your administrator set the maximum session duration to 6
-    -- hours, your operation fails. To learn how to view the maximum value for
-    -- your role, see
+    -- range from 900 seconds (15 minutes) up to the maximum session duration
+    -- set for the role. The maximum session duration setting can have a value
+    -- from 1 hour to 12 hours. If you specify a value higher than this setting
+    -- or the administrator setting (whichever is lower), the operation fails.
+    -- For example, if you specify a session duration of 12 hours, but your
+    -- administrator set the maximum session duration to 6 hours, your
+    -- operation fails.
+    --
+    -- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
+    -- API role session to a maximum of one hour. When you use the @AssumeRole@
+    -- API operation to assume a role, you can specify the duration of your
+    -- role session with the @DurationSeconds@ parameter. You can specify a
+    -- parameter value of up to 43200 seconds (12 hours), depending on the
+    -- maximum session duration setting for your role. However, if you assume a
+    -- role using role chaining and provide a @DurationSeconds@ parameter value
+    -- greater than one hour, the operation fails. To learn how to view the
+    -- maximum value for your role, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
     -- in the /IAM User Guide/.
     --
@@ -303,7 +321,7 @@ data AssumeRole = AssumeRole'
     -- The request to the federation endpoint for a console sign-in token takes
     -- a @SessionDuration@ parameter that specifies the maximum length of the
     -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
     -- in the /IAM User Guide/.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The value provided by the MFA device, if the trust policy of the role
@@ -379,7 +397,7 @@ data AssumeRole = AssumeRole'
 -- 'tags', 'assumeRole_tags' - A list of session tags that you want to pass. Each session tag consists
 -- of a key name and an associated value. For more information about
 -- session tags, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging STS Sessions>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging Amazon Web Services STS Sessions>
 -- in the /IAM User Guide/.
 --
 -- This parameter is optional. You can pass up to 50 session tags. The
@@ -411,7 +429,7 @@ data AssumeRole = AssumeRole'
 -- calling session. If you pass a session tag with the same key as an
 -- inherited tag, the operation fails. To view the inherited tags for a
 -- session, see the CloudTrail logs. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
 -- in the /IAM User Guide/.
 --
 -- 'policy', 'assumeRole_policy' - An IAM policy in JSON format that you want to use as an inline session
@@ -501,14 +519,23 @@ data AssumeRole = AssumeRole'
 -- characters: =,.\@:\/-
 --
 -- 'durationSeconds', 'assumeRole_durationSeconds' - The duration, in seconds, of the role session. The value specified can
--- can range from 900 seconds (15 minutes) up to the maximum session
--- duration that is set for the role. The maximum session duration setting
--- can have a value from 1 hour to 12 hours. If you specify a value higher
--- than this setting or the administrator setting (whichever is lower), the
--- operation fails. For example, if you specify a session duration of 12
--- hours, but your administrator set the maximum session duration to 6
--- hours, your operation fails. To learn how to view the maximum value for
--- your role, see
+-- range from 900 seconds (15 minutes) up to the maximum session duration
+-- set for the role. The maximum session duration setting can have a value
+-- from 1 hour to 12 hours. If you specify a value higher than this setting
+-- or the administrator setting (whichever is lower), the operation fails.
+-- For example, if you specify a session duration of 12 hours, but your
+-- administrator set the maximum session duration to 6 hours, your
+-- operation fails.
+--
+-- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
+-- API role session to a maximum of one hour. When you use the @AssumeRole@
+-- API operation to assume a role, you can specify the duration of your
+-- role session with the @DurationSeconds@ parameter. You can specify a
+-- parameter value of up to 43200 seconds (12 hours), depending on the
+-- maximum session duration setting for your role. However, if you assume a
+-- role using role chaining and provide a @DurationSeconds@ parameter value
+-- greater than one hour, the operation fails. To learn how to view the
+-- maximum value for your role, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
 -- in the /IAM User Guide/.
 --
@@ -519,7 +546,7 @@ data AssumeRole = AssumeRole'
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
 --
 -- 'tokenCode', 'assumeRole_tokenCode' - The value provided by the MFA device, if the trust policy of the role
@@ -604,7 +631,7 @@ newAssumeRole pRoleArn_ pRoleSessionName_ =
 -- | A list of session tags that you want to pass. Each session tag consists
 -- of a key name and an associated value. For more information about
 -- session tags, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging STS Sessions>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging Amazon Web Services STS Sessions>
 -- in the /IAM User Guide/.
 --
 -- This parameter is optional. You can pass up to 50 session tags. The
@@ -636,7 +663,7 @@ newAssumeRole pRoleArn_ pRoleSessionName_ =
 -- calling session. If you pass a session tag with the same key as an
 -- inherited tag, the operation fails. To view the inherited tags for a
 -- session, see the CloudTrail logs. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
 -- in the /IAM User Guide/.
 assumeRole_tags :: Lens.Lens' AssumeRole (Prelude.Maybe [Tag])
 assumeRole_tags = Lens.lens (\AssumeRole' {tags} -> tags) (\s@AssumeRole' {} a -> s {tags = a} :: AssumeRole) Prelude.. Lens.mapping Lens.coerced
@@ -736,14 +763,23 @@ assumeRole_externalId :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
 assumeRole_externalId = Lens.lens (\AssumeRole' {externalId} -> externalId) (\s@AssumeRole' {} a -> s {externalId = a} :: AssumeRole)
 
 -- | The duration, in seconds, of the role session. The value specified can
--- can range from 900 seconds (15 minutes) up to the maximum session
--- duration that is set for the role. The maximum session duration setting
--- can have a value from 1 hour to 12 hours. If you specify a value higher
--- than this setting or the administrator setting (whichever is lower), the
--- operation fails. For example, if you specify a session duration of 12
--- hours, but your administrator set the maximum session duration to 6
--- hours, your operation fails. To learn how to view the maximum value for
--- your role, see
+-- range from 900 seconds (15 minutes) up to the maximum session duration
+-- set for the role. The maximum session duration setting can have a value
+-- from 1 hour to 12 hours. If you specify a value higher than this setting
+-- or the administrator setting (whichever is lower), the operation fails.
+-- For example, if you specify a session duration of 12 hours, but your
+-- administrator set the maximum session duration to 6 hours, your
+-- operation fails.
+--
+-- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
+-- API role session to a maximum of one hour. When you use the @AssumeRole@
+-- API operation to assume a role, you can specify the duration of your
+-- role session with the @DurationSeconds@ parameter. You can specify a
+-- parameter value of up to 43200 seconds (12 hours), depending on the
+-- maximum session duration setting for your role. However, if you assume a
+-- role using role chaining and provide a @DurationSeconds@ parameter value
+-- greater than one hour, the operation fails. To learn how to view the
+-- maximum value for your role, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
 -- in the /IAM User Guide/.
 --
@@ -754,7 +790,7 @@ assumeRole_externalId = Lens.lens (\AssumeRole' {externalId} -> externalId) (\s@
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
 assumeRole_durationSeconds :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Natural)
 assumeRole_durationSeconds = Lens.lens (\AssumeRole' {durationSeconds} -> durationSeconds) (\s@AssumeRole' {} a -> s {durationSeconds = a} :: AssumeRole)

@@ -20,49 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables automatic scheduled rotation and cancels the rotation of a
--- secret if currently in progress.
+-- Turns off automatic rotation, and if a rotation is currently in
+-- progress, cancels the rotation.
 --
--- To re-enable scheduled rotation, call RotateSecret with
--- @AutomaticallyRotateAfterDays@ set to a value greater than 0. This
--- immediately rotates your secret and then enables the automatic schedule.
+-- If you cancel a rotation in progress, it can leave the @VersionStage@
+-- labels in an unexpected state. You might need to remove the staging
+-- label @AWSPENDING@ from the partially created version. You also need to
+-- determine whether to roll back to the previous version of the secret by
+-- moving the staging label @AWSCURRENT@ to the version that has
+-- @AWSPENDING@. To determine which version has a specific staging label,
+-- call ListSecretVersionIds. Then use UpdateSecretVersionStage to change
+-- staging labels. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html How rotation works>.
 --
--- If you cancel a rotation while in progress, it can leave the
--- @VersionStage@ labels in an unexpected state. Depending on the step of
--- the rotation in progress, you might need to remove the staging label
--- @AWSPENDING@ from the partially created version, specified by the
--- @VersionId@ response value. You should also evaluate the partially
--- rotated new version to see if it should be deleted, which you can do by
--- removing all staging labels from the new version @VersionStage@ field.
+-- To turn on automatic rotation again, call RotateSecret.
 --
--- To successfully start a rotation, the staging label @AWSPENDING@ must be
--- in one of the following states:
---
--- -   Not attached to any version at all
---
--- -   Attached to the same version as the staging label @AWSCURRENT@
---
--- If the staging label @AWSPENDING@ attached to a different version than
--- the version with @AWSCURRENT@ then the attempt to rotate fails.
---
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:CancelRotateSecret
---
--- __Related operations__
---
--- -   To configure rotation for a secret or to manually trigger a
---     rotation, use RotateSecret.
---
--- -   To get the rotation configuration details for a secret, use
---     DescribeSecret.
---
--- -   To list all of the currently available secrets, use ListSecrets.
---
--- -   To list all of the versions currently associated with a secret, use
---     ListSecretVersionIds.
+-- __Required permissions:__ @secretsmanager:CancelRotateSecret@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.CancelRotateSecret
   ( -- * Creating a Request
     CancelRotateSecret (..),
@@ -92,12 +69,11 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newCancelRotateSecret' smart constructor.
 data CancelRotateSecret = CancelRotateSecret'
-  { -- | Specifies the secret to cancel a rotation request. You can specify
-    -- either the Amazon Resource Name (ARN) or the friendly name of the
-    -- secret.
+  { -- | The ARN or name of the secret.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -110,12 +86,11 @@ data CancelRotateSecret = CancelRotateSecret'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'cancelRotateSecret_secretId' - Specifies the secret to cancel a rotation request. You can specify
--- either the Amazon Resource Name (ARN) or the friendly name of the
--- secret.
+-- 'secretId', 'cancelRotateSecret_secretId' - The ARN or name of the secret.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 newCancelRotateSecret ::
   -- | 'secretId'
   Prelude.Text ->
@@ -123,12 +98,11 @@ newCancelRotateSecret ::
 newCancelRotateSecret pSecretId_ =
   CancelRotateSecret' {secretId = pSecretId_}
 
--- | Specifies the secret to cancel a rotation request. You can specify
--- either the Amazon Resource Name (ARN) or the friendly name of the
--- secret.
+-- | The ARN or name of the secret.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 cancelRotateSecret_secretId :: Lens.Lens' CancelRotateSecret Prelude.Text
 cancelRotateSecret_secretId = Lens.lens (\CancelRotateSecret' {secretId} -> secretId) (\s@CancelRotateSecret' {} a -> s {secretId = a} :: CancelRotateSecret)
 
@@ -184,16 +158,16 @@ instance Core.ToQuery CancelRotateSecret where
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
-  { -- | The friendly name of the secret for which rotation was canceled.
+  { -- | The name of the secret.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret for which rotation was canceled.
+    -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
-    -- for possible deletion. At the very least, you should remove the
-    -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
-    -- Failing to clean up a cancelled rotation can block you from successfully
-    -- starting future rotations.
+    -- for possible deletion. We recommend that you remove the @VersionStage@
+    -- value @AWSPENDING@ from this version so that Secrets Manager can delete
+    -- it. Failing to clean up a cancelled rotation can block you from starting
+    -- future rotations.
     versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -208,16 +182,16 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
+-- 'name', 'cancelRotateSecretResponse_name' - The name of the secret.
 --
--- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret for which rotation was canceled.
+-- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret.
 --
 -- 'versionId', 'cancelRotateSecretResponse_versionId' - The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
--- for possible deletion. At the very least, you should remove the
--- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
--- Failing to clean up a cancelled rotation can block you from successfully
--- starting future rotations.
+-- for possible deletion. We recommend that you remove the @VersionStage@
+-- value @AWSPENDING@ from this version so that Secrets Manager can delete
+-- it. Failing to clean up a cancelled rotation can block you from starting
+-- future rotations.
 --
 -- 'httpStatus', 'cancelRotateSecretResponse_httpStatus' - The response's http status code.
 newCancelRotateSecretResponse ::
@@ -232,20 +206,20 @@ newCancelRotateSecretResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The friendly name of the secret for which rotation was canceled.
+-- | The name of the secret.
 cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
--- | The ARN of the secret for which rotation was canceled.
+-- | The ARN of the secret.
 cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
--- for possible deletion. At the very least, you should remove the
--- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
--- Failing to clean up a cancelled rotation can block you from successfully
--- starting future rotations.
+-- for possible deletion. We recommend that you remove the @VersionStage@
+-- value @AWSPENDING@ from this version so that Secrets Manager can delete
+-- it. Failing to clean up a cancelled rotation can block you from starting
+-- future rotations.
 cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_versionId = Lens.lens (\CancelRotateSecretResponse' {versionId} -> versionId) (\s@CancelRotateSecretResponse' {} a -> s {versionId = a} :: CancelRotateSecretResponse)
 

@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create an ApiKey resource.
---
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
 module Amazonka.APIGateway.CreateApiKey
   ( -- * Creating a Request
     CreateApiKey (..),

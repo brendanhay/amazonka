@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the status of the permission set provisioning requests for a
--- specified SSO instance.
+-- specified Amazon Web Services SSO instance.
 --
 -- This operation returns paginated results.
 module Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
@@ -62,8 +62,8 @@ data ListPermissionSetProvisioningStatus = ListPermissionSetProvisioningStatus'
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text
@@ -85,8 +85,8 @@ data ListPermissionSetProvisioningStatus = ListPermissionSetProvisioningStatus'
 --
 -- 'maxResults', 'listPermissionSetProvisioningStatus_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listPermissionSetProvisioningStatus_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'listPermissionSetProvisioningStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 newListPermissionSetProvisioningStatus ::
@@ -115,8 +115,8 @@ listPermissionSetProvisioningStatus_filter = Lens.lens (\ListPermissionSetProvis
 listPermissionSetProvisioningStatus_maxResults :: Lens.Lens' ListPermissionSetProvisioningStatus (Prelude.Maybe Prelude.Natural)
 listPermissionSetProvisioningStatus_maxResults = Lens.lens (\ListPermissionSetProvisioningStatus' {maxResults} -> maxResults) (\s@ListPermissionSetProvisioningStatus' {} a -> s {maxResults = a} :: ListPermissionSetProvisioningStatus)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 listPermissionSetProvisioningStatus_instanceArn :: Lens.Lens' ListPermissionSetProvisioningStatus Prelude.Text

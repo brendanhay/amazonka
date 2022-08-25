@@ -55,7 +55,7 @@ data TagResource = TagResource'
     resourceArn :: Prelude.Text,
     -- | The key-value tag pairs you want to associate to your environment. For
     -- example, @\"Environment\": \"Staging\"@. To learn more, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data TagResource = TagResource'
 --
 -- 'tags', 'tagResource_tags' - The key-value tag pairs you want to associate to your environment. For
 -- example, @\"Environment\": \"Staging\"@. To learn more, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -93,7 +93,7 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 
 -- | The key-value tag pairs you want to associate to your environment. For
 -- example, @\"Environment\": \"Staging\"@. To learn more, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

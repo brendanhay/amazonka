@@ -58,6 +58,25 @@ data DescribeLocalGatewayVirtualInterfaces = DescribeLocalGatewayVirtualInterfac
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters.
+    --
+    -- -   @local-address@ - The local address.
+    --
+    -- -   @local-bgp-asn@ - The Border Gateway Protocol (BGP) Autonomous
+    --     System Number (ASN) of the local gateway.
+    --
+    -- -   @local-gateway-id@ - The ID of the local gateway.
+    --
+    -- -   @local-gateway-virtual-interface-id@ - The ID of the virtual
+    --     interface.
+    --
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     local gateway virtual interface.
+    --
+    -- -   @peer-address@ - The peer address.
+    --
+    -- -   @peer-bgp-asn@ - The peer BGP ASN.
+    --
+    -- -   @vlan@ - The ID of the VLAN.
     filters :: Prelude.Maybe [Filter],
     -- | The IDs of the virtual interfaces.
     localGatewayVirtualInterfaceIds :: Prelude.Maybe [Prelude.Text],
@@ -84,6 +103,25 @@ data DescribeLocalGatewayVirtualInterfaces = DescribeLocalGatewayVirtualInterfac
 -- 'nextToken', 'describeLocalGatewayVirtualInterfaces_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeLocalGatewayVirtualInterfaces_filters' - One or more filters.
+--
+-- -   @local-address@ - The local address.
+--
+-- -   @local-bgp-asn@ - The Border Gateway Protocol (BGP) Autonomous
+--     System Number (ASN) of the local gateway.
+--
+-- -   @local-gateway-id@ - The ID of the local gateway.
+--
+-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual
+--     interface.
+--
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway virtual interface.
+--
+-- -   @peer-address@ - The peer address.
+--
+-- -   @peer-bgp-asn@ - The peer BGP ASN.
+--
+-- -   @vlan@ - The ID of the VLAN.
 --
 -- 'localGatewayVirtualInterfaceIds', 'describeLocalGatewayVirtualInterfaces_localGatewayVirtualInterfaceIds' - The IDs of the virtual interfaces.
 --
@@ -113,6 +151,25 @@ describeLocalGatewayVirtualInterfaces_nextToken :: Lens.Lens' DescribeLocalGatew
 describeLocalGatewayVirtualInterfaces_nextToken = Lens.lens (\DescribeLocalGatewayVirtualInterfaces' {nextToken} -> nextToken) (\s@DescribeLocalGatewayVirtualInterfaces' {} a -> s {nextToken = a} :: DescribeLocalGatewayVirtualInterfaces)
 
 -- | One or more filters.
+--
+-- -   @local-address@ - The local address.
+--
+-- -   @local-bgp-asn@ - The Border Gateway Protocol (BGP) Autonomous
+--     System Number (ASN) of the local gateway.
+--
+-- -   @local-gateway-id@ - The ID of the local gateway.
+--
+-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual
+--     interface.
+--
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway virtual interface.
+--
+-- -   @peer-address@ - The peer address.
+--
+-- -   @peer-bgp-asn@ - The peer BGP ASN.
+--
+-- -   @vlan@ - The ID of the VLAN.
 describeLocalGatewayVirtualInterfaces_filters :: Lens.Lens' DescribeLocalGatewayVirtualInterfaces (Prelude.Maybe [Filter])
 describeLocalGatewayVirtualInterfaces_filters = Lens.lens (\DescribeLocalGatewayVirtualInterfaces' {filters} -> filters) (\s@DescribeLocalGatewayVirtualInterfaces' {} a -> s {filters = a} :: DescribeLocalGatewayVirtualInterfaces) Prelude.. Lens.mapping Lens.coerced
 

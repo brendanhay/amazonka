@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroupFailover
 
--- | Information about an origin group for the distribution.
+-- | Information about an origin group for the CloudFront distribution.
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginGroup' smart constructor.
 data AwsCloudFrontDistributionOriginGroup = AwsCloudFrontDistributionOriginGroup'

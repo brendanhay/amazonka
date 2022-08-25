@@ -36,7 +36,7 @@ data AssistantSummary = AssistantSummary'
     serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
     -- | The description of the assistant.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Wisdom assistant
+    -- | The Amazon Resource Name (ARN) of the Wisdom assistant.
     assistantArn :: Prelude.Text,
     -- | The identifier of the Wisdom assistant.
     assistantId :: Prelude.Text,
@@ -63,7 +63,7 @@ data AssistantSummary = AssistantSummary'
 --
 -- 'description', 'assistantSummary_description' - The description of the assistant.
 --
--- 'assistantArn', 'assistantSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant
+-- 'assistantArn', 'assistantSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant.
 --
 -- 'assistantId', 'assistantSummary_assistantId' - The identifier of the Wisdom assistant.
 --
@@ -113,7 +113,7 @@ assistantSummary_serverSideEncryptionConfiguration = Lens.lens (\AssistantSummar
 assistantSummary_description :: Lens.Lens' AssistantSummary (Prelude.Maybe Prelude.Text)
 assistantSummary_description = Lens.lens (\AssistantSummary' {description} -> description) (\s@AssistantSummary' {} a -> s {description = a} :: AssistantSummary)
 
--- | The Amazon Resource Name (ARN) of the Wisdom assistant
+-- | The Amazon Resource Name (ARN) of the Wisdom assistant.
 assistantSummary_assistantArn :: Lens.Lens' AssistantSummary Prelude.Text
 assistantSummary_assistantArn = Lens.lens (\AssistantSummary' {assistantArn} -> assistantArn) (\s@AssistantSummary' {} a -> s {assistantArn = a} :: AssistantSummary)
 

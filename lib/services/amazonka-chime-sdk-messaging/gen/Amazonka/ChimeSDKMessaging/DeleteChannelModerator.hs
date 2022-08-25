@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 data DeleteChannelModerator = DeleteChannelModerator'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The ARN of the moderator being deleted.
+    -- | The @AppInstanceUserArn@ of the moderator being deleted.
     channelModeratorArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
@@ -69,7 +69,7 @@ data DeleteChannelModerator = DeleteChannelModerator'
 --
 -- 'channelArn', 'deleteChannelModerator_channelArn' - The ARN of the channel.
 --
--- 'channelModeratorArn', 'deleteChannelModerator_channelModeratorArn' - The ARN of the moderator being deleted.
+-- 'channelModeratorArn', 'deleteChannelModerator_channelModeratorArn' - The @AppInstanceUserArn@ of the moderator being deleted.
 --
 -- 'chimeBearer', 'deleteChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 newDeleteChannelModerator ::
@@ -94,7 +94,7 @@ newDeleteChannelModerator
 deleteChannelModerator_channelArn :: Lens.Lens' DeleteChannelModerator Prelude.Text
 deleteChannelModerator_channelArn = Lens.lens (\DeleteChannelModerator' {channelArn} -> channelArn) (\s@DeleteChannelModerator' {} a -> s {channelArn = a} :: DeleteChannelModerator)
 
--- | The ARN of the moderator being deleted.
+-- | The @AppInstanceUserArn@ of the moderator being deleted.
 deleteChannelModerator_channelModeratorArn :: Lens.Lens' DeleteChannelModerator Prelude.Text
 deleteChannelModerator_channelModeratorArn = Lens.lens (\DeleteChannelModerator' {channelModeratorArn} -> channelModeratorArn) (\s@DeleteChannelModerator' {} a -> s {channelModeratorArn = a} :: DeleteChannelModerator)
 

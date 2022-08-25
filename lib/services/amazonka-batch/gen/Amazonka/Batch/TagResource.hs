@@ -25,8 +25,8 @@
 -- request parameters, they aren\'t changed. When a resource is deleted,
 -- the tags that are associated with that resource are deleted as well.
 -- Batch resources that support tags are compute environments, jobs, job
--- definitions, and job queues. ARNs for child jobs of array and multi-node
--- parallel (MNP) jobs are not supported.
+-- definitions, job queues, and scheduling policies. ARNs for child jobs of
+-- array and multi-node parallel (MNP) jobs are not supported.
 module Amazonka.Batch.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -52,12 +52,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newTagResource' smart constructor.
+-- | Contains the parameters for @TagResource@.
+--
+-- /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource that tags are added to.
     -- Batch resources that support tags are compute environments, jobs, job
-    -- definitions, and job queues. ARNs for child jobs of array and multi-node
-    -- parallel (MNP) jobs are not supported.
+    -- definitions, job queues, and scheduling policies. ARNs for child jobs of
+    -- array and multi-node parallel (MNP) jobs are not supported.
     resourceArn :: Prelude.Text,
     -- | The tags that you apply to the resource to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
@@ -78,8 +80,8 @@ data TagResource = TagResource'
 --
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that tags are added to.
 -- Batch resources that support tags are compute environments, jobs, job
--- definitions, and job queues. ARNs for child jobs of array and multi-node
--- parallel (MNP) jobs are not supported.
+-- definitions, job queues, and scheduling policies. ARNs for child jobs of
+-- array and multi-node parallel (MNP) jobs are not supported.
 --
 -- 'tags', 'tagResource_tags' - The tags that you apply to the resource to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
@@ -98,8 +100,8 @@ newTagResource pResourceArn_ =
 
 -- | The Amazon Resource Name (ARN) of the resource that tags are added to.
 -- Batch resources that support tags are compute environments, jobs, job
--- definitions, and job queues. ARNs for child jobs of array and multi-node
--- parallel (MNP) jobs are not supported.
+-- definitions, job queues, and scheduling policies. ARNs for child jobs of
+-- array and multi-node parallel (MNP) jobs are not supported.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

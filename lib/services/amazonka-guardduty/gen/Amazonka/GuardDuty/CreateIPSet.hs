@@ -22,9 +22,10 @@
 --
 -- Creates a new IPSet, which is called a trusted IP list in the console
 -- user interface. An IPSet is a list of IP addresses that are trusted for
--- secure communication with AWS infrastructure and applications. GuardDuty
--- doesn\'t generate findings for IP addresses that are included in IPSets.
--- Only users from the administrator account can use this operation.
+-- secure communication with Amazon Web Services infrastructure and
+-- applications. GuardDuty doesn\'t generate findings for IP addresses that
+-- are included in IPSets. Only users from the administrator account can
+-- use this operation.
 module Amazonka.GuardDuty.CreateIPSet
   ( -- * Creating a Request
     CreateIPSet (..),
@@ -72,8 +73,7 @@ data CreateIPSet = CreateIPSet'
     name :: Prelude.Text,
     -- | The format of the file that contains the IPSet.
     format :: IpSetFormat,
-    -- | The URI of the file that contains the IPSet. For example:
-    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    -- | The URI of the file that contains the IPSet.
     location :: Prelude.Text,
     -- | A Boolean value that indicates whether GuardDuty is to start using the
     -- uploaded IPSet.
@@ -103,8 +103,7 @@ data CreateIPSet = CreateIPSet'
 --
 -- 'format', 'createIPSet_format' - The format of the file that contains the IPSet.
 --
--- 'location', 'createIPSet_location' - The URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- 'location', 'createIPSet_location' - The URI of the file that contains the IPSet.
 --
 -- 'activate', 'createIPSet_activate' - A Boolean value that indicates whether GuardDuty is to start using the
 -- uploaded IPSet.
@@ -160,8 +159,7 @@ createIPSet_name = Lens.lens (\CreateIPSet' {name} -> name) (\s@CreateIPSet' {} 
 createIPSet_format :: Lens.Lens' CreateIPSet IpSetFormat
 createIPSet_format = Lens.lens (\CreateIPSet' {format} -> format) (\s@CreateIPSet' {} a -> s {format = a} :: CreateIPSet)
 
--- | The URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- | The URI of the file that contains the IPSet.
 createIPSet_location :: Lens.Lens' CreateIPSet Prelude.Text
 createIPSet_location = Lens.lens (\CreateIPSet' {location} -> location) (\s@CreateIPSet' {} a -> s {location = a} :: CreateIPSet)
 

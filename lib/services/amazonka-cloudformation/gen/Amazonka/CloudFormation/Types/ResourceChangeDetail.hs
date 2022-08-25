@@ -70,17 +70,17 @@ data ResourceChangeDetail = ResourceChangeDetail'
     -- that this property value will change, and its value, so this is a
     -- @Static@ evaluation.
     --
-    -- For @Dynamic@ evaluations, cannot determine the target value because it
+    -- For @Dynamic@ evaluations, can\'t determine the target value because it
     -- depends on the result of an intrinsic function, such as a @Ref@ or
     -- @Fn::GetAtt@ intrinsic function, when the stack is updated. For example,
-    -- if your template includes a reference to a resource that is
+    -- if your template includes a reference to a resource that\'s
     -- conditionally recreated, the value of the reference (the physical ID of
     -- the resource) might change, depending on if the resource is recreated.
     -- If the resource is recreated, it will have a new physical ID, so all
     -- references to that resource will also be updated.
     evaluation :: Prelude.Maybe EvaluationType,
     -- | The identity of the entity that triggered this change. This entity is a
-    -- member of the group that is specified by the @ChangeSource@ field. For
+    -- member of the group that\'s specified by the @ChangeSource@ field. For
     -- example, if you modified the value of the @KeyPairName@ parameter, the
     -- @CausingEntity@ is the name of the parameter (@KeyPairName@).
     --
@@ -136,17 +136,17 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- that this property value will change, and its value, so this is a
 -- @Static@ evaluation.
 --
--- For @Dynamic@ evaluations, cannot determine the target value because it
+-- For @Dynamic@ evaluations, can\'t determine the target value because it
 -- depends on the result of an intrinsic function, such as a @Ref@ or
 -- @Fn::GetAtt@ intrinsic function, when the stack is updated. For example,
--- if your template includes a reference to a resource that is
+-- if your template includes a reference to a resource that\'s
 -- conditionally recreated, the value of the reference (the physical ID of
 -- the resource) might change, depending on if the resource is recreated.
 -- If the resource is recreated, it will have a new physical ID, so all
 -- references to that resource will also be updated.
 --
 -- 'causingEntity', 'resourceChangeDetail_causingEntity' - The identity of the entity that triggered this change. This entity is a
--- member of the group that is specified by the @ChangeSource@ field. For
+-- member of the group that\'s specified by the @ChangeSource@ field. For
 -- example, if you modified the value of the @KeyPairName@ parameter, the
 -- @CausingEntity@ is the name of the parameter (@KeyPairName@).
 --
@@ -204,10 +204,10 @@ resourceChangeDetail_changeSource = Lens.lens (\ResourceChangeDetail' {changeSou
 -- that this property value will change, and its value, so this is a
 -- @Static@ evaluation.
 --
--- For @Dynamic@ evaluations, cannot determine the target value because it
+-- For @Dynamic@ evaluations, can\'t determine the target value because it
 -- depends on the result of an intrinsic function, such as a @Ref@ or
 -- @Fn::GetAtt@ intrinsic function, when the stack is updated. For example,
--- if your template includes a reference to a resource that is
+-- if your template includes a reference to a resource that\'s
 -- conditionally recreated, the value of the reference (the physical ID of
 -- the resource) might change, depending on if the resource is recreated.
 -- If the resource is recreated, it will have a new physical ID, so all
@@ -216,7 +216,7 @@ resourceChangeDetail_evaluation :: Lens.Lens' ResourceChangeDetail (Prelude.Mayb
 resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation} -> evaluation) (\s@ResourceChangeDetail' {} a -> s {evaluation = a} :: ResourceChangeDetail)
 
 -- | The identity of the entity that triggered this change. This entity is a
--- member of the group that is specified by the @ChangeSource@ field. For
+-- member of the group that\'s specified by the @ChangeSource@ field. For
 -- example, if you modified the value of the @KeyPairName@ parameter, the
 -- @CausingEntity@ is the name of the parameter (@KeyPairName@).
 --

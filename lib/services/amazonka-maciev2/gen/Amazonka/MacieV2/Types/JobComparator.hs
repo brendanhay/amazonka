@@ -35,7 +35,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The operator to use in a condition. Valid values are:
+-- | The operator to use in a condition. Depending on the type of condition,
+-- possible values are:
 newtype JobComparator = JobComparator'
   { fromJobComparator ::
       Core.Text

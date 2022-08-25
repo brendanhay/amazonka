@@ -28,15 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTriggerDetails' smart constructor.
 data TriggerDetails = TriggerDetails'
-  { -- | The ARN of the source that detected the incident.
+  { -- | The Amazon Resource Name (ARN) of the source that detected the incident.
     triggerArn :: Prelude.Maybe Prelude.Text,
-    -- | Raw data passed from either EventBridge, CloudWatch, or Incident Manager
-    -- when an incident is created.
+    -- | Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
+    -- Incident Manager when an incident is created.
     rawData :: Prelude.Maybe Prelude.Text,
     -- | Identifies the service that sourced the event. All events sourced from
-    -- within AWS begin with \"aws.\" Customer-generated events can have any
-    -- value here, as long as it doesn\'t begin with \"aws.\" We recommend the
-    -- use of Java package-name style reverse domain-name strings.
+    -- within Amazon Web Services begin with \"@aws.@\" Customer-generated
+    -- events can have any value here, as long as it doesn\'t begin with
+    -- \"@aws.@\" We recommend the use of Java package-name style reverse
+    -- domain-name strings.
     source :: Prelude.Text,
     -- | The time that the incident was detected.
     timestamp :: Core.POSIX
@@ -51,15 +52,16 @@ data TriggerDetails = TriggerDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'triggerArn', 'triggerDetails_triggerArn' - The ARN of the source that detected the incident.
+-- 'triggerArn', 'triggerDetails_triggerArn' - The Amazon Resource Name (ARN) of the source that detected the incident.
 --
--- 'rawData', 'triggerDetails_rawData' - Raw data passed from either EventBridge, CloudWatch, or Incident Manager
--- when an incident is created.
+-- 'rawData', 'triggerDetails_rawData' - Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
+-- Incident Manager when an incident is created.
 --
 -- 'source', 'triggerDetails_source' - Identifies the service that sourced the event. All events sourced from
--- within AWS begin with \"aws.\" Customer-generated events can have any
--- value here, as long as it doesn\'t begin with \"aws.\" We recommend the
--- use of Java package-name style reverse domain-name strings.
+-- within Amazon Web Services begin with \"@aws.@\" Customer-generated
+-- events can have any value here, as long as it doesn\'t begin with
+-- \"@aws.@\" We recommend the use of Java package-name style reverse
+-- domain-name strings.
 --
 -- 'timestamp', 'triggerDetails_timestamp' - The time that the incident was detected.
 newTriggerDetails ::
@@ -76,19 +78,20 @@ newTriggerDetails pSource_ pTimestamp_ =
       timestamp = Core._Time Lens.# pTimestamp_
     }
 
--- | The ARN of the source that detected the incident.
+-- | The Amazon Resource Name (ARN) of the source that detected the incident.
 triggerDetails_triggerArn :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
 triggerDetails_triggerArn = Lens.lens (\TriggerDetails' {triggerArn} -> triggerArn) (\s@TriggerDetails' {} a -> s {triggerArn = a} :: TriggerDetails)
 
--- | Raw data passed from either EventBridge, CloudWatch, or Incident Manager
--- when an incident is created.
+-- | Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or
+-- Incident Manager when an incident is created.
 triggerDetails_rawData :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
 triggerDetails_rawData = Lens.lens (\TriggerDetails' {rawData} -> rawData) (\s@TriggerDetails' {} a -> s {rawData = a} :: TriggerDetails)
 
 -- | Identifies the service that sourced the event. All events sourced from
--- within AWS begin with \"aws.\" Customer-generated events can have any
--- value here, as long as it doesn\'t begin with \"aws.\" We recommend the
--- use of Java package-name style reverse domain-name strings.
+-- within Amazon Web Services begin with \"@aws.@\" Customer-generated
+-- events can have any value here, as long as it doesn\'t begin with
+-- \"@aws.@\" We recommend the use of Java package-name style reverse
+-- domain-name strings.
 triggerDetails_source :: Lens.Lens' TriggerDetails Prelude.Text
 triggerDetails_source = Lens.lens (\TriggerDetails' {source} -> source) (\s@TriggerDetails' {} a -> s {source = a} :: TriggerDetails)
 

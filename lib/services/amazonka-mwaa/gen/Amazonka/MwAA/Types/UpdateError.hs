@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object containing the error encountered with the last update:
--- @ErrorCode@, @ErrorMessage@.
+-- | Describes the error(s) encountered with the last update of the
+-- environment.
 --
 -- /See:/ 'newUpdateError' smart constructor.
 data UpdateError = UpdateError'

@@ -24,11 +24,26 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Location.Types.Place
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains relevant Places returned by calling @SearchPlaceIndexForText@.
+-- | Contains a search result from a text search query that is run on a place
+-- index resource.
 --
 -- /See:/ 'newSearchForTextResult' smart constructor.
 data SearchForTextResult = SearchForTextResult'
-  { -- | Contains details about the relevant point of interest.
+  { -- | The distance in meters of a great-circle arc between the bias position
+    -- specified and the result. @Distance@ will be returned only if a bias
+    -- position was specified in the query.
+    --
+    -- A great-circle arc is the shortest path on a sphere, in this case the
+    -- Earth. This returns the shortest distance between two locations.
+    distance :: Prelude.Maybe Prelude.Double,
+    -- | The relative confidence in the match for a result among the results
+    -- returned. For example, if more fields for an address match (including
+    -- house number, street, city, country\/region, and postal code), the
+    -- relevance score is closer to 1.
+    --
+    -- Returned only when the partner selected is Esri.
+    relevance :: Prelude.Maybe Prelude.Double,
+    -- | Details about the search result, such as its address and position.
     place :: Place
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -41,15 +56,51 @@ data SearchForTextResult = SearchForTextResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'place', 'searchForTextResult_place' - Contains details about the relevant point of interest.
+-- 'distance', 'searchForTextResult_distance' - The distance in meters of a great-circle arc between the bias position
+-- specified and the result. @Distance@ will be returned only if a bias
+-- position was specified in the query.
+--
+-- A great-circle arc is the shortest path on a sphere, in this case the
+-- Earth. This returns the shortest distance between two locations.
+--
+-- 'relevance', 'searchForTextResult_relevance' - The relative confidence in the match for a result among the results
+-- returned. For example, if more fields for an address match (including
+-- house number, street, city, country\/region, and postal code), the
+-- relevance score is closer to 1.
+--
+-- Returned only when the partner selected is Esri.
+--
+-- 'place', 'searchForTextResult_place' - Details about the search result, such as its address and position.
 newSearchForTextResult ::
   -- | 'place'
   Place ->
   SearchForTextResult
 newSearchForTextResult pPlace_ =
-  SearchForTextResult' {place = pPlace_}
+  SearchForTextResult'
+    { distance = Prelude.Nothing,
+      relevance = Prelude.Nothing,
+      place = pPlace_
+    }
 
--- | Contains details about the relevant point of interest.
+-- | The distance in meters of a great-circle arc between the bias position
+-- specified and the result. @Distance@ will be returned only if a bias
+-- position was specified in the query.
+--
+-- A great-circle arc is the shortest path on a sphere, in this case the
+-- Earth. This returns the shortest distance between two locations.
+searchForTextResult_distance :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Double)
+searchForTextResult_distance = Lens.lens (\SearchForTextResult' {distance} -> distance) (\s@SearchForTextResult' {} a -> s {distance = a} :: SearchForTextResult)
+
+-- | The relative confidence in the match for a result among the results
+-- returned. For example, if more fields for an address match (including
+-- house number, street, city, country\/region, and postal code), the
+-- relevance score is closer to 1.
+--
+-- Returned only when the partner selected is Esri.
+searchForTextResult_relevance :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Double)
+searchForTextResult_relevance = Lens.lens (\SearchForTextResult' {relevance} -> relevance) (\s@SearchForTextResult' {} a -> s {relevance = a} :: SearchForTextResult)
+
+-- | Details about the search result, such as its address and position.
 searchForTextResult_place :: Lens.Lens' SearchForTextResult Place
 searchForTextResult_place = Lens.lens (\SearchForTextResult' {place} -> place) (\s@SearchForTextResult' {} a -> s {place = a} :: SearchForTextResult)
 
@@ -58,12 +109,20 @@ instance Core.FromJSON SearchForTextResult where
     Core.withObject
       "SearchForTextResult"
       ( \x ->
-          SearchForTextResult' Prelude.<$> (x Core..: "Place")
+          SearchForTextResult'
+            Prelude.<$> (x Core..:? "Distance")
+            Prelude.<*> (x Core..:? "Relevance")
+            Prelude.<*> (x Core..: "Place")
       )
 
 instance Prelude.Hashable SearchForTextResult where
   hashWithSalt _salt SearchForTextResult' {..} =
-    _salt `Prelude.hashWithSalt` place
+    _salt `Prelude.hashWithSalt` distance
+      `Prelude.hashWithSalt` relevance
+      `Prelude.hashWithSalt` place
 
 instance Prelude.NFData SearchForTextResult where
-  rnf SearchForTextResult' {..} = Prelude.rnf place
+  rnf SearchForTextResult' {..} =
+    Prelude.rnf distance
+      `Prelude.seq` Prelude.rnf relevance
+      `Prelude.seq` Prelude.rnf place

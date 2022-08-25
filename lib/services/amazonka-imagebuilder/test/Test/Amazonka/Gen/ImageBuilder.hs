@@ -108,6 +108,9 @@ import Test.Tasty
 --         , requestImportComponent $
 --             newImportComponent
 --
+--         , requestImportVmImage $
+--             newImportVmImage
+--
 --         , requestListComponentBuildVersions $
 --             newListComponentBuildVersions
 --
@@ -257,6 +260,9 @@ import Test.Tasty
 --
 --         , responseImportComponent $
 --             newImportComponentResponse
+--
+--         , responseImportVmImage $
+--             newImportVmImageResponse
 --
 --         , responseListComponentBuildVersions $
 --             newListComponentBuildVersionsResponse
@@ -490,6 +496,12 @@ requestImportComponent =
   req
     "ImportComponent"
     "fixture/ImportComponent.yaml"
+
+requestImportVmImage :: ImportVmImage -> TestTree
+requestImportVmImage =
+  req
+    "ImportVmImage"
+    "fixture/ImportVmImage.yaml"
 
 requestListComponentBuildVersions :: ListComponentBuildVersions -> TestTree
 requestListComponentBuildVersions =
@@ -840,6 +852,14 @@ responseImportComponent =
     "fixture/ImportComponentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ImportComponent)
+
+responseImportVmImage :: ImportVmImageResponse -> TestTree
+responseImportVmImage =
+  res
+    "ImportVmImageResponse"
+    "fixture/ImportVmImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportVmImage)
 
 responseListComponentBuildVersions :: ListComponentBuildVersionsResponse -> TestTree
 responseListComponentBuildVersions =

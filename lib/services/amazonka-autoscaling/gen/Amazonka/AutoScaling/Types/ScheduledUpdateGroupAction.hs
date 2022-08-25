@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
   { -- | The time zone for the cron expression.
     timeZone :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used.
+    -- | This property is no longer used.
     time :: Prelude.Maybe Core.ISO8601,
     -- | The date and time in UTC for the recurring schedule to end. For example,
     -- @\"2019-06-01T00:00:00Z\"@.
@@ -69,7 +69,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
 --
 -- 'timeZone', 'scheduledUpdateGroupAction_timeZone' - The time zone for the cron expression.
 --
--- 'time', 'scheduledUpdateGroupAction_time' - This parameter is no longer used.
+-- 'time', 'scheduledUpdateGroupAction_time' - This property is no longer used.
 --
 -- 'endTime', 'scheduledUpdateGroupAction_endTime' - The date and time in UTC for the recurring schedule to end. For example,
 -- @\"2019-06-01T00:00:00Z\"@.
@@ -117,7 +117,7 @@ newScheduledUpdateGroupAction =
 scheduledUpdateGroupAction_timeZone :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
 scheduledUpdateGroupAction_timeZone = Lens.lens (\ScheduledUpdateGroupAction' {timeZone} -> timeZone) (\s@ScheduledUpdateGroupAction' {} a -> s {timeZone = a} :: ScheduledUpdateGroupAction)
 
--- | This parameter is no longer used.
+-- | This property is no longer used.
 scheduledUpdateGroupAction_time :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 scheduledUpdateGroupAction_time = Lens.lens (\ScheduledUpdateGroupAction' {time} -> time) (\s@ScheduledUpdateGroupAction' {} a -> s {time = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 

@@ -49,6 +49,9 @@ module Amazonka.VoiceId.Types
     -- * FraudsterRegistrationJobStatus
     FraudsterRegistrationJobStatus (..),
 
+    -- * ServerSideEncryptionUpdateStatus
+    ServerSideEncryptionUpdateStatus (..),
+
     -- * SpeakerEnrollmentJobStatus
     SpeakerEnrollmentJobStatus (..),
 
@@ -79,6 +82,7 @@ module Amazonka.VoiceId.Types
     Domain (..),
     newDomain,
     domain_name,
+    domain_serverSideEncryptionUpdateDetails,
     domain_serverSideEncryptionConfiguration,
     domain_arn,
     domain_description,
@@ -91,6 +95,7 @@ module Amazonka.VoiceId.Types
     DomainSummary (..),
     newDomainSummary,
     domainSummary_name,
+    domainSummary_serverSideEncryptionUpdateDetails,
     domainSummary_serverSideEncryptionConfiguration,
     domainSummary_arn,
     domainSummary_description,
@@ -206,9 +211,17 @@ module Amazonka.VoiceId.Types
     newServerSideEncryptionConfiguration,
     serverSideEncryptionConfiguration_kmsKeyId,
 
+    -- * ServerSideEncryptionUpdateDetails
+    ServerSideEncryptionUpdateDetails (..),
+    newServerSideEncryptionUpdateDetails,
+    serverSideEncryptionUpdateDetails_message,
+    serverSideEncryptionUpdateDetails_oldKmsKeyId,
+    serverSideEncryptionUpdateDetails_updateStatus,
+
     -- * Speaker
     Speaker (..),
     newSpeaker,
+    speaker_lastAccessedAt,
     speaker_status,
     speaker_customerSpeakerId,
     speaker_generatedSpeakerId,
@@ -247,6 +260,7 @@ module Amazonka.VoiceId.Types
     -- * SpeakerSummary
     SpeakerSummary (..),
     newSpeakerSummary,
+    speakerSummary_lastAccessedAt,
     speakerSummary_status,
     speakerSummary_customerSpeakerId,
     speakerSummary_generatedSpeakerId,
@@ -293,6 +307,8 @@ import Amazonka.VoiceId.Types.KnownFraudsterRisk
 import Amazonka.VoiceId.Types.OutputDataConfig
 import Amazonka.VoiceId.Types.RegistrationConfig
 import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
+import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
+import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateStatus
 import Amazonka.VoiceId.Types.Speaker
 import Amazonka.VoiceId.Types.SpeakerEnrollmentJob
 import Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus

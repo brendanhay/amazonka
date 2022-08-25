@@ -52,15 +52,16 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
   { -- | The type of resource from which you want to remove a tag.
     --
     -- The @ManagedInstance@ type for this API operation is only for
-    -- on-premises managed instances. Specify the name of the managed instance
-    -- in the following format: @mi-ID_number @. For example,
-    -- @mi-1a2b3c4d5e6f@.
+    -- on-premises managed nodes. Specify the name of the managed node in the
+    -- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
     resourceType :: ResourceTypeForTagging,
     -- | The ID of the resource from which you want to remove tags. For example:
     --
     -- ManagedInstance: mi-012345abcde
     --
     -- MaintenanceWindow: mw-012345abcde
+    --
+    -- @Automation@: @example-c160-4567-8519-012345abcde@
     --
     -- PatchBaseline: pb-012345abcde
     --
@@ -74,8 +75,8 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
     --
     -- For the Document and Parameter values, use the name of the resource.
     --
-    -- The ManagedInstance type for this API operation is only for on-premises
-    -- managed instances. Specify the name of the managed instance in the
+    -- The @ManagedInstance@ type for this API operation is only for
+    -- on-premises managed nodes. Specify the name of the managed node in the
     -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
     resourceId :: Prelude.Text,
     -- | Tag keys that you want to remove from the specified resource.
@@ -94,15 +95,16 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 -- 'resourceType', 'removeTagsFromResource_resourceType' - The type of resource from which you want to remove a tag.
 --
 -- The @ManagedInstance@ type for this API operation is only for
--- on-premises managed instances. Specify the name of the managed instance
--- in the following format: @mi-ID_number @. For example,
--- @mi-1a2b3c4d5e6f@.
+-- on-premises managed nodes. Specify the name of the managed node in the
+-- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
 --
 -- 'resourceId', 'removeTagsFromResource_resourceId' - The ID of the resource from which you want to remove tags. For example:
 --
 -- ManagedInstance: mi-012345abcde
 --
 -- MaintenanceWindow: mw-012345abcde
+--
+-- @Automation@: @example-c160-4567-8519-012345abcde@
 --
 -- PatchBaseline: pb-012345abcde
 --
@@ -116,8 +118,8 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- For the Document and Parameter values, use the name of the resource.
 --
--- The ManagedInstance type for this API operation is only for on-premises
--- managed instances. Specify the name of the managed instance in the
+-- The @ManagedInstance@ type for this API operation is only for
+-- on-premises managed nodes. Specify the name of the managed node in the
 -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
 --
 -- 'tagKeys', 'removeTagsFromResource_tagKeys' - Tag keys that you want to remove from the specified resource.
@@ -138,9 +140,8 @@ newRemoveTagsFromResource pResourceType_ pResourceId_ =
 -- | The type of resource from which you want to remove a tag.
 --
 -- The @ManagedInstance@ type for this API operation is only for
--- on-premises managed instances. Specify the name of the managed instance
--- in the following format: @mi-ID_number @. For example,
--- @mi-1a2b3c4d5e6f@.
+-- on-premises managed nodes. Specify the name of the managed node in the
+-- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
 removeTagsFromResource_resourceType :: Lens.Lens' RemoveTagsFromResource ResourceTypeForTagging
 removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resourceType} -> resourceType) (\s@RemoveTagsFromResource' {} a -> s {resourceType = a} :: RemoveTagsFromResource)
 
@@ -149,6 +150,8 @@ removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resou
 -- ManagedInstance: mi-012345abcde
 --
 -- MaintenanceWindow: mw-012345abcde
+--
+-- @Automation@: @example-c160-4567-8519-012345abcde@
 --
 -- PatchBaseline: pb-012345abcde
 --
@@ -162,8 +165,8 @@ removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resou
 --
 -- For the Document and Parameter values, use the name of the resource.
 --
--- The ManagedInstance type for this API operation is only for on-premises
--- managed instances. Specify the name of the managed instance in the
+-- The @ManagedInstance@ type for this API operation is only for
+-- on-premises managed nodes. Specify the name of the managed node in the
 -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
 removeTagsFromResource_resourceId :: Lens.Lens' RemoveTagsFromResource Prelude.Text
 removeTagsFromResource_resourceId = Lens.lens (\RemoveTagsFromResource' {resourceId} -> resourceId) (\s@RemoveTagsFromResource' {} a -> s {resourceId = a} :: RemoveTagsFromResource)

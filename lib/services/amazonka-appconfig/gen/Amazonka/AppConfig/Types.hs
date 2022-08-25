@@ -24,6 +24,9 @@ module Amazonka.AppConfig.Types
     _PayloadTooLargeException,
     _BadRequestException,
 
+    -- * ActionPoint
+    ActionPoint (..),
+
     -- * DeploymentEventType
     DeploymentEventType (..),
 
@@ -45,6 +48,25 @@ module Amazonka.AppConfig.Types
     -- * ValidatorType
     ValidatorType (..),
 
+    -- * Action
+    Action (..),
+    newAction,
+    action_name,
+    action_roleArn,
+    action_uri,
+    action_description,
+
+    -- * ActionInvocation
+    ActionInvocation (..),
+    newActionInvocation,
+    actionInvocation_actionName,
+    actionInvocation_roleArn,
+    actionInvocation_invocationId,
+    actionInvocation_errorMessage,
+    actionInvocation_uri,
+    actionInvocation_errorCode,
+    actionInvocation_extensionIdentifier,
+
     -- * Application
     Application (..),
     newApplication,
@@ -52,10 +74,19 @@ module Amazonka.AppConfig.Types
     application_id,
     application_description,
 
+    -- * AppliedExtension
+    AppliedExtension (..),
+    newAppliedExtension,
+    appliedExtension_extensionAssociationId,
+    appliedExtension_versionNumber,
+    appliedExtension_extensionId,
+    appliedExtension_parameters,
+
     -- * ConfigurationProfile
     ConfigurationProfile (..),
     newConfigurationProfile,
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -67,6 +98,7 @@ module Amazonka.AppConfig.Types
     ConfigurationProfileSummary (..),
     newConfigurationProfileSummary,
     configurationProfileSummary_name,
+    configurationProfileSummary_type,
     configurationProfileSummary_validatorTypes,
     configurationProfileSummary_id,
     configurationProfileSummary_locationUri,
@@ -85,6 +117,7 @@ module Amazonka.AppConfig.Types
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,
@@ -99,6 +132,7 @@ module Amazonka.AppConfig.Types
     newDeploymentEvent,
     deploymentEvent_eventType,
     deploymentEvent_occurredAt,
+    deploymentEvent_actionInvocations,
     deploymentEvent_description,
     deploymentEvent_triggeredBy,
 
@@ -139,6 +173,43 @@ module Amazonka.AppConfig.Types
     environment_description,
     environment_applicationId,
 
+    -- * Extension
+    Extension (..),
+    newExtension,
+    extension_name,
+    extension_arn,
+    extension_id,
+    extension_description,
+    extension_versionNumber,
+    extension_actions,
+    extension_parameters,
+
+    -- * ExtensionAssociation
+    ExtensionAssociation (..),
+    newExtensionAssociation,
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_arn,
+    extensionAssociation_id,
+    extensionAssociation_resourceArn,
+    extensionAssociation_extensionArn,
+    extensionAssociation_parameters,
+
+    -- * ExtensionAssociationSummary
+    ExtensionAssociationSummary (..),
+    newExtensionAssociationSummary,
+    extensionAssociationSummary_id,
+    extensionAssociationSummary_resourceArn,
+    extensionAssociationSummary_extensionArn,
+
+    -- * ExtensionSummary
+    ExtensionSummary (..),
+    newExtensionSummary,
+    extensionSummary_name,
+    extensionSummary_arn,
+    extensionSummary_id,
+    extensionSummary_description,
+    extensionSummary_versionNumber,
+
     -- * HostedConfigurationVersion
     HostedConfigurationVersion (..),
     newHostedConfigurationVersion,
@@ -164,6 +235,12 @@ module Amazonka.AppConfig.Types
     monitor_alarmRoleArn,
     monitor_alarmArn,
 
+    -- * Parameter
+    Parameter (..),
+    newParameter,
+    parameter_required,
+    parameter_description,
+
     -- * Validator
     Validator (..),
     newValidator,
@@ -172,7 +249,11 @@ module Amazonka.AppConfig.Types
   )
 where
 
+import Amazonka.AppConfig.Types.Action
+import Amazonka.AppConfig.Types.ActionInvocation
+import Amazonka.AppConfig.Types.ActionPoint
 import Amazonka.AppConfig.Types.Application
+import Amazonka.AppConfig.Types.AppliedExtension
 import Amazonka.AppConfig.Types.ConfigurationProfile
 import Amazonka.AppConfig.Types.ConfigurationProfileSummary
 import Amazonka.AppConfig.Types.Deployment
@@ -183,10 +264,15 @@ import Amazonka.AppConfig.Types.DeploymentStrategy
 import Amazonka.AppConfig.Types.DeploymentSummary
 import Amazonka.AppConfig.Types.Environment
 import Amazonka.AppConfig.Types.EnvironmentState
+import Amazonka.AppConfig.Types.Extension
+import Amazonka.AppConfig.Types.ExtensionAssociation
+import Amazonka.AppConfig.Types.ExtensionAssociationSummary
+import Amazonka.AppConfig.Types.ExtensionSummary
 import Amazonka.AppConfig.Types.GrowthType
 import Amazonka.AppConfig.Types.HostedConfigurationVersion
 import Amazonka.AppConfig.Types.HostedConfigurationVersionSummary
 import Amazonka.AppConfig.Types.Monitor
+import Amazonka.AppConfig.Types.Parameter
 import Amazonka.AppConfig.Types.ReplicateTo
 import Amazonka.AppConfig.Types.TriggeredBy
 import Amazonka.AppConfig.Types.Validator
@@ -275,8 +361,8 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The number of hosted configuration versions exceeds the limit for the
--- AppConfig configuration store. Delete one or more versions and try
--- again.
+-- AppConfig hosted configuration store. Delete one or more versions and
+-- try again.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
@@ -309,7 +395,8 @@ _PayloadTooLargeException =
     "PayloadTooLargeException"
     Prelude.. Core.hasStatus 413
 
--- | The input fails to satisfy the constraints specified by an AWS service.
+-- | The input fails to satisfy the constraints specified by an Amazon Web
+-- Services service.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError

@@ -52,11 +52,23 @@ module Amazonka.Account
     GetAlternateContactResponse (GetAlternateContactResponse'),
     newGetAlternateContactResponse,
 
+    -- ** GetContactInformation
+    GetContactInformation (GetContactInformation'),
+    newGetContactInformation,
+    GetContactInformationResponse (GetContactInformationResponse'),
+    newGetContactInformationResponse,
+
     -- ** PutAlternateContact
     PutAlternateContact (PutAlternateContact'),
     newPutAlternateContact,
     PutAlternateContactResponse (PutAlternateContactResponse'),
     newPutAlternateContactResponse,
+
+    -- ** PutContactInformation
+    PutContactInformation (PutContactInformation'),
+    newPutContactInformation,
+    PutContactInformationResponse (PutContactInformationResponse'),
+    newPutContactInformationResponse,
 
     -- * Types
 
@@ -66,13 +78,19 @@ module Amazonka.Account
     -- ** AlternateContact
     AlternateContact (AlternateContact'),
     newAlternateContact,
+
+    -- ** ContactInformation
+    ContactInformation (ContactInformation'),
+    newContactInformation,
   )
 where
 
 import Amazonka.Account.DeleteAlternateContact
 import Amazonka.Account.GetAlternateContact
+import Amazonka.Account.GetContactInformation
 import Amazonka.Account.Lens
 import Amazonka.Account.PutAlternateContact
+import Amazonka.Account.PutContactInformation
 import Amazonka.Account.Types
 import Amazonka.Account.Waiters
 

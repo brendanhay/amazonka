@@ -23,18 +23,21 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A Cell and its properties
+-- | Information about a cell.
 --
 -- /See:/ 'newCellOutput' smart constructor.
 data CellOutput = CellOutput'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of Cell ARNs and\/or RecoveryGroup ARNs
+  { -- | Tags on the resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The readiness scope for the cell, which can be a cell Amazon Resource
+    -- Name (ARN) or a recovery group ARN. This is a list but currently can
+    -- have only one element.
     parentReadinessScopes :: [Prelude.Text],
-    -- | The arn for the Cell
+    -- | The Amazon Resource Name (ARN) for the cell.
     cellArn :: Prelude.Text,
-    -- | The name of the Cell
+    -- | The name of the cell.
     cellName :: Prelude.Text,
-    -- | A list of Cell arns
+    -- | A list of cell ARNs.
     cells :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,15 +50,17 @@ data CellOutput = CellOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'cellOutput_tags' - Undocumented member.
+-- 'tags', 'cellOutput_tags' - Tags on the resources.
 --
--- 'parentReadinessScopes', 'cellOutput_parentReadinessScopes' - A list of Cell ARNs and\/or RecoveryGroup ARNs
+-- 'parentReadinessScopes', 'cellOutput_parentReadinessScopes' - The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
 --
--- 'cellArn', 'cellOutput_cellArn' - The arn for the Cell
+-- 'cellArn', 'cellOutput_cellArn' - The Amazon Resource Name (ARN) for the cell.
 --
--- 'cellName', 'cellOutput_cellName' - The name of the Cell
+-- 'cellName', 'cellOutput_cellName' - The name of the cell.
 --
--- 'cells', 'cellOutput_cells' - A list of Cell arns
+-- 'cells', 'cellOutput_cells' - A list of cell ARNs.
 newCellOutput ::
   -- | 'cellArn'
   Prelude.Text ->
@@ -71,23 +76,25 @@ newCellOutput pCellArn_ pCellName_ =
       cells = Prelude.mempty
     }
 
--- | Undocumented member.
+-- | Tags on the resources.
 cellOutput_tags :: Lens.Lens' CellOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 cellOutput_tags = Lens.lens (\CellOutput' {tags} -> tags) (\s@CellOutput' {} a -> s {tags = a} :: CellOutput) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Cell ARNs and\/or RecoveryGroup ARNs
+-- | The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
 cellOutput_parentReadinessScopes :: Lens.Lens' CellOutput [Prelude.Text]
 cellOutput_parentReadinessScopes = Lens.lens (\CellOutput' {parentReadinessScopes} -> parentReadinessScopes) (\s@CellOutput' {} a -> s {parentReadinessScopes = a} :: CellOutput) Prelude.. Lens.coerced
 
--- | The arn for the Cell
+-- | The Amazon Resource Name (ARN) for the cell.
 cellOutput_cellArn :: Lens.Lens' CellOutput Prelude.Text
 cellOutput_cellArn = Lens.lens (\CellOutput' {cellArn} -> cellArn) (\s@CellOutput' {} a -> s {cellArn = a} :: CellOutput)
 
--- | The name of the Cell
+-- | The name of the cell.
 cellOutput_cellName :: Lens.Lens' CellOutput Prelude.Text
 cellOutput_cellName = Lens.lens (\CellOutput' {cellName} -> cellName) (\s@CellOutput' {} a -> s {cellName = a} :: CellOutput)
 
--- | A list of Cell arns
+-- | A list of cell ARNs.
 cellOutput_cells :: Lens.Lens' CellOutput [Prelude.Text]
 cellOutput_cells = Lens.lens (\CellOutput' {cells} -> cells) (\s@CellOutput' {} a -> s {cells = a} :: CellOutput) Prelude.. Lens.coerced
 

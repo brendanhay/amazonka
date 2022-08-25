@@ -28,6 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 -- checks that exist in the container image (such as those specified in a
 -- parent image or from the image\'s Dockerfile).
 --
+-- The Amazon ECS container agent only monitors and reports on the health
+-- checks specified in the task definition. Amazon ECS does not monitor
+-- Docker health checks that are embedded in a container image and not
+-- specified in the container definition. Health check parameters that are
+-- specified in a container definition override any Docker health checks
+-- that exist in the container image.
+--
 -- You can view the health status of both individual containers and a task
 -- with the DescribeTasks API operation or when viewing the task details in
 -- the console.
@@ -39,7 +46,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- -   @UNHEALTHY@-The container health check has failed.
 --
--- -   @UNKNOWN@-The container health check is being evaluated or there is
+-- -   @UNKNOWN@-The container health check is being evaluated or there\'s
 --     no container health check defined.
 --
 -- The following describes the possible @healthStatus@ values for a task.
@@ -65,14 +72,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- -   Container health checks require version 1.17.0 or greater of the
 --     Amazon ECS container agent. For more information, see
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>.
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS container agent>.
 --
--- -   Container health checks are supported for Fargate tasks if you are
---     using platform version 1.1.0 or greater. For more information, see
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>.
+-- -   Container health checks are supported for Fargate tasks if you\'re
+--     using platform version @1.1.0@ or greater. For more information, see
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>.
 --
--- -   Container health checks are not supported for tasks that are part of
---     a service that is configured to use a Classic Load Balancer.
+-- -   Container health checks aren\'t supported for tasks that are part of
+--     a service that\'s configured to use a Classic Load Balancer.
 --
 -- /See:/ 'newHealthCheck' smart constructor.
 data HealthCheck = HealthCheck'
@@ -80,10 +87,10 @@ data HealthCheck = HealthCheck'
     -- it is considered a failure. You may specify between 2 and 60 seconds.
     -- The default value is 5.
     timeout :: Prelude.Maybe Prelude.Int,
-    -- | The optional grace period within which to provide containers time to
-    -- bootstrap before failed health checks count towards the maximum number
-    -- of retries. You may specify between 0 and 300 seconds. The @startPeriod@
-    -- is disabled by default.
+    -- | The optional grace period to provide containers time to bootstrap before
+    -- failed health checks count towards the maximum number of retries. You
+    -- can specify between 0 and 300 seconds. By default, the @startPeriod@ is
+    -- disabled.
     --
     -- If a health check succeeds within the @startPeriod@, then the container
     -- is considered healthy and any subsequent failures count toward the
@@ -102,13 +109,13 @@ data HealthCheck = HealthCheck'
     -- command with the container\'s default shell.
     --
     -- When you use the Amazon Web Services Management Console JSON panel, the
-    -- Command Line Interface, or the APIs, you should enclose the list of
-    -- commands in brackets, as shown below.
+    -- Command Line Interface, or the APIs, enclose the list of commands in
+    -- brackets.
     --
     -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
     --
-    -- You do not need to include the brackets when you use the Amazon Web
-    -- Services Management Consoleas shown below.
+    -- You don\'t need to include the brackets when you use the Amazon Web
+    -- Services Management Console.
     --
     -- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
     --
@@ -133,10 +140,10 @@ data HealthCheck = HealthCheck'
 -- it is considered a failure. You may specify between 2 and 60 seconds.
 -- The default value is 5.
 --
--- 'startPeriod', 'healthCheck_startPeriod' - The optional grace period within which to provide containers time to
--- bootstrap before failed health checks count towards the maximum number
--- of retries. You may specify between 0 and 300 seconds. The @startPeriod@
--- is disabled by default.
+-- 'startPeriod', 'healthCheck_startPeriod' - The optional grace period to provide containers time to bootstrap before
+-- failed health checks count towards the maximum number of retries. You
+-- can specify between 0 and 300 seconds. By default, the @startPeriod@ is
+-- disabled.
 --
 -- If a health check succeeds within the @startPeriod@, then the container
 -- is considered healthy and any subsequent failures count toward the
@@ -155,13 +162,13 @@ data HealthCheck = HealthCheck'
 -- command with the container\'s default shell.
 --
 -- When you use the Amazon Web Services Management Console JSON panel, the
--- Command Line Interface, or the APIs, you should enclose the list of
--- commands in brackets, as shown below.
+-- Command Line Interface, or the APIs, enclose the list of commands in
+-- brackets.
 --
 -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
 --
--- You do not need to include the brackets when you use the Amazon Web
--- Services Management Consoleas shown below.
+-- You don\'t need to include the brackets when you use the Amazon Web
+-- Services Management Console.
 --
 -- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
 --
@@ -187,10 +194,10 @@ newHealthCheck =
 healthCheck_timeout :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
 healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthCheck' {} a -> s {timeout = a} :: HealthCheck)
 
--- | The optional grace period within which to provide containers time to
--- bootstrap before failed health checks count towards the maximum number
--- of retries. You may specify between 0 and 300 seconds. The @startPeriod@
--- is disabled by default.
+-- | The optional grace period to provide containers time to bootstrap before
+-- failed health checks count towards the maximum number of retries. You
+-- can specify between 0 and 300 seconds. By default, the @startPeriod@ is
+-- disabled.
 --
 -- If a health check succeeds within the @startPeriod@, then the container
 -- is considered healthy and any subsequent failures count toward the
@@ -215,13 +222,13 @@ healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthC
 -- command with the container\'s default shell.
 --
 -- When you use the Amazon Web Services Management Console JSON panel, the
--- Command Line Interface, or the APIs, you should enclose the list of
--- commands in brackets, as shown below.
+-- Command Line Interface, or the APIs, enclose the list of commands in
+-- brackets.
 --
 -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
 --
--- You do not need to include the brackets when you use the Amazon Web
--- Services Management Consoleas shown below.
+-- You don\'t need to include the brackets when you use the Amazon Web
+-- Services Management Console.
 --
 -- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
 --

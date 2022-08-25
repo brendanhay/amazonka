@@ -27,11 +27,11 @@
 -- unique per resource.
 --
 -- For more information about tags, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tag your Amazon EC2 resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/. For more information
 -- about creating IAM policies that control users\' access to resources
 -- based on tags, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported Resource-Level Permissions for Amazon EC2 API Actions>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported resource-level permissions for Amazon EC2 API actions>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.CreateTags
   ( -- * Creating a Request

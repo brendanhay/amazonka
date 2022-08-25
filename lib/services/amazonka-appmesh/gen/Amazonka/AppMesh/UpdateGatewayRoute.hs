@@ -58,9 +58,9 @@ data UpdateGatewayRoute = UpdateGatewayRoute'
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the gateway route to update.
@@ -88,9 +88,9 @@ data UpdateGatewayRoute = UpdateGatewayRoute'
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
--- 'meshOwner', 'updateGatewayRoute_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'updateGatewayRoute_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'gatewayRouteName', 'updateGatewayRoute_gatewayRouteName' - The name of the gateway route to update.
@@ -132,9 +132,9 @@ newUpdateGatewayRoute
 updateGatewayRoute_clientToken :: Lens.Lens' UpdateGatewayRoute (Prelude.Maybe Prelude.Text)
 updateGatewayRoute_clientToken = Lens.lens (\UpdateGatewayRoute' {clientToken} -> clientToken) (\s@UpdateGatewayRoute' {} a -> s {clientToken = a} :: UpdateGatewayRoute)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 updateGatewayRoute_meshOwner :: Lens.Lens' UpdateGatewayRoute (Prelude.Maybe Prelude.Text)
 updateGatewayRoute_meshOwner = Lens.lens (\UpdateGatewayRoute' {meshOwner} -> meshOwner) (\s@UpdateGatewayRoute' {} a -> s {meshOwner = a} :: UpdateGatewayRoute)

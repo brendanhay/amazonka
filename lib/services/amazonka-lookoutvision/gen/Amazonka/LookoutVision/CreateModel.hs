@@ -75,21 +75,26 @@ data CreateModel = CreateModel'
   { -- | A set of tags (key-value pairs) that you want to attach to the model.
     tags :: Prelude.Maybe [Tag],
     -- | ClientToken is an idempotency token that ensures a call to @CreateModel@
-    -- completes only once. You choose the value to pass. For example, An
-    -- issue, such as an network outage, might prevent you from getting a
-    -- response from @CreateModel@. In this case, safely retry your call to
-    -- @CreateModel@ by using the same @ClientToken@ parameter value. An error
-    -- occurs if the other input parameters are not the same as in the first
-    -- request. Using a different value for @ClientToken@ is considered a new
-    -- call to @CreateModel@. An idempotency token is active for 8 hours.
+    -- completes only once. You choose the value to pass. For example, An issue
+    -- might prevent you from getting a response from @CreateModel@. In this
+    -- case, safely retry your call to @CreateModel@ by using the same
+    -- @ClientToken@ parameter value.
+    --
+    -- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+    -- using inserts a value for you. This prevents retries after a network
+    -- error from starting multiple training jobs. You\'ll need to provide your
+    -- own value for other use cases.
+    --
+    -- An error occurs if the other input parameters are not the same as in the
+    -- first request. Using a different value for @ClientToken@ is considered a
+    -- new call to @CreateModel@. An idempotency token is active for 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the version of the model.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for your AWS Key Management Service (AWS KMS) customer
-    -- master key (CMK). The key is used to encrypt training and test images
-    -- copied into the service for model training. Your source images are
-    -- unaffected. If this parameter is not specified, the copied images are
-    -- encrypted by a key that AWS owns and manages.
+    -- | The identifier for your AWS KMS key. The key is used to encrypt training
+    -- and test images copied into the service for model training. Your source
+    -- images are unaffected. If this parameter is not specified, the copied
+    -- images are encrypted by a key that AWS owns and manages.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the project in which you want to create a model version.
     projectName :: Prelude.Text,
@@ -109,21 +114,26 @@ data CreateModel = CreateModel'
 -- 'tags', 'createModel_tags' - A set of tags (key-value pairs) that you want to attach to the model.
 --
 -- 'clientToken', 'createModel_clientToken' - ClientToken is an idempotency token that ensures a call to @CreateModel@
--- completes only once. You choose the value to pass. For example, An
--- issue, such as an network outage, might prevent you from getting a
--- response from @CreateModel@. In this case, safely retry your call to
--- @CreateModel@ by using the same @ClientToken@ parameter value. An error
--- occurs if the other input parameters are not the same as in the first
--- request. Using a different value for @ClientToken@ is considered a new
--- call to @CreateModel@. An idempotency token is active for 8 hours.
+-- completes only once. You choose the value to pass. For example, An issue
+-- might prevent you from getting a response from @CreateModel@. In this
+-- case, safely retry your call to @CreateModel@ by using the same
+-- @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+-- using inserts a value for you. This prevents retries after a network
+-- error from starting multiple training jobs. You\'ll need to provide your
+-- own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @CreateModel@. An idempotency token is active for 8 hours.
 --
 -- 'description', 'createModel_description' - A description for the version of the model.
 --
--- 'kmsKeyId', 'createModel_kmsKeyId' - The identifier for your AWS Key Management Service (AWS KMS) customer
--- master key (CMK). The key is used to encrypt training and test images
--- copied into the service for model training. Your source images are
--- unaffected. If this parameter is not specified, the copied images are
--- encrypted by a key that AWS owns and manages.
+-- 'kmsKeyId', 'createModel_kmsKeyId' - The identifier for your AWS KMS key. The key is used to encrypt training
+-- and test images copied into the service for model training. Your source
+-- images are unaffected. If this parameter is not specified, the copied
+-- images are encrypted by a key that AWS owns and manages.
 --
 -- 'projectName', 'createModel_projectName' - The name of the project in which you want to create a model version.
 --
@@ -149,13 +159,19 @@ createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
 createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | ClientToken is an idempotency token that ensures a call to @CreateModel@
--- completes only once. You choose the value to pass. For example, An
--- issue, such as an network outage, might prevent you from getting a
--- response from @CreateModel@. In this case, safely retry your call to
--- @CreateModel@ by using the same @ClientToken@ parameter value. An error
--- occurs if the other input parameters are not the same as in the first
--- request. Using a different value for @ClientToken@ is considered a new
--- call to @CreateModel@. An idempotency token is active for 8 hours.
+-- completes only once. You choose the value to pass. For example, An issue
+-- might prevent you from getting a response from @CreateModel@. In this
+-- case, safely retry your call to @CreateModel@ by using the same
+-- @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+-- using inserts a value for you. This prevents retries after a network
+-- error from starting multiple training jobs. You\'ll need to provide your
+-- own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @CreateModel@. An idempotency token is active for 8 hours.
 createModel_clientToken :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_clientToken = Lens.lens (\CreateModel' {clientToken} -> clientToken) (\s@CreateModel' {} a -> s {clientToken = a} :: CreateModel)
 
@@ -163,11 +179,10 @@ createModel_clientToken = Lens.lens (\CreateModel' {clientToken} -> clientToken)
 createModel_description :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_description = Lens.lens (\CreateModel' {description} -> description) (\s@CreateModel' {} a -> s {description = a} :: CreateModel)
 
--- | The identifier for your AWS Key Management Service (AWS KMS) customer
--- master key (CMK). The key is used to encrypt training and test images
--- copied into the service for model training. Your source images are
--- unaffected. If this parameter is not specified, the copied images are
--- encrypted by a key that AWS owns and manages.
+-- | The identifier for your AWS KMS key. The key is used to encrypt training
+-- and test images copied into the service for model training. Your source
+-- images are unaffected. If this parameter is not specified, the copied
+-- images are encrypted by a key that AWS owns and manages.
 createModel_kmsKeyId :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_kmsKeyId = Lens.lens (\CreateModel' {kmsKeyId} -> kmsKeyId) (\s@CreateModel' {} a -> s {kmsKeyId = a} :: CreateModel)
 

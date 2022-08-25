@@ -23,14 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The Identity and Access Management configuration.
+-- | The Identity and Access Management (IAM) configuration.
 --
 -- /See:/ 'newAwsIamConfig' smart constructor.
 data AwsIamConfig = AwsIamConfig'
-  { -- | The signing service name for Identity and Access Management
-    -- authorization.
+  { -- | The signing service name for IAM authorization.
     signingServiceName :: Prelude.Maybe Prelude.Text,
-    -- | The signing region for Identity and Access Management authorization.
+    -- | The signing Amazon Web Services Region for IAM authorization.
     signingRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,10 +42,9 @@ data AwsIamConfig = AwsIamConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signingServiceName', 'awsIamConfig_signingServiceName' - The signing service name for Identity and Access Management
--- authorization.
+-- 'signingServiceName', 'awsIamConfig_signingServiceName' - The signing service name for IAM authorization.
 --
--- 'signingRegion', 'awsIamConfig_signingRegion' - The signing region for Identity and Access Management authorization.
+-- 'signingRegion', 'awsIamConfig_signingRegion' - The signing Amazon Web Services Region for IAM authorization.
 newAwsIamConfig ::
   AwsIamConfig
 newAwsIamConfig =
@@ -55,12 +53,11 @@ newAwsIamConfig =
       signingRegion = Prelude.Nothing
     }
 
--- | The signing service name for Identity and Access Management
--- authorization.
+-- | The signing service name for IAM authorization.
 awsIamConfig_signingServiceName :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
 awsIamConfig_signingServiceName = Lens.lens (\AwsIamConfig' {signingServiceName} -> signingServiceName) (\s@AwsIamConfig' {} a -> s {signingServiceName = a} :: AwsIamConfig)
 
--- | The signing region for Identity and Access Management authorization.
+-- | The signing Amazon Web Services Region for IAM authorization.
 awsIamConfig_signingRegion :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
 awsIamConfig_signingRegion = Lens.lens (\AwsIamConfig' {signingRegion} -> signingRegion) (\s@AwsIamConfig' {} a -> s {signingRegion = a} :: AwsIamConfig)
 

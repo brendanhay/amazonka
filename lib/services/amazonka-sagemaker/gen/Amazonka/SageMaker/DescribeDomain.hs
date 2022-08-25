@@ -40,13 +40,16 @@ module Amazonka.SageMaker.DescribeDomain
     describeDomainResponse_url,
     describeDomainResponse_status,
     describeDomainResponse_lastModifiedTime,
+    describeDomainResponse_domainSettings,
     describeDomainResponse_authMode,
+    describeDomainResponse_securityGroupIdForDomainBoundary,
     describeDomainResponse_kmsKeyId,
     describeDomainResponse_creationTime,
     describeDomainResponse_domainId,
     describeDomainResponse_defaultUserSettings,
     describeDomainResponse_vpcId,
     describeDomainResponse_homeEfsFileSystemKmsKeyId,
+    describeDomainResponse_appSecurityGroupManagement,
     describeDomainResponse_subnetIds,
     describeDomainResponse_failureReason,
     describeDomainResponse_appNetworkAccessType,
@@ -106,13 +109,16 @@ instance Core.AWSRequest DescribeDomain where
             Prelude.<*> (x Core..?> "Url")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "DomainSettings")
             Prelude.<*> (x Core..?> "AuthMode")
+            Prelude.<*> (x Core..?> "SecurityGroupIdForDomainBoundary")
             Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "DomainId")
             Prelude.<*> (x Core..?> "DefaultUserSettings")
             Prelude.<*> (x Core..?> "VpcId")
             Prelude.<*> (x Core..?> "HomeEfsFileSystemKmsKeyId")
+            Prelude.<*> (x Core..?> "AppSecurityGroupManagement")
             Prelude.<*> (x Core..?> "SubnetIds")
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "AppNetworkAccessType")
@@ -167,8 +173,13 @@ data DescribeDomainResponse = DescribeDomainResponse'
     status :: Prelude.Maybe DomainStatus,
     -- | The last modified time.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | A collection of @Domain@ settings.
+    domainSettings :: Prelude.Maybe DomainSettings,
     -- | The domain\'s authentication mode.
     authMode :: Prelude.Maybe AuthMode,
+    -- | The ID of the security group that authorizes traffic between the
+    -- @RSessionGateway@ apps and the @RStudioServerPro@ app.
+    securityGroupIdForDomainBoundary :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS customer managed key used to encrypt the EFS
     -- volume attached to the domain.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -182,8 +193,14 @@ data DescribeDomainResponse = DescribeDomainResponse'
     -- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for
     -- communication.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | This member is deprecated and replaced with @KmsKeyId@.
+    -- | Use @KmsKeyId@.
     homeEfsFileSystemKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The entity that creates and manages the required security groups for
+    -- inter-app communication in @VPCOnly@ mode. Required when
+    -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+    -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+    -- is provided.
+    appSecurityGroupManagement :: Prelude.Maybe AppSecurityGroupManagement,
     -- | The VPC subnets that Studio uses for communication.
     subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The failure reason.
@@ -224,7 +241,12 @@ data DescribeDomainResponse = DescribeDomainResponse'
 --
 -- 'lastModifiedTime', 'describeDomainResponse_lastModifiedTime' - The last modified time.
 --
+-- 'domainSettings', 'describeDomainResponse_domainSettings' - A collection of @Domain@ settings.
+--
 -- 'authMode', 'describeDomainResponse_authMode' - The domain\'s authentication mode.
+--
+-- 'securityGroupIdForDomainBoundary', 'describeDomainResponse_securityGroupIdForDomainBoundary' - The ID of the security group that authorizes traffic between the
+-- @RSessionGateway@ apps and the @RStudioServerPro@ app.
 --
 -- 'kmsKeyId', 'describeDomainResponse_kmsKeyId' - The Amazon Web Services KMS customer managed key used to encrypt the EFS
 -- volume attached to the domain.
@@ -239,7 +261,13 @@ data DescribeDomainResponse = DescribeDomainResponse'
 -- 'vpcId', 'describeDomainResponse_vpcId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for
 -- communication.
 --
--- 'homeEfsFileSystemKmsKeyId', 'describeDomainResponse_homeEfsFileSystemKmsKeyId' - This member is deprecated and replaced with @KmsKeyId@.
+-- 'homeEfsFileSystemKmsKeyId', 'describeDomainResponse_homeEfsFileSystemKmsKeyId' - Use @KmsKeyId@.
+--
+-- 'appSecurityGroupManagement', 'describeDomainResponse_appSecurityGroupManagement' - The entity that creates and manages the required security groups for
+-- inter-app communication in @VPCOnly@ mode. Required when
+-- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+-- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+-- is provided.
 --
 -- 'subnetIds', 'describeDomainResponse_subnetIds' - The VPC subnets that Studio uses for communication.
 --
@@ -270,13 +298,16 @@ newDescribeDomainResponse pHttpStatus_ =
       url = Prelude.Nothing,
       status = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      domainSettings = Prelude.Nothing,
       authMode = Prelude.Nothing,
+      securityGroupIdForDomainBoundary = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       domainId = Prelude.Nothing,
       defaultUserSettings = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       homeEfsFileSystemKmsKeyId = Prelude.Nothing,
+      appSecurityGroupManagement = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       appNetworkAccessType = Prelude.Nothing,
@@ -308,9 +339,18 @@ describeDomainResponse_status = Lens.lens (\DescribeDomainResponse' {status} -> 
 describeDomainResponse_lastModifiedTime :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.UTCTime)
 describeDomainResponse_lastModifiedTime = Lens.lens (\DescribeDomainResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDomainResponse' {} a -> s {lastModifiedTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Core._Time
 
+-- | A collection of @Domain@ settings.
+describeDomainResponse_domainSettings :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe DomainSettings)
+describeDomainResponse_domainSettings = Lens.lens (\DescribeDomainResponse' {domainSettings} -> domainSettings) (\s@DescribeDomainResponse' {} a -> s {domainSettings = a} :: DescribeDomainResponse)
+
 -- | The domain\'s authentication mode.
 describeDomainResponse_authMode :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe AuthMode)
 describeDomainResponse_authMode = Lens.lens (\DescribeDomainResponse' {authMode} -> authMode) (\s@DescribeDomainResponse' {} a -> s {authMode = a} :: DescribeDomainResponse)
+
+-- | The ID of the security group that authorizes traffic between the
+-- @RSessionGateway@ apps and the @RStudioServerPro@ app.
+describeDomainResponse_securityGroupIdForDomainBoundary :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
+describeDomainResponse_securityGroupIdForDomainBoundary = Lens.lens (\DescribeDomainResponse' {securityGroupIdForDomainBoundary} -> securityGroupIdForDomainBoundary) (\s@DescribeDomainResponse' {} a -> s {securityGroupIdForDomainBoundary = a} :: DescribeDomainResponse)
 
 -- | The Amazon Web Services KMS customer managed key used to encrypt the EFS
 -- volume attached to the domain.
@@ -335,9 +375,17 @@ describeDomainResponse_defaultUserSettings = Lens.lens (\DescribeDomainResponse'
 describeDomainResponse_vpcId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_vpcId = Lens.lens (\DescribeDomainResponse' {vpcId} -> vpcId) (\s@DescribeDomainResponse' {} a -> s {vpcId = a} :: DescribeDomainResponse)
 
--- | This member is deprecated and replaced with @KmsKeyId@.
+-- | Use @KmsKeyId@.
 describeDomainResponse_homeEfsFileSystemKmsKeyId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_homeEfsFileSystemKmsKeyId = Lens.lens (\DescribeDomainResponse' {homeEfsFileSystemKmsKeyId} -> homeEfsFileSystemKmsKeyId) (\s@DescribeDomainResponse' {} a -> s {homeEfsFileSystemKmsKeyId = a} :: DescribeDomainResponse)
+
+-- | The entity that creates and manages the required security groups for
+-- inter-app communication in @VPCOnly@ mode. Required when
+-- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+-- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+-- is provided.
+describeDomainResponse_appSecurityGroupManagement :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe AppSecurityGroupManagement)
+describeDomainResponse_appSecurityGroupManagement = Lens.lens (\DescribeDomainResponse' {appSecurityGroupManagement} -> appSecurityGroupManagement) (\s@DescribeDomainResponse' {} a -> s {appSecurityGroupManagement = a} :: DescribeDomainResponse)
 
 -- | The VPC subnets that Studio uses for communication.
 describeDomainResponse_subnetIds :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -375,15 +423,19 @@ instance Prelude.NFData DescribeDomainResponse where
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf domainSettings
       `Prelude.seq` Prelude.rnf authMode
+      `Prelude.seq` Prelude.rnf securityGroupIdForDomainBoundary
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf defaultUserSettings
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf homeEfsFileSystemKmsKeyId
+      `Prelude.seq` Prelude.rnf appSecurityGroupManagement
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf appNetworkAccessType
-      `Prelude.seq` Prelude.rnf homeEfsFileSystemId
+      `Prelude.seq` Prelude.rnf
+        homeEfsFileSystemId
       `Prelude.seq` Prelude.rnf httpStatus

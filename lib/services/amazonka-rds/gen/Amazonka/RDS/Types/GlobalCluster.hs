@@ -49,8 +49,8 @@ data GlobalCluster = GlobalCluster'
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Web Services Region-unique, immutable identifier for the
     -- global database cluster. This identifier is found in Amazon Web Services
-    -- CloudTrail log entries whenever the Amazon Web Services KMS customer
-    -- master key (CMK) for the DB cluster is accessed.
+    -- CloudTrail log entries whenever the Amazon Web Services KMS key for the
+    -- DB cluster is accessed.
     globalClusterResourceId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the database engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
@@ -90,8 +90,8 @@ data GlobalCluster = GlobalCluster'
 --
 -- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
 -- global database cluster. This identifier is found in Amazon Web Services
--- CloudTrail log entries whenever the Amazon Web Services KMS customer
--- master key (CMK) for the DB cluster is accessed.
+-- CloudTrail log entries whenever the Amazon Web Services KMS key for the
+-- DB cluster is accessed.
 --
 -- 'engineVersion', 'globalCluster_engineVersion' - Indicates the database engine version.
 --
@@ -153,8 +153,8 @@ globalCluster_deletionProtection = Lens.lens (\GlobalCluster' {deletionProtectio
 
 -- | The Amazon Web Services Region-unique, immutable identifier for the
 -- global database cluster. This identifier is found in Amazon Web Services
--- CloudTrail log entries whenever the Amazon Web Services KMS customer
--- master key (CMK) for the DB cluster is accessed.
+-- CloudTrail log entries whenever the Amazon Web Services KMS key for the
+-- DB cluster is accessed.
 globalCluster_globalClusterResourceId :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterResourceId = Lens.lens (\GlobalCluster' {globalClusterResourceId} -> globalClusterResourceId) (\s@GlobalCluster' {} a -> s {globalClusterResourceId = a} :: GlobalCluster)
 

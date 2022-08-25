@@ -18,6 +18,7 @@ module Amazonka.Proton.Waiters where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Proton.GetComponent
 import Amazonka.Proton.GetEnvironment
 import Amazonka.Proton.GetEnvironmentTemplateVersion
 import Amazonka.Proton.GetService
@@ -249,6 +250,31 @@ newServiceInstanceDeployed =
         ]
     }
 
+-- | Polls 'Amazonka.Proton.GetComponent' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newComponentDeployed :: Core.Wait GetComponent
+newComponentDeployed =
+  Core.Wait
+    { Core._waitName = "ComponentDeployed",
+      Core._waitAttempts = 999,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "SUCCEEDED"
+            Core.AcceptSuccess
+            ( getComponentResponse_component Prelude.. Lens._Just
+                Prelude.. component_deploymentStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( getComponentResponse_component Prelude.. Lens._Just
+                Prelude.. component_deploymentStatus
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.Proton.GetService' every 10 seconds until a successful state is reached. An error is returned after 360 failed checks.
 newServicePipelineDeployed :: Core.Wait GetService
 newServicePipelineDeployed =
@@ -274,6 +300,27 @@ newServicePipelineDeployed =
                 Prelude.. service_pipeline
                 Prelude.. Lens._Just
                 Prelude.. servicePipeline_deploymentStatus
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Proton.GetComponent' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newComponentDeleted :: Core.Wait GetComponent
+newComponentDeleted =
+  Core.Wait
+    { Core._waitName = "ComponentDeleted",
+      Core._waitAttempts = 999,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( getComponentResponse_component Prelude.. Lens._Just
+                Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Core.toTextCI
             )
         ]

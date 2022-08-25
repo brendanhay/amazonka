@@ -150,15 +150,7 @@ instance Prelude.NFData StartHumanLoop where
       `Prelude.seq` Prelude.rnf humanLoopInput
 
 instance Core.ToHeaders StartHumanLoop where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON StartHumanLoop where
   toJSON StartHumanLoop' {..} =

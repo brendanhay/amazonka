@@ -19,6 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.CloudFormation.Types.StackEvent where
 
+import Amazonka.CloudFormation.Types.HookFailureMode
+import Amazonka.CloudFormation.Types.HookInvocationPoint
+import Amazonka.CloudFormation.Types.HookStatus
 import Amazonka.CloudFormation.Types.ResourceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -32,6 +35,9 @@ data StackEvent = StackEvent'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
     -- in the CloudFormation User Guide.)
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | Invocation points are points in provisioning logic where hooks are
+    -- initiated.
+    hookInvocationPoint :: Prelude.Maybe HookInvocationPoint,
     -- | The token passed to the operation that generated this event.
     --
     -- All events triggered by a given stack operation are assigned the same
@@ -50,8 +56,21 @@ data StackEvent = StackEvent'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Success\/failure message associated with the resource.
     resourceStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | Specify the hook failure mode for non-compliant resources in the
+    -- followings ways.
+    --
+    -- -   @FAIL@ Stops provisioning resources.
+    --
+    -- -   @WARN@ Allows provisioning to continue with a warning message.
+    hookFailureMode :: Prelude.Maybe HookFailureMode,
+    -- | Provides the status of the change set hook.
+    hookStatus :: Prelude.Maybe HookStatus,
+    -- | Provides the reason for the hook status.
+    hookStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The logical name of the resource specified in the template.
     logicalResourceId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the hook.
+    hookType :: Prelude.Maybe Prelude.Text,
     -- | BLOB of the properties used to create the resource.
     resourceProperties :: Prelude.Maybe Prelude.Text,
     -- | The name or unique identifier associated with the physical instance of
@@ -82,6 +101,9 @@ data StackEvent = StackEvent'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
 -- in the CloudFormation User Guide.)
 --
+-- 'hookInvocationPoint', 'stackEvent_hookInvocationPoint' - Invocation points are points in provisioning logic where hooks are
+-- initiated.
+--
 -- 'clientRequestToken', 'stackEvent_clientRequestToken' - The token passed to the operation that generated this event.
 --
 -- All events triggered by a given stack operation are assigned the same
@@ -100,7 +122,20 @@ data StackEvent = StackEvent'
 --
 -- 'resourceStatusReason', 'stackEvent_resourceStatusReason' - Success\/failure message associated with the resource.
 --
+-- 'hookFailureMode', 'stackEvent_hookFailureMode' - Specify the hook failure mode for non-compliant resources in the
+-- followings ways.
+--
+-- -   @FAIL@ Stops provisioning resources.
+--
+-- -   @WARN@ Allows provisioning to continue with a warning message.
+--
+-- 'hookStatus', 'stackEvent_hookStatus' - Provides the status of the change set hook.
+--
+-- 'hookStatusReason', 'stackEvent_hookStatusReason' - Provides the reason for the hook status.
+--
 -- 'logicalResourceId', 'stackEvent_logicalResourceId' - The logical name of the resource specified in the template.
+--
+-- 'hookType', 'stackEvent_hookType' - The name of the hook.
 --
 -- 'resourceProperties', 'stackEvent_resourceProperties' - BLOB of the properties used to create the resource.
 --
@@ -133,9 +168,14 @@ newStackEvent
   pTimestamp_ =
     StackEvent'
       { resourceType = Prelude.Nothing,
+        hookInvocationPoint = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         resourceStatusReason = Prelude.Nothing,
+        hookFailureMode = Prelude.Nothing,
+        hookStatus = Prelude.Nothing,
+        hookStatusReason = Prelude.Nothing,
         logicalResourceId = Prelude.Nothing,
+        hookType = Prelude.Nothing,
         resourceProperties = Prelude.Nothing,
         physicalResourceId = Prelude.Nothing,
         resourceStatus = Prelude.Nothing,
@@ -150,6 +190,11 @@ newStackEvent
 -- in the CloudFormation User Guide.)
 stackEvent_resourceType :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
 stackEvent_resourceType = Lens.lens (\StackEvent' {resourceType} -> resourceType) (\s@StackEvent' {} a -> s {resourceType = a} :: StackEvent)
+
+-- | Invocation points are points in provisioning logic where hooks are
+-- initiated.
+stackEvent_hookInvocationPoint :: Lens.Lens' StackEvent (Prelude.Maybe HookInvocationPoint)
+stackEvent_hookInvocationPoint = Lens.lens (\StackEvent' {hookInvocationPoint} -> hookInvocationPoint) (\s@StackEvent' {} a -> s {hookInvocationPoint = a} :: StackEvent)
 
 -- | The token passed to the operation that generated this event.
 --
@@ -173,9 +218,30 @@ stackEvent_clientRequestToken = Lens.lens (\StackEvent' {clientRequestToken} -> 
 stackEvent_resourceStatusReason :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
 stackEvent_resourceStatusReason = Lens.lens (\StackEvent' {resourceStatusReason} -> resourceStatusReason) (\s@StackEvent' {} a -> s {resourceStatusReason = a} :: StackEvent)
 
+-- | Specify the hook failure mode for non-compliant resources in the
+-- followings ways.
+--
+-- -   @FAIL@ Stops provisioning resources.
+--
+-- -   @WARN@ Allows provisioning to continue with a warning message.
+stackEvent_hookFailureMode :: Lens.Lens' StackEvent (Prelude.Maybe HookFailureMode)
+stackEvent_hookFailureMode = Lens.lens (\StackEvent' {hookFailureMode} -> hookFailureMode) (\s@StackEvent' {} a -> s {hookFailureMode = a} :: StackEvent)
+
+-- | Provides the status of the change set hook.
+stackEvent_hookStatus :: Lens.Lens' StackEvent (Prelude.Maybe HookStatus)
+stackEvent_hookStatus = Lens.lens (\StackEvent' {hookStatus} -> hookStatus) (\s@StackEvent' {} a -> s {hookStatus = a} :: StackEvent)
+
+-- | Provides the reason for the hook status.
+stackEvent_hookStatusReason :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_hookStatusReason = Lens.lens (\StackEvent' {hookStatusReason} -> hookStatusReason) (\s@StackEvent' {} a -> s {hookStatusReason = a} :: StackEvent)
+
 -- | The logical name of the resource specified in the template.
 stackEvent_logicalResourceId :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
 stackEvent_logicalResourceId = Lens.lens (\StackEvent' {logicalResourceId} -> logicalResourceId) (\s@StackEvent' {} a -> s {logicalResourceId = a} :: StackEvent)
+
+-- | The name of the hook.
+stackEvent_hookType :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_hookType = Lens.lens (\StackEvent' {hookType} -> hookType) (\s@StackEvent' {} a -> s {hookType = a} :: StackEvent)
 
 -- | BLOB of the properties used to create the resource.
 stackEvent_resourceProperties :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
@@ -210,9 +276,14 @@ instance Core.FromXML StackEvent where
   parseXML x =
     StackEvent'
       Prelude.<$> (x Core..@? "ResourceType")
+      Prelude.<*> (x Core..@? "HookInvocationPoint")
       Prelude.<*> (x Core..@? "ClientRequestToken")
       Prelude.<*> (x Core..@? "ResourceStatusReason")
+      Prelude.<*> (x Core..@? "HookFailureMode")
+      Prelude.<*> (x Core..@? "HookStatus")
+      Prelude.<*> (x Core..@? "HookStatusReason")
       Prelude.<*> (x Core..@? "LogicalResourceId")
+      Prelude.<*> (x Core..@? "HookType")
       Prelude.<*> (x Core..@? "ResourceProperties")
       Prelude.<*> (x Core..@? "PhysicalResourceId")
       Prelude.<*> (x Core..@? "ResourceStatus")
@@ -224,9 +295,14 @@ instance Core.FromXML StackEvent where
 instance Prelude.Hashable StackEvent where
   hashWithSalt _salt StackEvent' {..} =
     _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` hookInvocationPoint
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` resourceStatusReason
+      `Prelude.hashWithSalt` hookFailureMode
+      `Prelude.hashWithSalt` hookStatus
+      `Prelude.hashWithSalt` hookStatusReason
       `Prelude.hashWithSalt` logicalResourceId
+      `Prelude.hashWithSalt` hookType
       `Prelude.hashWithSalt` resourceProperties
       `Prelude.hashWithSalt` physicalResourceId
       `Prelude.hashWithSalt` resourceStatus
@@ -238,9 +314,14 @@ instance Prelude.Hashable StackEvent where
 instance Prelude.NFData StackEvent where
   rnf StackEvent' {..} =
     Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf hookInvocationPoint
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf resourceStatusReason
+      `Prelude.seq` Prelude.rnf hookFailureMode
+      `Prelude.seq` Prelude.rnf hookStatus
+      `Prelude.seq` Prelude.rnf hookStatusReason
       `Prelude.seq` Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf hookType
       `Prelude.seq` Prelude.rnf resourceProperties
       `Prelude.seq` Prelude.rnf physicalResourceId
       `Prelude.seq` Prelude.rnf resourceStatus

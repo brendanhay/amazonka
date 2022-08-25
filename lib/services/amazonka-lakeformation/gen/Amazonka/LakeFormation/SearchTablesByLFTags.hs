@@ -22,9 +22,11 @@
 --
 -- This operation allows a search on @TABLE@ resources by @LFTag@s. This
 -- will be used by admins who want to grant user permissions on certain
--- LFTags. Before making a grant, the admin can use @SearchTablesByLFTags@
+-- LF-tags. Before making a grant, the admin can use @SearchTablesByLFTags@
 -- to find all resources where the given @LFTag@s are valid to verify
 -- whether the returned resources can be shared.
+--
+-- This operation returns paginated results.
 module Amazonka.LakeFormation.SearchTablesByLFTags
   ( -- * Creating a Request
     SearchTablesByLFTags (..),
@@ -64,7 +66,7 @@ data SearchTablesByLFTags = SearchTablesByLFTags'
     -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of conditions (@LFTag@ structures) to search for in table
     -- resources.
@@ -88,7 +90,7 @@ data SearchTablesByLFTags = SearchTablesByLFTags'
 -- 'catalogId', 'searchTablesByLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'expression', 'searchTablesByLFTags_expression' - A list of conditions (@LFTag@ structures) to search for in table
 -- resources.
@@ -116,7 +118,7 @@ searchTablesByLFTags_maxResults = Lens.lens (\SearchTablesByLFTags' {maxResults}
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 searchTablesByLFTags_catalogId :: Lens.Lens' SearchTablesByLFTags (Prelude.Maybe Prelude.Text)
 searchTablesByLFTags_catalogId = Lens.lens (\SearchTablesByLFTags' {catalogId} -> catalogId) (\s@SearchTablesByLFTags' {} a -> s {catalogId = a} :: SearchTablesByLFTags)
 
@@ -124,6 +126,28 @@ searchTablesByLFTags_catalogId = Lens.lens (\SearchTablesByLFTags' {catalogId} -
 -- resources.
 searchTablesByLFTags_expression :: Lens.Lens' SearchTablesByLFTags (Prelude.NonEmpty LFTag)
 searchTablesByLFTags_expression = Lens.lens (\SearchTablesByLFTags' {expression} -> expression) (\s@SearchTablesByLFTags' {} a -> s {expression = a} :: SearchTablesByLFTags) Prelude.. Lens.coerced
+
+instance Core.AWSPager SearchTablesByLFTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? searchTablesByLFTagsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? searchTablesByLFTagsResponse_tableList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& searchTablesByLFTags_nextToken
+          Lens..~ rs
+          Lens.^? searchTablesByLFTagsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchTablesByLFTags where
   type
@@ -157,11 +181,7 @@ instance Core.ToHeaders SearchTablesByLFTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.SearchTablesByLFTags" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -180,7 +200,7 @@ instance Core.ToJSON SearchTablesByLFTags where
       )
 
 instance Core.ToPath SearchTablesByLFTags where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/SearchTablesByLFTags"
 
 instance Core.ToQuery SearchTablesByLFTags where
   toQuery = Prelude.const Prelude.mempty
@@ -190,7 +210,7 @@ data SearchTablesByLFTagsResponse = SearchTablesByLFTagsResponse'
   { -- | A continuation token, present if the current list segment is not the
     -- last.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of tables that meet the tag conditions.
+    -- | A list of tables that meet the LF-tag conditions.
     tableList :: Prelude.Maybe [TaggedTable],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -208,7 +228,7 @@ data SearchTablesByLFTagsResponse = SearchTablesByLFTagsResponse'
 -- 'nextToken', 'searchTablesByLFTagsResponse_nextToken' - A continuation token, present if the current list segment is not the
 -- last.
 --
--- 'tableList', 'searchTablesByLFTagsResponse_tableList' - A list of tables that meet the tag conditions.
+-- 'tableList', 'searchTablesByLFTagsResponse_tableList' - A list of tables that meet the LF-tag conditions.
 --
 -- 'httpStatus', 'searchTablesByLFTagsResponse_httpStatus' - The response's http status code.
 newSearchTablesByLFTagsResponse ::
@@ -228,7 +248,7 @@ newSearchTablesByLFTagsResponse pHttpStatus_ =
 searchTablesByLFTagsResponse_nextToken :: Lens.Lens' SearchTablesByLFTagsResponse (Prelude.Maybe Prelude.Text)
 searchTablesByLFTagsResponse_nextToken = Lens.lens (\SearchTablesByLFTagsResponse' {nextToken} -> nextToken) (\s@SearchTablesByLFTagsResponse' {} a -> s {nextToken = a} :: SearchTablesByLFTagsResponse)
 
--- | A list of tables that meet the tag conditions.
+-- | A list of tables that meet the LF-tag conditions.
 searchTablesByLFTagsResponse_tableList :: Lens.Lens' SearchTablesByLFTagsResponse (Prelude.Maybe [TaggedTable])
 searchTablesByLFTagsResponse_tableList = Lens.lens (\SearchTablesByLFTagsResponse' {tableList} -> tableList) (\s@SearchTablesByLFTagsResponse' {} a -> s {tableList = a} :: SearchTablesByLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 

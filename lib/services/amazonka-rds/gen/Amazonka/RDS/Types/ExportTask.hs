@@ -68,12 +68,11 @@ data ExportTask = ExportTask'
     -- | The name of the IAM role that is used to write to Amazon S3 when
     -- exporting a snapshot.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The key identifier of the Amazon Web Services KMS customer master key
-    -- (CMK) that is used to encrypt the snapshot when it\'s exported to Amazon
-    -- S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID,
-    -- alias ARN, or alias name. The IAM role used for the snapshot export must
-    -- have encryption and decryption permissions to use this Amazon Web
-    -- Services KMS CMK.
+    -- | The key identifier of the Amazon Web Services KMS key that is used to
+    -- encrypt the snapshot when it\'s exported to Amazon S3. The KMS key
+    -- identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
+    -- role used for the snapshot export must have encryption and decryption
+    -- permissions to use this KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The reason the export failed, if it failed.
     failureCause :: Prelude.Maybe Prelude.Text,
@@ -131,12 +130,11 @@ data ExportTask = ExportTask'
 -- 'iamRoleArn', 'exportTask_iamRoleArn' - The name of the IAM role that is used to write to Amazon S3 when
 -- exporting a snapshot.
 --
--- 'kmsKeyId', 'exportTask_kmsKeyId' - The key identifier of the Amazon Web Services KMS customer master key
--- (CMK) that is used to encrypt the snapshot when it\'s exported to Amazon
--- S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID,
--- alias ARN, or alias name. The IAM role used for the snapshot export must
--- have encryption and decryption permissions to use this Amazon Web
--- Services KMS CMK.
+-- 'kmsKeyId', 'exportTask_kmsKeyId' - The key identifier of the Amazon Web Services KMS key that is used to
+-- encrypt the snapshot when it\'s exported to Amazon S3. The KMS key
+-- identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
+-- role used for the snapshot export must have encryption and decryption
+-- permissions to use this KMS key.
 --
 -- 'failureCause', 'exportTask_failureCause' - The reason the export failed, if it failed.
 --
@@ -225,12 +223,11 @@ exportTask_exportTaskIdentifier = Lens.lens (\ExportTask' {exportTaskIdentifier}
 exportTask_iamRoleArn :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_iamRoleArn = Lens.lens (\ExportTask' {iamRoleArn} -> iamRoleArn) (\s@ExportTask' {} a -> s {iamRoleArn = a} :: ExportTask)
 
--- | The key identifier of the Amazon Web Services KMS customer master key
--- (CMK) that is used to encrypt the snapshot when it\'s exported to Amazon
--- S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID,
--- alias ARN, or alias name. The IAM role used for the snapshot export must
--- have encryption and decryption permissions to use this Amazon Web
--- Services KMS CMK.
+-- | The key identifier of the Amazon Web Services KMS key that is used to
+-- encrypt the snapshot when it\'s exported to Amazon S3. The KMS key
+-- identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
+-- role used for the snapshot export must have encryption and decryption
+-- permissions to use this KMS key.
 exportTask_kmsKeyId :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_kmsKeyId = Lens.lens (\ExportTask' {kmsKeyId} -> kmsKeyId) (\s@ExportTask' {} a -> s {kmsKeyId = a} :: ExportTask)
 

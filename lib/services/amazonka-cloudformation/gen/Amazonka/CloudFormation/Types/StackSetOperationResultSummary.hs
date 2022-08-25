@@ -39,7 +39,7 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
     -- the given Region.
     --
     -- -   @CANCELLED@: The operation in the specified account and Region has
-    --     been cancelled. This is either because a user has stopped the stack
+    --     been canceled. This is either because a user has stopped the stack
     --     set operation, or because the failure tolerance of the stack set
     --     operation has been exceeded.
     --
@@ -65,7 +65,7 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
     organizationalUnitId :: Prelude.Maybe Prelude.Text,
     -- | The results of the account gate function CloudFormation invokes, if
-    -- present, before proceeding with stack set operations in an account
+    -- present, before proceeding with stack set operations in an account.
     accountGateResult :: Prelude.Maybe AccountGateResult
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
 -- the given Region.
 --
 -- -   @CANCELLED@: The operation in the specified account and Region has
---     been cancelled. This is either because a user has stopped the stack
+--     been canceled. This is either because a user has stopped the stack
 --     set operation, or because the failure tolerance of the stack set
 --     operation has been exceeded.
 --
@@ -113,7 +113,7 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
 --
 -- 'accountGateResult', 'stackSetOperationResultSummary_accountGateResult' - The results of the account gate function CloudFormation invokes, if
--- present, before proceeding with stack set operations in an account
+-- present, before proceeding with stack set operations in an account.
 newStackSetOperationResultSummary ::
   StackSetOperationResultSummary
 newStackSetOperationResultSummary =
@@ -140,7 +140,7 @@ stackSetOperationResultSummary_statusReason = Lens.lens (\StackSetOperationResul
 -- the given Region.
 --
 -- -   @CANCELLED@: The operation in the specified account and Region has
---     been cancelled. This is either because a user has stopped the stack
+--     been canceled. This is either because a user has stopped the stack
 --     set operation, or because the failure tolerance of the stack set
 --     operation has been exceeded.
 --
@@ -172,7 +172,7 @@ stackSetOperationResultSummary_organizationalUnitId :: Lens.Lens' StackSetOperat
 stackSetOperationResultSummary_organizationalUnitId = Lens.lens (\StackSetOperationResultSummary' {organizationalUnitId} -> organizationalUnitId) (\s@StackSetOperationResultSummary' {} a -> s {organizationalUnitId = a} :: StackSetOperationResultSummary)
 
 -- | The results of the account gate function CloudFormation invokes, if
--- present, before proceeding with stack set operations in an account
+-- present, before proceeding with stack set operations in an account.
 stackSetOperationResultSummary_accountGateResult :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe AccountGateResult)
 stackSetOperationResultSummary_accountGateResult = Lens.lens (\StackSetOperationResultSummary' {accountGateResult} -> accountGateResult) (\s@StackSetOperationResultSummary' {} a -> s {accountGateResult = a} :: StackSetOperationResultSummary)
 

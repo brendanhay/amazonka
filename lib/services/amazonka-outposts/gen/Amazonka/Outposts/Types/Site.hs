@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.Site where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Outposts.Types.RackPhysicalProperties
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a site.
@@ -33,7 +34,19 @@ data Site = Site'
     siteArn :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
     siteId :: Prelude.Maybe Prelude.Text,
-    accountId :: Prelude.Maybe Prelude.Text
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | City where the hardware is installed and powered on.
+    operatingAddressCity :: Prelude.Maybe Prelude.Text,
+    -- | Notes about a site.
+    notes :: Prelude.Maybe Prelude.Text,
+    -- | Information about the physical and logistical details for a rack at the
+    -- site.
+    rackPhysicalProperties :: Prelude.Maybe RackPhysicalProperties,
+    -- | State or region where the hardware is installed and powered on.
+    operatingAddressStateOrRegion :: Prelude.Maybe Prelude.Text,
+    -- | The ISO-3166 two-letter country code where the hardware is installed and
+    -- powered on.
+    operatingAddressCountryCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +69,18 @@ data Site = Site'
 -- 'siteId', 'site_siteId' - Undocumented member.
 --
 -- 'accountId', 'site_accountId' - Undocumented member.
+--
+-- 'operatingAddressCity', 'site_operatingAddressCity' - City where the hardware is installed and powered on.
+--
+-- 'notes', 'site_notes' - Notes about a site.
+--
+-- 'rackPhysicalProperties', 'site_rackPhysicalProperties' - Information about the physical and logistical details for a rack at the
+-- site.
+--
+-- 'operatingAddressStateOrRegion', 'site_operatingAddressStateOrRegion' - State or region where the hardware is installed and powered on.
+--
+-- 'operatingAddressCountryCode', 'site_operatingAddressCountryCode' - The ISO-3166 two-letter country code where the hardware is installed and
+-- powered on.
 newSite ::
   Site
 newSite =
@@ -65,7 +90,12 @@ newSite =
       siteArn = Prelude.Nothing,
       description = Prelude.Nothing,
       siteId = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      accountId = Prelude.Nothing,
+      operatingAddressCity = Prelude.Nothing,
+      notes = Prelude.Nothing,
+      rackPhysicalProperties = Prelude.Nothing,
+      operatingAddressStateOrRegion = Prelude.Nothing,
+      operatingAddressCountryCode = Prelude.Nothing
     }
 
 -- | The site tags.
@@ -92,6 +122,28 @@ site_siteId = Lens.lens (\Site' {siteId} -> siteId) (\s@Site' {} a -> s {siteId 
 site_accountId :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
 site_accountId = Lens.lens (\Site' {accountId} -> accountId) (\s@Site' {} a -> s {accountId = a} :: Site)
 
+-- | City where the hardware is installed and powered on.
+site_operatingAddressCity :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
+site_operatingAddressCity = Lens.lens (\Site' {operatingAddressCity} -> operatingAddressCity) (\s@Site' {} a -> s {operatingAddressCity = a} :: Site)
+
+-- | Notes about a site.
+site_notes :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
+site_notes = Lens.lens (\Site' {notes} -> notes) (\s@Site' {} a -> s {notes = a} :: Site)
+
+-- | Information about the physical and logistical details for a rack at the
+-- site.
+site_rackPhysicalProperties :: Lens.Lens' Site (Prelude.Maybe RackPhysicalProperties)
+site_rackPhysicalProperties = Lens.lens (\Site' {rackPhysicalProperties} -> rackPhysicalProperties) (\s@Site' {} a -> s {rackPhysicalProperties = a} :: Site)
+
+-- | State or region where the hardware is installed and powered on.
+site_operatingAddressStateOrRegion :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
+site_operatingAddressStateOrRegion = Lens.lens (\Site' {operatingAddressStateOrRegion} -> operatingAddressStateOrRegion) (\s@Site' {} a -> s {operatingAddressStateOrRegion = a} :: Site)
+
+-- | The ISO-3166 two-letter country code where the hardware is installed and
+-- powered on.
+site_operatingAddressCountryCode :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
+site_operatingAddressCountryCode = Lens.lens (\Site' {operatingAddressCountryCode} -> operatingAddressCountryCode) (\s@Site' {} a -> s {operatingAddressCountryCode = a} :: Site)
+
 instance Core.FromJSON Site where
   parseJSON =
     Core.withObject
@@ -104,6 +156,11 @@ instance Core.FromJSON Site where
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SiteId")
             Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "OperatingAddressCity")
+            Prelude.<*> (x Core..:? "Notes")
+            Prelude.<*> (x Core..:? "RackPhysicalProperties")
+            Prelude.<*> (x Core..:? "OperatingAddressStateOrRegion")
+            Prelude.<*> (x Core..:? "OperatingAddressCountryCode")
       )
 
 instance Prelude.Hashable Site where
@@ -114,6 +171,11 @@ instance Prelude.Hashable Site where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` siteId
       `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` operatingAddressCity
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` rackPhysicalProperties
+      `Prelude.hashWithSalt` operatingAddressStateOrRegion
+      `Prelude.hashWithSalt` operatingAddressCountryCode
 
 instance Prelude.NFData Site where
   rnf Site' {..} =
@@ -123,3 +185,8 @@ instance Prelude.NFData Site where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf siteId
       `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf operatingAddressCity
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf rackPhysicalProperties
+      `Prelude.seq` Prelude.rnf operatingAddressStateOrRegion
+      `Prelude.seq` Prelude.rnf operatingAddressCountryCode

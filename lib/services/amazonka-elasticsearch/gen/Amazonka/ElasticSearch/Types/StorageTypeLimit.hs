@@ -34,6 +34,8 @@ data StorageTypeLimit = StorageTypeLimit'
     -- 2.  MaximumVolumeSize
     -- 3.  MaximumIops
     -- 4.  MinimumIops
+    -- 5.  MaximumThroughput
+    -- 6.  MinimumThroughput
     limitName :: Prelude.Maybe Prelude.Text,
     -- | Values for the @ StorageTypeLimit$LimitName @ .
     limitValues :: Prelude.Maybe [Prelude.Text]
@@ -55,6 +57,8 @@ data StorageTypeLimit = StorageTypeLimit'
 -- 2.  MaximumVolumeSize
 -- 3.  MaximumIops
 -- 4.  MinimumIops
+-- 5.  MaximumThroughput
+-- 6.  MinimumThroughput
 --
 -- 'limitValues', 'storageTypeLimit_limitValues' - Values for the @ StorageTypeLimit$LimitName @ .
 newStorageTypeLimit ::
@@ -72,6 +76,8 @@ newStorageTypeLimit =
 -- 2.  MaximumVolumeSize
 -- 3.  MaximumIops
 -- 4.  MinimumIops
+-- 5.  MaximumThroughput
+-- 6.  MinimumThroughput
 storageTypeLimit_limitName :: Lens.Lens' StorageTypeLimit (Prelude.Maybe Prelude.Text)
 storageTypeLimit_limitName = Lens.lens (\StorageTypeLimit' {limitName} -> limitName) (\s@StorageTypeLimit' {} a -> s {limitName = a} :: StorageTypeLimit)
 

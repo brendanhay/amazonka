@@ -59,8 +59,7 @@ data ListRoutingControls = ListRoutingControls'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
-    -- routing control details for.
+    -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,8 +76,7 @@ data ListRoutingControls = ListRoutingControls'
 --
 -- 'maxResults', 'listRoutingControls_maxResults' - The number of objects that you want to return with this call.
 --
--- 'controlPanelArn', 'listRoutingControls_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that you\'re getting
--- routing control details for.
+-- 'controlPanelArn', 'listRoutingControls_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 newListRoutingControls ::
   -- | 'controlPanelArn'
   Prelude.Text ->
@@ -98,8 +96,7 @@ listRoutingControls_nextToken = Lens.lens (\ListRoutingControls' {nextToken} -> 
 listRoutingControls_maxResults :: Lens.Lens' ListRoutingControls (Prelude.Maybe Prelude.Natural)
 listRoutingControls_maxResults = Lens.lens (\ListRoutingControls' {maxResults} -> maxResults) (\s@ListRoutingControls' {} a -> s {maxResults = a} :: ListRoutingControls)
 
--- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
--- routing control details for.
+-- | The Amazon Resource Name (ARN) of the control panel.
 listRoutingControls_controlPanelArn :: Lens.Lens' ListRoutingControls Prelude.Text
 listRoutingControls_controlPanelArn = Lens.lens (\ListRoutingControls' {controlPanelArn} -> controlPanelArn) (\s@ListRoutingControls' {} a -> s {controlPanelArn = a} :: ListRoutingControls)
 

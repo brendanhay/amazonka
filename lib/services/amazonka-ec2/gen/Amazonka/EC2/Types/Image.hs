@@ -32,6 +32,7 @@ import Amazonka.EC2.Types.PlatformValues
 import Amazonka.EC2.Types.ProductCode
 import Amazonka.EC2.Types.StateReason
 import Amazonka.EC2.Types.Tag
+import Amazonka.EC2.Types.TpmSupportValues
 import Amazonka.EC2.Types.VirtualizationType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -72,6 +73,11 @@ data Image = Image'
     -- <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html describe-images>
     -- command in the CLI.
     usageOperation :: Prelude.Maybe Prelude.Text,
+    -- | If the image is configured for NitroTPM support, the value is @v2.0@.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    tpmSupport :: Prelude.Maybe TpmSupportValues,
     -- | The RAM disk associated with the image, if any. Only applicable for
     -- machine images.
     ramdiskId :: Prelude.Maybe Prelude.Text,
@@ -163,6 +169,11 @@ data Image = Image'
 -- command in the Amazon EC2 API, or the
 -- <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html describe-images>
 -- command in the CLI.
+--
+-- 'tpmSupport', 'image_tpmSupport' - If the image is configured for NitroTPM support, the value is @v2.0@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'ramdiskId', 'image_ramdiskId' - The RAM disk associated with the image, if any. Only applicable for
 -- machine images.
@@ -256,6 +267,7 @@ newImage
         description = Prelude.Nothing,
         imageOwnerAlias = Prelude.Nothing,
         usageOperation = Prelude.Nothing,
+        tpmSupport = Prelude.Nothing,
         ramdiskId = Prelude.Nothing,
         deprecationTime = Prelude.Nothing,
         platformDetails = Prelude.Nothing,
@@ -327,6 +339,13 @@ image_imageOwnerAlias = Lens.lens (\Image' {imageOwnerAlias} -> imageOwnerAlias)
 -- command in the CLI.
 image_usageOperation :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_usageOperation = Lens.lens (\Image' {usageOperation} -> usageOperation) (\s@Image' {} a -> s {usageOperation = a} :: Image)
+
+-- | If the image is configured for NitroTPM support, the value is @v2.0@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+image_tpmSupport :: Lens.Lens' Image (Prelude.Maybe TpmSupportValues)
+image_tpmSupport = Lens.lens (\Image' {tpmSupport} -> tpmSupport) (\s@Image' {} a -> s {tpmSupport = a} :: Image)
 
 -- | The RAM disk associated with the image, if any. Only applicable for
 -- machine images.
@@ -433,6 +452,7 @@ instance Core.FromXML Image where
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "imageOwnerAlias")
       Prelude.<*> (x Core..@? "usageOperation")
+      Prelude.<*> (x Core..@? "tpmSupport")
       Prelude.<*> (x Core..@? "ramdiskId")
       Prelude.<*> (x Core..@? "deprecationTime")
       Prelude.<*> (x Core..@? "platformDetails")
@@ -464,6 +484,7 @@ instance Prelude.Hashable Image where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` imageOwnerAlias
       `Prelude.hashWithSalt` usageOperation
+      `Prelude.hashWithSalt` tpmSupport
       `Prelude.hashWithSalt` ramdiskId
       `Prelude.hashWithSalt` deprecationTime
       `Prelude.hashWithSalt` platformDetails
@@ -495,6 +516,7 @@ instance Prelude.NFData Image where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf imageOwnerAlias
       `Prelude.seq` Prelude.rnf usageOperation
+      `Prelude.seq` Prelude.rnf tpmSupport
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf deprecationTime
       `Prelude.seq` Prelude.rnf platformDetails

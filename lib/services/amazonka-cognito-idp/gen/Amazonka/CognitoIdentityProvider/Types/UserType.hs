@@ -26,11 +26,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The user type.
+-- | A user profile in a Amazon Cognito user pool.
 --
 -- /See:/ 'newUserType' smart constructor.
 data UserType = UserType'
-  { -- | The user name of the user you wish to describe.
+  { -- | The user name of the user you want to describe.
     username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The last modified date of the user.
     userLastModifiedDate :: Prelude.Maybe Core.POSIX,
@@ -40,25 +40,24 @@ data UserType = UserType'
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | A container with information about the user type attributes.
     attributes :: Prelude.Maybe [AttributeType],
-    -- | The user status. Can be one of the following:
+    -- | The user status. This can be one of the following:
     --
     -- -   UNCONFIRMED - User has been created but not confirmed.
     --
     -- -   CONFIRMED - User has been confirmed.
     --
+    -- -   EXTERNAL_PROVIDER - User signed in with a third-party IdP.
+    --
     -- -   ARCHIVED - User is no longer active.
     --
-    -- -   COMPROMISED - User is disabled due to a potential security threat.
-    --
-    -- -   UNKNOWN - User status is not known.
+    -- -   UNKNOWN - User status isn\'t known.
     --
     -- -   RESET_REQUIRED - User is confirmed, but the user must request a code
-    --     and reset his or her password before he or she can sign in.
+    --     and reset their password before they can sign in.
     --
     -- -   FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
     --     in using a temporary password, but on first sign-in, the user must
-    --     change his or her password to a new value before doing anything
-    --     else.
+    --     change their password to a new value before doing anything else.
     userStatus :: Prelude.Maybe UserStatusType,
     -- | The MFA options for the user.
     mfaOptions :: Prelude.Maybe [MFAOptionType]
@@ -73,7 +72,7 @@ data UserType = UserType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'userType_username' - The user name of the user you wish to describe.
+-- 'username', 'userType_username' - The user name of the user you want to describe.
 --
 -- 'userLastModifiedDate', 'userType_userLastModifiedDate' - The last modified date of the user.
 --
@@ -83,25 +82,24 @@ data UserType = UserType'
 --
 -- 'attributes', 'userType_attributes' - A container with information about the user type attributes.
 --
--- 'userStatus', 'userType_userStatus' - The user status. Can be one of the following:
+-- 'userStatus', 'userType_userStatus' - The user status. This can be one of the following:
 --
 -- -   UNCONFIRMED - User has been created but not confirmed.
 --
 -- -   CONFIRMED - User has been confirmed.
 --
+-- -   EXTERNAL_PROVIDER - User signed in with a third-party IdP.
+--
 -- -   ARCHIVED - User is no longer active.
 --
--- -   COMPROMISED - User is disabled due to a potential security threat.
---
--- -   UNKNOWN - User status is not known.
+-- -   UNKNOWN - User status isn\'t known.
 --
 -- -   RESET_REQUIRED - User is confirmed, but the user must request a code
---     and reset his or her password before he or she can sign in.
+--     and reset their password before they can sign in.
 --
 -- -   FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
 --     in using a temporary password, but on first sign-in, the user must
---     change his or her password to a new value before doing anything
---     else.
+--     change their password to a new value before doing anything else.
 --
 -- 'mfaOptions', 'userType_mfaOptions' - The MFA options for the user.
 newUserType ::
@@ -117,7 +115,7 @@ newUserType =
       mfaOptions = Prelude.Nothing
     }
 
--- | The user name of the user you wish to describe.
+-- | The user name of the user you want to describe.
 userType_username :: Lens.Lens' UserType (Prelude.Maybe Prelude.Text)
 userType_username = Lens.lens (\UserType' {username} -> username) (\s@UserType' {} a -> s {username = a} :: UserType) Prelude.. Lens.mapping Core._Sensitive
 
@@ -137,25 +135,24 @@ userType_enabled = Lens.lens (\UserType' {enabled} -> enabled) (\s@UserType' {} 
 userType_attributes :: Lens.Lens' UserType (Prelude.Maybe [AttributeType])
 userType_attributes = Lens.lens (\UserType' {attributes} -> attributes) (\s@UserType' {} a -> s {attributes = a} :: UserType) Prelude.. Lens.mapping Lens.coerced
 
--- | The user status. Can be one of the following:
+-- | The user status. This can be one of the following:
 --
 -- -   UNCONFIRMED - User has been created but not confirmed.
 --
 -- -   CONFIRMED - User has been confirmed.
 --
+-- -   EXTERNAL_PROVIDER - User signed in with a third-party IdP.
+--
 -- -   ARCHIVED - User is no longer active.
 --
--- -   COMPROMISED - User is disabled due to a potential security threat.
---
--- -   UNKNOWN - User status is not known.
+-- -   UNKNOWN - User status isn\'t known.
 --
 -- -   RESET_REQUIRED - User is confirmed, but the user must request a code
---     and reset his or her password before he or she can sign in.
+--     and reset their password before they can sign in.
 --
 -- -   FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
 --     in using a temporary password, but on first sign-in, the user must
---     change his or her password to a new value before doing anything
---     else.
+--     change their password to a new value before doing anything else.
 userType_userStatus :: Lens.Lens' UserType (Prelude.Maybe UserStatusType)
 userType_userStatus = Lens.lens (\UserType' {userStatus} -> userStatus) (\s@UserType' {} a -> s {userStatus = a} :: UserType)
 

@@ -24,17 +24,17 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A container for identity provider details.
+-- | A container for IdP details.
 --
 -- /See:/ 'newProviderDescription' smart constructor.
 data ProviderDescription = ProviderDescription'
-  { -- | The identity provider name.
+  { -- | The IdP name.
     providerName :: Prelude.Maybe Prelude.Text,
     -- | The date the provider was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The date the provider was added to the user pool.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The identity provider type.
+    -- | The IdP type.
     providerType :: Prelude.Maybe IdentityProviderTypeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,13 +47,13 @@ data ProviderDescription = ProviderDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'providerDescription_providerName' - The identity provider name.
+-- 'providerName', 'providerDescription_providerName' - The IdP name.
 --
 -- 'lastModifiedDate', 'providerDescription_lastModifiedDate' - The date the provider was last modified.
 --
 -- 'creationDate', 'providerDescription_creationDate' - The date the provider was added to the user pool.
 --
--- 'providerType', 'providerDescription_providerType' - The identity provider type.
+-- 'providerType', 'providerDescription_providerType' - The IdP type.
 newProviderDescription ::
   ProviderDescription
 newProviderDescription =
@@ -65,7 +65,7 @@ newProviderDescription =
       providerType = Prelude.Nothing
     }
 
--- | The identity provider name.
+-- | The IdP name.
 providerDescription_providerName :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.Text)
 providerDescription_providerName = Lens.lens (\ProviderDescription' {providerName} -> providerName) (\s@ProviderDescription' {} a -> s {providerName = a} :: ProviderDescription)
 
@@ -77,7 +77,7 @@ providerDescription_lastModifiedDate = Lens.lens (\ProviderDescription' {lastMod
 providerDescription_creationDate :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.UTCTime)
 providerDescription_creationDate = Lens.lens (\ProviderDescription' {creationDate} -> creationDate) (\s@ProviderDescription' {} a -> s {creationDate = a} :: ProviderDescription) Prelude.. Lens.mapping Core._Time
 
--- | The identity provider type.
+-- | The IdP type.
 providerDescription_providerType :: Lens.Lens' ProviderDescription (Prelude.Maybe IdentityProviderTypeType)
 providerDescription_providerType = Lens.lens (\ProviderDescription' {providerType} -> providerType) (\s@ProviderDescription' {} a -> s {providerType = a} :: ProviderDescription)
 

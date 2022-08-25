@@ -24,11 +24,11 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 
--- | The service instance detail data.
+-- | Detailed data of an Proton service instance resource.
 --
 -- /See:/ 'newServiceInstance' smart constructor.
 data ServiceInstance = ServiceInstance'
-  { -- | A service instance deployment status message.
+  { -- | The message associated with the service instance deployment status.
     deploymentStatusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The service spec that was used to create the service instance.
     spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -48,11 +48,11 @@ data ServiceInstance = ServiceInstance'
     name :: Prelude.Text,
     -- | The name of the service that the service instance belongs to.
     serviceName :: Prelude.Text,
-    -- | The ID of the major version of the service template that was used to
-    -- create the service instance.
+    -- | The major version of the service template that was used to create the
+    -- service instance.
     templateMajorVersion :: Prelude.Text,
-    -- | The ID of the minor version of the service template that was used to
-    -- create the service instance.
+    -- | The minor version of the service template that was used to create the
+    -- service instance.
     templateMinorVersion :: Prelude.Text,
     -- | The name of the service template that was used to create the service
     -- instance.
@@ -68,7 +68,7 @@ data ServiceInstance = ServiceInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentStatusMessage', 'serviceInstance_deploymentStatusMessage' - A service instance deployment status message.
+-- 'deploymentStatusMessage', 'serviceInstance_deploymentStatusMessage' - The message associated with the service instance deployment status.
 --
 -- 'spec', 'serviceInstance_spec' - The service spec that was used to create the service instance.
 --
@@ -88,11 +88,11 @@ data ServiceInstance = ServiceInstance'
 --
 -- 'serviceName', 'serviceInstance_serviceName' - The name of the service that the service instance belongs to.
 --
--- 'templateMajorVersion', 'serviceInstance_templateMajorVersion' - The ID of the major version of the service template that was used to
--- create the service instance.
+-- 'templateMajorVersion', 'serviceInstance_templateMajorVersion' - The major version of the service template that was used to create the
+-- service instance.
 --
--- 'templateMinorVersion', 'serviceInstance_templateMinorVersion' - The ID of the minor version of the service template that was used to
--- create the service instance.
+-- 'templateMinorVersion', 'serviceInstance_templateMinorVersion' - The minor version of the service template that was used to create the
+-- service instance.
 --
 -- 'templateName', 'serviceInstance_templateName' - The name of the service template that was used to create the service
 -- instance.
@@ -151,7 +151,7 @@ newServiceInstance
         templateName = pTemplateName_
       }
 
--- | A service instance deployment status message.
+-- | The message associated with the service instance deployment status.
 serviceInstance_deploymentStatusMessage :: Lens.Lens' ServiceInstance (Prelude.Maybe Prelude.Text)
 serviceInstance_deploymentStatusMessage = Lens.lens (\ServiceInstance' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ServiceInstance' {} a -> s {deploymentStatusMessage = a} :: ServiceInstance) Prelude.. Lens.mapping Core._Sensitive
 
@@ -191,13 +191,13 @@ serviceInstance_name = Lens.lens (\ServiceInstance' {name} -> name) (\s@ServiceI
 serviceInstance_serviceName :: Lens.Lens' ServiceInstance Prelude.Text
 serviceInstance_serviceName = Lens.lens (\ServiceInstance' {serviceName} -> serviceName) (\s@ServiceInstance' {} a -> s {serviceName = a} :: ServiceInstance)
 
--- | The ID of the major version of the service template that was used to
--- create the service instance.
+-- | The major version of the service template that was used to create the
+-- service instance.
 serviceInstance_templateMajorVersion :: Lens.Lens' ServiceInstance Prelude.Text
 serviceInstance_templateMajorVersion = Lens.lens (\ServiceInstance' {templateMajorVersion} -> templateMajorVersion) (\s@ServiceInstance' {} a -> s {templateMajorVersion = a} :: ServiceInstance)
 
--- | The ID of the minor version of the service template that was used to
--- create the service instance.
+-- | The minor version of the service template that was used to create the
+-- service instance.
 serviceInstance_templateMinorVersion :: Lens.Lens' ServiceInstance Prelude.Text
 serviceInstance_templateMinorVersion = Lens.lens (\ServiceInstance' {templateMinorVersion} -> templateMinorVersion) (\s@ServiceInstance' {} a -> s {templateMinorVersion = a} :: ServiceInstance)
 

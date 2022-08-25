@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified tags to the specified resource share that you own.
+-- Adds the specified tag keys and values to the specified resource share.
+-- The tags are attached only to the resource share, not to the resources
+-- that are in the resource share.
 module Amazonka.RAM.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -48,9 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource share.
+  { -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share that you want to add tags to.
     resourceShareArn :: Prelude.Text,
-    -- | One or more tags.
+    -- | A list of one or more tag key and value pairs. The tag key must be
+    -- present and not be an empty string. The tag value must be present but
+    -- can be an empty string.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +69,13 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceShareArn', 'tagResource_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'resourceShareArn', 'tagResource_resourceShareArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share that you want to add tags to.
 --
--- 'tags', 'tagResource_tags' - One or more tags.
+-- 'tags', 'tagResource_tags' - A list of one or more tag key and value pairs. The tag key must be
+-- present and not be an empty string. The tag value must be present but
+-- can be an empty string.
 newTagResource ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -76,11 +86,15 @@ newTagResource pResourceShareArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share that you want to add tags to.
 tagResource_resourceShareArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceShareArn = Lens.lens (\TagResource' {resourceShareArn} -> resourceShareArn) (\s@TagResource' {} a -> s {resourceShareArn = a} :: TagResource)
 
--- | One or more tags.
+-- | A list of one or more tag key and value pairs. The tag key must be
+-- present and not be an empty string. The tag value must be present but
+-- can be an empty string.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

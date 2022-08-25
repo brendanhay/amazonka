@@ -23,8 +23,9 @@
 -- Update an accelerator.
 --
 -- Global Accelerator is a global service that supports endpoints in
--- multiple AWS Regions but you must specify the US West (Oregon) Region to
--- create or update accelerators.
+-- multiple Amazon Web Services Regions but you must specify the US West
+-- (Oregon) Region to create, update, or otherwise work with accelerators.
+-- That is, for example, specify @--region us-west-2@ on AWS CLI commands.
 module Amazonka.GlobalAccelerator.UpdateAccelerator
   ( -- * Creating a Request
     UpdateAccelerator (..),
@@ -55,9 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAccelerator' smart constructor.
 data UpdateAccelerator = UpdateAccelerator'
-  { -- | The name of the accelerator. The name can have a maximum of 32
-    -- characters, must contain only alphanumeric characters or hyphens (-),
-    -- and must not begin or end with a hyphen.
+  { -- | The name of the accelerator. The name can have a maximum of 64
+    -- characters, must contain only alphanumeric characters, periods (.), or
+    -- hyphens (-), and must not begin or end with a hyphen or period.
     name :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
@@ -65,7 +66,8 @@ data UpdateAccelerator = UpdateAccelerator'
     -- If the value is set to true, the accelerator cannot be deleted. If set
     -- to false, the accelerator can be deleted.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The IP address type, which must be IPv4.
+    -- | The IP address type that an accelerator supports. For a standard
+    -- accelerator, the value can be IPV4 or DUAL_STACK.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The Amazon Resource Name (ARN) of the accelerator to update.
     acceleratorArn :: Prelude.Text
@@ -80,9 +82,9 @@ data UpdateAccelerator = UpdateAccelerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateAccelerator_name' - The name of the accelerator. The name can have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens (-),
--- and must not begin or end with a hyphen.
+-- 'name', 'updateAccelerator_name' - The name of the accelerator. The name can have a maximum of 64
+-- characters, must contain only alphanumeric characters, periods (.), or
+-- hyphens (-), and must not begin or end with a hyphen or period.
 --
 -- 'enabled', 'updateAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -90,7 +92,8 @@ data UpdateAccelerator = UpdateAccelerator'
 -- If the value is set to true, the accelerator cannot be deleted. If set
 -- to false, the accelerator can be deleted.
 --
--- 'ipAddressType', 'updateAccelerator_ipAddressType' - The IP address type, which must be IPv4.
+-- 'ipAddressType', 'updateAccelerator_ipAddressType' - The IP address type that an accelerator supports. For a standard
+-- accelerator, the value can be IPV4 or DUAL_STACK.
 --
 -- 'acceleratorArn', 'updateAccelerator_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to update.
 newUpdateAccelerator ::
@@ -105,9 +108,9 @@ newUpdateAccelerator pAcceleratorArn_ =
       acceleratorArn = pAcceleratorArn_
     }
 
--- | The name of the accelerator. The name can have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens (-),
--- and must not begin or end with a hyphen.
+-- | The name of the accelerator. The name can have a maximum of 64
+-- characters, must contain only alphanumeric characters, periods (.), or
+-- hyphens (-), and must not begin or end with a hyphen or period.
 updateAccelerator_name :: Lens.Lens' UpdateAccelerator (Prelude.Maybe Prelude.Text)
 updateAccelerator_name = Lens.lens (\UpdateAccelerator' {name} -> name) (\s@UpdateAccelerator' {} a -> s {name = a} :: UpdateAccelerator)
 
@@ -119,7 +122,8 @@ updateAccelerator_name = Lens.lens (\UpdateAccelerator' {name} -> name) (\s@Upda
 updateAccelerator_enabled :: Lens.Lens' UpdateAccelerator (Prelude.Maybe Prelude.Bool)
 updateAccelerator_enabled = Lens.lens (\UpdateAccelerator' {enabled} -> enabled) (\s@UpdateAccelerator' {} a -> s {enabled = a} :: UpdateAccelerator)
 
--- | The IP address type, which must be IPv4.
+-- | The IP address type that an accelerator supports. For a standard
+-- accelerator, the value can be IPV4 or DUAL_STACK.
 updateAccelerator_ipAddressType :: Lens.Lens' UpdateAccelerator (Prelude.Maybe IpAddressType)
 updateAccelerator_ipAddressType = Lens.lens (\UpdateAccelerator' {ipAddressType} -> ipAddressType) (\s@UpdateAccelerator' {} a -> s {ipAddressType = a} :: UpdateAccelerator)
 

@@ -22,9 +22,10 @@ module Amazonka.SecurityHub.Types.AwsEc2InstanceDetails where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
 import Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
 
--- | The details of an EC2 instance.
+-- | The details of an Amazon EC2 instance.
 --
 -- /See:/ 'newAwsEc2InstanceDetails' smart constructor.
 data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
@@ -32,6 +33,9 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
     type' :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 addresses associated with the instance.
     ipV4Addresses :: Prelude.Maybe [Prelude.Text],
+    -- | The virtualization type of the Amazon Machine Image (AMI) required to
+    -- launch the instance.
+    virtualizationType :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the subnet that the instance was launched in.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The IAM profile ARN of the instance.
@@ -54,7 +58,9 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
     -- | The identifiers of the network interfaces for the EC2 instance. The
     -- details for each network interface are in a corresponding
     -- @AwsEc2NetworkInterfacesDetails@ object.
-    networkInterfaces :: Prelude.Maybe [AwsEc2InstanceNetworkInterfacesDetails]
+    networkInterfaces :: Prelude.Maybe [AwsEc2InstanceNetworkInterfacesDetails],
+    -- | Details about the metadata options for the Amazon EC2 instance.
+    metadataOptions :: Prelude.Maybe AwsEc2InstanceMetadataOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +75,9 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
 -- 'type'', 'awsEc2InstanceDetails_type' - The instance type of the instance.
 --
 -- 'ipV4Addresses', 'awsEc2InstanceDetails_ipV4Addresses' - The IPv4 addresses associated with the instance.
+--
+-- 'virtualizationType', 'awsEc2InstanceDetails_virtualizationType' - The virtualization type of the Amazon Machine Image (AMI) required to
+-- launch the instance.
 --
 -- 'subnetId', 'awsEc2InstanceDetails_subnetId' - The identifier of the subnet that the instance was launched in.
 --
@@ -92,12 +101,15 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
 -- 'networkInterfaces', 'awsEc2InstanceDetails_networkInterfaces' - The identifiers of the network interfaces for the EC2 instance. The
 -- details for each network interface are in a corresponding
 -- @AwsEc2NetworkInterfacesDetails@ object.
+--
+-- 'metadataOptions', 'awsEc2InstanceDetails_metadataOptions' - Details about the metadata options for the Amazon EC2 instance.
 newAwsEc2InstanceDetails ::
   AwsEc2InstanceDetails
 newAwsEc2InstanceDetails =
   AwsEc2InstanceDetails'
     { type' = Prelude.Nothing,
       ipV4Addresses = Prelude.Nothing,
+      virtualizationType = Prelude.Nothing,
       subnetId = Prelude.Nothing,
       iamInstanceProfileArn = Prelude.Nothing,
       keyName = Prelude.Nothing,
@@ -105,7 +117,8 @@ newAwsEc2InstanceDetails =
       launchedAt = Prelude.Nothing,
       ipV6Addresses = Prelude.Nothing,
       imageId = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+      networkInterfaces = Prelude.Nothing,
+      metadataOptions = Prelude.Nothing
     }
 
 -- | The instance type of the instance.
@@ -115,6 +128,11 @@ awsEc2InstanceDetails_type = Lens.lens (\AwsEc2InstanceDetails' {type'} -> type'
 -- | The IPv4 addresses associated with the instance.
 awsEc2InstanceDetails_ipV4Addresses :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe [Prelude.Text])
 awsEc2InstanceDetails_ipV4Addresses = Lens.lens (\AwsEc2InstanceDetails' {ipV4Addresses} -> ipV4Addresses) (\s@AwsEc2InstanceDetails' {} a -> s {ipV4Addresses = a} :: AwsEc2InstanceDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The virtualization type of the Amazon Machine Image (AMI) required to
+-- launch the instance.
+awsEc2InstanceDetails_virtualizationType :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe Prelude.Text)
+awsEc2InstanceDetails_virtualizationType = Lens.lens (\AwsEc2InstanceDetails' {virtualizationType} -> virtualizationType) (\s@AwsEc2InstanceDetails' {} a -> s {virtualizationType = a} :: AwsEc2InstanceDetails)
 
 -- | The identifier of the subnet that the instance was launched in.
 awsEc2InstanceDetails_subnetId :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe Prelude.Text)
@@ -155,6 +173,10 @@ awsEc2InstanceDetails_imageId = Lens.lens (\AwsEc2InstanceDetails' {imageId} -> 
 awsEc2InstanceDetails_networkInterfaces :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe [AwsEc2InstanceNetworkInterfacesDetails])
 awsEc2InstanceDetails_networkInterfaces = Lens.lens (\AwsEc2InstanceDetails' {networkInterfaces} -> networkInterfaces) (\s@AwsEc2InstanceDetails' {} a -> s {networkInterfaces = a} :: AwsEc2InstanceDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | Details about the metadata options for the Amazon EC2 instance.
+awsEc2InstanceDetails_metadataOptions :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe AwsEc2InstanceMetadataOptions)
+awsEc2InstanceDetails_metadataOptions = Lens.lens (\AwsEc2InstanceDetails' {metadataOptions} -> metadataOptions) (\s@AwsEc2InstanceDetails' {} a -> s {metadataOptions = a} :: AwsEc2InstanceDetails)
+
 instance Core.FromJSON AwsEc2InstanceDetails where
   parseJSON =
     Core.withObject
@@ -163,6 +185,7 @@ instance Core.FromJSON AwsEc2InstanceDetails where
           AwsEc2InstanceDetails'
             Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "IpV4Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "VirtualizationType")
             Prelude.<*> (x Core..:? "SubnetId")
             Prelude.<*> (x Core..:? "IamInstanceProfileArn")
             Prelude.<*> (x Core..:? "KeyName")
@@ -173,12 +196,14 @@ instance Core.FromJSON AwsEc2InstanceDetails where
             Prelude.<*> ( x Core..:? "NetworkInterfaces"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "MetadataOptions")
       )
 
 instance Prelude.Hashable AwsEc2InstanceDetails where
   hashWithSalt _salt AwsEc2InstanceDetails' {..} =
     _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` ipV4Addresses
+      `Prelude.hashWithSalt` virtualizationType
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` iamInstanceProfileArn
       `Prelude.hashWithSalt` keyName
@@ -187,11 +212,13 @@ instance Prelude.Hashable AwsEc2InstanceDetails where
       `Prelude.hashWithSalt` ipV6Addresses
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` metadataOptions
 
 instance Prelude.NFData AwsEc2InstanceDetails where
   rnf AwsEc2InstanceDetails' {..} =
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf ipV4Addresses
+      `Prelude.seq` Prelude.rnf virtualizationType
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf iamInstanceProfileArn
       `Prelude.seq` Prelude.rnf keyName
@@ -200,6 +227,7 @@ instance Prelude.NFData AwsEc2InstanceDetails where
       `Prelude.seq` Prelude.rnf ipV6Addresses
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf metadataOptions
 
 instance Core.ToJSON AwsEc2InstanceDetails where
   toJSON AwsEc2InstanceDetails' {..} =
@@ -207,6 +235,8 @@ instance Core.ToJSON AwsEc2InstanceDetails where
       ( Prelude.catMaybes
           [ ("Type" Core..=) Prelude.<$> type',
             ("IpV4Addresses" Core..=) Prelude.<$> ipV4Addresses,
+            ("VirtualizationType" Core..=)
+              Prelude.<$> virtualizationType,
             ("SubnetId" Core..=) Prelude.<$> subnetId,
             ("IamInstanceProfileArn" Core..=)
               Prelude.<$> iamInstanceProfileArn,
@@ -216,6 +246,8 @@ instance Core.ToJSON AwsEc2InstanceDetails where
             ("IpV6Addresses" Core..=) Prelude.<$> ipV6Addresses,
             ("ImageId" Core..=) Prelude.<$> imageId,
             ("NetworkInterfaces" Core..=)
-              Prelude.<$> networkInterfaces
+              Prelude.<$> networkInterfaces,
+            ("MetadataOptions" Core..=)
+              Prelude.<$> metadataOptions
           ]
       )

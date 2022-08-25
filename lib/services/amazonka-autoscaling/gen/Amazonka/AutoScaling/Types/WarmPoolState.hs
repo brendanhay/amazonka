@@ -20,6 +20,7 @@
 module Amazonka.AutoScaling.Types.WarmPoolState
   ( WarmPoolState
       ( ..,
+        WarmPoolState_Hibernated,
         WarmPoolState_Running,
         WarmPoolState_Stopped
       ),
@@ -57,6 +58,9 @@ newtype WarmPoolState = WarmPoolState'
       Core.ToXML
     )
 
+pattern WarmPoolState_Hibernated :: WarmPoolState
+pattern WarmPoolState_Hibernated = WarmPoolState' "Hibernated"
+
 pattern WarmPoolState_Running :: WarmPoolState
 pattern WarmPoolState_Running = WarmPoolState' "Running"
 
@@ -64,6 +68,7 @@ pattern WarmPoolState_Stopped :: WarmPoolState
 pattern WarmPoolState_Stopped = WarmPoolState' "Stopped"
 
 {-# COMPLETE
+  WarmPoolState_Hibernated,
   WarmPoolState_Running,
   WarmPoolState_Stopped,
   WarmPoolState'

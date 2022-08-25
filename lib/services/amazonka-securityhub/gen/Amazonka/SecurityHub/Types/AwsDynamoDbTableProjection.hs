@@ -28,7 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableProjection' smart constructor.
 data AwsDynamoDbTableProjection = AwsDynamoDbTableProjection'
-  { -- | The types of attributes that are projected into the index.
+  { -- | The types of attributes that are projected into the index. Valid values
+    -- are as follows:
+    --
+    -- -   @ALL@
+    --
+    -- -   @INCLUDE@
+    --
+    -- -   @KEYS_ONLY@
     projectionType :: Prelude.Maybe Prelude.Text,
     -- | The nonkey attributes that are projected into the index. For each
     -- attribute, provide the attribute name.
@@ -44,7 +51,14 @@ data AwsDynamoDbTableProjection = AwsDynamoDbTableProjection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectionType', 'awsDynamoDbTableProjection_projectionType' - The types of attributes that are projected into the index.
+-- 'projectionType', 'awsDynamoDbTableProjection_projectionType' - The types of attributes that are projected into the index. Valid values
+-- are as follows:
+--
+-- -   @ALL@
+--
+-- -   @INCLUDE@
+--
+-- -   @KEYS_ONLY@
 --
 -- 'nonKeyAttributes', 'awsDynamoDbTableProjection_nonKeyAttributes' - The nonkey attributes that are projected into the index. For each
 -- attribute, provide the attribute name.
@@ -57,7 +71,14 @@ newAwsDynamoDbTableProjection =
       nonKeyAttributes = Prelude.Nothing
     }
 
--- | The types of attributes that are projected into the index.
+-- | The types of attributes that are projected into the index. Valid values
+-- are as follows:
+--
+-- -   @ALL@
+--
+-- -   @INCLUDE@
+--
+-- -   @KEYS_ONLY@
 awsDynamoDbTableProjection_projectionType :: Lens.Lens' AwsDynamoDbTableProjection (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableProjection_projectionType = Lens.lens (\AwsDynamoDbTableProjection' {projectionType} -> projectionType) (\s@AwsDynamoDbTableProjection' {} a -> s {projectionType = a} :: AwsDynamoDbTableProjection)
 

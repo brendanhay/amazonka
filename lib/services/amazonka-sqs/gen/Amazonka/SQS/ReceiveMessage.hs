@@ -137,6 +137,13 @@ data ReceiveMessage = ReceiveMessage'
     --     (<http://en.wikipedia.org/wiki/Unix_time epoch time> in
     --     milliseconds).
     --
+    -- -   @SqsManagedSseEnabled@ – Enables server-side queue encryption using
+    --     SQS owned encryption keys. Only one server-side encryption option is
+    --     supported per queue (e.g.
+    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html SSE-KMS>
+    --     or
+    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html SSE-SQS>).
+    --
     -- -   @MessageDeduplicationId@ – Returns the value provided by the
     --     producer that calls the @ SendMessage @ action.
     --
@@ -290,6 +297,13 @@ data ReceiveMessage = ReceiveMessage'
 -- -   @SentTimestamp@ – Returns the time the message was sent to the queue
 --     (<http://en.wikipedia.org/wiki/Unix_time epoch time> in
 --     milliseconds).
+--
+-- -   @SqsManagedSseEnabled@ – Enables server-side queue encryption using
+--     SQS owned encryption keys. Only one server-side encryption option is
+--     supported per queue (e.g.
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html SSE-KMS>
+--     or
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html SSE-SQS>).
 --
 -- -   @MessageDeduplicationId@ – Returns the value provided by the
 --     producer that calls the @ SendMessage @ action.
@@ -450,6 +464,13 @@ receiveMessage_visibilityTimeout = Lens.lens (\ReceiveMessage' {visibilityTimeou
 -- -   @SentTimestamp@ – Returns the time the message was sent to the queue
 --     (<http://en.wikipedia.org/wiki/Unix_time epoch time> in
 --     milliseconds).
+--
+-- -   @SqsManagedSseEnabled@ – Enables server-side queue encryption using
+--     SQS owned encryption keys. Only one server-side encryption option is
+--     supported per queue (e.g.
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html SSE-KMS>
+--     or
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html SSE-SQS>).
 --
 -- -   @MessageDeduplicationId@ – Returns the value provided by the
 --     producer that calls the @ SendMessage @ action.

@@ -30,7 +30,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of an account as the delegated Amazon Macie
--- administrator account for an Amazon Web Services organization. Possible
+-- administrator account for an organization in Organizations. Possible
 -- values are:
 newtype AdminStatus = AdminStatus'
   { fromAdminStatus ::

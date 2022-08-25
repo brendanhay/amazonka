@@ -34,6 +34,7 @@ module Amazonka.AppFlow.DescribeConnectors
     -- * Request Lenses
     describeConnectors_nextToken,
     describeConnectors_connectorTypes,
+    describeConnectors_maxResults,
 
     -- * Destructuring the Response
     DescribeConnectorsResponse (..),
@@ -41,6 +42,7 @@ module Amazonka.AppFlow.DescribeConnectors
 
     -- * Response Lenses
     describeConnectorsResponse_nextToken,
+    describeConnectorsResponse_connectors,
     describeConnectorsResponse_connectorConfigurations,
     describeConnectorsResponse_httpStatus,
   )
@@ -58,7 +60,10 @@ data DescribeConnectors = DescribeConnectors'
   { -- | The pagination token for the next page of data.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of connector, such as Salesforce, Amplitude, and so on.
-    connectorTypes :: Prelude.Maybe [ConnectorType]
+    connectorTypes :: Prelude.Maybe [ConnectorType],
+    -- | The maximum number of items that should be returned in the result set.
+    -- The default is 20.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +78,16 @@ data DescribeConnectors = DescribeConnectors'
 -- 'nextToken', 'describeConnectors_nextToken' - The pagination token for the next page of data.
 --
 -- 'connectorTypes', 'describeConnectors_connectorTypes' - The type of connector, such as Salesforce, Amplitude, and so on.
+--
+-- 'maxResults', 'describeConnectors_maxResults' - The maximum number of items that should be returned in the result set.
+-- The default is 20.
 newDescribeConnectors ::
   DescribeConnectors
 newDescribeConnectors =
   DescribeConnectors'
     { nextToken = Prelude.Nothing,
-      connectorTypes = Prelude.Nothing
+      connectorTypes = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The pagination token for the next page of data.
@@ -88,6 +97,11 @@ describeConnectors_nextToken = Lens.lens (\DescribeConnectors' {nextToken} -> ne
 -- | The type of connector, such as Salesforce, Amplitude, and so on.
 describeConnectors_connectorTypes :: Lens.Lens' DescribeConnectors (Prelude.Maybe [ConnectorType])
 describeConnectors_connectorTypes = Lens.lens (\DescribeConnectors' {connectorTypes} -> connectorTypes) (\s@DescribeConnectors' {} a -> s {connectorTypes = a} :: DescribeConnectors) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items that should be returned in the result set.
+-- The default is 20.
+describeConnectors_maxResults :: Lens.Lens' DescribeConnectors (Prelude.Maybe Prelude.Natural)
+describeConnectors_maxResults = Lens.lens (\DescribeConnectors' {maxResults} -> maxResults) (\s@DescribeConnectors' {} a -> s {maxResults = a} :: DescribeConnectors)
 
 instance Core.AWSRequest DescribeConnectors where
   type
@@ -99,6 +113,7 @@ instance Core.AWSRequest DescribeConnectors where
       ( \s h x ->
           DescribeConnectorsResponse'
             Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "connectors" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "connectorConfigurations"
                             Core..!@ Prelude.mempty
                         )
@@ -109,11 +124,13 @@ instance Prelude.Hashable DescribeConnectors where
   hashWithSalt _salt DescribeConnectors' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` connectorTypes
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeConnectors where
   rnf DescribeConnectors' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf connectorTypes
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeConnectors where
   toHeaders =
@@ -132,7 +149,8 @@ instance Core.ToJSON DescribeConnectors where
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("connectorTypes" Core..=)
-              Prelude.<$> connectorTypes
+              Prelude.<$> connectorTypes,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -146,6 +164,8 @@ instance Core.ToQuery DescribeConnectors where
 data DescribeConnectorsResponse = DescribeConnectorsResponse'
   { -- | The pagination token for the next page of data.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the connectors supported in Amazon AppFlow.
+    connectors :: Prelude.Maybe [ConnectorDetail],
     -- | The configuration that is applied to the connectors used in the flow.
     connectorConfigurations :: Prelude.Maybe (Prelude.HashMap ConnectorType ConnectorConfiguration),
     -- | The response's http status code.
@@ -163,6 +183,8 @@ data DescribeConnectorsResponse = DescribeConnectorsResponse'
 --
 -- 'nextToken', 'describeConnectorsResponse_nextToken' - The pagination token for the next page of data.
 --
+-- 'connectors', 'describeConnectorsResponse_connectors' - Information about the connectors supported in Amazon AppFlow.
+--
 -- 'connectorConfigurations', 'describeConnectorsResponse_connectorConfigurations' - The configuration that is applied to the connectors used in the flow.
 --
 -- 'httpStatus', 'describeConnectorsResponse_httpStatus' - The response's http status code.
@@ -174,6 +196,7 @@ newDescribeConnectorsResponse pHttpStatus_ =
   DescribeConnectorsResponse'
     { nextToken =
         Prelude.Nothing,
+      connectors = Prelude.Nothing,
       connectorConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -181,6 +204,10 @@ newDescribeConnectorsResponse pHttpStatus_ =
 -- | The pagination token for the next page of data.
 describeConnectorsResponse_nextToken :: Lens.Lens' DescribeConnectorsResponse (Prelude.Maybe Prelude.Text)
 describeConnectorsResponse_nextToken = Lens.lens (\DescribeConnectorsResponse' {nextToken} -> nextToken) (\s@DescribeConnectorsResponse' {} a -> s {nextToken = a} :: DescribeConnectorsResponse)
+
+-- | Information about the connectors supported in Amazon AppFlow.
+describeConnectorsResponse_connectors :: Lens.Lens' DescribeConnectorsResponse (Prelude.Maybe [ConnectorDetail])
+describeConnectorsResponse_connectors = Lens.lens (\DescribeConnectorsResponse' {connectors} -> connectors) (\s@DescribeConnectorsResponse' {} a -> s {connectors = a} :: DescribeConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration that is applied to the connectors used in the flow.
 describeConnectorsResponse_connectorConfigurations :: Lens.Lens' DescribeConnectorsResponse (Prelude.Maybe (Prelude.HashMap ConnectorType ConnectorConfiguration))
@@ -193,5 +220,6 @@ describeConnectorsResponse_httpStatus = Lens.lens (\DescribeConnectorsResponse' 
 instance Prelude.NFData DescribeConnectorsResponse where
   rnf DescribeConnectorsResponse' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectors
       `Prelude.seq` Prelude.rnf connectorConfigurations
       `Prelude.seq` Prelude.rnf httpStatus

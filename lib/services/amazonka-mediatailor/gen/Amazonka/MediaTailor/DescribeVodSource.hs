@@ -159,7 +159,7 @@ data DescribeVodSourceResponse = DescribeVodSourceResponse'
     vodSourceName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the VOD source.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for the VOD source.
+    -- | The last modified time of the VOD source.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that indicates when the VOD source was created.
     creationTime :: Prelude.Maybe Core.POSIX,
@@ -186,7 +186,7 @@ data DescribeVodSourceResponse = DescribeVodSourceResponse'
 --
 -- 'arn', 'describeVodSourceResponse_arn' - The ARN of the VOD source.
 --
--- 'lastModifiedTime', 'describeVodSourceResponse_lastModifiedTime' - The ARN for the VOD source.
+-- 'lastModifiedTime', 'describeVodSourceResponse_lastModifiedTime' - The last modified time of the VOD source.
 --
 -- 'creationTime', 'describeVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
 --
@@ -223,7 +223,7 @@ describeVodSourceResponse_vodSourceName = Lens.lens (\DescribeVodSourceResponse'
 describeVodSourceResponse_arn :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.Text)
 describeVodSourceResponse_arn = Lens.lens (\DescribeVodSourceResponse' {arn} -> arn) (\s@DescribeVodSourceResponse' {} a -> s {arn = a} :: DescribeVodSourceResponse)
 
--- | The ARN for the VOD source.
+-- | The last modified time of the VOD source.
 describeVodSourceResponse_lastModifiedTime :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
 describeVodSourceResponse_lastModifiedTime = Lens.lens (\DescribeVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeVodSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Core._Time
 

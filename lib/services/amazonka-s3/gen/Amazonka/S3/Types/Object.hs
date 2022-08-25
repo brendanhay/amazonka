@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
+import Amazonka.S3.Types.ChecksumAlgorithm
 import Amazonka.S3.Types.ObjectStorageClass
 import Amazonka.S3.Types.Owner
 
@@ -30,7 +31,9 @@ import Amazonka.S3.Types.Owner
 --
 -- /See:/ 'newObject' smart constructor.
 data Object = Object'
-  { -- | The owner of the object
+  { -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe [ChecksumAlgorithm],
+    -- | The owner of the object
     owner :: Prelude.Maybe Owner,
     -- | The entity tag is a hash of the object. The ETag reflects changes only
     -- to the contents of an object, not its metadata. The ETag may or may not
@@ -49,7 +52,9 @@ data Object = Object'
     --
     -- -   If an object is created by either the Multipart Upload or Part Copy
     --     operation, the ETag is not an MD5 digest, regardless of the method
-    --     of encryption.
+    --     of encryption. If an object is larger than 16 MB, the Amazon Web
+    --     Services Management Console will upload or copy that object as a
+    --     Multipart Upload, and therefore the ETag will not be an MD5 digest.
     eTag :: ETag,
     -- | Size in bytes of the object
     size :: Prelude.Integer,
@@ -71,6 +76,8 @@ data Object = Object'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'object_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
+--
 -- 'owner', 'object_owner' - The owner of the object
 --
 -- 'eTag', 'object_eTag' - The entity tag is a hash of the object. The ETag reflects changes only
@@ -90,7 +97,9 @@ data Object = Object'
 --
 -- -   If an object is created by either the Multipart Upload or Part Copy
 --     operation, the ETag is not an MD5 digest, regardless of the method
---     of encryption.
+--     of encryption. If an object is larger than 16 MB, the Amazon Web
+--     Services Management Console will upload or copy that object as a
+--     Multipart Upload, and therefore the ETag will not be an MD5 digest.
 --
 -- 'size', 'object_size' - Size in bytes of the object
 --
@@ -119,13 +128,18 @@ newObject
   pStorageClass_
   pLastModified_ =
     Object'
-      { owner = Prelude.Nothing,
+      { checksumAlgorithm = Prelude.Nothing,
+        owner = Prelude.Nothing,
         eTag = pETag_,
         size = pSize_,
         key = pKey_,
         storageClass = pStorageClass_,
         lastModified = Core._Time Lens.# pLastModified_
       }
+
+-- | The algorithm that was used to create a checksum of the object.
+object_checksumAlgorithm :: Lens.Lens' Object (Prelude.Maybe [ChecksumAlgorithm])
+object_checksumAlgorithm = Lens.lens (\Object' {checksumAlgorithm} -> checksumAlgorithm) (\s@Object' {} a -> s {checksumAlgorithm = a} :: Object) Prelude.. Lens.mapping Lens.coerced
 
 -- | The owner of the object
 object_owner :: Lens.Lens' Object (Prelude.Maybe Owner)
@@ -148,7 +162,9 @@ object_owner = Lens.lens (\Object' {owner} -> owner) (\s@Object' {} a -> s {owne
 --
 -- -   If an object is created by either the Multipart Upload or Part Copy
 --     operation, the ETag is not an MD5 digest, regardless of the method
---     of encryption.
+--     of encryption. If an object is larger than 16 MB, the Amazon Web
+--     Services Management Console will upload or copy that object as a
+--     Multipart Upload, and therefore the ETag will not be an MD5 digest.
 object_eTag :: Lens.Lens' Object ETag
 object_eTag = Lens.lens (\Object' {eTag} -> eTag) (\s@Object' {} a -> s {eTag = a} :: Object)
 
@@ -172,7 +188,8 @@ object_lastModified = Lens.lens (\Object' {lastModified} -> lastModified) (\s@Ob
 instance Core.FromXML Object where
   parseXML x =
     Object'
-      Prelude.<$> (x Core..@? "Owner")
+      Prelude.<$> (Core.may (Core.parseXMLList "ChecksumAlgorithm") x)
+      Prelude.<*> (x Core..@? "Owner")
       Prelude.<*> (x Core..@ "ETag")
       Prelude.<*> (x Core..@ "Size")
       Prelude.<*> (x Core..@ "Key")
@@ -181,7 +198,8 @@ instance Core.FromXML Object where
 
 instance Prelude.Hashable Object where
   hashWithSalt _salt Object' {..} =
-    _salt `Prelude.hashWithSalt` owner
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` key
@@ -190,7 +208,8 @@ instance Prelude.Hashable Object where
 
 instance Prelude.NFData Object where
   rnf Object' {..} =
-    Prelude.rnf owner
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf key

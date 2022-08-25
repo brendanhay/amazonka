@@ -22,8 +22,8 @@
 --
 -- Detects text in the input document. Amazon Textract can detect lines of
 -- text and the words that make up a line of text. The input document must
--- be an image in JPEG or PNG format. @DetectDocumentText@ returns the
--- detected text in an array of Block objects.
+-- be an image in JPEG, PNG, PDF, or TIFF format. @DetectDocumentText@
+-- returns the detected text in an array of Block objects.
 --
 -- Each document page has as an associated @Block@ of type PAGE. Each PAGE
 -- @Block@ object is the parent of LINE @Block@ objects that represent the

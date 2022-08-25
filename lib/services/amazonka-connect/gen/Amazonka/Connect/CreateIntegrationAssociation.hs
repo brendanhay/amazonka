@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS resource association with an Amazon Connect instance.
+-- Creates an Amazon Web Services resource association with an Amazon
+-- Connect instance.
 module Amazonka.Connect.CreateIntegrationAssociation
   ( -- * Creating a Request
     CreateIntegrationAssociation (..),
@@ -55,7 +56,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIntegrationAssociation' smart constructor.
 data CreateIntegrationAssociation = CreateIntegrationAssociation'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the data source. This field is only required for the EVENT
     -- integration type.
@@ -72,6 +74,9 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
     -- | The type of information to be ingested.
     integrationType :: IntegrationType,
     -- | The Amazon Resource Name (ARN) of the integration.
+    --
+    -- When integrating with Amazon Pinpoint, the Amazon Connect and Amazon
+    -- Pinpoint instances must be in the same account.
     integrationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +89,8 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createIntegrationAssociation_tags' - One or more tags.
+-- 'tags', 'createIntegrationAssociation_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'sourceType', 'createIntegrationAssociation_sourceType' - The type of the data source. This field is only required for the EVENT
 -- integration type.
@@ -101,6 +107,9 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
 -- 'integrationType', 'createIntegrationAssociation_integrationType' - The type of information to be ingested.
 --
 -- 'integrationArn', 'createIntegrationAssociation_integrationArn' - The Amazon Resource Name (ARN) of the integration.
+--
+-- When integrating with Amazon Pinpoint, the Amazon Connect and Amazon
+-- Pinpoint instances must be in the same account.
 newCreateIntegrationAssociation ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -124,7 +133,8 @@ newCreateIntegrationAssociation
         integrationArn = pIntegrationArn_
       }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createIntegrationAssociation_tags :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createIntegrationAssociation_tags = Lens.lens (\CreateIntegrationAssociation' {tags} -> tags) (\s@CreateIntegrationAssociation' {} a -> s {tags = a} :: CreateIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
 
@@ -153,6 +163,9 @@ createIntegrationAssociation_integrationType :: Lens.Lens' CreateIntegrationAsso
 createIntegrationAssociation_integrationType = Lens.lens (\CreateIntegrationAssociation' {integrationType} -> integrationType) (\s@CreateIntegrationAssociation' {} a -> s {integrationType = a} :: CreateIntegrationAssociation)
 
 -- | The Amazon Resource Name (ARN) of the integration.
+--
+-- When integrating with Amazon Pinpoint, the Amazon Connect and Amazon
+-- Pinpoint instances must be in the same account.
 createIntegrationAssociation_integrationArn :: Lens.Lens' CreateIntegrationAssociation Prelude.Text
 createIntegrationAssociation_integrationArn = Lens.lens (\CreateIntegrationAssociation' {integrationArn} -> integrationArn) (\s@CreateIntegrationAssociation' {} a -> s {integrationArn = a} :: CreateIntegrationAssociation)
 

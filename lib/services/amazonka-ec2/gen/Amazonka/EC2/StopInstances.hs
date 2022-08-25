@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops an Amazon EBS-backed instance.
+-- Stops an Amazon EBS-backed instance. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stop and start your instance>
+-- in the /Amazon EC2 User Guide/.
 --
 -- You can use the Stop action to hibernate an instance if the instance is
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation enabled for hibernation>
@@ -65,7 +67,7 @@
 -- short while. If your instance appears stuck in the stopping state after
 -- a period of time, there may be an issue with the underlying host
 -- computer. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting stopping your instance>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshoot stopping your instance>
 -- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.StopInstances
   ( -- * Creating a Request

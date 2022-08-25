@@ -23,6 +23,7 @@ module Amazonka.IoT.Types
     _MalformedPolicyException,
     _CertificateConflictException,
     _ConflictingResourceUpdateException,
+    _InternalServerException,
     _UnauthorizedException,
     _InvalidAggregationException,
     _ServiceUnavailableException,
@@ -138,6 +139,9 @@ module Amazonka.IoT.Types
     -- * DeviceCertificateUpdateAction
     DeviceCertificateUpdateAction (..),
 
+    -- * DeviceDefenderIndexingMode
+    DeviceDefenderIndexingMode (..),
+
     -- * DimensionType
     DimensionType (..),
 
@@ -192,6 +196,9 @@ module Amazonka.IoT.Types
     -- * ModelStatus
     ModelStatus (..),
 
+    -- * NamedShadowIndexingMode
+    NamedShadowIndexingMode (..),
+
     -- * OTAUpdateStatus
     OTAUpdateStatus (..),
 
@@ -207,6 +214,9 @@ module Amazonka.IoT.Types
     -- * ResourceType
     ResourceType (..),
 
+    -- * RetryableFailureType
+    RetryableFailureType (..),
+
     -- * ServerCertificateStatus
     ServerCertificateStatus (..),
 
@@ -218,6 +228,9 @@ module Amazonka.IoT.Types
 
     -- * TaskStatus
     TaskStatus (..),
+
+    -- * TemplateType
+    TemplateType (..),
 
     -- * ThingConnectivityIndexingMode
     ThingConnectivityIndexingMode (..),
@@ -453,6 +466,7 @@ module Amazonka.IoT.Types
     authorizerDescription_signingDisabled,
     authorizerDescription_tokenSigningPublicKeys,
     authorizerDescription_authorizerArn,
+    authorizerDescription_enableCachingForHttp,
     authorizerDescription_authorizerName,
 
     -- * AuthorizerSummary
@@ -574,6 +588,7 @@ module Amazonka.IoT.Types
     cACertificateDescription_certificatePem,
     cACertificateDescription_autoRegistrationStatus,
     cACertificateDescription_generationId,
+    cACertificateDescription_certificateMode,
     cACertificateDescription_ownedBy,
     cACertificateDescription_validity,
 
@@ -716,6 +731,15 @@ module Amazonka.IoT.Types
     detectMitigationActionsTaskTarget_behaviorName,
     detectMitigationActionsTaskTarget_violationIds,
     detectMitigationActionsTaskTarget_securityProfileName,
+
+    -- * DocumentParameter
+    DocumentParameter (..),
+    newDocumentParameter,
+    documentParameter_key,
+    documentParameter_example,
+    documentParameter_regex,
+    documentParameter_description,
+    documentParameter_optional,
 
     -- * DomainConfigurationSummary
     DomainConfigurationSummary (..),
@@ -861,6 +885,11 @@ module Amazonka.IoT.Types
     newImplicitDeny,
     implicitDeny_policies,
 
+    -- * IndexingFilter
+    IndexingFilter (..),
+    newIndexingFilter,
+    indexingFilter_namedShadowNames,
+
     -- * IotAnalyticsAction
     IotAnalyticsAction (..),
     newIotAnalyticsAction,
@@ -889,6 +918,8 @@ module Amazonka.IoT.Types
     job_jobExecutionsRolloutConfig,
     job_abortConfig,
     job_lastUpdatedAt,
+    job_documentParameters,
+    job_isConcurrent,
     job_jobTemplateArn,
     job_targetSelection,
     job_jobId,
@@ -901,6 +932,7 @@ module Amazonka.IoT.Types
     job_reasonCode,
     job_namespaceId,
     job_jobArn,
+    job_jobExecutionsRetryConfig,
     job_jobProcessDetails,
     job_completedAt,
     job_timeoutConfig,
@@ -934,6 +966,7 @@ module Amazonka.IoT.Types
     jobExecutionSummary_status,
     jobExecutionSummary_startedAt,
     jobExecutionSummary_queuedAt,
+    jobExecutionSummary_retryAttempt,
 
     -- * JobExecutionSummaryForJob
     JobExecutionSummaryForJob (..),
@@ -946,6 +979,11 @@ module Amazonka.IoT.Types
     newJobExecutionSummaryForThing,
     jobExecutionSummaryForThing_jobId,
     jobExecutionSummaryForThing_jobExecutionSummary,
+
+    -- * JobExecutionsRetryConfig
+    JobExecutionsRetryConfig (..),
+    newJobExecutionsRetryConfig,
+    jobExecutionsRetryConfig_criteriaList,
 
     -- * JobExecutionsRolloutConfig
     JobExecutionsRolloutConfig (..),
@@ -970,6 +1008,7 @@ module Amazonka.IoT.Types
     JobSummary (..),
     newJobSummary,
     jobSummary_lastUpdatedAt,
+    jobSummary_isConcurrent,
     jobSummary_targetSelection,
     jobSummary_jobId,
     jobSummary_status,
@@ -1035,6 +1074,21 @@ module Amazonka.IoT.Types
     MachineLearningDetectionConfig (..),
     newMachineLearningDetectionConfig,
     machineLearningDetectionConfig_confidenceLevel,
+
+    -- * ManagedJobTemplateSummary
+    ManagedJobTemplateSummary (..),
+    newManagedJobTemplateSummary,
+    managedJobTemplateSummary_templateName,
+    managedJobTemplateSummary_environments,
+    managedJobTemplateSummary_description,
+    managedJobTemplateSummary_templateVersion,
+    managedJobTemplateSummary_templateArn,
+
+    -- * MetricDatum
+    MetricDatum (..),
+    newMetricDatum,
+    metricDatum_timestamp,
+    metricDatum_value,
 
     -- * MetricDimension
     MetricDimension (..),
@@ -1194,6 +1248,7 @@ module Amazonka.IoT.Types
     ProvisioningTemplateSummary (..),
     newProvisioningTemplateSummary,
     provisioningTemplateSummary_templateName,
+    provisioningTemplateSummary_type,
     provisioningTemplateSummary_lastModifiedDate,
     provisioningTemplateSummary_creationDate,
     provisioningTemplateSummary_description,
@@ -1235,6 +1290,7 @@ module Amazonka.IoT.Types
     -- * RegistrationConfig
     RegistrationConfig (..),
     newRegistrationConfig,
+    registrationConfig_templateName,
     registrationConfig_roleArn,
     registrationConfig_templateBody,
 
@@ -1268,6 +1324,12 @@ module Amazonka.IoT.Types
     resourceIdentifier_iamRoleArn,
     resourceIdentifier_roleAliasArn,
     resourceIdentifier_cognitoIdentityPoolId,
+
+    -- * RetryCriteria
+    RetryCriteria (..),
+    newRetryCriteria,
+    retryCriteria_failureType,
+    retryCriteria_numberOfRetries,
 
     -- * RoleAliasDescription
     RoleAliasDescription (..),
@@ -1483,6 +1545,7 @@ module Amazonka.IoT.Types
     newThingDocument,
     thingDocument_thingName,
     thingDocument_thingId,
+    thingDocument_deviceDefender,
     thingDocument_shadow,
     thingDocument_thingTypeName,
     thingDocument_thingGroupNames,
@@ -1521,8 +1584,11 @@ module Amazonka.IoT.Types
     -- * ThingIndexingConfiguration
     ThingIndexingConfiguration (..),
     newThingIndexingConfiguration,
+    thingIndexingConfiguration_deviceDefenderIndexingMode,
+    thingIndexingConfiguration_filter,
     thingIndexingConfiguration_thingConnectivityIndexingMode,
     thingIndexingConfiguration_managedFields,
+    thingIndexingConfiguration_namedShadowIndexingMode,
     thingIndexingConfiguration_customFields,
     thingIndexingConfiguration_thingIndexingMode,
 
@@ -1802,8 +1868,10 @@ import Amazonka.IoT.Types.DetectMitigationActionsTaskStatus
 import Amazonka.IoT.Types.DetectMitigationActionsTaskSummary
 import Amazonka.IoT.Types.DetectMitigationActionsTaskTarget
 import Amazonka.IoT.Types.DeviceCertificateUpdateAction
+import Amazonka.IoT.Types.DeviceDefenderIndexingMode
 import Amazonka.IoT.Types.DimensionType
 import Amazonka.IoT.Types.DimensionValueOperator
+import Amazonka.IoT.Types.DocumentParameter
 import Amazonka.IoT.Types.DomainConfigurationStatus
 import Amazonka.IoT.Types.DomainConfigurationSummary
 import Amazonka.IoT.Types.DomainType
@@ -1834,6 +1902,7 @@ import Amazonka.IoT.Types.HttpUrlDestinationProperties
 import Amazonka.IoT.Types.HttpUrlDestinationSummary
 import Amazonka.IoT.Types.ImplicitDeny
 import Amazonka.IoT.Types.IndexStatus
+import Amazonka.IoT.Types.IndexingFilter
 import Amazonka.IoT.Types.IotAnalyticsAction
 import Amazonka.IoT.Types.IotEventsAction
 import Amazonka.IoT.Types.IotSiteWiseAction
@@ -1845,6 +1914,7 @@ import Amazonka.IoT.Types.JobExecutionStatusDetails
 import Amazonka.IoT.Types.JobExecutionSummary
 import Amazonka.IoT.Types.JobExecutionSummaryForJob
 import Amazonka.IoT.Types.JobExecutionSummaryForThing
+import Amazonka.IoT.Types.JobExecutionsRetryConfig
 import Amazonka.IoT.Types.JobExecutionsRolloutConfig
 import Amazonka.IoT.Types.JobProcessDetails
 import Amazonka.IoT.Types.JobStatus
@@ -1860,7 +1930,9 @@ import Amazonka.IoT.Types.LogTargetConfiguration
 import Amazonka.IoT.Types.LogTargetType
 import Amazonka.IoT.Types.LoggingOptionsPayload
 import Amazonka.IoT.Types.MachineLearningDetectionConfig
+import Amazonka.IoT.Types.ManagedJobTemplateSummary
 import Amazonka.IoT.Types.MessageFormat
+import Amazonka.IoT.Types.MetricDatum
 import Amazonka.IoT.Types.MetricDimension
 import Amazonka.IoT.Types.MetricToRetain
 import Amazonka.IoT.Types.MetricValue
@@ -1870,6 +1942,7 @@ import Amazonka.IoT.Types.MitigationActionParams
 import Amazonka.IoT.Types.MitigationActionType
 import Amazonka.IoT.Types.ModelStatus
 import Amazonka.IoT.Types.MqttContext
+import Amazonka.IoT.Types.NamedShadowIndexingMode
 import Amazonka.IoT.Types.NonCompliantResource
 import Amazonka.IoT.Types.OTAUpdateFile
 import Amazonka.IoT.Types.OTAUpdateInfo
@@ -1898,6 +1971,8 @@ import Amazonka.IoT.Types.ReportType
 import Amazonka.IoT.Types.RepublishAction
 import Amazonka.IoT.Types.ResourceIdentifier
 import Amazonka.IoT.Types.ResourceType
+import Amazonka.IoT.Types.RetryCriteria
+import Amazonka.IoT.Types.RetryableFailureType
 import Amazonka.IoT.Types.RoleAliasDescription
 import Amazonka.IoT.Types.S3Action
 import Amazonka.IoT.Types.S3Destination
@@ -1927,6 +2002,7 @@ import Amazonka.IoT.Types.TargetSelection
 import Amazonka.IoT.Types.TaskStatistics
 import Amazonka.IoT.Types.TaskStatisticsForAuditCheck
 import Amazonka.IoT.Types.TaskStatus
+import Amazonka.IoT.Types.TemplateType
 import Amazonka.IoT.Types.TermsAggregation
 import Amazonka.IoT.Types.ThingAttribute
 import Amazonka.IoT.Types.ThingConnectivity
@@ -2091,6 +2167,15 @@ _ConflictingResourceUpdateException =
     defaultService
     "ConflictingResourceUpdateException"
     Prelude.. Core.hasStatus 409
+
+-- | Internal error from the service that indicates an unexpected error or
+-- that the service is unavailable.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | You are not authorized to perform this operation.
 _UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

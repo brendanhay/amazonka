@@ -59,8 +59,8 @@ data ListContents = ListContents'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,8 +79,8 @@ data ListContents = ListContents'
 --
 -- 'maxResults', 'listContents_maxResults' - The maximum number of results to return per page.
 --
--- 'knowledgeBaseId', 'listContents_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'listContents_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newListContents ::
   -- | 'knowledgeBaseId'
   Prelude.Text ->
@@ -102,8 +102,8 @@ listContents_nextToken = Lens.lens (\ListContents' {nextToken} -> nextToken) (\s
 listContents_maxResults :: Lens.Lens' ListContents (Prelude.Maybe Prelude.Natural)
 listContents_maxResults = Lens.lens (\ListContents' {maxResults} -> maxResults) (\s@ListContents' {} a -> s {maxResults = a} :: ListContents)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 listContents_knowledgeBaseId :: Lens.Lens' ListContents Prelude.Text
 listContents_knowledgeBaseId = Lens.lens (\ListContents' {knowledgeBaseId} -> knowledgeBaseId) (\s@ListContents' {} a -> s {knowledgeBaseId = a} :: ListContents)
 

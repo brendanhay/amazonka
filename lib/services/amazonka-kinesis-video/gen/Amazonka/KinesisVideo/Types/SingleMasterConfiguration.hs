@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSingleMasterConfiguration' smart constructor.
 data SingleMasterConfiguration = SingleMasterConfiguration'
-  { -- | The period of time a signaling channel retains underlivered messages
+  { -- | The period of time a signaling channel retains undelivered messages
     -- before they are discarded.
     messageTtlSeconds :: Prelude.Maybe Prelude.Natural
   }
@@ -42,7 +42,7 @@ data SingleMasterConfiguration = SingleMasterConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageTtlSeconds', 'singleMasterConfiguration_messageTtlSeconds' - The period of time a signaling channel retains underlivered messages
+-- 'messageTtlSeconds', 'singleMasterConfiguration_messageTtlSeconds' - The period of time a signaling channel retains undelivered messages
 -- before they are discarded.
 newSingleMasterConfiguration ::
   SingleMasterConfiguration
@@ -52,7 +52,7 @@ newSingleMasterConfiguration =
         Prelude.Nothing
     }
 
--- | The period of time a signaling channel retains underlivered messages
+-- | The period of time a signaling channel retains undelivered messages
 -- before they are discarded.
 singleMasterConfiguration_messageTtlSeconds :: Lens.Lens' SingleMasterConfiguration (Prelude.Maybe Prelude.Natural)
 singleMasterConfiguration_messageTtlSeconds = Lens.lens (\SingleMasterConfiguration' {messageTtlSeconds} -> messageTtlSeconds) (\s@SingleMasterConfiguration' {} a -> s {messageTtlSeconds = a} :: SingleMasterConfiguration)

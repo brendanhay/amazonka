@@ -60,7 +60,7 @@ data ListComponentVersions = ListComponentVersions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
-    -- of the component version.
+    -- of the component.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +79,7 @@ data ListComponentVersions = ListComponentVersions'
 --
 -- 'arn', 'listComponentVersions_arn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the component version.
+-- of the component.
 newListComponentVersions ::
   -- | 'arn'
   Prelude.Text ->
@@ -101,7 +101,7 @@ listComponentVersions_maxResults = Lens.lens (\ListComponentVersions' {maxResult
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the component version.
+-- of the component.
 listComponentVersions_arn :: Lens.Lens' ListComponentVersions Prelude.Text
 listComponentVersions_arn = Lens.lens (\ListComponentVersions' {arn} -> arn) (\s@ListComponentVersions' {} a -> s {arn = a} :: ListComponentVersions)
 
@@ -156,15 +156,7 @@ instance Prelude.NFData ListComponentVersions where
       `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListComponentVersions where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListComponentVersions where
   toPath ListComponentVersions' {..} =

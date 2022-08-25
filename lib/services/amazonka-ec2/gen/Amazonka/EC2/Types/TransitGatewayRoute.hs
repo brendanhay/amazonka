@@ -40,7 +40,9 @@ data TransitGatewayRoute = TransitGatewayRoute'
     -- | The CIDR block used for destination matches.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The attachments.
-    transitGatewayAttachments :: Prelude.Maybe [TransitGatewayRouteAttachment]
+    transitGatewayAttachments :: Prelude.Maybe [TransitGatewayRouteAttachment],
+    -- | The ID of the transit gateway route table announcement.
+    transitGatewayRouteTableAnnouncementId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +63,8 @@ data TransitGatewayRoute = TransitGatewayRoute'
 -- 'destinationCidrBlock', 'transitGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches.
 --
 -- 'transitGatewayAttachments', 'transitGatewayRoute_transitGatewayAttachments' - The attachments.
+--
+-- 'transitGatewayRouteTableAnnouncementId', 'transitGatewayRoute_transitGatewayRouteTableAnnouncementId' - The ID of the transit gateway route table announcement.
 newTransitGatewayRoute ::
   TransitGatewayRoute
 newTransitGatewayRoute =
@@ -69,7 +73,9 @@ newTransitGatewayRoute =
       prefixListId = Prelude.Nothing,
       state = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
-      transitGatewayAttachments = Prelude.Nothing
+      transitGatewayAttachments = Prelude.Nothing,
+      transitGatewayRouteTableAnnouncementId =
+        Prelude.Nothing
     }
 
 -- | The route type.
@@ -92,6 +98,10 @@ transitGatewayRoute_destinationCidrBlock = Lens.lens (\TransitGatewayRoute' {des
 transitGatewayRoute_transitGatewayAttachments :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe [TransitGatewayRouteAttachment])
 transitGatewayRoute_transitGatewayAttachments = Lens.lens (\TransitGatewayRoute' {transitGatewayAttachments} -> transitGatewayAttachments) (\s@TransitGatewayRoute' {} a -> s {transitGatewayAttachments = a} :: TransitGatewayRoute) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the transit gateway route table announcement.
+transitGatewayRoute_transitGatewayRouteTableAnnouncementId :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe Prelude.Text)
+transitGatewayRoute_transitGatewayRouteTableAnnouncementId = Lens.lens (\TransitGatewayRoute' {transitGatewayRouteTableAnnouncementId} -> transitGatewayRouteTableAnnouncementId) (\s@TransitGatewayRoute' {} a -> s {transitGatewayRouteTableAnnouncementId = a} :: TransitGatewayRoute)
+
 instance Core.FromXML TransitGatewayRoute where
   parseXML x =
     TransitGatewayRoute'
@@ -103,6 +113,7 @@ instance Core.FromXML TransitGatewayRoute where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "transitGatewayRouteTableAnnouncementId")
 
 instance Prelude.Hashable TransitGatewayRoute where
   hashWithSalt _salt TransitGatewayRoute' {..} =
@@ -111,6 +122,7 @@ instance Prelude.Hashable TransitGatewayRoute where
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` transitGatewayAttachments
+      `Prelude.hashWithSalt` transitGatewayRouteTableAnnouncementId
 
 instance Prelude.NFData TransitGatewayRoute where
   rnf TransitGatewayRoute' {..} =
@@ -119,3 +131,4 @@ instance Prelude.NFData TransitGatewayRoute where
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf transitGatewayAttachments
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId

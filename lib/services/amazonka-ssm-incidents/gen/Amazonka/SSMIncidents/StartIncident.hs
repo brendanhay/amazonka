@@ -54,8 +54,8 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newStartIncident' smart constructor.
 data StartIncident = StartIncident'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Defines the impact to the customers. Providing an impact overwrites the
     -- impact provided by a response plan.
@@ -78,8 +78,8 @@ data StartIncident = StartIncident'
     --     action is needed to avoid impact.
     impact :: Prelude.Maybe Prelude.Natural,
     -- | Add related items to the incident for other responders to use. Related
-    -- items are AWS resources, external links, or files uploaded to an S3
-    -- bucket.
+    -- items are AWS resources, external links, or files uploaded to an Amazon
+    -- S3 bucket.
     relatedItems :: Prelude.Maybe [RelatedItem],
     -- | Provide a title for the incident. Providing a title overwrites the title
     -- provided by the response plan.
@@ -87,8 +87,8 @@ data StartIncident = StartIncident'
     -- | Details of what created the incident record in Incident Manager.
     triggerDetails :: Prelude.Maybe TriggerDetails,
     -- | The Amazon Resource Name (ARN) of the response plan that pre-defines
-    -- summary, chat channels, SNS topics, runbooks, title, and impact of the
-    -- incident.
+    -- summary, chat channels, Amazon SNS topics, runbooks, title, and impact
+    -- of the incident.
     responsePlanArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,8 +101,8 @@ data StartIncident = StartIncident'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'startIncident_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'startIncident_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
 -- 'impact', 'startIncident_impact' - Defines the impact to the customers. Providing an impact overwrites the
 -- impact provided by a response plan.
@@ -125,8 +125,8 @@ data StartIncident = StartIncident'
 --     action is needed to avoid impact.
 --
 -- 'relatedItems', 'startIncident_relatedItems' - Add related items to the incident for other responders to use. Related
--- items are AWS resources, external links, or files uploaded to an S3
--- bucket.
+-- items are AWS resources, external links, or files uploaded to an Amazon
+-- S3 bucket.
 --
 -- 'title', 'startIncident_title' - Provide a title for the incident. Providing a title overwrites the title
 -- provided by the response plan.
@@ -134,8 +134,8 @@ data StartIncident = StartIncident'
 -- 'triggerDetails', 'startIncident_triggerDetails' - Details of what created the incident record in Incident Manager.
 --
 -- 'responsePlanArn', 'startIncident_responsePlanArn' - The Amazon Resource Name (ARN) of the response plan that pre-defines
--- summary, chat channels, SNS topics, runbooks, title, and impact of the
--- incident.
+-- summary, chat channels, Amazon SNS topics, runbooks, title, and impact
+-- of the incident.
 newStartIncident ::
   -- | 'responsePlanArn'
   Prelude.Text ->
@@ -150,8 +150,8 @@ newStartIncident pResponsePlanArn_ =
       responsePlanArn = pResponsePlanArn_
     }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 startIncident_clientToken :: Lens.Lens' StartIncident (Prelude.Maybe Prelude.Text)
 startIncident_clientToken = Lens.lens (\StartIncident' {clientToken} -> clientToken) (\s@StartIncident' {} a -> s {clientToken = a} :: StartIncident)
 
@@ -178,8 +178,8 @@ startIncident_impact :: Lens.Lens' StartIncident (Prelude.Maybe Prelude.Natural)
 startIncident_impact = Lens.lens (\StartIncident' {impact} -> impact) (\s@StartIncident' {} a -> s {impact = a} :: StartIncident)
 
 -- | Add related items to the incident for other responders to use. Related
--- items are AWS resources, external links, or files uploaded to an S3
--- bucket.
+-- items are AWS resources, external links, or files uploaded to an Amazon
+-- S3 bucket.
 startIncident_relatedItems :: Lens.Lens' StartIncident (Prelude.Maybe [RelatedItem])
 startIncident_relatedItems = Lens.lens (\StartIncident' {relatedItems} -> relatedItems) (\s@StartIncident' {} a -> s {relatedItems = a} :: StartIncident) Prelude.. Lens.mapping Lens.coerced
 
@@ -193,8 +193,8 @@ startIncident_triggerDetails :: Lens.Lens' StartIncident (Prelude.Maybe TriggerD
 startIncident_triggerDetails = Lens.lens (\StartIncident' {triggerDetails} -> triggerDetails) (\s@StartIncident' {} a -> s {triggerDetails = a} :: StartIncident)
 
 -- | The Amazon Resource Name (ARN) of the response plan that pre-defines
--- summary, chat channels, SNS topics, runbooks, title, and impact of the
--- incident.
+-- summary, chat channels, Amazon SNS topics, runbooks, title, and impact
+-- of the incident.
 startIncident_responsePlanArn :: Lens.Lens' StartIncident Prelude.Text
 startIncident_responsePlanArn = Lens.lens (\StartIncident' {responsePlanArn} -> responsePlanArn) (\s@StartIncident' {} a -> s {responsePlanArn = a} :: StartIncident)
 

@@ -26,7 +26,10 @@
 -- Default encryption for a bucket can use server-side encryption with
 -- Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS). If
 -- you specify default encryption using SSE-KMS, you can also configure
--- Amazon S3 Bucket Key. For information about default encryption, see
+-- Amazon S3 Bucket Key. When the default encryption is SSE-KMS, if you
+-- upload an object to the bucket and do not specify the KMS key to use for
+-- encryption, Amazon S3 uses the default Amazon Web Services managed KMS
+-- key for your account. For information about default encryption, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 default bucket encryption>
 -- in the /Amazon S3 User Guide/. For more information about S3 Bucket
 -- Keys, see
@@ -57,6 +60,7 @@ module Amazonka.S3.PutBucketEncryption
     newPutBucketEncryption,
 
     -- * Request Lenses
+    putBucketEncryption_checksumAlgorithm,
     putBucketEncryption_contentMD5,
     putBucketEncryption_expectedBucketOwner,
     putBucketEncryption_bucket,
@@ -77,7 +81,19 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketEncryption' smart constructor.
 data PutBucketEncryption = PutBucketEncryption'
-  { -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
     -- configuration.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
@@ -85,8 +101,8 @@ data PutBucketEncryption = PutBucketEncryption'
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies default encryption for a bucket using server-side encryption
     -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
@@ -106,6 +122,18 @@ data PutBucketEncryption = PutBucketEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putBucketEncryption_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'contentMD5', 'putBucketEncryption_contentMD5' - The base64-encoded 128-bit MD5 digest of the server-side encryption
 -- configuration.
 --
@@ -114,8 +142,8 @@ data PutBucketEncryption = PutBucketEncryption'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putBucketEncryption_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'putBucketEncryption_bucket' - Specifies default encryption for a bucket using server-side encryption
 -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
@@ -134,12 +162,28 @@ newPutBucketEncryption
   pBucket_
   pServerSideEncryptionConfiguration_ =
     PutBucketEncryption'
-      { contentMD5 = Prelude.Nothing,
+      { checksumAlgorithm =
+          Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
         expectedBucketOwner = Prelude.Nothing,
         bucket = pBucket_,
         serverSideEncryptionConfiguration =
           pServerSideEncryptionConfiguration_
       }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putBucketEncryption_checksumAlgorithm :: Lens.Lens' PutBucketEncryption (Prelude.Maybe ChecksumAlgorithm)
+putBucketEncryption_checksumAlgorithm = Lens.lens (\PutBucketEncryption' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutBucketEncryption' {} a -> s {checksumAlgorithm = a} :: PutBucketEncryption)
 
 -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
 -- configuration.
@@ -151,8 +195,8 @@ putBucketEncryption_contentMD5 :: Lens.Lens' PutBucketEncryption (Prelude.Maybe 
 putBucketEncryption_contentMD5 = Lens.lens (\PutBucketEncryption' {contentMD5} -> contentMD5) (\s@PutBucketEncryption' {} a -> s {contentMD5 = a} :: PutBucketEncryption)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
 putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketEncryption' {} a -> s {expectedBucketOwner = a} :: PutBucketEncryption)
 
@@ -180,14 +224,16 @@ instance Core.AWSRequest PutBucketEncryption where
 
 instance Prelude.Hashable PutBucketEncryption where
   hashWithSalt _salt PutBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
 
 instance Prelude.NFData PutBucketEncryption where
   rnf PutBucketEncryption' {..} =
-    Prelude.rnf contentMD5
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
@@ -201,7 +247,9 @@ instance Core.ToElement PutBucketEncryption where
 instance Core.ToHeaders PutBucketEncryption where
   toHeaders PutBucketEncryption' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]

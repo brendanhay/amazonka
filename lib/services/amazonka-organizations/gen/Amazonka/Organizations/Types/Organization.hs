@@ -36,7 +36,7 @@ data Organization = Organization'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of an organization.
     --
@@ -61,17 +61,18 @@ data Organization = Organization'
     -- \"CONSOLIDATED_BILLING\", then only consolidated billing functionality
     -- is available. For more information, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
-    -- in the /AWS Organizations User Guide/.
+    -- in the /Organizations User Guide/.
     featureSet :: Prelude.Maybe OrganizationFeatureSet,
-    -- | The email address that is associated with the AWS account that is
-    -- designated as the management account for the organization.
+    -- | The email address that is associated with the Amazon Web Services
+    -- account that is designated as the management account for the
+    -- organization.
     masterAccountEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the account that is designated as the
     -- management account for the organization.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     masterAccountArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -88,7 +89,7 @@ data Organization = Organization'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 --
 -- 'id', 'organization_id' - The unique identifier (ID) of an organization.
 --
@@ -113,17 +114,18 @@ data Organization = Organization'
 -- \"CONSOLIDATED_BILLING\", then only consolidated billing functionality
 -- is available. For more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
--- in the /AWS Organizations User Guide/.
+-- in the /Organizations User Guide/.
 --
--- 'masterAccountEmail', 'organization_masterAccountEmail' - The email address that is associated with the AWS account that is
--- designated as the management account for the organization.
+-- 'masterAccountEmail', 'organization_masterAccountEmail' - The email address that is associated with the Amazon Web Services
+-- account that is designated as the management account for the
+-- organization.
 --
 -- 'masterAccountArn', 'organization_masterAccountArn' - The Amazon Resource Name (ARN) of the account that is designated as the
 -- management account for the organization.
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 newOrganization ::
   Organization
 newOrganization =
@@ -141,7 +143,7 @@ newOrganization =
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 organization_arn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_arn = Lens.lens (\Organization' {arn} -> arn) (\s@Organization' {} a -> s {arn = a} :: Organization)
 
@@ -174,12 +176,13 @@ organization_availablePolicyTypes = Lens.lens (\Organization' {availablePolicyTy
 -- \"CONSOLIDATED_BILLING\", then only consolidated billing functionality
 -- is available. For more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
--- in the /AWS Organizations User Guide/.
+-- in the /Organizations User Guide/.
 organization_featureSet :: Lens.Lens' Organization (Prelude.Maybe OrganizationFeatureSet)
 organization_featureSet = Lens.lens (\Organization' {featureSet} -> featureSet) (\s@Organization' {} a -> s {featureSet = a} :: Organization)
 
--- | The email address that is associated with the AWS account that is
--- designated as the management account for the organization.
+-- | The email address that is associated with the Amazon Web Services
+-- account that is designated as the management account for the
+-- organization.
 organization_masterAccountEmail :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Prelude.. Lens.mapping Core._Sensitive
 
@@ -188,7 +191,7 @@ organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail}
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 organization_masterAccountArn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_masterAccountArn = Lens.lens (\Organization' {masterAccountArn} -> masterAccountArn) (\s@Organization' {} a -> s {masterAccountArn = a} :: Organization)
 

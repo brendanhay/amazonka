@@ -26,7 +26,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to use to filter results from the
--- <https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html EntityFilter>
+-- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html DescribeAffectedEntities>
 -- operation.
 --
 -- /See:/ 'newEntityFilter' smart constructor.

@@ -22,12 +22,21 @@ module Amazonka.Proton.Types.AccountSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Proton.Types.RepositoryBranch
 
--- | The AWS Proton pipeline service role data.
+-- | The Proton pipeline service role and repository data shared across the
+-- Amazon Web Services account.
 --
 -- /See:/ 'newAccountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { -- | The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+  { -- | The repository configured in the Amazon Web Services account for
+    -- pipeline provisioning. Required it if you have environments configured
+    -- for self-managed provisioning with services that include pipelines.
+    pipelineProvisioningRepository :: Prelude.Maybe RepositoryBranch,
+    -- | The Amazon Resource Name (ARN) of the service role you want to use for
+    -- provisioning pipelines. Assumed by Proton for Amazon Web
+    -- Services-managed provisioning, and by customer-owned automation for
+    -- self-managed provisioning.
     pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,16 +49,33 @@ data AccountSettings = AccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineServiceRoleArn', 'accountSettings_pipelineServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+-- 'pipelineProvisioningRepository', 'accountSettings_pipelineProvisioningRepository' - The repository configured in the Amazon Web Services account for
+-- pipeline provisioning. Required it if you have environments configured
+-- for self-managed provisioning with services that include pipelines.
+--
+-- 'pipelineServiceRoleArn', 'accountSettings_pipelineServiceRoleArn' - The Amazon Resource Name (ARN) of the service role you want to use for
+-- provisioning pipelines. Assumed by Proton for Amazon Web
+-- Services-managed provisioning, and by customer-owned automation for
+-- self-managed provisioning.
 newAccountSettings ::
   AccountSettings
 newAccountSettings =
   AccountSettings'
-    { pipelineServiceRoleArn =
-        Prelude.Nothing
+    { pipelineProvisioningRepository =
+        Prelude.Nothing,
+      pipelineServiceRoleArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+-- | The repository configured in the Amazon Web Services account for
+-- pipeline provisioning. Required it if you have environments configured
+-- for self-managed provisioning with services that include pipelines.
+accountSettings_pipelineProvisioningRepository :: Lens.Lens' AccountSettings (Prelude.Maybe RepositoryBranch)
+accountSettings_pipelineProvisioningRepository = Lens.lens (\AccountSettings' {pipelineProvisioningRepository} -> pipelineProvisioningRepository) (\s@AccountSettings' {} a -> s {pipelineProvisioningRepository = a} :: AccountSettings)
+
+-- | The Amazon Resource Name (ARN) of the service role you want to use for
+-- provisioning pipelines. Assumed by Proton for Amazon Web
+-- Services-managed provisioning, and by customer-owned automation for
+-- self-managed provisioning.
 accountSettings_pipelineServiceRoleArn :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
 accountSettings_pipelineServiceRoleArn = Lens.lens (\AccountSettings' {pipelineServiceRoleArn} -> pipelineServiceRoleArn) (\s@AccountSettings' {} a -> s {pipelineServiceRoleArn = a} :: AccountSettings)
 
@@ -59,13 +85,17 @@ instance Core.FromJSON AccountSettings where
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Core..:? "pipelineServiceRoleArn")
+            Prelude.<$> (x Core..:? "pipelineProvisioningRepository")
+            Prelude.<*> (x Core..:? "pipelineServiceRoleArn")
       )
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` pipelineServiceRoleArn
+    _salt
+      `Prelude.hashWithSalt` pipelineProvisioningRepository
+      `Prelude.hashWithSalt` pipelineServiceRoleArn
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf pipelineServiceRoleArn
+    Prelude.rnf pipelineProvisioningRepository
+      `Prelude.seq` Prelude.rnf pipelineServiceRoleArn

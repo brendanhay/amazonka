@@ -58,6 +58,12 @@ module Amazonka.S3Outposts
     ListEndpointsResponse (ListEndpointsResponse'),
     newListEndpointsResponse,
 
+    -- ** ListSharedEndpoints (Paginated)
+    ListSharedEndpoints (ListSharedEndpoints'),
+    newListSharedEndpoints,
+    ListSharedEndpointsResponse (ListSharedEndpointsResponse'),
+    newListSharedEndpointsResponse,
+
     -- * Types
 
     -- ** EndpointAccessType
@@ -80,6 +86,7 @@ import Amazonka.S3Outposts.CreateEndpoint
 import Amazonka.S3Outposts.DeleteEndpoint
 import Amazonka.S3Outposts.Lens
 import Amazonka.S3Outposts.ListEndpoints
+import Amazonka.S3Outposts.ListSharedEndpoints
 import Amazonka.S3Outposts.Types
 import Amazonka.S3Outposts.Waiters
 

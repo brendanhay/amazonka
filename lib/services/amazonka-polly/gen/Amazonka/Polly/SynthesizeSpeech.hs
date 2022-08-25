@@ -408,7 +408,7 @@ data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
     --     little-endian format.
     --
     -- -   If you request @json@ as the @OutputFormat@, the @ContentType@
-    --     returned is audio\/json.
+    --     returned is application\/x-json-stream.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -441,7 +441,7 @@ data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
 --     little-endian format.
 --
 -- -   If you request @json@ as the @OutputFormat@, the @ContentType@
---     returned is audio\/json.
+--     returned is application\/x-json-stream.
 --
 -- 'httpStatus', 'synthesizeSpeechResponse_httpStatus' - The response's http status code.
 --
@@ -481,7 +481,7 @@ synthesizeSpeechResponse_requestCharacters = Lens.lens (\SynthesizeSpeechRespons
 --     little-endian format.
 --
 -- -   If you request @json@ as the @OutputFormat@, the @ContentType@
---     returned is audio\/json.
+--     returned is application\/x-json-stream.
 synthesizeSpeechResponse_contentType :: Lens.Lens' SynthesizeSpeechResponse (Prelude.Maybe Prelude.Text)
 synthesizeSpeechResponse_contentType = Lens.lens (\SynthesizeSpeechResponse' {contentType} -> contentType) (\s@SynthesizeSpeechResponse' {} a -> s {contentType = a} :: SynthesizeSpeechResponse)
 

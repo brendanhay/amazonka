@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.CharacterSet
+import Amazonka.RDS.Types.Tag
 import Amazonka.RDS.Types.Timezone
 import Amazonka.RDS.Types.UpgradeTarget
 
@@ -39,14 +40,32 @@ data DBEngineVersion = DBEngineVersion'
     exportableLogTypes :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the database engine version supports read replicas.
     supportsReadReplica :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the engine version supports Babelfish for
+    -- Aurora PostgreSQL.
+    supportsBabelfish :: Prelude.Maybe Prelude.Bool,
     -- | A list of the character sets supported by this engine for the
     -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
     supportedCharacterSets :: Prelude.Maybe [CharacterSet],
-    -- | A list of features supported by the DB engine. Supported feature names
-    -- include the following.
+    tagList :: Prelude.Maybe [Tag],
+    -- | A list of features supported by the DB engine.
     --
-    -- -   s3Import
+    -- The supported features vary by DB engine and DB engine version.
+    --
+    -- To determine the supported features for a specific DB engine and DB
+    -- engine version using the CLI, use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine \<engine_name> --engine-version \<engine_version>@
+    --
+    -- For example, to determine the supported features for RDS for PostgreSQL
+    -- version 13.3 using the CLI, use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine postgres --engine-version 13.3@
+    --
+    -- The supported features are listed under @SupportedFeatureNames@ in the
+    -- output.
     supportedFeatureNames :: Prelude.Maybe [Prelude.Text],
+    -- | The ARN of the custom engine version.
+    dbEngineVersionArn :: Prelude.Maybe Prelude.Text,
     -- | A list of the supported DB engine modes.
     supportedEngineModes :: Prelude.Maybe [Prelude.Text],
     -- | The default character set for new instances of this engine version, if
@@ -55,6 +74,11 @@ data DBEngineVersion = DBEngineVersion'
     defaultCharacterSet :: Prelude.Maybe CharacterSet,
     -- | The status of the DB engine version, either @available@ or @deprecated@.
     status :: Prelude.Maybe Prelude.Text,
+    -- | The major engine version of the CEV.
+    majorEngineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon S3 bucket that contains your database
+    -- installation files.
+    databaseInstallationFilesS3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The description of the database engine version.
     dbEngineVersionDescription :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether you can use Aurora parallel query with a
@@ -63,10 +87,18 @@ data DBEngineVersion = DBEngineVersion'
     -- | A value that indicates whether the engine version supports exporting the
     -- log types specified by ExportableLogTypes to CloudWatch Logs.
     supportsLogExportsToCloudwatchLogs :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Web Services KMS key identifier for an encrypted CEV. This
+    -- parameter is required for RDS Custom, but optional for Amazon RDS.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database engine.
     engine :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group family for the database engine.
     dbParameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 directory that contains the database installation files.
+    -- If not specified, then no prefix is assumed.
+    databaseInstallationFilesS3Prefix :: Prelude.Maybe Prelude.Text,
+    -- | The creation time of the DB engine version.
+    createTime :: Prelude.Maybe Core.ISO8601,
     -- | A list of the time zones supported by this engine for the @Timezone@
     -- parameter of the @CreateDBInstance@ action.
     supportedTimezones :: Prelude.Maybe [Timezone],
@@ -99,13 +131,32 @@ data DBEngineVersion = DBEngineVersion'
 --
 -- 'supportsReadReplica', 'dbEngineVersion_supportsReadReplica' - Indicates whether the database engine version supports read replicas.
 --
+-- 'supportsBabelfish', 'dbEngineVersion_supportsBabelfish' - A value that indicates whether the engine version supports Babelfish for
+-- Aurora PostgreSQL.
+--
 -- 'supportedCharacterSets', 'dbEngineVersion_supportedCharacterSets' - A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
 --
--- 'supportedFeatureNames', 'dbEngineVersion_supportedFeatureNames' - A list of features supported by the DB engine. Supported feature names
--- include the following.
+-- 'tagList', 'dbEngineVersion_tagList' - Undocumented member.
 --
--- -   s3Import
+-- 'supportedFeatureNames', 'dbEngineVersion_supportedFeatureNames' - A list of features supported by the DB engine.
+--
+-- The supported features vary by DB engine and DB engine version.
+--
+-- To determine the supported features for a specific DB engine and DB
+-- engine version using the CLI, use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine \<engine_name> --engine-version \<engine_version>@
+--
+-- For example, to determine the supported features for RDS for PostgreSQL
+-- version 13.3 using the CLI, use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine postgres --engine-version 13.3@
+--
+-- The supported features are listed under @SupportedFeatureNames@ in the
+-- output.
+--
+-- 'dbEngineVersionArn', 'dbEngineVersion_dbEngineVersionArn' - The ARN of the custom engine version.
 --
 -- 'supportedEngineModes', 'dbEngineVersion_supportedEngineModes' - A list of the supported DB engine modes.
 --
@@ -115,6 +166,11 @@ data DBEngineVersion = DBEngineVersion'
 --
 -- 'status', 'dbEngineVersion_status' - The status of the DB engine version, either @available@ or @deprecated@.
 --
+-- 'majorEngineVersion', 'dbEngineVersion_majorEngineVersion' - The major engine version of the CEV.
+--
+-- 'databaseInstallationFilesS3BucketName', 'dbEngineVersion_databaseInstallationFilesS3BucketName' - The name of the Amazon S3 bucket that contains your database
+-- installation files.
+--
 -- 'dbEngineVersionDescription', 'dbEngineVersion_dbEngineVersionDescription' - The description of the database engine version.
 --
 -- 'supportsParallelQuery', 'dbEngineVersion_supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with a
@@ -123,9 +179,17 @@ data DBEngineVersion = DBEngineVersion'
 -- 'supportsLogExportsToCloudwatchLogs', 'dbEngineVersion_supportsLogExportsToCloudwatchLogs' - A value that indicates whether the engine version supports exporting the
 -- log types specified by ExportableLogTypes to CloudWatch Logs.
 --
+-- 'kmsKeyId', 'dbEngineVersion_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted CEV. This
+-- parameter is required for RDS Custom, but optional for Amazon RDS.
+--
 -- 'engine', 'dbEngineVersion_engine' - The name of the database engine.
 --
 -- 'dbParameterGroupFamily', 'dbEngineVersion_dbParameterGroupFamily' - The name of the DB parameter group family for the database engine.
+--
+-- 'databaseInstallationFilesS3Prefix', 'dbEngineVersion_databaseInstallationFilesS3Prefix' - The Amazon S3 directory that contains the database installation files.
+-- If not specified, then no prefix is assumed.
+--
+-- 'createTime', 'dbEngineVersion_createTime' - The creation time of the DB engine version.
 --
 -- 'supportedTimezones', 'dbEngineVersion_supportedTimezones' - A list of the time zones supported by this engine for the @Timezone@
 -- parameter of the @CreateDBInstance@ action.
@@ -147,16 +211,25 @@ newDBEngineVersion =
         Prelude.Nothing,
       exportableLogTypes = Prelude.Nothing,
       supportsReadReplica = Prelude.Nothing,
+      supportsBabelfish = Prelude.Nothing,
       supportedCharacterSets = Prelude.Nothing,
+      tagList = Prelude.Nothing,
       supportedFeatureNames = Prelude.Nothing,
+      dbEngineVersionArn = Prelude.Nothing,
       supportedEngineModes = Prelude.Nothing,
       defaultCharacterSet = Prelude.Nothing,
       status = Prelude.Nothing,
+      majorEngineVersion = Prelude.Nothing,
+      databaseInstallationFilesS3BucketName =
+        Prelude.Nothing,
       dbEngineVersionDescription = Prelude.Nothing,
       supportsParallelQuery = Prelude.Nothing,
       supportsLogExportsToCloudwatchLogs = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       engine = Prelude.Nothing,
       dbParameterGroupFamily = Prelude.Nothing,
+      databaseInstallationFilesS3Prefix = Prelude.Nothing,
+      createTime = Prelude.Nothing,
       supportedTimezones = Prelude.Nothing,
       supportsGlobalDatabases = Prelude.Nothing,
       supportedNcharCharacterSets = Prelude.Nothing,
@@ -178,17 +251,42 @@ dbEngineVersion_exportableLogTypes = Lens.lens (\DBEngineVersion' {exportableLog
 dbEngineVersion_supportsReadReplica :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
 dbEngineVersion_supportsReadReplica = Lens.lens (\DBEngineVersion' {supportsReadReplica} -> supportsReadReplica) (\s@DBEngineVersion' {} a -> s {supportsReadReplica = a} :: DBEngineVersion)
 
+-- | A value that indicates whether the engine version supports Babelfish for
+-- Aurora PostgreSQL.
+dbEngineVersion_supportsBabelfish :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsBabelfish = Lens.lens (\DBEngineVersion' {supportsBabelfish} -> supportsBabelfish) (\s@DBEngineVersion' {} a -> s {supportsBabelfish = a} :: DBEngineVersion)
+
 -- | A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
 dbEngineVersion_supportedCharacterSets :: Lens.Lens' DBEngineVersion (Prelude.Maybe [CharacterSet])
 dbEngineVersion_supportedCharacterSets = Lens.lens (\DBEngineVersion' {supportedCharacterSets} -> supportedCharacterSets) (\s@DBEngineVersion' {} a -> s {supportedCharacterSets = a} :: DBEngineVersion) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of features supported by the DB engine. Supported feature names
--- include the following.
+-- | Undocumented member.
+dbEngineVersion_tagList :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Tag])
+dbEngineVersion_tagList = Lens.lens (\DBEngineVersion' {tagList} -> tagList) (\s@DBEngineVersion' {} a -> s {tagList = a} :: DBEngineVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of features supported by the DB engine.
 --
--- -   s3Import
+-- The supported features vary by DB engine and DB engine version.
+--
+-- To determine the supported features for a specific DB engine and DB
+-- engine version using the CLI, use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine \<engine_name> --engine-version \<engine_version>@
+--
+-- For example, to determine the supported features for RDS for PostgreSQL
+-- version 13.3 using the CLI, use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine postgres --engine-version 13.3@
+--
+-- The supported features are listed under @SupportedFeatureNames@ in the
+-- output.
 dbEngineVersion_supportedFeatureNames :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
 dbEngineVersion_supportedFeatureNames = Lens.lens (\DBEngineVersion' {supportedFeatureNames} -> supportedFeatureNames) (\s@DBEngineVersion' {} a -> s {supportedFeatureNames = a} :: DBEngineVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the custom engine version.
+dbEngineVersion_dbEngineVersionArn :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_dbEngineVersionArn = Lens.lens (\DBEngineVersion' {dbEngineVersionArn} -> dbEngineVersionArn) (\s@DBEngineVersion' {} a -> s {dbEngineVersionArn = a} :: DBEngineVersion)
 
 -- | A list of the supported DB engine modes.
 dbEngineVersion_supportedEngineModes :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
@@ -204,6 +302,15 @@ dbEngineVersion_defaultCharacterSet = Lens.lens (\DBEngineVersion' {defaultChara
 dbEngineVersion_status :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_status = Lens.lens (\DBEngineVersion' {status} -> status) (\s@DBEngineVersion' {} a -> s {status = a} :: DBEngineVersion)
 
+-- | The major engine version of the CEV.
+dbEngineVersion_majorEngineVersion :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_majorEngineVersion = Lens.lens (\DBEngineVersion' {majorEngineVersion} -> majorEngineVersion) (\s@DBEngineVersion' {} a -> s {majorEngineVersion = a} :: DBEngineVersion)
+
+-- | The name of the Amazon S3 bucket that contains your database
+-- installation files.
+dbEngineVersion_databaseInstallationFilesS3BucketName :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_databaseInstallationFilesS3BucketName = Lens.lens (\DBEngineVersion' {databaseInstallationFilesS3BucketName} -> databaseInstallationFilesS3BucketName) (\s@DBEngineVersion' {} a -> s {databaseInstallationFilesS3BucketName = a} :: DBEngineVersion)
+
 -- | The description of the database engine version.
 dbEngineVersion_dbEngineVersionDescription :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_dbEngineVersionDescription = Lens.lens (\DBEngineVersion' {dbEngineVersionDescription} -> dbEngineVersionDescription) (\s@DBEngineVersion' {} a -> s {dbEngineVersionDescription = a} :: DBEngineVersion)
@@ -218,6 +325,11 @@ dbEngineVersion_supportsParallelQuery = Lens.lens (\DBEngineVersion' {supportsPa
 dbEngineVersion_supportsLogExportsToCloudwatchLogs :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
 dbEngineVersion_supportsLogExportsToCloudwatchLogs = Lens.lens (\DBEngineVersion' {supportsLogExportsToCloudwatchLogs} -> supportsLogExportsToCloudwatchLogs) (\s@DBEngineVersion' {} a -> s {supportsLogExportsToCloudwatchLogs = a} :: DBEngineVersion)
 
+-- | The Amazon Web Services KMS key identifier for an encrypted CEV. This
+-- parameter is required for RDS Custom, but optional for Amazon RDS.
+dbEngineVersion_kmsKeyId :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_kmsKeyId = Lens.lens (\DBEngineVersion' {kmsKeyId} -> kmsKeyId) (\s@DBEngineVersion' {} a -> s {kmsKeyId = a} :: DBEngineVersion)
+
 -- | The name of the database engine.
 dbEngineVersion_engine :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_engine = Lens.lens (\DBEngineVersion' {engine} -> engine) (\s@DBEngineVersion' {} a -> s {engine = a} :: DBEngineVersion)
@@ -225,6 +337,15 @@ dbEngineVersion_engine = Lens.lens (\DBEngineVersion' {engine} -> engine) (\s@DB
 -- | The name of the DB parameter group family for the database engine.
 dbEngineVersion_dbParameterGroupFamily :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_dbParameterGroupFamily = Lens.lens (\DBEngineVersion' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@DBEngineVersion' {} a -> s {dbParameterGroupFamily = a} :: DBEngineVersion)
+
+-- | The Amazon S3 directory that contains the database installation files.
+-- If not specified, then no prefix is assumed.
+dbEngineVersion_databaseInstallationFilesS3Prefix :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_databaseInstallationFilesS3Prefix = Lens.lens (\DBEngineVersion' {databaseInstallationFilesS3Prefix} -> databaseInstallationFilesS3Prefix) (\s@DBEngineVersion' {} a -> s {databaseInstallationFilesS3Prefix = a} :: DBEngineVersion)
+
+-- | The creation time of the DB engine version.
+dbEngineVersion_createTime :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.UTCTime)
+dbEngineVersion_createTime = Lens.lens (\DBEngineVersion' {createTime} -> createTime) (\s@DBEngineVersion' {} a -> s {createTime = a} :: DBEngineVersion) Prelude.. Lens.mapping Core._Time
 
 -- | A list of the time zones supported by this engine for the @Timezone@
 -- parameter of the @CreateDBInstance@ action.
@@ -261,25 +382,35 @@ instance Core.FromXML DBEngineVersion where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "SupportsReadReplica")
+      Prelude.<*> (x Core..@? "SupportsBabelfish")
       Prelude.<*> ( x Core..@? "SupportedCharacterSets"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "CharacterSet")
+                  )
+      Prelude.<*> ( x Core..@? "TagList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
       Prelude.<*> ( x Core..@? "SupportedFeatureNames"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "DBEngineVersionArn")
       Prelude.<*> ( x Core..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "DefaultCharacterSet")
       Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "MajorEngineVersion")
+      Prelude.<*> (x Core..@? "DatabaseInstallationFilesS3BucketName")
       Prelude.<*> (x Core..@? "DBEngineVersionDescription")
       Prelude.<*> (x Core..@? "SupportsParallelQuery")
       Prelude.<*> (x Core..@? "SupportsLogExportsToCloudwatchLogs")
+      Prelude.<*> (x Core..@? "KMSKeyId")
       Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Core..@? "DatabaseInstallationFilesS3Prefix")
+      Prelude.<*> (x Core..@? "CreateTime")
       Prelude.<*> ( x Core..@? "SupportedTimezones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Timezone")
@@ -297,16 +428,24 @@ instance Prelude.Hashable DBEngineVersion where
     _salt `Prelude.hashWithSalt` validUpgradeTarget
       `Prelude.hashWithSalt` exportableLogTypes
       `Prelude.hashWithSalt` supportsReadReplica
+      `Prelude.hashWithSalt` supportsBabelfish
       `Prelude.hashWithSalt` supportedCharacterSets
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` supportedFeatureNames
+      `Prelude.hashWithSalt` dbEngineVersionArn
       `Prelude.hashWithSalt` supportedEngineModes
       `Prelude.hashWithSalt` defaultCharacterSet
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` databaseInstallationFilesS3BucketName
       `Prelude.hashWithSalt` dbEngineVersionDescription
       `Prelude.hashWithSalt` supportsParallelQuery
       `Prelude.hashWithSalt` supportsLogExportsToCloudwatchLogs
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` databaseInstallationFilesS3Prefix
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` supportedTimezones
       `Prelude.hashWithSalt` supportsGlobalDatabases
       `Prelude.hashWithSalt` supportedNcharCharacterSets
@@ -318,19 +457,35 @@ instance Prelude.NFData DBEngineVersion where
     Prelude.rnf validUpgradeTarget
       `Prelude.seq` Prelude.rnf exportableLogTypes
       `Prelude.seq` Prelude.rnf supportsReadReplica
+      `Prelude.seq` Prelude.rnf supportsBabelfish
       `Prelude.seq` Prelude.rnf supportedCharacterSets
+      `Prelude.seq` Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf supportedFeatureNames
+      `Prelude.seq` Prelude.rnf dbEngineVersionArn
       `Prelude.seq` Prelude.rnf supportedEngineModes
       `Prelude.seq` Prelude.rnf defaultCharacterSet
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf
+        databaseInstallationFilesS3BucketName
       `Prelude.seq` Prelude.rnf dbEngineVersionDescription
       `Prelude.seq` Prelude.rnf supportsParallelQuery
-      `Prelude.seq` Prelude.rnf supportsLogExportsToCloudwatchLogs
+      `Prelude.seq` Prelude.rnf
+        supportsLogExportsToCloudwatchLogs
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf supportedTimezones
-      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
+      `Prelude.seq` Prelude.rnf
+        dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf
+        databaseInstallationFilesS3Prefix
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf
+        supportedTimezones
+      `Prelude.seq` Prelude.rnf
+        supportsGlobalDatabases
       `Prelude.seq` Prelude.rnf
         supportedNcharCharacterSets
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf dbEngineDescription
+      `Prelude.seq` Prelude.rnf
+        engineVersion
+      `Prelude.seq` Prelude.rnf
+        dbEngineDescription

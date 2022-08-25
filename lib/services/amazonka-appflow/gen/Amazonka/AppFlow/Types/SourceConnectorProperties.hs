@@ -20,6 +20,7 @@
 module Amazonka.AppFlow.Types.SourceConnectorProperties where
 
 import Amazonka.AppFlow.Types.AmplitudeSourceProperties
+import Amazonka.AppFlow.Types.CustomConnectorSourceProperties
 import Amazonka.AppFlow.Types.DatadogSourceProperties
 import Amazonka.AppFlow.Types.DynatraceSourceProperties
 import Amazonka.AppFlow.Types.GoogleAnalyticsSourceProperties
@@ -66,6 +67,7 @@ data SourceConnectorProperties = SourceConnectorProperties'
     serviceNow :: Prelude.Maybe ServiceNowSourceProperties,
     -- | Specifies the information that is required for querying Datadog.
     datadog :: Prelude.Maybe DatadogSourceProperties,
+    customConnector :: Prelude.Maybe CustomConnectorSourceProperties,
     -- | Specifies the information that is required for querying Amplitude.
     amplitude :: Prelude.Maybe AmplitudeSourceProperties,
     -- | Specifies the information that is required for querying Dynatrace.
@@ -108,6 +110,8 @@ data SourceConnectorProperties = SourceConnectorProperties'
 --
 -- 'datadog', 'sourceConnectorProperties_datadog' - Specifies the information that is required for querying Datadog.
 --
+-- 'customConnector', 'sourceConnectorProperties_customConnector' - Undocumented member.
+--
 -- 'amplitude', 'sourceConnectorProperties_amplitude' - Specifies the information that is required for querying Amplitude.
 --
 -- 'dynatrace', 'sourceConnectorProperties_dynatrace' - Specifies the information that is required for querying Dynatrace.
@@ -131,6 +135,7 @@ newSourceConnectorProperties =
       inforNexus = Prelude.Nothing,
       serviceNow = Prelude.Nothing,
       datadog = Prelude.Nothing,
+      customConnector = Prelude.Nothing,
       amplitude = Prelude.Nothing,
       dynatrace = Prelude.Nothing,
       googleAnalytics = Prelude.Nothing
@@ -184,6 +189,10 @@ sourceConnectorProperties_serviceNow = Lens.lens (\SourceConnectorProperties' {s
 sourceConnectorProperties_datadog :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe DatadogSourceProperties)
 sourceConnectorProperties_datadog = Lens.lens (\SourceConnectorProperties' {datadog} -> datadog) (\s@SourceConnectorProperties' {} a -> s {datadog = a} :: SourceConnectorProperties)
 
+-- | Undocumented member.
+sourceConnectorProperties_customConnector :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe CustomConnectorSourceProperties)
+sourceConnectorProperties_customConnector = Lens.lens (\SourceConnectorProperties' {customConnector} -> customConnector) (\s@SourceConnectorProperties' {} a -> s {customConnector = a} :: SourceConnectorProperties)
+
 -- | Specifies the information that is required for querying Amplitude.
 sourceConnectorProperties_amplitude :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe AmplitudeSourceProperties)
 sourceConnectorProperties_amplitude = Lens.lens (\SourceConnectorProperties' {amplitude} -> amplitude) (\s@SourceConnectorProperties' {} a -> s {amplitude = a} :: SourceConnectorProperties)
@@ -215,6 +224,7 @@ instance Core.FromJSON SourceConnectorProperties where
             Prelude.<*> (x Core..:? "InforNexus")
             Prelude.<*> (x Core..:? "ServiceNow")
             Prelude.<*> (x Core..:? "Datadog")
+            Prelude.<*> (x Core..:? "CustomConnector")
             Prelude.<*> (x Core..:? "Amplitude")
             Prelude.<*> (x Core..:? "Dynatrace")
             Prelude.<*> (x Core..:? "GoogleAnalytics")
@@ -234,6 +244,7 @@ instance Prelude.Hashable SourceConnectorProperties where
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` serviceNow
       `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` dynatrace
       `Prelude.hashWithSalt` googleAnalytics
@@ -252,6 +263,7 @@ instance Prelude.NFData SourceConnectorProperties where
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf serviceNow
       `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf customConnector
       `Prelude.seq` Prelude.rnf amplitude
       `Prelude.seq` Prelude.rnf dynatrace
       `Prelude.seq` Prelude.rnf googleAnalytics
@@ -272,6 +284,8 @@ instance Core.ToJSON SourceConnectorProperties where
             ("InforNexus" Core..=) Prelude.<$> inforNexus,
             ("ServiceNow" Core..=) Prelude.<$> serviceNow,
             ("Datadog" Core..=) Prelude.<$> datadog,
+            ("CustomConnector" Core..=)
+              Prelude.<$> customConnector,
             ("Amplitude" Core..=) Prelude.<$> amplitude,
             ("Dynatrace" Core..=) Prelude.<$> dynatrace,
             ("GoogleAnalytics" Core..=)

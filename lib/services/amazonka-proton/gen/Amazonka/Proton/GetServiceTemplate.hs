@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get detail data for a service template.
+-- Get detailed data for a service template.
 module Amazonka.Proton.GetServiceTemplate
   ( -- * Creating a Request
     GetServiceTemplate (..),
@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetServiceTemplate' smart constructor.
 data GetServiceTemplate = GetServiceTemplate'
-  { -- | The name of the service template that you want to get detail data for.
+  { -- | The name of the service template that you want to get detailed data for.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data GetServiceTemplate = GetServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getServiceTemplate_name' - The name of the service template that you want to get detail data for.
+-- 'name', 'getServiceTemplate_name' - The name of the service template that you want to get detailed data for.
 newGetServiceTemplate ::
   -- | 'name'
   Prelude.Text ->
@@ -69,7 +69,7 @@ newGetServiceTemplate ::
 newGetServiceTemplate pName_ =
   GetServiceTemplate' {name = pName_}
 
--- | The name of the service template that you want to get detail data for.
+-- | The name of the service template that you want to get detailed data for.
 getServiceTemplate_name :: Lens.Lens' GetServiceTemplate Prelude.Text
 getServiceTemplate_name = Lens.lens (\GetServiceTemplate' {name} -> name) (\s@GetServiceTemplate' {} a -> s {name = a} :: GetServiceTemplate)
 
@@ -125,7 +125,7 @@ instance Core.ToQuery GetServiceTemplate where
 data GetServiceTemplateResponse = GetServiceTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service template detail data that\'s returned by AWS Proton.
+    -- | The detailed data of the requested service template.
     serviceTemplate :: ServiceTemplate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -140,7 +140,7 @@ data GetServiceTemplateResponse = GetServiceTemplateResponse'
 --
 -- 'httpStatus', 'getServiceTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'serviceTemplate', 'getServiceTemplateResponse_serviceTemplate' - The service template detail data that\'s returned by AWS Proton.
+-- 'serviceTemplate', 'getServiceTemplateResponse_serviceTemplate' - The detailed data of the requested service template.
 newGetServiceTemplateResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -160,7 +160,7 @@ newGetServiceTemplateResponse
 getServiceTemplateResponse_httpStatus :: Lens.Lens' GetServiceTemplateResponse Prelude.Int
 getServiceTemplateResponse_httpStatus = Lens.lens (\GetServiceTemplateResponse' {httpStatus} -> httpStatus) (\s@GetServiceTemplateResponse' {} a -> s {httpStatus = a} :: GetServiceTemplateResponse)
 
--- | The service template detail data that\'s returned by AWS Proton.
+-- | The detailed data of the requested service template.
 getServiceTemplateResponse_serviceTemplate :: Lens.Lens' GetServiceTemplateResponse ServiceTemplate
 getServiceTemplateResponse_serviceTemplate = Lens.lens (\GetServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@GetServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: GetServiceTemplateResponse)
 

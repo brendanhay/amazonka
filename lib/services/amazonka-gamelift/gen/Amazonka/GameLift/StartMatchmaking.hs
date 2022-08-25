@@ -39,8 +39,7 @@
 -- Track matchmaking events to respond as needed and acquire game session
 -- connection information for successfully completed matches. Ticket status
 -- updates are tracked using event notification through Amazon Simple
--- Notification Service (SNS), which is defined in the matchmaking
--- configuration.
+-- Notification Service, which is defined in the matchmaking configuration.
 --
 -- __Learn more__
 --

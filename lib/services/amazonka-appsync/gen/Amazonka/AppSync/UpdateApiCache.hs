@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateApiCache' smart constructor.
 data UpdateApiCache = UpdateApiCache'
-  { -- | The GraphQL API Id.
+  { -- | The GraphQL API ID.
     apiId :: Prelude.Text,
     -- | TTL in seconds for cache entries.
     --
-    -- Valid values are between 1 and 3600 seconds.
+    -- Valid values are 1–3,600 seconds.
     ttl :: Prelude.Integer,
     -- | Caching behavior.
     --
@@ -116,11 +116,11 @@ data UpdateApiCache = UpdateApiCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'apiId', 'updateApiCache_apiId' - The GraphQL API Id.
+-- 'apiId', 'updateApiCache_apiId' - The GraphQL API ID.
 --
 -- 'ttl', 'updateApiCache_ttl' - TTL in seconds for cache entries.
 --
--- Valid values are between 1 and 3600 seconds.
+-- Valid values are 1–3,600 seconds.
 --
 -- 'apiCachingBehavior', 'updateApiCache_apiCachingBehavior' - Caching behavior.
 --
@@ -189,13 +189,13 @@ newUpdateApiCache
         type' = pType_
       }
 
--- | The GraphQL API Id.
+-- | The GraphQL API ID.
 updateApiCache_apiId :: Lens.Lens' UpdateApiCache Prelude.Text
 updateApiCache_apiId = Lens.lens (\UpdateApiCache' {apiId} -> apiId) (\s@UpdateApiCache' {} a -> s {apiId = a} :: UpdateApiCache)
 
 -- | TTL in seconds for cache entries.
 --
--- Valid values are between 1 and 3600 seconds.
+-- Valid values are 1–3,600 seconds.
 updateApiCache_ttl :: Lens.Lens' UpdateApiCache Prelude.Integer
 updateApiCache_ttl = Lens.lens (\UpdateApiCache' {ttl} -> ttl) (\s@UpdateApiCache' {} a -> s {ttl = a} :: UpdateApiCache)
 

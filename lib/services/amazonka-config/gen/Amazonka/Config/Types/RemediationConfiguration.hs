@@ -54,7 +54,7 @@ data RemediationConfiguration = RemediationConfiguration'
     -- call PutRemediationConfiguration API again to ensure the remediations
     -- can run.
     targetVersion :: Prelude.Maybe Prelude.Text,
-    -- | Name of the service that owns the service linked rule, if applicable.
+    -- | Name of the service that owns the service-linked rule, if applicable.
     createdByService :: Prelude.Maybe Prelude.Text,
     -- | Maximum time in seconds that Config runs auto-remediation. If you do not
     -- select a number, the default is 60 seconds.
@@ -105,7 +105,7 @@ data RemediationConfiguration = RemediationConfiguration'
 -- call PutRemediationConfiguration API again to ensure the remediations
 -- can run.
 --
--- 'createdByService', 'remediationConfiguration_createdByService' - Name of the service that owns the service linked rule, if applicable.
+-- 'createdByService', 'remediationConfiguration_createdByService' - Name of the service that owns the service-linked rule, if applicable.
 --
 -- 'retryAttemptSeconds', 'remediationConfiguration_retryAttemptSeconds' - Maximum time in seconds that Config runs auto-remediation. If you do not
 -- select a number, the default is 60 seconds.
@@ -184,7 +184,7 @@ remediationConfiguration_automatic = Lens.lens (\RemediationConfiguration' {auto
 remediationConfiguration_targetVersion :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
 remediationConfiguration_targetVersion = Lens.lens (\RemediationConfiguration' {targetVersion} -> targetVersion) (\s@RemediationConfiguration' {} a -> s {targetVersion = a} :: RemediationConfiguration)
 
--- | Name of the service that owns the service linked rule, if applicable.
+-- | Name of the service that owns the service-linked rule, if applicable.
 remediationConfiguration_createdByService :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
 remediationConfiguration_createdByService = Lens.lens (\RemediationConfiguration' {createdByService} -> createdByService) (\s@RemediationConfiguration' {} a -> s {createdByService = a} :: RemediationConfiguration)
 

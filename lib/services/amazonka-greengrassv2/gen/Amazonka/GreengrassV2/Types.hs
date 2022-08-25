@@ -77,6 +77,9 @@ module Amazonka.GreengrassV2.Types
     -- * RecipeOutputFormat
     RecipeOutputFormat (..),
 
+    -- * VendorGuidance
+    VendorGuidance (..),
+
     -- * AssociateClientDeviceWithCoreDeviceEntry
     AssociateClientDeviceWithCoreDeviceEntry (..),
     newAssociateClientDeviceWithCoreDeviceEntry,
@@ -99,6 +102,8 @@ module Amazonka.GreengrassV2.Types
     CloudComponentStatus (..),
     newCloudComponentStatus,
     cloudComponentStatus_message,
+    cloudComponentStatus_vendorGuidance,
+    cloudComponentStatus_vendorGuidanceMessage,
     cloudComponentStatus_errors,
     cloudComponentStatus_componentState,
 
@@ -156,6 +161,7 @@ module Amazonka.GreengrassV2.Types
     newComponentRunWith,
     componentRunWith_systemResourceLimits,
     componentRunWith_posixUser,
+    componentRunWith_windowsUser,
 
     -- * ComponentVersionListItem
     ComponentVersionListItem (..),
@@ -163,6 +169,14 @@ module Amazonka.GreengrassV2.Types
     componentVersionListItem_componentVersion,
     componentVersionListItem_componentName,
     componentVersionListItem_arn,
+
+    -- * ConnectivityInfo
+    ConnectivityInfo (..),
+    newConnectivityInfo,
+    connectivityInfo_portNumber,
+    connectivityInfo_metadata,
+    connectivityInfo_id,
+    connectivityInfo_hostAddress,
 
     -- * CoreDevice
     CoreDevice (..),
@@ -342,6 +356,8 @@ module Amazonka.GreengrassV2.Types
     -- * ResolvedComponentVersion
     ResolvedComponentVersion (..),
     newResolvedComponentVersion,
+    resolvedComponentVersion_message,
+    resolvedComponentVersion_vendorGuidance,
     resolvedComponentVersion_componentVersion,
     resolvedComponentVersion_recipe,
     resolvedComponentVersion_componentName,
@@ -372,6 +388,7 @@ import Amazonka.GreengrassV2.Types.ComponentPlatform
 import Amazonka.GreengrassV2.Types.ComponentRunWith
 import Amazonka.GreengrassV2.Types.ComponentVersionListItem
 import Amazonka.GreengrassV2.Types.ComponentVisibilityScope
+import Amazonka.GreengrassV2.Types.ConnectivityInfo
 import Amazonka.GreengrassV2.Types.CoreDevice
 import Amazonka.GreengrassV2.Types.CoreDeviceStatus
 import Amazonka.GreengrassV2.Types.Deployment
@@ -411,6 +428,7 @@ import Amazonka.GreengrassV2.Types.LambdaVolumeMount
 import Amazonka.GreengrassV2.Types.RecipeOutputFormat
 import Amazonka.GreengrassV2.Types.ResolvedComponentVersion
 import Amazonka.GreengrassV2.Types.SystemResourceLimits
+import Amazonka.GreengrassV2.Types.VendorGuidance
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign

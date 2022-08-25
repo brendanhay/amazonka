@@ -43,7 +43,21 @@ data AwsDynamoDbTableDetails = AwsDynamoDbTableDetails'
     latestStreamLabel :: Prelude.Maybe Prelude.Text,
     -- | Information about the billing for read\/write capacity on the table.
     billingModeSummary :: Prelude.Maybe AwsDynamoDbTableBillingModeSummary,
-    -- | The current status of the table.
+    -- | The current status of the table. Valid values are as follows:
+    --
+    -- -   @ACTIVE@
+    --
+    -- -   @ARCHIVED@
+    --
+    -- -   @ARCHIVING@
+    --
+    -- -   @CREATING@
+    --
+    -- -   @DELETING@
+    --
+    -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@
+    --
+    -- -   @UPDATING@
     tableStatus :: Prelude.Maybe Prelude.Text,
     -- | The list of local secondary indexes for the table.
     localSecondaryIndexes :: Prelude.Maybe [AwsDynamoDbTableLocalSecondaryIndex],
@@ -97,7 +111,21 @@ data AwsDynamoDbTableDetails = AwsDynamoDbTableDetails'
 --
 -- 'billingModeSummary', 'awsDynamoDbTableDetails_billingModeSummary' - Information about the billing for read\/write capacity on the table.
 --
--- 'tableStatus', 'awsDynamoDbTableDetails_tableStatus' - The current status of the table.
+-- 'tableStatus', 'awsDynamoDbTableDetails_tableStatus' - The current status of the table. Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @ARCHIVED@
+--
+-- -   @ARCHIVING@
+--
+-- -   @CREATING@
+--
+-- -   @DELETING@
+--
+-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@
+--
+-- -   @UPDATING@
 --
 -- 'localSecondaryIndexes', 'awsDynamoDbTableDetails_localSecondaryIndexes' - The list of local secondary indexes for the table.
 --
@@ -171,7 +199,21 @@ awsDynamoDbTableDetails_latestStreamLabel = Lens.lens (\AwsDynamoDbTableDetails'
 awsDynamoDbTableDetails_billingModeSummary :: Lens.Lens' AwsDynamoDbTableDetails (Prelude.Maybe AwsDynamoDbTableBillingModeSummary)
 awsDynamoDbTableDetails_billingModeSummary = Lens.lens (\AwsDynamoDbTableDetails' {billingModeSummary} -> billingModeSummary) (\s@AwsDynamoDbTableDetails' {} a -> s {billingModeSummary = a} :: AwsDynamoDbTableDetails)
 
--- | The current status of the table.
+-- | The current status of the table. Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @ARCHIVED@
+--
+-- -   @ARCHIVING@
+--
+-- -   @CREATING@
+--
+-- -   @DELETING@
+--
+-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@
+--
+-- -   @UPDATING@
 awsDynamoDbTableDetails_tableStatus :: Lens.Lens' AwsDynamoDbTableDetails (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableDetails_tableStatus = Lens.lens (\AwsDynamoDbTableDetails' {tableStatus} -> tableStatus) (\s@AwsDynamoDbTableDetails' {} a -> s {tableStatus = a} :: AwsDynamoDbTableDetails)
 

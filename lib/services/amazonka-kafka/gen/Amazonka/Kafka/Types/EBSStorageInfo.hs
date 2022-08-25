@@ -20,15 +20,18 @@
 module Amazonka.Kafka.Types.EBSStorageInfo where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types.ProvisionedThroughput
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about the EBS storage volumes attached to Kafka
--- broker nodes.
+-- | Contains information about the EBS storage volumes attached to Apache
+-- Kafka broker nodes.
 --
 -- /See:/ 'newEBSStorageInfo' smart constructor.
 data EBSStorageInfo = EBSStorageInfo'
-  { -- | The size in GiB of the EBS volume for the data drive on each broker
+  { -- | EBS volume provisioned throughput information.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    -- | The size in GiB of the EBS volume for the data drive on each broker
     -- node.
     volumeSize :: Prelude.Maybe Prelude.Natural
   }
@@ -42,12 +45,22 @@ data EBSStorageInfo = EBSStorageInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'provisionedThroughput', 'eBSStorageInfo_provisionedThroughput' - EBS volume provisioned throughput information.
+--
 -- 'volumeSize', 'eBSStorageInfo_volumeSize' - The size in GiB of the EBS volume for the data drive on each broker
 -- node.
 newEBSStorageInfo ::
   EBSStorageInfo
 newEBSStorageInfo =
-  EBSStorageInfo' {volumeSize = Prelude.Nothing}
+  EBSStorageInfo'
+    { provisionedThroughput =
+        Prelude.Nothing,
+      volumeSize = Prelude.Nothing
+    }
+
+-- | EBS volume provisioned throughput information.
+eBSStorageInfo_provisionedThroughput :: Lens.Lens' EBSStorageInfo (Prelude.Maybe ProvisionedThroughput)
+eBSStorageInfo_provisionedThroughput = Lens.lens (\EBSStorageInfo' {provisionedThroughput} -> provisionedThroughput) (\s@EBSStorageInfo' {} a -> s {provisionedThroughput = a} :: EBSStorageInfo)
 
 -- | The size in GiB of the EBS volume for the data drive on each broker
 -- node.
@@ -60,19 +73,26 @@ instance Core.FromJSON EBSStorageInfo where
       "EBSStorageInfo"
       ( \x ->
           EBSStorageInfo'
-            Prelude.<$> (x Core..:? "volumeSize")
+            Prelude.<$> (x Core..:? "provisionedThroughput")
+            Prelude.<*> (x Core..:? "volumeSize")
       )
 
 instance Prelude.Hashable EBSStorageInfo where
   hashWithSalt _salt EBSStorageInfo' {..} =
-    _salt `Prelude.hashWithSalt` volumeSize
+    _salt `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` volumeSize
 
 instance Prelude.NFData EBSStorageInfo where
-  rnf EBSStorageInfo' {..} = Prelude.rnf volumeSize
+  rnf EBSStorageInfo' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf volumeSize
 
 instance Core.ToJSON EBSStorageInfo where
   toJSON EBSStorageInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("volumeSize" Core..=) Prelude.<$> volumeSize]
+          [ ("provisionedThroughput" Core..=)
+              Prelude.<$> provisionedThroughput,
+            ("volumeSize" Core..=) Prelude.<$> volumeSize
+          ]
       )

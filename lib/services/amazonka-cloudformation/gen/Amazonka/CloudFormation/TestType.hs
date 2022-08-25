@@ -33,7 +33,7 @@
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing Testing your public extension prior to publishing>
 -- in the /CloudFormation CLI User Guide/.
 --
--- If you do not specify a version, CloudFormation uses the default version
+-- If you don\'t specify a version, CloudFormation uses the default version
 -- of the extension in your account and region for testing.
 --
 -- To perform testing, CloudFormation assumes the execution role specified
@@ -85,7 +85,7 @@ data TestType = TestType'
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
     type' :: Prelude.Maybe ThirdPartyType,
-    -- | The Amazon Resource Number (ARN) of the extension.
+    -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
@@ -100,9 +100,9 @@ data TestType = TestType'
     -- specified S3 bucket. Specifically, the user needs the following
     -- permissions:
     --
-    -- -   GetObject
+    -- -   @GetObject@
     --
-    -- -   PutObject
+    -- -   @PutObject@
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
@@ -117,7 +117,7 @@ data TestType = TestType'
     -- You can specify the version id with either @Arn@, or with @TypeName@ and
     -- @Type@.
     --
-    -- If you do not specify a version, CloudFormation uses the default version
+    -- If you don\'t specify a version, CloudFormation uses the default version
     -- of the extension in this account and region for testing.
     versionId :: Prelude.Maybe Prelude.Text
   }
@@ -135,7 +135,7 @@ data TestType = TestType'
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 --
--- 'arn', 'testType_arn' - The Amazon Resource Number (ARN) of the extension.
+-- 'arn', 'testType_arn' - The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 --
@@ -150,9 +150,9 @@ data TestType = TestType'
 -- specified S3 bucket. Specifically, the user needs the following
 -- permissions:
 --
--- -   GetObject
+-- -   @GetObject@
 --
--- -   PutObject
+-- -   @PutObject@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
@@ -167,7 +167,7 @@ data TestType = TestType'
 -- You can specify the version id with either @Arn@, or with @TypeName@ and
 -- @Type@.
 --
--- If you do not specify a version, CloudFormation uses the default version
+-- If you don\'t specify a version, CloudFormation uses the default version
 -- of the extension in this account and region for testing.
 newTestType ::
   TestType
@@ -186,7 +186,7 @@ newTestType =
 testType_type :: Lens.Lens' TestType (Prelude.Maybe ThirdPartyType)
 testType_type = Lens.lens (\TestType' {type'} -> type') (\s@TestType' {} a -> s {type' = a} :: TestType)
 
--- | The Amazon Resource Number (ARN) of the extension.
+-- | The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 testType_arn :: Lens.Lens' TestType (Prelude.Maybe Prelude.Text)
@@ -203,9 +203,9 @@ testType_arn = Lens.lens (\TestType' {arn} -> arn) (\s@TestType' {} a -> s {arn 
 -- specified S3 bucket. Specifically, the user needs the following
 -- permissions:
 --
--- -   GetObject
+-- -   @GetObject@
 --
--- -   PutObject
+-- -   @PutObject@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
@@ -224,7 +224,7 @@ testType_typeName = Lens.lens (\TestType' {typeName} -> typeName) (\s@TestType' 
 -- You can specify the version id with either @Arn@, or with @TypeName@ and
 -- @Type@.
 --
--- If you do not specify a version, CloudFormation uses the default version
+-- If you don\'t specify a version, CloudFormation uses the default version
 -- of the extension in this account and region for testing.
 testType_versionId :: Lens.Lens' TestType (Prelude.Maybe Prelude.Text)
 testType_versionId = Lens.lens (\TestType' {versionId} -> versionId) (\s@TestType' {} a -> s {versionId = a} :: TestType)
@@ -278,7 +278,7 @@ instance Core.ToQuery TestType where
 
 -- | /See:/ 'newTestTypeResponse' smart constructor.
 data TestTypeResponse = TestTypeResponse'
-  { -- | The Amazon Resource Number (ARN) of the extension.
+  { -- | The Amazon Resource Name (ARN) of the extension.
     typeVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -293,7 +293,7 @@ data TestTypeResponse = TestTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeVersionArn', 'testTypeResponse_typeVersionArn' - The Amazon Resource Number (ARN) of the extension.
+-- 'typeVersionArn', 'testTypeResponse_typeVersionArn' - The Amazon Resource Name (ARN) of the extension.
 --
 -- 'httpStatus', 'testTypeResponse_httpStatus' - The response's http status code.
 newTestTypeResponse ::
@@ -306,7 +306,7 @@ newTestTypeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Number (ARN) of the extension.
+-- | The Amazon Resource Name (ARN) of the extension.
 testTypeResponse_typeVersionArn :: Lens.Lens' TestTypeResponse (Prelude.Maybe Prelude.Text)
 testTypeResponse_typeVersionArn = Lens.lens (\TestTypeResponse' {typeVersionArn} -> typeVersionArn) (\s@TestTypeResponse' {} a -> s {typeVersionArn = a} :: TestTypeResponse)
 

@@ -27,8 +27,8 @@ module Amazonka.Nimble.GetLaunchProfile
     newGetLaunchProfile,
 
     -- * Request Lenses
-    getLaunchProfile_studioId,
     getLaunchProfile_launchProfileId,
+    getLaunchProfile_studioId,
 
     -- * Destructuring the Response
     GetLaunchProfileResponse (..),
@@ -49,10 +49,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfile' smart constructor.
 data GetLaunchProfile = GetLaunchProfile'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text
+  { -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,28 +64,29 @@ data GetLaunchProfile = GetLaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioId', 'getLaunchProfile_studioId' - The studio ID.
+-- 'launchProfileId', 'getLaunchProfile_launchProfileId' - The Launch Profile ID.
 --
--- 'launchProfileId', 'getLaunchProfile_launchProfileId' - The launch profile ID.
+-- 'studioId', 'getLaunchProfile_studioId' - The studio ID.
 newGetLaunchProfile ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'launchProfileId'
   Prelude.Text ->
+  -- | 'studioId'
+  Prelude.Text ->
   GetLaunchProfile
-newGetLaunchProfile pStudioId_ pLaunchProfileId_ =
+newGetLaunchProfile pLaunchProfileId_ pStudioId_ =
   GetLaunchProfile'
-    { studioId = pStudioId_,
-      launchProfileId = pLaunchProfileId_
+    { launchProfileId =
+        pLaunchProfileId_,
+      studioId = pStudioId_
     }
+
+-- | The Launch Profile ID.
+getLaunchProfile_launchProfileId :: Lens.Lens' GetLaunchProfile Prelude.Text
+getLaunchProfile_launchProfileId = Lens.lens (\GetLaunchProfile' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfile' {} a -> s {launchProfileId = a} :: GetLaunchProfile)
 
 -- | The studio ID.
 getLaunchProfile_studioId :: Lens.Lens' GetLaunchProfile Prelude.Text
 getLaunchProfile_studioId = Lens.lens (\GetLaunchProfile' {studioId} -> studioId) (\s@GetLaunchProfile' {} a -> s {studioId = a} :: GetLaunchProfile)
-
--- | The launch profile ID.
-getLaunchProfile_launchProfileId :: Lens.Lens' GetLaunchProfile Prelude.Text
-getLaunchProfile_launchProfileId = Lens.lens (\GetLaunchProfile' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfile' {} a -> s {launchProfileId = a} :: GetLaunchProfile)
 
 instance Core.AWSRequest GetLaunchProfile where
   type
@@ -102,13 +103,13 @@ instance Core.AWSRequest GetLaunchProfile where
 
 instance Prelude.Hashable GetLaunchProfile where
   hashWithSalt _salt GetLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` launchProfileId
+    _salt `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetLaunchProfile where
   rnf GetLaunchProfile' {..} =
-    Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf launchProfileId
+    Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders GetLaunchProfile where
   toHeaders =
@@ -140,7 +141,7 @@ data GetLaunchProfileResponse = GetLaunchProfileResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLaunchProfileResponse' with all optional fields omitted.

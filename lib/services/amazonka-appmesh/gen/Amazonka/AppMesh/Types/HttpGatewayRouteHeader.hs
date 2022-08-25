@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpGatewayRouteHeader' smart constructor.
 data HttpGatewayRouteHeader = HttpGatewayRouteHeader'
-  { match :: Prelude.Maybe HeaderMatchMethod,
+  { -- | An object that represents the method and value to match with the header
+    -- value sent in a request. Specify one match method.
+    match :: Prelude.Maybe HeaderMatchMethod,
     -- | Specify @True@ to match anything except the match criteria. The default
     -- value is @False@.
     invert :: Prelude.Maybe Prelude.Bool,
@@ -45,7 +47,8 @@ data HttpGatewayRouteHeader = HttpGatewayRouteHeader'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'match', 'httpGatewayRouteHeader_match' - Undocumented member.
+-- 'match', 'httpGatewayRouteHeader_match' - An object that represents the method and value to match with the header
+-- value sent in a request. Specify one match method.
 --
 -- 'invert', 'httpGatewayRouteHeader_invert' - Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
@@ -62,7 +65,8 @@ newHttpGatewayRouteHeader pName_ =
       name = pName_
     }
 
--- | Undocumented member.
+-- | An object that represents the method and value to match with the header
+-- value sent in a request. Specify one match method.
 httpGatewayRouteHeader_match :: Lens.Lens' HttpGatewayRouteHeader (Prelude.Maybe HeaderMatchMethod)
 httpGatewayRouteHeader_match = Lens.lens (\HttpGatewayRouteHeader' {match} -> match) (\s@HttpGatewayRouteHeader' {} a -> s {match = a} :: HttpGatewayRouteHeader)
 

@@ -110,8 +110,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newPutBucketInventoryConfiguration' smart constructor.
 data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket where the inventory configuration will be stored.
     bucket :: BucketName,
@@ -131,8 +131,8 @@ data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'putBucketInventoryConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'putBucketInventoryConfiguration_bucket' - The name of the bucket where the inventory configuration will be stored.
 --
@@ -161,8 +161,8 @@ newPutBucketInventoryConfiguration
       }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketInventoryConfiguration (Prelude.Maybe Prelude.Text)
 putBucketInventoryConfiguration_expectedBucketOwner = Lens.lens (\PutBucketInventoryConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketInventoryConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketInventoryConfiguration)
 

@@ -34,13 +34,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProactiveInsightSummary' smart constructor.
 data ProactiveInsightSummary = ProactiveInsightSummary'
-  { -- | The severity of the proactive insight.
+  { -- | The severity of the insight. For more information, see
+    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+    -- in the /Amazon DevOps Guru User Guide/.
     severity :: Prelude.Maybe InsightSeverity,
     -- | The name of the proactive insight.
     name :: Prelude.Maybe Prelude.Text,
     resourceCollection :: Prelude.Maybe ResourceCollection,
-    -- | A collection of the names of AWS services.
+    -- | A collection of the names of Amazon Web Services services.
     serviceCollection :: Prelude.Maybe ServiceCollection,
+    -- | The Amazon Resource Names (ARNs) of the Amazon Web Services resources
+    -- that generated this insight.
+    associatedResourceArns :: Prelude.Maybe [Prelude.Text],
     -- | The status of the proactive insight.
     status :: Prelude.Maybe InsightStatus,
     -- | The ID of the proactive insight.
@@ -58,13 +63,18 @@ data ProactiveInsightSummary = ProactiveInsightSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'proactiveInsightSummary_severity' - The severity of the proactive insight.
+-- 'severity', 'proactiveInsightSummary_severity' - The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 --
 -- 'name', 'proactiveInsightSummary_name' - The name of the proactive insight.
 --
 -- 'resourceCollection', 'proactiveInsightSummary_resourceCollection' - Undocumented member.
 --
--- 'serviceCollection', 'proactiveInsightSummary_serviceCollection' - A collection of the names of AWS services.
+-- 'serviceCollection', 'proactiveInsightSummary_serviceCollection' - A collection of the names of Amazon Web Services services.
+--
+-- 'associatedResourceArns', 'proactiveInsightSummary_associatedResourceArns' - The Amazon Resource Names (ARNs) of the Amazon Web Services resources
+-- that generated this insight.
 --
 -- 'status', 'proactiveInsightSummary_status' - The status of the proactive insight.
 --
@@ -82,13 +92,16 @@ newProactiveInsightSummary =
       name = Prelude.Nothing,
       resourceCollection = Prelude.Nothing,
       serviceCollection = Prelude.Nothing,
+      associatedResourceArns = Prelude.Nothing,
       status = Prelude.Nothing,
       id = Prelude.Nothing,
       predictionTimeRange = Prelude.Nothing,
       insightTimeRange = Prelude.Nothing
     }
 
--- | The severity of the proactive insight.
+-- | The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 proactiveInsightSummary_severity :: Lens.Lens' ProactiveInsightSummary (Prelude.Maybe InsightSeverity)
 proactiveInsightSummary_severity = Lens.lens (\ProactiveInsightSummary' {severity} -> severity) (\s@ProactiveInsightSummary' {} a -> s {severity = a} :: ProactiveInsightSummary)
 
@@ -100,9 +113,14 @@ proactiveInsightSummary_name = Lens.lens (\ProactiveInsightSummary' {name} -> na
 proactiveInsightSummary_resourceCollection :: Lens.Lens' ProactiveInsightSummary (Prelude.Maybe ResourceCollection)
 proactiveInsightSummary_resourceCollection = Lens.lens (\ProactiveInsightSummary' {resourceCollection} -> resourceCollection) (\s@ProactiveInsightSummary' {} a -> s {resourceCollection = a} :: ProactiveInsightSummary)
 
--- | A collection of the names of AWS services.
+-- | A collection of the names of Amazon Web Services services.
 proactiveInsightSummary_serviceCollection :: Lens.Lens' ProactiveInsightSummary (Prelude.Maybe ServiceCollection)
 proactiveInsightSummary_serviceCollection = Lens.lens (\ProactiveInsightSummary' {serviceCollection} -> serviceCollection) (\s@ProactiveInsightSummary' {} a -> s {serviceCollection = a} :: ProactiveInsightSummary)
+
+-- | The Amazon Resource Names (ARNs) of the Amazon Web Services resources
+-- that generated this insight.
+proactiveInsightSummary_associatedResourceArns :: Lens.Lens' ProactiveInsightSummary (Prelude.Maybe [Prelude.Text])
+proactiveInsightSummary_associatedResourceArns = Lens.lens (\ProactiveInsightSummary' {associatedResourceArns} -> associatedResourceArns) (\s@ProactiveInsightSummary' {} a -> s {associatedResourceArns = a} :: ProactiveInsightSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the proactive insight.
 proactiveInsightSummary_status :: Lens.Lens' ProactiveInsightSummary (Prelude.Maybe InsightStatus)
@@ -130,6 +148,9 @@ instance Core.FromJSON ProactiveInsightSummary where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ResourceCollection")
             Prelude.<*> (x Core..:? "ServiceCollection")
+            Prelude.<*> ( x Core..:? "AssociatedResourceArns"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "PredictionTimeRange")
@@ -142,6 +163,7 @@ instance Prelude.Hashable ProactiveInsightSummary where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` serviceCollection
+      `Prelude.hashWithSalt` associatedResourceArns
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` predictionTimeRange
@@ -153,6 +175,7 @@ instance Prelude.NFData ProactiveInsightSummary where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf serviceCollection
+      `Prelude.seq` Prelude.rnf associatedResourceArns
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf predictionTimeRange

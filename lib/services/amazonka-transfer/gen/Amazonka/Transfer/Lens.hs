@@ -27,8 +27,39 @@ module Amazonka.Transfer.Lens
     createAccessResponse_serverId,
     createAccessResponse_externalId,
 
+    -- ** CreateAgreement
+    createAgreement_tags,
+    createAgreement_status,
+    createAgreement_description,
+    createAgreement_serverId,
+    createAgreement_localProfileId,
+    createAgreement_partnerProfileId,
+    createAgreement_baseDirectory,
+    createAgreement_accessRole,
+    createAgreementResponse_httpStatus,
+    createAgreementResponse_agreementId,
+
+    -- ** CreateConnector
+    createConnector_tags,
+    createConnector_loggingRole,
+    createConnector_url,
+    createConnector_as2Config,
+    createConnector_accessRole,
+    createConnectorResponse_httpStatus,
+    createConnectorResponse_connectorId,
+
+    -- ** CreateProfile
+    createProfile_tags,
+    createProfile_certificateIds,
+    createProfile_as2Id,
+    createProfile_profileType,
+    createProfileResponse_httpStatus,
+    createProfileResponse_profileId,
+
     -- ** CreateServer
     createServer_tags,
+    createServer_preAuthenticationLoginBanner,
+    createServer_protocolDetails,
     createServer_identityProviderDetails,
     createServer_domain,
     createServer_identityProviderType,
@@ -38,6 +69,7 @@ module Amazonka.Transfer.Lens
     createServer_protocols,
     createServer_endpointType,
     createServer_loggingRole,
+    createServer_postAuthenticationLoginBanner,
     createServer_workflowDetails,
     createServer_hostKey,
     createServerResponse_httpStatus,
@@ -70,6 +102,19 @@ module Amazonka.Transfer.Lens
     deleteAccess_serverId,
     deleteAccess_externalId,
 
+    -- ** DeleteAgreement
+    deleteAgreement_agreementId,
+    deleteAgreement_serverId,
+
+    -- ** DeleteCertificate
+    deleteCertificate_certificateId,
+
+    -- ** DeleteConnector
+    deleteConnector_connectorId,
+
+    -- ** DeleteProfile
+    deleteProfile_profileId,
+
     -- ** DeleteServer
     deleteServer_serverId,
 
@@ -92,12 +137,33 @@ module Amazonka.Transfer.Lens
     describeAccessResponse_serverId,
     describeAccessResponse_access,
 
+    -- ** DescribeAgreement
+    describeAgreement_agreementId,
+    describeAgreement_serverId,
+    describeAgreementResponse_httpStatus,
+    describeAgreementResponse_agreement,
+
+    -- ** DescribeCertificate
+    describeCertificate_certificateId,
+    describeCertificateResponse_httpStatus,
+    describeCertificateResponse_certificate,
+
+    -- ** DescribeConnector
+    describeConnector_connectorId,
+    describeConnectorResponse_httpStatus,
+    describeConnectorResponse_connector,
+
     -- ** DescribeExecution
     describeExecution_executionId,
     describeExecution_workflowId,
     describeExecutionResponse_httpStatus,
     describeExecutionResponse_workflowId,
     describeExecutionResponse_execution,
+
+    -- ** DescribeProfile
+    describeProfile_profileId,
+    describeProfileResponse_httpStatus,
+    describeProfileResponse_profile,
 
     -- ** DescribeSecurityPolicy
     describeSecurityPolicy_securityPolicyName,
@@ -121,6 +187,18 @@ module Amazonka.Transfer.Lens
     describeWorkflowResponse_httpStatus,
     describeWorkflowResponse_workflow,
 
+    -- ** ImportCertificate
+    importCertificate_tags,
+    importCertificate_privateKey,
+    importCertificate_description,
+    importCertificate_activeDate,
+    importCertificate_certificateChain,
+    importCertificate_inactiveDate,
+    importCertificate_usage,
+    importCertificate_certificate,
+    importCertificateResponse_httpStatus,
+    importCertificateResponse_certificateId,
+
     -- ** ImportSshPublicKey
     importSshPublicKey_serverId,
     importSshPublicKey_sshPublicKeyBody,
@@ -139,6 +217,28 @@ module Amazonka.Transfer.Lens
     listAccessesResponse_serverId,
     listAccessesResponse_accesses,
 
+    -- ** ListAgreements
+    listAgreements_nextToken,
+    listAgreements_maxResults,
+    listAgreements_serverId,
+    listAgreementsResponse_nextToken,
+    listAgreementsResponse_httpStatus,
+    listAgreementsResponse_agreements,
+
+    -- ** ListCertificates
+    listCertificates_nextToken,
+    listCertificates_maxResults,
+    listCertificatesResponse_nextToken,
+    listCertificatesResponse_httpStatus,
+    listCertificatesResponse_certificates,
+
+    -- ** ListConnectors
+    listConnectors_nextToken,
+    listConnectors_maxResults,
+    listConnectorsResponse_nextToken,
+    listConnectorsResponse_httpStatus,
+    listConnectorsResponse_connectors,
+
     -- ** ListExecutions
     listExecutions_nextToken,
     listExecutions_maxResults,
@@ -147,6 +247,14 @@ module Amazonka.Transfer.Lens
     listExecutionsResponse_httpStatus,
     listExecutionsResponse_workflowId,
     listExecutionsResponse_executions,
+
+    -- ** ListProfiles
+    listProfiles_nextToken,
+    listProfiles_maxResults,
+    listProfiles_profileType,
+    listProfilesResponse_nextToken,
+    listProfilesResponse_httpStatus,
+    listProfilesResponse_profiles,
 
     -- ** ListSecurityPolicies
     listSecurityPolicies_nextToken,
@@ -194,6 +302,12 @@ module Amazonka.Transfer.Lens
     sendWorkflowStepState_status,
     sendWorkflowStepStateResponse_httpStatus,
 
+    -- ** StartFileTransfer
+    startFileTransfer_connectorId,
+    startFileTransfer_sendFilePaths,
+    startFileTransferResponse_httpStatus,
+    startFileTransferResponse_transferId,
+
     -- ** StartServer
     startServer_serverId,
 
@@ -233,7 +347,43 @@ module Amazonka.Transfer.Lens
     updateAccessResponse_serverId,
     updateAccessResponse_externalId,
 
+    -- ** UpdateAgreement
+    updateAgreement_accessRole,
+    updateAgreement_status,
+    updateAgreement_baseDirectory,
+    updateAgreement_description,
+    updateAgreement_localProfileId,
+    updateAgreement_partnerProfileId,
+    updateAgreement_agreementId,
+    updateAgreement_serverId,
+    updateAgreementResponse_httpStatus,
+    updateAgreementResponse_agreementId,
+
+    -- ** UpdateCertificate
+    updateCertificate_description,
+    updateCertificate_activeDate,
+    updateCertificate_inactiveDate,
+    updateCertificate_certificateId,
+    updateCertificateResponse_httpStatus,
+    updateCertificateResponse_certificateId,
+
+    -- ** UpdateConnector
+    updateConnector_accessRole,
+    updateConnector_url,
+    updateConnector_as2Config,
+    updateConnector_loggingRole,
+    updateConnector_connectorId,
+    updateConnectorResponse_httpStatus,
+    updateConnectorResponse_connectorId,
+
+    -- ** UpdateProfile
+    updateProfile_certificateIds,
+    updateProfile_profileId,
+    updateProfileResponse_httpStatus,
+    updateProfileResponse_profileId,
+
     -- ** UpdateServer
+    updateServer_preAuthenticationLoginBanner,
     updateServer_protocolDetails,
     updateServer_identityProviderDetails,
     updateServer_securityPolicyName,
@@ -242,6 +392,7 @@ module Amazonka.Transfer.Lens
     updateServer_protocols,
     updateServer_endpointType,
     updateServer_loggingRole,
+    updateServer_postAuthenticationLoginBanner,
     updateServer_workflowDetails,
     updateServer_hostKey,
     updateServer_serverId,
@@ -263,18 +414,31 @@ module Amazonka.Transfer.Lens
 
     -- * Types
 
+    -- ** As2ConnectorConfig
+    as2ConnectorConfig_encryptionAlgorithm,
+    as2ConnectorConfig_compression,
+    as2ConnectorConfig_mdnSigningAlgorithm,
+    as2ConnectorConfig_localProfileId,
+    as2ConnectorConfig_mdnResponse,
+    as2ConnectorConfig_messageSubject,
+    as2ConnectorConfig_signingAlgorithm,
+    as2ConnectorConfig_partnerProfileId,
+
     -- ** CopyStepDetails
     copyStepDetails_name,
     copyStepDetails_overwriteExisting,
+    copyStepDetails_sourceFileLocation,
     copyStepDetails_destinationFileLocation,
 
     -- ** CustomStepDetails
     customStepDetails_name,
     customStepDetails_timeoutSeconds,
     customStepDetails_target,
+    customStepDetails_sourceFileLocation,
 
     -- ** DeleteStepDetails
     deleteStepDetails_name,
+    deleteStepDetails_sourceFileLocation,
 
     -- ** DescribedAccess
     describedAccess_homeDirectory,
@@ -285,6 +449,43 @@ module Amazonka.Transfer.Lens
     describedAccess_homeDirectoryType,
     describedAccess_homeDirectoryMappings,
 
+    -- ** DescribedAgreement
+    describedAgreement_tags,
+    describedAgreement_accessRole,
+    describedAgreement_status,
+    describedAgreement_baseDirectory,
+    describedAgreement_description,
+    describedAgreement_localProfileId,
+    describedAgreement_agreementId,
+    describedAgreement_serverId,
+    describedAgreement_partnerProfileId,
+    describedAgreement_arn,
+
+    -- ** DescribedCertificate
+    describedCertificate_tags,
+    describedCertificate_usage,
+    describedCertificate_notBeforeDate,
+    describedCertificate_type,
+    describedCertificate_notAfterDate,
+    describedCertificate_serial,
+    describedCertificate_certificate,
+    describedCertificate_status,
+    describedCertificate_description,
+    describedCertificate_certificateId,
+    describedCertificate_activeDate,
+    describedCertificate_certificateChain,
+    describedCertificate_inactiveDate,
+    describedCertificate_arn,
+
+    -- ** DescribedConnector
+    describedConnector_tags,
+    describedConnector_connectorId,
+    describedConnector_accessRole,
+    describedConnector_url,
+    describedConnector_as2Config,
+    describedConnector_loggingRole,
+    describedConnector_arn,
+
     -- ** DescribedExecution
     describedExecution_executionRole,
     describedExecution_serviceMetadata,
@@ -294,6 +495,14 @@ module Amazonka.Transfer.Lens
     describedExecution_executionId,
     describedExecution_results,
     describedExecution_loggingConfiguration,
+
+    -- ** DescribedProfile
+    describedProfile_tags,
+    describedProfile_profileId,
+    describedProfile_certificateIds,
+    describedProfile_as2Id,
+    describedProfile_profileType,
+    describedProfile_arn,
 
     -- ** DescribedSecurityPolicy
     describedSecurityPolicy_tlsCiphers,
@@ -306,6 +515,7 @@ module Amazonka.Transfer.Lens
     -- ** DescribedServer
     describedServer_tags,
     describedServer_userCount,
+    describedServer_preAuthenticationLoginBanner,
     describedServer_protocolDetails,
     describedServer_identityProviderDetails,
     describedServer_domain,
@@ -319,6 +529,7 @@ module Amazonka.Transfer.Lens
     describedServer_hostKeyFingerprint,
     describedServer_loggingRole,
     describedServer_serverId,
+    describedServer_postAuthenticationLoginBanner,
     describedServer_workflowDetails,
     describedServer_arn,
 
@@ -378,6 +589,7 @@ module Amazonka.Transfer.Lens
     identityProviderDetails_directoryId,
     identityProviderDetails_url,
     identityProviderDetails_invocationRole,
+    identityProviderDetails_function,
 
     -- ** InputFileLocation
     inputFileLocation_s3FileLocation,
@@ -389,11 +601,41 @@ module Amazonka.Transfer.Lens
     listedAccess_role,
     listedAccess_homeDirectoryType,
 
+    -- ** ListedAgreement
+    listedAgreement_arn,
+    listedAgreement_status,
+    listedAgreement_description,
+    listedAgreement_localProfileId,
+    listedAgreement_agreementId,
+    listedAgreement_serverId,
+    listedAgreement_partnerProfileId,
+
+    -- ** ListedCertificate
+    listedCertificate_usage,
+    listedCertificate_type,
+    listedCertificate_arn,
+    listedCertificate_status,
+    listedCertificate_description,
+    listedCertificate_certificateId,
+    listedCertificate_activeDate,
+    listedCertificate_inactiveDate,
+
+    -- ** ListedConnector
+    listedConnector_connectorId,
+    listedConnector_arn,
+    listedConnector_url,
+
     -- ** ListedExecution
     listedExecution_serviceMetadata,
     listedExecution_initialFileLocation,
     listedExecution_status,
     listedExecution_executionId,
+
+    -- ** ListedProfile
+    listedProfile_profileId,
+    listedProfile_as2Id,
+    listedProfile_arn,
+    listedProfile_profileType,
 
     -- ** ListedServer
     listedServer_userCount,
@@ -428,7 +670,10 @@ module Amazonka.Transfer.Lens
     posixProfile_gid,
 
     -- ** ProtocolDetails
+    protocolDetails_as2Transports,
     protocolDetails_passiveIp,
+    protocolDetails_tlsSessionResumptionMode,
+    protocolDetails_setStatOption,
 
     -- ** S3FileLocation
     s3FileLocation_key,
@@ -459,6 +704,7 @@ module Amazonka.Transfer.Lens
     -- ** TagStepDetails
     tagStepDetails_tags,
     tagStepDetails_name,
+    tagStepDetails_sourceFileLocation,
 
     -- ** UserDetails
     userDetails_sessionId,
@@ -482,38 +728,60 @@ module Amazonka.Transfer.Lens
 where
 
 import Amazonka.Transfer.CreateAccess
+import Amazonka.Transfer.CreateAgreement
+import Amazonka.Transfer.CreateConnector
+import Amazonka.Transfer.CreateProfile
 import Amazonka.Transfer.CreateServer
 import Amazonka.Transfer.CreateUser
 import Amazonka.Transfer.CreateWorkflow
 import Amazonka.Transfer.DeleteAccess
+import Amazonka.Transfer.DeleteAgreement
+import Amazonka.Transfer.DeleteCertificate
+import Amazonka.Transfer.DeleteConnector
+import Amazonka.Transfer.DeleteProfile
 import Amazonka.Transfer.DeleteServer
 import Amazonka.Transfer.DeleteSshPublicKey
 import Amazonka.Transfer.DeleteUser
 import Amazonka.Transfer.DeleteWorkflow
 import Amazonka.Transfer.DescribeAccess
+import Amazonka.Transfer.DescribeAgreement
+import Amazonka.Transfer.DescribeCertificate
+import Amazonka.Transfer.DescribeConnector
 import Amazonka.Transfer.DescribeExecution
+import Amazonka.Transfer.DescribeProfile
 import Amazonka.Transfer.DescribeSecurityPolicy
 import Amazonka.Transfer.DescribeServer
 import Amazonka.Transfer.DescribeUser
 import Amazonka.Transfer.DescribeWorkflow
+import Amazonka.Transfer.ImportCertificate
 import Amazonka.Transfer.ImportSshPublicKey
 import Amazonka.Transfer.ListAccesses
+import Amazonka.Transfer.ListAgreements
+import Amazonka.Transfer.ListCertificates
+import Amazonka.Transfer.ListConnectors
 import Amazonka.Transfer.ListExecutions
+import Amazonka.Transfer.ListProfiles
 import Amazonka.Transfer.ListSecurityPolicies
 import Amazonka.Transfer.ListServers
 import Amazonka.Transfer.ListTagsForResource
 import Amazonka.Transfer.ListUsers
 import Amazonka.Transfer.ListWorkflows
 import Amazonka.Transfer.SendWorkflowStepState
+import Amazonka.Transfer.StartFileTransfer
 import Amazonka.Transfer.StartServer
 import Amazonka.Transfer.StopServer
 import Amazonka.Transfer.TagResource
 import Amazonka.Transfer.TestIdentityProvider
+import Amazonka.Transfer.Types.As2ConnectorConfig
 import Amazonka.Transfer.Types.CopyStepDetails
 import Amazonka.Transfer.Types.CustomStepDetails
 import Amazonka.Transfer.Types.DeleteStepDetails
 import Amazonka.Transfer.Types.DescribedAccess
+import Amazonka.Transfer.Types.DescribedAgreement
+import Amazonka.Transfer.Types.DescribedCertificate
+import Amazonka.Transfer.Types.DescribedConnector
 import Amazonka.Transfer.Types.DescribedExecution
+import Amazonka.Transfer.Types.DescribedProfile
 import Amazonka.Transfer.Types.DescribedSecurityPolicy
 import Amazonka.Transfer.Types.DescribedServer
 import Amazonka.Transfer.Types.DescribedUser
@@ -528,7 +796,11 @@ import Amazonka.Transfer.Types.HomeDirectoryMapEntry
 import Amazonka.Transfer.Types.IdentityProviderDetails
 import Amazonka.Transfer.Types.InputFileLocation
 import Amazonka.Transfer.Types.ListedAccess
+import Amazonka.Transfer.Types.ListedAgreement
+import Amazonka.Transfer.Types.ListedCertificate
+import Amazonka.Transfer.Types.ListedConnector
 import Amazonka.Transfer.Types.ListedExecution
+import Amazonka.Transfer.Types.ListedProfile
 import Amazonka.Transfer.Types.ListedServer
 import Amazonka.Transfer.Types.ListedUser
 import Amazonka.Transfer.Types.ListedWorkflow
@@ -548,5 +820,9 @@ import Amazonka.Transfer.Types.WorkflowDetails
 import Amazonka.Transfer.Types.WorkflowStep
 import Amazonka.Transfer.UntagResource
 import Amazonka.Transfer.UpdateAccess
+import Amazonka.Transfer.UpdateAgreement
+import Amazonka.Transfer.UpdateCertificate
+import Amazonka.Transfer.UpdateConnector
+import Amazonka.Transfer.UpdateProfile
 import Amazonka.Transfer.UpdateServer
 import Amazonka.Transfer.UpdateUser

@@ -30,13 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStatefulEngineOptions' smart constructor.
 data StatefulEngineOptions = StatefulEngineOptions'
   { -- | Indicates how to manage the order of stateful rule evaluation for the
-    -- policy. By default, Network Firewall leaves the rule evaluation order up
-    -- to the Suricata rule processing engine. If you set this to
-    -- @STRICT_ORDER@, your rules are evaluated in the exact order that you
-    -- provide them in the policy. With strict ordering, the rule groups are
-    -- evaluated by order of priority, starting from the lowest number, and the
-    -- rules in each rule group are processed in the order that they\'re
-    -- defined.
+    -- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
+    -- are provided to the rule engine as Suricata compatible strings, and
+    -- Suricata evaluates them based on certain settings. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
+    -- in the /Network Firewall Developer Guide/.
     ruleOrder :: Prelude.Maybe RuleOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,26 +49,24 @@ data StatefulEngineOptions = StatefulEngineOptions'
 -- for backwards compatibility:
 --
 -- 'ruleOrder', 'statefulEngineOptions_ruleOrder' - Indicates how to manage the order of stateful rule evaluation for the
--- policy. By default, Network Firewall leaves the rule evaluation order up
--- to the Suricata rule processing engine. If you set this to
--- @STRICT_ORDER@, your rules are evaluated in the exact order that you
--- provide them in the policy. With strict ordering, the rule groups are
--- evaluated by order of priority, starting from the lowest number, and the
--- rules in each rule group are processed in the order that they\'re
--- defined.
+-- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
+-- are provided to the rule engine as Suricata compatible strings, and
+-- Suricata evaluates them based on certain settings. For more information,
+-- see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
+-- in the /Network Firewall Developer Guide/.
 newStatefulEngineOptions ::
   StatefulEngineOptions
 newStatefulEngineOptions =
   StatefulEngineOptions' {ruleOrder = Prelude.Nothing}
 
 -- | Indicates how to manage the order of stateful rule evaluation for the
--- policy. By default, Network Firewall leaves the rule evaluation order up
--- to the Suricata rule processing engine. If you set this to
--- @STRICT_ORDER@, your rules are evaluated in the exact order that you
--- provide them in the policy. With strict ordering, the rule groups are
--- evaluated by order of priority, starting from the lowest number, and the
--- rules in each rule group are processed in the order that they\'re
--- defined.
+-- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
+-- are provided to the rule engine as Suricata compatible strings, and
+-- Suricata evaluates them based on certain settings. For more information,
+-- see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
+-- in the /Network Firewall Developer Guide/.
 statefulEngineOptions_ruleOrder :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe RuleOrder)
 statefulEngineOptions_ruleOrder = Lens.lens (\StatefulEngineOptions' {ruleOrder} -> ruleOrder) (\s@StatefulEngineOptions' {} a -> s {ruleOrder = a} :: StatefulEngineOptions)
 

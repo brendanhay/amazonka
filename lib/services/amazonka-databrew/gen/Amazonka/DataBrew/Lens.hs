@@ -41,6 +41,7 @@ module Amazonka.DataBrew.Lens
     createProfileJob_maxRetries,
     createProfileJob_maxCapacity,
     createProfileJob_encryptionMode,
+    createProfileJob_validationConfigurations,
     createProfileJob_datasetName,
     createProfileJob_name,
     createProfileJob_outputLocation,
@@ -85,6 +86,15 @@ module Amazonka.DataBrew.Lens
     createRecipeJobResponse_httpStatus,
     createRecipeJobResponse_name,
 
+    -- ** CreateRuleset
+    createRuleset_tags,
+    createRuleset_description,
+    createRuleset_name,
+    createRuleset_targetArn,
+    createRuleset_rules,
+    createRulesetResponse_httpStatus,
+    createRulesetResponse_name,
+
     -- ** CreateSchedule
     createSchedule_tags,
     createSchedule_jobNames,
@@ -114,6 +124,11 @@ module Amazonka.DataBrew.Lens
     deleteRecipeVersionResponse_httpStatus,
     deleteRecipeVersionResponse_name,
     deleteRecipeVersionResponse_recipeVersion,
+
+    -- ** DeleteRuleset
+    deleteRuleset_name,
+    deleteRulesetResponse_httpStatus,
+    deleteRulesetResponse_name,
 
     -- ** DeleteSchedule
     deleteSchedule_name,
@@ -160,6 +175,7 @@ module Amazonka.DataBrew.Lens
     describeJobResponse_createdBy,
     describeJobResponse_maxCapacity,
     describeJobResponse_encryptionMode,
+    describeJobResponse_validationConfigurations,
     describeJobResponse_httpStatus,
     describeJobResponse_name,
 
@@ -183,6 +199,7 @@ module Amazonka.DataBrew.Lens
     describeJobRunResponse_profileConfiguration,
     describeJobRunResponse_runId,
     describeJobRunResponse_logGroupName,
+    describeJobRunResponse_validationConfigurations,
     describeJobRunResponse_httpStatus,
     describeJobRunResponse_jobName,
 
@@ -221,6 +238,20 @@ module Amazonka.DataBrew.Lens
     describeRecipeResponse_recipeVersion,
     describeRecipeResponse_httpStatus,
     describeRecipeResponse_name,
+
+    -- ** DescribeRuleset
+    describeRuleset_name,
+    describeRulesetResponse_tags,
+    describeRulesetResponse_lastModifiedDate,
+    describeRulesetResponse_rules,
+    describeRulesetResponse_targetArn,
+    describeRulesetResponse_description,
+    describeRulesetResponse_createDate,
+    describeRulesetResponse_lastModifiedBy,
+    describeRulesetResponse_resourceArn,
+    describeRulesetResponse_createdBy,
+    describeRulesetResponse_httpStatus,
+    describeRulesetResponse_name,
 
     -- ** DescribeSchedule
     describeSchedule_name,
@@ -281,6 +312,14 @@ module Amazonka.DataBrew.Lens
     listRecipesResponse_nextToken,
     listRecipesResponse_httpStatus,
     listRecipesResponse_recipes,
+
+    -- ** ListRulesets
+    listRulesets_nextToken,
+    listRulesets_targetArn,
+    listRulesets_maxResults,
+    listRulesetsResponse_nextToken,
+    listRulesetsResponse_httpStatus,
+    listRulesetsResponse_rulesets,
 
     -- ** ListSchedules
     listSchedules_nextToken,
@@ -359,6 +398,7 @@ module Amazonka.DataBrew.Lens
     updateProfileJob_maxRetries,
     updateProfileJob_maxCapacity,
     updateProfileJob_encryptionMode,
+    updateProfileJob_validationConfigurations,
     updateProfileJob_name,
     updateProfileJob_outputLocation,
     updateProfileJob_roleArn,
@@ -395,6 +435,13 @@ module Amazonka.DataBrew.Lens
     updateRecipeJobResponse_httpStatus,
     updateRecipeJobResponse_name,
 
+    -- ** UpdateRuleset
+    updateRuleset_description,
+    updateRuleset_name,
+    updateRuleset_rules,
+    updateRulesetResponse_httpStatus,
+    updateRulesetResponse_name,
+
     -- ** UpdateSchedule
     updateSchedule_jobNames,
     updateSchedule_cronExpression,
@@ -403,6 +450,9 @@ module Amazonka.DataBrew.Lens
     updateScheduleResponse_name,
 
     -- * Types
+
+    -- ** AllowedStatistics
+    allowedStatistics_statistics,
 
     -- ** ColumnSelector
     columnSelector_name,
@@ -440,8 +490,9 @@ module Amazonka.DataBrew.Lens
 
     -- ** DatabaseInputDefinition
     databaseInputDefinition_tempDirectory,
-    databaseInputDefinition_glueConnectionName,
     databaseInputDefinition_databaseTableName,
+    databaseInputDefinition_queryString,
+    databaseInputDefinition_glueConnectionName,
 
     -- ** DatabaseOutput
     databaseOutput_databaseOutputMode,
@@ -479,6 +530,10 @@ module Amazonka.DataBrew.Lens
     datetimeOptions_timezoneOffset,
     datetimeOptions_format,
 
+    -- ** EntityDetectorConfiguration
+    entityDetectorConfiguration_allowedStatistics,
+    entityDetectorConfiguration_entityTypes,
+
     -- ** ExcelOptions
     excelOptions_sheetIndexes,
     excelOptions_sheetNames,
@@ -499,6 +554,7 @@ module Amazonka.DataBrew.Lens
     formatOptions_csv,
 
     -- ** Input
+    input_metadata,
     input_s3InputDefinition,
     input_dataCatalogInputDefinition,
     input_databaseInputDefinition,
@@ -526,6 +582,7 @@ module Amazonka.DataBrew.Lens
     job_createdBy,
     job_maxCapacity,
     job_encryptionMode,
+    job_validationConfigurations,
     job_name,
 
     -- ** JobRun
@@ -546,6 +603,7 @@ module Amazonka.DataBrew.Lens
     jobRun_outputs,
     jobRun_runId,
     jobRun_logGroupName,
+    jobRun_validationConfigurations,
 
     -- ** JobSample
     jobSample_size,
@@ -554,12 +612,16 @@ module Amazonka.DataBrew.Lens
     -- ** JsonOptions
     jsonOptions_multiLine,
 
+    -- ** Metadata
+    metadata_sourceArn,
+
     -- ** Output
     output_format,
     output_overwrite,
     output_partitionColumns,
     output_formatOptions,
     output_compressionFormat,
+    output_maxOutputFiles,
     output_location,
 
     -- ** OutputFormatOptions
@@ -574,6 +636,7 @@ module Amazonka.DataBrew.Lens
     profileConfiguration_columnStatisticsConfigurations,
     profileConfiguration_datasetStatisticsConfiguration,
     profileConfiguration_profileColumns,
+    profileConfiguration_entityDetectorConfiguration,
 
     -- ** Project
     project_tags,
@@ -623,8 +686,30 @@ module Amazonka.DataBrew.Lens
     recipeVersionErrorDetail_errorCode,
     recipeVersionErrorDetail_recipeVersion,
 
+    -- ** Rule
+    rule_substitutionMap,
+    rule_columnSelectors,
+    rule_disabled,
+    rule_threshold,
+    rule_name,
+    rule_checkExpression,
+
+    -- ** RulesetItem
+    rulesetItem_tags,
+    rulesetItem_lastModifiedDate,
+    rulesetItem_description,
+    rulesetItem_accountId,
+    rulesetItem_createDate,
+    rulesetItem_ruleCount,
+    rulesetItem_lastModifiedBy,
+    rulesetItem_resourceArn,
+    rulesetItem_createdBy,
+    rulesetItem_name,
+    rulesetItem_targetArn,
+
     -- ** S3Location
     s3Location_key,
+    s3Location_bucketOwner,
     s3Location_bucket,
 
     -- ** S3TableOutputOptions
@@ -654,8 +739,20 @@ module Amazonka.DataBrew.Lens
     statisticsConfiguration_includedStatistics,
     statisticsConfiguration_overrides,
 
+    -- ** Threshold
+    threshold_type,
+    threshold_unit,
+    threshold_value,
+
+    -- ** ValidationConfiguration
+    validationConfiguration_validationMode,
+    validationConfiguration_rulesetArn,
+
     -- ** ViewFrame
+    viewFrame_analytics,
+    viewFrame_startRowIndex,
     viewFrame_columnRange,
+    viewFrame_rowRange,
     viewFrame_hiddenColumns,
     viewFrame_startColumnIndex,
   )
@@ -667,17 +764,20 @@ import Amazonka.DataBrew.CreateProfileJob
 import Amazonka.DataBrew.CreateProject
 import Amazonka.DataBrew.CreateRecipe
 import Amazonka.DataBrew.CreateRecipeJob
+import Amazonka.DataBrew.CreateRuleset
 import Amazonka.DataBrew.CreateSchedule
 import Amazonka.DataBrew.DeleteDataset
 import Amazonka.DataBrew.DeleteJob
 import Amazonka.DataBrew.DeleteProject
 import Amazonka.DataBrew.DeleteRecipeVersion
+import Amazonka.DataBrew.DeleteRuleset
 import Amazonka.DataBrew.DeleteSchedule
 import Amazonka.DataBrew.DescribeDataset
 import Amazonka.DataBrew.DescribeJob
 import Amazonka.DataBrew.DescribeJobRun
 import Amazonka.DataBrew.DescribeProject
 import Amazonka.DataBrew.DescribeRecipe
+import Amazonka.DataBrew.DescribeRuleset
 import Amazonka.DataBrew.DescribeSchedule
 import Amazonka.DataBrew.ListDatasets
 import Amazonka.DataBrew.ListJobRuns
@@ -685,6 +785,7 @@ import Amazonka.DataBrew.ListJobs
 import Amazonka.DataBrew.ListProjects
 import Amazonka.DataBrew.ListRecipeVersions
 import Amazonka.DataBrew.ListRecipes
+import Amazonka.DataBrew.ListRulesets
 import Amazonka.DataBrew.ListSchedules
 import Amazonka.DataBrew.ListTagsForResource
 import Amazonka.DataBrew.PublishRecipe
@@ -693,6 +794,7 @@ import Amazonka.DataBrew.StartJobRun
 import Amazonka.DataBrew.StartProjectSession
 import Amazonka.DataBrew.StopJobRun
 import Amazonka.DataBrew.TagResource
+import Amazonka.DataBrew.Types.AllowedStatistics
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
 import Amazonka.DataBrew.Types.ConditionExpression
@@ -706,6 +808,7 @@ import Amazonka.DataBrew.Types.DatabaseTableOutputOptions
 import Amazonka.DataBrew.Types.Dataset
 import Amazonka.DataBrew.Types.DatasetParameter
 import Amazonka.DataBrew.Types.DatetimeOptions
+import Amazonka.DataBrew.Types.EntityDetectorConfiguration
 import Amazonka.DataBrew.Types.ExcelOptions
 import Amazonka.DataBrew.Types.FilesLimit
 import Amazonka.DataBrew.Types.FilterExpression
@@ -715,6 +818,7 @@ import Amazonka.DataBrew.Types.Job
 import Amazonka.DataBrew.Types.JobRun
 import Amazonka.DataBrew.Types.JobSample
 import Amazonka.DataBrew.Types.JsonOptions
+import Amazonka.DataBrew.Types.Metadata
 import Amazonka.DataBrew.Types.Output
 import Amazonka.DataBrew.Types.OutputFormatOptions
 import Amazonka.DataBrew.Types.PathOptions
@@ -725,12 +829,16 @@ import Amazonka.DataBrew.Types.RecipeAction
 import Amazonka.DataBrew.Types.RecipeReference
 import Amazonka.DataBrew.Types.RecipeStep
 import Amazonka.DataBrew.Types.RecipeVersionErrorDetail
+import Amazonka.DataBrew.Types.Rule
+import Amazonka.DataBrew.Types.RulesetItem
 import Amazonka.DataBrew.Types.S3Location
 import Amazonka.DataBrew.Types.S3TableOutputOptions
 import Amazonka.DataBrew.Types.Sample
 import Amazonka.DataBrew.Types.Schedule
 import Amazonka.DataBrew.Types.StatisticOverride
 import Amazonka.DataBrew.Types.StatisticsConfiguration
+import Amazonka.DataBrew.Types.Threshold
+import Amazonka.DataBrew.Types.ValidationConfiguration
 import Amazonka.DataBrew.Types.ViewFrame
 import Amazonka.DataBrew.UntagResource
 import Amazonka.DataBrew.UpdateDataset
@@ -738,4 +846,5 @@ import Amazonka.DataBrew.UpdateProfileJob
 import Amazonka.DataBrew.UpdateProject
 import Amazonka.DataBrew.UpdateRecipe
 import Amazonka.DataBrew.UpdateRecipeJob
+import Amazonka.DataBrew.UpdateRuleset
 import Amazonka.DataBrew.UpdateSchedule

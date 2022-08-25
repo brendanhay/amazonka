@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTaskDefinition' smart constructor.
 data DescribeTaskDefinition = DescribeTaskDefinition'
-  { -- | Specifies whether to see the resource tags for the task definition. If
+  { -- | Determines whether to see the resource tags for the task definition. If
     -- @TAGS@ is specified, the tags are included in the response. If this
-    -- field is omitted, tags are not included in the response.
+    -- field is omitted, tags aren\'t included in the response.
     include :: Prelude.Maybe [TaskDefinitionField],
     -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
     -- (@family:revision@) for a specific revision in the family, or full
@@ -74,9 +74,9 @@ data DescribeTaskDefinition = DescribeTaskDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'include', 'describeTaskDefinition_include' - Specifies whether to see the resource tags for the task definition. If
+-- 'include', 'describeTaskDefinition_include' - Determines whether to see the resource tags for the task definition. If
 -- @TAGS@ is specified, the tags are included in the response. If this
--- field is omitted, tags are not included in the response.
+-- field is omitted, tags aren\'t included in the response.
 --
 -- 'taskDefinition', 'describeTaskDefinition_taskDefinition' - The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
 -- (@family:revision@) for a specific revision in the family, or full
@@ -91,9 +91,9 @@ newDescribeTaskDefinition pTaskDefinition_ =
       taskDefinition = pTaskDefinition_
     }
 
--- | Specifies whether to see the resource tags for the task definition. If
+-- | Determines whether to see the resource tags for the task definition. If
 -- @TAGS@ is specified, the tags are included in the response. If this
--- field is omitted, tags are not included in the response.
+-- field is omitted, tags aren\'t included in the response.
 describeTaskDefinition_include :: Lens.Lens' DescribeTaskDefinition (Prelude.Maybe [TaskDefinitionField])
 describeTaskDefinition_include = Lens.lens (\DescribeTaskDefinition' {include} -> include) (\s@DescribeTaskDefinition' {} a -> s {include = a} :: DescribeTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -160,9 +160,9 @@ instance Core.ToQuery DescribeTaskDefinition where
 
 -- | /See:/ 'newDescribeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-  { -- | The metadata that is applied to the task definition to help you
+  { -- | The metadata that\'s applied to the task definition to help you
     -- categorize and organize them. Each tag consists of a key and an optional
-    -- value, both of which you define.
+    -- value. You define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -204,9 +204,9 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeTaskDefinitionResponse_tags' - The metadata that is applied to the task definition to help you
+-- 'tags', 'describeTaskDefinitionResponse_tags' - The metadata that\'s applied to the task definition to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -248,9 +248,9 @@ newDescribeTaskDefinitionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The metadata that is applied to the task definition to help you
+-- | The metadata that\'s applied to the task definition to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --

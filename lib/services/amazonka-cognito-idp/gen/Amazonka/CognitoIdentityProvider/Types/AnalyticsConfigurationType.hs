@@ -23,26 +23,26 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The Amazon Pinpoint analytics configuration for collecting metrics for a
--- user pool.
+-- | The Amazon Pinpoint analytics configuration necessary to collect metrics
+-- for a user pool.
 --
--- In regions where Pinpoint is not available, Cognito User Pools only
--- supports sending events to Amazon Pinpoint projects in us-east-1. In
--- regions where Pinpoint is available, Cognito User Pools will support
--- sending events to Amazon Pinpoint projects within that same region.
+-- In Regions where Amazon Pinpointisn\'t available, user pools only
+-- support sending events to Amazon Pinpoint projects in us-east-1. In
+-- Regions where Amazon Pinpoint is available, user pools support sending
+-- events to Amazon Pinpoint projects within that same Region.
 --
 -- /See:/ 'newAnalyticsConfigurationType' smart constructor.
 data AnalyticsConfigurationType = AnalyticsConfigurationType'
-  { -- | If @UserDataShared@ is @true@, Amazon Cognito will include user data in
-    -- the events it publishes to Amazon Pinpoint analytics.
+  { -- | If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
+    -- events that it publishes to Amazon Pinpoint analytics.
     userDataShared :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of an IAM role that authorizes Amazon Cognito to publish events
-    -- to Amazon Pinpoint analytics.
+    -- | The ARN of an Identity and Access Management role that authorizes Amazon
+    -- Cognito to publish events to Amazon Pinpoint analytics.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
-    -- use the Amazon Pinpoint project for Pinpoint integration with the chosen
-    -- User Pool Client. Amazon Cognito publishes events to the pinpoint
-    -- project declared by the app ARN.
+    -- use the Amazon Pinpoint project to integrate with the chosen user pool
+    -- Client. Amazon Cognito publishes events to the Amazon Pinpoint project
+    -- that the app ARN declares.
     applicationArn :: Prelude.Maybe Prelude.Text,
     -- | The external ID.
     externalId :: Prelude.Maybe Prelude.Text,
@@ -59,16 +59,16 @@ data AnalyticsConfigurationType = AnalyticsConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userDataShared', 'analyticsConfigurationType_userDataShared' - If @UserDataShared@ is @true@, Amazon Cognito will include user data in
--- the events it publishes to Amazon Pinpoint analytics.
+-- 'userDataShared', 'analyticsConfigurationType_userDataShared' - If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
+-- events that it publishes to Amazon Pinpoint analytics.
 --
--- 'roleArn', 'analyticsConfigurationType_roleArn' - The ARN of an IAM role that authorizes Amazon Cognito to publish events
--- to Amazon Pinpoint analytics.
+-- 'roleArn', 'analyticsConfigurationType_roleArn' - The ARN of an Identity and Access Management role that authorizes Amazon
+-- Cognito to publish events to Amazon Pinpoint analytics.
 --
 -- 'applicationArn', 'analyticsConfigurationType_applicationArn' - The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
--- use the Amazon Pinpoint project for Pinpoint integration with the chosen
--- User Pool Client. Amazon Cognito publishes events to the pinpoint
--- project declared by the app ARN.
+-- use the Amazon Pinpoint project to integrate with the chosen user pool
+-- Client. Amazon Cognito publishes events to the Amazon Pinpoint project
+-- that the app ARN declares.
 --
 -- 'externalId', 'analyticsConfigurationType_externalId' - The external ID.
 --
@@ -85,20 +85,20 @@ newAnalyticsConfigurationType =
       applicationId = Prelude.Nothing
     }
 
--- | If @UserDataShared@ is @true@, Amazon Cognito will include user data in
--- the events it publishes to Amazon Pinpoint analytics.
+-- | If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
+-- events that it publishes to Amazon Pinpoint analytics.
 analyticsConfigurationType_userDataShared :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Bool)
 analyticsConfigurationType_userDataShared = Lens.lens (\AnalyticsConfigurationType' {userDataShared} -> userDataShared) (\s@AnalyticsConfigurationType' {} a -> s {userDataShared = a} :: AnalyticsConfigurationType)
 
--- | The ARN of an IAM role that authorizes Amazon Cognito to publish events
--- to Amazon Pinpoint analytics.
+-- | The ARN of an Identity and Access Management role that authorizes Amazon
+-- Cognito to publish events to Amazon Pinpoint analytics.
 analyticsConfigurationType_roleArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
 analyticsConfigurationType_roleArn = Lens.lens (\AnalyticsConfigurationType' {roleArn} -> roleArn) (\s@AnalyticsConfigurationType' {} a -> s {roleArn = a} :: AnalyticsConfigurationType)
 
 -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
--- use the Amazon Pinpoint project for Pinpoint integration with the chosen
--- User Pool Client. Amazon Cognito publishes events to the pinpoint
--- project declared by the app ARN.
+-- use the Amazon Pinpoint project to integrate with the chosen user pool
+-- Client. Amazon Cognito publishes events to the Amazon Pinpoint project
+-- that the app ARN declares.
 analyticsConfigurationType_applicationArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
 analyticsConfigurationType_applicationArn = Lens.lens (\AnalyticsConfigurationType' {applicationArn} -> applicationArn) (\s@AnalyticsConfigurationType' {} a -> s {applicationArn = a} :: AnalyticsConfigurationType)
 

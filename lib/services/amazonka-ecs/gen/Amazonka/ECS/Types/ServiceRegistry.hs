@@ -23,31 +23,38 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details of the service registry.
+-- | The details for the service registry.
+--
+-- Each service may be associated with one service registry. Multiple
+-- service registries for each service are not supported.
+--
+-- When you add, update, or remove the service registries configuration,
+-- Amazon ECS starts a new deployment. New tasks are registered and
+-- deregistered to the updated service registry configuration.
 --
 -- /See:/ 'newServiceRegistry' smart constructor.
 data ServiceRegistry = ServiceRegistry'
   { -- | The port value used if your service discovery service specified an SRV
-    -- record. This field may be used if both the @awsvpc@ network mode and SRV
-    -- records are used.
+    -- record. This field might be used if both the @awsvpc@ network mode and
+    -- SRV records are used.
     port :: Prelude.Maybe Prelude.Int,
-    -- | The port value, already specified in the task definition, to be used for
-    -- your service discovery service. If the task definition your service task
-    -- specifies uses the @bridge@ or @host@ network mode, you must specify a
-    -- @containerName@ and @containerPort@ combination from the task
-    -- definition. If the task definition your service task specifies uses the
-    -- @awsvpc@ network mode and a type SRV DNS record is used, you must
+    -- | The port value to be used for your service discovery service. It\'s
+    -- already specified in the task definition. If the task definition your
+    -- service task specifies uses the @bridge@ or @host@ network mode, you
+    -- must specify a @containerName@ and @containerPort@ combination from the
+    -- task definition. If the task definition your service task specifies uses
+    -- the @awsvpc@ network mode and a type SRV DNS record is used, you must
     -- specify either a @containerName@ and @containerPort@ combination or a
-    -- @port@ value, but not both.
+    -- @port@ value. However, you can\'t specify both.
     containerPort :: Prelude.Maybe Prelude.Int,
-    -- | The container name value, already specified in the task definition, to
-    -- be used for your service discovery service. If the task definition that
-    -- your service task specifies uses the @bridge@ or @host@ network mode,
-    -- you must specify a @containerName@ and @containerPort@ combination from
-    -- the task definition. If the task definition that your service task
+    -- | The container name value to be used for your service discovery service.
+    -- It\'s already specified in the task definition. If the task definition
+    -- that your service task specifies uses the @bridge@ or @host@ network
+    -- mode, you must specify a @containerName@ and @containerPort@ combination
+    -- from the task definition. If the task definition that your service task
     -- specifies uses the @awsvpc@ network mode and a type SRV DNS record is
     -- used, you must specify either a @containerName@ and @containerPort@
-    -- combination or a @port@ value, but not both.
+    -- combination or a @port@ value. However, you can\'t specify both.
     containerName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the service registry. The currently
     -- supported service registry is Cloud Map. For more information, see
@@ -65,26 +72,26 @@ data ServiceRegistry = ServiceRegistry'
 -- for backwards compatibility:
 --
 -- 'port', 'serviceRegistry_port' - The port value used if your service discovery service specified an SRV
--- record. This field may be used if both the @awsvpc@ network mode and SRV
--- records are used.
+-- record. This field might be used if both the @awsvpc@ network mode and
+-- SRV records are used.
 --
--- 'containerPort', 'serviceRegistry_containerPort' - The port value, already specified in the task definition, to be used for
--- your service discovery service. If the task definition your service task
--- specifies uses the @bridge@ or @host@ network mode, you must specify a
--- @containerName@ and @containerPort@ combination from the task
--- definition. If the task definition your service task specifies uses the
--- @awsvpc@ network mode and a type SRV DNS record is used, you must
+-- 'containerPort', 'serviceRegistry_containerPort' - The port value to be used for your service discovery service. It\'s
+-- already specified in the task definition. If the task definition your
+-- service task specifies uses the @bridge@ or @host@ network mode, you
+-- must specify a @containerName@ and @containerPort@ combination from the
+-- task definition. If the task definition your service task specifies uses
+-- the @awsvpc@ network mode and a type SRV DNS record is used, you must
 -- specify either a @containerName@ and @containerPort@ combination or a
--- @port@ value, but not both.
+-- @port@ value. However, you can\'t specify both.
 --
--- 'containerName', 'serviceRegistry_containerName' - The container name value, already specified in the task definition, to
--- be used for your service discovery service. If the task definition that
--- your service task specifies uses the @bridge@ or @host@ network mode,
--- you must specify a @containerName@ and @containerPort@ combination from
--- the task definition. If the task definition that your service task
+-- 'containerName', 'serviceRegistry_containerName' - The container name value to be used for your service discovery service.
+-- It\'s already specified in the task definition. If the task definition
+-- that your service task specifies uses the @bridge@ or @host@ network
+-- mode, you must specify a @containerName@ and @containerPort@ combination
+-- from the task definition. If the task definition that your service task
 -- specifies uses the @awsvpc@ network mode and a type SRV DNS record is
 -- used, you must specify either a @containerName@ and @containerPort@
--- combination or a @port@ value, but not both.
+-- combination or a @port@ value. However, you can\'t specify both.
 --
 -- 'registryArn', 'serviceRegistry_registryArn' - The Amazon Resource Name (ARN) of the service registry. The currently
 -- supported service registry is Cloud Map. For more information, see
@@ -100,30 +107,30 @@ newServiceRegistry =
     }
 
 -- | The port value used if your service discovery service specified an SRV
--- record. This field may be used if both the @awsvpc@ network mode and SRV
--- records are used.
+-- record. This field might be used if both the @awsvpc@ network mode and
+-- SRV records are used.
 serviceRegistry_port :: Lens.Lens' ServiceRegistry (Prelude.Maybe Prelude.Int)
 serviceRegistry_port = Lens.lens (\ServiceRegistry' {port} -> port) (\s@ServiceRegistry' {} a -> s {port = a} :: ServiceRegistry)
 
--- | The port value, already specified in the task definition, to be used for
--- your service discovery service. If the task definition your service task
--- specifies uses the @bridge@ or @host@ network mode, you must specify a
--- @containerName@ and @containerPort@ combination from the task
--- definition. If the task definition your service task specifies uses the
--- @awsvpc@ network mode and a type SRV DNS record is used, you must
+-- | The port value to be used for your service discovery service. It\'s
+-- already specified in the task definition. If the task definition your
+-- service task specifies uses the @bridge@ or @host@ network mode, you
+-- must specify a @containerName@ and @containerPort@ combination from the
+-- task definition. If the task definition your service task specifies uses
+-- the @awsvpc@ network mode and a type SRV DNS record is used, you must
 -- specify either a @containerName@ and @containerPort@ combination or a
--- @port@ value, but not both.
+-- @port@ value. However, you can\'t specify both.
 serviceRegistry_containerPort :: Lens.Lens' ServiceRegistry (Prelude.Maybe Prelude.Int)
 serviceRegistry_containerPort = Lens.lens (\ServiceRegistry' {containerPort} -> containerPort) (\s@ServiceRegistry' {} a -> s {containerPort = a} :: ServiceRegistry)
 
--- | The container name value, already specified in the task definition, to
--- be used for your service discovery service. If the task definition that
--- your service task specifies uses the @bridge@ or @host@ network mode,
--- you must specify a @containerName@ and @containerPort@ combination from
--- the task definition. If the task definition that your service task
+-- | The container name value to be used for your service discovery service.
+-- It\'s already specified in the task definition. If the task definition
+-- that your service task specifies uses the @bridge@ or @host@ network
+-- mode, you must specify a @containerName@ and @containerPort@ combination
+-- from the task definition. If the task definition that your service task
 -- specifies uses the @awsvpc@ network mode and a type SRV DNS record is
 -- used, you must specify either a @containerName@ and @containerPort@
--- combination or a @port@ value, but not both.
+-- combination or a @port@ value. However, you can\'t specify both.
 serviceRegistry_containerName :: Lens.Lens' ServiceRegistry (Prelude.Maybe Prelude.Text)
 serviceRegistry_containerName = Lens.lens (\ServiceRegistry' {containerName} -> containerName) (\s@ServiceRegistry' {} a -> s {containerName = a} :: ServiceRegistry)
 

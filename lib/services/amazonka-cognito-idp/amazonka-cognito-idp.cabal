@@ -218,6 +218,7 @@ library
     Amazonka.CognitoIdentityProvider.Types.TimeUnitsType
     Amazonka.CognitoIdentityProvider.Types.TokenValidityUnitsType
     Amazonka.CognitoIdentityProvider.Types.UICustomizationType
+    Amazonka.CognitoIdentityProvider.Types.UserAttributeUpdateSettingsType
     Amazonka.CognitoIdentityProvider.Types.UserContextDataType
     Amazonka.CognitoIdentityProvider.Types.UserImportJobStatusType
     Amazonka.CognitoIdentityProvider.Types.UserImportJobType

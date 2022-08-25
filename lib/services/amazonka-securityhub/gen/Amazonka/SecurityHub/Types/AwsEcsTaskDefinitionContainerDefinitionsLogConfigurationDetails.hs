@@ -31,6 +31,34 @@ data AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails = AwsEcsTas
   { -- | The secrets to pass to the log configuration.
     secretOptions :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails],
     -- | The log driver to use for the container.
+    --
+    -- Valid values on Fargate are as follows:
+    --
+    -- -   @awsfirelens@
+    --
+    -- -   @awslogs@
+    --
+    -- -   @splunk@
+    --
+    -- Valid values on Amazon EC2 are as follows:
+    --
+    -- -   @awsfirelens@
+    --
+    -- -   @awslogs@
+    --
+    -- -   @fluentd@
+    --
+    -- -   @gelf@
+    --
+    -- -   @journald@
+    --
+    -- -   @json-file@
+    --
+    -- -   @logentries@
+    --
+    -- -   @splunk@
+    --
+    -- -   @syslog@
     logDriver :: Prelude.Maybe Prelude.Text,
     -- | The configuration options to send to the log driver. Requires version
     -- 1.19 of the Docker Remote API or greater on your container instance.
@@ -49,6 +77,34 @@ data AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails = AwsEcsTas
 -- 'secretOptions', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions' - The secrets to pass to the log configuration.
 --
 -- 'logDriver', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_logDriver' - The log driver to use for the container.
+--
+-- Valid values on Fargate are as follows:
+--
+-- -   @awsfirelens@
+--
+-- -   @awslogs@
+--
+-- -   @splunk@
+--
+-- Valid values on Amazon EC2 are as follows:
+--
+-- -   @awsfirelens@
+--
+-- -   @awslogs@
+--
+-- -   @fluentd@
+--
+-- -   @gelf@
+--
+-- -   @journald@
+--
+-- -   @json-file@
+--
+-- -   @logentries@
+--
+-- -   @splunk@
+--
+-- -   @syslog@
 --
 -- 'options', 'awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_options' - The configuration options to send to the log driver. Requires version
 -- 1.19 of the Docker Remote API or greater on your container instance.
@@ -69,6 +125,34 @@ awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions ::
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_secretOptions = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {secretOptions} -> secretOptions) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {} a -> s {secretOptions = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The log driver to use for the container.
+--
+-- Valid values on Fargate are as follows:
+--
+-- -   @awsfirelens@
+--
+-- -   @awslogs@
+--
+-- -   @splunk@
+--
+-- Valid values on Amazon EC2 are as follows:
+--
+-- -   @awsfirelens@
+--
+-- -   @awslogs@
+--
+-- -   @fluentd@
+--
+-- -   @gelf@
+--
+-- -   @journald@
+--
+-- -   @json-file@
+--
+-- -   @logentries@
+--
+-- -   @splunk@
+--
+-- -   @syslog@
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_logDriver :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails_logDriver = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {logDriver} -> logDriver) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {} a -> s {logDriver = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails)
 

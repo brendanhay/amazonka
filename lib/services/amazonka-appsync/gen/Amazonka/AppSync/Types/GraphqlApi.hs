@@ -35,8 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 data GraphqlApi = GraphqlApi'
   { -- | The tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A flag representing whether X-Ray tracing is enabled for this
-    -- @GraphqlApi@.
+    -- | A flag indicating whether to use X-Ray tracing for this @GraphqlApi@.
     xrayEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The API name.
     name :: Prelude.Maybe Prelude.Text,
@@ -46,7 +45,7 @@ data GraphqlApi = GraphqlApi'
     apiId :: Prelude.Maybe Prelude.Text,
     -- | The OpenID Connect configuration.
     openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
-    -- | The ARN.
+    -- | The Amazon Resource Name (ARN).
     arn :: Prelude.Maybe Prelude.Text,
     -- | The URIs.
     uris :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -54,11 +53,12 @@ data GraphqlApi = GraphqlApi'
     userPoolConfig :: Prelude.Maybe UserPoolConfig,
     -- | A list of additional authentication providers for the @GraphqlApi@ API.
     additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
-    -- | Configuration for Amazon Web Services Lambda function authorization.
+    -- | Configuration for Lambda function authorization.
     lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The Amazon CloudWatch Logs configuration.
     logConfig :: Prelude.Maybe LogConfig,
-    -- | The ARN of the WAF ACL associated with this @GraphqlApi@, if one exists.
+    -- | The ARN of the WAF access control list (ACL) associated with this
+    -- @GraphqlApi@, if one exists.
     wafWebAclArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,8 +73,7 @@ data GraphqlApi = GraphqlApi'
 --
 -- 'tags', 'graphqlApi_tags' - The tags.
 --
--- 'xrayEnabled', 'graphqlApi_xrayEnabled' - A flag representing whether X-Ray tracing is enabled for this
--- @GraphqlApi@.
+-- 'xrayEnabled', 'graphqlApi_xrayEnabled' - A flag indicating whether to use X-Ray tracing for this @GraphqlApi@.
 --
 -- 'name', 'graphqlApi_name' - The API name.
 --
@@ -84,7 +83,7 @@ data GraphqlApi = GraphqlApi'
 --
 -- 'openIDConnectConfig', 'graphqlApi_openIDConnectConfig' - The OpenID Connect configuration.
 --
--- 'arn', 'graphqlApi_arn' - The ARN.
+-- 'arn', 'graphqlApi_arn' - The Amazon Resource Name (ARN).
 --
 -- 'uris', 'graphqlApi_uris' - The URIs.
 --
@@ -92,11 +91,12 @@ data GraphqlApi = GraphqlApi'
 --
 -- 'additionalAuthenticationProviders', 'graphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
 --
--- 'lambdaAuthorizerConfig', 'graphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
+-- 'lambdaAuthorizerConfig', 'graphqlApi_lambdaAuthorizerConfig' - Configuration for Lambda function authorization.
 --
 -- 'logConfig', 'graphqlApi_logConfig' - The Amazon CloudWatch Logs configuration.
 --
--- 'wafWebAclArn', 'graphqlApi_wafWebAclArn' - The ARN of the WAF ACL associated with this @GraphqlApi@, if one exists.
+-- 'wafWebAclArn', 'graphqlApi_wafWebAclArn' - The ARN of the WAF access control list (ACL) associated with this
+-- @GraphqlApi@, if one exists.
 newGraphqlApi ::
   GraphqlApi
 newGraphqlApi =
@@ -120,8 +120,7 @@ newGraphqlApi =
 graphqlApi_tags :: Lens.Lens' GraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 graphqlApi_tags = Lens.lens (\GraphqlApi' {tags} -> tags) (\s@GraphqlApi' {} a -> s {tags = a} :: GraphqlApi) Prelude.. Lens.mapping Lens.coerced
 
--- | A flag representing whether X-Ray tracing is enabled for this
--- @GraphqlApi@.
+-- | A flag indicating whether to use X-Ray tracing for this @GraphqlApi@.
 graphqlApi_xrayEnabled :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Bool)
 graphqlApi_xrayEnabled = Lens.lens (\GraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@GraphqlApi' {} a -> s {xrayEnabled = a} :: GraphqlApi)
 
@@ -141,7 +140,7 @@ graphqlApi_apiId = Lens.lens (\GraphqlApi' {apiId} -> apiId) (\s@GraphqlApi' {} 
 graphqlApi_openIDConnectConfig :: Lens.Lens' GraphqlApi (Prelude.Maybe OpenIDConnectConfig)
 graphqlApi_openIDConnectConfig = Lens.lens (\GraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@GraphqlApi' {} a -> s {openIDConnectConfig = a} :: GraphqlApi)
 
--- | The ARN.
+-- | The Amazon Resource Name (ARN).
 graphqlApi_arn :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_arn = Lens.lens (\GraphqlApi' {arn} -> arn) (\s@GraphqlApi' {} a -> s {arn = a} :: GraphqlApi)
 
@@ -157,7 +156,7 @@ graphqlApi_userPoolConfig = Lens.lens (\GraphqlApi' {userPoolConfig} -> userPool
 graphqlApi_additionalAuthenticationProviders :: Lens.Lens' GraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
 graphqlApi_additionalAuthenticationProviders = Lens.lens (\GraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@GraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: GraphqlApi) Prelude.. Lens.mapping Lens.coerced
 
--- | Configuration for Amazon Web Services Lambda function authorization.
+-- | Configuration for Lambda function authorization.
 graphqlApi_lambdaAuthorizerConfig :: Lens.Lens' GraphqlApi (Prelude.Maybe LambdaAuthorizerConfig)
 graphqlApi_lambdaAuthorizerConfig = Lens.lens (\GraphqlApi' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@GraphqlApi' {} a -> s {lambdaAuthorizerConfig = a} :: GraphqlApi)
 
@@ -165,7 +164,8 @@ graphqlApi_lambdaAuthorizerConfig = Lens.lens (\GraphqlApi' {lambdaAuthorizerCon
 graphqlApi_logConfig :: Lens.Lens' GraphqlApi (Prelude.Maybe LogConfig)
 graphqlApi_logConfig = Lens.lens (\GraphqlApi' {logConfig} -> logConfig) (\s@GraphqlApi' {} a -> s {logConfig = a} :: GraphqlApi)
 
--- | The ARN of the WAF ACL associated with this @GraphqlApi@, if one exists.
+-- | The ARN of the WAF access control list (ACL) associated with this
+-- @GraphqlApi@, if one exists.
 graphqlApi_wafWebAclArn :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_wafWebAclArn = Lens.lens (\GraphqlApi' {wafWebAclArn} -> wafWebAclArn) (\s@GraphqlApi' {} a -> s {wafWebAclArn = a} :: GraphqlApi)
 

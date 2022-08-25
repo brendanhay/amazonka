@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEvidence' smart constructor.
 data GetEvidence = GetEvidence'
-  { -- | The identifier for the specified assessment.
+  { -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the specified control set.
+    -- | The unique identifier for the control set.
     controlSetId :: Prelude.Text,
-    -- | The identifier for the folder in which the evidence is stored.
+    -- | The unique identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text,
-    -- | The identifier for the evidence.
+    -- | The unique identifier for the evidence.
     evidenceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,13 +70,13 @@ data GetEvidence = GetEvidence'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'getEvidence_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'getEvidence_assessmentId' - The unique identifier for the assessment.
 --
--- 'controlSetId', 'getEvidence_controlSetId' - The identifier for the specified control set.
+-- 'controlSetId', 'getEvidence_controlSetId' - The unique identifier for the control set.
 --
--- 'evidenceFolderId', 'getEvidence_evidenceFolderId' - The identifier for the folder in which the evidence is stored.
+-- 'evidenceFolderId', 'getEvidence_evidenceFolderId' - The unique identifier for the folder that the evidence is stored in.
 --
--- 'evidenceId', 'getEvidence_evidenceId' - The identifier for the evidence.
+-- 'evidenceId', 'getEvidence_evidenceId' - The unique identifier for the evidence.
 newGetEvidence ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -99,19 +99,19 @@ newGetEvidence
         evidenceId = pEvidenceId_
       }
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 getEvidence_assessmentId :: Lens.Lens' GetEvidence Prelude.Text
 getEvidence_assessmentId = Lens.lens (\GetEvidence' {assessmentId} -> assessmentId) (\s@GetEvidence' {} a -> s {assessmentId = a} :: GetEvidence)
 
--- | The identifier for the specified control set.
+-- | The unique identifier for the control set.
 getEvidence_controlSetId :: Lens.Lens' GetEvidence Prelude.Text
 getEvidence_controlSetId = Lens.lens (\GetEvidence' {controlSetId} -> controlSetId) (\s@GetEvidence' {} a -> s {controlSetId = a} :: GetEvidence)
 
--- | The identifier for the folder in which the evidence is stored.
+-- | The unique identifier for the folder that the evidence is stored in.
 getEvidence_evidenceFolderId :: Lens.Lens' GetEvidence Prelude.Text
 getEvidence_evidenceFolderId = Lens.lens (\GetEvidence' {evidenceFolderId} -> evidenceFolderId) (\s@GetEvidence' {} a -> s {evidenceFolderId = a} :: GetEvidence)
 
--- | The identifier for the evidence.
+-- | The unique identifier for the evidence.
 getEvidence_evidenceId :: Lens.Lens' GetEvidence Prelude.Text
 getEvidence_evidenceId = Lens.lens (\GetEvidence' {evidenceId} -> evidenceId) (\s@GetEvidence' {} a -> s {evidenceId = a} :: GetEvidence)
 
@@ -169,7 +169,7 @@ instance Core.ToQuery GetEvidence where
 
 -- | /See:/ 'newGetEvidenceResponse' smart constructor.
 data GetEvidenceResponse = GetEvidenceResponse'
-  { -- | The evidence returned by the @GetEvidenceResponse@ API.
+  { -- | The evidence that the @GetEvidenceResponse@ API returned.
     evidence :: Prelude.Maybe Evidence,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -184,7 +184,7 @@ data GetEvidenceResponse = GetEvidenceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evidence', 'getEvidenceResponse_evidence' - The evidence returned by the @GetEvidenceResponse@ API.
+-- 'evidence', 'getEvidenceResponse_evidence' - The evidence that the @GetEvidenceResponse@ API returned.
 --
 -- 'httpStatus', 'getEvidenceResponse_httpStatus' - The response's http status code.
 newGetEvidenceResponse ::
@@ -197,7 +197,7 @@ newGetEvidenceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The evidence returned by the @GetEvidenceResponse@ API.
+-- | The evidence that the @GetEvidenceResponse@ API returned.
 getEvidenceResponse_evidence :: Lens.Lens' GetEvidenceResponse (Prelude.Maybe Evidence)
 getEvidenceResponse_evidence = Lens.lens (\GetEvidenceResponse' {evidence} -> evidence) (\s@GetEvidenceResponse' {} a -> s {evidence = a} :: GetEvidenceResponse)
 

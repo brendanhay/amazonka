@@ -27,21 +27,21 @@ import Amazonka.SSM.Types.CommandInvocationStatus
 import Amazonka.SSM.Types.CommandPlugin
 import Amazonka.SSM.Types.NotificationConfig
 
--- | An invocation is copy of a command sent to a specific instance. A
--- command can apply to one or more instances. A command invocation applies
--- to one instance. For example, if a user runs SendCommand against three
--- instances, then a command invocation is created for each requested
--- instance ID. A command invocation returns status and detail information
--- about a command you ran.
+-- | An invocation is a copy of a command sent to a specific managed node. A
+-- command can apply to one or more managed nodes. A command invocation
+-- applies to one managed node. For example, if a user runs @SendCommand@
+-- against three managed nodes, then a command invocation is created for
+-- each requested managed node ID. A command invocation returns status and
+-- detail information about a command you ran.
 --
 -- /See:/ 'newCommandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
   { -- | Plugins processed by the command.
     commandPlugins :: Prelude.Maybe [CommandPlugin],
-    -- | The fully qualified host name of the managed instance.
+    -- | The fully qualified host name of the managed node.
     instanceName :: Prelude.Maybe Prelude.Text,
     -- | A detailed status of the command execution for each invocation (each
-    -- instance targeted by the command). StatusDetails includes more
+    -- managed node targeted by the command). StatusDetails includes more
     -- information than Status because it includes states resulting from error
     -- and concurrency control parameters. StatusDetails can show different
     -- results than Status. For more information about these statuses, see
@@ -49,45 +49,48 @@ data CommandInvocation = CommandInvocation'
     -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
     -- can be one of the following values:
     --
-    -- -   Pending: The command hasn\'t been sent to the instance.
+    -- -   Pending: The command hasn\'t been sent to the managed node.
     --
-    -- -   In Progress: The command has been sent to the instance but hasn\'t
-    --     reached a terminal state.
+    -- -   In Progress: The command has been sent to the managed node but
+    --     hasn\'t reached a terminal state.
     --
     -- -   Success: The execution of the command or plugin was successfully
     --     completed. This is a terminal state.
     --
-    -- -   Delivery Timed Out: The command wasn\'t delivered to the instance
-    --     before the delivery timeout expired. Delivery timeouts don\'t count
-    --     against the parent command\'s @MaxErrors@ limit, but they do
+    -- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+    --     node before the delivery timeout expired. Delivery timeouts don\'t
+    --     count against the parent command\'s @MaxErrors@ limit, but they do
     --     contribute to whether the parent command status is Success or
     --     Incomplete. This is a terminal state.
     --
-    -- -   Execution Timed Out: Command execution started on the instance, but
-    --     the execution wasn\'t complete before the execution timeout expired.
-    --     Execution timeouts count against the @MaxErrors@ limit of the parent
-    --     command. This is a terminal state.
+    -- -   Execution Timed Out: Command execution started on the managed node,
+    --     but the execution wasn\'t complete before the execution timeout
+    --     expired. Execution timeouts count against the @MaxErrors@ limit of
+    --     the parent command. This is a terminal state.
     --
-    -- -   Failed: The command wasn\'t successful on the instance. For a
+    -- -   Failed: The command wasn\'t successful on the managed node. For a
     --     plugin, this indicates that the result code wasn\'t zero. For a
     --     command invocation, this indicates that the result code for one or
     --     more plugins wasn\'t zero. Invocation failures count against the
     --     @MaxErrors@ limit of the parent command. This is a terminal state.
     --
-    -- -   Canceled: The command was terminated before it was completed. This
+    -- -   Cancelled: The command was terminated before it was completed. This
     --     is a terminal state.
     --
-    -- -   Undeliverable: The command can\'t be delivered to the instance. The
-    --     instance might not exist or might not be responding. Undeliverable
-    --     invocations don\'t count against the parent command\'s MaxErrors
-    --     limit and don\'t contribute to whether the parent command status is
-    --     Success or Incomplete. This is a terminal state.
+    -- -   Undeliverable: The command can\'t be delivered to the managed node.
+    --     The managed node might not exist or might not be responding.
+    --     Undeliverable invocations don\'t count against the parent command\'s
+    --     MaxErrors limit and don\'t contribute to whether the parent command
+    --     status is Success or Incomplete. This is a terminal state.
     --
     -- -   Terminated: The parent command exceeded its MaxErrors limit and
     --     subsequent command invocations were canceled by the system. This is
     --     a terminal state.
+    --
+    -- -   Delayed: The system attempted to send the command to the managed
+    --     node but wasn\'t successful. The system retries again.
     statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | The time and date the request was sent to this instance.
+    -- | The time and date the request was sent to this managed node.
     requestedDateTime :: Prelude.Maybe Core.POSIX,
     -- | Amazon CloudWatch Logs information where you want Amazon Web Services
     -- Systems Manager to send the command output.
@@ -104,19 +107,19 @@ data CommandInvocation = CommandInvocation'
     -- | The Identity and Access Management (IAM) service role that Run Command,
     -- a capability of Amazon Web Services Systems Manager, uses to act on your
     -- behalf when sending notifications about command status changes on a per
-    -- instance basis.
+    -- managed node basis.
     serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The command against which this invocation was requested.
     commandId :: Prelude.Maybe Prelude.Text,
     -- | User-specified information about the command, such as a brief
     -- description of what the command should do.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID in which this invocation was requested.
+    -- | The managed node ID in which this invocation was requested.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The document name that was requested for execution.
     documentName :: Prelude.Maybe Prelude.Text,
     -- | Configurations for sending notifications about command status changes on
-    -- a per instance basis.
+    -- a per managed node basis.
     notificationConfig :: Prelude.Maybe NotificationConfig,
     -- | The Systems Manager document (SSM document) version.
     documentVersion :: Prelude.Maybe Prelude.Text,
@@ -138,10 +141,10 @@ data CommandInvocation = CommandInvocation'
 --
 -- 'commandPlugins', 'commandInvocation_commandPlugins' - Plugins processed by the command.
 --
--- 'instanceName', 'commandInvocation_instanceName' - The fully qualified host name of the managed instance.
+-- 'instanceName', 'commandInvocation_instanceName' - The fully qualified host name of the managed node.
 --
 -- 'statusDetails', 'commandInvocation_statusDetails' - A detailed status of the command execution for each invocation (each
--- instance targeted by the command). StatusDetails includes more
+-- managed node targeted by the command). StatusDetails includes more
 -- information than Status because it includes states resulting from error
 -- and concurrency control parameters. StatusDetails can show different
 -- results than Status. For more information about these statuses, see
@@ -149,45 +152,48 @@ data CommandInvocation = CommandInvocation'
 -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the managed node.
 --
--- -   In Progress: The command has been sent to the instance but hasn\'t
---     reached a terminal state.
+-- -   In Progress: The command has been sent to the managed node but
+--     hasn\'t reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command wasn\'t delivered to the instance
---     before the delivery timeout expired. Delivery timeouts don\'t count
---     against the parent command\'s @MaxErrors@ limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+--     node before the delivery timeout expired. Delivery timeouts don\'t
+--     count against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
--- -   Execution Timed Out: Command execution started on the instance, but
---     the execution wasn\'t complete before the execution timeout expired.
---     Execution timeouts count against the @MaxErrors@ limit of the parent
---     command. This is a terminal state.
+-- -   Execution Timed Out: Command execution started on the managed node,
+--     but the execution wasn\'t complete before the execution timeout
+--     expired. Execution timeouts count against the @MaxErrors@ limit of
+--     the parent command. This is a terminal state.
 --
--- -   Failed: The command wasn\'t successful on the instance. For a
+-- -   Failed: The command wasn\'t successful on the managed node. For a
 --     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
 --     more plugins wasn\'t zero. Invocation failures count against the
 --     @MaxErrors@ limit of the parent command. This is a terminal state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Undeliverable: The command can\'t be delivered to the instance. The
---     instance might not exist or might not be responding. Undeliverable
---     invocations don\'t count against the parent command\'s MaxErrors
---     limit and don\'t contribute to whether the parent command status is
---     Success or Incomplete. This is a terminal state.
+-- -   Undeliverable: The command can\'t be delivered to the managed node.
+--     The managed node might not exist or might not be responding.
+--     Undeliverable invocations don\'t count against the parent command\'s
+--     MaxErrors limit and don\'t contribute to whether the parent command
+--     status is Success or Incomplete. This is a terminal state.
 --
 -- -   Terminated: The parent command exceeded its MaxErrors limit and
 --     subsequent command invocations were canceled by the system. This is
 --     a terminal state.
 --
--- 'requestedDateTime', 'commandInvocation_requestedDateTime' - The time and date the request was sent to this instance.
+-- -   Delayed: The system attempted to send the command to the managed
+--     node but wasn\'t successful. The system retries again.
+--
+-- 'requestedDateTime', 'commandInvocation_requestedDateTime' - The time and date the request was sent to this managed node.
 --
 -- 'cloudWatchOutputConfig', 'commandInvocation_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services
 -- Systems Manager to send the command output.
@@ -204,19 +210,19 @@ data CommandInvocation = CommandInvocation'
 -- 'serviceRole', 'commandInvocation_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
 -- a capability of Amazon Web Services Systems Manager, uses to act on your
 -- behalf when sending notifications about command status changes on a per
--- instance basis.
+-- managed node basis.
 --
 -- 'commandId', 'commandInvocation_commandId' - The command against which this invocation was requested.
 --
 -- 'comment', 'commandInvocation_comment' - User-specified information about the command, such as a brief
 -- description of what the command should do.
 --
--- 'instanceId', 'commandInvocation_instanceId' - The instance ID in which this invocation was requested.
+-- 'instanceId', 'commandInvocation_instanceId' - The managed node ID in which this invocation was requested.
 --
 -- 'documentName', 'commandInvocation_documentName' - The document name that was requested for execution.
 --
 -- 'notificationConfig', 'commandInvocation_notificationConfig' - Configurations for sending notifications about command status changes on
--- a per instance basis.
+-- a per managed node basis.
 --
 -- 'documentVersion', 'commandInvocation_documentVersion' - The Systems Manager document (SSM document) version.
 --
@@ -251,12 +257,12 @@ newCommandInvocation =
 commandInvocation_commandPlugins :: Lens.Lens' CommandInvocation (Prelude.Maybe [CommandPlugin])
 commandInvocation_commandPlugins = Lens.lens (\CommandInvocation' {commandPlugins} -> commandPlugins) (\s@CommandInvocation' {} a -> s {commandPlugins = a} :: CommandInvocation) Prelude.. Lens.mapping Lens.coerced
 
--- | The fully qualified host name of the managed instance.
+-- | The fully qualified host name of the managed node.
 commandInvocation_instanceName :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_instanceName = Lens.lens (\CommandInvocation' {instanceName} -> instanceName) (\s@CommandInvocation' {} a -> s {instanceName = a} :: CommandInvocation)
 
 -- | A detailed status of the command execution for each invocation (each
--- instance targeted by the command). StatusDetails includes more
+-- managed node targeted by the command). StatusDetails includes more
 -- information than Status because it includes states resulting from error
 -- and concurrency control parameters. StatusDetails can show different
 -- results than Status. For more information about these statuses, see
@@ -264,47 +270,50 @@ commandInvocation_instanceName = Lens.lens (\CommandInvocation' {instanceName} -
 -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the managed node.
 --
--- -   In Progress: The command has been sent to the instance but hasn\'t
---     reached a terminal state.
+-- -   In Progress: The command has been sent to the managed node but
+--     hasn\'t reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command wasn\'t delivered to the instance
---     before the delivery timeout expired. Delivery timeouts don\'t count
---     against the parent command\'s @MaxErrors@ limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+--     node before the delivery timeout expired. Delivery timeouts don\'t
+--     count against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
--- -   Execution Timed Out: Command execution started on the instance, but
---     the execution wasn\'t complete before the execution timeout expired.
---     Execution timeouts count against the @MaxErrors@ limit of the parent
---     command. This is a terminal state.
+-- -   Execution Timed Out: Command execution started on the managed node,
+--     but the execution wasn\'t complete before the execution timeout
+--     expired. Execution timeouts count against the @MaxErrors@ limit of
+--     the parent command. This is a terminal state.
 --
--- -   Failed: The command wasn\'t successful on the instance. For a
+-- -   Failed: The command wasn\'t successful on the managed node. For a
 --     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
 --     more plugins wasn\'t zero. Invocation failures count against the
 --     @MaxErrors@ limit of the parent command. This is a terminal state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Undeliverable: The command can\'t be delivered to the instance. The
---     instance might not exist or might not be responding. Undeliverable
---     invocations don\'t count against the parent command\'s MaxErrors
---     limit and don\'t contribute to whether the parent command status is
---     Success or Incomplete. This is a terminal state.
+-- -   Undeliverable: The command can\'t be delivered to the managed node.
+--     The managed node might not exist or might not be responding.
+--     Undeliverable invocations don\'t count against the parent command\'s
+--     MaxErrors limit and don\'t contribute to whether the parent command
+--     status is Success or Incomplete. This is a terminal state.
 --
 -- -   Terminated: The parent command exceeded its MaxErrors limit and
 --     subsequent command invocations were canceled by the system. This is
 --     a terminal state.
+--
+-- -   Delayed: The system attempted to send the command to the managed
+--     node but wasn\'t successful. The system retries again.
 commandInvocation_statusDetails :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_statusDetails = Lens.lens (\CommandInvocation' {statusDetails} -> statusDetails) (\s@CommandInvocation' {} a -> s {statusDetails = a} :: CommandInvocation)
 
--- | The time and date the request was sent to this instance.
+-- | The time and date the request was sent to this managed node.
 commandInvocation_requestedDateTime :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.UTCTime)
 commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedDateTime} -> requestedDateTime) (\s@CommandInvocation' {} a -> s {requestedDateTime = a} :: CommandInvocation) Prelude.. Lens.mapping Core._Time
 
@@ -331,7 +340,7 @@ commandInvocation_standardErrorUrl = Lens.lens (\CommandInvocation' {standardErr
 -- | The Identity and Access Management (IAM) service role that Run Command,
 -- a capability of Amazon Web Services Systems Manager, uses to act on your
 -- behalf when sending notifications about command status changes on a per
--- instance basis.
+-- managed node basis.
 commandInvocation_serviceRole :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_serviceRole = Lens.lens (\CommandInvocation' {serviceRole} -> serviceRole) (\s@CommandInvocation' {} a -> s {serviceRole = a} :: CommandInvocation)
 
@@ -344,7 +353,7 @@ commandInvocation_commandId = Lens.lens (\CommandInvocation' {commandId} -> comm
 commandInvocation_comment :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_comment = Lens.lens (\CommandInvocation' {comment} -> comment) (\s@CommandInvocation' {} a -> s {comment = a} :: CommandInvocation)
 
--- | The instance ID in which this invocation was requested.
+-- | The managed node ID in which this invocation was requested.
 commandInvocation_instanceId :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_instanceId = Lens.lens (\CommandInvocation' {instanceId} -> instanceId) (\s@CommandInvocation' {} a -> s {instanceId = a} :: CommandInvocation)
 
@@ -353,7 +362,7 @@ commandInvocation_documentName :: Lens.Lens' CommandInvocation (Prelude.Maybe Pr
 commandInvocation_documentName = Lens.lens (\CommandInvocation' {documentName} -> documentName) (\s@CommandInvocation' {} a -> s {documentName = a} :: CommandInvocation)
 
 -- | Configurations for sending notifications about command status changes on
--- a per instance basis.
+-- a per managed node basis.
 commandInvocation_notificationConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe NotificationConfig)
 commandInvocation_notificationConfig = Lens.lens (\CommandInvocation' {notificationConfig} -> notificationConfig) (\s@CommandInvocation' {} a -> s {notificationConfig = a} :: CommandInvocation)
 

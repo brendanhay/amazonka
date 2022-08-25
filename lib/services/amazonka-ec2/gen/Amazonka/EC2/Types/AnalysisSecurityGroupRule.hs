@@ -39,7 +39,7 @@ data AnalysisSecurityGroupRule = AnalysisSecurityGroupRule'
     securityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The protocol name.
     protocol :: Prelude.Maybe Prelude.Text,
-    -- | The direction. The following are possible values:
+    -- | The direction. The following are the possible values:
     --
     -- -   egress
     --
@@ -66,7 +66,7 @@ data AnalysisSecurityGroupRule = AnalysisSecurityGroupRule'
 --
 -- 'protocol', 'analysisSecurityGroupRule_protocol' - The protocol name.
 --
--- 'direction', 'analysisSecurityGroupRule_direction' - The direction. The following are possible values:
+-- 'direction', 'analysisSecurityGroupRule_direction' - The direction. The following are the possible values:
 --
 -- -   egress
 --
@@ -104,7 +104,7 @@ analysisSecurityGroupRule_securityGroupId = Lens.lens (\AnalysisSecurityGroupRul
 analysisSecurityGroupRule_protocol :: Lens.Lens' AnalysisSecurityGroupRule (Prelude.Maybe Prelude.Text)
 analysisSecurityGroupRule_protocol = Lens.lens (\AnalysisSecurityGroupRule' {protocol} -> protocol) (\s@AnalysisSecurityGroupRule' {} a -> s {protocol = a} :: AnalysisSecurityGroupRule)
 
--- | The direction. The following are possible values:
+-- | The direction. The following are the possible values:
 --
 -- -   egress
 --

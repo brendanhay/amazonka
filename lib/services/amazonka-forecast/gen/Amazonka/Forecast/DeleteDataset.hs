@@ -21,12 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an Amazon Forecast dataset that was created using the
--- CreateDataset operation. You can only delete datasets that have a status
--- of @ACTIVE@ or @CREATE_FAILED@. To get the status use the
--- DescribeDataset operation.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+-- operation. You can only delete datasets that have a status of @ACTIVE@
+-- or @CREATE_FAILED@. To get the status use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html DescribeDataset>
+-- operation.
 --
 -- Forecast does not automatically update any dataset groups that contain
 -- the deleted dataset. In order to update the dataset group, use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
 -- operation, omitting the deleted dataset\'s ARN.
 module Amazonka.Forecast.DeleteDataset
   ( -- * Creating a Request

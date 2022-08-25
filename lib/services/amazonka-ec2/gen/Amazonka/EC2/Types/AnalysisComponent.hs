@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisComponent' smart constructor.
 data AnalysisComponent = AnalysisComponent'
-  { -- | The Amazon Resource Name (ARN) of the component.
+  { -- | The name of the analysis component.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the component.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the component.
     id :: Prelude.Maybe Prelude.Text
@@ -43,6 +45,8 @@ data AnalysisComponent = AnalysisComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'analysisComponent_name' - The name of the analysis component.
+--
 -- 'arn', 'analysisComponent_arn' - The Amazon Resource Name (ARN) of the component.
 --
 -- 'id', 'analysisComponent_id' - The ID of the component.
@@ -50,9 +54,14 @@ newAnalysisComponent ::
   AnalysisComponent
 newAnalysisComponent =
   AnalysisComponent'
-    { arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing
     }
+
+-- | The name of the analysis component.
+analysisComponent_name :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
+analysisComponent_name = Lens.lens (\AnalysisComponent' {name} -> name) (\s@AnalysisComponent' {} a -> s {name = a} :: AnalysisComponent)
 
 -- | The Amazon Resource Name (ARN) of the component.
 analysisComponent_arn :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
@@ -65,13 +74,18 @@ analysisComponent_id = Lens.lens (\AnalysisComponent' {id} -> id) (\s@AnalysisCo
 instance Core.FromXML AnalysisComponent where
   parseXML x =
     AnalysisComponent'
-      Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "id")
+      Prelude.<$> (x Core..@? "name")
+      Prelude.<*> (x Core..@? "arn")
+      Prelude.<*> (x Core..@? "id")
 
 instance Prelude.Hashable AnalysisComponent where
   hashWithSalt _salt AnalysisComponent' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData AnalysisComponent where
   rnf AnalysisComponent' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id

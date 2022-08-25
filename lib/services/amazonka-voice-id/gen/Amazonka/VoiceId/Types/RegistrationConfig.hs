@@ -24,9 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DuplicateRegistrationAction
 
--- | The configuration definining the action to take when a duplicate
--- fraudster is detected, and the similarity threshold to use for detecting
--- a duplicate fraudster during a batch fraudster registration job.
+-- | The configuration defining the action to take when a duplicate fraudster
+-- is detected, and the similarity threshold to use for detecting a
+-- duplicate fraudster during a batch fraudster registration job.
 --
 -- /See:/ 'newRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'

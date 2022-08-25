@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The number of managed instances found for each patch severity level
--- defined in the request filter.
+-- | The number of managed nodes found for each patch severity level defined
+-- in the request filter.
 --
 -- /See:/ 'newSeveritySummary' smart constructor.
 data SeveritySummary = SeveritySummary'
@@ -41,7 +41,7 @@ data SeveritySummary = SeveritySummary'
     -- organization that published the compliance items.
     unspecifiedCount :: Prelude.Maybe Prelude.Int,
     -- | The total number of resources or compliance items that have a severity
-    -- level of critical. Critical severity is determined by the organization
+    -- level of @Critical@. Critical severity is determined by the organization
     -- that published the compliance items.
     criticalCount :: Prelude.Maybe Prelude.Int,
     -- | The total number of resources or compliance items that have a severity
@@ -76,7 +76,7 @@ data SeveritySummary = SeveritySummary'
 -- organization that published the compliance items.
 --
 -- 'criticalCount', 'severitySummary_criticalCount' - The total number of resources or compliance items that have a severity
--- level of critical. Critical severity is determined by the organization
+-- level of @Critical@. Critical severity is determined by the organization
 -- that published the compliance items.
 --
 -- 'highCount', 'severitySummary_highCount' - The total number of resources or compliance items that have a severity
@@ -117,7 +117,7 @@ severitySummary_unspecifiedCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Pr
 severitySummary_unspecifiedCount = Lens.lens (\SeveritySummary' {unspecifiedCount} -> unspecifiedCount) (\s@SeveritySummary' {} a -> s {unspecifiedCount = a} :: SeveritySummary)
 
 -- | The total number of resources or compliance items that have a severity
--- level of critical. Critical severity is determined by the organization
+-- level of @Critical@. Critical severity is determined by the organization
 -- that published the compliance items.
 severitySummary_criticalCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
 severitySummary_criticalCount = Lens.lens (\SeveritySummary' {criticalCount} -> criticalCount) (\s@SeveritySummary' {} a -> s {criticalCount = a} :: SeveritySummary)

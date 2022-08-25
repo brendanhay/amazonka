@@ -13,16 +13,16 @@
 --
 -- Batch
 --
--- Using Batch, you can run batch computing workloads on the Cloud. Batch
--- computing is a common means for developers, scientists, and engineers to
--- access large amounts of compute resources. Batch uses the advantages of
--- this computing workload to remove the undifferentiated heavy lifting of
--- configuring and managing required infrastructure. At the same time, it
--- also adopts a familiar batch computing software approach. Given these
--- advantages, Batch can help you to efficiently provision resources in
--- response to jobs submitted, thus effectively helping you to eliminate
--- capacity constraints, reduce compute costs, and deliver your results
--- more quickly.
+-- Using Batch, you can run batch computing workloads on the Amazon Web
+-- Services Cloud. Batch computing is a common means for developers,
+-- scientists, and engineers to access large amounts of compute resources.
+-- Batch uses the advantages of this computing workload to remove the
+-- undifferentiated heavy lifting of configuring and managing required
+-- infrastructure. At the same time, it also adopts a familiar batch
+-- computing software approach. Given these advantages, Batch can help you
+-- to efficiently provision resources in response to jobs submitted, thus
+-- effectively helping you to eliminate capacity constraints, reduce
+-- compute costs, and deliver your results more quickly.
 --
 -- As a fully managed service, Batch can run batch computing workloads of
 -- any scale. Batch automatically provisions compute resources and
@@ -67,6 +67,12 @@ module Amazonka.Batch
     CreateJobQueueResponse (CreateJobQueueResponse'),
     newCreateJobQueueResponse,
 
+    -- ** CreateSchedulingPolicy
+    CreateSchedulingPolicy (CreateSchedulingPolicy'),
+    newCreateSchedulingPolicy,
+    CreateSchedulingPolicyResponse (CreateSchedulingPolicyResponse'),
+    newCreateSchedulingPolicyResponse,
+
     -- ** DeleteComputeEnvironment
     DeleteComputeEnvironment (DeleteComputeEnvironment'),
     newDeleteComputeEnvironment,
@@ -78,6 +84,12 @@ module Amazonka.Batch
     newDeleteJobQueue,
     DeleteJobQueueResponse (DeleteJobQueueResponse'),
     newDeleteJobQueueResponse,
+
+    -- ** DeleteSchedulingPolicy
+    DeleteSchedulingPolicy (DeleteSchedulingPolicy'),
+    newDeleteSchedulingPolicy,
+    DeleteSchedulingPolicyResponse (DeleteSchedulingPolicyResponse'),
+    newDeleteSchedulingPolicyResponse,
 
     -- ** DeregisterJobDefinition
     DeregisterJobDefinition (DeregisterJobDefinition'),
@@ -109,11 +121,23 @@ module Amazonka.Batch
     DescribeJobsResponse (DescribeJobsResponse'),
     newDescribeJobsResponse,
 
+    -- ** DescribeSchedulingPolicies
+    DescribeSchedulingPolicies (DescribeSchedulingPolicies'),
+    newDescribeSchedulingPolicies,
+    DescribeSchedulingPoliciesResponse (DescribeSchedulingPoliciesResponse'),
+    newDescribeSchedulingPoliciesResponse,
+
     -- ** ListJobs (Paginated)
     ListJobs (ListJobs'),
     newListJobs,
     ListJobsResponse (ListJobsResponse'),
     newListJobsResponse,
+
+    -- ** ListSchedulingPolicies (Paginated)
+    ListSchedulingPolicies (ListSchedulingPolicies'),
+    newListSchedulingPolicies,
+    ListSchedulingPoliciesResponse (ListSchedulingPoliciesResponse'),
+    newListSchedulingPoliciesResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -163,6 +187,12 @@ module Amazonka.Batch
     UpdateJobQueueResponse (UpdateJobQueueResponse'),
     newUpdateJobQueueResponse,
 
+    -- ** UpdateSchedulingPolicy
+    UpdateSchedulingPolicy (UpdateSchedulingPolicy'),
+    newUpdateSchedulingPolicy,
+    UpdateSchedulingPolicyResponse (UpdateSchedulingPolicyResponse'),
+    newUpdateSchedulingPolicyResponse,
+
     -- * Types
 
     -- ** ArrayJobDependency
@@ -185,6 +215,9 @@ module Amazonka.Batch
 
     -- ** CRType
     CRType (..),
+
+    -- ** CRUpdateAllocationStrategy
+    CRUpdateAllocationStrategy (..),
 
     -- ** DeviceCgroupPermission
     DeviceCgroupPermission (..),
@@ -291,6 +324,10 @@ module Amazonka.Batch
     EvaluateOnExit (EvaluateOnExit'),
     newEvaluateOnExit,
 
+    -- ** FairsharePolicy
+    FairsharePolicy (FairsharePolicy'),
+    newFairsharePolicy,
+
     -- ** FargatePlatformConfiguration
     FargatePlatformConfiguration (FargatePlatformConfiguration'),
     newFargatePlatformConfiguration,
@@ -387,9 +424,21 @@ module Amazonka.Batch
     RetryStrategy (RetryStrategy'),
     newRetryStrategy,
 
+    -- ** SchedulingPolicyDetail
+    SchedulingPolicyDetail (SchedulingPolicyDetail'),
+    newSchedulingPolicyDetail,
+
+    -- ** SchedulingPolicyListingDetail
+    SchedulingPolicyListingDetail (SchedulingPolicyListingDetail'),
+    newSchedulingPolicyListingDetail,
+
     -- ** Secret
     Secret (Secret'),
     newSecret,
+
+    -- ** ShareAttributes
+    ShareAttributes (ShareAttributes'),
+    newShareAttributes,
 
     -- ** Tmpfs
     Tmpfs (Tmpfs'),
@@ -398,6 +447,10 @@ module Amazonka.Batch
     -- ** Ulimit
     Ulimit (Ulimit'),
     newUlimit,
+
+    -- ** UpdatePolicy
+    UpdatePolicy (UpdatePolicy'),
+    newUpdatePolicy,
 
     -- ** Volume
     Volume (Volume'),
@@ -408,15 +461,19 @@ where
 import Amazonka.Batch.CancelJob
 import Amazonka.Batch.CreateComputeEnvironment
 import Amazonka.Batch.CreateJobQueue
+import Amazonka.Batch.CreateSchedulingPolicy
 import Amazonka.Batch.DeleteComputeEnvironment
 import Amazonka.Batch.DeleteJobQueue
+import Amazonka.Batch.DeleteSchedulingPolicy
 import Amazonka.Batch.DeregisterJobDefinition
 import Amazonka.Batch.DescribeComputeEnvironments
 import Amazonka.Batch.DescribeJobDefinitions
 import Amazonka.Batch.DescribeJobQueues
 import Amazonka.Batch.DescribeJobs
+import Amazonka.Batch.DescribeSchedulingPolicies
 import Amazonka.Batch.Lens
 import Amazonka.Batch.ListJobs
+import Amazonka.Batch.ListSchedulingPolicies
 import Amazonka.Batch.ListTagsForResource
 import Amazonka.Batch.RegisterJobDefinition
 import Amazonka.Batch.SubmitJob
@@ -426,6 +483,7 @@ import Amazonka.Batch.Types
 import Amazonka.Batch.UntagResource
 import Amazonka.Batch.UpdateComputeEnvironment
 import Amazonka.Batch.UpdateJobQueue
+import Amazonka.Batch.UpdateSchedulingPolicy
 import Amazonka.Batch.Waiters
 
 -- $errors

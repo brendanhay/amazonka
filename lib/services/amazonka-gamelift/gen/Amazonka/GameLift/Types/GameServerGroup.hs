@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 -- groups.__
 --
 -- Properties that describe a game server group resource. A game server
--- group manages certain properties related to a corresponding EC2 Auto
--- Scaling group.
+-- group manages certain properties related to a corresponding Amazon EC2
+-- Auto Scaling group.
 --
 -- A game server group is created by a successful call to
 -- @CreateGameServerGroup@ and deleted by calling @DeleteGameServerGroup@.
@@ -55,13 +55,13 @@ data GameServerGroup = GameServerGroup'
     suspendedActions :: Prelude.Maybe (Prelude.NonEmpty GameServerGroupAction),
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
-    -- Scaling groups.
+    -- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+    -- Auto Scaling groups.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A generated unique ID for the EC2 Auto Scaling group that is associated
-    -- with this game server group.
+    -- | A generated unique ID for the Amazon EC2 Auto Scaling group that is
+    -- associated with this game server group.
     autoScalingGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The set of EC2 instance types that GameLift FleetIQ can use when
+    -- | The set of Amazon EC2 instance types that GameLift FleetIQ can use when
     -- balancing and automatically scaling instances in the corresponding Auto
     -- Scaling group.
     instanceDefinitions :: Prelude.Maybe (Prelude.NonEmpty InstanceDefinition),
@@ -70,7 +70,7 @@ data GameServerGroup = GameServerGroup'
     -- @ERROR@ status.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | A developer-defined identifier for the game server group. The name is
-    -- unique for each Region in each AWS account.
+    -- unique for each Region in each Amazon Web Services account.
     gameServerGroupName :: Prelude.Maybe Prelude.Text,
     -- | The current status of the game server group. Possible statuses include:
     --
@@ -78,7 +78,8 @@ data GameServerGroup = GameServerGroup'
     --     request.
     --
     -- -   @ACTIVATING@ - GameLift FleetIQ is setting up a game server group,
-    --     which includes creating an Auto Scaling group in your AWS account.
+    --     which includes creating an Auto Scaling group in your Amazon Web
+    --     Services account.
     --
     -- -   @ACTIVE@ - The game server group has been successfully created.
     --
@@ -101,8 +102,8 @@ data GameServerGroup = GameServerGroup'
     -- causing players to be dropped from the game. Protected instances cannot
     -- be terminated while there are active game servers running except in the
     -- event of a forced game server group deletion (see ). An exception to
-    -- this is with Spot Instances, which can be terminated by AWS regardless
-    -- of protection status.
+    -- this is with Spot Instances, which can be terminated by Amazon Web
+    -- Services regardless of protection status.
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
     -- | A timestamp that indicates when this game server group was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
@@ -150,13 +151,13 @@ data GameServerGroup = GameServerGroup'
 --
 -- 'roleArn', 'gameServerGroup_roleArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your EC2 Auto
--- Scaling groups.
+-- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+-- Auto Scaling groups.
 --
--- 'autoScalingGroupArn', 'gameServerGroup_autoScalingGroupArn' - A generated unique ID for the EC2 Auto Scaling group that is associated
--- with this game server group.
+-- 'autoScalingGroupArn', 'gameServerGroup_autoScalingGroupArn' - A generated unique ID for the Amazon EC2 Auto Scaling group that is
+-- associated with this game server group.
 --
--- 'instanceDefinitions', 'gameServerGroup_instanceDefinitions' - The set of EC2 instance types that GameLift FleetIQ can use when
+-- 'instanceDefinitions', 'gameServerGroup_instanceDefinitions' - The set of Amazon EC2 instance types that GameLift FleetIQ can use when
 -- balancing and automatically scaling instances in the corresponding Auto
 -- Scaling group.
 --
@@ -165,7 +166,7 @@ data GameServerGroup = GameServerGroup'
 -- @ERROR@ status.
 --
 -- 'gameServerGroupName', 'gameServerGroup_gameServerGroupName' - A developer-defined identifier for the game server group. The name is
--- unique for each Region in each AWS account.
+-- unique for each Region in each Amazon Web Services account.
 --
 -- 'status', 'gameServerGroup_status' - The current status of the game server group. Possible statuses include:
 --
@@ -173,7 +174,8 @@ data GameServerGroup = GameServerGroup'
 --     request.
 --
 -- -   @ACTIVATING@ - GameLift FleetIQ is setting up a game server group,
---     which includes creating an Auto Scaling group in your AWS account.
+--     which includes creating an Auto Scaling group in your Amazon Web
+--     Services account.
 --
 -- -   @ACTIVE@ - The game server group has been successfully created.
 --
@@ -196,8 +198,8 @@ data GameServerGroup = GameServerGroup'
 -- causing players to be dropped from the game. Protected instances cannot
 -- be terminated while there are active game servers running except in the
 -- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by AWS regardless
--- of protection status.
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status.
 --
 -- 'lastUpdatedTime', 'gameServerGroup_lastUpdatedTime' - A timestamp that indicates when this game server group was last updated.
 --
@@ -254,17 +256,17 @@ gameServerGroup_suspendedActions = Lens.lens (\GameServerGroup' {suspendedAction
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your EC2 Auto
--- Scaling groups.
+-- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+-- Auto Scaling groups.
 gameServerGroup_roleArn :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
 gameServerGroup_roleArn = Lens.lens (\GameServerGroup' {roleArn} -> roleArn) (\s@GameServerGroup' {} a -> s {roleArn = a} :: GameServerGroup)
 
--- | A generated unique ID for the EC2 Auto Scaling group that is associated
--- with this game server group.
+-- | A generated unique ID for the Amazon EC2 Auto Scaling group that is
+-- associated with this game server group.
 gameServerGroup_autoScalingGroupArn :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
 gameServerGroup_autoScalingGroupArn = Lens.lens (\GameServerGroup' {autoScalingGroupArn} -> autoScalingGroupArn) (\s@GameServerGroup' {} a -> s {autoScalingGroupArn = a} :: GameServerGroup)
 
--- | The set of EC2 instance types that GameLift FleetIQ can use when
+-- | The set of Amazon EC2 instance types that GameLift FleetIQ can use when
 -- balancing and automatically scaling instances in the corresponding Auto
 -- Scaling group.
 gameServerGroup_instanceDefinitions :: Lens.Lens' GameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
@@ -277,7 +279,7 @@ gameServerGroup_statusReason :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelud
 gameServerGroup_statusReason = Lens.lens (\GameServerGroup' {statusReason} -> statusReason) (\s@GameServerGroup' {} a -> s {statusReason = a} :: GameServerGroup)
 
 -- | A developer-defined identifier for the game server group. The name is
--- unique for each Region in each AWS account.
+-- unique for each Region in each Amazon Web Services account.
 gameServerGroup_gameServerGroupName :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
 gameServerGroup_gameServerGroupName = Lens.lens (\GameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@GameServerGroup' {} a -> s {gameServerGroupName = a} :: GameServerGroup)
 
@@ -287,7 +289,8 @@ gameServerGroup_gameServerGroupName = Lens.lens (\GameServerGroup' {gameServerGr
 --     request.
 --
 -- -   @ACTIVATING@ - GameLift FleetIQ is setting up a game server group,
---     which includes creating an Auto Scaling group in your AWS account.
+--     which includes creating an Auto Scaling group in your Amazon Web
+--     Services account.
 --
 -- -   @ACTIVE@ - The game server group has been successfully created.
 --
@@ -312,8 +315,8 @@ gameServerGroup_status = Lens.lens (\GameServerGroup' {status} -> status) (\s@Ga
 -- causing players to be dropped from the game. Protected instances cannot
 -- be terminated while there are active game servers running except in the
 -- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by AWS regardless
--- of protection status.
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status.
 gameServerGroup_gameServerProtectionPolicy :: Lens.Lens' GameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
 gameServerGroup_gameServerProtectionPolicy = Lens.lens (\GameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@GameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: GameServerGroup)
 

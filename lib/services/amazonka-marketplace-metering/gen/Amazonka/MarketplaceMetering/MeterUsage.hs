@@ -23,12 +23,16 @@
 -- API to emit metering records. For identical requests, the API is
 -- idempotent. It simply returns the metering record ID.
 --
--- MeterUsage is authenticated on the buyer\'s AWS account using
+-- @MeterUsage@ is authenticated on the buyer\'s AWS account using
 -- credentials from the EC2 instance, ECS task, or EKS pod.
 --
--- MeterUsage can optionally include multiple usage allocations, to provide
--- customers with usage data split into buckets by tags that you define (or
--- allow the customer to define).
+-- @MeterUsage@ can optionally include multiple usage allocations, to
+-- provide customers with usage data split into buckets by tags that you
+-- define (or allow the customer to define).
+--
+-- Usage records are expected to be submitted as quickly as possible after
+-- the event that is being recorded, and are not accepted more than 6 hours
+-- after the event.
 module Amazonka.MarketplaceMetering.MeterUsage
   ( -- * Creating a Request
     MeterUsage (..),
@@ -63,16 +67,16 @@ import qualified Amazonka.Response as Response
 data MeterUsage = MeterUsage'
   { -- | Consumption value for the hour. Defaults to @0@ if not specified.
     usageQuantity :: Prelude.Maybe Prelude.Natural,
-    -- | The set of UsageAllocations to submit.
+    -- | The set of @UsageAllocations@ to submit.
     --
-    -- The sum of all UsageAllocation quantities must equal the UsageQuantity
-    -- of the MeterUsage request, and each UsageAllocation must have a unique
-    -- set of tags (include no tags).
+    -- The sum of all @UsageAllocation@ quantities must equal the
+    -- @UsageQuantity@ of the @MeterUsage@ request, and each @UsageAllocation@
+    -- must have a unique set of tags (include no tags).
     usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
     -- | Checks whether you have the permissions required for the action, but
     -- does not make the request. If you have the permissions, the request
-    -- returns DryRunOperation; otherwise, it returns UnauthorizedException.
-    -- Defaults to @false@ if not specified.
+    -- returns @DryRunOperation@; otherwise, it returns
+    -- @UnauthorizedException@. Defaults to @false@ if not specified.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code should be the same as the one used during the
@@ -80,7 +84,7 @@ data MeterUsage = MeterUsage'
     productCode :: Prelude.Text,
     -- | Timestamp, in UTC, for which the usage is being reported. Your
     -- application can meter usage for up to one hour in the past. Make sure
-    -- the timestamp value is not before the start of the software usage.
+    -- the @timestamp@ value is not before the start of the software usage.
     timestamp :: Core.POSIX,
     -- | It will be one of the fcp dimension name provided during the publishing
     -- of the product.
@@ -98,16 +102,16 @@ data MeterUsage = MeterUsage'
 --
 -- 'usageQuantity', 'meterUsage_usageQuantity' - Consumption value for the hour. Defaults to @0@ if not specified.
 --
--- 'usageAllocations', 'meterUsage_usageAllocations' - The set of UsageAllocations to submit.
+-- 'usageAllocations', 'meterUsage_usageAllocations' - The set of @UsageAllocations@ to submit.
 --
--- The sum of all UsageAllocation quantities must equal the UsageQuantity
--- of the MeterUsage request, and each UsageAllocation must have a unique
--- set of tags (include no tags).
+-- The sum of all @UsageAllocation@ quantities must equal the
+-- @UsageQuantity@ of the @MeterUsage@ request, and each @UsageAllocation@
+-- must have a unique set of tags (include no tags).
 --
 -- 'dryRun', 'meterUsage_dryRun' - Checks whether you have the permissions required for the action, but
 -- does not make the request. If you have the permissions, the request
--- returns DryRunOperation; otherwise, it returns UnauthorizedException.
--- Defaults to @false@ if not specified.
+-- returns @DryRunOperation@; otherwise, it returns
+-- @UnauthorizedException@. Defaults to @false@ if not specified.
 --
 -- 'productCode', 'meterUsage_productCode' - Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
@@ -115,7 +119,7 @@ data MeterUsage = MeterUsage'
 --
 -- 'timestamp', 'meterUsage_timestamp' - Timestamp, in UTC, for which the usage is being reported. Your
 -- application can meter usage for up to one hour in the past. Make sure
--- the timestamp value is not before the start of the software usage.
+-- the @timestamp@ value is not before the start of the software usage.
 --
 -- 'usageDimension', 'meterUsage_usageDimension' - It will be one of the fcp dimension name provided during the publishing
 -- of the product.
@@ -144,18 +148,18 @@ newMeterUsage
 meterUsage_usageQuantity :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Natural)
 meterUsage_usageQuantity = Lens.lens (\MeterUsage' {usageQuantity} -> usageQuantity) (\s@MeterUsage' {} a -> s {usageQuantity = a} :: MeterUsage)
 
--- | The set of UsageAllocations to submit.
+-- | The set of @UsageAllocations@ to submit.
 --
--- The sum of all UsageAllocation quantities must equal the UsageQuantity
--- of the MeterUsage request, and each UsageAllocation must have a unique
--- set of tags (include no tags).
+-- The sum of all @UsageAllocation@ quantities must equal the
+-- @UsageQuantity@ of the @MeterUsage@ request, and each @UsageAllocation@
+-- must have a unique set of tags (include no tags).
 meterUsage_usageAllocations :: Lens.Lens' MeterUsage (Prelude.Maybe (Prelude.NonEmpty UsageAllocation))
 meterUsage_usageAllocations = Lens.lens (\MeterUsage' {usageAllocations} -> usageAllocations) (\s@MeterUsage' {} a -> s {usageAllocations = a} :: MeterUsage) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the permissions required for the action, but
 -- does not make the request. If you have the permissions, the request
--- returns DryRunOperation; otherwise, it returns UnauthorizedException.
--- Defaults to @false@ if not specified.
+-- returns @DryRunOperation@; otherwise, it returns
+-- @UnauthorizedException@. Defaults to @false@ if not specified.
 meterUsage_dryRun :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Bool)
 meterUsage_dryRun = Lens.lens (\MeterUsage' {dryRun} -> dryRun) (\s@MeterUsage' {} a -> s {dryRun = a} :: MeterUsage)
 
@@ -167,7 +171,7 @@ meterUsage_productCode = Lens.lens (\MeterUsage' {productCode} -> productCode) (
 
 -- | Timestamp, in UTC, for which the usage is being reported. Your
 -- application can meter usage for up to one hour in the past. Make sure
--- the timestamp value is not before the start of the software usage.
+-- the @timestamp@ value is not before the start of the software usage.
 meterUsage_timestamp :: Lens.Lens' MeterUsage Prelude.UTCTime
 meterUsage_timestamp = Lens.lens (\MeterUsage' {timestamp} -> timestamp) (\s@MeterUsage' {} a -> s {timestamp = a} :: MeterUsage) Prelude.. Core._Time
 

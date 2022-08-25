@@ -45,12 +45,18 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     -- used. If the value is @$Default@, the default version of the launch
     -- template is used.
     --
-    -- After the compute environment is created, the launch template version
-    -- that\'s used isn\'t changed, even if the @$Default@ or @$Latest@ version
-    -- for the launch template is updated. To use a new launch template
-    -- version, create a new compute environment, add the new compute
-    -- environment to the existing job queue, remove the old compute
-    -- environment from the job queue, and delete the old compute environment.
+    -- If the AMI ID that\'s used in a compute environment is from the launch
+    -- template, the AMI isn\'t changed when the compute environment is
+    -- updated. It\'s only changed if the @updateToLatestImageVersion@
+    -- parameter for the compute environment is set to @true@. During an
+    -- infrastructure update, if either @$Latest@ or @$Default@ is specified,
+    -- Batch re-evaluates the launch template version, and it might use a
+    -- different version of the launch template. This is the case even if the
+    -- launch template isn\'t specified in the update. When updating a compute
+    -- environment, changing the launch template requires an infrastructure
+    -- update of the compute environment. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+    -- in the /Batch User Guide/.
     --
     -- Default: @$Default@.
     version :: Prelude.Maybe Prelude.Text,
@@ -75,12 +81,18 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 -- used. If the value is @$Default@, the default version of the launch
 -- template is used.
 --
--- After the compute environment is created, the launch template version
--- that\'s used isn\'t changed, even if the @$Default@ or @$Latest@ version
--- for the launch template is updated. To use a new launch template
--- version, create a new compute environment, add the new compute
--- environment to the existing job queue, remove the old compute
--- environment from the job queue, and delete the old compute environment.
+-- If the AMI ID that\'s used in a compute environment is from the launch
+-- template, the AMI isn\'t changed when the compute environment is
+-- updated. It\'s only changed if the @updateToLatestImageVersion@
+-- parameter for the compute environment is set to @true@. During an
+-- infrastructure update, if either @$Latest@ or @$Default@ is specified,
+-- Batch re-evaluates the launch template version, and it might use a
+-- different version of the launch template. This is the case even if the
+-- launch template isn\'t specified in the update. When updating a compute
+-- environment, changing the launch template requires an infrastructure
+-- update of the compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+-- in the /Batch User Guide/.
 --
 -- Default: @$Default@.
 --
@@ -105,12 +117,18 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 -- used. If the value is @$Default@, the default version of the launch
 -- template is used.
 --
--- After the compute environment is created, the launch template version
--- that\'s used isn\'t changed, even if the @$Default@ or @$Latest@ version
--- for the launch template is updated. To use a new launch template
--- version, create a new compute environment, add the new compute
--- environment to the existing job queue, remove the old compute
--- environment from the job queue, and delete the old compute environment.
+-- If the AMI ID that\'s used in a compute environment is from the launch
+-- template, the AMI isn\'t changed when the compute environment is
+-- updated. It\'s only changed if the @updateToLatestImageVersion@
+-- parameter for the compute environment is set to @true@. During an
+-- infrastructure update, if either @$Latest@ or @$Default@ is specified,
+-- Batch re-evaluates the launch template version, and it might use a
+-- different version of the launch template. This is the case even if the
+-- launch template isn\'t specified in the update. When updating a compute
+-- environment, changing the launch template requires an infrastructure
+-- update of the compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+-- in the /Batch User Guide/.
 --
 -- Default: @$Default@.
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)

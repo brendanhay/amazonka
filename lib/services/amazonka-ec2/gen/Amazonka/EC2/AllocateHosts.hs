@@ -31,6 +31,7 @@ module Amazonka.EC2.AllocateHosts
     -- * Request Lenses
     allocateHosts_autoPlacement,
     allocateHosts_clientToken,
+    allocateHosts_outpostArn,
     allocateHosts_hostRecovery,
     allocateHosts_instanceType,
     allocateHosts_instanceFamily,
@@ -70,6 +71,9 @@ data AllocateHosts = AllocateHosts'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on
+    -- which to allocate the Dedicated Host.
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to enable or disable host recovery for the Dedicated
     -- Host. Host recovery is disabled by default. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
@@ -126,6 +130,9 @@ data AllocateHosts = AllocateHosts'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
+-- 'outpostArn', 'allocateHosts_outpostArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on
+-- which to allocate the Dedicated Host.
+--
 -- 'hostRecovery', 'allocateHosts_hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. Host recovery is disabled by default. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
@@ -167,6 +174,7 @@ newAllocateHosts pAvailabilityZone_ pQuantity_ =
   AllocateHosts'
     { autoPlacement = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
       hostRecovery = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       instanceFamily = Prelude.Nothing,
@@ -191,6 +199,11 @@ allocateHosts_autoPlacement = Lens.lens (\AllocateHosts' {autoPlacement} -> auto
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 allocateHosts_clientToken :: Lens.Lens' AllocateHosts (Prelude.Maybe Prelude.Text)
 allocateHosts_clientToken = Lens.lens (\AllocateHosts' {clientToken} -> clientToken) (\s@AllocateHosts' {} a -> s {clientToken = a} :: AllocateHosts)
+
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on
+-- which to allocate the Dedicated Host.
+allocateHosts_outpostArn :: Lens.Lens' AllocateHosts (Prelude.Maybe Prelude.Text)
+allocateHosts_outpostArn = Lens.lens (\AllocateHosts' {outpostArn} -> outpostArn) (\s@AllocateHosts' {} a -> s {outpostArn = a} :: AllocateHosts)
 
 -- | Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. Host recovery is disabled by default. For more information, see
@@ -255,6 +268,7 @@ instance Prelude.Hashable AllocateHosts where
   hashWithSalt _salt AllocateHosts' {..} =
     _salt `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` hostRecovery
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceFamily
@@ -266,6 +280,7 @@ instance Prelude.NFData AllocateHosts where
   rnf AllocateHosts' {..} =
     Prelude.rnf autoPlacement
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf hostRecovery
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instanceFamily
@@ -288,6 +303,7 @@ instance Core.ToQuery AllocateHosts where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "AutoPlacement" Core.=: autoPlacement,
         "ClientToken" Core.=: clientToken,
+        "OutpostArn" Core.=: outpostArn,
         "HostRecovery" Core.=: hostRecovery,
         "InstanceType" Core.=: instanceType,
         "InstanceFamily" Core.=: instanceFamily,

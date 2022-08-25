@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the IAMpolicy assignments, including the Amazon Resource Names
--- (ARNs) for the IAM policies assigned to the specified user and group or
--- groups that the user belongs to.
+-- Lists all the IAM policy assignments, including the Amazon Resource
+-- Names (ARNs) for the IAM policies assigned to the specified user and
+-- group or groups that the user belongs to.
 module Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser
   ( -- * Creating a Request
     ListIAMPolicyAssignmentsForUser (..),

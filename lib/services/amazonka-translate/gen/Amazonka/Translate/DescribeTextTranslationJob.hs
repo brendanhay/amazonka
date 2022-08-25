@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the properties associated with an asycnhronous batch translation
+-- Gets the properties associated with an asynchronous batch translation
 -- job including name, ID, status, source and target languages,
 -- input\/output S3 buckets, and so on.
 module Amazonka.Translate.DescribeTextTranslationJob

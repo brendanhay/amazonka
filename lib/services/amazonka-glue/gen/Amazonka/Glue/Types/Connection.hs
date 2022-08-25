@@ -98,6 +98,18 @@ data Connection = Connection'
     -- -   @CONNECTION_URL@ - The URL for connecting to a general (non-JDBC)
     --     data source.
     --
+    -- -   @SECRET_ID@ - The secret ID used for the secret manager of
+    --     credentials.
+    --
+    -- -   @CONNECTOR_URL@ - The connector URL for a MARKETPLACE or CUSTOM
+    --     connection.
+    --
+    -- -   @CONNECTOR_TYPE@ - The connector type for a MARKETPLACE or CUSTOM
+    --     connection.
+    --
+    -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
+    --     or CUSTOM connection.
+    --
     -- -   @KAFKA_BOOTSTRAP_SERVERS@ - A comma-separated list of host and port
     --     pairs that are the addresses of the Apache Kafka brokers in a Kafka
     --     cluster to which a Kafka client will connect to and bootstrap
@@ -113,18 +125,6 @@ data Connection = Connection'
     --     of the CA cert file or not. Glue validates for three algorithms:
     --     SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is
     --     \"false\".
-    --
-    -- -   @SECRET_ID@ - The secret ID used for the secret manager of
-    --     credentials.
-    --
-    -- -   @CONNECTOR_URL@ - The connector URL for a MARKETPLACE or CUSTOM
-    --     connection.
-    --
-    -- -   @CONNECTOR_TYPE@ - The connector type for a MARKETPLACE or CUSTOM
-    --     connection.
-    --
-    -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
-    --     or CUSTOM connection.
     --
     -- -   @KAFKA_CLIENT_KEYSTORE@ - The Amazon S3 location of the client
     --     keystore file for Kafka client side authentication (Optional).
@@ -143,6 +143,39 @@ data Connection = Connection'
     -- -   @ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD@ - The encrypted version of the
     --     Kafka client key password (if the user has the Glue encrypt
     --     passwords setting selected).
+    --
+    -- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@ or @\"GSSAPI\"@. These
+    --     are the two supported
+    --     <https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml SASL Mechanisms>.
+    --
+    -- -   @KAFKA_SASL_SCRAM_USERNAME@ - A plaintext username used to
+    --     authenticate with the \"SCRAM-SHA-512\" mechanism.
+    --
+    -- -   @KAFKA_SASL_SCRAM_PASSWORD@ - A plaintext password used to
+    --     authenticate with the \"SCRAM-SHA-512\" mechanism.
+    --
+    -- -   @ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD@ - The encrypted version of the
+    --     Kafka SASL SCRAM password (if the user has the Glue encrypt
+    --     passwords setting selected).
+    --
+    -- -   @KAFKA_SASL_GSSAPI_KEYTAB@ - The S3 location of a Kerberos @keytab@
+    --     file. A keytab stores long-term keys for one or more principals. For
+    --     more information, see
+    --     <https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html MIT Kerberos Documentation: Keytab>.
+    --
+    -- -   @KAFKA_SASL_GSSAPI_KRB5_CONF@ - The S3 location of a Kerberos
+    --     @krb5.conf@ file. A krb5.conf stores Kerberos configuration
+    --     information, such as the location of the KDC server. For more
+    --     information, see
+    --     <https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html MIT Kerberos Documentation: krb5.conf>.
+    --
+    -- -   @KAFKA_SASL_GSSAPI_SERVICE@ - The Kerberos service name, as set with
+    --     @sasl.kerberos.service.name@ in your
+    --     <https://kafka.apache.org/documentation/#brokerconfigs_sasl.kerberos.service.name Kafka Configuration>.
+    --
+    -- -   @KAFKA_SASL_GSSAPI_PRINCIPAL@ - The name of the Kerberos princial
+    --     used by Glue. For more information, see
+    --     <https://kafka.apache.org/documentation/#security_sasl_kerberos_clientconfig Kafka Documentation: Configuring Kafka Brokers>.
     connectionProperties :: Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text),
     -- | A map of physical connection requirements, such as virtual private cloud
     -- (VPC) and @SecurityGroup@, that are needed to make this connection
@@ -237,6 +270,18 @@ data Connection = Connection'
 -- -   @CONNECTION_URL@ - The URL for connecting to a general (non-JDBC)
 --     data source.
 --
+-- -   @SECRET_ID@ - The secret ID used for the secret manager of
+--     credentials.
+--
+-- -   @CONNECTOR_URL@ - The connector URL for a MARKETPLACE or CUSTOM
+--     connection.
+--
+-- -   @CONNECTOR_TYPE@ - The connector type for a MARKETPLACE or CUSTOM
+--     connection.
+--
+-- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
+--     or CUSTOM connection.
+--
 -- -   @KAFKA_BOOTSTRAP_SERVERS@ - A comma-separated list of host and port
 --     pairs that are the addresses of the Apache Kafka brokers in a Kafka
 --     cluster to which a Kafka client will connect to and bootstrap
@@ -252,18 +297,6 @@ data Connection = Connection'
 --     of the CA cert file or not. Glue validates for three algorithms:
 --     SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is
 --     \"false\".
---
--- -   @SECRET_ID@ - The secret ID used for the secret manager of
---     credentials.
---
--- -   @CONNECTOR_URL@ - The connector URL for a MARKETPLACE or CUSTOM
---     connection.
---
--- -   @CONNECTOR_TYPE@ - The connector type for a MARKETPLACE or CUSTOM
---     connection.
---
--- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
---     or CUSTOM connection.
 --
 -- -   @KAFKA_CLIENT_KEYSTORE@ - The Amazon S3 location of the client
 --     keystore file for Kafka client side authentication (Optional).
@@ -282,6 +315,39 @@ data Connection = Connection'
 -- -   @ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD@ - The encrypted version of the
 --     Kafka client key password (if the user has the Glue encrypt
 --     passwords setting selected).
+--
+-- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@ or @\"GSSAPI\"@. These
+--     are the two supported
+--     <https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml SASL Mechanisms>.
+--
+-- -   @KAFKA_SASL_SCRAM_USERNAME@ - A plaintext username used to
+--     authenticate with the \"SCRAM-SHA-512\" mechanism.
+--
+-- -   @KAFKA_SASL_SCRAM_PASSWORD@ - A plaintext password used to
+--     authenticate with the \"SCRAM-SHA-512\" mechanism.
+--
+-- -   @ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD@ - The encrypted version of the
+--     Kafka SASL SCRAM password (if the user has the Glue encrypt
+--     passwords setting selected).
+--
+-- -   @KAFKA_SASL_GSSAPI_KEYTAB@ - The S3 location of a Kerberos @keytab@
+--     file. A keytab stores long-term keys for one or more principals. For
+--     more information, see
+--     <https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html MIT Kerberos Documentation: Keytab>.
+--
+-- -   @KAFKA_SASL_GSSAPI_KRB5_CONF@ - The S3 location of a Kerberos
+--     @krb5.conf@ file. A krb5.conf stores Kerberos configuration
+--     information, such as the location of the KDC server. For more
+--     information, see
+--     <https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html MIT Kerberos Documentation: krb5.conf>.
+--
+-- -   @KAFKA_SASL_GSSAPI_SERVICE@ - The Kerberos service name, as set with
+--     @sasl.kerberos.service.name@ in your
+--     <https://kafka.apache.org/documentation/#brokerconfigs_sasl.kerberos.service.name Kafka Configuration>.
+--
+-- -   @KAFKA_SASL_GSSAPI_PRINCIPAL@ - The name of the Kerberos princial
+--     used by Glue. For more information, see
+--     <https://kafka.apache.org/documentation/#security_sasl_kerberos_clientconfig Kafka Documentation: Configuring Kafka Brokers>.
 --
 -- 'physicalConnectionRequirements', 'connection_physicalConnectionRequirements' - A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to make this connection
@@ -383,6 +449,18 @@ connection_connectionType = Lens.lens (\Connection' {connectionType} -> connecti
 -- -   @CONNECTION_URL@ - The URL for connecting to a general (non-JDBC)
 --     data source.
 --
+-- -   @SECRET_ID@ - The secret ID used for the secret manager of
+--     credentials.
+--
+-- -   @CONNECTOR_URL@ - The connector URL for a MARKETPLACE or CUSTOM
+--     connection.
+--
+-- -   @CONNECTOR_TYPE@ - The connector type for a MARKETPLACE or CUSTOM
+--     connection.
+--
+-- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
+--     or CUSTOM connection.
+--
 -- -   @KAFKA_BOOTSTRAP_SERVERS@ - A comma-separated list of host and port
 --     pairs that are the addresses of the Apache Kafka brokers in a Kafka
 --     cluster to which a Kafka client will connect to and bootstrap
@@ -398,18 +476,6 @@ connection_connectionType = Lens.lens (\Connection' {connectionType} -> connecti
 --     of the CA cert file or not. Glue validates for three algorithms:
 --     SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is
 --     \"false\".
---
--- -   @SECRET_ID@ - The secret ID used for the secret manager of
---     credentials.
---
--- -   @CONNECTOR_URL@ - The connector URL for a MARKETPLACE or CUSTOM
---     connection.
---
--- -   @CONNECTOR_TYPE@ - The connector type for a MARKETPLACE or CUSTOM
---     connection.
---
--- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
---     or CUSTOM connection.
 --
 -- -   @KAFKA_CLIENT_KEYSTORE@ - The Amazon S3 location of the client
 --     keystore file for Kafka client side authentication (Optional).
@@ -428,6 +494,39 @@ connection_connectionType = Lens.lens (\Connection' {connectionType} -> connecti
 -- -   @ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD@ - The encrypted version of the
 --     Kafka client key password (if the user has the Glue encrypt
 --     passwords setting selected).
+--
+-- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@ or @\"GSSAPI\"@. These
+--     are the two supported
+--     <https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml SASL Mechanisms>.
+--
+-- -   @KAFKA_SASL_SCRAM_USERNAME@ - A plaintext username used to
+--     authenticate with the \"SCRAM-SHA-512\" mechanism.
+--
+-- -   @KAFKA_SASL_SCRAM_PASSWORD@ - A plaintext password used to
+--     authenticate with the \"SCRAM-SHA-512\" mechanism.
+--
+-- -   @ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD@ - The encrypted version of the
+--     Kafka SASL SCRAM password (if the user has the Glue encrypt
+--     passwords setting selected).
+--
+-- -   @KAFKA_SASL_GSSAPI_KEYTAB@ - The S3 location of a Kerberos @keytab@
+--     file. A keytab stores long-term keys for one or more principals. For
+--     more information, see
+--     <https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html MIT Kerberos Documentation: Keytab>.
+--
+-- -   @KAFKA_SASL_GSSAPI_KRB5_CONF@ - The S3 location of a Kerberos
+--     @krb5.conf@ file. A krb5.conf stores Kerberos configuration
+--     information, such as the location of the KDC server. For more
+--     information, see
+--     <https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html MIT Kerberos Documentation: krb5.conf>.
+--
+-- -   @KAFKA_SASL_GSSAPI_SERVICE@ - The Kerberos service name, as set with
+--     @sasl.kerberos.service.name@ in your
+--     <https://kafka.apache.org/documentation/#brokerconfigs_sasl.kerberos.service.name Kafka Configuration>.
+--
+-- -   @KAFKA_SASL_GSSAPI_PRINCIPAL@ - The name of the Kerberos princial
+--     used by Glue. For more information, see
+--     <https://kafka.apache.org/documentation/#security_sasl_kerberos_clientconfig Kafka Documentation: Configuring Kafka Brokers>.
 connection_connectionProperties :: Lens.Lens' Connection (Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text))
 connection_connectionProperties = Lens.lens (\Connection' {connectionProperties} -> connectionProperties) (\s@Connection' {} a -> s {connectionProperties = a} :: Connection) Prelude.. Lens.mapping Lens.coerced
 

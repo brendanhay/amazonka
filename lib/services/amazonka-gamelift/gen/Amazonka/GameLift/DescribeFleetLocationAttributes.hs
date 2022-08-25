@@ -97,7 +97,7 @@ data DescribeFleetLocationAttributes = DescribeFleetLocationAttributes'
     -- not currently enforced.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | A list of fleet locations to retrieve information for. Specify locations
-    -- in the form of an AWS Region code, such as @us-west-2@.
+    -- in the form of an Amazon Web Services Region code, such as @us-west-2@.
     locations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A unique identifier for the fleet to retrieve remote locations for. You
     -- can use either the fleet ID or ARN value.
@@ -122,7 +122,7 @@ data DescribeFleetLocationAttributes = DescribeFleetLocationAttributes'
 -- not currently enforced.
 --
 -- 'locations', 'describeFleetLocationAttributes_locations' - A list of fleet locations to retrieve information for. Specify locations
--- in the form of an AWS Region code, such as @us-west-2@.
+-- in the form of an Amazon Web Services Region code, such as @us-west-2@.
 --
 -- 'fleetId', 'describeFleetLocationAttributes_fleetId' - A unique identifier for the fleet to retrieve remote locations for. You
 -- can use either the fleet ID or ARN value.
@@ -152,7 +152,7 @@ describeFleetLocationAttributes_limit :: Lens.Lens' DescribeFleetLocationAttribu
 describeFleetLocationAttributes_limit = Lens.lens (\DescribeFleetLocationAttributes' {limit} -> limit) (\s@DescribeFleetLocationAttributes' {} a -> s {limit = a} :: DescribeFleetLocationAttributes)
 
 -- | A list of fleet locations to retrieve information for. Specify locations
--- in the form of an AWS Region code, such as @us-west-2@.
+-- in the form of an Amazon Web Services Region code, such as @us-west-2@.
 describeFleetLocationAttributes_locations :: Lens.Lens' DescribeFleetLocationAttributes (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeFleetLocationAttributes_locations = Lens.lens (\DescribeFleetLocationAttributes' {locations} -> locations) (\s@DescribeFleetLocationAttributes' {} a -> s {locations = a} :: DescribeFleetLocationAttributes) Prelude.. Lens.mapping Lens.coerced
 

@@ -48,6 +48,7 @@ library
     Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
     Amazonka.Route53Domains.CheckDomainAvailability
     Amazonka.Route53Domains.CheckDomainTransferability
+    Amazonka.Route53Domains.DeleteDomain
     Amazonka.Route53Domains.DeleteTagsForDomain
     Amazonka.Route53Domains.DisableDomainAutoRenew
     Amazonka.Route53Domains.DisableDomainTransferLock
@@ -60,6 +61,7 @@ library
     Amazonka.Route53Domains.Lens
     Amazonka.Route53Domains.ListDomains
     Amazonka.Route53Domains.ListOperations
+    Amazonka.Route53Domains.ListPrices
     Amazonka.Route53Domains.ListTagsForDomain
     Amazonka.Route53Domains.RegisterDomain
     Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
@@ -74,16 +76,23 @@ library
     Amazonka.Route53Domains.Types.ContactType
     Amazonka.Route53Domains.Types.CountryCode
     Amazonka.Route53Domains.Types.DomainAvailability
+    Amazonka.Route53Domains.Types.DomainPrice
     Amazonka.Route53Domains.Types.DomainSuggestion
     Amazonka.Route53Domains.Types.DomainSummary
     Amazonka.Route53Domains.Types.DomainTransferability
     Amazonka.Route53Domains.Types.ExtraParam
     Amazonka.Route53Domains.Types.ExtraParamName
+    Amazonka.Route53Domains.Types.FilterCondition
+    Amazonka.Route53Domains.Types.ListDomainsAttributeName
     Amazonka.Route53Domains.Types.Nameserver
     Amazonka.Route53Domains.Types.OperationStatus
     Amazonka.Route53Domains.Types.OperationSummary
     Amazonka.Route53Domains.Types.OperationType
+    Amazonka.Route53Domains.Types.Operator
+    Amazonka.Route53Domains.Types.PriceWithCurrency
     Amazonka.Route53Domains.Types.ReachabilityStatus
+    Amazonka.Route53Domains.Types.SortCondition
+    Amazonka.Route53Domains.Types.SortOrder
     Amazonka.Route53Domains.Types.Tag
     Amazonka.Route53Domains.Types.Transferable
     Amazonka.Route53Domains.UpdateDomainContact

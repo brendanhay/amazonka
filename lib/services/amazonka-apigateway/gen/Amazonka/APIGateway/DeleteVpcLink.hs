@@ -46,8 +46,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteVpcLink' smart constructor.
 data DeleteVpcLink = DeleteVpcLink'
-  { -- | [Required] The identifier of the VpcLink. It is used in an Integration
-    -- to reference this VpcLink.
+  { -- | The identifier of the VpcLink. It is used in an Integration to reference
+    -- this VpcLink.
     vpcLinkId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +60,8 @@ data DeleteVpcLink = DeleteVpcLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcLinkId', 'deleteVpcLink_vpcLinkId' - [Required] The identifier of the VpcLink. It is used in an Integration
--- to reference this VpcLink.
+-- 'vpcLinkId', 'deleteVpcLink_vpcLinkId' - The identifier of the VpcLink. It is used in an Integration to reference
+-- this VpcLink.
 newDeleteVpcLink ::
   -- | 'vpcLinkId'
   Prelude.Text ->
@@ -69,8 +69,8 @@ newDeleteVpcLink ::
 newDeleteVpcLink pVpcLinkId_ =
   DeleteVpcLink' {vpcLinkId = pVpcLinkId_}
 
--- | [Required] The identifier of the VpcLink. It is used in an Integration
--- to reference this VpcLink.
+-- | The identifier of the VpcLink. It is used in an Integration to reference
+-- this VpcLink.
 deleteVpcLink_vpcLinkId :: Lens.Lens' DeleteVpcLink Prelude.Text
 deleteVpcLink_vpcLinkId = Lens.lens (\DeleteVpcLink' {vpcLinkId} -> vpcLinkId) (\s@DeleteVpcLink' {} a -> s {vpcLinkId = a} :: DeleteVpcLink)
 

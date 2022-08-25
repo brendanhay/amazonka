@@ -129,7 +129,7 @@ data PutRule = PutRule'
     -- parameter.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The event pattern. For more information, see
-    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
+    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html EventBridge event patterns>
     -- in the /Amazon EventBridge User Guide/.
     eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus to associate with this rule. If you
@@ -166,7 +166,7 @@ data PutRule = PutRule'
 -- parameter.
 --
 -- 'eventPattern', 'putRule_eventPattern' - The event pattern. For more information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html EventBridge event patterns>
 -- in the /Amazon EventBridge User Guide/.
 --
 -- 'eventBusName', 'putRule_eventBusName' - The name or ARN of the event bus to associate with this rule. If you
@@ -211,7 +211,7 @@ putRule_roleArn :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_roleArn = Lens.lens (\PutRule' {roleArn} -> roleArn) (\s@PutRule' {} a -> s {roleArn = a} :: PutRule)
 
 -- | The event pattern. For more information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html EventBridge event patterns>
 -- in the /Amazon EventBridge User Guide/.
 putRule_eventPattern :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_eventPattern = Lens.lens (\PutRule' {eventPattern} -> eventPattern) (\s@PutRule' {} a -> s {eventPattern = a} :: PutRule)

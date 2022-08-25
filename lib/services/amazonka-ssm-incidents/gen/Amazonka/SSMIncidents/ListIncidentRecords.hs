@@ -57,8 +57,8 @@ import Amazonka.SSMIncidents.Types
 data ListIncidentRecords = ListIncidentRecords'
   { -- | The pagination token to continue to the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filter the list of incident records you are searching through. You can
-    -- filter on the following keys:
+    -- | Filters the list of incident records through which you are searching.
+    -- You can filter on the following keys:
     --
     -- -   @creationTime@
     --
@@ -67,6 +67,17 @@ data ListIncidentRecords = ListIncidentRecords'
     -- -   @status@
     --
     -- -   @createdBy@
+    --
+    -- Note the following when deciding how to use Filters:
+    --
+    -- -   If you don\'t specify a Filter, the response includes all incident
+    --     records.
+    --
+    -- -   If you specify more than one filter in a single request, the
+    --     response returns incident records that match all filters.
+    --
+    -- -   If you specify a filter with more than one value, the response
+    --     returns incident records that match any of the values provided.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results per page.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -83,8 +94,8 @@ data ListIncidentRecords = ListIncidentRecords'
 --
 -- 'nextToken', 'listIncidentRecords_nextToken' - The pagination token to continue to the next page of results.
 --
--- 'filters', 'listIncidentRecords_filters' - Filter the list of incident records you are searching through. You can
--- filter on the following keys:
+-- 'filters', 'listIncidentRecords_filters' - Filters the list of incident records through which you are searching.
+-- You can filter on the following keys:
 --
 -- -   @creationTime@
 --
@@ -93,6 +104,17 @@ data ListIncidentRecords = ListIncidentRecords'
 -- -   @status@
 --
 -- -   @createdBy@
+--
+-- Note the following when deciding how to use Filters:
+--
+-- -   If you don\'t specify a Filter, the response includes all incident
+--     records.
+--
+-- -   If you specify more than one filter in a single request, the
+--     response returns incident records that match all filters.
+--
+-- -   If you specify a filter with more than one value, the response
+--     returns incident records that match any of the values provided.
 --
 -- 'maxResults', 'listIncidentRecords_maxResults' - The maximum number of results per page.
 newListIncidentRecords ::
@@ -108,8 +130,8 @@ newListIncidentRecords =
 listIncidentRecords_nextToken :: Lens.Lens' ListIncidentRecords (Prelude.Maybe Prelude.Text)
 listIncidentRecords_nextToken = Lens.lens (\ListIncidentRecords' {nextToken} -> nextToken) (\s@ListIncidentRecords' {} a -> s {nextToken = a} :: ListIncidentRecords)
 
--- | Filter the list of incident records you are searching through. You can
--- filter on the following keys:
+-- | Filters the list of incident records through which you are searching.
+-- You can filter on the following keys:
 --
 -- -   @creationTime@
 --
@@ -118,6 +140,17 @@ listIncidentRecords_nextToken = Lens.lens (\ListIncidentRecords' {nextToken} -> 
 -- -   @status@
 --
 -- -   @createdBy@
+--
+-- Note the following when deciding how to use Filters:
+--
+-- -   If you don\'t specify a Filter, the response includes all incident
+--     records.
+--
+-- -   If you specify more than one filter in a single request, the
+--     response returns incident records that match all filters.
+--
+-- -   If you specify a filter with more than one value, the response
+--     returns incident records that match any of the values provided.
 listIncidentRecords_filters :: Lens.Lens' ListIncidentRecords (Prelude.Maybe [Filter])
 listIncidentRecords_filters = Lens.lens (\ListIncidentRecords' {filters} -> filters) (\s@ListIncidentRecords' {} a -> s {filters = a} :: ListIncidentRecords) Prelude.. Lens.mapping Lens.coerced
 

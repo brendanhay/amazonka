@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates information about the specified endpoint.
+-- Updates information about the specified endpoint. For information about
+-- endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 module Amazonka.Comprehend.UpdateEndpoint
   ( -- * Creating a Request
     UpdateEndpoint (..),

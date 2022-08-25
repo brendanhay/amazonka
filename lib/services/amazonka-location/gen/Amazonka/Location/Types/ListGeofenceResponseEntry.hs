@@ -34,7 +34,7 @@ data ListGeofenceResponseEntry = ListGeofenceResponseEntry'
     createTime :: Core.POSIX,
     -- | The geofence identifier.
     geofenceId :: Prelude.Text,
-    -- | Contains the geofence geometry details describing a polygon.
+    -- | Contains the geofence geometry details describing a polygon or a circle.
     geometry :: GeofenceGeometry,
     -- | Identifies the state of the geofence. A geofence will hold one of the
     -- following states:
@@ -70,7 +70,7 @@ data ListGeofenceResponseEntry = ListGeofenceResponseEntry'
 --
 -- 'geofenceId', 'listGeofenceResponseEntry_geofenceId' - The geofence identifier.
 --
--- 'geometry', 'listGeofenceResponseEntry_geometry' - Contains the geofence geometry details describing a polygon.
+-- 'geometry', 'listGeofenceResponseEntry_geometry' - Contains the geofence geometry details describing a polygon or a circle.
 --
 -- 'status', 'listGeofenceResponseEntry_status' - Identifies the state of the geofence. A geofence will hold one of the
 -- following states:
@@ -125,7 +125,7 @@ listGeofenceResponseEntry_createTime = Lens.lens (\ListGeofenceResponseEntry' {c
 listGeofenceResponseEntry_geofenceId :: Lens.Lens' ListGeofenceResponseEntry Prelude.Text
 listGeofenceResponseEntry_geofenceId = Lens.lens (\ListGeofenceResponseEntry' {geofenceId} -> geofenceId) (\s@ListGeofenceResponseEntry' {} a -> s {geofenceId = a} :: ListGeofenceResponseEntry)
 
--- | Contains the geofence geometry details describing a polygon.
+-- | Contains the geofence geometry details describing a polygon or a circle.
 listGeofenceResponseEntry_geometry :: Lens.Lens' ListGeofenceResponseEntry GeofenceGeometry
 listGeofenceResponseEntry_geometry = Lens.lens (\ListGeofenceResponseEntry' {geometry} -> geometry) (\s@ListGeofenceResponseEntry' {} a -> s {geometry = a} :: ListGeofenceResponseEntry)
 

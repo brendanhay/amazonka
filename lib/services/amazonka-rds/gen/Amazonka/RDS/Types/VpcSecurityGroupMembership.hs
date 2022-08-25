@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcSecurityGroupMembership' smart constructor.
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership'
-  { -- | The status of the VPC security group.
+  { -- | The membership status of the VPC security group.
+    --
+    -- Currently, the only valid status is @active@.
     status :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC security group.
     vpcSecurityGroupId :: Prelude.Maybe Prelude.Text
@@ -43,7 +45,9 @@ data VpcSecurityGroupMembership = VpcSecurityGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'vpcSecurityGroupMembership_status' - The status of the VPC security group.
+-- 'status', 'vpcSecurityGroupMembership_status' - The membership status of the VPC security group.
+--
+-- Currently, the only valid status is @active@.
 --
 -- 'vpcSecurityGroupId', 'vpcSecurityGroupMembership_vpcSecurityGroupId' - The name of the VPC security group.
 newVpcSecurityGroupMembership ::
@@ -55,7 +59,9 @@ newVpcSecurityGroupMembership =
       vpcSecurityGroupId = Prelude.Nothing
     }
 
--- | The status of the VPC security group.
+-- | The membership status of the VPC security group.
+--
+-- Currently, the only valid status is @active@.
 vpcSecurityGroupMembership_status :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 vpcSecurityGroupMembership_status = Lens.lens (\VpcSecurityGroupMembership' {status} -> status) (\s@VpcSecurityGroupMembership' {} a -> s {status = a} :: VpcSecurityGroupMembership)
 

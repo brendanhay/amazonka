@@ -41,12 +41,11 @@ data LaunchConfiguration = LaunchConfiguration'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     iamInstanceProfile :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
-    -- to. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
-    -- in the /Amazon EC2 User Guide for Linux Instances/ and
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    -- | /EC2-Classic retires on August 15, 2022. This property is not supported
+    -- after that date./
+    --
+    -- The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
+    -- to.
     classicLinkVPCId :: Prelude.Maybe Prelude.Text,
     -- | The user data to make available to the launched EC2 instances. For more
     -- information, see
@@ -57,14 +56,19 @@ data LaunchConfiguration = LaunchConfiguration'
     -- performed for you, and you can load the text from a file. Otherwise, you
     -- must provide base64-encoded text. User data is limited to 16 KB.
     userData :: Prelude.Maybe Prelude.Text,
-    -- | For Auto Scaling groups that are running in a VPC, specifies whether to
-    -- assign a public IP address to the group\'s instances. For more
-    -- information, see
+    -- | Specifies whether to assign a public IPv4 address to the group\'s
+    -- instances. If the instance is launched into a default subnet, the
+    -- default is to assign a public IPv4 address, unless you disabled the
+    -- option to assign a public IPv4 address on the subnet. If the instance is
+    -- launched into a nondefault subnet, the default is not to assign a public
+    -- IPv4 address, unless you enabled the option to assign a public IPv4
+    -- address on the subnet. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
-    -- | A block device mapping, which specifies the block devices for the
-    -- instance. For more information, see
+    -- | The block device mapping entries that define the block devices to attach
+    -- to the instances at launch. By default, the block devices specified in
+    -- the block device mapping for the AMI are used. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
@@ -106,14 +110,11 @@ data LaunchConfiguration = LaunchConfiguration'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of one or more security groups for the VPC specified in
-    -- @ClassicLinkVPCId@.
+    -- | /EC2-Classic retires on August 15, 2022. This property is not supported
+    -- after that date./
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
-    -- in the /Amazon EC2 User Guide for Linux Instances/ and
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    -- The IDs of one or more security groups for the VPC specified in
+    -- @ClassicLinkVPCId@.
     classicLinkVPCSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The metadata options for the instances. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options>
@@ -123,13 +124,12 @@ data LaunchConfiguration = LaunchConfiguration'
     launchConfigurationName :: Prelude.Text,
     -- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2
     -- instances. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Find a Linux AMI>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     imageId :: Prelude.Text,
-    -- | The instance type for the instances.
-    --
-    -- For information about available instance types, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+    -- | The instance type for the instances. For information about available
+    -- instance types, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available instance types>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     instanceType :: Prelude.Text,
     -- | The creation date and time for the launch configuration.
@@ -156,12 +156,11 @@ data LaunchConfiguration = LaunchConfiguration'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'classicLinkVPCId', 'launchConfiguration_classicLinkVPCId' - The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
--- to. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon EC2 User Guide for Linux Instances/ and
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC>
--- in the /Amazon EC2 Auto Scaling User Guide/.
+-- 'classicLinkVPCId', 'launchConfiguration_classicLinkVPCId' - /EC2-Classic retires on August 15, 2022. This property is not supported
+-- after that date./
+--
+-- The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
+-- to.
 --
 -- 'userData', 'launchConfiguration_userData' - The user data to make available to the launched EC2 instances. For more
 -- information, see
@@ -172,14 +171,19 @@ data LaunchConfiguration = LaunchConfiguration'
 -- performed for you, and you can load the text from a file. Otherwise, you
 -- must provide base64-encoded text. User data is limited to 16 KB.
 --
--- 'associatePublicIpAddress', 'launchConfiguration_associatePublicIpAddress' - For Auto Scaling groups that are running in a VPC, specifies whether to
--- assign a public IP address to the group\'s instances. For more
--- information, see
+-- 'associatePublicIpAddress', 'launchConfiguration_associatePublicIpAddress' - Specifies whether to assign a public IPv4 address to the group\'s
+-- instances. If the instance is launched into a default subnet, the
+-- default is to assign a public IPv4 address, unless you disabled the
+-- option to assign a public IPv4 address on the subnet. If the instance is
+-- launched into a nondefault subnet, the default is not to assign a public
+-- IPv4 address, unless you enabled the option to assign a public IPv4
+-- address on the subnet. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'blockDeviceMappings', 'launchConfiguration_blockDeviceMappings' - A block device mapping, which specifies the block devices for the
--- instance. For more information, see
+-- 'blockDeviceMappings', 'launchConfiguration_blockDeviceMappings' - The block device mapping entries that define the block devices to attach
+-- to the instances at launch. By default, the block devices specified in
+-- the block device mapping for the AMI are used. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
@@ -221,14 +225,11 @@ data LaunchConfiguration = LaunchConfiguration'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'classicLinkVPCSecurityGroups', 'launchConfiguration_classicLinkVPCSecurityGroups' - The IDs of one or more security groups for the VPC specified in
--- @ClassicLinkVPCId@.
+-- 'classicLinkVPCSecurityGroups', 'launchConfiguration_classicLinkVPCSecurityGroups' - /EC2-Classic retires on August 15, 2022. This property is not supported
+-- after that date./
 --
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon EC2 User Guide for Linux Instances/ and
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC>
--- in the /Amazon EC2 Auto Scaling User Guide/.
+-- The IDs of one or more security groups for the VPC specified in
+-- @ClassicLinkVPCId@.
 --
 -- 'metadataOptions', 'launchConfiguration_metadataOptions' - The metadata options for the instances. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options>
@@ -238,13 +239,12 @@ data LaunchConfiguration = LaunchConfiguration'
 --
 -- 'imageId', 'launchConfiguration_imageId' - The ID of the Amazon Machine Image (AMI) to use to launch your EC2
 -- instances. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Find a Linux AMI>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- 'instanceType', 'launchConfiguration_instanceType' - The instance type for the instances.
---
--- For information about available instance types, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+-- 'instanceType', 'launchConfiguration_instanceType' - The instance type for the instances. For information about available
+-- instance types, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available instance types>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- 'createdTime', 'launchConfiguration_createdTime' - The creation date and time for the launch configuration.
@@ -302,12 +302,11 @@ launchConfiguration_ebsOptimized = Lens.lens (\LaunchConfiguration' {ebsOptimize
 launchConfiguration_iamInstanceProfile :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_iamInstanceProfile = Lens.lens (\LaunchConfiguration' {iamInstanceProfile} -> iamInstanceProfile) (\s@LaunchConfiguration' {} a -> s {iamInstanceProfile = a} :: LaunchConfiguration)
 
--- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
--- to. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon EC2 User Guide for Linux Instances/ and
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC>
--- in the /Amazon EC2 Auto Scaling User Guide/.
+-- | /EC2-Classic retires on August 15, 2022. This property is not supported
+-- after that date./
+--
+-- The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
+-- to.
 launchConfiguration_classicLinkVPCId :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_classicLinkVPCId = Lens.lens (\LaunchConfiguration' {classicLinkVPCId} -> classicLinkVPCId) (\s@LaunchConfiguration' {} a -> s {classicLinkVPCId = a} :: LaunchConfiguration)
 
@@ -322,16 +321,21 @@ launchConfiguration_classicLinkVPCId = Lens.lens (\LaunchConfiguration' {classic
 launchConfiguration_userData :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_userData = Lens.lens (\LaunchConfiguration' {userData} -> userData) (\s@LaunchConfiguration' {} a -> s {userData = a} :: LaunchConfiguration)
 
--- | For Auto Scaling groups that are running in a VPC, specifies whether to
--- assign a public IP address to the group\'s instances. For more
--- information, see
+-- | Specifies whether to assign a public IPv4 address to the group\'s
+-- instances. If the instance is launched into a default subnet, the
+-- default is to assign a public IPv4 address, unless you disabled the
+-- option to assign a public IPv4 address on the subnet. If the instance is
+-- launched into a nondefault subnet, the default is not to assign a public
+-- IPv4 address, unless you enabled the option to assign a public IPv4
+-- address on the subnet. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 launchConfiguration_associatePublicIpAddress :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Bool)
 launchConfiguration_associatePublicIpAddress = Lens.lens (\LaunchConfiguration' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@LaunchConfiguration' {} a -> s {associatePublicIpAddress = a} :: LaunchConfiguration)
 
--- | A block device mapping, which specifies the block devices for the
--- instance. For more information, see
+-- | The block device mapping entries that define the block devices to attach
+-- to the instances at launch. By default, the block devices specified in
+-- the block device mapping for the AMI are used. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 launchConfiguration_blockDeviceMappings :: Lens.Lens' LaunchConfiguration (Prelude.Maybe [BlockDeviceMapping])
@@ -391,14 +395,11 @@ launchConfiguration_kernelId = Lens.lens (\LaunchConfiguration' {kernelId} -> ke
 launchConfiguration_spotPrice :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_spotPrice = Lens.lens (\LaunchConfiguration' {spotPrice} -> spotPrice) (\s@LaunchConfiguration' {} a -> s {spotPrice = a} :: LaunchConfiguration)
 
--- | The IDs of one or more security groups for the VPC specified in
--- @ClassicLinkVPCId@.
+-- | /EC2-Classic retires on August 15, 2022. This property is not supported
+-- after that date./
 --
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon EC2 User Guide for Linux Instances/ and
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC>
--- in the /Amazon EC2 Auto Scaling User Guide/.
+-- The IDs of one or more security groups for the VPC specified in
+-- @ClassicLinkVPCId@.
 launchConfiguration_classicLinkVPCSecurityGroups :: Lens.Lens' LaunchConfiguration (Prelude.Maybe [Prelude.Text])
 launchConfiguration_classicLinkVPCSecurityGroups = Lens.lens (\LaunchConfiguration' {classicLinkVPCSecurityGroups} -> classicLinkVPCSecurityGroups) (\s@LaunchConfiguration' {} a -> s {classicLinkVPCSecurityGroups = a} :: LaunchConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -414,15 +415,14 @@ launchConfiguration_launchConfigurationName = Lens.lens (\LaunchConfiguration' {
 
 -- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2
 -- instances. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Find a Linux AMI>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 launchConfiguration_imageId :: Lens.Lens' LaunchConfiguration Prelude.Text
 launchConfiguration_imageId = Lens.lens (\LaunchConfiguration' {imageId} -> imageId) (\s@LaunchConfiguration' {} a -> s {imageId = a} :: LaunchConfiguration)
 
--- | The instance type for the instances.
---
--- For information about available instance types, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+-- | The instance type for the instances. For information about available
+-- instance types, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available instance types>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 launchConfiguration_instanceType :: Lens.Lens' LaunchConfiguration Prelude.Text
 launchConfiguration_instanceType = Lens.lens (\LaunchConfiguration' {instanceType} -> instanceType) (\s@LaunchConfiguration' {} a -> s {instanceType = a} :: LaunchConfiguration)

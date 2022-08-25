@@ -42,6 +42,7 @@ module Amazonka.IoT.DescribeJobTemplate
     describeJobTemplateResponse_description,
     describeJobTemplateResponse_presignedUrlConfig,
     describeJobTemplateResponse_document,
+    describeJobTemplateResponse_jobExecutionsRetryConfig,
     describeJobTemplateResponse_timeoutConfig,
     describeJobTemplateResponse_createdAt,
     describeJobTemplateResponse_httpStatus,
@@ -102,6 +103,7 @@ instance Core.AWSRequest DescribeJobTemplate where
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "presignedUrlConfig")
             Prelude.<*> (x Core..?> "document")
+            Prelude.<*> (x Core..?> "jobExecutionsRetryConfig")
             Prelude.<*> (x Core..?> "timeoutConfig")
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,6 +143,9 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | The job document.
     document :: Prelude.Maybe Prelude.Text,
+    -- | The configuration that determines how many retries are allowed for each
+    -- failure type for a job.
+    jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The time, in seconds since the epoch, when the job template was created.
     createdAt :: Prelude.Maybe Core.POSIX,
@@ -173,6 +178,9 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
 --
 -- 'document', 'describeJobTemplateResponse_document' - The job document.
 --
+-- 'jobExecutionsRetryConfig', 'describeJobTemplateResponse_jobExecutionsRetryConfig' - The configuration that determines how many retries are allowed for each
+-- failure type for a job.
+--
 -- 'timeoutConfig', 'describeJobTemplateResponse_timeoutConfig' - Undocumented member.
 --
 -- 'createdAt', 'describeJobTemplateResponse_createdAt' - The time, in seconds since the epoch, when the job template was created.
@@ -193,6 +201,7 @@ newDescribeJobTemplateResponse pHttpStatus_ =
       description = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       document = Prelude.Nothing,
+      jobExecutionsRetryConfig = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -230,6 +239,11 @@ describeJobTemplateResponse_presignedUrlConfig = Lens.lens (\DescribeJobTemplate
 describeJobTemplateResponse_document :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
 describeJobTemplateResponse_document = Lens.lens (\DescribeJobTemplateResponse' {document} -> document) (\s@DescribeJobTemplateResponse' {} a -> s {document = a} :: DescribeJobTemplateResponse)
 
+-- | The configuration that determines how many retries are allowed for each
+-- failure type for a job.
+describeJobTemplateResponse_jobExecutionsRetryConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe JobExecutionsRetryConfig)
+describeJobTemplateResponse_jobExecutionsRetryConfig = Lens.lens (\DescribeJobTemplateResponse' {jobExecutionsRetryConfig} -> jobExecutionsRetryConfig) (\s@DescribeJobTemplateResponse' {} a -> s {jobExecutionsRetryConfig = a} :: DescribeJobTemplateResponse)
+
 -- | Undocumented member.
 describeJobTemplateResponse_timeoutConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe TimeoutConfig)
 describeJobTemplateResponse_timeoutConfig = Lens.lens (\DescribeJobTemplateResponse' {timeoutConfig} -> timeoutConfig) (\s@DescribeJobTemplateResponse' {} a -> s {timeoutConfig = a} :: DescribeJobTemplateResponse)
@@ -252,6 +266,7 @@ instance Prelude.NFData DescribeJobTemplateResponse where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageImportJobOutput' smart constructor.
 data PackageImportJobOutput = PackageImportJobOutput'
-  { -- | The package\'s ID.
+  { -- | The package\'s output location.
+    outputS3Location :: OutPutS3Location,
+    -- | The package\'s ID.
     packageId :: Prelude.Text,
     -- | The package\'s version.
     packageVersion :: Prelude.Text,
     -- | The package\'s patch version.
-    patchVersion :: Prelude.Text,
-    -- | The package\'s output location.
-    outputS3Location :: OutPutS3Location
+    patchVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,34 +47,39 @@ data PackageImportJobOutput = PackageImportJobOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputS3Location', 'packageImportJobOutput_outputS3Location' - The package\'s output location.
+--
 -- 'packageId', 'packageImportJobOutput_packageId' - The package\'s ID.
 --
 -- 'packageVersion', 'packageImportJobOutput_packageVersion' - The package\'s version.
 --
 -- 'patchVersion', 'packageImportJobOutput_patchVersion' - The package\'s patch version.
---
--- 'outputS3Location', 'packageImportJobOutput_outputS3Location' - The package\'s output location.
 newPackageImportJobOutput ::
+  -- | 'outputS3Location'
+  OutPutS3Location ->
   -- | 'packageId'
   Prelude.Text ->
   -- | 'packageVersion'
   Prelude.Text ->
   -- | 'patchVersion'
   Prelude.Text ->
-  -- | 'outputS3Location'
-  OutPutS3Location ->
   PackageImportJobOutput
 newPackageImportJobOutput
+  pOutputS3Location_
   pPackageId_
   pPackageVersion_
-  pPatchVersion_
-  pOutputS3Location_ =
+  pPatchVersion_ =
     PackageImportJobOutput'
-      { packageId = pPackageId_,
+      { outputS3Location =
+          pOutputS3Location_,
+        packageId = pPackageId_,
         packageVersion = pPackageVersion_,
-        patchVersion = pPatchVersion_,
-        outputS3Location = pOutputS3Location_
+        patchVersion = pPatchVersion_
       }
+
+-- | The package\'s output location.
+packageImportJobOutput_outputS3Location :: Lens.Lens' PackageImportJobOutput OutPutS3Location
+packageImportJobOutput_outputS3Location = Lens.lens (\PackageImportJobOutput' {outputS3Location} -> outputS3Location) (\s@PackageImportJobOutput' {} a -> s {outputS3Location = a} :: PackageImportJobOutput)
 
 -- | The package\'s ID.
 packageImportJobOutput_packageId :: Lens.Lens' PackageImportJobOutput Prelude.Text
@@ -88,32 +93,28 @@ packageImportJobOutput_packageVersion = Lens.lens (\PackageImportJobOutput' {pac
 packageImportJobOutput_patchVersion :: Lens.Lens' PackageImportJobOutput Prelude.Text
 packageImportJobOutput_patchVersion = Lens.lens (\PackageImportJobOutput' {patchVersion} -> patchVersion) (\s@PackageImportJobOutput' {} a -> s {patchVersion = a} :: PackageImportJobOutput)
 
--- | The package\'s output location.
-packageImportJobOutput_outputS3Location :: Lens.Lens' PackageImportJobOutput OutPutS3Location
-packageImportJobOutput_outputS3Location = Lens.lens (\PackageImportJobOutput' {outputS3Location} -> outputS3Location) (\s@PackageImportJobOutput' {} a -> s {outputS3Location = a} :: PackageImportJobOutput)
-
 instance Core.FromJSON PackageImportJobOutput where
   parseJSON =
     Core.withObject
       "PackageImportJobOutput"
       ( \x ->
           PackageImportJobOutput'
-            Prelude.<$> (x Core..: "PackageId")
+            Prelude.<$> (x Core..: "OutputS3Location")
+            Prelude.<*> (x Core..: "PackageId")
             Prelude.<*> (x Core..: "PackageVersion")
             Prelude.<*> (x Core..: "PatchVersion")
-            Prelude.<*> (x Core..: "OutputS3Location")
       )
 
 instance Prelude.Hashable PackageImportJobOutput where
   hashWithSalt _salt PackageImportJobOutput' {..} =
-    _salt `Prelude.hashWithSalt` packageId
+    _salt `Prelude.hashWithSalt` outputS3Location
+      `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` patchVersion
-      `Prelude.hashWithSalt` outputS3Location
 
 instance Prelude.NFData PackageImportJobOutput where
   rnf PackageImportJobOutput' {..} =
-    Prelude.rnf packageId
+    Prelude.rnf outputS3Location
+      `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf patchVersion
-      `Prelude.seq` Prelude.rnf outputS3Location

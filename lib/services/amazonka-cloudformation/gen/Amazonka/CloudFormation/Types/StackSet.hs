@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.StackSet where
 
 import Amazonka.CloudFormation.Types.AutoDeployment
 import Amazonka.CloudFormation.Types.Capability
+import Amazonka.CloudFormation.Types.ManagedExecution
 import Amazonka.CloudFormation.Types.Parameter
 import Amazonka.CloudFormation.Types.PermissionModels
 import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | A structure that contains information about a stack set. A stack set
 -- enables you to provision stacks into Amazon Web Services accounts and
 -- across Regions by using a single CloudFormation template. In the stack
--- set, you specify the template to use, as well as any parameters and
+-- set, you specify the template to use, in addition to any parameters and
 -- capabilities that the template requires.
 --
 -- /See:/ 'newStackSet' smart constructor.
@@ -43,7 +44,7 @@ data StackSet = StackSet'
     tags :: Prelude.Maybe [Tag],
     -- | The name that\'s associated with the stack set.
     stackSetName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the stack set.
+    -- | The Amazon Resource Name (ARN) of the stack set.
     stackSetARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the stack set.
     stackSetId :: Prelude.Maybe Prelude.Text,
@@ -69,14 +70,17 @@ data StackSet = StackSet'
     -- Access Management (IAM) users. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates.>
     capabilities :: Prelude.Maybe [Capability],
+    -- | Describes whether StackSets performs non-conflicting operations
+    -- concurrently and queues conflicting operations.
+    managedExecution :: Prelude.Maybe ManagedExecution,
     -- | The name of the IAM execution role used to create or update the stack
     -- set.
     --
     -- Use customized execution roles to control which stack resources users
     -- and groups can include in their stack sets.
     executionRoleName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the IAM role used to create or
-    -- update the stack set.
+    -- | The Amazon Resource Name (ARN) of the IAM role used to create or update
+    -- the stack set.
     --
     -- Use customized administrator roles to control which users or groups can
     -- manage specific stack sets within the same administrator account. For
@@ -101,7 +105,7 @@ data StackSet = StackSet'
     --
     -- For stack sets, contains information about the last /completed/ drift
     -- operation performed on the stack set. Information about drift operations
-    -- currently in progress is not included.
+    -- currently in progress isn\'t included.
     stackSetDriftDetectionDetails :: Prelude.Maybe StackSetDriftDetectionDetails,
     -- | A list of input parameters for a stack set.
     parameters :: Prelude.Maybe [Parameter]
@@ -121,7 +125,7 @@ data StackSet = StackSet'
 --
 -- 'stackSetName', 'stackSet_stackSetName' - The name that\'s associated with the stack set.
 --
--- 'stackSetARN', 'stackSet_stackSetARN' - The Amazon Resource Number (ARN) of the stack set.
+-- 'stackSetARN', 'stackSet_stackSetARN' - The Amazon Resource Name (ARN) of the stack set.
 --
 -- 'stackSetId', 'stackSet_stackSetId' - The ID of the stack set.
 --
@@ -147,14 +151,17 @@ data StackSet = StackSet'
 -- Access Management (IAM) users. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates.>
 --
+-- 'managedExecution', 'stackSet_managedExecution' - Describes whether StackSets performs non-conflicting operations
+-- concurrently and queues conflicting operations.
+--
 -- 'executionRoleName', 'stackSet_executionRoleName' - The name of the IAM execution role used to create or update the stack
 -- set.
 --
 -- Use customized execution roles to control which stack resources users
 -- and groups can include in their stack sets.
 --
--- 'administrationRoleARN', 'stackSet_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role used to create or
--- update the stack set.
+-- 'administrationRoleARN', 'stackSet_administrationRoleARN' - The Amazon Resource Name (ARN) of the IAM role used to create or update
+-- the stack set.
 --
 -- Use customized administrator roles to control which users or groups can
 -- manage specific stack sets within the same administrator account. For
@@ -179,7 +186,7 @@ data StackSet = StackSet'
 --
 -- For stack sets, contains information about the last /completed/ drift
 -- operation performed on the stack set. Information about drift operations
--- currently in progress is not included.
+-- currently in progress isn\'t included.
 --
 -- 'parameters', 'stackSet_parameters' - A list of input parameters for a stack set.
 newStackSet ::
@@ -196,6 +203,7 @@ newStackSet =
       autoDeployment = Prelude.Nothing,
       organizationalUnitIds = Prelude.Nothing,
       capabilities = Prelude.Nothing,
+      managedExecution = Prelude.Nothing,
       executionRoleName = Prelude.Nothing,
       administrationRoleARN = Prelude.Nothing,
       permissionModel = Prelude.Nothing,
@@ -212,7 +220,7 @@ stackSet_tags = Lens.lens (\StackSet' {tags} -> tags) (\s@StackSet' {} a -> s {t
 stackSet_stackSetName :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetName = Lens.lens (\StackSet' {stackSetName} -> stackSetName) (\s@StackSet' {} a -> s {stackSetName = a} :: StackSet)
 
--- | The Amazon Resource Number (ARN) of the stack set.
+-- | The Amazon Resource Name (ARN) of the stack set.
 stackSet_stackSetARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetARN = Lens.lens (\StackSet' {stackSetARN} -> stackSetARN) (\s@StackSet' {} a -> s {stackSetARN = a} :: StackSet)
 
@@ -254,6 +262,11 @@ stackSet_organizationalUnitIds = Lens.lens (\StackSet' {organizationalUnitIds} -
 stackSet_capabilities :: Lens.Lens' StackSet (Prelude.Maybe [Capability])
 stackSet_capabilities = Lens.lens (\StackSet' {capabilities} -> capabilities) (\s@StackSet' {} a -> s {capabilities = a} :: StackSet) Prelude.. Lens.mapping Lens.coerced
 
+-- | Describes whether StackSets performs non-conflicting operations
+-- concurrently and queues conflicting operations.
+stackSet_managedExecution :: Lens.Lens' StackSet (Prelude.Maybe ManagedExecution)
+stackSet_managedExecution = Lens.lens (\StackSet' {managedExecution} -> managedExecution) (\s@StackSet' {} a -> s {managedExecution = a} :: StackSet)
+
 -- | The name of the IAM execution role used to create or update the stack
 -- set.
 --
@@ -262,8 +275,8 @@ stackSet_capabilities = Lens.lens (\StackSet' {capabilities} -> capabilities) (\
 stackSet_executionRoleName :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_executionRoleName = Lens.lens (\StackSet' {executionRoleName} -> executionRoleName) (\s@StackSet' {} a -> s {executionRoleName = a} :: StackSet)
 
--- | The Amazon Resource Number (ARN) of the IAM role used to create or
--- update the stack set.
+-- | The Amazon Resource Name (ARN) of the IAM role used to create or update
+-- the stack set.
 --
 -- Use customized administrator roles to control which users or groups can
 -- manage specific stack sets within the same administrator account. For
@@ -292,7 +305,7 @@ stackSet_permissionModel = Lens.lens (\StackSet' {permissionModel} -> permission
 --
 -- For stack sets, contains information about the last /completed/ drift
 -- operation performed on the stack set. Information about drift operations
--- currently in progress is not included.
+-- currently in progress isn\'t included.
 stackSet_stackSetDriftDetectionDetails :: Lens.Lens' StackSet (Prelude.Maybe StackSetDriftDetectionDetails)
 stackSet_stackSetDriftDetectionDetails = Lens.lens (\StackSet' {stackSetDriftDetectionDetails} -> stackSetDriftDetectionDetails) (\s@StackSet' {} a -> s {stackSetDriftDetectionDetails = a} :: StackSet)
 
@@ -320,6 +333,7 @@ instance Core.FromXML StackSet where
       Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "ManagedExecution")
       Prelude.<*> (x Core..@? "ExecutionRoleName")
       Prelude.<*> (x Core..@? "AdministrationRoleARN")
       Prelude.<*> (x Core..@? "PermissionModel")
@@ -340,6 +354,7 @@ instance Prelude.Hashable StackSet where
       `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` organizationalUnitIds
       `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` managedExecution
       `Prelude.hashWithSalt` executionRoleName
       `Prelude.hashWithSalt` administrationRoleARN
       `Prelude.hashWithSalt` permissionModel
@@ -358,8 +373,10 @@ instance Prelude.NFData StackSet where
       `Prelude.seq` Prelude.rnf autoDeployment
       `Prelude.seq` Prelude.rnf organizationalUnitIds
       `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf managedExecution
       `Prelude.seq` Prelude.rnf executionRoleName
       `Prelude.seq` Prelude.rnf administrationRoleARN
       `Prelude.seq` Prelude.rnf permissionModel
-      `Prelude.seq` Prelude.rnf stackSetDriftDetectionDetails
+      `Prelude.seq` Prelude.rnf
+        stackSetDriftDetectionDetails
       `Prelude.seq` Prelude.rnf parameters

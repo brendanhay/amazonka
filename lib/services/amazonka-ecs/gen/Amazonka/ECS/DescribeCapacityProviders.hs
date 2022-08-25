@@ -78,7 +78,7 @@ data DescribeCapacityProviders = DescribeCapacityProviders'
     capacityProviders :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether or not you want to see the resource tags for the
     -- capacity provider. If @TAGS@ is specified, the tags are included in the
-    -- response. If this field is omitted, tags are not included in the
+    -- response. If this field is omitted, tags aren\'t included in the
     -- response.
     include :: Prelude.Maybe [CapacityProviderField]
   }
@@ -117,7 +117,7 @@ data DescribeCapacityProviders = DescribeCapacityProviders'
 --
 -- 'include', 'describeCapacityProviders_include' - Specifies whether or not you want to see the resource tags for the
 -- capacity provider. If @TAGS@ is specified, the tags are included in the
--- response. If this field is omitted, tags are not included in the
+-- response. If this field is omitted, tags aren\'t included in the
 -- response.
 newDescribeCapacityProviders ::
   DescribeCapacityProviders
@@ -161,7 +161,7 @@ describeCapacityProviders_capacityProviders = Lens.lens (\DescribeCapacityProvid
 
 -- | Specifies whether or not you want to see the resource tags for the
 -- capacity provider. If @TAGS@ is specified, the tags are included in the
--- response. If this field is omitted, tags are not included in the
+-- response. If this field is omitted, tags aren\'t included in the
 -- response.
 describeCapacityProviders_include :: Lens.Lens' DescribeCapacityProviders (Prelude.Maybe [CapacityProviderField])
 describeCapacityProviders_include = Lens.lens (\DescribeCapacityProviders' {include} -> include) (\s@DescribeCapacityProviders' {} a -> s {include = a} :: DescribeCapacityProviders) Prelude.. Lens.mapping Lens.coerced

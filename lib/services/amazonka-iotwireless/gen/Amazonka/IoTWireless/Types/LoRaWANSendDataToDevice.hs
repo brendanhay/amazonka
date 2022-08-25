@@ -27,8 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANSendDataToDevice' smart constructor.
 data LoRaWANSendDataToDevice = LoRaWANSendDataToDevice'
-  { -- | The Fport value.
-    fPort :: Prelude.Maybe Prelude.Natural
+  { fPort :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -40,15 +39,24 @@ data LoRaWANSendDataToDevice = LoRaWANSendDataToDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fPort', 'loRaWANSendDataToDevice_fPort' - The Fport value.
+-- 'fPort', 'loRaWANSendDataToDevice_fPort' - Undocumented member.
 newLoRaWANSendDataToDevice ::
   LoRaWANSendDataToDevice
 newLoRaWANSendDataToDevice =
   LoRaWANSendDataToDevice' {fPort = Prelude.Nothing}
 
--- | The Fport value.
+-- | Undocumented member.
 loRaWANSendDataToDevice_fPort :: Lens.Lens' LoRaWANSendDataToDevice (Prelude.Maybe Prelude.Natural)
 loRaWANSendDataToDevice_fPort = Lens.lens (\LoRaWANSendDataToDevice' {fPort} -> fPort) (\s@LoRaWANSendDataToDevice' {} a -> s {fPort = a} :: LoRaWANSendDataToDevice)
+
+instance Core.FromJSON LoRaWANSendDataToDevice where
+  parseJSON =
+    Core.withObject
+      "LoRaWANSendDataToDevice"
+      ( \x ->
+          LoRaWANSendDataToDevice'
+            Prelude.<$> (x Core..:? "FPort")
+      )
 
 instance Prelude.Hashable LoRaWANSendDataToDevice where
   hashWithSalt _salt LoRaWANSendDataToDevice' {..} =

@@ -24,7 +24,7 @@
 --
 -- Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
--- Do not use this API in your code.
+-- Don\'t use this API in your code.
 module Amazonka.CloudFormation.RecordHandlerProgress
   ( -- * Creating a Request
     RecordHandlerProgress (..),

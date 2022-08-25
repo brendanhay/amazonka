@@ -27,12 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Represents an authorization layer for methods. If enabled on a method,
 -- API Gateway will activate the authorizer when a client calls the method.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer>
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer>
---
 -- /See:/ 'newAuthorizer' smart constructor.
 data Authorizer = Authorizer'
-  { -- | [Required] The name of the authorizer.
+  { -- | The name of the authorizer.
     name :: Prelude.Maybe Prelude.Text,
     -- | The authorizer type. Valid values are @TOKEN@ for a Lambda function
     -- using a single authorization token submitted in a custom header,
@@ -44,28 +41,26 @@ data Authorizer = Authorizer'
     -- use the role\'s Amazon Resource Name (ARN). To use resource-based
     -- permissions on the Lambda function, specify null.
     authorizerCredentials :: Prelude.Maybe Prelude.Text,
-    -- | The identity source for which authorization is requested.
-    --
-    -- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
-    --     and specifies the request header mapping expression for the custom
-    --     header holding the authorization token submitted by the client. For
-    --     example, if the token header name is @Auth@, the header mapping
-    --     expression is @method.request.header.Auth@.
-    -- -   For the @REQUEST@ authorizer, this is required when authorization
-    --     caching is enabled. The value is a comma-separated string of one or
-    --     more mapping expressions of the specified request parameters. For
-    --     example, if an @Auth@ header, a @Name@ query string parameter are
-    --     defined as identity sources, this value is
-    --     @method.request.header.Auth, method.request.querystring.Name@. These
-    --     parameters will be used to derive the authorization caching key and
-    --     to perform runtime validation of the @REQUEST@ authorizer by
-    --     verifying all of the identity-related request parameters are
-    --     present, not null and non-empty. Only when this is true does the
-    --     authorizer invoke the authorizer Lambda function, otherwise, it
-    --     returns a 401 Unauthorized response without calling the Lambda
-    --     function. The valid value is a string of comma-separated mapping
-    --     expressions of the specified request parameters. When the
-    --     authorization caching is not enabled, this property is optional.
+    -- | The identity source for which authorization is requested. For a @TOKEN@
+    -- or @COGNITO_USER_POOLS@ authorizer, this is required and specifies the
+    -- request header mapping expression for the custom header holding the
+    -- authorization token submitted by the client. For example, if the token
+    -- header name is @Auth@, the header mapping expression is
+    -- @method.request.header.Auth@. For the @REQUEST@ authorizer, this is
+    -- required when authorization caching is enabled. The value is a
+    -- comma-separated string of one or more mapping expressions of the
+    -- specified request parameters. For example, if an @Auth@ header, a @Name@
+    -- query string parameter are defined as identity sources, this value is
+    -- @method.request.header.Auth@, @method.request.querystring.Name@. These
+    -- parameters will be used to derive the authorization caching key and to
+    -- perform runtime validation of the @REQUEST@ authorizer by verifying all
+    -- of the identity-related request parameters are present, not null and
+    -- non-empty. Only when this is true does the authorizer invoke the
+    -- authorizer Lambda function, otherwise, it returns a 401 Unauthorized
+    -- response without calling the Lambda function. The valid value is a
+    -- string of comma-separated mapping expressions of the specified request
+    -- parameters. When the authorization caching is not enabled, this property
+    -- is optional.
     identitySource :: Prelude.Maybe Prelude.Text,
     -- | The TTL in seconds of cached authorizer results. If it equals 0,
     -- authorization caching is disabled. If it is greater than 0, API Gateway
@@ -114,7 +109,7 @@ data Authorizer = Authorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'authorizer_name' - [Required] The name of the authorizer.
+-- 'name', 'authorizer_name' - The name of the authorizer.
 --
 -- 'type'', 'authorizer_type' - The authorizer type. Valid values are @TOKEN@ for a Lambda function
 -- using a single authorization token submitted in a custom header,
@@ -126,28 +121,26 @@ data Authorizer = Authorizer'
 -- use the role\'s Amazon Resource Name (ARN). To use resource-based
 -- permissions on the Lambda function, specify null.
 --
--- 'identitySource', 'authorizer_identitySource' - The identity source for which authorization is requested.
---
--- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
---     and specifies the request header mapping expression for the custom
---     header holding the authorization token submitted by the client. For
---     example, if the token header name is @Auth@, the header mapping
---     expression is @method.request.header.Auth@.
--- -   For the @REQUEST@ authorizer, this is required when authorization
---     caching is enabled. The value is a comma-separated string of one or
---     more mapping expressions of the specified request parameters. For
---     example, if an @Auth@ header, a @Name@ query string parameter are
---     defined as identity sources, this value is
---     @method.request.header.Auth, method.request.querystring.Name@. These
---     parameters will be used to derive the authorization caching key and
---     to perform runtime validation of the @REQUEST@ authorizer by
---     verifying all of the identity-related request parameters are
---     present, not null and non-empty. Only when this is true does the
---     authorizer invoke the authorizer Lambda function, otherwise, it
---     returns a 401 Unauthorized response without calling the Lambda
---     function. The valid value is a string of comma-separated mapping
---     expressions of the specified request parameters. When the
---     authorization caching is not enabled, this property is optional.
+-- 'identitySource', 'authorizer_identitySource' - The identity source for which authorization is requested. For a @TOKEN@
+-- or @COGNITO_USER_POOLS@ authorizer, this is required and specifies the
+-- request header mapping expression for the custom header holding the
+-- authorization token submitted by the client. For example, if the token
+-- header name is @Auth@, the header mapping expression is
+-- @method.request.header.Auth@. For the @REQUEST@ authorizer, this is
+-- required when authorization caching is enabled. The value is a
+-- comma-separated string of one or more mapping expressions of the
+-- specified request parameters. For example, if an @Auth@ header, a @Name@
+-- query string parameter are defined as identity sources, this value is
+-- @method.request.header.Auth@, @method.request.querystring.Name@. These
+-- parameters will be used to derive the authorization caching key and to
+-- perform runtime validation of the @REQUEST@ authorizer by verifying all
+-- of the identity-related request parameters are present, not null and
+-- non-empty. Only when this is true does the authorizer invoke the
+-- authorizer Lambda function, otherwise, it returns a 401 Unauthorized
+-- response without calling the Lambda function. The valid value is a
+-- string of comma-separated mapping expressions of the specified request
+-- parameters. When the authorization caching is not enabled, this property
+-- is optional.
 --
 -- 'authorizerResultTtlInSeconds', 'authorizer_authorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0,
 -- authorization caching is disabled. If it is greater than 0, API Gateway
@@ -200,7 +193,7 @@ newAuthorizer =
       authType = Prelude.Nothing
     }
 
--- | [Required] The name of the authorizer.
+-- | The name of the authorizer.
 authorizer_name :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
 authorizer_name = Lens.lens (\Authorizer' {name} -> name) (\s@Authorizer' {} a -> s {name = a} :: Authorizer)
 
@@ -218,28 +211,26 @@ authorizer_type = Lens.lens (\Authorizer' {type'} -> type') (\s@Authorizer' {} a
 authorizer_authorizerCredentials :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
 authorizer_authorizerCredentials = Lens.lens (\Authorizer' {authorizerCredentials} -> authorizerCredentials) (\s@Authorizer' {} a -> s {authorizerCredentials = a} :: Authorizer)
 
--- | The identity source for which authorization is requested.
---
--- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
---     and specifies the request header mapping expression for the custom
---     header holding the authorization token submitted by the client. For
---     example, if the token header name is @Auth@, the header mapping
---     expression is @method.request.header.Auth@.
--- -   For the @REQUEST@ authorizer, this is required when authorization
---     caching is enabled. The value is a comma-separated string of one or
---     more mapping expressions of the specified request parameters. For
---     example, if an @Auth@ header, a @Name@ query string parameter are
---     defined as identity sources, this value is
---     @method.request.header.Auth, method.request.querystring.Name@. These
---     parameters will be used to derive the authorization caching key and
---     to perform runtime validation of the @REQUEST@ authorizer by
---     verifying all of the identity-related request parameters are
---     present, not null and non-empty. Only when this is true does the
---     authorizer invoke the authorizer Lambda function, otherwise, it
---     returns a 401 Unauthorized response without calling the Lambda
---     function. The valid value is a string of comma-separated mapping
---     expressions of the specified request parameters. When the
---     authorization caching is not enabled, this property is optional.
+-- | The identity source for which authorization is requested. For a @TOKEN@
+-- or @COGNITO_USER_POOLS@ authorizer, this is required and specifies the
+-- request header mapping expression for the custom header holding the
+-- authorization token submitted by the client. For example, if the token
+-- header name is @Auth@, the header mapping expression is
+-- @method.request.header.Auth@. For the @REQUEST@ authorizer, this is
+-- required when authorization caching is enabled. The value is a
+-- comma-separated string of one or more mapping expressions of the
+-- specified request parameters. For example, if an @Auth@ header, a @Name@
+-- query string parameter are defined as identity sources, this value is
+-- @method.request.header.Auth@, @method.request.querystring.Name@. These
+-- parameters will be used to derive the authorization caching key and to
+-- perform runtime validation of the @REQUEST@ authorizer by verifying all
+-- of the identity-related request parameters are present, not null and
+-- non-empty. Only when this is true does the authorizer invoke the
+-- authorizer Lambda function, otherwise, it returns a 401 Unauthorized
+-- response without calling the Lambda function. The valid value is a
+-- string of comma-separated mapping expressions of the specified request
+-- parameters. When the authorization caching is not enabled, this property
+-- is optional.
 authorizer_identitySource :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
 authorizer_identitySource = Lens.lens (\Authorizer' {identitySource} -> identitySource) (\s@Authorizer' {} a -> s {identitySource = a} :: Authorizer)
 

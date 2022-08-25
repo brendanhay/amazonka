@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters. The following are possible values:
+    -- | The filters. The following are the possible values:
     --
     -- -   PathFound - A Boolean value that indicates whether a feasible path
     --     is found.
@@ -98,7 +98,7 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
 --
 -- 'nextToken', 'describeNetworkInsightsAnalyses_nextToken' - The token for the next page of results.
 --
--- 'filters', 'describeNetworkInsightsAnalyses_filters' - The filters. The following are possible values:
+-- 'filters', 'describeNetworkInsightsAnalyses_filters' - The filters. The following are the possible values:
 --
 -- -   PathFound - A Boolean value that indicates whether a feasible path
 --     is found.
@@ -142,7 +142,7 @@ newDescribeNetworkInsightsAnalyses =
 describeNetworkInsightsAnalyses_nextToken :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Text)
 describeNetworkInsightsAnalyses_nextToken = Lens.lens (\DescribeNetworkInsightsAnalyses' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAnalyses)
 
--- | The filters. The following are possible values:
+-- | The filters. The following are the possible values:
 --
 -- -   PathFound - A Boolean value that indicates whether a feasible path
 --     is found.

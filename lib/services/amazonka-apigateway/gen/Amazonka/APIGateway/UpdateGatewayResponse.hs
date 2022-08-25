@@ -57,14 +57,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateGatewayResponse' smart constructor.
 data UpdateGatewayResponse = UpdateGatewayResponse'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required]
-    --
-    -- The response type of the associated GatewayResponse.
+    -- | The response type of the associated GatewayResponse.
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,14 +75,12 @@ data UpdateGatewayResponse = UpdateGatewayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateGatewayResponse_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateGatewayResponse_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateGatewayResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateGatewayResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'responseType', 'updateGatewayResponse_responseType' - [Required]
---
--- The response type of the associated GatewayResponse.
+-- 'responseType', 'updateGatewayResponse_responseType' - The response type of the associated GatewayResponse.
 newUpdateGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -99,18 +95,16 @@ newUpdateGatewayResponse pRestApiId_ pResponseType_ =
       responseType = pResponseType_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateGatewayResponse_patchOperations :: Lens.Lens' UpdateGatewayResponse (Prelude.Maybe [PatchOperation])
 updateGatewayResponse_patchOperations = Lens.lens (\UpdateGatewayResponse' {patchOperations} -> patchOperations) (\s@UpdateGatewayResponse' {} a -> s {patchOperations = a} :: UpdateGatewayResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateGatewayResponse_restApiId :: Lens.Lens' UpdateGatewayResponse Prelude.Text
 updateGatewayResponse_restApiId = Lens.lens (\UpdateGatewayResponse' {restApiId} -> restApiId) (\s@UpdateGatewayResponse' {} a -> s {restApiId = a} :: UpdateGatewayResponse)
 
--- | [Required]
---
--- The response type of the associated GatewayResponse.
+-- | The response type of the associated GatewayResponse.
 updateGatewayResponse_responseType :: Lens.Lens' UpdateGatewayResponse GatewayResponseType
 updateGatewayResponse_responseType = Lens.lens (\UpdateGatewayResponse' {responseType} -> responseType) (\s@UpdateGatewayResponse' {} a -> s {responseType = a} :: UpdateGatewayResponse)
 

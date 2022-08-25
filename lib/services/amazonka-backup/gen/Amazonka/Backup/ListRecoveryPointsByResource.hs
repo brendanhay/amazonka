@@ -25,6 +25,8 @@
 --
 -- For Amazon EFS and Amazon EC2, this action only lists recovery points
 -- created by Backup.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListRecoveryPointsByResource
   ( -- * Creating a Request
     ListRecoveryPointsByResource (..),
@@ -118,6 +120,28 @@ listRecoveryPointsByResource_maxResults = Lens.lens (\ListRecoveryPointsByResour
 -- depends on the resource type.
 listRecoveryPointsByResource_resourceArn :: Lens.Lens' ListRecoveryPointsByResource Prelude.Text
 listRecoveryPointsByResource_resourceArn = Lens.lens (\ListRecoveryPointsByResource' {resourceArn} -> resourceArn) (\s@ListRecoveryPointsByResource' {} a -> s {resourceArn = a} :: ListRecoveryPointsByResource)
+
+instance Core.AWSPager ListRecoveryPointsByResource where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRecoveryPointsByResourceResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRecoveryPointsByResourceResponse_recoveryPoints
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRecoveryPointsByResource_nextToken
+          Lens..~ rs
+          Lens.^? listRecoveryPointsByResourceResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecoveryPointsByResource where
   type

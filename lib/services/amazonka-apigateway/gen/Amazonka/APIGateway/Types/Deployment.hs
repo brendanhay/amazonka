@@ -28,15 +28,6 @@ import qualified Amazonka.Prelude as Prelude
 -- users using Stages. A deployment must be associated with a Stage for it
 -- to be callable over the Internet.
 --
--- To create a deployment, call @POST@ on the Deployments resource of a
--- RestApi. To view, update, or delete a deployment, call @GET@, @PATCH@,
--- or @DELETE@ on the specified deployment resource
--- (@\/restapis\/{restapi_id}\/deployments\/{deployment_id}@).
---
--- RestApi, Deployments, Stage,
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html AWS CLI>,
--- <https://aws.amazon.com/tools/ AWS SDKs>
---
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
   { -- | The description for the deployment resource.

@@ -27,7 +27,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A notification that is associated with a budget. A budget can have up to
+-- | A notification that\'s associated with a budget. A budget can have up to
 -- ten notifications.
 --
 -- Each notification must have at least one subscriber. A notification can
@@ -49,22 +49,25 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newNotification' smart constructor.
 data Notification = Notification'
   { -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
-    -- thresholds, AWS notifies you when you go over or are forecasted to go
-    -- over your total cost threshold. For @PERCENTAGE@ thresholds, AWS
-    -- notifies you when you go over or are forecasted to go over a certain
-    -- percentage of your forecasted spend. For example, if you have a budget
-    -- for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS
-    -- notifies you when you go over 160 dollars.
+    -- thresholds, Amazon Web Services notifies you when you go over or are
+    -- forecasted to go over your total cost threshold. For @PERCENTAGE@
+    -- thresholds, Amazon Web Services notifies you when you go over or are
+    -- forecasted to go over a certain percentage of your forecasted spend. For
+    -- example, if you have a budget for 200 dollars and you have a
+    -- @PERCENTAGE@ threshold of 80%, Amazon Web Services notifies you when you
+    -- go over 160 dollars.
     thresholdType :: Prelude.Maybe ThresholdType,
-    -- | Whether this notification is in alarm. If a budget notification is in
-    -- the @ALARM@ state, you have passed the set threshold for the budget.
+    -- | Specifies whether this notification is in alarm. If a budget
+    -- notification is in the @ALARM@ state, you passed the set threshold for
+    -- the budget.
     notificationState :: Prelude.Maybe NotificationState,
-    -- | Whether the notification is for how much you have spent (@ACTUAL@) or
-    -- for how much you\'re forecasted to spend (@FORECASTED@).
+    -- | Specifies whether the notification is for how much you have spent
+    -- (@ACTUAL@) or for how much that you\'re forecasted to spend
+    -- (@FORECASTED@).
     notificationType :: NotificationType,
-    -- | The comparison that is used for this notification.
+    -- | The comparison that\'s used for this notification.
     comparisonOperator :: ComparisonOperator,
-    -- | The threshold that is associated with a notification. Thresholds are
+    -- | The threshold that\'s associated with a notification. Thresholds are
     -- always a percentage, and many customers find value being alerted between
     -- 50% - 200% of the budgeted amount. The maximum limit for your threshold
     -- is 1,000,000% above the budgeted amount.
@@ -81,22 +84,25 @@ data Notification = Notification'
 -- for backwards compatibility:
 --
 -- 'thresholdType', 'notification_thresholdType' - The type of threshold for a notification. For @ABSOLUTE_VALUE@
--- thresholds, AWS notifies you when you go over or are forecasted to go
--- over your total cost threshold. For @PERCENTAGE@ thresholds, AWS
--- notifies you when you go over or are forecasted to go over a certain
--- percentage of your forecasted spend. For example, if you have a budget
--- for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS
--- notifies you when you go over 160 dollars.
+-- thresholds, Amazon Web Services notifies you when you go over or are
+-- forecasted to go over your total cost threshold. For @PERCENTAGE@
+-- thresholds, Amazon Web Services notifies you when you go over or are
+-- forecasted to go over a certain percentage of your forecasted spend. For
+-- example, if you have a budget for 200 dollars and you have a
+-- @PERCENTAGE@ threshold of 80%, Amazon Web Services notifies you when you
+-- go over 160 dollars.
 --
--- 'notificationState', 'notification_notificationState' - Whether this notification is in alarm. If a budget notification is in
--- the @ALARM@ state, you have passed the set threshold for the budget.
+-- 'notificationState', 'notification_notificationState' - Specifies whether this notification is in alarm. If a budget
+-- notification is in the @ALARM@ state, you passed the set threshold for
+-- the budget.
 --
--- 'notificationType', 'notification_notificationType' - Whether the notification is for how much you have spent (@ACTUAL@) or
--- for how much you\'re forecasted to spend (@FORECASTED@).
+-- 'notificationType', 'notification_notificationType' - Specifies whether the notification is for how much you have spent
+-- (@ACTUAL@) or for how much that you\'re forecasted to spend
+-- (@FORECASTED@).
 --
--- 'comparisonOperator', 'notification_comparisonOperator' - The comparison that is used for this notification.
+-- 'comparisonOperator', 'notification_comparisonOperator' - The comparison that\'s used for this notification.
 --
--- 'threshold', 'notification_threshold' - The threshold that is associated with a notification. Thresholds are
+-- 'threshold', 'notification_threshold' - The threshold that\'s associated with a notification. Thresholds are
 -- always a percentage, and many customers find value being alerted between
 -- 50% - 200% of the budgeted amount. The maximum limit for your threshold
 -- is 1,000,000% above the budgeted amount.
@@ -121,30 +127,33 @@ newNotification
       }
 
 -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
--- thresholds, AWS notifies you when you go over or are forecasted to go
--- over your total cost threshold. For @PERCENTAGE@ thresholds, AWS
--- notifies you when you go over or are forecasted to go over a certain
--- percentage of your forecasted spend. For example, if you have a budget
--- for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS
--- notifies you when you go over 160 dollars.
+-- thresholds, Amazon Web Services notifies you when you go over or are
+-- forecasted to go over your total cost threshold. For @PERCENTAGE@
+-- thresholds, Amazon Web Services notifies you when you go over or are
+-- forecasted to go over a certain percentage of your forecasted spend. For
+-- example, if you have a budget for 200 dollars and you have a
+-- @PERCENTAGE@ threshold of 80%, Amazon Web Services notifies you when you
+-- go over 160 dollars.
 notification_thresholdType :: Lens.Lens' Notification (Prelude.Maybe ThresholdType)
 notification_thresholdType = Lens.lens (\Notification' {thresholdType} -> thresholdType) (\s@Notification' {} a -> s {thresholdType = a} :: Notification)
 
--- | Whether this notification is in alarm. If a budget notification is in
--- the @ALARM@ state, you have passed the set threshold for the budget.
+-- | Specifies whether this notification is in alarm. If a budget
+-- notification is in the @ALARM@ state, you passed the set threshold for
+-- the budget.
 notification_notificationState :: Lens.Lens' Notification (Prelude.Maybe NotificationState)
 notification_notificationState = Lens.lens (\Notification' {notificationState} -> notificationState) (\s@Notification' {} a -> s {notificationState = a} :: Notification)
 
--- | Whether the notification is for how much you have spent (@ACTUAL@) or
--- for how much you\'re forecasted to spend (@FORECASTED@).
+-- | Specifies whether the notification is for how much you have spent
+-- (@ACTUAL@) or for how much that you\'re forecasted to spend
+-- (@FORECASTED@).
 notification_notificationType :: Lens.Lens' Notification NotificationType
 notification_notificationType = Lens.lens (\Notification' {notificationType} -> notificationType) (\s@Notification' {} a -> s {notificationType = a} :: Notification)
 
--- | The comparison that is used for this notification.
+-- | The comparison that\'s used for this notification.
 notification_comparisonOperator :: Lens.Lens' Notification ComparisonOperator
 notification_comparisonOperator = Lens.lens (\Notification' {comparisonOperator} -> comparisonOperator) (\s@Notification' {} a -> s {comparisonOperator = a} :: Notification)
 
--- | The threshold that is associated with a notification. Thresholds are
+-- | The threshold that\'s associated with a notification. Thresholds are
 -- always a percentage, and many customers find value being alerted between
 -- 50% - 200% of the budgeted amount. The maximum limit for your threshold
 -- is 1,000,000% above the budgeted amount.

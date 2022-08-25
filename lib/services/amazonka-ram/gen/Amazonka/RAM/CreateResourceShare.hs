@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a resource share. You must provide a list of the Amazon Resource
--- Names (ARNs) for the resources you want to share. You must also specify
--- who you want to share the resources with, and the permissions that you
--- grant them.
+-- Creates a resource share. You can provide a list of the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- for the resources that you want to share, a list of principals you want
+-- to share the resources with, and the permissions to grant those
+-- principals.
 --
 -- Sharing a resource makes it available for use by principals outside of
 -- the Amazon Web Services account that created the resource. Sharing
@@ -63,41 +64,66 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResourceShare' smart constructor.
 data CreateResourceShare = CreateResourceShare'
-  { -- | One or more tags.
+  { -- | Specifies one or more tags to attach to the resource share itself. It
+    -- doesn\'t attach the tags to the resources associated with the resource
+    -- share.
     tags :: Prelude.Maybe [Tag],
-    -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- | Specifies a unique, case-sensitive identifier that you provide to ensure
+    -- the idempotency of the request. This lets you safely retry the request
+    -- without accidentally performing the same operation a second time.
+    -- Passing the same value to a later call to an operation requires that you
+    -- also pass the same value for all other parameters. We recommend that you
+    -- use a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+    --
+    -- If you don\'t provide this value, then Amazon Web Services generates a
+    -- random one for you.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Names (ARNs) of the permissions to associate with
-    -- the resource share. If you do not specify an ARN for the permission, RAM
-    -- automatically attaches the default version of the permission for each
-    -- resource type. Only one permission can be associated with each resource
-    -- type in a resource share.
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- of the RAM permission to associate with the resource share. If you do
+    -- not specify an ARN for the permission, RAM automatically attaches the
+    -- default version of the permission for each resource type. You can
+    -- associate only one permission with each resource type included in the
+    -- resource share.
     permissionArns :: Prelude.Maybe [Prelude.Text],
-    -- | The principals to associate with the resource share. The possible values
-    -- are:
+    -- | Specifies a list of one or more principals to associate with the
+    -- resource share.
     --
-    -- -   An Amazon Web Services account ID
+    -- You can include the following values:
     --
-    -- -   An Amazon Resource Name (ARN) of an organization in Organizations
+    -- -   An Amazon Web Services account ID, for example: @123456789012@
     --
-    -- -   An ARN of an organizational unit (OU) in Organizations
+    -- -   An
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     of an organization in Organizations, for example:
+    --     @organizations::123456789012:organization\/o-exampleorgid@
     --
-    -- -   An ARN of an IAM role
+    -- -   An ARN of an organizational unit (OU) in Organizations, for example:
+    --     @organizations::123456789012:ou\/o-exampleorgid\/ou-examplerootid-exampleouid123@
     --
-    -- -   An ARN of an IAM user
+    -- -   An ARN of an IAM role, for example:
+    --     @iam::123456789012:role\/rolename@
     --
-    -- Not all resource types can be shared with IAM roles and IAM users. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and IAM users>
+    -- -   An ARN of an IAM user, for example:
+    --     @iam::123456789012user\/username@
+    --
+    -- Not all resource types can be shared with IAM roles and users. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and users>
     -- in the /Resource Access Manager User Guide/.
     principals :: Prelude.Maybe [Prelude.Text],
-    -- | The ARNs of the resources to associate with the resource share.
+    -- | Specifies a list of one or more ARNs of the resources to associate with
+    -- the resource share.
     resourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether principals outside your organization in Organizations
-    -- can be associated with a resource share.
+    -- | Specifies whether principals outside your organization in Organizations
+    -- can be associated with a resource share. A value of @true@ lets you
+    -- share with individual Amazon Web Services accounts that are /not/ in
+    -- your organization. A value of @false@ only has meaning if your account
+    -- is a member of an Amazon Web Services Organization. The default value is
+    -- @true@.
     allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the resource share.
+    -- | Specifies the name of the resource share.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -110,41 +136,66 @@ data CreateResourceShare = CreateResourceShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResourceShare_tags' - One or more tags.
+-- 'tags', 'createResourceShare_tags' - Specifies one or more tags to attach to the resource share itself. It
+-- doesn\'t attach the tags to the resources associated with the resource
+-- share.
 --
--- 'clientToken', 'createResourceShare_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'createResourceShare_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
 --
--- 'permissionArns', 'createResourceShare_permissionArns' - The Amazon Resource Names (ARNs) of the permissions to associate with
--- the resource share. If you do not specify an ARN for the permission, RAM
--- automatically attaches the default version of the permission for each
--- resource type. Only one permission can be associated with each resource
--- type in a resource share.
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 --
--- 'principals', 'createResourceShare_principals' - The principals to associate with the resource share. The possible values
--- are:
+-- 'permissionArns', 'createResourceShare_permissionArns' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- of the RAM permission to associate with the resource share. If you do
+-- not specify an ARN for the permission, RAM automatically attaches the
+-- default version of the permission for each resource type. You can
+-- associate only one permission with each resource type included in the
+-- resource share.
 --
--- -   An Amazon Web Services account ID
+-- 'principals', 'createResourceShare_principals' - Specifies a list of one or more principals to associate with the
+-- resource share.
 --
--- -   An Amazon Resource Name (ARN) of an organization in Organizations
+-- You can include the following values:
 --
--- -   An ARN of an organizational unit (OU) in Organizations
+-- -   An Amazon Web Services account ID, for example: @123456789012@
 --
--- -   An ARN of an IAM role
+-- -   An
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     of an organization in Organizations, for example:
+--     @organizations::123456789012:organization\/o-exampleorgid@
 --
--- -   An ARN of an IAM user
+-- -   An ARN of an organizational unit (OU) in Organizations, for example:
+--     @organizations::123456789012:ou\/o-exampleorgid\/ou-examplerootid-exampleouid123@
 --
--- Not all resource types can be shared with IAM roles and IAM users. For
--- more information, see
--- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and IAM users>
+-- -   An ARN of an IAM role, for example:
+--     @iam::123456789012:role\/rolename@
+--
+-- -   An ARN of an IAM user, for example:
+--     @iam::123456789012user\/username@
+--
+-- Not all resource types can be shared with IAM roles and users. For more
+-- information, see
+-- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and users>
 -- in the /Resource Access Manager User Guide/.
 --
--- 'resourceArns', 'createResourceShare_resourceArns' - The ARNs of the resources to associate with the resource share.
+-- 'resourceArns', 'createResourceShare_resourceArns' - Specifies a list of one or more ARNs of the resources to associate with
+-- the resource share.
 --
--- 'allowExternalPrincipals', 'createResourceShare_allowExternalPrincipals' - Indicates whether principals outside your organization in Organizations
--- can be associated with a resource share.
+-- 'allowExternalPrincipals', 'createResourceShare_allowExternalPrincipals' - Specifies whether principals outside your organization in Organizations
+-- can be associated with a resource share. A value of @true@ lets you
+-- share with individual Amazon Web Services accounts that are /not/ in
+-- your organization. A value of @false@ only has meaning if your account
+-- is a member of an Amazon Web Services Organization. The default value is
+-- @true@.
 --
--- 'name', 'createResourceShare_name' - The name of the resource share.
+-- 'name', 'createResourceShare_name' - Specifies the name of the resource share.
 newCreateResourceShare ::
   -- | 'name'
   Prelude.Text ->
@@ -160,53 +211,78 @@ newCreateResourceShare pName_ =
       name = pName_
     }
 
--- | One or more tags.
+-- | Specifies one or more tags to attach to the resource share itself. It
+-- doesn\'t attach the tags to the resources associated with the resource
+-- share.
 createResourceShare_tags :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Tag])
 createResourceShare_tags = Lens.lens (\CreateResourceShare' {tags} -> tags) (\s@CreateResourceShare' {} a -> s {tags = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+--
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 createResourceShare_clientToken :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Text)
 createResourceShare_clientToken = Lens.lens (\CreateResourceShare' {clientToken} -> clientToken) (\s@CreateResourceShare' {} a -> s {clientToken = a} :: CreateResourceShare)
 
--- | The Amazon Resource Names (ARNs) of the permissions to associate with
--- the resource share. If you do not specify an ARN for the permission, RAM
--- automatically attaches the default version of the permission for each
--- resource type. Only one permission can be associated with each resource
--- type in a resource share.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- of the RAM permission to associate with the resource share. If you do
+-- not specify an ARN for the permission, RAM automatically attaches the
+-- default version of the permission for each resource type. You can
+-- associate only one permission with each resource type included in the
+-- resource share.
 createResourceShare_permissionArns :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
 createResourceShare_permissionArns = Lens.lens (\CreateResourceShare' {permissionArns} -> permissionArns) (\s@CreateResourceShare' {} a -> s {permissionArns = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | The principals to associate with the resource share. The possible values
--- are:
+-- | Specifies a list of one or more principals to associate with the
+-- resource share.
 --
--- -   An Amazon Web Services account ID
+-- You can include the following values:
 --
--- -   An Amazon Resource Name (ARN) of an organization in Organizations
+-- -   An Amazon Web Services account ID, for example: @123456789012@
 --
--- -   An ARN of an organizational unit (OU) in Organizations
+-- -   An
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     of an organization in Organizations, for example:
+--     @organizations::123456789012:organization\/o-exampleorgid@
 --
--- -   An ARN of an IAM role
+-- -   An ARN of an organizational unit (OU) in Organizations, for example:
+--     @organizations::123456789012:ou\/o-exampleorgid\/ou-examplerootid-exampleouid123@
 --
--- -   An ARN of an IAM user
+-- -   An ARN of an IAM role, for example:
+--     @iam::123456789012:role\/rolename@
 --
--- Not all resource types can be shared with IAM roles and IAM users. For
--- more information, see
--- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and IAM users>
+-- -   An ARN of an IAM user, for example:
+--     @iam::123456789012user\/username@
+--
+-- Not all resource types can be shared with IAM roles and users. For more
+-- information, see
+-- <https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types Sharing with IAM roles and users>
 -- in the /Resource Access Manager User Guide/.
 createResourceShare_principals :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
 createResourceShare_principals = Lens.lens (\CreateResourceShare' {principals} -> principals) (\s@CreateResourceShare' {} a -> s {principals = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARNs of the resources to associate with the resource share.
+-- | Specifies a list of one or more ARNs of the resources to associate with
+-- the resource share.
 createResourceShare_resourceArns :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
 createResourceShare_resourceArns = Lens.lens (\CreateResourceShare' {resourceArns} -> resourceArns) (\s@CreateResourceShare' {} a -> s {resourceArns = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether principals outside your organization in Organizations
--- can be associated with a resource share.
+-- | Specifies whether principals outside your organization in Organizations
+-- can be associated with a resource share. A value of @true@ lets you
+-- share with individual Amazon Web Services accounts that are /not/ in
+-- your organization. A value of @false@ only has meaning if your account
+-- is a member of an Amazon Web Services Organization. The default value is
+-- @true@.
 createResourceShare_allowExternalPrincipals :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Bool)
 createResourceShare_allowExternalPrincipals = Lens.lens (\CreateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@CreateResourceShare' {} a -> s {allowExternalPrincipals = a} :: CreateResourceShare)
 
--- | The name of the resource share.
+-- | Specifies the name of the resource share.
 createResourceShare_name :: Lens.Lens' CreateResourceShare Prelude.Text
 createResourceShare_name = Lens.lens (\CreateResourceShare' {name} -> name) (\s@CreateResourceShare' {} a -> s {name = a} :: CreateResourceShare)
 
@@ -279,10 +355,13 @@ instance Core.ToQuery CreateResourceShare where
 
 -- | /See:/ 'newCreateResourceShareResponse' smart constructor.
 data CreateResourceShareResponse = CreateResourceShareResponse'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | The idempotency identifier associated with this request. If you want to
+    -- repeat the same operation in an idempotent manner then you must include
+    -- this value in the @clientToken@ request parameter of that later call.
+    -- All other parameters must also have the same values that you used in the
+    -- first call.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the resource share.
+    -- | An object with information about the new resource share.
     resourceShare :: Prelude.Maybe ResourceShare,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -297,10 +376,13 @@ data CreateResourceShareResponse = CreateResourceShareResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createResourceShareResponse_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'createResourceShareResponse_clientToken' - The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 --
--- 'resourceShare', 'createResourceShareResponse_resourceShare' - Information about the resource share.
+-- 'resourceShare', 'createResourceShareResponse_resourceShare' - An object with information about the new resource share.
 --
 -- 'httpStatus', 'createResourceShareResponse_httpStatus' - The response's http status code.
 newCreateResourceShareResponse ::
@@ -315,12 +397,15 @@ newCreateResourceShareResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 createResourceShareResponse_clientToken :: Lens.Lens' CreateResourceShareResponse (Prelude.Maybe Prelude.Text)
 createResourceShareResponse_clientToken = Lens.lens (\CreateResourceShareResponse' {clientToken} -> clientToken) (\s@CreateResourceShareResponse' {} a -> s {clientToken = a} :: CreateResourceShareResponse)
 
--- | Information about the resource share.
+-- | An object with information about the new resource share.
 createResourceShareResponse_resourceShare :: Lens.Lens' CreateResourceShareResponse (Prelude.Maybe ResourceShare)
 createResourceShareResponse_resourceShare = Lens.lens (\CreateResourceShareResponse' {resourceShare} -> resourceShare) (\s@CreateResourceShareResponse' {} a -> s {resourceShare = a} :: CreateResourceShareResponse)
 

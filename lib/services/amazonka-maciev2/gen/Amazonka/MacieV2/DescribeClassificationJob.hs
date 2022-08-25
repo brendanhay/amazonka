@@ -241,7 +241,8 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     initialRun :: Prelude.Maybe Prelude.Bool,
     -- | The date and time, in UTC and extended ISO 8601 format, when the job
     -- started. If the job is a recurring job, this value indicates when the
-    -- most recent run started.
+    -- most recent run started or, if the job hasn\'t run yet, when the job was
+    -- created.
     lastRunTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies whether any account- or bucket-level access errors occurred
     -- when the job ran. For a recurring job, this value indicates the error
@@ -369,7 +370,8 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
 --
 -- 'lastRunTime', 'describeClassificationJobResponse_lastRunTime' - The date and time, in UTC and extended ISO 8601 format, when the job
 -- started. If the job is a recurring job, this value indicates when the
--- most recent run started.
+-- most recent run started or, if the job hasn\'t run yet, when the job was
+-- created.
 --
 -- 'lastRunErrorStatus', 'describeClassificationJobResponse_lastRunErrorStatus' - Specifies whether any account- or bucket-level access errors occurred
 -- when the job ran. For a recurring job, this value indicates the error
@@ -544,7 +546,8 @@ describeClassificationJobResponse_initialRun = Lens.lens (\DescribeClassificatio
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the job
 -- started. If the job is a recurring job, this value indicates when the
--- most recent run started.
+-- most recent run started or, if the job hasn\'t run yet, when the job was
+-- created.
 describeClassificationJobResponse_lastRunTime :: Lens.Lens' DescribeClassificationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeClassificationJobResponse_lastRunTime = Lens.lens (\DescribeClassificationJobResponse' {lastRunTime} -> lastRunTime) (\s@DescribeClassificationJobResponse' {} a -> s {lastRunTime = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Core._Time
 

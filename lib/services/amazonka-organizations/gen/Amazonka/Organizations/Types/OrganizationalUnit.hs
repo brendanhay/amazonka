@@ -24,9 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an organizational unit (OU). An OU is a container
--- of AWS accounts within a root of an organization. Policies that are
--- attached to an OU apply to all accounts contained in that OU and in any
--- child OUs.
+-- of Amazon Web Services accounts within a root of an organization.
+-- Policies that are attached to an OU apply to all accounts contained in
+-- that OU and in any child OUs.
 --
 -- /See:/ 'newOrganizationalUnit' smart constructor.
 data OrganizationalUnit = OrganizationalUnit'
@@ -40,7 +40,7 @@ data OrganizationalUnit = OrganizationalUnit'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) associated with this OU.
     --
@@ -71,7 +71,7 @@ data OrganizationalUnit = OrganizationalUnit'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 --
 -- 'id', 'organizationalUnit_id' - The unique identifier (ID) associated with this OU.
 --
@@ -101,7 +101,7 @@ organizationalUnit_name = Lens.lens (\OrganizationalUnit' {name} -> name) (\s@Or
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 organizationalUnit_arn :: Lens.Lens' OrganizationalUnit (Prelude.Maybe Prelude.Text)
 organizationalUnit_arn = Lens.lens (\OrganizationalUnit' {arn} -> arn) (\s@OrganizationalUnit' {} a -> s {arn = a} :: OrganizationalUnit)
 

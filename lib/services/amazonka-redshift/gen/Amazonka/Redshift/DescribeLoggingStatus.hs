@@ -39,8 +39,10 @@ module Amazonka.Redshift.DescribeLoggingStatus
     loggingStatus_s3KeyPrefix,
     loggingStatus_lastFailureMessage,
     loggingStatus_loggingEnabled,
+    loggingStatus_logExports,
     loggingStatus_bucketName,
     loggingStatus_lastFailureTime,
+    loggingStatus_logDestinationType,
   )
 where
 

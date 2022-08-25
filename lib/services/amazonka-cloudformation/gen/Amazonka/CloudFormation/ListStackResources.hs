@@ -61,7 +61,7 @@ data ListStackResources = ListStackResources'
     -- to retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
+    -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
     --     unique stack ID.
@@ -85,7 +85,7 @@ data ListStackResources = ListStackResources'
 -- to retrieve.
 --
 -- 'stackName', 'listStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -109,7 +109,7 @@ listStackResources_nextToken :: Lens.Lens' ListStackResources (Prelude.Maybe Pre
 listStackResources_nextToken = Lens.lens (\ListStackResources' {nextToken} -> nextToken) (\s@ListStackResources' {} a -> s {nextToken = a} :: ListStackResources)
 
 -- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.

@@ -103,6 +103,12 @@ module Amazonka.ElasticSearch.Lens
     describeDomainAutoTunesResponse_autoTunes,
     describeDomainAutoTunesResponse_httpStatus,
 
+    -- ** DescribeDomainChangeProgress
+    describeDomainChangeProgress_changeId,
+    describeDomainChangeProgress_domainName,
+    describeDomainChangeProgressResponse_changeProgressStatus,
+    describeDomainChangeProgressResponse_httpStatus,
+
     -- ** DescribeElasticsearchDomain
     describeElasticsearchDomain_domainName,
     describeElasticsearchDomainResponse_httpStatus,
@@ -271,6 +277,7 @@ module Amazonka.ElasticSearch.Lens
     updateElasticsearchDomainConfig_advancedSecurityOptions,
     updateElasticsearchDomainConfig_cognitoOptions,
     updateElasticsearchDomainConfig_encryptionAtRestOptions,
+    updateElasticsearchDomainConfig_dryRun,
     updateElasticsearchDomainConfig_eBSOptions,
     updateElasticsearchDomainConfig_accessPolicies,
     updateElasticsearchDomainConfig_vPCOptions,
@@ -279,6 +286,7 @@ module Amazonka.ElasticSearch.Lens
     updateElasticsearchDomainConfig_snapshotOptions,
     updateElasticsearchDomainConfig_logPublishingOptions,
     updateElasticsearchDomainConfig_domainName,
+    updateElasticsearchDomainConfigResponse_dryRunResults,
     updateElasticsearchDomainConfigResponse_httpStatus,
     updateElasticsearchDomainConfigResponse_domainConfig,
 
@@ -294,6 +302,7 @@ module Amazonka.ElasticSearch.Lens
     upgradeElasticsearchDomain_performCheckOnly,
     upgradeElasticsearchDomain_domainName,
     upgradeElasticsearchDomain_targetVersion,
+    upgradeElasticsearchDomainResponse_changeProgressDetails,
     upgradeElasticsearchDomainResponse_domainName,
     upgradeElasticsearchDomainResponse_targetVersion,
     upgradeElasticsearchDomainResponse_performCheckOnly,
@@ -316,11 +325,14 @@ module Amazonka.ElasticSearch.Lens
     -- ** AdvancedSecurityOptions
     advancedSecurityOptions_internalUserDatabaseEnabled,
     advancedSecurityOptions_sAMLOptions,
+    advancedSecurityOptions_anonymousAuthEnabled,
     advancedSecurityOptions_enabled,
+    advancedSecurityOptions_anonymousAuthDisableDate,
 
     -- ** AdvancedSecurityOptionsInput
     advancedSecurityOptionsInput_internalUserDatabaseEnabled,
     advancedSecurityOptionsInput_sAMLOptions,
+    advancedSecurityOptionsInput_anonymousAuthEnabled,
     advancedSecurityOptionsInput_enabled,
     advancedSecurityOptionsInput_masterUserOptions,
 
@@ -364,6 +376,25 @@ module Amazonka.ElasticSearch.Lens
     autoTuneStatus_creationDate,
     autoTuneStatus_updateDate,
     autoTuneStatus_state,
+
+    -- ** ChangeProgressDetails
+    changeProgressDetails_message,
+    changeProgressDetails_changeId,
+
+    -- ** ChangeProgressStage
+    changeProgressStage_name,
+    changeProgressStage_status,
+    changeProgressStage_description,
+    changeProgressStage_lastUpdated,
+
+    -- ** ChangeProgressStatusDetails
+    changeProgressStatusDetails_totalNumberOfStages,
+    changeProgressStatusDetails_changeId,
+    changeProgressStatusDetails_pendingProperties,
+    changeProgressStatusDetails_status,
+    changeProgressStatusDetails_changeProgressStages,
+    changeProgressStatusDetails_completedProperties,
+    changeProgressStatusDetails_startTime,
 
     -- ** CognitoOptions
     cognitoOptions_roleArn,
@@ -417,6 +448,10 @@ module Amazonka.ElasticSearch.Lens
     domainPackageDetails_packageVersion,
     domainPackageDetails_packageType,
 
+    -- ** DryRunResults
+    dryRunResults_message,
+    dryRunResults_deploymentType,
+
     -- ** Duration
     duration_unit,
     duration_value,
@@ -424,6 +459,7 @@ module Amazonka.ElasticSearch.Lens
     -- ** EBSOptions
     eBSOptions_volumeType,
     eBSOptions_volumeSize,
+    eBSOptions_throughput,
     eBSOptions_eBSEnabled,
     eBSOptions_iops,
 
@@ -452,6 +488,7 @@ module Amazonka.ElasticSearch.Lens
     elasticsearchDomainConfig_nodeToNodeEncryptionOptions,
     elasticsearchDomainConfig_advancedOptions,
     elasticsearchDomainConfig_elasticsearchClusterConfig,
+    elasticsearchDomainConfig_changeProgressDetails,
     elasticsearchDomainConfig_advancedSecurityOptions,
     elasticsearchDomainConfig_cognitoOptions,
     elasticsearchDomainConfig_encryptionAtRestOptions,
@@ -467,6 +504,7 @@ module Amazonka.ElasticSearch.Lens
     -- ** ElasticsearchDomainStatus
     elasticsearchDomainStatus_nodeToNodeEncryptionOptions,
     elasticsearchDomainStatus_advancedOptions,
+    elasticsearchDomainStatus_changeProgressDetails,
     elasticsearchDomainStatus_deleted,
     elasticsearchDomainStatus_created,
     elasticsearchDomainStatus_advancedSecurityOptions,
@@ -719,6 +757,7 @@ import Amazonka.ElasticSearch.DeleteInboundCrossClusterSearchConnection
 import Amazonka.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
 import Amazonka.ElasticSearch.DeletePackage
 import Amazonka.ElasticSearch.DescribeDomainAutoTunes
+import Amazonka.ElasticSearch.DescribeDomainChangeProgress
 import Amazonka.ElasticSearch.DescribeElasticsearchDomain
 import Amazonka.ElasticSearch.DescribeElasticsearchDomainConfig
 import Amazonka.ElasticSearch.DescribeElasticsearchDomains
@@ -757,6 +796,9 @@ import Amazonka.ElasticSearch.Types.AutoTuneOptionsInput
 import Amazonka.ElasticSearch.Types.AutoTuneOptionsOutput
 import Amazonka.ElasticSearch.Types.AutoTuneOptionsStatus
 import Amazonka.ElasticSearch.Types.AutoTuneStatus
+import Amazonka.ElasticSearch.Types.ChangeProgressDetails
+import Amazonka.ElasticSearch.Types.ChangeProgressStage
+import Amazonka.ElasticSearch.Types.ChangeProgressStatusDetails
 import Amazonka.ElasticSearch.Types.CognitoOptions
 import Amazonka.ElasticSearch.Types.CognitoOptionsStatus
 import Amazonka.ElasticSearch.Types.ColdStorageOptions
@@ -767,6 +809,7 @@ import Amazonka.ElasticSearch.Types.DomainEndpointOptionsStatus
 import Amazonka.ElasticSearch.Types.DomainInfo
 import Amazonka.ElasticSearch.Types.DomainInformation
 import Amazonka.ElasticSearch.Types.DomainPackageDetails
+import Amazonka.ElasticSearch.Types.DryRunResults
 import Amazonka.ElasticSearch.Types.Duration
 import Amazonka.ElasticSearch.Types.EBSOptions
 import Amazonka.ElasticSearch.Types.EBSOptionsStatus

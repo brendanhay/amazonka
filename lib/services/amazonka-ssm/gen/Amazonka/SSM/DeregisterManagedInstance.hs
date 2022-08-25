@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the server or virtual machine from the list of registered
--- servers. You can reregister the instance again at any time. If you
--- don\'t plan to use Run Command on the server, we suggest uninstalling
--- SSM Agent first.
+-- servers. You can reregister the node again at any time. If you don\'t
+-- plan to use Run Command on the server, we suggest uninstalling SSM Agent
+-- first.
 module Amazonka.SSM.DeregisterManagedInstance
   ( -- * Creating a Request
     DeregisterManagedInstance (..),
@@ -50,7 +50,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDeregisterManagedInstance' smart constructor.
 data DeregisterManagedInstance = DeregisterManagedInstance'
-  { -- | The ID assigned to the managed instance when you registered it using the
+  { -- | The ID assigned to the managed node when you registered it using the
     -- activation process.
     instanceId :: Prelude.Text
   }
@@ -64,7 +64,7 @@ data DeregisterManagedInstance = DeregisterManagedInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deregisterManagedInstance_instanceId' - The ID assigned to the managed instance when you registered it using the
+-- 'instanceId', 'deregisterManagedInstance_instanceId' - The ID assigned to the managed node when you registered it using the
 -- activation process.
 newDeregisterManagedInstance ::
   -- | 'instanceId'
@@ -76,7 +76,7 @@ newDeregisterManagedInstance pInstanceId_ =
         pInstanceId_
     }
 
--- | The ID assigned to the managed instance when you registered it using the
+-- | The ID assigned to the managed node when you registered it using the
 -- activation process.
 deregisterManagedInstance_instanceId :: Lens.Lens' DeregisterManagedInstance Prelude.Text
 deregisterManagedInstance_instanceId = Lens.lens (\DeregisterManagedInstance' {instanceId} -> instanceId) (\s@DeregisterManagedInstance' {} a -> s {instanceId = a} :: DeregisterManagedInstance)

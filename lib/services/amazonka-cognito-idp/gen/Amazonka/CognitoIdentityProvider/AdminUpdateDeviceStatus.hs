@@ -175,7 +175,7 @@ instance Core.ToPath AdminUpdateDeviceStatus where
 instance Core.ToQuery AdminUpdateDeviceStatus where
   toQuery = Prelude.const Prelude.mempty
 
--- | The status response from the request to update the device, as an
+-- | The status response to the request to update the device, as an
 -- administrator.
 --
 -- /See:/ 'newAdminUpdateDeviceStatusResponse' smart constructor.

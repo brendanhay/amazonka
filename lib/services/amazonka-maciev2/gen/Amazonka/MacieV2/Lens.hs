@@ -45,13 +45,14 @@ module Amazonka.MacieV2.Lens
 
     -- ** CreateCustomDataIdentifier
     createCustomDataIdentifier_tags,
-    createCustomDataIdentifier_name,
     createCustomDataIdentifier_clientToken,
-    createCustomDataIdentifier_regex,
     createCustomDataIdentifier_ignoreWords,
     createCustomDataIdentifier_keywords,
     createCustomDataIdentifier_description,
+    createCustomDataIdentifier_severityLevels,
     createCustomDataIdentifier_maximumMatchDistance,
+    createCustomDataIdentifier_name,
+    createCustomDataIdentifier_regex,
     createCustomDataIdentifierResponse_customDataIdentifierId,
     createCustomDataIdentifierResponse_httpStatus,
 
@@ -208,6 +209,7 @@ module Amazonka.MacieV2.Lens
     getCustomDataIdentifierResponse_keywords,
     getCustomDataIdentifierResponse_description,
     getCustomDataIdentifierResponse_id,
+    getCustomDataIdentifierResponse_severityLevels,
     getCustomDataIdentifierResponse_maximumMatchDistance,
     getCustomDataIdentifierResponse_createdAt,
     getCustomDataIdentifierResponse_httpStatus,
@@ -270,6 +272,23 @@ module Amazonka.MacieV2.Lens
     getMemberResponse_relationshipStatus,
     getMemberResponse_updatedAt,
     getMemberResponse_httpStatus,
+
+    -- ** GetRevealConfiguration
+    getRevealConfigurationResponse_configuration,
+    getRevealConfigurationResponse_httpStatus,
+
+    -- ** GetSensitiveDataOccurrences
+    getSensitiveDataOccurrences_findingId,
+    getSensitiveDataOccurrencesResponse_sensitiveDataOccurrences,
+    getSensitiveDataOccurrencesResponse_status,
+    getSensitiveDataOccurrencesResponse_error,
+    getSensitiveDataOccurrencesResponse_httpStatus,
+
+    -- ** GetSensitiveDataOccurrencesAvailability
+    getSensitiveDataOccurrencesAvailability_findingId,
+    getSensitiveDataOccurrencesAvailabilityResponse_code,
+    getSensitiveDataOccurrencesAvailabilityResponse_reasons,
+    getSensitiveDataOccurrencesAvailabilityResponse_httpStatus,
 
     -- ** GetUsageStatistics
     getUsageStatistics_nextToken,
@@ -422,6 +441,11 @@ module Amazonka.MacieV2.Lens
     updateOrganizationConfiguration_autoEnable,
     updateOrganizationConfigurationResponse_httpStatus,
 
+    -- ** UpdateRevealConfiguration
+    updateRevealConfiguration_configuration,
+    updateRevealConfigurationResponse_configuration,
+    updateRevealConfigurationResponse_httpStatus,
+
     -- * Types
 
     -- ** AccessControlList
@@ -563,6 +587,7 @@ module Amazonka.MacieV2.Lens
     cell_column,
 
     -- ** ClassificationDetails
+    classificationDetails_originType,
     classificationDetails_jobId,
     classificationDetails_detailedResultsLocation,
     classificationDetails_result,
@@ -622,6 +647,9 @@ module Amazonka.MacieV2.Lens
     defaultDetection_occurrences,
     defaultDetection_type,
     defaultDetection_count,
+
+    -- ** DetectedDataDetails
+    detectedDataDetails_value,
 
     -- ** DomainDetails
     domainDetails_domainName,
@@ -847,6 +875,10 @@ module Amazonka.MacieV2.Lens
     resourcesAffected_s3Bucket,
     resourcesAffected_s3Object,
 
+    -- ** RevealConfiguration
+    revealConfiguration_kmsKeyId,
+    revealConfiguration_status,
+
     -- ** S3Bucket
     s3Bucket_tags,
     s3Bucket_name,
@@ -961,6 +993,10 @@ module Amazonka.MacieV2.Lens
     -- ** Severity
     severity_score,
     severity_description,
+
+    -- ** SeverityLevel
+    severityLevel_occurrencesThreshold,
+    severityLevel_severity,
 
     -- ** SimpleCriterionForJob
     simpleCriterionForJob_key,
@@ -1087,6 +1123,9 @@ import Amazonka.MacieV2.GetInvitationsCount
 import Amazonka.MacieV2.GetMacieSession
 import Amazonka.MacieV2.GetMasterAccount
 import Amazonka.MacieV2.GetMember
+import Amazonka.MacieV2.GetRevealConfiguration
+import Amazonka.MacieV2.GetSensitiveDataOccurrences
+import Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
 import Amazonka.MacieV2.GetUsageStatistics
 import Amazonka.MacieV2.GetUsageTotals
 import Amazonka.MacieV2.ListClassificationJobs
@@ -1138,6 +1177,7 @@ import Amazonka.MacieV2.Types.CustomDataIdentifiers
 import Amazonka.MacieV2.Types.CustomDetection
 import Amazonka.MacieV2.Types.DailySchedule
 import Amazonka.MacieV2.Types.DefaultDetection
+import Amazonka.MacieV2.Types.DetectedDataDetails
 import Amazonka.MacieV2.Types.DomainDetails
 import Amazonka.MacieV2.Types.FederatedUser
 import Amazonka.MacieV2.Types.Finding
@@ -1178,6 +1218,7 @@ import Amazonka.MacieV2.Types.Range
 import Amazonka.MacieV2.Types.Record
 import Amazonka.MacieV2.Types.ReplicationDetails
 import Amazonka.MacieV2.Types.ResourcesAffected
+import Amazonka.MacieV2.Types.RevealConfiguration
 import Amazonka.MacieV2.Types.S3Bucket
 import Amazonka.MacieV2.Types.S3BucketCriteriaForJob
 import Amazonka.MacieV2.Types.S3BucketDefinitionForJob
@@ -1201,6 +1242,7 @@ import Amazonka.MacieV2.Types.SessionContext
 import Amazonka.MacieV2.Types.SessionContextAttributes
 import Amazonka.MacieV2.Types.SessionIssuer
 import Amazonka.MacieV2.Types.Severity
+import Amazonka.MacieV2.Types.SeverityLevel
 import Amazonka.MacieV2.Types.SimpleCriterionForJob
 import Amazonka.MacieV2.Types.SimpleScopeTerm
 import Amazonka.MacieV2.Types.SortCriteria
@@ -1225,3 +1267,4 @@ import Amazonka.MacieV2.UpdateFindingsFilter
 import Amazonka.MacieV2.UpdateMacieSession
 import Amazonka.MacieV2.UpdateMemberSession
 import Amazonka.MacieV2.UpdateOrganizationConfiguration
+import Amazonka.MacieV2.UpdateRevealConfiguration

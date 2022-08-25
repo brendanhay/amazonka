@@ -22,6 +22,7 @@ module Amazonka.RobOMaker.Types.WorldExportJobSummary where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RobOMaker.Types.OutputLocation
 import Amazonka.RobOMaker.Types.WorldExportJobStatus
 
 -- | Information about a world export job.
@@ -30,6 +31,7 @@ import Amazonka.RobOMaker.Types.WorldExportJobStatus
 data WorldExportJobSummary = WorldExportJobSummary'
   { -- | The Amazon Resource Name (ARN) of the world export job.
     arn :: Prelude.Maybe Prelude.Text,
+    outputLocation :: Prelude.Maybe OutputLocation,
     -- | The status of the world export job.
     --
     -- [Pending]
@@ -68,6 +70,8 @@ data WorldExportJobSummary = WorldExportJobSummary'
 --
 -- 'arn', 'worldExportJobSummary_arn' - The Amazon Resource Name (ARN) of the world export job.
 --
+-- 'outputLocation', 'worldExportJobSummary_outputLocation' - Undocumented member.
+--
 -- 'status', 'worldExportJobSummary_status' - The status of the world export job.
 --
 -- [Pending]
@@ -97,6 +101,7 @@ newWorldExportJobSummary ::
 newWorldExportJobSummary =
   WorldExportJobSummary'
     { arn = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
       status = Prelude.Nothing,
       worlds = Prelude.Nothing,
       createdAt = Prelude.Nothing
@@ -105,6 +110,10 @@ newWorldExportJobSummary =
 -- | The Amazon Resource Name (ARN) of the world export job.
 worldExportJobSummary_arn :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.Text)
 worldExportJobSummary_arn = Lens.lens (\WorldExportJobSummary' {arn} -> arn) (\s@WorldExportJobSummary' {} a -> s {arn = a} :: WorldExportJobSummary)
+
+-- | Undocumented member.
+worldExportJobSummary_outputLocation :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe OutputLocation)
+worldExportJobSummary_outputLocation = Lens.lens (\WorldExportJobSummary' {outputLocation} -> outputLocation) (\s@WorldExportJobSummary' {} a -> s {outputLocation = a} :: WorldExportJobSummary)
 
 -- | The status of the world export job.
 --
@@ -144,6 +153,7 @@ instance Core.FromJSON WorldExportJobSummary where
       ( \x ->
           WorldExportJobSummary'
             Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "outputLocation")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "worlds")
             Prelude.<*> (x Core..:? "createdAt")
@@ -152,6 +162,7 @@ instance Core.FromJSON WorldExportJobSummary where
 instance Prelude.Hashable WorldExportJobSummary where
   hashWithSalt _salt WorldExportJobSummary' {..} =
     _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` worlds
       `Prelude.hashWithSalt` createdAt
@@ -159,6 +170,7 @@ instance Prelude.Hashable WorldExportJobSummary where
 instance Prelude.NFData WorldExportJobSummary where
   rnf WorldExportJobSummary' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf worlds
       `Prelude.seq` Prelude.rnf createdAt

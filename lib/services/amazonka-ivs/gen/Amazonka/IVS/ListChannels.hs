@@ -63,7 +63,7 @@ data ListChannels = ListChannels'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the channel list to match the specified name.
     filterByName :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of channels to return. Default: 50.
+    -- | Maximum number of channels to return. Default: 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the channel list to match the specified recording-configuration
     -- ARN.
@@ -84,7 +84,7 @@ data ListChannels = ListChannels'
 --
 -- 'filterByName', 'listChannels_filterByName' - Filters the channel list to match the specified name.
 --
--- 'maxResults', 'listChannels_maxResults' - Maximum number of channels to return. Default: 50.
+-- 'maxResults', 'listChannels_maxResults' - Maximum number of channels to return. Default: 100.
 --
 -- 'filterByRecordingConfigurationArn', 'listChannels_filterByRecordingConfigurationArn' - Filters the channel list to match the specified recording-configuration
 -- ARN.
@@ -107,7 +107,7 @@ listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s
 listChannels_filterByName :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
 listChannels_filterByName = Lens.lens (\ListChannels' {filterByName} -> filterByName) (\s@ListChannels' {} a -> s {filterByName = a} :: ListChannels)
 
--- | Maximum number of channels to return. Default: 50.
+-- | Maximum number of channels to return. Default: 100.
 listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
 listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 

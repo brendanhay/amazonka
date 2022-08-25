@@ -38,6 +38,7 @@ module Amazonka.Rekognition.DescribeStreamProcessor
 
     -- * Response Lenses
     describeStreamProcessorResponse_streamProcessorArn,
+    describeStreamProcessorResponse_regionsOfInterest,
     describeStreamProcessorResponse_name,
     describeStreamProcessorResponse_lastUpdateTimestamp,
     describeStreamProcessorResponse_roleArn,
@@ -46,7 +47,10 @@ module Amazonka.Rekognition.DescribeStreamProcessor
     describeStreamProcessorResponse_input,
     describeStreamProcessorResponse_settings,
     describeStreamProcessorResponse_output,
+    describeStreamProcessorResponse_kmsKeyId,
+    describeStreamProcessorResponse_dataSharingPreference,
     describeStreamProcessorResponse_statusMessage,
+    describeStreamProcessorResponse_notificationChannel,
     describeStreamProcessorResponse_httpStatus,
   )
 where
@@ -95,6 +99,9 @@ instance Core.AWSRequest DescribeStreamProcessor where
       ( \s h x ->
           DescribeStreamProcessorResponse'
             Prelude.<$> (x Core..?> "StreamProcessorArn")
+            Prelude.<*> ( x Core..?> "RegionsOfInterest"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "LastUpdateTimestamp")
             Prelude.<*> (x Core..?> "RoleArn")
@@ -103,7 +110,10 @@ instance Core.AWSRequest DescribeStreamProcessor where
             Prelude.<*> (x Core..?> "Input")
             Prelude.<*> (x Core..?> "Settings")
             Prelude.<*> (x Core..?> "Output")
+            Prelude.<*> (x Core..?> "KmsKeyId")
+            Prelude.<*> (x Core..?> "DataSharingPreference")
             Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<*> (x Core..?> "NotificationChannel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,6 +156,10 @@ instance Core.ToQuery DescribeStreamProcessor where
 data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
   { -- | ARN of the stream processor.
     streamProcessorArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies locations in the frames where Amazon Rekognition checks for
+    -- objects or people. This is an optional parameter for label detection
+    -- stream processors.
+    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
     -- | Name of the stream processor.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix format, the stream processor was last updated. For
@@ -160,15 +174,24 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
     creationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Kinesis video stream that provides the source streaming video.
     input :: Prelude.Maybe StreamProcessorInput,
-    -- | Face recognition input parameters that are being used by the stream
-    -- processor. Includes the collection to use for face recognition and the
-    -- face attributes to detect.
+    -- | Input parameters used in a streaming video analyzed by a stream
+    -- processor. You can use @FaceSearch@ to recognize faces in a streaming
+    -- video, or you can use @ConnectedHome@ to detect labels.
     settings :: Prelude.Maybe StreamProcessorSettings,
     -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
     -- results.
     output :: Prelude.Maybe StreamProcessorOutput,
+    -- | The identifier for your AWS Key Management Service key (AWS KMS key).
+    -- This is an optional parameter for label detection stream processors.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Shows whether you are sharing data with Rekognition to improve model
+    -- performance. You can choose this option at the account level or on a
+    -- per-stream basis. Note that if you opt out at the account level this
+    -- setting is ignored on individual streams.
+    dataSharingPreference :: Prelude.Maybe StreamProcessorDataSharingPreference,
     -- | Detailed status message about the stream processor.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    notificationChannel :: Prelude.Maybe StreamProcessorNotificationChannel,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,6 +207,10 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
 --
 -- 'streamProcessorArn', 'describeStreamProcessorResponse_streamProcessorArn' - ARN of the stream processor.
 --
+-- 'regionsOfInterest', 'describeStreamProcessorResponse_regionsOfInterest' - Specifies locations in the frames where Amazon Rekognition checks for
+-- objects or people. This is an optional parameter for label detection
+-- stream processors.
+--
 -- 'name', 'describeStreamProcessorResponse_name' - Name of the stream processor.
 --
 -- 'lastUpdateTimestamp', 'describeStreamProcessorResponse_lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For
@@ -198,14 +225,24 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
 --
 -- 'input', 'describeStreamProcessorResponse_input' - Kinesis video stream that provides the source streaming video.
 --
--- 'settings', 'describeStreamProcessorResponse_settings' - Face recognition input parameters that are being used by the stream
--- processor. Includes the collection to use for face recognition and the
--- face attributes to detect.
+-- 'settings', 'describeStreamProcessorResponse_settings' - Input parameters used in a streaming video analyzed by a stream
+-- processor. You can use @FaceSearch@ to recognize faces in a streaming
+-- video, or you can use @ConnectedHome@ to detect labels.
 --
 -- 'output', 'describeStreamProcessorResponse_output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis
 -- results.
 --
+-- 'kmsKeyId', 'describeStreamProcessorResponse_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
+-- This is an optional parameter for label detection stream processors.
+--
+-- 'dataSharingPreference', 'describeStreamProcessorResponse_dataSharingPreference' - Shows whether you are sharing data with Rekognition to improve model
+-- performance. You can choose this option at the account level or on a
+-- per-stream basis. Note that if you opt out at the account level this
+-- setting is ignored on individual streams.
+--
 -- 'statusMessage', 'describeStreamProcessorResponse_statusMessage' - Detailed status message about the stream processor.
+--
+-- 'notificationChannel', 'describeStreamProcessorResponse_notificationChannel' - Undocumented member.
 --
 -- 'httpStatus', 'describeStreamProcessorResponse_httpStatus' - The response's http status code.
 newDescribeStreamProcessorResponse ::
@@ -216,6 +253,7 @@ newDescribeStreamProcessorResponse pHttpStatus_ =
   DescribeStreamProcessorResponse'
     { streamProcessorArn =
         Prelude.Nothing,
+      regionsOfInterest = Prelude.Nothing,
       name = Prelude.Nothing,
       lastUpdateTimestamp = Prelude.Nothing,
       roleArn = Prelude.Nothing,
@@ -224,13 +262,22 @@ newDescribeStreamProcessorResponse pHttpStatus_ =
       input = Prelude.Nothing,
       settings = Prelude.Nothing,
       output = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      dataSharingPreference = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | ARN of the stream processor.
 describeStreamProcessorResponse_streamProcessorArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 describeStreamProcessorResponse_streamProcessorArn = Lens.lens (\DescribeStreamProcessorResponse' {streamProcessorArn} -> streamProcessorArn) (\s@DescribeStreamProcessorResponse' {} a -> s {streamProcessorArn = a} :: DescribeStreamProcessorResponse)
+
+-- | Specifies locations in the frames where Amazon Rekognition checks for
+-- objects or people. This is an optional parameter for label detection
+-- stream processors.
+describeStreamProcessorResponse_regionsOfInterest :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe [RegionOfInterest])
+describeStreamProcessorResponse_regionsOfInterest = Lens.lens (\DescribeStreamProcessorResponse' {regionsOfInterest} -> regionsOfInterest) (\s@DescribeStreamProcessorResponse' {} a -> s {regionsOfInterest = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of the stream processor.
 describeStreamProcessorResponse_name :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
@@ -258,9 +305,9 @@ describeStreamProcessorResponse_creationTimestamp = Lens.lens (\DescribeStreamPr
 describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)
 describeStreamProcessorResponse_input = Lens.lens (\DescribeStreamProcessorResponse' {input} -> input) (\s@DescribeStreamProcessorResponse' {} a -> s {input = a} :: DescribeStreamProcessorResponse)
 
--- | Face recognition input parameters that are being used by the stream
--- processor. Includes the collection to use for face recognition and the
--- face attributes to detect.
+-- | Input parameters used in a streaming video analyzed by a stream
+-- processor. You can use @FaceSearch@ to recognize faces in a streaming
+-- video, or you can use @ConnectedHome@ to detect labels.
 describeStreamProcessorResponse_settings :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorSettings)
 describeStreamProcessorResponse_settings = Lens.lens (\DescribeStreamProcessorResponse' {settings} -> settings) (\s@DescribeStreamProcessorResponse' {} a -> s {settings = a} :: DescribeStreamProcessorResponse)
 
@@ -269,9 +316,25 @@ describeStreamProcessorResponse_settings = Lens.lens (\DescribeStreamProcessorRe
 describeStreamProcessorResponse_output :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorOutput)
 describeStreamProcessorResponse_output = Lens.lens (\DescribeStreamProcessorResponse' {output} -> output) (\s@DescribeStreamProcessorResponse' {} a -> s {output = a} :: DescribeStreamProcessorResponse)
 
+-- | The identifier for your AWS Key Management Service key (AWS KMS key).
+-- This is an optional parameter for label detection stream processors.
+describeStreamProcessorResponse_kmsKeyId :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_kmsKeyId = Lens.lens (\DescribeStreamProcessorResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeStreamProcessorResponse' {} a -> s {kmsKeyId = a} :: DescribeStreamProcessorResponse)
+
+-- | Shows whether you are sharing data with Rekognition to improve model
+-- performance. You can choose this option at the account level or on a
+-- per-stream basis. Note that if you opt out at the account level this
+-- setting is ignored on individual streams.
+describeStreamProcessorResponse_dataSharingPreference :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorDataSharingPreference)
+describeStreamProcessorResponse_dataSharingPreference = Lens.lens (\DescribeStreamProcessorResponse' {dataSharingPreference} -> dataSharingPreference) (\s@DescribeStreamProcessorResponse' {} a -> s {dataSharingPreference = a} :: DescribeStreamProcessorResponse)
+
 -- | Detailed status message about the stream processor.
 describeStreamProcessorResponse_statusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 describeStreamProcessorResponse_statusMessage = Lens.lens (\DescribeStreamProcessorResponse' {statusMessage} -> statusMessage) (\s@DescribeStreamProcessorResponse' {} a -> s {statusMessage = a} :: DescribeStreamProcessorResponse)
+
+-- | Undocumented member.
+describeStreamProcessorResponse_notificationChannel :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorNotificationChannel)
+describeStreamProcessorResponse_notificationChannel = Lens.lens (\DescribeStreamProcessorResponse' {notificationChannel} -> notificationChannel) (\s@DescribeStreamProcessorResponse' {} a -> s {notificationChannel = a} :: DescribeStreamProcessorResponse)
 
 -- | The response's http status code.
 describeStreamProcessorResponse_httpStatus :: Lens.Lens' DescribeStreamProcessorResponse Prelude.Int
@@ -283,6 +346,7 @@ instance
   where
   rnf DescribeStreamProcessorResponse' {..} =
     Prelude.rnf streamProcessorArn
+      `Prelude.seq` Prelude.rnf regionsOfInterest
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf lastUpdateTimestamp
       `Prelude.seq` Prelude.rnf roleArn
@@ -291,5 +355,8 @@ instance
       `Prelude.seq` Prelude.rnf input
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf dataSharingPreference
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf httpStatus

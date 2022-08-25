@@ -33,13 +33,13 @@ data ParameterDeclaration = ParameterDeclaration'
     noEcho :: Prelude.Maybe Prelude.Bool,
     -- | The default value of the parameter.
     defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | The description that is associate with the parameter.
+    -- | The description that\'s associate with the parameter.
     description :: Prelude.Maybe Prelude.Text,
     -- | The criteria that CloudFormation uses to validate parameter values.
     parameterConstraints :: Prelude.Maybe ParameterConstraints,
     -- | The type of parameter.
     parameterType :: Prelude.Maybe Prelude.Text,
-    -- | The name that is associated with the parameter.
+    -- | The name that\'s associated with the parameter.
     parameterKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,13 +57,13 @@ data ParameterDeclaration = ParameterDeclaration'
 --
 -- 'defaultValue', 'parameterDeclaration_defaultValue' - The default value of the parameter.
 --
--- 'description', 'parameterDeclaration_description' - The description that is associate with the parameter.
+-- 'description', 'parameterDeclaration_description' - The description that\'s associate with the parameter.
 --
 -- 'parameterConstraints', 'parameterDeclaration_parameterConstraints' - The criteria that CloudFormation uses to validate parameter values.
 --
 -- 'parameterType', 'parameterDeclaration_parameterType' - The type of parameter.
 --
--- 'parameterKey', 'parameterDeclaration_parameterKey' - The name that is associated with the parameter.
+-- 'parameterKey', 'parameterDeclaration_parameterKey' - The name that\'s associated with the parameter.
 newParameterDeclaration ::
   ParameterDeclaration
 newParameterDeclaration =
@@ -85,7 +85,7 @@ parameterDeclaration_noEcho = Lens.lens (\ParameterDeclaration' {noEcho} -> noEc
 parameterDeclaration_defaultValue :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
 parameterDeclaration_defaultValue = Lens.lens (\ParameterDeclaration' {defaultValue} -> defaultValue) (\s@ParameterDeclaration' {} a -> s {defaultValue = a} :: ParameterDeclaration)
 
--- | The description that is associate with the parameter.
+-- | The description that\'s associate with the parameter.
 parameterDeclaration_description :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
 parameterDeclaration_description = Lens.lens (\ParameterDeclaration' {description} -> description) (\s@ParameterDeclaration' {} a -> s {description = a} :: ParameterDeclaration)
 
@@ -97,7 +97,7 @@ parameterDeclaration_parameterConstraints = Lens.lens (\ParameterDeclaration' {p
 parameterDeclaration_parameterType :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
 parameterDeclaration_parameterType = Lens.lens (\ParameterDeclaration' {parameterType} -> parameterType) (\s@ParameterDeclaration' {} a -> s {parameterType = a} :: ParameterDeclaration)
 
--- | The name that is associated with the parameter.
+-- | The name that\'s associated with the parameter.
 parameterDeclaration_parameterKey :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
 parameterDeclaration_parameterKey = Lens.lens (\ParameterDeclaration' {parameterKey} -> parameterKey) (\s@ParameterDeclaration' {} a -> s {parameterKey = a} :: ParameterDeclaration)
 

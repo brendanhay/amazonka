@@ -24,7 +24,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The AWS Systems Manager (SSM) action definition details.
+-- | The Amazon Web Services Systems Manager (SSM) action definition details.
 --
 -- /See:/ 'newSsmActionDefinition' smart constructor.
 data SsmActionDefinition = SsmActionDefinition'

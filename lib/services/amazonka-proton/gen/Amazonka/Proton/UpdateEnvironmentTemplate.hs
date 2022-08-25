@@ -159,7 +159,7 @@ instance Core.ToQuery UpdateEnvironmentTemplate where
 data UpdateEnvironmentTemplateResponse = UpdateEnvironmentTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment template detail data that\'s returned by AWS Proton.
+    -- | The environment template detail data that\'s returned by Proton.
     environmentTemplate :: EnvironmentTemplate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -174,7 +174,7 @@ data UpdateEnvironmentTemplateResponse = UpdateEnvironmentTemplateResponse'
 --
 -- 'httpStatus', 'updateEnvironmentTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'environmentTemplate', 'updateEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by AWS Proton.
+-- 'environmentTemplate', 'updateEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by Proton.
 newUpdateEnvironmentTemplateResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -195,7 +195,7 @@ newUpdateEnvironmentTemplateResponse
 updateEnvironmentTemplateResponse_httpStatus :: Lens.Lens' UpdateEnvironmentTemplateResponse Prelude.Int
 updateEnvironmentTemplateResponse_httpStatus = Lens.lens (\UpdateEnvironmentTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateEnvironmentTemplateResponse' {} a -> s {httpStatus = a} :: UpdateEnvironmentTemplateResponse)
 
--- | The environment template detail data that\'s returned by AWS Proton.
+-- | The environment template detail data that\'s returned by Proton.
 updateEnvironmentTemplateResponse_environmentTemplate :: Lens.Lens' UpdateEnvironmentTemplateResponse EnvironmentTemplate
 updateEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\UpdateEnvironmentTemplateResponse' {environmentTemplate} -> environmentTemplate) (\s@UpdateEnvironmentTemplateResponse' {} a -> s {environmentTemplate = a} :: UpdateEnvironmentTemplateResponse)
 

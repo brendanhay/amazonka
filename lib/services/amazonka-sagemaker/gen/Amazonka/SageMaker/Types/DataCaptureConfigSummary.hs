@@ -24,14 +24,19 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureStatus
 
--- |
+-- | The currently active data capture configuration used by your Endpoint.
 --
 -- /See:/ 'newDataCaptureConfigSummary' smart constructor.
 data DataCaptureConfigSummary = DataCaptureConfigSummary'
-  { enableCapture :: Prelude.Bool,
+  { -- | Whether data capture is enabled or disabled.
+    enableCapture :: Prelude.Bool,
+    -- | Whether data capture is currently functional.
     captureStatus :: CaptureStatus,
+    -- | The percentage of requests being captured by your Endpoint.
     currentSamplingPercentage :: Prelude.Natural,
+    -- | The Amazon S3 location being used to capture the data.
     destinationS3Uri :: Prelude.Text,
+    -- | The KMS key being used to encrypt the data in Amazon S3.
     kmsKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,15 +49,15 @@ data DataCaptureConfigSummary = DataCaptureConfigSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableCapture', 'dataCaptureConfigSummary_enableCapture' -
+-- 'enableCapture', 'dataCaptureConfigSummary_enableCapture' - Whether data capture is enabled or disabled.
 --
--- 'captureStatus', 'dataCaptureConfigSummary_captureStatus' -
+-- 'captureStatus', 'dataCaptureConfigSummary_captureStatus' - Whether data capture is currently functional.
 --
--- 'currentSamplingPercentage', 'dataCaptureConfigSummary_currentSamplingPercentage' -
+-- 'currentSamplingPercentage', 'dataCaptureConfigSummary_currentSamplingPercentage' - The percentage of requests being captured by your Endpoint.
 --
--- 'destinationS3Uri', 'dataCaptureConfigSummary_destinationS3Uri' -
+-- 'destinationS3Uri', 'dataCaptureConfigSummary_destinationS3Uri' - The Amazon S3 location being used to capture the data.
 --
--- 'kmsKeyId', 'dataCaptureConfigSummary_kmsKeyId' -
+-- 'kmsKeyId', 'dataCaptureConfigSummary_kmsKeyId' - The KMS key being used to encrypt the data in Amazon S3.
 newDataCaptureConfigSummary ::
   -- | 'enableCapture'
   Prelude.Bool ->
@@ -81,23 +86,23 @@ newDataCaptureConfigSummary
         kmsKeyId = pKmsKeyId_
       }
 
--- |
+-- | Whether data capture is enabled or disabled.
 dataCaptureConfigSummary_enableCapture :: Lens.Lens' DataCaptureConfigSummary Prelude.Bool
 dataCaptureConfigSummary_enableCapture = Lens.lens (\DataCaptureConfigSummary' {enableCapture} -> enableCapture) (\s@DataCaptureConfigSummary' {} a -> s {enableCapture = a} :: DataCaptureConfigSummary)
 
--- |
+-- | Whether data capture is currently functional.
 dataCaptureConfigSummary_captureStatus :: Lens.Lens' DataCaptureConfigSummary CaptureStatus
 dataCaptureConfigSummary_captureStatus = Lens.lens (\DataCaptureConfigSummary' {captureStatus} -> captureStatus) (\s@DataCaptureConfigSummary' {} a -> s {captureStatus = a} :: DataCaptureConfigSummary)
 
--- |
+-- | The percentage of requests being captured by your Endpoint.
 dataCaptureConfigSummary_currentSamplingPercentage :: Lens.Lens' DataCaptureConfigSummary Prelude.Natural
 dataCaptureConfigSummary_currentSamplingPercentage = Lens.lens (\DataCaptureConfigSummary' {currentSamplingPercentage} -> currentSamplingPercentage) (\s@DataCaptureConfigSummary' {} a -> s {currentSamplingPercentage = a} :: DataCaptureConfigSummary)
 
--- |
+-- | The Amazon S3 location being used to capture the data.
 dataCaptureConfigSummary_destinationS3Uri :: Lens.Lens' DataCaptureConfigSummary Prelude.Text
 dataCaptureConfigSummary_destinationS3Uri = Lens.lens (\DataCaptureConfigSummary' {destinationS3Uri} -> destinationS3Uri) (\s@DataCaptureConfigSummary' {} a -> s {destinationS3Uri = a} :: DataCaptureConfigSummary)
 
--- |
+-- | The KMS key being used to encrypt the data in Amazon S3.
 dataCaptureConfigSummary_kmsKeyId :: Lens.Lens' DataCaptureConfigSummary Prelude.Text
 dataCaptureConfigSummary_kmsKeyId = Lens.lens (\DataCaptureConfigSummary' {kmsKeyId} -> kmsKeyId) (\s@DataCaptureConfigSummary' {} a -> s {kmsKeyId = a} :: DataCaptureConfigSummary)
 

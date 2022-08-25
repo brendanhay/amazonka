@@ -33,6 +33,8 @@ import Amazonka.WellArchitected.Types.Risk
 data Answer = Answer'
   { choices :: Prelude.Maybe [Choice],
     selectedChoices :: Prelude.Maybe [Prelude.Text],
+    -- | The helpful resource text to be displayed.
+    helpfulResourceDisplayText :: Prelude.Maybe Prelude.Text,
     risk :: Prelude.Maybe Risk,
     questionId :: Prelude.Maybe Prelude.Text,
     questionDescription :: Prelude.Maybe Prelude.Text,
@@ -61,6 +63,8 @@ data Answer = Answer'
 --
 -- 'selectedChoices', 'answer_selectedChoices' - Undocumented member.
 --
+-- 'helpfulResourceDisplayText', 'answer_helpfulResourceDisplayText' - The helpful resource text to be displayed.
+--
 -- 'risk', 'answer_risk' - Undocumented member.
 --
 -- 'questionId', 'answer_questionId' - Undocumented member.
@@ -88,6 +92,7 @@ newAnswer =
   Answer'
     { choices = Prelude.Nothing,
       selectedChoices = Prelude.Nothing,
+      helpfulResourceDisplayText = Prelude.Nothing,
       risk = Prelude.Nothing,
       questionId = Prelude.Nothing,
       questionDescription = Prelude.Nothing,
@@ -108,6 +113,10 @@ answer_choices = Lens.lens (\Answer' {choices} -> choices) (\s@Answer' {} a -> s
 -- | Undocumented member.
 answer_selectedChoices :: Lens.Lens' Answer (Prelude.Maybe [Prelude.Text])
 answer_selectedChoices = Lens.lens (\Answer' {selectedChoices} -> selectedChoices) (\s@Answer' {} a -> s {selectedChoices = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The helpful resource text to be displayed.
+answer_helpfulResourceDisplayText :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
+answer_helpfulResourceDisplayText = Lens.lens (\Answer' {helpfulResourceDisplayText} -> helpfulResourceDisplayText) (\s@Answer' {} a -> s {helpfulResourceDisplayText = a} :: Answer)
 
 -- | Undocumented member.
 answer_risk :: Lens.Lens' Answer (Prelude.Maybe Risk)
@@ -163,6 +172,7 @@ instance Core.FromJSON Answer where
             Prelude.<*> ( x Core..:? "SelectedChoices"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "HelpfulResourceDisplayText")
             Prelude.<*> (x Core..:? "Risk")
             Prelude.<*> (x Core..:? "QuestionId")
             Prelude.<*> (x Core..:? "QuestionDescription")
@@ -180,6 +190,7 @@ instance Prelude.Hashable Answer where
   hashWithSalt _salt Answer' {..} =
     _salt `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` selectedChoices
+      `Prelude.hashWithSalt` helpfulResourceDisplayText
       `Prelude.hashWithSalt` risk
       `Prelude.hashWithSalt` questionId
       `Prelude.hashWithSalt` questionDescription
@@ -196,6 +207,7 @@ instance Prelude.NFData Answer where
   rnf Answer' {..} =
     Prelude.rnf choices
       `Prelude.seq` Prelude.rnf selectedChoices
+      `Prelude.seq` Prelude.rnf helpfulResourceDisplayText
       `Prelude.seq` Prelude.rnf risk
       `Prelude.seq` Prelude.rnf questionId
       `Prelude.seq` Prelude.rnf questionDescription

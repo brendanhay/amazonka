@@ -17,6 +17,7 @@ haskell_library(
         "gen/Amazonka/FinSpace/Types/EnvironmentStatus.hs",
         "gen/Amazonka/FinSpace/Types/FederationMode.hs",
         "gen/Amazonka/FinSpace/Types/FederationParameters.hs",
+        "gen/Amazonka/FinSpace/Types/SuperuserParameters.hs",
         "gen/Amazonka/FinSpace/UntagResource.hs",
         "gen/Amazonka/FinSpace/UpdateEnvironment.hs",
         "gen/Amazonka/FinSpace/Waiters.hs",

@@ -23,7 +23,22 @@
 -- Updates an event source mapping. You can change the function that Lambda
 -- invokes, or pause invocation and resume later from the same location.
 --
--- The following error handling options are only available for stream
+-- For details about how to configure different event sources, see the
+-- following topics.
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping Amazon DynamoDB Streams>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping Amazon Kinesis>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource Amazon SQS>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping Amazon MQ and RabbitMQ>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html Amazon MSK>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html Apache Kafka>
+--
+-- The following error handling options are available only for stream
 -- sources (DynamoDB and Kinesis):
 --
 -- -   @BisectBatchOnFunctionError@ - If the function returns an error,
@@ -42,6 +57,21 @@
 --
 -- -   @ParallelizationFactor@ - Process multiple batches from each shard
 --     concurrently.
+--
+-- For information about which configuration parameters apply to each event
+-- source, see the following topics.
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params Amazon DynamoDB Streams>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params Amazon Kinesis>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params Amazon SQS>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params Amazon MQ and RabbitMQ>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms Amazon MSK>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms Apache Kafka>
 module Amazonka.Lambda.UpdateEventSourceMapping
   ( -- * Creating a Request
     UpdateEventSourceMapping (..),
@@ -54,6 +84,7 @@ module Amazonka.Lambda.UpdateEventSourceMapping
     updateEventSourceMapping_functionName,
     updateEventSourceMapping_maximumBatchingWindowInSeconds,
     updateEventSourceMapping_enabled,
+    updateEventSourceMapping_filterCriteria,
     updateEventSourceMapping_destinationConfig,
     updateEventSourceMapping_maximumRetryAttempts,
     updateEventSourceMapping_batchSize,
@@ -71,13 +102,16 @@ module Amazonka.Lambda.UpdateEventSourceMapping
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -104,8 +138,8 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
   { -- | (Streams only) Discard records older than the specified age. The default
     -- value is infinite (-1).
     maximumRecordAgeInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | (Streams only) A list of current response type enums applied to the
-    -- event source mapping.
+    -- | (Streams and Amazon SQS) A list of current response type enums applied
+    -- to the event source mapping.
     functionResponseTypes :: Prelude.Maybe [FunctionResponseType],
     -- | (Streams only) The number of batches to process from each shard
     -- concurrently.
@@ -141,12 +175,17 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     --
     -- Default: True
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | (Streams and Amazon SQS) An object that defines the filter criteria that
+    -- determine whether Lambda should process an event. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+    filterCriteria :: Prelude.Maybe FilterCriteria,
     -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
     -- discarded records.
     destinationConfig :: Prelude.Maybe DestinationConfig,
     -- | (Streams only) Discard records after the specified number of retries.
     -- The default value is infinite (-1). When set to infinite (-1), failed
-    -- records will be retried until the record expires.
+    -- records are retried until the record expires.
     maximumRetryAttempts :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of records in each batch that Lambda pulls from your
     -- stream or queue and sends to your function. Lambda passes all of the
@@ -155,7 +194,7 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     --
     -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
     --
-    -- -   __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+    -- -   __Amazon DynamoDB Streams__ - Default 100. Max 10,000.
     --
     -- -   __Amazon Simple Queue Service__ - Default 10. For standard queues
     --     the max is 10,000. For FIFO queues the max is 10.
@@ -163,13 +202,15 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     -- -   __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max
     --     10,000.
     --
-    -- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
+    -- -   __Self-managed Apache Kafka__ - Default 100. Max 10,000.
+    --
+    -- -   __Amazon MQ (ActiveMQ and RabbitMQ)__ - Default 100. Max 10,000.
     batchSize :: Prelude.Maybe Prelude.Natural,
     -- | (Streams only) If the function returns an error, split the batch in two
     -- and retry.
     bisectBatchOnFunctionError :: Prelude.Maybe Prelude.Bool,
     -- | (Streams only) The duration in seconds of a processing window. The range
-    -- is between 1 second up to 900 seconds.
+    -- is between 1 second and 900 seconds.
     tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | An array of authentication protocols or VPC components required to
     -- secure your event source.
@@ -190,8 +231,8 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 -- 'maximumRecordAgeInSeconds', 'updateEventSourceMapping_maximumRecordAgeInSeconds' - (Streams only) Discard records older than the specified age. The default
 -- value is infinite (-1).
 --
--- 'functionResponseTypes', 'updateEventSourceMapping_functionResponseTypes' - (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- 'functionResponseTypes', 'updateEventSourceMapping_functionResponseTypes' - (Streams and Amazon SQS) A list of current response type enums applied
+-- to the event source mapping.
 --
 -- 'parallelizationFactor', 'updateEventSourceMapping_parallelizationFactor' - (Streams only) The number of batches to process from each shard
 -- concurrently.
@@ -227,12 +268,17 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 --
 -- Default: True
 --
+-- 'filterCriteria', 'updateEventSourceMapping_filterCriteria' - (Streams and Amazon SQS) An object that defines the filter criteria that
+-- determine whether Lambda should process an event. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+--
 -- 'destinationConfig', 'updateEventSourceMapping_destinationConfig' - (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
 --
 -- 'maximumRetryAttempts', 'updateEventSourceMapping_maximumRetryAttempts' - (Streams only) Discard records after the specified number of retries.
 -- The default value is infinite (-1). When set to infinite (-1), failed
--- records will be retried until the record expires.
+-- records are retried until the record expires.
 --
 -- 'batchSize', 'updateEventSourceMapping_batchSize' - The maximum number of records in each batch that Lambda pulls from your
 -- stream or queue and sends to your function. Lambda passes all of the
@@ -241,7 +287,7 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 --
 -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
 --
--- -   __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+-- -   __Amazon DynamoDB Streams__ - Default 100. Max 10,000.
 --
 -- -   __Amazon Simple Queue Service__ - Default 10. For standard queues
 --     the max is 10,000. For FIFO queues the max is 10.
@@ -249,13 +295,15 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 -- -   __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max
 --     10,000.
 --
--- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
+-- -   __Self-managed Apache Kafka__ - Default 100. Max 10,000.
+--
+-- -   __Amazon MQ (ActiveMQ and RabbitMQ)__ - Default 100. Max 10,000.
 --
 -- 'bisectBatchOnFunctionError', 'updateEventSourceMapping_bisectBatchOnFunctionError' - (Streams only) If the function returns an error, split the batch in two
 -- and retry.
 --
 -- 'tumblingWindowInSeconds', 'updateEventSourceMapping_tumblingWindowInSeconds' - (Streams only) The duration in seconds of a processing window. The range
--- is between 1 second up to 900 seconds.
+-- is between 1 second and 900 seconds.
 --
 -- 'sourceAccessConfigurations', 'updateEventSourceMapping_sourceAccessConfigurations' - An array of authentication protocols or VPC components required to
 -- secure your event source.
@@ -274,6 +322,7 @@ newUpdateEventSourceMapping pUUID_ =
       functionName = Prelude.Nothing,
       maximumBatchingWindowInSeconds = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      filterCriteria = Prelude.Nothing,
       destinationConfig = Prelude.Nothing,
       maximumRetryAttempts = Prelude.Nothing,
       batchSize = Prelude.Nothing,
@@ -288,8 +337,8 @@ newUpdateEventSourceMapping pUUID_ =
 updateEventSourceMapping_maximumRecordAgeInSeconds :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Int)
 updateEventSourceMapping_maximumRecordAgeInSeconds = Lens.lens (\UpdateEventSourceMapping' {maximumRecordAgeInSeconds} -> maximumRecordAgeInSeconds) (\s@UpdateEventSourceMapping' {} a -> s {maximumRecordAgeInSeconds = a} :: UpdateEventSourceMapping)
 
--- | (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- | (Streams and Amazon SQS) A list of current response type enums applied
+-- to the event source mapping.
 updateEventSourceMapping_functionResponseTypes :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe [FunctionResponseType])
 updateEventSourceMapping_functionResponseTypes = Lens.lens (\UpdateEventSourceMapping' {functionResponseTypes} -> functionResponseTypes) (\s@UpdateEventSourceMapping' {} a -> s {functionResponseTypes = a} :: UpdateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
 
@@ -335,6 +384,13 @@ updateEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\UpdateEven
 updateEventSourceMapping_enabled :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Bool)
 updateEventSourceMapping_enabled = Lens.lens (\UpdateEventSourceMapping' {enabled} -> enabled) (\s@UpdateEventSourceMapping' {} a -> s {enabled = a} :: UpdateEventSourceMapping)
 
+-- | (Streams and Amazon SQS) An object that defines the filter criteria that
+-- determine whether Lambda should process an event. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+updateEventSourceMapping_filterCriteria :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe FilterCriteria)
+updateEventSourceMapping_filterCriteria = Lens.lens (\UpdateEventSourceMapping' {filterCriteria} -> filterCriteria) (\s@UpdateEventSourceMapping' {} a -> s {filterCriteria = a} :: UpdateEventSourceMapping)
+
 -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
 updateEventSourceMapping_destinationConfig :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe DestinationConfig)
@@ -342,7 +398,7 @@ updateEventSourceMapping_destinationConfig = Lens.lens (\UpdateEventSourceMappin
 
 -- | (Streams only) Discard records after the specified number of retries.
 -- The default value is infinite (-1). When set to infinite (-1), failed
--- records will be retried until the record expires.
+-- records are retried until the record expires.
 updateEventSourceMapping_maximumRetryAttempts :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Int)
 updateEventSourceMapping_maximumRetryAttempts = Lens.lens (\UpdateEventSourceMapping' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@UpdateEventSourceMapping' {} a -> s {maximumRetryAttempts = a} :: UpdateEventSourceMapping)
 
@@ -353,7 +409,7 @@ updateEventSourceMapping_maximumRetryAttempts = Lens.lens (\UpdateEventSourceMap
 --
 -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
 --
--- -   __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+-- -   __Amazon DynamoDB Streams__ - Default 100. Max 10,000.
 --
 -- -   __Amazon Simple Queue Service__ - Default 10. For standard queues
 --     the max is 10,000. For FIFO queues the max is 10.
@@ -361,7 +417,9 @@ updateEventSourceMapping_maximumRetryAttempts = Lens.lens (\UpdateEventSourceMap
 -- -   __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max
 --     10,000.
 --
--- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
+-- -   __Self-managed Apache Kafka__ - Default 100. Max 10,000.
+--
+-- -   __Amazon MQ (ActiveMQ and RabbitMQ)__ - Default 100. Max 10,000.
 updateEventSourceMapping_batchSize :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 updateEventSourceMapping_batchSize = Lens.lens (\UpdateEventSourceMapping' {batchSize} -> batchSize) (\s@UpdateEventSourceMapping' {} a -> s {batchSize = a} :: UpdateEventSourceMapping)
 
@@ -371,7 +429,7 @@ updateEventSourceMapping_bisectBatchOnFunctionError :: Lens.Lens' UpdateEventSou
 updateEventSourceMapping_bisectBatchOnFunctionError = Lens.lens (\UpdateEventSourceMapping' {bisectBatchOnFunctionError} -> bisectBatchOnFunctionError) (\s@UpdateEventSourceMapping' {} a -> s {bisectBatchOnFunctionError = a} :: UpdateEventSourceMapping)
 
 -- | (Streams only) The duration in seconds of a processing window. The range
--- is between 1 second up to 900 seconds.
+-- is between 1 second and 900 seconds.
 updateEventSourceMapping_tumblingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 updateEventSourceMapping_tumblingWindowInSeconds = Lens.lens (\UpdateEventSourceMapping' {tumblingWindowInSeconds} -> tumblingWindowInSeconds) (\s@UpdateEventSourceMapping' {} a -> s {tumblingWindowInSeconds = a} :: UpdateEventSourceMapping)
 
@@ -402,6 +460,7 @@ instance Prelude.Hashable UpdateEventSourceMapping where
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` maximumRetryAttempts
       `Prelude.hashWithSalt` batchSize
@@ -418,6 +477,7 @@ instance Prelude.NFData UpdateEventSourceMapping where
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf destinationConfig
       `Prelude.seq` Prelude.rnf maximumRetryAttempts
       `Prelude.seq` Prelude.rnf batchSize
@@ -443,6 +503,8 @@ instance Core.ToJSON UpdateEventSourceMapping where
             ("MaximumBatchingWindowInSeconds" Core..=)
               Prelude.<$> maximumBatchingWindowInSeconds,
             ("Enabled" Core..=) Prelude.<$> enabled,
+            ("FilterCriteria" Core..=)
+              Prelude.<$> filterCriteria,
             ("DestinationConfig" Core..=)
               Prelude.<$> destinationConfig,
             ("MaximumRetryAttempts" Core..=)

@@ -35,19 +35,19 @@ data LocationListEntry = LocationListEntry'
     -- location is the prefix path that you want to mount and use as the root
     -- of the location.
     locationArn :: Prelude.Maybe Prelude.Text,
-    -- | Represents a list of URLs of a location. @LocationUri@ returns an array
+    -- | Represents a list of URIs of a location. @LocationUri@ returns an array
     -- that contains a list of locations when the
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html ListLocations>
     -- operation is called.
     --
     -- Format: @TYPE:\/\/GLOBAL_ID\/SUBDIR@.
     --
-    -- TYPE designates the type of location. Valid values: NFS | EFS | S3.
+    -- TYPE designates the type of location (for example, @nfs@ or @s3@).
     --
     -- GLOBAL_ID is the globally unique identifier of the resource that backs
     -- the location. An example for EFS is @us-east-2.fs-abcd1234@. An example
     -- for Amazon S3 is the bucket name, such as @myBucket@. An example for NFS
-    -- is a valid IPv4 address or a host name compliant with Domain Name
+    -- is a valid IPv4 address or a hostname that is compliant with Domain Name
     -- Service (DNS).
     --
     -- SUBDIR is a valid file system path, delimited by forward slashes as is
@@ -71,19 +71,19 @@ data LocationListEntry = LocationListEntry'
 -- location is the prefix path that you want to mount and use as the root
 -- of the location.
 --
--- 'locationUri', 'locationListEntry_locationUri' - Represents a list of URLs of a location. @LocationUri@ returns an array
+-- 'locationUri', 'locationListEntry_locationUri' - Represents a list of URIs of a location. @LocationUri@ returns an array
 -- that contains a list of locations when the
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html ListLocations>
 -- operation is called.
 --
 -- Format: @TYPE:\/\/GLOBAL_ID\/SUBDIR@.
 --
--- TYPE designates the type of location. Valid values: NFS | EFS | S3.
+-- TYPE designates the type of location (for example, @nfs@ or @s3@).
 --
 -- GLOBAL_ID is the globally unique identifier of the resource that backs
 -- the location. An example for EFS is @us-east-2.fs-abcd1234@. An example
 -- for Amazon S3 is the bucket name, such as @myBucket@. An example for NFS
--- is a valid IPv4 address or a host name compliant with Domain Name
+-- is a valid IPv4 address or a hostname that is compliant with Domain Name
 -- Service (DNS).
 --
 -- SUBDIR is a valid file system path, delimited by forward slashes as is
@@ -105,19 +105,19 @@ newLocationListEntry =
 locationListEntry_locationArn :: Lens.Lens' LocationListEntry (Prelude.Maybe Prelude.Text)
 locationListEntry_locationArn = Lens.lens (\LocationListEntry' {locationArn} -> locationArn) (\s@LocationListEntry' {} a -> s {locationArn = a} :: LocationListEntry)
 
--- | Represents a list of URLs of a location. @LocationUri@ returns an array
+-- | Represents a list of URIs of a location. @LocationUri@ returns an array
 -- that contains a list of locations when the
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html ListLocations>
 -- operation is called.
 --
 -- Format: @TYPE:\/\/GLOBAL_ID\/SUBDIR@.
 --
--- TYPE designates the type of location. Valid values: NFS | EFS | S3.
+-- TYPE designates the type of location (for example, @nfs@ or @s3@).
 --
 -- GLOBAL_ID is the globally unique identifier of the resource that backs
 -- the location. An example for EFS is @us-east-2.fs-abcd1234@. An example
 -- for Amazon S3 is the bucket name, such as @myBucket@. An example for NFS
--- is a valid IPv4 address or a host name compliant with Domain Name
+-- is a valid IPv4 address or a hostname that is compliant with Domain Name
 -- Service (DNS).
 --
 -- SUBDIR is a valid file system path, delimited by forward slashes as is

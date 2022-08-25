@@ -35,7 +35,8 @@ data AddOutputRequest = AddOutputRequest'
     destination :: Prelude.Maybe Prelude.Text,
     -- | The port to use when content is distributed to this output.
     port :: Prelude.Maybe Prelude.Int,
-    -- | The maximum latency in milliseconds for Zixi-based streams.
+    -- | The maximum latency in milliseconds. This parameter applies only to
+    -- RIST-based, Zixi-based, and Fujitsu-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
     -- | The name of the output. This value must be unique within the current
     -- flow.
@@ -60,6 +61,9 @@ data AddOutputRequest = AddOutputRequest'
     -- | A description of the output. This description appears only on the AWS
     -- Elemental MediaConnect console and will not be seen by the end user.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
     -- | The type of key used for the encryption. If no keyType is provided, the
     -- service will use the default setting (static-key).
     encryption :: Prelude.Maybe Encryption,
@@ -86,7 +90,8 @@ data AddOutputRequest = AddOutputRequest'
 --
 -- 'port', 'addOutputRequest_port' - The port to use when content is distributed to this output.
 --
--- 'maxLatency', 'addOutputRequest_maxLatency' - The maximum latency in milliseconds for Zixi-based streams.
+-- 'maxLatency', 'addOutputRequest_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 --
 -- 'name', 'addOutputRequest_name' - The name of the output. This value must be unique within the current
 -- flow.
@@ -110,6 +115,9 @@ data AddOutputRequest = AddOutputRequest'
 --
 -- 'description', 'addOutputRequest_description' - A description of the output. This description appears only on the AWS
 -- Elemental MediaConnect console and will not be seen by the end user.
+--
+-- 'senderControlPort', 'addOutputRequest_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
 --
 -- 'encryption', 'addOutputRequest_encryption' - The type of key used for the encryption. If no keyType is provided, the
 -- service will use the default setting (static-key).
@@ -138,6 +146,7 @@ newAddOutputRequest pProtocol_ =
       remoteId = Prelude.Nothing,
       vpcInterfaceAttachment = Prelude.Nothing,
       description = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
       encryption = Prelude.Nothing,
       minLatency = Prelude.Nothing,
       protocol = pProtocol_
@@ -151,7 +160,8 @@ addOutputRequest_destination = Lens.lens (\AddOutputRequest' {destination} -> de
 addOutputRequest_port :: Lens.Lens' AddOutputRequest (Prelude.Maybe Prelude.Int)
 addOutputRequest_port = Lens.lens (\AddOutputRequest' {port} -> port) (\s@AddOutputRequest' {} a -> s {port = a} :: AddOutputRequest)
 
--- | The maximum latency in milliseconds for Zixi-based streams.
+-- | The maximum latency in milliseconds. This parameter applies only to
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 addOutputRequest_maxLatency :: Lens.Lens' AddOutputRequest (Prelude.Maybe Prelude.Int)
 addOutputRequest_maxLatency = Lens.lens (\AddOutputRequest' {maxLatency} -> maxLatency) (\s@AddOutputRequest' {} a -> s {maxLatency = a} :: AddOutputRequest)
 
@@ -194,6 +204,11 @@ addOutputRequest_vpcInterfaceAttachment = Lens.lens (\AddOutputRequest' {vpcInte
 addOutputRequest_description :: Lens.Lens' AddOutputRequest (Prelude.Maybe Prelude.Text)
 addOutputRequest_description = Lens.lens (\AddOutputRequest' {description} -> description) (\s@AddOutputRequest' {} a -> s {description = a} :: AddOutputRequest)
 
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+addOutputRequest_senderControlPort :: Lens.Lens' AddOutputRequest (Prelude.Maybe Prelude.Int)
+addOutputRequest_senderControlPort = Lens.lens (\AddOutputRequest' {senderControlPort} -> senderControlPort) (\s@AddOutputRequest' {} a -> s {senderControlPort = a} :: AddOutputRequest)
+
 -- | The type of key used for the encryption. If no keyType is provided, the
 -- service will use the default setting (static-key).
 addOutputRequest_encryption :: Lens.Lens' AddOutputRequest (Prelude.Maybe Encryption)
@@ -224,6 +239,7 @@ instance Prelude.Hashable AddOutputRequest where
       `Prelude.hashWithSalt` remoteId
       `Prelude.hashWithSalt` vpcInterfaceAttachment
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` minLatency
       `Prelude.hashWithSalt` protocol
@@ -241,6 +257,7 @@ instance Prelude.NFData AddOutputRequest where
       `Prelude.seq` Prelude.rnf remoteId
       `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf minLatency
       `Prelude.seq` Prelude.rnf protocol
@@ -263,6 +280,8 @@ instance Core.ToJSON AddOutputRequest where
             ("vpcInterfaceAttachment" Core..=)
               Prelude.<$> vpcInterfaceAttachment,
             ("description" Core..=) Prelude.<$> description,
+            ("senderControlPort" Core..=)
+              Prelude.<$> senderControlPort,
             ("encryption" Core..=) Prelude.<$> encryption,
             ("minLatency" Core..=) Prelude.<$> minLatency,
             Prelude.Just ("protocol" Core..= protocol)

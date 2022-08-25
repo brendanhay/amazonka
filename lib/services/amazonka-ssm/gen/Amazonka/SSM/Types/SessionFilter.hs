@@ -40,8 +40,8 @@ data SessionFilter = SessionFilter'
     --     example, specify 2018-08-29T00:00:00Z to see sessions that started
     --     before August 29, 2018.
     --
-    -- -   Target: Specify an instance to which session connections have been
-    --     made.
+    -- -   Target: Specify a managed node to which session connections have
+    --     been made.
     --
     -- -   Owner: Specify an Amazon Web Services user account to see a list of
     --     sessions started by that user.
@@ -86,8 +86,8 @@ data SessionFilter = SessionFilter'
 --     example, specify 2018-08-29T00:00:00Z to see sessions that started
 --     before August 29, 2018.
 --
--- -   Target: Specify an instance to which session connections have been
---     made.
+-- -   Target: Specify a managed node to which session connections have
+--     been made.
 --
 -- -   Owner: Specify an Amazon Web Services user account to see a list of
 --     sessions started by that user.
@@ -131,8 +131,8 @@ sessionFilter_key = Lens.lens (\SessionFilter' {key} -> key) (\s@SessionFilter' 
 --     example, specify 2018-08-29T00:00:00Z to see sessions that started
 --     before August 29, 2018.
 --
--- -   Target: Specify an instance to which session connections have been
---     made.
+-- -   Target: Specify a managed node to which session connections have
+--     been made.
 --
 -- -   Owner: Specify an Amazon Web Services user account to see a list of
 --     sessions started by that user.

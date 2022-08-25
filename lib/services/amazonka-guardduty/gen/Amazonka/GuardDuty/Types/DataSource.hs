@@ -22,7 +22,9 @@ module Amazonka.GuardDuty.Types.DataSource
       ( ..,
         DataSource_CLOUD_TRAIL,
         DataSource_DNS_LOGS,
+        DataSource_EC2_MALWARE_SCAN,
         DataSource_FLOW_LOGS,
+        DataSource_KUBERNETES_AUDIT_LOGS,
         DataSource_S3_LOGS
       ),
   )
@@ -65,8 +67,14 @@ pattern DataSource_CLOUD_TRAIL = DataSource' "CLOUD_TRAIL"
 pattern DataSource_DNS_LOGS :: DataSource
 pattern DataSource_DNS_LOGS = DataSource' "DNS_LOGS"
 
+pattern DataSource_EC2_MALWARE_SCAN :: DataSource
+pattern DataSource_EC2_MALWARE_SCAN = DataSource' "EC2_MALWARE_SCAN"
+
 pattern DataSource_FLOW_LOGS :: DataSource
 pattern DataSource_FLOW_LOGS = DataSource' "FLOW_LOGS"
+
+pattern DataSource_KUBERNETES_AUDIT_LOGS :: DataSource
+pattern DataSource_KUBERNETES_AUDIT_LOGS = DataSource' "KUBERNETES_AUDIT_LOGS"
 
 pattern DataSource_S3_LOGS :: DataSource
 pattern DataSource_S3_LOGS = DataSource' "S3_LOGS"
@@ -74,7 +82,9 @@ pattern DataSource_S3_LOGS = DataSource' "S3_LOGS"
 {-# COMPLETE
   DataSource_CLOUD_TRAIL,
   DataSource_DNS_LOGS,
+  DataSource_EC2_MALWARE_SCAN,
   DataSource_FLOW_LOGS,
+  DataSource_KUBERNETES_AUDIT_LOGS,
   DataSource_S3_LOGS,
   DataSource'
   #-}

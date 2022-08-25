@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a tag from the resource. Only database, table, or
+-- Removes an LF-tag from the resource. Only database, table, or
 -- tableWithColumns resource are allowed. To tag columns, use the column
 -- inclusion list in @tableWithColumns@ to specify column input.
 module Amazonka.LakeFormation.RemoveLFTagsFromResource
@@ -55,11 +55,12 @@ data RemoveLFTagsFromResource = RemoveLFTagsFromResource'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The resource where you want to remove a tag.
+    -- | The database, table, or column resource where you want to remove an
+    -- LF-tag.
     resource :: Resource,
-    -- | The tags to be removed from the resource.
+    -- | The LF-tags to be removed from the resource.
     lFTags :: Prelude.NonEmpty LFTagPair
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,11 +76,12 @@ data RemoveLFTagsFromResource = RemoveLFTagsFromResource'
 -- 'catalogId', 'removeLFTagsFromResource_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'resource', 'removeLFTagsFromResource_resource' - The resource where you want to remove a tag.
+-- 'resource', 'removeLFTagsFromResource_resource' - The database, table, or column resource where you want to remove an
+-- LF-tag.
 --
--- 'lFTags', 'removeLFTagsFromResource_lFTags' - The tags to be removed from the resource.
+-- 'lFTags', 'removeLFTagsFromResource_lFTags' - The LF-tags to be removed from the resource.
 newRemoveLFTagsFromResource ::
   -- | 'resource'
   Resource ->
@@ -97,15 +99,16 @@ newRemoveLFTagsFromResource pResource_ pLFTags_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 removeLFTagsFromResource_catalogId :: Lens.Lens' RemoveLFTagsFromResource (Prelude.Maybe Prelude.Text)
 removeLFTagsFromResource_catalogId = Lens.lens (\RemoveLFTagsFromResource' {catalogId} -> catalogId) (\s@RemoveLFTagsFromResource' {} a -> s {catalogId = a} :: RemoveLFTagsFromResource)
 
--- | The resource where you want to remove a tag.
+-- | The database, table, or column resource where you want to remove an
+-- LF-tag.
 removeLFTagsFromResource_resource :: Lens.Lens' RemoveLFTagsFromResource Resource
 removeLFTagsFromResource_resource = Lens.lens (\RemoveLFTagsFromResource' {resource} -> resource) (\s@RemoveLFTagsFromResource' {} a -> s {resource = a} :: RemoveLFTagsFromResource)
 
--- | The tags to be removed from the resource.
+-- | The LF-tags to be removed from the resource.
 removeLFTagsFromResource_lFTags :: Lens.Lens' RemoveLFTagsFromResource (Prelude.NonEmpty LFTagPair)
 removeLFTagsFromResource_lFTags = Lens.lens (\RemoveLFTagsFromResource' {lFTags} -> lFTags) (\s@RemoveLFTagsFromResource' {} a -> s {lFTags = a} :: RemoveLFTagsFromResource) Prelude.. Lens.coerced
 
@@ -138,11 +141,7 @@ instance Core.ToHeaders RemoveLFTagsFromResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.RemoveLFTagsFromResource" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -160,7 +159,7 @@ instance Core.ToJSON RemoveLFTagsFromResource where
       )
 
 instance Core.ToPath RemoveLFTagsFromResource where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/RemoveLFTagsFromResource"
 
 instance Core.ToQuery RemoveLFTagsFromResource where
   toQuery = Prelude.const Prelude.mempty

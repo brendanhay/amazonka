@@ -134,7 +134,9 @@ instance Core.ToQuery GetSolutionMetrics where
 
 -- | /See:/ 'newGetSolutionMetricsResponse' smart constructor.
 data GetSolutionMetricsResponse = GetSolutionMetricsResponse'
-  { -- | The metrics for the solution version.
+  { -- | The metrics for the solution version. For more information, see
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html Evaluating a solution version with metrics>
+    -- .
     metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The same solution version ARN as specified in the request.
     solutionVersionArn :: Prelude.Maybe Prelude.Text,
@@ -151,7 +153,9 @@ data GetSolutionMetricsResponse = GetSolutionMetricsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metrics', 'getSolutionMetricsResponse_metrics' - The metrics for the solution version.
+-- 'metrics', 'getSolutionMetricsResponse_metrics' - The metrics for the solution version. For more information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html Evaluating a solution version with metrics>
+-- .
 --
 -- 'solutionVersionArn', 'getSolutionMetricsResponse_solutionVersionArn' - The same solution version ARN as specified in the request.
 --
@@ -168,7 +172,9 @@ newGetSolutionMetricsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The metrics for the solution version.
+-- | The metrics for the solution version. For more information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html Evaluating a solution version with metrics>
+-- .
 getSolutionMetricsResponse_metrics :: Lens.Lens' GetSolutionMetricsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
 getSolutionMetricsResponse_metrics = Lens.lens (\GetSolutionMetricsResponse' {metrics} -> metrics) (\s@GetSolutionMetricsResponse' {} a -> s {metrics = a} :: GetSolutionMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 

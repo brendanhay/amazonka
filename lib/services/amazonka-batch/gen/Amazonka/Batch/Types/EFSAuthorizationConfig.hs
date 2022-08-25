@@ -33,7 +33,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
     -- must be enabled in the @EFSVolumeConfiguration@. If this parameter is
     -- omitted, the default value of @DISABLED@ is used. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS access points>
     -- in the /Batch User Guide/. EFS IAM authorization requires that
     -- @TransitEncryption@ be @ENABLED@ and that a @JobRoleArn@ is specified.
     iam :: Prelude.Maybe EFSAuthorizationConfigIAM,
@@ -42,7 +42,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
     -- either be omitted or set to @\/@ which will enforce the path set on the
     -- EFS access point. If an access point is used, transit encryption must be
     -- enabled in the @EFSVolumeConfiguration@. For more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
+    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
     -- in the /Amazon Elastic File System User Guide/.
     accessPointId :: Prelude.Maybe Prelude.Text
   }
@@ -61,7 +61,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
 -- must be enabled in the @EFSVolumeConfiguration@. If this parameter is
 -- omitted, the default value of @DISABLED@ is used. For more information,
 -- see
--- <https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS access points>
 -- in the /Batch User Guide/. EFS IAM authorization requires that
 -- @TransitEncryption@ be @ENABLED@ and that a @JobRoleArn@ is specified.
 --
@@ -70,7 +70,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
 -- either be omitted or set to @\/@ which will enforce the path set on the
 -- EFS access point. If an access point is used, transit encryption must be
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
 -- in the /Amazon Elastic File System User Guide/.
 newEFSAuthorizationConfig ::
   EFSAuthorizationConfig
@@ -85,7 +85,7 @@ newEFSAuthorizationConfig =
 -- must be enabled in the @EFSVolumeConfiguration@. If this parameter is
 -- omitted, the default value of @DISABLED@ is used. For more information,
 -- see
--- <https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS access points>
 -- in the /Batch User Guide/. EFS IAM authorization requires that
 -- @TransitEncryption@ be @ENABLED@ and that a @JobRoleArn@ is specified.
 eFSAuthorizationConfig_iam :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe EFSAuthorizationConfigIAM)
@@ -96,7 +96,7 @@ eFSAuthorizationConfig_iam = Lens.lens (\EFSAuthorizationConfig' {iam} -> iam) (
 -- either be omitted or set to @\/@ which will enforce the path set on the
 -- EFS access point. If an access point is used, transit encryption must be
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
 -- in the /Amazon Elastic File System User Guide/.
 eFSAuthorizationConfig_accessPointId :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe Prelude.Text)
 eFSAuthorizationConfig_accessPointId = Lens.lens (\EFSAuthorizationConfig' {accessPointId} -> accessPointId) (\s@EFSAuthorizationConfig' {} a -> s {accessPointId = a} :: EFSAuthorizationConfig)

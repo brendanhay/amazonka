@@ -90,9 +90,12 @@ module Amazonka.DocumentDB.Lens
 
     -- ** CreateDBInstance
     createDBInstance_tags,
+    createDBInstance_copyTagsToSnapshot,
     createDBInstance_promotionTier,
     createDBInstance_autoMinorVersionUpgrade,
+    createDBInstance_performanceInsightsKMSKeyId,
     createDBInstance_availabilityZone,
+    createDBInstance_enablePerformanceInsights,
     createDBInstance_preferredMaintenanceWindow,
     createDBInstance_dbInstanceIdentifier,
     createDBInstance_dbInstanceClass,
@@ -363,9 +366,12 @@ module Amazonka.DocumentDB.Lens
 
     -- ** ModifyDBInstance
     modifyDBInstance_dbInstanceClass,
+    modifyDBInstance_copyTagsToSnapshot,
     modifyDBInstance_promotionTier,
     modifyDBInstance_autoMinorVersionUpgrade,
     modifyDBInstance_applyImmediately,
+    modifyDBInstance_performanceInsightsKMSKeyId,
+    modifyDBInstance_enablePerformanceInsights,
     modifyDBInstance_cACertificateIdentifier,
     modifyDBInstance_newDBInstanceIdentifier,
     modifyDBInstance_preferredMaintenanceWindow,
@@ -445,6 +451,7 @@ module Amazonka.DocumentDB.Lens
     restoreDBClusterToPointInTime_port,
     restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_dbSubnetGroupName,
+    restoreDBClusterToPointInTime_restoreType,
     restoreDBClusterToPointInTime_enableCloudwatchLogsExports,
     restoreDBClusterToPointInTime_restoreToTime,
     restoreDBClusterToPointInTime_useLatestRestorableTime,
@@ -484,6 +491,7 @@ module Amazonka.DocumentDB.Lens
 
     -- ** DBCluster
     dbCluster_port,
+    dbCluster_cloneGroupId,
     dbCluster_dbClusterArn,
     dbCluster_hostedZoneId,
     dbCluster_percentProgress,
@@ -576,6 +584,7 @@ module Amazonka.DocumentDB.Lens
     dbInstance_preferredBackupWindow,
     dbInstance_backupRetentionPeriod,
     dbInstance_dbInstanceClass,
+    dbInstance_copyTagsToSnapshot,
     dbInstance_promotionTier,
     dbInstance_autoMinorVersionUpgrade,
     dbInstance_dbInstanceIdentifier,

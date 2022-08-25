@@ -216,6 +216,7 @@ library
     Amazonka.Chime.Types.AccountSettings
     Amazonka.Chime.Types.AccountStatus
     Amazonka.Chime.Types.AccountType
+    Amazonka.Chime.Types.Address
     Amazonka.Chime.Types.AlexaForBusinessMetadata
     Amazonka.Chime.Types.AppInstance
     Amazonka.Chime.Types.AppInstanceAdmin
@@ -238,6 +239,7 @@ library
     Amazonka.Chime.Types.BotType
     Amazonka.Chime.Types.BusinessCallingSettings
     Amazonka.Chime.Types.CallingNameStatus
+    Amazonka.Chime.Types.CandidateAddress
     Amazonka.Chime.Types.Capability
     Amazonka.Chime.Types.Channel
     Amazonka.Chime.Types.ChannelBan
@@ -335,11 +337,15 @@ library
     Amazonka.Chime.Types.TelephonySettings
     Amazonka.Chime.Types.Termination
     Amazonka.Chime.Types.TerminationHealth
+    Amazonka.Chime.Types.TranscribeContentIdentificationType
+    Amazonka.Chime.Types.TranscribeContentRedactionType
     Amazonka.Chime.Types.TranscribeLanguageCode
+    Amazonka.Chime.Types.TranscribeMedicalContentIdentificationType
     Amazonka.Chime.Types.TranscribeMedicalLanguageCode
     Amazonka.Chime.Types.TranscribeMedicalRegion
     Amazonka.Chime.Types.TranscribeMedicalSpecialty
     Amazonka.Chime.Types.TranscribeMedicalType
+    Amazonka.Chime.Types.TranscribePartialResultsStability
     Amazonka.Chime.Types.TranscribeRegion
     Amazonka.Chime.Types.TranscribeVocabularyFilterMethod
     Amazonka.Chime.Types.TranscriptionConfiguration
@@ -380,6 +386,7 @@ library
     Amazonka.Chime.UpdateUserSettings
     Amazonka.Chime.UpdateVoiceConnector
     Amazonka.Chime.UpdateVoiceConnectorGroup
+    Amazonka.Chime.ValidateE911Address
     Amazonka.Chime.Waiters
 
   build-depends:

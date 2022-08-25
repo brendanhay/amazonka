@@ -232,12 +232,13 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
   { -- | If you execute the change set, the tags that will be associated with the
     -- stack.
     tags :: Prelude.Maybe [Tag],
-    -- | The ARN of the stack that is associated with the change set.
+    -- | The Amazon Resource Name (ARN) of the stack that\'s associated with the
+    -- change set.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | If the output exceeds 1 MB, a string that identifies the next page of
     -- changes. If there is no additional page, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the change set.
+    -- | The Amazon Resource Name (ARN) of the change set.
     changeSetId :: Prelude.Maybe Prelude.Text,
     -- | The name of the change set.
     changeSetName :: Prelude.Maybe Prelude.Text,
@@ -257,7 +258,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     changes :: Prelude.Maybe [Change],
     -- | Verifies if @IncludeNestedStacks@ is set to @True@.
     includeNestedStacks :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the stack that is associated with the change set.
+    -- | The name of the stack that\'s associated with the change set.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the change set ID of the parent change set in the current
     -- nested change set hierarchy.
@@ -272,7 +273,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     -- period afterwards.
     rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
     -- | If the change set execution status is @AVAILABLE@, you can execute the
-    -- change set. If you can’t execute the change set, the status indicates
+    -- change set. If you can\'t execute the change set, the status indicates
     -- why. For example, a change set might be in an @UNAVAILABLE@ state
     -- because CloudFormation is still creating it or in an @OBSOLETE@ state
     -- because the stack was already updated.
@@ -302,12 +303,13 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- 'tags', 'describeChangeSetResponse_tags' - If you execute the change set, the tags that will be associated with the
 -- stack.
 --
--- 'stackId', 'describeChangeSetResponse_stackId' - The ARN of the stack that is associated with the change set.
+-- 'stackId', 'describeChangeSetResponse_stackId' - The Amazon Resource Name (ARN) of the stack that\'s associated with the
+-- change set.
 --
 -- 'nextToken', 'describeChangeSetResponse_nextToken' - If the output exceeds 1 MB, a string that identifies the next page of
 -- changes. If there is no additional page, this value is null.
 --
--- 'changeSetId', 'describeChangeSetResponse_changeSetId' - The ARN of the change set.
+-- 'changeSetId', 'describeChangeSetResponse_changeSetId' - The Amazon Resource Name (ARN) of the change set.
 --
 -- 'changeSetName', 'describeChangeSetResponse_changeSetName' - The name of the change set.
 --
@@ -327,7 +329,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 --
 -- 'includeNestedStacks', 'describeChangeSetResponse_includeNestedStacks' - Verifies if @IncludeNestedStacks@ is set to @True@.
 --
--- 'stackName', 'describeChangeSetResponse_stackName' - The name of the stack that is associated with the change set.
+-- 'stackName', 'describeChangeSetResponse_stackName' - The name of the stack that\'s associated with the change set.
 --
 -- 'parentChangeSetId', 'describeChangeSetResponse_parentChangeSetId' - Specifies the change set ID of the parent change set in the current
 -- nested change set hierarchy.
@@ -342,7 +344,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- period afterwards.
 --
 -- 'executionStatus', 'describeChangeSetResponse_executionStatus' - If the change set execution status is @AVAILABLE@, you can execute the
--- change set. If you can’t execute the change set, the status indicates
+-- change set. If you can\'t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
 -- because CloudFormation is still creating it or in an @OBSOLETE@ state
 -- because the stack was already updated.
@@ -392,7 +394,8 @@ newDescribeChangeSetResponse pHttpStatus_ pStatus_ =
 describeChangeSetResponse_tags :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe [Tag])
 describeChangeSetResponse_tags = Lens.lens (\DescribeChangeSetResponse' {tags} -> tags) (\s@DescribeChangeSetResponse' {} a -> s {tags = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the stack that is associated with the change set.
+-- | The Amazon Resource Name (ARN) of the stack that\'s associated with the
+-- change set.
 describeChangeSetResponse_stackId :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_stackId = Lens.lens (\DescribeChangeSetResponse' {stackId} -> stackId) (\s@DescribeChangeSetResponse' {} a -> s {stackId = a} :: DescribeChangeSetResponse)
 
@@ -401,7 +404,7 @@ describeChangeSetResponse_stackId = Lens.lens (\DescribeChangeSetResponse' {stac
 describeChangeSetResponse_nextToken :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_nextToken = Lens.lens (\DescribeChangeSetResponse' {nextToken} -> nextToken) (\s@DescribeChangeSetResponse' {} a -> s {nextToken = a} :: DescribeChangeSetResponse)
 
--- | The ARN of the change set.
+-- | The Amazon Resource Name (ARN) of the change set.
 describeChangeSetResponse_changeSetId :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_changeSetId = Lens.lens (\DescribeChangeSetResponse' {changeSetId} -> changeSetId) (\s@DescribeChangeSetResponse' {} a -> s {changeSetId = a} :: DescribeChangeSetResponse)
 
@@ -437,7 +440,7 @@ describeChangeSetResponse_changes = Lens.lens (\DescribeChangeSetResponse' {chan
 describeChangeSetResponse_includeNestedStacks :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Bool)
 describeChangeSetResponse_includeNestedStacks = Lens.lens (\DescribeChangeSetResponse' {includeNestedStacks} -> includeNestedStacks) (\s@DescribeChangeSetResponse' {} a -> s {includeNestedStacks = a} :: DescribeChangeSetResponse)
 
--- | The name of the stack that is associated with the change set.
+-- | The name of the stack that\'s associated with the change set.
 describeChangeSetResponse_stackName :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_stackName = Lens.lens (\DescribeChangeSetResponse' {stackName} -> stackName) (\s@DescribeChangeSetResponse' {} a -> s {stackName = a} :: DescribeChangeSetResponse)
 
@@ -462,7 +465,7 @@ describeChangeSetResponse_rollbackConfiguration :: Lens.Lens' DescribeChangeSetR
 describeChangeSetResponse_rollbackConfiguration = Lens.lens (\DescribeChangeSetResponse' {rollbackConfiguration} -> rollbackConfiguration) (\s@DescribeChangeSetResponse' {} a -> s {rollbackConfiguration = a} :: DescribeChangeSetResponse)
 
 -- | If the change set execution status is @AVAILABLE@, you can execute the
--- change set. If you can’t execute the change set, the status indicates
+-- change set. If you can\'t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
 -- because CloudFormation is still creating it or in an @OBSOLETE@ state
 -- because the stack was already updated.

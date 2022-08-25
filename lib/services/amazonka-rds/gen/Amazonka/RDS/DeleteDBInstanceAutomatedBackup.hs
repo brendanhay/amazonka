@@ -55,6 +55,8 @@ data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
   { -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
     -- example,
     -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB instance, which can\'t be changed and
     -- which is unique to an Amazon Web Services Region.
@@ -74,6 +76,8 @@ data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
 -- example,
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'dbiResourceId', 'deleteDBInstanceAutomatedBackup_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
 -- which is unique to an Amazon Web Services Region.
 newDeleteDBInstanceAutomatedBackup ::
@@ -88,6 +92,8 @@ newDeleteDBInstanceAutomatedBackup =
 -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
 -- example,
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
+--
+-- This setting doesn\'t apply to RDS Custom.
 deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DeleteDBInstanceAutomatedBackup)
 

@@ -21,8 +21,10 @@ module Amazonka.WellArchitected.Types.LensStatus
   ( LensStatus
       ( ..,
         LensStatus_CURRENT,
+        LensStatus_DELETED,
         LensStatus_DEPRECATED,
-        LensStatus_NOT_CURRENT
+        LensStatus_NOT_CURRENT,
+        LensStatus_UNSHARED
       ),
   )
 where
@@ -61,15 +63,23 @@ newtype LensStatus = LensStatus'
 pattern LensStatus_CURRENT :: LensStatus
 pattern LensStatus_CURRENT = LensStatus' "CURRENT"
 
+pattern LensStatus_DELETED :: LensStatus
+pattern LensStatus_DELETED = LensStatus' "DELETED"
+
 pattern LensStatus_DEPRECATED :: LensStatus
 pattern LensStatus_DEPRECATED = LensStatus' "DEPRECATED"
 
 pattern LensStatus_NOT_CURRENT :: LensStatus
 pattern LensStatus_NOT_CURRENT = LensStatus' "NOT_CURRENT"
 
+pattern LensStatus_UNSHARED :: LensStatus
+pattern LensStatus_UNSHARED = LensStatus' "UNSHARED"
+
 {-# COMPLETE
   LensStatus_CURRENT,
+  LensStatus_DELETED,
   LensStatus_DEPRECATED,
   LensStatus_NOT_CURRENT,
+  LensStatus_UNSHARED,
   LensStatus'
   #-}

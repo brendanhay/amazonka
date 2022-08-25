@@ -24,7 +24,19 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Nimble.Types.StudioPersona
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | A studio member is an association of a user from your studio identity
+-- source to elevated permissions that they are granted in the studio.
+--
+-- When you add a user to your studio using the Nimble Studio console, they
+-- are given access to the studio\'s AWS SSO application and are given
+-- access to log in to the Nimble Studio portal. These users have the
+-- permissions provided by the studio\'s user IAM role and do not appear in
+-- the studio membership collection. Only studio admins appear in studio
+-- membership.
+--
+-- When you add a user to studio membership with the persona ADMIN, upon
+-- logging in to the Nimble Studio portal, they are granted permissions
+-- specified by the Studio\'s Admin IAM role.
 --
 -- /See:/ 'newStudioMembership' smart constructor.
 data StudioMembership = StudioMembership'
@@ -32,6 +44,8 @@ data StudioMembership = StudioMembership'
     principalId :: Prelude.Maybe Prelude.Text,
     -- | The persona.
     persona :: Prelude.Maybe StudioPersona,
+    -- | The Active Directory Security Identifier for this user, if available.
+    sid :: Prelude.Maybe Prelude.Text,
     -- | The ID of the identity store.
     identityStoreId :: Prelude.Maybe Prelude.Text
   }
@@ -49,6 +63,8 @@ data StudioMembership = StudioMembership'
 --
 -- 'persona', 'studioMembership_persona' - The persona.
 --
+-- 'sid', 'studioMembership_sid' - The Active Directory Security Identifier for this user, if available.
+--
 -- 'identityStoreId', 'studioMembership_identityStoreId' - The ID of the identity store.
 newStudioMembership ::
   StudioMembership
@@ -56,6 +72,7 @@ newStudioMembership =
   StudioMembership'
     { principalId = Prelude.Nothing,
       persona = Prelude.Nothing,
+      sid = Prelude.Nothing,
       identityStoreId = Prelude.Nothing
     }
 
@@ -66,6 +83,10 @@ studioMembership_principalId = Lens.lens (\StudioMembership' {principalId} -> pr
 -- | The persona.
 studioMembership_persona :: Lens.Lens' StudioMembership (Prelude.Maybe StudioPersona)
 studioMembership_persona = Lens.lens (\StudioMembership' {persona} -> persona) (\s@StudioMembership' {} a -> s {persona = a} :: StudioMembership)
+
+-- | The Active Directory Security Identifier for this user, if available.
+studioMembership_sid :: Lens.Lens' StudioMembership (Prelude.Maybe Prelude.Text)
+studioMembership_sid = Lens.lens (\StudioMembership' {sid} -> sid) (\s@StudioMembership' {} a -> s {sid = a} :: StudioMembership)
 
 -- | The ID of the identity store.
 studioMembership_identityStoreId :: Lens.Lens' StudioMembership (Prelude.Maybe Prelude.Text)
@@ -79,6 +100,7 @@ instance Core.FromJSON StudioMembership where
           StudioMembership'
             Prelude.<$> (x Core..:? "principalId")
             Prelude.<*> (x Core..:? "persona")
+            Prelude.<*> (x Core..:? "sid")
             Prelude.<*> (x Core..:? "identityStoreId")
       )
 
@@ -86,10 +108,12 @@ instance Prelude.Hashable StudioMembership where
   hashWithSalt _salt StudioMembership' {..} =
     _salt `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` persona
+      `Prelude.hashWithSalt` sid
       `Prelude.hashWithSalt` identityStoreId
 
 instance Prelude.NFData StudioMembership where
   rnf StudioMembership' {..} =
     Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf sid
       `Prelude.seq` Prelude.rnf identityStoreId

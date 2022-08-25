@@ -34,6 +34,7 @@ module Amazonka.Comprehend.CreateDocumentClassifier
     -- * Request Lenses
     createDocumentClassifier_tags,
     createDocumentClassifier_outputDataConfig,
+    createDocumentClassifier_modelPolicy,
     createDocumentClassifier_modelKmsKeyId,
     createDocumentClassifier_clientRequestToken,
     createDocumentClassifier_vpcConfig,
@@ -72,6 +73,23 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- | Enables the addition of output results configuration parameters for
     -- custom classifier jobs.
     outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
+    -- | The resource-based policy to attach to your custom document classifier
+    -- model. You can use this policy to allow another AWS account to import
+    -- your custom model.
+    --
+    -- Provide your policy as a JSON body that you enter as a UTF-8 encoded
+    -- string without line breaks. To provide valid JSON, enclose the attribute
+    -- names and values in double quotes. If the JSON body is also enclosed in
+    -- double quotes, then you must escape the double quotes that are inside
+    -- the policy:
+    --
+    -- @\"{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}\"@
+    --
+    -- To avoid escaping quotes, you can use single quotes to enclose the
+    -- policy and double quotes to enclose the JSON names and values:
+    --
+    -- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
+    modelPolicy :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
     -- of the following formats:
@@ -143,6 +161,23 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
 -- custom classifier jobs.
 --
+-- 'modelPolicy', 'createDocumentClassifier_modelPolicy' - The resource-based policy to attach to your custom document classifier
+-- model. You can use this policy to allow another AWS account to import
+-- your custom model.
+--
+-- Provide your policy as a JSON body that you enter as a UTF-8 encoded
+-- string without line breaks. To provide valid JSON, enclose the attribute
+-- names and values in double quotes. If the JSON body is also enclosed in
+-- double quotes, then you must escape the double quotes that are inside
+-- the policy:
+--
+-- @\"{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}\"@
+--
+-- To avoid escaping quotes, you can use single quotes to enclose the
+-- policy and double quotes to enclose the JSON names and values:
+--
+-- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
+--
 -- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
 -- of the following formats:
@@ -212,6 +247,7 @@ newCreateDocumentClassifier
     CreateDocumentClassifier'
       { tags = Prelude.Nothing,
         outputDataConfig = Prelude.Nothing,
+        modelPolicy = Prelude.Nothing,
         modelKmsKeyId = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
@@ -235,6 +271,25 @@ createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> 
 -- custom classifier jobs.
 createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
 createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
+
+-- | The resource-based policy to attach to your custom document classifier
+-- model. You can use this policy to allow another AWS account to import
+-- your custom model.
+--
+-- Provide your policy as a JSON body that you enter as a UTF-8 encoded
+-- string without line breaks. To provide valid JSON, enclose the attribute
+-- names and values in double quotes. If the JSON body is also enclosed in
+-- double quotes, then you must escape the double quotes that are inside
+-- the policy:
+--
+-- @\"{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}\"@
+--
+-- To avoid escaping quotes, you can use single quotes to enclose the
+-- policy and double quotes to enclose the JSON names and values:
+--
+-- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
+createDocumentClassifier_modelPolicy :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_modelPolicy = Lens.lens (\CreateDocumentClassifier' {modelPolicy} -> modelPolicy) (\s@CreateDocumentClassifier' {} a -> s {modelPolicy = a} :: CreateDocumentClassifier)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -325,6 +380,7 @@ instance Prelude.Hashable CreateDocumentClassifier where
   hashWithSalt _salt CreateDocumentClassifier' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` modelPolicy
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` vpcConfig
@@ -340,6 +396,7 @@ instance Prelude.NFData CreateDocumentClassifier where
   rnf CreateDocumentClassifier' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf modelPolicy
       `Prelude.seq` Prelude.rnf modelKmsKeyId
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf vpcConfig
@@ -373,6 +430,7 @@ instance Core.ToJSON CreateDocumentClassifier where
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("OutputDataConfig" Core..=)
               Prelude.<$> outputDataConfig,
+            ("ModelPolicy" Core..=) Prelude.<$> modelPolicy,
             ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,

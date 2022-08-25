@@ -69,8 +69,7 @@ data CreateThreatIntelSet = CreateThreatIntelSet'
     name :: Prelude.Text,
     -- | The format of the file that contains the ThreatIntelSet.
     format :: ThreatIntelSetFormat,
-    -- | The URI of the file that contains the ThreatIntelSet. For example:
-    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    -- | The URI of the file that contains the ThreatIntelSet.
     location :: Prelude.Text,
     -- | A Boolean value that indicates whether GuardDuty is to start using the
     -- uploaded ThreatIntelSet.
@@ -99,8 +98,7 @@ data CreateThreatIntelSet = CreateThreatIntelSet'
 --
 -- 'format', 'createThreatIntelSet_format' - The format of the file that contains the ThreatIntelSet.
 --
--- 'location', 'createThreatIntelSet_location' - The URI of the file that contains the ThreatIntelSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- 'location', 'createThreatIntelSet_location' - The URI of the file that contains the ThreatIntelSet.
 --
 -- 'activate', 'createThreatIntelSet_activate' - A Boolean value that indicates whether GuardDuty is to start using the
 -- uploaded ThreatIntelSet.
@@ -155,8 +153,7 @@ createThreatIntelSet_name = Lens.lens (\CreateThreatIntelSet' {name} -> name) (\
 createThreatIntelSet_format :: Lens.Lens' CreateThreatIntelSet ThreatIntelSetFormat
 createThreatIntelSet_format = Lens.lens (\CreateThreatIntelSet' {format} -> format) (\s@CreateThreatIntelSet' {} a -> s {format = a} :: CreateThreatIntelSet)
 
--- | The URI of the file that contains the ThreatIntelSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- | The URI of the file that contains the ThreatIntelSet.
 createThreatIntelSet_location :: Lens.Lens' CreateThreatIntelSet Prelude.Text
 createThreatIntelSet_location = Lens.lens (\CreateThreatIntelSet' {location} -> location) (\s@CreateThreatIntelSet' {} a -> s {location = a} :: CreateThreatIntelSet)
 

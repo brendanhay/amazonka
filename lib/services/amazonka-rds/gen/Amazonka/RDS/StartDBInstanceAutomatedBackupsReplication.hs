@@ -23,6 +23,8 @@
 -- Enables replication of automated backups to a different Amazon Web
 -- Services Region.
 --
+-- This command doesn\'t apply to RDS Custom.
+--
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html Replicating Automated Backups to Another Amazon Web Services Region>
 -- in the /Amazon RDS User Guide./
@@ -71,13 +73,27 @@ data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackup
     -- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
     -- @DestinationRegion@ set to region @DST@.
     destinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | A URL that contains a Signature Version 4 signed request for the
-    -- StartDBInstanceAutomatedBackupsReplication action to be called in the
+    -- | In an Amazon Web Services GovCloud (US) Region, an URL that contains a
+    -- Signature Version 4 signed request for the
+    -- @StartDBInstanceAutomatedBackupsReplication@ operation to call in the
     -- Amazon Web Services Region of the source DB instance. The presigned URL
     -- must be a valid request for the
-    -- StartDBInstanceAutomatedBackupsReplication API action that can be
-    -- executed in the Amazon Web Services Region that contains the source DB
-    -- instance.
+    -- @StartDBInstanceAutomatedBackupsReplication@ API operation that can run
+    -- in the Amazon Web Services Region that contains the source DB instance.
+    --
+    -- This setting applies only to Amazon Web Services GovCloud (US) Regions.
+    -- It\'s ignored in other Amazon Web Services Regions.
+    --
+    -- To learn how to generate a Signature Version 4 signed request, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)>
+    -- and
+    -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process>.
+    --
+    -- If you are using an Amazon Web Services SDK tool or the CLI, you can
+    -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
+    -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
+    -- autogenerates a presigned URL that is a valid request for the operation
+    -- that can run in the source Amazon Web Services Region.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the source DB instance for the
     -- replicated automated backups, for example,
@@ -108,13 +124,27 @@ data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackup
 -- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
 -- @DestinationRegion@ set to region @DST@.
 --
--- 'preSignedUrl', 'startDBInstanceAutomatedBackupsReplication_preSignedUrl' - A URL that contains a Signature Version 4 signed request for the
--- StartDBInstanceAutomatedBackupsReplication action to be called in the
+-- 'preSignedUrl', 'startDBInstanceAutomatedBackupsReplication_preSignedUrl' - In an Amazon Web Services GovCloud (US) Region, an URL that contains a
+-- Signature Version 4 signed request for the
+-- @StartDBInstanceAutomatedBackupsReplication@ operation to call in the
 -- Amazon Web Services Region of the source DB instance. The presigned URL
 -- must be a valid request for the
--- StartDBInstanceAutomatedBackupsReplication API action that can be
--- executed in the Amazon Web Services Region that contains the source DB
--- instance.
+-- @StartDBInstanceAutomatedBackupsReplication@ API operation that can run
+-- in the Amazon Web Services Region that contains the source DB instance.
+--
+-- This setting applies only to Amazon Web Services GovCloud (US) Regions.
+-- It\'s ignored in other Amazon Web Services Regions.
+--
+-- To learn how to generate a Signature Version 4 signed request, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)>
+-- and
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process>.
+--
+-- If you are using an Amazon Web Services SDK tool or the CLI, you can
+-- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
+-- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
+-- autogenerates a presigned URL that is a valid request for the operation
+-- that can run in the source Amazon Web Services Region.
 --
 -- 'sourceDBInstanceArn', 'startDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn' - The Amazon Resource Name (ARN) of the source DB instance for the
 -- replicated automated backups, for example,
@@ -156,13 +186,27 @@ startDBInstanceAutomatedBackupsReplication_kmsKeyId = Lens.lens (\StartDBInstanc
 startDBInstanceAutomatedBackupsReplication_destinationRegion :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
 startDBInstanceAutomatedBackupsReplication_destinationRegion = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {destinationRegion} -> destinationRegion) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {destinationRegion = a} :: StartDBInstanceAutomatedBackupsReplication)
 
--- | A URL that contains a Signature Version 4 signed request for the
--- StartDBInstanceAutomatedBackupsReplication action to be called in the
+-- | In an Amazon Web Services GovCloud (US) Region, an URL that contains a
+-- Signature Version 4 signed request for the
+-- @StartDBInstanceAutomatedBackupsReplication@ operation to call in the
 -- Amazon Web Services Region of the source DB instance. The presigned URL
 -- must be a valid request for the
--- StartDBInstanceAutomatedBackupsReplication API action that can be
--- executed in the Amazon Web Services Region that contains the source DB
--- instance.
+-- @StartDBInstanceAutomatedBackupsReplication@ API operation that can run
+-- in the Amazon Web Services Region that contains the source DB instance.
+--
+-- This setting applies only to Amazon Web Services GovCloud (US) Regions.
+-- It\'s ignored in other Amazon Web Services Regions.
+--
+-- To learn how to generate a Signature Version 4 signed request, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)>
+-- and
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process>.
+--
+-- If you are using an Amazon Web Services SDK tool or the CLI, you can
+-- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
+-- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
+-- autogenerates a presigned URL that is a valid request for the operation
+-- that can run in the source Amazon Web Services Region.
 startDBInstanceAutomatedBackupsReplication_preSignedUrl :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
 startDBInstanceAutomatedBackupsReplication_preSignedUrl = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {preSignedUrl} -> preSignedUrl) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {preSignedUrl = a} :: StartDBInstanceAutomatedBackupsReplication)
 

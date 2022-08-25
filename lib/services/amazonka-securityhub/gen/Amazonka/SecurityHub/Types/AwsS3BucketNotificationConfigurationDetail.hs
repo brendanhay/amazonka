@@ -32,7 +32,14 @@ data AwsS3BucketNotificationConfigurationDetail = AwsS3BucketNotificationConfigu
     -- that generates the notification.
     destination :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of notification. Notifications can be generated using
-    -- Lambda functions, Amazon SQS queues or Amazon SNS topics.
+    -- Lambda functions, Amazon SQS queues, or Amazon SNS topics, with
+    -- corresponding valid values as follows:
+    --
+    -- -   @LambdaConfiguration@
+    --
+    -- -   @QueueConfiguration@
+    --
+    -- -   @TopicConfiguration@
     type' :: Prelude.Maybe Prelude.Text,
     -- | The filters that determine which S3 buckets generate notifications.
     filter' :: Prelude.Maybe AwsS3BucketNotificationConfigurationFilter,
@@ -53,7 +60,14 @@ data AwsS3BucketNotificationConfigurationDetail = AwsS3BucketNotificationConfigu
 -- that generates the notification.
 --
 -- 'type'', 'awsS3BucketNotificationConfigurationDetail_type' - Indicates the type of notification. Notifications can be generated using
--- Lambda functions, Amazon SQS queues or Amazon SNS topics.
+-- Lambda functions, Amazon SQS queues, or Amazon SNS topics, with
+-- corresponding valid values as follows:
+--
+-- -   @LambdaConfiguration@
+--
+-- -   @QueueConfiguration@
+--
+-- -   @TopicConfiguration@
 --
 -- 'filter'', 'awsS3BucketNotificationConfigurationDetail_filter' - The filters that determine which S3 buckets generate notifications.
 --
@@ -75,7 +89,14 @@ awsS3BucketNotificationConfigurationDetail_destination :: Lens.Lens' AwsS3Bucket
 awsS3BucketNotificationConfigurationDetail_destination = Lens.lens (\AwsS3BucketNotificationConfigurationDetail' {destination} -> destination) (\s@AwsS3BucketNotificationConfigurationDetail' {} a -> s {destination = a} :: AwsS3BucketNotificationConfigurationDetail)
 
 -- | Indicates the type of notification. Notifications can be generated using
--- Lambda functions, Amazon SQS queues or Amazon SNS topics.
+-- Lambda functions, Amazon SQS queues, or Amazon SNS topics, with
+-- corresponding valid values as follows:
+--
+-- -   @LambdaConfiguration@
+--
+-- -   @QueueConfiguration@
+--
+-- -   @TopicConfiguration@
 awsS3BucketNotificationConfigurationDetail_type :: Lens.Lens' AwsS3BucketNotificationConfigurationDetail (Prelude.Maybe Prelude.Text)
 awsS3BucketNotificationConfigurationDetail_type = Lens.lens (\AwsS3BucketNotificationConfigurationDetail' {type'} -> type') (\s@AwsS3BucketNotificationConfigurationDetail' {} a -> s {type' = a} :: AwsS3BucketNotificationConfigurationDetail)
 

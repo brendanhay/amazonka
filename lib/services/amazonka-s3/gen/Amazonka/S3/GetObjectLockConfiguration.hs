@@ -24,6 +24,10 @@
 -- the Object Lock configuration will be applied by default to every new
 -- object placed in the specified bucket. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>.
+--
+-- The following action is related to @GetObjectLockConfiguration@:
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html GetObjectAttributes>
 module Amazonka.S3.GetObjectLockConfiguration
   ( -- * Creating a Request
     GetObjectLockConfiguration (..),
@@ -53,8 +57,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetObjectLockConfiguration' smart constructor.
 data GetObjectLockConfiguration = GetObjectLockConfiguration'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket whose Object Lock configuration you want to retrieve.
     --
@@ -79,8 +83,8 @@ data GetObjectLockConfiguration = GetObjectLockConfiguration'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getObjectLockConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getObjectLockConfiguration_bucket' - The bucket whose Object Lock configuration you want to retrieve.
 --
@@ -104,8 +108,8 @@ newGetObjectLockConfiguration pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' GetObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 getObjectLockConfiguration_expectedBucketOwner = Lens.lens (\GetObjectLockConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectLockConfiguration' {} a -> s {expectedBucketOwner = a} :: GetObjectLockConfiguration)
 

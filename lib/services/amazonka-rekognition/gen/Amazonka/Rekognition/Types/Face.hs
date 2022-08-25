@@ -29,7 +29,10 @@ import Amazonka.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'newFace' smart constructor.
 data Face = Face'
-  { -- | Confidence level that the bounding box contains a face (and not a
+  { -- | The version of the face detect and storage model that was used when
+    -- indexing the face vector.
+    indexFacesModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Confidence level that the bounding box contains a face (and not a
     -- different object such as a tree).
     confidence :: Prelude.Maybe Prelude.Double,
     -- | Unique identifier that Amazon Rekognition assigns to the face.
@@ -51,6 +54,9 @@ data Face = Face'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'indexFacesModelVersion', 'face_indexFacesModelVersion' - The version of the face detect and storage model that was used when
+-- indexing the face vector.
+--
 -- 'confidence', 'face_confidence' - Confidence level that the bounding box contains a face (and not a
 -- different object such as a tree).
 --
@@ -65,12 +71,18 @@ newFace ::
   Face
 newFace =
   Face'
-    { confidence = Prelude.Nothing,
+    { indexFacesModelVersion = Prelude.Nothing,
+      confidence = Prelude.Nothing,
       faceId = Prelude.Nothing,
       boundingBox = Prelude.Nothing,
       externalImageId = Prelude.Nothing,
       imageId = Prelude.Nothing
     }
+
+-- | The version of the face detect and storage model that was used when
+-- indexing the face vector.
+face_indexFacesModelVersion :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
+face_indexFacesModelVersion = Lens.lens (\Face' {indexFacesModelVersion} -> indexFacesModelVersion) (\s@Face' {} a -> s {indexFacesModelVersion = a} :: Face)
 
 -- | Confidence level that the bounding box contains a face (and not a
 -- different object such as a tree).
@@ -99,7 +111,8 @@ instance Core.FromJSON Face where
       "Face"
       ( \x ->
           Face'
-            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "IndexFacesModelVersion")
+            Prelude.<*> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "FaceId")
             Prelude.<*> (x Core..:? "BoundingBox")
             Prelude.<*> (x Core..:? "ExternalImageId")
@@ -108,7 +121,8 @@ instance Core.FromJSON Face where
 
 instance Prelude.Hashable Face where
   hashWithSalt _salt Face' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` indexFacesModelVersion
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` faceId
       `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` externalImageId
@@ -116,7 +130,8 @@ instance Prelude.Hashable Face where
 
 instance Prelude.NFData Face where
   rnf Face' {..} =
-    Prelude.rnf confidence
+    Prelude.rnf indexFacesModelVersion
+      `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf faceId
       `Prelude.seq` Prelude.rnf boundingBox
       `Prelude.seq` Prelude.rnf externalImageId

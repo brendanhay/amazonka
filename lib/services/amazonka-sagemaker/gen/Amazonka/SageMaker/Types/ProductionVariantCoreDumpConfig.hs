@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProductionVariantCoreDumpConfig' smart constructor.
 data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
   { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
-    -- key that Amazon SageMaker uses to encrypt the core dump data at rest
-    -- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+    -- key that SageMaker uses to encrypt the core dump data at rest using
+    -- Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
     -- following formats:
     --
     -- -   \/\/ KMS Key ID
@@ -49,13 +49,13 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
     --
-    -- If you use a KMS key ID or an alias of your KMS key, the Amazon
-    -- SageMaker execution role must include permissions to call @kms:Encrypt@.
-    -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
-    -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
-    -- server-side encryption with KMS-managed keys for @OutputDataConfig@. If
-    -- you use a bucket policy with an @s3:PutObject@ permission that only
-    -- allows objects with server-side encryption, set the condition key of
+    -- If you use a KMS key ID or an alias of your KMS key, the SageMaker
+    -- execution role must include permissions to call @kms:Encrypt@. If you
+    -- don\'t provide a KMS key ID, SageMaker uses the default KMS key for
+    -- Amazon S3 for your role\'s account. SageMaker uses server-side
+    -- encryption with KMS-managed keys for @OutputDataConfig@. If you use a
+    -- bucket policy with an @s3:PutObject@ permission that only allows objects
+    -- with server-side encryption, set the condition key of
     -- @s3:x-amz-server-side-encryption@ to @\"aws:kms\"@. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
@@ -81,8 +81,8 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 -- for backwards compatibility:
 --
 -- 'kmsKeyId', 'productionVariantCoreDumpConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
--- key that Amazon SageMaker uses to encrypt the core dump data at rest
--- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- key that SageMaker uses to encrypt the core dump data at rest using
+-- Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
 -- following formats:
 --
 -- -   \/\/ KMS Key ID
@@ -101,13 +101,13 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
 --
--- If you use a KMS key ID or an alias of your KMS key, the Amazon
--- SageMaker execution role must include permissions to call @kms:Encrypt@.
--- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
--- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
--- server-side encryption with KMS-managed keys for @OutputDataConfig@. If
--- you use a bucket policy with an @s3:PutObject@ permission that only
--- allows objects with server-side encryption, set the condition key of
+-- If you use a KMS key ID or an alias of your KMS key, the SageMaker
+-- execution role must include permissions to call @kms:Encrypt@. If you
+-- don\'t provide a KMS key ID, SageMaker uses the default KMS key for
+-- Amazon S3 for your role\'s account. SageMaker uses server-side
+-- encryption with KMS-managed keys for @OutputDataConfig@. If you use a
+-- bucket policy with an @s3:PutObject@ permission that only allows objects
+-- with server-side encryption, set the condition key of
 -- @s3:x-amz-server-side-encryption@ to @\"aws:kms\"@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
@@ -132,8 +132,8 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
     }
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
--- key that Amazon SageMaker uses to encrypt the core dump data at rest
--- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- key that SageMaker uses to encrypt the core dump data at rest using
+-- Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
 -- following formats:
 --
 -- -   \/\/ KMS Key ID
@@ -152,13 +152,13 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
 --
--- If you use a KMS key ID or an alias of your KMS key, the Amazon
--- SageMaker execution role must include permissions to call @kms:Encrypt@.
--- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
--- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
--- server-side encryption with KMS-managed keys for @OutputDataConfig@. If
--- you use a bucket policy with an @s3:PutObject@ permission that only
--- allows objects with server-side encryption, set the condition key of
+-- If you use a KMS key ID or an alias of your KMS key, the SageMaker
+-- execution role must include permissions to call @kms:Encrypt@. If you
+-- don\'t provide a KMS key ID, SageMaker uses the default KMS key for
+-- Amazon S3 for your role\'s account. SageMaker uses server-side
+-- encryption with KMS-managed keys for @OutputDataConfig@. If you use a
+-- bucket policy with an @s3:PutObject@ permission that only allows objects
+-- with server-side encryption, set the condition key of
 -- @s3:x-amz-server-side-encryption@ to @\"aws:kms\"@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>

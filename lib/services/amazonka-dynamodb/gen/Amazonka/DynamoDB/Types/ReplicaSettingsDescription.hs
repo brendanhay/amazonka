@@ -25,6 +25,7 @@ import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.BillingModeSummary
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription
 import Amazonka.DynamoDB.Types.ReplicaStatus
+import Amazonka.DynamoDB.Types.TableClassSummary
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -42,6 +43,7 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
     replicaGlobalSecondaryIndexSettings :: Prelude.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription],
     -- | The read\/write capacity mode of the replica.
     replicaBillingModeSummary :: Prelude.Maybe BillingModeSummary,
+    replicaTableClassSummary :: Prelude.Maybe TableClassSummary,
     -- | The maximum number of writes consumed per second before DynamoDB returns
     -- a @ThrottlingException@. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
@@ -85,6 +87,8 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
 --
 -- 'replicaBillingModeSummary', 'replicaSettingsDescription_replicaBillingModeSummary' - The read\/write capacity mode of the replica.
 --
+-- 'replicaTableClassSummary', 'replicaSettingsDescription_replicaTableClassSummary' - Undocumented member.
+--
 -- 'replicaProvisionedWriteCapacityUnits', 'replicaSettingsDescription_replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
 -- a @ThrottlingException@. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
@@ -120,6 +124,7 @@ newReplicaSettingsDescription pRegionName_ =
       replicaGlobalSecondaryIndexSettings =
         Prelude.Nothing,
       replicaBillingModeSummary = Prelude.Nothing,
+      replicaTableClassSummary = Prelude.Nothing,
       replicaProvisionedWriteCapacityUnits =
         Prelude.Nothing,
       replicaProvisionedReadCapacityUnits =
@@ -144,6 +149,10 @@ replicaSettingsDescription_replicaGlobalSecondaryIndexSettings = Lens.lens (\Rep
 -- | The read\/write capacity mode of the replica.
 replicaSettingsDescription_replicaBillingModeSummary :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe BillingModeSummary)
 replicaSettingsDescription_replicaBillingModeSummary = Lens.lens (\ReplicaSettingsDescription' {replicaBillingModeSummary} -> replicaBillingModeSummary) (\s@ReplicaSettingsDescription' {} a -> s {replicaBillingModeSummary = a} :: ReplicaSettingsDescription)
+
+-- | Undocumented member.
+replicaSettingsDescription_replicaTableClassSummary :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe TableClassSummary)
+replicaSettingsDescription_replicaTableClassSummary = Lens.lens (\ReplicaSettingsDescription' {replicaTableClassSummary} -> replicaTableClassSummary) (\s@ReplicaSettingsDescription' {} a -> s {replicaTableClassSummary = a} :: ReplicaSettingsDescription)
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
 -- a @ThrottlingException@. For more information, see
@@ -192,6 +201,7 @@ instance Core.FromJSON ReplicaSettingsDescription where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "ReplicaBillingModeSummary")
+            Prelude.<*> (x Core..:? "ReplicaTableClassSummary")
             Prelude.<*> (x Core..:? "ReplicaProvisionedWriteCapacityUnits")
             Prelude.<*> (x Core..:? "ReplicaProvisionedReadCapacityUnits")
             Prelude.<*> (x Core..:? "ReplicaStatus")
@@ -205,6 +215,7 @@ instance Prelude.Hashable ReplicaSettingsDescription where
       `Prelude.hashWithSalt` replicaProvisionedWriteCapacityAutoScalingSettings
       `Prelude.hashWithSalt` replicaGlobalSecondaryIndexSettings
       `Prelude.hashWithSalt` replicaBillingModeSummary
+      `Prelude.hashWithSalt` replicaTableClassSummary
       `Prelude.hashWithSalt` replicaProvisionedWriteCapacityUnits
       `Prelude.hashWithSalt` replicaProvisionedReadCapacityUnits
       `Prelude.hashWithSalt` replicaStatus
@@ -218,6 +229,7 @@ instance Prelude.NFData ReplicaSettingsDescription where
         replicaProvisionedWriteCapacityAutoScalingSettings
       `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexSettings
       `Prelude.seq` Prelude.rnf replicaBillingModeSummary
+      `Prelude.seq` Prelude.rnf replicaTableClassSummary
       `Prelude.seq` Prelude.rnf replicaProvisionedWriteCapacityUnits
       `Prelude.seq` Prelude.rnf replicaProvisionedReadCapacityUnits
       `Prelude.seq` Prelude.rnf replicaStatus

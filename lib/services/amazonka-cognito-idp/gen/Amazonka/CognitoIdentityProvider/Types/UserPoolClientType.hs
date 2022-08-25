@@ -52,38 +52,48 @@ data UserPoolClientType = UserPoolClientType'
     defaultRedirectURI :: Prelude.Maybe Prelude.Text,
     -- | The client secret from the user pool request of the client type.
     clientSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The time limit, specified by tokenValidityUnits, defaulting to hours,
-    -- after which the access token is no longer valid and cannot be used.
+    -- | The access token time limit. After this limit expires, your user can\'t
+    -- use their access token. To specify the time unit for
+    -- @AccessTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set a
+    -- @TokenValidityUnits@ value in your API request.
+    --
+    -- For example, when you set @AccessTokenValidity@ to @10@ and
+    -- @TokenValidityUnits@ to @hours@, your user can authorize access with
+    -- their access token for 10 hours.
+    --
+    -- The default time unit for @AccessTokenValidity@ in an API request is
+    -- hours. /Valid range/ is displayed below in seconds.
     accessTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the client associated with the user pool.
     clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The date the user pool client was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The authentication flows that are supported by the user pool clients.
-    -- Flow names without the @ALLOW_@ prefix are deprecated in favor of new
-    -- names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix
-    -- cannot be used along with values without @ALLOW_@ prefix.
+    -- Flow names without the @ALLOW_@ prefix are no longer supported in favor
+    -- of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@
+    -- prefix must be used only along with values including the @ALLOW_@
+    -- prefix.
     --
     -- Valid values include:
     --
     -- -   @ALLOW_ADMIN_USER_PASSWORD_AUTH@: Enable admin based user password
     --     authentication flow @ADMIN_USER_PASSWORD_AUTH@. This setting
     --     replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication
-    --     flow, Cognito receives the password in the request instead of using
-    --     the SRP (Secure Remote Password protocol) protocol to verify
-    --     passwords.
+    --     flow, Amazon Cognito receives the password in the request instead of
+    --     using the Secure Remote Password (SRP) protocol to verify passwords.
     --
     -- -   @ALLOW_CUSTOM_AUTH@: Enable Lambda trigger based authentication.
     --
     -- -   @ALLOW_USER_PASSWORD_AUTH@: Enable user password-based
-    --     authentication. In this flow, Cognito receives the password in the
-    --     request instead of using the SRP protocol to verify passwords.
+    --     authentication. In this flow, Amazon Cognito receives the password
+    --     in the request instead of using the SRP protocol to verify
+    --     passwords.
     --
-    -- -   @ALLOW_USER_SRP_AUTH@: Enable SRP based authentication.
+    -- -   @ALLOW_USER_SRP_AUTH@: Enable SRP-based authentication.
     --
     -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
     explicitAuthFlows :: Prelude.Maybe [ExplicitAuthFlowsType],
-    -- | A list of allowed redirect (callback) URLs for the identity providers.
+    -- | A list of allowed redirect (callback) URLs for the IdPs.
     --
     -- A redirect URI must:
     --
@@ -101,80 +111,122 @@ data UserPoolClientType = UserPoolClientType'
     --
     -- App callback URLs such as myapp:\/\/example are also supported.
     callbackURLs :: Prelude.Maybe [Prelude.Text],
-    -- | The allowed OAuth scopes. Possible values provided by OAuth are:
-    -- @phone@, @email@, @openid@, and @profile@. Possible values provided by
-    -- Amazon Web Services are: @aws.cognito.signin.user.admin@. Custom scopes
-    -- created in Resource Servers are also supported.
+    -- | The OAuth scopes that your app client supports. Possible values that
+    -- OAuth provides are @phone@, @email@, @openid@, and @profile@. Possible
+    -- values that Amazon Web Services provides are
+    -- @aws.cognito.signin.user.admin@. Amazon Cognito also supports custom
+    -- scopes that you create in Resource Servers.
     allowedOAuthScopes :: Prelude.Maybe [Prelude.Text],
     -- | The date the user pool client was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The time limit, specified by tokenValidityUnits, defaulting to hours,
-    -- after which the refresh token is no longer valid and cannot be used.
+    -- | The ID token time limit. After this limit expires, your user can\'t use
+    -- their ID token. To specify the time unit for @IdTokenValidity@ as
+    -- @seconds@, @minutes@, @hours@, or @days@, set a @TokenValidityUnits@
+    -- value in your API request.
+    --
+    -- For example, when you set @IdTokenValidity@ as @10@ and
+    -- @TokenValidityUnits@ as @hours@, your user can authenticate their
+    -- session with their ID token for 10 hours.
+    --
+    -- The default time unit for @AccessTokenValidity@ in an API request is
+    -- hours. /Valid range/ is displayed below in seconds.
     idTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | Set to true if the client is allowed to follow the OAuth protocol when
-    -- interacting with Cognito user pools.
+    -- interacting with Amazon Cognito user pools.
     allowedOAuthFlowsUserPoolClient :: Prelude.Maybe Prelude.Bool,
-    -- | The time limit, in days, after which the refresh token is no longer
-    -- valid and cannot be used.
+    -- | The refresh token time limit. After this limit expires, your user can\'t
+    -- use their refresh token. To specify the time unit for
+    -- @RefreshTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set
+    -- a @TokenValidityUnits@ value in your API request.
+    --
+    -- For example, when you set @RefreshTokenValidity@ as @10@ and
+    -- @TokenValidityUnits@ as @days@, your user can refresh their session and
+    -- retrieve new access and ID tokens for 10 days.
+    --
+    -- The default time unit for @RefreshTokenValidity@ in an API request is
+    -- days. You can\'t set @RefreshTokenValidity@ to 0. If you do, Amazon
+    -- Cognito overrides the value with the default value of 30 days. /Valid
+    -- range/ is displayed below in seconds.
     refreshTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Pinpoint analytics configuration for the user pool client.
     --
-    -- Cognito User Pools only supports sending events to Amazon Pinpoint
+    -- Amazon Cognito user pools only support sending events to Amazon Pinpoint
     -- projects in the US East (N. Virginia) us-east-1 Region, regardless of
-    -- the region in which the user pool resides.
+    -- the Region where the user pool resides.
     analyticsConfiguration :: Prelude.Maybe AnalyticsConfigurationType,
-    -- | Use this setting to choose which errors and responses are returned by
-    -- Cognito APIs during authentication, account confirmation, and password
-    -- recovery when the user does not exist in the user pool. When set to
-    -- @ENABLED@ and the user does not exist, authentication returns an error
-    -- indicating either the username or password was incorrect, and account
-    -- confirmation and password recovery return a response indicating a code
-    -- was sent to a simulated destination. When set to @LEGACY@, those APIs
-    -- will return a @UserNotFoundException@ exception if the user does not
-    -- exist in the user pool.
+    -- | Errors and responses that you want Amazon Cognito APIs to return during
+    -- authentication, account confirmation, and password recovery when the
+    -- user doesn\'t exist in the user pool. When set to @ENABLED@ and the user
+    -- doesn\'t exist, authentication returns an error indicating either the
+    -- username or password was incorrect. Account confirmation and password
+    -- recovery return a response indicating a code was sent to a simulated
+    -- destination. When set to @LEGACY@, those APIs return a
+    -- @UserNotFoundException@ exception if the user doesn\'t exist in the user
+    -- pool.
     --
     -- Valid values include:
     --
     -- -   @ENABLED@ - This prevents user existence-related errors.
     --
-    -- -   @LEGACY@ - This represents the old behavior of Cognito where user
-    --     existence related errors are not prevented.
-    --
-    -- After February 15th 2020, the value of @PreventUserExistenceErrors@ will
-    -- default to @ENABLED@ for newly created user pool clients if no value is
-    -- provided.
+    -- -   @LEGACY@ - This represents the old behavior of Amazon Cognito where
+    --     user existence related errors aren\'t prevented.
     preventUserExistenceErrors :: Prelude.Maybe PreventUserExistenceErrorTypes,
-    -- | The time units used to specify the token validity times of their
-    -- respective token.
+    -- | When @EnablePropagateAdditionalUserContextData@ is true, Amazon Cognito
+    -- accepts an @IpAddress@ value that you send in the @UserContextData@
+    -- parameter. The @UserContextData@ parameter sends information to Amazon
+    -- Cognito advanced security for risk analysis. You can send
+    -- @UserContextData@ when you sign in Amazon Cognito native users with the
+    -- @InitiateAuth@ and @RespondToAuthChallenge@ API operations.
+    --
+    -- When @EnablePropagateAdditionalUserContextData@ is false, you can\'t
+    -- send your user\'s source IP address to Amazon Cognito advanced security
+    -- with unauthenticated API operations.
+    -- @EnablePropagateAdditionalUserContextData@ doesn\'t affect whether you
+    -- can send a source IP address in a @ContextData@ parameter with the
+    -- authenticated API operations @AdminInitiateAuth@ and
+    -- @AdminRespondToAuthChallenge@.
+    --
+    -- You can only activate @EnablePropagateAdditionalUserContextData@ in an
+    -- app client that has a client secret. For more information about
+    -- propagation of user context data, see
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint Adding user device and session data to API requests>.
+    enablePropagateAdditionalUserContextData :: Prelude.Maybe Prelude.Bool,
+    -- | The time units used to specify the token validity times of each token
+    -- type: ID, access, and refresh.
     tokenValidityUnits :: Prelude.Maybe TokenValidityUnitsType,
     -- | The client name from the user pool request of the client type.
     clientName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether token revocation is enabled for the user pool client.
-    -- When you create a new user pool client, token revocation is enabled by
-    -- default. For more information about revoking tokens, see
+    -- | Indicates whether token revocation is activated for the user pool
+    -- client. When you create a new user pool client, token revocation is
+    -- activated by default. For more information about revoking tokens, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
     enableTokenRevocation :: Prelude.Maybe Prelude.Bool,
     -- | The allowed OAuth flows.
     --
-    -- Set to @code@ to initiate a code grant flow, which provides an
-    -- authorization code as the response. This code can be exchanged for
-    -- access tokens with the token endpoint.
+    -- [code]
+    --     Use a code grant flow, which provides an authorization code as the
+    --     response. This code can be exchanged for access tokens with the
+    --     @\/oauth2\/token@ endpoint.
     --
-    -- Set to @implicit@ to specify that the client should get the access token
-    -- (and, optionally, ID token, based on scopes) directly.
+    -- [implicit]
+    --     Issue the access token (and, optionally, ID token, based on scopes)
+    --     directly to your user.
     --
-    -- Set to @client_credentials@ to specify that the client should get the
-    -- access token (and, optionally, ID token, based on scopes) from the token
-    -- endpoint using a combination of client and client_secret.
+    -- [client_credentials]
+    --     Issue the access token from the @\/oauth2\/token@ endpoint directly
+    --     to a non-person user using a combination of the client ID and client
+    --     secret.
     allowedOAuthFlows :: Prelude.Maybe [OAuthFlowType],
     -- | The user pool ID for the user pool client.
     userPoolId :: Prelude.Maybe Prelude.Text,
     -- | The writeable attributes.
     writeAttributes :: Prelude.Maybe [Prelude.Text],
-    -- | A list of allowed logout URLs for the identity providers.
+    -- | A list of allowed logout URLs for the IdPs.
     logoutURLs :: Prelude.Maybe [Prelude.Text],
-    -- | A list of provider names for the identity providers that are supported
-    -- on this client.
+    -- | A list of provider names for the IdPs that this client supports. The
+    -- following are supported: @COGNITO@, @Facebook@, @Google@,
+    -- @SignInWithApple@, @LoginWithAmazon@, and the names of your own SAML and
+    -- OIDC providers.
     supportedIdentityProviders :: Prelude.Maybe [Prelude.Text],
     -- | The Read-only attributes.
     readAttributes :: Prelude.Maybe [Prelude.Text]
@@ -209,38 +261,48 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- 'clientSecret', 'userPoolClientType_clientSecret' - The client secret from the user pool request of the client type.
 --
--- 'accessTokenValidity', 'userPoolClientType_accessTokenValidity' - The time limit, specified by tokenValidityUnits, defaulting to hours,
--- after which the access token is no longer valid and cannot be used.
+-- 'accessTokenValidity', 'userPoolClientType_accessTokenValidity' - The access token time limit. After this limit expires, your user can\'t
+-- use their access token. To specify the time unit for
+-- @AccessTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set a
+-- @TokenValidityUnits@ value in your API request.
+--
+-- For example, when you set @AccessTokenValidity@ to @10@ and
+-- @TokenValidityUnits@ to @hours@, your user can authorize access with
+-- their access token for 10 hours.
+--
+-- The default time unit for @AccessTokenValidity@ in an API request is
+-- hours. /Valid range/ is displayed below in seconds.
 --
 -- 'clientId', 'userPoolClientType_clientId' - The ID of the client associated with the user pool.
 --
 -- 'lastModifiedDate', 'userPoolClientType_lastModifiedDate' - The date the user pool client was last modified.
 --
 -- 'explicitAuthFlows', 'userPoolClientType_explicitAuthFlows' - The authentication flows that are supported by the user pool clients.
--- Flow names without the @ALLOW_@ prefix are deprecated in favor of new
--- names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix
--- cannot be used along with values without @ALLOW_@ prefix.
+-- Flow names without the @ALLOW_@ prefix are no longer supported in favor
+-- of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@
+-- prefix must be used only along with values including the @ALLOW_@
+-- prefix.
 --
 -- Valid values include:
 --
 -- -   @ALLOW_ADMIN_USER_PASSWORD_AUTH@: Enable admin based user password
 --     authentication flow @ADMIN_USER_PASSWORD_AUTH@. This setting
 --     replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication
---     flow, Cognito receives the password in the request instead of using
---     the SRP (Secure Remote Password protocol) protocol to verify
---     passwords.
+--     flow, Amazon Cognito receives the password in the request instead of
+--     using the Secure Remote Password (SRP) protocol to verify passwords.
 --
 -- -   @ALLOW_CUSTOM_AUTH@: Enable Lambda trigger based authentication.
 --
 -- -   @ALLOW_USER_PASSWORD_AUTH@: Enable user password-based
---     authentication. In this flow, Cognito receives the password in the
---     request instead of using the SRP protocol to verify passwords.
+--     authentication. In this flow, Amazon Cognito receives the password
+--     in the request instead of using the SRP protocol to verify
+--     passwords.
 --
--- -   @ALLOW_USER_SRP_AUTH@: Enable SRP based authentication.
+-- -   @ALLOW_USER_SRP_AUTH@: Enable SRP-based authentication.
 --
 -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
 --
--- 'callbackURLs', 'userPoolClientType_callbackURLs' - A list of allowed redirect (callback) URLs for the identity providers.
+-- 'callbackURLs', 'userPoolClientType_callbackURLs' - A list of allowed redirect (callback) URLs for the IdPs.
 --
 -- A redirect URI must:
 --
@@ -258,80 +320,122 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- App callback URLs such as myapp:\/\/example are also supported.
 --
--- 'allowedOAuthScopes', 'userPoolClientType_allowedOAuthScopes' - The allowed OAuth scopes. Possible values provided by OAuth are:
--- @phone@, @email@, @openid@, and @profile@. Possible values provided by
--- Amazon Web Services are: @aws.cognito.signin.user.admin@. Custom scopes
--- created in Resource Servers are also supported.
+-- 'allowedOAuthScopes', 'userPoolClientType_allowedOAuthScopes' - The OAuth scopes that your app client supports. Possible values that
+-- OAuth provides are @phone@, @email@, @openid@, and @profile@. Possible
+-- values that Amazon Web Services provides are
+-- @aws.cognito.signin.user.admin@. Amazon Cognito also supports custom
+-- scopes that you create in Resource Servers.
 --
 -- 'creationDate', 'userPoolClientType_creationDate' - The date the user pool client was created.
 --
--- 'idTokenValidity', 'userPoolClientType_idTokenValidity' - The time limit, specified by tokenValidityUnits, defaulting to hours,
--- after which the refresh token is no longer valid and cannot be used.
+-- 'idTokenValidity', 'userPoolClientType_idTokenValidity' - The ID token time limit. After this limit expires, your user can\'t use
+-- their ID token. To specify the time unit for @IdTokenValidity@ as
+-- @seconds@, @minutes@, @hours@, or @days@, set a @TokenValidityUnits@
+-- value in your API request.
+--
+-- For example, when you set @IdTokenValidity@ as @10@ and
+-- @TokenValidityUnits@ as @hours@, your user can authenticate their
+-- session with their ID token for 10 hours.
+--
+-- The default time unit for @AccessTokenValidity@ in an API request is
+-- hours. /Valid range/ is displayed below in seconds.
 --
 -- 'allowedOAuthFlowsUserPoolClient', 'userPoolClientType_allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when
--- interacting with Cognito user pools.
+-- interacting with Amazon Cognito user pools.
 --
--- 'refreshTokenValidity', 'userPoolClientType_refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer
--- valid and cannot be used.
+-- 'refreshTokenValidity', 'userPoolClientType_refreshTokenValidity' - The refresh token time limit. After this limit expires, your user can\'t
+-- use their refresh token. To specify the time unit for
+-- @RefreshTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set
+-- a @TokenValidityUnits@ value in your API request.
+--
+-- For example, when you set @RefreshTokenValidity@ as @10@ and
+-- @TokenValidityUnits@ as @days@, your user can refresh their session and
+-- retrieve new access and ID tokens for 10 days.
+--
+-- The default time unit for @RefreshTokenValidity@ in an API request is
+-- days. You can\'t set @RefreshTokenValidity@ to 0. If you do, Amazon
+-- Cognito overrides the value with the default value of 30 days. /Valid
+-- range/ is displayed below in seconds.
 --
 -- 'analyticsConfiguration', 'userPoolClientType_analyticsConfiguration' - The Amazon Pinpoint analytics configuration for the user pool client.
 --
--- Cognito User Pools only supports sending events to Amazon Pinpoint
+-- Amazon Cognito user pools only support sending events to Amazon Pinpoint
 -- projects in the US East (N. Virginia) us-east-1 Region, regardless of
--- the region in which the user pool resides.
+-- the Region where the user pool resides.
 --
--- 'preventUserExistenceErrors', 'userPoolClientType_preventUserExistenceErrors' - Use this setting to choose which errors and responses are returned by
--- Cognito APIs during authentication, account confirmation, and password
--- recovery when the user does not exist in the user pool. When set to
--- @ENABLED@ and the user does not exist, authentication returns an error
--- indicating either the username or password was incorrect, and account
--- confirmation and password recovery return a response indicating a code
--- was sent to a simulated destination. When set to @LEGACY@, those APIs
--- will return a @UserNotFoundException@ exception if the user does not
--- exist in the user pool.
+-- 'preventUserExistenceErrors', 'userPoolClientType_preventUserExistenceErrors' - Errors and responses that you want Amazon Cognito APIs to return during
+-- authentication, account confirmation, and password recovery when the
+-- user doesn\'t exist in the user pool. When set to @ENABLED@ and the user
+-- doesn\'t exist, authentication returns an error indicating either the
+-- username or password was incorrect. Account confirmation and password
+-- recovery return a response indicating a code was sent to a simulated
+-- destination. When set to @LEGACY@, those APIs return a
+-- @UserNotFoundException@ exception if the user doesn\'t exist in the user
+-- pool.
 --
 -- Valid values include:
 --
 -- -   @ENABLED@ - This prevents user existence-related errors.
 --
--- -   @LEGACY@ - This represents the old behavior of Cognito where user
---     existence related errors are not prevented.
+-- -   @LEGACY@ - This represents the old behavior of Amazon Cognito where
+--     user existence related errors aren\'t prevented.
 --
--- After February 15th 2020, the value of @PreventUserExistenceErrors@ will
--- default to @ENABLED@ for newly created user pool clients if no value is
--- provided.
+-- 'enablePropagateAdditionalUserContextData', 'userPoolClientType_enablePropagateAdditionalUserContextData' - When @EnablePropagateAdditionalUserContextData@ is true, Amazon Cognito
+-- accepts an @IpAddress@ value that you send in the @UserContextData@
+-- parameter. The @UserContextData@ parameter sends information to Amazon
+-- Cognito advanced security for risk analysis. You can send
+-- @UserContextData@ when you sign in Amazon Cognito native users with the
+-- @InitiateAuth@ and @RespondToAuthChallenge@ API operations.
 --
--- 'tokenValidityUnits', 'userPoolClientType_tokenValidityUnits' - The time units used to specify the token validity times of their
--- respective token.
+-- When @EnablePropagateAdditionalUserContextData@ is false, you can\'t
+-- send your user\'s source IP address to Amazon Cognito advanced security
+-- with unauthenticated API operations.
+-- @EnablePropagateAdditionalUserContextData@ doesn\'t affect whether you
+-- can send a source IP address in a @ContextData@ parameter with the
+-- authenticated API operations @AdminInitiateAuth@ and
+-- @AdminRespondToAuthChallenge@.
+--
+-- You can only activate @EnablePropagateAdditionalUserContextData@ in an
+-- app client that has a client secret. For more information about
+-- propagation of user context data, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint Adding user device and session data to API requests>.
+--
+-- 'tokenValidityUnits', 'userPoolClientType_tokenValidityUnits' - The time units used to specify the token validity times of each token
+-- type: ID, access, and refresh.
 --
 -- 'clientName', 'userPoolClientType_clientName' - The client name from the user pool request of the client type.
 --
--- 'enableTokenRevocation', 'userPoolClientType_enableTokenRevocation' - Indicates whether token revocation is enabled for the user pool client.
--- When you create a new user pool client, token revocation is enabled by
--- default. For more information about revoking tokens, see
+-- 'enableTokenRevocation', 'userPoolClientType_enableTokenRevocation' - Indicates whether token revocation is activated for the user pool
+-- client. When you create a new user pool client, token revocation is
+-- activated by default. For more information about revoking tokens, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
 --
 -- 'allowedOAuthFlows', 'userPoolClientType_allowedOAuthFlows' - The allowed OAuth flows.
 --
--- Set to @code@ to initiate a code grant flow, which provides an
--- authorization code as the response. This code can be exchanged for
--- access tokens with the token endpoint.
+-- [code]
+--     Use a code grant flow, which provides an authorization code as the
+--     response. This code can be exchanged for access tokens with the
+--     @\/oauth2\/token@ endpoint.
 --
--- Set to @implicit@ to specify that the client should get the access token
--- (and, optionally, ID token, based on scopes) directly.
+-- [implicit]
+--     Issue the access token (and, optionally, ID token, based on scopes)
+--     directly to your user.
 --
--- Set to @client_credentials@ to specify that the client should get the
--- access token (and, optionally, ID token, based on scopes) from the token
--- endpoint using a combination of client and client_secret.
+-- [client_credentials]
+--     Issue the access token from the @\/oauth2\/token@ endpoint directly
+--     to a non-person user using a combination of the client ID and client
+--     secret.
 --
 -- 'userPoolId', 'userPoolClientType_userPoolId' - The user pool ID for the user pool client.
 --
 -- 'writeAttributes', 'userPoolClientType_writeAttributes' - The writeable attributes.
 --
--- 'logoutURLs', 'userPoolClientType_logoutURLs' - A list of allowed logout URLs for the identity providers.
+-- 'logoutURLs', 'userPoolClientType_logoutURLs' - A list of allowed logout URLs for the IdPs.
 --
--- 'supportedIdentityProviders', 'userPoolClientType_supportedIdentityProviders' - A list of provider names for the identity providers that are supported
--- on this client.
+-- 'supportedIdentityProviders', 'userPoolClientType_supportedIdentityProviders' - A list of provider names for the IdPs that this client supports. The
+-- following are supported: @COGNITO@, @Facebook@, @Google@,
+-- @SignInWithApple@, @LoginWithAmazon@, and the names of your own SAML and
+-- OIDC providers.
 --
 -- 'readAttributes', 'userPoolClientType_readAttributes' - The Read-only attributes.
 newUserPoolClientType ::
@@ -353,6 +457,8 @@ newUserPoolClientType =
       refreshTokenValidity = Prelude.Nothing,
       analyticsConfiguration = Prelude.Nothing,
       preventUserExistenceErrors = Prelude.Nothing,
+      enablePropagateAdditionalUserContextData =
+        Prelude.Nothing,
       tokenValidityUnits = Prelude.Nothing,
       clientName = Prelude.Nothing,
       enableTokenRevocation = Prelude.Nothing,
@@ -388,8 +494,17 @@ userPoolClientType_defaultRedirectURI = Lens.lens (\UserPoolClientType' {default
 userPoolClientType_clientSecret :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Text)
 userPoolClientType_clientSecret = Lens.lens (\UserPoolClientType' {clientSecret} -> clientSecret) (\s@UserPoolClientType' {} a -> s {clientSecret = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Sensitive
 
--- | The time limit, specified by tokenValidityUnits, defaulting to hours,
--- after which the access token is no longer valid and cannot be used.
+-- | The access token time limit. After this limit expires, your user can\'t
+-- use their access token. To specify the time unit for
+-- @AccessTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set a
+-- @TokenValidityUnits@ value in your API request.
+--
+-- For example, when you set @AccessTokenValidity@ to @10@ and
+-- @TokenValidityUnits@ to @hours@, your user can authorize access with
+-- their access token for 10 hours.
+--
+-- The default time unit for @AccessTokenValidity@ in an API request is
+-- hours. /Valid range/ is displayed below in seconds.
 userPoolClientType_accessTokenValidity :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Natural)
 userPoolClientType_accessTokenValidity = Lens.lens (\UserPoolClientType' {accessTokenValidity} -> accessTokenValidity) (\s@UserPoolClientType' {} a -> s {accessTokenValidity = a} :: UserPoolClientType)
 
@@ -402,32 +517,33 @@ userPoolClientType_lastModifiedDate :: Lens.Lens' UserPoolClientType (Prelude.Ma
 userPoolClientType_lastModifiedDate = Lens.lens (\UserPoolClientType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolClientType' {} a -> s {lastModifiedDate = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Time
 
 -- | The authentication flows that are supported by the user pool clients.
--- Flow names without the @ALLOW_@ prefix are deprecated in favor of new
--- names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix
--- cannot be used along with values without @ALLOW_@ prefix.
+-- Flow names without the @ALLOW_@ prefix are no longer supported in favor
+-- of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@
+-- prefix must be used only along with values including the @ALLOW_@
+-- prefix.
 --
 -- Valid values include:
 --
 -- -   @ALLOW_ADMIN_USER_PASSWORD_AUTH@: Enable admin based user password
 --     authentication flow @ADMIN_USER_PASSWORD_AUTH@. This setting
 --     replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication
---     flow, Cognito receives the password in the request instead of using
---     the SRP (Secure Remote Password protocol) protocol to verify
---     passwords.
+--     flow, Amazon Cognito receives the password in the request instead of
+--     using the Secure Remote Password (SRP) protocol to verify passwords.
 --
 -- -   @ALLOW_CUSTOM_AUTH@: Enable Lambda trigger based authentication.
 --
 -- -   @ALLOW_USER_PASSWORD_AUTH@: Enable user password-based
---     authentication. In this flow, Cognito receives the password in the
---     request instead of using the SRP protocol to verify passwords.
+--     authentication. In this flow, Amazon Cognito receives the password
+--     in the request instead of using the SRP protocol to verify
+--     passwords.
 --
--- -   @ALLOW_USER_SRP_AUTH@: Enable SRP based authentication.
+-- -   @ALLOW_USER_SRP_AUTH@: Enable SRP-based authentication.
 --
 -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
 userPoolClientType_explicitAuthFlows :: Lens.Lens' UserPoolClientType (Prelude.Maybe [ExplicitAuthFlowsType])
 userPoolClientType_explicitAuthFlows = Lens.lens (\UserPoolClientType' {explicitAuthFlows} -> explicitAuthFlows) (\s@UserPoolClientType' {} a -> s {explicitAuthFlows = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of allowed redirect (callback) URLs for the identity providers.
+-- | A list of allowed redirect (callback) URLs for the IdPs.
 --
 -- A redirect URI must:
 --
@@ -447,10 +563,11 @@ userPoolClientType_explicitAuthFlows = Lens.lens (\UserPoolClientType' {explicit
 userPoolClientType_callbackURLs :: Lens.Lens' UserPoolClientType (Prelude.Maybe [Prelude.Text])
 userPoolClientType_callbackURLs = Lens.lens (\UserPoolClientType' {callbackURLs} -> callbackURLs) (\s@UserPoolClientType' {} a -> s {callbackURLs = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
--- | The allowed OAuth scopes. Possible values provided by OAuth are:
--- @phone@, @email@, @openid@, and @profile@. Possible values provided by
--- Amazon Web Services are: @aws.cognito.signin.user.admin@. Custom scopes
--- created in Resource Servers are also supported.
+-- | The OAuth scopes that your app client supports. Possible values that
+-- OAuth provides are @phone@, @email@, @openid@, and @profile@. Possible
+-- values that Amazon Web Services provides are
+-- @aws.cognito.signin.user.admin@. Amazon Cognito also supports custom
+-- scopes that you create in Resource Servers.
 userPoolClientType_allowedOAuthScopes :: Lens.Lens' UserPoolClientType (Prelude.Maybe [Prelude.Text])
 userPoolClientType_allowedOAuthScopes = Lens.lens (\UserPoolClientType' {allowedOAuthScopes} -> allowedOAuthScopes) (\s@UserPoolClientType' {} a -> s {allowedOAuthScopes = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
@@ -458,54 +575,92 @@ userPoolClientType_allowedOAuthScopes = Lens.lens (\UserPoolClientType' {allowed
 userPoolClientType_creationDate :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.UTCTime)
 userPoolClientType_creationDate = Lens.lens (\UserPoolClientType' {creationDate} -> creationDate) (\s@UserPoolClientType' {} a -> s {creationDate = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Time
 
--- | The time limit, specified by tokenValidityUnits, defaulting to hours,
--- after which the refresh token is no longer valid and cannot be used.
+-- | The ID token time limit. After this limit expires, your user can\'t use
+-- their ID token. To specify the time unit for @IdTokenValidity@ as
+-- @seconds@, @minutes@, @hours@, or @days@, set a @TokenValidityUnits@
+-- value in your API request.
+--
+-- For example, when you set @IdTokenValidity@ as @10@ and
+-- @TokenValidityUnits@ as @hours@, your user can authenticate their
+-- session with their ID token for 10 hours.
+--
+-- The default time unit for @AccessTokenValidity@ in an API request is
+-- hours. /Valid range/ is displayed below in seconds.
 userPoolClientType_idTokenValidity :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Natural)
 userPoolClientType_idTokenValidity = Lens.lens (\UserPoolClientType' {idTokenValidity} -> idTokenValidity) (\s@UserPoolClientType' {} a -> s {idTokenValidity = a} :: UserPoolClientType)
 
 -- | Set to true if the client is allowed to follow the OAuth protocol when
--- interacting with Cognito user pools.
+-- interacting with Amazon Cognito user pools.
 userPoolClientType_allowedOAuthFlowsUserPoolClient :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Bool)
 userPoolClientType_allowedOAuthFlowsUserPoolClient = Lens.lens (\UserPoolClientType' {allowedOAuthFlowsUserPoolClient} -> allowedOAuthFlowsUserPoolClient) (\s@UserPoolClientType' {} a -> s {allowedOAuthFlowsUserPoolClient = a} :: UserPoolClientType)
 
--- | The time limit, in days, after which the refresh token is no longer
--- valid and cannot be used.
+-- | The refresh token time limit. After this limit expires, your user can\'t
+-- use their refresh token. To specify the time unit for
+-- @RefreshTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set
+-- a @TokenValidityUnits@ value in your API request.
+--
+-- For example, when you set @RefreshTokenValidity@ as @10@ and
+-- @TokenValidityUnits@ as @days@, your user can refresh their session and
+-- retrieve new access and ID tokens for 10 days.
+--
+-- The default time unit for @RefreshTokenValidity@ in an API request is
+-- days. You can\'t set @RefreshTokenValidity@ to 0. If you do, Amazon
+-- Cognito overrides the value with the default value of 30 days. /Valid
+-- range/ is displayed below in seconds.
 userPoolClientType_refreshTokenValidity :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Natural)
 userPoolClientType_refreshTokenValidity = Lens.lens (\UserPoolClientType' {refreshTokenValidity} -> refreshTokenValidity) (\s@UserPoolClientType' {} a -> s {refreshTokenValidity = a} :: UserPoolClientType)
 
 -- | The Amazon Pinpoint analytics configuration for the user pool client.
 --
--- Cognito User Pools only supports sending events to Amazon Pinpoint
+-- Amazon Cognito user pools only support sending events to Amazon Pinpoint
 -- projects in the US East (N. Virginia) us-east-1 Region, regardless of
--- the region in which the user pool resides.
+-- the Region where the user pool resides.
 userPoolClientType_analyticsConfiguration :: Lens.Lens' UserPoolClientType (Prelude.Maybe AnalyticsConfigurationType)
 userPoolClientType_analyticsConfiguration = Lens.lens (\UserPoolClientType' {analyticsConfiguration} -> analyticsConfiguration) (\s@UserPoolClientType' {} a -> s {analyticsConfiguration = a} :: UserPoolClientType)
 
--- | Use this setting to choose which errors and responses are returned by
--- Cognito APIs during authentication, account confirmation, and password
--- recovery when the user does not exist in the user pool. When set to
--- @ENABLED@ and the user does not exist, authentication returns an error
--- indicating either the username or password was incorrect, and account
--- confirmation and password recovery return a response indicating a code
--- was sent to a simulated destination. When set to @LEGACY@, those APIs
--- will return a @UserNotFoundException@ exception if the user does not
--- exist in the user pool.
+-- | Errors and responses that you want Amazon Cognito APIs to return during
+-- authentication, account confirmation, and password recovery when the
+-- user doesn\'t exist in the user pool. When set to @ENABLED@ and the user
+-- doesn\'t exist, authentication returns an error indicating either the
+-- username or password was incorrect. Account confirmation and password
+-- recovery return a response indicating a code was sent to a simulated
+-- destination. When set to @LEGACY@, those APIs return a
+-- @UserNotFoundException@ exception if the user doesn\'t exist in the user
+-- pool.
 --
 -- Valid values include:
 --
 -- -   @ENABLED@ - This prevents user existence-related errors.
 --
--- -   @LEGACY@ - This represents the old behavior of Cognito where user
---     existence related errors are not prevented.
---
--- After February 15th 2020, the value of @PreventUserExistenceErrors@ will
--- default to @ENABLED@ for newly created user pool clients if no value is
--- provided.
+-- -   @LEGACY@ - This represents the old behavior of Amazon Cognito where
+--     user existence related errors aren\'t prevented.
 userPoolClientType_preventUserExistenceErrors :: Lens.Lens' UserPoolClientType (Prelude.Maybe PreventUserExistenceErrorTypes)
 userPoolClientType_preventUserExistenceErrors = Lens.lens (\UserPoolClientType' {preventUserExistenceErrors} -> preventUserExistenceErrors) (\s@UserPoolClientType' {} a -> s {preventUserExistenceErrors = a} :: UserPoolClientType)
 
--- | The time units used to specify the token validity times of their
--- respective token.
+-- | When @EnablePropagateAdditionalUserContextData@ is true, Amazon Cognito
+-- accepts an @IpAddress@ value that you send in the @UserContextData@
+-- parameter. The @UserContextData@ parameter sends information to Amazon
+-- Cognito advanced security for risk analysis. You can send
+-- @UserContextData@ when you sign in Amazon Cognito native users with the
+-- @InitiateAuth@ and @RespondToAuthChallenge@ API operations.
+--
+-- When @EnablePropagateAdditionalUserContextData@ is false, you can\'t
+-- send your user\'s source IP address to Amazon Cognito advanced security
+-- with unauthenticated API operations.
+-- @EnablePropagateAdditionalUserContextData@ doesn\'t affect whether you
+-- can send a source IP address in a @ContextData@ parameter with the
+-- authenticated API operations @AdminInitiateAuth@ and
+-- @AdminRespondToAuthChallenge@.
+--
+-- You can only activate @EnablePropagateAdditionalUserContextData@ in an
+-- app client that has a client secret. For more information about
+-- propagation of user context data, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint Adding user device and session data to API requests>.
+userPoolClientType_enablePropagateAdditionalUserContextData :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Bool)
+userPoolClientType_enablePropagateAdditionalUserContextData = Lens.lens (\UserPoolClientType' {enablePropagateAdditionalUserContextData} -> enablePropagateAdditionalUserContextData) (\s@UserPoolClientType' {} a -> s {enablePropagateAdditionalUserContextData = a} :: UserPoolClientType)
+
+-- | The time units used to specify the token validity times of each token
+-- type: ID, access, and refresh.
 userPoolClientType_tokenValidityUnits :: Lens.Lens' UserPoolClientType (Prelude.Maybe TokenValidityUnitsType)
 userPoolClientType_tokenValidityUnits = Lens.lens (\UserPoolClientType' {tokenValidityUnits} -> tokenValidityUnits) (\s@UserPoolClientType' {} a -> s {tokenValidityUnits = a} :: UserPoolClientType)
 
@@ -513,25 +668,28 @@ userPoolClientType_tokenValidityUnits = Lens.lens (\UserPoolClientType' {tokenVa
 userPoolClientType_clientName :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Text)
 userPoolClientType_clientName = Lens.lens (\UserPoolClientType' {clientName} -> clientName) (\s@UserPoolClientType' {} a -> s {clientName = a} :: UserPoolClientType)
 
--- | Indicates whether token revocation is enabled for the user pool client.
--- When you create a new user pool client, token revocation is enabled by
--- default. For more information about revoking tokens, see
+-- | Indicates whether token revocation is activated for the user pool
+-- client. When you create a new user pool client, token revocation is
+-- activated by default. For more information about revoking tokens, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
 userPoolClientType_enableTokenRevocation :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Bool)
 userPoolClientType_enableTokenRevocation = Lens.lens (\UserPoolClientType' {enableTokenRevocation} -> enableTokenRevocation) (\s@UserPoolClientType' {} a -> s {enableTokenRevocation = a} :: UserPoolClientType)
 
 -- | The allowed OAuth flows.
 --
--- Set to @code@ to initiate a code grant flow, which provides an
--- authorization code as the response. This code can be exchanged for
--- access tokens with the token endpoint.
+-- [code]
+--     Use a code grant flow, which provides an authorization code as the
+--     response. This code can be exchanged for access tokens with the
+--     @\/oauth2\/token@ endpoint.
 --
--- Set to @implicit@ to specify that the client should get the access token
--- (and, optionally, ID token, based on scopes) directly.
+-- [implicit]
+--     Issue the access token (and, optionally, ID token, based on scopes)
+--     directly to your user.
 --
--- Set to @client_credentials@ to specify that the client should get the
--- access token (and, optionally, ID token, based on scopes) from the token
--- endpoint using a combination of client and client_secret.
+-- [client_credentials]
+--     Issue the access token from the @\/oauth2\/token@ endpoint directly
+--     to a non-person user using a combination of the client ID and client
+--     secret.
 userPoolClientType_allowedOAuthFlows :: Lens.Lens' UserPoolClientType (Prelude.Maybe [OAuthFlowType])
 userPoolClientType_allowedOAuthFlows = Lens.lens (\UserPoolClientType' {allowedOAuthFlows} -> allowedOAuthFlows) (\s@UserPoolClientType' {} a -> s {allowedOAuthFlows = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
@@ -543,12 +701,14 @@ userPoolClientType_userPoolId = Lens.lens (\UserPoolClientType' {userPoolId} -> 
 userPoolClientType_writeAttributes :: Lens.Lens' UserPoolClientType (Prelude.Maybe [Prelude.Text])
 userPoolClientType_writeAttributes = Lens.lens (\UserPoolClientType' {writeAttributes} -> writeAttributes) (\s@UserPoolClientType' {} a -> s {writeAttributes = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of allowed logout URLs for the identity providers.
+-- | A list of allowed logout URLs for the IdPs.
 userPoolClientType_logoutURLs :: Lens.Lens' UserPoolClientType (Prelude.Maybe [Prelude.Text])
 userPoolClientType_logoutURLs = Lens.lens (\UserPoolClientType' {logoutURLs} -> logoutURLs) (\s@UserPoolClientType' {} a -> s {logoutURLs = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of provider names for the identity providers that are supported
--- on this client.
+-- | A list of provider names for the IdPs that this client supports. The
+-- following are supported: @COGNITO@, @Facebook@, @Google@,
+-- @SignInWithApple@, @LoginWithAmazon@, and the names of your own SAML and
+-- OIDC providers.
 userPoolClientType_supportedIdentityProviders :: Lens.Lens' UserPoolClientType (Prelude.Maybe [Prelude.Text])
 userPoolClientType_supportedIdentityProviders = Lens.lens (\UserPoolClientType' {supportedIdentityProviders} -> supportedIdentityProviders) (\s@UserPoolClientType' {} a -> s {supportedIdentityProviders = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
@@ -580,6 +740,9 @@ instance Core.FromJSON UserPoolClientType where
             Prelude.<*> (x Core..:? "RefreshTokenValidity")
             Prelude.<*> (x Core..:? "AnalyticsConfiguration")
             Prelude.<*> (x Core..:? "PreventUserExistenceErrors")
+            Prelude.<*> ( x
+                            Core..:? "EnablePropagateAdditionalUserContextData"
+                        )
             Prelude.<*> (x Core..:? "TokenValidityUnits")
             Prelude.<*> (x Core..:? "ClientName")
             Prelude.<*> (x Core..:? "EnableTokenRevocation")
@@ -615,6 +778,7 @@ instance Prelude.Hashable UserPoolClientType where
       `Prelude.hashWithSalt` refreshTokenValidity
       `Prelude.hashWithSalt` analyticsConfiguration
       `Prelude.hashWithSalt` preventUserExistenceErrors
+      `Prelude.hashWithSalt` enablePropagateAdditionalUserContextData
       `Prelude.hashWithSalt` tokenValidityUnits
       `Prelude.hashWithSalt` clientName
       `Prelude.hashWithSalt` enableTokenRevocation
@@ -641,6 +805,8 @@ instance Prelude.NFData UserPoolClientType where
       `Prelude.seq` Prelude.rnf refreshTokenValidity
       `Prelude.seq` Prelude.rnf analyticsConfiguration
       `Prelude.seq` Prelude.rnf preventUserExistenceErrors
+      `Prelude.seq` Prelude.rnf
+        enablePropagateAdditionalUserContextData
       `Prelude.seq` Prelude.rnf tokenValidityUnits
       `Prelude.seq` Prelude.rnf clientName
       `Prelude.seq` Prelude.rnf enableTokenRevocation

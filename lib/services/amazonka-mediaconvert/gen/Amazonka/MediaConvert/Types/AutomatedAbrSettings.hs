@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AutomatedAbrSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AutomatedAbrRule
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use automated ABR to have MediaConvert set up the renditions in your ABR
@@ -35,6 +36,12 @@ data AutomatedAbrSettings = AutomatedAbrSettings'
     -- viewers with slow internet connections. If you don\'t specify a value,
     -- MediaConvert uses 600,000 (600 kb\/s) by default.
     minAbrBitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Optional. Use Automated ABR rules to specify restrictions for the
+    -- rendition sizes MediaConvert will create in your ABR stack. You can use
+    -- these rules if your ABR workflow has specific rendition size
+    -- requirements, but you still want MediaConvert to optimize for video
+    -- quality and overall file size.
+    rules :: Prelude.Maybe [AutomatedAbrRule],
     -- | Optional. The maximum target bit rate used in your automated ABR stack.
     -- Use this value to set an upper limit on the bandwidth consumed by the
     -- highest-quality rendition. This is the rendition that is delivered to
@@ -64,6 +71,12 @@ data AutomatedAbrSettings = AutomatedAbrSettings'
 -- viewers with slow internet connections. If you don\'t specify a value,
 -- MediaConvert uses 600,000 (600 kb\/s) by default.
 --
+-- 'rules', 'automatedAbrSettings_rules' - Optional. Use Automated ABR rules to specify restrictions for the
+-- rendition sizes MediaConvert will create in your ABR stack. You can use
+-- these rules if your ABR workflow has specific rendition size
+-- requirements, but you still want MediaConvert to optimize for video
+-- quality and overall file size.
+--
 -- 'maxAbrBitrate', 'automatedAbrSettings_maxAbrBitrate' - Optional. The maximum target bit rate used in your automated ABR stack.
 -- Use this value to set an upper limit on the bandwidth consumed by the
 -- highest-quality rendition. This is the rendition that is delivered to
@@ -82,6 +95,7 @@ newAutomatedAbrSettings =
   AutomatedAbrSettings'
     { minAbrBitrate =
         Prelude.Nothing,
+      rules = Prelude.Nothing,
       maxAbrBitrate = Prelude.Nothing,
       maxRenditions = Prelude.Nothing
     }
@@ -92,6 +106,14 @@ newAutomatedAbrSettings =
 -- MediaConvert uses 600,000 (600 kb\/s) by default.
 automatedAbrSettings_minAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
 automatedAbrSettings_minAbrBitrate = Lens.lens (\AutomatedAbrSettings' {minAbrBitrate} -> minAbrBitrate) (\s@AutomatedAbrSettings' {} a -> s {minAbrBitrate = a} :: AutomatedAbrSettings)
+
+-- | Optional. Use Automated ABR rules to specify restrictions for the
+-- rendition sizes MediaConvert will create in your ABR stack. You can use
+-- these rules if your ABR workflow has specific rendition size
+-- requirements, but you still want MediaConvert to optimize for video
+-- quality and overall file size.
+automatedAbrSettings_rules :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe [AutomatedAbrRule])
+automatedAbrSettings_rules = Lens.lens (\AutomatedAbrSettings' {rules} -> rules) (\s@AutomatedAbrSettings' {} a -> s {rules = a} :: AutomatedAbrSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional. The maximum target bit rate used in your automated ABR stack.
 -- Use this value to set an upper limit on the bandwidth consumed by the
@@ -117,6 +139,7 @@ instance Core.FromJSON AutomatedAbrSettings where
       ( \x ->
           AutomatedAbrSettings'
             Prelude.<$> (x Core..:? "minAbrBitrate")
+            Prelude.<*> (x Core..:? "rules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "maxAbrBitrate")
             Prelude.<*> (x Core..:? "maxRenditions")
       )
@@ -124,12 +147,14 @@ instance Core.FromJSON AutomatedAbrSettings where
 instance Prelude.Hashable AutomatedAbrSettings where
   hashWithSalt _salt AutomatedAbrSettings' {..} =
     _salt `Prelude.hashWithSalt` minAbrBitrate
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` maxAbrBitrate
       `Prelude.hashWithSalt` maxRenditions
 
 instance Prelude.NFData AutomatedAbrSettings where
   rnf AutomatedAbrSettings' {..} =
     Prelude.rnf minAbrBitrate
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf maxAbrBitrate
       `Prelude.seq` Prelude.rnf maxRenditions
 
@@ -138,6 +163,7 @@ instance Core.ToJSON AutomatedAbrSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("minAbrBitrate" Core..=) Prelude.<$> minAbrBitrate,
+            ("rules" Core..=) Prelude.<$> rules,
             ("maxAbrBitrate" Core..=) Prelude.<$> maxAbrBitrate,
             ("maxRenditions" Core..=) Prelude.<$> maxRenditions
           ]

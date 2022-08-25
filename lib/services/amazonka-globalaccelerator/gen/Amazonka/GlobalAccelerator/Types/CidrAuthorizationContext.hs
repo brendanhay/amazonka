@@ -24,11 +24,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides authorization for Amazon to bring a specific IP address range
--- to a specific AWS account using bring your own IP addresses (BYOIP).
+-- to a specific Amazon Web Services account using bring your own IP
+-- addresses (BYOIP).
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring Your Own IP Addresses (BYOIP)>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- /See:/ 'newCidrAuthorizationContext' smart constructor.
 data CidrAuthorizationContext = CidrAuthorizationContext'

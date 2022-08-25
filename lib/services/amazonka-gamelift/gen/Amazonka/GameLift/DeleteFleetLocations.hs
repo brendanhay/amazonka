@@ -80,7 +80,7 @@ data DeleteFleetLocations = DeleteFleetLocations'
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
     -- | The list of fleet locations to delete. Specify locations in the form of
-    -- an AWS Region code, such as @us-west-2@.
+    -- an Amazon Web Services Region code, such as @us-west-2@.
     locations :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,7 +97,7 @@ data DeleteFleetLocations = DeleteFleetLocations'
 -- either the fleet ID or ARN value.
 --
 -- 'locations', 'deleteFleetLocations_locations' - The list of fleet locations to delete. Specify locations in the form of
--- an AWS Region code, such as @us-west-2@.
+-- an Amazon Web Services Region code, such as @us-west-2@.
 newDeleteFleetLocations ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -116,7 +116,7 @@ deleteFleetLocations_fleetId :: Lens.Lens' DeleteFleetLocations Prelude.Text
 deleteFleetLocations_fleetId = Lens.lens (\DeleteFleetLocations' {fleetId} -> fleetId) (\s@DeleteFleetLocations' {} a -> s {fleetId = a} :: DeleteFleetLocations)
 
 -- | The list of fleet locations to delete. Specify locations in the form of
--- an AWS Region code, such as @us-west-2@.
+-- an Amazon Web Services Region code, such as @us-west-2@.
 deleteFleetLocations_locations :: Lens.Lens' DeleteFleetLocations (Prelude.NonEmpty Prelude.Text)
 deleteFleetLocations_locations = Lens.lens (\DeleteFleetLocations' {locations} -> locations) (\s@DeleteFleetLocations' {} a -> s {locations = a} :: DeleteFleetLocations) Prelude.. Lens.coerced
 

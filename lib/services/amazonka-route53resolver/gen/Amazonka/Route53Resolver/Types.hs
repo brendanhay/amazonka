@@ -37,6 +37,9 @@ module Amazonka.Route53Resolver.Types
     -- * Action
     Action (..),
 
+    -- * AutodefinedReverseFlag
+    AutodefinedReverseFlag (..),
+
     -- * BlockOverrideDnsType
     BlockOverrideDnsType (..),
 
@@ -66,6 +69,9 @@ module Amazonka.Route53Resolver.Types
 
     -- * MutationProtectionStatus
     MutationProtectionStatus (..),
+
+    -- * ResolverAutodefinedReverseStatus
+    ResolverAutodefinedReverseStatus (..),
 
     -- * ResolverDNSSECValidationStatus
     ResolverDNSSECValidationStatus (..),
@@ -222,6 +228,14 @@ module Amazonka.Route53Resolver.Types
     ipAddressUpdate_subnetId,
     ipAddressUpdate_ip,
 
+    -- * ResolverConfig
+    ResolverConfig (..),
+    newResolverConfig,
+    resolverConfig_resourceId,
+    resolverConfig_ownerId,
+    resolverConfig_id,
+    resolverConfig_autodefinedReverse,
+
     -- * ResolverDnssecConfig
     ResolverDnssecConfig (..),
     newResolverDnssecConfig,
@@ -324,6 +338,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.Action
+import Amazonka.Route53Resolver.Types.AutodefinedReverseFlag
 import Amazonka.Route53Resolver.Types.BlockOverrideDnsType
 import Amazonka.Route53Resolver.Types.BlockResponse
 import Amazonka.Route53Resolver.Types.Filter
@@ -345,6 +360,8 @@ import Amazonka.Route53Resolver.Types.IpAddressResponse
 import Amazonka.Route53Resolver.Types.IpAddressStatus
 import Amazonka.Route53Resolver.Types.IpAddressUpdate
 import Amazonka.Route53Resolver.Types.MutationProtectionStatus
+import Amazonka.Route53Resolver.Types.ResolverAutodefinedReverseStatus
+import Amazonka.Route53Resolver.Types.ResolverConfig
 import Amazonka.Route53Resolver.Types.ResolverDNSSECValidationStatus
 import Amazonka.Route53Resolver.Types.ResolverDnssecConfig
 import Amazonka.Route53Resolver.Types.ResolverEndpoint

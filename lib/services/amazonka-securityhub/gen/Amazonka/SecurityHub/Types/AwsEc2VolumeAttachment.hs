@@ -29,7 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 data AwsEc2VolumeAttachment = AwsEc2VolumeAttachment'
   { -- | Whether the EBS volume is deleted when the EC2 instance is terminated.
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The attachment state of the volume.
+    -- | The attachment state of the volume. Valid values are as follows:
+    --
+    -- -   @attaching@
+    --
+    -- -   @attached@
+    --
+    -- -   @busy@
+    --
+    -- -   @detaching@
+    --
+    -- -   @detached@
     status :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the EC2 instance.
     instanceId :: Prelude.Maybe Prelude.Text,
@@ -48,7 +58,17 @@ data AwsEc2VolumeAttachment = AwsEc2VolumeAttachment'
 --
 -- 'deleteOnTermination', 'awsEc2VolumeAttachment_deleteOnTermination' - Whether the EBS volume is deleted when the EC2 instance is terminated.
 --
--- 'status', 'awsEc2VolumeAttachment_status' - The attachment state of the volume.
+-- 'status', 'awsEc2VolumeAttachment_status' - The attachment state of the volume. Valid values are as follows:
+--
+-- -   @attaching@
+--
+-- -   @attached@
+--
+-- -   @busy@
+--
+-- -   @detaching@
+--
+-- -   @detached@
 --
 -- 'instanceId', 'awsEc2VolumeAttachment_instanceId' - The identifier of the EC2 instance.
 --
@@ -68,7 +88,17 @@ newAwsEc2VolumeAttachment =
 awsEc2VolumeAttachment_deleteOnTermination :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Bool)
 awsEc2VolumeAttachment_deleteOnTermination = Lens.lens (\AwsEc2VolumeAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@AwsEc2VolumeAttachment' {} a -> s {deleteOnTermination = a} :: AwsEc2VolumeAttachment)
 
--- | The attachment state of the volume.
+-- | The attachment state of the volume. Valid values are as follows:
+--
+-- -   @attaching@
+--
+-- -   @attached@
+--
+-- -   @busy@
+--
+-- -   @detaching@
+--
+-- -   @detached@
 awsEc2VolumeAttachment_status :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
 awsEc2VolumeAttachment_status = Lens.lens (\AwsEc2VolumeAttachment' {status} -> status) (\s@AwsEc2VolumeAttachment' {} a -> s {status = a} :: AwsEc2VolumeAttachment)
 

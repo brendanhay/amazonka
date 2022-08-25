@@ -23,8 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata of a framework, such as the name, ID, description, and so
--- on.
+-- | The metadata of a framework, such as the name, ID, or description.
 --
 -- /See:/ 'newFrameworkMetadata' smart constructor.
 data FrameworkMetadata = FrameworkMetadata'
@@ -32,10 +31,10 @@ data FrameworkMetadata = FrameworkMetadata'
     name :: Prelude.Maybe Prelude.Text,
     -- | The description of the framework.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The logo associated with the framework.
+    -- | The logo that\'s associated with the framework.
     logo :: Prelude.Maybe Prelude.Text,
-    -- | The compliance standard associated with the framework, such as PCI-DSS
-    -- or HIPAA.
+    -- | The compliance standard that\'s associated with the framework. For
+    -- example, this could be PCI DSS or HIPAA.
     complianceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,10 +51,10 @@ data FrameworkMetadata = FrameworkMetadata'
 --
 -- 'description', 'frameworkMetadata_description' - The description of the framework.
 --
--- 'logo', 'frameworkMetadata_logo' - The logo associated with the framework.
+-- 'logo', 'frameworkMetadata_logo' - The logo that\'s associated with the framework.
 --
--- 'complianceType', 'frameworkMetadata_complianceType' - The compliance standard associated with the framework, such as PCI-DSS
--- or HIPAA.
+-- 'complianceType', 'frameworkMetadata_complianceType' - The compliance standard that\'s associated with the framework. For
+-- example, this could be PCI DSS or HIPAA.
 newFrameworkMetadata ::
   FrameworkMetadata
 newFrameworkMetadata =
@@ -74,12 +73,12 @@ frameworkMetadata_name = Lens.lens (\FrameworkMetadata' {name} -> name) (\s@Fram
 frameworkMetadata_description :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
 frameworkMetadata_description = Lens.lens (\FrameworkMetadata' {description} -> description) (\s@FrameworkMetadata' {} a -> s {description = a} :: FrameworkMetadata)
 
--- | The logo associated with the framework.
+-- | The logo that\'s associated with the framework.
 frameworkMetadata_logo :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
 frameworkMetadata_logo = Lens.lens (\FrameworkMetadata' {logo} -> logo) (\s@FrameworkMetadata' {} a -> s {logo = a} :: FrameworkMetadata)
 
--- | The compliance standard associated with the framework, such as PCI-DSS
--- or HIPAA.
+-- | The compliance standard that\'s associated with the framework. For
+-- example, this could be PCI DSS or HIPAA.
 frameworkMetadata_complianceType :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
 frameworkMetadata_complianceType = Lens.lens (\FrameworkMetadata' {complianceType} -> complianceType) (\s@FrameworkMetadata' {} a -> s {complianceType = a} :: FrameworkMetadata)
 

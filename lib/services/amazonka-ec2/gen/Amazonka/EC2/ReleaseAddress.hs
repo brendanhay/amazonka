@@ -27,6 +27,11 @@
 -- disassociate an Elastic IP address without releasing it, use
 -- DisassociateAddress.
 --
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- [Nondefault VPC] You must use DisassociateAddress to disassociate the
 -- Elastic IP address before you can release it. Otherwise, Amazon EC2
 -- returns an error (@InvalidIPAddress.InUse@).
@@ -39,6 +44,10 @@
 --
 -- [EC2-VPC] After you release an Elastic IP address for use in a VPC, you
 -- might be able to recover it. For more information, see AllocateAddress.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.ReleaseAddress
   ( -- * Creating a Request
     ReleaseAddress (..),

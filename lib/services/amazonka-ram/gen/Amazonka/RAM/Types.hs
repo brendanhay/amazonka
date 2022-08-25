@@ -30,6 +30,7 @@ module Amazonka.RAM.Types
     _InvalidClientTokenException,
     _InvalidNextTokenException,
     _MalformedArnException,
+    _ThrottlingException,
     _InvalidStateTransitionException,
     _TagLimitExceededException,
     _ResourceShareLimitExceededException,
@@ -41,6 +42,12 @@ module Amazonka.RAM.Types
 
     -- * ResourceOwner
     ResourceOwner (..),
+
+    -- * ResourceRegionScope
+    ResourceRegionScope (..),
+
+    -- * ResourceRegionScopeFilter
+    ResourceRegionScopeFilter (..),
 
     -- * ResourceShareAssociationStatus
     ResourceShareAssociationStatus (..),
@@ -73,6 +80,7 @@ module Amazonka.RAM.Types
     Resource (..),
     newResource,
     resource_type,
+    resource_resourceRegionScope,
     resource_arn,
     resource_resourceShareArn,
     resource_status,
@@ -151,6 +159,7 @@ module Amazonka.RAM.Types
     ServiceNameAndResourceType (..),
     newServiceNameAndResourceType,
     serviceNameAndResourceType_resourceType,
+    serviceNameAndResourceType_resourceRegionScope,
     serviceNameAndResourceType_serviceName,
 
     -- * Tag
@@ -173,6 +182,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.Principal
 import Amazonka.RAM.Types.Resource
 import Amazonka.RAM.Types.ResourceOwner
+import Amazonka.RAM.Types.ResourceRegionScope
+import Amazonka.RAM.Types.ResourceRegionScopeFilter
 import Amazonka.RAM.Types.ResourceShare
 import Amazonka.RAM.Types.ResourceShareAssociation
 import Amazonka.RAM.Types.ResourceShareAssociationStatus
@@ -259,7 +270,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified tag is a reserved word and cannot be used.
+-- | The specified tag key is a reserved word and can\'t be used.
 _TagPolicyViolationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TagPolicyViolationException =
   Core._MatchServiceError
@@ -267,7 +278,7 @@ _TagPolicyViolationException =
     "TagPolicyViolationException"
     Prelude.. Core.hasStatus 400
 
--- | The invitation was already accepted.
+-- | The specified invitation was already accepted.
 _ResourceShareInvitationAlreadyAcceptedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceShareInvitationAlreadyAcceptedException =
   Core._MatchServiceError
@@ -275,7 +286,7 @@ _ResourceShareInvitationAlreadyAcceptedException =
     "ResourceShareInvitationAlreadyAcceptedException"
     Prelude.. Core.hasStatus 400
 
--- | An Amazon Resource Name (ARN) was not found.
+-- | The specified Amazon Resource Name (ARN) was not found.
 _ResourceArnNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceArnNotFoundException =
   Core._MatchServiceError
@@ -299,7 +310,7 @@ _UnknownResourceException =
     "UnknownResourceException"
     Prelude.. Core.hasStatus 400
 
--- | The invitation is expired.
+-- | The specified invitation is expired.
 _ResourceShareInvitationExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceShareInvitationExpiredException =
   Core._MatchServiceError
@@ -323,7 +334,7 @@ _ServiceUnavailableException =
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | The specified value for MaxResults is not valid.
+-- | The specified value for @MaxResults@ is not valid.
 _InvalidMaxResultsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidMaxResultsException =
   Core._MatchServiceError
@@ -339,7 +350,7 @@ _InvalidResourceTypeException =
     "InvalidResourceTypeException"
     Prelude.. Core.hasStatus 400
 
--- | A client token is not valid.
+-- | The client token is not valid.
 _InvalidClientTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidClientTokenException =
   Core._MatchServiceError
@@ -347,7 +358,7 @@ _InvalidClientTokenException =
     "InvalidClientTokenException"
     Prelude.. Core.hasStatus 400
 
--- | The specified value for NextToken is not valid.
+-- | The specified value for @NextToken@ is not valid.
 _InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
@@ -363,6 +374,15 @@ _MalformedArnException =
     "MalformedArnException"
     Prelude.. Core.hasStatus 400
 
+-- | You exceeded the rate at which you are allowed to perform this
+-- operation. Please try again later.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
 -- | The requested state transition is not valid.
 _InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidStateTransitionException =
@@ -371,7 +391,7 @@ _InvalidStateTransitionException =
     "InvalidStateTransitionException"
     Prelude.. Core.hasStatus 400
 
--- | The requested tags exceed the limit for your account.
+-- | This request would exceed the limit for tags for your account.
 _TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TagLimitExceededException =
   Core._MatchServiceError
@@ -379,7 +399,8 @@ _TagLimitExceededException =
     "TagLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The requested resource share exceeds the limit for your account.
+-- | This request would exceed the limit for resource shares for your
+-- account.
 _ResourceShareLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceShareLimitExceededException =
   Core._MatchServiceError
@@ -387,7 +408,8 @@ _ResourceShareLimitExceededException =
     "ResourceShareLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The Amazon Resource Name (ARN) for an invitation was not found.
+-- | The specified Amazon Resource Name (ARN) for an invitation was not
+-- found.
 _ResourceShareInvitationArnNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceShareInvitationArnNotFoundException =
   Core._MatchServiceError
@@ -403,7 +425,7 @@ _OperationNotPermittedException =
     "OperationNotPermittedException"
     Prelude.. Core.hasStatus 400
 
--- | The invitation was already rejected.
+-- | The specified invitation was already rejected.
 _ResourceShareInvitationAlreadyRejectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceShareInvitationAlreadyRejectedException =
   Core._MatchServiceError
@@ -411,9 +433,9 @@ _ResourceShareInvitationAlreadyRejectedException =
     "ResourceShareInvitationAlreadyRejectedException"
     Prelude.. Core.hasStatus 400
 
--- | A client token input parameter was reused with an operation, but at
--- least one of the other input parameters is different from the previous
--- call to the operation.
+-- | The client token input parameter was matched one used with a previous
+-- call to the operation, but at least one of the other input parameters is
+-- different from the previous call.
 _IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError

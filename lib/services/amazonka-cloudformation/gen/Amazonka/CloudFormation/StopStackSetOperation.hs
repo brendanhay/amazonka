@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops an in-progress operation on a stack set and its associated stack
--- instances.
+-- instances. StackSets will cancel all the unstarted stack instance
+-- deployments and wait for those are in-progress to complete.
 module Amazonka.CloudFormation.StopStackSetOperation
   ( -- * Creating a Request
     StopStackSetOperation (..),

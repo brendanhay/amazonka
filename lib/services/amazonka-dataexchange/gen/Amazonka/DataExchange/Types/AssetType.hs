@@ -20,6 +20,7 @@
 module Amazonka.DataExchange.Types.AssetType
   ( AssetType
       ( ..,
+        AssetType_API_GATEWAY_API,
         AssetType_REDSHIFT_DATA_SHARE,
         AssetType_S3_SNAPSHOT
       ),
@@ -58,6 +59,9 @@ newtype AssetType = AssetType'
       Core.ToXML
     )
 
+pattern AssetType_API_GATEWAY_API :: AssetType
+pattern AssetType_API_GATEWAY_API = AssetType' "API_GATEWAY_API"
+
 pattern AssetType_REDSHIFT_DATA_SHARE :: AssetType
 pattern AssetType_REDSHIFT_DATA_SHARE = AssetType' "REDSHIFT_DATA_SHARE"
 
@@ -65,6 +69,7 @@ pattern AssetType_S3_SNAPSHOT :: AssetType
 pattern AssetType_S3_SNAPSHOT = AssetType' "S3_SNAPSHOT"
 
 {-# COMPLETE
+  AssetType_API_GATEWAY_API,
   AssetType_REDSHIFT_DATA_SHARE,
   AssetType_S3_SNAPSHOT,
   AssetType'

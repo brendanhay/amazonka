@@ -40,7 +40,17 @@ data AwsDynamoDbTableReplica = AwsDynamoDbTableReplica'
     replicaStatusDescription :: Prelude.Maybe Prelude.Text,
     -- | List of global secondary indexes for the replica.
     globalSecondaryIndexes :: Prelude.Maybe [AwsDynamoDbTableReplicaGlobalSecondaryIndex],
-    -- | The current status of the replica.
+    -- | The current status of the replica. Valid values are as follows:
+    --
+    -- -   @ACTIVE@
+    --
+    -- -   @CREATING@
+    --
+    -- -   @CREATION_FAILED@
+    --
+    -- -   @DELETING@
+    --
+    -- -   @UPDATING@
     replicaStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +74,17 @@ data AwsDynamoDbTableReplica = AwsDynamoDbTableReplica'
 --
 -- 'globalSecondaryIndexes', 'awsDynamoDbTableReplica_globalSecondaryIndexes' - List of global secondary indexes for the replica.
 --
--- 'replicaStatus', 'awsDynamoDbTableReplica_replicaStatus' - The current status of the replica.
+-- 'replicaStatus', 'awsDynamoDbTableReplica_replicaStatus' - The current status of the replica. Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATING@
+--
+-- -   @CREATION_FAILED@
+--
+-- -   @DELETING@
+--
+-- -   @UPDATING@
 newAwsDynamoDbTableReplica ::
   AwsDynamoDbTableReplica
 newAwsDynamoDbTableReplica =
@@ -99,7 +119,17 @@ awsDynamoDbTableReplica_replicaStatusDescription = Lens.lens (\AwsDynamoDbTableR
 awsDynamoDbTableReplica_globalSecondaryIndexes :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe [AwsDynamoDbTableReplicaGlobalSecondaryIndex])
 awsDynamoDbTableReplica_globalSecondaryIndexes = Lens.lens (\AwsDynamoDbTableReplica' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@AwsDynamoDbTableReplica' {} a -> s {globalSecondaryIndexes = a} :: AwsDynamoDbTableReplica) Prelude.. Lens.mapping Lens.coerced
 
--- | The current status of the replica.
+-- | The current status of the replica. Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATING@
+--
+-- -   @CREATION_FAILED@
+--
+-- -   @DELETING@
+--
+-- -   @UPDATING@
 awsDynamoDbTableReplica_replicaStatus :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableReplica_replicaStatus = Lens.lens (\AwsDynamoDbTableReplica' {replicaStatus} -> replicaStatus) (\s@AwsDynamoDbTableReplica' {} a -> s {replicaStatus = a} :: AwsDynamoDbTableReplica)
 

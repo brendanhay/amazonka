@@ -11,7 +11,21 @@
 --
 -- Derived from API version @2017-10-26@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Operations and objects for transcribing speech to text.
+-- Amazon Transcribe offers three main types of batch transcription:
+-- __Standard__, __Medical__, and __Call Analytics__.
+--
+-- -   __Standard transcriptions__ are the most common option. Refer to for
+--     details.
+--
+-- -   __Medical transcriptions__ are tailored to medical professionals and
+--     incorporate medical terms. A common use case for this service is
+--     transcribing doctor-patient dialogue into after-visit notes. Refer
+--     to for details.
+--
+-- -   __Call Analytics transcriptions__ are designed for use with call
+--     center audio on two different channels; if you\'re looking for
+--     insight into customer service calls, use this option. Refer to for
+--     details.
 module Amazonka.Transcribe
   ( -- * Service Configuration
     defaultService,
@@ -303,6 +317,9 @@ module Amazonka.Transcribe
     -- ** ParticipantRole
     ParticipantRole (..),
 
+    -- ** PiiEntityType
+    PiiEntityType (..),
+
     -- ** RedactionOutput
     RedactionOutput (..),
 
@@ -372,6 +389,14 @@ module Amazonka.Transcribe
     -- ** JobExecutionSettings
     JobExecutionSettings (JobExecutionSettings'),
     newJobExecutionSettings,
+
+    -- ** LanguageCodeItem
+    LanguageCodeItem (LanguageCodeItem'),
+    newLanguageCodeItem,
+
+    -- ** LanguageIdSettings
+    LanguageIdSettings (LanguageIdSettings'),
+    newLanguageIdSettings,
 
     -- ** LanguageModel
     LanguageModel (LanguageModel'),

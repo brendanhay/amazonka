@@ -23,8 +23,7 @@
 -- Returns a list of solution versions for the given solution. When a
 -- solution is not specified, all the solution versions associated with the
 -- account are listed. The response provides the properties for each
--- solution version, including the Amazon Resource Name (ARN). For more
--- information on solutions, see CreateSolution.
+-- solution version, including the Amazon Resource Name (ARN).
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListSolutionVersions

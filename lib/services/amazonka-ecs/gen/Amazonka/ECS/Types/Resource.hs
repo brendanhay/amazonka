@@ -30,7 +30,7 @@ data Resource = Resource'
   { -- | The name of the resource, such as @CPU@, @MEMORY@, @PORTS@, @PORTS_UDP@,
     -- or a user-defined resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
+    -- | The type of the resource. Valid values: @INTEGER@, @DOUBLE@, @LONG@, or
     -- @STRINGSET@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | When the @integerValue@ type is set, the value of the resource must be
@@ -59,7 +59,7 @@ data Resource = Resource'
 -- 'name', 'resource_name' - The name of the resource, such as @CPU@, @MEMORY@, @PORTS@, @PORTS_UDP@,
 -- or a user-defined resource.
 --
--- 'type'', 'resource_type' - The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
+-- 'type'', 'resource_type' - The type of the resource. Valid values: @INTEGER@, @DOUBLE@, @LONG@, or
 -- @STRINGSET@.
 --
 -- 'integerValue', 'resource_integerValue' - When the @integerValue@ type is set, the value of the resource must be
@@ -90,7 +90,7 @@ newResource =
 resource_name :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {name = a} :: Resource)
 
--- | The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
+-- | The type of the resource. Valid values: @INTEGER@, @DOUBLE@, @LONG@, or
 -- @STRINGSET@.
 resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)

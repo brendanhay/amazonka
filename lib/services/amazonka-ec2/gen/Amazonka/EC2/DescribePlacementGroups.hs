@@ -58,6 +58,11 @@ data DescribePlacementGroups = DescribePlacementGroups'
     --
     -- -   @group-name@ - The name of the placement group.
     --
+    -- -   @group-arn@ - The Amazon Resource Name (ARN) of the placement group.
+    --
+    -- -   @spread-level@ - The spread level for the placement group (@host@ |
+    --     @rack@).
+    --
     -- -   @state@ - The state of the placement group (@pending@ | @available@
     --     | @deleting@ | @deleted@).
     --
@@ -101,6 +106,11 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --
 -- -   @group-name@ - The name of the placement group.
 --
+-- -   @group-arn@ - The Amazon Resource Name (ARN) of the placement group.
+--
+-- -   @spread-level@ - The spread level for the placement group (@host@ |
+--     @rack@).
+--
 -- -   @state@ - The state of the placement group (@pending@ | @available@
 --     | @deleting@ | @deleted@).
 --
@@ -141,6 +151,11 @@ newDescribePlacementGroups =
 -- | The filters.
 --
 -- -   @group-name@ - The name of the placement group.
+--
+-- -   @group-arn@ - The Amazon Resource Name (ARN) of the placement group.
+--
+-- -   @spread-level@ - The spread level for the placement group (@host@ |
+--     @rack@).
 --
 -- -   @state@ - The state of the placement group (@pending@ | @available@
 --     | @deleting@ | @deleted@).

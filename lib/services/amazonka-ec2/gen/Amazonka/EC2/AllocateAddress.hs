@@ -52,6 +52,11 @@
 -- You can allocate a carrier IP address which is a public IP address from
 -- a telecommunication carrier, to a network interface which resides in a
 -- subnet in a Wavelength Zone (for example an EC2 instance).
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.AllocateAddress
   ( -- * Creating a Request
     AllocateAddress (..),

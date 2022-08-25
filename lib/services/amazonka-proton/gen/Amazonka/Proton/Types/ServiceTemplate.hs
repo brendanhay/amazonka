@@ -24,11 +24,11 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.Provisioning
 
--- | The service template detail data.
+-- | Detailed data of an Proton service template resource.
 --
 -- /See:/ 'newServiceTemplate' smart constructor.
 data ServiceTemplate = ServiceTemplate'
-  { -- | The ID of the recommended version of the service template.
+  { -- | The recommended version of the service template.
     recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The service template name as displayed in the developer interface.
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -60,7 +60,7 @@ data ServiceTemplate = ServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendedVersion', 'serviceTemplate_recommendedVersion' - The ID of the recommended version of the service template.
+-- 'recommendedVersion', 'serviceTemplate_recommendedVersion' - The recommended version of the service template.
 --
 -- 'displayName', 'serviceTemplate_displayName' - The service template name as displayed in the developer interface.
 --
@@ -108,7 +108,7 @@ newServiceTemplate
         name = pName_
       }
 
--- | The ID of the recommended version of the service template.
+-- | The recommended version of the service template.
 serviceTemplate_recommendedVersion :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
 serviceTemplate_recommendedVersion = Lens.lens (\ServiceTemplate' {recommendedVersion} -> recommendedVersion) (\s@ServiceTemplate' {} a -> s {recommendedVersion = a} :: ServiceTemplate)
 

@@ -25,7 +25,7 @@
 --
 -- For more information on tag policies, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html Tag Policies>
--- in the /AWS Organizations User Guide./
+-- in the /Organizations User Guide./
 --
 -- You can call this operation only from the organization\'s management
 -- account and from the us-east-1 Region.
@@ -103,25 +103,26 @@ data GetComplianceSummary = GetComplianceSummary'
     -- Specifying a resource type of @ec2:instance@ returns only EC2 instances.
     --
     -- The string for each service name and resource type is the same as that
-    -- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS
-    -- General Reference/ for the following:
+    -- embedded in a resource\'s Amazon Resource Name (ARN). Consult the
+    -- /<https://docs.aws.amazon.com/general/latest/gr/ Amazon Web Services General Reference>/
+    -- for the following:
     --
     -- -   For a list of service name strings, see
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>.
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services Service Namespaces>.
     --
     -- -   For resource type strings, see
     --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs>.
     --
     -- -   For more information about ARNs, see
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     --
     -- You can specify multiple resource types by using a comma separated
     -- array. The array can include up to 100 items. Note that the length
     -- constraint requirement applies to each resource type filter.
     resourceTypeFilters :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies a list of AWS Regions to limit the output by. If you use this
-    -- parameter, the count of returned noncompliant resources includes only
-    -- resources in the specified Regions.
+    -- | Specifies a list of Amazon Web Services Regions to limit the output to.
+    -- If you use this parameter, the count of returned noncompliant resources
+    -- includes only resources in the specified Regions.
     regionFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -164,25 +165,26 @@ data GetComplianceSummary = GetComplianceSummary'
 -- Specifying a resource type of @ec2:instance@ returns only EC2 instances.
 --
 -- The string for each service name and resource type is the same as that
--- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS
--- General Reference/ for the following:
+-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the
+-- /<https://docs.aws.amazon.com/general/latest/gr/ Amazon Web Services General Reference>/
+-- for the following:
 --
 -- -   For a list of service name strings, see
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>.
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services Service Namespaces>.
 --
 -- -   For resource type strings, see
 --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs>.
 --
 -- -   For more information about ARNs, see
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 --
 -- You can specify multiple resource types by using a comma separated
 -- array. The array can include up to 100 items. Note that the length
 -- constraint requirement applies to each resource type filter.
 --
--- 'regionFilters', 'getComplianceSummary_regionFilters' - Specifies a list of AWS Regions to limit the output by. If you use this
--- parameter, the count of returned noncompliant resources includes only
--- resources in the specified Regions.
+-- 'regionFilters', 'getComplianceSummary_regionFilters' - Specifies a list of Amazon Web Services Regions to limit the output to.
+-- If you use this parameter, the count of returned noncompliant resources
+-- includes only resources in the specified Regions.
 newGetComplianceSummary ::
   GetComplianceSummary
 newGetComplianceSummary =
@@ -237,17 +239,18 @@ getComplianceSummary_maxResults = Lens.lens (\GetComplianceSummary' {maxResults}
 -- Specifying a resource type of @ec2:instance@ returns only EC2 instances.
 --
 -- The string for each service name and resource type is the same as that
--- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS
--- General Reference/ for the following:
+-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the
+-- /<https://docs.aws.amazon.com/general/latest/gr/ Amazon Web Services General Reference>/
+-- for the following:
 --
 -- -   For a list of service name strings, see
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>.
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services Service Namespaces>.
 --
 -- -   For resource type strings, see
 --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs>.
 --
 -- -   For more information about ARNs, see
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 --
 -- You can specify multiple resource types by using a comma separated
 -- array. The array can include up to 100 items. Note that the length
@@ -255,9 +258,9 @@ getComplianceSummary_maxResults = Lens.lens (\GetComplianceSummary' {maxResults}
 getComplianceSummary_resourceTypeFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe [Prelude.Text])
 getComplianceSummary_resourceTypeFilters = Lens.lens (\GetComplianceSummary' {resourceTypeFilters} -> resourceTypeFilters) (\s@GetComplianceSummary' {} a -> s {resourceTypeFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies a list of AWS Regions to limit the output by. If you use this
--- parameter, the count of returned noncompliant resources includes only
--- resources in the specified Regions.
+-- | Specifies a list of Amazon Web Services Regions to limit the output to.
+-- If you use this parameter, the count of returned noncompliant resources
+-- includes only resources in the specified Regions.
 getComplianceSummary_regionFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getComplianceSummary_regionFilters = Lens.lens (\GetComplianceSummary' {regionFilters} -> regionFilters) (\s@GetComplianceSummary' {} a -> s {regionFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
 

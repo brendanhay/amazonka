@@ -25,9 +25,10 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProductionVariantAcceleratorType
 import Amazonka.SageMaker.Types.ProductionVariantCoreDumpConfig
 import Amazonka.SageMaker.Types.ProductionVariantInstanceType
+import Amazonka.SageMaker.Types.ProductionVariantServerlessConfig
 
 -- | Identifies a model that you want to host and the resources chosen to
--- deploy for hosting it. If you are deploying multiple models, tell Amazon
+-- deploy for hosting it. If you are deploying multiple models, tell
 -- SageMaker how to distribute traffic among the models by specifying
 -- variant weights.
 --
@@ -38,6 +39,14 @@ data ProductionVariant = ProductionVariant'
     -- inference. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
     acceleratorType :: Prelude.Maybe ProductionVariantAcceleratorType,
+    -- | Number of instances to launch initially.
+    initialInstanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The ML compute instance type.
+    instanceType :: Prelude.Maybe ProductionVariantInstanceType,
+    -- | The serverless configuration for an endpoint. Specifies a serverless
+    -- endpoint configuration instead of an instance-based endpoint
+    -- configuration.
+    serverlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
     -- | Specifies configuration for a core dump from the model container when
     -- the process crashes.
     coreDumpConfig :: Prelude.Maybe ProductionVariantCoreDumpConfig,
@@ -51,11 +60,7 @@ data ProductionVariant = ProductionVariant'
     variantName :: Prelude.Text,
     -- | The name of the model that you want to host. This is the name that you
     -- specified when creating the model.
-    modelName :: Prelude.Text,
-    -- | Number of instances to launch initially.
-    initialInstanceCount :: Prelude.Natural,
-    -- | The ML compute instance type.
-    instanceType :: ProductionVariantInstanceType
+    modelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,6 +77,14 @@ data ProductionVariant = ProductionVariant'
 -- inference. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
 --
+-- 'initialInstanceCount', 'productionVariant_initialInstanceCount' - Number of instances to launch initially.
+--
+-- 'instanceType', 'productionVariant_instanceType' - The ML compute instance type.
+--
+-- 'serverlessConfig', 'productionVariant_serverlessConfig' - The serverless configuration for an endpoint. Specifies a serverless
+-- endpoint configuration instead of an instance-based endpoint
+-- configuration.
+--
 -- 'coreDumpConfig', 'productionVariant_coreDumpConfig' - Specifies configuration for a core dump from the model container when
 -- the process crashes.
 --
@@ -85,35 +98,24 @@ data ProductionVariant = ProductionVariant'
 --
 -- 'modelName', 'productionVariant_modelName' - The name of the model that you want to host. This is the name that you
 -- specified when creating the model.
---
--- 'initialInstanceCount', 'productionVariant_initialInstanceCount' - Number of instances to launch initially.
---
--- 'instanceType', 'productionVariant_instanceType' - The ML compute instance type.
 newProductionVariant ::
   -- | 'variantName'
   Prelude.Text ->
   -- | 'modelName'
   Prelude.Text ->
-  -- | 'initialInstanceCount'
-  Prelude.Natural ->
-  -- | 'instanceType'
-  ProductionVariantInstanceType ->
   ProductionVariant
-newProductionVariant
-  pVariantName_
-  pModelName_
-  pInitialInstanceCount_
-  pInstanceType_ =
-    ProductionVariant'
-      { acceleratorType =
-          Prelude.Nothing,
-        coreDumpConfig = Prelude.Nothing,
-        initialVariantWeight = Prelude.Nothing,
-        variantName = pVariantName_,
-        modelName = pModelName_,
-        initialInstanceCount = pInitialInstanceCount_,
-        instanceType = pInstanceType_
-      }
+newProductionVariant pVariantName_ pModelName_ =
+  ProductionVariant'
+    { acceleratorType =
+        Prelude.Nothing,
+      initialInstanceCount = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      serverlessConfig = Prelude.Nothing,
+      coreDumpConfig = Prelude.Nothing,
+      initialVariantWeight = Prelude.Nothing,
+      variantName = pVariantName_,
+      modelName = pModelName_
+    }
 
 -- | The size of the Elastic Inference (EI) instance to use for the
 -- production variant. EI instances provide on-demand GPU computing for
@@ -121,6 +123,20 @@ newProductionVariant
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
 productionVariant_acceleratorType :: Lens.Lens' ProductionVariant (Prelude.Maybe ProductionVariantAcceleratorType)
 productionVariant_acceleratorType = Lens.lens (\ProductionVariant' {acceleratorType} -> acceleratorType) (\s@ProductionVariant' {} a -> s {acceleratorType = a} :: ProductionVariant)
+
+-- | Number of instances to launch initially.
+productionVariant_initialInstanceCount :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
+productionVariant_initialInstanceCount = Lens.lens (\ProductionVariant' {initialInstanceCount} -> initialInstanceCount) (\s@ProductionVariant' {} a -> s {initialInstanceCount = a} :: ProductionVariant)
+
+-- | The ML compute instance type.
+productionVariant_instanceType :: Lens.Lens' ProductionVariant (Prelude.Maybe ProductionVariantInstanceType)
+productionVariant_instanceType = Lens.lens (\ProductionVariant' {instanceType} -> instanceType) (\s@ProductionVariant' {} a -> s {instanceType = a} :: ProductionVariant)
+
+-- | The serverless configuration for an endpoint. Specifies a serverless
+-- endpoint configuration instead of an instance-based endpoint
+-- configuration.
+productionVariant_serverlessConfig :: Lens.Lens' ProductionVariant (Prelude.Maybe ProductionVariantServerlessConfig)
+productionVariant_serverlessConfig = Lens.lens (\ProductionVariant' {serverlessConfig} -> serverlessConfig) (\s@ProductionVariant' {} a -> s {serverlessConfig = a} :: ProductionVariant)
 
 -- | Specifies configuration for a core dump from the model container when
 -- the process crashes.
@@ -144,14 +160,6 @@ productionVariant_variantName = Lens.lens (\ProductionVariant' {variantName} -> 
 productionVariant_modelName :: Lens.Lens' ProductionVariant Prelude.Text
 productionVariant_modelName = Lens.lens (\ProductionVariant' {modelName} -> modelName) (\s@ProductionVariant' {} a -> s {modelName = a} :: ProductionVariant)
 
--- | Number of instances to launch initially.
-productionVariant_initialInstanceCount :: Lens.Lens' ProductionVariant Prelude.Natural
-productionVariant_initialInstanceCount = Lens.lens (\ProductionVariant' {initialInstanceCount} -> initialInstanceCount) (\s@ProductionVariant' {} a -> s {initialInstanceCount = a} :: ProductionVariant)
-
--- | The ML compute instance type.
-productionVariant_instanceType :: Lens.Lens' ProductionVariant ProductionVariantInstanceType
-productionVariant_instanceType = Lens.lens (\ProductionVariant' {instanceType} -> instanceType) (\s@ProductionVariant' {} a -> s {instanceType = a} :: ProductionVariant)
-
 instance Core.FromJSON ProductionVariant where
   parseJSON =
     Core.withObject
@@ -159,33 +167,36 @@ instance Core.FromJSON ProductionVariant where
       ( \x ->
           ProductionVariant'
             Prelude.<$> (x Core..:? "AcceleratorType")
+            Prelude.<*> (x Core..:? "InitialInstanceCount")
+            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "ServerlessConfig")
             Prelude.<*> (x Core..:? "CoreDumpConfig")
             Prelude.<*> (x Core..:? "InitialVariantWeight")
             Prelude.<*> (x Core..: "VariantName")
             Prelude.<*> (x Core..: "ModelName")
-            Prelude.<*> (x Core..: "InitialInstanceCount")
-            Prelude.<*> (x Core..: "InstanceType")
       )
 
 instance Prelude.Hashable ProductionVariant where
   hashWithSalt _salt ProductionVariant' {..} =
     _salt `Prelude.hashWithSalt` acceleratorType
+      `Prelude.hashWithSalt` initialInstanceCount
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` serverlessConfig
       `Prelude.hashWithSalt` coreDumpConfig
       `Prelude.hashWithSalt` initialVariantWeight
       `Prelude.hashWithSalt` variantName
       `Prelude.hashWithSalt` modelName
-      `Prelude.hashWithSalt` initialInstanceCount
-      `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData ProductionVariant where
   rnf ProductionVariant' {..} =
     Prelude.rnf acceleratorType
+      `Prelude.seq` Prelude.rnf initialInstanceCount
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf serverlessConfig
       `Prelude.seq` Prelude.rnf coreDumpConfig
       `Prelude.seq` Prelude.rnf initialVariantWeight
       `Prelude.seq` Prelude.rnf variantName
       `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf initialInstanceCount
-      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToJSON ProductionVariant where
   toJSON ProductionVariant' {..} =
@@ -193,16 +204,16 @@ instance Core.ToJSON ProductionVariant where
       ( Prelude.catMaybes
           [ ("AcceleratorType" Core..=)
               Prelude.<$> acceleratorType,
+            ("InitialInstanceCount" Core..=)
+              Prelude.<$> initialInstanceCount,
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
+            ("ServerlessConfig" Core..=)
+              Prelude.<$> serverlessConfig,
             ("CoreDumpConfig" Core..=)
               Prelude.<$> coreDumpConfig,
             ("InitialVariantWeight" Core..=)
               Prelude.<$> initialVariantWeight,
             Prelude.Just ("VariantName" Core..= variantName),
-            Prelude.Just ("ModelName" Core..= modelName),
-            Prelude.Just
-              ( "InitialInstanceCount"
-                  Core..= initialInstanceCount
-              ),
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("ModelName" Core..= modelName)
           ]
       )

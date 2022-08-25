@@ -43,6 +43,9 @@ data DBInstance = DBInstance'
     -- | Contains the name of the compute and memory capacity class of the
     -- instance.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to copy tags from the DB instance to
+    -- snapshots of the DB instance. By default, tags are not copied.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | A value that specifies the order in which an Amazon DocumentDB replica
     -- is promoted to the primary instance after a failure of the existing
     -- primary instance.
@@ -92,9 +95,9 @@ data DBInstance = DBInstance'
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | Specifies the connection endpoint.
     endpoint :: Prelude.Maybe Endpoint,
-    -- | The Region-unique, immutable identifier for the instance. This
-    -- identifier is found in CloudTrail log entries whenever the KMS key for
-    -- the instance is accessed.
+    -- | The Amazon Web Services Region-unique, immutable identifier for the
+    -- instance. This identifier is found in CloudTrail log entries whenever
+    -- the KMS key for the instance is accessed.
     dbiResourceId :: Prelude.Maybe Prelude.Text,
     -- | A list of log types that this instance is configured to export to
     -- CloudWatch Logs.
@@ -128,6 +131,9 @@ data DBInstance = DBInstance'
 --
 -- 'dbInstanceClass', 'dbInstance_dbInstanceClass' - Contains the name of the compute and memory capacity class of the
 -- instance.
+--
+-- 'copyTagsToSnapshot', 'dbInstance_copyTagsToSnapshot' - A value that indicates whether to copy tags from the DB instance to
+-- snapshots of the DB instance. By default, tags are not copied.
 --
 -- 'promotionTier', 'dbInstance_promotionTier' - A value that specifies the order in which an Amazon DocumentDB replica
 -- is promoted to the primary instance after a failure of the existing
@@ -178,9 +184,9 @@ data DBInstance = DBInstance'
 --
 -- 'endpoint', 'dbInstance_endpoint' - Specifies the connection endpoint.
 --
--- 'dbiResourceId', 'dbInstance_dbiResourceId' - The Region-unique, immutable identifier for the instance. This
--- identifier is found in CloudTrail log entries whenever the KMS key for
--- the instance is accessed.
+-- 'dbiResourceId', 'dbInstance_dbiResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
+-- instance. This identifier is found in CloudTrail log entries whenever
+-- the KMS key for the instance is accessed.
 --
 -- 'enabledCloudwatchLogsExports', 'dbInstance_enabledCloudwatchLogsExports' - A list of log types that this instance is configured to export to
 -- CloudWatch Logs.
@@ -200,6 +206,7 @@ newDBInstance =
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
       promotionTier = Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
@@ -242,6 +249,11 @@ dbInstance_backupRetentionPeriod = Lens.lens (\DBInstance' {backupRetentionPerio
 -- instance.
 dbInstance_dbInstanceClass :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_dbInstanceClass = Lens.lens (\DBInstance' {dbInstanceClass} -> dbInstanceClass) (\s@DBInstance' {} a -> s {dbInstanceClass = a} :: DBInstance)
+
+-- | A value that indicates whether to copy tags from the DB instance to
+-- snapshots of the DB instance. By default, tags are not copied.
+dbInstance_copyTagsToSnapshot :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Bool)
+dbInstance_copyTagsToSnapshot = Lens.lens (\DBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@DBInstance' {} a -> s {copyTagsToSnapshot = a} :: DBInstance)
 
 -- | A value that specifies the order in which an Amazon DocumentDB replica
 -- is promoted to the primary instance after a failure of the existing
@@ -326,9 +338,9 @@ dbInstance_preferredMaintenanceWindow = Lens.lens (\DBInstance' {preferredMainte
 dbInstance_endpoint :: Lens.Lens' DBInstance (Prelude.Maybe Endpoint)
 dbInstance_endpoint = Lens.lens (\DBInstance' {endpoint} -> endpoint) (\s@DBInstance' {} a -> s {endpoint = a} :: DBInstance)
 
--- | The Region-unique, immutable identifier for the instance. This
--- identifier is found in CloudTrail log entries whenever the KMS key for
--- the instance is accessed.
+-- | The Amazon Web Services Region-unique, immutable identifier for the
+-- instance. This identifier is found in CloudTrail log entries whenever
+-- the KMS key for the instance is accessed.
 dbInstance_dbiResourceId :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_dbiResourceId = Lens.lens (\DBInstance' {dbiResourceId} -> dbiResourceId) (\s@DBInstance' {} a -> s {dbiResourceId = a} :: DBInstance)
 
@@ -358,6 +370,7 @@ instance Core.FromXML DBInstance where
       Prelude.<*> (x Core..@? "PreferredBackupWindow")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "DBInstanceClass")
+      Prelude.<*> (x Core..@? "CopyTagsToSnapshot")
       Prelude.<*> (x Core..@? "PromotionTier")
       Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
@@ -396,6 +409,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` promotionTier
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` dbInstanceIdentifier
@@ -425,6 +439,7 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf promotionTier
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
@@ -444,7 +459,8 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf
+        dbiResourceId
       `Prelude.seq` Prelude.rnf
         enabledCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf

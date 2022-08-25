@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The NLB resource a DNS Target Resource points to
+-- | The Network Load Balancer resource that a DNS target resource points to.
 --
 -- /See:/ 'newNLBResource' smart constructor.
 data NLBResource = NLBResource'
-  { -- | An NLB resource arn
+  { -- | The Network Load Balancer resource Amazon Resource Name (ARN).
     arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,12 +40,12 @@ data NLBResource = NLBResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'nLBResource_arn' - An NLB resource arn
+-- 'arn', 'nLBResource_arn' - The Network Load Balancer resource Amazon Resource Name (ARN).
 newNLBResource ::
   NLBResource
 newNLBResource = NLBResource' {arn = Prelude.Nothing}
 
--- | An NLB resource arn
+-- | The Network Load Balancer resource Amazon Resource Name (ARN).
 nLBResource_arn :: Lens.Lens' NLBResource (Prelude.Maybe Prelude.Text)
 nLBResource_arn = Lens.lens (\NLBResource' {arn} -> arn) (\s@NLBResource' {} a -> s {arn = a} :: NLBResource)
 

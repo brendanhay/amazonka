@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a ReqeustValidator of a given RestApi.
+-- Creates a RequestValidator of a given RestApi.
 module Amazonka.APIGateway.CreateRequestValidator
   ( -- * Creating a Request
     CreateRequestValidator (..),
@@ -63,7 +63,7 @@ data CreateRequestValidator = CreateRequestValidator'
     -- | A Boolean flag to indicate whether to validate request parameters,
     -- @true@, or not @false@.
     validateRequestParameters :: Prelude.Maybe Prelude.Bool,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +84,7 @@ data CreateRequestValidator = CreateRequestValidator'
 -- 'validateRequestParameters', 'createRequestValidator_validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters,
 -- @true@, or not @false@.
 --
--- 'restApiId', 'createRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createRequestValidator_restApiId' - The string identifier of the associated RestApi.
 newCreateRequestValidator ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -112,7 +112,7 @@ createRequestValidator_name = Lens.lens (\CreateRequestValidator' {name} -> name
 createRequestValidator_validateRequestParameters :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
 createRequestValidator_validateRequestParameters = Lens.lens (\CreateRequestValidator' {validateRequestParameters} -> validateRequestParameters) (\s@CreateRequestValidator' {} a -> s {validateRequestParameters = a} :: CreateRequestValidator)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createRequestValidator_restApiId :: Lens.Lens' CreateRequestValidator Prelude.Text
 createRequestValidator_restApiId = Lens.lens (\CreateRequestValidator' {restApiId} -> restApiId) (\s@CreateRequestValidator' {} a -> s {restApiId = a} :: CreateRequestValidator)
 

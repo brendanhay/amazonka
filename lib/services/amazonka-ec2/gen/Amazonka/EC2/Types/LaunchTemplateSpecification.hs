@@ -30,12 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The ID of the launch template.
-    launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the launch template.
     --
-    -- Default: The default version for the launch template.
+    -- You must specify the @LaunchTemplateId@ or the @LaunchTemplateName@, but
+    -- not both.
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The launch template version number, @$Latest@, or @$Default@.
+    --
+    -- If the value is @$Latest@, Amazon EC2 uses the latest version of the
+    -- launch template.
+    --
+    -- If the value is @$Default@, Amazon EC2 uses the default version of the
+    -- launch template.
+    --
+    -- Default: The default version of the launch template.
     version :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template.
+    --
+    -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
+    -- not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,11 +62,23 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template.
 --
--- 'version', 'launchTemplateSpecification_version' - The version number of the launch template.
+-- You must specify the @LaunchTemplateId@ or the @LaunchTemplateName@, but
+-- not both.
 --
--- Default: The default version for the launch template.
+-- 'version', 'launchTemplateSpecification_version' - The launch template version number, @$Latest@, or @$Default@.
+--
+-- If the value is @$Latest@, Amazon EC2 uses the latest version of the
+-- launch template.
+--
+-- If the value is @$Default@, Amazon EC2 uses the default version of the
+-- launch template.
+--
+-- Default: The default version of the launch template.
 --
 -- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
+--
+-- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
+-- not both.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
@@ -66,16 +90,28 @@ newLaunchTemplateSpecification =
     }
 
 -- | The ID of the launch template.
+--
+-- You must specify the @LaunchTemplateId@ or the @LaunchTemplateName@, but
+-- not both.
 launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
 
--- | The version number of the launch template.
+-- | The launch template version number, @$Latest@, or @$Default@.
 --
--- Default: The default version for the launch template.
+-- If the value is @$Latest@, Amazon EC2 uses the latest version of the
+-- launch template.
+--
+-- If the value is @$Default@, Amazon EC2 uses the default version of the
+-- launch template.
+--
+-- Default: The default version of the launch template.
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
 -- | The name of the launch template.
+--
+-- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
+-- not both.
 launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 

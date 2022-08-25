@@ -37,16 +37,16 @@ module Amazonka.Panorama.DescribeNodeFromTemplateJob
     describeNodeFromTemplateJobResponse_nodeDescription,
     describeNodeFromTemplateJobResponse_jobTags,
     describeNodeFromTemplateJobResponse_httpStatus,
-    describeNodeFromTemplateJobResponse_jobId,
-    describeNodeFromTemplateJobResponse_status,
-    describeNodeFromTemplateJobResponse_statusMessage,
     describeNodeFromTemplateJobResponse_createdTime,
+    describeNodeFromTemplateJobResponse_jobId,
     describeNodeFromTemplateJobResponse_lastUpdatedTime,
+    describeNodeFromTemplateJobResponse_nodeName,
     describeNodeFromTemplateJobResponse_outputPackageName,
     describeNodeFromTemplateJobResponse_outputPackageVersion,
-    describeNodeFromTemplateJobResponse_nodeName,
-    describeNodeFromTemplateJobResponse_templateType,
+    describeNodeFromTemplateJobResponse_status,
+    describeNodeFromTemplateJobResponse_statusMessage,
     describeNodeFromTemplateJobResponse_templateParameters,
+    describeNodeFromTemplateJobResponse_templateType,
   )
 where
 
@@ -96,18 +96,18 @@ instance Core.AWSRequest DescribeNodeFromTemplateJob where
             Prelude.<$> (x Core..?> "NodeDescription")
             Prelude.<*> (x Core..?> "JobTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobId")
-            Prelude.<*> (x Core..:> "Status")
-            Prelude.<*> (x Core..:> "StatusMessage")
             Prelude.<*> (x Core..:> "CreatedTime")
+            Prelude.<*> (x Core..:> "JobId")
             Prelude.<*> (x Core..:> "LastUpdatedTime")
+            Prelude.<*> (x Core..:> "NodeName")
             Prelude.<*> (x Core..:> "OutputPackageName")
             Prelude.<*> (x Core..:> "OutputPackageVersion")
-            Prelude.<*> (x Core..:> "NodeName")
-            Prelude.<*> (x Core..:> "TemplateType")
+            Prelude.<*> (x Core..:> "Status")
+            Prelude.<*> (x Core..:> "StatusMessage")
             Prelude.<*> ( x Core..?> "TemplateParameters"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..:> "TemplateType")
       )
 
 instance Prelude.Hashable DescribeNodeFromTemplateJob where
@@ -145,26 +145,26 @@ data DescribeNodeFromTemplateJobResponse = DescribeNodeFromTemplateJobResponse'
     jobTags :: Prelude.Maybe [JobResourceTags],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The job\'s ID.
-    jobId :: Prelude.Text,
-    -- | The job\'s status.
-    status :: NodeFromTemplateJobStatus,
-    -- | The job\'s status message.
-    statusMessage :: Prelude.Text,
     -- | When the job was created.
     createdTime :: Core.POSIX,
+    -- | The job\'s ID.
+    jobId :: Prelude.Text,
     -- | When the job was updated.
     lastUpdatedTime :: Core.POSIX,
+    -- | The node\'s name.
+    nodeName :: Prelude.Text,
     -- | The job\'s output package name.
     outputPackageName :: Prelude.Text,
     -- | The job\'s output package version.
     outputPackageVersion :: Prelude.Text,
-    -- | The node\'s name.
-    nodeName :: Prelude.Text,
-    -- | The job\'s template type.
-    templateType :: TemplateType,
+    -- | The job\'s status.
+    status :: NodeFromTemplateJobStatus,
+    -- | The job\'s status message.
+    statusMessage :: Prelude.Text,
     -- | The job\'s template parameters.
-    templateParameters :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)
+    templateParameters :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text),
+    -- | The job\'s template type.
+    templateType :: TemplateType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -182,77 +182,77 @@ data DescribeNodeFromTemplateJobResponse = DescribeNodeFromTemplateJobResponse'
 --
 -- 'httpStatus', 'describeNodeFromTemplateJobResponse_httpStatus' - The response's http status code.
 --
--- 'jobId', 'describeNodeFromTemplateJobResponse_jobId' - The job\'s ID.
---
--- 'status', 'describeNodeFromTemplateJobResponse_status' - The job\'s status.
---
--- 'statusMessage', 'describeNodeFromTemplateJobResponse_statusMessage' - The job\'s status message.
---
 -- 'createdTime', 'describeNodeFromTemplateJobResponse_createdTime' - When the job was created.
 --
+-- 'jobId', 'describeNodeFromTemplateJobResponse_jobId' - The job\'s ID.
+--
 -- 'lastUpdatedTime', 'describeNodeFromTemplateJobResponse_lastUpdatedTime' - When the job was updated.
+--
+-- 'nodeName', 'describeNodeFromTemplateJobResponse_nodeName' - The node\'s name.
 --
 -- 'outputPackageName', 'describeNodeFromTemplateJobResponse_outputPackageName' - The job\'s output package name.
 --
 -- 'outputPackageVersion', 'describeNodeFromTemplateJobResponse_outputPackageVersion' - The job\'s output package version.
 --
--- 'nodeName', 'describeNodeFromTemplateJobResponse_nodeName' - The node\'s name.
+-- 'status', 'describeNodeFromTemplateJobResponse_status' - The job\'s status.
 --
--- 'templateType', 'describeNodeFromTemplateJobResponse_templateType' - The job\'s template type.
+-- 'statusMessage', 'describeNodeFromTemplateJobResponse_statusMessage' - The job\'s status message.
 --
 -- 'templateParameters', 'describeNodeFromTemplateJobResponse_templateParameters' - The job\'s template parameters.
+--
+-- 'templateType', 'describeNodeFromTemplateJobResponse_templateType' - The job\'s template type.
 newDescribeNodeFromTemplateJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'jobId'
-  Prelude.Text ->
-  -- | 'status'
-  NodeFromTemplateJobStatus ->
-  -- | 'statusMessage'
-  Prelude.Text ->
   -- | 'createdTime'
   Prelude.UTCTime ->
+  -- | 'jobId'
+  Prelude.Text ->
   -- | 'lastUpdatedTime'
   Prelude.UTCTime ->
+  -- | 'nodeName'
+  Prelude.Text ->
   -- | 'outputPackageName'
   Prelude.Text ->
   -- | 'outputPackageVersion'
   Prelude.Text ->
-  -- | 'nodeName'
+  -- | 'status'
+  NodeFromTemplateJobStatus ->
+  -- | 'statusMessage'
   Prelude.Text ->
   -- | 'templateType'
   TemplateType ->
   DescribeNodeFromTemplateJobResponse
 newDescribeNodeFromTemplateJobResponse
   pHttpStatus_
-  pJobId_
-  pStatus_
-  pStatusMessage_
   pCreatedTime_
+  pJobId_
   pLastUpdatedTime_
+  pNodeName_
   pOutputPackageName_
   pOutputPackageVersion_
-  pNodeName_
+  pStatus_
+  pStatusMessage_
   pTemplateType_ =
     DescribeNodeFromTemplateJobResponse'
       { nodeDescription =
           Prelude.Nothing,
         jobTags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        jobId = pJobId_,
-        status = pStatus_,
-        statusMessage = pStatusMessage_,
         createdTime =
           Core._Time Lens.# pCreatedTime_,
+        jobId = pJobId_,
         lastUpdatedTime =
           Core._Time Lens.# pLastUpdatedTime_,
+        nodeName = pNodeName_,
         outputPackageName =
           pOutputPackageName_,
         outputPackageVersion =
           pOutputPackageVersion_,
-        nodeName = pNodeName_,
-        templateType = pTemplateType_,
-        templateParameters = Prelude.mempty
+        status = pStatus_,
+        statusMessage = pStatusMessage_,
+        templateParameters = Prelude.mempty,
+        templateType = pTemplateType_
       }
 
 -- | The node\'s description.
@@ -267,25 +267,21 @@ describeNodeFromTemplateJobResponse_jobTags = Lens.lens (\DescribeNodeFromTempla
 describeNodeFromTemplateJobResponse_httpStatus :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Int
 describeNodeFromTemplateJobResponse_httpStatus = Lens.lens (\DescribeNodeFromTemplateJobResponse' {httpStatus} -> httpStatus) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {httpStatus = a} :: DescribeNodeFromTemplateJobResponse)
 
--- | The job\'s ID.
-describeNodeFromTemplateJobResponse_jobId :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
-describeNodeFromTemplateJobResponse_jobId = Lens.lens (\DescribeNodeFromTemplateJobResponse' {jobId} -> jobId) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {jobId = a} :: DescribeNodeFromTemplateJobResponse)
-
--- | The job\'s status.
-describeNodeFromTemplateJobResponse_status :: Lens.Lens' DescribeNodeFromTemplateJobResponse NodeFromTemplateJobStatus
-describeNodeFromTemplateJobResponse_status = Lens.lens (\DescribeNodeFromTemplateJobResponse' {status} -> status) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {status = a} :: DescribeNodeFromTemplateJobResponse)
-
--- | The job\'s status message.
-describeNodeFromTemplateJobResponse_statusMessage :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
-describeNodeFromTemplateJobResponse_statusMessage = Lens.lens (\DescribeNodeFromTemplateJobResponse' {statusMessage} -> statusMessage) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {statusMessage = a} :: DescribeNodeFromTemplateJobResponse)
-
 -- | When the job was created.
 describeNodeFromTemplateJobResponse_createdTime :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.UTCTime
 describeNodeFromTemplateJobResponse_createdTime = Lens.lens (\DescribeNodeFromTemplateJobResponse' {createdTime} -> createdTime) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {createdTime = a} :: DescribeNodeFromTemplateJobResponse) Prelude.. Core._Time
 
+-- | The job\'s ID.
+describeNodeFromTemplateJobResponse_jobId :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
+describeNodeFromTemplateJobResponse_jobId = Lens.lens (\DescribeNodeFromTemplateJobResponse' {jobId} -> jobId) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {jobId = a} :: DescribeNodeFromTemplateJobResponse)
+
 -- | When the job was updated.
 describeNodeFromTemplateJobResponse_lastUpdatedTime :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.UTCTime
 describeNodeFromTemplateJobResponse_lastUpdatedTime = Lens.lens (\DescribeNodeFromTemplateJobResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {lastUpdatedTime = a} :: DescribeNodeFromTemplateJobResponse) Prelude.. Core._Time
+
+-- | The node\'s name.
+describeNodeFromTemplateJobResponse_nodeName :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
+describeNodeFromTemplateJobResponse_nodeName = Lens.lens (\DescribeNodeFromTemplateJobResponse' {nodeName} -> nodeName) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {nodeName = a} :: DescribeNodeFromTemplateJobResponse)
 
 -- | The job\'s output package name.
 describeNodeFromTemplateJobResponse_outputPackageName :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
@@ -295,17 +291,21 @@ describeNodeFromTemplateJobResponse_outputPackageName = Lens.lens (\DescribeNode
 describeNodeFromTemplateJobResponse_outputPackageVersion :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
 describeNodeFromTemplateJobResponse_outputPackageVersion = Lens.lens (\DescribeNodeFromTemplateJobResponse' {outputPackageVersion} -> outputPackageVersion) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {outputPackageVersion = a} :: DescribeNodeFromTemplateJobResponse)
 
--- | The node\'s name.
-describeNodeFromTemplateJobResponse_nodeName :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
-describeNodeFromTemplateJobResponse_nodeName = Lens.lens (\DescribeNodeFromTemplateJobResponse' {nodeName} -> nodeName) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {nodeName = a} :: DescribeNodeFromTemplateJobResponse)
+-- | The job\'s status.
+describeNodeFromTemplateJobResponse_status :: Lens.Lens' DescribeNodeFromTemplateJobResponse NodeFromTemplateJobStatus
+describeNodeFromTemplateJobResponse_status = Lens.lens (\DescribeNodeFromTemplateJobResponse' {status} -> status) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {status = a} :: DescribeNodeFromTemplateJobResponse)
 
--- | The job\'s template type.
-describeNodeFromTemplateJobResponse_templateType :: Lens.Lens' DescribeNodeFromTemplateJobResponse TemplateType
-describeNodeFromTemplateJobResponse_templateType = Lens.lens (\DescribeNodeFromTemplateJobResponse' {templateType} -> templateType) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {templateType = a} :: DescribeNodeFromTemplateJobResponse)
+-- | The job\'s status message.
+describeNodeFromTemplateJobResponse_statusMessage :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Text
+describeNodeFromTemplateJobResponse_statusMessage = Lens.lens (\DescribeNodeFromTemplateJobResponse' {statusMessage} -> statusMessage) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {statusMessage = a} :: DescribeNodeFromTemplateJobResponse)
 
 -- | The job\'s template parameters.
 describeNodeFromTemplateJobResponse_templateParameters :: Lens.Lens' DescribeNodeFromTemplateJobResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 describeNodeFromTemplateJobResponse_templateParameters = Lens.lens (\DescribeNodeFromTemplateJobResponse' {templateParameters} -> templateParameters) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {templateParameters = a} :: DescribeNodeFromTemplateJobResponse) Prelude.. Lens.coerced
+
+-- | The job\'s template type.
+describeNodeFromTemplateJobResponse_templateType :: Lens.Lens' DescribeNodeFromTemplateJobResponse TemplateType
+describeNodeFromTemplateJobResponse_templateType = Lens.lens (\DescribeNodeFromTemplateJobResponse' {templateType} -> templateType) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {templateType = a} :: DescribeNodeFromTemplateJobResponse)
 
 instance
   Prelude.NFData
@@ -315,13 +315,13 @@ instance
     Prelude.rnf nodeDescription
       `Prelude.seq` Prelude.rnf jobTags
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf nodeName
       `Prelude.seq` Prelude.rnf outputPackageName
       `Prelude.seq` Prelude.rnf outputPackageVersion
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf templateParameters
+      `Prelude.seq` Prelude.rnf templateType

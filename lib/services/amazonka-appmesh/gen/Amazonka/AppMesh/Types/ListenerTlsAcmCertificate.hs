@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that represents an AWS Certicate Manager (ACM) certificate.
+-- | An object that represents an Certificate Manager certificate.
 --
 -- /See:/ 'newListenerTlsAcmCertificate' smart constructor.
 data ListenerTlsAcmCertificate = ListenerTlsAcmCertificate'

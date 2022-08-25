@@ -361,6 +361,7 @@ library
     Amazonka.SSM.Types.PlatformType
     Amazonka.SSM.Types.ProgressCounters
     Amazonka.SSM.Types.RebootOption
+    Amazonka.SSM.Types.RegistrationMetadataItem
     Amazonka.SSM.Types.RelatedOpsItem
     Amazonka.SSM.Types.ResolvedTargets
     Amazonka.SSM.Types.ResourceComplianceSummaryItem
@@ -390,6 +391,7 @@ library
     Amazonka.SSM.Types.SessionStatus
     Amazonka.SSM.Types.SeveritySummary
     Amazonka.SSM.Types.SignalType
+    Amazonka.SSM.Types.SourceType
     Amazonka.SSM.Types.StepExecution
     Amazonka.SSM.Types.StepExecutionFilter
     Amazonka.SSM.Types.StepExecutionFilterKey

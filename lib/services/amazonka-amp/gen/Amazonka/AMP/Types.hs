@@ -28,6 +28,9 @@ module Amazonka.AMP.Types
     -- * AlertManagerDefinitionStatusCode
     AlertManagerDefinitionStatusCode (..),
 
+    -- * LoggingConfigurationStatusCode
+    LoggingConfigurationStatusCode (..),
+
     -- * RuleGroupsNamespaceStatusCode
     RuleGroupsNamespaceStatusCode (..),
 
@@ -47,6 +50,21 @@ module Amazonka.AMP.Types
     newAlertManagerDefinitionStatus,
     alertManagerDefinitionStatus_statusReason,
     alertManagerDefinitionStatus_statusCode,
+
+    -- * LoggingConfigurationMetadata
+    LoggingConfigurationMetadata (..),
+    newLoggingConfigurationMetadata,
+    loggingConfigurationMetadata_createdAt,
+    loggingConfigurationMetadata_logGroupArn,
+    loggingConfigurationMetadata_modifiedAt,
+    loggingConfigurationMetadata_status,
+    loggingConfigurationMetadata_workspace,
+
+    -- * LoggingConfigurationStatus
+    LoggingConfigurationStatus (..),
+    newLoggingConfigurationStatus,
+    loggingConfigurationStatus_statusReason,
+    loggingConfigurationStatus_statusCode,
 
     -- * RuleGroupsNamespaceDescription
     RuleGroupsNamespaceDescription (..),
@@ -106,6 +124,9 @@ where
 import Amazonka.AMP.Types.AlertManagerDefinitionDescription
 import Amazonka.AMP.Types.AlertManagerDefinitionStatus
 import Amazonka.AMP.Types.AlertManagerDefinitionStatusCode
+import Amazonka.AMP.Types.LoggingConfigurationMetadata
+import Amazonka.AMP.Types.LoggingConfigurationStatus
+import Amazonka.AMP.Types.LoggingConfigurationStatusCode
 import Amazonka.AMP.Types.RuleGroupsNamespaceDescription
 import Amazonka.AMP.Types.RuleGroupsNamespaceStatus
 import Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode

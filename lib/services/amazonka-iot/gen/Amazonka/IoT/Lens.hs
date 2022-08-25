@@ -111,6 +111,7 @@ module Amazonka.IoT.Lens
     createAuthorizer_status,
     createAuthorizer_signingDisabled,
     createAuthorizer_tokenSigningPublicKeys,
+    createAuthorizer_enableCachingForHttp,
     createAuthorizer_authorizerName,
     createAuthorizer_authorizerFunctionArn,
     createAuthorizerResponse_authorizerArn,
@@ -201,12 +202,14 @@ module Amazonka.IoT.Lens
     createJob_jobExecutionsRolloutConfig,
     createJob_documentSource,
     createJob_abortConfig,
+    createJob_documentParameters,
     createJob_jobTemplateArn,
     createJob_targetSelection,
     createJob_description,
     createJob_presignedUrlConfig,
     createJob_document,
     createJob_namespaceId,
+    createJob_jobExecutionsRetryConfig,
     createJob_timeoutConfig,
     createJob_jobId,
     createJob_targets,
@@ -223,6 +226,7 @@ module Amazonka.IoT.Lens
     createJobTemplate_presignedUrlConfig,
     createJobTemplate_document,
     createJobTemplate_jobArn,
+    createJobTemplate_jobExecutionsRetryConfig,
     createJobTemplate_timeoutConfig,
     createJobTemplate_jobTemplateId,
     createJobTemplate_description,
@@ -298,6 +302,7 @@ module Amazonka.IoT.Lens
 
     -- ** CreateProvisioningTemplate
     createProvisioningTemplate_tags,
+    createProvisioningTemplate_type,
     createProvisioningTemplate_preProvisioningHook,
     createProvisioningTemplate_description,
     createProvisioningTemplate_enabled,
@@ -707,9 +712,22 @@ module Amazonka.IoT.Lens
     describeJobTemplateResponse_description,
     describeJobTemplateResponse_presignedUrlConfig,
     describeJobTemplateResponse_document,
+    describeJobTemplateResponse_jobExecutionsRetryConfig,
     describeJobTemplateResponse_timeoutConfig,
     describeJobTemplateResponse_createdAt,
     describeJobTemplateResponse_httpStatus,
+
+    -- ** DescribeManagedJobTemplate
+    describeManagedJobTemplate_templateVersion,
+    describeManagedJobTemplate_templateName,
+    describeManagedJobTemplateResponse_templateName,
+    describeManagedJobTemplateResponse_environments,
+    describeManagedJobTemplateResponse_documentParameters,
+    describeManagedJobTemplateResponse_description,
+    describeManagedJobTemplateResponse_templateVersion,
+    describeManagedJobTemplateResponse_document,
+    describeManagedJobTemplateResponse_templateArn,
+    describeManagedJobTemplateResponse_httpStatus,
 
     -- ** DescribeMitigationAction
     describeMitigationAction_actionName,
@@ -726,6 +744,7 @@ module Amazonka.IoT.Lens
     -- ** DescribeProvisioningTemplate
     describeProvisioningTemplate_templateName,
     describeProvisioningTemplateResponse_templateName,
+    describeProvisioningTemplateResponse_type,
     describeProvisioningTemplateResponse_defaultVersionId,
     describeProvisioningTemplateResponse_lastModifiedDate,
     describeProvisioningTemplateResponse_preProvisioningHook,
@@ -1061,6 +1080,7 @@ module Amazonka.IoT.Lens
     listBillingGroupsResponse_httpStatus,
 
     -- ** ListCACertificates
+    listCACertificates_templateName,
     listCACertificates_marker,
     listCACertificates_pageSize,
     listCACertificates_ascendingOrder,
@@ -1153,6 +1173,7 @@ module Amazonka.IoT.Lens
 
     -- ** ListJobExecutionsForThing
     listJobExecutionsForThing_nextToken,
+    listJobExecutionsForThing_jobId,
     listJobExecutionsForThing_status,
     listJobExecutionsForThing_maxResults,
     listJobExecutionsForThing_namespaceId,
@@ -1179,6 +1200,27 @@ module Amazonka.IoT.Lens
     listJobsResponse_nextToken,
     listJobsResponse_jobs,
     listJobsResponse_httpStatus,
+
+    -- ** ListManagedJobTemplates
+    listManagedJobTemplates_nextToken,
+    listManagedJobTemplates_templateName,
+    listManagedJobTemplates_maxResults,
+    listManagedJobTemplatesResponse_nextToken,
+    listManagedJobTemplatesResponse_managedJobTemplates,
+    listManagedJobTemplatesResponse_httpStatus,
+
+    -- ** ListMetricValues
+    listMetricValues_nextToken,
+    listMetricValues_dimensionValueOperator,
+    listMetricValues_dimensionName,
+    listMetricValues_maxResults,
+    listMetricValues_thingName,
+    listMetricValues_metricName,
+    listMetricValues_startTime,
+    listMetricValues_endTime,
+    listMetricValuesResponse_nextToken,
+    listMetricValuesResponse_metricDatumList,
+    listMetricValuesResponse_httpStatus,
 
     -- ** ListMitigationActions
     listMitigationActions_nextToken,
@@ -1432,9 +1474,10 @@ module Amazonka.IoT.Lens
     registerCACertificate_tags,
     registerCACertificate_allowAutoRegistration,
     registerCACertificate_registrationConfig,
-    registerCACertificate_setAsActive,
-    registerCACertificate_caCertificate,
     registerCACertificate_verificationCertificate,
+    registerCACertificate_setAsActive,
+    registerCACertificate_certificateMode,
+    registerCACertificate_caCertificate,
     registerCACertificateResponse_certificateArn,
     registerCACertificateResponse_certificateId,
     registerCACertificateResponse_httpStatus,
@@ -1613,6 +1656,7 @@ module Amazonka.IoT.Lens
     updateAuthorizer_status,
     updateAuthorizer_authorizerFunctionArn,
     updateAuthorizer_tokenSigningPublicKeys,
+    updateAuthorizer_enableCachingForHttp,
     updateAuthorizer_authorizerName,
     updateAuthorizerResponse_authorizerArn,
     updateAuthorizerResponse_authorizerName,
@@ -1704,6 +1748,7 @@ module Amazonka.IoT.Lens
     updateJob_description,
     updateJob_presignedUrlConfig,
     updateJob_namespaceId,
+    updateJob_jobExecutionsRetryConfig,
     updateJob_timeoutConfig,
     updateJob_jobId,
 
@@ -1977,6 +2022,7 @@ module Amazonka.IoT.Lens
     authorizerDescription_signingDisabled,
     authorizerDescription_tokenSigningPublicKeys,
     authorizerDescription_authorizerArn,
+    authorizerDescription_enableCachingForHttp,
     authorizerDescription_authorizerName,
 
     -- ** AuthorizerSummary
@@ -2064,6 +2110,7 @@ module Amazonka.IoT.Lens
     cACertificateDescription_certificatePem,
     cACertificateDescription_autoRegistrationStatus,
     cACertificateDescription_generationId,
+    cACertificateDescription_certificateMode,
     cACertificateDescription_ownedBy,
     cACertificateDescription_validity,
 
@@ -2173,6 +2220,13 @@ module Amazonka.IoT.Lens
     detectMitigationActionsTaskTarget_violationIds,
     detectMitigationActionsTaskTarget_securityProfileName,
 
+    -- ** DocumentParameter
+    documentParameter_key,
+    documentParameter_example,
+    documentParameter_regex,
+    documentParameter_description,
+    documentParameter_optional,
+
     -- ** DomainConfigurationSummary
     domainConfigurationSummary_domainConfigurationArn,
     domainConfigurationSummary_serviceType,
@@ -2273,6 +2327,9 @@ module Amazonka.IoT.Lens
     -- ** ImplicitDeny
     implicitDeny_policies,
 
+    -- ** IndexingFilter
+    indexingFilter_namedShadowNames,
+
     -- ** IotAnalyticsAction
     iotAnalyticsAction_roleArn,
     iotAnalyticsAction_channelName,
@@ -2293,6 +2350,8 @@ module Amazonka.IoT.Lens
     job_jobExecutionsRolloutConfig,
     job_abortConfig,
     job_lastUpdatedAt,
+    job_documentParameters,
+    job_isConcurrent,
     job_jobTemplateArn,
     job_targetSelection,
     job_jobId,
@@ -2305,6 +2364,7 @@ module Amazonka.IoT.Lens
     job_reasonCode,
     job_namespaceId,
     job_jobArn,
+    job_jobExecutionsRetryConfig,
     job_jobProcessDetails,
     job_completedAt,
     job_timeoutConfig,
@@ -2332,6 +2392,7 @@ module Amazonka.IoT.Lens
     jobExecutionSummary_status,
     jobExecutionSummary_startedAt,
     jobExecutionSummary_queuedAt,
+    jobExecutionSummary_retryAttempt,
 
     -- ** JobExecutionSummaryForJob
     jobExecutionSummaryForJob_thingArn,
@@ -2340,6 +2401,9 @@ module Amazonka.IoT.Lens
     -- ** JobExecutionSummaryForThing
     jobExecutionSummaryForThing_jobId,
     jobExecutionSummaryForThing_jobExecutionSummary,
+
+    -- ** JobExecutionsRetryConfig
+    jobExecutionsRetryConfig_criteriaList,
 
     -- ** JobExecutionsRolloutConfig
     jobExecutionsRolloutConfig_maximumPerMinute,
@@ -2358,6 +2422,7 @@ module Amazonka.IoT.Lens
 
     -- ** JobSummary
     jobSummary_lastUpdatedAt,
+    jobSummary_isConcurrent,
     jobSummary_targetSelection,
     jobSummary_jobId,
     jobSummary_status,
@@ -2405,6 +2470,17 @@ module Amazonka.IoT.Lens
 
     -- ** MachineLearningDetectionConfig
     machineLearningDetectionConfig_confidenceLevel,
+
+    -- ** ManagedJobTemplateSummary
+    managedJobTemplateSummary_templateName,
+    managedJobTemplateSummary_environments,
+    managedJobTemplateSummary_description,
+    managedJobTemplateSummary_templateVersion,
+    managedJobTemplateSummary_templateArn,
+
+    -- ** MetricDatum
+    metricDatum_timestamp,
+    metricDatum_value,
 
     -- ** MetricDimension
     metricDimension_operator,
@@ -2524,6 +2600,7 @@ module Amazonka.IoT.Lens
 
     -- ** ProvisioningTemplateSummary
     provisioningTemplateSummary_templateName,
+    provisioningTemplateSummary_type,
     provisioningTemplateSummary_lastModifiedDate,
     provisioningTemplateSummary_creationDate,
     provisioningTemplateSummary_description,
@@ -2553,6 +2630,7 @@ module Amazonka.IoT.Lens
     rateIncreaseCriteria_numberOfNotifiedThings,
 
     -- ** RegistrationConfig
+    registrationConfig_templateName,
     registrationConfig_roleArn,
     registrationConfig_templateBody,
 
@@ -2578,6 +2656,10 @@ module Amazonka.IoT.Lens
     resourceIdentifier_iamRoleArn,
     resourceIdentifier_roleAliasArn,
     resourceIdentifier_cognitoIdentityPoolId,
+
+    -- ** RetryCriteria
+    retryCriteria_failureType,
+    retryCriteria_numberOfRetries,
 
     -- ** RoleAliasDescription
     roleAliasDescription_roleArn,
@@ -2735,6 +2817,7 @@ module Amazonka.IoT.Lens
     -- ** ThingDocument
     thingDocument_thingName,
     thingDocument_thingId,
+    thingDocument_deviceDefender,
     thingDocument_shadow,
     thingDocument_thingTypeName,
     thingDocument_thingGroupNames,
@@ -2763,8 +2846,11 @@ module Amazonka.IoT.Lens
     thingGroupProperties_attributePayload,
 
     -- ** ThingIndexingConfiguration
+    thingIndexingConfiguration_deviceDefenderIndexingMode,
+    thingIndexingConfiguration_filter,
     thingIndexingConfiguration_thingConnectivityIndexingMode,
     thingIndexingConfiguration_managedFields,
+    thingIndexingConfiguration_namedShadowIndexingMode,
     thingIndexingConfiguration_customFields,
     thingIndexingConfiguration_thingIndexingMode,
 
@@ -3002,6 +3088,7 @@ import Amazonka.IoT.DescribeIndex
 import Amazonka.IoT.DescribeJob
 import Amazonka.IoT.DescribeJobExecution
 import Amazonka.IoT.DescribeJobTemplate
+import Amazonka.IoT.DescribeManagedJobTemplate
 import Amazonka.IoT.DescribeMitigationAction
 import Amazonka.IoT.DescribeProvisioningTemplate
 import Amazonka.IoT.DescribeProvisioningTemplateVersion
@@ -3057,6 +3144,8 @@ import Amazonka.IoT.ListJobExecutionsForJob
 import Amazonka.IoT.ListJobExecutionsForThing
 import Amazonka.IoT.ListJobTemplates
 import Amazonka.IoT.ListJobs
+import Amazonka.IoT.ListManagedJobTemplates
+import Amazonka.IoT.ListMetricValues
 import Amazonka.IoT.ListMitigationActions
 import Amazonka.IoT.ListOTAUpdates
 import Amazonka.IoT.ListOutgoingCertificates
@@ -3169,6 +3258,7 @@ import Amazonka.IoT.Types.DetectMitigationActionExecution
 import Amazonka.IoT.Types.DetectMitigationActionsTaskStatistics
 import Amazonka.IoT.Types.DetectMitigationActionsTaskSummary
 import Amazonka.IoT.Types.DetectMitigationActionsTaskTarget
+import Amazonka.IoT.Types.DocumentParameter
 import Amazonka.IoT.Types.DomainConfigurationSummary
 import Amazonka.IoT.Types.DynamoDBAction
 import Amazonka.IoT.Types.DynamoDBv2Action
@@ -3191,6 +3281,7 @@ import Amazonka.IoT.Types.HttpUrlDestinationConfiguration
 import Amazonka.IoT.Types.HttpUrlDestinationProperties
 import Amazonka.IoT.Types.HttpUrlDestinationSummary
 import Amazonka.IoT.Types.ImplicitDeny
+import Amazonka.IoT.Types.IndexingFilter
 import Amazonka.IoT.Types.IotAnalyticsAction
 import Amazonka.IoT.Types.IotEventsAction
 import Amazonka.IoT.Types.IotSiteWiseAction
@@ -3200,6 +3291,7 @@ import Amazonka.IoT.Types.JobExecutionStatusDetails
 import Amazonka.IoT.Types.JobExecutionSummary
 import Amazonka.IoT.Types.JobExecutionSummaryForJob
 import Amazonka.IoT.Types.JobExecutionSummaryForThing
+import Amazonka.IoT.Types.JobExecutionsRetryConfig
 import Amazonka.IoT.Types.JobExecutionsRolloutConfig
 import Amazonka.IoT.Types.JobProcessDetails
 import Amazonka.IoT.Types.JobSummary
@@ -3212,6 +3304,8 @@ import Amazonka.IoT.Types.LogTarget
 import Amazonka.IoT.Types.LogTargetConfiguration
 import Amazonka.IoT.Types.LoggingOptionsPayload
 import Amazonka.IoT.Types.MachineLearningDetectionConfig
+import Amazonka.IoT.Types.ManagedJobTemplateSummary
+import Amazonka.IoT.Types.MetricDatum
 import Amazonka.IoT.Types.MetricDimension
 import Amazonka.IoT.Types.MetricToRetain
 import Amazonka.IoT.Types.MetricValue
@@ -3242,6 +3336,7 @@ import Amazonka.IoT.Types.RelatedResource
 import Amazonka.IoT.Types.ReplaceDefaultPolicyVersionParams
 import Amazonka.IoT.Types.RepublishAction
 import Amazonka.IoT.Types.ResourceIdentifier
+import Amazonka.IoT.Types.RetryCriteria
 import Amazonka.IoT.Types.RoleAliasDescription
 import Amazonka.IoT.Types.S3Action
 import Amazonka.IoT.Types.S3Destination

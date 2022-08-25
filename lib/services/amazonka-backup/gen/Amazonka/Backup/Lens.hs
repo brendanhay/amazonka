@@ -192,6 +192,7 @@ module Amazonka.Backup.Lens
     describeRecoveryPointResponse_httpStatus,
 
     -- ** DescribeRegionSettings
+    describeRegionSettingsResponse_resourceTypeManagementPreference,
     describeRegionSettingsResponse_resourceTypeOptInPreference,
     describeRegionSettingsResponse_httpStatus,
 
@@ -296,6 +297,8 @@ module Amazonka.Backup.Lens
     listBackupJobs_byAccountId,
     listBackupJobs_nextToken,
     listBackupJobs_byCreatedAfter,
+    listBackupJobs_byCompleteAfter,
+    listBackupJobs_byCompleteBefore,
     listBackupJobs_byResourceType,
     listBackupJobs_byCreatedBefore,
     listBackupJobs_maxResults,
@@ -348,7 +351,9 @@ module Amazonka.Backup.Lens
     listCopyJobs_byAccountId,
     listCopyJobs_nextToken,
     listCopyJobs_byCreatedAfter,
+    listCopyJobs_byCompleteAfter,
     listCopyJobs_byDestinationVaultArn,
+    listCopyJobs_byCompleteBefore,
     listCopyJobs_byResourceType,
     listCopyJobs_byCreatedBefore,
     listCopyJobs_maxResults,
@@ -415,6 +420,8 @@ module Amazonka.Backup.Lens
     listRestoreJobs_byAccountId,
     listRestoreJobs_nextToken,
     listRestoreJobs_byCreatedAfter,
+    listRestoreJobs_byCompleteAfter,
+    listRestoreJobs_byCompleteBefore,
     listRestoreJobs_byCreatedBefore,
     listRestoreJobs_maxResults,
     listRestoreJobs_byStatus,
@@ -480,9 +487,9 @@ module Amazonka.Backup.Lens
     -- ** StartRestoreJob
     startRestoreJob_resourceType,
     startRestoreJob_idempotencyToken,
+    startRestoreJob_iamRoleArn,
     startRestoreJob_recoveryPointArn,
     startRestoreJob_metadata,
-    startRestoreJob_iamRoleArn,
     startRestoreJobResponse_restoreJobId,
     startRestoreJobResponse_httpStatus,
 
@@ -531,6 +538,7 @@ module Amazonka.Backup.Lens
     updateRecoveryPointLifecycleResponse_httpStatus,
 
     -- ** UpdateRegionSettings
+    updateRegionSettings_resourceTypeManagementPreference,
     updateRegionSettings_resourceTypeOptInPreference,
 
     -- ** UpdateReportPlan
@@ -621,8 +629,10 @@ module Amazonka.Backup.Lens
     backupRuleInput_targetBackupVaultName,
 
     -- ** BackupSelection
+    backupSelection_conditions,
     backupSelection_resources,
     backupSelection_listOfTags,
+    backupSelection_notResources,
     backupSelection_selectionName,
     backupSelection_iamRoleArn,
 
@@ -654,6 +664,16 @@ module Amazonka.Backup.Lens
     condition_conditionType,
     condition_conditionKey,
     condition_conditionValue,
+
+    -- ** ConditionParameter
+    conditionParameter_conditionValue,
+    conditionParameter_conditionKey,
+
+    -- ** Conditions
+    conditions_stringNotEquals,
+    conditions_stringNotLike,
+    conditions_stringEquals,
+    conditions_stringLike,
 
     -- ** ControlInputParameter
     controlInputParameter_parameterValue,
@@ -866,6 +886,8 @@ import Amazonka.Backup.Types.BackupSelectionsListMember
 import Amazonka.Backup.Types.BackupVaultListMember
 import Amazonka.Backup.Types.CalculatedLifecycle
 import Amazonka.Backup.Types.Condition
+import Amazonka.Backup.Types.ConditionParameter
+import Amazonka.Backup.Types.Conditions
 import Amazonka.Backup.Types.ControlInputParameter
 import Amazonka.Backup.Types.ControlScope
 import Amazonka.Backup.Types.CopyAction

@@ -62,14 +62,14 @@ data FleetAttributes = FleetAttributes'
     fleetType :: Prelude.Maybe FleetType,
     -- | Indicates whether a TLS\/SSL certificate was generated for the fleet.
     certificateConfiguration :: Prelude.Maybe CertificateConfiguration,
-    -- | A unique identifier for an AWS IAM role that manages access to your AWS
-    -- services. With an instance role ARN set, any application that runs on an
-    -- instance in this fleet can assume the role, including install scripts,
-    -- server processes, and daemons (background processes). Create a role or
-    -- look up a role\'s ARN by using the
-    -- <https://console.aws.amazon.com/iam/ IAM dashboard> in the AWS
-    -- Management Console. Learn more about using on-box credentials for your
-    -- game servers at
+    -- | A unique identifier for an IAM role that manages access to your Amazon
+    -- Web Services services. With an instance role ARN set, any application
+    -- that runs on an instance in this fleet can assume the role, including
+    -- install scripts, server processes, and daemons (background processes).
+    -- Create a role or look up a role\'s ARN by using the
+    -- <https://console.aws.amazon.com/iam/ IAM dashboard> in the Amazon Web
+    -- Services Management Console. Learn more about using on-box credentials
+    -- for your game servers at
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server>.
     instanceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the build resource that is deployed on instances
@@ -114,10 +114,10 @@ data FleetAttributes = FleetAttributes'
     status :: Prelude.Maybe FleetStatus,
     -- | A human-readable description of the fleet.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 instance type that determines the computing resources of each
-    -- instance in the fleet. Instance type defines the CPU, memory, storage,
-    -- and networking capacity. See
-    -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
+    -- | The Amazon EC2 instance type that determines the computing resources of
+    -- each instance in the fleet. Instance type defines the CPU, memory,
+    -- storage, and networking capacity. See
+    -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
     -- for detailed descriptions.
     instanceType :: Prelude.Maybe EC2InstanceType,
     -- | The Amazon Resource Name
@@ -189,14 +189,14 @@ data FleetAttributes = FleetAttributes'
 --
 -- 'certificateConfiguration', 'fleetAttributes_certificateConfiguration' - Indicates whether a TLS\/SSL certificate was generated for the fleet.
 --
--- 'instanceRoleArn', 'fleetAttributes_instanceRoleArn' - A unique identifier for an AWS IAM role that manages access to your AWS
--- services. With an instance role ARN set, any application that runs on an
--- instance in this fleet can assume the role, including install scripts,
--- server processes, and daemons (background processes). Create a role or
--- look up a role\'s ARN by using the
--- <https://console.aws.amazon.com/iam/ IAM dashboard> in the AWS
--- Management Console. Learn more about using on-box credentials for your
--- game servers at
+-- 'instanceRoleArn', 'fleetAttributes_instanceRoleArn' - A unique identifier for an IAM role that manages access to your Amazon
+-- Web Services services. With an instance role ARN set, any application
+-- that runs on an instance in this fleet can assume the role, including
+-- install scripts, server processes, and daemons (background processes).
+-- Create a role or look up a role\'s ARN by using the
+-- <https://console.aws.amazon.com/iam/ IAM dashboard> in the Amazon Web
+-- Services Management Console. Learn more about using on-box credentials
+-- for your game servers at
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server>.
 --
 -- 'buildId', 'fleetAttributes_buildId' - A unique identifier for the build resource that is deployed on instances
@@ -241,10 +241,10 @@ data FleetAttributes = FleetAttributes'
 --
 -- 'description', 'fleetAttributes_description' - A human-readable description of the fleet.
 --
--- 'instanceType', 'fleetAttributes_instanceType' - The EC2 instance type that determines the computing resources of each
--- instance in the fleet. Instance type defines the CPU, memory, storage,
--- and networking capacity. See
--- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
+-- 'instanceType', 'fleetAttributes_instanceType' - The Amazon EC2 instance type that determines the computing resources of
+-- each instance in the fleet. Instance type defines the CPU, memory,
+-- storage, and networking capacity. See
+-- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions.
 --
 -- 'fleetArn', 'fleetAttributes_fleetArn' - The Amazon Resource Name
@@ -347,14 +347,14 @@ fleetAttributes_fleetType = Lens.lens (\FleetAttributes' {fleetType} -> fleetTyp
 fleetAttributes_certificateConfiguration :: Lens.Lens' FleetAttributes (Prelude.Maybe CertificateConfiguration)
 fleetAttributes_certificateConfiguration = Lens.lens (\FleetAttributes' {certificateConfiguration} -> certificateConfiguration) (\s@FleetAttributes' {} a -> s {certificateConfiguration = a} :: FleetAttributes)
 
--- | A unique identifier for an AWS IAM role that manages access to your AWS
--- services. With an instance role ARN set, any application that runs on an
--- instance in this fleet can assume the role, including install scripts,
--- server processes, and daemons (background processes). Create a role or
--- look up a role\'s ARN by using the
--- <https://console.aws.amazon.com/iam/ IAM dashboard> in the AWS
--- Management Console. Learn more about using on-box credentials for your
--- game servers at
+-- | A unique identifier for an IAM role that manages access to your Amazon
+-- Web Services services. With an instance role ARN set, any application
+-- that runs on an instance in this fleet can assume the role, including
+-- install scripts, server processes, and daemons (background processes).
+-- Create a role or look up a role\'s ARN by using the
+-- <https://console.aws.amazon.com/iam/ IAM dashboard> in the Amazon Web
+-- Services Management Console. Learn more about using on-box credentials
+-- for your game servers at
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server>.
 fleetAttributes_instanceRoleArn :: Lens.Lens' FleetAttributes (Prelude.Maybe Prelude.Text)
 fleetAttributes_instanceRoleArn = Lens.lens (\FleetAttributes' {instanceRoleArn} -> instanceRoleArn) (\s@FleetAttributes' {} a -> s {instanceRoleArn = a} :: FleetAttributes)
@@ -413,10 +413,10 @@ fleetAttributes_status = Lens.lens (\FleetAttributes' {status} -> status) (\s@Fl
 fleetAttributes_description :: Lens.Lens' FleetAttributes (Prelude.Maybe Prelude.Text)
 fleetAttributes_description = Lens.lens (\FleetAttributes' {description} -> description) (\s@FleetAttributes' {} a -> s {description = a} :: FleetAttributes)
 
--- | The EC2 instance type that determines the computing resources of each
--- instance in the fleet. Instance type defines the CPU, memory, storage,
--- and networking capacity. See
--- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
+-- | The Amazon EC2 instance type that determines the computing resources of
+-- each instance in the fleet. Instance type defines the CPU, memory,
+-- storage, and networking capacity. See
+-- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions.
 fleetAttributes_instanceType :: Lens.Lens' FleetAttributes (Prelude.Maybe EC2InstanceType)
 fleetAttributes_instanceType = Lens.lens (\FleetAttributes' {instanceType} -> instanceType) (\s@FleetAttributes' {} a -> s {instanceType = a} :: FleetAttributes)

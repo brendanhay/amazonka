@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvidence' smart constructor.
 data Evidence = Evidence'
-  { -- | The identifier for the specified Amazon Web Services account.
+  { -- | The identifier for the Amazon Web Services account.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified Amazon Web Services account.
+    -- | The identifier for the Amazon Web Services account.
     evidenceAwsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the folder in which the evidence is stored.
+    -- | The identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Maybe Prelude.Text,
-    -- | The list of resources assessed to generate the evidence.
+    -- | The list of resources that are assessed to generate the evidence.
     resourcesIncluded :: Prelude.Maybe [Resource],
-    -- | The Amazon Web Services account from which the evidence is collected,
-    -- and its organization path.
+    -- | The Amazon Web Services account that the evidence is collected from, and
+    -- its organization path.
     awsOrganization :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that represents when the evidence was collected.
     time :: Prelude.Maybe Core.POSIX,
@@ -53,20 +53,20 @@ data Evidence = Evidence'
     -- result is shown. For evidence collected from Config, a /Compliant/ or
     -- /Noncompliant/ result is shown.
     complianceCheck :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the IAM user or role associated with the
-    -- evidence.
+    -- | The unique identifier for the IAM user or role that\'s associated with
+    -- the evidence.
     iamId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the specified evidence event.
+    -- | The name of the evidence event.
     eventName :: Prelude.Maybe Prelude.Text,
-    -- | The data source from which the specified evidence was collected.
+    -- | The data source where the evidence was collected from.
     dataSource :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the evidence is included in the assessment report.
     assessmentReportSelection :: Prelude.Maybe Prelude.Text,
-    -- | The names and values used by the evidence event, including an attribute
-    -- name (such as @allowUsersToChangePassword@) and value (such as @true@ or
-    -- @false@).
+    -- | The names and values that are used by the evidence event. This includes
+    -- an attribute name (such as @allowUsersToChangePassword@) and value (such
+    -- as @true@ or @false@).
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Web Service from which the evidence is collected.
+    -- | The Amazon Web Service that the evidence is collected from.
     eventSource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,16 +79,16 @@ data Evidence = Evidence'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'evidence_awsAccountId' - The identifier for the specified Amazon Web Services account.
+-- 'awsAccountId', 'evidence_awsAccountId' - The identifier for the Amazon Web Services account.
 --
--- 'evidenceAwsAccountId', 'evidence_evidenceAwsAccountId' - The identifier for the specified Amazon Web Services account.
+-- 'evidenceAwsAccountId', 'evidence_evidenceAwsAccountId' - The identifier for the Amazon Web Services account.
 --
--- 'evidenceFolderId', 'evidence_evidenceFolderId' - The identifier for the folder in which the evidence is stored.
+-- 'evidenceFolderId', 'evidence_evidenceFolderId' - The identifier for the folder that the evidence is stored in.
 --
--- 'resourcesIncluded', 'evidence_resourcesIncluded' - The list of resources assessed to generate the evidence.
+-- 'resourcesIncluded', 'evidence_resourcesIncluded' - The list of resources that are assessed to generate the evidence.
 --
--- 'awsOrganization', 'evidence_awsOrganization' - The Amazon Web Services account from which the evidence is collected,
--- and its organization path.
+-- 'awsOrganization', 'evidence_awsOrganization' - The Amazon Web Services account that the evidence is collected from, and
+-- its organization path.
 --
 -- 'time', 'evidence_time' - The timestamp that represents when the evidence was collected.
 --
@@ -101,20 +101,20 @@ data Evidence = Evidence'
 -- result is shown. For evidence collected from Config, a /Compliant/ or
 -- /Noncompliant/ result is shown.
 --
--- 'iamId', 'evidence_iamId' - The unique identifier for the IAM user or role associated with the
--- evidence.
+-- 'iamId', 'evidence_iamId' - The unique identifier for the IAM user or role that\'s associated with
+-- the evidence.
 --
--- 'eventName', 'evidence_eventName' - The name of the specified evidence event.
+-- 'eventName', 'evidence_eventName' - The name of the evidence event.
 --
--- 'dataSource', 'evidence_dataSource' - The data source from which the specified evidence was collected.
+-- 'dataSource', 'evidence_dataSource' - The data source where the evidence was collected from.
 --
 -- 'assessmentReportSelection', 'evidence_assessmentReportSelection' - Specifies whether the evidence is included in the assessment report.
 --
--- 'attributes', 'evidence_attributes' - The names and values used by the evidence event, including an attribute
--- name (such as @allowUsersToChangePassword@) and value (such as @true@ or
--- @false@).
+-- 'attributes', 'evidence_attributes' - The names and values that are used by the evidence event. This includes
+-- an attribute name (such as @allowUsersToChangePassword@) and value (such
+-- as @true@ or @false@).
 --
--- 'eventSource', 'evidence_eventSource' - The Amazon Web Service from which the evidence is collected.
+-- 'eventSource', 'evidence_eventSource' - The Amazon Web Service that the evidence is collected from.
 newEvidence ::
   Evidence
 newEvidence =
@@ -136,24 +136,24 @@ newEvidence =
       eventSource = Prelude.Nothing
     }
 
--- | The identifier for the specified Amazon Web Services account.
+-- | The identifier for the Amazon Web Services account.
 evidence_awsAccountId :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_awsAccountId = Lens.lens (\Evidence' {awsAccountId} -> awsAccountId) (\s@Evidence' {} a -> s {awsAccountId = a} :: Evidence)
 
--- | The identifier for the specified Amazon Web Services account.
+-- | The identifier for the Amazon Web Services account.
 evidence_evidenceAwsAccountId :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_evidenceAwsAccountId = Lens.lens (\Evidence' {evidenceAwsAccountId} -> evidenceAwsAccountId) (\s@Evidence' {} a -> s {evidenceAwsAccountId = a} :: Evidence)
 
--- | The identifier for the folder in which the evidence is stored.
+-- | The identifier for the folder that the evidence is stored in.
 evidence_evidenceFolderId :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_evidenceFolderId = Lens.lens (\Evidence' {evidenceFolderId} -> evidenceFolderId) (\s@Evidence' {} a -> s {evidenceFolderId = a} :: Evidence)
 
--- | The list of resources assessed to generate the evidence.
+-- | The list of resources that are assessed to generate the evidence.
 evidence_resourcesIncluded :: Lens.Lens' Evidence (Prelude.Maybe [Resource])
 evidence_resourcesIncluded = Lens.lens (\Evidence' {resourcesIncluded} -> resourcesIncluded) (\s@Evidence' {} a -> s {resourcesIncluded = a} :: Evidence) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services account from which the evidence is collected,
--- and its organization path.
+-- | The Amazon Web Services account that the evidence is collected from, and
+-- its organization path.
 evidence_awsOrganization :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_awsOrganization = Lens.lens (\Evidence' {awsOrganization} -> awsOrganization) (\s@Evidence' {} a -> s {awsOrganization = a} :: Evidence)
 
@@ -176,16 +176,16 @@ evidence_evidenceByType = Lens.lens (\Evidence' {evidenceByType} -> evidenceByTy
 evidence_complianceCheck :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_complianceCheck = Lens.lens (\Evidence' {complianceCheck} -> complianceCheck) (\s@Evidence' {} a -> s {complianceCheck = a} :: Evidence)
 
--- | The unique identifier for the IAM user or role associated with the
--- evidence.
+-- | The unique identifier for the IAM user or role that\'s associated with
+-- the evidence.
 evidence_iamId :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_iamId = Lens.lens (\Evidence' {iamId} -> iamId) (\s@Evidence' {} a -> s {iamId = a} :: Evidence)
 
--- | The name of the specified evidence event.
+-- | The name of the evidence event.
 evidence_eventName :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_eventName = Lens.lens (\Evidence' {eventName} -> eventName) (\s@Evidence' {} a -> s {eventName = a} :: Evidence)
 
--- | The data source from which the specified evidence was collected.
+-- | The data source where the evidence was collected from.
 evidence_dataSource :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_dataSource = Lens.lens (\Evidence' {dataSource} -> dataSource) (\s@Evidence' {} a -> s {dataSource = a} :: Evidence)
 
@@ -193,13 +193,13 @@ evidence_dataSource = Lens.lens (\Evidence' {dataSource} -> dataSource) (\s@Evid
 evidence_assessmentReportSelection :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_assessmentReportSelection = Lens.lens (\Evidence' {assessmentReportSelection} -> assessmentReportSelection) (\s@Evidence' {} a -> s {assessmentReportSelection = a} :: Evidence)
 
--- | The names and values used by the evidence event, including an attribute
--- name (such as @allowUsersToChangePassword@) and value (such as @true@ or
--- @false@).
+-- | The names and values that are used by the evidence event. This includes
+-- an attribute name (such as @allowUsersToChangePassword@) and value (such
+-- as @true@ or @false@).
 evidence_attributes :: Lens.Lens' Evidence (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 evidence_attributes = Lens.lens (\Evidence' {attributes} -> attributes) (\s@Evidence' {} a -> s {attributes = a} :: Evidence) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Service from which the evidence is collected.
+-- | The Amazon Web Service that the evidence is collected from.
 evidence_eventSource :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_eventSource = Lens.lens (\Evidence' {eventSource} -> eventSource) (\s@Evidence' {} a -> s {eventSource = a} :: Evidence)
 

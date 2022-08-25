@@ -46,6 +46,7 @@ module Amazonka.Lambda.GetFunctionConfiguration
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,

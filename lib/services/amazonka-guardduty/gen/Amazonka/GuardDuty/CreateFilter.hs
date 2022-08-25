@@ -133,6 +133,8 @@ data CreateFilter = CreateFilter'
     --
     -- -   service.action.awsApiCallAction.errorCode
     --
+    -- -   service.action.awsApiCallAction.userAgent
+    --
     -- -   service.action.awsApiCallAction.remoteIpDetails.city.cityName
     --
     -- -   service.action.awsApiCallAction.remoteIpDetails.country.countryName
@@ -170,6 +172,16 @@ data CreateFilter = CreateFilter'
     -- -   service.action.networkConnectionAction.remotePortDetails.port
     --
     -- -   service.additionalInfo.threatListName
+    --
+    -- -   resource.s3BucketDetails.publicAccess.effectivePermissions
+    --
+    -- -   resource.s3BucketDetails.name
+    --
+    -- -   resource.s3BucketDetails.tags.key
+    --
+    -- -   resource.s3BucketDetails.tags.value
+    --
+    -- -   resource.s3BucketDetails.type
     --
     -- -   service.archived
     --
@@ -279,6 +291,8 @@ data CreateFilter = CreateFilter'
 --
 -- -   service.action.awsApiCallAction.errorCode
 --
+-- -   service.action.awsApiCallAction.userAgent
+--
 -- -   service.action.awsApiCallAction.remoteIpDetails.city.cityName
 --
 -- -   service.action.awsApiCallAction.remoteIpDetails.country.countryName
@@ -316,6 +330,16 @@ data CreateFilter = CreateFilter'
 -- -   service.action.networkConnectionAction.remotePortDetails.port
 --
 -- -   service.additionalInfo.threatListName
+--
+-- -   resource.s3BucketDetails.publicAccess.effectivePermissions
+--
+-- -   resource.s3BucketDetails.name
+--
+-- -   resource.s3BucketDetails.tags.key
+--
+-- -   resource.s3BucketDetails.tags.value
+--
+-- -   resource.s3BucketDetails.type
 --
 -- -   service.archived
 --
@@ -447,6 +471,8 @@ createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' 
 --
 -- -   service.action.awsApiCallAction.errorCode
 --
+-- -   service.action.awsApiCallAction.userAgent
+--
 -- -   service.action.awsApiCallAction.remoteIpDetails.city.cityName
 --
 -- -   service.action.awsApiCallAction.remoteIpDetails.country.countryName
@@ -484,6 +510,16 @@ createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' 
 -- -   service.action.networkConnectionAction.remotePortDetails.port
 --
 -- -   service.additionalInfo.threatListName
+--
+-- -   resource.s3BucketDetails.publicAccess.effectivePermissions
+--
+-- -   resource.s3BucketDetails.name
+--
+-- -   resource.s3BucketDetails.tags.key
+--
+-- -   resource.s3BucketDetails.tags.value
+--
+-- -   resource.s3BucketDetails.type
 --
 -- -   service.archived
 --

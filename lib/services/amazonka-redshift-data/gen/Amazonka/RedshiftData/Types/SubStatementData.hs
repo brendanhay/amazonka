@@ -40,7 +40,7 @@ data SubStatementData = SubStatementData'
     -- statement finished.
     status :: Prelude.Maybe StatementStatusString,
     -- | A value that indicates whether the statement has a result set. The
-    -- result set can be empty.
+    -- result set can be empty. The value is true for an empty result set.
     hasResultSet :: Prelude.Maybe Prelude.Bool,
     -- | The amount of time in nanoseconds that the statement ran.
     duration :: Prelude.Maybe Prelude.Integer,
@@ -85,7 +85,7 @@ data SubStatementData = SubStatementData'
 -- statement finished.
 --
 -- 'hasResultSet', 'subStatementData_hasResultSet' - A value that indicates whether the statement has a result set. The
--- result set can be empty.
+-- result set can be empty. The value is true for an empty result set.
 --
 -- 'duration', 'subStatementData_duration' - The amount of time in nanoseconds that the statement ran.
 --
@@ -144,7 +144,7 @@ subStatementData_status :: Lens.Lens' SubStatementData (Prelude.Maybe StatementS
 subStatementData_status = Lens.lens (\SubStatementData' {status} -> status) (\s@SubStatementData' {} a -> s {status = a} :: SubStatementData)
 
 -- | A value that indicates whether the statement has a result set. The
--- result set can be empty.
+-- result set can be empty. The value is true for an empty result set.
 subStatementData_hasResultSet :: Lens.Lens' SubStatementData (Prelude.Maybe Prelude.Bool)
 subStatementData_hasResultSet = Lens.lens (\SubStatementData' {hasResultSet} -> hasResultSet) (\s@SubStatementData' {} a -> s {hasResultSet = a} :: SubStatementData)
 

@@ -15,12 +15,78 @@
 --
 -- __Overview__
 --
--- This is the /Lambda API Reference/. The Lambda Developer Guide provides
--- additional information. For the service overview, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is Lambda>,
--- and for information about how the service works, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html Lambda: How it Works>
+-- Lambda is a compute service that lets you run code without provisioning
+-- or managing servers. Lambda runs your code on a high-availability
+-- compute infrastructure and performs all of the administration of the
+-- compute resources, including server and operating system maintenance,
+-- capacity provisioning and automatic scaling, code monitoring and
+-- logging. With Lambda, you can run code for virtually any type of
+-- application or backend service. For more information about the Lambda
+-- service, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is Lambda>
 -- in the __Lambda Developer Guide__.
+--
+-- The /Lambda API Reference/ provides information about each of the API
+-- methods, including details about the parameters in each API request and
+-- response.
+--
+-- You can use Software Development Kits (SDKs), Integrated Development
+-- Environment (IDE) Toolkits, and command line tools to access the API.
+-- For installation instructions, see
+-- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
+--
+-- For a list of Region-specific endpoints that Lambda supports, see
+-- <https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/ Lambda endpoints and quotas>
+-- in the /Amazon Web Services General Reference./.
+--
+-- When making the API calls, you will need to authenticate your request by
+-- providing a signature. Lambda supports signature version 4. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 signing process>
+-- in the /Amazon Web Services General Reference./.
+--
+-- __CA certificates__
+--
+-- Because Amazon Web Services SDKs use the CA certificates from your
+-- computer, changes to the certificates on the Amazon Web Services servers
+-- can cause connection failures when you attempt to use an SDK. You can
+-- prevent these failures by keeping your computer\'s CA certificates and
+-- operating system up-to-date. If you encounter this issue in a corporate
+-- environment and do not manage your own computer, you might need to ask
+-- an administrator to assist with the update process. The following list
+-- shows minimum operating system and Java versions:
+--
+-- -   Microsoft Windows versions that have updates from January 2005 or
+--     later installed contain at least one of the required CAs in their
+--     trust list.
+--
+-- -   Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007),
+--     Mac OS X 10.5 (October 2007), and later versions contain at least
+--     one of the required CAs in their trust list.
+--
+-- -   Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6,
+--     and 7 all contain at least one of the required CAs in their default
+--     trusted CA list.
+--
+-- -   Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later
+--     versions, including Java 6 (December 2006), 7, and 8, contain at
+--     least one of the required CAs in their default trusted CA list.
+--
+-- When accessing the Lambda management console or Lambda API endpoints,
+-- whether through browsers or programmatically, you will need to ensure
+-- your client machines support any of the following CAs:
+--
+-- -   Amazon Root CA 1
+--
+-- -   Starfield Services Root Certificate Authority - G2
+--
+-- -   Starfield Class 2 Certification Authority
+--
+-- Root certificates from the first two authorities are available from
+-- <https://www.amazontrust.com/repository/ Amazon trust services>, but
+-- keeping your computer up-to-date is the more straightforward solution.
+-- To learn more about ACM-provided certificates, see
+-- <http://aws.amazon.com/certificate-manager/faqs/#certificates Amazon Web Services Certificate Manager FAQs.>
 module Amazonka.Lambda
   ( -- * Service Configuration
     defaultService,
@@ -136,8 +202,14 @@ module Amazonka.Lambda
     -- ** FunctionActive
     newFunctionActive,
 
+    -- ** FunctionUpdatedV2
+    newFunctionUpdatedV2,
+
     -- ** FunctionExists
     newFunctionExists,
+
+    -- ** FunctionActiveV2
+    newFunctionActiveV2,
 
     -- ** FunctionUpdated
     newFunctionUpdated,
@@ -181,6 +253,12 @@ module Amazonka.Lambda
     FunctionConfiguration (FunctionConfiguration'),
     newFunctionConfiguration,
 
+    -- ** CreateFunctionUrlConfig
+    CreateFunctionUrlConfig (CreateFunctionUrlConfig'),
+    newCreateFunctionUrlConfig,
+    CreateFunctionUrlConfigResponse (CreateFunctionUrlConfigResponse'),
+    newCreateFunctionUrlConfigResponse,
+
     -- ** DeleteAlias
     DeleteAlias (DeleteAlias'),
     newDeleteAlias,
@@ -222,6 +300,12 @@ module Amazonka.Lambda
     newDeleteFunctionEventInvokeConfig,
     DeleteFunctionEventInvokeConfigResponse (DeleteFunctionEventInvokeConfigResponse'),
     newDeleteFunctionEventInvokeConfigResponse,
+
+    -- ** DeleteFunctionUrlConfig
+    DeleteFunctionUrlConfig (DeleteFunctionUrlConfig'),
+    newDeleteFunctionUrlConfig,
+    DeleteFunctionUrlConfigResponse (DeleteFunctionUrlConfigResponse'),
+    newDeleteFunctionUrlConfigResponse,
 
     -- ** DeleteLayerVersion
     DeleteLayerVersion (DeleteLayerVersion'),
@@ -289,6 +373,12 @@ module Amazonka.Lambda
     FunctionEventInvokeConfig (FunctionEventInvokeConfig'),
     newFunctionEventInvokeConfig,
 
+    -- ** GetFunctionUrlConfig
+    GetFunctionUrlConfig (GetFunctionUrlConfig'),
+    newGetFunctionUrlConfig,
+    GetFunctionUrlConfigResponse (GetFunctionUrlConfigResponse'),
+    newGetFunctionUrlConfigResponse,
+
     -- ** GetLayerVersion
     GetLayerVersion (GetLayerVersion'),
     newGetLayerVersion,
@@ -348,6 +438,12 @@ module Amazonka.Lambda
     newListFunctionEventInvokeConfigs,
     ListFunctionEventInvokeConfigsResponse (ListFunctionEventInvokeConfigsResponse'),
     newListFunctionEventInvokeConfigsResponse,
+
+    -- ** ListFunctionUrlConfigs (Paginated)
+    ListFunctionUrlConfigs (ListFunctionUrlConfigs'),
+    newListFunctionUrlConfigs,
+    ListFunctionUrlConfigsResponse (ListFunctionUrlConfigsResponse'),
+    newListFunctionUrlConfigsResponse,
 
     -- ** ListFunctions (Paginated)
     ListFunctions (ListFunctions'),
@@ -487,6 +583,12 @@ module Amazonka.Lambda
     FunctionEventInvokeConfig (FunctionEventInvokeConfig'),
     newFunctionEventInvokeConfig,
 
+    -- ** UpdateFunctionUrlConfig
+    UpdateFunctionUrlConfig (UpdateFunctionUrlConfig'),
+    newUpdateFunctionUrlConfig,
+    UpdateFunctionUrlConfigResponse (UpdateFunctionUrlConfigResponse'),
+    newUpdateFunctionUrlConfigResponse,
+
     -- * Types
 
     -- ** Architecture
@@ -503,6 +605,9 @@ module Amazonka.Lambda
 
     -- ** FunctionResponseType
     FunctionResponseType (..),
+
+    -- ** FunctionUrlAuthType
+    FunctionUrlAuthType (..),
 
     -- ** FunctionVersion
     FunctionVersion (..),
@@ -560,6 +665,10 @@ module Amazonka.Lambda
     AllowedPublishers (AllowedPublishers'),
     newAllowedPublishers,
 
+    -- ** AmazonManagedKafkaEventSourceConfig
+    AmazonManagedKafkaEventSourceConfig (AmazonManagedKafkaEventSourceConfig'),
+    newAmazonManagedKafkaEventSourceConfig,
+
     -- ** CodeSigningConfig
     CodeSigningConfig (CodeSigningConfig'),
     newCodeSigningConfig,
@@ -571,6 +680,10 @@ module Amazonka.Lambda
     -- ** Concurrency
     Concurrency (Concurrency'),
     newConcurrency,
+
+    -- ** Cors
+    Cors (Cors'),
+    newCors,
 
     -- ** DeadLetterConfig
     DeadLetterConfig (DeadLetterConfig'),
@@ -592,6 +705,10 @@ module Amazonka.Lambda
     EnvironmentResponse (EnvironmentResponse'),
     newEnvironmentResponse,
 
+    -- ** EphemeralStorage
+    EphemeralStorage (EphemeralStorage'),
+    newEphemeralStorage,
+
     -- ** EventSourceMappingConfiguration
     EventSourceMappingConfiguration (EventSourceMappingConfiguration'),
     newEventSourceMappingConfiguration,
@@ -599,6 +716,14 @@ module Amazonka.Lambda
     -- ** FileSystemConfig
     FileSystemConfig (FileSystemConfig'),
     newFileSystemConfig,
+
+    -- ** Filter
+    Filter (Filter'),
+    newFilter,
+
+    -- ** FilterCriteria
+    FilterCriteria (FilterCriteria'),
+    newFilterCriteria,
 
     -- ** FunctionCode
     FunctionCode (FunctionCode'),
@@ -615,6 +740,10 @@ module Amazonka.Lambda
     -- ** FunctionEventInvokeConfig
     FunctionEventInvokeConfig (FunctionEventInvokeConfig'),
     newFunctionEventInvokeConfig,
+
+    -- ** FunctionUrlConfig
+    FunctionUrlConfig (FunctionUrlConfig'),
+    newFunctionUrlConfig,
 
     -- ** GetLayerVersionResponse
     GetLayerVersionResponse (GetLayerVersionResponse'),
@@ -668,6 +797,10 @@ module Amazonka.Lambda
     SelfManagedEventSource (SelfManagedEventSource'),
     newSelfManagedEventSource,
 
+    -- ** SelfManagedKafkaEventSourceConfig
+    SelfManagedKafkaEventSourceConfig (SelfManagedKafkaEventSourceConfig'),
+    newSelfManagedKafkaEventSourceConfig,
+
     -- ** SourceAccessConfiguration
     SourceAccessConfiguration (SourceAccessConfiguration'),
     newSourceAccessConfiguration,
@@ -696,6 +829,7 @@ import Amazonka.Lambda.CreateAlias
 import Amazonka.Lambda.CreateCodeSigningConfig
 import Amazonka.Lambda.CreateEventSourceMapping
 import Amazonka.Lambda.CreateFunction
+import Amazonka.Lambda.CreateFunctionUrlConfig
 import Amazonka.Lambda.DeleteAlias
 import Amazonka.Lambda.DeleteCodeSigningConfig
 import Amazonka.Lambda.DeleteEventSourceMapping
@@ -703,6 +837,7 @@ import Amazonka.Lambda.DeleteFunction
 import Amazonka.Lambda.DeleteFunctionCodeSigningConfig
 import Amazonka.Lambda.DeleteFunctionConcurrency
 import Amazonka.Lambda.DeleteFunctionEventInvokeConfig
+import Amazonka.Lambda.DeleteFunctionUrlConfig
 import Amazonka.Lambda.DeleteLayerVersion
 import Amazonka.Lambda.DeleteProvisionedConcurrencyConfig
 import Amazonka.Lambda.GetAccountSettings
@@ -714,6 +849,7 @@ import Amazonka.Lambda.GetFunctionCodeSigningConfig
 import Amazonka.Lambda.GetFunctionConcurrency
 import Amazonka.Lambda.GetFunctionConfiguration
 import Amazonka.Lambda.GetFunctionEventInvokeConfig
+import Amazonka.Lambda.GetFunctionUrlConfig
 import Amazonka.Lambda.GetLayerVersion
 import Amazonka.Lambda.GetLayerVersionByArn
 import Amazonka.Lambda.GetLayerVersionPolicy
@@ -725,6 +861,7 @@ import Amazonka.Lambda.ListAliases
 import Amazonka.Lambda.ListCodeSigningConfigs
 import Amazonka.Lambda.ListEventSourceMappings
 import Amazonka.Lambda.ListFunctionEventInvokeConfigs
+import Amazonka.Lambda.ListFunctionUrlConfigs
 import Amazonka.Lambda.ListFunctions
 import Amazonka.Lambda.ListFunctionsByCodeSigningConfig
 import Amazonka.Lambda.ListLayerVersions
@@ -749,6 +886,7 @@ import Amazonka.Lambda.UpdateEventSourceMapping
 import Amazonka.Lambda.UpdateFunctionCode
 import Amazonka.Lambda.UpdateFunctionConfiguration
 import Amazonka.Lambda.UpdateFunctionEventInvokeConfig
+import Amazonka.Lambda.UpdateFunctionUrlConfig
 import Amazonka.Lambda.Waiters
 
 -- $errors

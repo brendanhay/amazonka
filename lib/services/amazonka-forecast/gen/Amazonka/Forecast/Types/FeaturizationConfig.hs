@@ -24,7 +24,10 @@ import Amazonka.Forecast.Types.Featurization
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | In a CreatePredictor operation, the specified algorithm trains a model
+-- | This object belongs to the CreatePredictor operation. If you created
+-- your predictor with CreateAutoPredictor, see AttributeConfig.
+--
+-- In a CreatePredictor operation, the specified algorithm trains a model
 -- using the specified dataset group. You can optionally tell the operation
 -- to modify data fields prior to training a model. These modifications are
 -- referred to as /featurization/.

@@ -72,6 +72,9 @@ module Amazonka.DirectoryService
     -- ** EntityDoesNotExistException
     _EntityDoesNotExistException,
 
+    -- ** UnsupportedSettingsException
+    _UnsupportedSettingsException,
+
     -- ** InvalidPasswordException
     _InvalidPasswordException,
 
@@ -134,6 +137,9 @@ module Amazonka.DirectoryService
 
     -- ** DirectoryAlreadyInRegionException
     _DirectoryAlreadyInRegionException,
+
+    -- ** IncompatibleSettingsException
+    _IncompatibleSettingsException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
@@ -317,6 +323,12 @@ module Amazonka.DirectoryService
     newDescribeRegions,
     DescribeRegionsResponse (DescribeRegionsResponse'),
     newDescribeRegionsResponse,
+
+    -- ** DescribeSettings
+    DescribeSettings (DescribeSettings'),
+    newDescribeSettings,
+    DescribeSettingsResponse (DescribeSettingsResponse'),
+    newDescribeSettingsResponse,
 
     -- ** DescribeSharedDirectories (Paginated)
     DescribeSharedDirectories (DescribeSharedDirectories'),
@@ -510,6 +522,12 @@ module Amazonka.DirectoryService
     UpdateRadiusResponse (UpdateRadiusResponse'),
     newUpdateRadiusResponse,
 
+    -- ** UpdateSettings
+    UpdateSettings (UpdateSettings'),
+    newUpdateSettings,
+    UpdateSettingsResponse (UpdateSettingsResponse'),
+    newUpdateSettingsResponse,
+
     -- ** UpdateTrust
     UpdateTrust (UpdateTrust'),
     newUpdateTrust,
@@ -535,6 +553,9 @@ module Amazonka.DirectoryService
 
     -- ** ClientAuthenticationType
     ClientAuthenticationType (..),
+
+    -- ** DirectoryConfigurationStatus
+    DirectoryConfigurationStatus (..),
 
     -- ** DirectoryEdition
     DirectoryEdition (..),
@@ -701,6 +722,14 @@ module Amazonka.DirectoryService
     SchemaExtensionInfo (SchemaExtensionInfo'),
     newSchemaExtensionInfo,
 
+    -- ** Setting
+    Setting (Setting'),
+    newSetting,
+
+    -- ** SettingEntry
+    SettingEntry (SettingEntry'),
+    newSettingEntry,
+
     -- ** ShareTarget
     ShareTarget (ShareTarget'),
     newShareTarget,
@@ -760,6 +789,7 @@ import Amazonka.DirectoryService.DescribeDomainControllers
 import Amazonka.DirectoryService.DescribeEventTopics
 import Amazonka.DirectoryService.DescribeLDAPSSettings
 import Amazonka.DirectoryService.DescribeRegions
+import Amazonka.DirectoryService.DescribeSettings
 import Amazonka.DirectoryService.DescribeSharedDirectories
 import Amazonka.DirectoryService.DescribeSnapshots
 import Amazonka.DirectoryService.DescribeTrusts
@@ -794,6 +824,7 @@ import Amazonka.DirectoryService.UnshareDirectory
 import Amazonka.DirectoryService.UpdateConditionalForwarder
 import Amazonka.DirectoryService.UpdateNumberOfDomainControllers
 import Amazonka.DirectoryService.UpdateRadius
+import Amazonka.DirectoryService.UpdateSettings
 import Amazonka.DirectoryService.UpdateTrust
 import Amazonka.DirectoryService.VerifyTrust
 import Amazonka.DirectoryService.Waiters

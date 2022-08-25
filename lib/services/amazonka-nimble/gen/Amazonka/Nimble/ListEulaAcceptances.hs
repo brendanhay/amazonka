@@ -53,10 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEulaAcceptances' smart constructor.
 data ListEulaAcceptances = ListEulaAcceptances'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of EULA IDs.
+    -- | The list of EULA IDs that have been previously accepted.
     eulaIds :: Prelude.Maybe [Prelude.Text],
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -71,10 +70,9 @@ data ListEulaAcceptances = ListEulaAcceptances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEulaAcceptances_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listEulaAcceptances_nextToken' - The token to request the next page of results.
 --
--- 'eulaIds', 'listEulaAcceptances_eulaIds' - A collection of EULA IDs.
+-- 'eulaIds', 'listEulaAcceptances_eulaIds' - The list of EULA IDs that have been previously accepted.
 --
 -- 'studioId', 'listEulaAcceptances_studioId' - The studio ID.
 newListEulaAcceptances ::
@@ -88,12 +86,11 @@ newListEulaAcceptances pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listEulaAcceptances_nextToken :: Lens.Lens' ListEulaAcceptances (Prelude.Maybe Prelude.Text)
 listEulaAcceptances_nextToken = Lens.lens (\ListEulaAcceptances' {nextToken} -> nextToken) (\s@ListEulaAcceptances' {} a -> s {nextToken = a} :: ListEulaAcceptances)
 
--- | A collection of EULA IDs.
+-- | The list of EULA IDs that have been previously accepted.
 listEulaAcceptances_eulaIds :: Lens.Lens' ListEulaAcceptances (Prelude.Maybe [Prelude.Text])
 listEulaAcceptances_eulaIds = Lens.lens (\ListEulaAcceptances' {eulaIds} -> eulaIds) (\s@ListEulaAcceptances' {} a -> s {eulaIds = a} :: ListEulaAcceptances) Prelude.. Lens.mapping Lens.coerced
 

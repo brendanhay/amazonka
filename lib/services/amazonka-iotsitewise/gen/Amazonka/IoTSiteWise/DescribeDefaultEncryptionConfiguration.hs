@@ -125,8 +125,8 @@ instance
 
 -- | /See:/ 'newDescribeDefaultEncryptionConfigurationResponse' smart constructor.
 data DescribeDefaultEncryptionConfigurationResponse = DescribeDefaultEncryptionConfigurationResponse'
-  { -- | The key ARN of the customer managed customer master key (CMK) used for
-    -- KMS encryption if you use @KMS_BASED_ENCRYPTION@.
+  { -- | The key ARN of the customer managed key used for KMS encryption if you
+    -- use @KMS_BASED_ENCRYPTION@.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -147,8 +147,8 @@ data DescribeDefaultEncryptionConfigurationResponse = DescribeDefaultEncryptionC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'describeDefaultEncryptionConfigurationResponse_kmsKeyArn' - The key ARN of the customer managed customer master key (CMK) used for
--- KMS encryption if you use @KMS_BASED_ENCRYPTION@.
+-- 'kmsKeyArn', 'describeDefaultEncryptionConfigurationResponse_kmsKeyArn' - The key ARN of the customer managed key used for KMS encryption if you
+-- use @KMS_BASED_ENCRYPTION@.
 --
 -- 'httpStatus', 'describeDefaultEncryptionConfigurationResponse_httpStatus' - The response's http status code.
 --
@@ -179,8 +179,8 @@ newDescribeDefaultEncryptionConfigurationResponse
           pConfigurationStatus_
       }
 
--- | The key ARN of the customer managed customer master key (CMK) used for
--- KMS encryption if you use @KMS_BASED_ENCRYPTION@.
+-- | The key ARN of the customer managed key used for KMS encryption if you
+-- use @KMS_BASED_ENCRYPTION@.
 describeDefaultEncryptionConfigurationResponse_kmsKeyArn :: Lens.Lens' DescribeDefaultEncryptionConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeDefaultEncryptionConfigurationResponse_kmsKeyArn = Lens.lens (\DescribeDefaultEncryptionConfigurationResponse' {kmsKeyArn} -> kmsKeyArn) (\s@DescribeDefaultEncryptionConfigurationResponse' {} a -> s {kmsKeyArn = a} :: DescribeDefaultEncryptionConfigurationResponse)
 

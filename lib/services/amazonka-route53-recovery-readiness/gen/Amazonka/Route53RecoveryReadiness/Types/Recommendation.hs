@@ -23,11 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Guidance for improving Recovery Group resilliancy
+-- | Recommendations that are provided to make an application more recovery
+-- resilient.
 --
 -- /See:/ 'newRecommendation' smart constructor.
 data Recommendation = Recommendation'
-  { -- | Guidance text for recommendation
+  { -- | Text of the recommendations that are provided to make an application
+    -- more recovery resilient.
     recommendationText :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +42,8 @@ data Recommendation = Recommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationText', 'recommendation_recommendationText' - Guidance text for recommendation
+-- 'recommendationText', 'recommendation_recommendationText' - Text of the recommendations that are provided to make an application
+-- more recovery resilient.
 newRecommendation ::
   -- | 'recommendationText'
   Prelude.Text ->
@@ -51,7 +54,8 @@ newRecommendation pRecommendationText_ =
         pRecommendationText_
     }
 
--- | Guidance text for recommendation
+-- | Text of the recommendations that are provided to make an application
+-- more recovery resilient.
 recommendation_recommendationText :: Lens.Lens' Recommendation Prelude.Text
 recommendation_recommendationText = Lens.lens (\Recommendation' {recommendationText} -> recommendationText) (\s@Recommendation' {} a -> s {recommendationText = a} :: Recommendation)
 

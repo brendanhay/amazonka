@@ -59,9 +59,8 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- characters and can contain as many as 64 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
-    -- name of a filter. Other users might be able to see the filter\'s name,
-    -- depending on the actions that they\'re allowed to perform in Amazon
-    -- Macie.
+    -- name of a filter. Other users might be able to see this name, depending
+    -- on the actions that they\'re allowed to perform in Amazon Macie.
     name :: Prelude.Maybe Prelude.Text,
     -- | A unique, case-sensitive token that you provide to ensure the
     -- idempotency of the request.
@@ -72,7 +71,7 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- as 512 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
-    -- description of a filter. Other users might be able to see the filter\'s
+    -- description of a filter. Other users might be able to see this
     -- description, depending on the actions that they\'re allowed to perform
     -- in Amazon Macie.
     description :: Prelude.Maybe Prelude.Text,
@@ -104,9 +103,8 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- characters and can contain as many as 64 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- name of a filter. Other users might be able to see the filter\'s name,
--- depending on the actions that they\'re allowed to perform in Amazon
--- Macie.
+-- name of a filter. Other users might be able to see this name, depending
+-- on the actions that they\'re allowed to perform in Amazon Macie.
 --
 -- 'clientToken', 'updateFindingsFilter_clientToken' - A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
@@ -117,7 +115,7 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- as 512 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- description of a filter. Other users might be able to see the filter\'s
+-- description of a filter. Other users might be able to see this
 -- description, depending on the actions that they\'re allowed to perform
 -- in Amazon Macie.
 --
@@ -152,9 +150,8 @@ newUpdateFindingsFilter pId_ =
 -- characters and can contain as many as 64 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- name of a filter. Other users might be able to see the filter\'s name,
--- depending on the actions that they\'re allowed to perform in Amazon
--- Macie.
+-- name of a filter. Other users might be able to see this name, depending
+-- on the actions that they\'re allowed to perform in Amazon Macie.
 updateFindingsFilter_name :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
 updateFindingsFilter_name = Lens.lens (\UpdateFindingsFilter' {name} -> name) (\s@UpdateFindingsFilter' {} a -> s {name = a} :: UpdateFindingsFilter)
 
@@ -171,7 +168,7 @@ updateFindingsFilter_findingCriteria = Lens.lens (\UpdateFindingsFilter' {findin
 -- as 512 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- description of a filter. Other users might be able to see the filter\'s
+-- description of a filter. Other users might be able to see this
 -- description, depending on the actions that they\'re allowed to perform
 -- in Amazon Macie.
 updateFindingsFilter_description :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)

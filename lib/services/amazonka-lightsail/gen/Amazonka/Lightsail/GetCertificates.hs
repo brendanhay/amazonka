@@ -63,16 +63,17 @@ data GetCertificates = GetCertificates'
     includeCertificateDetails :: Prelude.Maybe Prelude.Bool,
     -- | The name for the certificate for which to return information.
     --
-    -- When omitted, the response includes all of your certificates in the AWS
-    -- Region where the request is made.
+    -- When omitted, the response includes all of your certificates in the
+    -- Amazon Web Services Region where the request is made.
     certificateName :: Prelude.Maybe Prelude.Text,
     -- | The status of the certificates for which to return information.
     --
     -- For example, specify @ISSUED@ to return only certificates with an
     -- @ISSUED@ status.
     --
-    -- When omitted, the response includes all of your certificates in the AWS
-    -- Region where the request is made, regardless of their current status.
+    -- When omitted, the response includes all of your certificates in the
+    -- Amazon Web Services Region where the request is made, regardless of
+    -- their current status.
     certificateStatuses :: Prelude.Maybe [CertificateStatus]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,16 +94,17 @@ data GetCertificates = GetCertificates'
 --
 -- 'certificateName', 'getCertificates_certificateName' - The name for the certificate for which to return information.
 --
--- When omitted, the response includes all of your certificates in the AWS
--- Region where the request is made.
+-- When omitted, the response includes all of your certificates in the
+-- Amazon Web Services Region where the request is made.
 --
 -- 'certificateStatuses', 'getCertificates_certificateStatuses' - The status of the certificates for which to return information.
 --
 -- For example, specify @ISSUED@ to return only certificates with an
 -- @ISSUED@ status.
 --
--- When omitted, the response includes all of your certificates in the AWS
--- Region where the request is made, regardless of their current status.
+-- When omitted, the response includes all of your certificates in the
+-- Amazon Web Services Region where the request is made, regardless of
+-- their current status.
 newGetCertificates ::
   GetCertificates
 newGetCertificates =
@@ -123,8 +125,8 @@ getCertificates_includeCertificateDetails = Lens.lens (\GetCertificates' {includ
 
 -- | The name for the certificate for which to return information.
 --
--- When omitted, the response includes all of your certificates in the AWS
--- Region where the request is made.
+-- When omitted, the response includes all of your certificates in the
+-- Amazon Web Services Region where the request is made.
 getCertificates_certificateName :: Lens.Lens' GetCertificates (Prelude.Maybe Prelude.Text)
 getCertificates_certificateName = Lens.lens (\GetCertificates' {certificateName} -> certificateName) (\s@GetCertificates' {} a -> s {certificateName = a} :: GetCertificates)
 
@@ -133,8 +135,9 @@ getCertificates_certificateName = Lens.lens (\GetCertificates' {certificateName}
 -- For example, specify @ISSUED@ to return only certificates with an
 -- @ISSUED@ status.
 --
--- When omitted, the response includes all of your certificates in the AWS
--- Region where the request is made, regardless of their current status.
+-- When omitted, the response includes all of your certificates in the
+-- Amazon Web Services Region where the request is made, regardless of
+-- their current status.
 getCertificates_certificateStatuses :: Lens.Lens' GetCertificates (Prelude.Maybe [CertificateStatus])
 getCertificates_certificateStatuses = Lens.lens (\GetCertificates' {certificateStatuses} -> certificateStatuses) (\s@GetCertificates' {} a -> s {certificateStatuses = a} :: GetCertificates) Prelude.. Lens.mapping Lens.coerced
 

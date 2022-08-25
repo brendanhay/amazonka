@@ -34,7 +34,7 @@ import Amazonka.VoiceId.Types.RegistrationConfig
 -- /See:/ 'newFraudsterRegistrationJob' smart constructor.
 data FraudsterRegistrationJob = FraudsterRegistrationJob'
   { -- | The output data config containing the S3 location where you want Voice
-    -- ID to write your job output file; you must also include a KMS Key ID in
+    -- ID to write your job output file; you must also include a KMS key iD in
     -- order to encrypt the file.
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The current status of the fraudster registration job.
@@ -43,7 +43,7 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
     -- when a duplicate fraudster is detected, and the similarity threshold to
     -- use for detecting a duplicate fraudster.
     registrationConfig :: Prelude.Maybe RegistrationConfig,
-    -- | The client-provied name for the fraudster registration job.
+    -- | The client-provided name for the fraudster registration job.
     jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A timestamp showing when the fraudster registration job ended.
     endedAt :: Prelude.Maybe Core.POSIX,
@@ -81,7 +81,7 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
 -- for backwards compatibility:
 --
 -- 'outputDataConfig', 'fraudsterRegistrationJob_outputDataConfig' - The output data config containing the S3 location where you want Voice
--- ID to write your job output file; you must also include a KMS Key ID in
+-- ID to write your job output file; you must also include a KMS key iD in
 -- order to encrypt the file.
 --
 -- 'jobStatus', 'fraudsterRegistrationJob_jobStatus' - The current status of the fraudster registration job.
@@ -90,7 +90,7 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
 -- when a duplicate fraudster is detected, and the similarity threshold to
 -- use for detecting a duplicate fraudster.
 --
--- 'jobName', 'fraudsterRegistrationJob_jobName' - The client-provied name for the fraudster registration job.
+-- 'jobName', 'fraudsterRegistrationJob_jobName' - The client-provided name for the fraudster registration job.
 --
 -- 'endedAt', 'fraudsterRegistrationJob_endedAt' - A timestamp showing when the fraudster registration job ended.
 --
@@ -135,7 +135,7 @@ newFraudsterRegistrationJob =
     }
 
 -- | The output data config containing the S3 location where you want Voice
--- ID to write your job output file; you must also include a KMS Key ID in
+-- ID to write your job output file; you must also include a KMS key iD in
 -- order to encrypt the file.
 fraudsterRegistrationJob_outputDataConfig :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe OutputDataConfig)
 fraudsterRegistrationJob_outputDataConfig = Lens.lens (\FraudsterRegistrationJob' {outputDataConfig} -> outputDataConfig) (\s@FraudsterRegistrationJob' {} a -> s {outputDataConfig = a} :: FraudsterRegistrationJob)
@@ -150,7 +150,7 @@ fraudsterRegistrationJob_jobStatus = Lens.lens (\FraudsterRegistrationJob' {jobS
 fraudsterRegistrationJob_registrationConfig :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe RegistrationConfig)
 fraudsterRegistrationJob_registrationConfig = Lens.lens (\FraudsterRegistrationJob' {registrationConfig} -> registrationConfig) (\s@FraudsterRegistrationJob' {} a -> s {registrationConfig = a} :: FraudsterRegistrationJob)
 
--- | The client-provied name for the fraudster registration job.
+-- | The client-provided name for the fraudster registration job.
 fraudsterRegistrationJob_jobName :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
 fraudsterRegistrationJob_jobName = Lens.lens (\FraudsterRegistrationJob' {jobName} -> jobName) (\s@FraudsterRegistrationJob' {} a -> s {jobName = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Core._Sensitive
 

@@ -46,6 +46,7 @@ module Amazonka.EC2.CreateFlowLogs
     -- * Request Lenses
     createFlowLogs_destinationOptions,
     createFlowLogs_clientToken,
+    createFlowLogs_trafficType,
     createFlowLogs_deliverLogsPermissionArn,
     createFlowLogs_logFormat,
     createFlowLogs_dryRun,
@@ -56,7 +57,6 @@ module Amazonka.EC2.CreateFlowLogs
     createFlowLogs_logGroupName,
     createFlowLogs_resourceIds,
     createFlowLogs_resourceType,
-    createFlowLogs_trafficType,
 
     -- * Destructuring the Response
     CreateFlowLogsResponse (..),
@@ -85,6 +85,9 @@ data CreateFlowLogs = CreateFlowLogs'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of traffic to log. You can log traffic that the resource
+    -- accepts or rejects, or all traffic.
+    trafficType :: Prelude.Maybe TrafficType,
     -- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
     -- a CloudWatch Logs log group in your account.
     --
@@ -163,10 +166,7 @@ data CreateFlowLogs = CreateFlowLogs'
     -- | The type of resource for which to create the flow log. For example, if
     -- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for
     -- this property.
-    resourceType :: FlowLogsResourceType,
-    -- | The type of traffic to log. You can log traffic that the resource
-    -- accepts or rejects, or all traffic.
-    trafficType :: TrafficType
+    resourceType :: FlowLogsResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -183,6 +183,9 @@ data CreateFlowLogs = CreateFlowLogs'
 -- 'clientToken', 'createFlowLogs_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
+-- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to log. You can log traffic that the resource
+-- accepts or rejects, or all traffic.
 --
 -- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
 -- a CloudWatch Logs log group in your account.
@@ -262,20 +265,16 @@ data CreateFlowLogs = CreateFlowLogs'
 -- 'resourceType', 'createFlowLogs_resourceType' - The type of resource for which to create the flow log. For example, if
 -- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for
 -- this property.
---
--- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to log. You can log traffic that the resource
--- accepts or rejects, or all traffic.
 newCreateFlowLogs ::
   -- | 'resourceType'
   FlowLogsResourceType ->
-  -- | 'trafficType'
-  TrafficType ->
   CreateFlowLogs
-newCreateFlowLogs pResourceType_ pTrafficType_ =
+newCreateFlowLogs pResourceType_ =
   CreateFlowLogs'
     { destinationOptions =
         Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      trafficType = Prelude.Nothing,
       deliverLogsPermissionArn = Prelude.Nothing,
       logFormat = Prelude.Nothing,
       dryRun = Prelude.Nothing,
@@ -285,8 +284,7 @@ newCreateFlowLogs pResourceType_ pTrafficType_ =
       maxAggregationInterval = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
       resourceIds = Prelude.mempty,
-      resourceType = pResourceType_,
-      trafficType = pTrafficType_
+      resourceType = pResourceType_
     }
 
 -- | The destination options.
@@ -298,6 +296,11 @@ createFlowLogs_destinationOptions = Lens.lens (\CreateFlowLogs' {destinationOpti
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 createFlowLogs_clientToken :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_clientToken = Lens.lens (\CreateFlowLogs' {clientToken} -> clientToken) (\s@CreateFlowLogs' {} a -> s {clientToken = a} :: CreateFlowLogs)
+
+-- | The type of traffic to log. You can log traffic that the resource
+-- accepts or rejects, or all traffic.
+createFlowLogs_trafficType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe TrafficType)
+createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> trafficType) (\s@CreateFlowLogs' {} a -> s {trafficType = a} :: CreateFlowLogs)
 
 -- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
 -- a CloudWatch Logs log group in your account.
@@ -398,11 +401,6 @@ createFlowLogs_resourceIds = Lens.lens (\CreateFlowLogs' {resourceIds} -> resour
 createFlowLogs_resourceType :: Lens.Lens' CreateFlowLogs FlowLogsResourceType
 createFlowLogs_resourceType = Lens.lens (\CreateFlowLogs' {resourceType} -> resourceType) (\s@CreateFlowLogs' {} a -> s {resourceType = a} :: CreateFlowLogs)
 
--- | The type of traffic to log. You can log traffic that the resource
--- accepts or rejects, or all traffic.
-createFlowLogs_trafficType :: Lens.Lens' CreateFlowLogs TrafficType
-createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> trafficType) (\s@CreateFlowLogs' {} a -> s {trafficType = a} :: CreateFlowLogs)
-
 instance Core.AWSRequest CreateFlowLogs where
   type
     AWSResponse CreateFlowLogs =
@@ -426,6 +424,7 @@ instance Prelude.Hashable CreateFlowLogs where
   hashWithSalt _salt CreateFlowLogs' {..} =
     _salt `Prelude.hashWithSalt` destinationOptions
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` trafficType
       `Prelude.hashWithSalt` deliverLogsPermissionArn
       `Prelude.hashWithSalt` logFormat
       `Prelude.hashWithSalt` dryRun
@@ -436,12 +435,12 @@ instance Prelude.Hashable CreateFlowLogs where
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` trafficType
 
 instance Prelude.NFData CreateFlowLogs where
   rnf CreateFlowLogs' {..} =
     Prelude.rnf destinationOptions
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf trafficType
       `Prelude.seq` Prelude.rnf deliverLogsPermissionArn
       `Prelude.seq` Prelude.rnf logFormat
       `Prelude.seq` Prelude.rnf dryRun
@@ -452,7 +451,6 @@ instance Prelude.NFData CreateFlowLogs where
       `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf trafficType
 
 instance Core.ToHeaders CreateFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -469,6 +467,7 @@ instance Core.ToQuery CreateFlowLogs where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DestinationOptions" Core.=: destinationOptions,
         "ClientToken" Core.=: clientToken,
+        "TrafficType" Core.=: trafficType,
         "DeliverLogsPermissionArn"
           Core.=: deliverLogsPermissionArn,
         "LogFormat" Core.=: logFormat,
@@ -483,8 +482,7 @@ instance Core.ToQuery CreateFlowLogs where
           Core.=: maxAggregationInterval,
         "LogGroupName" Core.=: logGroupName,
         Core.toQueryList "ResourceId" resourceIds,
-        "ResourceType" Core.=: resourceType,
-        "TrafficType" Core.=: trafficType
+        "ResourceType" Core.=: resourceType
       ]
 
 -- | /See:/ 'newCreateFlowLogsResponse' smart constructor.

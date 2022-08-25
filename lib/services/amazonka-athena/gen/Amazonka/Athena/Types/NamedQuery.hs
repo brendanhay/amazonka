@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A query, where @QueryString@ is the list of SQL query statements that
--- comprise the query.
+-- | A query, where @QueryString@ contains the SQL statements that make up
+-- the query.
 --
 -- /See:/ 'newNamedQuery' smart constructor.
 data NamedQuery = NamedQuery'
@@ -38,7 +38,7 @@ data NamedQuery = NamedQuery'
     name :: Prelude.Text,
     -- | The database to which the query belongs.
     database :: Prelude.Text,
-    -- | The SQL query statements that comprise the query.
+    -- | The SQL statements that make up the query.
     queryString :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data NamedQuery = NamedQuery'
 --
 -- 'database', 'namedQuery_database' - The database to which the query belongs.
 --
--- 'queryString', 'namedQuery_queryString' - The SQL query statements that comprise the query.
+-- 'queryString', 'namedQuery_queryString' - The SQL statements that make up the query.
 newNamedQuery ::
   -- | 'name'
   Prelude.Text ->
@@ -100,7 +100,7 @@ namedQuery_name = Lens.lens (\NamedQuery' {name} -> name) (\s@NamedQuery' {} a -
 namedQuery_database :: Lens.Lens' NamedQuery Prelude.Text
 namedQuery_database = Lens.lens (\NamedQuery' {database} -> database) (\s@NamedQuery' {} a -> s {database = a} :: NamedQuery)
 
--- | The SQL query statements that comprise the query.
+-- | The SQL statements that make up the query.
 namedQuery_queryString :: Lens.Lens' NamedQuery Prelude.Text
 namedQuery_queryString = Lens.lens (\NamedQuery' {queryString} -> queryString) (\s@NamedQuery' {} a -> s {queryString = a} :: NamedQuery)
 

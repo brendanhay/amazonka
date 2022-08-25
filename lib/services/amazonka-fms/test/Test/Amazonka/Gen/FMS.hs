@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAssociateAdminAccount $
 --             newAssociateAdminAccount
 --
+--         , requestAssociateThirdPartyFirewall $
+--             newAssociateThirdPartyFirewall
+--
 --         , requestDeleteAppsList $
 --             newDeleteAppsList
 --
@@ -44,6 +47,9 @@ import Test.Tasty
 --
 --         , requestDisassociateAdminAccount $
 --             newDisassociateAdminAccount
+--
+--         , requestDisassociateThirdPartyFirewall $
+--             newDisassociateThirdPartyFirewall
 --
 --         , requestGetAdminAccount $
 --             newGetAdminAccount
@@ -66,6 +72,9 @@ import Test.Tasty
 --         , requestGetProtocolsList $
 --             newGetProtocolsList
 --
+--         , requestGetThirdPartyFirewallAssociationStatus $
+--             newGetThirdPartyFirewallAssociationStatus
+--
 --         , requestGetViolationDetails $
 --             newGetViolationDetails
 --
@@ -86,6 +95,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListThirdPartyFirewallFirewallPolicies $
+--             newListThirdPartyFirewallFirewallPolicies
 --
 --         , requestPutAppsList $
 --             newPutAppsList
@@ -111,6 +123,9 @@ import Test.Tasty
 --         [ responseAssociateAdminAccount $
 --             newAssociateAdminAccountResponse
 --
+--         , responseAssociateThirdPartyFirewall $
+--             newAssociateThirdPartyFirewallResponse
+--
 --         , responseDeleteAppsList $
 --             newDeleteAppsListResponse
 --
@@ -125,6 +140,9 @@ import Test.Tasty
 --
 --         , responseDisassociateAdminAccount $
 --             newDisassociateAdminAccountResponse
+--
+--         , responseDisassociateThirdPartyFirewall $
+--             newDisassociateThirdPartyFirewallResponse
 --
 --         , responseGetAdminAccount $
 --             newGetAdminAccountResponse
@@ -147,6 +165,9 @@ import Test.Tasty
 --         , responseGetProtocolsList $
 --             newGetProtocolsListResponse
 --
+--         , responseGetThirdPartyFirewallAssociationStatus $
+--             newGetThirdPartyFirewallAssociationStatusResponse
+--
 --         , responseGetViolationDetails $
 --             newGetViolationDetailsResponse
 --
@@ -167,6 +188,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListThirdPartyFirewallFirewallPolicies $
+--             newListThirdPartyFirewallFirewallPoliciesResponse
 --
 --         , responsePutAppsList $
 --             newPutAppsListResponse
@@ -197,6 +221,12 @@ requestAssociateAdminAccount =
     "AssociateAdminAccount"
     "fixture/AssociateAdminAccount.yaml"
 
+requestAssociateThirdPartyFirewall :: AssociateThirdPartyFirewall -> TestTree
+requestAssociateThirdPartyFirewall =
+  req
+    "AssociateThirdPartyFirewall"
+    "fixture/AssociateThirdPartyFirewall.yaml"
+
 requestDeleteAppsList :: DeleteAppsList -> TestTree
 requestDeleteAppsList =
   req
@@ -226,6 +256,12 @@ requestDisassociateAdminAccount =
   req
     "DisassociateAdminAccount"
     "fixture/DisassociateAdminAccount.yaml"
+
+requestDisassociateThirdPartyFirewall :: DisassociateThirdPartyFirewall -> TestTree
+requestDisassociateThirdPartyFirewall =
+  req
+    "DisassociateThirdPartyFirewall"
+    "fixture/DisassociateThirdPartyFirewall.yaml"
 
 requestGetAdminAccount :: GetAdminAccount -> TestTree
 requestGetAdminAccount =
@@ -269,6 +305,12 @@ requestGetProtocolsList =
     "GetProtocolsList"
     "fixture/GetProtocolsList.yaml"
 
+requestGetThirdPartyFirewallAssociationStatus :: GetThirdPartyFirewallAssociationStatus -> TestTree
+requestGetThirdPartyFirewallAssociationStatus =
+  req
+    "GetThirdPartyFirewallAssociationStatus"
+    "fixture/GetThirdPartyFirewallAssociationStatus.yaml"
+
 requestGetViolationDetails :: GetViolationDetails -> TestTree
 requestGetViolationDetails =
   req
@@ -310,6 +352,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListThirdPartyFirewallFirewallPolicies :: ListThirdPartyFirewallFirewallPolicies -> TestTree
+requestListThirdPartyFirewallFirewallPolicies =
+  req
+    "ListThirdPartyFirewallFirewallPolicies"
+    "fixture/ListThirdPartyFirewallFirewallPolicies.yaml"
 
 requestPutAppsList :: PutAppsList -> TestTree
 requestPutAppsList =
@@ -357,6 +405,14 @@ responseAssociateAdminAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateAdminAccount)
 
+responseAssociateThirdPartyFirewall :: AssociateThirdPartyFirewallResponse -> TestTree
+responseAssociateThirdPartyFirewall =
+  res
+    "AssociateThirdPartyFirewallResponse"
+    "fixture/AssociateThirdPartyFirewallResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateThirdPartyFirewall)
+
 responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
 responseDeleteAppsList =
   res
@@ -396,6 +452,14 @@ responseDisassociateAdminAccount =
     "fixture/DisassociateAdminAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateAdminAccount)
+
+responseDisassociateThirdPartyFirewall :: DisassociateThirdPartyFirewallResponse -> TestTree
+responseDisassociateThirdPartyFirewall =
+  res
+    "DisassociateThirdPartyFirewallResponse"
+    "fixture/DisassociateThirdPartyFirewallResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateThirdPartyFirewall)
 
 responseGetAdminAccount :: GetAdminAccountResponse -> TestTree
 responseGetAdminAccount =
@@ -453,6 +517,14 @@ responseGetProtocolsList =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetProtocolsList)
 
+responseGetThirdPartyFirewallAssociationStatus :: GetThirdPartyFirewallAssociationStatusResponse -> TestTree
+responseGetThirdPartyFirewallAssociationStatus =
+  res
+    "GetThirdPartyFirewallAssociationStatusResponse"
+    "fixture/GetThirdPartyFirewallAssociationStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetThirdPartyFirewallAssociationStatus)
+
 responseGetViolationDetails :: GetViolationDetailsResponse -> TestTree
 responseGetViolationDetails =
   res
@@ -508,6 +580,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListThirdPartyFirewallFirewallPolicies :: ListThirdPartyFirewallFirewallPoliciesResponse -> TestTree
+responseListThirdPartyFirewallFirewallPolicies =
+  res
+    "ListThirdPartyFirewallFirewallPoliciesResponse"
+    "fixture/ListThirdPartyFirewallFirewallPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListThirdPartyFirewallFirewallPolicies)
 
 responsePutAppsList :: PutAppsListResponse -> TestTree
 responsePutAppsList =

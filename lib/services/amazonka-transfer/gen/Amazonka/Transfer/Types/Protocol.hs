@@ -20,6 +20,7 @@
 module Amazonka.Transfer.Types.Protocol
   ( Protocol
       ( ..,
+        Protocol_AS2,
         Protocol_FTP,
         Protocol_FTPS,
         Protocol_SFTP
@@ -58,6 +59,9 @@ newtype Protocol = Protocol'
       Core.ToXML
     )
 
+pattern Protocol_AS2 :: Protocol
+pattern Protocol_AS2 = Protocol' "AS2"
+
 pattern Protocol_FTP :: Protocol
 pattern Protocol_FTP = Protocol' "FTP"
 
@@ -68,6 +72,7 @@ pattern Protocol_SFTP :: Protocol
 pattern Protocol_SFTP = Protocol' "SFTP"
 
 {-# COMPLETE
+  Protocol_AS2,
   Protocol_FTP,
   Protocol_FTPS,
   Protocol_SFTP,

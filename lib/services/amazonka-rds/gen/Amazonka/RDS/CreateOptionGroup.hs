@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new option group. You can create up to 20 option groups.
+--
+-- This command doesn\'t apply to RDS Custom.
 module Amazonka.RDS.CreateOptionGroup
   ( -- * Creating a Request
     CreateOptionGroup (..),

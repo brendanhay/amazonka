@@ -50,6 +50,9 @@ module Amazonka.CloudWatchEvents.Types
     -- * ConnectionState
     ConnectionState (..),
 
+    -- * EndpointState
+    EndpointState (..),
+
     -- * EventSourceState
     EventSourceState (..),
 
@@ -67,6 +70,9 @@ module Amazonka.CloudWatchEvents.Types
 
     -- * ReplayState
     ReplayState (..),
+
+    -- * ReplicationState
+    ReplicationState (..),
 
     -- * RuleState
     RuleState (..),
@@ -263,6 +269,28 @@ module Amazonka.CloudWatchEvents.Types
     ecsParameters_taskCount,
     ecsParameters_taskDefinitionArn,
 
+    -- * Endpoint
+    Endpoint (..),
+    newEndpoint,
+    endpoint_name,
+    endpoint_endpointId,
+    endpoint_roleArn,
+    endpoint_routingConfig,
+    endpoint_arn,
+    endpoint_state,
+    endpoint_replicationConfig,
+    endpoint_description,
+    endpoint_lastModifiedTime,
+    endpoint_endpointUrl,
+    endpoint_creationTime,
+    endpoint_eventBuses,
+    endpoint_stateReason,
+
+    -- * EndpointEventBus
+    EndpointEventBus (..),
+    newEndpointEventBus,
+    endpointEventBus_eventBusArn,
+
     -- * EventBus
     EventBus (..),
     newEventBus,
@@ -279,6 +307,12 @@ module Amazonka.CloudWatchEvents.Types
     eventSource_state,
     eventSource_creationTime,
     eventSource_createdBy,
+
+    -- * FailoverConfig
+    FailoverConfig (..),
+    newFailoverConfig,
+    failoverConfig_primary,
+    failoverConfig_secondary,
 
     -- * HttpParameters
     HttpParameters (..),
@@ -328,6 +362,11 @@ module Amazonka.CloudWatchEvents.Types
     newPlacementStrategy,
     placementStrategy_type,
     placementStrategy_field,
+
+    -- * Primary
+    Primary (..),
+    newPrimary,
+    primary_healthCheck,
 
     -- * PutEventsRequestEntry
     PutEventsRequestEntry (..),
@@ -406,11 +445,21 @@ module Amazonka.CloudWatchEvents.Types
     replayDestination_filterArns,
     replayDestination_arn,
 
+    -- * ReplicationConfig
+    ReplicationConfig (..),
+    newReplicationConfig,
+    replicationConfig_state,
+
     -- * RetryPolicy
     RetryPolicy (..),
     newRetryPolicy,
     retryPolicy_maximumEventAgeInSeconds,
     retryPolicy_maximumRetryAttempts,
+
+    -- * RoutingConfig
+    RoutingConfig (..),
+    newRoutingConfig,
+    routingConfig_failoverConfig,
 
     -- * Rule
     Rule (..),
@@ -446,6 +495,11 @@ module Amazonka.CloudWatchEvents.Types
     SageMakerPipelineParameters (..),
     newSageMakerPipelineParameters,
     sageMakerPipelineParameters_pipelineParameterList,
+
+    -- * Secondary
+    Secondary (..),
+    newSecondary,
+    secondary_route,
 
     -- * SqsParameters
     SqsParameters (..),
@@ -546,9 +600,13 @@ import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParamet
 import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
 import Amazonka.CloudWatchEvents.Types.DeadLetterConfig
 import Amazonka.CloudWatchEvents.Types.EcsParameters
+import Amazonka.CloudWatchEvents.Types.Endpoint
+import Amazonka.CloudWatchEvents.Types.EndpointEventBus
+import Amazonka.CloudWatchEvents.Types.EndpointState
 import Amazonka.CloudWatchEvents.Types.EventBus
 import Amazonka.CloudWatchEvents.Types.EventSource
 import Amazonka.CloudWatchEvents.Types.EventSourceState
+import Amazonka.CloudWatchEvents.Types.FailoverConfig
 import Amazonka.CloudWatchEvents.Types.HttpParameters
 import Amazonka.CloudWatchEvents.Types.InputTransformer
 import Amazonka.CloudWatchEvents.Types.KinesisParameters
@@ -560,6 +618,7 @@ import Amazonka.CloudWatchEvents.Types.PlacementConstraint
 import Amazonka.CloudWatchEvents.Types.PlacementConstraintType
 import Amazonka.CloudWatchEvents.Types.PlacementStrategy
 import Amazonka.CloudWatchEvents.Types.PlacementStrategyType
+import Amazonka.CloudWatchEvents.Types.Primary
 import Amazonka.CloudWatchEvents.Types.PropagateTags
 import Amazonka.CloudWatchEvents.Types.PutEventsRequestEntry
 import Amazonka.CloudWatchEvents.Types.PutEventsResultEntry
@@ -571,13 +630,17 @@ import Amazonka.CloudWatchEvents.Types.RemoveTargetsResultEntry
 import Amazonka.CloudWatchEvents.Types.Replay
 import Amazonka.CloudWatchEvents.Types.ReplayDestination
 import Amazonka.CloudWatchEvents.Types.ReplayState
+import Amazonka.CloudWatchEvents.Types.ReplicationConfig
+import Amazonka.CloudWatchEvents.Types.ReplicationState
 import Amazonka.CloudWatchEvents.Types.RetryPolicy
+import Amazonka.CloudWatchEvents.Types.RoutingConfig
 import Amazonka.CloudWatchEvents.Types.Rule
 import Amazonka.CloudWatchEvents.Types.RuleState
 import Amazonka.CloudWatchEvents.Types.RunCommandParameters
 import Amazonka.CloudWatchEvents.Types.RunCommandTarget
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
+import Amazonka.CloudWatchEvents.Types.Secondary
 import Amazonka.CloudWatchEvents.Types.SqsParameters
 import Amazonka.CloudWatchEvents.Types.Tag
 import Amazonka.CloudWatchEvents.Types.Target

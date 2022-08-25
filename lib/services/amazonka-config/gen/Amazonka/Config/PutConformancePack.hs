@@ -22,10 +22,13 @@
 --
 -- Creates or updates a conformance pack. A conformance pack is a
 -- collection of Config rules that can be easily deployed in an account and
--- a region and across Amazon Web Services Organization.
+-- a region and across Amazon Web Services Organization. For information on
+-- how many conformance packs you can have per account, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
+-- in the Config Developer Guide.
 --
--- This API creates a service linked role @AWSServiceRoleForConfigConforms@
--- in your account. The service linked role is created only when the role
+-- This API creates a service-linked role @AWSServiceRoleForConfigConforms@
+-- in your account. The service-linked role is created only when the role
 -- does not exist in your account.
 --
 -- You must specify either the @TemplateS3Uri@ or the @TemplateBody@
@@ -76,8 +79,9 @@ data PutConformancePack = PutConformancePack'
     -- containing the template body with a minimum length of 1 byte and a
     -- maximum length of 51,200 bytes.
     --
-    -- You can only use a YAML template with one resource type, that is, config
-    -- rule and a remediation action.
+    -- You can only use a YAML template with two resource types: Config rule
+    -- (@AWS::Config::ConfigRule@) and a remediation action
+    -- (@AWS::Config::RemediationConfiguration@).
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket where Config stores conformance pack
     -- templates.
@@ -114,8 +118,9 @@ data PutConformancePack = PutConformancePack'
 -- containing the template body with a minimum length of 1 byte and a
 -- maximum length of 51,200 bytes.
 --
--- You can only use a YAML template with one resource type, that is, config
--- rule and a remediation action.
+-- You can only use a YAML template with two resource types: Config rule
+-- (@AWS::Config::ConfigRule@) and a remediation action
+-- (@AWS::Config::RemediationConfiguration@).
 --
 -- 'deliveryS3Bucket', 'putConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
 -- templates.
@@ -159,8 +164,9 @@ putConformancePack_conformancePackInputParameters = Lens.lens (\PutConformancePa
 -- containing the template body with a minimum length of 1 byte and a
 -- maximum length of 51,200 bytes.
 --
--- You can only use a YAML template with one resource type, that is, config
--- rule and a remediation action.
+-- You can only use a YAML template with two resource types: Config rule
+-- (@AWS::Config::ConfigRule@) and a remediation action
+-- (@AWS::Config::RemediationConfiguration@).
 putConformancePack_templateBody :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_templateBody = Lens.lens (\PutConformancePack' {templateBody} -> templateBody) (\s@PutConformancePack' {} a -> s {templateBody = a} :: PutConformancePack)
 

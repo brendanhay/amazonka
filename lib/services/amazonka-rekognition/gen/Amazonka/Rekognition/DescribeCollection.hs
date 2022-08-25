@@ -145,7 +145,7 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
     -- | The version of the face model that\'s used by the collection for face
     -- detection.
     --
-    -- For more information, see Model Versioning in the Amazon Rekognition
+    -- For more information, see Model versioning in the Amazon Rekognition
     -- Developer Guide.
     faceModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the collection.
@@ -173,7 +173,7 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
 -- 'faceModelVersion', 'describeCollectionResponse_faceModelVersion' - The version of the face model that\'s used by the collection for face
 -- detection.
 --
--- For more information, see Model Versioning in the Amazon Rekognition
+-- For more information, see Model versioning in the Amazon Rekognition
 -- Developer Guide.
 --
 -- 'collectionARN', 'describeCollectionResponse_collectionARN' - The Amazon Resource Name (ARN) of the collection.
@@ -207,7 +207,7 @@ describeCollectionResponse_faceCount = Lens.lens (\DescribeCollectionResponse' {
 -- | The version of the face model that\'s used by the collection for face
 -- detection.
 --
--- For more information, see Model Versioning in the Amazon Rekognition
+-- For more information, see Model versioning in the Amazon Rekognition
 -- Developer Guide.
 describeCollectionResponse_faceModelVersion :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
 describeCollectionResponse_faceModelVersion = Lens.lens (\DescribeCollectionResponse' {faceModelVersion} -> faceModelVersion) (\s@DescribeCollectionResponse' {} a -> s {faceModelVersion = a} :: DescribeCollectionResponse)

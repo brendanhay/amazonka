@@ -52,6 +52,9 @@
 -- returned with status set to QUEUED. Track the status of backfill tickets
 -- using the same method for tracking tickets for new matches.
 --
+-- Only game sessions created by FlexMatch are supported for match
+-- backfill.
+--
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill existing games with FlexMatch>
@@ -123,6 +126,9 @@ data StartMatchBackfill = StartMatchBackfill'
     --     details, see
     --     <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
     --
+    --     The backfill request must specify the team membership for every
+    --     player. Do not specify team if you are not using backfill.
+    --
     -- -   LatencyInMs -- If the matchmaker uses player latency, include a
     --     latency value, in milliseconds, for the Region that the game session
     --     is currently in. Do not include latency values for any other Region.
@@ -162,6 +168,9 @@ data StartMatchBackfill = StartMatchBackfill'
 --     matchmaker data is in JSON syntax, formatted as a string. For more
 --     details, see
 --     <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
+--
+--     The backfill request must specify the team membership for every
+--     player. Do not specify team if you are not using backfill.
 --
 -- -   LatencyInMs -- If the matchmaker uses player latency, include a
 --     latency value, in milliseconds, for the Region that the game session
@@ -208,6 +217,9 @@ startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configur
 --     matchmaker data is in JSON syntax, formatted as a string. For more
 --     details, see
 --     <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
+--
+--     The backfill request must specify the team membership for every
+--     player. Do not specify team if you are not using backfill.
 --
 -- -   LatencyInMs -- If the matchmaker uses player latency, include a
 --     latency value, in milliseconds, for the Region that the game session

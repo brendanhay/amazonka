@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Reconnects a session to an instance after it has been disconnected.
+-- Reconnects a session to a managed node after it has been disconnected.
 -- Connections can be resumed for disconnected sessions, but not terminated
 -- sessions.
 --
@@ -132,10 +132,11 @@ instance Core.ToQuery ResumeSession where
 -- | /See:/ 'newResumeSessionResponse' smart constructor.
 data ResumeSessionResponse = ResumeSessionResponse'
   { -- | An encrypted token value containing session and caller information. Used
-    -- to authenticate the connection to the instance.
+    -- to authenticate the connection to the managed node.
     tokenValue :: Prelude.Maybe Prelude.Text,
-    -- | A URL back to SSM Agent on the instance that the Session Manager client
-    -- uses to send commands and receive output from the instance. Format:
+    -- | A URL back to SSM Agent on the managed node that the Session Manager
+    -- client uses to send commands and receive output from the managed node.
+    -- Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
     --
     -- __region__ represents the Region identifier for an Amazon Web Services
@@ -164,10 +165,11 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- for backwards compatibility:
 --
 -- 'tokenValue', 'resumeSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the instance.
+-- to authenticate the connection to the managed node.
 --
--- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client
--- uses to send commands and receive output from the instance. Format:
+-- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the managed node that the Session Manager
+-- client uses to send commands and receive output from the managed node.
+-- Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
 --
 -- __region__ represents the Region identifier for an Amazon Web Services
@@ -197,12 +199,13 @@ newResumeSessionResponse pHttpStatus_ =
     }
 
 -- | An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the instance.
+-- to authenticate the connection to the managed node.
 resumeSessionResponse_tokenValue :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
 resumeSessionResponse_tokenValue = Lens.lens (\ResumeSessionResponse' {tokenValue} -> tokenValue) (\s@ResumeSessionResponse' {} a -> s {tokenValue = a} :: ResumeSessionResponse)
 
--- | A URL back to SSM Agent on the instance that the Session Manager client
--- uses to send commands and receive output from the instance. Format:
+-- | A URL back to SSM Agent on the managed node that the Session Manager
+-- client uses to send commands and receive output from the managed node.
+-- Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
 --
 -- __region__ represents the Region identifier for an Amazon Web Services

@@ -26,7 +26,7 @@
 --
 -- For more information about query components, see the
 -- <https://docs.aws.amazon.com/config/latest/developerguide/query-components.html Query Components>
--- section in the Config Developer Guide.
+-- section in the /Config Developer Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.Config.SelectResourceConfig

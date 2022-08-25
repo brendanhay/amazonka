@@ -23,9 +23,9 @@
 -- Disables the automatic copying of snapshots from one region to another
 -- region for a specified cluster.
 --
--- If your cluster and its snapshots are encrypted using a customer master
--- key (CMK) from Key Management Service, use DeleteSnapshotCopyGrant to
--- delete the grant that grants Amazon Redshift permission to the CMK in
+-- If your cluster and its snapshots are encrypted using an encrypted
+-- symmetric key from Key Management Service, use DeleteSnapshotCopyGrant
+-- to delete the grant that grants Amazon Redshift permission to the key in
 -- the destination region.
 module Amazonka.Redshift.DisableSnapshotCopy
   ( -- * Creating a Request

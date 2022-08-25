@@ -47,6 +47,7 @@ library
     Amazonka.Organizations.AcceptHandshake
     Amazonka.Organizations.AttachPolicy
     Amazonka.Organizations.CancelHandshake
+    Amazonka.Organizations.CloseAccount
     Amazonka.Organizations.CreateAccount
     Amazonka.Organizations.CreateGovCloudAccount
     Amazonka.Organizations.CreateOrganization

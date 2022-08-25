@@ -35,12 +35,16 @@ data RobotApplicationConfig = RobotApplicationConfig'
     -- | A Boolean indicating whether to use default robot application tools. The
     -- default tools are rviz, rqt, terminal and rosbag record. The default is
     -- @False@.
+    --
+    -- This API is no longer supported and will throw an error if used.
     useDefaultTools :: Prelude.Maybe Prelude.Bool,
     -- | A Boolean indicating whether to use default upload configurations. By
     -- default, @.ros@ and @.gazebo@ files are uploaded when the application
     -- terminates and all ROS topics will be recorded.
     --
     -- If you set this value, you must specify an @outputLocation@.
+    --
+    -- This API is no longer supported and will throw an error if used.
     useDefaultUploadConfigurations :: Prelude.Maybe Prelude.Bool,
     -- | The upload configurations for the robot application.
     uploadConfigurations :: Prelude.Maybe [UploadConfiguration],
@@ -67,11 +71,15 @@ data RobotApplicationConfig = RobotApplicationConfig'
 -- default tools are rviz, rqt, terminal and rosbag record. The default is
 -- @False@.
 --
+-- This API is no longer supported and will throw an error if used.
+--
 -- 'useDefaultUploadConfigurations', 'robotApplicationConfig_useDefaultUploadConfigurations' - A Boolean indicating whether to use default upload configurations. By
 -- default, @.ros@ and @.gazebo@ files are uploaded when the application
 -- terminates and all ROS topics will be recorded.
 --
 -- If you set this value, you must specify an @outputLocation@.
+--
+-- This API is no longer supported and will throw an error if used.
 --
 -- 'uploadConfigurations', 'robotApplicationConfig_uploadConfigurations' - The upload configurations for the robot application.
 --
@@ -106,6 +114,8 @@ robotApplicationConfig_tools = Lens.lens (\RobotApplicationConfig' {tools} -> to
 -- | A Boolean indicating whether to use default robot application tools. The
 -- default tools are rviz, rqt, terminal and rosbag record. The default is
 -- @False@.
+--
+-- This API is no longer supported and will throw an error if used.
 robotApplicationConfig_useDefaultTools :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Bool)
 robotApplicationConfig_useDefaultTools = Lens.lens (\RobotApplicationConfig' {useDefaultTools} -> useDefaultTools) (\s@RobotApplicationConfig' {} a -> s {useDefaultTools = a} :: RobotApplicationConfig)
 
@@ -114,6 +124,8 @@ robotApplicationConfig_useDefaultTools = Lens.lens (\RobotApplicationConfig' {us
 -- terminates and all ROS topics will be recorded.
 --
 -- If you set this value, you must specify an @outputLocation@.
+--
+-- This API is no longer supported and will throw an error if used.
 robotApplicationConfig_useDefaultUploadConfigurations :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Bool)
 robotApplicationConfig_useDefaultUploadConfigurations = Lens.lens (\RobotApplicationConfig' {useDefaultUploadConfigurations} -> useDefaultUploadConfigurations) (\s@RobotApplicationConfig' {} a -> s {useDefaultUploadConfigurations = a} :: RobotApplicationConfig)
 

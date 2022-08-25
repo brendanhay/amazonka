@@ -30,6 +30,12 @@ module Amazonka.Glue
     -- ** ResourceNumberLimitExceededException
     _ResourceNumberLimitExceededException,
 
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
@@ -50,6 +56,9 @@ module Amazonka.Glue
 
     -- ** MLTransformNotReadyException
     _MLTransformNotReadyException,
+
+    -- ** PermissionTypeMismatchException
+    _PermissionTypeMismatchException,
 
     -- ** GlueEncryptionException
     _GlueEncryptionException,
@@ -86,6 +95,9 @@ module Amazonka.Glue
 
     -- ** CrawlerStoppingException
     _CrawlerStoppingException,
+
+    -- ** IllegalSessionStateException
+    _IllegalSessionStateException,
 
     -- ** CrawlerRunningException
     _CrawlerRunningException,
@@ -144,6 +156,12 @@ module Amazonka.Glue
     BatchGetCrawlersResponse (BatchGetCrawlersResponse'),
     newBatchGetCrawlersResponse,
 
+    -- ** BatchGetCustomEntityTypes
+    BatchGetCustomEntityTypes (BatchGetCustomEntityTypes'),
+    newBatchGetCustomEntityTypes,
+    BatchGetCustomEntityTypesResponse (BatchGetCustomEntityTypesResponse'),
+    newBatchGetCustomEntityTypesResponse,
+
     -- ** BatchGetDevEndpoints
     BatchGetDevEndpoints (BatchGetDevEndpoints'),
     newBatchGetDevEndpoints,
@@ -192,6 +210,12 @@ module Amazonka.Glue
     CancelMLTaskRunResponse (CancelMLTaskRunResponse'),
     newCancelMLTaskRunResponse,
 
+    -- ** CancelStatement
+    CancelStatement (CancelStatement'),
+    newCancelStatement,
+    CancelStatementResponse (CancelStatementResponse'),
+    newCancelStatementResponse,
+
     -- ** CheckSchemaVersionValidity
     CheckSchemaVersionValidity (CheckSchemaVersionValidity'),
     newCheckSchemaVersionValidity,
@@ -221,6 +245,12 @@ module Amazonka.Glue
     newCreateCrawler,
     CreateCrawlerResponse (CreateCrawlerResponse'),
     newCreateCrawlerResponse,
+
+    -- ** CreateCustomEntityType
+    CreateCustomEntityType (CreateCustomEntityType'),
+    newCreateCustomEntityType,
+    CreateCustomEntityTypeResponse (CreateCustomEntityTypeResponse'),
+    newCreateCustomEntityTypeResponse,
 
     -- ** CreateDatabase
     CreateDatabase (CreateDatabase'),
@@ -282,6 +312,12 @@ module Amazonka.Glue
     CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
     newCreateSecurityConfigurationResponse,
 
+    -- ** CreateSession
+    CreateSession (CreateSession'),
+    newCreateSession,
+    CreateSessionResponse (CreateSessionResponse'),
+    newCreateSessionResponse,
+
     -- ** CreateTable
     CreateTable (CreateTable'),
     newCreateTable,
@@ -341,6 +377,12 @@ module Amazonka.Glue
     newDeleteCrawler,
     DeleteCrawlerResponse (DeleteCrawlerResponse'),
     newDeleteCrawlerResponse,
+
+    -- ** DeleteCustomEntityType
+    DeleteCustomEntityType (DeleteCustomEntityType'),
+    newDeleteCustomEntityType,
+    DeleteCustomEntityTypeResponse (DeleteCustomEntityTypeResponse'),
+    newDeleteCustomEntityTypeResponse,
 
     -- ** DeleteDatabase
     DeleteDatabase (DeleteDatabase'),
@@ -407,6 +449,12 @@ module Amazonka.Glue
     newDeleteSecurityConfiguration,
     DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
     newDeleteSecurityConfigurationResponse,
+
+    -- ** DeleteSession
+    DeleteSession (DeleteSession'),
+    newDeleteSession,
+    DeleteSessionResponse (DeleteSessionResponse'),
+    newDeleteSessionResponse,
 
     -- ** DeleteTable
     DeleteTable (DeleteTable'),
@@ -515,6 +563,12 @@ module Amazonka.Glue
     newGetCrawlers,
     GetCrawlersResponse (GetCrawlersResponse'),
     newGetCrawlersResponse,
+
+    -- ** GetCustomEntityType
+    GetCustomEntityType (GetCustomEntityType'),
+    newGetCustomEntityType,
+    GetCustomEntityTypeResponse (GetCustomEntityTypeResponse'),
+    newGetCustomEntityTypeResponse,
 
     -- ** GetDataCatalogEncryptionSettings
     GetDataCatalogEncryptionSettings (GetDataCatalogEncryptionSettings'),
@@ -690,6 +744,18 @@ module Amazonka.Glue
     GetSecurityConfigurationsResponse (GetSecurityConfigurationsResponse'),
     newGetSecurityConfigurationsResponse,
 
+    -- ** GetSession
+    GetSession (GetSession'),
+    newGetSession,
+    GetSessionResponse (GetSessionResponse'),
+    newGetSessionResponse,
+
+    -- ** GetStatement
+    GetStatement (GetStatement'),
+    newGetStatement,
+    GetStatementResponse (GetStatementResponse'),
+    newGetStatementResponse,
+
     -- ** GetTable
     GetTable (GetTable'),
     newGetTable,
@@ -731,6 +797,24 @@ module Amazonka.Glue
     newGetTriggers,
     GetTriggersResponse (GetTriggersResponse'),
     newGetTriggersResponse,
+
+    -- ** GetUnfilteredPartitionMetadata
+    GetUnfilteredPartitionMetadata (GetUnfilteredPartitionMetadata'),
+    newGetUnfilteredPartitionMetadata,
+    GetUnfilteredPartitionMetadataResponse (GetUnfilteredPartitionMetadataResponse'),
+    newGetUnfilteredPartitionMetadataResponse,
+
+    -- ** GetUnfilteredPartitionsMetadata
+    GetUnfilteredPartitionsMetadata (GetUnfilteredPartitionsMetadata'),
+    newGetUnfilteredPartitionsMetadata,
+    GetUnfilteredPartitionsMetadataResponse (GetUnfilteredPartitionsMetadataResponse'),
+    newGetUnfilteredPartitionsMetadataResponse,
+
+    -- ** GetUnfilteredTableMetadata
+    GetUnfilteredTableMetadata (GetUnfilteredTableMetadata'),
+    newGetUnfilteredTableMetadata,
+    GetUnfilteredTableMetadataResponse (GetUnfilteredTableMetadataResponse'),
+    newGetUnfilteredTableMetadataResponse,
 
     -- ** GetUserDefinedFunction
     GetUserDefinedFunction (GetUserDefinedFunction'),
@@ -786,6 +870,18 @@ module Amazonka.Glue
     ListCrawlersResponse (ListCrawlersResponse'),
     newListCrawlersResponse,
 
+    -- ** ListCrawls
+    ListCrawls (ListCrawls'),
+    newListCrawls,
+    ListCrawlsResponse (ListCrawlsResponse'),
+    newListCrawlsResponse,
+
+    -- ** ListCustomEntityTypes
+    ListCustomEntityTypes (ListCustomEntityTypes'),
+    newListCustomEntityTypes,
+    ListCustomEntityTypesResponse (ListCustomEntityTypesResponse'),
+    newListCustomEntityTypesResponse,
+
     -- ** ListDevEndpoints
     ListDevEndpoints (ListDevEndpoints'),
     newListDevEndpoints,
@@ -821,6 +917,18 @@ module Amazonka.Glue
     newListSchemas,
     ListSchemasResponse (ListSchemasResponse'),
     newListSchemasResponse,
+
+    -- ** ListSessions
+    ListSessions (ListSessions'),
+    newListSessions,
+    ListSessionsResponse (ListSessionsResponse'),
+    newListSessionsResponse,
+
+    -- ** ListStatements
+    ListStatements (ListStatements'),
+    newListStatements,
+    ListStatementsResponse (ListStatementsResponse'),
+    newListStatementsResponse,
 
     -- ** ListTriggers
     ListTriggers (ListTriggers'),
@@ -887,6 +995,12 @@ module Amazonka.Glue
     newResumeWorkflowRun,
     ResumeWorkflowRunResponse (ResumeWorkflowRunResponse'),
     newResumeWorkflowRunResponse,
+
+    -- ** RunStatement
+    RunStatement (RunStatement'),
+    newRunStatement,
+    RunStatementResponse (RunStatementResponse'),
+    newRunStatementResponse,
 
     -- ** SearchTables
     SearchTables (SearchTables'),
@@ -965,6 +1079,12 @@ module Amazonka.Glue
     newStopCrawlerSchedule,
     StopCrawlerScheduleResponse (StopCrawlerScheduleResponse'),
     newStopCrawlerScheduleResponse,
+
+    -- ** StopSession
+    StopSession (StopSession'),
+    newStopSession,
+    StopSessionResponse (StopSessionResponse'),
+    newStopSessionResponse,
 
     -- ** StopTrigger
     StopTrigger (StopTrigger'),
@@ -1100,6 +1220,9 @@ module Amazonka.Glue
 
     -- * Types
 
+    -- ** AggFunction
+    AggFunction (..),
+
     -- ** BackfillErrorCode
     BackfillErrorCode (..),
 
@@ -1124,6 +1247,9 @@ module Amazonka.Glue
     -- ** Compatibility
     Compatibility (..),
 
+    -- ** CompressionType
+    CompressionType (..),
+
     -- ** ConnectionPropertyKey
     ConnectionPropertyKey (..),
 
@@ -1132,6 +1258,9 @@ module Amazonka.Glue
 
     -- ** CrawlState
     CrawlState (..),
+
+    -- ** CrawlerHistoryState
+    CrawlerHistoryState (..),
 
     -- ** CrawlerLineageSettings
     CrawlerLineageSettings (..),
@@ -1151,14 +1280,41 @@ module Amazonka.Glue
     -- ** EnableHybridValues
     EnableHybridValues (..),
 
+    -- ** ExecutionClass
+    ExecutionClass (..),
+
     -- ** ExistCondition
     ExistCondition (..),
+
+    -- ** FieldName
+    FieldName (..),
+
+    -- ** FilterLogicalOperator
+    FilterLogicalOperator (..),
+
+    -- ** FilterOperation
+    FilterOperation (..),
+
+    -- ** FilterOperator
+    FilterOperator (..),
+
+    -- ** FilterValueType
+    FilterValueType (..),
+
+    -- ** GlueRecordType
+    GlueRecordType (..),
+
+    -- ** JDBCDataType
+    JDBCDataType (..),
 
     -- ** JobBookmarksEncryptionMode
     JobBookmarksEncryptionMode (..),
 
     -- ** JobRunState
     JobRunState (..),
+
+    -- ** JoinType
+    JoinType (..),
 
     -- ** Language
     Language (..),
@@ -1178,14 +1334,26 @@ module Amazonka.Glue
     -- ** NodeType
     NodeType (..),
 
+    -- ** ParquetCompressionType
+    ParquetCompressionType (..),
+
     -- ** PartitionIndexStatus
     PartitionIndexStatus (..),
 
     -- ** Permission
     Permission (..),
 
+    -- ** PermissionType
+    PermissionType (..),
+
+    -- ** PiiType
+    PiiType (..),
+
     -- ** PrincipalType
     PrincipalType (..),
+
+    -- ** QuoteChar
+    QuoteChar (..),
 
     -- ** RecrawlBehavior
     RecrawlBehavior (..),
@@ -1214,11 +1382,26 @@ module Amazonka.Glue
     -- ** SchemaVersionStatus
     SchemaVersionStatus (..),
 
+    -- ** Separator
+    Separator (..),
+
+    -- ** SessionStatus
+    SessionStatus (..),
+
     -- ** Sort
     Sort (..),
 
     -- ** SortDirectionType
     SortDirectionType (..),
+
+    -- ** StartingPosition
+    StartingPosition (..),
+
+    -- ** StatementState
+    StatementState (..),
+
+    -- ** TargetFormat
+    TargetFormat (..),
 
     -- ** TaskRunSortColumnType
     TaskRunSortColumnType (..),
@@ -1244,8 +1427,14 @@ module Amazonka.Glue
     -- ** TriggerType
     TriggerType (..),
 
+    -- ** UnionType
+    UnionType (..),
+
     -- ** UpdateBehavior
     UpdateBehavior (..),
+
+    -- ** UpdateCatalogBehavior
+    UpdateCatalogBehavior (..),
 
     -- ** WorkerType
     WorkerType (..),
@@ -1257,9 +1446,33 @@ module Amazonka.Glue
     Action (Action'),
     newAction,
 
+    -- ** Aggregate
+    Aggregate (Aggregate'),
+    newAggregate,
+
+    -- ** AggregateOperation
+    AggregateOperation (AggregateOperation'),
+    newAggregateOperation,
+
+    -- ** ApplyMapping
+    ApplyMapping (ApplyMapping'),
+    newApplyMapping,
+
+    -- ** AthenaConnectorSource
+    AthenaConnectorSource (AthenaConnectorSource'),
+    newAthenaConnectorSource,
+
+    -- ** AuditContext
+    AuditContext (AuditContext'),
+    newAuditContext,
+
     -- ** BackfillError
     BackfillError (BackfillError'),
     newBackfillError,
+
+    -- ** BasicCatalogTarget
+    BasicCatalogTarget (BasicCatalogTarget'),
+    newBasicCatalogTarget,
 
     -- ** BatchStopJobRunError
     BatchStopJobRunError (BatchStopJobRunError'),
@@ -1305,6 +1518,22 @@ module Amazonka.Glue
     CatalogImportStatus (CatalogImportStatus'),
     newCatalogImportStatus,
 
+    -- ** CatalogKafkaSource
+    CatalogKafkaSource (CatalogKafkaSource'),
+    newCatalogKafkaSource,
+
+    -- ** CatalogKinesisSource
+    CatalogKinesisSource (CatalogKinesisSource'),
+    newCatalogKinesisSource,
+
+    -- ** CatalogSchemaChangePolicy
+    CatalogSchemaChangePolicy (CatalogSchemaChangePolicy'),
+    newCatalogSchemaChangePolicy,
+
+    -- ** CatalogSource
+    CatalogSource (CatalogSource'),
+    newCatalogSource,
+
     -- ** CatalogTarget
     CatalogTarget (CatalogTarget'),
     newCatalogTarget,
@@ -1316,6 +1545,10 @@ module Amazonka.Glue
     -- ** CloudWatchEncryption
     CloudWatchEncryption (CloudWatchEncryption'),
     newCloudWatchEncryption,
+
+    -- ** CodeGenConfigurationNode
+    CodeGenConfigurationNode (CodeGenConfigurationNode'),
+    newCodeGenConfigurationNode,
 
     -- ** CodeGenEdge
     CodeGenEdge (CodeGenEdge'),
@@ -1340,6 +1573,10 @@ module Amazonka.Glue
     -- ** ColumnImportance
     ColumnImportance (ColumnImportance'),
     newColumnImportance,
+
+    -- ** ColumnRowFilter
+    ColumnRowFilter (ColumnRowFilter'),
+    newColumnRowFilter,
 
     -- ** ColumnStatistics
     ColumnStatistics (ColumnStatistics'),
@@ -1385,6 +1622,10 @@ module Amazonka.Glue
     Crawler (Crawler'),
     newCrawler,
 
+    -- ** CrawlerHistory
+    CrawlerHistory (CrawlerHistory'),
+    newCrawlerHistory,
+
     -- ** CrawlerMetrics
     CrawlerMetrics (CrawlerMetrics'),
     newCrawlerMetrics,
@@ -1396,6 +1637,10 @@ module Amazonka.Glue
     -- ** CrawlerTargets
     CrawlerTargets (CrawlerTargets'),
     newCrawlerTargets,
+
+    -- ** CrawlsFilter
+    CrawlsFilter (CrawlsFilter'),
+    newCrawlsFilter,
 
     -- ** CreateCsvClassifierRequest
     CreateCsvClassifierRequest (CreateCsvClassifierRequest'),
@@ -1417,6 +1662,14 @@ module Amazonka.Glue
     CsvClassifier (CsvClassifier'),
     newCsvClassifier,
 
+    -- ** CustomCode
+    CustomCode (CustomCode'),
+    newCustomCode,
+
+    -- ** CustomEntityType
+    CustomEntityType (CustomEntityType'),
+    newCustomEntityType,
+
     -- ** DataCatalogEncryptionSettings
     DataCatalogEncryptionSettings (DataCatalogEncryptionSettings'),
     newDataCatalogEncryptionSettings,
@@ -1437,6 +1690,10 @@ module Amazonka.Glue
     DatabaseInput (DatabaseInput'),
     newDatabaseInput,
 
+    -- ** Datatype
+    Datatype (Datatype'),
+    newDatatype,
+
     -- ** DateColumnStatisticsData
     DateColumnStatisticsData (DateColumnStatisticsData'),
     newDateColumnStatisticsData,
@@ -1449,6 +1706,10 @@ module Amazonka.Glue
     DecimalNumber (DecimalNumber'),
     newDecimalNumber,
 
+    -- ** DeltaTarget
+    DeltaTarget (DeltaTarget'),
+    newDeltaTarget,
+
     -- ** DevEndpoint
     DevEndpoint (DevEndpoint'),
     newDevEndpoint,
@@ -1457,9 +1718,37 @@ module Amazonka.Glue
     DevEndpointCustomLibraries (DevEndpointCustomLibraries'),
     newDevEndpointCustomLibraries,
 
+    -- ** DirectKafkaSource
+    DirectKafkaSource (DirectKafkaSource'),
+    newDirectKafkaSource,
+
+    -- ** DirectKinesisSource
+    DirectKinesisSource (DirectKinesisSource'),
+    newDirectKinesisSource,
+
+    -- ** DirectSchemaChangePolicy
+    DirectSchemaChangePolicy (DirectSchemaChangePolicy'),
+    newDirectSchemaChangePolicy,
+
     -- ** DoubleColumnStatisticsData
     DoubleColumnStatisticsData (DoubleColumnStatisticsData'),
     newDoubleColumnStatisticsData,
+
+    -- ** DropDuplicates
+    DropDuplicates (DropDuplicates'),
+    newDropDuplicates,
+
+    -- ** DropFields
+    DropFields (DropFields'),
+    newDropFields,
+
+    -- ** DropNullFields
+    DropNullFields (DropNullFields'),
+    newDropNullFields,
+
+    -- ** DynamoDBCatalogSource
+    DynamoDBCatalogSource (DynamoDBCatalogSource'),
+    newDynamoDBCatalogSource,
 
     -- ** DynamoDBTarget
     DynamoDBTarget (DynamoDBTarget'),
@@ -1501,6 +1790,22 @@ module Amazonka.Glue
     ExportLabelsTaskRunProperties (ExportLabelsTaskRunProperties'),
     newExportLabelsTaskRunProperties,
 
+    -- ** FillMissingValues
+    FillMissingValues (FillMissingValues'),
+    newFillMissingValues,
+
+    -- ** Filter
+    Filter (Filter'),
+    newFilter,
+
+    -- ** FilterExpression
+    FilterExpression (FilterExpression'),
+    newFilterExpression,
+
+    -- ** FilterValue
+    FilterValue (FilterValue'),
+    newFilterValue,
+
     -- ** FindMatchesMetrics
     FindMatchesMetrics (FindMatchesMetrics'),
     newFindMatchesMetrics,
@@ -1521,9 +1826,25 @@ module Amazonka.Glue
     GluePolicy (GluePolicy'),
     newGluePolicy,
 
+    -- ** GlueSchema
+    GlueSchema (GlueSchema'),
+    newGlueSchema,
+
+    -- ** GlueStudioSchemaColumn
+    GlueStudioSchemaColumn (GlueStudioSchemaColumn'),
+    newGlueStudioSchemaColumn,
+
     -- ** GlueTable
     GlueTable (GlueTable'),
     newGlueTable,
+
+    -- ** GovernedCatalogSource
+    GovernedCatalogSource (GovernedCatalogSource'),
+    newGovernedCatalogSource,
+
+    -- ** GovernedCatalogTarget
+    GovernedCatalogTarget (GovernedCatalogTarget'),
+    newGovernedCatalogTarget,
 
     -- ** GrokClassifier
     GrokClassifier (GrokClassifier'),
@@ -1532,6 +1853,18 @@ module Amazonka.Glue
     -- ** ImportLabelsTaskRunProperties
     ImportLabelsTaskRunProperties (ImportLabelsTaskRunProperties'),
     newImportLabelsTaskRunProperties,
+
+    -- ** JDBCConnectorOptions
+    JDBCConnectorOptions (JDBCConnectorOptions'),
+    newJDBCConnectorOptions,
+
+    -- ** JDBCConnectorSource
+    JDBCConnectorSource (JDBCConnectorSource'),
+    newJDBCConnectorSource,
+
+    -- ** JDBCConnectorTarget
+    JDBCConnectorTarget (JDBCConnectorTarget'),
+    newJDBCConnectorTarget,
 
     -- ** JdbcTarget
     JdbcTarget (JdbcTarget'),
@@ -1565,17 +1898,37 @@ module Amazonka.Glue
     JobUpdate (JobUpdate'),
     newJobUpdate,
 
+    -- ** Join
+    Join (Join'),
+    newJoin,
+
+    -- ** JoinColumn
+    JoinColumn (JoinColumn'),
+    newJoinColumn,
+
     -- ** JsonClassifier
     JsonClassifier (JsonClassifier'),
     newJsonClassifier,
+
+    -- ** KafkaStreamingSourceOptions
+    KafkaStreamingSourceOptions (KafkaStreamingSourceOptions'),
+    newKafkaStreamingSourceOptions,
 
     -- ** KeySchemaElement
     KeySchemaElement (KeySchemaElement'),
     newKeySchemaElement,
 
+    -- ** KinesisStreamingSourceOptions
+    KinesisStreamingSourceOptions (KinesisStreamingSourceOptions'),
+    newKinesisStreamingSourceOptions,
+
     -- ** LabelingSetGenerationTaskRunProperties
     LabelingSetGenerationTaskRunProperties (LabelingSetGenerationTaskRunProperties'),
     newLabelingSetGenerationTaskRunProperties,
+
+    -- ** LakeFormationConfiguration
+    LakeFormationConfiguration (LakeFormationConfiguration'),
+    newLakeFormationConfiguration,
 
     -- ** LastActiveDefinition
     LastActiveDefinition (LastActiveDefinition'),
@@ -1605,9 +1958,17 @@ module Amazonka.Glue
     MLUserDataEncryption (MLUserDataEncryption'),
     newMLUserDataEncryption,
 
+    -- ** Mapping
+    Mapping (Mapping'),
+    newMapping,
+
     -- ** MappingEntry
     MappingEntry (MappingEntry'),
     newMappingEntry,
+
+    -- ** Merge
+    Merge (Merge'),
+    newMerge,
 
     -- ** MetadataInfo
     MetadataInfo (MetadataInfo'),
@@ -1617,9 +1978,25 @@ module Amazonka.Glue
     MetadataKeyValuePair (MetadataKeyValuePair'),
     newMetadataKeyValuePair,
 
+    -- ** MicrosoftSQLServerCatalogSource
+    MicrosoftSQLServerCatalogSource (MicrosoftSQLServerCatalogSource'),
+    newMicrosoftSQLServerCatalogSource,
+
+    -- ** MicrosoftSQLServerCatalogTarget
+    MicrosoftSQLServerCatalogTarget (MicrosoftSQLServerCatalogTarget'),
+    newMicrosoftSQLServerCatalogTarget,
+
     -- ** MongoDBTarget
     MongoDBTarget (MongoDBTarget'),
     newMongoDBTarget,
+
+    -- ** MySQLCatalogSource
+    MySQLCatalogSource (MySQLCatalogSource'),
+    newMySQLCatalogSource,
+
+    -- ** MySQLCatalogTarget
+    MySQLCatalogTarget (MySQLCatalogTarget'),
+    newMySQLCatalogTarget,
 
     -- ** Node
     Node (Node'),
@@ -1629,6 +2006,22 @@ module Amazonka.Glue
     NotificationProperty (NotificationProperty'),
     newNotificationProperty,
 
+    -- ** NullCheckBoxList
+    NullCheckBoxList (NullCheckBoxList'),
+    newNullCheckBoxList,
+
+    -- ** NullValueField
+    NullValueField (NullValueField'),
+    newNullValueField,
+
+    -- ** OracleSQLCatalogSource
+    OracleSQLCatalogSource (OracleSQLCatalogSource'),
+    newOracleSQLCatalogSource,
+
+    -- ** OracleSQLCatalogTarget
+    OracleSQLCatalogTarget (OracleSQLCatalogTarget'),
+    newOracleSQLCatalogTarget,
+
     -- ** Order
     Order (Order'),
     newOrder,
@@ -1636,6 +2029,10 @@ module Amazonka.Glue
     -- ** OtherMetadataValueListItem
     OtherMetadataValueListItem (OtherMetadataValueListItem'),
     newOtherMetadataValueListItem,
+
+    -- ** PIIDetection
+    PIIDetection (PIIDetection'),
+    newPIIDetection,
 
     -- ** Partition
     Partition (Partition'),
@@ -1665,6 +2062,14 @@ module Amazonka.Glue
     PhysicalConnectionRequirements (PhysicalConnectionRequirements'),
     newPhysicalConnectionRequirements,
 
+    -- ** PostgreSQLCatalogSource
+    PostgreSQLCatalogSource (PostgreSQLCatalogSource'),
+    newPostgreSQLCatalogSource,
+
+    -- ** PostgreSQLCatalogTarget
+    PostgreSQLCatalogTarget (PostgreSQLCatalogTarget'),
+    newPostgreSQLCatalogTarget,
+
     -- ** Predecessor
     Predecessor (Predecessor'),
     newPredecessor,
@@ -1685,6 +2090,14 @@ module Amazonka.Glue
     RecrawlPolicy (RecrawlPolicy'),
     newRecrawlPolicy,
 
+    -- ** RedshiftSource
+    RedshiftSource (RedshiftSource'),
+    newRedshiftSource,
+
+    -- ** RedshiftTarget
+    RedshiftTarget (RedshiftTarget'),
+    newRedshiftTarget,
+
     -- ** RegistryId
     RegistryId (RegistryId'),
     newRegistryId,
@@ -1693,13 +2106,57 @@ module Amazonka.Glue
     RegistryListItem (RegistryListItem'),
     newRegistryListItem,
 
+    -- ** RelationalCatalogSource
+    RelationalCatalogSource (RelationalCatalogSource'),
+    newRelationalCatalogSource,
+
+    -- ** RenameField
+    RenameField (RenameField'),
+    newRenameField,
+
     -- ** ResourceUri
     ResourceUri (ResourceUri'),
     newResourceUri,
 
+    -- ** S3CatalogSource
+    S3CatalogSource (S3CatalogSource'),
+    newS3CatalogSource,
+
+    -- ** S3CatalogTarget
+    S3CatalogTarget (S3CatalogTarget'),
+    newS3CatalogTarget,
+
+    -- ** S3CsvSource
+    S3CsvSource (S3CsvSource'),
+    newS3CsvSource,
+
+    -- ** S3DirectSourceAdditionalOptions
+    S3DirectSourceAdditionalOptions (S3DirectSourceAdditionalOptions'),
+    newS3DirectSourceAdditionalOptions,
+
+    -- ** S3DirectTarget
+    S3DirectTarget (S3DirectTarget'),
+    newS3DirectTarget,
+
     -- ** S3Encryption
     S3Encryption (S3Encryption'),
     newS3Encryption,
+
+    -- ** S3GlueParquetTarget
+    S3GlueParquetTarget (S3GlueParquetTarget'),
+    newS3GlueParquetTarget,
+
+    -- ** S3JsonSource
+    S3JsonSource (S3JsonSource'),
+    newS3JsonSource,
+
+    -- ** S3ParquetSource
+    S3ParquetSource (S3ParquetSource'),
+    newS3ParquetSource,
+
+    -- ** S3SourceAdditionalOptions
+    S3SourceAdditionalOptions (S3SourceAdditionalOptions'),
+    newS3SourceAdditionalOptions,
 
     -- ** S3Target
     S3Target (S3Target'),
@@ -1749,9 +2206,25 @@ module Amazonka.Glue
     Segment (Segment'),
     newSegment,
 
+    -- ** SelectFields
+    SelectFields (SelectFields'),
+    newSelectFields,
+
+    -- ** SelectFromCollection
+    SelectFromCollection (SelectFromCollection'),
+    newSelectFromCollection,
+
     -- ** SerDeInfo
     SerDeInfo (SerDeInfo'),
     newSerDeInfo,
+
+    -- ** Session
+    Session (Session'),
+    newSession,
+
+    -- ** SessionCommand
+    SessionCommand (SessionCommand'),
+    newSessionCommand,
 
     -- ** SkewedInfo
     SkewedInfo (SkewedInfo'),
@@ -1761,13 +2234,53 @@ module Amazonka.Glue
     SortCriterion (SortCriterion'),
     newSortCriterion,
 
+    -- ** SparkConnectorSource
+    SparkConnectorSource (SparkConnectorSource'),
+    newSparkConnectorSource,
+
+    -- ** SparkConnectorTarget
+    SparkConnectorTarget (SparkConnectorTarget'),
+    newSparkConnectorTarget,
+
+    -- ** SparkSQL
+    SparkSQL (SparkSQL'),
+    newSparkSQL,
+
+    -- ** Spigot
+    Spigot (Spigot'),
+    newSpigot,
+
+    -- ** SplitFields
+    SplitFields (SplitFields'),
+    newSplitFields,
+
+    -- ** SqlAlias
+    SqlAlias (SqlAlias'),
+    newSqlAlias,
+
     -- ** StartingEventBatchCondition
     StartingEventBatchCondition (StartingEventBatchCondition'),
     newStartingEventBatchCondition,
 
+    -- ** Statement
+    Statement (Statement'),
+    newStatement,
+
+    -- ** StatementOutput
+    StatementOutput (StatementOutput'),
+    newStatementOutput,
+
+    -- ** StatementOutputData
+    StatementOutputData (StatementOutputData'),
+    newStatementOutputData,
+
     -- ** StorageDescriptor
     StorageDescriptor (StorageDescriptor'),
     newStorageDescriptor,
+
+    -- ** StreamingDataPreviewOptions
+    StreamingDataPreviewOptions (StreamingDataPreviewOptions'),
+    newStreamingDataPreviewOptions,
 
     -- ** StringColumnStatisticsData
     StringColumnStatisticsData (StringColumnStatisticsData'),
@@ -1841,6 +2354,14 @@ module Amazonka.Glue
     TriggerUpdate (TriggerUpdate'),
     newTriggerUpdate,
 
+    -- ** UnfilteredPartition
+    UnfilteredPartition (UnfilteredPartition'),
+    newUnfilteredPartition,
+
+    -- ** Union
+    Union (Union'),
+    newUnion,
+
     -- ** UpdateCsvClassifierRequest
     UpdateCsvClassifierRequest (UpdateCsvClassifierRequest'),
     newUpdateCsvClassifierRequest,
@@ -1856,6 +2377,10 @@ module Amazonka.Glue
     -- ** UpdateXMLClassifierRequest
     UpdateXMLClassifierRequest (UpdateXMLClassifierRequest'),
     newUpdateXMLClassifierRequest,
+
+    -- ** UpsertRedshiftTargetOptions
+    UpsertRedshiftTargetOptions (UpsertRedshiftTargetOptions'),
+    newUpsertRedshiftTargetOptions,
 
     -- ** UserDefinedFunction
     UserDefinedFunction (UserDefinedFunction'),
@@ -1894,6 +2419,7 @@ import Amazonka.Glue.BatchDeleteTable
 import Amazonka.Glue.BatchDeleteTableVersion
 import Amazonka.Glue.BatchGetBlueprints
 import Amazonka.Glue.BatchGetCrawlers
+import Amazonka.Glue.BatchGetCustomEntityTypes
 import Amazonka.Glue.BatchGetDevEndpoints
 import Amazonka.Glue.BatchGetJobs
 import Amazonka.Glue.BatchGetPartition
@@ -1902,11 +2428,13 @@ import Amazonka.Glue.BatchGetWorkflows
 import Amazonka.Glue.BatchStopJobRun
 import Amazonka.Glue.BatchUpdatePartition
 import Amazonka.Glue.CancelMLTaskRun
+import Amazonka.Glue.CancelStatement
 import Amazonka.Glue.CheckSchemaVersionValidity
 import Amazonka.Glue.CreateBlueprint
 import Amazonka.Glue.CreateClassifier
 import Amazonka.Glue.CreateConnection
 import Amazonka.Glue.CreateCrawler
+import Amazonka.Glue.CreateCustomEntityType
 import Amazonka.Glue.CreateDatabase
 import Amazonka.Glue.CreateDevEndpoint
 import Amazonka.Glue.CreateJob
@@ -1917,6 +2445,7 @@ import Amazonka.Glue.CreateRegistry
 import Amazonka.Glue.CreateSchema
 import Amazonka.Glue.CreateScript
 import Amazonka.Glue.CreateSecurityConfiguration
+import Amazonka.Glue.CreateSession
 import Amazonka.Glue.CreateTable
 import Amazonka.Glue.CreateTrigger
 import Amazonka.Glue.CreateUserDefinedFunction
@@ -1927,6 +2456,7 @@ import Amazonka.Glue.DeleteColumnStatisticsForPartition
 import Amazonka.Glue.DeleteColumnStatisticsForTable
 import Amazonka.Glue.DeleteConnection
 import Amazonka.Glue.DeleteCrawler
+import Amazonka.Glue.DeleteCustomEntityType
 import Amazonka.Glue.DeleteDatabase
 import Amazonka.Glue.DeleteDevEndpoint
 import Amazonka.Glue.DeleteJob
@@ -1938,6 +2468,7 @@ import Amazonka.Glue.DeleteResourcePolicy
 import Amazonka.Glue.DeleteSchema
 import Amazonka.Glue.DeleteSchemaVersions
 import Amazonka.Glue.DeleteSecurityConfiguration
+import Amazonka.Glue.DeleteSession
 import Amazonka.Glue.DeleteTable
 import Amazonka.Glue.DeleteTableVersion
 import Amazonka.Glue.DeleteTrigger
@@ -1956,6 +2487,7 @@ import Amazonka.Glue.GetConnections
 import Amazonka.Glue.GetCrawler
 import Amazonka.Glue.GetCrawlerMetrics
 import Amazonka.Glue.GetCrawlers
+import Amazonka.Glue.GetCustomEntityType
 import Amazonka.Glue.GetDataCatalogEncryptionSettings
 import Amazonka.Glue.GetDatabase
 import Amazonka.Glue.GetDatabases
@@ -1985,6 +2517,8 @@ import Amazonka.Glue.GetSchemaVersion
 import Amazonka.Glue.GetSchemaVersionsDiff
 import Amazonka.Glue.GetSecurityConfiguration
 import Amazonka.Glue.GetSecurityConfigurations
+import Amazonka.Glue.GetSession
+import Amazonka.Glue.GetStatement
 import Amazonka.Glue.GetTable
 import Amazonka.Glue.GetTableVersion
 import Amazonka.Glue.GetTableVersions
@@ -1992,6 +2526,9 @@ import Amazonka.Glue.GetTables
 import Amazonka.Glue.GetTags
 import Amazonka.Glue.GetTrigger
 import Amazonka.Glue.GetTriggers
+import Amazonka.Glue.GetUnfilteredPartitionMetadata
+import Amazonka.Glue.GetUnfilteredPartitionsMetadata
+import Amazonka.Glue.GetUnfilteredTableMetadata
 import Amazonka.Glue.GetUserDefinedFunction
 import Amazonka.Glue.GetUserDefinedFunctions
 import Amazonka.Glue.GetWorkflow
@@ -2002,12 +2539,16 @@ import Amazonka.Glue.ImportCatalogToGlue
 import Amazonka.Glue.Lens
 import Amazonka.Glue.ListBlueprints
 import Amazonka.Glue.ListCrawlers
+import Amazonka.Glue.ListCrawls
+import Amazonka.Glue.ListCustomEntityTypes
 import Amazonka.Glue.ListDevEndpoints
 import Amazonka.Glue.ListJobs
 import Amazonka.Glue.ListMLTransforms
 import Amazonka.Glue.ListRegistries
 import Amazonka.Glue.ListSchemaVersions
 import Amazonka.Glue.ListSchemas
+import Amazonka.Glue.ListSessions
+import Amazonka.Glue.ListStatements
 import Amazonka.Glue.ListTriggers
 import Amazonka.Glue.ListWorkflows
 import Amazonka.Glue.PutDataCatalogEncryptionSettings
@@ -2019,6 +2560,7 @@ import Amazonka.Glue.RegisterSchemaVersion
 import Amazonka.Glue.RemoveSchemaVersionMetadata
 import Amazonka.Glue.ResetJobBookmark
 import Amazonka.Glue.ResumeWorkflowRun
+import Amazonka.Glue.RunStatement
 import Amazonka.Glue.SearchTables
 import Amazonka.Glue.StartBlueprintRun
 import Amazonka.Glue.StartCrawler
@@ -2032,6 +2574,7 @@ import Amazonka.Glue.StartTrigger
 import Amazonka.Glue.StartWorkflowRun
 import Amazonka.Glue.StopCrawler
 import Amazonka.Glue.StopCrawlerSchedule
+import Amazonka.Glue.StopSession
 import Amazonka.Glue.StopTrigger
 import Amazonka.Glue.StopWorkflowRun
 import Amazonka.Glue.TagResource

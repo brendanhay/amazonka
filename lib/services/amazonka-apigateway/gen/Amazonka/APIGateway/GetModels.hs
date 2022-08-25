@@ -60,7 +60,7 @@ data GetModels = GetModels'
     limit :: Prelude.Maybe Prelude.Int,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetModels = GetModels'
 --
 -- 'position', 'getModels_position' - The current pagination position in the paged result set.
 --
--- 'restApiId', 'getModels_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getModels_restApiId' - The string identifier of the associated RestApi.
 newGetModels ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -99,7 +99,7 @@ getModels_limit = Lens.lens (\GetModels' {limit} -> limit) (\s@GetModels' {} a -
 getModels_position :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
 getModels_position = Lens.lens (\GetModels' {position} -> position) (\s@GetModels' {} a -> s {position = a} :: GetModels)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getModels_restApiId :: Lens.Lens' GetModels Prelude.Text
 getModels_restApiId = Lens.lens (\GetModels' {restApiId} -> restApiId) (\s@GetModels' {} a -> s {restApiId = a} :: GetModels)
 
@@ -166,9 +166,6 @@ instance Core.ToQuery GetModels where
       ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of Model resources.
---
--- Method, MethodResponse,
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
 -- /See:/ 'newGetModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.StatusFilter
   ( StatusFilter
       ( ..,
         StatusFilter_DEPLOYMENT_ERROR,
+        StatusFilter_DEPLOYMENT_FAILED,
         StatusFilter_DEPLOYMENT_SUCCEEDED,
         StatusFilter_PROCESSING_DEPLOYMENT,
         StatusFilter_PROCESSING_REMOVAL,
@@ -64,6 +65,9 @@ newtype StatusFilter = StatusFilter'
 pattern StatusFilter_DEPLOYMENT_ERROR :: StatusFilter
 pattern StatusFilter_DEPLOYMENT_ERROR = StatusFilter' "DEPLOYMENT_ERROR"
 
+pattern StatusFilter_DEPLOYMENT_FAILED :: StatusFilter
+pattern StatusFilter_DEPLOYMENT_FAILED = StatusFilter' "DEPLOYMENT_FAILED"
+
 pattern StatusFilter_DEPLOYMENT_SUCCEEDED :: StatusFilter
 pattern StatusFilter_DEPLOYMENT_SUCCEEDED = StatusFilter' "DEPLOYMENT_SUCCEEDED"
 
@@ -81,6 +85,7 @@ pattern StatusFilter_REMOVAL_SUCCEEDED = StatusFilter' "REMOVAL_SUCCEEDED"
 
 {-# COMPLETE
   StatusFilter_DEPLOYMENT_ERROR,
+  StatusFilter_DEPLOYMENT_FAILED,
   StatusFilter_DEPLOYMENT_SUCCEEDED,
   StatusFilter_PROCESSING_DEPLOYMENT,
   StatusFilter_PROCESSING_REMOVAL,

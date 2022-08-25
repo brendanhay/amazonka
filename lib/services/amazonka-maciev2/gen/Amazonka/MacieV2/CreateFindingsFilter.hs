@@ -71,8 +71,8 @@ data CreateFindingsFilter = CreateFindingsFilter'
     --
     -- We strongly recommend that you avoid including any sensitive data in the
     -- description of a filter. Other users of your account might be able to
-    -- see the filter\'s description, depending on the actions that they\'re
-    -- allowed to perform in Amazon Macie.
+    -- see this description, depending on the actions that they\'re allowed to
+    -- perform in Amazon Macie.
     description :: Prelude.Maybe Prelude.Text,
     -- | The position of the filter in the list of saved filters on the Amazon
     -- Macie console. This value also determines the order in which the filter
@@ -90,9 +90,9 @@ data CreateFindingsFilter = CreateFindingsFilter'
     -- characters and can contain as many as 64 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
-    -- name of a filter. Other users of your account might be able to see the
-    -- filter\'s name, depending on the actions that they\'re allowed to
-    -- perform in Amazon Macie.
+    -- name of a filter. Other users of your account might be able to see this
+    -- name, depending on the actions that they\'re allowed to perform in
+    -- Amazon Macie.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -120,8 +120,8 @@ data CreateFindingsFilter = CreateFindingsFilter'
 --
 -- We strongly recommend that you avoid including any sensitive data in the
 -- description of a filter. Other users of your account might be able to
--- see the filter\'s description, depending on the actions that they\'re
--- allowed to perform in Amazon Macie.
+-- see this description, depending on the actions that they\'re allowed to
+-- perform in Amazon Macie.
 --
 -- 'position', 'createFindingsFilter_position' - The position of the filter in the list of saved filters on the Amazon
 -- Macie console. This value also determines the order in which the filter
@@ -139,9 +139,9 @@ data CreateFindingsFilter = CreateFindingsFilter'
 -- characters and can contain as many as 64 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- name of a filter. Other users of your account might be able to see the
--- filter\'s name, depending on the actions that they\'re allowed to
--- perform in Amazon Macie.
+-- name of a filter. Other users of your account might be able to see this
+-- name, depending on the actions that they\'re allowed to perform in
+-- Amazon Macie.
 newCreateFindingsFilter ::
   -- | 'action'
   FindingsFilterAction ->
@@ -183,8 +183,8 @@ createFindingsFilter_clientToken = Lens.lens (\CreateFindingsFilter' {clientToke
 --
 -- We strongly recommend that you avoid including any sensitive data in the
 -- description of a filter. Other users of your account might be able to
--- see the filter\'s description, depending on the actions that they\'re
--- allowed to perform in Amazon Macie.
+-- see this description, depending on the actions that they\'re allowed to
+-- perform in Amazon Macie.
 createFindingsFilter_description :: Lens.Lens' CreateFindingsFilter (Prelude.Maybe Prelude.Text)
 createFindingsFilter_description = Lens.lens (\CreateFindingsFilter' {description} -> description) (\s@CreateFindingsFilter' {} a -> s {description = a} :: CreateFindingsFilter)
 
@@ -210,9 +210,9 @@ createFindingsFilter_findingCriteria = Lens.lens (\CreateFindingsFilter' {findin
 -- characters and can contain as many as 64 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- name of a filter. Other users of your account might be able to see the
--- filter\'s name, depending on the actions that they\'re allowed to
--- perform in Amazon Macie.
+-- name of a filter. Other users of your account might be able to see this
+-- name, depending on the actions that they\'re allowed to perform in
+-- Amazon Macie.
 createFindingsFilter_name :: Lens.Lens' CreateFindingsFilter Prelude.Text
 createFindingsFilter_name = Lens.lens (\CreateFindingsFilter' {name} -> name) (\s@CreateFindingsFilter' {} a -> s {name = a} :: CreateFindingsFilter)
 

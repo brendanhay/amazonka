@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a call analytics category using its name.
+-- Deletes a Call Analytics category. To use this operation, specify the
+-- name of the category you want to delete using @CategoryName@. Category
+-- names are case sensitive.
 module Amazonka.Transcribe.DeleteCallAnalyticsCategory
   ( -- * Creating a Request
     DeleteCallAnalyticsCategory (..),
@@ -47,8 +49,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteCallAnalyticsCategory' smart constructor.
 data DeleteCallAnalyticsCategory = DeleteCallAnalyticsCategory'
-  { -- | The name of the call analytics category that you\'re choosing to delete.
-    -- The value is case sensitive.
+  { -- | The name of the Call Analytics category you want to delete. Category
+    -- names are case sensitive.
     categoryName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +63,8 @@ data DeleteCallAnalyticsCategory = DeleteCallAnalyticsCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'categoryName', 'deleteCallAnalyticsCategory_categoryName' - The name of the call analytics category that you\'re choosing to delete.
--- The value is case sensitive.
+-- 'categoryName', 'deleteCallAnalyticsCategory_categoryName' - The name of the Call Analytics category you want to delete. Category
+-- names are case sensitive.
 newDeleteCallAnalyticsCategory ::
   -- | 'categoryName'
   Prelude.Text ->
@@ -73,8 +75,8 @@ newDeleteCallAnalyticsCategory pCategoryName_ =
         pCategoryName_
     }
 
--- | The name of the call analytics category that you\'re choosing to delete.
--- The value is case sensitive.
+-- | The name of the Call Analytics category you want to delete. Category
+-- names are case sensitive.
 deleteCallAnalyticsCategory_categoryName :: Lens.Lens' DeleteCallAnalyticsCategory Prelude.Text
 deleteCallAnalyticsCategory_categoryName = Lens.lens (\DeleteCallAnalyticsCategory' {categoryName} -> categoryName) (\s@DeleteCallAnalyticsCategory' {} a -> s {categoryName = a} :: DeleteCallAnalyticsCategory)
 

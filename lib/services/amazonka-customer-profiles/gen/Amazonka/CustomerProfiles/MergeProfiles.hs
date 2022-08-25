@@ -20,8 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and subject to change.
---
 -- Runs an AWS Lambda job that does the following:
 --
 -- 1.  All the profileKeys in the @ProfileToBeMerged@ will be moved to the

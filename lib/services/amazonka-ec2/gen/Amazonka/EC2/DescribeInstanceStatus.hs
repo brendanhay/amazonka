@@ -31,7 +31,7 @@
 --     information, see
 --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html Status checks for your instances>
 --     and
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html Troubleshooting instances with failed status checks>
+--     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html Troubleshoot instances with failed status checks>
 --     in the /Amazon EC2 User Guide/.
 --
 -- -   __Scheduled events__ - Amazon EC2 can schedule events (such as

@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListRouteCalculatorsResponseEntry' smart constructor.
 data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
-  { -- | The name of the route calculator resource.
+  { -- | Always returns @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | The name of the route calculator resource.
     calculatorName :: Prelude.Text,
     -- | The timestamp when the route calculator resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -48,11 +50,6 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
     dataSource :: Prelude.Text,
     -- | The optional description of the route calculator resource.
     description :: Prelude.Text,
-    -- | The pricing plan for the specified route calculator resource.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: PricingPlan,
     -- | The timestamp when the route calculator resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -69,6 +66,8 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'pricingPlan', 'listRouteCalculatorsResponseEntry_pricingPlan' - Always returns @RequestBasedUsage@.
 --
 -- 'calculatorName', 'listRouteCalculatorsResponseEntry_calculatorName' - The name of the route calculator resource.
 --
@@ -90,11 +89,6 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
 --
 -- 'description', 'listRouteCalculatorsResponseEntry_description' - The optional description of the route calculator resource.
 --
--- 'pricingPlan', 'listRouteCalculatorsResponseEntry_pricingPlan' - The pricing plan for the specified route calculator resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
---
 -- 'updateTime', 'listRouteCalculatorsResponseEntry_updateTime' - The timestamp when the route calculator resource was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -109,8 +103,6 @@ newListRouteCalculatorsResponseEntry ::
   Prelude.Text ->
   -- | 'description'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   ListRouteCalculatorsResponseEntry
@@ -119,19 +111,22 @@ newListRouteCalculatorsResponseEntry
   pCreateTime_
   pDataSource_
   pDescription_
-  pPricingPlan_
   pUpdateTime_ =
     ListRouteCalculatorsResponseEntry'
-      { calculatorName =
-          pCalculatorName_,
+      { pricingPlan =
+          Prelude.Nothing,
+        calculatorName = pCalculatorName_,
         createTime =
           Core._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
-        pricingPlan = pPricingPlan_,
         updateTime =
           Core._Time Lens.# pUpdateTime_
       }
+
+-- | Always returns @RequestBasedUsage@.
+listRouteCalculatorsResponseEntry_pricingPlan :: Lens.Lens' ListRouteCalculatorsResponseEntry (Prelude.Maybe PricingPlan)
+listRouteCalculatorsResponseEntry_pricingPlan = Lens.lens (\ListRouteCalculatorsResponseEntry' {pricingPlan} -> pricingPlan) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {pricingPlan = a} :: ListRouteCalculatorsResponseEntry)
 
 -- | The name of the route calculator resource.
 listRouteCalculatorsResponseEntry_calculatorName :: Lens.Lens' ListRouteCalculatorsResponseEntry Prelude.Text
@@ -161,13 +156,6 @@ listRouteCalculatorsResponseEntry_dataSource = Lens.lens (\ListRouteCalculatorsR
 listRouteCalculatorsResponseEntry_description :: Lens.Lens' ListRouteCalculatorsResponseEntry Prelude.Text
 listRouteCalculatorsResponseEntry_description = Lens.lens (\ListRouteCalculatorsResponseEntry' {description} -> description) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {description = a} :: ListRouteCalculatorsResponseEntry)
 
--- | The pricing plan for the specified route calculator resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-listRouteCalculatorsResponseEntry_pricingPlan :: Lens.Lens' ListRouteCalculatorsResponseEntry PricingPlan
-listRouteCalculatorsResponseEntry_pricingPlan = Lens.lens (\ListRouteCalculatorsResponseEntry' {pricingPlan} -> pricingPlan) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {pricingPlan = a} :: ListRouteCalculatorsResponseEntry)
-
 -- | The timestamp when the route calculator resource was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -185,11 +173,11 @@ instance
       "ListRouteCalculatorsResponseEntry"
       ( \x ->
           ListRouteCalculatorsResponseEntry'
-            Prelude.<$> (x Core..: "CalculatorName")
+            Prelude.<$> (x Core..:? "PricingPlan")
+            Prelude.<*> (x Core..: "CalculatorName")
             Prelude.<*> (x Core..: "CreateTime")
             Prelude.<*> (x Core..: "DataSource")
             Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "PricingPlan")
             Prelude.<*> (x Core..: "UpdateTime")
       )
 
@@ -200,11 +188,11 @@ instance
   hashWithSalt
     _salt
     ListRouteCalculatorsResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` calculatorName
+      _salt `Prelude.hashWithSalt` pricingPlan
+        `Prelude.hashWithSalt` calculatorName
         `Prelude.hashWithSalt` createTime
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` description
-        `Prelude.hashWithSalt` pricingPlan
         `Prelude.hashWithSalt` updateTime
 
 instance
@@ -212,9 +200,9 @@ instance
     ListRouteCalculatorsResponseEntry
   where
   rnf ListRouteCalculatorsResponseEntry' {..} =
-    Prelude.rnf calculatorName
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf updateTime

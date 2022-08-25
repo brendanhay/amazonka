@@ -106,6 +106,12 @@ module Amazonka.OpenSearch.Lens
     describeDomainAutoTunesResponse_autoTunes,
     describeDomainAutoTunesResponse_httpStatus,
 
+    -- ** DescribeDomainChangeProgress
+    describeDomainChangeProgress_changeId,
+    describeDomainChangeProgress_domainName,
+    describeDomainChangeProgressResponse_changeProgressStatus,
+    describeDomainChangeProgressResponse_httpStatus,
+
     -- ** DescribeDomainConfig
     describeDomainConfig_domainName,
     describeDomainConfigResponse_httpStatus,
@@ -269,6 +275,7 @@ module Amazonka.OpenSearch.Lens
     updateDomainConfig_advancedSecurityOptions,
     updateDomainConfig_cognitoOptions,
     updateDomainConfig_encryptionAtRestOptions,
+    updateDomainConfig_dryRun,
     updateDomainConfig_eBSOptions,
     updateDomainConfig_accessPolicies,
     updateDomainConfig_vPCOptions,
@@ -277,6 +284,7 @@ module Amazonka.OpenSearch.Lens
     updateDomainConfig_snapshotOptions,
     updateDomainConfig_logPublishingOptions,
     updateDomainConfig_domainName,
+    updateDomainConfigResponse_dryRunResults,
     updateDomainConfigResponse_httpStatus,
     updateDomainConfigResponse_domainConfig,
 
@@ -294,6 +302,7 @@ module Amazonka.OpenSearch.Lens
     upgradeDomain_domainName,
     upgradeDomain_targetVersion,
     upgradeDomainResponse_advancedOptions,
+    upgradeDomainResponse_changeProgressDetails,
     upgradeDomainResponse_domainName,
     upgradeDomainResponse_targetVersion,
     upgradeDomainResponse_performCheckOnly,
@@ -322,11 +331,14 @@ module Amazonka.OpenSearch.Lens
     -- ** AdvancedSecurityOptions
     advancedSecurityOptions_internalUserDatabaseEnabled,
     advancedSecurityOptions_sAMLOptions,
+    advancedSecurityOptions_anonymousAuthEnabled,
     advancedSecurityOptions_enabled,
+    advancedSecurityOptions_anonymousAuthDisableDate,
 
     -- ** AdvancedSecurityOptionsInput
     advancedSecurityOptionsInput_internalUserDatabaseEnabled,
     advancedSecurityOptionsInput_sAMLOptions,
+    advancedSecurityOptionsInput_anonymousAuthEnabled,
     advancedSecurityOptionsInput_enabled,
     advancedSecurityOptionsInput_masterUserOptions,
 
@@ -371,6 +383,25 @@ module Amazonka.OpenSearch.Lens
     autoTuneStatus_updateDate,
     autoTuneStatus_state,
 
+    -- ** ChangeProgressDetails
+    changeProgressDetails_message,
+    changeProgressDetails_changeId,
+
+    -- ** ChangeProgressStage
+    changeProgressStage_name,
+    changeProgressStage_status,
+    changeProgressStage_description,
+    changeProgressStage_lastUpdated,
+
+    -- ** ChangeProgressStatusDetails
+    changeProgressStatusDetails_totalNumberOfStages,
+    changeProgressStatusDetails_changeId,
+    changeProgressStatusDetails_pendingProperties,
+    changeProgressStatusDetails_status,
+    changeProgressStatusDetails_changeProgressStages,
+    changeProgressStatusDetails_completedProperties,
+    changeProgressStatusDetails_startTime,
+
     -- ** ClusterConfig
     clusterConfig_warmCount,
     clusterConfig_coldStorageOptions,
@@ -413,6 +444,7 @@ module Amazonka.OpenSearch.Lens
     domainConfig_nodeToNodeEncryptionOptions,
     domainConfig_clusterConfig,
     domainConfig_advancedOptions,
+    domainConfig_changeProgressDetails,
     domainConfig_advancedSecurityOptions,
     domainConfig_cognitoOptions,
     domainConfig_encryptionAtRestOptions,
@@ -457,6 +489,7 @@ module Amazonka.OpenSearch.Lens
     -- ** DomainStatus
     domainStatus_nodeToNodeEncryptionOptions,
     domainStatus_advancedOptions,
+    domainStatus_changeProgressDetails,
     domainStatus_deleted,
     domainStatus_created,
     domainStatus_advancedSecurityOptions,
@@ -480,6 +513,10 @@ module Amazonka.OpenSearch.Lens
     domainStatus_arn,
     domainStatus_clusterConfig,
 
+    -- ** DryRunResults
+    dryRunResults_message,
+    dryRunResults_deploymentType,
+
     -- ** Duration
     duration_unit,
     duration_value,
@@ -487,6 +524,7 @@ module Amazonka.OpenSearch.Lens
     -- ** EBSOptions
     eBSOptions_volumeType,
     eBSOptions_volumeSize,
+    eBSOptions_throughput,
     eBSOptions_eBSEnabled,
     eBSOptions_iops,
 
@@ -733,6 +771,7 @@ import Amazonka.OpenSearch.DeleteOutboundConnection
 import Amazonka.OpenSearch.DeletePackage
 import Amazonka.OpenSearch.DescribeDomain
 import Amazonka.OpenSearch.DescribeDomainAutoTunes
+import Amazonka.OpenSearch.DescribeDomainChangeProgress
 import Amazonka.OpenSearch.DescribeDomainConfig
 import Amazonka.OpenSearch.DescribeDomains
 import Amazonka.OpenSearch.DescribeInboundConnections
@@ -771,6 +810,9 @@ import Amazonka.OpenSearch.Types.AutoTuneOptionsInput
 import Amazonka.OpenSearch.Types.AutoTuneOptionsOutput
 import Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
 import Amazonka.OpenSearch.Types.AutoTuneStatus
+import Amazonka.OpenSearch.Types.ChangeProgressDetails
+import Amazonka.OpenSearch.Types.ChangeProgressStage
+import Amazonka.OpenSearch.Types.ChangeProgressStatusDetails
 import Amazonka.OpenSearch.Types.ClusterConfig
 import Amazonka.OpenSearch.Types.ClusterConfigStatus
 import Amazonka.OpenSearch.Types.CognitoOptions
@@ -785,6 +827,7 @@ import Amazonka.OpenSearch.Types.DomainInfo
 import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.DomainPackageDetails
 import Amazonka.OpenSearch.Types.DomainStatus
+import Amazonka.OpenSearch.Types.DryRunResults
 import Amazonka.OpenSearch.Types.Duration
 import Amazonka.OpenSearch.Types.EBSOptions
 import Amazonka.OpenSearch.Types.EBSOptionsStatus

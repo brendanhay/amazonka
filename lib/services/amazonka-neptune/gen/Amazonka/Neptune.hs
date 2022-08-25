@@ -122,6 +122,9 @@ module Amazonka.Neptune
     -- ** InvalidDBInstanceStateFault
     _InvalidDBInstanceStateFault,
 
+    -- ** GlobalClusterNotFoundFault
+    _GlobalClusterNotFoundFault,
+
     -- ** AuthorizationNotFoundFault
     _AuthorizationNotFoundFault,
 
@@ -145,6 +148,9 @@ module Amazonka.Neptune
 
     -- ** DBSubnetGroupDoesNotCoverEnoughAZs
     _DBSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** GlobalClusterQuotaExceededFault
+    _GlobalClusterQuotaExceededFault,
 
     -- ** StorageTypeNotSupportedFault
     _StorageTypeNotSupportedFault,
@@ -173,6 +179,9 @@ module Amazonka.Neptune
     -- ** DBSubnetQuotaExceededFault
     _DBSubnetQuotaExceededFault,
 
+    -- ** GlobalClusterAlreadyExistsFault
+    _GlobalClusterAlreadyExistsFault,
+
     -- ** ResourceNotFoundFault
     _ResourceNotFoundFault,
 
@@ -199,6 +208,9 @@ module Amazonka.Neptune
 
     -- ** ProvisionedIopsNotAvailableInAZFault
     _ProvisionedIopsNotAvailableInAZFault,
+
+    -- ** InvalidGlobalClusterStateFault
+    _InvalidGlobalClusterStateFault,
 
     -- ** InvalidDBClusterEndpointStateFault
     _InvalidDBClusterEndpointStateFault,
@@ -332,6 +344,12 @@ module Amazonka.Neptune
     CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
     newCreateEventSubscriptionResponse,
 
+    -- ** CreateGlobalCluster
+    CreateGlobalCluster (CreateGlobalCluster'),
+    newCreateGlobalCluster,
+    CreateGlobalClusterResponse (CreateGlobalClusterResponse'),
+    newCreateGlobalClusterResponse,
+
     -- ** DeleteDBCluster
     DeleteDBCluster (DeleteDBCluster'),
     newDeleteDBCluster,
@@ -379,6 +397,12 @@ module Amazonka.Neptune
     newDeleteEventSubscription,
     DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
     newDeleteEventSubscriptionResponse,
+
+    -- ** DeleteGlobalCluster
+    DeleteGlobalCluster (DeleteGlobalCluster'),
+    newDeleteGlobalCluster,
+    DeleteGlobalClusterResponse (DeleteGlobalClusterResponse'),
+    newDeleteGlobalClusterResponse,
 
     -- ** DescribeDBClusterEndpoints (Paginated)
     DescribeDBClusterEndpoints (DescribeDBClusterEndpoints'),
@@ -476,6 +500,12 @@ module Amazonka.Neptune
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
+    -- ** DescribeGlobalClusters
+    DescribeGlobalClusters (DescribeGlobalClusters'),
+    newDescribeGlobalClusters,
+    DescribeGlobalClustersResponse (DescribeGlobalClustersResponse'),
+    newDescribeGlobalClustersResponse,
+
     -- ** DescribeOrderableDBInstanceOptions (Paginated)
     DescribeOrderableDBInstanceOptions (DescribeOrderableDBInstanceOptions'),
     newDescribeOrderableDBInstanceOptions,
@@ -499,6 +529,12 @@ module Amazonka.Neptune
     newFailoverDBCluster,
     FailoverDBClusterResponse (FailoverDBClusterResponse'),
     newFailoverDBClusterResponse,
+
+    -- ** FailoverGlobalCluster
+    FailoverGlobalCluster (FailoverGlobalCluster'),
+    newFailoverGlobalCluster,
+    FailoverGlobalClusterResponse (FailoverGlobalClusterResponse'),
+    newFailoverGlobalClusterResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -554,6 +590,12 @@ module Amazonka.Neptune
     ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
     newModifyEventSubscriptionResponse,
 
+    -- ** ModifyGlobalCluster
+    ModifyGlobalCluster (ModifyGlobalCluster'),
+    newModifyGlobalCluster,
+    ModifyGlobalClusterResponse (ModifyGlobalClusterResponse'),
+    newModifyGlobalClusterResponse,
+
     -- ** PromoteReadReplicaDBCluster
     PromoteReadReplicaDBCluster (PromoteReadReplicaDBCluster'),
     newPromoteReadReplicaDBCluster,
@@ -565,6 +607,12 @@ module Amazonka.Neptune
     newRebootDBInstance,
     RebootDBInstanceResponse (RebootDBInstanceResponse'),
     newRebootDBInstanceResponse,
+
+    -- ** RemoveFromGlobalCluster
+    RemoveFromGlobalCluster (RemoveFromGlobalCluster'),
+    newRemoveFromGlobalCluster,
+    RemoveFromGlobalClusterResponse (RemoveFromGlobalClusterResponse'),
+    newRemoveFromGlobalClusterResponse,
 
     -- ** RemoveRoleFromDBCluster
     RemoveRoleFromDBCluster (RemoveRoleFromDBCluster'),
@@ -744,6 +792,14 @@ module Amazonka.Neptune
     Filter (Filter'),
     newFilter,
 
+    -- ** GlobalCluster
+    GlobalCluster (GlobalCluster'),
+    newGlobalCluster,
+
+    -- ** GlobalClusterMember
+    GlobalClusterMember (GlobalClusterMember'),
+    newGlobalClusterMember,
+
     -- ** OptionGroupMembership
     OptionGroupMembership (OptionGroupMembership'),
     newOptionGroupMembership,
@@ -821,6 +877,7 @@ import Amazonka.Neptune.CreateDBInstance
 import Amazonka.Neptune.CreateDBParameterGroup
 import Amazonka.Neptune.CreateDBSubnetGroup
 import Amazonka.Neptune.CreateEventSubscription
+import Amazonka.Neptune.CreateGlobalCluster
 import Amazonka.Neptune.DeleteDBCluster
 import Amazonka.Neptune.DeleteDBClusterEndpoint
 import Amazonka.Neptune.DeleteDBClusterParameterGroup
@@ -829,6 +886,7 @@ import Amazonka.Neptune.DeleteDBInstance
 import Amazonka.Neptune.DeleteDBParameterGroup
 import Amazonka.Neptune.DeleteDBSubnetGroup
 import Amazonka.Neptune.DeleteEventSubscription
+import Amazonka.Neptune.DeleteGlobalCluster
 import Amazonka.Neptune.DescribeDBClusterEndpoints
 import Amazonka.Neptune.DescribeDBClusterParameterGroups
 import Amazonka.Neptune.DescribeDBClusterParameters
@@ -845,10 +903,12 @@ import Amazonka.Neptune.DescribeEngineDefaultParameters
 import Amazonka.Neptune.DescribeEventCategories
 import Amazonka.Neptune.DescribeEventSubscriptions
 import Amazonka.Neptune.DescribeEvents
+import Amazonka.Neptune.DescribeGlobalClusters
 import Amazonka.Neptune.DescribeOrderableDBInstanceOptions
 import Amazonka.Neptune.DescribePendingMaintenanceActions
 import Amazonka.Neptune.DescribeValidDBInstanceModifications
 import Amazonka.Neptune.FailoverDBCluster
+import Amazonka.Neptune.FailoverGlobalCluster
 import Amazonka.Neptune.Lens
 import Amazonka.Neptune.ListTagsForResource
 import Amazonka.Neptune.ModifyDBCluster
@@ -859,8 +919,10 @@ import Amazonka.Neptune.ModifyDBInstance
 import Amazonka.Neptune.ModifyDBParameterGroup
 import Amazonka.Neptune.ModifyDBSubnetGroup
 import Amazonka.Neptune.ModifyEventSubscription
+import Amazonka.Neptune.ModifyGlobalCluster
 import Amazonka.Neptune.PromoteReadReplicaDBCluster
 import Amazonka.Neptune.RebootDBInstance
+import Amazonka.Neptune.RemoveFromGlobalCluster
 import Amazonka.Neptune.RemoveRoleFromDBCluster
 import Amazonka.Neptune.RemoveSourceIdentifierFromSubscription
 import Amazonka.Neptune.RemoveTagsFromResource

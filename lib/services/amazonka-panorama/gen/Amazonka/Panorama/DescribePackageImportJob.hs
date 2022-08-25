@@ -37,13 +37,13 @@ module Amazonka.Panorama.DescribePackageImportJob
     describePackageImportJobResponse_clientToken,
     describePackageImportJobResponse_jobTags,
     describePackageImportJobResponse_httpStatus,
+    describePackageImportJobResponse_createdTime,
+    describePackageImportJobResponse_inputConfig,
     describePackageImportJobResponse_jobId,
     describePackageImportJobResponse_jobType,
-    describePackageImportJobResponse_inputConfig,
-    describePackageImportJobResponse_outputConfig,
-    describePackageImportJobResponse_output,
-    describePackageImportJobResponse_createdTime,
     describePackageImportJobResponse_lastUpdatedTime,
+    describePackageImportJobResponse_output,
+    describePackageImportJobResponse_outputConfig,
     describePackageImportJobResponse_status,
     describePackageImportJobResponse_statusMessage,
   )
@@ -95,13 +95,13 @@ instance Core.AWSRequest DescribePackageImportJob where
             Prelude.<$> (x Core..?> "ClientToken")
             Prelude.<*> (x Core..?> "JobTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CreatedTime")
+            Prelude.<*> (x Core..:> "InputConfig")
             Prelude.<*> (x Core..:> "JobId")
             Prelude.<*> (x Core..:> "JobType")
-            Prelude.<*> (x Core..:> "InputConfig")
-            Prelude.<*> (x Core..:> "OutputConfig")
-            Prelude.<*> (x Core..:> "Output")
-            Prelude.<*> (x Core..:> "CreatedTime")
             Prelude.<*> (x Core..:> "LastUpdatedTime")
+            Prelude.<*> (x Core..:> "Output")
+            Prelude.<*> (x Core..:> "OutputConfig")
             Prelude.<*> (x Core..:> "Status")
             Prelude.<*> (x Core..:> "StatusMessage")
       )
@@ -140,20 +140,20 @@ data DescribePackageImportJobResponse = DescribePackageImportJobResponse'
     jobTags :: Prelude.Maybe [JobResourceTags],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | When the job was created.
+    createdTime :: Core.POSIX,
+    -- | The job\'s input config.
+    inputConfig :: PackageImportJobInputConfig,
     -- | The job\'s ID.
     jobId :: Prelude.Text,
     -- | The job\'s type.
     jobType :: PackageImportJobType,
-    -- | The job\'s input config.
-    inputConfig :: PackageImportJobInputConfig,
-    -- | The job\'s output config.
-    outputConfig :: PackageImportJobOutputConfig,
-    -- | The job\'s output.
-    output :: PackageImportJobOutput,
-    -- | When the job was created.
-    createdTime :: Core.POSIX,
     -- | When the job was updated.
     lastUpdatedTime :: Core.POSIX,
+    -- | The job\'s output.
+    output :: PackageImportJobOutput,
+    -- | The job\'s output config.
+    outputConfig :: PackageImportJobOutputConfig,
     -- | The job\'s status.
     status :: PackageImportJobStatus,
     -- | The job\'s status message.
@@ -175,19 +175,19 @@ data DescribePackageImportJobResponse = DescribePackageImportJobResponse'
 --
 -- 'httpStatus', 'describePackageImportJobResponse_httpStatus' - The response's http status code.
 --
+-- 'createdTime', 'describePackageImportJobResponse_createdTime' - When the job was created.
+--
+-- 'inputConfig', 'describePackageImportJobResponse_inputConfig' - The job\'s input config.
+--
 -- 'jobId', 'describePackageImportJobResponse_jobId' - The job\'s ID.
 --
 -- 'jobType', 'describePackageImportJobResponse_jobType' - The job\'s type.
 --
--- 'inputConfig', 'describePackageImportJobResponse_inputConfig' - The job\'s input config.
---
--- 'outputConfig', 'describePackageImportJobResponse_outputConfig' - The job\'s output config.
+-- 'lastUpdatedTime', 'describePackageImportJobResponse_lastUpdatedTime' - When the job was updated.
 --
 -- 'output', 'describePackageImportJobResponse_output' - The job\'s output.
 --
--- 'createdTime', 'describePackageImportJobResponse_createdTime' - When the job was created.
---
--- 'lastUpdatedTime', 'describePackageImportJobResponse_lastUpdatedTime' - When the job was updated.
+-- 'outputConfig', 'describePackageImportJobResponse_outputConfig' - The job\'s output config.
 --
 -- 'status', 'describePackageImportJobResponse_status' - The job\'s status.
 --
@@ -195,20 +195,20 @@ data DescribePackageImportJobResponse = DescribePackageImportJobResponse'
 newDescribePackageImportJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'createdTime'
+  Prelude.UTCTime ->
+  -- | 'inputConfig'
+  PackageImportJobInputConfig ->
   -- | 'jobId'
   Prelude.Text ->
   -- | 'jobType'
   PackageImportJobType ->
-  -- | 'inputConfig'
-  PackageImportJobInputConfig ->
-  -- | 'outputConfig'
-  PackageImportJobOutputConfig ->
-  -- | 'output'
-  PackageImportJobOutput ->
-  -- | 'createdTime'
-  Prelude.UTCTime ->
   -- | 'lastUpdatedTime'
   Prelude.UTCTime ->
+  -- | 'output'
+  PackageImportJobOutput ->
+  -- | 'outputConfig'
+  PackageImportJobOutputConfig ->
   -- | 'status'
   PackageImportJobStatus ->
   -- | 'statusMessage'
@@ -216,13 +216,13 @@ newDescribePackageImportJobResponse ::
   DescribePackageImportJobResponse
 newDescribePackageImportJobResponse
   pHttpStatus_
+  pCreatedTime_
+  pInputConfig_
   pJobId_
   pJobType_
-  pInputConfig_
-  pOutputConfig_
-  pOutput_
-  pCreatedTime_
   pLastUpdatedTime_
+  pOutput_
+  pOutputConfig_
   pStatus_
   pStatusMessage_ =
     DescribePackageImportJobResponse'
@@ -230,15 +230,15 @@ newDescribePackageImportJobResponse
           Prelude.Nothing,
         jobTags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        jobId = pJobId_,
-        jobType = pJobType_,
-        inputConfig = pInputConfig_,
-        outputConfig = pOutputConfig_,
-        output = pOutput_,
         createdTime =
           Core._Time Lens.# pCreatedTime_,
+        inputConfig = pInputConfig_,
+        jobId = pJobId_,
+        jobType = pJobType_,
         lastUpdatedTime =
           Core._Time Lens.# pLastUpdatedTime_,
+        output = pOutput_,
+        outputConfig = pOutputConfig_,
         status = pStatus_,
         statusMessage = pStatusMessage_
       }
@@ -255,6 +255,14 @@ describePackageImportJobResponse_jobTags = Lens.lens (\DescribePackageImportJobR
 describePackageImportJobResponse_httpStatus :: Lens.Lens' DescribePackageImportJobResponse Prelude.Int
 describePackageImportJobResponse_httpStatus = Lens.lens (\DescribePackageImportJobResponse' {httpStatus} -> httpStatus) (\s@DescribePackageImportJobResponse' {} a -> s {httpStatus = a} :: DescribePackageImportJobResponse)
 
+-- | When the job was created.
+describePackageImportJobResponse_createdTime :: Lens.Lens' DescribePackageImportJobResponse Prelude.UTCTime
+describePackageImportJobResponse_createdTime = Lens.lens (\DescribePackageImportJobResponse' {createdTime} -> createdTime) (\s@DescribePackageImportJobResponse' {} a -> s {createdTime = a} :: DescribePackageImportJobResponse) Prelude.. Core._Time
+
+-- | The job\'s input config.
+describePackageImportJobResponse_inputConfig :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobInputConfig
+describePackageImportJobResponse_inputConfig = Lens.lens (\DescribePackageImportJobResponse' {inputConfig} -> inputConfig) (\s@DescribePackageImportJobResponse' {} a -> s {inputConfig = a} :: DescribePackageImportJobResponse)
+
 -- | The job\'s ID.
 describePackageImportJobResponse_jobId :: Lens.Lens' DescribePackageImportJobResponse Prelude.Text
 describePackageImportJobResponse_jobId = Lens.lens (\DescribePackageImportJobResponse' {jobId} -> jobId) (\s@DescribePackageImportJobResponse' {} a -> s {jobId = a} :: DescribePackageImportJobResponse)
@@ -263,25 +271,17 @@ describePackageImportJobResponse_jobId = Lens.lens (\DescribePackageImportJobRes
 describePackageImportJobResponse_jobType :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobType
 describePackageImportJobResponse_jobType = Lens.lens (\DescribePackageImportJobResponse' {jobType} -> jobType) (\s@DescribePackageImportJobResponse' {} a -> s {jobType = a} :: DescribePackageImportJobResponse)
 
--- | The job\'s input config.
-describePackageImportJobResponse_inputConfig :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobInputConfig
-describePackageImportJobResponse_inputConfig = Lens.lens (\DescribePackageImportJobResponse' {inputConfig} -> inputConfig) (\s@DescribePackageImportJobResponse' {} a -> s {inputConfig = a} :: DescribePackageImportJobResponse)
-
--- | The job\'s output config.
-describePackageImportJobResponse_outputConfig :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobOutputConfig
-describePackageImportJobResponse_outputConfig = Lens.lens (\DescribePackageImportJobResponse' {outputConfig} -> outputConfig) (\s@DescribePackageImportJobResponse' {} a -> s {outputConfig = a} :: DescribePackageImportJobResponse)
+-- | When the job was updated.
+describePackageImportJobResponse_lastUpdatedTime :: Lens.Lens' DescribePackageImportJobResponse Prelude.UTCTime
+describePackageImportJobResponse_lastUpdatedTime = Lens.lens (\DescribePackageImportJobResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribePackageImportJobResponse' {} a -> s {lastUpdatedTime = a} :: DescribePackageImportJobResponse) Prelude.. Core._Time
 
 -- | The job\'s output.
 describePackageImportJobResponse_output :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobOutput
 describePackageImportJobResponse_output = Lens.lens (\DescribePackageImportJobResponse' {output} -> output) (\s@DescribePackageImportJobResponse' {} a -> s {output = a} :: DescribePackageImportJobResponse)
 
--- | When the job was created.
-describePackageImportJobResponse_createdTime :: Lens.Lens' DescribePackageImportJobResponse Prelude.UTCTime
-describePackageImportJobResponse_createdTime = Lens.lens (\DescribePackageImportJobResponse' {createdTime} -> createdTime) (\s@DescribePackageImportJobResponse' {} a -> s {createdTime = a} :: DescribePackageImportJobResponse) Prelude.. Core._Time
-
--- | When the job was updated.
-describePackageImportJobResponse_lastUpdatedTime :: Lens.Lens' DescribePackageImportJobResponse Prelude.UTCTime
-describePackageImportJobResponse_lastUpdatedTime = Lens.lens (\DescribePackageImportJobResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribePackageImportJobResponse' {} a -> s {lastUpdatedTime = a} :: DescribePackageImportJobResponse) Prelude.. Core._Time
+-- | The job\'s output config.
+describePackageImportJobResponse_outputConfig :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobOutputConfig
+describePackageImportJobResponse_outputConfig = Lens.lens (\DescribePackageImportJobResponse' {outputConfig} -> outputConfig) (\s@DescribePackageImportJobResponse' {} a -> s {outputConfig = a} :: DescribePackageImportJobResponse)
 
 -- | The job\'s status.
 describePackageImportJobResponse_status :: Lens.Lens' DescribePackageImportJobResponse PackageImportJobStatus
@@ -299,12 +299,12 @@ instance
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf jobTags
       `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf inputConfig
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputConfig
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

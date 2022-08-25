@@ -32,6 +32,7 @@ module Amazonka.Pi.DescribeDimensionKeys
 
     -- * Request Lenses
     describeDimensionKeys_nextToken,
+    describeDimensionKeys_additionalMetrics,
     describeDimensionKeys_filter,
     describeDimensionKeys_maxResults,
     describeDimensionKeys_periodInSeconds,
@@ -70,6 +71,12 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
     -- parameter is specified, the response includes only records beyond the
     -- token, up to the value specified by @MaxRecords@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Additional metrics for the top @N@ dimension keys. If the specified
+    -- dimension group in the @GroupBy@ parameter is @db.sql_tokenized@, you
+    -- can specify per-SQL metrics to get the values for the top @N@ SQL
+    -- digests. The response syntax is as follows:
+    -- @\"AdditionalMetrics\" : { \"string\" : \"string\" }@.
+    additionalMetrics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | One or more filters to apply in the request. Restrictions:
     --
     -- -   Any number of filters by the same dimension, as specified in the
@@ -102,15 +109,19 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
     -- | For each dimension specified in @GroupBy@, specify a secondary dimension
     -- to further subdivide the partition keys in the response.
     partitionBy :: Prelude.Maybe DimensionGroup,
-    -- | The AWS service for which Performance Insights will return metrics. The
-    -- only valid value for /ServiceType/ is @RDS@.
+    -- | The Amazon Web Services service for which Performance Insights will
+    -- return metrics. Valid values are as follows:
+    --
+    -- -   @RDS@
+    --
+    -- -   @DOCDB@
     serviceType :: ServiceType,
-    -- | An immutable, AWS Region-unique identifier for a data source.
-    -- Performance Insights gathers metrics from this data source.
+    -- | An immutable, Amazon Web Services Region-unique identifier for a data
+    -- source. Performance Insights gathers metrics from this data source.
     --
     -- To use an Amazon RDS instance as a data source, you specify its
     -- @DbiResourceId@ value. For example, specify
-    -- @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@
+    -- @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.
     identifier :: Prelude.Text,
     -- | The date and time specifying the beginning of the requested time series
     -- data. You must specify a @StartTime@ within the past 7 days. The value
@@ -129,10 +140,10 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
     --
     -- Valid values for @Metric@ are:
     --
-    -- -   @db.load.avg@ - a scaled representation of the number of active
+    -- -   @db.load.avg@ - A scaled representation of the number of active
     --     sessions for the database engine.
     --
-    -- -   @db.sampledload.avg@ - the raw number of active sessions for the
+    -- -   @db.sampledload.avg@ - The raw number of active sessions for the
     --     database engine.
     --
     -- If the number of active sessions is less than an internal Performance
@@ -163,6 +174,12 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
 -- 'nextToken', 'describeDimensionKeys_nextToken' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- token, up to the value specified by @MaxRecords@.
+--
+-- 'additionalMetrics', 'describeDimensionKeys_additionalMetrics' - Additional metrics for the top @N@ dimension keys. If the specified
+-- dimension group in the @GroupBy@ parameter is @db.sql_tokenized@, you
+-- can specify per-SQL metrics to get the values for the top @N@ SQL
+-- digests. The response syntax is as follows:
+-- @\"AdditionalMetrics\" : { \"string\" : \"string\" }@.
 --
 -- 'filter'', 'describeDimensionKeys_filter' - One or more filters to apply in the request. Restrictions:
 --
@@ -196,15 +213,19 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
 -- 'partitionBy', 'describeDimensionKeys_partitionBy' - For each dimension specified in @GroupBy@, specify a secondary dimension
 -- to further subdivide the partition keys in the response.
 --
--- 'serviceType', 'describeDimensionKeys_serviceType' - The AWS service for which Performance Insights will return metrics. The
--- only valid value for /ServiceType/ is @RDS@.
+-- 'serviceType', 'describeDimensionKeys_serviceType' - The Amazon Web Services service for which Performance Insights will
+-- return metrics. Valid values are as follows:
 --
--- 'identifier', 'describeDimensionKeys_identifier' - An immutable, AWS Region-unique identifier for a data source.
--- Performance Insights gathers metrics from this data source.
+-- -   @RDS@
+--
+-- -   @DOCDB@
+--
+-- 'identifier', 'describeDimensionKeys_identifier' - An immutable, Amazon Web Services Region-unique identifier for a data
+-- source. Performance Insights gathers metrics from this data source.
 --
 -- To use an Amazon RDS instance as a data source, you specify its
 -- @DbiResourceId@ value. For example, specify
--- @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@
+-- @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.
 --
 -- 'startTime', 'describeDimensionKeys_startTime' - The date and time specifying the beginning of the requested time series
 -- data. You must specify a @StartTime@ within the past 7 days. The value
@@ -223,10 +244,10 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
 --
 -- Valid values for @Metric@ are:
 --
--- -   @db.load.avg@ - a scaled representation of the number of active
+-- -   @db.load.avg@ - A scaled representation of the number of active
 --     sessions for the database engine.
 --
--- -   @db.sampledload.avg@ - the raw number of active sessions for the
+-- -   @db.sampledload.avg@ - The raw number of active sessions for the
 --     database engine.
 --
 -- If the number of active sessions is less than an internal Performance
@@ -265,6 +286,7 @@ newDescribeDimensionKeys
   pGroupBy_ =
     DescribeDimensionKeys'
       { nextToken = Prelude.Nothing,
+        additionalMetrics = Prelude.Nothing,
         filter' = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         periodInSeconds = Prelude.Nothing,
@@ -282,6 +304,14 @@ newDescribeDimensionKeys
 -- token, up to the value specified by @MaxRecords@.
 describeDimensionKeys_nextToken :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe Prelude.Text)
 describeDimensionKeys_nextToken = Lens.lens (\DescribeDimensionKeys' {nextToken} -> nextToken) (\s@DescribeDimensionKeys' {} a -> s {nextToken = a} :: DescribeDimensionKeys)
+
+-- | Additional metrics for the top @N@ dimension keys. If the specified
+-- dimension group in the @GroupBy@ parameter is @db.sql_tokenized@, you
+-- can specify per-SQL metrics to get the values for the top @N@ SQL
+-- digests. The response syntax is as follows:
+-- @\"AdditionalMetrics\" : { \"string\" : \"string\" }@.
+describeDimensionKeys_additionalMetrics :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeDimensionKeys_additionalMetrics = Lens.lens (\DescribeDimensionKeys' {additionalMetrics} -> additionalMetrics) (\s@DescribeDimensionKeys' {} a -> s {additionalMetrics = a} :: DescribeDimensionKeys) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters to apply in the request. Restrictions:
 --
@@ -323,17 +353,21 @@ describeDimensionKeys_periodInSeconds = Lens.lens (\DescribeDimensionKeys' {peri
 describeDimensionKeys_partitionBy :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe DimensionGroup)
 describeDimensionKeys_partitionBy = Lens.lens (\DescribeDimensionKeys' {partitionBy} -> partitionBy) (\s@DescribeDimensionKeys' {} a -> s {partitionBy = a} :: DescribeDimensionKeys)
 
--- | The AWS service for which Performance Insights will return metrics. The
--- only valid value for /ServiceType/ is @RDS@.
+-- | The Amazon Web Services service for which Performance Insights will
+-- return metrics. Valid values are as follows:
+--
+-- -   @RDS@
+--
+-- -   @DOCDB@
 describeDimensionKeys_serviceType :: Lens.Lens' DescribeDimensionKeys ServiceType
 describeDimensionKeys_serviceType = Lens.lens (\DescribeDimensionKeys' {serviceType} -> serviceType) (\s@DescribeDimensionKeys' {} a -> s {serviceType = a} :: DescribeDimensionKeys)
 
--- | An immutable, AWS Region-unique identifier for a data source.
--- Performance Insights gathers metrics from this data source.
+-- | An immutable, Amazon Web Services Region-unique identifier for a data
+-- source. Performance Insights gathers metrics from this data source.
 --
 -- To use an Amazon RDS instance as a data source, you specify its
 -- @DbiResourceId@ value. For example, specify
--- @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@
+-- @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.
 describeDimensionKeys_identifier :: Lens.Lens' DescribeDimensionKeys Prelude.Text
 describeDimensionKeys_identifier = Lens.lens (\DescribeDimensionKeys' {identifier} -> identifier) (\s@DescribeDimensionKeys' {} a -> s {identifier = a} :: DescribeDimensionKeys)
 
@@ -358,10 +392,10 @@ describeDimensionKeys_endTime = Lens.lens (\DescribeDimensionKeys' {endTime} -> 
 --
 -- Valid values for @Metric@ are:
 --
--- -   @db.load.avg@ - a scaled representation of the number of active
+-- -   @db.load.avg@ - A scaled representation of the number of active
 --     sessions for the database engine.
 --
--- -   @db.sampledload.avg@ - the raw number of active sessions for the
+-- -   @db.sampledload.avg@ - The raw number of active sessions for the
 --     database engine.
 --
 -- If the number of active sessions is less than an internal Performance
@@ -402,6 +436,7 @@ instance Core.AWSRequest DescribeDimensionKeys where
 instance Prelude.Hashable DescribeDimensionKeys where
   hashWithSalt _salt DescribeDimensionKeys' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` additionalMetrics
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` periodInSeconds
@@ -416,6 +451,7 @@ instance Prelude.Hashable DescribeDimensionKeys where
 instance Prelude.NFData DescribeDimensionKeys where
   rnf DescribeDimensionKeys' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf additionalMetrics
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf periodInSeconds
@@ -447,6 +483,8 @@ instance Core.ToJSON DescribeDimensionKeys where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AdditionalMetrics" Core..=)
+              Prelude.<$> additionalMetrics,
             ("Filter" Core..=) Prelude.<$> filter',
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("PeriodInSeconds" Core..=)
@@ -469,9 +507,10 @@ instance Core.ToQuery DescribeDimensionKeys where
 
 -- | /See:/ 'newDescribeDimensionKeysResponse' smart constructor.
 data DescribeDimensionKeysResponse = DescribeDimensionKeysResponse'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
+  { -- | A pagination token that indicates the response didn’t return all
+    -- available records because @MaxRecords@ was specified in the previous
+    -- request. To get the remaining records, specify @NextToken@ in a separate
+    -- request with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The end time for the returned dimension keys, after alignment to a
     -- granular boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@
@@ -501,9 +540,10 @@ data DescribeDimensionKeysResponse = DescribeDimensionKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDimensionKeysResponse_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
+-- 'nextToken', 'describeDimensionKeysResponse_nextToken' - A pagination token that indicates the response didn’t return all
+-- available records because @MaxRecords@ was specified in the previous
+-- request. To get the remaining records, specify @NextToken@ in a separate
+-- request with this value.
 --
 -- 'alignedEndTime', 'describeDimensionKeysResponse_alignedEndTime' - The end time for the returned dimension keys, after alignment to a
 -- granular boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@
@@ -536,9 +576,10 @@ newDescribeDimensionKeysResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
+-- | A pagination token that indicates the response didn’t return all
+-- available records because @MaxRecords@ was specified in the previous
+-- request. To get the remaining records, specify @NextToken@ in a separate
+-- request with this value.
 describeDimensionKeysResponse_nextToken :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.Text)
 describeDimensionKeysResponse_nextToken = Lens.lens (\DescribeDimensionKeysResponse' {nextToken} -> nextToken) (\s@DescribeDimensionKeysResponse' {} a -> s {nextToken = a} :: DescribeDimensionKeysResponse)
 

@@ -24,7 +24,7 @@
 --
 -- If you\'re using an unmanaged compute environment, you can use the
 -- @DescribeComputeEnvironment@ operation to determine the @ecsClusterArn@
--- that you should launch your Amazon ECS container instances into.
+-- that you launch your Amazon ECS container instances into.
 --
 -- This operation returns paginated results.
 module Amazonka.Batch.DescribeComputeEnvironments
@@ -237,9 +237,9 @@ instance Core.ToQuery DescribeComputeEnvironments where
 data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
   { -- | The @nextToken@ value to include in a future
     -- @DescribeComputeEnvironments@ request. When the results of a
-    -- @DescribeJobDefinitions@ request exceed @maxResults@, this value can be
-    -- used to retrieve the next page of results. This value is @null@ when
-    -- there are no more results to return.
+    -- @DescribeComputeEnvironments@ request exceed @maxResults@, this value
+    -- can be used to retrieve the next page of results. This value is @null@
+    -- when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of compute environments.
     computeEnvironments :: Prelude.Maybe [ComputeEnvironmentDetail],
@@ -258,9 +258,9 @@ data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
 --
 -- 'nextToken', 'describeComputeEnvironmentsResponse_nextToken' - The @nextToken@ value to include in a future
 -- @DescribeComputeEnvironments@ request. When the results of a
--- @DescribeJobDefinitions@ request exceed @maxResults@, this value can be
--- used to retrieve the next page of results. This value is @null@ when
--- there are no more results to return.
+-- @DescribeComputeEnvironments@ request exceed @maxResults@, this value
+-- can be used to retrieve the next page of results. This value is @null@
+-- when there are no more results to return.
 --
 -- 'computeEnvironments', 'describeComputeEnvironmentsResponse_computeEnvironments' - The list of compute environments.
 --
@@ -279,9 +279,9 @@ newDescribeComputeEnvironmentsResponse pHttpStatus_ =
 
 -- | The @nextToken@ value to include in a future
 -- @DescribeComputeEnvironments@ request. When the results of a
--- @DescribeJobDefinitions@ request exceed @maxResults@, this value can be
--- used to retrieve the next page of results. This value is @null@ when
--- there are no more results to return.
+-- @DescribeComputeEnvironments@ request exceed @maxResults@, this value
+-- can be used to retrieve the next page of results. This value is @null@
+-- when there are no more results to return.
 describeComputeEnvironmentsResponse_nextToken :: Lens.Lens' DescribeComputeEnvironmentsResponse (Prelude.Maybe Prelude.Text)
 describeComputeEnvironmentsResponse_nextToken = Lens.lens (\DescribeComputeEnvironmentsResponse' {nextToken} -> nextToken) (\s@DescribeComputeEnvironmentsResponse' {} a -> s {nextToken = a} :: DescribeComputeEnvironmentsResponse)
 

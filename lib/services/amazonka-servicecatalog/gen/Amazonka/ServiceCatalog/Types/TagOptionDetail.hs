@@ -31,7 +31,8 @@ data TagOptionDetail = TagOptionDetail'
     key :: Prelude.Maybe Prelude.Text,
     -- | The TagOption active state.
     active :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS account Id of the owner account that created the TagOption.
+    -- | The Amazon Web Services account Id of the owner account that created the
+    -- TagOption.
     owner :: Prelude.Maybe Prelude.Text,
     -- | The TagOption identifier.
     id :: Prelude.Maybe Prelude.Text,
@@ -52,7 +53,8 @@ data TagOptionDetail = TagOptionDetail'
 --
 -- 'active', 'tagOptionDetail_active' - The TagOption active state.
 --
--- 'owner', 'tagOptionDetail_owner' - The AWS account Id of the owner account that created the TagOption.
+-- 'owner', 'tagOptionDetail_owner' - The Amazon Web Services account Id of the owner account that created the
+-- TagOption.
 --
 -- 'id', 'tagOptionDetail_id' - The TagOption identifier.
 --
@@ -76,7 +78,8 @@ tagOptionDetail_key = Lens.lens (\TagOptionDetail' {key} -> key) (\s@TagOptionDe
 tagOptionDetail_active :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Bool)
 tagOptionDetail_active = Lens.lens (\TagOptionDetail' {active} -> active) (\s@TagOptionDetail' {} a -> s {active = a} :: TagOptionDetail)
 
--- | The AWS account Id of the owner account that created the TagOption.
+-- | The Amazon Web Services account Id of the owner account that created the
+-- TagOption.
 tagOptionDetail_owner :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Text)
 tagOptionDetail_owner = Lens.lens (\TagOptionDetail' {owner} -> owner) (\s@TagOptionDetail' {} a -> s {owner = a} :: TagOptionDetail)
 

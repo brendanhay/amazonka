@@ -24,10 +24,12 @@
 -- parameter group.
 --
 -- For more information on Amazon Aurora, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
--- in the /Amazon Aurora User Guide./
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora DB clusters.
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.RDS.DescribeDBClusterParameters
@@ -267,9 +269,9 @@ instance Core.ToQuery DescribeDBClusterParameters where
 -- /See:/ 'newDescribeDBClusterParametersResponse' smart constructor.
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
   { -- | An optional pagination token provided by a previous
-    -- DescribeDBClusterParameters request. If this parameter is specified, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@ .
+    -- @DescribeDBClusterParameters@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | Provides a list of parameters for the DB cluster parameter group.
     parameters :: Prelude.Maybe [Parameter],
@@ -287,9 +289,9 @@ data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
 -- for backwards compatibility:
 --
 -- 'marker', 'describeDBClusterParametersResponse_marker' - An optional pagination token provided by a previous
--- DescribeDBClusterParameters request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@ .
+-- @DescribeDBClusterParameters@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 --
 -- 'parameters', 'describeDBClusterParametersResponse_parameters' - Provides a list of parameters for the DB cluster parameter group.
 --
@@ -307,9 +309,9 @@ newDescribeDBClusterParametersResponse pHttpStatus_ =
     }
 
 -- | An optional pagination token provided by a previous
--- DescribeDBClusterParameters request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@ .
+-- @DescribeDBClusterParameters@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 describeDBClusterParametersResponse_marker :: Lens.Lens' DescribeDBClusterParametersResponse (Prelude.Maybe Prelude.Text)
 describeDBClusterParametersResponse_marker = Lens.lens (\DescribeDBClusterParametersResponse' {marker} -> marker) (\s@DescribeDBClusterParametersResponse' {} a -> s {marker = a} :: DescribeDBClusterParametersResponse)
 

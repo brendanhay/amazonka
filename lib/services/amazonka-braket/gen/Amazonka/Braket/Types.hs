@@ -30,17 +30,53 @@ module Amazonka.Braket.Types
     -- * CancellationStatus
     CancellationStatus (..),
 
+    -- * CompressionType
+    CompressionType (..),
+
     -- * DeviceStatus
     DeviceStatus (..),
 
     -- * DeviceType
     DeviceType (..),
 
+    -- * InstanceType
+    InstanceType (..),
+
+    -- * JobEventType
+    JobEventType (..),
+
+    -- * JobPrimaryStatus
+    JobPrimaryStatus (..),
+
     -- * QuantumTaskStatus
     QuantumTaskStatus (..),
 
+    -- * SearchJobsFilterOperator
+    SearchJobsFilterOperator (..),
+
     -- * SearchQuantumTasksFilterOperator
     SearchQuantumTasksFilterOperator (..),
+
+    -- * AlgorithmSpecification
+    AlgorithmSpecification (..),
+    newAlgorithmSpecification,
+    algorithmSpecification_containerImage,
+    algorithmSpecification_scriptModeConfig,
+
+    -- * ContainerImage
+    ContainerImage (..),
+    newContainerImage,
+    containerImage_uri,
+
+    -- * DataSource
+    DataSource (..),
+    newDataSource,
+    dataSource_s3DataSource,
+
+    -- * DeviceConfig
+    DeviceConfig (..),
+    newDeviceConfig,
+    deviceConfig_device,
 
     -- * DeviceSummary
     DeviceSummary (..),
@@ -50,6 +86,56 @@ module Amazonka.Braket.Types
     deviceSummary_deviceStatus,
     deviceSummary_deviceType,
     deviceSummary_providerName,
+
+    -- * InputFileConfig
+    InputFileConfig (..),
+    newInputFileConfig,
+    inputFileConfig_contentType,
+    inputFileConfig_channelName,
+    inputFileConfig_dataSource,
+
+    -- * InstanceConfig
+    InstanceConfig (..),
+    newInstanceConfig,
+    instanceConfig_instanceCount,
+    instanceConfig_instanceType,
+    instanceConfig_volumeSizeInGb,
+
+    -- * JobCheckpointConfig
+    JobCheckpointConfig (..),
+    newJobCheckpointConfig,
+    jobCheckpointConfig_localPath,
+    jobCheckpointConfig_s3Uri,
+
+    -- * JobEventDetails
+    JobEventDetails (..),
+    newJobEventDetails,
+    jobEventDetails_message,
+    jobEventDetails_eventType,
+    jobEventDetails_timeOfEvent,
+
+    -- * JobOutputDataConfig
+    JobOutputDataConfig (..),
+    newJobOutputDataConfig,
+    jobOutputDataConfig_kmsKeyId,
+    jobOutputDataConfig_s3Path,
+
+    -- * JobStoppingCondition
+    JobStoppingCondition (..),
+    newJobStoppingCondition,
+    jobStoppingCondition_maxRuntimeInSeconds,
+
+    -- * JobSummary
+    JobSummary (..),
+    newJobSummary,
+    jobSummary_tags,
+    jobSummary_endedAt,
+    jobSummary_startedAt,
+    jobSummary_createdAt,
+    jobSummary_device,
+    jobSummary_jobArn,
+    jobSummary_jobName,
+    jobSummary_status,
 
     -- * QuantumTaskSummary
     QuantumTaskSummary (..),
@@ -64,11 +150,30 @@ module Amazonka.Braket.Types
     quantumTaskSummary_shots,
     quantumTaskSummary_status,
 
+    -- * S3DataSource
+    S3DataSource (..),
+    newS3DataSource,
+    s3DataSource_s3Uri,
+
+    -- * ScriptModeConfig
+    ScriptModeConfig (..),
+    newScriptModeConfig,
+    scriptModeConfig_compressionType,
+    scriptModeConfig_entryPoint,
+    scriptModeConfig_s3Uri,
+
     -- * SearchDevicesFilter
     SearchDevicesFilter (..),
     newSearchDevicesFilter,
     searchDevicesFilter_name,
     searchDevicesFilter_values,
+
+    -- * SearchJobsFilter
+    SearchJobsFilter (..),
+    newSearchJobsFilter,
+    searchJobsFilter_name,
+    searchJobsFilter_operator,
+    searchJobsFilter_values,
 
     -- * SearchQuantumTasksFilter
     SearchQuantumTasksFilter (..),
@@ -79,13 +184,32 @@ module Amazonka.Braket.Types
   )
 where
 
+import Amazonka.Braket.Types.AlgorithmSpecification
 import Amazonka.Braket.Types.CancellationStatus
+import Amazonka.Braket.Types.CompressionType
+import Amazonka.Braket.Types.ContainerImage
+import Amazonka.Braket.Types.DataSource
+import Amazonka.Braket.Types.DeviceConfig
 import Amazonka.Braket.Types.DeviceStatus
 import Amazonka.Braket.Types.DeviceSummary
 import Amazonka.Braket.Types.DeviceType
+import Amazonka.Braket.Types.InputFileConfig
+import Amazonka.Braket.Types.InstanceConfig
+import Amazonka.Braket.Types.InstanceType
+import Amazonka.Braket.Types.JobCheckpointConfig
+import Amazonka.Braket.Types.JobEventDetails
+import Amazonka.Braket.Types.JobEventType
+import Amazonka.Braket.Types.JobOutputDataConfig
+import Amazonka.Braket.Types.JobPrimaryStatus
+import Amazonka.Braket.Types.JobStoppingCondition
+import Amazonka.Braket.Types.JobSummary
 import Amazonka.Braket.Types.QuantumTaskStatus
 import Amazonka.Braket.Types.QuantumTaskSummary
+import Amazonka.Braket.Types.S3DataSource
+import Amazonka.Braket.Types.ScriptModeConfig
 import Amazonka.Braket.Types.SearchDevicesFilter
+import Amazonka.Braket.Types.SearchJobsFilter
+import Amazonka.Braket.Types.SearchJobsFilterOperator
 import Amazonka.Braket.Types.SearchQuantumTasksFilter
 import Amazonka.Braket.Types.SearchQuantumTasksFilterOperator
 import qualified Amazonka.Core as Core

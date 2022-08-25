@@ -70,6 +70,7 @@ library
     Amazonka.MediaConnect.StopFlow
     Amazonka.MediaConnect.TagResource
     Amazonka.MediaConnect.Types
+    Amazonka.MediaConnect.Types.AddMaintenance
     Amazonka.MediaConnect.Types.AddMediaStreamRequest
     Amazonka.MediaConnect.Types.AddOutputRequest
     Amazonka.MediaConnect.Types.Algorithm
@@ -97,6 +98,8 @@ library
     Amazonka.MediaConnect.Types.KeyType
     Amazonka.MediaConnect.Types.ListedEntitlement
     Amazonka.MediaConnect.Types.ListedFlow
+    Amazonka.MediaConnect.Types.Maintenance
+    Amazonka.MediaConnect.Types.MaintenanceDay
     Amazonka.MediaConnect.Types.MediaStream
     Amazonka.MediaConnect.Types.MediaStreamAttributes
     Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
@@ -127,6 +130,7 @@ library
     Amazonka.MediaConnect.Types.Transport
     Amazonka.MediaConnect.Types.UpdateEncryption
     Amazonka.MediaConnect.Types.UpdateFailoverConfig
+    Amazonka.MediaConnect.Types.UpdateMaintenance
     Amazonka.MediaConnect.Types.VpcInterface
     Amazonka.MediaConnect.Types.VpcInterfaceAttachment
     Amazonka.MediaConnect.Types.VpcInterfaceRequest

@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestListEndpoints $
 --             newListEndpoints
 --
+--         , requestListSharedEndpoints $
+--             newListSharedEndpoints
+--
 --           ]
 
 --     , testGroup "response"
@@ -47,6 +50,9 @@ import Test.Tasty
 --
 --         , responseListEndpoints $
 --             newListEndpointsResponse
+--
+--         , responseListSharedEndpoints $
+--             newListSharedEndpointsResponse
 --
 --           ]
 --     ]
@@ -70,6 +76,12 @@ requestListEndpoints =
   req
     "ListEndpoints"
     "fixture/ListEndpoints.yaml"
+
+requestListSharedEndpoints :: ListSharedEndpoints -> TestTree
+requestListSharedEndpoints =
+  req
+    "ListSharedEndpoints"
+    "fixture/ListSharedEndpoints.yaml"
 
 -- Responses
 
@@ -96,3 +108,11 @@ responseListEndpoints =
     "fixture/ListEndpointsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
+
+responseListSharedEndpoints :: ListSharedEndpointsResponse -> TestTree
+responseListSharedEndpoints =
+  res
+    "ListSharedEndpointsResponse"
+    "fixture/ListSharedEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSharedEndpoints)

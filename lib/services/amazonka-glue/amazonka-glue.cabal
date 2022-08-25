@@ -51,6 +51,7 @@ library
     Amazonka.Glue.BatchDeleteTableVersion
     Amazonka.Glue.BatchGetBlueprints
     Amazonka.Glue.BatchGetCrawlers
+    Amazonka.Glue.BatchGetCustomEntityTypes
     Amazonka.Glue.BatchGetDevEndpoints
     Amazonka.Glue.BatchGetJobs
     Amazonka.Glue.BatchGetPartition
@@ -59,11 +60,13 @@ library
     Amazonka.Glue.BatchStopJobRun
     Amazonka.Glue.BatchUpdatePartition
     Amazonka.Glue.CancelMLTaskRun
+    Amazonka.Glue.CancelStatement
     Amazonka.Glue.CheckSchemaVersionValidity
     Amazonka.Glue.CreateBlueprint
     Amazonka.Glue.CreateClassifier
     Amazonka.Glue.CreateConnection
     Amazonka.Glue.CreateCrawler
+    Amazonka.Glue.CreateCustomEntityType
     Amazonka.Glue.CreateDatabase
     Amazonka.Glue.CreateDevEndpoint
     Amazonka.Glue.CreateJob
@@ -74,6 +77,7 @@ library
     Amazonka.Glue.CreateSchema
     Amazonka.Glue.CreateScript
     Amazonka.Glue.CreateSecurityConfiguration
+    Amazonka.Glue.CreateSession
     Amazonka.Glue.CreateTable
     Amazonka.Glue.CreateTrigger
     Amazonka.Glue.CreateUserDefinedFunction
@@ -84,6 +88,7 @@ library
     Amazonka.Glue.DeleteColumnStatisticsForTable
     Amazonka.Glue.DeleteConnection
     Amazonka.Glue.DeleteCrawler
+    Amazonka.Glue.DeleteCustomEntityType
     Amazonka.Glue.DeleteDatabase
     Amazonka.Glue.DeleteDevEndpoint
     Amazonka.Glue.DeleteJob
@@ -95,6 +100,7 @@ library
     Amazonka.Glue.DeleteSchema
     Amazonka.Glue.DeleteSchemaVersions
     Amazonka.Glue.DeleteSecurityConfiguration
+    Amazonka.Glue.DeleteSession
     Amazonka.Glue.DeleteTable
     Amazonka.Glue.DeleteTableVersion
     Amazonka.Glue.DeleteTrigger
@@ -113,6 +119,7 @@ library
     Amazonka.Glue.GetCrawler
     Amazonka.Glue.GetCrawlerMetrics
     Amazonka.Glue.GetCrawlers
+    Amazonka.Glue.GetCustomEntityType
     Amazonka.Glue.GetDatabase
     Amazonka.Glue.GetDatabases
     Amazonka.Glue.GetDataCatalogEncryptionSettings
@@ -142,6 +149,8 @@ library
     Amazonka.Glue.GetSchemaVersionsDiff
     Amazonka.Glue.GetSecurityConfiguration
     Amazonka.Glue.GetSecurityConfigurations
+    Amazonka.Glue.GetSession
+    Amazonka.Glue.GetStatement
     Amazonka.Glue.GetTable
     Amazonka.Glue.GetTables
     Amazonka.Glue.GetTableVersion
@@ -149,6 +158,9 @@ library
     Amazonka.Glue.GetTags
     Amazonka.Glue.GetTrigger
     Amazonka.Glue.GetTriggers
+    Amazonka.Glue.GetUnfilteredPartitionMetadata
+    Amazonka.Glue.GetUnfilteredPartitionsMetadata
+    Amazonka.Glue.GetUnfilteredTableMetadata
     Amazonka.Glue.GetUserDefinedFunction
     Amazonka.Glue.GetUserDefinedFunctions
     Amazonka.Glue.GetWorkflow
@@ -159,12 +171,16 @@ library
     Amazonka.Glue.Lens
     Amazonka.Glue.ListBlueprints
     Amazonka.Glue.ListCrawlers
+    Amazonka.Glue.ListCrawls
+    Amazonka.Glue.ListCustomEntityTypes
     Amazonka.Glue.ListDevEndpoints
     Amazonka.Glue.ListJobs
     Amazonka.Glue.ListMLTransforms
     Amazonka.Glue.ListRegistries
     Amazonka.Glue.ListSchemas
     Amazonka.Glue.ListSchemaVersions
+    Amazonka.Glue.ListSessions
+    Amazonka.Glue.ListStatements
     Amazonka.Glue.ListTriggers
     Amazonka.Glue.ListWorkflows
     Amazonka.Glue.PutDataCatalogEncryptionSettings
@@ -176,6 +192,7 @@ library
     Amazonka.Glue.RemoveSchemaVersionMetadata
     Amazonka.Glue.ResetJobBookmark
     Amazonka.Glue.ResumeWorkflowRun
+    Amazonka.Glue.RunStatement
     Amazonka.Glue.SearchTables
     Amazonka.Glue.StartBlueprintRun
     Amazonka.Glue.StartCrawler
@@ -189,13 +206,21 @@ library
     Amazonka.Glue.StartWorkflowRun
     Amazonka.Glue.StopCrawler
     Amazonka.Glue.StopCrawlerSchedule
+    Amazonka.Glue.StopSession
     Amazonka.Glue.StopTrigger
     Amazonka.Glue.StopWorkflowRun
     Amazonka.Glue.TagResource
     Amazonka.Glue.Types
     Amazonka.Glue.Types.Action
+    Amazonka.Glue.Types.AggFunction
+    Amazonka.Glue.Types.Aggregate
+    Amazonka.Glue.Types.AggregateOperation
+    Amazonka.Glue.Types.ApplyMapping
+    Amazonka.Glue.Types.AthenaConnectorSource
+    Amazonka.Glue.Types.AuditContext
     Amazonka.Glue.Types.BackfillError
     Amazonka.Glue.Types.BackfillErrorCode
+    Amazonka.Glue.Types.BasicCatalogTarget
     Amazonka.Glue.Types.BatchStopJobRunError
     Amazonka.Glue.Types.BatchStopJobRunSuccessfulSubmission
     Amazonka.Glue.Types.BatchUpdatePartitionFailureEntry
@@ -210,22 +235,29 @@ library
     Amazonka.Glue.Types.CatalogEncryptionMode
     Amazonka.Glue.Types.CatalogEntry
     Amazonka.Glue.Types.CatalogImportStatus
+    Amazonka.Glue.Types.CatalogKafkaSource
+    Amazonka.Glue.Types.CatalogKinesisSource
+    Amazonka.Glue.Types.CatalogSchemaChangePolicy
+    Amazonka.Glue.Types.CatalogSource
     Amazonka.Glue.Types.CatalogTarget
     Amazonka.Glue.Types.Classifier
     Amazonka.Glue.Types.CloudWatchEncryption
     Amazonka.Glue.Types.CloudWatchEncryptionMode
+    Amazonka.Glue.Types.CodeGenConfigurationNode
     Amazonka.Glue.Types.CodeGenEdge
     Amazonka.Glue.Types.CodeGenNode
     Amazonka.Glue.Types.CodeGenNodeArg
     Amazonka.Glue.Types.Column
     Amazonka.Glue.Types.ColumnError
     Amazonka.Glue.Types.ColumnImportance
+    Amazonka.Glue.Types.ColumnRowFilter
     Amazonka.Glue.Types.ColumnStatistics
     Amazonka.Glue.Types.ColumnStatisticsData
     Amazonka.Glue.Types.ColumnStatisticsError
     Amazonka.Glue.Types.ColumnStatisticsType
     Amazonka.Glue.Types.Comparator
     Amazonka.Glue.Types.Compatibility
+    Amazonka.Glue.Types.CompressionType
     Amazonka.Glue.Types.Condition
     Amazonka.Glue.Types.ConfusionMatrix
     Amazonka.Glue.Types.Connection
@@ -236,11 +268,14 @@ library
     Amazonka.Glue.Types.ConnectionType
     Amazonka.Glue.Types.Crawl
     Amazonka.Glue.Types.Crawler
+    Amazonka.Glue.Types.CrawlerHistory
+    Amazonka.Glue.Types.CrawlerHistoryState
     Amazonka.Glue.Types.CrawlerLineageSettings
     Amazonka.Glue.Types.CrawlerMetrics
     Amazonka.Glue.Types.CrawlerNodeDetails
     Amazonka.Glue.Types.CrawlerState
     Amazonka.Glue.Types.CrawlerTargets
+    Amazonka.Glue.Types.CrawlsFilter
     Amazonka.Glue.Types.CrawlState
     Amazonka.Glue.Types.CreateCsvClassifierRequest
     Amazonka.Glue.Types.CreateGrokClassifierRequest
@@ -248,19 +283,30 @@ library
     Amazonka.Glue.Types.CreateXMLClassifierRequest
     Amazonka.Glue.Types.CsvClassifier
     Amazonka.Glue.Types.CsvHeaderOption
+    Amazonka.Glue.Types.CustomCode
+    Amazonka.Glue.Types.CustomEntityType
     Amazonka.Glue.Types.Database
     Amazonka.Glue.Types.DatabaseIdentifier
     Amazonka.Glue.Types.DatabaseInput
     Amazonka.Glue.Types.DataCatalogEncryptionSettings
     Amazonka.Glue.Types.DataFormat
     Amazonka.Glue.Types.DataLakePrincipal
+    Amazonka.Glue.Types.Datatype
     Amazonka.Glue.Types.DateColumnStatisticsData
     Amazonka.Glue.Types.DecimalColumnStatisticsData
     Amazonka.Glue.Types.DecimalNumber
     Amazonka.Glue.Types.DeleteBehavior
+    Amazonka.Glue.Types.DeltaTarget
     Amazonka.Glue.Types.DevEndpoint
     Amazonka.Glue.Types.DevEndpointCustomLibraries
+    Amazonka.Glue.Types.DirectKafkaSource
+    Amazonka.Glue.Types.DirectKinesisSource
+    Amazonka.Glue.Types.DirectSchemaChangePolicy
     Amazonka.Glue.Types.DoubleColumnStatisticsData
+    Amazonka.Glue.Types.DropDuplicates
+    Amazonka.Glue.Types.DropFields
+    Amazonka.Glue.Types.DropNullFields
+    Amazonka.Glue.Types.DynamoDBCatalogSource
     Amazonka.Glue.Types.DynamoDBTarget
     Amazonka.Glue.Types.Edge
     Amazonka.Glue.Types.EnableHybridValues
@@ -270,17 +316,36 @@ library
     Amazonka.Glue.Types.ErrorDetails
     Amazonka.Glue.Types.EvaluationMetrics
     Amazonka.Glue.Types.EventBatchingCondition
+    Amazonka.Glue.Types.ExecutionClass
     Amazonka.Glue.Types.ExecutionProperty
     Amazonka.Glue.Types.ExistCondition
     Amazonka.Glue.Types.ExportLabelsTaskRunProperties
+    Amazonka.Glue.Types.FieldName
+    Amazonka.Glue.Types.FillMissingValues
+    Amazonka.Glue.Types.Filter
+    Amazonka.Glue.Types.FilterExpression
+    Amazonka.Glue.Types.FilterLogicalOperator
+    Amazonka.Glue.Types.FilterOperation
+    Amazonka.Glue.Types.FilterOperator
+    Amazonka.Glue.Types.FilterValue
+    Amazonka.Glue.Types.FilterValueType
     Amazonka.Glue.Types.FindMatchesMetrics
     Amazonka.Glue.Types.FindMatchesParameters
     Amazonka.Glue.Types.FindMatchesTaskRunProperties
     Amazonka.Glue.Types.GetConnectionsFilter
     Amazonka.Glue.Types.GluePolicy
+    Amazonka.Glue.Types.GlueRecordType
+    Amazonka.Glue.Types.GlueSchema
+    Amazonka.Glue.Types.GlueStudioSchemaColumn
     Amazonka.Glue.Types.GlueTable
+    Amazonka.Glue.Types.GovernedCatalogSource
+    Amazonka.Glue.Types.GovernedCatalogTarget
     Amazonka.Glue.Types.GrokClassifier
     Amazonka.Glue.Types.ImportLabelsTaskRunProperties
+    Amazonka.Glue.Types.JDBCConnectorOptions
+    Amazonka.Glue.Types.JDBCConnectorSource
+    Amazonka.Glue.Types.JDBCConnectorTarget
+    Amazonka.Glue.Types.JDBCDataType
     Amazonka.Glue.Types.JdbcTarget
     Amazonka.Glue.Types.Job
     Amazonka.Glue.Types.JobBookmarkEntry
@@ -291,9 +356,15 @@ library
     Amazonka.Glue.Types.JobRun
     Amazonka.Glue.Types.JobRunState
     Amazonka.Glue.Types.JobUpdate
+    Amazonka.Glue.Types.Join
+    Amazonka.Glue.Types.JoinColumn
+    Amazonka.Glue.Types.JoinType
     Amazonka.Glue.Types.JsonClassifier
+    Amazonka.Glue.Types.KafkaStreamingSourceOptions
     Amazonka.Glue.Types.KeySchemaElement
+    Amazonka.Glue.Types.KinesisStreamingSourceOptions
     Amazonka.Glue.Types.LabelingSetGenerationTaskRunProperties
+    Amazonka.Glue.Types.LakeFormationConfiguration
     Amazonka.Glue.Types.Language
     Amazonka.Glue.Types.LastActiveDefinition
     Amazonka.Glue.Types.LastCrawlInfo
@@ -303,18 +374,29 @@ library
     Amazonka.Glue.Types.Logical
     Amazonka.Glue.Types.LogicalOperator
     Amazonka.Glue.Types.LongColumnStatisticsData
+    Amazonka.Glue.Types.Mapping
     Amazonka.Glue.Types.MappingEntry
+    Amazonka.Glue.Types.Merge
     Amazonka.Glue.Types.MetadataInfo
     Amazonka.Glue.Types.MetadataKeyValuePair
+    Amazonka.Glue.Types.MicrosoftSQLServerCatalogSource
+    Amazonka.Glue.Types.MicrosoftSQLServerCatalogTarget
     Amazonka.Glue.Types.MLTransform
     Amazonka.Glue.Types.MLUserDataEncryption
     Amazonka.Glue.Types.MLUserDataEncryptionModeString
     Amazonka.Glue.Types.MongoDBTarget
+    Amazonka.Glue.Types.MySQLCatalogSource
+    Amazonka.Glue.Types.MySQLCatalogTarget
     Amazonka.Glue.Types.Node
     Amazonka.Glue.Types.NodeType
     Amazonka.Glue.Types.NotificationProperty
+    Amazonka.Glue.Types.NullCheckBoxList
+    Amazonka.Glue.Types.NullValueField
+    Amazonka.Glue.Types.OracleSQLCatalogSource
+    Amazonka.Glue.Types.OracleSQLCatalogTarget
     Amazonka.Glue.Types.Order
     Amazonka.Glue.Types.OtherMetadataValueListItem
+    Amazonka.Glue.Types.ParquetCompressionType
     Amazonka.Glue.Types.Partition
     Amazonka.Glue.Types.PartitionError
     Amazonka.Glue.Types.PartitionIndex
@@ -323,22 +405,41 @@ library
     Amazonka.Glue.Types.PartitionInput
     Amazonka.Glue.Types.PartitionValueList
     Amazonka.Glue.Types.Permission
+    Amazonka.Glue.Types.PermissionType
     Amazonka.Glue.Types.PhysicalConnectionRequirements
+    Amazonka.Glue.Types.PIIDetection
+    Amazonka.Glue.Types.PiiType
+    Amazonka.Glue.Types.PostgreSQLCatalogSource
+    Amazonka.Glue.Types.PostgreSQLCatalogTarget
     Amazonka.Glue.Types.Predecessor
     Amazonka.Glue.Types.Predicate
     Amazonka.Glue.Types.PrincipalPermissions
     Amazonka.Glue.Types.PrincipalType
     Amazonka.Glue.Types.PropertyPredicate
+    Amazonka.Glue.Types.QuoteChar
     Amazonka.Glue.Types.RecrawlBehavior
     Amazonka.Glue.Types.RecrawlPolicy
+    Amazonka.Glue.Types.RedshiftSource
+    Amazonka.Glue.Types.RedshiftTarget
     Amazonka.Glue.Types.RegistryId
     Amazonka.Glue.Types.RegistryListItem
     Amazonka.Glue.Types.RegistryStatus
+    Amazonka.Glue.Types.RelationalCatalogSource
+    Amazonka.Glue.Types.RenameField
     Amazonka.Glue.Types.ResourceShareType
     Amazonka.Glue.Types.ResourceType
     Amazonka.Glue.Types.ResourceUri
+    Amazonka.Glue.Types.S3CatalogSource
+    Amazonka.Glue.Types.S3CatalogTarget
+    Amazonka.Glue.Types.S3CsvSource
+    Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
+    Amazonka.Glue.Types.S3DirectTarget
     Amazonka.Glue.Types.S3Encryption
     Amazonka.Glue.Types.S3EncryptionMode
+    Amazonka.Glue.Types.S3GlueParquetTarget
+    Amazonka.Glue.Types.S3JsonSource
+    Amazonka.Glue.Types.S3ParquetSource
+    Amazonka.Glue.Types.S3SourceAdditionalOptions
     Amazonka.Glue.Types.S3Target
     Amazonka.Glue.Types.Schedule
     Amazonka.Glue.Types.ScheduleState
@@ -355,13 +456,31 @@ library
     Amazonka.Glue.Types.SchemaVersionStatus
     Amazonka.Glue.Types.SecurityConfiguration
     Amazonka.Glue.Types.Segment
+    Amazonka.Glue.Types.SelectFields
+    Amazonka.Glue.Types.SelectFromCollection
+    Amazonka.Glue.Types.Separator
     Amazonka.Glue.Types.SerDeInfo
+    Amazonka.Glue.Types.Session
+    Amazonka.Glue.Types.SessionCommand
+    Amazonka.Glue.Types.SessionStatus
     Amazonka.Glue.Types.SkewedInfo
     Amazonka.Glue.Types.Sort
     Amazonka.Glue.Types.SortCriterion
     Amazonka.Glue.Types.SortDirectionType
+    Amazonka.Glue.Types.SparkConnectorSource
+    Amazonka.Glue.Types.SparkConnectorTarget
+    Amazonka.Glue.Types.SparkSQL
+    Amazonka.Glue.Types.Spigot
+    Amazonka.Glue.Types.SplitFields
+    Amazonka.Glue.Types.SqlAlias
     Amazonka.Glue.Types.StartingEventBatchCondition
+    Amazonka.Glue.Types.StartingPosition
+    Amazonka.Glue.Types.Statement
+    Amazonka.Glue.Types.StatementOutput
+    Amazonka.Glue.Types.StatementOutputData
+    Amazonka.Glue.Types.StatementState
     Amazonka.Glue.Types.StorageDescriptor
+    Amazonka.Glue.Types.StreamingDataPreviewOptions
     Amazonka.Glue.Types.StringColumnStatisticsData
     Amazonka.Glue.Types.Table
     Amazonka.Glue.Types.TableError
@@ -369,6 +488,7 @@ library
     Amazonka.Glue.Types.TableInput
     Amazonka.Glue.Types.TableVersion
     Amazonka.Glue.Types.TableVersionError
+    Amazonka.Glue.Types.TargetFormat
     Amazonka.Glue.Types.TaskRun
     Amazonka.Glue.Types.TaskRunFilterCriteria
     Amazonka.Glue.Types.TaskRunProperties
@@ -388,11 +508,16 @@ library
     Amazonka.Glue.Types.TriggerState
     Amazonka.Glue.Types.TriggerType
     Amazonka.Glue.Types.TriggerUpdate
+    Amazonka.Glue.Types.UnfilteredPartition
+    Amazonka.Glue.Types.Union
+    Amazonka.Glue.Types.UnionType
     Amazonka.Glue.Types.UpdateBehavior
+    Amazonka.Glue.Types.UpdateCatalogBehavior
     Amazonka.Glue.Types.UpdateCsvClassifierRequest
     Amazonka.Glue.Types.UpdateGrokClassifierRequest
     Amazonka.Glue.Types.UpdateJsonClassifierRequest
     Amazonka.Glue.Types.UpdateXMLClassifierRequest
+    Amazonka.Glue.Types.UpsertRedshiftTargetOptions
     Amazonka.Glue.Types.UserDefinedFunction
     Amazonka.Glue.Types.UserDefinedFunctionInput
     Amazonka.Glue.Types.WorkerType

@@ -20,6 +20,7 @@
 module Amazonka.IoTWireless.Types.WirelessDeviceStatistics where
 
 import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types.FuotaDeviceStatus
 import Amazonka.IoTWireless.Types.LoRaWANListDevice
 import Amazonka.IoTWireless.Types.SidewalkListDevice
 import Amazonka.IoTWireless.Types.WirelessDeviceType
@@ -44,6 +45,10 @@ data WirelessDeviceStatistics = WirelessDeviceStatistics'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the wireless device reporting the data.
     id :: Prelude.Maybe Prelude.Text,
+    mcGroupId :: Prelude.Maybe Prelude.Natural,
+    -- | The status of the wireless device in the multicast group.
+    multicastDeviceStatus :: Prelude.Maybe Prelude.Text,
+    fuotaDeviceStatus :: Prelude.Maybe FuotaDeviceStatus,
     -- | The Sidewalk account credentials.
     sidewalk :: Prelude.Maybe SidewalkListDevice
   }
@@ -71,6 +76,12 @@ data WirelessDeviceStatistics = WirelessDeviceStatistics'
 --
 -- 'id', 'wirelessDeviceStatistics_id' - The ID of the wireless device reporting the data.
 --
+-- 'mcGroupId', 'wirelessDeviceStatistics_mcGroupId' - Undocumented member.
+--
+-- 'multicastDeviceStatus', 'wirelessDeviceStatistics_multicastDeviceStatus' - The status of the wireless device in the multicast group.
+--
+-- 'fuotaDeviceStatus', 'wirelessDeviceStatistics_fuotaDeviceStatus' - Undocumented member.
+--
 -- 'sidewalk', 'wirelessDeviceStatistics_sidewalk' - The Sidewalk account credentials.
 newWirelessDeviceStatistics ::
   WirelessDeviceStatistics
@@ -83,6 +94,9 @@ newWirelessDeviceStatistics =
       destinationName = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      mcGroupId = Prelude.Nothing,
+      multicastDeviceStatus = Prelude.Nothing,
+      fuotaDeviceStatus = Prelude.Nothing,
       sidewalk = Prelude.Nothing
     }
 
@@ -114,6 +128,18 @@ wirelessDeviceStatistics_arn = Lens.lens (\WirelessDeviceStatistics' {arn} -> ar
 wirelessDeviceStatistics_id :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe Prelude.Text)
 wirelessDeviceStatistics_id = Lens.lens (\WirelessDeviceStatistics' {id} -> id) (\s@WirelessDeviceStatistics' {} a -> s {id = a} :: WirelessDeviceStatistics)
 
+-- | Undocumented member.
+wirelessDeviceStatistics_mcGroupId :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe Prelude.Natural)
+wirelessDeviceStatistics_mcGroupId = Lens.lens (\WirelessDeviceStatistics' {mcGroupId} -> mcGroupId) (\s@WirelessDeviceStatistics' {} a -> s {mcGroupId = a} :: WirelessDeviceStatistics)
+
+-- | The status of the wireless device in the multicast group.
+wirelessDeviceStatistics_multicastDeviceStatus :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe Prelude.Text)
+wirelessDeviceStatistics_multicastDeviceStatus = Lens.lens (\WirelessDeviceStatistics' {multicastDeviceStatus} -> multicastDeviceStatus) (\s@WirelessDeviceStatistics' {} a -> s {multicastDeviceStatus = a} :: WirelessDeviceStatistics)
+
+-- | Undocumented member.
+wirelessDeviceStatistics_fuotaDeviceStatus :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe FuotaDeviceStatus)
+wirelessDeviceStatistics_fuotaDeviceStatus = Lens.lens (\WirelessDeviceStatistics' {fuotaDeviceStatus} -> fuotaDeviceStatus) (\s@WirelessDeviceStatistics' {} a -> s {fuotaDeviceStatus = a} :: WirelessDeviceStatistics)
+
 -- | The Sidewalk account credentials.
 wirelessDeviceStatistics_sidewalk :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe SidewalkListDevice)
 wirelessDeviceStatistics_sidewalk = Lens.lens (\WirelessDeviceStatistics' {sidewalk} -> sidewalk) (\s@WirelessDeviceStatistics' {} a -> s {sidewalk = a} :: WirelessDeviceStatistics)
@@ -131,6 +157,9 @@ instance Core.FromJSON WirelessDeviceStatistics where
             Prelude.<*> (x Core..:? "DestinationName")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "McGroupId")
+            Prelude.<*> (x Core..:? "MulticastDeviceStatus")
+            Prelude.<*> (x Core..:? "FuotaDeviceStatus")
             Prelude.<*> (x Core..:? "Sidewalk")
       )
 
@@ -143,6 +172,9 @@ instance Prelude.Hashable WirelessDeviceStatistics where
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` mcGroupId
+      `Prelude.hashWithSalt` multicastDeviceStatus
+      `Prelude.hashWithSalt` fuotaDeviceStatus
       `Prelude.hashWithSalt` sidewalk
 
 instance Prelude.NFData WirelessDeviceStatistics where
@@ -154,4 +186,7 @@ instance Prelude.NFData WirelessDeviceStatistics where
       `Prelude.seq` Prelude.rnf destinationName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mcGroupId
+      `Prelude.seq` Prelude.rnf multicastDeviceStatus
+      `Prelude.seq` Prelude.rnf fuotaDeviceStatus
       `Prelude.seq` Prelude.rnf sidewalk

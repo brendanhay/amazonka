@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the given dataset group. For more information on dataset
--- groups, see CreateDatasetGroup.
+-- groups, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>.
 module Amazonka.Personalize.DescribeDatasetGroup
   ( -- * Creating a Request
     DescribeDatasetGroup (..),

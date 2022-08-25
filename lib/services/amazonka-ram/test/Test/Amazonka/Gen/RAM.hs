@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestListPendingInvitationResources $
 --             newListPendingInvitationResources
 --
+--         , requestListPermissionVersions $
+--             newListPermissionVersions
+--
 --         , requestListPermissions $
 --             newListPermissions
 --
@@ -143,6 +146,9 @@ import Test.Tasty
 --
 --         , responseListPendingInvitationResources $
 --             newListPendingInvitationResourcesResponse
+--
+--         , responseListPermissionVersions $
+--             newListPermissionVersionsResponse
 --
 --         , responseListPermissions $
 --             newListPermissionsResponse
@@ -262,6 +268,12 @@ requestListPendingInvitationResources =
   req
     "ListPendingInvitationResources"
     "fixture/ListPendingInvitationResources.yaml"
+
+requestListPermissionVersions :: ListPermissionVersions -> TestTree
+requestListPermissionVersions =
+  req
+    "ListPermissionVersions"
+    "fixture/ListPermissionVersions.yaml"
 
 requestListPermissions :: ListPermissions -> TestTree
 requestListPermissions =
@@ -436,6 +448,14 @@ responseListPendingInvitationResources =
     "fixture/ListPendingInvitationResourcesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPendingInvitationResources)
+
+responseListPermissionVersions :: ListPermissionVersionsResponse -> TestTree
+responseListPermissionVersions =
+  res
+    "ListPermissionVersionsResponse"
+    "fixture/ListPermissionVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionVersions)
 
 responseListPermissions :: ListPermissionsResponse -> TestTree
 responseListPermissions =

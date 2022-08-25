@@ -28,6 +28,9 @@ module Amazonka.MGN
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
@@ -52,6 +55,12 @@ module Amazonka.MGN
     SourceServer (SourceServer'),
     newSourceServer,
 
+    -- ** CreateLaunchConfigurationTemplate
+    CreateLaunchConfigurationTemplate (CreateLaunchConfigurationTemplate'),
+    newCreateLaunchConfigurationTemplate,
+    LaunchConfigurationTemplate (LaunchConfigurationTemplate'),
+    newLaunchConfigurationTemplate,
+
     -- ** CreateReplicationConfigurationTemplate
     CreateReplicationConfigurationTemplate (CreateReplicationConfigurationTemplate'),
     newCreateReplicationConfigurationTemplate,
@@ -63,6 +72,12 @@ module Amazonka.MGN
     newDeleteJob,
     DeleteJobResponse (DeleteJobResponse'),
     newDeleteJobResponse,
+
+    -- ** DeleteLaunchConfigurationTemplate
+    DeleteLaunchConfigurationTemplate (DeleteLaunchConfigurationTemplate'),
+    newDeleteLaunchConfigurationTemplate,
+    DeleteLaunchConfigurationTemplateResponse (DeleteLaunchConfigurationTemplateResponse'),
+    newDeleteLaunchConfigurationTemplateResponse,
 
     -- ** DeleteReplicationConfigurationTemplate
     DeleteReplicationConfigurationTemplate (DeleteReplicationConfigurationTemplate'),
@@ -76,6 +91,12 @@ module Amazonka.MGN
     DeleteSourceServerResponse (DeleteSourceServerResponse'),
     newDeleteSourceServerResponse,
 
+    -- ** DeleteVcenterClient
+    DeleteVcenterClient (DeleteVcenterClient'),
+    newDeleteVcenterClient,
+    DeleteVcenterClientResponse (DeleteVcenterClientResponse'),
+    newDeleteVcenterClientResponse,
+
     -- ** DescribeJobLogItems (Paginated)
     DescribeJobLogItems (DescribeJobLogItems'),
     newDescribeJobLogItems,
@@ -88,6 +109,12 @@ module Amazonka.MGN
     DescribeJobsResponse (DescribeJobsResponse'),
     newDescribeJobsResponse,
 
+    -- ** DescribeLaunchConfigurationTemplates (Paginated)
+    DescribeLaunchConfigurationTemplates (DescribeLaunchConfigurationTemplates'),
+    newDescribeLaunchConfigurationTemplates,
+    DescribeLaunchConfigurationTemplatesResponse (DescribeLaunchConfigurationTemplatesResponse'),
+    newDescribeLaunchConfigurationTemplatesResponse,
+
     -- ** DescribeReplicationConfigurationTemplates (Paginated)
     DescribeReplicationConfigurationTemplates (DescribeReplicationConfigurationTemplates'),
     newDescribeReplicationConfigurationTemplates,
@@ -99,6 +126,12 @@ module Amazonka.MGN
     newDescribeSourceServers,
     DescribeSourceServersResponse (DescribeSourceServersResponse'),
     newDescribeSourceServersResponse,
+
+    -- ** DescribeVcenterClients (Paginated)
+    DescribeVcenterClients (DescribeVcenterClients'),
+    newDescribeVcenterClients,
+    DescribeVcenterClientsResponse (DescribeVcenterClientsResponse'),
+    newDescribeVcenterClientsResponse,
 
     -- ** DisconnectFromService
     DisconnectFromService (DisconnectFromService'),
@@ -154,6 +187,12 @@ module Amazonka.MGN
     StartCutoverResponse (StartCutoverResponse'),
     newStartCutoverResponse,
 
+    -- ** StartReplication
+    StartReplication (StartReplication'),
+    newStartReplication,
+    SourceServer (SourceServer'),
+    newSourceServer,
+
     -- ** StartTest
     StartTest (StartTest'),
     newStartTest,
@@ -184,6 +223,12 @@ module Amazonka.MGN
     LaunchConfiguration (LaunchConfiguration'),
     newLaunchConfiguration,
 
+    -- ** UpdateLaunchConfigurationTemplate
+    UpdateLaunchConfigurationTemplate (UpdateLaunchConfigurationTemplate'),
+    newUpdateLaunchConfigurationTemplate,
+    LaunchConfigurationTemplate (LaunchConfigurationTemplate'),
+    newLaunchConfigurationTemplate,
+
     -- ** UpdateReplicationConfiguration
     UpdateReplicationConfiguration (UpdateReplicationConfiguration'),
     newUpdateReplicationConfiguration,
@@ -196,7 +241,16 @@ module Amazonka.MGN
     ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
     newReplicationConfigurationTemplate,
 
+    -- ** UpdateSourceServerReplicationType
+    UpdateSourceServerReplicationType (UpdateSourceServerReplicationType'),
+    newUpdateSourceServerReplicationType,
+    SourceServer (SourceServer'),
+    newSourceServer,
+
     -- * Types
+
+    -- ** BootMode
+    BootMode (..),
 
     -- ** ChangeServerLifeCycleStateSourceServerLifecycleState
     ChangeServerLifeCycleStateSourceServerLifecycleState (..),
@@ -237,6 +291,12 @@ module Amazonka.MGN
     -- ** LifeCycleState
     LifeCycleState (..),
 
+    -- ** PostLaunchActionExecutionStatus
+    PostLaunchActionExecutionStatus (..),
+
+    -- ** PostLaunchActionsDeploymentType
+    PostLaunchActionsDeploymentType (..),
+
     -- ** ReplicationConfigurationDataPlaneRouting
     ReplicationConfigurationDataPlaneRouting (..),
 
@@ -248,6 +308,15 @@ module Amazonka.MGN
 
     -- ** ReplicationConfigurationReplicatedDiskStagingDiskType
     ReplicationConfigurationReplicatedDiskStagingDiskType (..),
+
+    -- ** ReplicationType
+    ReplicationType (..),
+
+    -- ** SsmDocumentType
+    SsmDocumentType (..),
+
+    -- ** SsmParameterStoreParameterType
+    SsmParameterStoreParameterType (..),
 
     -- ** TargetInstanceTypeRightSizingMethod
     TargetInstanceTypeRightSizingMethod (..),
@@ -308,9 +377,17 @@ module Amazonka.MGN
     JobLogEventData (JobLogEventData'),
     newJobLogEventData,
 
+    -- ** JobPostLaunchActionsLaunchStatus
+    JobPostLaunchActionsLaunchStatus (JobPostLaunchActionsLaunchStatus'),
+    newJobPostLaunchActionsLaunchStatus,
+
     -- ** LaunchConfiguration
     LaunchConfiguration (LaunchConfiguration'),
     newLaunchConfiguration,
+
+    -- ** LaunchConfigurationTemplate
+    LaunchConfigurationTemplate (LaunchConfigurationTemplate'),
+    newLaunchConfigurationTemplate,
 
     -- ** LaunchedInstance
     LaunchedInstance (LaunchedInstance'),
@@ -368,6 +445,14 @@ module Amazonka.MGN
     ParticipatingServer (ParticipatingServer'),
     newParticipatingServer,
 
+    -- ** PostLaunchActions
+    PostLaunchActions (PostLaunchActions'),
+    newPostLaunchActions,
+
+    -- ** PostLaunchActionsStatus
+    PostLaunchActionsStatus (PostLaunchActionsStatus'),
+    newPostLaunchActionsStatus,
+
     -- ** ReplicationConfiguration
     ReplicationConfiguration (ReplicationConfiguration'),
     newReplicationConfiguration,
@@ -387,18 +472,35 @@ module Amazonka.MGN
     -- ** SourceServer
     SourceServer (SourceServer'),
     newSourceServer,
+
+    -- ** SsmDocument
+    SsmDocument (SsmDocument'),
+    newSsmDocument,
+
+    -- ** SsmParameterStoreParameter
+    SsmParameterStoreParameter (SsmParameterStoreParameter'),
+    newSsmParameterStoreParameter,
+
+    -- ** VcenterClient
+    VcenterClient (VcenterClient'),
+    newVcenterClient,
   )
 where
 
 import Amazonka.MGN.ChangeServerLifeCycleState
+import Amazonka.MGN.CreateLaunchConfigurationTemplate
 import Amazonka.MGN.CreateReplicationConfigurationTemplate
 import Amazonka.MGN.DeleteJob
+import Amazonka.MGN.DeleteLaunchConfigurationTemplate
 import Amazonka.MGN.DeleteReplicationConfigurationTemplate
 import Amazonka.MGN.DeleteSourceServer
+import Amazonka.MGN.DeleteVcenterClient
 import Amazonka.MGN.DescribeJobLogItems
 import Amazonka.MGN.DescribeJobs
+import Amazonka.MGN.DescribeLaunchConfigurationTemplates
 import Amazonka.MGN.DescribeReplicationConfigurationTemplates
 import Amazonka.MGN.DescribeSourceServers
+import Amazonka.MGN.DescribeVcenterClients
 import Amazonka.MGN.DisconnectFromService
 import Amazonka.MGN.FinalizeCutover
 import Amazonka.MGN.GetLaunchConfiguration
@@ -409,14 +511,17 @@ import Amazonka.MGN.ListTagsForResource
 import Amazonka.MGN.MarkAsArchived
 import Amazonka.MGN.RetryDataReplication
 import Amazonka.MGN.StartCutover
+import Amazonka.MGN.StartReplication
 import Amazonka.MGN.StartTest
 import Amazonka.MGN.TagResource
 import Amazonka.MGN.TerminateTargetInstances
 import Amazonka.MGN.Types
 import Amazonka.MGN.UntagResource
 import Amazonka.MGN.UpdateLaunchConfiguration
+import Amazonka.MGN.UpdateLaunchConfigurationTemplate
 import Amazonka.MGN.UpdateReplicationConfiguration
 import Amazonka.MGN.UpdateReplicationConfigurationTemplate
+import Amazonka.MGN.UpdateSourceServerReplicationType
 import Amazonka.MGN.Waiters
 
 -- $errors

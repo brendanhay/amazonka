@@ -33,6 +33,7 @@ data Certificate = Certificate'
     -- | The date that the certificate was created.
     certificateCreationDate :: Prelude.Maybe Core.POSIX,
     -- | The location of an imported Oracle Wallet certificate for use with SSL.
+    -- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@
     certificateWallet :: Prelude.Maybe Core.Base64,
     -- | The owner of the certificate.
     certificateOwner :: Prelude.Maybe Prelude.Text,
@@ -65,7 +66,8 @@ data Certificate = Certificate'
 --
 -- 'certificateCreationDate', 'certificate_certificateCreationDate' - The date that the certificate was created.
 --
--- 'certificateWallet', 'certificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.--
+-- 'certificateWallet', 'certificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.
+-- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -110,7 +112,8 @@ certificate_keyLength = Lens.lens (\Certificate' {keyLength} -> keyLength) (\s@C
 certificate_certificateCreationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
 certificate_certificateCreationDate = Lens.lens (\Certificate' {certificateCreationDate} -> certificateCreationDate) (\s@Certificate' {} a -> s {certificateCreationDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
 
--- | The location of an imported Oracle Wallet certificate for use with SSL.--
+-- | The location of an imported Oracle Wallet certificate for use with SSL.
+-- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.

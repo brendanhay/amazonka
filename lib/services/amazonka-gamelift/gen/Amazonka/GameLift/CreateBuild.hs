@@ -25,7 +25,7 @@
 -- with Amazon GameLift.
 --
 -- When setting up a new game build for GameLift, we recommend using the
--- AWS CLI command
+-- Amazon Web Services CLI command
 -- __<https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html upload-build>__
 -- . This helper command combines two tasks: (1) it uploads your build
 -- files from a file directory to a GameLift Amazon S3 location, and (2) it
@@ -34,11 +34,11 @@
 -- The @CreateBuild@ operation can used in the following scenarios:
 --
 -- -   To create a new game build with build files that are in an Amazon S3
---     location under an AWS account that you control. To use this option,
---     you must first give Amazon GameLift access to the Amazon S3 bucket.
---     With permissions in place, call @CreateBuild@ and specify a build
---     name, operating system, and the Amazon S3 storage location of your
---     game build.
+--     location under an Amazon Web Services account that you control. To
+--     use this option, you must first give Amazon GameLift access to the
+--     Amazon S3 bucket. With permissions in place, call @CreateBuild@ and
+--     specify a build name, operating system, and the Amazon S3 storage
+--     location of your game build.
 --
 -- -   To directly upload your build files to a GameLift Amazon S3
 --     location. To use this option, first call @CreateBuild@ and specify a
@@ -101,14 +101,15 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateBuild' smart constructor.
 data CreateBuild = CreateBuild'
   { -- | A list of labels to assign to the new build resource. Tags are
-    -- developer-defined key-value pairs. Tagging AWS resources are useful for
-    -- resource management, access management and cost allocation. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
+    -- developer-defined key-value pairs. Tagging Amazon Web Services resources
+    -- are useful for resource management, access management and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use TagResource, UntagResource, and ListTagsForResource
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | The operating system that the game server binaries are built to run on.
     -- This value determines the type of fleet resources that you can use for
@@ -126,6 +127,10 @@ data CreateBuild = CreateBuild'
     -- bucket name and key. The location must also specify a role ARN that you
     -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
     -- bucket and your new build must be in the same Region.
+    --
+    -- If a @StorageLocation@ is specified, the size of your file can be found
+    -- in your Amazon S3 bucket. Amazon GameLift will report a @SizeOnDisk@ of
+    -- 0.
     storageLocation :: Prelude.Maybe S3Location,
     -- | Version information that is associated with a build or script. Version
     -- strings do not need to be unique. You can use UpdateBuild to change this
@@ -143,14 +148,15 @@ data CreateBuild = CreateBuild'
 -- for backwards compatibility:
 --
 -- 'tags', 'createBuild_tags' - A list of labels to assign to the new build resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- developer-defined key-value pairs. Tagging Amazon Web Services resources
+-- are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 --
 -- 'operatingSystem', 'createBuild_operatingSystem' - The operating system that the game server binaries are built to run on.
 -- This value determines the type of fleet resources that you can use for
@@ -169,6 +175,10 @@ data CreateBuild = CreateBuild'
 -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
 -- bucket and your new build must be in the same Region.
 --
+-- If a @StorageLocation@ is specified, the size of your file can be found
+-- in your Amazon S3 bucket. Amazon GameLift will report a @SizeOnDisk@ of
+-- 0.
+--
 -- 'version', 'createBuild_version' - Version information that is associated with a build or script. Version
 -- strings do not need to be unique. You can use UpdateBuild to change this
 -- value later.
@@ -184,14 +194,15 @@ newCreateBuild =
     }
 
 -- | A list of labels to assign to the new build resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- developer-defined key-value pairs. Tagging Amazon Web Services resources
+-- are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 createBuild_tags :: Lens.Lens' CreateBuild (Prelude.Maybe [Tag])
 createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens.coerced
 
@@ -215,6 +226,10 @@ createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} 
 -- bucket name and key. The location must also specify a role ARN that you
 -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
 -- bucket and your new build must be in the same Region.
+--
+-- If a @StorageLocation@ is specified, the size of your file can be found
+-- in your Amazon S3 bucket. Amazon GameLift will report a @SizeOnDisk@ of
+-- 0.
 createBuild_storageLocation :: Lens.Lens' CreateBuild (Prelude.Maybe S3Location)
 createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> storageLocation) (\s@CreateBuild' {} a -> s {storageLocation = a} :: CreateBuild)
 

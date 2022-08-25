@@ -48,8 +48,8 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newGetKnowledgeBase' smart constructor.
 data GetKnowledgeBase = GetKnowledgeBase'
-  { -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+  { -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +62,8 @@ data GetKnowledgeBase = GetKnowledgeBase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'knowledgeBaseId', 'getKnowledgeBase_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'getKnowledgeBase_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newGetKnowledgeBase ::
   -- | 'knowledgeBaseId'
   Prelude.Text ->
@@ -74,8 +74,8 @@ newGetKnowledgeBase pKnowledgeBaseId_ =
         pKnowledgeBaseId_
     }
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 getKnowledgeBase_knowledgeBaseId :: Lens.Lens' GetKnowledgeBase Prelude.Text
 getKnowledgeBase_knowledgeBaseId = Lens.lens (\GetKnowledgeBase' {knowledgeBaseId} -> knowledgeBaseId) (\s@GetKnowledgeBase' {} a -> s {knowledgeBaseId = a} :: GetKnowledgeBase)
 

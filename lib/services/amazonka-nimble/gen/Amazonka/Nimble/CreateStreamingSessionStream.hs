@@ -32,8 +32,8 @@ module Amazonka.Nimble.CreateStreamingSessionStream
     -- * Request Lenses
     createStreamingSessionStream_clientToken,
     createStreamingSessionStream_expirationInSeconds,
-    createStreamingSessionStream_studioId,
     createStreamingSessionStream_sessionId,
+    createStreamingSessionStream_studioId,
 
     -- * Destructuring the Response
     CreateStreamingSessionStreamResponse (..),
@@ -52,25 +52,19 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | A list collection streams.
---
--- /See:/ 'newCreateStreamingSessionStream' smart constructor.
+-- | /See:/ 'newCreateStreamingSessionStream' smart constructor.
 data CreateStreamingSessionStream = CreateStreamingSessionStream'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The expiration time in seconds.
     expirationInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The streaming session ID.
+    sessionId :: Prelude.Text,
     -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The session ID.
-    sessionId :: Prelude.Text
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,45 +76,37 @@ data CreateStreamingSessionStream = CreateStreamingSessionStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createStreamingSessionStream_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'createStreamingSessionStream_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
 -- 'expirationInSeconds', 'createStreamingSessionStream_expirationInSeconds' - The expiration time in seconds.
 --
--- 'studioId', 'createStreamingSessionStream_studioId' - The studio ID.
+-- 'sessionId', 'createStreamingSessionStream_sessionId' - The streaming session ID.
 --
--- 'sessionId', 'createStreamingSessionStream_sessionId' - The session ID.
+-- 'studioId', 'createStreamingSessionStream_studioId' - The studio ID.
 newCreateStreamingSessionStream ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'sessionId'
+  Prelude.Text ->
+  -- | 'studioId'
   Prelude.Text ->
   CreateStreamingSessionStream
 newCreateStreamingSessionStream
-  pStudioId_
-  pSessionId_ =
+  pSessionId_
+  pStudioId_ =
     CreateStreamingSessionStream'
       { clientToken =
           Prelude.Nothing,
         expirationInSeconds = Prelude.Nothing,
-        studioId = pStudioId_,
-        sessionId = pSessionId_
+        sessionId = pSessionId_,
+        studioId = pStudioId_
       }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 createStreamingSessionStream_clientToken :: Lens.Lens' CreateStreamingSessionStream (Prelude.Maybe Prelude.Text)
 createStreamingSessionStream_clientToken = Lens.lens (\CreateStreamingSessionStream' {clientToken} -> clientToken) (\s@CreateStreamingSessionStream' {} a -> s {clientToken = a} :: CreateStreamingSessionStream)
 
@@ -128,13 +114,13 @@ createStreamingSessionStream_clientToken = Lens.lens (\CreateStreamingSessionStr
 createStreamingSessionStream_expirationInSeconds :: Lens.Lens' CreateStreamingSessionStream (Prelude.Maybe Prelude.Natural)
 createStreamingSessionStream_expirationInSeconds = Lens.lens (\CreateStreamingSessionStream' {expirationInSeconds} -> expirationInSeconds) (\s@CreateStreamingSessionStream' {} a -> s {expirationInSeconds = a} :: CreateStreamingSessionStream)
 
+-- | The streaming session ID.
+createStreamingSessionStream_sessionId :: Lens.Lens' CreateStreamingSessionStream Prelude.Text
+createStreamingSessionStream_sessionId = Lens.lens (\CreateStreamingSessionStream' {sessionId} -> sessionId) (\s@CreateStreamingSessionStream' {} a -> s {sessionId = a} :: CreateStreamingSessionStream)
+
 -- | The studio ID.
 createStreamingSessionStream_studioId :: Lens.Lens' CreateStreamingSessionStream Prelude.Text
 createStreamingSessionStream_studioId = Lens.lens (\CreateStreamingSessionStream' {studioId} -> studioId) (\s@CreateStreamingSessionStream' {} a -> s {studioId = a} :: CreateStreamingSessionStream)
-
--- | The session ID.
-createStreamingSessionStream_sessionId :: Lens.Lens' CreateStreamingSessionStream Prelude.Text
-createStreamingSessionStream_sessionId = Lens.lens (\CreateStreamingSessionStream' {sessionId} -> sessionId) (\s@CreateStreamingSessionStream' {} a -> s {sessionId = a} :: CreateStreamingSessionStream)
 
 instance Core.AWSRequest CreateStreamingSessionStream where
   type
@@ -156,15 +142,15 @@ instance
   hashWithSalt _salt CreateStreamingSessionStream' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` expirationInSeconds
-      `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData CreateStreamingSessionStream where
   rnf CreateStreamingSessionStream' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf expirationInSeconds
-      `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders CreateStreamingSessionStream where
   toHeaders CreateStreamingSessionStream' {..} =
@@ -203,7 +189,7 @@ data CreateStreamingSessionStreamResponse = CreateStreamingSessionStreamResponse
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStreamingSessionStreamResponse' with all optional fields omitted.

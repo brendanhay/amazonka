@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The AWS Identity and Access Management (IAM) action definition details.
+-- | The Identity and Access Management (IAM) action definition details.
 --
 -- /See:/ 'newIamActionDefinition' smart constructor.
 data IamActionDefinition = IamActionDefinition'

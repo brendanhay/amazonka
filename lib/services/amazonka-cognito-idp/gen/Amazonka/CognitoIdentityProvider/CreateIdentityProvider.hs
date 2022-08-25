@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an identity provider for a user pool.
+-- Creates an IdP for a user pool.
 module Amazonka.CognitoIdentityProvider.CreateIdentityProvider
   ( -- * Creating a Request
     CreateIdentityProvider (..),
@@ -53,19 +53,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIdentityProvider' smart constructor.
 data CreateIdentityProvider = CreateIdentityProvider'
-  { -- | A mapping of identity provider attributes to standard and custom user
-    -- pool attributes.
+  { -- | A mapping of IdP attributes to standard and custom user pool attributes.
     attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of identity provider identifiers.
+    -- | A list of IdP identifiers.
     idpIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The identity provider name.
+    -- | The IdP name.
     providerName :: Prelude.Text,
-    -- | The identity provider type.
+    -- | The IdP type.
     providerType :: IdentityProviderTypeType,
-    -- | The identity provider details. The following list describes the provider
-    -- detail keys for each identity provider type.
+    -- | The IdP details. The following list describes the provider detail keys
+    -- for each IdP type.
     --
     -- -   For Google and Login with Amazon:
     --
@@ -97,7 +96,7 @@ data CreateIdentityProvider = CreateIdentityProvider'
     --
     --     -   authorize_scopes
     --
-    -- -   For OIDC providers:
+    -- -   For OpenID Connect (OIDC) providers:
     --
     --     -   client_id
     --
@@ -109,21 +108,25 @@ data CreateIdentityProvider = CreateIdentityProvider'
     --
     --     -   authorize_scopes
     --
-    --     -   authorize_url /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --     -   The following keys are only present if Amazon Cognito didn\'t
+    --         discover them at the @oidc_issuer@ URL.
     --
-    --     -   token_url /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --         -   authorize_url
     --
-    --     -   attributes_url /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --         -   token_url
     --
-    --     -   jwks_uri /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --         -   attributes_url
+    --
+    --         -   jwks_uri
+    --
+    --     -   Amazon Cognito sets the value of the following keys
+    --         automatically. They are read-only.
+    --
+    --         -   attributes_url_add_attributes
     --
     -- -   For SAML providers:
     --
-    --     -   MetadataFile OR MetadataURL
+    --     -   MetadataFile or MetadataURL
     --
     --     -   IDPSignout /optional/
     providerDetails :: Prelude.HashMap Prelude.Text Prelude.Text
@@ -138,19 +141,18 @@ data CreateIdentityProvider = CreateIdentityProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeMapping', 'createIdentityProvider_attributeMapping' - A mapping of identity provider attributes to standard and custom user
--- pool attributes.
+-- 'attributeMapping', 'createIdentityProvider_attributeMapping' - A mapping of IdP attributes to standard and custom user pool attributes.
 --
--- 'idpIdentifiers', 'createIdentityProvider_idpIdentifiers' - A list of identity provider identifiers.
+-- 'idpIdentifiers', 'createIdentityProvider_idpIdentifiers' - A list of IdP identifiers.
 --
 -- 'userPoolId', 'createIdentityProvider_userPoolId' - The user pool ID.
 --
--- 'providerName', 'createIdentityProvider_providerName' - The identity provider name.
+-- 'providerName', 'createIdentityProvider_providerName' - The IdP name.
 --
--- 'providerType', 'createIdentityProvider_providerType' - The identity provider type.
+-- 'providerType', 'createIdentityProvider_providerType' - The IdP type.
 --
--- 'providerDetails', 'createIdentityProvider_providerDetails' - The identity provider details. The following list describes the provider
--- detail keys for each identity provider type.
+-- 'providerDetails', 'createIdentityProvider_providerDetails' - The IdP details. The following list describes the provider detail keys
+-- for each IdP type.
 --
 -- -   For Google and Login with Amazon:
 --
@@ -182,7 +184,7 @@ data CreateIdentityProvider = CreateIdentityProvider'
 --
 --     -   authorize_scopes
 --
--- -   For OIDC providers:
+-- -   For OpenID Connect (OIDC) providers:
 --
 --     -   client_id
 --
@@ -194,21 +196,25 @@ data CreateIdentityProvider = CreateIdentityProvider'
 --
 --     -   authorize_scopes
 --
---     -   authorize_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--     -   The following keys are only present if Amazon Cognito didn\'t
+--         discover them at the @oidc_issuer@ URL.
 --
---     -   token_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   authorize_url
 --
---     -   attributes_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   token_url
 --
---     -   jwks_uri /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   attributes_url
+--
+--         -   jwks_uri
+--
+--     -   Amazon Cognito sets the value of the following keys
+--         automatically. They are read-only.
+--
+--         -   attributes_url_add_attributes
 --
 -- -   For SAML providers:
 --
---     -   MetadataFile OR MetadataURL
+--     -   MetadataFile or MetadataURL
 --
 --     -   IDPSignout /optional/
 newCreateIdentityProvider ::
@@ -233,12 +239,11 @@ newCreateIdentityProvider
         providerDetails = Prelude.mempty
       }
 
--- | A mapping of identity provider attributes to standard and custom user
--- pool attributes.
+-- | A mapping of IdP attributes to standard and custom user pool attributes.
 createIdentityProvider_attributeMapping :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createIdentityProvider_attributeMapping = Lens.lens (\CreateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@CreateIdentityProvider' {} a -> s {attributeMapping = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of identity provider identifiers.
+-- | A list of IdP identifiers.
 createIdentityProvider_idpIdentifiers :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe [Prelude.Text])
 createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
@@ -246,16 +251,16 @@ createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idp
 createIdentityProvider_userPoolId :: Lens.Lens' CreateIdentityProvider Prelude.Text
 createIdentityProvider_userPoolId = Lens.lens (\CreateIdentityProvider' {userPoolId} -> userPoolId) (\s@CreateIdentityProvider' {} a -> s {userPoolId = a} :: CreateIdentityProvider)
 
--- | The identity provider name.
+-- | The IdP name.
 createIdentityProvider_providerName :: Lens.Lens' CreateIdentityProvider Prelude.Text
 createIdentityProvider_providerName = Lens.lens (\CreateIdentityProvider' {providerName} -> providerName) (\s@CreateIdentityProvider' {} a -> s {providerName = a} :: CreateIdentityProvider)
 
--- | The identity provider type.
+-- | The IdP type.
 createIdentityProvider_providerType :: Lens.Lens' CreateIdentityProvider IdentityProviderTypeType
 createIdentityProvider_providerType = Lens.lens (\CreateIdentityProvider' {providerType} -> providerType) (\s@CreateIdentityProvider' {} a -> s {providerType = a} :: CreateIdentityProvider)
 
--- | The identity provider details. The following list describes the provider
--- detail keys for each identity provider type.
+-- | The IdP details. The following list describes the provider detail keys
+-- for each IdP type.
 --
 -- -   For Google and Login with Amazon:
 --
@@ -287,7 +292,7 @@ createIdentityProvider_providerType = Lens.lens (\CreateIdentityProvider' {provi
 --
 --     -   authorize_scopes
 --
--- -   For OIDC providers:
+-- -   For OpenID Connect (OIDC) providers:
 --
 --     -   client_id
 --
@@ -299,21 +304,25 @@ createIdentityProvider_providerType = Lens.lens (\CreateIdentityProvider' {provi
 --
 --     -   authorize_scopes
 --
---     -   authorize_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--     -   The following keys are only present if Amazon Cognito didn\'t
+--         discover them at the @oidc_issuer@ URL.
 --
---     -   token_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   authorize_url
 --
---     -   attributes_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   token_url
 --
---     -   jwks_uri /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   attributes_url
+--
+--         -   jwks_uri
+--
+--     -   Amazon Cognito sets the value of the following keys
+--         automatically. They are read-only.
+--
+--         -   attributes_url_add_attributes
 --
 -- -   For SAML providers:
 --
---     -   MetadataFile OR MetadataURL
+--     -   MetadataFile or MetadataURL
 --
 --     -   IDPSignout /optional/
 createIdentityProvider_providerDetails :: Lens.Lens' CreateIdentityProvider (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -391,7 +400,7 @@ instance Core.ToQuery CreateIdentityProvider where
 data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The newly created identity provider object.
+    -- | The newly created IdP object.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -406,7 +415,7 @@ data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
 --
 -- 'httpStatus', 'createIdentityProviderResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'createIdentityProviderResponse_identityProvider' - The newly created identity provider object.
+-- 'identityProvider', 'createIdentityProviderResponse_identityProvider' - The newly created IdP object.
 newCreateIdentityProviderResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -426,7 +435,7 @@ newCreateIdentityProviderResponse
 createIdentityProviderResponse_httpStatus :: Lens.Lens' CreateIdentityProviderResponse Prelude.Int
 createIdentityProviderResponse_httpStatus = Lens.lens (\CreateIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@CreateIdentityProviderResponse' {} a -> s {httpStatus = a} :: CreateIdentityProviderResponse)
 
--- | The newly created identity provider object.
+-- | The newly created IdP object.
 createIdentityProviderResponse_identityProvider :: Lens.Lens' CreateIdentityProviderResponse IdentityProviderType
 createIdentityProviderResponse_identityProvider = Lens.lens (\CreateIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@CreateIdentityProviderResponse' {} a -> s {identityProvider = a} :: CreateIdentityProviderResponse)
 

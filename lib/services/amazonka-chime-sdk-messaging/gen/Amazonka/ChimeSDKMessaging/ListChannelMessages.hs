@@ -39,6 +39,7 @@ module Amazonka.ChimeSDKMessaging.ListChannelMessages
     -- * Request Lenses
     listChannelMessages_sortOrder,
     listChannelMessages_nextToken,
+    listChannelMessages_subChannelId,
     listChannelMessages_notBefore,
     listChannelMessages_maxResults,
     listChannelMessages_notAfter,
@@ -51,6 +52,7 @@ module Amazonka.ChimeSDKMessaging.ListChannelMessages
 
     -- * Response Lenses
     listChannelMessagesResponse_nextToken,
+    listChannelMessagesResponse_subChannelId,
     listChannelMessagesResponse_channelArn,
     listChannelMessagesResponse_channelMessages,
     listChannelMessagesResponse_httpStatus,
@@ -72,6 +74,11 @@ data ListChannelMessages = ListChannelMessages'
     -- | The token passed by previous API calls until all requested messages are
     -- returned.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the SubChannel in the request.
+    --
+    -- Only required when listing the messages in a SubChannel that the user
+    -- belongs to.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The initial or starting time stamp for your requested messages.
     notBefore :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of messages that you want returned.
@@ -99,6 +106,11 @@ data ListChannelMessages = ListChannelMessages'
 -- 'nextToken', 'listChannelMessages_nextToken' - The token passed by previous API calls until all requested messages are
 -- returned.
 --
+-- 'subChannelId', 'listChannelMessages_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only required when listing the messages in a SubChannel that the user
+-- belongs to.
+--
 -- 'notBefore', 'listChannelMessages_notBefore' - The initial or starting time stamp for your requested messages.
 --
 -- 'maxResults', 'listChannelMessages_maxResults' - The maximum number of messages that you want returned.
@@ -118,6 +130,7 @@ newListChannelMessages pChannelArn_ pChimeBearer_ =
   ListChannelMessages'
     { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       notBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       notAfter = Prelude.Nothing,
@@ -134,6 +147,13 @@ listChannelMessages_sortOrder = Lens.lens (\ListChannelMessages' {sortOrder} -> 
 -- returned.
 listChannelMessages_nextToken :: Lens.Lens' ListChannelMessages (Prelude.Maybe Prelude.Text)
 listChannelMessages_nextToken = Lens.lens (\ListChannelMessages' {nextToken} -> nextToken) (\s@ListChannelMessages' {} a -> s {nextToken = a} :: ListChannelMessages) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the SubChannel in the request.
+--
+-- Only required when listing the messages in a SubChannel that the user
+-- belongs to.
+listChannelMessages_subChannelId :: Lens.Lens' ListChannelMessages (Prelude.Maybe Prelude.Text)
+listChannelMessages_subChannelId = Lens.lens (\ListChannelMessages' {subChannelId} -> subChannelId) (\s@ListChannelMessages' {} a -> s {subChannelId = a} :: ListChannelMessages)
 
 -- | The initial or starting time stamp for your requested messages.
 listChannelMessages_notBefore :: Lens.Lens' ListChannelMessages (Prelude.Maybe Prelude.UTCTime)
@@ -165,6 +185,7 @@ instance Core.AWSRequest ListChannelMessages where
       ( \s h x ->
           ListChannelMessagesResponse'
             Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SubChannelId")
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> ( x Core..?> "ChannelMessages"
                             Core..!@ Prelude.mempty
@@ -176,6 +197,7 @@ instance Prelude.Hashable ListChannelMessages where
   hashWithSalt _salt ListChannelMessages' {..} =
     _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` notBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` notAfter
@@ -186,6 +208,7 @@ instance Prelude.NFData ListChannelMessages where
   rnf ListChannelMessages' {..} =
     Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf notBefore
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf notAfter
@@ -207,6 +230,7 @@ instance Core.ToQuery ListChannelMessages where
     Prelude.mconcat
       [ "sort-order" Core.=: sortOrder,
         "next-token" Core.=: nextToken,
+        "sub-channel-id" Core.=: subChannelId,
         "not-before" Core.=: notBefore,
         "max-results" Core.=: maxResults,
         "not-after" Core.=: notAfter
@@ -217,6 +241,8 @@ data ListChannelMessagesResponse = ListChannelMessagesResponse'
   { -- | The token passed by previous API calls until all requested messages are
     -- returned.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the SubChannel in the response.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel containing the requested messages.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The information about, and content of, each requested message.
@@ -237,6 +263,8 @@ data ListChannelMessagesResponse = ListChannelMessagesResponse'
 -- 'nextToken', 'listChannelMessagesResponse_nextToken' - The token passed by previous API calls until all requested messages are
 -- returned.
 --
+-- 'subChannelId', 'listChannelMessagesResponse_subChannelId' - The ID of the SubChannel in the response.
+--
 -- 'channelArn', 'listChannelMessagesResponse_channelArn' - The ARN of the channel containing the requested messages.
 --
 -- 'channelMessages', 'listChannelMessagesResponse_channelMessages' - The information about, and content of, each requested message.
@@ -250,6 +278,7 @@ newListChannelMessagesResponse pHttpStatus_ =
   ListChannelMessagesResponse'
     { nextToken =
         Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       channelMessages = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -259,6 +288,10 @@ newListChannelMessagesResponse pHttpStatus_ =
 -- returned.
 listChannelMessagesResponse_nextToken :: Lens.Lens' ListChannelMessagesResponse (Prelude.Maybe Prelude.Text)
 listChannelMessagesResponse_nextToken = Lens.lens (\ListChannelMessagesResponse' {nextToken} -> nextToken) (\s@ListChannelMessagesResponse' {} a -> s {nextToken = a} :: ListChannelMessagesResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the SubChannel in the response.
+listChannelMessagesResponse_subChannelId :: Lens.Lens' ListChannelMessagesResponse (Prelude.Maybe Prelude.Text)
+listChannelMessagesResponse_subChannelId = Lens.lens (\ListChannelMessagesResponse' {subChannelId} -> subChannelId) (\s@ListChannelMessagesResponse' {} a -> s {subChannelId = a} :: ListChannelMessagesResponse)
 
 -- | The ARN of the channel containing the requested messages.
 listChannelMessagesResponse_channelArn :: Lens.Lens' ListChannelMessagesResponse (Prelude.Maybe Prelude.Text)
@@ -275,6 +308,7 @@ listChannelMessagesResponse_httpStatus = Lens.lens (\ListChannelMessagesResponse
 instance Prelude.NFData ListChannelMessagesResponse where
   rnf ListChannelMessagesResponse' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf channelMessages
       `Prelude.seq` Prelude.rnf httpStatus

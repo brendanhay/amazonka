@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes tags from an IoT Device Advisor resource.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UntagResource>
+-- action.
 module Amazonka.IoTDeviceAdvisor.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

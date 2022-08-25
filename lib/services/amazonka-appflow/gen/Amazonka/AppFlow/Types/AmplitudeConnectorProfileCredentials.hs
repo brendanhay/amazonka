@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data AmplitudeConnectorProfileCredentials = AmplitudeConnectorProfileCredentials'
   { -- | A unique alphanumeric identifier used to authenticate a user, developer,
     -- or calling program to your API.
-    apiKey :: Prelude.Text,
+    apiKey :: Core.Sensitive Prelude.Text,
     -- | The Secret Access Key portion of the credentials.
     secretKey :: Core.Sensitive Prelude.Text
   }
@@ -58,7 +58,7 @@ newAmplitudeConnectorProfileCredentials
   pSecretKey_ =
     AmplitudeConnectorProfileCredentials'
       { apiKey =
-          pApiKey_,
+          Core._Sensitive Lens.# pApiKey_,
         secretKey =
           Core._Sensitive Lens.# pSecretKey_
       }
@@ -66,7 +66,7 @@ newAmplitudeConnectorProfileCredentials
 -- | A unique alphanumeric identifier used to authenticate a user, developer,
 -- or calling program to your API.
 amplitudeConnectorProfileCredentials_apiKey :: Lens.Lens' AmplitudeConnectorProfileCredentials Prelude.Text
-amplitudeConnectorProfileCredentials_apiKey = Lens.lens (\AmplitudeConnectorProfileCredentials' {apiKey} -> apiKey) (\s@AmplitudeConnectorProfileCredentials' {} a -> s {apiKey = a} :: AmplitudeConnectorProfileCredentials)
+amplitudeConnectorProfileCredentials_apiKey = Lens.lens (\AmplitudeConnectorProfileCredentials' {apiKey} -> apiKey) (\s@AmplitudeConnectorProfileCredentials' {} a -> s {apiKey = a} :: AmplitudeConnectorProfileCredentials) Prelude.. Core._Sensitive
 
 -- | The Secret Access Key portion of the credentials.
 amplitudeConnectorProfileCredentials_secretKey :: Lens.Lens' AmplitudeConnectorProfileCredentials Prelude.Text

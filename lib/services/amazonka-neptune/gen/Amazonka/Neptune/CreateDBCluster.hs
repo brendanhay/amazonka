@@ -55,6 +55,7 @@ module Amazonka.Neptune.CreateDBCluster
     createDBCluster_replicationSourceIdentifier,
     createDBCluster_storageEncrypted,
     createDBCluster_kmsKeyId,
+    createDBCluster_globalClusterIdentifier,
     createDBCluster_deletionProtection,
     createDBCluster_preferredMaintenanceWindow,
     createDBCluster_dbClusterParameterGroupName,
@@ -187,6 +188,9 @@ data CreateDBCluster = CreateDBCluster'
     -- the destination Amazon Region. This key is used to encrypt the Read
     -- Replica in that Amazon Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Neptune global database to which this new DB cluster
+    -- should be added.
+    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is enabled.
@@ -353,6 +357,9 @@ data CreateDBCluster = CreateDBCluster'
 -- the destination Amazon Region. This key is used to encrypt the Read
 -- Replica in that Amazon Region.
 --
+-- 'globalClusterIdentifier', 'createDBCluster_globalClusterIdentifier' - The ID of the Neptune global database to which this new DB cluster
+-- should be added.
+--
 -- 'deletionProtection', 'createDBCluster_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is enabled.
@@ -428,6 +435,7 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
       replicationSourceIdentifier = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      globalClusterIdentifier = Prelude.Nothing,
       deletionProtection = Prelude.Nothing,
       preferredMaintenanceWindow = Prelude.Nothing,
       dbClusterParameterGroupName = Prelude.Nothing,
@@ -578,6 +586,11 @@ createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypte
 createDBCluster_kmsKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_kmsKeyId = Lens.lens (\CreateDBCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateDBCluster' {} a -> s {kmsKeyId = a} :: CreateDBCluster)
 
+-- | The ID of the Neptune global database to which this new DB cluster
+-- should be added.
+createDBCluster_globalClusterIdentifier :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_globalClusterIdentifier = Lens.lens (\CreateDBCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateDBCluster' {} a -> s {globalClusterIdentifier = a} :: CreateDBCluster)
+
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is enabled.
@@ -676,6 +689,7 @@ instance Prelude.Hashable CreateDBCluster where
       `Prelude.hashWithSalt` replicationSourceIdentifier
       `Prelude.hashWithSalt` storageEncrypted
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` globalClusterIdentifier
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` dbClusterParameterGroupName
@@ -705,6 +719,8 @@ instance Prelude.NFData CreateDBCluster where
         replicationSourceIdentifier
       `Prelude.seq` Prelude.rnf storageEncrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        globalClusterIdentifier
       `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
@@ -766,6 +782,8 @@ instance Core.ToQuery CreateDBCluster where
           Core.=: replicationSourceIdentifier,
         "StorageEncrypted" Core.=: storageEncrypted,
         "KmsKeyId" Core.=: kmsKeyId,
+        "GlobalClusterIdentifier"
+          Core.=: globalClusterIdentifier,
         "DeletionProtection" Core.=: deletionProtection,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,

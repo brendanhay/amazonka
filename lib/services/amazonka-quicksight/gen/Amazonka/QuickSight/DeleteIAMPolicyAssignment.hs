@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing IAMpolicy assignment.
+-- Deletes an existing IAM policy assignment.
 module Amazonka.QuickSight.DeleteIAMPolicyAssignment
   ( -- * Creating a Request
     DeleteIAMPolicyAssignment (..),
@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteIAMPolicyAssignment' smart constructor.
 data DeleteIAMPolicyAssignment = DeleteIAMPolicyAssignment'
-  { -- | The Amazon Web Services account ID where you want to delete the
-    -- IAMpolicy assignment.
+  { -- | The Amazon Web Services account ID where you want to delete the IAM
+    -- policy assignment.
     awsAccountId :: Prelude.Text,
     -- | The name of the assignment.
     assignmentName :: Prelude.Text,
@@ -69,8 +69,8 @@ data DeleteIAMPolicyAssignment = DeleteIAMPolicyAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'deleteIAMPolicyAssignment_awsAccountId' - The Amazon Web Services account ID where you want to delete the
--- IAMpolicy assignment.
+-- 'awsAccountId', 'deleteIAMPolicyAssignment_awsAccountId' - The Amazon Web Services account ID where you want to delete the IAM
+-- policy assignment.
 --
 -- 'assignmentName', 'deleteIAMPolicyAssignment_assignmentName' - The name of the assignment.
 --
@@ -94,8 +94,8 @@ newDeleteIAMPolicyAssignment
         namespace = pNamespace_
       }
 
--- | The Amazon Web Services account ID where you want to delete the
--- IAMpolicy assignment.
+-- | The Amazon Web Services account ID where you want to delete the IAM
+-- policy assignment.
 deleteIAMPolicyAssignment_awsAccountId :: Lens.Lens' DeleteIAMPolicyAssignment Prelude.Text
 deleteIAMPolicyAssignment_awsAccountId = Lens.lens (\DeleteIAMPolicyAssignment' {awsAccountId} -> awsAccountId) (\s@DeleteIAMPolicyAssignment' {} a -> s {awsAccountId = a} :: DeleteIAMPolicyAssignment)
 

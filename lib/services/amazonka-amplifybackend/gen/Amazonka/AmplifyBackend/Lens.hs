@@ -75,6 +75,17 @@ module Amazonka.AmplifyBackend.Lens
     createBackendConfigResponse_backendEnvironmentName,
     createBackendConfigResponse_httpStatus,
 
+    -- ** CreateBackendStorage
+    createBackendStorage_appId,
+    createBackendStorage_resourceName,
+    createBackendStorage_backendEnvironmentName,
+    createBackendStorage_resourceConfig,
+    createBackendStorageResponse_jobId,
+    createBackendStorageResponse_status,
+    createBackendStorageResponse_appId,
+    createBackendStorageResponse_backendEnvironmentName,
+    createBackendStorageResponse_httpStatus,
+
     -- ** CreateToken
     createToken_appId,
     createTokenResponse_challengeCode,
@@ -118,6 +129,17 @@ module Amazonka.AmplifyBackend.Lens
     deleteBackendAuthResponse_appId,
     deleteBackendAuthResponse_backendEnvironmentName,
     deleteBackendAuthResponse_httpStatus,
+
+    -- ** DeleteBackendStorage
+    deleteBackendStorage_appId,
+    deleteBackendStorage_backendEnvironmentName,
+    deleteBackendStorage_serviceName,
+    deleteBackendStorage_resourceName,
+    deleteBackendStorageResponse_jobId,
+    deleteBackendStorageResponse_status,
+    deleteBackendStorageResponse_appId,
+    deleteBackendStorageResponse_backendEnvironmentName,
+    deleteBackendStorageResponse_httpStatus,
 
     -- ** DeleteToken
     deleteToken_sessionId,
@@ -194,6 +216,16 @@ module Amazonka.AmplifyBackend.Lens
     getBackendJobResponse_backendEnvironmentName,
     getBackendJobResponse_httpStatus,
 
+    -- ** GetBackendStorage
+    getBackendStorage_appId,
+    getBackendStorage_backendEnvironmentName,
+    getBackendStorage_resourceName,
+    getBackendStorageResponse_resourceName,
+    getBackendStorageResponse_resourceConfig,
+    getBackendStorageResponse_appId,
+    getBackendStorageResponse_backendEnvironmentName,
+    getBackendStorageResponse_httpStatus,
+
     -- ** GetToken
     getToken_sessionId,
     getToken_appId,
@@ -218,6 +250,17 @@ module Amazonka.AmplifyBackend.Lens
     importBackendAuthResponse_backendEnvironmentName,
     importBackendAuthResponse_httpStatus,
 
+    -- ** ImportBackendStorage
+    importBackendStorage_bucketName,
+    importBackendStorage_appId,
+    importBackendStorage_backendEnvironmentName,
+    importBackendStorage_serviceName,
+    importBackendStorageResponse_jobId,
+    importBackendStorageResponse_status,
+    importBackendStorageResponse_appId,
+    importBackendStorageResponse_backendEnvironmentName,
+    importBackendStorageResponse_httpStatus,
+
     -- ** ListBackendJobs
     listBackendJobs_nextToken,
     listBackendJobs_jobId,
@@ -229,6 +272,12 @@ module Amazonka.AmplifyBackend.Lens
     listBackendJobsResponse_nextToken,
     listBackendJobsResponse_jobs,
     listBackendJobsResponse_httpStatus,
+
+    -- ** ListS3Buckets
+    listS3Buckets_nextToken,
+    listS3BucketsResponse_nextToken,
+    listS3BucketsResponse_buckets,
+    listS3BucketsResponse_httpStatus,
 
     -- ** RemoveAllBackends
     removeAllBackends_cleanAmplifyApp,
@@ -296,6 +345,17 @@ module Amazonka.AmplifyBackend.Lens
     updateBackendJobResponse_backendEnvironmentName,
     updateBackendJobResponse_httpStatus,
 
+    -- ** UpdateBackendStorage
+    updateBackendStorage_appId,
+    updateBackendStorage_backendEnvironmentName,
+    updateBackendStorage_resourceName,
+    updateBackendStorage_resourceConfig,
+    updateBackendStorageResponse_jobId,
+    updateBackendStorageResponse_status,
+    updateBackendStorageResponse_appId,
+    updateBackendStorageResponse_backendEnvironmentName,
+    updateBackendStorageResponse_httpStatus,
+
     -- * Types
 
     -- ** BackendAPIAppSyncAuthSettings
@@ -343,6 +403,10 @@ module Amazonka.AmplifyBackend.Lens
     backendJobRespObj_appId,
     backendJobRespObj_backendEnvironmentName,
 
+    -- ** BackendStoragePermissions
+    backendStoragePermissions_unAuthenticated,
+    backendStoragePermissions_authenticated,
+
     -- ** CreateBackendAuthForgotPasswordConfig
     createBackendAuthForgotPasswordConfig_emailSettings,
     createBackendAuthForgotPasswordConfig_smsSettings,
@@ -378,14 +442,31 @@ module Amazonka.AmplifyBackend.Lens
     createBackendAuthUserPoolConfig_oAuth,
     createBackendAuthUserPoolConfig_passwordPolicy,
     createBackendAuthUserPoolConfig_forgotPassword,
+    createBackendAuthUserPoolConfig_verificationMessage,
     createBackendAuthUserPoolConfig_mfa,
     createBackendAuthUserPoolConfig_requiredSignUpAttributes,
     createBackendAuthUserPoolConfig_signInMethod,
     createBackendAuthUserPoolConfig_userPoolName,
 
+    -- ** CreateBackendAuthVerificationMessageConfig
+    createBackendAuthVerificationMessageConfig_emailSettings,
+    createBackendAuthVerificationMessageConfig_smsSettings,
+    createBackendAuthVerificationMessageConfig_deliveryMethod,
+
+    -- ** CreateBackendStorageResourceConfig
+    createBackendStorageResourceConfig_bucketName,
+    createBackendStorageResourceConfig_serviceName,
+    createBackendStorageResourceConfig_permissions,
+
     -- ** EmailSettings
     emailSettings_emailSubject,
     emailSettings_emailMessage,
+
+    -- ** GetBackendStorageResourceConfig
+    getBackendStorageResourceConfig_permissions,
+    getBackendStorageResourceConfig_bucketName,
+    getBackendStorageResourceConfig_serviceName,
+    getBackendStorageResourceConfig_imported,
 
     -- ** LoginAuthConfigReqObj
     loginAuthConfigReqObj_awsCognitoIdentityPoolId,
@@ -394,6 +475,10 @@ module Amazonka.AmplifyBackend.Lens
     loginAuthConfigReqObj_awsUserPoolsWebClientId,
 
     -- ** ResourceConfig
+
+    -- ** S3BucketInfo
+    s3BucketInfo_name,
+    s3BucketInfo_creationDate,
 
     -- ** Settings
     settings_mfaTypes,
@@ -442,7 +527,17 @@ module Amazonka.AmplifyBackend.Lens
     updateBackendAuthUserPoolConfig_oAuth,
     updateBackendAuthUserPoolConfig_passwordPolicy,
     updateBackendAuthUserPoolConfig_forgotPassword,
+    updateBackendAuthUserPoolConfig_verificationMessage,
     updateBackendAuthUserPoolConfig_mfa,
+
+    -- ** UpdateBackendAuthVerificationMessageConfig
+    updateBackendAuthVerificationMessageConfig_emailSettings,
+    updateBackendAuthVerificationMessageConfig_smsSettings,
+    updateBackendAuthVerificationMessageConfig_deliveryMethod,
+
+    -- ** UpdateBackendStorageResourceConfig
+    updateBackendStorageResourceConfig_serviceName,
+    updateBackendStorageResourceConfig_permissions,
   )
 where
 
@@ -451,10 +546,12 @@ import Amazonka.AmplifyBackend.CreateBackend
 import Amazonka.AmplifyBackend.CreateBackendAPI
 import Amazonka.AmplifyBackend.CreateBackendAuth
 import Amazonka.AmplifyBackend.CreateBackendConfig
+import Amazonka.AmplifyBackend.CreateBackendStorage
 import Amazonka.AmplifyBackend.CreateToken
 import Amazonka.AmplifyBackend.DeleteBackend
 import Amazonka.AmplifyBackend.DeleteBackendAPI
 import Amazonka.AmplifyBackend.DeleteBackendAuth
+import Amazonka.AmplifyBackend.DeleteBackendStorage
 import Amazonka.AmplifyBackend.DeleteToken
 import Amazonka.AmplifyBackend.GenerateBackendAPIModels
 import Amazonka.AmplifyBackend.GetBackend
@@ -462,9 +559,12 @@ import Amazonka.AmplifyBackend.GetBackendAPI
 import Amazonka.AmplifyBackend.GetBackendAPIModels
 import Amazonka.AmplifyBackend.GetBackendAuth
 import Amazonka.AmplifyBackend.GetBackendJob
+import Amazonka.AmplifyBackend.GetBackendStorage
 import Amazonka.AmplifyBackend.GetToken
 import Amazonka.AmplifyBackend.ImportBackendAuth
+import Amazonka.AmplifyBackend.ImportBackendStorage
 import Amazonka.AmplifyBackend.ListBackendJobs
+import Amazonka.AmplifyBackend.ListS3Buckets
 import Amazonka.AmplifyBackend.RemoveAllBackends
 import Amazonka.AmplifyBackend.RemoveBackendConfig
 import Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
@@ -474,6 +574,7 @@ import Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig
 import Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
 import Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
 import Amazonka.AmplifyBackend.Types.BackendJobRespObj
+import Amazonka.AmplifyBackend.Types.BackendStoragePermissions
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthMFAConfig
@@ -481,9 +582,13 @@ import Amazonka.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthResourceConfig
 import Amazonka.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthVerificationMessageConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendStorageResourceConfig
 import Amazonka.AmplifyBackend.Types.EmailSettings
+import Amazonka.AmplifyBackend.Types.GetBackendStorageResourceConfig
 import Amazonka.AmplifyBackend.Types.LoginAuthConfigReqObj
 import Amazonka.AmplifyBackend.Types.ResourceConfig
+import Amazonka.AmplifyBackend.Types.S3BucketInfo
 import Amazonka.AmplifyBackend.Types.Settings
 import Amazonka.AmplifyBackend.Types.SmsSettings
 import Amazonka.AmplifyBackend.Types.SocialProviderSettings
@@ -494,7 +599,10 @@ import Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthVerificationMessageConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendStorageResourceConfig
 import Amazonka.AmplifyBackend.UpdateBackendAPI
 import Amazonka.AmplifyBackend.UpdateBackendAuth
 import Amazonka.AmplifyBackend.UpdateBackendConfig
 import Amazonka.AmplifyBackend.UpdateBackendJob
+import Amazonka.AmplifyBackend.UpdateBackendStorage

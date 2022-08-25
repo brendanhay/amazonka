@@ -34,19 +34,10 @@
 -- callers.
 --
 -- Contact attributes are available in Amazon Connect for 24 months, and
--- are then deleted. For information about CTR retention and the maximum
--- size of the CTR attributes section, see
+-- are then deleted. For information about contact record retention and the
+-- maximum size of the contact record attributes section, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
 -- in the /Amazon Connect Administrator Guide/.
---
--- __Important:__ You cannot use the operation to update attributes for
--- contacts that occurred prior to the release of the API, which was
--- September 12, 2018. You can update attributes only for contacts that
--- started after the release of the API. If you attempt to update
--- attributes for a contact that occurred prior to the release of the API,
--- a 400 error is returned. This applies also to queued callbacks that were
--- initiated prior to the release of the API but are still active in your
--- instance.
 module Amazonka.Connect.UpdateContactAttributes
   ( -- * Creating a Request
     UpdateContactAttributes (..),
@@ -81,8 +72,8 @@ data UpdateContactAttributes = UpdateContactAttributes'
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The Amazon Connect attributes. These attributes can be accessed in
-    -- contact flows just like any other contact attributes.
+    -- | The Amazon Connect attributes. These attributes can be accessed in flows
+    -- just like any other contact attributes.
     --
     -- You can have up to 32,768 UTF-8 bytes across all attributes for a
     -- contact. Attribute keys can include only alphanumeric, dash, and
@@ -105,8 +96,8 @@ data UpdateContactAttributes = UpdateContactAttributes'
 -- 'instanceId', 'updateContactAttributes_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 --
--- 'attributes', 'updateContactAttributes_attributes' - The Amazon Connect attributes. These attributes can be accessed in
--- contact flows just like any other contact attributes.
+-- 'attributes', 'updateContactAttributes_attributes' - The Amazon Connect attributes. These attributes can be accessed in flows
+-- just like any other contact attributes.
 --
 -- You can have up to 32,768 UTF-8 bytes across all attributes for a
 -- contact. Attribute keys can include only alphanumeric, dash, and
@@ -137,8 +128,8 @@ updateContactAttributes_initialContactId = Lens.lens (\UpdateContactAttributes' 
 updateContactAttributes_instanceId :: Lens.Lens' UpdateContactAttributes Prelude.Text
 updateContactAttributes_instanceId = Lens.lens (\UpdateContactAttributes' {instanceId} -> instanceId) (\s@UpdateContactAttributes' {} a -> s {instanceId = a} :: UpdateContactAttributes)
 
--- | The Amazon Connect attributes. These attributes can be accessed in
--- contact flows just like any other contact attributes.
+-- | The Amazon Connect attributes. These attributes can be accessed in flows
+-- just like any other contact attributes.
 --
 -- You can have up to 32,768 UTF-8 bytes across all attributes for a
 -- contact. Attribute keys can include only alphanumeric, dash, and

@@ -24,8 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the real-time status of a Snow device\'s data transfer while the
--- device is at AWS. This data is only available while a job has a
--- @JobState@ value of @InProgress@, for both import and export jobs.
+-- device is at Amazon Web Services. This data is only available while a
+-- job has a @JobState@ value of @InProgress@, for both import and export
+-- jobs.
 --
 -- /See:/ 'newDataTransfer' smart constructor.
 data DataTransfer = DataTransfer'

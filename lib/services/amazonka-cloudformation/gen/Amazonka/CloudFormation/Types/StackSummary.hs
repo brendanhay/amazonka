@@ -54,7 +54,7 @@ data StackSummary = StackSummary'
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
     -- in the /CloudFormation User Guide/.
     rootId :: Prelude.Maybe Prelude.Text,
-    -- | Summarizes information on whether a stack\'s actual configuration
+    -- | Summarizes information about whether a stack\'s actual configuration
     -- differs, or has /drifted/, from it\'s expected configuration, as defined
     -- in the stack template and any values specified as template parameters.
     -- For more information, see
@@ -104,7 +104,7 @@ data StackSummary = StackSummary'
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
 -- in the /CloudFormation User Guide/.
 --
--- 'driftInformation', 'stackSummary_driftInformation' - Summarizes information on whether a stack\'s actual configuration
+-- 'driftInformation', 'stackSummary_driftInformation' - Summarizes information about whether a stack\'s actual configuration
 -- differs, or has /drifted/, from it\'s expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- For more information, see
@@ -180,7 +180,7 @@ stackSummary_lastUpdatedTime = Lens.lens (\StackSummary' {lastUpdatedTime} -> la
 stackSummary_rootId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_rootId = Lens.lens (\StackSummary' {rootId} -> rootId) (\s@StackSummary' {} a -> s {rootId = a} :: StackSummary)
 
--- | Summarizes information on whether a stack\'s actual configuration
+-- | Summarizes information about whether a stack\'s actual configuration
 -- differs, or has /drifted/, from it\'s expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- For more information, see

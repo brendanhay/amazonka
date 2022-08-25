@@ -24,6 +24,7 @@ import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
 import Amazonka.DynamoDB.Types.ReplicaStatus
+import Amazonka.DynamoDB.Types.TableClassSummary
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -32,8 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicaDescription' smart constructor.
 data ReplicaDescription = ReplicaDescription'
-  { -- | The AWS KMS customer master key (CMK) of the replica that will be used
-    -- for AWS KMS encryption.
+  { -- | The KMS key of the replica that will be used for KMS encryption.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the replica was first detected as inaccessible. To
     -- determine cause of inaccessibility check the @ReplicaStatus@ property.
@@ -46,6 +46,7 @@ data ReplicaDescription = ReplicaDescription'
     -- | Specifies the progress of a Create, Update, or Delete action on the
     -- replica as a percentage.
     replicaStatusPercentProgress :: Prelude.Maybe Prelude.Text,
+    replicaTableClassSummary :: Prelude.Maybe TableClassSummary,
     -- | Detailed information about the replica status.
     replicaStatusDescription :: Prelude.Maybe Prelude.Text,
     -- | Replica-specific global secondary index settings.
@@ -60,21 +61,21 @@ data ReplicaDescription = ReplicaDescription'
     --
     -- -   @ACTIVE@ - The replica is ready for use.
     --
-    -- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS
-    --     Region has been disabled.
+    -- -   @REGION_DISABLED@ - The replica is inaccessible because the Amazon
+    --     Web Services Region has been disabled.
     --
-    --     If the AWS Region remains inaccessible for more than 20 hours,
-    --     DynamoDB will remove this replica from the replication group. The
-    --     replica will not be deleted and replication will stop from and to
-    --     this region.
+    --     If the Amazon Web Services Region remains inaccessible for more than
+    --     20 hours, DynamoDB will remove this replica from the replication
+    --     group. The replica will not be deleted and replication will stop
+    --     from and to this region.
     --
-    -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to
-    --     encrypt the table is inaccessible.
+    -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The KMS key used to encrypt
+    --     the table is inaccessible.
     --
-    --     If the AWS KMS key remains inaccessible for more than 20 hours,
-    --     DynamoDB will remove this replica from the replication group. The
-    --     replica will not be deleted and replication will stop from and to
-    --     this region.
+    --     If the KMS key remains inaccessible for more than 20 hours, DynamoDB
+    --     will remove this replica from the replication group. The replica
+    --     will not be deleted and replication will stop from and to this
+    --     region.
     replicaStatus :: Prelude.Maybe ReplicaStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,8 +88,7 @@ data ReplicaDescription = ReplicaDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsMasterKeyId', 'replicaDescription_kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used
--- for AWS KMS encryption.
+-- 'kmsMasterKeyId', 'replicaDescription_kmsMasterKeyId' - The KMS key of the replica that will be used for KMS encryption.
 --
 -- 'replicaInaccessibleDateTime', 'replicaDescription_replicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To
 -- determine cause of inaccessibility check the @ReplicaStatus@ property.
@@ -100,6 +100,8 @@ data ReplicaDescription = ReplicaDescription'
 --
 -- 'replicaStatusPercentProgress', 'replicaDescription_replicaStatusPercentProgress' - Specifies the progress of a Create, Update, or Delete action on the
 -- replica as a percentage.
+--
+-- 'replicaTableClassSummary', 'replicaDescription_replicaTableClassSummary' - Undocumented member.
 --
 -- 'replicaStatusDescription', 'replicaDescription_replicaStatusDescription' - Detailed information about the replica status.
 --
@@ -115,21 +117,21 @@ data ReplicaDescription = ReplicaDescription'
 --
 -- -   @ACTIVE@ - The replica is ready for use.
 --
--- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS
---     Region has been disabled.
+-- -   @REGION_DISABLED@ - The replica is inaccessible because the Amazon
+--     Web Services Region has been disabled.
 --
---     If the AWS Region remains inaccessible for more than 20 hours,
---     DynamoDB will remove this replica from the replication group. The
---     replica will not be deleted and replication will stop from and to
---     this region.
+--     If the Amazon Web Services Region remains inaccessible for more than
+--     20 hours, DynamoDB will remove this replica from the replication
+--     group. The replica will not be deleted and replication will stop
+--     from and to this region.
 --
--- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to
---     encrypt the table is inaccessible.
+-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The KMS key used to encrypt
+--     the table is inaccessible.
 --
---     If the AWS KMS key remains inaccessible for more than 20 hours,
---     DynamoDB will remove this replica from the replication group. The
---     replica will not be deleted and replication will stop from and to
---     this region.
+--     If the KMS key remains inaccessible for more than 20 hours, DynamoDB
+--     will remove this replica from the replication group. The replica
+--     will not be deleted and replication will stop from and to this
+--     region.
 newReplicaDescription ::
   ReplicaDescription
 newReplicaDescription =
@@ -140,13 +142,13 @@ newReplicaDescription =
       provisionedThroughputOverride = Prelude.Nothing,
       regionName = Prelude.Nothing,
       replicaStatusPercentProgress = Prelude.Nothing,
+      replicaTableClassSummary = Prelude.Nothing,
       replicaStatusDescription = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
       replicaStatus = Prelude.Nothing
     }
 
--- | The AWS KMS customer master key (CMK) of the replica that will be used
--- for AWS KMS encryption.
+-- | The KMS key of the replica that will be used for KMS encryption.
 replicaDescription_kmsMasterKeyId :: Lens.Lens' ReplicaDescription (Prelude.Maybe Prelude.Text)
 replicaDescription_kmsMasterKeyId = Lens.lens (\ReplicaDescription' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@ReplicaDescription' {} a -> s {kmsMasterKeyId = a} :: ReplicaDescription)
 
@@ -169,6 +171,10 @@ replicaDescription_regionName = Lens.lens (\ReplicaDescription' {regionName} -> 
 replicaDescription_replicaStatusPercentProgress :: Lens.Lens' ReplicaDescription (Prelude.Maybe Prelude.Text)
 replicaDescription_replicaStatusPercentProgress = Lens.lens (\ReplicaDescription' {replicaStatusPercentProgress} -> replicaStatusPercentProgress) (\s@ReplicaDescription' {} a -> s {replicaStatusPercentProgress = a} :: ReplicaDescription)
 
+-- | Undocumented member.
+replicaDescription_replicaTableClassSummary :: Lens.Lens' ReplicaDescription (Prelude.Maybe TableClassSummary)
+replicaDescription_replicaTableClassSummary = Lens.lens (\ReplicaDescription' {replicaTableClassSummary} -> replicaTableClassSummary) (\s@ReplicaDescription' {} a -> s {replicaTableClassSummary = a} :: ReplicaDescription)
+
 -- | Detailed information about the replica status.
 replicaDescription_replicaStatusDescription :: Lens.Lens' ReplicaDescription (Prelude.Maybe Prelude.Text)
 replicaDescription_replicaStatusDescription = Lens.lens (\ReplicaDescription' {replicaStatusDescription} -> replicaStatusDescription) (\s@ReplicaDescription' {} a -> s {replicaStatusDescription = a} :: ReplicaDescription)
@@ -187,21 +193,21 @@ replicaDescription_globalSecondaryIndexes = Lens.lens (\ReplicaDescription' {glo
 --
 -- -   @ACTIVE@ - The replica is ready for use.
 --
--- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS
---     Region has been disabled.
+-- -   @REGION_DISABLED@ - The replica is inaccessible because the Amazon
+--     Web Services Region has been disabled.
 --
---     If the AWS Region remains inaccessible for more than 20 hours,
---     DynamoDB will remove this replica from the replication group. The
---     replica will not be deleted and replication will stop from and to
---     this region.
+--     If the Amazon Web Services Region remains inaccessible for more than
+--     20 hours, DynamoDB will remove this replica from the replication
+--     group. The replica will not be deleted and replication will stop
+--     from and to this region.
 --
--- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to
---     encrypt the table is inaccessible.
+-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The KMS key used to encrypt
+--     the table is inaccessible.
 --
---     If the AWS KMS key remains inaccessible for more than 20 hours,
---     DynamoDB will remove this replica from the replication group. The
---     replica will not be deleted and replication will stop from and to
---     this region.
+--     If the KMS key remains inaccessible for more than 20 hours, DynamoDB
+--     will remove this replica from the replication group. The replica
+--     will not be deleted and replication will stop from and to this
+--     region.
 replicaDescription_replicaStatus :: Lens.Lens' ReplicaDescription (Prelude.Maybe ReplicaStatus)
 replicaDescription_replicaStatus = Lens.lens (\ReplicaDescription' {replicaStatus} -> replicaStatus) (\s@ReplicaDescription' {} a -> s {replicaStatus = a} :: ReplicaDescription)
 
@@ -216,6 +222,7 @@ instance Core.FromJSON ReplicaDescription where
             Prelude.<*> (x Core..:? "ProvisionedThroughputOverride")
             Prelude.<*> (x Core..:? "RegionName")
             Prelude.<*> (x Core..:? "ReplicaStatusPercentProgress")
+            Prelude.<*> (x Core..:? "ReplicaTableClassSummary")
             Prelude.<*> (x Core..:? "ReplicaStatusDescription")
             Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
                             Core..!= Prelude.mempty
@@ -230,6 +237,7 @@ instance Prelude.Hashable ReplicaDescription where
       `Prelude.hashWithSalt` provisionedThroughputOverride
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` replicaStatusPercentProgress
+      `Prelude.hashWithSalt` replicaTableClassSummary
       `Prelude.hashWithSalt` replicaStatusDescription
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` replicaStatus
@@ -241,6 +249,7 @@ instance Prelude.NFData ReplicaDescription where
       `Prelude.seq` Prelude.rnf provisionedThroughputOverride
       `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf replicaStatusPercentProgress
+      `Prelude.seq` Prelude.rnf replicaTableClassSummary
       `Prelude.seq` Prelude.rnf replicaStatusDescription
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf replicaStatus

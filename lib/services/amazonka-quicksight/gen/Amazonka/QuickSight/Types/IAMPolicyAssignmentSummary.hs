@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AssignmentStatus
 
--- | IAMpolicy assignment summary.
+-- | IAM policy assignment summary.
 --
 -- /See:/ 'newIAMPolicyAssignmentSummary' smart constructor.
 data IAMPolicyAssignmentSummary = IAMPolicyAssignmentSummary'

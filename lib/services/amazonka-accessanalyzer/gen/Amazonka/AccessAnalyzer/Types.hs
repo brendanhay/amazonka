@@ -79,6 +79,9 @@ module Amazonka.AccessAnalyzer.Types
     -- * ValidatePolicyFindingType
     ValidatePolicyFindingType (..),
 
+    -- * ValidatePolicyResourceType
+    ValidatePolicyResourceType (..),
+
     -- * AccessPreview
     AccessPreview (..),
     newAccessPreview,
@@ -516,6 +519,7 @@ import Amazonka.AccessAnalyzer.Types.TrailProperties
 import Amazonka.AccessAnalyzer.Types.Type
 import Amazonka.AccessAnalyzer.Types.ValidatePolicyFinding
 import Amazonka.AccessAnalyzer.Types.ValidatePolicyFindingType
+import Amazonka.AccessAnalyzer.Types.ValidatePolicyResourceType
 import Amazonka.AccessAnalyzer.Types.VpcConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens

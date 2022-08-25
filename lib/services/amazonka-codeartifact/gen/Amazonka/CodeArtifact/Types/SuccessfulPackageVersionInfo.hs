@@ -30,17 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data SuccessfulPackageVersionInfo = SuccessfulPackageVersionInfo'
   { -- | The revision of a package version.
     revision :: Prelude.Maybe Prelude.Text,
-    -- | The status of a package version. Valid statuses are:
-    --
-    -- -   @Published@
-    --
-    -- -   @Unfinished@
-    --
-    -- -   @Unlisted@
-    --
-    -- -   @Archived@
-    --
-    -- -   @Disposed@
+    -- | The status of a package version.
     status :: Prelude.Maybe PackageVersionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,17 +45,7 @@ data SuccessfulPackageVersionInfo = SuccessfulPackageVersionInfo'
 --
 -- 'revision', 'successfulPackageVersionInfo_revision' - The revision of a package version.
 --
--- 'status', 'successfulPackageVersionInfo_status' - The status of a package version. Valid statuses are:
---
--- -   @Published@
---
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
+-- 'status', 'successfulPackageVersionInfo_status' - The status of a package version.
 newSuccessfulPackageVersionInfo ::
   SuccessfulPackageVersionInfo
 newSuccessfulPackageVersionInfo =
@@ -79,17 +59,7 @@ newSuccessfulPackageVersionInfo =
 successfulPackageVersionInfo_revision :: Lens.Lens' SuccessfulPackageVersionInfo (Prelude.Maybe Prelude.Text)
 successfulPackageVersionInfo_revision = Lens.lens (\SuccessfulPackageVersionInfo' {revision} -> revision) (\s@SuccessfulPackageVersionInfo' {} a -> s {revision = a} :: SuccessfulPackageVersionInfo)
 
--- | The status of a package version. Valid statuses are:
---
--- -   @Published@
---
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
+-- | The status of a package version.
 successfulPackageVersionInfo_status :: Lens.Lens' SuccessfulPackageVersionInfo (Prelude.Maybe PackageVersionStatus)
 successfulPackageVersionInfo_status = Lens.lens (\SuccessfulPackageVersionInfo' {status} -> status) (\s@SuccessfulPackageVersionInfo' {} a -> s {status = a} :: SuccessfulPackageVersionInfo)
 

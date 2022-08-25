@@ -63,14 +63,23 @@ data MapConfiguration = MapConfiguration'
     -- Valid
     -- <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies map styles>:
     --
-    -- -   @VectorHereBerlin@ – The HERE Berlin map style is a high contrast
-    --     detailed base map of the world that blends 3D and 2D rendering.
+    -- -   @VectorHereContrast@ – The HERE Contrast (Berlin) map style is a
+    --     high contrast detailed base map of the world that blends 3D and 2D
+    --     rendering.
     --
-    --     When using HERE as your data provider, and selecting the Style
-    --     @VectorHereBerlin@, you may not use HERE Technologies maps for Asset
-    --     Management. See the
-    --     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
-    --     Location Service.
+    -- -   @VectorHereExplore@ – A default HERE map style containing a neutral,
+    --     global map and its features including roads, buildings, landmarks,
+    --     and water features. It also now includes a fully designed map of
+    --     Japan.
+    --
+    -- -   @VectorHereExploreTruck@ – A global map containing truck
+    --     restrictions and attributes (e.g. width \/ height \/ HAZMAT)
+    --     symbolized with highlighted segments and icons on top of HERE
+    --     Explore to support use cases within transport and logistics.
+    --
+    -- The @VectorHereContrast@ style has been renamed from @VectorHereBerlin@.
+    -- @VectorHereBerlin@ has been deprecated, but will continue to work in
+    -- applications that use it.
     style :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,14 +128,23 @@ data MapConfiguration = MapConfiguration'
 -- Valid
 -- <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies map styles>:
 --
--- -   @VectorHereBerlin@ – The HERE Berlin map style is a high contrast
---     detailed base map of the world that blends 3D and 2D rendering.
+-- -   @VectorHereContrast@ – The HERE Contrast (Berlin) map style is a
+--     high contrast detailed base map of the world that blends 3D and 2D
+--     rendering.
 --
---     When using HERE as your data provider, and selecting the Style
---     @VectorHereBerlin@, you may not use HERE Technologies maps for Asset
---     Management. See the
---     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
---     Location Service.
+-- -   @VectorHereExplore@ – A default HERE map style containing a neutral,
+--     global map and its features including roads, buildings, landmarks,
+--     and water features. It also now includes a fully designed map of
+--     Japan.
+--
+-- -   @VectorHereExploreTruck@ – A global map containing truck
+--     restrictions and attributes (e.g. width \/ height \/ HAZMAT)
+--     symbolized with highlighted segments and icons on top of HERE
+--     Explore to support use cases within transport and logistics.
+--
+-- The @VectorHereContrast@ style has been renamed from @VectorHereBerlin@.
+-- @VectorHereBerlin@ has been deprecated, but will continue to work in
+-- applications that use it.
 newMapConfiguration ::
   -- | 'style'
   Prelude.Text ->
@@ -170,14 +188,23 @@ newMapConfiguration pStyle_ =
 -- Valid
 -- <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies map styles>:
 --
--- -   @VectorHereBerlin@ – The HERE Berlin map style is a high contrast
---     detailed base map of the world that blends 3D and 2D rendering.
+-- -   @VectorHereContrast@ – The HERE Contrast (Berlin) map style is a
+--     high contrast detailed base map of the world that blends 3D and 2D
+--     rendering.
 --
---     When using HERE as your data provider, and selecting the Style
---     @VectorHereBerlin@, you may not use HERE Technologies maps for Asset
---     Management. See the
---     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
---     Location Service.
+-- -   @VectorHereExplore@ – A default HERE map style containing a neutral,
+--     global map and its features including roads, buildings, landmarks,
+--     and water features. It also now includes a fully designed map of
+--     Japan.
+--
+-- -   @VectorHereExploreTruck@ – A global map containing truck
+--     restrictions and attributes (e.g. width \/ height \/ HAZMAT)
+--     symbolized with highlighted segments and icons on top of HERE
+--     Explore to support use cases within transport and logistics.
+--
+-- The @VectorHereContrast@ style has been renamed from @VectorHereBerlin@.
+-- @VectorHereBerlin@ has been deprecated, but will continue to work in
+-- applications that use it.
 mapConfiguration_style :: Lens.Lens' MapConfiguration Prelude.Text
 mapConfiguration_style = Lens.lens (\MapConfiguration' {style} -> style) (\s@MapConfiguration' {} a -> s {style = a} :: MapConfiguration)
 

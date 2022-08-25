@@ -38,7 +38,7 @@ data ContentSummary = ContentSummary'
     contentType :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the knowledge base.
     knowledgeBaseArn :: Prelude.Text,
-    -- | The the identifier of the knowledge base.
+    -- | The identifier of the knowledge base.
     knowledgeBaseId :: Prelude.Text,
     -- | A key\/value map to store attributes without affecting tagging or
     -- recommendations. For example, when synchronizing data between an
@@ -74,7 +74,7 @@ data ContentSummary = ContentSummary'
 --
 -- 'knowledgeBaseArn', 'contentSummary_knowledgeBaseArn' - The Amazon Resource Name (ARN) of the knowledge base.
 --
--- 'knowledgeBaseId', 'contentSummary_knowledgeBaseId' - The the identifier of the knowledge base.
+-- 'knowledgeBaseId', 'contentSummary_knowledgeBaseId' - The identifier of the knowledge base.
 --
 -- 'metadata', 'contentSummary_metadata' - A key\/value map to store attributes without affecting tagging or
 -- recommendations. For example, when synchronizing data between an
@@ -152,7 +152,7 @@ contentSummary_contentType = Lens.lens (\ContentSummary' {contentType} -> conten
 contentSummary_knowledgeBaseArn :: Lens.Lens' ContentSummary Prelude.Text
 contentSummary_knowledgeBaseArn = Lens.lens (\ContentSummary' {knowledgeBaseArn} -> knowledgeBaseArn) (\s@ContentSummary' {} a -> s {knowledgeBaseArn = a} :: ContentSummary)
 
--- | The the identifier of the knowledge base.
+-- | The identifier of the knowledge base.
 contentSummary_knowledgeBaseId :: Lens.Lens' ContentSummary Prelude.Text
 contentSummary_knowledgeBaseId = Lens.lens (\ContentSummary' {knowledgeBaseId} -> knowledgeBaseId) (\s@ContentSummary' {} a -> s {knowledgeBaseId = a} :: ContentSummary)
 

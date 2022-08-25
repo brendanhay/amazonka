@@ -29,12 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- container startup, for container shutdown it is reversed.
 --
 -- Your Amazon ECS container instances require at least version 1.26.0 of
--- the container agent to enable container dependencies. However, we
--- recommend using the latest container agent version. For information
--- about checking your agent version and updating to the latest version,
--- see
+-- the container agent to use container dependencies. However, we recommend
+-- using the latest container agent version. For information about checking
+-- your agent version and updating to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
 -- are launched from version @20190301@ or later, then they contain the
@@ -43,8 +42,12 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized Linux AMI>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- For tasks using the Fargate launch type, this parameter requires that
--- the task or service uses platform version 1.3.0 or later.
+-- For tasks that use the Fargate launch type, the task or service requires
+-- the following platforms:
+--
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 --
 -- /See:/ 'newContainerDependency' smart constructor.
 data ContainerDependency = ContainerDependency'
@@ -60,12 +63,12 @@ data ContainerDependency = ContainerDependency'
     -- -   @COMPLETE@ - This condition validates that a dependent container
     --     runs to completion (exits) before permitting other containers to
     --     start. This can be useful for nonessential containers that run a
-    --     script and then exit. This condition cannot be set on an essential
+    --     script and then exit. This condition can\'t be set on an essential
     --     container.
     --
     -- -   @SUCCESS@ - This condition is the same as @COMPLETE@, but it also
     --     requires that the container exits with a @zero@ status. This
-    --     condition cannot be set on an essential container.
+    --     condition can\'t be set on an essential container.
     --
     -- -   @HEALTHY@ - This condition validates that the dependent container
     --     passes its Docker health check before permitting other containers to
@@ -95,12 +98,12 @@ data ContainerDependency = ContainerDependency'
 -- -   @COMPLETE@ - This condition validates that a dependent container
 --     runs to completion (exits) before permitting other containers to
 --     start. This can be useful for nonessential containers that run a
---     script and then exit. This condition cannot be set on an essential
+--     script and then exit. This condition can\'t be set on an essential
 --     container.
 --
 -- -   @SUCCESS@ - This condition is the same as @COMPLETE@, but it also
 --     requires that the container exits with a @zero@ status. This
---     condition cannot be set on an essential container.
+--     condition can\'t be set on an essential container.
 --
 -- -   @HEALTHY@ - This condition validates that the dependent container
 --     passes its Docker health check before permitting other containers to
@@ -133,12 +136,12 @@ containerDependency_containerName = Lens.lens (\ContainerDependency' {containerN
 -- -   @COMPLETE@ - This condition validates that a dependent container
 --     runs to completion (exits) before permitting other containers to
 --     start. This can be useful for nonessential containers that run a
---     script and then exit. This condition cannot be set on an essential
+--     script and then exit. This condition can\'t be set on an essential
 --     container.
 --
 -- -   @SUCCESS@ - This condition is the same as @COMPLETE@, but it also
 --     requires that the container exits with a @zero@ status. This
---     condition cannot be set on an essential container.
+--     condition can\'t be set on an essential container.
 --
 -- -   @HEALTHY@ - This condition validates that the dependent container
 --     passes its Docker health check before permitting other containers to

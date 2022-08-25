@@ -44,6 +44,7 @@ module Amazonka.Lightsail.CreateLoadBalancer
     createLoadBalancer_certificateName,
     createLoadBalancer_ipAddressType,
     createLoadBalancer_certificateDomainName,
+    createLoadBalancer_tlsPolicyName,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_instancePort,
 
@@ -100,6 +101,16 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- If you specify @certificateDomainName@, then @certificateName@ is
     -- required (and vice-versa).
     certificateDomainName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the TLS policy to apply to the load balancer.
+    --
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html GetLoadBalancerTlsPolicies>
+    -- action to get a list of TLS policy names that you can specify.
+    --
+    -- For more information about load balancer TLS policies, see
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy Configuring TLS security policies on your Amazon Lightsail load balancers>
+    -- in the /Amazon Lightsail Developer Guide/.
+    tlsPolicyName :: Prelude.Maybe Prelude.Text,
     -- | The name of your load balancer.
     loadBalancerName :: Prelude.Text,
     -- | The instance port where you\'re creating your load balancer.
@@ -149,6 +160,16 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- If you specify @certificateDomainName@, then @certificateName@ is
 -- required (and vice-versa).
 --
+-- 'tlsPolicyName', 'createLoadBalancer_tlsPolicyName' - The name of the TLS policy to apply to the load balancer.
+--
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html GetLoadBalancerTlsPolicies>
+-- action to get a list of TLS policy names that you can specify.
+--
+-- For more information about load balancer TLS policies, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy Configuring TLS security policies on your Amazon Lightsail load balancers>
+-- in the /Amazon Lightsail Developer Guide/.
+--
 -- 'loadBalancerName', 'createLoadBalancer_loadBalancerName' - The name of your load balancer.
 --
 -- 'instancePort', 'createLoadBalancer_instancePort' - The instance port where you\'re creating your load balancer.
@@ -168,6 +189,7 @@ newCreateLoadBalancer
         certificateName = Prelude.Nothing,
         ipAddressType = Prelude.Nothing,
         certificateDomainName = Prelude.Nothing,
+        tlsPolicyName = Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         instancePort = pInstancePort_
       }
@@ -218,6 +240,18 @@ createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressTyp
 createLoadBalancer_certificateDomainName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_certificateDomainName = Lens.lens (\CreateLoadBalancer' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancer' {} a -> s {certificateDomainName = a} :: CreateLoadBalancer)
 
+-- | The name of the TLS policy to apply to the load balancer.
+--
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html GetLoadBalancerTlsPolicies>
+-- action to get a list of TLS policy names that you can specify.
+--
+-- For more information about load balancer TLS policies, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy Configuring TLS security policies on your Amazon Lightsail load balancers>
+-- in the /Amazon Lightsail Developer Guide/.
+createLoadBalancer_tlsPolicyName :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_tlsPolicyName = Lens.lens (\CreateLoadBalancer' {tlsPolicyName} -> tlsPolicyName) (\s@CreateLoadBalancer' {} a -> s {tlsPolicyName = a} :: CreateLoadBalancer)
+
 -- | The name of your load balancer.
 createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Prelude.Text
 createLoadBalancer_loadBalancerName = Lens.lens (\CreateLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@CreateLoadBalancer' {} a -> s {loadBalancerName = a} :: CreateLoadBalancer)
@@ -247,6 +281,7 @@ instance Prelude.Hashable CreateLoadBalancer where
       `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` certificateDomainName
+      `Prelude.hashWithSalt` tlsPolicyName
       `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` instancePort
 
@@ -258,6 +293,7 @@ instance Prelude.NFData CreateLoadBalancer where
       `Prelude.seq` Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf certificateDomainName
+      `Prelude.seq` Prelude.rnf tlsPolicyName
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf instancePort
 
@@ -290,6 +326,7 @@ instance Core.ToJSON CreateLoadBalancer where
             ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
             ("certificateDomainName" Core..=)
               Prelude.<$> certificateDomainName,
+            ("tlsPolicyName" Core..=) Prelude.<$> tlsPolicyName,
             Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
             Prelude.Just ("instancePort" Core..= instancePort)

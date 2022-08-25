@@ -23,7 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The acceptance of a EULA, required to use Amazon-provided streaming
+-- images.
 --
 -- /See:/ 'newEulaAcceptance' smart constructor.
 data EulaAcceptance = EulaAcceptance'

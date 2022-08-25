@@ -24,11 +24,15 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Alarm
 
--- | Currently, the @AutoRollbackConfig@ API is not supported.
+-- | Automatic rollback configuration for handling endpoint deployment
+-- failures and recovery.
 --
 -- /See:/ 'newAutoRollbackConfig' smart constructor.
 data AutoRollbackConfig = AutoRollbackConfig'
-  { alarms :: Prelude.Maybe (Prelude.NonEmpty Alarm)
+  { -- | List of CloudWatch alarms in your account that are configured to monitor
+    -- metrics on an endpoint. If any alarms are tripped during a deployment,
+    -- SageMaker rolls back the deployment.
+    alarms :: Prelude.Maybe (Prelude.NonEmpty Alarm)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -40,13 +44,17 @@ data AutoRollbackConfig = AutoRollbackConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarms', 'autoRollbackConfig_alarms' -
+-- 'alarms', 'autoRollbackConfig_alarms' - List of CloudWatch alarms in your account that are configured to monitor
+-- metrics on an endpoint. If any alarms are tripped during a deployment,
+-- SageMaker rolls back the deployment.
 newAutoRollbackConfig ::
   AutoRollbackConfig
 newAutoRollbackConfig =
   AutoRollbackConfig' {alarms = Prelude.Nothing}
 
--- |
+-- | List of CloudWatch alarms in your account that are configured to monitor
+-- metrics on an endpoint. If any alarms are tripped during a deployment,
+-- SageMaker rolls back the deployment.
 autoRollbackConfig_alarms :: Lens.Lens' AutoRollbackConfig (Prelude.Maybe (Prelude.NonEmpty Alarm))
 autoRollbackConfig_alarms = Lens.lens (\AutoRollbackConfig' {alarms} -> alarms) (\s@AutoRollbackConfig' {} a -> s {alarms = a} :: AutoRollbackConfig) Prelude.. Lens.mapping Lens.coerced
 

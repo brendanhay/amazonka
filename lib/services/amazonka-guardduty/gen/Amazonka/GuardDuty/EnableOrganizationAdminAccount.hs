@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables an AWS account within the organization as the GuardDuty
--- delegated administrator.
+-- Enables an Amazon Web Services account within the organization as the
+-- GuardDuty delegated administrator.
 module Amazonka.GuardDuty.EnableOrganizationAdminAccount
   ( -- * Creating a Request
     EnableOrganizationAdminAccount (..),
@@ -48,8 +48,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newEnableOrganizationAdminAccount' smart constructor.
 data EnableOrganizationAdminAccount = EnableOrganizationAdminAccount'
-  { -- | The AWS Account ID for the organization account to be enabled as a
-    -- GuardDuty delegated administrator.
+  { -- | The Amazon Web Services Account ID for the organization account to be
+    -- enabled as a GuardDuty delegated administrator.
     adminAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +62,8 @@ data EnableOrganizationAdminAccount = EnableOrganizationAdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'enableOrganizationAdminAccount_adminAccountId' - The AWS Account ID for the organization account to be enabled as a
--- GuardDuty delegated administrator.
+-- 'adminAccountId', 'enableOrganizationAdminAccount_adminAccountId' - The Amazon Web Services Account ID for the organization account to be
+-- enabled as a GuardDuty delegated administrator.
 newEnableOrganizationAdminAccount ::
   -- | 'adminAccountId'
   Prelude.Text ->
@@ -74,8 +74,8 @@ newEnableOrganizationAdminAccount pAdminAccountId_ =
         pAdminAccountId_
     }
 
--- | The AWS Account ID for the organization account to be enabled as a
--- GuardDuty delegated administrator.
+-- | The Amazon Web Services Account ID for the organization account to be
+-- enabled as a GuardDuty delegated administrator.
 enableOrganizationAdminAccount_adminAccountId :: Lens.Lens' EnableOrganizationAdminAccount Prelude.Text
 enableOrganizationAdminAccount_adminAccountId = Lens.lens (\EnableOrganizationAdminAccount' {adminAccountId} -> adminAccountId) (\s@EnableOrganizationAdminAccount' {} a -> s {adminAccountId = a} :: EnableOrganizationAdminAccount)
 

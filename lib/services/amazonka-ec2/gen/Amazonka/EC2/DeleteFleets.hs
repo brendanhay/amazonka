@@ -45,7 +45,7 @@
 --     @instant@ fleets.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet Deleting an EC2 Fleet>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet Delete an EC2 Fleet>
 -- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.DeleteFleets
   ( -- * Creating a Request

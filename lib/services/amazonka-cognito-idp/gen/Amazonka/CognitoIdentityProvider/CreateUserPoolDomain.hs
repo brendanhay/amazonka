@@ -60,7 +60,9 @@ data CreateUserPoolDomain = CreateUserPoolDomain'
     -- For more information about the hosted domain and custom domains, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain>.
     customDomainConfig :: Prelude.Maybe CustomDomainConfigType,
-    -- | The domain string.
+    -- | The domain string. For custom domains, this is the fully-qualified
+    -- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+    -- domains, this is the prefix alone, such as @auth@.
     domain :: Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text
@@ -85,7 +87,9 @@ data CreateUserPoolDomain = CreateUserPoolDomain'
 -- For more information about the hosted domain and custom domains, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain>.
 --
--- 'domain', 'createUserPoolDomain_domain' - The domain string.
+-- 'domain', 'createUserPoolDomain_domain' - The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 --
 -- 'userPoolId', 'createUserPoolDomain_userPoolId' - The user pool ID.
 newCreateUserPoolDomain ::
@@ -114,7 +118,9 @@ newCreateUserPoolDomain pDomain_ pUserPoolId_ =
 createUserPoolDomain_customDomainConfig :: Lens.Lens' CreateUserPoolDomain (Prelude.Maybe CustomDomainConfigType)
 createUserPoolDomain_customDomainConfig = Lens.lens (\CreateUserPoolDomain' {customDomainConfig} -> customDomainConfig) (\s@CreateUserPoolDomain' {} a -> s {customDomainConfig = a} :: CreateUserPoolDomain)
 
--- | The domain string.
+-- | The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 createUserPoolDomain_domain :: Lens.Lens' CreateUserPoolDomain Prelude.Text
 createUserPoolDomain_domain = Lens.lens (\CreateUserPoolDomain' {domain} -> domain) (\s@CreateUserPoolDomain' {} a -> s {domain = a} :: CreateUserPoolDomain)
 

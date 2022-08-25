@@ -33,10 +33,10 @@ data S3Destination = S3Destination'
     keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket.
     bucketName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the KMS key to use for encryption of
-    -- the results. This must be the ARN of an existing, symmetric, customer
-    -- managed KMS key that\'s in the same Amazon Web Services Region as the
-    -- bucket.
+    -- | The Amazon Resource Name (ARN) of the customer managed KMS key to use
+    -- for encryption of the results. This must be the ARN of an existing,
+    -- symmetric encryption KMS key that\'s in the same Amazon Web Services
+    -- Region as the bucket.
     kmsKeyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,10 +54,10 @@ data S3Destination = S3Destination'
 --
 -- 'bucketName', 's3Destination_bucketName' - The name of the bucket.
 --
--- 'kmsKeyArn', 's3Destination_kmsKeyArn' - The Amazon Resource Name (ARN) of the KMS key to use for encryption of
--- the results. This must be the ARN of an existing, symmetric, customer
--- managed KMS key that\'s in the same Amazon Web Services Region as the
--- bucket.
+-- 'kmsKeyArn', 's3Destination_kmsKeyArn' - The Amazon Resource Name (ARN) of the customer managed KMS key to use
+-- for encryption of the results. This must be the ARN of an existing,
+-- symmetric encryption KMS key that\'s in the same Amazon Web Services
+-- Region as the bucket.
 newS3Destination ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -80,10 +80,10 @@ s3Destination_keyPrefix = Lens.lens (\S3Destination' {keyPrefix} -> keyPrefix) (
 s3Destination_bucketName :: Lens.Lens' S3Destination Prelude.Text
 s3Destination_bucketName = Lens.lens (\S3Destination' {bucketName} -> bucketName) (\s@S3Destination' {} a -> s {bucketName = a} :: S3Destination)
 
--- | The Amazon Resource Name (ARN) of the KMS key to use for encryption of
--- the results. This must be the ARN of an existing, symmetric, customer
--- managed KMS key that\'s in the same Amazon Web Services Region as the
--- bucket.
+-- | The Amazon Resource Name (ARN) of the customer managed KMS key to use
+-- for encryption of the results. This must be the ARN of an existing,
+-- symmetric encryption KMS key that\'s in the same Amazon Web Services
+-- Region as the bucket.
 s3Destination_kmsKeyArn :: Lens.Lens' S3Destination Prelude.Text
 s3Destination_kmsKeyArn = Lens.lens (\S3Destination' {kmsKeyArn} -> kmsKeyArn) (\s@S3Destination' {} a -> s {kmsKeyArn = a} :: S3Destination)
 

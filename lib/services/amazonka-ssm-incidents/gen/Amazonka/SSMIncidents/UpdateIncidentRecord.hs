@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the details of an incident record. You can use this action to
+-- Update the details of an incident record. You can use this operation to
 -- update an incident record from the defined chat channel. For more
 -- information about using actions in chat channels, see
 -- <https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact Interacting through chat>.
@@ -57,16 +57,16 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateIncidentRecord' smart constructor.
 data UpdateIncidentRecord = UpdateIncidentRecord'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token that ensures that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Defines the impact to customers and applications. Providing an impact
-    -- overwrites the impact provided by the response plan.
+    -- | Defines the impact of the incident to customers and applications.
+    -- Providing an impact overwrites the impact provided by the response plan.
     --
     -- __Possible impacts:__
     --
-    -- -   @1@ - Critical impact, this typically relates to full application
-    --     failure that impacts many to all customers.
+    -- -   @1@ - Critical impact, full application failure that impacts many to
+    --     all customers.
     --
     -- -   @2@ - High impact, partial application failure with impact to many
     --     customers.
@@ -74,23 +74,23 @@ data UpdateIncidentRecord = UpdateIncidentRecord'
     -- -   @3@ - Medium impact, the application is providing reduced service to
     --     customers.
     --
-    -- -   @4@ - Low impact, customer might aren\'t impacted by the problem
-    --     yet.
+    -- -   @4@ - Low impact, customer aren\'t impacted by the problem yet.
     --
     -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
     --     action is needed to avoid impact.
     impact :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS Chatbot chat channel for responders to collaborate in.
+    -- | The Chatbot chat channel where responders can collaborate.
     chatChannel :: Prelude.Maybe ChatChannel,
-    -- | The summary describes what has happened during the incident.
+    -- | A longer description of what occurred during the incident.
     summary :: Prelude.Maybe Prelude.Text,
     -- | The status of the incident. An incident can be @Open@ or @Resolved@.
     status :: Prelude.Maybe IncidentRecordStatus,
-    -- | The title of the incident is a brief and easily recognizable.
+    -- | A brief description of the incident.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The SNS targets that are notified when updates are made to an incident.
+    -- | The Amazon SNS targets that are notified when updates are made to an
+    -- incident.
     --
-    -- Using multiple SNS topics creates redundancy in the case that a Region
+    -- Using multiple SNS topics creates redundancy in the event that a Region
     -- is down during the incident.
     notificationTargets :: Prelude.Maybe [NotificationTargetItem],
     -- | The Amazon Resource Name (ARN) of the incident record you are updating.
@@ -106,16 +106,16 @@ data UpdateIncidentRecord = UpdateIncidentRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateIncidentRecord_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'updateIncidentRecord_clientToken' - A token that ensures that the operation is called only once with the
+-- specified details.
 --
--- 'impact', 'updateIncidentRecord_impact' - Defines the impact to customers and applications. Providing an impact
--- overwrites the impact provided by the response plan.
+-- 'impact', 'updateIncidentRecord_impact' - Defines the impact of the incident to customers and applications.
+-- Providing an impact overwrites the impact provided by the response plan.
 --
 -- __Possible impacts:__
 --
--- -   @1@ - Critical impact, this typically relates to full application
---     failure that impacts many to all customers.
+-- -   @1@ - Critical impact, full application failure that impacts many to
+--     all customers.
 --
 -- -   @2@ - High impact, partial application failure with impact to many
 --     customers.
@@ -123,23 +123,23 @@ data UpdateIncidentRecord = UpdateIncidentRecord'
 -- -   @3@ - Medium impact, the application is providing reduced service to
 --     customers.
 --
--- -   @4@ - Low impact, customer might aren\'t impacted by the problem
---     yet.
+-- -   @4@ - Low impact, customer aren\'t impacted by the problem yet.
 --
 -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
 --     action is needed to avoid impact.
 --
--- 'chatChannel', 'updateIncidentRecord_chatChannel' - The AWS Chatbot chat channel for responders to collaborate in.
+-- 'chatChannel', 'updateIncidentRecord_chatChannel' - The Chatbot chat channel where responders can collaborate.
 --
--- 'summary', 'updateIncidentRecord_summary' - The summary describes what has happened during the incident.
+-- 'summary', 'updateIncidentRecord_summary' - A longer description of what occurred during the incident.
 --
 -- 'status', 'updateIncidentRecord_status' - The status of the incident. An incident can be @Open@ or @Resolved@.
 --
--- 'title', 'updateIncidentRecord_title' - The title of the incident is a brief and easily recognizable.
+-- 'title', 'updateIncidentRecord_title' - A brief description of the incident.
 --
--- 'notificationTargets', 'updateIncidentRecord_notificationTargets' - The SNS targets that are notified when updates are made to an incident.
+-- 'notificationTargets', 'updateIncidentRecord_notificationTargets' - The Amazon SNS targets that are notified when updates are made to an
+-- incident.
 --
--- Using multiple SNS topics creates redundancy in the case that a Region
+-- Using multiple SNS topics creates redundancy in the event that a Region
 -- is down during the incident.
 --
 -- 'arn', 'updateIncidentRecord_arn' - The Amazon Resource Name (ARN) of the incident record you are updating.
@@ -160,18 +160,18 @@ newUpdateIncidentRecord pArn_ =
       arn = pArn_
     }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token that ensures that the operation is called only once with the
+-- specified details.
 updateIncidentRecord_clientToken :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe Prelude.Text)
 updateIncidentRecord_clientToken = Lens.lens (\UpdateIncidentRecord' {clientToken} -> clientToken) (\s@UpdateIncidentRecord' {} a -> s {clientToken = a} :: UpdateIncidentRecord)
 
--- | Defines the impact to customers and applications. Providing an impact
--- overwrites the impact provided by the response plan.
+-- | Defines the impact of the incident to customers and applications.
+-- Providing an impact overwrites the impact provided by the response plan.
 --
 -- __Possible impacts:__
 --
--- -   @1@ - Critical impact, this typically relates to full application
---     failure that impacts many to all customers.
+-- -   @1@ - Critical impact, full application failure that impacts many to
+--     all customers.
 --
 -- -   @2@ - High impact, partial application failure with impact to many
 --     customers.
@@ -179,19 +179,18 @@ updateIncidentRecord_clientToken = Lens.lens (\UpdateIncidentRecord' {clientToke
 -- -   @3@ - Medium impact, the application is providing reduced service to
 --     customers.
 --
--- -   @4@ - Low impact, customer might aren\'t impacted by the problem
---     yet.
+-- -   @4@ - Low impact, customer aren\'t impacted by the problem yet.
 --
 -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
 --     action is needed to avoid impact.
 updateIncidentRecord_impact :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe Prelude.Natural)
 updateIncidentRecord_impact = Lens.lens (\UpdateIncidentRecord' {impact} -> impact) (\s@UpdateIncidentRecord' {} a -> s {impact = a} :: UpdateIncidentRecord)
 
--- | The AWS Chatbot chat channel for responders to collaborate in.
+-- | The Chatbot chat channel where responders can collaborate.
 updateIncidentRecord_chatChannel :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe ChatChannel)
 updateIncidentRecord_chatChannel = Lens.lens (\UpdateIncidentRecord' {chatChannel} -> chatChannel) (\s@UpdateIncidentRecord' {} a -> s {chatChannel = a} :: UpdateIncidentRecord)
 
--- | The summary describes what has happened during the incident.
+-- | A longer description of what occurred during the incident.
 updateIncidentRecord_summary :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe Prelude.Text)
 updateIncidentRecord_summary = Lens.lens (\UpdateIncidentRecord' {summary} -> summary) (\s@UpdateIncidentRecord' {} a -> s {summary = a} :: UpdateIncidentRecord)
 
@@ -199,13 +198,14 @@ updateIncidentRecord_summary = Lens.lens (\UpdateIncidentRecord' {summary} -> su
 updateIncidentRecord_status :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe IncidentRecordStatus)
 updateIncidentRecord_status = Lens.lens (\UpdateIncidentRecord' {status} -> status) (\s@UpdateIncidentRecord' {} a -> s {status = a} :: UpdateIncidentRecord)
 
--- | The title of the incident is a brief and easily recognizable.
+-- | A brief description of the incident.
 updateIncidentRecord_title :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe Prelude.Text)
 updateIncidentRecord_title = Lens.lens (\UpdateIncidentRecord' {title} -> title) (\s@UpdateIncidentRecord' {} a -> s {title = a} :: UpdateIncidentRecord)
 
--- | The SNS targets that are notified when updates are made to an incident.
+-- | The Amazon SNS targets that are notified when updates are made to an
+-- incident.
 --
--- Using multiple SNS topics creates redundancy in the case that a Region
+-- Using multiple SNS topics creates redundancy in the event that a Region
 -- is down during the incident.
 updateIncidentRecord_notificationTargets :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe [NotificationTargetItem])
 updateIncidentRecord_notificationTargets = Lens.lens (\UpdateIncidentRecord' {notificationTargets} -> notificationTargets) (\s@UpdateIncidentRecord' {} a -> s {notificationTargets = a} :: UpdateIncidentRecord) Prelude.. Lens.mapping Lens.coerced

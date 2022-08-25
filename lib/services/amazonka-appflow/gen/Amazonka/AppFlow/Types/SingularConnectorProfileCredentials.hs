@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 data SingularConnectorProfileCredentials = SingularConnectorProfileCredentials'
   { -- | A unique alphanumeric identifier used to authenticate a user, developer,
     -- or calling program to your API.
-    apiKey :: Prelude.Text
+    apiKey :: Core.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SingularConnectorProfileCredentials' with all optional fields omitted.
@@ -50,13 +50,13 @@ newSingularConnectorProfileCredentials ::
 newSingularConnectorProfileCredentials pApiKey_ =
   SingularConnectorProfileCredentials'
     { apiKey =
-        pApiKey_
+        Core._Sensitive Lens.# pApiKey_
     }
 
 -- | A unique alphanumeric identifier used to authenticate a user, developer,
 -- or calling program to your API.
 singularConnectorProfileCredentials_apiKey :: Lens.Lens' SingularConnectorProfileCredentials Prelude.Text
-singularConnectorProfileCredentials_apiKey = Lens.lens (\SingularConnectorProfileCredentials' {apiKey} -> apiKey) (\s@SingularConnectorProfileCredentials' {} a -> s {apiKey = a} :: SingularConnectorProfileCredentials)
+singularConnectorProfileCredentials_apiKey = Lens.lens (\SingularConnectorProfileCredentials' {apiKey} -> apiKey) (\s@SingularConnectorProfileCredentials' {} a -> s {apiKey = a} :: SingularConnectorProfileCredentials) Prelude.. Core._Sensitive
 
 instance
   Prelude.Hashable

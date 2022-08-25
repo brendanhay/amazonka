@@ -15,9 +15,37 @@ module Amazonka.CloudTrail.Lens
   ( -- * Operations
 
     -- ** AddTags
-    addTags_tagsList,
     addTags_resourceId,
+    addTags_tagsList,
     addTagsResponse_httpStatus,
+
+    -- ** CancelQuery
+    cancelQuery_eventDataStore,
+    cancelQuery_queryId,
+    cancelQueryResponse_httpStatus,
+    cancelQueryResponse_queryId,
+    cancelQueryResponse_queryStatus,
+
+    -- ** CreateEventDataStore
+    createEventDataStore_advancedEventSelectors,
+    createEventDataStore_multiRegionEnabled,
+    createEventDataStore_tagsList,
+    createEventDataStore_retentionPeriod,
+    createEventDataStore_organizationEnabled,
+    createEventDataStore_terminationProtectionEnabled,
+    createEventDataStore_name,
+    createEventDataStoreResponse_name,
+    createEventDataStoreResponse_eventDataStoreArn,
+    createEventDataStoreResponse_advancedEventSelectors,
+    createEventDataStoreResponse_createdTimestamp,
+    createEventDataStoreResponse_multiRegionEnabled,
+    createEventDataStoreResponse_tagsList,
+    createEventDataStoreResponse_updatedTimestamp,
+    createEventDataStoreResponse_status,
+    createEventDataStoreResponse_retentionPeriod,
+    createEventDataStoreResponse_organizationEnabled,
+    createEventDataStoreResponse_terminationProtectionEnabled,
+    createEventDataStoreResponse_httpStatus,
 
     -- ** CreateTrail
     createTrail_s3KeyPrefix,
@@ -47,15 +75,43 @@ module Amazonka.CloudTrail.Lens
     createTrailResponse_trailARN,
     createTrailResponse_httpStatus,
 
+    -- ** DeleteEventDataStore
+    deleteEventDataStore_eventDataStore,
+    deleteEventDataStoreResponse_httpStatus,
+
     -- ** DeleteTrail
     deleteTrail_name,
     deleteTrailResponse_httpStatus,
+
+    -- ** DescribeQuery
+    describeQuery_eventDataStore,
+    describeQuery_queryId,
+    describeQueryResponse_queryStatistics,
+    describeQueryResponse_queryStatus,
+    describeQueryResponse_errorMessage,
+    describeQueryResponse_queryId,
+    describeQueryResponse_queryString,
+    describeQueryResponse_httpStatus,
 
     -- ** DescribeTrails
     describeTrails_trailNameList,
     describeTrails_includeShadowTrails,
     describeTrailsResponse_trailList,
     describeTrailsResponse_httpStatus,
+
+    -- ** GetEventDataStore
+    getEventDataStore_eventDataStore,
+    getEventDataStoreResponse_name,
+    getEventDataStoreResponse_eventDataStoreArn,
+    getEventDataStoreResponse_advancedEventSelectors,
+    getEventDataStoreResponse_createdTimestamp,
+    getEventDataStoreResponse_multiRegionEnabled,
+    getEventDataStoreResponse_updatedTimestamp,
+    getEventDataStoreResponse_status,
+    getEventDataStoreResponse_retentionPeriod,
+    getEventDataStoreResponse_organizationEnabled,
+    getEventDataStoreResponse_terminationProtectionEnabled,
+    getEventDataStoreResponse_httpStatus,
 
     -- ** GetEventSelectors
     getEventSelectors_trailName,
@@ -69,6 +125,18 @@ module Amazonka.CloudTrail.Lens
     getInsightSelectorsResponse_insightSelectors,
     getInsightSelectorsResponse_trailARN,
     getInsightSelectorsResponse_httpStatus,
+
+    -- ** GetQueryResults
+    getQueryResults_nextToken,
+    getQueryResults_maxQueryResults,
+    getQueryResults_eventDataStore,
+    getQueryResults_queryId,
+    getQueryResultsResponse_nextToken,
+    getQueryResultsResponse_queryStatistics,
+    getQueryResultsResponse_queryResultRows,
+    getQueryResultsResponse_queryStatus,
+    getQueryResultsResponse_errorMessage,
+    getQueryResultsResponse_httpStatus,
 
     -- ** GetTrail
     getTrail_name,
@@ -96,6 +164,13 @@ module Amazonka.CloudTrail.Lens
     getTrailStatusResponse_latestDeliveryAttemptSucceeded,
     getTrailStatusResponse_httpStatus,
 
+    -- ** ListEventDataStores
+    listEventDataStores_nextToken,
+    listEventDataStores_maxResults,
+    listEventDataStoresResponse_nextToken,
+    listEventDataStoresResponse_eventDataStores,
+    listEventDataStoresResponse_httpStatus,
+
     -- ** ListPublicKeys
     listPublicKeys_nextToken,
     listPublicKeys_endTime,
@@ -103,6 +178,17 @@ module Amazonka.CloudTrail.Lens
     listPublicKeysResponse_nextToken,
     listPublicKeysResponse_publicKeyList,
     listPublicKeysResponse_httpStatus,
+
+    -- ** ListQueries
+    listQueries_nextToken,
+    listQueries_queryStatus,
+    listQueries_endTime,
+    listQueries_maxResults,
+    listQueries_startTime,
+    listQueries_eventDataStore,
+    listQueriesResponse_nextToken,
+    listQueriesResponse_queries,
+    listQueriesResponse_httpStatus,
 
     -- ** ListTags
     listTags_nextToken,
@@ -145,17 +231,56 @@ module Amazonka.CloudTrail.Lens
     putInsightSelectorsResponse_httpStatus,
 
     -- ** RemoveTags
-    removeTags_tagsList,
     removeTags_resourceId,
+    removeTags_tagsList,
     removeTagsResponse_httpStatus,
+
+    -- ** RestoreEventDataStore
+    restoreEventDataStore_eventDataStore,
+    restoreEventDataStoreResponse_name,
+    restoreEventDataStoreResponse_eventDataStoreArn,
+    restoreEventDataStoreResponse_advancedEventSelectors,
+    restoreEventDataStoreResponse_createdTimestamp,
+    restoreEventDataStoreResponse_multiRegionEnabled,
+    restoreEventDataStoreResponse_updatedTimestamp,
+    restoreEventDataStoreResponse_status,
+    restoreEventDataStoreResponse_retentionPeriod,
+    restoreEventDataStoreResponse_organizationEnabled,
+    restoreEventDataStoreResponse_terminationProtectionEnabled,
+    restoreEventDataStoreResponse_httpStatus,
 
     -- ** StartLogging
     startLogging_name,
     startLoggingResponse_httpStatus,
 
+    -- ** StartQuery
+    startQuery_queryStatement,
+    startQueryResponse_queryId,
+    startQueryResponse_httpStatus,
+
     -- ** StopLogging
     stopLogging_name,
     stopLoggingResponse_httpStatus,
+
+    -- ** UpdateEventDataStore
+    updateEventDataStore_name,
+    updateEventDataStore_advancedEventSelectors,
+    updateEventDataStore_multiRegionEnabled,
+    updateEventDataStore_retentionPeriod,
+    updateEventDataStore_organizationEnabled,
+    updateEventDataStore_terminationProtectionEnabled,
+    updateEventDataStore_eventDataStore,
+    updateEventDataStoreResponse_name,
+    updateEventDataStoreResponse_eventDataStoreArn,
+    updateEventDataStoreResponse_advancedEventSelectors,
+    updateEventDataStoreResponse_createdTimestamp,
+    updateEventDataStoreResponse_multiRegionEnabled,
+    updateEventDataStoreResponse_updatedTimestamp,
+    updateEventDataStoreResponse_status,
+    updateEventDataStoreResponse_retentionPeriod,
+    updateEventDataStoreResponse_organizationEnabled,
+    updateEventDataStoreResponse_terminationProtectionEnabled,
+    updateEventDataStoreResponse_httpStatus,
 
     -- ** UpdateTrail
     updateTrail_s3KeyPrefix,
@@ -214,6 +339,18 @@ module Amazonka.CloudTrail.Lens
     event_accessKeyId,
     event_eventSource,
 
+    -- ** EventDataStore
+    eventDataStore_name,
+    eventDataStore_eventDataStoreArn,
+    eventDataStore_advancedEventSelectors,
+    eventDataStore_createdTimestamp,
+    eventDataStore_multiRegionEnabled,
+    eventDataStore_updatedTimestamp,
+    eventDataStore_status,
+    eventDataStore_retentionPeriod,
+    eventDataStore_organizationEnabled,
+    eventDataStore_terminationProtectionEnabled,
+
     -- ** EventSelector
     eventSelector_excludeManagementEventSources,
     eventSelector_includeManagementEvents,
@@ -232,6 +369,23 @@ module Amazonka.CloudTrail.Lens
     publicKey_validityEndTime,
     publicKey_fingerprint,
     publicKey_value,
+
+    -- ** Query
+    query_queryStatus,
+    query_queryId,
+    query_creationTime,
+
+    -- ** QueryStatistics
+    queryStatistics_totalResultsCount,
+    queryStatistics_bytesScanned,
+    queryStatistics_resultsCount,
+
+    -- ** QueryStatisticsForDescribeQuery
+    queryStatisticsForDescribeQuery_eventsScanned,
+    queryStatisticsForDescribeQuery_bytesScanned,
+    queryStatisticsForDescribeQuery_executionTimeInMillis,
+    queryStatisticsForDescribeQuery_eventsMatched,
+    queryStatisticsForDescribeQuery_creationTime,
 
     -- ** Resource
     resource_resourceType,
@@ -271,33 +425,48 @@ module Amazonka.CloudTrail.Lens
 where
 
 import Amazonka.CloudTrail.AddTags
+import Amazonka.CloudTrail.CancelQuery
+import Amazonka.CloudTrail.CreateEventDataStore
 import Amazonka.CloudTrail.CreateTrail
+import Amazonka.CloudTrail.DeleteEventDataStore
 import Amazonka.CloudTrail.DeleteTrail
+import Amazonka.CloudTrail.DescribeQuery
 import Amazonka.CloudTrail.DescribeTrails
+import Amazonka.CloudTrail.GetEventDataStore
 import Amazonka.CloudTrail.GetEventSelectors
 import Amazonka.CloudTrail.GetInsightSelectors
+import Amazonka.CloudTrail.GetQueryResults
 import Amazonka.CloudTrail.GetTrail
 import Amazonka.CloudTrail.GetTrailStatus
+import Amazonka.CloudTrail.ListEventDataStores
 import Amazonka.CloudTrail.ListPublicKeys
+import Amazonka.CloudTrail.ListQueries
 import Amazonka.CloudTrail.ListTags
 import Amazonka.CloudTrail.ListTrails
 import Amazonka.CloudTrail.LookupEvents
 import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
 import Amazonka.CloudTrail.RemoveTags
+import Amazonka.CloudTrail.RestoreEventDataStore
 import Amazonka.CloudTrail.StartLogging
+import Amazonka.CloudTrail.StartQuery
 import Amazonka.CloudTrail.StopLogging
 import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import Amazonka.CloudTrail.Types.AdvancedFieldSelector
 import Amazonka.CloudTrail.Types.DataResource
 import Amazonka.CloudTrail.Types.Event
+import Amazonka.CloudTrail.Types.EventDataStore
 import Amazonka.CloudTrail.Types.EventSelector
 import Amazonka.CloudTrail.Types.InsightSelector
 import Amazonka.CloudTrail.Types.LookupAttribute
 import Amazonka.CloudTrail.Types.PublicKey
+import Amazonka.CloudTrail.Types.Query
+import Amazonka.CloudTrail.Types.QueryStatistics
+import Amazonka.CloudTrail.Types.QueryStatisticsForDescribeQuery
 import Amazonka.CloudTrail.Types.Resource
 import Amazonka.CloudTrail.Types.ResourceTag
 import Amazonka.CloudTrail.Types.Tag
 import Amazonka.CloudTrail.Types.Trail
 import Amazonka.CloudTrail.Types.TrailInfo
+import Amazonka.CloudTrail.UpdateEventDataStore
 import Amazonka.CloudTrail.UpdateTrail

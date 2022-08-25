@@ -44,8 +44,8 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
     --     early stopping.
     --
     -- [AUTO]
-    --     Amazon SageMaker stops training jobs launched by the hyperparameter
-    --     tuning job when they are unlikely to perform better than previously
+    --     SageMaker stops training jobs launched by the hyperparameter tuning
+    --     job when they are unlikely to perform better than previously
     --     completed training jobs. For more information, see
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html Stop Training Jobs Early>.
     trainingJobEarlyStoppingType :: Prelude.Maybe TrainingJobEarlyStoppingType,
@@ -86,8 +86,8 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 --     early stopping.
 --
 -- [AUTO]
---     Amazon SageMaker stops training jobs launched by the hyperparameter
---     tuning job when they are unlikely to perform better than previously
+--     SageMaker stops training jobs launched by the hyperparameter tuning
+--     job when they are unlikely to perform better than previously
 --     completed training jobs. For more information, see
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html Stop Training Jobs Early>.
 --
@@ -139,8 +139,8 @@ hyperParameterTuningJobConfig_tuningJobCompletionCriteria = Lens.lens (\HyperPar
 --     early stopping.
 --
 -- [AUTO]
---     Amazon SageMaker stops training jobs launched by the hyperparameter
---     tuning job when they are unlikely to perform better than previously
+--     SageMaker stops training jobs launched by the hyperparameter tuning
+--     job when they are unlikely to perform better than previously
 --     completed training jobs. For more information, see
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html Stop Training Jobs Early>.
 hyperParameterTuningJobConfig_trainingJobEarlyStoppingType :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe TrainingJobEarlyStoppingType)

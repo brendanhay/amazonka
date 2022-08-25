@@ -64,6 +64,12 @@ module Amazonka.Athena
     BatchGetNamedQueryResponse (BatchGetNamedQueryResponse'),
     newBatchGetNamedQueryResponse,
 
+    -- ** BatchGetPreparedStatement
+    BatchGetPreparedStatement (BatchGetPreparedStatement'),
+    newBatchGetPreparedStatement,
+    BatchGetPreparedStatementResponse (BatchGetPreparedStatementResponse'),
+    newBatchGetPreparedStatementResponse,
+
     -- ** BatchGetQueryExecution
     BatchGetQueryExecution (BatchGetQueryExecution'),
     newBatchGetQueryExecution,
@@ -153,6 +159,12 @@ module Amazonka.Athena
     newGetQueryResults,
     GetQueryResultsResponse (GetQueryResultsResponse'),
     newGetQueryResultsResponse,
+
+    -- ** GetQueryRuntimeStatistics
+    GetQueryRuntimeStatistics (GetQueryRuntimeStatistics'),
+    newGetQueryRuntimeStatistics,
+    GetQueryRuntimeStatisticsResponse (GetQueryRuntimeStatisticsResponse'),
+    newGetQueryRuntimeStatisticsResponse,
 
     -- ** GetTableMetadata
     GetTableMetadata (GetTableMetadata'),
@@ -250,6 +262,12 @@ module Amazonka.Athena
     UpdateDataCatalogResponse (UpdateDataCatalogResponse'),
     newUpdateDataCatalogResponse,
 
+    -- ** UpdateNamedQuery
+    UpdateNamedQuery (UpdateNamedQuery'),
+    newUpdateNamedQuery,
+    UpdateNamedQueryResponse (UpdateNamedQueryResponse'),
+    newUpdateNamedQueryResponse,
+
     -- ** UpdatePreparedStatement
     UpdatePreparedStatement (UpdatePreparedStatement'),
     newUpdatePreparedStatement,
@@ -276,11 +294,22 @@ module Amazonka.Athena
     -- ** QueryExecutionState
     QueryExecutionState (..),
 
+    -- ** S3AclOption
+    S3AclOption (..),
+
     -- ** StatementType
     StatementType (..),
 
     -- ** WorkGroupState
     WorkGroupState (..),
+
+    -- ** AclConfiguration
+    AclConfiguration (AclConfiguration'),
+    newAclConfiguration,
+
+    -- ** AthenaError
+    AthenaError (AthenaError'),
+    newAthenaError,
 
     -- ** Column
     Column (Column'),
@@ -342,6 +371,26 @@ module Amazonka.Athena
     QueryExecutionStatus (QueryExecutionStatus'),
     newQueryExecutionStatus,
 
+    -- ** QueryRuntimeStatistics
+    QueryRuntimeStatistics (QueryRuntimeStatistics'),
+    newQueryRuntimeStatistics,
+
+    -- ** QueryRuntimeStatisticsRows
+    QueryRuntimeStatisticsRows (QueryRuntimeStatisticsRows'),
+    newQueryRuntimeStatisticsRows,
+
+    -- ** QueryRuntimeStatisticsTimeline
+    QueryRuntimeStatisticsTimeline (QueryRuntimeStatisticsTimeline'),
+    newQueryRuntimeStatisticsTimeline,
+
+    -- ** QueryStage
+    QueryStage (QueryStage'),
+    newQueryStage,
+
+    -- ** QueryStagePlanNode
+    QueryStagePlanNode (QueryStagePlanNode'),
+    newQueryStagePlanNode,
+
     -- ** ResultConfiguration
     ResultConfiguration (ResultConfiguration'),
     newResultConfiguration,
@@ -374,6 +423,10 @@ module Amazonka.Athena
     UnprocessedNamedQueryId (UnprocessedNamedQueryId'),
     newUnprocessedNamedQueryId,
 
+    -- ** UnprocessedPreparedStatementName
+    UnprocessedPreparedStatementName (UnprocessedPreparedStatementName'),
+    newUnprocessedPreparedStatementName,
+
     -- ** UnprocessedQueryExecutionId
     UnprocessedQueryExecutionId (UnprocessedQueryExecutionId'),
     newUnprocessedQueryExecutionId,
@@ -397,6 +450,7 @@ module Amazonka.Athena
 where
 
 import Amazonka.Athena.BatchGetNamedQuery
+import Amazonka.Athena.BatchGetPreparedStatement
 import Amazonka.Athena.BatchGetQueryExecution
 import Amazonka.Athena.CreateDataCatalog
 import Amazonka.Athena.CreateNamedQuery
@@ -412,6 +466,7 @@ import Amazonka.Athena.GetNamedQuery
 import Amazonka.Athena.GetPreparedStatement
 import Amazonka.Athena.GetQueryExecution
 import Amazonka.Athena.GetQueryResults
+import Amazonka.Athena.GetQueryRuntimeStatistics
 import Amazonka.Athena.GetTableMetadata
 import Amazonka.Athena.GetWorkGroup
 import Amazonka.Athena.Lens
@@ -430,6 +485,7 @@ import Amazonka.Athena.TagResource
 import Amazonka.Athena.Types
 import Amazonka.Athena.UntagResource
 import Amazonka.Athena.UpdateDataCatalog
+import Amazonka.Athena.UpdateNamedQuery
 import Amazonka.Athena.UpdatePreparedStatement
 import Amazonka.Athena.UpdateWorkGroup
 import Amazonka.Athena.Waiters

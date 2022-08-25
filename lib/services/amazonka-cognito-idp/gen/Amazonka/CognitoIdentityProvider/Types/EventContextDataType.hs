@@ -36,7 +36,7 @@ data EventContextDataType = EventContextDataType'
     timezone :: Prelude.Maybe Prelude.Text,
     -- | The user\'s city.
     city :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s IP address.
+    -- | The source IP address of your user\'s device.
     ipAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +57,7 @@ data EventContextDataType = EventContextDataType'
 --
 -- 'city', 'eventContextDataType_city' - The user\'s city.
 --
--- 'ipAddress', 'eventContextDataType_ipAddress' - The user\'s IP address.
+-- 'ipAddress', 'eventContextDataType_ipAddress' - The source IP address of your user\'s device.
 newEventContextDataType ::
   EventContextDataType
 newEventContextDataType =
@@ -85,7 +85,7 @@ eventContextDataType_timezone = Lens.lens (\EventContextDataType' {timezone} -> 
 eventContextDataType_city :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
 eventContextDataType_city = Lens.lens (\EventContextDataType' {city} -> city) (\s@EventContextDataType' {} a -> s {city = a} :: EventContextDataType)
 
--- | The user\'s IP address.
+-- | The source IP address of your user\'s device.
 eventContextDataType_ipAddress :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
 eventContextDataType_ipAddress = Lens.lens (\EventContextDataType' {ipAddress} -> ipAddress) (\s@EventContextDataType' {} a -> s {ipAddress = a} :: EventContextDataType)
 

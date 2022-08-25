@@ -21,27 +21,25 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Links an existing user account in a user pool (@DestinationUser@) to an
--- identity from an external identity provider (@SourceUser@) based on a
--- specified attribute name and value from the external identity provider.
--- This allows you to create a link from the existing user account to an
--- external federated user identity that has not yet been used to sign in,
--- so that the federated user identity can be used to sign in as the
--- existing user account.
+-- identity from an external IdP (@SourceUser@) based on a specified
+-- attribute name and value from the external IdP. This allows you to
+-- create a link from the existing user account to an external federated
+-- user identity that has not yet been used to sign in. You can then use
+-- the federated user identity to sign in as the existing user account.
 --
 -- For example, if there is an existing user with a username and password,
--- this API links that user to a federated user identity, so that when the
--- federated user identity is used, the user signs in as the existing user
--- account.
+-- this API links that user to a federated user identity. When the user
+-- signs in with a federated user identity, they sign in as the existing
+-- user account.
 --
--- The maximum number of federated identities linked to a user is 5.
+-- The maximum number of federated identities linked to a user is five.
 --
 -- Because this API allows a user with an external federated identity to
 -- sign in as an existing user in the user pool, it is critical that it
--- only be used with external identity providers and provider attributes
--- that have been trusted by the application owner.
+-- only be used with external IdPs and provider attributes that have been
+-- trusted by the application owner.
 --
--- This action is enabled only for admin access and requires developer
--- credentials.
+-- This action is administrative and requires developer credentials.
 module Amazonka.CognitoIdentityProvider.AdminLinkProviderForUser
   ( -- * Creating a Request
     AdminLinkProviderForUser (..),
@@ -72,12 +70,12 @@ import qualified Amazonka.Response as Response
 data AdminLinkProviderForUser = AdminLinkProviderForUser'
   { -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text,
-    -- | The existing user in the user pool to be linked to the external identity
-    -- provider user account. Can be a native (Username + Password) Cognito
-    -- User Pools user or a federated user (for example, a SAML or Facebook
-    -- user). If the user doesn\'t exist, an exception is thrown. This is the
-    -- user that is returned when the new user (with the linked identity
-    -- provider attribute) signs in.
+    -- | The existing user in the user pool that you want to assign to the
+    -- external IdP user account. This user can be a native (Username +
+    -- Password) Amazon Cognito user pools user or a federated user (for
+    -- example, a SAML or Facebook user). If the user doesn\'t exist, Amazon
+    -- Cognito generates an exception. Amazon Cognito returns this user when
+    -- the new user (with the linked IdP attribute) signs in.
     --
     -- For a native username + password user, the @ProviderAttributeValue@ for
     -- the @DestinationUser@ should be the username in the user pool. For a
@@ -87,28 +85,31 @@ data AdminLinkProviderForUser = AdminLinkProviderForUser'
     --
     -- The @ProviderName@ should be set to @Cognito@ for users in Cognito user
     -- pools.
-    destinationUser :: ProviderUserIdentifierType,
-    -- | An external identity provider account for a user who does not currently
-    -- exist yet in the user pool. This user must be a federated user (for
-    -- example, a SAML or Facebook user), not another native user.
     --
-    -- If the @SourceUser@ is a federated social identity provider user
-    -- (Facebook, Google, or Login with Amazon), you must set the
-    -- @ProviderAttributeName@ to @Cognito_Subject@. For social identity
-    -- providers, the @ProviderName@ will be @Facebook@, @Google@, or
-    -- @LoginWithAmazon@, and Cognito will automatically parse the Facebook,
-    -- Google, and Login with Amazon tokens for @id@, @sub@, and @user_id@,
-    -- respectively. The @ProviderAttributeValue@ for the user must be the same
-    -- value as the @id@, @sub@, or @user_id@ value found in the social
-    -- identity provider token.
+    -- All attributes in the DestinationUser profile must be mutable. If you
+    -- have assigned the user any immutable custom attributes, the operation
+    -- won\'t succeed.
+    destinationUser :: ProviderUserIdentifierType,
+    -- | An external IdP account for a user who doesn\'t exist yet in the user
+    -- pool. This user must be a federated user (for example, a SAML or
+    -- Facebook user), not another native user.
+    --
+    -- If the @SourceUser@ is using a federated social IdP, such as Facebook,
+    -- Google, or Login with Amazon, you must set the @ProviderAttributeName@
+    -- to @Cognito_Subject@. For social IdPs, the @ProviderName@ will be
+    -- @Facebook@, @Google@, or @LoginWithAmazon@, and Amazon Cognito will
+    -- automatically parse the Facebook, Google, and Login with Amazon tokens
+    -- for @id@, @sub@, and @user_id@, respectively. The
+    -- @ProviderAttributeValue@ for the user must be the same value as the
+    -- @id@, @sub@, or @user_id@ value found in the social IdP token.
     --
     -- For SAML, the @ProviderAttributeName@ can be any value that matches a
-    -- claim in the SAML assertion. If you wish to link SAML users based on the
+    -- claim in the SAML assertion. If you want to link SAML users based on the
     -- subject of the SAML assertion, you should map the subject to a claim
-    -- through the SAML identity provider and submit that claim name as the
+    -- through the SAML IdP and submit that claim name as the
     -- @ProviderAttributeName@. If you set @ProviderAttributeName@ to
-    -- @Cognito_Subject@, Cognito will automatically parse the default unique
-    -- identifier found in the subject from the SAML token.
+    -- @Cognito_Subject@, Amazon Cognito will automatically parse the default
+    -- unique identifier found in the subject from the SAML token.
     sourceUser :: ProviderUserIdentifierType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -123,12 +124,12 @@ data AdminLinkProviderForUser = AdminLinkProviderForUser'
 --
 -- 'userPoolId', 'adminLinkProviderForUser_userPoolId' - The user pool ID for the user pool.
 --
--- 'destinationUser', 'adminLinkProviderForUser_destinationUser' - The existing user in the user pool to be linked to the external identity
--- provider user account. Can be a native (Username + Password) Cognito
--- User Pools user or a federated user (for example, a SAML or Facebook
--- user). If the user doesn\'t exist, an exception is thrown. This is the
--- user that is returned when the new user (with the linked identity
--- provider attribute) signs in.
+-- 'destinationUser', 'adminLinkProviderForUser_destinationUser' - The existing user in the user pool that you want to assign to the
+-- external IdP user account. This user can be a native (Username +
+-- Password) Amazon Cognito user pools user or a federated user (for
+-- example, a SAML or Facebook user). If the user doesn\'t exist, Amazon
+-- Cognito generates an exception. Amazon Cognito returns this user when
+-- the new user (with the linked IdP attribute) signs in.
 --
 -- For a native username + password user, the @ProviderAttributeValue@ for
 -- the @DestinationUser@ should be the username in the user pool. For a
@@ -139,27 +140,30 @@ data AdminLinkProviderForUser = AdminLinkProviderForUser'
 -- The @ProviderName@ should be set to @Cognito@ for users in Cognito user
 -- pools.
 --
--- 'sourceUser', 'adminLinkProviderForUser_sourceUser' - An external identity provider account for a user who does not currently
--- exist yet in the user pool. This user must be a federated user (for
--- example, a SAML or Facebook user), not another native user.
+-- All attributes in the DestinationUser profile must be mutable. If you
+-- have assigned the user any immutable custom attributes, the operation
+-- won\'t succeed.
 --
--- If the @SourceUser@ is a federated social identity provider user
--- (Facebook, Google, or Login with Amazon), you must set the
--- @ProviderAttributeName@ to @Cognito_Subject@. For social identity
--- providers, the @ProviderName@ will be @Facebook@, @Google@, or
--- @LoginWithAmazon@, and Cognito will automatically parse the Facebook,
--- Google, and Login with Amazon tokens for @id@, @sub@, and @user_id@,
--- respectively. The @ProviderAttributeValue@ for the user must be the same
--- value as the @id@, @sub@, or @user_id@ value found in the social
--- identity provider token.
+-- 'sourceUser', 'adminLinkProviderForUser_sourceUser' - An external IdP account for a user who doesn\'t exist yet in the user
+-- pool. This user must be a federated user (for example, a SAML or
+-- Facebook user), not another native user.
+--
+-- If the @SourceUser@ is using a federated social IdP, such as Facebook,
+-- Google, or Login with Amazon, you must set the @ProviderAttributeName@
+-- to @Cognito_Subject@. For social IdPs, the @ProviderName@ will be
+-- @Facebook@, @Google@, or @LoginWithAmazon@, and Amazon Cognito will
+-- automatically parse the Facebook, Google, and Login with Amazon tokens
+-- for @id@, @sub@, and @user_id@, respectively. The
+-- @ProviderAttributeValue@ for the user must be the same value as the
+-- @id@, @sub@, or @user_id@ value found in the social IdP token.
 --
 -- For SAML, the @ProviderAttributeName@ can be any value that matches a
--- claim in the SAML assertion. If you wish to link SAML users based on the
+-- claim in the SAML assertion. If you want to link SAML users based on the
 -- subject of the SAML assertion, you should map the subject to a claim
--- through the SAML identity provider and submit that claim name as the
+-- through the SAML IdP and submit that claim name as the
 -- @ProviderAttributeName@. If you set @ProviderAttributeName@ to
--- @Cognito_Subject@, Cognito will automatically parse the default unique
--- identifier found in the subject from the SAML token.
+-- @Cognito_Subject@, Amazon Cognito will automatically parse the default
+-- unique identifier found in the subject from the SAML token.
 newAdminLinkProviderForUser ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -183,12 +187,12 @@ newAdminLinkProviderForUser
 adminLinkProviderForUser_userPoolId :: Lens.Lens' AdminLinkProviderForUser Prelude.Text
 adminLinkProviderForUser_userPoolId = Lens.lens (\AdminLinkProviderForUser' {userPoolId} -> userPoolId) (\s@AdminLinkProviderForUser' {} a -> s {userPoolId = a} :: AdminLinkProviderForUser)
 
--- | The existing user in the user pool to be linked to the external identity
--- provider user account. Can be a native (Username + Password) Cognito
--- User Pools user or a federated user (for example, a SAML or Facebook
--- user). If the user doesn\'t exist, an exception is thrown. This is the
--- user that is returned when the new user (with the linked identity
--- provider attribute) signs in.
+-- | The existing user in the user pool that you want to assign to the
+-- external IdP user account. This user can be a native (Username +
+-- Password) Amazon Cognito user pools user or a federated user (for
+-- example, a SAML or Facebook user). If the user doesn\'t exist, Amazon
+-- Cognito generates an exception. Amazon Cognito returns this user when
+-- the new user (with the linked IdP attribute) signs in.
 --
 -- For a native username + password user, the @ProviderAttributeValue@ for
 -- the @DestinationUser@ should be the username in the user pool. For a
@@ -198,30 +202,33 @@ adminLinkProviderForUser_userPoolId = Lens.lens (\AdminLinkProviderForUser' {use
 --
 -- The @ProviderName@ should be set to @Cognito@ for users in Cognito user
 -- pools.
+--
+-- All attributes in the DestinationUser profile must be mutable. If you
+-- have assigned the user any immutable custom attributes, the operation
+-- won\'t succeed.
 adminLinkProviderForUser_destinationUser :: Lens.Lens' AdminLinkProviderForUser ProviderUserIdentifierType
 adminLinkProviderForUser_destinationUser = Lens.lens (\AdminLinkProviderForUser' {destinationUser} -> destinationUser) (\s@AdminLinkProviderForUser' {} a -> s {destinationUser = a} :: AdminLinkProviderForUser)
 
--- | An external identity provider account for a user who does not currently
--- exist yet in the user pool. This user must be a federated user (for
--- example, a SAML or Facebook user), not another native user.
+-- | An external IdP account for a user who doesn\'t exist yet in the user
+-- pool. This user must be a federated user (for example, a SAML or
+-- Facebook user), not another native user.
 --
--- If the @SourceUser@ is a federated social identity provider user
--- (Facebook, Google, or Login with Amazon), you must set the
--- @ProviderAttributeName@ to @Cognito_Subject@. For social identity
--- providers, the @ProviderName@ will be @Facebook@, @Google@, or
--- @LoginWithAmazon@, and Cognito will automatically parse the Facebook,
--- Google, and Login with Amazon tokens for @id@, @sub@, and @user_id@,
--- respectively. The @ProviderAttributeValue@ for the user must be the same
--- value as the @id@, @sub@, or @user_id@ value found in the social
--- identity provider token.
+-- If the @SourceUser@ is using a federated social IdP, such as Facebook,
+-- Google, or Login with Amazon, you must set the @ProviderAttributeName@
+-- to @Cognito_Subject@. For social IdPs, the @ProviderName@ will be
+-- @Facebook@, @Google@, or @LoginWithAmazon@, and Amazon Cognito will
+-- automatically parse the Facebook, Google, and Login with Amazon tokens
+-- for @id@, @sub@, and @user_id@, respectively. The
+-- @ProviderAttributeValue@ for the user must be the same value as the
+-- @id@, @sub@, or @user_id@ value found in the social IdP token.
 --
 -- For SAML, the @ProviderAttributeName@ can be any value that matches a
--- claim in the SAML assertion. If you wish to link SAML users based on the
+-- claim in the SAML assertion. If you want to link SAML users based on the
 -- subject of the SAML assertion, you should map the subject to a claim
--- through the SAML identity provider and submit that claim name as the
+-- through the SAML IdP and submit that claim name as the
 -- @ProviderAttributeName@. If you set @ProviderAttributeName@ to
--- @Cognito_Subject@, Cognito will automatically parse the default unique
--- identifier found in the subject from the SAML token.
+-- @Cognito_Subject@, Amazon Cognito will automatically parse the default
+-- unique identifier found in the subject from the SAML token.
 adminLinkProviderForUser_sourceUser :: Lens.Lens' AdminLinkProviderForUser ProviderUserIdentifierType
 adminLinkProviderForUser_sourceUser = Lens.lens (\AdminLinkProviderForUser' {sourceUser} -> sourceUser) (\s@AdminLinkProviderForUser' {} a -> s {sourceUser = a} :: AdminLinkProviderForUser)
 

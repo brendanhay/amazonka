@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Settings for quality-defined variable bitrate encoding with the H.265
+-- | Settings for quality-defined variable bitrate encoding with the H.264
 -- codec. Use these settings only when you set QVBR for Rate control mode
 -- (RateControlMode).
 --

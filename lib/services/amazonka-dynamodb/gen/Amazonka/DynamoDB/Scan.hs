@@ -206,7 +206,7 @@ data Scan = Scan'
     -- units.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression Filter Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
     filterExpression :: Prelude.Maybe Prelude.Text,
     -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
@@ -235,8 +235,9 @@ data Scan = Scan'
     --     matching items themselves.
     --
     -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
-    --     @AttributesToGet@. This return value is equivalent to specifying
-    --     @AttributesToGet@ without specifying any value for @Select@.
+    --     @ProjectionExpression@. This return value is equivalent to
+    --     specifying @ProjectionExpression@ without specifying any value for
+    --     @Select@.
     --
     --     If you query or scan a local secondary index and request only
     --     attributes that are projected into that index, the operation reads
@@ -249,12 +250,13 @@ data Scan = Scan'
     --     attributes that are projected into the index. Global secondary index
     --     queries cannot fetch attributes from the parent table.
     --
-    -- If neither @Select@ nor @AttributesToGet@ are specified, DynamoDB
+    -- If neither @Select@ nor @ProjectionExpression@ are specified, DynamoDB
     -- defaults to @ALL_ATTRIBUTES@ when accessing a table, and
     -- @ALL_PROJECTED_ATTRIBUTES@ when accessing an index. You cannot use both
-    -- @Select@ and @AttributesToGet@ together in a single request, unless the
-    -- value for @Select@ is @SPECIFIC_ATTRIBUTES@. (This usage is equivalent
-    -- to specifying @AttributesToGet@ without any value for @Select@.)
+    -- @Select@ and @ProjectionExpression@ together in a single request, unless
+    -- the value for @Select@ is @SPECIFIC_ATTRIBUTES@. (This usage is
+    -- equivalent to specifying @ProjectionExpression@ without any value for
+    -- @Select@.)
     --
     -- If you use the @ProjectionExpression@ parameter, then the value for
     -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@
@@ -441,7 +443,7 @@ data Scan = Scan'
 -- units.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression Filter Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'attributesToGet', 'scan_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
@@ -470,8 +472,9 @@ data Scan = Scan'
 --     matching items themselves.
 --
 -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
---     @AttributesToGet@. This return value is equivalent to specifying
---     @AttributesToGet@ without specifying any value for @Select@.
+--     @ProjectionExpression@. This return value is equivalent to
+--     specifying @ProjectionExpression@ without specifying any value for
+--     @Select@.
 --
 --     If you query or scan a local secondary index and request only
 --     attributes that are projected into that index, the operation reads
@@ -484,12 +487,13 @@ data Scan = Scan'
 --     attributes that are projected into the index. Global secondary index
 --     queries cannot fetch attributes from the parent table.
 --
--- If neither @Select@ nor @AttributesToGet@ are specified, DynamoDB
+-- If neither @Select@ nor @ProjectionExpression@ are specified, DynamoDB
 -- defaults to @ALL_ATTRIBUTES@ when accessing a table, and
 -- @ALL_PROJECTED_ATTRIBUTES@ when accessing an index. You cannot use both
--- @Select@ and @AttributesToGet@ together in a single request, unless the
--- value for @Select@ is @SPECIFIC_ATTRIBUTES@. (This usage is equivalent
--- to specifying @AttributesToGet@ without any value for @Select@.)
+-- @Select@ and @ProjectionExpression@ together in a single request, unless
+-- the value for @Select@ is @SPECIFIC_ATTRIBUTES@. (This usage is
+-- equivalent to specifying @ProjectionExpression@ without any value for
+-- @Select@.)
 --
 -- If you use the @ProjectionExpression@ parameter, then the value for
 -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@
@@ -702,7 +706,7 @@ scan_exclusiveStartKey = Lens.lens (\Scan' {exclusiveStartKey} -> exclusiveStart
 -- units.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression Filter Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
 scan_filterExpression :: Lens.Lens' Scan (Prelude.Maybe Prelude.Text)
 scan_filterExpression = Lens.lens (\Scan' {filterExpression} -> filterExpression) (\s@Scan' {} a -> s {filterExpression = a} :: Scan)
@@ -735,8 +739,9 @@ scan_attributesToGet = Lens.lens (\Scan' {attributesToGet} -> attributesToGet) (
 --     matching items themselves.
 --
 -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
---     @AttributesToGet@. This return value is equivalent to specifying
---     @AttributesToGet@ without specifying any value for @Select@.
+--     @ProjectionExpression@. This return value is equivalent to
+--     specifying @ProjectionExpression@ without specifying any value for
+--     @Select@.
 --
 --     If you query or scan a local secondary index and request only
 --     attributes that are projected into that index, the operation reads
@@ -749,12 +754,13 @@ scan_attributesToGet = Lens.lens (\Scan' {attributesToGet} -> attributesToGet) (
 --     attributes that are projected into the index. Global secondary index
 --     queries cannot fetch attributes from the parent table.
 --
--- If neither @Select@ nor @AttributesToGet@ are specified, DynamoDB
+-- If neither @Select@ nor @ProjectionExpression@ are specified, DynamoDB
 -- defaults to @ALL_ATTRIBUTES@ when accessing a table, and
 -- @ALL_PROJECTED_ATTRIBUTES@ when accessing an index. You cannot use both
--- @Select@ and @AttributesToGet@ together in a single request, unless the
--- value for @Select@ is @SPECIFIC_ATTRIBUTES@. (This usage is equivalent
--- to specifying @AttributesToGet@ without any value for @Select@.)
+-- @Select@ and @ProjectionExpression@ together in a single request, unless
+-- the value for @Select@ is @SPECIFIC_ATTRIBUTES@. (This usage is
+-- equivalent to specifying @ProjectionExpression@ without any value for
+-- @Select@.)
 --
 -- If you use the @ProjectionExpression@ parameter, then the value for
 -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@

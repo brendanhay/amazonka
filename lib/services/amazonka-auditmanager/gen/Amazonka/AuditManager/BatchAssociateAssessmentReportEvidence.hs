@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchAssociateAssessmentReportEvidence' smart constructor.
 data BatchAssociateAssessmentReportEvidence = BatchAssociateAssessmentReportEvidence'
-  { -- | The unique identifier for the specified assessment.
+  { -- | The identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the folder in which the evidence is stored.
+    -- | The identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text,
     -- | The list of evidence identifiers.
     evidenceIds :: [Prelude.Text]
@@ -69,9 +69,9 @@ data BatchAssociateAssessmentReportEvidence = BatchAssociateAssessmentReportEvid
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'batchAssociateAssessmentReportEvidence_assessmentId' - The unique identifier for the specified assessment.
+-- 'assessmentId', 'batchAssociateAssessmentReportEvidence_assessmentId' - The identifier for the assessment.
 --
--- 'evidenceFolderId', 'batchAssociateAssessmentReportEvidence_evidenceFolderId' - The identifier for the folder in which the evidence is stored.
+-- 'evidenceFolderId', 'batchAssociateAssessmentReportEvidence_evidenceFolderId' - The identifier for the folder that the evidence is stored in.
 --
 -- 'evidenceIds', 'batchAssociateAssessmentReportEvidence_evidenceIds' - The list of evidence identifiers.
 newBatchAssociateAssessmentReportEvidence ::
@@ -91,11 +91,11 @@ newBatchAssociateAssessmentReportEvidence
         evidenceIds = Prelude.mempty
       }
 
--- | The unique identifier for the specified assessment.
+-- | The identifier for the assessment.
 batchAssociateAssessmentReportEvidence_assessmentId :: Lens.Lens' BatchAssociateAssessmentReportEvidence Prelude.Text
 batchAssociateAssessmentReportEvidence_assessmentId = Lens.lens (\BatchAssociateAssessmentReportEvidence' {assessmentId} -> assessmentId) (\s@BatchAssociateAssessmentReportEvidence' {} a -> s {assessmentId = a} :: BatchAssociateAssessmentReportEvidence)
 
--- | The identifier for the folder in which the evidence is stored.
+-- | The identifier for the folder that the evidence is stored in.
 batchAssociateAssessmentReportEvidence_evidenceFolderId :: Lens.Lens' BatchAssociateAssessmentReportEvidence Prelude.Text
 batchAssociateAssessmentReportEvidence_evidenceFolderId = Lens.lens (\BatchAssociateAssessmentReportEvidence' {evidenceFolderId} -> evidenceFolderId) (\s@BatchAssociateAssessmentReportEvidence' {} a -> s {evidenceFolderId = a} :: BatchAssociateAssessmentReportEvidence)
 
@@ -187,10 +187,10 @@ instance
 
 -- | /See:/ 'newBatchAssociateAssessmentReportEvidenceResponse' smart constructor.
 data BatchAssociateAssessmentReportEvidenceResponse = BatchAssociateAssessmentReportEvidenceResponse'
-  { -- | A list of errors returned by the
-    -- @BatchAssociateAssessmentReportEvidence@ API.
+  { -- | A list of errors that the @BatchAssociateAssessmentReportEvidence@ API
+    -- returned.
     errors :: Prelude.Maybe [AssessmentReportEvidenceError],
-    -- | The identifier for the evidence.
+    -- | The list of evidence identifiers.
     evidenceIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,10 +205,10 @@ data BatchAssociateAssessmentReportEvidenceResponse = BatchAssociateAssessmentRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errors', 'batchAssociateAssessmentReportEvidenceResponse_errors' - A list of errors returned by the
--- @BatchAssociateAssessmentReportEvidence@ API.
+-- 'errors', 'batchAssociateAssessmentReportEvidenceResponse_errors' - A list of errors that the @BatchAssociateAssessmentReportEvidence@ API
+-- returned.
 --
--- 'evidenceIds', 'batchAssociateAssessmentReportEvidenceResponse_evidenceIds' - The identifier for the evidence.
+-- 'evidenceIds', 'batchAssociateAssessmentReportEvidenceResponse_evidenceIds' - The list of evidence identifiers.
 --
 -- 'httpStatus', 'batchAssociateAssessmentReportEvidenceResponse_httpStatus' - The response's http status code.
 newBatchAssociateAssessmentReportEvidenceResponse ::
@@ -225,12 +225,12 @@ newBatchAssociateAssessmentReportEvidenceResponse
         httpStatus = pHttpStatus_
       }
 
--- | A list of errors returned by the
--- @BatchAssociateAssessmentReportEvidence@ API.
+-- | A list of errors that the @BatchAssociateAssessmentReportEvidence@ API
+-- returned.
 batchAssociateAssessmentReportEvidenceResponse_errors :: Lens.Lens' BatchAssociateAssessmentReportEvidenceResponse (Prelude.Maybe [AssessmentReportEvidenceError])
 batchAssociateAssessmentReportEvidenceResponse_errors = Lens.lens (\BatchAssociateAssessmentReportEvidenceResponse' {errors} -> errors) (\s@BatchAssociateAssessmentReportEvidenceResponse' {} a -> s {errors = a} :: BatchAssociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier for the evidence.
+-- | The list of evidence identifiers.
 batchAssociateAssessmentReportEvidenceResponse_evidenceIds :: Lens.Lens' BatchAssociateAssessmentReportEvidenceResponse (Prelude.Maybe [Prelude.Text])
 batchAssociateAssessmentReportEvidenceResponse_evidenceIds = Lens.lens (\BatchAssociateAssessmentReportEvidenceResponse' {evidenceIds} -> evidenceIds) (\s@BatchAssociateAssessmentReportEvidenceResponse' {} a -> s {evidenceIds = a} :: BatchAssociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
 

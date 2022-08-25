@@ -21,8 +21,10 @@ module Amazonka.NetworkFirewall.Types.RuleGroupResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.ResourceStatus
 import Amazonka.NetworkFirewall.Types.RuleGroupType
+import Amazonka.NetworkFirewall.Types.SourceMetadata
 import Amazonka.NetworkFirewall.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,10 +40,26 @@ data RuleGroupResponse = RuleGroupResponse'
     -- group is stateless, it contains stateless rules. If it is stateful, it
     -- contains stateful rules.
     type' :: Prelude.Maybe RuleGroupType,
+    -- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
+    -- SNS topic that\'s used to record changes to the managed rule group. You
+    -- can subscribe to the SNS topic to receive notifications when the managed
+    -- rule group is modified, such as for new versions and for version
+    -- expiration. For more information, see the
+    -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide.>.
+    snsTopic :: Prelude.Maybe Prelude.Text,
     -- | A description of the rule group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The last time that the rule group was changed.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | A complex type that contains metadata about the rule group that your own
+    -- rule group is copied from. You can use the metadata to track the version
+    -- updates made to the originating rule group.
+    sourceMetadata :: Prelude.Maybe SourceMetadata,
     -- | The number of capacity units currently consumed by the rule group rules.
     consumedCapacity :: Prelude.Maybe Prelude.Int,
+    -- | A complex type that contains the Amazon Web Services KMS encryption
+    -- configuration settings for your rule group.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The number of firewall policies that use this rule group.
     numberOfAssociations :: Prelude.Maybe Prelude.Int,
     -- | The maximum operating resources that this rule group can use. Rule group
@@ -84,9 +102,25 @@ data RuleGroupResponse = RuleGroupResponse'
 -- group is stateless, it contains stateless rules. If it is stateful, it
 -- contains stateful rules.
 --
+-- 'snsTopic', 'ruleGroupResponse_snsTopic' - The Amazon resource name (ARN) of the Amazon Simple Notification Service
+-- SNS topic that\'s used to record changes to the managed rule group. You
+-- can subscribe to the SNS topic to receive notifications when the managed
+-- rule group is modified, such as for new versions and for version
+-- expiration. For more information, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide.>.
+--
 -- 'description', 'ruleGroupResponse_description' - A description of the rule group.
 --
+-- 'lastModifiedTime', 'ruleGroupResponse_lastModifiedTime' - The last time that the rule group was changed.
+--
+-- 'sourceMetadata', 'ruleGroupResponse_sourceMetadata' - A complex type that contains metadata about the rule group that your own
+-- rule group is copied from. You can use the metadata to track the version
+-- updates made to the originating rule group.
+--
 -- 'consumedCapacity', 'ruleGroupResponse_consumedCapacity' - The number of capacity units currently consumed by the rule group rules.
+--
+-- 'encryptionConfiguration', 'ruleGroupResponse_encryptionConfiguration' - A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your rule group.
 --
 -- 'numberOfAssociations', 'ruleGroupResponse_numberOfAssociations' - The number of firewall policies that use this rule group.
 --
@@ -127,8 +161,12 @@ newRuleGroupResponse
     RuleGroupResponse'
       { tags = Prelude.Nothing,
         type' = Prelude.Nothing,
+        snsTopic = Prelude.Nothing,
         description = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        sourceMetadata = Prelude.Nothing,
         consumedCapacity = Prelude.Nothing,
+        encryptionConfiguration = Prelude.Nothing,
         numberOfAssociations = Prelude.Nothing,
         capacity = Prelude.Nothing,
         ruleGroupStatus = Prelude.Nothing,
@@ -147,13 +185,37 @@ ruleGroupResponse_tags = Lens.lens (\RuleGroupResponse' {tags} -> tags) (\s@Rule
 ruleGroupResponse_type :: Lens.Lens' RuleGroupResponse (Prelude.Maybe RuleGroupType)
 ruleGroupResponse_type = Lens.lens (\RuleGroupResponse' {type'} -> type') (\s@RuleGroupResponse' {} a -> s {type' = a} :: RuleGroupResponse)
 
+-- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
+-- SNS topic that\'s used to record changes to the managed rule group. You
+-- can subscribe to the SNS topic to receive notifications when the managed
+-- rule group is modified, such as for new versions and for version
+-- expiration. For more information, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide.>.
+ruleGroupResponse_snsTopic :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Text)
+ruleGroupResponse_snsTopic = Lens.lens (\RuleGroupResponse' {snsTopic} -> snsTopic) (\s@RuleGroupResponse' {} a -> s {snsTopic = a} :: RuleGroupResponse)
+
 -- | A description of the rule group.
 ruleGroupResponse_description :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Text)
 ruleGroupResponse_description = Lens.lens (\RuleGroupResponse' {description} -> description) (\s@RuleGroupResponse' {} a -> s {description = a} :: RuleGroupResponse)
 
+-- | The last time that the rule group was changed.
+ruleGroupResponse_lastModifiedTime :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.UTCTime)
+ruleGroupResponse_lastModifiedTime = Lens.lens (\RuleGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@RuleGroupResponse' {} a -> s {lastModifiedTime = a} :: RuleGroupResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A complex type that contains metadata about the rule group that your own
+-- rule group is copied from. You can use the metadata to track the version
+-- updates made to the originating rule group.
+ruleGroupResponse_sourceMetadata :: Lens.Lens' RuleGroupResponse (Prelude.Maybe SourceMetadata)
+ruleGroupResponse_sourceMetadata = Lens.lens (\RuleGroupResponse' {sourceMetadata} -> sourceMetadata) (\s@RuleGroupResponse' {} a -> s {sourceMetadata = a} :: RuleGroupResponse)
+
 -- | The number of capacity units currently consumed by the rule group rules.
 ruleGroupResponse_consumedCapacity :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Int)
 ruleGroupResponse_consumedCapacity = Lens.lens (\RuleGroupResponse' {consumedCapacity} -> consumedCapacity) (\s@RuleGroupResponse' {} a -> s {consumedCapacity = a} :: RuleGroupResponse)
+
+-- | A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your rule group.
+ruleGroupResponse_encryptionConfiguration :: Lens.Lens' RuleGroupResponse (Prelude.Maybe EncryptionConfiguration)
+ruleGroupResponse_encryptionConfiguration = Lens.lens (\RuleGroupResponse' {encryptionConfiguration} -> encryptionConfiguration) (\s@RuleGroupResponse' {} a -> s {encryptionConfiguration = a} :: RuleGroupResponse)
 
 -- | The number of firewall policies that use this rule group.
 ruleGroupResponse_numberOfAssociations :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Int)
@@ -200,8 +262,12 @@ instance Core.FromJSON RuleGroupResponse where
           RuleGroupResponse'
             Prelude.<$> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "SnsTopic")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "SourceMetadata")
             Prelude.<*> (x Core..:? "ConsumedCapacity")
+            Prelude.<*> (x Core..:? "EncryptionConfiguration")
             Prelude.<*> (x Core..:? "NumberOfAssociations")
             Prelude.<*> (x Core..:? "Capacity")
             Prelude.<*> (x Core..:? "RuleGroupStatus")
@@ -214,8 +280,12 @@ instance Prelude.Hashable RuleGroupResponse where
   hashWithSalt _salt RuleGroupResponse' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` snsTopic
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` sourceMetadata
       `Prelude.hashWithSalt` consumedCapacity
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` numberOfAssociations
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` ruleGroupStatus
@@ -227,8 +297,12 @@ instance Prelude.NFData RuleGroupResponse where
   rnf RuleGroupResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf snsTopic
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf sourceMetadata
       `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf numberOfAssociations
       `Prelude.seq` Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf ruleGroupStatus

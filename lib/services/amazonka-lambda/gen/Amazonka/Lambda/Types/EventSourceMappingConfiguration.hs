@@ -20,10 +20,13 @@
 module Amazonka.Lambda.Types.EventSourceMappingConfiguration where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.DestinationConfig
 import Amazonka.Lambda.Types.EventSourcePosition
+import Amazonka.Lambda.Types.FilterCriteria
 import Amazonka.Lambda.Types.FunctionResponseType
 import Amazonka.Lambda.Types.SelfManagedEventSource
+import Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.SourceAccessConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -43,9 +46,12 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources.
     -- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
     startingPosition :: Prelude.Maybe EventSourcePosition,
-    -- | (Streams only) A list of current response type enums applied to the
-    -- event source mapping.
+    -- | (Streams and Amazon SQS) A list of current response type enums applied
+    -- to the event source mapping.
     functionResponseTypes :: Prelude.Maybe [FunctionResponseType],
+    -- | Specific configuration settings for an Amazon Managed Streaming for
+    -- Apache Kafka (Amazon MSK) event source.
+    amazonManagedKafkaEventSourceConfig :: Prelude.Maybe AmazonManagedKafkaEventSourceConfig,
     -- | (Streams only) The number of batches to process concurrently from each
     -- shard. The default value is 1.
     parallelizationFactor :: Prelude.Maybe Prelude.Natural,
@@ -69,8 +75,16 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     -- | Indicates whether a user or Lambda made the last change to the event
     -- source mapping.
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
+    -- | (Streams and Amazon SQS) An object that defines the filter criteria that
+    -- determine whether Lambda should process an event. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+    filterCriteria :: Prelude.Maybe FilterCriteria,
     -- | The self-managed Apache Kafka cluster for your event source.
     selfManagedEventSource :: Prelude.Maybe SelfManagedEventSource,
+    -- | Specific configuration settings for a self-managed Apache Kafka event
+    -- source.
+    selfManagedKafkaEventSourceConfig :: Prelude.Maybe SelfManagedKafkaEventSourceConfig,
     -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
     -- discarded records.
     destinationConfig :: Prelude.Maybe DestinationConfig,
@@ -133,8 +147,11 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources.
 -- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
 --
--- 'functionResponseTypes', 'eventSourceMappingConfiguration_functionResponseTypes' - (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- 'functionResponseTypes', 'eventSourceMappingConfiguration_functionResponseTypes' - (Streams and Amazon SQS) A list of current response type enums applied
+-- to the event source mapping.
+--
+-- 'amazonManagedKafkaEventSourceConfig', 'eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig' - Specific configuration settings for an Amazon Managed Streaming for
+-- Apache Kafka (Amazon MSK) event source.
 --
 -- 'parallelizationFactor', 'eventSourceMappingConfiguration_parallelizationFactor' - (Streams only) The number of batches to process concurrently from each
 -- shard. The default value is 1.
@@ -159,7 +176,15 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 -- 'stateTransitionReason', 'eventSourceMappingConfiguration_stateTransitionReason' - Indicates whether a user or Lambda made the last change to the event
 -- source mapping.
 --
+-- 'filterCriteria', 'eventSourceMappingConfiguration_filterCriteria' - (Streams and Amazon SQS) An object that defines the filter criteria that
+-- determine whether Lambda should process an event. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+--
 -- 'selfManagedEventSource', 'eventSourceMappingConfiguration_selfManagedEventSource' - The self-managed Apache Kafka cluster for your event source.
+--
+-- 'selfManagedKafkaEventSourceConfig', 'eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig' - Specific configuration settings for a self-managed Apache Kafka event
+-- source.
 --
 -- 'destinationConfig', 'eventSourceMappingConfiguration_destinationConfig' - (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
@@ -210,6 +235,8 @@ newEventSourceMappingConfiguration =
       functionArn = Prelude.Nothing,
       startingPosition = Prelude.Nothing,
       functionResponseTypes = Prelude.Nothing,
+      amazonManagedKafkaEventSourceConfig =
+        Prelude.Nothing,
       parallelizationFactor = Prelude.Nothing,
       lastProcessingResult = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -217,7 +244,10 @@ newEventSourceMappingConfiguration =
       maximumBatchingWindowInSeconds =
         Prelude.Nothing,
       stateTransitionReason = Prelude.Nothing,
+      filterCriteria = Prelude.Nothing,
       selfManagedEventSource = Prelude.Nothing,
+      selfManagedKafkaEventSourceConfig =
+        Prelude.Nothing,
       destinationConfig = Prelude.Nothing,
       eventSourceArn = Prelude.Nothing,
       maximumRetryAttempts = Prelude.Nothing,
@@ -250,10 +280,15 @@ eventSourceMappingConfiguration_functionArn = Lens.lens (\EventSourceMappingConf
 eventSourceMappingConfiguration_startingPosition :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe EventSourcePosition)
 eventSourceMappingConfiguration_startingPosition = Lens.lens (\EventSourceMappingConfiguration' {startingPosition} -> startingPosition) (\s@EventSourceMappingConfiguration' {} a -> s {startingPosition = a} :: EventSourceMappingConfiguration)
 
--- | (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- | (Streams and Amazon SQS) A list of current response type enums applied
+-- to the event source mapping.
 eventSourceMappingConfiguration_functionResponseTypes :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe [FunctionResponseType])
 eventSourceMappingConfiguration_functionResponseTypes = Lens.lens (\EventSourceMappingConfiguration' {functionResponseTypes} -> functionResponseTypes) (\s@EventSourceMappingConfiguration' {} a -> s {functionResponseTypes = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specific configuration settings for an Amazon Managed Streaming for
+-- Apache Kafka (Amazon MSK) event source.
+eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe AmazonManagedKafkaEventSourceConfig)
+eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig = Lens.lens (\EventSourceMappingConfiguration' {amazonManagedKafkaEventSourceConfig} -> amazonManagedKafkaEventSourceConfig) (\s@EventSourceMappingConfiguration' {} a -> s {amazonManagedKafkaEventSourceConfig = a} :: EventSourceMappingConfiguration)
 
 -- | (Streams only) The number of batches to process concurrently from each
 -- shard. The default value is 1.
@@ -290,9 +325,21 @@ eventSourceMappingConfiguration_maximumBatchingWindowInSeconds = Lens.lens (\Eve
 eventSourceMappingConfiguration_stateTransitionReason :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Text)
 eventSourceMappingConfiguration_stateTransitionReason = Lens.lens (\EventSourceMappingConfiguration' {stateTransitionReason} -> stateTransitionReason) (\s@EventSourceMappingConfiguration' {} a -> s {stateTransitionReason = a} :: EventSourceMappingConfiguration)
 
+-- | (Streams and Amazon SQS) An object that defines the filter criteria that
+-- determine whether Lambda should process an event. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+eventSourceMappingConfiguration_filterCriteria :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe FilterCriteria)
+eventSourceMappingConfiguration_filterCriteria = Lens.lens (\EventSourceMappingConfiguration' {filterCriteria} -> filterCriteria) (\s@EventSourceMappingConfiguration' {} a -> s {filterCriteria = a} :: EventSourceMappingConfiguration)
+
 -- | The self-managed Apache Kafka cluster for your event source.
 eventSourceMappingConfiguration_selfManagedEventSource :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe SelfManagedEventSource)
 eventSourceMappingConfiguration_selfManagedEventSource = Lens.lens (\EventSourceMappingConfiguration' {selfManagedEventSource} -> selfManagedEventSource) (\s@EventSourceMappingConfiguration' {} a -> s {selfManagedEventSource = a} :: EventSourceMappingConfiguration)
+
+-- | Specific configuration settings for a self-managed Apache Kafka event
+-- source.
+eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe SelfManagedKafkaEventSourceConfig)
+eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig = Lens.lens (\EventSourceMappingConfiguration' {selfManagedKafkaEventSourceConfig} -> selfManagedKafkaEventSourceConfig) (\s@EventSourceMappingConfiguration' {} a -> s {selfManagedKafkaEventSourceConfig = a} :: EventSourceMappingConfiguration)
 
 -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
@@ -372,13 +419,16 @@ instance
             Prelude.<*> ( x Core..:? "FunctionResponseTypes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "AmazonManagedKafkaEventSourceConfig")
             Prelude.<*> (x Core..:? "ParallelizationFactor")
             Prelude.<*> (x Core..:? "LastProcessingResult")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "UUID")
             Prelude.<*> (x Core..:? "MaximumBatchingWindowInSeconds")
             Prelude.<*> (x Core..:? "StateTransitionReason")
+            Prelude.<*> (x Core..:? "FilterCriteria")
             Prelude.<*> (x Core..:? "SelfManagedEventSource")
+            Prelude.<*> (x Core..:? "SelfManagedKafkaEventSourceConfig")
             Prelude.<*> (x Core..:? "DestinationConfig")
             Prelude.<*> (x Core..:? "EventSourceArn")
             Prelude.<*> (x Core..:? "MaximumRetryAttempts")
@@ -406,13 +456,16 @@ instance
         `Prelude.hashWithSalt` functionArn
         `Prelude.hashWithSalt` startingPosition
         `Prelude.hashWithSalt` functionResponseTypes
+        `Prelude.hashWithSalt` amazonManagedKafkaEventSourceConfig
         `Prelude.hashWithSalt` parallelizationFactor
         `Prelude.hashWithSalt` lastProcessingResult
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` uuid
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
         `Prelude.hashWithSalt` stateTransitionReason
+        `Prelude.hashWithSalt` filterCriteria
         `Prelude.hashWithSalt` selfManagedEventSource
+        `Prelude.hashWithSalt` selfManagedKafkaEventSourceConfig
         `Prelude.hashWithSalt` destinationConfig
         `Prelude.hashWithSalt` eventSourceArn
         `Prelude.hashWithSalt` maximumRetryAttempts
@@ -434,13 +487,17 @@ instance
       `Prelude.seq` Prelude.rnf functionArn
       `Prelude.seq` Prelude.rnf startingPosition
       `Prelude.seq` Prelude.rnf functionResponseTypes
+      `Prelude.seq` Prelude.rnf amazonManagedKafkaEventSourceConfig
       `Prelude.seq` Prelude.rnf parallelizationFactor
       `Prelude.seq` Prelude.rnf lastProcessingResult
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf uuid
       `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
       `Prelude.seq` Prelude.rnf stateTransitionReason
+      `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf selfManagedEventSource
+      `Prelude.seq` Prelude.rnf
+        selfManagedKafkaEventSourceConfig
       `Prelude.seq` Prelude.rnf destinationConfig
       `Prelude.seq` Prelude.rnf eventSourceArn
       `Prelude.seq` Prelude.rnf maximumRetryAttempts

@@ -36,13 +36,14 @@ data ListedUser = ListedUser'
     -- | Specifies the name of the user whose ARN was specified. User names are
     -- used for authentication purposes.
     userName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
-    -- your users\' access to your Amazon S3 bucket or EFS file system. The
-    -- policies attached to this role determine the level of access that you
-    -- want to provide your users when transferring files into and out of your
-    -- Amazon S3 bucket or EFS file system. The IAM role should also contain a
-    -- trust relationship that allows the server to access your resources when
-    -- servicing your users\' transfer requests.
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+    -- Amazon EFS file system. The policies attached to this role determine the
+    -- level of access that you want to provide your users when transferring
+    -- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+    -- The IAM role should also contain a trust relationship that allows the
+    -- server to access your resources when servicing your users\' transfer
+    -- requests.
     --
     -- The IAM role that controls your users\' access to your Amazon S3 bucket
     -- for servers with @Domain=S3@, or your EFS file system for servers with
@@ -52,12 +53,12 @@ data ListedUser = ListedUser'
     -- want to provide your users when transferring files into and out of your
     -- S3 buckets or EFS file systems.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The type of landing directory (folder) you want your users\' home
-    -- directory to be when they log into the server. If you set it to @PATH@,
+    -- | The type of landing directory (folder) that you want your users\' home
+    -- directory to be when they log in to the server. If you set it to @PATH@,
     -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
     -- their file transfer protocol clients. If you set it @LOGICAL@, you need
     -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
-    -- make Amazon S3 or EFS paths visible to your users.
+    -- make Amazon S3 or Amazon EFS paths visible to your users.
     homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
     -- | Specifies the number of SSH public keys stored for the user you
     -- specified.
@@ -84,13 +85,14 @@ data ListedUser = ListedUser'
 -- 'userName', 'listedUser_userName' - Specifies the name of the user whose ARN was specified. User names are
 -- used for authentication purposes.
 --
--- 'role'', 'listedUser_role' - Specifies the Amazon Resource Name (ARN) of the IAM role that controls
--- your users\' access to your Amazon S3 bucket or EFS file system. The
--- policies attached to this role determine the level of access that you
--- want to provide your users when transferring files into and out of your
--- Amazon S3 bucket or EFS file system. The IAM role should also contain a
--- trust relationship that allows the server to access your resources when
--- servicing your users\' transfer requests.
+-- 'role'', 'listedUser_role' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+-- Amazon EFS file system. The policies attached to this role determine the
+-- level of access that you want to provide your users when transferring
+-- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+-- The IAM role should also contain a trust relationship that allows the
+-- server to access your resources when servicing your users\' transfer
+-- requests.
 --
 -- The IAM role that controls your users\' access to your Amazon S3 bucket
 -- for servers with @Domain=S3@, or your EFS file system for servers with
@@ -100,12 +102,12 @@ data ListedUser = ListedUser'
 -- want to provide your users when transferring files into and out of your
 -- S3 buckets or EFS file systems.
 --
--- 'homeDirectoryType', 'listedUser_homeDirectoryType' - The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
+-- 'homeDirectoryType', 'listedUser_homeDirectoryType' - The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
 -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
 -- their file transfer protocol clients. If you set it @LOGICAL@, you need
 -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 --
 -- 'sshPublicKeyCount', 'listedUser_sshPublicKeyCount' - Specifies the number of SSH public keys stored for the user you
 -- specified.
@@ -138,13 +140,14 @@ listedUser_homeDirectory = Lens.lens (\ListedUser' {homeDirectory} -> homeDirect
 listedUser_userName :: Lens.Lens' ListedUser (Prelude.Maybe Prelude.Text)
 listedUser_userName = Lens.lens (\ListedUser' {userName} -> userName) (\s@ListedUser' {} a -> s {userName = a} :: ListedUser)
 
--- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
--- your users\' access to your Amazon S3 bucket or EFS file system. The
--- policies attached to this role determine the level of access that you
--- want to provide your users when transferring files into and out of your
--- Amazon S3 bucket or EFS file system. The IAM role should also contain a
--- trust relationship that allows the server to access your resources when
--- servicing your users\' transfer requests.
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+-- Amazon EFS file system. The policies attached to this role determine the
+-- level of access that you want to provide your users when transferring
+-- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+-- The IAM role should also contain a trust relationship that allows the
+-- server to access your resources when servicing your users\' transfer
+-- requests.
 --
 -- The IAM role that controls your users\' access to your Amazon S3 bucket
 -- for servers with @Domain=S3@, or your EFS file system for servers with
@@ -156,12 +159,12 @@ listedUser_userName = Lens.lens (\ListedUser' {userName} -> userName) (\s@Listed
 listedUser_role :: Lens.Lens' ListedUser (Prelude.Maybe Prelude.Text)
 listedUser_role = Lens.lens (\ListedUser' {role'} -> role') (\s@ListedUser' {} a -> s {role' = a} :: ListedUser)
 
--- | The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
+-- | The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
 -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
 -- their file transfer protocol clients. If you set it @LOGICAL@, you need
 -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 listedUser_homeDirectoryType :: Lens.Lens' ListedUser (Prelude.Maybe HomeDirectoryType)
 listedUser_homeDirectoryType = Lens.lens (\ListedUser' {homeDirectoryType} -> homeDirectoryType) (\s@ListedUser' {} a -> s {homeDirectoryType = a} :: ListedUser)
 

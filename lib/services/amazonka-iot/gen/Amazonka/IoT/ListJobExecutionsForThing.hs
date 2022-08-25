@@ -34,6 +34,7 @@ module Amazonka.IoT.ListJobExecutionsForThing
 
     -- * Request Lenses
     listJobExecutionsForThing_nextToken,
+    listJobExecutionsForThing_jobId,
     listJobExecutionsForThing_status,
     listJobExecutionsForThing_maxResults,
     listJobExecutionsForThing_namespaceId,
@@ -61,6 +62,8 @@ import qualified Amazonka.Response as Response
 data ListJobExecutionsForThing = ListJobExecutionsForThing'
   { -- | The token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | An optional filter that lets you search for jobs that have the specified
     -- status.
     status :: Prelude.Maybe JobExecutionStatus,
@@ -91,6 +94,8 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
 --
 -- 'nextToken', 'listJobExecutionsForThing_nextToken' - The token to retrieve the next set of results.
 --
+-- 'jobId', 'listJobExecutionsForThing_jobId' - The unique identifier you assigned to this job when it was created.
+--
 -- 'status', 'listJobExecutionsForThing_status' - An optional filter that lets you search for jobs that have the specified
 -- status.
 --
@@ -115,6 +120,7 @@ newListJobExecutionsForThing pThingName_ =
   ListJobExecutionsForThing'
     { nextToken =
         Prelude.Nothing,
+      jobId = Prelude.Nothing,
       status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
@@ -124,6 +130,10 @@ newListJobExecutionsForThing pThingName_ =
 -- | The token to retrieve the next set of results.
 listJobExecutionsForThing_nextToken :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
 listJobExecutionsForThing_nextToken = Lens.lens (\ListJobExecutionsForThing' {nextToken} -> nextToken) (\s@ListJobExecutionsForThing' {} a -> s {nextToken = a} :: ListJobExecutionsForThing)
+
+-- | The unique identifier you assigned to this job when it was created.
+listJobExecutionsForThing_jobId :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
+listJobExecutionsForThing_jobId = Lens.lens (\ListJobExecutionsForThing' {jobId} -> jobId) (\s@ListJobExecutionsForThing' {} a -> s {jobId = a} :: ListJobExecutionsForThing)
 
 -- | An optional filter that lets you search for jobs that have the specified
 -- status.
@@ -191,6 +201,7 @@ instance Core.AWSRequest ListJobExecutionsForThing where
 instance Prelude.Hashable ListJobExecutionsForThing where
   hashWithSalt _salt ListJobExecutionsForThing' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespaceId
@@ -199,6 +210,7 @@ instance Prelude.Hashable ListJobExecutionsForThing where
 instance Prelude.NFData ListJobExecutionsForThing where
   rnf ListJobExecutionsForThing' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf namespaceId
@@ -216,6 +228,7 @@ instance Core.ToQuery ListJobExecutionsForThing where
   toQuery ListJobExecutionsForThing' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
+        "jobId" Core.=: jobId,
         "status" Core.=: status,
         "maxResults" Core.=: maxResults,
         "namespaceId" Core.=: namespaceId

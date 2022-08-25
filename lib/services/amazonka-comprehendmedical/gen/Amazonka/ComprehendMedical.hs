@@ -11,9 +11,8 @@
 --
 -- Derived from API version @2018-10-30@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Comprehend Medical extracts structured information from
--- unstructured clinical text. Use these actions to gain insight in your
--- documents.
+-- Comprehend Medical; extracts structured information from unstructured
+-- clinical text. Use these actions to gain insight in your documents.
 module Amazonka.ComprehendMedical
   ( -- * Service Configuration
     defaultService,
@@ -75,6 +74,12 @@ module Amazonka.ComprehendMedical
     DescribeRxNormInferenceJobResponse (DescribeRxNormInferenceJobResponse'),
     newDescribeRxNormInferenceJobResponse,
 
+    -- ** DescribeSNOMEDCTInferenceJob
+    DescribeSNOMEDCTInferenceJob (DescribeSNOMEDCTInferenceJob'),
+    newDescribeSNOMEDCTInferenceJob,
+    DescribeSNOMEDCTInferenceJobResponse (DescribeSNOMEDCTInferenceJobResponse'),
+    newDescribeSNOMEDCTInferenceJobResponse,
+
     -- ** DetectEntitiesV2
     DetectEntitiesV2 (DetectEntitiesV2'),
     newDetectEntitiesV2,
@@ -98,6 +103,12 @@ module Amazonka.ComprehendMedical
     newInferRxNorm,
     InferRxNormResponse (InferRxNormResponse'),
     newInferRxNormResponse,
+
+    -- ** InferSNOMEDCT
+    InferSNOMEDCT (InferSNOMEDCT'),
+    newInferSNOMEDCT,
+    InferSNOMEDCTResponse (InferSNOMEDCTResponse'),
+    newInferSNOMEDCTResponse,
 
     -- ** ListEntitiesDetectionV2Jobs
     ListEntitiesDetectionV2Jobs (ListEntitiesDetectionV2Jobs'),
@@ -123,6 +134,12 @@ module Amazonka.ComprehendMedical
     ListRxNormInferenceJobsResponse (ListRxNormInferenceJobsResponse'),
     newListRxNormInferenceJobsResponse,
 
+    -- ** ListSNOMEDCTInferenceJobs
+    ListSNOMEDCTInferenceJobs (ListSNOMEDCTInferenceJobs'),
+    newListSNOMEDCTInferenceJobs,
+    ListSNOMEDCTInferenceJobsResponse (ListSNOMEDCTInferenceJobsResponse'),
+    newListSNOMEDCTInferenceJobsResponse,
+
     -- ** StartEntitiesDetectionV2Job
     StartEntitiesDetectionV2Job (StartEntitiesDetectionV2Job'),
     newStartEntitiesDetectionV2Job,
@@ -147,6 +164,12 @@ module Amazonka.ComprehendMedical
     StartRxNormInferenceJobResponse (StartRxNormInferenceJobResponse'),
     newStartRxNormInferenceJobResponse,
 
+    -- ** StartSNOMEDCTInferenceJob
+    StartSNOMEDCTInferenceJob (StartSNOMEDCTInferenceJob'),
+    newStartSNOMEDCTInferenceJob,
+    StartSNOMEDCTInferenceJobResponse (StartSNOMEDCTInferenceJobResponse'),
+    newStartSNOMEDCTInferenceJobResponse,
+
     -- ** StopEntitiesDetectionV2Job
     StopEntitiesDetectionV2Job (StopEntitiesDetectionV2Job'),
     newStopEntitiesDetectionV2Job,
@@ -170,6 +193,12 @@ module Amazonka.ComprehendMedical
     newStopRxNormInferenceJob,
     StopRxNormInferenceJobResponse (StopRxNormInferenceJobResponse'),
     newStopRxNormInferenceJobResponse,
+
+    -- ** StopSNOMEDCTInferenceJob
+    StopSNOMEDCTInferenceJob (StopSNOMEDCTInferenceJob'),
+    newStopSNOMEDCTInferenceJob,
+    StopSNOMEDCTInferenceJobResponse (StopSNOMEDCTInferenceJobResponse'),
+    newStopSNOMEDCTInferenceJobResponse,
 
     -- * Types
 
@@ -218,9 +247,28 @@ module Amazonka.ComprehendMedical
     -- ** RxNormTraitName
     RxNormTraitName (..),
 
+    -- ** SNOMEDCTAttributeType
+    SNOMEDCTAttributeType (..),
+
+    -- ** SNOMEDCTEntityCategory
+    SNOMEDCTEntityCategory (..),
+
+    -- ** SNOMEDCTEntityType
+    SNOMEDCTEntityType (..),
+
+    -- ** SNOMEDCTRelationshipType
+    SNOMEDCTRelationshipType (..),
+
+    -- ** SNOMEDCTTraitName
+    SNOMEDCTTraitName (..),
+
     -- ** Attribute
     Attribute (Attribute'),
     newAttribute,
+
+    -- ** Characters
+    Characters (Characters'),
+    newCharacters,
 
     -- ** ComprehendMedicalAsyncJobFilter
     ComprehendMedicalAsyncJobFilter (ComprehendMedicalAsyncJobFilter'),
@@ -274,6 +322,26 @@ module Amazonka.ComprehendMedical
     RxNormTrait (RxNormTrait'),
     newRxNormTrait,
 
+    -- ** SNOMEDCTAttribute
+    SNOMEDCTAttribute (SNOMEDCTAttribute'),
+    newSNOMEDCTAttribute,
+
+    -- ** SNOMEDCTConcept
+    SNOMEDCTConcept (SNOMEDCTConcept'),
+    newSNOMEDCTConcept,
+
+    -- ** SNOMEDCTDetails
+    SNOMEDCTDetails (SNOMEDCTDetails'),
+    newSNOMEDCTDetails,
+
+    -- ** SNOMEDCTEntity
+    SNOMEDCTEntity (SNOMEDCTEntity'),
+    newSNOMEDCTEntity,
+
+    -- ** SNOMEDCTTrait
+    SNOMEDCTTrait (SNOMEDCTTrait'),
+    newSNOMEDCTTrait,
+
     -- ** Trait
     Trait (Trait'),
     newTrait,
@@ -288,23 +356,28 @@ import Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
 import Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
 import Amazonka.ComprehendMedical.DescribePHIDetectionJob
 import Amazonka.ComprehendMedical.DescribeRxNormInferenceJob
+import Amazonka.ComprehendMedical.DescribeSNOMEDCTInferenceJob
 import Amazonka.ComprehendMedical.DetectEntitiesV2
 import Amazonka.ComprehendMedical.DetectPHI
 import Amazonka.ComprehendMedical.InferICD10CM
 import Amazonka.ComprehendMedical.InferRxNorm
+import Amazonka.ComprehendMedical.InferSNOMEDCT
 import Amazonka.ComprehendMedical.Lens
 import Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs
 import Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
 import Amazonka.ComprehendMedical.ListPHIDetectionJobs
 import Amazonka.ComprehendMedical.ListRxNormInferenceJobs
+import Amazonka.ComprehendMedical.ListSNOMEDCTInferenceJobs
 import Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
 import Amazonka.ComprehendMedical.StartICD10CMInferenceJob
 import Amazonka.ComprehendMedical.StartPHIDetectionJob
 import Amazonka.ComprehendMedical.StartRxNormInferenceJob
+import Amazonka.ComprehendMedical.StartSNOMEDCTInferenceJob
 import Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job
 import Amazonka.ComprehendMedical.StopICD10CMInferenceJob
 import Amazonka.ComprehendMedical.StopPHIDetectionJob
 import Amazonka.ComprehendMedical.StopRxNormInferenceJob
+import Amazonka.ComprehendMedical.StopSNOMEDCTInferenceJob
 import Amazonka.ComprehendMedical.Types
 import Amazonka.ComprehendMedical.Waiters
 

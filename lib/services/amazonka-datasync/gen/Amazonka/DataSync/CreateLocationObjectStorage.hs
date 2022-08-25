@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint for a self-managed object storage bucket. For more
--- information about self-managed object storage locations, see
+-- Creates an endpoint for an object storage system that DataSync can
+-- access for a transfer. For more information, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html Creating a location for object storage>.
 module Amazonka.DataSync.CreateLocationObjectStorage
   ( -- * Creating a Request
@@ -60,41 +60,35 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationObjectStorage' smart constructor.
 data CreateLocationObjectStorage = CreateLocationObjectStorage'
-  { -- | The key-value pair that represents the tag that you want to add to the
-    -- location. The value can be an empty string. We recommend using tags to
-    -- name your resources.
+  { -- | Specifies the key-value pair that represents a tag that you want to add
+    -- to the resource. Tags can help you manage, filter, and search for your
+    -- resources. We recommend creating a name tag for your location.
     tags :: Prelude.Maybe [TagListEntry],
-    -- | The protocol that the object storage server uses to communicate. Valid
-    -- values are HTTP or HTTPS.
+    -- | Specifies the protocol that your object storage server uses to
+    -- communicate.
     serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
-    -- | The port that your self-managed object storage server accepts inbound
-    -- network traffic on. The server port is set by default to TCP 80 (HTTP)
-    -- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
-    -- object storage server requires one.
+    -- | Specifies the port that your object storage server accepts inbound
+    -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | Optional. The access key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
+    -- | Specifies the access key (for example, a user name) if credentials are
+    -- required to authenticate with the object storage server.
     accessKey :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The secret key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
+    -- | Specifies the secret key (for example, a password) if credentials are
+    -- required to authenticate with the object storage server.
     secretKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The subdirectory in the self-managed object storage server that is used
-    -- to read data from.
+    -- | Specifies the object prefix for your object storage server. If this is a
+    -- source location, DataSync only copies objects with this prefix. If this
+    -- is a destination location, DataSync writes all objects with this prefix.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | The name of the self-managed object storage server. This value is the IP
-    -- address or Domain Name Service (DNS) name of the object storage server.
-    -- An agent uses this host name to mount the object storage server in a
-    -- network.
+    -- | Specifies the domain name or IP address of the object storage server. A
+    -- DataSync agent uses this hostname to mount the object storage server in
+    -- a network.
     serverHostname :: Prelude.Text,
-    -- | The bucket on the self-managed object storage server that is used to
-    -- read data from.
+    -- | Specifies the name of the object storage bucket involved in the
+    -- transfer.
     bucketName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the agents associated with the
-    -- self-managed object storage server location.
+    -- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+    -- can securely connect with your location.
     agentArns :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -107,41 +101,35 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLocationObjectStorage_tags' - The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
+-- 'tags', 'createLocationObjectStorage_tags' - Specifies the key-value pair that represents a tag that you want to add
+-- to the resource. Tags can help you manage, filter, and search for your
+-- resources. We recommend creating a name tag for your location.
 --
--- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
--- values are HTTP or HTTPS.
+-- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
+-- communicate.
 --
--- 'serverPort', 'createLocationObjectStorage_serverPort' - The port that your self-managed object storage server accepts inbound
--- network traffic on. The server port is set by default to TCP 80 (HTTP)
--- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
--- object storage server requires one.
+-- 'serverPort', 'createLocationObjectStorage_serverPort' - Specifies the port that your object storage server accepts inbound
+-- network traffic on (for example, port 443).
 --
--- 'accessKey', 'createLocationObjectStorage_accessKey' - Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- 'accessKey', 'createLocationObjectStorage_accessKey' - Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
 --
--- 'secretKey', 'createLocationObjectStorage_secretKey' - Optional. The secret key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- 'secretKey', 'createLocationObjectStorage_secretKey' - Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
 --
--- 'subdirectory', 'createLocationObjectStorage_subdirectory' - The subdirectory in the self-managed object storage server that is used
--- to read data from.
+-- 'subdirectory', 'createLocationObjectStorage_subdirectory' - Specifies the object prefix for your object storage server. If this is a
+-- source location, DataSync only copies objects with this prefix. If this
+-- is a destination location, DataSync writes all objects with this prefix.
 --
--- 'serverHostname', 'createLocationObjectStorage_serverHostname' - The name of the self-managed object storage server. This value is the IP
--- address or Domain Name Service (DNS) name of the object storage server.
--- An agent uses this host name to mount the object storage server in a
--- network.
+-- 'serverHostname', 'createLocationObjectStorage_serverHostname' - Specifies the domain name or IP address of the object storage server. A
+-- DataSync agent uses this hostname to mount the object storage server in
+-- a network.
 --
--- 'bucketName', 'createLocationObjectStorage_bucketName' - The bucket on the self-managed object storage server that is used to
--- read data from.
+-- 'bucketName', 'createLocationObjectStorage_bucketName' - Specifies the name of the object storage bucket involved in the
+-- transfer.
 --
--- 'agentArns', 'createLocationObjectStorage_agentArns' - The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- 'agentArns', 'createLocationObjectStorage_agentArns' - Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+-- can securely connect with your location.
 newCreateLocationObjectStorage ::
   -- | 'serverHostname'
   Prelude.Text ->
@@ -167,57 +155,51 @@ newCreateLocationObjectStorage
         agentArns = Lens.coerced Lens.# pAgentArns_
       }
 
--- | The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
+-- | Specifies the key-value pair that represents a tag that you want to add
+-- to the resource. Tags can help you manage, filter, and search for your
+-- resources. We recommend creating a name tag for your location.
 createLocationObjectStorage_tags :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe [TagListEntry])
 createLocationObjectStorage_tags = Lens.lens (\CreateLocationObjectStorage' {tags} -> tags) (\s@CreateLocationObjectStorage' {} a -> s {tags = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
 
--- | The protocol that the object storage server uses to communicate. Valid
--- values are HTTP or HTTPS.
+-- | Specifies the protocol that your object storage server uses to
+-- communicate.
 createLocationObjectStorage_serverProtocol :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
 createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@CreateLocationObjectStorage' {} a -> s {serverProtocol = a} :: CreateLocationObjectStorage)
 
--- | The port that your self-managed object storage server accepts inbound
--- network traffic on. The server port is set by default to TCP 80 (HTTP)
--- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
--- object storage server requires one.
+-- | Specifies the port that your object storage server accepts inbound
+-- network traffic on (for example, port 443).
 createLocationObjectStorage_serverPort :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Natural)
 createLocationObjectStorage_serverPort = Lens.lens (\CreateLocationObjectStorage' {serverPort} -> serverPort) (\s@CreateLocationObjectStorage' {} a -> s {serverPort = a} :: CreateLocationObjectStorage)
 
--- | Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- | Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
 createLocationObjectStorage_accessKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 createLocationObjectStorage_accessKey = Lens.lens (\CreateLocationObjectStorage' {accessKey} -> accessKey) (\s@CreateLocationObjectStorage' {} a -> s {accessKey = a} :: CreateLocationObjectStorage)
 
--- | Optional. The secret key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- | Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
 createLocationObjectStorage_secretKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 createLocationObjectStorage_secretKey = Lens.lens (\CreateLocationObjectStorage' {secretKey} -> secretKey) (\s@CreateLocationObjectStorage' {} a -> s {secretKey = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Core._Sensitive
 
--- | The subdirectory in the self-managed object storage server that is used
--- to read data from.
+-- | Specifies the object prefix for your object storage server. If this is a
+-- source location, DataSync only copies objects with this prefix. If this
+-- is a destination location, DataSync writes all objects with this prefix.
 createLocationObjectStorage_subdirectory :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 createLocationObjectStorage_subdirectory = Lens.lens (\CreateLocationObjectStorage' {subdirectory} -> subdirectory) (\s@CreateLocationObjectStorage' {} a -> s {subdirectory = a} :: CreateLocationObjectStorage)
 
--- | The name of the self-managed object storage server. This value is the IP
--- address or Domain Name Service (DNS) name of the object storage server.
--- An agent uses this host name to mount the object storage server in a
--- network.
+-- | Specifies the domain name or IP address of the object storage server. A
+-- DataSync agent uses this hostname to mount the object storage server in
+-- a network.
 createLocationObjectStorage_serverHostname :: Lens.Lens' CreateLocationObjectStorage Prelude.Text
 createLocationObjectStorage_serverHostname = Lens.lens (\CreateLocationObjectStorage' {serverHostname} -> serverHostname) (\s@CreateLocationObjectStorage' {} a -> s {serverHostname = a} :: CreateLocationObjectStorage)
 
--- | The bucket on the self-managed object storage server that is used to
--- read data from.
+-- | Specifies the name of the object storage bucket involved in the
+-- transfer.
 createLocationObjectStorage_bucketName :: Lens.Lens' CreateLocationObjectStorage Prelude.Text
 createLocationObjectStorage_bucketName = Lens.lens (\CreateLocationObjectStorage' {bucketName} -> bucketName) (\s@CreateLocationObjectStorage' {} a -> s {bucketName = a} :: CreateLocationObjectStorage)
 
--- | The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- | Specifies the Amazon Resource Names (ARNs) of the DataSync agents that
+-- can securely connect with your location.
 createLocationObjectStorage_agentArns :: Lens.Lens' CreateLocationObjectStorage (Prelude.NonEmpty Prelude.Text)
 createLocationObjectStorage_agentArns = Lens.lens (\CreateLocationObjectStorage' {agentArns} -> agentArns) (\s@CreateLocationObjectStorage' {} a -> s {agentArns = a} :: CreateLocationObjectStorage) Prelude.. Lens.coerced
 
@@ -301,8 +283,7 @@ instance Core.ToQuery CreateLocationObjectStorage where
 --
 -- /See:/ 'newCreateLocationObjectStorageResponse' smart constructor.
 data CreateLocationObjectStorageResponse = CreateLocationObjectStorageResponse'
-  { -- | The Amazon Resource Name (ARN) of the agents associated with the
-    -- self-managed object storage server location.
+  { -- | Specifies the ARN of the object storage system location that you create.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -317,8 +298,7 @@ data CreateLocationObjectStorageResponse = CreateLocationObjectStorageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locationArn', 'createLocationObjectStorageResponse_locationArn' - The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- 'locationArn', 'createLocationObjectStorageResponse_locationArn' - Specifies the ARN of the object storage system location that you create.
 --
 -- 'httpStatus', 'createLocationObjectStorageResponse_httpStatus' - The response's http status code.
 newCreateLocationObjectStorageResponse ::
@@ -332,8 +312,7 @@ newCreateLocationObjectStorageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- | Specifies the ARN of the object storage system location that you create.
 createLocationObjectStorageResponse_locationArn :: Lens.Lens' CreateLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
 createLocationObjectStorageResponse_locationArn = Lens.lens (\CreateLocationObjectStorageResponse' {locationArn} -> locationArn) (\s@CreateLocationObjectStorageResponse' {} a -> s {locationArn = a} :: CreateLocationObjectStorageResponse)
 

@@ -21,6 +21,7 @@ haskell_library(
         "gen/Amazonka/EMRContainers/StartJobRun.hs",
         "gen/Amazonka/EMRContainers/TagResource.hs",
         "gen/Amazonka/EMRContainers/Types.hs",
+        "gen/Amazonka/EMRContainers/Types/Certificate.hs",
         "gen/Amazonka/EMRContainers/Types/CloudWatchMonitoringConfiguration.hs",
         "gen/Amazonka/EMRContainers/Types/Configuration.hs",
         "gen/Amazonka/EMRContainers/Types/ConfigurationOverrides.hs",

@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssessment' smart constructor.
 data GetAssessment = GetAssessment'
-  { -- | The identifier for the specified assessment.
+  { -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data GetAssessment = GetAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'getAssessment_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'getAssessment_assessmentId' - The unique identifier for the assessment.
 newGetAssessment ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -70,7 +70,7 @@ newGetAssessment ::
 newGetAssessment pAssessmentId_ =
   GetAssessment' {assessmentId = pAssessmentId_}
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 getAssessment_assessmentId :: Lens.Lens' GetAssessment Prelude.Text
 getAssessment_assessmentId = Lens.lens (\GetAssessment' {assessmentId} -> assessmentId) (\s@GetAssessment' {} a -> s {assessmentId = a} :: GetAssessment)
 

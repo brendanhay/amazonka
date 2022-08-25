@@ -31,7 +31,8 @@
 -- When the @status@ is @CREATE FAILED@, the response includes the
 -- @failureReason@ key, which describes why.
 --
--- For more information on campaigns, see CreateCampaign.
+-- For more information on campaigns, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html CreateCampaign>.
 module Amazonka.Personalize.DescribeCampaign
   ( -- * Creating a Request
     DescribeCampaign (..),

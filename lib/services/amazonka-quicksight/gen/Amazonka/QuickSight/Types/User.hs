@@ -32,8 +32,8 @@ data User = User'
   { -- | The principal ID of the user.
     principalId :: Prelude.Maybe Prelude.Text,
     -- | The type of supported external login provider that provides identity to
-    -- let the user federate into Amazon QuickSight with an associated IAMrole.
-    -- The type can be one of the following.
+    -- let the user federate into Amazon QuickSight with an associated IAM
+    -- role. The type can be one of the following.
     --
     -- -   @COGNITO@: Amazon Cognito. The provider URL is
     --     cognito-identity.amazonaws.com.
@@ -46,7 +46,9 @@ data User = User'
     active :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s email address.
     email :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s user name.
+    -- | The user\'s user name. In the output, the value for @UserName@ is @N\/A@
+    -- when the value for @IdentityType@ is @IAM@ and the corresponding IAM
+    -- user is deleted.
     userName :: Prelude.Maybe Prelude.Text,
     -- | The URL of the external login provider.
     externalLoginFederationProviderUrl :: Prelude.Maybe Prelude.Text,
@@ -87,8 +89,8 @@ data User = User'
 -- 'principalId', 'user_principalId' - The principal ID of the user.
 --
 -- 'externalLoginFederationProviderType', 'user_externalLoginFederationProviderType' - The type of supported external login provider that provides identity to
--- let the user federate into Amazon QuickSight with an associated IAMrole.
--- The type can be one of the following.
+-- let the user federate into Amazon QuickSight with an associated IAM
+-- role. The type can be one of the following.
 --
 -- -   @COGNITO@: Amazon Cognito. The provider URL is
 --     cognito-identity.amazonaws.com.
@@ -101,7 +103,9 @@ data User = User'
 --
 -- 'email', 'user_email' - The user\'s email address.
 --
--- 'userName', 'user_userName' - The user\'s user name.
+-- 'userName', 'user_userName' - The user\'s user name. In the output, the value for @UserName@ is @N\/A@
+-- when the value for @IdentityType@ is @IAM@ and the corresponding IAM
+-- user is deleted.
 --
 -- 'externalLoginFederationProviderUrl', 'user_externalLoginFederationProviderUrl' - The URL of the external login provider.
 --
@@ -150,8 +154,8 @@ user_principalId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_principalId = Lens.lens (\User' {principalId} -> principalId) (\s@User' {} a -> s {principalId = a} :: User)
 
 -- | The type of supported external login provider that provides identity to
--- let the user federate into Amazon QuickSight with an associated IAMrole.
--- The type can be one of the following.
+-- let the user federate into Amazon QuickSight with an associated IAM
+-- role. The type can be one of the following.
 --
 -- -   @COGNITO@: Amazon Cognito. The provider URL is
 --     cognito-identity.amazonaws.com.
@@ -170,7 +174,9 @@ user_active = Lens.lens (\User' {active} -> active) (\s@User' {} a -> s {active 
 user_email :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_email = Lens.lens (\User' {email} -> email) (\s@User' {} a -> s {email = a} :: User)
 
--- | The user\'s user name.
+-- | The user\'s user name. In the output, the value for @UserName@ is @N\/A@
+-- when the value for @IdentityType@ is @IAM@ and the corresponding IAM
+-- user is deleted.
 user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User)
 

@@ -132,6 +132,15 @@ import Test.Tasty
 --         , requestGetMember $
 --             newGetMember
 --
+--         , requestGetRevealConfiguration $
+--             newGetRevealConfiguration
+--
+--         , requestGetSensitiveDataOccurrences $
+--             newGetSensitiveDataOccurrences
+--
+--         , requestGetSensitiveDataOccurrencesAvailability $
+--             newGetSensitiveDataOccurrencesAvailability
+--
 --         , requestGetUsageStatistics $
 --             newGetUsageStatistics
 --
@@ -197,6 +206,9 @@ import Test.Tasty
 --
 --         , requestUpdateOrganizationConfiguration $
 --             newUpdateOrganizationConfiguration
+--
+--         , requestUpdateRevealConfiguration $
+--             newUpdateRevealConfiguration
 --
 --           ]
 
@@ -306,6 +318,15 @@ import Test.Tasty
 --         , responseGetMember $
 --             newGetMemberResponse
 --
+--         , responseGetRevealConfiguration $
+--             newGetRevealConfigurationResponse
+--
+--         , responseGetSensitiveDataOccurrences $
+--             newGetSensitiveDataOccurrencesResponse
+--
+--         , responseGetSensitiveDataOccurrencesAvailability $
+--             newGetSensitiveDataOccurrencesAvailabilityResponse
+--
 --         , responseGetUsageStatistics $
 --             newGetUsageStatisticsResponse
 --
@@ -371,6 +392,9 @@ import Test.Tasty
 --
 --         , responseUpdateOrganizationConfiguration $
 --             newUpdateOrganizationConfigurationResponse
+--
+--         , responseUpdateRevealConfiguration $
+--             newUpdateRevealConfigurationResponse
 --
 --           ]
 --     ]
@@ -587,6 +611,24 @@ requestGetMember =
     "GetMember"
     "fixture/GetMember.yaml"
 
+requestGetRevealConfiguration :: GetRevealConfiguration -> TestTree
+requestGetRevealConfiguration =
+  req
+    "GetRevealConfiguration"
+    "fixture/GetRevealConfiguration.yaml"
+
+requestGetSensitiveDataOccurrences :: GetSensitiveDataOccurrences -> TestTree
+requestGetSensitiveDataOccurrences =
+  req
+    "GetSensitiveDataOccurrences"
+    "fixture/GetSensitiveDataOccurrences.yaml"
+
+requestGetSensitiveDataOccurrencesAvailability :: GetSensitiveDataOccurrencesAvailability -> TestTree
+requestGetSensitiveDataOccurrencesAvailability =
+  req
+    "GetSensitiveDataOccurrencesAvailability"
+    "fixture/GetSensitiveDataOccurrencesAvailability.yaml"
+
 requestGetUsageStatistics :: GetUsageStatistics -> TestTree
 requestGetUsageStatistics =
   req
@@ -718,6 +760,12 @@ requestUpdateOrganizationConfiguration =
   req
     "UpdateOrganizationConfiguration"
     "fixture/UpdateOrganizationConfiguration.yaml"
+
+requestUpdateRevealConfiguration :: UpdateRevealConfiguration -> TestTree
+requestUpdateRevealConfiguration =
+  req
+    "UpdateRevealConfiguration"
+    "fixture/UpdateRevealConfiguration.yaml"
 
 -- Responses
 
@@ -1001,6 +1049,30 @@ responseGetMember =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMember)
 
+responseGetRevealConfiguration :: GetRevealConfigurationResponse -> TestTree
+responseGetRevealConfiguration =
+  res
+    "GetRevealConfigurationResponse"
+    "fixture/GetRevealConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRevealConfiguration)
+
+responseGetSensitiveDataOccurrences :: GetSensitiveDataOccurrencesResponse -> TestTree
+responseGetSensitiveDataOccurrences =
+  res
+    "GetSensitiveDataOccurrencesResponse"
+    "fixture/GetSensitiveDataOccurrencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSensitiveDataOccurrences)
+
+responseGetSensitiveDataOccurrencesAvailability :: GetSensitiveDataOccurrencesAvailabilityResponse -> TestTree
+responseGetSensitiveDataOccurrencesAvailability =
+  res
+    "GetSensitiveDataOccurrencesAvailabilityResponse"
+    "fixture/GetSensitiveDataOccurrencesAvailabilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSensitiveDataOccurrencesAvailability)
+
 responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
 responseGetUsageStatistics =
   res
@@ -1176,3 +1248,11 @@ responseUpdateOrganizationConfiguration =
     "fixture/UpdateOrganizationConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
+
+responseUpdateRevealConfiguration :: UpdateRevealConfigurationResponse -> TestTree
+responseUpdateRevealConfiguration =
+  res
+    "UpdateRevealConfigurationResponse"
+    "fixture/UpdateRevealConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRevealConfiguration)

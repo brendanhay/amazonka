@@ -23,9 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the patches to use to update the instances, including
--- target operating systems and source repository. Applies to Linux
--- instances only.
+-- | Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repository. Applies to
+-- Linux managed nodes only.
 --
 -- /See:/ 'newPatchSource' smart constructor.
 data PatchSource = PatchSource'

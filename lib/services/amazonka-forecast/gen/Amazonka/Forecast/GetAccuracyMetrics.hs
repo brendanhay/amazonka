@@ -56,6 +56,7 @@ module Amazonka.Forecast.GetAccuracyMetrics
     -- * Response Lenses
     getAccuracyMetricsResponse_predictorEvaluationResults,
     getAccuracyMetricsResponse_optimizationMetric,
+    getAccuracyMetricsResponse_isAutoPredictor,
     getAccuracyMetricsResponse_autoMLOverrideStrategy,
     getAccuracyMetricsResponse_httpStatus,
   )
@@ -108,6 +109,7 @@ instance Core.AWSRequest GetAccuracyMetrics where
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "OptimizationMetric")
+            Prelude.<*> (x Core..?> "IsAutoPredictor")
             Prelude.<*> (x Core..?> "AutoMLOverrideStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -154,6 +156,8 @@ data GetAccuracyMetricsResponse = GetAccuracyMetricsResponse'
     predictorEvaluationResults :: Prelude.Maybe [EvaluationResult],
     -- | The accuracy metric used to optimize the predictor.
     optimizationMetric :: Prelude.Maybe OptimizationMetric,
+    -- | Whether the predictor was created with CreateAutoPredictor.
+    isAutoPredictor :: Prelude.Maybe Prelude.Bool,
     -- | The @LatencyOptimized@ AutoML override strategy is only available in
     -- private beta. Contact AWS Support or your account manager to learn more
     -- about access privileges.
@@ -181,6 +185,8 @@ data GetAccuracyMetricsResponse = GetAccuracyMetricsResponse'
 --
 -- 'optimizationMetric', 'getAccuracyMetricsResponse_optimizationMetric' - The accuracy metric used to optimize the predictor.
 --
+-- 'isAutoPredictor', 'getAccuracyMetricsResponse_isAutoPredictor' - Whether the predictor was created with CreateAutoPredictor.
+--
 -- 'autoMLOverrideStrategy', 'getAccuracyMetricsResponse_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
 -- private beta. Contact AWS Support or your account manager to learn more
 -- about access privileges.
@@ -201,6 +207,7 @@ newGetAccuracyMetricsResponse pHttpStatus_ =
     { predictorEvaluationResults =
         Prelude.Nothing,
       optimizationMetric = Prelude.Nothing,
+      isAutoPredictor = Prelude.Nothing,
       autoMLOverrideStrategy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -212,6 +219,10 @@ getAccuracyMetricsResponse_predictorEvaluationResults = Lens.lens (\GetAccuracyM
 -- | The accuracy metric used to optimize the predictor.
 getAccuracyMetricsResponse_optimizationMetric :: Lens.Lens' GetAccuracyMetricsResponse (Prelude.Maybe OptimizationMetric)
 getAccuracyMetricsResponse_optimizationMetric = Lens.lens (\GetAccuracyMetricsResponse' {optimizationMetric} -> optimizationMetric) (\s@GetAccuracyMetricsResponse' {} a -> s {optimizationMetric = a} :: GetAccuracyMetricsResponse)
+
+-- | Whether the predictor was created with CreateAutoPredictor.
+getAccuracyMetricsResponse_isAutoPredictor :: Lens.Lens' GetAccuracyMetricsResponse (Prelude.Maybe Prelude.Bool)
+getAccuracyMetricsResponse_isAutoPredictor = Lens.lens (\GetAccuracyMetricsResponse' {isAutoPredictor} -> isAutoPredictor) (\s@GetAccuracyMetricsResponse' {} a -> s {isAutoPredictor = a} :: GetAccuracyMetricsResponse)
 
 -- | The @LatencyOptimized@ AutoML override strategy is only available in
 -- private beta. Contact AWS Support or your account manager to learn more
@@ -233,5 +244,6 @@ instance Prelude.NFData GetAccuracyMetricsResponse where
   rnf GetAccuracyMetricsResponse' {..} =
     Prelude.rnf predictorEvaluationResults
       `Prelude.seq` Prelude.rnf optimizationMetric
+      `Prelude.seq` Prelude.rnf isAutoPredictor
       `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
       `Prelude.seq` Prelude.rnf httpStatus

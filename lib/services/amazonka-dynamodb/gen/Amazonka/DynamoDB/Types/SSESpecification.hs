@@ -30,23 +30,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSSESpecification' smart constructor.
 data SSESpecification = SSESpecification'
-  { -- | The AWS KMS customer master key (CMK) that should be used for the AWS
-    -- KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name
-    -- (ARN), alias name, or alias ARN. Note that you should only provide this
-    -- parameter if the key is different from the default DynamoDB customer
-    -- master key alias\/aws\/dynamodb.
+  { -- | The KMS key that should be used for the KMS encryption. To specify a
+    -- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+    -- ARN. Note that you should only provide this parameter if the key is
+    -- different from the default DynamoDB key @alias\/aws\/dynamodb@.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether server-side encryption is done using an AWS managed
-    -- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
-    -- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
-    -- If disabled (false) or not specified, server-side encryption is set to
-    -- AWS owned CMK.
+    -- | Indicates whether server-side encryption is done using an Amazon Web
+    -- Services managed key or an Amazon Web Services owned key. If enabled
+    -- (true), server-side encryption type is set to @KMS@ and an Amazon Web
+    -- Services managed key is used (KMS charges apply). If disabled (false) or
+    -- not specified, server-side encryption is set to Amazon Web Services
+    -- owned key.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | Server-side encryption type. The only supported value is:
     --
-    -- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
-    --     The key is stored in your account and is managed by AWS KMS (AWS KMS
-    --     charges apply).
+    -- -   @KMS@ - Server-side encryption that uses Key Management Service. The
+    --     key is stored in your account and is managed by KMS (KMS charges
+    --     apply).
     sSEType :: Prelude.Maybe SSEType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,23 +59,23 @@ data SSESpecification = SSESpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsMasterKeyId', 'sSESpecification_kmsMasterKeyId' - The AWS KMS customer master key (CMK) that should be used for the AWS
--- KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name
--- (ARN), alias name, or alias ARN. Note that you should only provide this
--- parameter if the key is different from the default DynamoDB customer
--- master key alias\/aws\/dynamodb.
+-- 'kmsMasterKeyId', 'sSESpecification_kmsMasterKeyId' - The KMS key that should be used for the KMS encryption. To specify a
+-- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+-- ARN. Note that you should only provide this parameter if the key is
+-- different from the default DynamoDB key @alias\/aws\/dynamodb@.
 --
--- 'enabled', 'sSESpecification_enabled' - Indicates whether server-side encryption is done using an AWS managed
--- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
--- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
--- If disabled (false) or not specified, server-side encryption is set to
--- AWS owned CMK.
+-- 'enabled', 'sSESpecification_enabled' - Indicates whether server-side encryption is done using an Amazon Web
+-- Services managed key or an Amazon Web Services owned key. If enabled
+-- (true), server-side encryption type is set to @KMS@ and an Amazon Web
+-- Services managed key is used (KMS charges apply). If disabled (false) or
+-- not specified, server-side encryption is set to Amazon Web Services
+-- owned key.
 --
 -- 'sSEType', 'sSESpecification_sSEType' - Server-side encryption type. The only supported value is:
 --
--- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
---     The key is stored in your account and is managed by AWS KMS (AWS KMS
---     charges apply).
+-- -   @KMS@ - Server-side encryption that uses Key Management Service. The
+--     key is stored in your account and is managed by KMS (KMS charges
+--     apply).
 newSSESpecification ::
   SSESpecification
 newSSESpecification =
@@ -85,29 +85,40 @@ newSSESpecification =
       sSEType = Prelude.Nothing
     }
 
--- | The AWS KMS customer master key (CMK) that should be used for the AWS
--- KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name
--- (ARN), alias name, or alias ARN. Note that you should only provide this
--- parameter if the key is different from the default DynamoDB customer
--- master key alias\/aws\/dynamodb.
+-- | The KMS key that should be used for the KMS encryption. To specify a
+-- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+-- ARN. Note that you should only provide this parameter if the key is
+-- different from the default DynamoDB key @alias\/aws\/dynamodb@.
 sSESpecification_kmsMasterKeyId :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Text)
 sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@SSESpecification' {} a -> s {kmsMasterKeyId = a} :: SSESpecification)
 
--- | Indicates whether server-side encryption is done using an AWS managed
--- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
--- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
--- If disabled (false) or not specified, server-side encryption is set to
--- AWS owned CMK.
+-- | Indicates whether server-side encryption is done using an Amazon Web
+-- Services managed key or an Amazon Web Services owned key. If enabled
+-- (true), server-side encryption type is set to @KMS@ and an Amazon Web
+-- Services managed key is used (KMS charges apply). If disabled (false) or
+-- not specified, server-side encryption is set to Amazon Web Services
+-- owned key.
 sSESpecification_enabled :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Bool)
 sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
 
 -- | Server-side encryption type. The only supported value is:
 --
--- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
---     The key is stored in your account and is managed by AWS KMS (AWS KMS
---     charges apply).
+-- -   @KMS@ - Server-side encryption that uses Key Management Service. The
+--     key is stored in your account and is managed by KMS (KMS charges
+--     apply).
 sSESpecification_sSEType :: Lens.Lens' SSESpecification (Prelude.Maybe SSEType)
 sSESpecification_sSEType = Lens.lens (\SSESpecification' {sSEType} -> sSEType) (\s@SSESpecification' {} a -> s {sSEType = a} :: SSESpecification)
+
+instance Core.FromJSON SSESpecification where
+  parseJSON =
+    Core.withObject
+      "SSESpecification"
+      ( \x ->
+          SSESpecification'
+            Prelude.<$> (x Core..:? "KMSMasterKeyId")
+            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "SSEType")
+      )
 
 instance Prelude.Hashable SSESpecification where
   hashWithSalt _salt SSESpecification' {..} =

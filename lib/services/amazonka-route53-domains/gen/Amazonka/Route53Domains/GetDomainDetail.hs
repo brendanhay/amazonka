@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation returns detailed information about a specified domain
--- that is associated with the current AWS account. Contact information for
--- the domain is also returned as part of the output.
+-- that is associated with the current Amazon Web Services account. Contact
+-- information for the domain is also returned as part of the output.
 module Amazonka.Route53Domains.GetDomainDetail
   ( -- * Creating a Request
     GetDomainDetail (..),
@@ -191,7 +191,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     -- query. The date and time is in Unix time format and Coordinated
     -- Universal time (UTC).
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | Reserved for future use.
+    -- | Deprecated.
     dnsSec :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
     registryDomainId :: Prelude.Maybe Prelude.Text,
@@ -288,7 +288,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 -- query. The date and time is in Unix time format and Coordinated
 -- Universal time (UTC).
 --
--- 'dnsSec', 'getDomainDetailResponse_dnsSec' - Reserved for future use.
+-- 'dnsSec', 'getDomainDetailResponse_dnsSec' - Deprecated.
 --
 -- 'registryDomainId', 'getDomainDetailResponse_registryDomainId' - Reserved for future use.
 --
@@ -429,7 +429,7 @@ getDomainDetailResponse_registrarName = Lens.lens (\GetDomainDetailResponse' {re
 getDomainDetailResponse_creationDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
 getDomainDetailResponse_creationDate = Lens.lens (\GetDomainDetailResponse' {creationDate} -> creationDate) (\s@GetDomainDetailResponse' {} a -> s {creationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Core._Time
 
--- | Reserved for future use.
+-- | Deprecated.
 getDomainDetailResponse_dnsSec :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
 getDomainDetailResponse_dnsSec = Lens.lens (\GetDomainDetailResponse' {dnsSec} -> dnsSec) (\s@GetDomainDetailResponse' {} a -> s {dnsSec = a} :: GetDomainDetailResponse)
 

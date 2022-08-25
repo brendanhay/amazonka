@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 data S3Object = S3Object'
   { -- | The file name of the input document. Synchronous operations can use
     -- image files that are in JPEG or PNG format. Asynchronous operations also
-    -- support PDF format files.
+    -- support PDF and TIFF format files.
     name :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket. Note that the # character is not valid in the
     -- file name.
@@ -56,7 +56,7 @@ data S3Object = S3Object'
 --
 -- 'name', 's3Object_name' - The file name of the input document. Synchronous operations can use
 -- image files that are in JPEG or PNG format. Asynchronous operations also
--- support PDF format files.
+-- support PDF and TIFF format files.
 --
 -- 'bucket', 's3Object_bucket' - The name of the S3 bucket. Note that the # character is not valid in the
 -- file name.
@@ -74,7 +74,7 @@ newS3Object =
 
 -- | The file name of the input document. Synchronous operations can use
 -- image files that are in JPEG or PNG format. Asynchronous operations also
--- support PDF format files.
+-- support PDF and TIFF format files.
 s3Object_name :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_name = Lens.lens (\S3Object' {name} -> name) (\s@S3Object' {} a -> s {name = a} :: S3Object)
 

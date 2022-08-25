@@ -66,7 +66,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
     monitoring :: Prelude.Maybe RunInstancesMonitoringEnabled,
     -- | The ID of the subnet in which to launch the instance.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
+    -- | The instance type. Only one instance type can be specified.
     instanceType :: Prelude.Maybe InstanceType,
     -- | One or more security groups. When requesting instances in a VPC, you
     -- must specify the IDs of the security groups. When requesting instances
@@ -128,7 +128,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- 'subnetId', 'requestSpotLaunchSpecification_subnetId' - The ID of the subnet in which to launch the instance.
 --
--- 'instanceType', 'requestSpotLaunchSpecification_instanceType' - The instance type.
+-- 'instanceType', 'requestSpotLaunchSpecification_instanceType' - The instance type. Only one instance type can be specified.
 --
 -- 'securityGroups', 'requestSpotLaunchSpecification_securityGroups' - One or more security groups. When requesting instances in a VPC, you
 -- must specify the IDs of the security groups. When requesting instances
@@ -219,7 +219,7 @@ requestSpotLaunchSpecification_monitoring = Lens.lens (\RequestSpotLaunchSpecifi
 requestSpotLaunchSpecification_subnetId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
 requestSpotLaunchSpecification_subnetId = Lens.lens (\RequestSpotLaunchSpecification' {subnetId} -> subnetId) (\s@RequestSpotLaunchSpecification' {} a -> s {subnetId = a} :: RequestSpotLaunchSpecification)
 
--- | The instance type.
+-- | The instance type. Only one instance type can be specified.
 requestSpotLaunchSpecification_instanceType :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe InstanceType)
 requestSpotLaunchSpecification_instanceType = Lens.lens (\RequestSpotLaunchSpecification' {instanceType} -> instanceType) (\s@RequestSpotLaunchSpecification' {} a -> s {instanceType = a} :: RequestSpotLaunchSpecification)
 

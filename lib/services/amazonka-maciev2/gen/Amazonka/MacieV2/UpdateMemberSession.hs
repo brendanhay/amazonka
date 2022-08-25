@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables an Amazon Macie administrator to suspend or re-enable a member
--- account.
+-- Enables an Amazon Macie administrator to suspend or re-enable Macie for
+-- a member account.
 module Amazonka.MacieV2.UpdateMemberSession
   ( -- * Creating a Request
     UpdateMemberSession (..),

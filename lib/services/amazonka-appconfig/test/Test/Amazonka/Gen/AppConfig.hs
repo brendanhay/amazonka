@@ -39,6 +39,12 @@ import Test.Tasty
 --         , requestCreateEnvironment $
 --             newCreateEnvironment
 --
+--         , requestCreateExtension $
+--             newCreateExtension
+--
+--         , requestCreateExtensionAssociation $
+--             newCreateExtensionAssociation
+--
 --         , requestCreateHostedConfigurationVersion $
 --             newCreateHostedConfigurationVersion
 --
@@ -54,14 +60,17 @@ import Test.Tasty
 --         , requestDeleteEnvironment $
 --             newDeleteEnvironment
 --
+--         , requestDeleteExtension $
+--             newDeleteExtension
+--
+--         , requestDeleteExtensionAssociation $
+--             newDeleteExtensionAssociation
+--
 --         , requestDeleteHostedConfigurationVersion $
 --             newDeleteHostedConfigurationVersion
 --
 --         , requestGetApplication $
 --             newGetApplication
---
---         , requestGetConfiguration $
---             newGetConfiguration
 --
 --         , requestGetConfigurationProfile $
 --             newGetConfigurationProfile
@@ -74,6 +83,12 @@ import Test.Tasty
 --
 --         , requestGetEnvironment $
 --             newGetEnvironment
+--
+--         , requestGetExtension $
+--             newGetExtension
+--
+--         , requestGetExtensionAssociation $
+--             newGetExtensionAssociation
 --
 --         , requestGetHostedConfigurationVersion $
 --             newGetHostedConfigurationVersion
@@ -92,6 +107,12 @@ import Test.Tasty
 --
 --         , requestListEnvironments $
 --             newListEnvironments
+--
+--         , requestListExtensionAssociations $
+--             newListExtensionAssociations
+--
+--         , requestListExtensions $
+--             newListExtensions
 --
 --         , requestListHostedConfigurationVersions $
 --             newListHostedConfigurationVersions
@@ -123,6 +144,12 @@ import Test.Tasty
 --         , requestUpdateEnvironment $
 --             newUpdateEnvironment
 --
+--         , requestUpdateExtension $
+--             newUpdateExtension
+--
+--         , requestUpdateExtensionAssociation $
+--             newUpdateExtensionAssociation
+--
 --         , requestValidateConfiguration $
 --             newValidateConfiguration
 --
@@ -141,6 +168,12 @@ import Test.Tasty
 --         , responseCreateEnvironment $
 --             newEnvironment
 --
+--         , responseCreateExtension $
+--             newExtension
+--
+--         , responseCreateExtensionAssociation $
+--             newExtensionAssociation
+--
 --         , responseCreateHostedConfigurationVersion $
 --             newHostedConfigurationVersion
 --
@@ -156,14 +189,17 @@ import Test.Tasty
 --         , responseDeleteEnvironment $
 --             newDeleteEnvironmentResponse
 --
+--         , responseDeleteExtension $
+--             newDeleteExtensionResponse
+--
+--         , responseDeleteExtensionAssociation $
+--             newDeleteExtensionAssociationResponse
+--
 --         , responseDeleteHostedConfigurationVersion $
 --             newDeleteHostedConfigurationVersionResponse
 --
 --         , responseGetApplication $
 --             newApplication
---
---         , responseGetConfiguration $
---             newGetConfigurationResponse
 --
 --         , responseGetConfigurationProfile $
 --             newConfigurationProfile
@@ -176,6 +212,12 @@ import Test.Tasty
 --
 --         , responseGetEnvironment $
 --             newEnvironment
+--
+--         , responseGetExtension $
+--             newExtension
+--
+--         , responseGetExtensionAssociation $
+--             newExtensionAssociation
 --
 --         , responseGetHostedConfigurationVersion $
 --             newHostedConfigurationVersion
@@ -194,6 +236,12 @@ import Test.Tasty
 --
 --         , responseListEnvironments $
 --             newListEnvironmentsResponse
+--
+--         , responseListExtensionAssociations $
+--             newListExtensionAssociationsResponse
+--
+--         , responseListExtensions $
+--             newListExtensionsResponse
 --
 --         , responseListHostedConfigurationVersions $
 --             newListHostedConfigurationVersionsResponse
@@ -224,6 +272,12 @@ import Test.Tasty
 --
 --         , responseUpdateEnvironment $
 --             newEnvironment
+--
+--         , responseUpdateExtension $
+--             newExtension
+--
+--         , responseUpdateExtensionAssociation $
+--             newExtensionAssociation
 --
 --         , responseValidateConfiguration $
 --             newValidateConfigurationResponse
@@ -257,6 +311,18 @@ requestCreateEnvironment =
     "CreateEnvironment"
     "fixture/CreateEnvironment.yaml"
 
+requestCreateExtension :: CreateExtension -> TestTree
+requestCreateExtension =
+  req
+    "CreateExtension"
+    "fixture/CreateExtension.yaml"
+
+requestCreateExtensionAssociation :: CreateExtensionAssociation -> TestTree
+requestCreateExtensionAssociation =
+  req
+    "CreateExtensionAssociation"
+    "fixture/CreateExtensionAssociation.yaml"
+
 requestCreateHostedConfigurationVersion :: CreateHostedConfigurationVersion -> TestTree
 requestCreateHostedConfigurationVersion =
   req
@@ -287,6 +353,18 @@ requestDeleteEnvironment =
     "DeleteEnvironment"
     "fixture/DeleteEnvironment.yaml"
 
+requestDeleteExtension :: DeleteExtension -> TestTree
+requestDeleteExtension =
+  req
+    "DeleteExtension"
+    "fixture/DeleteExtension.yaml"
+
+requestDeleteExtensionAssociation :: DeleteExtensionAssociation -> TestTree
+requestDeleteExtensionAssociation =
+  req
+    "DeleteExtensionAssociation"
+    "fixture/DeleteExtensionAssociation.yaml"
+
 requestDeleteHostedConfigurationVersion :: DeleteHostedConfigurationVersion -> TestTree
 requestDeleteHostedConfigurationVersion =
   req
@@ -298,12 +376,6 @@ requestGetApplication =
   req
     "GetApplication"
     "fixture/GetApplication.yaml"
-
-requestGetConfiguration :: GetConfiguration -> TestTree
-requestGetConfiguration =
-  req
-    "GetConfiguration"
-    "fixture/GetConfiguration.yaml"
 
 requestGetConfigurationProfile :: GetConfigurationProfile -> TestTree
 requestGetConfigurationProfile =
@@ -328,6 +400,18 @@ requestGetEnvironment =
   req
     "GetEnvironment"
     "fixture/GetEnvironment.yaml"
+
+requestGetExtension :: GetExtension -> TestTree
+requestGetExtension =
+  req
+    "GetExtension"
+    "fixture/GetExtension.yaml"
+
+requestGetExtensionAssociation :: GetExtensionAssociation -> TestTree
+requestGetExtensionAssociation =
+  req
+    "GetExtensionAssociation"
+    "fixture/GetExtensionAssociation.yaml"
 
 requestGetHostedConfigurationVersion :: GetHostedConfigurationVersion -> TestTree
 requestGetHostedConfigurationVersion =
@@ -364,6 +448,18 @@ requestListEnvironments =
   req
     "ListEnvironments"
     "fixture/ListEnvironments.yaml"
+
+requestListExtensionAssociations :: ListExtensionAssociations -> TestTree
+requestListExtensionAssociations =
+  req
+    "ListExtensionAssociations"
+    "fixture/ListExtensionAssociations.yaml"
+
+requestListExtensions :: ListExtensions -> TestTree
+requestListExtensions =
+  req
+    "ListExtensions"
+    "fixture/ListExtensions.yaml"
 
 requestListHostedConfigurationVersions :: ListHostedConfigurationVersions -> TestTree
 requestListHostedConfigurationVersions =
@@ -425,6 +521,18 @@ requestUpdateEnvironment =
     "UpdateEnvironment"
     "fixture/UpdateEnvironment.yaml"
 
+requestUpdateExtension :: UpdateExtension -> TestTree
+requestUpdateExtension =
+  req
+    "UpdateExtension"
+    "fixture/UpdateExtension.yaml"
+
+requestUpdateExtensionAssociation :: UpdateExtensionAssociation -> TestTree
+requestUpdateExtensionAssociation =
+  req
+    "UpdateExtensionAssociation"
+    "fixture/UpdateExtensionAssociation.yaml"
+
 requestValidateConfiguration :: ValidateConfiguration -> TestTree
 requestValidateConfiguration =
   req
@@ -464,6 +572,22 @@ responseCreateEnvironment =
     "fixture/CreateEnvironmentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateEnvironment)
+
+responseCreateExtension :: Extension -> TestTree
+responseCreateExtension =
+  res
+    "CreateExtensionResponse"
+    "fixture/CreateExtensionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateExtension)
+
+responseCreateExtensionAssociation :: ExtensionAssociation -> TestTree
+responseCreateExtensionAssociation =
+  res
+    "CreateExtensionAssociationResponse"
+    "fixture/CreateExtensionAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateExtensionAssociation)
 
 responseCreateHostedConfigurationVersion :: HostedConfigurationVersion -> TestTree
 responseCreateHostedConfigurationVersion =
@@ -505,6 +629,22 @@ responseDeleteEnvironment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEnvironment)
 
+responseDeleteExtension :: DeleteExtensionResponse -> TestTree
+responseDeleteExtension =
+  res
+    "DeleteExtensionResponse"
+    "fixture/DeleteExtensionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteExtension)
+
+responseDeleteExtensionAssociation :: DeleteExtensionAssociationResponse -> TestTree
+responseDeleteExtensionAssociation =
+  res
+    "DeleteExtensionAssociationResponse"
+    "fixture/DeleteExtensionAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteExtensionAssociation)
+
 responseDeleteHostedConfigurationVersion :: DeleteHostedConfigurationVersionResponse -> TestTree
 responseDeleteHostedConfigurationVersion =
   res
@@ -520,14 +660,6 @@ responseGetApplication =
     "fixture/GetApplicationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetApplication)
-
-responseGetConfiguration :: GetConfigurationResponse -> TestTree
-responseGetConfiguration =
-  res
-    "GetConfigurationResponse"
-    "fixture/GetConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetConfiguration)
 
 responseGetConfigurationProfile :: ConfigurationProfile -> TestTree
 responseGetConfigurationProfile =
@@ -560,6 +692,22 @@ responseGetEnvironment =
     "fixture/GetEnvironmentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEnvironment)
+
+responseGetExtension :: Extension -> TestTree
+responseGetExtension =
+  res
+    "GetExtensionResponse"
+    "fixture/GetExtensionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetExtension)
+
+responseGetExtensionAssociation :: ExtensionAssociation -> TestTree
+responseGetExtensionAssociation =
+  res
+    "GetExtensionAssociationResponse"
+    "fixture/GetExtensionAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetExtensionAssociation)
 
 responseGetHostedConfigurationVersion :: HostedConfigurationVersion -> TestTree
 responseGetHostedConfigurationVersion =
@@ -608,6 +756,22 @@ responseListEnvironments =
     "fixture/ListEnvironmentsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
+
+responseListExtensionAssociations :: ListExtensionAssociationsResponse -> TestTree
+responseListExtensionAssociations =
+  res
+    "ListExtensionAssociationsResponse"
+    "fixture/ListExtensionAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExtensionAssociations)
+
+responseListExtensions :: ListExtensionsResponse -> TestTree
+responseListExtensions =
+  res
+    "ListExtensionsResponse"
+    "fixture/ListExtensionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExtensions)
 
 responseListHostedConfigurationVersions :: ListHostedConfigurationVersionsResponse -> TestTree
 responseListHostedConfigurationVersions =
@@ -688,6 +852,22 @@ responseUpdateEnvironment =
     "fixture/UpdateEnvironmentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)
+
+responseUpdateExtension :: Extension -> TestTree
+responseUpdateExtension =
+  res
+    "UpdateExtensionResponse"
+    "fixture/UpdateExtensionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateExtension)
+
+responseUpdateExtensionAssociation :: ExtensionAssociation -> TestTree
+responseUpdateExtensionAssociation =
+  res
+    "UpdateExtensionAssociationResponse"
+    "fixture/UpdateExtensionAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateExtensionAssociation)
 
 responseValidateConfiguration :: ValidateConfigurationResponse -> TestTree
 responseValidateConfiguration =

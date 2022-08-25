@@ -59,8 +59,8 @@ data GetDistributions = GetDistributions'
     pageToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the distribution for which to return information.
     --
-    -- When omitted, the response includes all of your distributions in the AWS
-    -- Region where the request is made.
+    -- When omitted, the response includes all of your distributions in the
+    -- Amazon Web Services Region where the request is made.
     distributionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,8 +81,8 @@ data GetDistributions = GetDistributions'
 --
 -- 'distributionName', 'getDistributions_distributionName' - The name of the distribution for which to return information.
 --
--- When omitted, the response includes all of your distributions in the AWS
--- Region where the request is made.
+-- When omitted, the response includes all of your distributions in the
+-- Amazon Web Services Region where the request is made.
 newGetDistributions ::
   GetDistributions
 newGetDistributions =
@@ -101,8 +101,8 @@ getDistributions_pageToken = Lens.lens (\GetDistributions' {pageToken} -> pageTo
 
 -- | The name of the distribution for which to return information.
 --
--- When omitted, the response includes all of your distributions in the AWS
--- Region where the request is made.
+-- When omitted, the response includes all of your distributions in the
+-- Amazon Web Services Region where the request is made.
 getDistributions_distributionName :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude.Text)
 getDistributions_distributionName = Lens.lens (\GetDistributions' {distributionName} -> distributionName) (\s@GetDistributions' {} a -> s {distributionName = a} :: GetDistributions)
 

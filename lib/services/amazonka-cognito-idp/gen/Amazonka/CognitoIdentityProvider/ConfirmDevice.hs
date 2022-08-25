@@ -58,7 +58,8 @@ data ConfirmDevice = ConfirmDevice'
     deviceSecretVerifierConfig :: Prelude.Maybe DeviceSecretVerifierConfigType,
     -- | The device name.
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | The access token.
+    -- | A valid access token that Amazon Cognito issued to the user whose device
+    -- you want to confirm.
     accessToken :: Core.Sensitive Prelude.Text,
     -- | The device key.
     deviceKey :: Prelude.Text
@@ -77,7 +78,8 @@ data ConfirmDevice = ConfirmDevice'
 --
 -- 'deviceName', 'confirmDevice_deviceName' - The device name.
 --
--- 'accessToken', 'confirmDevice_accessToken' - The access token.
+-- 'accessToken', 'confirmDevice_accessToken' - A valid access token that Amazon Cognito issued to the user whose device
+-- you want to confirm.
 --
 -- 'deviceKey', 'confirmDevice_deviceKey' - The device key.
 newConfirmDevice ::
@@ -103,7 +105,8 @@ confirmDevice_deviceSecretVerifierConfig = Lens.lens (\ConfirmDevice' {deviceSec
 confirmDevice_deviceName :: Lens.Lens' ConfirmDevice (Prelude.Maybe Prelude.Text)
 confirmDevice_deviceName = Lens.lens (\ConfirmDevice' {deviceName} -> deviceName) (\s@ConfirmDevice' {} a -> s {deviceName = a} :: ConfirmDevice)
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user whose device
+-- you want to confirm.
 confirmDevice_accessToken :: Lens.Lens' ConfirmDevice Prelude.Text
 confirmDevice_accessToken = Lens.lens (\ConfirmDevice' {accessToken} -> accessToken) (\s@ConfirmDevice' {} a -> s {accessToken = a} :: ConfirmDevice) Prelude.. Core._Sensitive
 
@@ -176,8 +179,8 @@ instance Core.ToQuery ConfirmDevice where
 --
 -- /See:/ 'newConfirmDeviceResponse' smart constructor.
 data ConfirmDeviceResponse = ConfirmDeviceResponse'
-  { -- | Indicates whether the user confirmation is necessary to confirm the
-    -- device response.
+  { -- | Indicates whether the user confirmation must confirm the device
+    -- response.
     userConfirmationNecessary :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -192,8 +195,8 @@ data ConfirmDeviceResponse = ConfirmDeviceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userConfirmationNecessary', 'confirmDeviceResponse_userConfirmationNecessary' - Indicates whether the user confirmation is necessary to confirm the
--- device response.
+-- 'userConfirmationNecessary', 'confirmDeviceResponse_userConfirmationNecessary' - Indicates whether the user confirmation must confirm the device
+-- response.
 --
 -- 'httpStatus', 'confirmDeviceResponse_httpStatus' - The response's http status code.
 newConfirmDeviceResponse ::
@@ -207,8 +210,8 @@ newConfirmDeviceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Indicates whether the user confirmation is necessary to confirm the
--- device response.
+-- | Indicates whether the user confirmation must confirm the device
+-- response.
 confirmDeviceResponse_userConfirmationNecessary :: Lens.Lens' ConfirmDeviceResponse (Prelude.Maybe Prelude.Bool)
 confirmDeviceResponse_userConfirmationNecessary = Lens.lens (\ConfirmDeviceResponse' {userConfirmationNecessary} -> userConfirmationNecessary) (\s@ConfirmDeviceResponse' {} a -> s {userConfirmationNecessary = a} :: ConfirmDeviceResponse)
 

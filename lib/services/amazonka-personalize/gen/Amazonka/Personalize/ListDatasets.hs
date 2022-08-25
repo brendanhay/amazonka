@@ -23,7 +23,7 @@
 -- Returns the list of datasets contained in the given dataset group. The
 -- response provides the properties for each dataset, including the Amazon
 -- Resource Name (ARN). For more information on datasets, see
--- CreateDataset.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListDatasets

@@ -43,6 +43,9 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- accounts where you wanted to run the association when this association
     -- version was created.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    -- | A key-value mapping of document parameters to target resources. Both
+    -- Targets and TargetMaps can\'t be specified together.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
     -- | The location in Amazon S3 specified for the association when the
     -- association version was created.
     outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
@@ -58,16 +61,18 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- | The cron or rate schedule specified for the association when the
     -- association version was created.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
+    -- | Number of days to wait after the scheduled day to run an association.
+    scheduleOffset :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
     -- targets run the association at the same time.
     --
-    -- If a new instance starts and attempts to run an association while
+    -- If a new managed node starts and attempts to run an association while
     -- Systems Manager is running @MaxConcurrency@ associations, the
     -- association is allowed to run. During the next association interval, the
-    -- new instance will process its association within the limit specified for
-    -- @MaxConcurrency@.
+    -- new managed node will process its association within the limit specified
+    -- for @MaxConcurrency@.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | By default, when you create a new associations, the system runs it
     -- immediately after it is created and then according to the schedule you
@@ -81,7 +86,7 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- the target set, for example 10%. If you specify 3, for example, the
     -- system stops sending requests when the fourth error is received. If you
     -- specify 0, then the system stops sending requests after the first error
-    -- is returned. If you run an association on 50 instances and set
+    -- is returned. If you run an association on 50 managed nodes and set
     -- @MaxError@ to 10%, then the system stops sending the request when the
     -- sixth error is received.
     --
@@ -116,9 +121,9 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- document) used when the association version was created.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | Parameters specified when the association version was created.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociationVersionInfo' with all optional fields omitted.
@@ -139,6 +144,9 @@ data AssociationVersionInfo = AssociationVersionInfo'
 -- accounts where you wanted to run the association when this association
 -- version was created.
 --
+-- 'targetMaps', 'associationVersionInfo_targetMaps' - A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+--
 -- 'outputLocation', 'associationVersionInfo_outputLocation' - The location in Amazon S3 specified for the association when the
 -- association version was created.
 --
@@ -154,16 +162,18 @@ data AssociationVersionInfo = AssociationVersionInfo'
 -- 'scheduleExpression', 'associationVersionInfo_scheduleExpression' - The cron or rate schedule specified for the association when the
 -- association version was created.
 --
+-- 'scheduleOffset', 'associationVersionInfo_scheduleOffset' - Number of days to wait after the scheduled day to run an association.
+--
 -- 'maxConcurrency', 'associationVersionInfo_maxConcurrency' - The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 --
 -- 'applyOnlyAtCronInterval', 'associationVersionInfo_applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it
 -- immediately after it is created and then according to the schedule you
@@ -177,7 +187,7 @@ data AssociationVersionInfo = AssociationVersionInfo'
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -221,10 +231,12 @@ newAssociationVersionInfo =
       name = Prelude.Nothing,
       associationVersion = Prelude.Nothing,
       targetLocations = Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       targets = Prelude.Nothing,
       calendarNames = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
+      scheduleOffset = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -255,6 +267,11 @@ associationVersionInfo_associationVersion = Lens.lens (\AssociationVersionInfo' 
 associationVersionInfo_targetLocations :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 associationVersionInfo_targetLocations = Lens.lens (\AssociationVersionInfo' {targetLocations} -> targetLocations) (\s@AssociationVersionInfo' {} a -> s {targetLocations = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Lens.coerced
 
+-- | A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+associationVersionInfo_targetMaps :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+associationVersionInfo_targetMaps = Lens.lens (\AssociationVersionInfo' {targetMaps} -> targetMaps) (\s@AssociationVersionInfo' {} a -> s {targetMaps = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Lens.coerced
+
 -- | The location in Amazon S3 specified for the association when the
 -- association version was created.
 associationVersionInfo_outputLocation :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe InstanceAssociationOutputLocation)
@@ -278,16 +295,20 @@ associationVersionInfo_calendarNames = Lens.lens (\AssociationVersionInfo' {cale
 associationVersionInfo_scheduleExpression :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
 associationVersionInfo_scheduleExpression = Lens.lens (\AssociationVersionInfo' {scheduleExpression} -> scheduleExpression) (\s@AssociationVersionInfo' {} a -> s {scheduleExpression = a} :: AssociationVersionInfo)
 
+-- | Number of days to wait after the scheduled day to run an association.
+associationVersionInfo_scheduleOffset :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Natural)
+associationVersionInfo_scheduleOffset = Lens.lens (\AssociationVersionInfo' {scheduleOffset} -> scheduleOffset) (\s@AssociationVersionInfo' {} a -> s {scheduleOffset = a} :: AssociationVersionInfo)
+
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 associationVersionInfo_maxConcurrency :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
 associationVersionInfo_maxConcurrency = Lens.lens (\AssociationVersionInfo' {maxConcurrency} -> maxConcurrency) (\s@AssociationVersionInfo' {} a -> s {maxConcurrency = a} :: AssociationVersionInfo)
 
@@ -305,7 +326,7 @@ associationVersionInfo_applyOnlyAtCronInterval = Lens.lens (\AssociationVersionI
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -353,7 +374,7 @@ associationVersionInfo_documentVersion = Lens.lens (\AssociationVersionInfo' {do
 
 -- | Parameters specified when the association version was created.
 associationVersionInfo_parameters :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-associationVersionInfo_parameters = Lens.lens (\AssociationVersionInfo' {parameters} -> parameters) (\s@AssociationVersionInfo' {} a -> s {parameters = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Lens.coerced
+associationVersionInfo_parameters = Lens.lens (\AssociationVersionInfo' {parameters} -> parameters) (\s@AssociationVersionInfo' {} a -> s {parameters = a} :: AssociationVersionInfo) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 instance Core.FromJSON AssociationVersionInfo where
   parseJSON =
@@ -365,10 +386,12 @@ instance Core.FromJSON AssociationVersionInfo where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "AssociationVersion")
             Prelude.<*> (x Core..:? "TargetLocations")
+            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "OutputLocation")
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CalendarNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ScheduleExpression")
+            Prelude.<*> (x Core..:? "ScheduleOffset")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
             Prelude.<*> (x Core..:? "MaxErrors")
@@ -386,10 +409,12 @@ instance Prelude.Hashable AssociationVersionInfo where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` targetMaps
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` calendarNames
       `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` scheduleOffset
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` maxErrors
@@ -406,10 +431,12 @@ instance Prelude.NFData AssociationVersionInfo where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf associationVersion
       `Prelude.seq` Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf targetMaps
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf calendarNames
       `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
       `Prelude.seq` Prelude.rnf maxErrors

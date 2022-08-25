@@ -34,6 +34,14 @@ module Amazonka.S3Outposts.Lens
     listEndpointsResponse_endpoints,
     listEndpointsResponse_httpStatus,
 
+    -- ** ListSharedEndpoints
+    listSharedEndpoints_nextToken,
+    listSharedEndpoints_maxResults,
+    listSharedEndpoints_outpostId,
+    listSharedEndpointsResponse_nextToken,
+    listSharedEndpointsResponse_endpoints,
+    listSharedEndpointsResponse_httpStatus,
+
     -- * Types
 
     -- ** Endpoint
@@ -57,5 +65,6 @@ where
 import Amazonka.S3Outposts.CreateEndpoint
 import Amazonka.S3Outposts.DeleteEndpoint
 import Amazonka.S3Outposts.ListEndpoints
+import Amazonka.S3Outposts.ListSharedEndpoints
 import Amazonka.S3Outposts.Types.Endpoint
 import Amazonka.S3Outposts.Types.NetworkInterface

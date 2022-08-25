@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 
--- | A summary of the service instance detail data.
+-- | Summary data of an Proton service instance resource.
 --
 -- /See:/ 'newServiceInstanceSummary' smart constructor.
 data ServiceInstanceSummary = ServiceInstanceSummary'
@@ -46,9 +46,9 @@ data ServiceInstanceSummary = ServiceInstanceSummary'
     name :: Prelude.Text,
     -- | The name of the service that the service instance belongs to.
     serviceName :: Prelude.Text,
-    -- | The ID of the major version of a service template.
+    -- | The service instance template major version.
     templateMajorVersion :: Prelude.Text,
-    -- | The ID of the minor version of a service template.
+    -- | The service instance template minor version.
     templateMinorVersion :: Prelude.Text,
     -- | The name of the service template.
     templateName :: Prelude.Text
@@ -81,9 +81,9 @@ data ServiceInstanceSummary = ServiceInstanceSummary'
 --
 -- 'serviceName', 'serviceInstanceSummary_serviceName' - The name of the service that the service instance belongs to.
 --
--- 'templateMajorVersion', 'serviceInstanceSummary_templateMajorVersion' - The ID of the major version of a service template.
+-- 'templateMajorVersion', 'serviceInstanceSummary_templateMajorVersion' - The service instance template major version.
 --
--- 'templateMinorVersion', 'serviceInstanceSummary_templateMinorVersion' - The ID of the minor version of a service template.
+-- 'templateMinorVersion', 'serviceInstanceSummary_templateMinorVersion' - The service instance template minor version.
 --
 -- 'templateName', 'serviceInstanceSummary_templateName' - The name of the service template.
 newServiceInstanceSummary ::
@@ -176,11 +176,11 @@ serviceInstanceSummary_name = Lens.lens (\ServiceInstanceSummary' {name} -> name
 serviceInstanceSummary_serviceName :: Lens.Lens' ServiceInstanceSummary Prelude.Text
 serviceInstanceSummary_serviceName = Lens.lens (\ServiceInstanceSummary' {serviceName} -> serviceName) (\s@ServiceInstanceSummary' {} a -> s {serviceName = a} :: ServiceInstanceSummary)
 
--- | The ID of the major version of a service template.
+-- | The service instance template major version.
 serviceInstanceSummary_templateMajorVersion :: Lens.Lens' ServiceInstanceSummary Prelude.Text
 serviceInstanceSummary_templateMajorVersion = Lens.lens (\ServiceInstanceSummary' {templateMajorVersion} -> templateMajorVersion) (\s@ServiceInstanceSummary' {} a -> s {templateMajorVersion = a} :: ServiceInstanceSummary)
 
--- | The ID of the minor version of a service template.
+-- | The service instance template minor version.
 serviceInstanceSummary_templateMinorVersion :: Lens.Lens' ServiceInstanceSummary Prelude.Text
 serviceInstanceSummary_templateMinorVersion = Lens.lens (\ServiceInstanceSummary' {templateMinorVersion} -> templateMinorVersion) (\s@ServiceInstanceSummary' {} a -> s {templateMinorVersion = a} :: ServiceInstanceSummary)
 

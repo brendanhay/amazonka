@@ -70,8 +70,8 @@ data CreateMetricSet = CreateMetricSet'
     -- | The time zone in which your source data was recorded.
     timezone :: Prelude.Maybe Prelude.Text,
     -- | After an interval ends, the amount of seconds that the detector waits
-    -- before importing data. Offset is only supported for S3 and Redshift
-    -- datasources.
+    -- before importing data. Offset is only supported for S3, Redshift, Athena
+    -- and datasources.
     offset :: Prelude.Maybe Prelude.Natural,
     -- | A list of the fields you want to treat as dimensions.
     dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -108,8 +108,8 @@ data CreateMetricSet = CreateMetricSet'
 -- 'timezone', 'createMetricSet_timezone' - The time zone in which your source data was recorded.
 --
 -- 'offset', 'createMetricSet_offset' - After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3 and Redshift
--- datasources.
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
 --
 -- 'dimensionList', 'createMetricSet_dimensionList' - A list of the fields you want to treat as dimensions.
 --
@@ -171,8 +171,8 @@ createMetricSet_timezone :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Te
 createMetricSet_timezone = Lens.lens (\CreateMetricSet' {timezone} -> timezone) (\s@CreateMetricSet' {} a -> s {timezone = a} :: CreateMetricSet)
 
 -- | After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3 and Redshift
--- datasources.
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
 createMetricSet_offset :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Natural)
 createMetricSet_offset = Lens.lens (\CreateMetricSet' {offset} -> offset) (\s@CreateMetricSet' {} a -> s {offset = a} :: CreateMetricSet)
 

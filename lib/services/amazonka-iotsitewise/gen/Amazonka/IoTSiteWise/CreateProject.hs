@@ -21,6 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a project in the specified portal.
+--
+-- Make sure that the project name and description don\'t contain
+-- confidential information.
 module Amazonka.IoTSiteWise.CreateProject
   ( -- * Creating a Request
     CreateProject (..),

@@ -39,7 +39,7 @@ data Ebs = Ebs'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
-    -- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+    -- Valid values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
     volumeType :: Prelude.Maybe Prelude.Text,
     -- | The volume size, in GiBs. The following are the supported volumes sizes
     -- for each volume type:
@@ -73,7 +73,7 @@ data Ebs = Ebs'
     -- encrypted.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The throughput (MiBps) to provision for a @gp3@ volume.
@@ -120,7 +120,7 @@ data Ebs = Ebs'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+-- Valid values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
 --
 -- 'volumeSize', 'ebs_volumeSize' - The volume size, in GiBs. The following are the supported volumes sizes
 -- for each volume type:
@@ -154,7 +154,7 @@ data Ebs = Ebs'
 -- encrypted.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'throughput', 'ebs_throughput' - The throughput (MiBps) to provision for a @gp3@ volume.
@@ -206,7 +206,7 @@ ebs_snapshotId = Lens.lens (\Ebs' {snapshotId} -> snapshotId) (\s@Ebs' {} a -> s
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+-- Valid values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
 ebs_volumeType :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
 ebs_volumeType = Lens.lens (\Ebs' {volumeType} -> volumeType) (\s@Ebs' {} a -> s {volumeType = a} :: Ebs)
 
@@ -244,7 +244,7 @@ ebs_volumeSize = Lens.lens (\Ebs' {volumeSize} -> volumeSize) (\s@Ebs' {} a -> s
 -- encrypted.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 ebs_encrypted :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
 ebs_encrypted = Lens.lens (\Ebs' {encrypted} -> encrypted) (\s@Ebs' {} a -> s {encrypted = a} :: Ebs)

@@ -21,8 +21,10 @@ module Amazonka.Grafana.Types.DataSourceType
   ( DataSourceType
       ( ..,
         DataSourceType_AMAZON_OPENSEARCH_SERVICE,
+        DataSourceType_ATHENA,
         DataSourceType_CLOUDWATCH,
         DataSourceType_PROMETHEUS,
+        DataSourceType_REDSHIFT,
         DataSourceType_SITEWISE,
         DataSourceType_TIMESTREAM,
         DataSourceType_XRAY
@@ -64,11 +66,17 @@ newtype DataSourceType = DataSourceType'
 pattern DataSourceType_AMAZON_OPENSEARCH_SERVICE :: DataSourceType
 pattern DataSourceType_AMAZON_OPENSEARCH_SERVICE = DataSourceType' "AMAZON_OPENSEARCH_SERVICE"
 
+pattern DataSourceType_ATHENA :: DataSourceType
+pattern DataSourceType_ATHENA = DataSourceType' "ATHENA"
+
 pattern DataSourceType_CLOUDWATCH :: DataSourceType
 pattern DataSourceType_CLOUDWATCH = DataSourceType' "CLOUDWATCH"
 
 pattern DataSourceType_PROMETHEUS :: DataSourceType
 pattern DataSourceType_PROMETHEUS = DataSourceType' "PROMETHEUS"
+
+pattern DataSourceType_REDSHIFT :: DataSourceType
+pattern DataSourceType_REDSHIFT = DataSourceType' "REDSHIFT"
 
 pattern DataSourceType_SITEWISE :: DataSourceType
 pattern DataSourceType_SITEWISE = DataSourceType' "SITEWISE"
@@ -81,8 +89,10 @@ pattern DataSourceType_XRAY = DataSourceType' "XRAY"
 
 {-# COMPLETE
   DataSourceType_AMAZON_OPENSEARCH_SERVICE,
+  DataSourceType_ATHENA,
   DataSourceType_CLOUDWATCH,
   DataSourceType_PROMETHEUS,
+  DataSourceType_REDSHIFT,
   DataSourceType_SITEWISE,
   DataSourceType_TIMESTREAM,
   DataSourceType_XRAY,

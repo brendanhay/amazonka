@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 -- region you use for Amazon Rekognition operations.
 --
 -- For Amazon Rekognition to process an S3 object, the user must have
--- permission to access the S3 object. For more information, see
--- Resource-Based Policies in the Amazon Rekognition Developer Guide.
+-- permission to access the S3 object. For more information, see How Amazon
+-- Rekognition works with IAM in the Amazon Rekognition Developer Guide.
 --
 -- /See:/ 'newS3Object' smart constructor.
 data S3Object = S3Object'

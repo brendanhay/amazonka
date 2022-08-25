@@ -53,7 +53,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDescribeModelPackageGroup' smart constructor.
 data DescribeModelPackageGroup = DescribeModelPackageGroup'
-  { -- | The name of the model group to describe.
+  { -- | The name of gthe model group to describe.
     modelPackageGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data DescribeModelPackageGroup = DescribeModelPackageGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageGroupName', 'describeModelPackageGroup_modelPackageGroupName' - The name of the model group to describe.
+-- 'modelPackageGroupName', 'describeModelPackageGroup_modelPackageGroupName' - The name of gthe model group to describe.
 newDescribeModelPackageGroup ::
   -- | 'modelPackageGroupName'
   Prelude.Text ->
@@ -77,7 +77,7 @@ newDescribeModelPackageGroup pModelPackageGroupName_ =
         pModelPackageGroupName_
     }
 
--- | The name of the model group to describe.
+-- | The name of gthe model group to describe.
 describeModelPackageGroup_modelPackageGroupName :: Lens.Lens' DescribeModelPackageGroup Prelude.Text
 describeModelPackageGroup_modelPackageGroupName = Lens.lens (\DescribeModelPackageGroup' {modelPackageGroupName} -> modelPackageGroupName) (\s@DescribeModelPackageGroup' {} a -> s {modelPackageGroupName = a} :: DescribeModelPackageGroup)
 

@@ -94,10 +94,13 @@ library
     Amazonka.Kinesis.Types.StartingPosition
     Amazonka.Kinesis.Types.StreamDescription
     Amazonka.Kinesis.Types.StreamDescriptionSummary
+    Amazonka.Kinesis.Types.StreamMode
+    Amazonka.Kinesis.Types.StreamModeDetails
     Amazonka.Kinesis.Types.StreamStatus
     Amazonka.Kinesis.Types.SubscribeToShardEvent
     Amazonka.Kinesis.Types.Tag
     Amazonka.Kinesis.UpdateShardCount
+    Amazonka.Kinesis.UpdateStreamMode
     Amazonka.Kinesis.Waiters
 
   build-depends:

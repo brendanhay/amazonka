@@ -20,13 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the cors configuration information set for the bucket.
+-- Returns the Cross-Origin Resource Sharing (CORS) configuration
+-- information set for the bucket.
 --
 -- To use this operation, you must have permission to perform the
--- s3:GetBucketCORS action. By default, the bucket owner has this
+-- @s3:GetBucketCORS@ action. By default, the bucket owner has this
 -- permission and can grant it to others.
 --
--- For more information about cors, see
+-- For more information about CORS, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>.
 --
 -- The following operations are related to @GetBucketCors@:
@@ -63,8 +64,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketCors' smart constructor.
 data GetBucketCors = GetBucketCors'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name for which to get the cors configuration.
     bucket :: BucketName
@@ -80,8 +81,8 @@ data GetBucketCors = GetBucketCors'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketCors_bucket' - The bucket name for which to get the cors configuration.
 newGetBucketCors ::
@@ -96,8 +97,8 @@ newGetBucketCors pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketCors_expectedBucketOwner :: Lens.Lens' GetBucketCors (Prelude.Maybe Prelude.Text)
 getBucketCors_expectedBucketOwner = Lens.lens (\GetBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketCors' {} a -> s {expectedBucketOwner = a} :: GetBucketCors)
 

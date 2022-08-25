@@ -54,7 +54,9 @@ import qualified Amazonka.Response as Response
 data ClassifyDocument = ClassifyDocument'
   { -- | The document text to be analyzed.
     text :: Core.Sensitive Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the endpoint.
+    -- | The Amazon Resource Number (ARN) of the endpoint. For information about
+    -- endpoints, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
     endpointArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -69,7 +71,9 @@ data ClassifyDocument = ClassifyDocument'
 --
 -- 'text', 'classifyDocument_text' - The document text to be analyzed.
 --
--- 'endpointArn', 'classifyDocument_endpointArn' - The Amazon Resource Number (ARN) of the endpoint.
+-- 'endpointArn', 'classifyDocument_endpointArn' - The Amazon Resource Number (ARN) of the endpoint. For information about
+-- endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 newClassifyDocument ::
   -- | 'text'
   Prelude.Text ->
@@ -87,7 +91,9 @@ newClassifyDocument pText_ pEndpointArn_ =
 classifyDocument_text :: Lens.Lens' ClassifyDocument Prelude.Text
 classifyDocument_text = Lens.lens (\ClassifyDocument' {text} -> text) (\s@ClassifyDocument' {} a -> s {text = a} :: ClassifyDocument) Prelude.. Core._Sensitive
 
--- | The Amazon Resource Number (ARN) of the endpoint.
+-- | The Amazon Resource Number (ARN) of the endpoint. For information about
+-- endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 classifyDocument_endpointArn :: Lens.Lens' ClassifyDocument Prelude.Text
 classifyDocument_endpointArn = Lens.lens (\ClassifyDocument' {endpointArn} -> endpointArn) (\s@ClassifyDocument' {} a -> s {endpointArn = a} :: ClassifyDocument)
 

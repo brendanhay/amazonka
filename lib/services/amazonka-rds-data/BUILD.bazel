@@ -16,6 +16,8 @@ haskell_library(
         "gen/Amazonka/RDSData/Types/ColumnMetadata.hs",
         "gen/Amazonka/RDSData/Types/DecimalReturnType.hs",
         "gen/Amazonka/RDSData/Types/Field.hs",
+        "gen/Amazonka/RDSData/Types/LongReturnType.hs",
+        "gen/Amazonka/RDSData/Types/RecordsFormatType.hs",
         "gen/Amazonka/RDSData/Types/ResultSetOptions.hs",
         "gen/Amazonka/RDSData/Types/SqlParameter.hs",
         "gen/Amazonka/RDSData/Types/TypeHint.hs",

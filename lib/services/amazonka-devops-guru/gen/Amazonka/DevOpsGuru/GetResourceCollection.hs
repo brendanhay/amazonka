@@ -20,11 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns lists AWS resources that are of the specified resource
--- collection type. The one type of AWS resource collection supported is
--- AWS CloudFormation stacks. DevOps Guru can be configured to analyze only
--- the AWS resources that are defined in the stacks. You can specify up to
--- 500 AWS CloudFormation stacks.
+-- Returns lists Amazon Web Services resources that are of the specified
+-- resource collection type. The two types of Amazon Web Services resource
+-- collections supported are Amazon Web Services CloudFormation stacks and
+-- Amazon Web Services resources that contain the same Amazon Web Services
+-- tag. DevOps Guru can be configured to analyze the Amazon Web Services
+-- resources that are defined in the stacks or that are tagged using the
+-- same tag /key/. You can specify up to 500 Amazon Web Services
+-- CloudFormation stacks.
 --
 -- This operation returns paginated results.
 module Amazonka.DevOpsGuru.GetResourceCollection
@@ -59,8 +62,9 @@ data GetResourceCollection = GetResourceCollection'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of AWS resource collections to return. The one valid value is
-    -- @CLOUD_FORMATION@ for AWS CloudFormation stacks.
+    -- | The type of Amazon Web Services resource collections to return. The one
+    -- valid value is @CLOUD_FORMATION@ for Amazon Web Services CloudFormation
+    -- stacks.
     resourceCollectionType :: ResourceCollectionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,8 +80,9 @@ data GetResourceCollection = GetResourceCollection'
 -- 'nextToken', 'getResourceCollection_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'resourceCollectionType', 'getResourceCollection_resourceCollectionType' - The type of AWS resource collections to return. The one valid value is
--- @CLOUD_FORMATION@ for AWS CloudFormation stacks.
+-- 'resourceCollectionType', 'getResourceCollection_resourceCollectionType' - The type of Amazon Web Services resource collections to return. The one
+-- valid value is @CLOUD_FORMATION@ for Amazon Web Services CloudFormation
+-- stacks.
 newGetResourceCollection ::
   -- | 'resourceCollectionType'
   ResourceCollectionType ->
@@ -93,8 +98,9 @@ newGetResourceCollection pResourceCollectionType_ =
 getResourceCollection_nextToken :: Lens.Lens' GetResourceCollection (Prelude.Maybe Prelude.Text)
 getResourceCollection_nextToken = Lens.lens (\GetResourceCollection' {nextToken} -> nextToken) (\s@GetResourceCollection' {} a -> s {nextToken = a} :: GetResourceCollection)
 
--- | The type of AWS resource collections to return. The one valid value is
--- @CLOUD_FORMATION@ for AWS CloudFormation stacks.
+-- | The type of Amazon Web Services resource collections to return. The one
+-- valid value is @CLOUD_FORMATION@ for Amazon Web Services CloudFormation
+-- stacks.
 getResourceCollection_resourceCollectionType :: Lens.Lens' GetResourceCollection ResourceCollectionType
 getResourceCollection_resourceCollectionType = Lens.lens (\GetResourceCollection' {resourceCollectionType} -> resourceCollectionType) (\s@GetResourceCollection' {} a -> s {resourceCollectionType = a} :: GetResourceCollection)
 
@@ -113,6 +119,14 @@ instance Core.AWSPager GetResourceCollection where
               Prelude.. resourceCollectionFilter_cloudFormation
               Prelude.. Lens._Just
               Prelude.. cloudFormationCollectionFilter_stackNames
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getResourceCollectionResponse_resourceCollection
+              Prelude.. Lens._Just
+              Prelude.. resourceCollectionFilter_tags
               Prelude.. Lens._Just
         ) =
       Prelude.Nothing
@@ -175,10 +189,13 @@ data GetResourceCollectionResponse = GetResourceCollectionResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The requested list of AWS resource collections. The one type of AWS
-    -- resource collection supported is AWS CloudFormation stacks. DevOps Guru
-    -- can be configured to analyze only the AWS resources that are defined in
-    -- the stacks. You can specify up to 500 AWS CloudFormation stacks.
+    -- | The requested list of Amazon Web Services resource collections. The two
+    -- types of Amazon Web Services resource collections supported are Amazon
+    -- Web Services CloudFormation stacks and Amazon Web Services resources
+    -- that contain the same Amazon Web Services tag. DevOps Guru can be
+    -- configured to analyze the Amazon Web Services resources that are defined
+    -- in the stacks or that are tagged using the same tag /key/. You can
+    -- specify up to 500 Amazon Web Services CloudFormation stacks.
     resourceCollection :: Prelude.Maybe ResourceCollectionFilter,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -196,10 +213,13 @@ data GetResourceCollectionResponse = GetResourceCollectionResponse'
 -- 'nextToken', 'getResourceCollectionResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 --
--- 'resourceCollection', 'getResourceCollectionResponse_resourceCollection' - The requested list of AWS resource collections. The one type of AWS
--- resource collection supported is AWS CloudFormation stacks. DevOps Guru
--- can be configured to analyze only the AWS resources that are defined in
--- the stacks. You can specify up to 500 AWS CloudFormation stacks.
+-- 'resourceCollection', 'getResourceCollectionResponse_resourceCollection' - The requested list of Amazon Web Services resource collections. The two
+-- types of Amazon Web Services resource collections supported are Amazon
+-- Web Services CloudFormation stacks and Amazon Web Services resources
+-- that contain the same Amazon Web Services tag. DevOps Guru can be
+-- configured to analyze the Amazon Web Services resources that are defined
+-- in the stacks or that are tagged using the same tag /key/. You can
+-- specify up to 500 Amazon Web Services CloudFormation stacks.
 --
 -- 'httpStatus', 'getResourceCollectionResponse_httpStatus' - The response's http status code.
 newGetResourceCollectionResponse ::
@@ -219,10 +239,13 @@ newGetResourceCollectionResponse pHttpStatus_ =
 getResourceCollectionResponse_nextToken :: Lens.Lens' GetResourceCollectionResponse (Prelude.Maybe Prelude.Text)
 getResourceCollectionResponse_nextToken = Lens.lens (\GetResourceCollectionResponse' {nextToken} -> nextToken) (\s@GetResourceCollectionResponse' {} a -> s {nextToken = a} :: GetResourceCollectionResponse)
 
--- | The requested list of AWS resource collections. The one type of AWS
--- resource collection supported is AWS CloudFormation stacks. DevOps Guru
--- can be configured to analyze only the AWS resources that are defined in
--- the stacks. You can specify up to 500 AWS CloudFormation stacks.
+-- | The requested list of Amazon Web Services resource collections. The two
+-- types of Amazon Web Services resource collections supported are Amazon
+-- Web Services CloudFormation stacks and Amazon Web Services resources
+-- that contain the same Amazon Web Services tag. DevOps Guru can be
+-- configured to analyze the Amazon Web Services resources that are defined
+-- in the stacks or that are tagged using the same tag /key/. You can
+-- specify up to 500 Amazon Web Services CloudFormation stacks.
 getResourceCollectionResponse_resourceCollection :: Lens.Lens' GetResourceCollectionResponse (Prelude.Maybe ResourceCollectionFilter)
 getResourceCollectionResponse_resourceCollection = Lens.lens (\GetResourceCollectionResponse' {resourceCollection} -> resourceCollection) (\s@GetResourceCollectionResponse' {} a -> s {resourceCollection = a} :: GetResourceCollectionResponse)
 

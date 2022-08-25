@@ -26,10 +26,10 @@ import Amazonka.ECS.Types.ResourceRequirement
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The overrides that should be sent to a container. An empty container
--- override can be passed in. An example of an empty container override
--- would be @{\"containerOverrides\": [ ] }@. If a non-empty container
--- override is specified, the @name@ parameter must be included.
+-- | The overrides that are sent to a container. An empty container override
+-- can be passed in. An example of an empty container override is
+-- @{\"containerOverrides\": [ ] }@. If a non-empty container override is
+-- specified, the @name@ parameter must be included.
 --
 -- /See:/ 'newContainerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new OAuth2.0 resource server and defines custom scopes in it.
+-- Creates a new OAuth2.0 resource server and defines custom scopes within
+-- it.
 module Amazonka.CognitoIdentityProvider.CreateResourceServer
   ( -- * Creating a Request
     CreateResourceServer (..),
@@ -51,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResourceServer' smart constructor.
 data CreateResourceServer = CreateResourceServer'
-  { -- | A list of scopes. Each scope is map, where the keys are @name@ and
+  { -- | A list of scopes. Each scope is a key-value map with the keys @name@ and
     -- @description@.
     scopes :: Prelude.Maybe [ResourceServerScopeType],
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text,
     -- | A unique resource server identifier for the resource server. This could
-    -- be an HTTPS endpoint where the resource server is located. For example,
+    -- be an HTTPS endpoint where the resource server is located, such as
     -- @https:\/\/my-weather-api.example.com@.
     identifier :: Prelude.Text,
     -- | A friendly name for the resource server.
@@ -73,13 +74,13 @@ data CreateResourceServer = CreateResourceServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scopes', 'createResourceServer_scopes' - A list of scopes. Each scope is map, where the keys are @name@ and
+-- 'scopes', 'createResourceServer_scopes' - A list of scopes. Each scope is a key-value map with the keys @name@ and
 -- @description@.
 --
 -- 'userPoolId', 'createResourceServer_userPoolId' - The user pool ID for the user pool.
 --
 -- 'identifier', 'createResourceServer_identifier' - A unique resource server identifier for the resource server. This could
--- be an HTTPS endpoint where the resource server is located. For example,
+-- be an HTTPS endpoint where the resource server is located, such as
 -- @https:\/\/my-weather-api.example.com@.
 --
 -- 'name', 'createResourceServer_name' - A friendly name for the resource server.
@@ -102,7 +103,7 @@ newCreateResourceServer
         name = pName_
       }
 
--- | A list of scopes. Each scope is map, where the keys are @name@ and
+-- | A list of scopes. Each scope is a key-value map with the keys @name@ and
 -- @description@.
 createResourceServer_scopes :: Lens.Lens' CreateResourceServer (Prelude.Maybe [ResourceServerScopeType])
 createResourceServer_scopes = Lens.lens (\CreateResourceServer' {scopes} -> scopes) (\s@CreateResourceServer' {} a -> s {scopes = a} :: CreateResourceServer) Prelude.. Lens.mapping Lens.coerced
@@ -112,7 +113,7 @@ createResourceServer_userPoolId :: Lens.Lens' CreateResourceServer Prelude.Text
 createResourceServer_userPoolId = Lens.lens (\CreateResourceServer' {userPoolId} -> userPoolId) (\s@CreateResourceServer' {} a -> s {userPoolId = a} :: CreateResourceServer)
 
 -- | A unique resource server identifier for the resource server. This could
--- be an HTTPS endpoint where the resource server is located. For example,
+-- be an HTTPS endpoint where the resource server is located, such as
 -- @https:\/\/my-weather-api.example.com@.
 createResourceServer_identifier :: Lens.Lens' CreateResourceServer Prelude.Text
 createResourceServer_identifier = Lens.lens (\CreateResourceServer' {identifier} -> identifier) (\s@CreateResourceServer' {} a -> s {identifier = a} :: CreateResourceServer)

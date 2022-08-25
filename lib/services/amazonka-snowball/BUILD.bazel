@@ -63,6 +63,7 @@ haskell_library(
         "gen/Amazonka/Snowball/Types/SnowballType.hs",
         "gen/Amazonka/Snowball/Types/SnowconeDeviceConfiguration.hs",
         "gen/Amazonka/Snowball/Types/StorageUnit.hs",
+        "gen/Amazonka/Snowball/Types/TGWOnDeviceServiceConfiguration.hs",
         "gen/Amazonka/Snowball/Types/TargetOnDeviceService.hs",
         "gen/Amazonka/Snowball/Types/TaxDocuments.hs",
         "gen/Amazonka/Snowball/Types/TransferOption.hs",

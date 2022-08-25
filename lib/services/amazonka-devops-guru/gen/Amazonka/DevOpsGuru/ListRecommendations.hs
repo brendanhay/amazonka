@@ -33,6 +33,7 @@ module Amazonka.DevOpsGuru.ListRecommendations
     -- * Request Lenses
     listRecommendations_nextToken,
     listRecommendations_locale,
+    listRecommendations_accountId,
     listRecommendations_insightId,
 
     -- * Destructuring the Response
@@ -60,6 +61,8 @@ data ListRecommendations = ListRecommendations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A locale that specifies the language to use for recommendations.
     locale :: Prelude.Maybe Locale,
+    -- | The ID of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the requested insight.
     insightId :: Prelude.Text
   }
@@ -78,6 +81,8 @@ data ListRecommendations = ListRecommendations'
 --
 -- 'locale', 'listRecommendations_locale' - A locale that specifies the language to use for recommendations.
 --
+-- 'accountId', 'listRecommendations_accountId' - The ID of the Amazon Web Services account.
+--
 -- 'insightId', 'listRecommendations_insightId' - The ID of the requested insight.
 newListRecommendations ::
   -- | 'insightId'
@@ -87,6 +92,7 @@ newListRecommendations pInsightId_ =
   ListRecommendations'
     { nextToken = Prelude.Nothing,
       locale = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       insightId = pInsightId_
     }
 
@@ -98,6 +104,10 @@ listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> 
 -- | A locale that specifies the language to use for recommendations.
 listRecommendations_locale :: Lens.Lens' ListRecommendations (Prelude.Maybe Locale)
 listRecommendations_locale = Lens.lens (\ListRecommendations' {locale} -> locale) (\s@ListRecommendations' {} a -> s {locale = a} :: ListRecommendations)
+
+-- | The ID of the Amazon Web Services account.
+listRecommendations_accountId :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
+listRecommendations_accountId = Lens.lens (\ListRecommendations' {accountId} -> accountId) (\s@ListRecommendations' {} a -> s {accountId = a} :: ListRecommendations)
 
 -- | The ID of the requested insight.
 listRecommendations_insightId :: Lens.Lens' ListRecommendations Prelude.Text
@@ -145,12 +155,14 @@ instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` insightId
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf insightId
 
 instance Core.ToHeaders ListRecommendations where
@@ -170,6 +182,7 @@ instance Core.ToJSON ListRecommendations where
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Locale" Core..=) Prelude.<$> locale,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             Prelude.Just ("InsightId" Core..= insightId)
           ]
       )

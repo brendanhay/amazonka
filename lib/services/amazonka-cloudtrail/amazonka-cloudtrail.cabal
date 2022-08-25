@@ -45,22 +45,32 @@ library
   exposed-modules:
     Amazonka.CloudTrail
     Amazonka.CloudTrail.AddTags
+    Amazonka.CloudTrail.CancelQuery
+    Amazonka.CloudTrail.CreateEventDataStore
     Amazonka.CloudTrail.CreateTrail
+    Amazonka.CloudTrail.DeleteEventDataStore
     Amazonka.CloudTrail.DeleteTrail
+    Amazonka.CloudTrail.DescribeQuery
     Amazonka.CloudTrail.DescribeTrails
+    Amazonka.CloudTrail.GetEventDataStore
     Amazonka.CloudTrail.GetEventSelectors
     Amazonka.CloudTrail.GetInsightSelectors
+    Amazonka.CloudTrail.GetQueryResults
     Amazonka.CloudTrail.GetTrail
     Amazonka.CloudTrail.GetTrailStatus
     Amazonka.CloudTrail.Lens
+    Amazonka.CloudTrail.ListEventDataStores
     Amazonka.CloudTrail.ListPublicKeys
+    Amazonka.CloudTrail.ListQueries
     Amazonka.CloudTrail.ListTags
     Amazonka.CloudTrail.ListTrails
     Amazonka.CloudTrail.LookupEvents
     Amazonka.CloudTrail.PutEventSelectors
     Amazonka.CloudTrail.PutInsightSelectors
     Amazonka.CloudTrail.RemoveTags
+    Amazonka.CloudTrail.RestoreEventDataStore
     Amazonka.CloudTrail.StartLogging
+    Amazonka.CloudTrail.StartQuery
     Amazonka.CloudTrail.StopLogging
     Amazonka.CloudTrail.Types
     Amazonka.CloudTrail.Types.AdvancedEventSelector
@@ -68,18 +78,25 @@ library
     Amazonka.CloudTrail.Types.DataResource
     Amazonka.CloudTrail.Types.Event
     Amazonka.CloudTrail.Types.EventCategory
+    Amazonka.CloudTrail.Types.EventDataStore
+    Amazonka.CloudTrail.Types.EventDataStoreStatus
     Amazonka.CloudTrail.Types.EventSelector
     Amazonka.CloudTrail.Types.InsightSelector
     Amazonka.CloudTrail.Types.InsightType
     Amazonka.CloudTrail.Types.LookupAttribute
     Amazonka.CloudTrail.Types.LookupAttributeKey
     Amazonka.CloudTrail.Types.PublicKey
+    Amazonka.CloudTrail.Types.Query
+    Amazonka.CloudTrail.Types.QueryStatistics
+    Amazonka.CloudTrail.Types.QueryStatisticsForDescribeQuery
+    Amazonka.CloudTrail.Types.QueryStatus
     Amazonka.CloudTrail.Types.ReadWriteType
     Amazonka.CloudTrail.Types.Resource
     Amazonka.CloudTrail.Types.ResourceTag
     Amazonka.CloudTrail.Types.Tag
     Amazonka.CloudTrail.Types.Trail
     Amazonka.CloudTrail.Types.TrailInfo
+    Amazonka.CloudTrail.UpdateEventDataStore
     Amazonka.CloudTrail.UpdateTrail
     Amazonka.CloudTrail.Waiters
 

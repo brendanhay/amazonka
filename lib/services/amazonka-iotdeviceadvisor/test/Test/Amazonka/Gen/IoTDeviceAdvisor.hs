@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestDeleteSuiteDefinition $
 --             newDeleteSuiteDefinition
 --
+--         , requestGetEndpoint $
+--             newGetEndpoint
+--
 --         , requestGetSuiteDefinition $
 --             newGetSuiteDefinition
 --
@@ -74,6 +77,9 @@ import Test.Tasty
 --
 --         , responseDeleteSuiteDefinition $
 --             newDeleteSuiteDefinitionResponse
+--
+--         , responseGetEndpoint $
+--             newGetEndpointResponse
 --
 --         , responseGetSuiteDefinition $
 --             newGetSuiteDefinitionResponse
@@ -124,6 +130,12 @@ requestDeleteSuiteDefinition =
   req
     "DeleteSuiteDefinition"
     "fixture/DeleteSuiteDefinition.yaml"
+
+requestGetEndpoint :: GetEndpoint -> TestTree
+requestGetEndpoint =
+  req
+    "GetEndpoint"
+    "fixture/GetEndpoint.yaml"
 
 requestGetSuiteDefinition :: GetSuiteDefinition -> TestTree
 requestGetSuiteDefinition =
@@ -208,6 +220,14 @@ responseDeleteSuiteDefinition =
     "fixture/DeleteSuiteDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSuiteDefinition)
+
+responseGetEndpoint :: GetEndpointResponse -> TestTree
+responseGetEndpoint =
+  res
+    "GetEndpointResponse"
+    "fixture/GetEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEndpoint)
 
 responseGetSuiteDefinition :: GetSuiteDefinitionResponse -> TestTree
 responseGetSuiteDefinition =

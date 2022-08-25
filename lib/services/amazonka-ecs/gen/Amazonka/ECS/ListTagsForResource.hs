@@ -48,8 +48,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) that identifies the resource for which to
-    -- list the tags. Currently, the supported resources are Amazon ECS tasks,
+  { -- | The Amazon Resource Name (ARN) that identifies the resource to list the
+    -- tags for. Currently, the supported resources are Amazon ECS tasks,
     -- services, task definitions, clusters, and container instances.
     resourceArn :: Prelude.Text
   }
@@ -63,8 +63,8 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Amazon ECS tasks,
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource to list the
+-- tags for. Currently, the supported resources are Amazon ECS tasks,
 -- services, task definitions, clusters, and container instances.
 newListTagsForResource ::
   -- | 'resourceArn'
@@ -73,8 +73,8 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Amazon ECS tasks,
+-- | The Amazon Resource Name (ARN) that identifies the resource to list the
+-- tags for. Currently, the supported resources are Amazon ECS tasks,
 -- services, task definitions, clusters, and container instances.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)

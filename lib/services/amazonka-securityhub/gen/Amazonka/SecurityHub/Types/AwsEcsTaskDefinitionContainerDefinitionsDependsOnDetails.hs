@@ -31,7 +31,15 @@ data AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails = AwsEcsTaskDefini
     containerName :: Prelude.Maybe Prelude.Text,
     -- | The dependency condition of the dependent container. Indicates the
     -- required status of the dependent container before the current container
-    -- can start.
+    -- can start. Valid values are as follows:
+    --
+    -- -   @COMPLETE@
+    --
+    -- -   @HEALTHY@
+    --
+    -- -   @SUCCESS@
+    --
+    -- -   @START@
     condition :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +56,15 @@ data AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails = AwsEcsTaskDefini
 --
 -- 'condition', 'awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition' - The dependency condition of the dependent container. Indicates the
 -- required status of the dependent container before the current container
--- can start.
+-- can start. Valid values are as follows:
+--
+-- -   @COMPLETE@
+--
+-- -   @HEALTHY@
+--
+-- -   @SUCCESS@
+--
+-- -   @START@
 newAwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
 newAwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails =
@@ -65,7 +81,15 @@ awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_containerName = Lens.le
 
 -- | The dependency condition of the dependent container. Indicates the
 -- required status of the dependent container before the current container
--- can start.
+-- can start. Valid values are as follows:
+--
+-- -   @COMPLETE@
+--
+-- -   @HEALTHY@
+--
+-- -   @SUCCESS@
+--
+-- -   @START@
 awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {condition} -> condition) (\s@AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {} a -> s {condition = a} :: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails)
 

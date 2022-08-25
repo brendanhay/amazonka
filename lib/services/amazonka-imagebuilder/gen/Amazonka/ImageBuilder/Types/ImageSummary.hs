@@ -20,6 +20,7 @@
 module Amazonka.ImageBuilder.Types.ImageSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ImageState
 import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.OutputResources
@@ -52,6 +53,17 @@ data ImageSummary = ImageSummary'
     outputResources :: Prelude.Maybe OutputResources,
     -- | The date on which this image was created.
     dateCreated :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the type of build that created this image. The build can be
+    -- initiated in the following ways:
+    --
+    -- -   __USER_INITIATED__ – A manual pipeline build request.
+    --
+    -- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+    --     the Image Builder pipeline, or from EventBridge.
+    --
+    -- -   __IMPORT__ – A VM import created the image to use as the base image
+    --     for the recipe.
+    buildType :: Prelude.Maybe BuildType,
     -- | The version of the image.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -86,6 +98,17 @@ data ImageSummary = ImageSummary'
 --
 -- 'dateCreated', 'imageSummary_dateCreated' - The date on which this image was created.
 --
+-- 'buildType', 'imageSummary_buildType' - Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+--
 -- 'version', 'imageSummary_version' - The version of the image.
 newImageSummary ::
   ImageSummary
@@ -101,6 +124,7 @@ newImageSummary =
       platform = Prelude.Nothing,
       outputResources = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
+      buildType = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -145,6 +169,19 @@ imageSummary_outputResources = Lens.lens (\ImageSummary' {outputResources} -> ou
 imageSummary_dateCreated :: Lens.Lens' ImageSummary (Prelude.Maybe Prelude.Text)
 imageSummary_dateCreated = Lens.lens (\ImageSummary' {dateCreated} -> dateCreated) (\s@ImageSummary' {} a -> s {dateCreated = a} :: ImageSummary)
 
+-- | Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+imageSummary_buildType :: Lens.Lens' ImageSummary (Prelude.Maybe BuildType)
+imageSummary_buildType = Lens.lens (\ImageSummary' {buildType} -> buildType) (\s@ImageSummary' {} a -> s {buildType = a} :: ImageSummary)
+
 -- | The version of the image.
 imageSummary_version :: Lens.Lens' ImageSummary (Prelude.Maybe Prelude.Text)
 imageSummary_version = Lens.lens (\ImageSummary' {version} -> version) (\s@ImageSummary' {} a -> s {version = a} :: ImageSummary)
@@ -165,6 +202,7 @@ instance Core.FromJSON ImageSummary where
             Prelude.<*> (x Core..:? "platform")
             Prelude.<*> (x Core..:? "outputResources")
             Prelude.<*> (x Core..:? "dateCreated")
+            Prelude.<*> (x Core..:? "buildType")
             Prelude.<*> (x Core..:? "version")
       )
 
@@ -180,6 +218,7 @@ instance Prelude.Hashable ImageSummary where
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` outputResources
       `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData ImageSummary where
@@ -194,4 +233,5 @@ instance Prelude.NFData ImageSummary where
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf outputResources
       `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf buildType
       `Prelude.seq` Prelude.rnf version

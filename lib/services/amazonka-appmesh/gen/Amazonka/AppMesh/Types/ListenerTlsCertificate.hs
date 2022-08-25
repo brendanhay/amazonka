@@ -36,7 +36,7 @@ data ListenerTlsCertificate = ListenerTlsCertificate'
     sds :: Prelude.Maybe ListenerTlsSdsCertificate,
     -- | A reference to an object that represents a local file certificate.
     file :: Prelude.Maybe ListenerTlsFileCertificate,
-    -- | A reference to an object that represents an AWS Certicate Manager (ACM)
+    -- | A reference to an object that represents an Certificate Manager
     -- certificate.
     acm :: Prelude.Maybe ListenerTlsAcmCertificate
   }
@@ -55,7 +55,7 @@ data ListenerTlsCertificate = ListenerTlsCertificate'
 --
 -- 'file', 'listenerTlsCertificate_file' - A reference to an object that represents a local file certificate.
 --
--- 'acm', 'listenerTlsCertificate_acm' - A reference to an object that represents an AWS Certicate Manager (ACM)
+-- 'acm', 'listenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
 -- certificate.
 newListenerTlsCertificate ::
   ListenerTlsCertificate
@@ -75,7 +75,7 @@ listenerTlsCertificate_sds = Lens.lens (\ListenerTlsCertificate' {sds} -> sds) (
 listenerTlsCertificate_file :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsFileCertificate)
 listenerTlsCertificate_file = Lens.lens (\ListenerTlsCertificate' {file} -> file) (\s@ListenerTlsCertificate' {} a -> s {file = a} :: ListenerTlsCertificate)
 
--- | A reference to an object that represents an AWS Certicate Manager (ACM)
+-- | A reference to an object that represents an Certificate Manager
 -- certificate.
 listenerTlsCertificate_acm :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsAcmCertificate)
 listenerTlsCertificate_acm = Lens.lens (\ListenerTlsCertificate' {acm} -> acm) (\s@ListenerTlsCertificate' {} a -> s {acm = a} :: ListenerTlsCertificate)

@@ -25,7 +25,11 @@ import Amazonka.DLM.Types.CrossRegionCopyRetainRule
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a rule for cross-Region snapshot copies.
+-- | __[Snapshot and AMI policies only]__ Specifies a cross-Region copy rule
+-- for snapshot and AMI policies.
+--
+-- To specify a cross-Region copy action for event-based polices, use
+-- CrossRegionCopyAction.
 --
 -- /See:/ 'newCrossRegionCopyRule' smart constructor.
 data CrossRegionCopyRule = CrossRegionCopyRule'
@@ -34,10 +38,10 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
     -- is used.
     cmkArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to copy all user-defined tags from the source snapshot
-    -- to the cross-Region snapshot copy.
+    -- or AMI to the cross-Region copy.
     copyTags :: Prelude.Maybe Prelude.Bool,
-    -- | The retention rule that indicates how long snapshot copies are to be
-    -- retained in the destination Region.
+    -- | The retention rule that indicates how long the cross-Region snapshot or
+    -- AMI copies are to be retained in the destination Region.
     retainRule :: Prelude.Maybe CrossRegionCopyRetainRule,
     -- | The target Region or the Amazon Resource Name (ARN) of the target
     -- Outpost for the snapshot copies.
@@ -51,8 +55,8 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
     -- For policies created before the __Target__ parameter was introduced,
     -- this parameter indicates the target Region for snapshot copies.
     targetRegion :: Prelude.Maybe Prelude.Text,
-    -- | The AMI deprecation rule for cross-Region AMI copies created by the
-    -- rule.
+    -- | __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
+    -- copies created by the rule.
     deprecateRule :: Prelude.Maybe CrossRegionCopyDeprecateRule,
     -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
     -- not enabled, enable encryption using this parameter. Copies of encrypted
@@ -75,10 +79,10 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
 -- is used.
 --
 -- 'copyTags', 'crossRegionCopyRule_copyTags' - Indicates whether to copy all user-defined tags from the source snapshot
--- to the cross-Region snapshot copy.
+-- or AMI to the cross-Region copy.
 --
--- 'retainRule', 'crossRegionCopyRule_retainRule' - The retention rule that indicates how long snapshot copies are to be
--- retained in the destination Region.
+-- 'retainRule', 'crossRegionCopyRule_retainRule' - The retention rule that indicates how long the cross-Region snapshot or
+-- AMI copies are to be retained in the destination Region.
 --
 -- 'target', 'crossRegionCopyRule_target' - The target Region or the Amazon Resource Name (ARN) of the target
 -- Outpost for the snapshot copies.
@@ -92,8 +96,8 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
 -- For policies created before the __Target__ parameter was introduced,
 -- this parameter indicates the target Region for snapshot copies.
 --
--- 'deprecateRule', 'crossRegionCopyRule_deprecateRule' - The AMI deprecation rule for cross-Region AMI copies created by the
--- rule.
+-- 'deprecateRule', 'crossRegionCopyRule_deprecateRule' - __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
+-- copies created by the rule.
 --
 -- 'encrypted', 'crossRegionCopyRule_encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is
 -- not enabled, enable encryption using this parameter. Copies of encrypted
@@ -121,12 +125,12 @@ crossRegionCopyRule_cmkArn :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe Prel
 crossRegionCopyRule_cmkArn = Lens.lens (\CrossRegionCopyRule' {cmkArn} -> cmkArn) (\s@CrossRegionCopyRule' {} a -> s {cmkArn = a} :: CrossRegionCopyRule)
 
 -- | Indicates whether to copy all user-defined tags from the source snapshot
--- to the cross-Region snapshot copy.
+-- or AMI to the cross-Region copy.
 crossRegionCopyRule_copyTags :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe Prelude.Bool)
 crossRegionCopyRule_copyTags = Lens.lens (\CrossRegionCopyRule' {copyTags} -> copyTags) (\s@CrossRegionCopyRule' {} a -> s {copyTags = a} :: CrossRegionCopyRule)
 
--- | The retention rule that indicates how long snapshot copies are to be
--- retained in the destination Region.
+-- | The retention rule that indicates how long the cross-Region snapshot or
+-- AMI copies are to be retained in the destination Region.
 crossRegionCopyRule_retainRule :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe CrossRegionCopyRetainRule)
 crossRegionCopyRule_retainRule = Lens.lens (\CrossRegionCopyRule' {retainRule} -> retainRule) (\s@CrossRegionCopyRule' {} a -> s {retainRule = a} :: CrossRegionCopyRule)
 
@@ -146,8 +150,8 @@ crossRegionCopyRule_target = Lens.lens (\CrossRegionCopyRule' {target} -> target
 crossRegionCopyRule_targetRegion :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe Prelude.Text)
 crossRegionCopyRule_targetRegion = Lens.lens (\CrossRegionCopyRule' {targetRegion} -> targetRegion) (\s@CrossRegionCopyRule' {} a -> s {targetRegion = a} :: CrossRegionCopyRule)
 
--- | The AMI deprecation rule for cross-Region AMI copies created by the
--- rule.
+-- | __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
+-- copies created by the rule.
 crossRegionCopyRule_deprecateRule :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe CrossRegionCopyDeprecateRule)
 crossRegionCopyRule_deprecateRule = Lens.lens (\CrossRegionCopyRule' {deprecateRule} -> deprecateRule) (\s@CrossRegionCopyRule' {} a -> s {deprecateRule = a} :: CrossRegionCopyRule)
 

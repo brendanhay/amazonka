@@ -31,6 +31,8 @@ data ApplicationResponse = ApplicationResponse'
     -- are associated with the application. Each tag consists of a required tag
     -- key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The date and time when the Application was created.
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     id :: Prelude.Text,
@@ -54,6 +56,8 @@ data ApplicationResponse = ApplicationResponse'
 -- are associated with the application. Each tag consists of a required tag
 -- key and an associated tag value.
 --
+-- 'creationDate', 'applicationResponse_creationDate' - The date and time when the Application was created.
+--
 -- 'id', 'applicationResponse_id' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
 --
@@ -72,6 +76,7 @@ newApplicationResponse ::
 newApplicationResponse pId_ pArn_ pName_ =
   ApplicationResponse'
     { tags = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       id = pId_,
       arn = pArn_,
       name = pName_
@@ -82,6 +87,10 @@ newApplicationResponse pId_ pArn_ pName_ =
 -- key and an associated tag value.
 applicationResponse_tags :: Lens.Lens' ApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 applicationResponse_tags = Lens.lens (\ApplicationResponse' {tags} -> tags) (\s@ApplicationResponse' {} a -> s {tags = a} :: ApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time when the Application was created.
+applicationResponse_creationDate :: Lens.Lens' ApplicationResponse (Prelude.Maybe Prelude.Text)
+applicationResponse_creationDate = Lens.lens (\ApplicationResponse' {creationDate} -> creationDate) (\s@ApplicationResponse' {} a -> s {creationDate = a} :: ApplicationResponse)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -104,6 +113,7 @@ instance Core.FromJSON ApplicationResponse where
       ( \x ->
           ApplicationResponse'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "Name")
@@ -112,6 +122,7 @@ instance Core.FromJSON ApplicationResponse where
 instance Prelude.Hashable ApplicationResponse where
   hashWithSalt _salt ApplicationResponse' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
@@ -119,6 +130,7 @@ instance Prelude.Hashable ApplicationResponse where
 instance Prelude.NFData ApplicationResponse where
   rnf ApplicationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name

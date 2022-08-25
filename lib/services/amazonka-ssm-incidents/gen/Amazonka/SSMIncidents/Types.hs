@@ -46,6 +46,9 @@ module Amazonka.SSMIncidents.Types
     -- * TimelineEventSort
     TimelineEventSort (..),
 
+    -- * VariableType
+    VariableType (..),
+
     -- * Action
     Action (..),
     newAction,
@@ -85,6 +88,11 @@ module Amazonka.SSMIncidents.Types
     DeleteRegionAction (..),
     newDeleteRegionAction,
     deleteRegionAction_regionName,
+
+    -- * DynamicSsmParameterValue
+    DynamicSsmParameterValue (..),
+    newDynamicSsmParameterValue,
+    dynamicSsmParameterValue_variable,
 
     -- * EmptyChatChannel
     EmptyChatChannel (..),
@@ -145,6 +153,7 @@ module Amazonka.SSMIncidents.Types
     -- * IncidentTemplate
     IncidentTemplate (..),
     newIncidentTemplate,
+    incidentTemplate_incidentTags,
     incidentTemplate_summary,
     incidentTemplate_notificationTargets,
     incidentTemplate_dedupeString,
@@ -226,6 +235,7 @@ module Amazonka.SSMIncidents.Types
     ssmAutomation_targetAccount,
     ssmAutomation_parameters,
     ssmAutomation_documentVersion,
+    ssmAutomation_dynamicParameters,
     ssmAutomation_documentName,
     ssmAutomation_roleArn,
 
@@ -265,6 +275,7 @@ import Amazonka.SSMIncidents.Types.AutomationExecution
 import Amazonka.SSMIncidents.Types.ChatChannel
 import Amazonka.SSMIncidents.Types.Condition
 import Amazonka.SSMIncidents.Types.DeleteRegionAction
+import Amazonka.SSMIncidents.Types.DynamicSsmParameterValue
 import Amazonka.SSMIncidents.Types.EmptyChatChannel
 import Amazonka.SSMIncidents.Types.EventSummary
 import Amazonka.SSMIncidents.Types.Filter
@@ -293,6 +304,7 @@ import Amazonka.SSMIncidents.Types.TimelineEvent
 import Amazonka.SSMIncidents.Types.TimelineEventSort
 import Amazonka.SSMIncidents.Types.TriggerDetails
 import Amazonka.SSMIncidents.Types.UpdateReplicationSetAction
+import Amazonka.SSMIncidents.Types.VariableType
 import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-05-10@ of the Amazon Systems Manager Incident Manager SDK configuration.
@@ -366,7 +378,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | You don\'t have sufficient access to perform this action.
+-- | You don\'t have sufficient access to perform this operation.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
@@ -391,7 +403,7 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | Request references a resource which does not exist.
+-- | Request references a resource which doesn\'t exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -415,7 +427,8 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | The input fails to satisfy the constraints specified by an AWS service.
+-- | The input fails to satisfy the constraints specified by an Amazon Web
+-- Services service.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError

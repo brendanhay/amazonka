@@ -24,7 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistics for each data field imported into to an Amazon
--- Forecast dataset with the CreateDatasetImportJob operation.
+-- Forecast dataset with the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation.
 --
 -- /See:/ 'newStatistics' smart constructor.
 data Statistics = Statistics'

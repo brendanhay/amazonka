@@ -53,7 +53,7 @@
 -- parameter with the token value returned from the previous call to
 -- @GetSegmentDetection@.
 --
--- For more information, see Detecting Video Segments in Stored Video in
+-- For more information, see Detecting video segments in stored video in
 -- the Amazon Rekognition Developer Guide.
 module Amazonka.Rekognition.GetSegmentDetection
   ( -- * Creating a Request

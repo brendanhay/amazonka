@@ -70,7 +70,7 @@ data StartAutomationExecution = StartAutomationExecution'
     --
     -- -   @Key=OS,Value=Windows@
     --
-    -- To add tags to an existing patch baseline, use the AddTagsToResource
+    -- To add tags to an existing automation, use the AddTagsToResource
     -- operation.
     tags :: Prelude.Maybe [Tag],
     -- | User-provided idempotency token. The token must be unique, is case
@@ -150,7 +150,7 @@ data StartAutomationExecution = StartAutomationExecution'
 --
 -- -   @Key=OS,Value=Windows@
 --
--- To add tags to an existing patch baseline, use the AddTagsToResource
+-- To add tags to an existing automation, use the AddTagsToResource
 -- operation.
 --
 -- 'clientToken', 'startAutomationExecution_clientToken' - User-provided idempotency token. The token must be unique, is case
@@ -238,7 +238,7 @@ newStartAutomationExecution pDocumentName_ =
 --
 -- -   @Key=OS,Value=Windows@
 --
--- To add tags to an existing patch baseline, use the AddTagsToResource
+-- To add tags to an existing automation, use the AddTagsToResource
 -- operation.
 startAutomationExecution_tags :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Tag])
 startAutomationExecution_tags = Lens.lens (\StartAutomationExecution' {tags} -> tags) (\s@StartAutomationExecution' {} a -> s {tags = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced

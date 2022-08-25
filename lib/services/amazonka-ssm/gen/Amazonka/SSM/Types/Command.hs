@@ -36,9 +36,12 @@ data Command = Command'
     -- | The number of targets for which the status is Failed or Execution Timed
     -- Out.
     errorCount :: Prelude.Maybe Prelude.Int,
-    -- | If this time is reached and the command hasn\'t already started running,
-    -- it won\'t run. Calculated based on the @ExpiresAfter@ user input
-    -- provided as part of the @SendCommand@ API operation.
+    -- | If a command expires, it changes status to @DeliveryTimedOut@ for all
+    -- invocations that have the status @InProgress@, @Pending@, or @Delayed@.
+    -- @ExpiresAfter@ is calculated based on the total timeout for the overall
+    -- command. For more information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html?icmpid=docs_ec2_console#monitor-about-status-timeouts Understanding command timeout values>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     expiresAfter :: Prelude.Maybe Core.POSIX,
     -- | A detailed status of the command execution. @StatusDetails@ includes
     -- more information than @Status@ because it includes states resulting from
@@ -49,10 +52,10 @@ data Command = Command'
     -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
     -- can be one of the following values:
     --
-    -- -   Pending: The command hasn\'t been sent to any instances.
+    -- -   Pending: The command hasn\'t been sent to any managed nodes.
     --
-    -- -   In Progress: The command has been sent to at least one instance but
-    --     hasn\'t reached a final state on all instances.
+    -- -   In Progress: The command has been sent to at least one managed node
+    --     but hasn\'t reached a final state on all managed nodes.
     --
     -- -   Success: The command successfully ran on all invocations. This is a
     --     terminal state.
@@ -68,18 +71,21 @@ data Command = Command'
     -- -   Failed: The value of MaxErrors or more command invocations shows a
     --     status of Failed. This is a terminal state.
     --
-    -- -   Incomplete: The command was attempted on all instances and one or
-    --     more invocations doesn\'t have a value of Success but not enough
+    -- -   Incomplete: The command was attempted on all managed nodes and one
+    --     or more invocations doesn\'t have a value of Success but not enough
     --     invocations failed for the status to be Failed. This is a terminal
     --     state.
     --
-    -- -   Canceled: The command was terminated before it was completed. This
+    -- -   Cancelled: The command was terminated before it was completed. This
     --     is a terminal state.
     --
-    -- -   Rate Exceeded: The number of instances targeted by the command
+    -- -   Rate Exceeded: The number of managed nodes targeted by the command
     --     exceeded the account limit for pending invocations. The system has
-    --     canceled the command before running it on any instance. This is a
-    --     terminal state.
+    --     canceled the command before running it on any managed node. This is
+    --     a terminal state.
+    --
+    -- -   Delayed: The system attempted to send the command to the managed
+    --     node but wasn\'t successful. The system retries again.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The @TimeoutSeconds@ value specified for a command.
     timeoutSeconds :: Prelude.Maybe Prelude.Natural,
@@ -94,9 +100,9 @@ data Command = Command'
     outputS3Region :: Prelude.Maybe Prelude.Text,
     -- | The status of the command.
     status :: Prelude.Maybe CommandStatus,
-    -- | An array of search criteria that targets instances using a Key,Value
+    -- | An array of search criteria that targets managed nodes using a Key,Value
     -- combination that you specify. Targets is required if you don\'t provide
-    -- one or more instance IDs in the call.
+    -- one or more managed node IDs in the call.
     targets :: Prelude.Maybe [Target],
     -- | The Identity and Access Management (IAM) service role that Run Command,
     -- a capability of Amazon Web Services Systems Manager, uses to act on your
@@ -109,16 +115,16 @@ data Command = Command'
     comment :: Prelude.Maybe Prelude.Text,
     -- | The name of the document requested for execution.
     documentName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances that are allowed to run the command at
-    -- the same time. You can specify a number of instances, such as 10, or a
-    -- percentage of instances, such as 10%. The default value is 50. For more
+    -- | The maximum number of managed nodes that are allowed to run the command
+    -- at the same time. You can specify a number of managed nodes, such as 10,
+    -- or a percentage of nodes, such as 10%. The default value is 50. For more
     -- information about how to use @MaxConcurrency@, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | The number of targets for which the command invocation reached a
     -- terminal state. Terminal states include the following: Success, Failed,
-    -- Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or
+    -- Execution Timed Out, Delivery Timed Out, Cancelled, Terminated, or
     -- Undeliverable.
     completedCount :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of errors allowed before the system stops sending the
@@ -130,7 +136,7 @@ data Command = Command'
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | Configurations for sending notifications about command status changes.
     notificationConfig :: Prelude.Maybe NotificationConfig,
-    -- | The instance IDs against which this command was requested.
+    -- | The managed node IDs against which this command was requested.
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The number of targets for which the status is Delivery Timed Out.
     deliveryTimedOutCount :: Prelude.Maybe Prelude.Int,
@@ -145,9 +151,9 @@ data Command = Command'
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameter values to be inserted in the document when running the
     -- command.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Command' with all optional fields omitted.
@@ -162,9 +168,12 @@ data Command = Command'
 -- 'errorCount', 'command_errorCount' - The number of targets for which the status is Failed or Execution Timed
 -- Out.
 --
--- 'expiresAfter', 'command_expiresAfter' - If this time is reached and the command hasn\'t already started running,
--- it won\'t run. Calculated based on the @ExpiresAfter@ user input
--- provided as part of the @SendCommand@ API operation.
+-- 'expiresAfter', 'command_expiresAfter' - If a command expires, it changes status to @DeliveryTimedOut@ for all
+-- invocations that have the status @InProgress@, @Pending@, or @Delayed@.
+-- @ExpiresAfter@ is calculated based on the total timeout for the overall
+-- command. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html?icmpid=docs_ec2_console#monitor-about-status-timeouts Understanding command timeout values>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'statusDetails', 'command_statusDetails' - A detailed status of the command execution. @StatusDetails@ includes
 -- more information than @Status@ because it includes states resulting from
@@ -175,10 +184,10 @@ data Command = Command'
 -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to any instances.
+-- -   Pending: The command hasn\'t been sent to any managed nodes.
 --
--- -   In Progress: The command has been sent to at least one instance but
---     hasn\'t reached a final state on all instances.
+-- -   In Progress: The command has been sent to at least one managed node
+--     but hasn\'t reached a final state on all managed nodes.
 --
 -- -   Success: The command successfully ran on all invocations. This is a
 --     terminal state.
@@ -194,18 +203,21 @@ data Command = Command'
 -- -   Failed: The value of MaxErrors or more command invocations shows a
 --     status of Failed. This is a terminal state.
 --
--- -   Incomplete: The command was attempted on all instances and one or
---     more invocations doesn\'t have a value of Success but not enough
+-- -   Incomplete: The command was attempted on all managed nodes and one
+--     or more invocations doesn\'t have a value of Success but not enough
 --     invocations failed for the status to be Failed. This is a terminal
 --     state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Rate Exceeded: The number of instances targeted by the command
+-- -   Rate Exceeded: The number of managed nodes targeted by the command
 --     exceeded the account limit for pending invocations. The system has
---     canceled the command before running it on any instance. This is a
---     terminal state.
+--     canceled the command before running it on any managed node. This is
+--     a terminal state.
+--
+-- -   Delayed: The system attempted to send the command to the managed
+--     node but wasn\'t successful. The system retries again.
 --
 -- 'timeoutSeconds', 'command_timeoutSeconds' - The @TimeoutSeconds@ value specified for a command.
 --
@@ -220,9 +232,9 @@ data Command = Command'
 --
 -- 'status', 'command_status' - The status of the command.
 --
--- 'targets', 'command_targets' - An array of search criteria that targets instances using a Key,Value
+-- 'targets', 'command_targets' - An array of search criteria that targets managed nodes using a Key,Value
 -- combination that you specify. Targets is required if you don\'t provide
--- one or more instance IDs in the call.
+-- one or more managed node IDs in the call.
 --
 -- 'serviceRole', 'command_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
 -- a capability of Amazon Web Services Systems Manager, uses to act on your
@@ -235,16 +247,16 @@ data Command = Command'
 --
 -- 'documentName', 'command_documentName' - The name of the document requested for execution.
 --
--- 'maxConcurrency', 'command_maxConcurrency' - The maximum number of instances that are allowed to run the command at
--- the same time. You can specify a number of instances, such as 10, or a
--- percentage of instances, such as 10%. The default value is 50. For more
+-- 'maxConcurrency', 'command_maxConcurrency' - The maximum number of managed nodes that are allowed to run the command
+-- at the same time. You can specify a number of managed nodes, such as 10,
+-- or a percentage of nodes, such as 10%. The default value is 50. For more
 -- information about how to use @MaxConcurrency@, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'completedCount', 'command_completedCount' - The number of targets for which the command invocation reached a
 -- terminal state. Terminal states include the following: Success, Failed,
--- Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or
+-- Execution Timed Out, Delivery Timed Out, Cancelled, Terminated, or
 -- Undeliverable.
 --
 -- 'maxErrors', 'command_maxErrors' - The maximum number of errors allowed before the system stops sending the
@@ -256,7 +268,7 @@ data Command = Command'
 --
 -- 'notificationConfig', 'command_notificationConfig' - Configurations for sending notifications about command status changes.
 --
--- 'instanceIds', 'command_instanceIds' - The instance IDs against which this command was requested.
+-- 'instanceIds', 'command_instanceIds' - The managed node IDs against which this command was requested.
 --
 -- 'deliveryTimedOutCount', 'command_deliveryTimedOutCount' - The number of targets for which the status is Delivery Timed Out.
 --
@@ -310,9 +322,12 @@ command_targetCount = Lens.lens (\Command' {targetCount} -> targetCount) (\s@Com
 command_errorCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
 command_errorCount = Lens.lens (\Command' {errorCount} -> errorCount) (\s@Command' {} a -> s {errorCount = a} :: Command)
 
--- | If this time is reached and the command hasn\'t already started running,
--- it won\'t run. Calculated based on the @ExpiresAfter@ user input
--- provided as part of the @SendCommand@ API operation.
+-- | If a command expires, it changes status to @DeliveryTimedOut@ for all
+-- invocations that have the status @InProgress@, @Pending@, or @Delayed@.
+-- @ExpiresAfter@ is calculated based on the total timeout for the overall
+-- command. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html?icmpid=docs_ec2_console#monitor-about-status-timeouts Understanding command timeout values>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 command_expiresAfter :: Lens.Lens' Command (Prelude.Maybe Prelude.UTCTime)
 command_expiresAfter = Lens.lens (\Command' {expiresAfter} -> expiresAfter) (\s@Command' {} a -> s {expiresAfter = a} :: Command) Prelude.. Lens.mapping Core._Time
 
@@ -325,10 +340,10 @@ command_expiresAfter = Lens.lens (\Command' {expiresAfter} -> expiresAfter) (\s@
 -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to any instances.
+-- -   Pending: The command hasn\'t been sent to any managed nodes.
 --
--- -   In Progress: The command has been sent to at least one instance but
---     hasn\'t reached a final state on all instances.
+-- -   In Progress: The command has been sent to at least one managed node
+--     but hasn\'t reached a final state on all managed nodes.
 --
 -- -   Success: The command successfully ran on all invocations. This is a
 --     terminal state.
@@ -344,18 +359,21 @@ command_expiresAfter = Lens.lens (\Command' {expiresAfter} -> expiresAfter) (\s@
 -- -   Failed: The value of MaxErrors or more command invocations shows a
 --     status of Failed. This is a terminal state.
 --
--- -   Incomplete: The command was attempted on all instances and one or
---     more invocations doesn\'t have a value of Success but not enough
+-- -   Incomplete: The command was attempted on all managed nodes and one
+--     or more invocations doesn\'t have a value of Success but not enough
 --     invocations failed for the status to be Failed. This is a terminal
 --     state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Rate Exceeded: The number of instances targeted by the command
+-- -   Rate Exceeded: The number of managed nodes targeted by the command
 --     exceeded the account limit for pending invocations. The system has
---     canceled the command before running it on any instance. This is a
---     terminal state.
+--     canceled the command before running it on any managed node. This is
+--     a terminal state.
+--
+-- -   Delayed: The system attempted to send the command to the managed
+--     node but wasn\'t successful. The system retries again.
 command_statusDetails :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_statusDetails = Lens.lens (\Command' {statusDetails} -> statusDetails) (\s@Command' {} a -> s {statusDetails = a} :: Command)
 
@@ -382,9 +400,9 @@ command_outputS3Region = Lens.lens (\Command' {outputS3Region} -> outputS3Region
 command_status :: Lens.Lens' Command (Prelude.Maybe CommandStatus)
 command_status = Lens.lens (\Command' {status} -> status) (\s@Command' {} a -> s {status = a} :: Command)
 
--- | An array of search criteria that targets instances using a Key,Value
+-- | An array of search criteria that targets managed nodes using a Key,Value
 -- combination that you specify. Targets is required if you don\'t provide
--- one or more instance IDs in the call.
+-- one or more managed node IDs in the call.
 command_targets :: Lens.Lens' Command (Prelude.Maybe [Target])
 command_targets = Lens.lens (\Command' {targets} -> targets) (\s@Command' {} a -> s {targets = a} :: Command) Prelude.. Lens.mapping Lens.coerced
 
@@ -407,9 +425,9 @@ command_comment = Lens.lens (\Command' {comment} -> comment) (\s@Command' {} a -
 command_documentName :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_documentName = Lens.lens (\Command' {documentName} -> documentName) (\s@Command' {} a -> s {documentName = a} :: Command)
 
--- | The maximum number of instances that are allowed to run the command at
--- the same time. You can specify a number of instances, such as 10, or a
--- percentage of instances, such as 10%. The default value is 50. For more
+-- | The maximum number of managed nodes that are allowed to run the command
+-- at the same time. You can specify a number of managed nodes, such as 10,
+-- or a percentage of nodes, such as 10%. The default value is 50. For more
 -- information about how to use @MaxConcurrency@, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
 -- in the /Amazon Web Services Systems Manager User Guide/.
@@ -418,7 +436,7 @@ command_maxConcurrency = Lens.lens (\Command' {maxConcurrency} -> maxConcurrency
 
 -- | The number of targets for which the command invocation reached a
 -- terminal state. Terminal states include the following: Success, Failed,
--- Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or
+-- Execution Timed Out, Delivery Timed Out, Cancelled, Terminated, or
 -- Undeliverable.
 command_completedCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
 command_completedCount = Lens.lens (\Command' {completedCount} -> completedCount) (\s@Command' {} a -> s {completedCount = a} :: Command)
@@ -436,7 +454,7 @@ command_maxErrors = Lens.lens (\Command' {maxErrors} -> maxErrors) (\s@Command' 
 command_notificationConfig :: Lens.Lens' Command (Prelude.Maybe NotificationConfig)
 command_notificationConfig = Lens.lens (\Command' {notificationConfig} -> notificationConfig) (\s@Command' {} a -> s {notificationConfig = a} :: Command)
 
--- | The instance IDs against which this command was requested.
+-- | The managed node IDs against which this command was requested.
 command_instanceIds :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
 command_instanceIds = Lens.lens (\Command' {instanceIds} -> instanceIds) (\s@Command' {} a -> s {instanceIds = a} :: Command) Prelude.. Lens.mapping Lens.coerced
 
@@ -462,7 +480,7 @@ command_documentVersion = Lens.lens (\Command' {documentVersion} -> documentVers
 -- | The parameter values to be inserted in the document when running the
 -- command.
 command_parameters :: Lens.Lens' Command (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-command_parameters = Lens.lens (\Command' {parameters} -> parameters) (\s@Command' {} a -> s {parameters = a} :: Command) Prelude.. Lens.mapping Lens.coerced
+command_parameters = Lens.lens (\Command' {parameters} -> parameters) (\s@Command' {} a -> s {parameters = a} :: Command) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 instance Core.FromJSON Command where
   parseJSON =

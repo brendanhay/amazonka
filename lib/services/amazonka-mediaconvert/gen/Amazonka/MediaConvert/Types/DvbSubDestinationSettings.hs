@@ -123,12 +123,12 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- outline color data from your input captions, if present. Within your job
     -- settings, all of your DVB-Sub settings must be identical.
     outlineColor :: Prelude.Maybe DvbSubtitleOutlineColor,
-    -- | Specify whether the Text spacing (TextSpacing) in your captions is set
-    -- by the captions grid, or varies depending on letter width. Choose fixed
-    -- grid (FIXED_GRID) to conform to the spacing specified in the captions
-    -- file more accurately. Choose proportional (PROPORTIONAL) to make the
-    -- text easier to read for closed captions. Within your job settings, all
-    -- of your DVB-Sub settings must be identical.
+    -- | Specify whether the Text spacing (TeletextSpacing) in your captions is
+    -- set by the captions grid, or varies depending on letter width. Choose
+    -- fixed grid (FIXED_GRID) to conform to the spacing specified in the
+    -- captions file more accurately. Choose proportional (PROPORTIONAL) to
+    -- make the text easier to read for closed captions. Within your job
+    -- settings, all of your DVB-Sub settings must be identical.
     teletextSpacing :: Prelude.Maybe DvbSubtitleTeletextSpacing,
     -- | Use this setting, along with DDS y-coordinate (ddsYCoordinate), to
     -- specify the upper left corner of the display definition segment (DDS)
@@ -327,12 +327,12 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- outline color data from your input captions, if present. Within your job
 -- settings, all of your DVB-Sub settings must be identical.
 --
--- 'teletextSpacing', 'dvbSubDestinationSettings_teletextSpacing' - Specify whether the Text spacing (TextSpacing) in your captions is set
--- by the captions grid, or varies depending on letter width. Choose fixed
--- grid (FIXED_GRID) to conform to the spacing specified in the captions
--- file more accurately. Choose proportional (PROPORTIONAL) to make the
--- text easier to read for closed captions. Within your job settings, all
--- of your DVB-Sub settings must be identical.
+-- 'teletextSpacing', 'dvbSubDestinationSettings_teletextSpacing' - Specify whether the Text spacing (TeletextSpacing) in your captions is
+-- set by the captions grid, or varies depending on letter width. Choose
+-- fixed grid (FIXED_GRID) to conform to the spacing specified in the
+-- captions file more accurately. Choose proportional (PROPORTIONAL) to
+-- make the text easier to read for closed captions. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 --
 -- 'ddsXCoordinate', 'dvbSubDestinationSettings_ddsXCoordinate' - Use this setting, along with DDS y-coordinate (ddsYCoordinate), to
 -- specify the upper left corner of the display definition segment (DDS)
@@ -575,12 +575,12 @@ dvbSubDestinationSettings_applyFontColor = Lens.lens (\DvbSubDestinationSettings
 dvbSubDestinationSettings_outlineColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleOutlineColor)
 dvbSubDestinationSettings_outlineColor = Lens.lens (\DvbSubDestinationSettings' {outlineColor} -> outlineColor) (\s@DvbSubDestinationSettings' {} a -> s {outlineColor = a} :: DvbSubDestinationSettings)
 
--- | Specify whether the Text spacing (TextSpacing) in your captions is set
--- by the captions grid, or varies depending on letter width. Choose fixed
--- grid (FIXED_GRID) to conform to the spacing specified in the captions
--- file more accurately. Choose proportional (PROPORTIONAL) to make the
--- text easier to read for closed captions. Within your job settings, all
--- of your DVB-Sub settings must be identical.
+-- | Specify whether the Text spacing (TeletextSpacing) in your captions is
+-- set by the captions grid, or varies depending on letter width. Choose
+-- fixed grid (FIXED_GRID) to conform to the spacing specified in the
+-- captions file more accurately. Choose proportional (PROPORTIONAL) to
+-- make the text easier to read for closed captions. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_teletextSpacing :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleTeletextSpacing)
 dvbSubDestinationSettings_teletextSpacing = Lens.lens (\DvbSubDestinationSettings' {teletextSpacing} -> teletextSpacing) (\s@DvbSubDestinationSettings' {} a -> s {teletextSpacing = a} :: DvbSubDestinationSettings)
 

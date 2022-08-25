@@ -36,6 +36,7 @@ module Amazonka.MediaLive.StopChannel
     -- * Response Lenses
     stopChannelResponse_tags,
     stopChannelResponse_name,
+    stopChannelResponse_maintenance,
     stopChannelResponse_roleArn,
     stopChannelResponse_vpc,
     stopChannelResponse_logLevel,
@@ -100,6 +101,7 @@ instance Core.AWSRequest StopChannel where
           StopChannelResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "maintenance")
             Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (x Core..?> "vpc")
             Prelude.<*> (x Core..?> "logLevel")
@@ -161,6 +163,8 @@ data StopChannelResponse = StopChannelResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel. (user-mutable)
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceStatus,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -210,6 +214,8 @@ data StopChannelResponse = StopChannelResponse'
 --
 -- 'name', 'stopChannelResponse_name' - The name of the channel. (user-mutable)
 --
+-- 'maintenance', 'stopChannelResponse_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'stopChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 --
@@ -253,6 +259,7 @@ newStopChannelResponse pHttpStatus_ =
   StopChannelResponse'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -278,6 +285,10 @@ stopChannelResponse_tags = Lens.lens (\StopChannelResponse' {tags} -> tags) (\s@
 -- | The name of the channel. (user-mutable)
 stopChannelResponse_name :: Lens.Lens' StopChannelResponse (Prelude.Maybe Prelude.Text)
 stopChannelResponse_name = Lens.lens (\StopChannelResponse' {name} -> name) (\s@StopChannelResponse' {} a -> s {name = a} :: StopChannelResponse)
+
+-- | Maintenance settings for this channel.
+stopChannelResponse_maintenance :: Lens.Lens' StopChannelResponse (Prelude.Maybe MaintenanceStatus)
+stopChannelResponse_maintenance = Lens.lens (\StopChannelResponse' {maintenance} -> maintenance) (\s@StopChannelResponse' {} a -> s {maintenance = a} :: StopChannelResponse)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
@@ -351,6 +362,7 @@ instance Prelude.NFData StopChannelResponse where
   rnf StopChannelResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel

@@ -330,6 +330,7 @@ module Amazonka.ECS.Lens
     -- ** RegisterTaskDefinition
     registerTaskDefinition_tags,
     registerTaskDefinition_ephemeralStorage,
+    registerTaskDefinition_runtimePlatform,
     registerTaskDefinition_proxyConfiguration,
     registerTaskDefinition_pidMode,
     registerTaskDefinition_memory,
@@ -472,6 +473,7 @@ module Amazonka.ECS.Lens
     -- ** UpdateService
     updateService_healthCheckGracePeriodSeconds,
     updateService_deploymentConfiguration,
+    updateService_serviceRegistries,
     updateService_cluster,
     updateService_placementStrategy,
     updateService_taskDefinition,
@@ -480,8 +482,11 @@ module Amazonka.ECS.Lens
     updateService_enableExecuteCommand,
     updateService_capacityProviderStrategy,
     updateService_placementConstraints,
+    updateService_propagateTags,
+    updateService_loadBalancers,
     updateService_forceNewDeployment,
     updateService_platformVersion,
+    updateService_enableECSManagedTags,
     updateService_service,
     updateServiceResponse_service,
     updateServiceResponse_httpStatus,
@@ -644,6 +649,7 @@ module Amazonka.ECS.Lens
     containerInstance_pendingTasksCount,
     containerInstance_versionInfo,
     containerInstance_agentUpdateStatus,
+    containerInstance_healthStatus,
     containerInstance_statusReason,
     containerInstance_status,
     containerInstance_agentConnected,
@@ -653,6 +659,10 @@ module Amazonka.ECS.Lens
     containerInstance_attributes,
     containerInstance_registeredAt,
     containerInstance_version,
+
+    -- ** ContainerInstanceHealthStatus
+    containerInstanceHealthStatus_details,
+    containerInstanceHealthStatus_overallStatus,
 
     -- ** ContainerOverride
     containerOverride_name,
@@ -672,6 +682,7 @@ module Amazonka.ECS.Lens
     containerService_roleArn,
     containerService_serviceRegistries,
     containerService_schedulingStrategy,
+    containerService_platformFamily,
     containerService_placementStrategy,
     containerService_taskDefinition,
     containerService_networkConfiguration,
@@ -706,6 +717,7 @@ module Amazonka.ECS.Lens
     containerStateChange_imageDigest,
 
     -- ** Deployment
+    deployment_platformFamily,
     deployment_taskDefinition,
     deployment_failedTasks,
     deployment_networkConfiguration,
@@ -816,6 +828,12 @@ module Amazonka.ECS.Lens
     inferenceAcceleratorOverride_deviceName,
     inferenceAcceleratorOverride_deviceType,
 
+    -- ** InstanceHealthCheckResult
+    instanceHealthCheckResult_type,
+    instanceHealthCheckResult_status,
+    instanceHealthCheckResult_lastStatusChange,
+    instanceHealthCheckResult_lastUpdated,
+
     -- ** KernelCapabilities
     kernelCapabilities_drop,
     kernelCapabilities_add,
@@ -919,6 +937,10 @@ module Amazonka.ECS.Lens
     resourceRequirement_value,
     resourceRequirement_type,
 
+    -- ** RuntimePlatform
+    runtimePlatform_operatingSystemFamily,
+    runtimePlatform_cpuArchitecture,
+
     -- ** Scale
     scale_unit,
     scale_value,
@@ -963,6 +985,7 @@ module Amazonka.ECS.Lens
     task_ephemeralStorage,
     task_executionStoppedAt,
     task_pullStoppedAt,
+    task_platformFamily,
     task_memory,
     task_cpu,
     task_taskArn,
@@ -995,6 +1018,7 @@ module Amazonka.ECS.Lens
 
     -- ** TaskDefinition
     taskDefinition_ephemeralStorage,
+    taskDefinition_runtimePlatform,
     taskDefinition_proxyConfiguration,
     taskDefinition_requiresAttributes,
     taskDefinition_pidMode,
@@ -1035,6 +1059,7 @@ module Amazonka.ECS.Lens
     taskSet_tags,
     taskSet_clusterArn,
     taskSet_serviceRegistries,
+    taskSet_platformFamily,
     taskSet_taskDefinition,
     taskSet_stabilityStatus,
     taskSet_externalId,
@@ -1142,6 +1167,7 @@ import Amazonka.ECS.Types.Container
 import Amazonka.ECS.Types.ContainerDefinition
 import Amazonka.ECS.Types.ContainerDependency
 import Amazonka.ECS.Types.ContainerInstance
+import Amazonka.ECS.Types.ContainerInstanceHealthStatus
 import Amazonka.ECS.Types.ContainerOverride
 import Amazonka.ECS.Types.ContainerService
 import Amazonka.ECS.Types.ContainerStateChange
@@ -1166,6 +1192,7 @@ import Amazonka.ECS.Types.HostEntry
 import Amazonka.ECS.Types.HostVolumeProperties
 import Amazonka.ECS.Types.InferenceAccelerator
 import Amazonka.ECS.Types.InferenceAcceleratorOverride
+import Amazonka.ECS.Types.InstanceHealthCheckResult
 import Amazonka.ECS.Types.KernelCapabilities
 import Amazonka.ECS.Types.KeyValuePair
 import Amazonka.ECS.Types.LinuxParameters
@@ -1186,6 +1213,7 @@ import Amazonka.ECS.Types.ProxyConfiguration
 import Amazonka.ECS.Types.RepositoryCredentials
 import Amazonka.ECS.Types.Resource
 import Amazonka.ECS.Types.ResourceRequirement
+import Amazonka.ECS.Types.RuntimePlatform
 import Amazonka.ECS.Types.Scale
 import Amazonka.ECS.Types.Secret
 import Amazonka.ECS.Types.ServiceEvent

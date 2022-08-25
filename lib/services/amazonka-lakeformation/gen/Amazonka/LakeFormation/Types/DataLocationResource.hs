@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDataLocationResource' smart constructor.
 data DataLocationResource = DataLocationResource'
   { -- | The identifier for the Data Catalog where the location is registered
-    -- with AWS Lake Formation. By default, it is the account ID of the caller.
+    -- with Lake Formation. By default, it is the account ID of the caller.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the data
     -- location resource.
@@ -46,7 +46,7 @@ data DataLocationResource = DataLocationResource'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'dataLocationResource_catalogId' - The identifier for the Data Catalog where the location is registered
--- with AWS Lake Formation. By default, it is the account ID of the caller.
+-- with Lake Formation. By default, it is the account ID of the caller.
 --
 -- 'resourceArn', 'dataLocationResource_resourceArn' - The Amazon Resource Name (ARN) that uniquely identifies the data
 -- location resource.
@@ -61,7 +61,7 @@ newDataLocationResource pResourceArn_ =
     }
 
 -- | The identifier for the Data Catalog where the location is registered
--- with AWS Lake Formation. By default, it is the account ID of the caller.
+-- with Lake Formation. By default, it is the account ID of the caller.
 dataLocationResource_catalogId :: Lens.Lens' DataLocationResource (Prelude.Maybe Prelude.Text)
 dataLocationResource_catalogId = Lens.lens (\DataLocationResource' {catalogId} -> catalogId) (\s@DataLocationResource' {} a -> s {catalogId = a} :: DataLocationResource)
 

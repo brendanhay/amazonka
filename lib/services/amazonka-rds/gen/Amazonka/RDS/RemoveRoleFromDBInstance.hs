@@ -53,7 +53,7 @@ data RemoveRoleFromDBInstance = RemoveRoleFromDBInstance'
     -- DB instance, for example, @arn:aws:iam::123456789012:role\/AccessRole@.
     roleArn :: Prelude.Text,
     -- | The name of the feature for the DB instance that the IAM role is to be
-    -- disassociated from. For the list of supported feature names, see
+    -- disassociated from. For information about supported feature names, see
     -- @DBEngineVersion@.
     featureName :: Prelude.Text
   }
@@ -73,7 +73,7 @@ data RemoveRoleFromDBInstance = RemoveRoleFromDBInstance'
 -- DB instance, for example, @arn:aws:iam::123456789012:role\/AccessRole@.
 --
 -- 'featureName', 'removeRoleFromDBInstance_featureName' - The name of the feature for the DB instance that the IAM role is to be
--- disassociated from. For the list of supported feature names, see
+-- disassociated from. For information about supported feature names, see
 -- @DBEngineVersion@.
 newRemoveRoleFromDBInstance ::
   -- | 'dbInstanceIdentifier'
@@ -104,7 +104,7 @@ removeRoleFromDBInstance_roleArn :: Lens.Lens' RemoveRoleFromDBInstance Prelude.
 removeRoleFromDBInstance_roleArn = Lens.lens (\RemoveRoleFromDBInstance' {roleArn} -> roleArn) (\s@RemoveRoleFromDBInstance' {} a -> s {roleArn = a} :: RemoveRoleFromDBInstance)
 
 -- | The name of the feature for the DB instance that the IAM role is to be
--- disassociated from. For the list of supported feature names, see
+-- disassociated from. For information about supported feature names, see
 -- @DBEngineVersion@.
 removeRoleFromDBInstance_featureName :: Lens.Lens' RemoveRoleFromDBInstance Prelude.Text
 removeRoleFromDBInstance_featureName = Lens.lens (\RemoveRoleFromDBInstance' {featureName} -> featureName) (\s@RemoveRoleFromDBInstance' {} a -> s {featureName = a} :: RemoveRoleFromDBInstance)

@@ -90,34 +90,20 @@ data ContainerProperties = ContainerProperties'
     -- @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before containers
     -- placed on that instance can use these log configuration options. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     logConfiguration :: Prelude.Maybe LogConfiguration,
     -- | The type and amount of resources to assign to a container. The supported
     -- resources include @GPU@, @MEMORY@, and @VCPU@.
     resourceRequirements :: Prelude.Maybe [ResourceRequirement],
-    -- | This parameter indicates the memory hard limit (in MiB) for a container.
-    -- If your container attempts to exceed the specified number, it\'s
-    -- terminated. You must specify at least 4 MiB of memory for a job using
-    -- this parameter. The memory hard limit can be specified in several
-    -- places. It must be specified for each node at least once.
-    --
-    -- This parameter maps to @Memory@ in the
-    -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
-    -- section of the
-    -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
-    -- @--memory@ option to
-    -- <https://docs.docker.com/engine/reference/run/ docker run>.
-    --
-    -- This parameter is supported on EC2 resources but isn\'t supported on
-    -- Fargate resources. For Fargate resources, you should specify the memory
-    -- requirement using @resourceRequirement@. You can also do this for EC2
-    -- resources.
-    --
-    -- If you\'re trying to maximize your resource utilization by providing
-    -- your jobs as much memory as possible for a particular instance type, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
-    -- in the /Batch User Guide/.
+    -- | This parameter is deprecated, use @resourceRequirements@ to specify the
+    -- memory requirements for the job definition. It\'s not supported for jobs
+    -- running on Fargate resources. For jobs running on EC2 resources, it
+    -- specifies the memory hard limit (in MiB) for a container. If your
+    -- container attempts to exceed the specified number, it\'s terminated. You
+    -- must specify at least 4 MiB of memory for a job using this parameter.
+    -- The memory hard limit can be specified in several places. It must be
+    -- specified for each node at least once.
     memory :: Prelude.Maybe Prelude.Int,
     -- | The user name to use inside the container. This parameter maps to @User@
     -- in the
@@ -140,7 +126,7 @@ data ContainerProperties = ContainerProperties'
     ulimits :: Prelude.Maybe [Ulimit],
     -- | The Amazon Resource Name (ARN) of the IAM role that the container can
     -- assume for Amazon Web Services permissions. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM roles for tasks>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     jobRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The platform configuration for jobs that are running on Fargate
@@ -186,8 +172,13 @@ data ContainerProperties = ContainerProperties'
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources and shouldn\'t be provided, or specified as false.
     privileged :: Prelude.Maybe Prelude.Bool,
-    -- | The number of vCPUs reserved for the job. Each vCPU is equivalent to
-    -- 1,024 CPU shares. This parameter maps to @CpuShares@ in the
+    -- | This parameter is deprecated, use @resourceRequirements@ to specify the
+    -- vCPU requirements for the job definition. It\'s not supported for jobs
+    -- running on Fargate resources. For jobs running on EC2 resources, it
+    -- specifies the number of vCPUs reserved for the job.
+    --
+    -- Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to
+    -- @CpuShares@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -195,16 +186,6 @@ data ContainerProperties = ContainerProperties'
     -- <https://docs.docker.com/engine/reference/run/ docker run>. The number
     -- of vCPUs must be specified but can be specified in several places. You
     -- must specify it at least once for each node.
-    --
-    -- This parameter is supported on EC2 resources but isn\'t supported for
-    -- jobs that run on Fargate resources. For these resources, use
-    -- @resourceRequirement@ instead. You can use this parameter or
-    -- @resourceRequirements@ structure but not both.
-    --
-    -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources and shouldn\'t be provided. For jobs that run on Fargate
-    -- resources, you must specify the vCPU requirement for the job using
-    -- @resourceRequirements@.
     vcpus :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the execution role that Batch can
     -- assume. For jobs that run on Fargate resources, you must provide an
@@ -236,6 +217,11 @@ data ContainerProperties = ContainerProperties'
     -- Docker image architecture must match the processor architecture of the
     -- compute resources that they\'re scheduled on. For example, ARM-based
     -- Docker images can only run on ARM-based compute resources.
+    --
+    -- -   Images in Amazon ECR Public repositories use the full
+    --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
+    --     naming conventions. For example,
+    --     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
     --
     -- -   Images in Amazon ECR repositories use the full registry and
     --     repository URI (for example,
@@ -316,34 +302,20 @@ data ContainerProperties = ContainerProperties'
 -- @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before containers
 -- placed on that instance can use these log configuration options. For
 -- more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'resourceRequirements', 'containerProperties_resourceRequirements' - The type and amount of resources to assign to a container. The supported
 -- resources include @GPU@, @MEMORY@, and @VCPU@.
 --
--- 'memory', 'containerProperties_memory' - This parameter indicates the memory hard limit (in MiB) for a container.
--- If your container attempts to exceed the specified number, it\'s
--- terminated. You must specify at least 4 MiB of memory for a job using
--- this parameter. The memory hard limit can be specified in several
--- places. It must be specified for each node at least once.
---
--- This parameter maps to @Memory@ in the
--- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
--- @--memory@ option to
--- <https://docs.docker.com/engine/reference/run/ docker run>.
---
--- This parameter is supported on EC2 resources but isn\'t supported on
--- Fargate resources. For Fargate resources, you should specify the memory
--- requirement using @resourceRequirement@. You can also do this for EC2
--- resources.
---
--- If you\'re trying to maximize your resource utilization by providing
--- your jobs as much memory as possible for a particular instance type, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
--- in the /Batch User Guide/.
+-- 'memory', 'containerProperties_memory' - This parameter is deprecated, use @resourceRequirements@ to specify the
+-- memory requirements for the job definition. It\'s not supported for jobs
+-- running on Fargate resources. For jobs running on EC2 resources, it
+-- specifies the memory hard limit (in MiB) for a container. If your
+-- container attempts to exceed the specified number, it\'s terminated. You
+-- must specify at least 4 MiB of memory for a job using this parameter.
+-- The memory hard limit can be specified in several places. It must be
+-- specified for each node at least once.
 --
 -- 'user', 'containerProperties_user' - The user name to use inside the container. This parameter maps to @User@
 -- in the
@@ -366,7 +338,7 @@ data ContainerProperties = ContainerProperties'
 --
 -- 'jobRoleArn', 'containerProperties_jobRoleArn' - The Amazon Resource Name (ARN) of the IAM role that the container can
 -- assume for Amazon Web Services permissions. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM roles for tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'fargatePlatformConfiguration', 'containerProperties_fargatePlatformConfiguration' - The platform configuration for jobs that are running on Fargate
@@ -412,8 +384,13 @@ data ContainerProperties = ContainerProperties'
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided, or specified as false.
 --
--- 'vcpus', 'containerProperties_vcpus' - The number of vCPUs reserved for the job. Each vCPU is equivalent to
--- 1,024 CPU shares. This parameter maps to @CpuShares@ in the
+-- 'vcpus', 'containerProperties_vcpus' - This parameter is deprecated, use @resourceRequirements@ to specify the
+-- vCPU requirements for the job definition. It\'s not supported for jobs
+-- running on Fargate resources. For jobs running on EC2 resources, it
+-- specifies the number of vCPUs reserved for the job.
+--
+-- Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to
+-- @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -421,16 +398,6 @@ data ContainerProperties = ContainerProperties'
 -- <https://docs.docker.com/engine/reference/run/ docker run>. The number
 -- of vCPUs must be specified but can be specified in several places. You
 -- must specify it at least once for each node.
---
--- This parameter is supported on EC2 resources but isn\'t supported for
--- jobs that run on Fargate resources. For these resources, use
--- @resourceRequirement@ instead. You can use this parameter or
--- @resourceRequirements@ structure but not both.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources and shouldn\'t be provided. For jobs that run on Fargate
--- resources, you must specify the vCPU requirement for the job using
--- @resourceRequirements@.
 --
 -- 'executionRoleArn', 'containerProperties_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role that Batch can
 -- assume. For jobs that run on Fargate resources, you must provide an
@@ -462,6 +429,11 @@ data ContainerProperties = ContainerProperties'
 -- Docker image architecture must match the processor architecture of the
 -- compute resources that they\'re scheduled on. For example, ARM-based
 -- Docker images can only run on ARM-based compute resources.
+--
+-- -   Images in Amazon ECR Public repositories use the full
+--     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
+--     naming conventions. For example,
+--     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
@@ -561,7 +533,7 @@ containerProperties_environment = Lens.lens (\ContainerProperties' {environment}
 -- @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before containers
 -- placed on that instance can use these log configuration options. For
 -- more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 containerProperties_logConfiguration :: Lens.Lens' ContainerProperties (Prelude.Maybe LogConfiguration)
 containerProperties_logConfiguration = Lens.lens (\ContainerProperties' {logConfiguration} -> logConfiguration) (\s@ContainerProperties' {} a -> s {logConfiguration = a} :: ContainerProperties)
@@ -571,28 +543,14 @@ containerProperties_logConfiguration = Lens.lens (\ContainerProperties' {logConf
 containerProperties_resourceRequirements :: Lens.Lens' ContainerProperties (Prelude.Maybe [ResourceRequirement])
 containerProperties_resourceRequirements = Lens.lens (\ContainerProperties' {resourceRequirements} -> resourceRequirements) (\s@ContainerProperties' {} a -> s {resourceRequirements = a} :: ContainerProperties) Prelude.. Lens.mapping Lens.coerced
 
--- | This parameter indicates the memory hard limit (in MiB) for a container.
--- If your container attempts to exceed the specified number, it\'s
--- terminated. You must specify at least 4 MiB of memory for a job using
--- this parameter. The memory hard limit can be specified in several
--- places. It must be specified for each node at least once.
---
--- This parameter maps to @Memory@ in the
--- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
--- @--memory@ option to
--- <https://docs.docker.com/engine/reference/run/ docker run>.
---
--- This parameter is supported on EC2 resources but isn\'t supported on
--- Fargate resources. For Fargate resources, you should specify the memory
--- requirement using @resourceRequirement@. You can also do this for EC2
--- resources.
---
--- If you\'re trying to maximize your resource utilization by providing
--- your jobs as much memory as possible for a particular instance type, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
--- in the /Batch User Guide/.
+-- | This parameter is deprecated, use @resourceRequirements@ to specify the
+-- memory requirements for the job definition. It\'s not supported for jobs
+-- running on Fargate resources. For jobs running on EC2 resources, it
+-- specifies the memory hard limit (in MiB) for a container. If your
+-- container attempts to exceed the specified number, it\'s terminated. You
+-- must specify at least 4 MiB of memory for a job using this parameter.
+-- The memory hard limit can be specified in several places. It must be
+-- specified for each node at least once.
 containerProperties_memory :: Lens.Lens' ContainerProperties (Prelude.Maybe Prelude.Int)
 containerProperties_memory = Lens.lens (\ContainerProperties' {memory} -> memory) (\s@ContainerProperties' {} a -> s {memory = a} :: ContainerProperties)
 
@@ -621,7 +579,7 @@ containerProperties_ulimits = Lens.lens (\ContainerProperties' {ulimits} -> ulim
 
 -- | The Amazon Resource Name (ARN) of the IAM role that the container can
 -- assume for Amazon Web Services permissions. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM roles for tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 containerProperties_jobRoleArn :: Lens.Lens' ContainerProperties (Prelude.Maybe Prelude.Text)
 containerProperties_jobRoleArn = Lens.lens (\ContainerProperties' {jobRoleArn} -> jobRoleArn) (\s@ContainerProperties' {} a -> s {jobRoleArn = a} :: ContainerProperties)
@@ -683,8 +641,13 @@ containerProperties_volumes = Lens.lens (\ContainerProperties' {volumes} -> volu
 containerProperties_privileged :: Lens.Lens' ContainerProperties (Prelude.Maybe Prelude.Bool)
 containerProperties_privileged = Lens.lens (\ContainerProperties' {privileged} -> privileged) (\s@ContainerProperties' {} a -> s {privileged = a} :: ContainerProperties)
 
--- | The number of vCPUs reserved for the job. Each vCPU is equivalent to
--- 1,024 CPU shares. This parameter maps to @CpuShares@ in the
+-- | This parameter is deprecated, use @resourceRequirements@ to specify the
+-- vCPU requirements for the job definition. It\'s not supported for jobs
+-- running on Fargate resources. For jobs running on EC2 resources, it
+-- specifies the number of vCPUs reserved for the job.
+--
+-- Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to
+-- @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -692,16 +655,6 @@ containerProperties_privileged = Lens.lens (\ContainerProperties' {privileged} -
 -- <https://docs.docker.com/engine/reference/run/ docker run>. The number
 -- of vCPUs must be specified but can be specified in several places. You
 -- must specify it at least once for each node.
---
--- This parameter is supported on EC2 resources but isn\'t supported for
--- jobs that run on Fargate resources. For these resources, use
--- @resourceRequirement@ instead. You can use this parameter or
--- @resourceRequirements@ structure but not both.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources and shouldn\'t be provided. For jobs that run on Fargate
--- resources, you must specify the vCPU requirement for the job using
--- @resourceRequirements@.
 containerProperties_vcpus :: Lens.Lens' ContainerProperties (Prelude.Maybe Prelude.Int)
 containerProperties_vcpus = Lens.lens (\ContainerProperties' {vcpus} -> vcpus) (\s@ContainerProperties' {} a -> s {vcpus = a} :: ContainerProperties)
 
@@ -739,6 +692,11 @@ containerProperties_mountPoints = Lens.lens (\ContainerProperties' {mountPoints}
 -- Docker image architecture must match the processor architecture of the
 -- compute resources that they\'re scheduled on. For example, ARM-based
 -- Docker images can only run on ARM-based compute resources.
+--
+-- -   Images in Amazon ECR Public repositories use the full
+--     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
+--     naming conventions. For example,
+--     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,

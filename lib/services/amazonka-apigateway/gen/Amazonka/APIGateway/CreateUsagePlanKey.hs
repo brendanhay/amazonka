@@ -55,14 +55,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateUsagePlanKey' smart constructor.
 data CreateUsagePlanKey = CreateUsagePlanKey'
-  { -- | [Required] The Id of the UsagePlan resource representing the usage plan
-    -- containing the to-be-created UsagePlanKey resource representing a plan
-    -- customer.
+  { -- | The Id of the UsagePlan resource representing the usage plan containing
+    -- the to-be-created UsagePlanKey resource representing a plan customer.
     usagePlanId :: Prelude.Text,
-    -- | [Required] The identifier of a UsagePlanKey resource for a plan
-    -- customer.
+    -- | The identifier of a UsagePlanKey resource for a plan customer.
     keyId :: Prelude.Text,
-    -- | [Required] The type of a UsagePlanKey resource for a plan customer.
+    -- | The type of a UsagePlanKey resource for a plan customer.
     keyType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,14 +73,12 @@ data CreateUsagePlanKey = CreateUsagePlanKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usagePlanId', 'createUsagePlanKey_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-created UsagePlanKey resource representing a plan
--- customer.
+-- 'usagePlanId', 'createUsagePlanKey_usagePlanId' - The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-created UsagePlanKey resource representing a plan customer.
 --
--- 'keyId', 'createUsagePlanKey_keyId' - [Required] The identifier of a UsagePlanKey resource for a plan
--- customer.
+-- 'keyId', 'createUsagePlanKey_keyId' - The identifier of a UsagePlanKey resource for a plan customer.
 --
--- 'keyType', 'createUsagePlanKey_keyType' - [Required] The type of a UsagePlanKey resource for a plan customer.
+-- 'keyType', 'createUsagePlanKey_keyType' - The type of a UsagePlanKey resource for a plan customer.
 newCreateUsagePlanKey ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -98,18 +94,16 @@ newCreateUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
       keyType = pKeyType_
     }
 
--- | [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-created UsagePlanKey resource representing a plan
--- customer.
+-- | The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-created UsagePlanKey resource representing a plan customer.
 createUsagePlanKey_usagePlanId :: Lens.Lens' CreateUsagePlanKey Prelude.Text
 createUsagePlanKey_usagePlanId = Lens.lens (\CreateUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@CreateUsagePlanKey' {} a -> s {usagePlanId = a} :: CreateUsagePlanKey)
 
--- | [Required] The identifier of a UsagePlanKey resource for a plan
--- customer.
+-- | The identifier of a UsagePlanKey resource for a plan customer.
 createUsagePlanKey_keyId :: Lens.Lens' CreateUsagePlanKey Prelude.Text
 createUsagePlanKey_keyId = Lens.lens (\CreateUsagePlanKey' {keyId} -> keyId) (\s@CreateUsagePlanKey' {} a -> s {keyId = a} :: CreateUsagePlanKey)
 
--- | [Required] The type of a UsagePlanKey resource for a plan customer.
+-- | The type of a UsagePlanKey resource for a plan customer.
 createUsagePlanKey_keyType :: Lens.Lens' CreateUsagePlanKey Prelude.Text
 createUsagePlanKey_keyType = Lens.lens (\CreateUsagePlanKey' {keyType} -> keyType) (\s@CreateUsagePlanKey' {} a -> s {keyType = a} :: CreateUsagePlanKey)
 

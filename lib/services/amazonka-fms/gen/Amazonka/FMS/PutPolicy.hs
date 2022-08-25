@@ -39,7 +39,7 @@
 -- -   An Network Firewall policy, which provides firewall rules to filter
 --     network traffic in specified Amazon VPCs.
 --
--- -   A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall
+-- -   A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall
 --     rules to filter DNS queries for specified VPCs.
 --
 -- Each policy is specific to one of the types. If you want to enforce more

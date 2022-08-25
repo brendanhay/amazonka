@@ -34,14 +34,15 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of provisioning artifact.
     --
-    -- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+    -- -   @CLOUD_FORMATION_TEMPLATE@ - CloudFormation template
     --
-    -- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
+    -- -   @MARKETPLACE_AMI@ - Amazon Web Services Marketplace AMI
     --
-    -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+    -- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
+    --     Amazon Web Services Resources
     type' :: Prelude.Maybe ProvisioningArtifactType,
-    -- | If set to true, AWS Service Catalog stops validating the specified
-    -- provisioning artifact even if it is invalid.
+    -- | If set to true, Amazon Web Services Service Catalog stops validating the
+    -- specified provisioning artifact even if it is invalid.
     disableTemplateValidation :: Prelude.Maybe Prelude.Bool,
     -- | The description of the provisioning artifact, including how it differs
     -- from the previous provisioning artifact.
@@ -49,8 +50,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     -- | Specify the template source with one of the following options, but not
     -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
     --
-    -- The URL of the CloudFormation template in Amazon S3. Specify the URL in
-    -- JSON format as follows:
+    -- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+    -- CodeCommit, or GitHub in JSON format. Specify the URL in JSON format as
+    -- follows:
     --
     -- @\"LoadTemplateFromURL\": \"https:\/\/s3.amazonaws.com\/cf-templates-ozkq9d3hgiq2-us-east-1\/...\"@
     --
@@ -75,14 +77,15 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 --
 -- 'type'', 'provisioningArtifactProperties_type' - The type of provisioning artifact.
 --
--- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+-- -   @CLOUD_FORMATION_TEMPLATE@ - CloudFormation template
 --
--- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
+-- -   @MARKETPLACE_AMI@ - Amazon Web Services Marketplace AMI
 --
--- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+-- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
+--     Amazon Web Services Resources
 --
--- 'disableTemplateValidation', 'provisioningArtifactProperties_disableTemplateValidation' - If set to true, AWS Service Catalog stops validating the specified
--- provisioning artifact even if it is invalid.
+-- 'disableTemplateValidation', 'provisioningArtifactProperties_disableTemplateValidation' - If set to true, Amazon Web Services Service Catalog stops validating the
+-- specified provisioning artifact even if it is invalid.
 --
 -- 'description', 'provisioningArtifactProperties_description' - The description of the provisioning artifact, including how it differs
 -- from the previous provisioning artifact.
@@ -90,8 +93,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 -- 'info', 'provisioningArtifactProperties_info' - Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
 --
--- The URL of the CloudFormation template in Amazon S3. Specify the URL in
--- JSON format as follows:
+-- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format. Specify the URL in JSON format as
+-- follows:
 --
 -- @\"LoadTemplateFromURL\": \"https:\/\/s3.amazonaws.com\/cf-templates-ozkq9d3hgiq2-us-east-1\/...\"@
 --
@@ -118,16 +122,17 @@ provisioningArtifactProperties_name = Lens.lens (\ProvisioningArtifactProperties
 
 -- | The type of provisioning artifact.
 --
--- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+-- -   @CLOUD_FORMATION_TEMPLATE@ - CloudFormation template
 --
--- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
+-- -   @MARKETPLACE_AMI@ - Amazon Web Services Marketplace AMI
 --
--- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+-- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
+--     Amazon Web Services Resources
 provisioningArtifactProperties_type :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe ProvisioningArtifactType)
 provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties' {type'} -> type') (\s@ProvisioningArtifactProperties' {} a -> s {type' = a} :: ProvisioningArtifactProperties)
 
--- | If set to true, AWS Service Catalog stops validating the specified
--- provisioning artifact even if it is invalid.
+-- | If set to true, Amazon Web Services Service Catalog stops validating the
+-- specified provisioning artifact even if it is invalid.
 provisioningArtifactProperties_disableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Bool)
 provisioningArtifactProperties_disableTemplateValidation = Lens.lens (\ProvisioningArtifactProperties' {disableTemplateValidation} -> disableTemplateValidation) (\s@ProvisioningArtifactProperties' {} a -> s {disableTemplateValidation = a} :: ProvisioningArtifactProperties)
 
@@ -139,8 +144,9 @@ provisioningArtifactProperties_description = Lens.lens (\ProvisioningArtifactPro
 -- | Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
 --
--- The URL of the CloudFormation template in Amazon S3. Specify the URL in
--- JSON format as follows:
+-- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format. Specify the URL in JSON format as
+-- follows:
 --
 -- @\"LoadTemplateFromURL\": \"https:\/\/s3.amazonaws.com\/cf-templates-ozkq9d3hgiq2-us-east-1\/...\"@
 --

@@ -34,7 +34,7 @@ import Amazonka.SMS.Types.VmServer
 data ReplicationJob = ReplicationJob'
   { -- | Information about the replication runs.
     replicationRunList :: Prelude.Maybe [ReplicationRun],
-    -- | The name of the IAM role to be used by AWS SMS.
+    -- | The name of the IAM role to be used by Server Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | The license type to be used for the AMI created by a successful
     -- replication run.
@@ -96,7 +96,7 @@ data ReplicationJob = ReplicationJob'
 --
 -- 'replicationRunList', 'replicationJob_replicationRunList' - Information about the replication runs.
 --
--- 'roleName', 'replicationJob_roleName' - The name of the IAM role to be used by AWS SMS.
+-- 'roleName', 'replicationJob_roleName' - The name of the IAM role to be used by Server Migration Service.
 --
 -- 'licenseType', 'replicationJob_licenseType' - The license type to be used for the AMI created by a successful
 -- replication run.
@@ -173,7 +173,7 @@ newReplicationJob =
 replicationJob_replicationRunList :: Lens.Lens' ReplicationJob (Prelude.Maybe [ReplicationRun])
 replicationJob_replicationRunList = Lens.lens (\ReplicationJob' {replicationRunList} -> replicationRunList) (\s@ReplicationJob' {} a -> s {replicationRunList = a} :: ReplicationJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the IAM role to be used by AWS SMS.
+-- | The name of the IAM role to be used by Server Migration Service.
 replicationJob_roleName :: Lens.Lens' ReplicationJob (Prelude.Maybe Prelude.Text)
 replicationJob_roleName = Lens.lens (\ReplicationJob' {roleName} -> roleName) (\s@ReplicationJob' {} a -> s {roleName = a} :: ReplicationJob)
 

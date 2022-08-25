@@ -29,8 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- Access keys grant full programmatic access to the specified bucket and
 -- its objects. You can have a maximum of two access keys per bucket. Use
--- the CreateBucketAccessKey action to create an access key for a specific
--- bucket. For more information about access keys, see
+-- the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html CreateBucketAccessKey>
+-- action to create an access key for a specific bucket. For more
+-- information about access keys, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys Creating access keys for a bucket in Amazon Lightsail>
 -- in the /Amazon Lightsail Developer Guide/.
 --
@@ -55,9 +57,9 @@ data AccessKey = AccessKey'
     -- | An object that describes the last time the access key was used.
     --
     -- This object does not include data in the response of a
-    -- CreateBucketAccessKey action. If the access key has not been used, the
-    -- @region@ and @serviceName@ values are @N\/A@, and the @lastUsedDate@
-    -- value is null.
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html CreateBucketAccessKey>
+    -- action. If the access key has not been used, the @region@ and
+    -- @serviceName@ values are @N\/A@, and the @lastUsedDate@ value is null.
     lastUsed :: Prelude.Maybe AccessKeyLastUsed,
     -- | The timestamp when the access key was created.
     createdAt :: Prelude.Maybe Core.POSIX,
@@ -87,9 +89,9 @@ data AccessKey = AccessKey'
 -- 'lastUsed', 'accessKey_lastUsed' - An object that describes the last time the access key was used.
 --
 -- This object does not include data in the response of a
--- CreateBucketAccessKey action. If the access key has not been used, the
--- @region@ and @serviceName@ values are @N\/A@, and the @lastUsedDate@
--- value is null.
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html CreateBucketAccessKey>
+-- action. If the access key has not been used, the @region@ and
+-- @serviceName@ values are @N\/A@, and the @lastUsedDate@ value is null.
 --
 -- 'createdAt', 'accessKey_createdAt' - The timestamp when the access key was created.
 --
@@ -122,9 +124,9 @@ accessKey_secretAccessKey = Lens.lens (\AccessKey' {secretAccessKey} -> secretAc
 -- | An object that describes the last time the access key was used.
 --
 -- This object does not include data in the response of a
--- CreateBucketAccessKey action. If the access key has not been used, the
--- @region@ and @serviceName@ values are @N\/A@, and the @lastUsedDate@
--- value is null.
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html CreateBucketAccessKey>
+-- action. If the access key has not been used, the @region@ and
+-- @serviceName@ values are @N\/A@, and the @lastUsedDate@ value is null.
 accessKey_lastUsed :: Lens.Lens' AccessKey (Prelude.Maybe AccessKeyLastUsed)
 accessKey_lastUsed = Lens.lens (\AccessKey' {lastUsed} -> lastUsed) (\s@AccessKey' {} a -> s {lastUsed = a} :: AccessKey)
 

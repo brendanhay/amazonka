@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableKeySchema' smart constructor.
 data AwsDynamoDbTableKeySchema = AwsDynamoDbTableKeySchema'
-  { -- | The type of key used for the key schema attribute.
+  { -- | The type of key used for the key schema attribute. Valid values are
+    -- @HASH@ or @RANGE@.
     keyType :: Prelude.Maybe Prelude.Text,
     -- | The name of the key schema attribute.
     attributeName :: Prelude.Maybe Prelude.Text
@@ -43,7 +44,8 @@ data AwsDynamoDbTableKeySchema = AwsDynamoDbTableKeySchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyType', 'awsDynamoDbTableKeySchema_keyType' - The type of key used for the key schema attribute.
+-- 'keyType', 'awsDynamoDbTableKeySchema_keyType' - The type of key used for the key schema attribute. Valid values are
+-- @HASH@ or @RANGE@.
 --
 -- 'attributeName', 'awsDynamoDbTableKeySchema_attributeName' - The name of the key schema attribute.
 newAwsDynamoDbTableKeySchema ::
@@ -55,7 +57,8 @@ newAwsDynamoDbTableKeySchema =
       attributeName = Prelude.Nothing
     }
 
--- | The type of key used for the key schema attribute.
+-- | The type of key used for the key schema attribute. Valid values are
+-- @HASH@ or @RANGE@.
 awsDynamoDbTableKeySchema_keyType :: Lens.Lens' AwsDynamoDbTableKeySchema (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableKeySchema_keyType = Lens.lens (\AwsDynamoDbTableKeySchema' {keyType} -> keyType) (\s@AwsDynamoDbTableKeySchema' {} a -> s {keyType = a} :: AwsDynamoDbTableKeySchema)
 

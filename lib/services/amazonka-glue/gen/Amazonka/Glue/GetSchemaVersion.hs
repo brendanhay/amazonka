@@ -198,8 +198,8 @@ instance Core.ToQuery GetSchemaVersion where
 data GetSchemaVersionResponse = GetSchemaVersionResponse'
   { -- | The date and time the schema version was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
-    -- are supported.
+    -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+    -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
     -- | The status of the schema version.
     status :: Prelude.Maybe SchemaVersionStatus,
@@ -226,8 +226,8 @@ data GetSchemaVersionResponse = GetSchemaVersionResponse'
 --
 -- 'createdTime', 'getSchemaVersionResponse_createdTime' - The date and time the schema version was created.
 --
--- 'dataFormat', 'getSchemaVersionResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- 'dataFormat', 'getSchemaVersionResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 --
 -- 'status', 'getSchemaVersionResponse_status' - The status of the schema version.
 --
@@ -261,8 +261,8 @@ newGetSchemaVersionResponse pHttpStatus_ =
 getSchemaVersionResponse_createdTime :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
 getSchemaVersionResponse_createdTime = Lens.lens (\GetSchemaVersionResponse' {createdTime} -> createdTime) (\s@GetSchemaVersionResponse' {} a -> s {createdTime = a} :: GetSchemaVersionResponse)
 
--- | The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 getSchemaVersionResponse_dataFormat :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe DataFormat)
 getSchemaVersionResponse_dataFormat = Lens.lens (\GetSchemaVersionResponse' {dataFormat} -> dataFormat) (\s@GetSchemaVersionResponse' {} a -> s {dataFormat = a} :: GetSchemaVersionResponse)
 

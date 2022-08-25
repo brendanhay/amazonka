@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the tags assigned to the specified resource.
+-- Lists the tags for a resource.
 module Amazonka.Route53RecoveryReadiness.ListTagsForResources
   ( -- * Creating a Request
     ListTagsForResources (..),
@@ -48,8 +48,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListTagsForResources' smart constructor.
 data ListTagsForResources = ListTagsForResources'
-  { -- | The Amazon Resource Name (ARN) for the resource. You can get this from
-    -- the response to any request to the resource.
+  { -- | The Amazon Resource Name (ARN) for a resource.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +61,7 @@ data ListTagsForResources = ListTagsForResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResources_resourceArn' - The Amazon Resource Name (ARN) for the resource. You can get this from
--- the response to any request to the resource.
+-- 'resourceArn', 'listTagsForResources_resourceArn' - The Amazon Resource Name (ARN) for a resource.
 newListTagsForResources ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -71,8 +69,7 @@ newListTagsForResources ::
 newListTagsForResources pResourceArn_ =
   ListTagsForResources' {resourceArn = pResourceArn_}
 
--- | The Amazon Resource Name (ARN) for the resource. You can get this from
--- the response to any request to the resource.
+-- | The Amazon Resource Name (ARN) for a resource.
 listTagsForResources_resourceArn :: Lens.Lens' ListTagsForResources Prelude.Text
 listTagsForResources_resourceArn = Lens.lens (\ListTagsForResources' {resourceArn} -> resourceArn) (\s@ListTagsForResources' {} a -> s {resourceArn = a} :: ListTagsForResources)
 
@@ -131,7 +128,7 @@ data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourcesResponse_tags' - Undocumented member.
+-- 'tags', 'listTagsForResourcesResponse_tags' -
 --
 -- 'httpStatus', 'listTagsForResourcesResponse_httpStatus' - The response's http status code.
 newListTagsForResourcesResponse ::
@@ -145,7 +142,7 @@ newListTagsForResourcesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- |
 listTagsForResourcesResponse_tags :: Lens.Lens' ListTagsForResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listTagsForResourcesResponse_tags = Lens.lens (\ListTagsForResourcesResponse' {tags} -> tags) (\s@ListTagsForResourcesResponse' {} a -> s {tags = a} :: ListTagsForResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

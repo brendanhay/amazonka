@@ -33,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProactiveInsight' smart constructor.
 data ProactiveInsight = ProactiveInsight'
-  { -- | The severity of the proactive insight.
+  { -- | The severity of the insight. For more information, see
+    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+    -- in the /Amazon DevOps Guru User Guide/.
     severity :: Prelude.Maybe InsightSeverity,
     -- | The name of the proactive insight.
     name :: Prelude.Maybe Prelude.Text,
@@ -42,9 +44,11 @@ data ProactiveInsight = ProactiveInsight'
     status :: Prelude.Maybe InsightStatus,
     -- | The ID of the proactive insight.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS System Manager OpsItem created for this insight. You
-    -- must enable the creation of OpstItems insights before they are created
-    -- for each insight.
+    -- | Describes the proactive insight.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services System Manager OpsItem created for
+    -- this insight. You must enable the creation of OpstItems insights before
+    -- they are created for each insight.
     ssmOpsItemId :: Prelude.Maybe Prelude.Text,
     predictionTimeRange :: Prelude.Maybe PredictionTimeRange,
     insightTimeRange :: Prelude.Maybe InsightTimeRange
@@ -59,7 +63,9 @@ data ProactiveInsight = ProactiveInsight'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'proactiveInsight_severity' - The severity of the proactive insight.
+-- 'severity', 'proactiveInsight_severity' - The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 --
 -- 'name', 'proactiveInsight_name' - The name of the proactive insight.
 --
@@ -69,9 +75,11 @@ data ProactiveInsight = ProactiveInsight'
 --
 -- 'id', 'proactiveInsight_id' - The ID of the proactive insight.
 --
--- 'ssmOpsItemId', 'proactiveInsight_ssmOpsItemId' - The ID of the AWS System Manager OpsItem created for this insight. You
--- must enable the creation of OpstItems insights before they are created
--- for each insight.
+-- 'description', 'proactiveInsight_description' - Describes the proactive insight.
+--
+-- 'ssmOpsItemId', 'proactiveInsight_ssmOpsItemId' - The ID of the Amazon Web Services System Manager OpsItem created for
+-- this insight. You must enable the creation of OpstItems insights before
+-- they are created for each insight.
 --
 -- 'predictionTimeRange', 'proactiveInsight_predictionTimeRange' - Undocumented member.
 --
@@ -85,12 +93,15 @@ newProactiveInsight =
       resourceCollection = Prelude.Nothing,
       status = Prelude.Nothing,
       id = Prelude.Nothing,
+      description = Prelude.Nothing,
       ssmOpsItemId = Prelude.Nothing,
       predictionTimeRange = Prelude.Nothing,
       insightTimeRange = Prelude.Nothing
     }
 
--- | The severity of the proactive insight.
+-- | The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 proactiveInsight_severity :: Lens.Lens' ProactiveInsight (Prelude.Maybe InsightSeverity)
 proactiveInsight_severity = Lens.lens (\ProactiveInsight' {severity} -> severity) (\s@ProactiveInsight' {} a -> s {severity = a} :: ProactiveInsight)
 
@@ -110,9 +121,13 @@ proactiveInsight_status = Lens.lens (\ProactiveInsight' {status} -> status) (\s@
 proactiveInsight_id :: Lens.Lens' ProactiveInsight (Prelude.Maybe Prelude.Text)
 proactiveInsight_id = Lens.lens (\ProactiveInsight' {id} -> id) (\s@ProactiveInsight' {} a -> s {id = a} :: ProactiveInsight)
 
--- | The ID of the AWS System Manager OpsItem created for this insight. You
--- must enable the creation of OpstItems insights before they are created
--- for each insight.
+-- | Describes the proactive insight.
+proactiveInsight_description :: Lens.Lens' ProactiveInsight (Prelude.Maybe Prelude.Text)
+proactiveInsight_description = Lens.lens (\ProactiveInsight' {description} -> description) (\s@ProactiveInsight' {} a -> s {description = a} :: ProactiveInsight)
+
+-- | The ID of the Amazon Web Services System Manager OpsItem created for
+-- this insight. You must enable the creation of OpstItems insights before
+-- they are created for each insight.
 proactiveInsight_ssmOpsItemId :: Lens.Lens' ProactiveInsight (Prelude.Maybe Prelude.Text)
 proactiveInsight_ssmOpsItemId = Lens.lens (\ProactiveInsight' {ssmOpsItemId} -> ssmOpsItemId) (\s@ProactiveInsight' {} a -> s {ssmOpsItemId = a} :: ProactiveInsight)
 
@@ -135,6 +150,7 @@ instance Core.FromJSON ProactiveInsight where
             Prelude.<*> (x Core..:? "ResourceCollection")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SsmOpsItemId")
             Prelude.<*> (x Core..:? "PredictionTimeRange")
             Prelude.<*> (x Core..:? "InsightTimeRange")
@@ -147,6 +163,7 @@ instance Prelude.Hashable ProactiveInsight where
       `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ssmOpsItemId
       `Prelude.hashWithSalt` predictionTimeRange
       `Prelude.hashWithSalt` insightTimeRange
@@ -158,6 +175,7 @@ instance Prelude.NFData ProactiveInsight where
       `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf ssmOpsItemId
       `Prelude.seq` Prelude.rnf predictionTimeRange
       `Prelude.seq` Prelude.rnf insightTimeRange

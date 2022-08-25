@@ -28,7 +28,8 @@ module Amazonka.KMS.Types.SigningAlgorithmSpec
         SigningAlgorithmSpec_RSASSA_PKCS1_V1_5_SHA_512,
         SigningAlgorithmSpec_RSASSA_PSS_SHA_256,
         SigningAlgorithmSpec_RSASSA_PSS_SHA_384,
-        SigningAlgorithmSpec_RSASSA_PSS_SHA_512
+        SigningAlgorithmSpec_RSASSA_PSS_SHA_512,
+        SigningAlgorithmSpec_SM2DSA
       ),
   )
 where
@@ -91,6 +92,9 @@ pattern SigningAlgorithmSpec_RSASSA_PSS_SHA_384 = SigningAlgorithmSpec' "RSASSA_
 pattern SigningAlgorithmSpec_RSASSA_PSS_SHA_512 :: SigningAlgorithmSpec
 pattern SigningAlgorithmSpec_RSASSA_PSS_SHA_512 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_512"
 
+pattern SigningAlgorithmSpec_SM2DSA :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpec_SM2DSA = SigningAlgorithmSpec' "SM2DSA"
+
 {-# COMPLETE
   SigningAlgorithmSpec_ECDSA_SHA_256,
   SigningAlgorithmSpec_ECDSA_SHA_384,
@@ -101,5 +105,6 @@ pattern SigningAlgorithmSpec_RSASSA_PSS_SHA_512 = SigningAlgorithmSpec' "RSASSA_
   SigningAlgorithmSpec_RSASSA_PSS_SHA_256,
   SigningAlgorithmSpec_RSASSA_PSS_SHA_384,
   SigningAlgorithmSpec_RSASSA_PSS_SHA_512,
+  SigningAlgorithmSpec_SM2DSA,
   SigningAlgorithmSpec'
   #-}

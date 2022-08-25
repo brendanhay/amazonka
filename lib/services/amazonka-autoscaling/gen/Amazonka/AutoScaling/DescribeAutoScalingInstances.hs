@@ -60,7 +60,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @50@.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The IDs of the instances. If you omit this parameter, all Auto Scaling
+    -- | The IDs of the instances. If you omit this property, all Auto Scaling
     -- instances are described. If you specify an ID that does not exist, it is
     -- ignored with no error.
     --
@@ -83,7 +83,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 -- 'maxRecords', 'describeAutoScalingInstances_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @50@.
 --
--- 'instanceIds', 'describeAutoScalingInstances_instanceIds' - The IDs of the instances. If you omit this parameter, all Auto Scaling
+-- 'instanceIds', 'describeAutoScalingInstances_instanceIds' - The IDs of the instances. If you omit this property, all Auto Scaling
 -- instances are described. If you specify an ID that does not exist, it is
 -- ignored with no error.
 --
@@ -108,7 +108,7 @@ describeAutoScalingInstances_nextToken = Lens.lens (\DescribeAutoScalingInstance
 describeAutoScalingInstances_maxRecords :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe Prelude.Int)
 describeAutoScalingInstances_maxRecords = Lens.lens (\DescribeAutoScalingInstances' {maxRecords} -> maxRecords) (\s@DescribeAutoScalingInstances' {} a -> s {maxRecords = a} :: DescribeAutoScalingInstances)
 
--- | The IDs of the instances. If you omit this parameter, all Auto Scaling
+-- | The IDs of the instances. If you omit this property, all Auto Scaling
 -- instances are described. If you specify an ID that does not exist, it is
 -- ignored with no error.
 --

@@ -33,9 +33,9 @@ data ComputeFarmConfiguration = ComputeFarmConfiguration'
     activeDirectoryUser :: Prelude.Maybe Prelude.Text,
     -- | The endpoint of the ComputeFarm that is accessed by the studio component
     -- resource.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComputeFarmConfiguration' with all optional fields omitted.
@@ -67,7 +67,7 @@ computeFarmConfiguration_activeDirectoryUser = Lens.lens (\ComputeFarmConfigurat
 -- | The endpoint of the ComputeFarm that is accessed by the studio component
 -- resource.
 computeFarmConfiguration_endpoint :: Lens.Lens' ComputeFarmConfiguration (Prelude.Maybe Prelude.Text)
-computeFarmConfiguration_endpoint = Lens.lens (\ComputeFarmConfiguration' {endpoint} -> endpoint) (\s@ComputeFarmConfiguration' {} a -> s {endpoint = a} :: ComputeFarmConfiguration)
+computeFarmConfiguration_endpoint = Lens.lens (\ComputeFarmConfiguration' {endpoint} -> endpoint) (\s@ComputeFarmConfiguration' {} a -> s {endpoint = a} :: ComputeFarmConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON ComputeFarmConfiguration where
   parseJSON =

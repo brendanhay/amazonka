@@ -60,7 +60,18 @@ data ImageDetail = ImageDetail'
     -- | The current state of the scan.
     imageScanStatus :: Prelude.Maybe ImageScanStatus,
     -- | A summary of the last completed image scan.
-    imageScanFindingsSummary :: Prelude.Maybe ImageScanFindingsSummary
+    imageScanFindingsSummary :: Prelude.Maybe ImageScanFindingsSummary,
+    -- | The date and time, expressed in standard JavaScript date format, when
+    -- Amazon ECR recorded the last image pull.
+    --
+    -- Amazon ECR refreshes the last image pull timestamp at least once every
+    -- 24 hours. For example, if you pull an image once a day then the
+    -- @lastRecordedPullTime@ timestamp will indicate the exact time that the
+    -- image was last pulled. However, if you pull an image once an hour,
+    -- because Amazon ECR refreshes the @lastRecordedPullTime@ timestamp at
+    -- least once every 24 hours, the result may not be the exact time that the
+    -- image was last pulled.
+    lastRecordedPullTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,6 +113,17 @@ data ImageDetail = ImageDetail'
 -- 'imageScanStatus', 'imageDetail_imageScanStatus' - The current state of the scan.
 --
 -- 'imageScanFindingsSummary', 'imageDetail_imageScanFindingsSummary' - A summary of the last completed image scan.
+--
+-- 'lastRecordedPullTime', 'imageDetail_lastRecordedPullTime' - The date and time, expressed in standard JavaScript date format, when
+-- Amazon ECR recorded the last image pull.
+--
+-- Amazon ECR refreshes the last image pull timestamp at least once every
+-- 24 hours. For example, if you pull an image once a day then the
+-- @lastRecordedPullTime@ timestamp will indicate the exact time that the
+-- image was last pulled. However, if you pull an image once an hour,
+-- because Amazon ECR refreshes the @lastRecordedPullTime@ timestamp at
+-- least once every 24 hours, the result may not be the exact time that the
+-- image was last pulled.
 newImageDetail ::
   ImageDetail
 newImageDetail =
@@ -115,7 +137,8 @@ newImageDetail =
       imageManifestMediaType = Prelude.Nothing,
       imageDigest = Prelude.Nothing,
       imageScanStatus = Prelude.Nothing,
-      imageScanFindingsSummary = Prelude.Nothing
+      imageScanFindingsSummary = Prelude.Nothing,
+      lastRecordedPullTime = Prelude.Nothing
     }
 
 -- | The artifact media type of the image.
@@ -169,6 +192,19 @@ imageDetail_imageScanStatus = Lens.lens (\ImageDetail' {imageScanStatus} -> imag
 imageDetail_imageScanFindingsSummary :: Lens.Lens' ImageDetail (Prelude.Maybe ImageScanFindingsSummary)
 imageDetail_imageScanFindingsSummary = Lens.lens (\ImageDetail' {imageScanFindingsSummary} -> imageScanFindingsSummary) (\s@ImageDetail' {} a -> s {imageScanFindingsSummary = a} :: ImageDetail)
 
+-- | The date and time, expressed in standard JavaScript date format, when
+-- Amazon ECR recorded the last image pull.
+--
+-- Amazon ECR refreshes the last image pull timestamp at least once every
+-- 24 hours. For example, if you pull an image once a day then the
+-- @lastRecordedPullTime@ timestamp will indicate the exact time that the
+-- image was last pulled. However, if you pull an image once an hour,
+-- because Amazon ECR refreshes the @lastRecordedPullTime@ timestamp at
+-- least once every 24 hours, the result may not be the exact time that the
+-- image was last pulled.
+imageDetail_lastRecordedPullTime :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.UTCTime)
+imageDetail_lastRecordedPullTime = Lens.lens (\ImageDetail' {lastRecordedPullTime} -> lastRecordedPullTime) (\s@ImageDetail' {} a -> s {lastRecordedPullTime = a} :: ImageDetail) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON ImageDetail where
   parseJSON =
     Core.withObject
@@ -185,6 +221,7 @@ instance Core.FromJSON ImageDetail where
             Prelude.<*> (x Core..:? "imageDigest")
             Prelude.<*> (x Core..:? "imageScanStatus")
             Prelude.<*> (x Core..:? "imageScanFindingsSummary")
+            Prelude.<*> (x Core..:? "lastRecordedPullTime")
       )
 
 instance Prelude.Hashable ImageDetail where
@@ -199,6 +236,7 @@ instance Prelude.Hashable ImageDetail where
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageScanStatus
       `Prelude.hashWithSalt` imageScanFindingsSummary
+      `Prelude.hashWithSalt` lastRecordedPullTime
 
 instance Prelude.NFData ImageDetail where
   rnf ImageDetail' {..} =
@@ -212,3 +250,4 @@ instance Prelude.NFData ImageDetail where
       `Prelude.seq` Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf imageScanStatus
       `Prelude.seq` Prelude.rnf imageScanFindingsSummary
+      `Prelude.seq` Prelude.rnf lastRecordedPullTime

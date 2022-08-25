@@ -59,10 +59,10 @@ import Amazonka.SSMIncidents.Types
 data CreateResponsePlan = CreateResponsePlan'
   { -- | A list of tags that you are adding to the response plan.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A token ensuring that the action is called only once with the specified
-    -- details.
+    -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Chatbot chat channel used for collaboration during an incident.
+    -- | The Chatbot chat channel used for collaboration during an incident.
     chatChannel :: Prelude.Maybe ChatChannel,
     -- | The long format of the response plan name. This field can contain
     -- spaces.
@@ -90,10 +90,10 @@ data CreateResponsePlan = CreateResponsePlan'
 --
 -- 'tags', 'createResponsePlan_tags' - A list of tags that you are adding to the response plan.
 --
--- 'clientToken', 'createResponsePlan_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'createResponsePlan_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
--- 'chatChannel', 'createResponsePlan_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.
+-- 'chatChannel', 'createResponsePlan_chatChannel' - The Chatbot chat channel used for collaboration during an incident.
 --
 -- 'displayName', 'createResponsePlan_displayName' - The long format of the response plan name. This field can contain
 -- spaces.
@@ -129,12 +129,12 @@ newCreateResponsePlan pIncidentTemplate_ pName_ =
 createResponsePlan_tags :: Lens.Lens' CreateResponsePlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createResponsePlan_tags = Lens.lens (\CreateResponsePlan' {tags} -> tags) (\s@CreateResponsePlan' {} a -> s {tags = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 createResponsePlan_clientToken :: Lens.Lens' CreateResponsePlan (Prelude.Maybe Prelude.Text)
 createResponsePlan_clientToken = Lens.lens (\CreateResponsePlan' {clientToken} -> clientToken) (\s@CreateResponsePlan' {} a -> s {clientToken = a} :: CreateResponsePlan)
 
--- | The AWS Chatbot chat channel used for collaboration during an incident.
+-- | The Chatbot chat channel used for collaboration during an incident.
 createResponsePlan_chatChannel :: Lens.Lens' CreateResponsePlan (Prelude.Maybe ChatChannel)
 createResponsePlan_chatChannel = Lens.lens (\CreateResponsePlan' {chatChannel} -> chatChannel) (\s@CreateResponsePlan' {} a -> s {chatChannel = a} :: CreateResponsePlan)
 

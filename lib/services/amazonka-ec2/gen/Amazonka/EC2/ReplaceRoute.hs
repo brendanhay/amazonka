@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces an existing route within a route table in a VPC. You must
--- provide only one of the following: internet gateway, virtual private
--- gateway, NAT instance, NAT gateway, VPC peering connection, network
--- interface, egress-only internet gateway, or transit gateway.
+-- Replaces an existing route within a route table in a VPC.
+--
+-- You must specify either a destination CIDR block or a prefix list ID.
+-- You must also specify exactly one of the resources from the parameter
+-- list, or reset the local route to its default target.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route tables>
@@ -43,6 +44,7 @@ module Amazonka.EC2.ReplaceRoute
     replaceRoute_vpcEndpointId,
     replaceRoute_dryRun,
     replaceRoute_destinationCidrBlock,
+    replaceRoute_coreNetworkArn,
     replaceRoute_instanceId,
     replaceRoute_egressOnlyInternetGatewayId,
     replaceRoute_networkInterfaceId,
@@ -89,6 +91,8 @@ data ReplaceRoute = ReplaceRoute'
     -- | The IPv4 CIDR address block used for the destination match. The value
     -- that you provide must match the CIDR of an existing route in the table.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the core network.
+    coreNetworkArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a NAT instance in your VPC.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
@@ -139,6 +143,8 @@ data ReplaceRoute = ReplaceRoute'
 -- 'destinationCidrBlock', 'replaceRoute_destinationCidrBlock' - The IPv4 CIDR address block used for the destination match. The value
 -- that you provide must match the CIDR of an existing route in the table.
 --
+-- 'coreNetworkArn', 'replaceRoute_coreNetworkArn' - The Amazon Resource Name (ARN) of the core network.
+--
 -- 'instanceId', 'replaceRoute_instanceId' - The ID of a NAT instance in your VPC.
 --
 -- 'egressOnlyInternetGatewayId', 'replaceRoute_egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
@@ -169,6 +175,7 @@ newReplaceRoute pRouteTableId_ =
       vpcEndpointId = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
+      coreNetworkArn = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
@@ -219,6 +226,10 @@ replaceRoute_dryRun = Lens.lens (\ReplaceRoute' {dryRun} -> dryRun) (\s@ReplaceR
 replaceRoute_destinationCidrBlock :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
 replaceRoute_destinationCidrBlock = Lens.lens (\ReplaceRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@ReplaceRoute' {} a -> s {destinationCidrBlock = a} :: ReplaceRoute)
 
+-- | The Amazon Resource Name (ARN) of the core network.
+replaceRoute_coreNetworkArn :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
+replaceRoute_coreNetworkArn = Lens.lens (\ReplaceRoute' {coreNetworkArn} -> coreNetworkArn) (\s@ReplaceRoute' {} a -> s {coreNetworkArn = a} :: ReplaceRoute)
+
 -- | The ID of a NAT instance in your VPC.
 replaceRoute_instanceId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
 replaceRoute_instanceId = Lens.lens (\ReplaceRoute' {instanceId} -> instanceId) (\s@ReplaceRoute' {} a -> s {instanceId = a} :: ReplaceRoute)
@@ -265,6 +276,7 @@ instance Prelude.Hashable ReplaceRoute where
       `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` egressOnlyInternetGatewayId
       `Prelude.hashWithSalt` networkInterfaceId
@@ -284,6 +296,7 @@ instance Prelude.NFData ReplaceRoute where
       `Prelude.seq` Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf coreNetworkArn
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
       `Prelude.seq` Prelude.rnf networkInterfaceId
@@ -316,6 +329,7 @@ instance Core.ToQuery ReplaceRoute where
         "VpcEndpointId" Core.=: vpcEndpointId,
         "DryRun" Core.=: dryRun,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
+        "CoreNetworkArn" Core.=: coreNetworkArn,
         "InstanceId" Core.=: instanceId,
         "EgressOnlyInternetGatewayId"
           Core.=: egressOnlyInternetGatewayId,

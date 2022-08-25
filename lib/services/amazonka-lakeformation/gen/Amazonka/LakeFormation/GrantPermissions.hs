@@ -58,7 +58,7 @@ data GrantPermissions = GrantPermissions'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | Indicates a list of the granted permissions that the principal may pass
     -- to other users. These permissions may only be a subset of the
@@ -72,14 +72,14 @@ data GrantPermissions = GrantPermissions'
     -- delete, and recreate a resource with that same ARN, the resource
     -- maintains the permissions already granted.
     principal :: DataLakePrincipal,
-    -- | The resource to which permissions are to be granted. Resources in AWS
-    -- Lake Formation are the Data Catalog, databases, and tables.
+    -- | The resource to which permissions are to be granted. Resources in Lake
+    -- Formation are the Data Catalog, databases, and tables.
     resource :: Resource,
-    -- | The permissions granted to the principal on the resource. AWS Lake
-    -- Formation defines privileges to grant and revoke access to metadata in
-    -- the Data Catalog and data organized in underlying data storage such as
-    -- Amazon S3. AWS Lake Formation requires that each principal be authorized
-    -- to perform a specific task on AWS Lake Formation resources.
+    -- | The permissions granted to the principal on the resource. Lake Formation
+    -- defines privileges to grant and revoke access to metadata in the Data
+    -- Catalog and data organized in underlying data storage such as Amazon S3.
+    -- Lake Formation requires that each principal be authorized to perform a
+    -- specific task on Lake Formation resources.
     permissions :: [Permission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,7 +95,7 @@ data GrantPermissions = GrantPermissions'
 -- 'catalogId', 'grantPermissions_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'permissionsWithGrantOption', 'grantPermissions_permissionsWithGrantOption' - Indicates a list of the granted permissions that the principal may pass
 -- to other users. These permissions may only be a subset of the
@@ -109,14 +109,14 @@ data GrantPermissions = GrantPermissions'
 -- delete, and recreate a resource with that same ARN, the resource
 -- maintains the permissions already granted.
 --
--- 'resource', 'grantPermissions_resource' - The resource to which permissions are to be granted. Resources in AWS
--- Lake Formation are the Data Catalog, databases, and tables.
+-- 'resource', 'grantPermissions_resource' - The resource to which permissions are to be granted. Resources in Lake
+-- Formation are the Data Catalog, databases, and tables.
 --
--- 'permissions', 'grantPermissions_permissions' - The permissions granted to the principal on the resource. AWS Lake
--- Formation defines privileges to grant and revoke access to metadata in
--- the Data Catalog and data organized in underlying data storage such as
--- Amazon S3. AWS Lake Formation requires that each principal be authorized
--- to perform a specific task on AWS Lake Formation resources.
+-- 'permissions', 'grantPermissions_permissions' - The permissions granted to the principal on the resource. Lake Formation
+-- defines privileges to grant and revoke access to metadata in the Data
+-- Catalog and data organized in underlying data storage such as Amazon S3.
+-- Lake Formation requires that each principal be authorized to perform a
+-- specific task on Lake Formation resources.
 newGrantPermissions ::
   -- | 'principal'
   DataLakePrincipal ->
@@ -135,7 +135,7 @@ newGrantPermissions pPrincipal_ pResource_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 grantPermissions_catalogId :: Lens.Lens' GrantPermissions (Prelude.Maybe Prelude.Text)
 grantPermissions_catalogId = Lens.lens (\GrantPermissions' {catalogId} -> catalogId) (\s@GrantPermissions' {} a -> s {catalogId = a} :: GrantPermissions)
 
@@ -155,16 +155,16 @@ grantPermissions_permissionsWithGrantOption = Lens.lens (\GrantPermissions' {per
 grantPermissions_principal :: Lens.Lens' GrantPermissions DataLakePrincipal
 grantPermissions_principal = Lens.lens (\GrantPermissions' {principal} -> principal) (\s@GrantPermissions' {} a -> s {principal = a} :: GrantPermissions)
 
--- | The resource to which permissions are to be granted. Resources in AWS
--- Lake Formation are the Data Catalog, databases, and tables.
+-- | The resource to which permissions are to be granted. Resources in Lake
+-- Formation are the Data Catalog, databases, and tables.
 grantPermissions_resource :: Lens.Lens' GrantPermissions Resource
 grantPermissions_resource = Lens.lens (\GrantPermissions' {resource} -> resource) (\s@GrantPermissions' {} a -> s {resource = a} :: GrantPermissions)
 
--- | The permissions granted to the principal on the resource. AWS Lake
--- Formation defines privileges to grant and revoke access to metadata in
--- the Data Catalog and data organized in underlying data storage such as
--- Amazon S3. AWS Lake Formation requires that each principal be authorized
--- to perform a specific task on AWS Lake Formation resources.
+-- | The permissions granted to the principal on the resource. Lake Formation
+-- defines privileges to grant and revoke access to metadata in the Data
+-- Catalog and data organized in underlying data storage such as Amazon S3.
+-- Lake Formation requires that each principal be authorized to perform a
+-- specific task on Lake Formation resources.
 grantPermissions_permissions :: Lens.Lens' GrantPermissions [Permission]
 grantPermissions_permissions = Lens.lens (\GrantPermissions' {permissions} -> permissions) (\s@GrantPermissions' {} a -> s {permissions = a} :: GrantPermissions) Prelude.. Lens.coerced
 
@@ -200,11 +200,7 @@ instance Core.ToHeaders GrantPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.GrantPermissions" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -225,7 +221,7 @@ instance Core.ToJSON GrantPermissions where
       )
 
 instance Core.ToPath GrantPermissions where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/GrantPermissions"
 
 instance Core.ToQuery GrantPermissions where
   toQuery = Prelude.const Prelude.mempty

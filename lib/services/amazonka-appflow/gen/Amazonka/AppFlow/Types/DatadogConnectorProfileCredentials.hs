@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 data DatadogConnectorProfileCredentials = DatadogConnectorProfileCredentials'
   { -- | A unique alphanumeric identifier used to authenticate a user, developer,
     -- or calling program to your API.
-    apiKey :: Prelude.Text,
+    apiKey :: Core.Sensitive Prelude.Text,
     -- | Application keys, in conjunction with your API key, give you full access
     -- to Datadog’s programmatic API. Application keys are associated with the
     -- user account that created them. The application key is used to log all
     -- requests made to the API.
     applicationKey :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatadogConnectorProfileCredentials' with all optional fields omitted.
@@ -64,14 +64,14 @@ newDatadogConnectorProfileCredentials
   pApplicationKey_ =
     DatadogConnectorProfileCredentials'
       { apiKey =
-          pApiKey_,
+          Core._Sensitive Lens.# pApiKey_,
         applicationKey = pApplicationKey_
       }
 
 -- | A unique alphanumeric identifier used to authenticate a user, developer,
 -- or calling program to your API.
 datadogConnectorProfileCredentials_apiKey :: Lens.Lens' DatadogConnectorProfileCredentials Prelude.Text
-datadogConnectorProfileCredentials_apiKey = Lens.lens (\DatadogConnectorProfileCredentials' {apiKey} -> apiKey) (\s@DatadogConnectorProfileCredentials' {} a -> s {apiKey = a} :: DatadogConnectorProfileCredentials)
+datadogConnectorProfileCredentials_apiKey = Lens.lens (\DatadogConnectorProfileCredentials' {apiKey} -> apiKey) (\s@DatadogConnectorProfileCredentials' {} a -> s {apiKey = a} :: DatadogConnectorProfileCredentials) Prelude.. Core._Sensitive
 
 -- | Application keys, in conjunction with your API key, give you full access
 -- to Datadog’s programmatic API. Application keys are associated with the

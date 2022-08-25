@@ -22,7 +22,8 @@
 --
 -- Deletes a dataset. You can\'t delete a dataset if an associated
 -- @DatasetImportJob@ or @SolutionVersion@ is in the CREATE PENDING or IN
--- PROGRESS state. For more information on datasets, see CreateDataset.
+-- PROGRESS state. For more information on datasets, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
 module Amazonka.Personalize.DeleteDataset
   ( -- * Creating a Request
     DeleteDataset (..),

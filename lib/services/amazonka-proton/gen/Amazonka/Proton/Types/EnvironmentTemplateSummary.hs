@@ -28,7 +28,7 @@ import Amazonka.Proton.Types.Provisioning
 --
 -- /See:/ 'newEnvironmentTemplateSummary' smart constructor.
 data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
-  { -- | The ID of the recommended version of the environment template.
+  { -- | The recommended version of the environment template.
     recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | When included, indicates that the environment template is for customer
     -- provisioned and managed infrastructure.
@@ -57,7 +57,7 @@ data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendedVersion', 'environmentTemplateSummary_recommendedVersion' - The ID of the recommended version of the environment template.
+-- 'recommendedVersion', 'environmentTemplateSummary_recommendedVersion' - The recommended version of the environment template.
 --
 -- 'provisioning', 'environmentTemplateSummary_provisioning' - When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
@@ -102,7 +102,7 @@ newEnvironmentTemplateSummary
         name = pName_
       }
 
--- | The ID of the recommended version of the environment template.
+-- | The recommended version of the environment template.
 environmentTemplateSummary_recommendedVersion :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
 environmentTemplateSummary_recommendedVersion = Lens.lens (\EnvironmentTemplateSummary' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplateSummary' {} a -> s {recommendedVersion = a} :: EnvironmentTemplateSummary)
 

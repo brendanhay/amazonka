@@ -26,12 +26,12 @@
 -- @CreateCluster@ action.
 --
 -- When you call the CreateCluster API operation, Amazon ECS attempts to
--- create the Amazon ECS service-linked role for your account so that
--- required resources in other Amazon Web Services services can be managed
--- on your behalf. However, if the IAM user that makes the call does not
--- have permissions to create the service-linked role, it is not created.
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECS>
+-- create the Amazon ECS service-linked role for your account. This is so
+-- that it can manage required resources in other Amazon Web Services
+-- services on your behalf. However, if the IAM user that makes the call
+-- doesn\'t have permissions to create the service-linked role, it isn\'t
+-- created. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 module Amazonka.ECS.CreateCluster
   ( -- * Creating a Request
@@ -66,8 +66,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
   { -- | The metadata that you apply to the cluster to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define.
+    -- organize them. Each tag consists of a key and an optional value. You
+    -- define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -94,11 +94,11 @@ data CreateCluster = CreateCluster'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The execute command configuration for the cluster.
+    -- | The @execute@ command configuration for the cluster.
     configuration :: Prelude.Maybe ClusterConfiguration,
     -- | The setting to use when creating a cluster. This parameter is used to
-    -- enable CloudWatch Container Insights for a cluster. If this value is
-    -- specified, it will override the @containerInsights@ value set with
+    -- turn on CloudWatch Container Insights for a cluster. If this value is
+    -- specified, it overrides the @containerInsights@ value set with
     -- PutAccountSetting or PutAccountSettingDefault.
     settings :: Prelude.Maybe [ClusterSetting],
     -- | The short name of one or more capacity providers to associate with the
@@ -108,9 +108,9 @@ data CreateCluster = CreateCluster'
     -- CreateService or RunTask actions.
     --
     -- If specifying a capacity provider that uses an Auto Scaling group, the
-    -- capacity provider must already be created and not already associated
-    -- with another cluster. New Auto Scaling group capacity providers can be
-    -- created with the CreateCapacityProvider API operation.
+    -- capacity provider must be created but not associated with another
+    -- cluster. New Auto Scaling group capacity providers can be created with
+    -- the CreateCapacityProvider API operation.
     --
     -- To use a Fargate capacity provider, specify either the @FARGATE@ or
     -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
@@ -122,18 +122,19 @@ data CreateCluster = CreateCluster'
     -- created.
     capacityProviders :: Prelude.Maybe [Prelude.Text],
     -- | The capacity provider strategy to set as the default for the cluster.
-    -- When a default capacity provider strategy is set for a cluster, when
-    -- calling the RunTask or CreateService APIs with no capacity provider
+    -- After a default capacity provider strategy is set for a cluster, when
+    -- you call the RunTask or CreateService APIs with no capacity provider
     -- strategy or launch type specified, the default capacity provider
     -- strategy for the cluster is used.
     --
-    -- If a default capacity provider strategy is not defined for a cluster
-    -- during creation, it can be defined later with the
+    -- If a default capacity provider strategy isn\'t defined for a cluster
+    -- when it was created, it can be defined later with the
     -- PutClusterCapacityProviders API operation.
     defaultCapacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
-    -- | The name of your cluster. If you do not specify a name for your cluster,
-    -- you create a cluster named @default@. Up to 255 letters (uppercase and
-    -- lowercase), numbers, underscores, and hyphens are allowed.
+    -- | The name of your cluster. If you don\'t specify a name for your cluster,
+    -- you create a cluster that\'s named @default@. Up to 255 letters
+    -- (uppercase and lowercase), numbers, underscores, and hyphens are
+    -- allowed.
     clusterName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -147,8 +148,8 @@ data CreateCluster = CreateCluster'
 -- for backwards compatibility:
 --
 -- 'tags', 'createCluster_tags' - The metadata that you apply to the cluster to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -175,11 +176,11 @@ data CreateCluster = CreateCluster'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'configuration', 'createCluster_configuration' - The execute command configuration for the cluster.
+-- 'configuration', 'createCluster_configuration' - The @execute@ command configuration for the cluster.
 --
 -- 'settings', 'createCluster_settings' - The setting to use when creating a cluster. This parameter is used to
--- enable CloudWatch Container Insights for a cluster. If this value is
--- specified, it will override the @containerInsights@ value set with
+-- turn on CloudWatch Container Insights for a cluster. If this value is
+-- specified, it overrides the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
 --
 -- 'capacityProviders', 'createCluster_capacityProviders' - The short name of one or more capacity providers to associate with the
@@ -189,9 +190,9 @@ data CreateCluster = CreateCluster'
 -- CreateService or RunTask actions.
 --
 -- If specifying a capacity provider that uses an Auto Scaling group, the
--- capacity provider must already be created and not already associated
--- with another cluster. New Auto Scaling group capacity providers can be
--- created with the CreateCapacityProvider API operation.
+-- capacity provider must be created but not associated with another
+-- cluster. New Auto Scaling group capacity providers can be created with
+-- the CreateCapacityProvider API operation.
 --
 -- To use a Fargate capacity provider, specify either the @FARGATE@ or
 -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
@@ -203,18 +204,19 @@ data CreateCluster = CreateCluster'
 -- created.
 --
 -- 'defaultCapacityProviderStrategy', 'createCluster_defaultCapacityProviderStrategy' - The capacity provider strategy to set as the default for the cluster.
--- When a default capacity provider strategy is set for a cluster, when
--- calling the RunTask or CreateService APIs with no capacity provider
+-- After a default capacity provider strategy is set for a cluster, when
+-- you call the RunTask or CreateService APIs with no capacity provider
 -- strategy or launch type specified, the default capacity provider
 -- strategy for the cluster is used.
 --
--- If a default capacity provider strategy is not defined for a cluster
--- during creation, it can be defined later with the
+-- If a default capacity provider strategy isn\'t defined for a cluster
+-- when it was created, it can be defined later with the
 -- PutClusterCapacityProviders API operation.
 --
--- 'clusterName', 'createCluster_clusterName' - The name of your cluster. If you do not specify a name for your cluster,
--- you create a cluster named @default@. Up to 255 letters (uppercase and
--- lowercase), numbers, underscores, and hyphens are allowed.
+-- 'clusterName', 'createCluster_clusterName' - The name of your cluster. If you don\'t specify a name for your cluster,
+-- you create a cluster that\'s named @default@. Up to 255 letters
+-- (uppercase and lowercase), numbers, underscores, and hyphens are
+-- allowed.
 newCreateCluster ::
   CreateCluster
 newCreateCluster =
@@ -228,8 +230,8 @@ newCreateCluster =
     }
 
 -- | The metadata that you apply to the cluster to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -258,13 +260,13 @@ newCreateCluster =
 createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
 createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The execute command configuration for the cluster.
+-- | The @execute@ command configuration for the cluster.
 createCluster_configuration :: Lens.Lens' CreateCluster (Prelude.Maybe ClusterConfiguration)
 createCluster_configuration = Lens.lens (\CreateCluster' {configuration} -> configuration) (\s@CreateCluster' {} a -> s {configuration = a} :: CreateCluster)
 
 -- | The setting to use when creating a cluster. This parameter is used to
--- enable CloudWatch Container Insights for a cluster. If this value is
--- specified, it will override the @containerInsights@ value set with
+-- turn on CloudWatch Container Insights for a cluster. If this value is
+-- specified, it overrides the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
 createCluster_settings :: Lens.Lens' CreateCluster (Prelude.Maybe [ClusterSetting])
 createCluster_settings = Lens.lens (\CreateCluster' {settings} -> settings) (\s@CreateCluster' {} a -> s {settings = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
@@ -276,9 +278,9 @@ createCluster_settings = Lens.lens (\CreateCluster' {settings} -> settings) (\s@
 -- CreateService or RunTask actions.
 --
 -- If specifying a capacity provider that uses an Auto Scaling group, the
--- capacity provider must already be created and not already associated
--- with another cluster. New Auto Scaling group capacity providers can be
--- created with the CreateCapacityProvider API operation.
+-- capacity provider must be created but not associated with another
+-- cluster. New Auto Scaling group capacity providers can be created with
+-- the CreateCapacityProvider API operation.
 --
 -- To use a Fargate capacity provider, specify either the @FARGATE@ or
 -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
@@ -292,20 +294,21 @@ createCluster_capacityProviders :: Lens.Lens' CreateCluster (Prelude.Maybe [Prel
 createCluster_capacityProviders = Lens.lens (\CreateCluster' {capacityProviders} -> capacityProviders) (\s@CreateCluster' {} a -> s {capacityProviders = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The capacity provider strategy to set as the default for the cluster.
--- When a default capacity provider strategy is set for a cluster, when
--- calling the RunTask or CreateService APIs with no capacity provider
+-- After a default capacity provider strategy is set for a cluster, when
+-- you call the RunTask or CreateService APIs with no capacity provider
 -- strategy or launch type specified, the default capacity provider
 -- strategy for the cluster is used.
 --
--- If a default capacity provider strategy is not defined for a cluster
--- during creation, it can be defined later with the
+-- If a default capacity provider strategy isn\'t defined for a cluster
+-- when it was created, it can be defined later with the
 -- PutClusterCapacityProviders API operation.
 createCluster_defaultCapacityProviderStrategy :: Lens.Lens' CreateCluster (Prelude.Maybe [CapacityProviderStrategyItem])
 createCluster_defaultCapacityProviderStrategy = Lens.lens (\CreateCluster' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@CreateCluster' {} a -> s {defaultCapacityProviderStrategy = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of your cluster. If you do not specify a name for your cluster,
--- you create a cluster named @default@. Up to 255 letters (uppercase and
--- lowercase), numbers, underscores, and hyphens are allowed.
+-- | The name of your cluster. If you don\'t specify a name for your cluster,
+-- you create a cluster that\'s named @default@. Up to 255 letters
+-- (uppercase and lowercase), numbers, underscores, and hyphens are
+-- allowed.
 createCluster_clusterName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterName = Lens.lens (\CreateCluster' {clusterName} -> clusterName) (\s@CreateCluster' {} a -> s {clusterName = a} :: CreateCluster)
 

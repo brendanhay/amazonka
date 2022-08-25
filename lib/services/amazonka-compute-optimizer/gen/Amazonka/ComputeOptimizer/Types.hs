@@ -30,6 +30,12 @@ module Amazonka.ComputeOptimizer.Types
     -- * CpuVendorArchitecture
     CpuVendorArchitecture (..),
 
+    -- * Currency
+    Currency (..),
+
+    -- * CurrentPerformanceRisk
+    CurrentPerformanceRisk (..),
+
     -- * EBSFilterName
     EBSFilterName (..),
 
@@ -38,6 +44,9 @@ module Amazonka.ComputeOptimizer.Types
 
     -- * EBSMetricName
     EBSMetricName (..),
+
+    -- * EnhancedInfrastructureMetrics
+    EnhancedInfrastructureMetrics (..),
 
     -- * EnrollmentFilterName
     EnrollmentFilterName (..),
@@ -65,6 +74,12 @@ module Amazonka.ComputeOptimizer.Types
 
     -- * FindingReasonCode
     FindingReasonCode (..),
+
+    -- * InferredWorkloadType
+    InferredWorkloadType (..),
+
+    -- * InferredWorkloadTypesPreference
+    InferredWorkloadTypesPreference (..),
 
     -- * InstanceRecommendationFindingReasonCode
     InstanceRecommendationFindingReasonCode (..),
@@ -102,14 +117,23 @@ module Amazonka.ComputeOptimizer.Types
     -- * MetricStatistic
     MetricStatistic (..),
 
+    -- * MigrationEffort
+    MigrationEffort (..),
+
     -- * PlatformDifference
     PlatformDifference (..),
+
+    -- * RecommendationPreferenceName
+    RecommendationPreferenceName (..),
 
     -- * RecommendationSourceType
     RecommendationSourceType (..),
 
     -- * ResourceType
     ResourceType (..),
+
+    -- * ScopeName
+    ScopeName (..),
 
     -- * Status
     Status (..),
@@ -133,13 +157,16 @@ module Amazonka.ComputeOptimizer.Types
     -- * AutoScalingGroupRecommendation
     AutoScalingGroupRecommendation (..),
     newAutoScalingGroupRecommendation,
+    autoScalingGroupRecommendation_currentPerformanceRisk,
     autoScalingGroupRecommendation_autoScalingGroupArn,
+    autoScalingGroupRecommendation_inferredWorkloadTypes,
     autoScalingGroupRecommendation_recommendationOptions,
     autoScalingGroupRecommendation_lastRefreshTimestamp,
     autoScalingGroupRecommendation_currentConfiguration,
     autoScalingGroupRecommendation_lookBackPeriodInDays,
     autoScalingGroupRecommendation_autoScalingGroupName,
     autoScalingGroupRecommendation_accountId,
+    autoScalingGroupRecommendation_effectiveRecommendationPreferences,
     autoScalingGroupRecommendation_utilizationMetrics,
     autoScalingGroupRecommendation_finding,
 
@@ -147,9 +174,19 @@ module Amazonka.ComputeOptimizer.Types
     AutoScalingGroupRecommendationOption (..),
     newAutoScalingGroupRecommendationOption,
     autoScalingGroupRecommendationOption_performanceRisk,
+    autoScalingGroupRecommendationOption_migrationEffort,
     autoScalingGroupRecommendationOption_configuration,
+    autoScalingGroupRecommendationOption_savingsOpportunity,
     autoScalingGroupRecommendationOption_rank,
     autoScalingGroupRecommendationOption_projectedUtilizationMetrics,
+
+    -- * CurrentPerformanceRiskRatings
+    CurrentPerformanceRiskRatings (..),
+    newCurrentPerformanceRiskRatings,
+    currentPerformanceRiskRatings_veryLow,
+    currentPerformanceRiskRatings_low,
+    currentPerformanceRiskRatings_high,
+    currentPerformanceRiskRatings_medium,
 
     -- * EBSFilter
     EBSFilter (..),
@@ -164,11 +201,24 @@ module Amazonka.ComputeOptimizer.Types
     eBSUtilizationMetric_statistic,
     eBSUtilizationMetric_value,
 
+    -- * EffectiveRecommendationPreferences
+    EffectiveRecommendationPreferences (..),
+    newEffectiveRecommendationPreferences,
+    effectiveRecommendationPreferences_inferredWorkloadTypes,
+    effectiveRecommendationPreferences_enhancedInfrastructureMetrics,
+    effectiveRecommendationPreferences_cpuVendorArchitectures,
+
     -- * EnrollmentFilter
     EnrollmentFilter (..),
     newEnrollmentFilter,
     enrollmentFilter_name,
     enrollmentFilter_values,
+
+    -- * EstimatedMonthlySavings
+    EstimatedMonthlySavings (..),
+    newEstimatedMonthlySavings,
+    estimatedMonthlySavings_currency,
+    estimatedMonthlySavings_value,
 
     -- * ExportDestination
     ExportDestination (..),
@@ -192,13 +242,16 @@ module Amazonka.ComputeOptimizer.Types
     InstanceRecommendation (..),
     newInstanceRecommendation,
     instanceRecommendation_findingReasonCodes,
+    instanceRecommendation_currentPerformanceRisk,
     instanceRecommendation_instanceName,
+    instanceRecommendation_inferredWorkloadTypes,
     instanceRecommendation_recommendationOptions,
     instanceRecommendation_lastRefreshTimestamp,
     instanceRecommendation_instanceArn,
     instanceRecommendation_lookBackPeriodInDays,
     instanceRecommendation_accountId,
     instanceRecommendation_recommendationSources,
+    instanceRecommendation_effectiveRecommendationPreferences,
     instanceRecommendation_currentInstanceType,
     instanceRecommendation_utilizationMetrics,
     instanceRecommendation_finding,
@@ -207,6 +260,8 @@ module Amazonka.ComputeOptimizer.Types
     InstanceRecommendationOption (..),
     newInstanceRecommendationOption,
     instanceRecommendationOption_performanceRisk,
+    instanceRecommendationOption_migrationEffort,
+    instanceRecommendationOption_savingsOpportunity,
     instanceRecommendationOption_platformDifferences,
     instanceRecommendationOption_rank,
     instanceRecommendationOption_instanceType,
@@ -229,6 +284,7 @@ module Amazonka.ComputeOptimizer.Types
     LambdaFunctionMemoryRecommendationOption (..),
     newLambdaFunctionMemoryRecommendationOption,
     lambdaFunctionMemoryRecommendationOption_memorySize,
+    lambdaFunctionMemoryRecommendationOption_savingsOpportunity,
     lambdaFunctionMemoryRecommendationOption_rank,
     lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics,
 
@@ -237,6 +293,7 @@ module Amazonka.ComputeOptimizer.Types
     newLambdaFunctionRecommendation,
     lambdaFunctionRecommendation_findingReasonCodes,
     lambdaFunctionRecommendation_functionArn,
+    lambdaFunctionRecommendation_currentPerformanceRisk,
     lambdaFunctionRecommendation_currentMemorySize,
     lambdaFunctionRecommendation_numberOfInvocations,
     lambdaFunctionRecommendation_lastRefreshTimestamp,
@@ -289,6 +346,14 @@ module Amazonka.ComputeOptimizer.Types
     newRecommendationPreferences,
     recommendationPreferences_cpuVendorArchitectures,
 
+    -- * RecommendationPreferencesDetail
+    RecommendationPreferencesDetail (..),
+    newRecommendationPreferencesDetail,
+    recommendationPreferencesDetail_resourceType,
+    recommendationPreferencesDetail_inferredWorkloadTypes,
+    recommendationPreferencesDetail_enhancedInfrastructureMetrics,
+    recommendationPreferencesDetail_scope,
+
     -- * RecommendationSource
     RecommendationSource (..),
     newRecommendationSource,
@@ -298,6 +363,8 @@ module Amazonka.ComputeOptimizer.Types
     -- * RecommendationSummary
     RecommendationSummary (..),
     newRecommendationSummary,
+    recommendationSummary_currentPerformanceRiskRatings,
+    recommendationSummary_savingsOpportunity,
     recommendationSummary_recommendationResourceType,
     recommendationSummary_summaries,
     recommendationSummary_accountId,
@@ -321,6 +388,18 @@ module Amazonka.ComputeOptimizer.Types
     newS3DestinationConfig,
     s3DestinationConfig_bucket,
     s3DestinationConfig_keyPrefix,
+
+    -- * SavingsOpportunity
+    SavingsOpportunity (..),
+    newSavingsOpportunity,
+    savingsOpportunity_savingsOpportunityPercentage,
+    savingsOpportunity_estimatedMonthlySavings,
+
+    -- * Scope
+    Scope (..),
+    newScope,
+    scope_name,
+    scope_value,
 
     -- * Summary
     Summary (..),
@@ -349,6 +428,7 @@ module Amazonka.ComputeOptimizer.Types
     -- * VolumeRecommendation
     VolumeRecommendation (..),
     newVolumeRecommendation,
+    volumeRecommendation_currentPerformanceRisk,
     volumeRecommendation_lastRefreshTimestamp,
     volumeRecommendation_currentConfiguration,
     volumeRecommendation_volumeArn,
@@ -363,6 +443,7 @@ module Amazonka.ComputeOptimizer.Types
     newVolumeRecommendationOption,
     volumeRecommendationOption_performanceRisk,
     volumeRecommendationOption_configuration,
+    volumeRecommendationOption_savingsOpportunity,
     volumeRecommendationOption_rank,
   )
 where
@@ -372,13 +453,19 @@ import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
 import Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
+import Amazonka.ComputeOptimizer.Types.Currency
+import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
+import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRiskRatings
 import Amazonka.ComputeOptimizer.Types.EBSFilter
 import Amazonka.ComputeOptimizer.Types.EBSFilterName
 import Amazonka.ComputeOptimizer.Types.EBSFinding
 import Amazonka.ComputeOptimizer.Types.EBSMetricName
 import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
+import Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilterName
+import Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
 import Amazonka.ComputeOptimizer.Types.ExportDestination
 import Amazonka.ComputeOptimizer.Types.ExportableAutoScalingGroupField
 import Amazonka.ComputeOptimizer.Types.ExportableInstanceField
@@ -390,6 +477,8 @@ import Amazonka.ComputeOptimizer.Types.FilterName
 import Amazonka.ComputeOptimizer.Types.Finding
 import Amazonka.ComputeOptimizer.Types.FindingReasonCode
 import Amazonka.ComputeOptimizer.Types.GetRecommendationError
+import Amazonka.ComputeOptimizer.Types.InferredWorkloadType
+import Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendation
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
@@ -410,11 +499,14 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReason
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
 import Amazonka.ComputeOptimizer.Types.MetricName
 import Amazonka.ComputeOptimizer.Types.MetricStatistic
+import Amazonka.ComputeOptimizer.Types.MigrationEffort
 import Amazonka.ComputeOptimizer.Types.PlatformDifference
 import Amazonka.ComputeOptimizer.Types.ProjectedMetric
 import Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
 import Amazonka.ComputeOptimizer.Types.RecommendationExportJob
+import Amazonka.ComputeOptimizer.Types.RecommendationPreferenceName
 import Amazonka.ComputeOptimizer.Types.RecommendationPreferences
+import Amazonka.ComputeOptimizer.Types.RecommendationPreferencesDetail
 import Amazonka.ComputeOptimizer.Types.RecommendationSource
 import Amazonka.ComputeOptimizer.Types.RecommendationSourceType
 import Amazonka.ComputeOptimizer.Types.RecommendationSummary
@@ -422,6 +514,9 @@ import Amazonka.ComputeOptimizer.Types.RecommendedOptionProjectedMetric
 import Amazonka.ComputeOptimizer.Types.ResourceType
 import Amazonka.ComputeOptimizer.Types.S3Destination
 import Amazonka.ComputeOptimizer.Types.S3DestinationConfig
+import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
+import Amazonka.ComputeOptimizer.Types.Scope
+import Amazonka.ComputeOptimizer.Types.ScopeName
 import Amazonka.ComputeOptimizer.Types.Status
 import Amazonka.ComputeOptimizer.Types.Summary
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric

@@ -27,8 +27,8 @@ module Amazonka.Nimble.GetStreamingImage
     newGetStreamingImage,
 
     -- * Request Lenses
-    getStreamingImage_studioId,
     getStreamingImage_streamingImageId,
+    getStreamingImage_studioId,
 
     -- * Destructuring the Response
     GetStreamingImageResponse (..),
@@ -49,10 +49,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetStreamingImage' smart constructor.
 data GetStreamingImage = GetStreamingImage'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The streaming image ID.
-    streamingImageId :: Prelude.Text
+  { -- | The streaming image ID.
+    streamingImageId :: Prelude.Text,
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,28 +64,29 @@ data GetStreamingImage = GetStreamingImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioId', 'getStreamingImage_studioId' - The studio ID.
---
 -- 'streamingImageId', 'getStreamingImage_streamingImageId' - The streaming image ID.
+--
+-- 'studioId', 'getStreamingImage_studioId' - The studio ID.
 newGetStreamingImage ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'streamingImageId'
   Prelude.Text ->
+  -- | 'studioId'
+  Prelude.Text ->
   GetStreamingImage
-newGetStreamingImage pStudioId_ pStreamingImageId_ =
+newGetStreamingImage pStreamingImageId_ pStudioId_ =
   GetStreamingImage'
-    { studioId = pStudioId_,
-      streamingImageId = pStreamingImageId_
+    { streamingImageId =
+        pStreamingImageId_,
+      studioId = pStudioId_
     }
-
--- | The studio ID.
-getStreamingImage_studioId :: Lens.Lens' GetStreamingImage Prelude.Text
-getStreamingImage_studioId = Lens.lens (\GetStreamingImage' {studioId} -> studioId) (\s@GetStreamingImage' {} a -> s {studioId = a} :: GetStreamingImage)
 
 -- | The streaming image ID.
 getStreamingImage_streamingImageId :: Lens.Lens' GetStreamingImage Prelude.Text
 getStreamingImage_streamingImageId = Lens.lens (\GetStreamingImage' {streamingImageId} -> streamingImageId) (\s@GetStreamingImage' {} a -> s {streamingImageId = a} :: GetStreamingImage)
+
+-- | The studio ID.
+getStreamingImage_studioId :: Lens.Lens' GetStreamingImage Prelude.Text
+getStreamingImage_studioId = Lens.lens (\GetStreamingImage' {studioId} -> studioId) (\s@GetStreamingImage' {} a -> s {studioId = a} :: GetStreamingImage)
 
 instance Core.AWSRequest GetStreamingImage where
   type
@@ -102,13 +103,13 @@ instance Core.AWSRequest GetStreamingImage where
 
 instance Prelude.Hashable GetStreamingImage where
   hashWithSalt _salt GetStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` streamingImageId
+    _salt `Prelude.hashWithSalt` streamingImageId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStreamingImage where
   rnf GetStreamingImage' {..} =
-    Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf streamingImageId
+    Prelude.rnf streamingImageId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders GetStreamingImage where
   toHeaders =
@@ -140,7 +141,7 @@ data GetStreamingImageResponse = GetStreamingImageResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStreamingImageResponse' with all optional fields omitted.

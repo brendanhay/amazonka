@@ -66,8 +66,7 @@ data CreateAutoMLJob = CreateAutoMLJob'
   { -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
     tags :: Prelude.Maybe [Tag],
-    -- | Contains @CompletionCriteria@ and @SecurityConfig@ settings for the
-    -- AutoML job.
+    -- | A collection of settings used to configure an AutoML job.
     autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
     -- | Defines the objective metric used to measure the predictive quality of
     -- an AutoML job. You provide an AutoMLJobObjective$MetricName and
@@ -77,8 +76,7 @@ data CreateAutoMLJob = CreateAutoMLJob'
     -- Autopilot model deployment.
     modelDeployConfig :: Prelude.Maybe ModelDeployConfig,
     -- | Defines the type of supervised learning available for the candidates.
-    -- Options include: @BinaryClassification@, @MulticlassClassification@, and
-    -- @Regression@. For more information, see
+    -- For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
     problemType :: Prelude.Maybe ProblemType,
     -- | Generates possible candidates without training the models. A candidate
@@ -90,8 +88,9 @@ data CreateAutoMLJob = CreateAutoMLJob'
     autoMLJobName :: Prelude.Text,
     -- | An array of channel objects that describes the input data and its
     -- location. Each channel is a named input source. Similar to
-    -- @InputDataConfig@ supported by . Format(s) supported: CSV. Minimum of
-    -- 500 rows.
+    -- @InputDataConfig@ supported by . Format(s) supported: CSV, Parquet. A
+    -- minimum of 500 rows is required for the training dataset. There is not a
+    -- minimum number of rows required for the validation dataset.
     inputDataConfig :: Prelude.NonEmpty AutoMLChannel,
     -- | Provides information about encryption and the Amazon S3 output path
     -- needed to store artifacts from an AutoML job. Format(s) supported: CSV.
@@ -112,8 +111,7 @@ data CreateAutoMLJob = CreateAutoMLJob'
 -- 'tags', 'createAutoMLJob_tags' - Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
 --
--- 'autoMLJobConfig', 'createAutoMLJob_autoMLJobConfig' - Contains @CompletionCriteria@ and @SecurityConfig@ settings for the
--- AutoML job.
+-- 'autoMLJobConfig', 'createAutoMLJob_autoMLJobConfig' - A collection of settings used to configure an AutoML job.
 --
 -- 'autoMLJobObjective', 'createAutoMLJob_autoMLJobObjective' - Defines the objective metric used to measure the predictive quality of
 -- an AutoML job. You provide an AutoMLJobObjective$MetricName and
@@ -123,8 +121,7 @@ data CreateAutoMLJob = CreateAutoMLJob'
 -- Autopilot model deployment.
 --
 -- 'problemType', 'createAutoMLJob_problemType' - Defines the type of supervised learning available for the candidates.
--- Options include: @BinaryClassification@, @MulticlassClassification@, and
--- @Regression@. For more information, see
+-- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
 --
 -- 'generateCandidateDefinitionsOnly', 'createAutoMLJob_generateCandidateDefinitionsOnly' - Generates possible candidates without training the models. A candidate
@@ -136,8 +133,9 @@ data CreateAutoMLJob = CreateAutoMLJob'
 --
 -- 'inputDataConfig', 'createAutoMLJob_inputDataConfig' - An array of channel objects that describes the input data and its
 -- location. Each channel is a named input source. Similar to
--- @InputDataConfig@ supported by . Format(s) supported: CSV. Minimum of
--- 500 rows.
+-- @InputDataConfig@ supported by . Format(s) supported: CSV, Parquet. A
+-- minimum of 500 rows is required for the training dataset. There is not a
+-- minimum number of rows required for the validation dataset.
 --
 -- 'outputDataConfig', 'createAutoMLJob_outputDataConfig' - Provides information about encryption and the Amazon S3 output path
 -- needed to store artifacts from an AutoML job. Format(s) supported: CSV.
@@ -177,8 +175,7 @@ newCreateAutoMLJob
 createAutoMLJob_tags :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe [Tag])
 createAutoMLJob_tags = Lens.lens (\CreateAutoMLJob' {tags} -> tags) (\s@CreateAutoMLJob' {} a -> s {tags = a} :: CreateAutoMLJob) Prelude.. Lens.mapping Lens.coerced
 
--- | Contains @CompletionCriteria@ and @SecurityConfig@ settings for the
--- AutoML job.
+-- | A collection of settings used to configure an AutoML job.
 createAutoMLJob_autoMLJobConfig :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobConfig)
 createAutoMLJob_autoMLJobConfig = Lens.lens (\CreateAutoMLJob' {autoMLJobConfig} -> autoMLJobConfig) (\s@CreateAutoMLJob' {} a -> s {autoMLJobConfig = a} :: CreateAutoMLJob)
 
@@ -194,8 +191,7 @@ createAutoMLJob_modelDeployConfig :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe M
 createAutoMLJob_modelDeployConfig = Lens.lens (\CreateAutoMLJob' {modelDeployConfig} -> modelDeployConfig) (\s@CreateAutoMLJob' {} a -> s {modelDeployConfig = a} :: CreateAutoMLJob)
 
 -- | Defines the type of supervised learning available for the candidates.
--- Options include: @BinaryClassification@, @MulticlassClassification@, and
--- @Regression@. For more information, see
+-- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
 createAutoMLJob_problemType :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe ProblemType)
 createAutoMLJob_problemType = Lens.lens (\CreateAutoMLJob' {problemType} -> problemType) (\s@CreateAutoMLJob' {} a -> s {problemType = a} :: CreateAutoMLJob)
@@ -213,8 +209,9 @@ createAutoMLJob_autoMLJobName = Lens.lens (\CreateAutoMLJob' {autoMLJobName} -> 
 
 -- | An array of channel objects that describes the input data and its
 -- location. Each channel is a named input source. Similar to
--- @InputDataConfig@ supported by . Format(s) supported: CSV. Minimum of
--- 500 rows.
+-- @InputDataConfig@ supported by . Format(s) supported: CSV, Parquet. A
+-- minimum of 500 rows is required for the training dataset. There is not a
+-- minimum number of rows required for the validation dataset.
 createAutoMLJob_inputDataConfig :: Lens.Lens' CreateAutoMLJob (Prelude.NonEmpty AutoMLChannel)
 createAutoMLJob_inputDataConfig = Lens.lens (\CreateAutoMLJob' {inputDataConfig} -> inputDataConfig) (\s@CreateAutoMLJob' {} a -> s {inputDataConfig = a} :: CreateAutoMLJob) Prelude.. Lens.coerced
 

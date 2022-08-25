@@ -117,6 +117,7 @@ module Amazonka.Wisdom.Lens
     getRecommendations_waitTimeSeconds,
     getRecommendations_assistantId,
     getRecommendations_sessionId,
+    getRecommendationsResponse_triggers,
     getRecommendationsResponse_httpStatus,
     getRecommendationsResponse_recommendations,
 
@@ -168,6 +169,18 @@ module Amazonka.Wisdom.Lens
     notifyRecommendationsReceivedResponse_recommendationIds,
     notifyRecommendationsReceivedResponse_errors,
     notifyRecommendationsReceivedResponse_httpStatus,
+
+    -- ** PutFeedback
+    putFeedback_assistantId,
+    putFeedback_feedback,
+    putFeedback_targetId,
+    putFeedback_targetType,
+    putFeedbackResponse_httpStatus,
+    putFeedbackResponse_assistantArn,
+    putFeedbackResponse_assistantId,
+    putFeedbackResponse_feedback,
+    putFeedbackResponse_targetId,
+    putFeedbackResponse_targetType,
 
     -- ** QueryAssistant
     queryAssistant_nextToken,
@@ -331,6 +344,9 @@ module Amazonka.Wisdom.Lens
     documentText_highlights,
     documentText_text,
 
+    -- ** FeedbackData
+    feedbackData_relevance,
+
     -- ** Filter
     filter_field,
     filter_operator,
@@ -373,11 +389,25 @@ module Amazonka.Wisdom.Lens
     notifyRecommendationsReceivedError_message,
     notifyRecommendationsReceivedError_recommendationId,
 
+    -- ** QueryRecommendationTriggerData
+    queryRecommendationTriggerData_text,
+
     -- ** RecommendationData
+    recommendationData_type,
     recommendationData_relevanceLevel,
     recommendationData_relevanceScore,
     recommendationData_document,
     recommendationData_recommendationId,
+
+    -- ** RecommendationTrigger
+    recommendationTrigger_data,
+    recommendationTrigger_id,
+    recommendationTrigger_recommendationIds,
+    recommendationTrigger_source,
+    recommendationTrigger_type,
+
+    -- ** RecommendationTriggerData
+    recommendationTriggerData_query,
 
     -- ** RenderingConfiguration
     renderingConfiguration_templateUri,
@@ -433,6 +463,7 @@ import Amazonka.Wisdom.ListContents
 import Amazonka.Wisdom.ListKnowledgeBases
 import Amazonka.Wisdom.ListTagsForResource
 import Amazonka.Wisdom.NotifyRecommendationsReceived
+import Amazonka.Wisdom.PutFeedback
 import Amazonka.Wisdom.QueryAssistant
 import Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
 import Amazonka.Wisdom.SearchContent
@@ -451,13 +482,17 @@ import Amazonka.Wisdom.Types.ContentReference
 import Amazonka.Wisdom.Types.ContentSummary
 import Amazonka.Wisdom.Types.Document
 import Amazonka.Wisdom.Types.DocumentText
+import Amazonka.Wisdom.Types.FeedbackData
 import Amazonka.Wisdom.Types.Filter
 import Amazonka.Wisdom.Types.Highlight
 import Amazonka.Wisdom.Types.KnowledgeBaseAssociationData
 import Amazonka.Wisdom.Types.KnowledgeBaseData
 import Amazonka.Wisdom.Types.KnowledgeBaseSummary
 import Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
+import Amazonka.Wisdom.Types.QueryRecommendationTriggerData
 import Amazonka.Wisdom.Types.RecommendationData
+import Amazonka.Wisdom.Types.RecommendationTrigger
+import Amazonka.Wisdom.Types.RecommendationTriggerData
 import Amazonka.Wisdom.Types.RenderingConfiguration
 import Amazonka.Wisdom.Types.ResultData
 import Amazonka.Wisdom.Types.SearchExpression

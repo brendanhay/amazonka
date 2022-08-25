@@ -46,7 +46,7 @@
 -- use DescribeStackResourceDrifts to return drift information about the
 -- stack and its resources.
 --
--- When detecting drift on a stack, CloudFormation does not detect drift on
+-- When detecting drift on a stack, CloudFormation doesn\'t detect drift on
 -- any nested stacks belonging to that stack. Perform @DetectStackDrift@
 -- directly on the nested stack itself.
 module Amazonka.CloudFormation.DetectStackDrift

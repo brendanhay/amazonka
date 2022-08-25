@@ -23,7 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents an event that failed to be submitted.
+-- | Represents an event that failed to be submitted. For information about
+-- the errors that are common to all actions, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html Common Errors>.
 --
 -- /See:/ 'newPutEventsResultEntry' smart constructor.
 data PutEventsResultEntry = PutEventsResultEntry'

@@ -37,7 +37,7 @@
 --
 -- If you make changes to parameters that require a Redis (cluster mode
 -- enabled) cluster reboot for the changes to be applied, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster>
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html Rebooting a Cluster>
 -- for an alternate process.
 module Amazonka.ElastiCache.RebootCacheCluster
   ( -- * Creating a Request

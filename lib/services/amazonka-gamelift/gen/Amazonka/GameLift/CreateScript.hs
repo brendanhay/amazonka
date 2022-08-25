@@ -34,10 +34,11 @@
 -- -   A locally available directory. Use the /ZipFile/ parameter for this
 --     option.
 --
--- -   An Amazon Simple Storage Service (Amazon S3) bucket under your AWS
---     account. Use the /StorageLocation/ parameter for this option.
---     You\'ll need to have an Identity Access Management (IAM) role that
---     allows the Amazon GameLift service to access your S3 bucket.
+-- -   An Amazon Simple Storage Service (Amazon S3) bucket under your
+--     Amazon Web Services account. Use the /StorageLocation/ parameter for
+--     this option. You\'ll need to have an Identity Access Management
+--     (IAM) role that allows the Amazon GameLift service to access your S3
+--     bucket.
 --
 -- If the call is successful, a new script record is created with a unique
 -- script ID. If the script file is provided as a local file, the file is
@@ -89,14 +90,15 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateScript' smart constructor.
 data CreateScript = CreateScript'
   { -- | A list of labels to assign to the new script resource. Tags are
-    -- developer-defined key-value pairs. Tagging AWS resources are useful for
-    -- resource management, access management and cost allocation. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
+    -- developer-defined key-value pairs. Tagging Amazon Web Services resources
+    -- are useful for resource management, access management and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use TagResource, UntagResource, and ListTagsForResource
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | A descriptive label that is associated with a script. Script names do
     -- not need to be unique. You can use UpdateScript to change this value
@@ -106,10 +108,10 @@ data CreateScript = CreateScript'
     -- file. The zip file can have one or multiple files. Maximum size of a zip
     -- file is 5 MB.
     --
-    -- When using the AWS CLI tool to create a script, this parameter is set to
-    -- the zip file name. It must be prepended with the string \"fileb:\/\/\"
-    -- to indicate that the file data is a binary object. For example:
-    -- @--zip-file fileb:\/\/myRealtimeScript.zip@.
+    -- When using the Amazon Web Services CLI tool to create a script, this
+    -- parameter is set to the zip file name. It must be prepended with the
+    -- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+    -- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.
     zipFile :: Prelude.Maybe Core.Base64,
     -- | The location of the Amazon S3 bucket where a zipped file containing your
     -- Realtime scripts is stored. The storage location must specify the Amazon
@@ -136,14 +138,15 @@ data CreateScript = CreateScript'
 -- for backwards compatibility:
 --
 -- 'tags', 'createScript_tags' - A list of labels to assign to the new script resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- developer-defined key-value pairs. Tagging Amazon Web Services resources
+-- are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 --
 -- 'name', 'createScript_name' - A descriptive label that is associated with a script. Script names do
 -- not need to be unique. You can use UpdateScript to change this value
@@ -153,10 +156,10 @@ data CreateScript = CreateScript'
 -- file. The zip file can have one or multiple files. Maximum size of a zip
 -- file is 5 MB.
 --
--- When using the AWS CLI tool to create a script, this parameter is set to
--- the zip file name. It must be prepended with the string \"fileb:\/\/\"
--- to indicate that the file data is a binary object. For example:
--- @--zip-file fileb:\/\/myRealtimeScript.zip@.--
+-- When using the Amazon Web Services CLI tool to create a script, this
+-- parameter is set to the zip file name. It must be prepended with the
+-- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+-- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -186,14 +189,15 @@ newCreateScript =
     }
 
 -- | A list of labels to assign to the new script resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- developer-defined key-value pairs. Tagging Amazon Web Services resources
+-- are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 createScript_tags :: Lens.Lens' CreateScript (Prelude.Maybe [Tag])
 createScript_tags = Lens.lens (\CreateScript' {tags} -> tags) (\s@CreateScript' {} a -> s {tags = a} :: CreateScript) Prelude.. Lens.mapping Lens.coerced
 
@@ -207,10 +211,10 @@ createScript_name = Lens.lens (\CreateScript' {name} -> name) (\s@CreateScript' 
 -- file. The zip file can have one or multiple files. Maximum size of a zip
 -- file is 5 MB.
 --
--- When using the AWS CLI tool to create a script, this parameter is set to
--- the zip file name. It must be prepended with the string \"fileb:\/\/\"
--- to indicate that the file data is a binary object. For example:
--- @--zip-file fileb:\/\/myRealtimeScript.zip@.--
+-- When using the Amazon Web Services CLI tool to create a script, this
+-- parameter is set to the zip file name. It must be prepended with the
+-- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+-- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.

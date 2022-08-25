@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateTaskSet' smart constructor.
 data UpdateTaskSet = UpdateTaskSet'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- hosts the service that the task set exists in.
+    -- hosts the service that the task set is found in.
     cluster :: Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
-    -- the task set exists in.
+    -- the task set is found in.
     service :: Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the task set to
     -- update.
@@ -78,10 +78,10 @@ data UpdateTaskSet = UpdateTaskSet'
 -- for backwards compatibility:
 --
 -- 'cluster', 'updateTaskSet_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the service that the task set exists in.
+-- hosts the service that the task set is found in.
 --
 -- 'service', 'updateTaskSet_service' - The short name or full Amazon Resource Name (ARN) of the service that
--- the task set exists in.
+-- the task set is found in.
 --
 -- 'taskSet', 'updateTaskSet_taskSet' - The short name or full Amazon Resource Name (ARN) of the task set to
 -- update.
@@ -111,12 +111,12 @@ newUpdateTaskSet
       }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the service that the task set exists in.
+-- hosts the service that the task set is found in.
 updateTaskSet_cluster :: Lens.Lens' UpdateTaskSet Prelude.Text
 updateTaskSet_cluster = Lens.lens (\UpdateTaskSet' {cluster} -> cluster) (\s@UpdateTaskSet' {} a -> s {cluster = a} :: UpdateTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that
--- the task set exists in.
+-- the task set is found in.
 updateTaskSet_service :: Lens.Lens' UpdateTaskSet Prelude.Text
 updateTaskSet_service = Lens.lens (\UpdateTaskSet' {service} -> service) (\s@UpdateTaskSet' {} a -> s {service = a} :: UpdateTaskSet)
 

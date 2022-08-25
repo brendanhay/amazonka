@@ -32,7 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReactiveInsight' smart constructor.
 data ReactiveInsight = ReactiveInsight'
-  { -- | The severity of a reactive insight.
+  { -- | The severity of the insight. For more information, see
+    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+    -- in the /Amazon DevOps Guru User Guide/.
     severity :: Prelude.Maybe InsightSeverity,
     -- | The name of a reactive insight.
     name :: Prelude.Maybe Prelude.Text,
@@ -41,9 +43,11 @@ data ReactiveInsight = ReactiveInsight'
     status :: Prelude.Maybe InsightStatus,
     -- | The ID of a reactive insight.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS System Manager OpsItem created for this insight. You
-    -- must enable the creation of OpstItems insights before they are created
-    -- for each insight.
+    -- | Describes the reactive insight.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services System Manager OpsItem created for
+    -- this insight. You must enable the creation of OpstItems insights before
+    -- they are created for each insight.
     ssmOpsItemId :: Prelude.Maybe Prelude.Text,
     insightTimeRange :: Prelude.Maybe InsightTimeRange
   }
@@ -57,7 +61,9 @@ data ReactiveInsight = ReactiveInsight'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'reactiveInsight_severity' - The severity of a reactive insight.
+-- 'severity', 'reactiveInsight_severity' - The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 --
 -- 'name', 'reactiveInsight_name' - The name of a reactive insight.
 --
@@ -67,9 +73,11 @@ data ReactiveInsight = ReactiveInsight'
 --
 -- 'id', 'reactiveInsight_id' - The ID of a reactive insight.
 --
--- 'ssmOpsItemId', 'reactiveInsight_ssmOpsItemId' - The ID of the AWS System Manager OpsItem created for this insight. You
--- must enable the creation of OpstItems insights before they are created
--- for each insight.
+-- 'description', 'reactiveInsight_description' - Describes the reactive insight.
+--
+-- 'ssmOpsItemId', 'reactiveInsight_ssmOpsItemId' - The ID of the Amazon Web Services System Manager OpsItem created for
+-- this insight. You must enable the creation of OpstItems insights before
+-- they are created for each insight.
 --
 -- 'insightTimeRange', 'reactiveInsight_insightTimeRange' - Undocumented member.
 newReactiveInsight ::
@@ -81,11 +89,14 @@ newReactiveInsight =
       resourceCollection = Prelude.Nothing,
       status = Prelude.Nothing,
       id = Prelude.Nothing,
+      description = Prelude.Nothing,
       ssmOpsItemId = Prelude.Nothing,
       insightTimeRange = Prelude.Nothing
     }
 
--- | The severity of a reactive insight.
+-- | The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 reactiveInsight_severity :: Lens.Lens' ReactiveInsight (Prelude.Maybe InsightSeverity)
 reactiveInsight_severity = Lens.lens (\ReactiveInsight' {severity} -> severity) (\s@ReactiveInsight' {} a -> s {severity = a} :: ReactiveInsight)
 
@@ -105,9 +116,13 @@ reactiveInsight_status = Lens.lens (\ReactiveInsight' {status} -> status) (\s@Re
 reactiveInsight_id :: Lens.Lens' ReactiveInsight (Prelude.Maybe Prelude.Text)
 reactiveInsight_id = Lens.lens (\ReactiveInsight' {id} -> id) (\s@ReactiveInsight' {} a -> s {id = a} :: ReactiveInsight)
 
--- | The ID of the AWS System Manager OpsItem created for this insight. You
--- must enable the creation of OpstItems insights before they are created
--- for each insight.
+-- | Describes the reactive insight.
+reactiveInsight_description :: Lens.Lens' ReactiveInsight (Prelude.Maybe Prelude.Text)
+reactiveInsight_description = Lens.lens (\ReactiveInsight' {description} -> description) (\s@ReactiveInsight' {} a -> s {description = a} :: ReactiveInsight)
+
+-- | The ID of the Amazon Web Services System Manager OpsItem created for
+-- this insight. You must enable the creation of OpstItems insights before
+-- they are created for each insight.
 reactiveInsight_ssmOpsItemId :: Lens.Lens' ReactiveInsight (Prelude.Maybe Prelude.Text)
 reactiveInsight_ssmOpsItemId = Lens.lens (\ReactiveInsight' {ssmOpsItemId} -> ssmOpsItemId) (\s@ReactiveInsight' {} a -> s {ssmOpsItemId = a} :: ReactiveInsight)
 
@@ -126,6 +141,7 @@ instance Core.FromJSON ReactiveInsight where
             Prelude.<*> (x Core..:? "ResourceCollection")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SsmOpsItemId")
             Prelude.<*> (x Core..:? "InsightTimeRange")
       )
@@ -137,6 +153,7 @@ instance Prelude.Hashable ReactiveInsight where
       `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ssmOpsItemId
       `Prelude.hashWithSalt` insightTimeRange
 
@@ -147,5 +164,6 @@ instance Prelude.NFData ReactiveInsight where
       `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf ssmOpsItemId
       `Prelude.seq` Prelude.rnf insightTimeRange

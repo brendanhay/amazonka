@@ -60,8 +60,9 @@ import qualified Amazonka.Response as Response
 data CreateDataSource = CreateDataSource'
   { -- | Relational database settings.
     relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
-    -- | The Identity and Access Management service role ARN for the data source.
-    -- The system assumes this role when accessing the data source.
+    -- | The Identity and Access Management (IAM) service role Amazon Resource
+    -- Name (ARN) for the data source. The system assumes this role when
+    -- accessing the data source.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Amazon OpenSearch Service settings.
     openSearchServiceConfig :: Prelude.Maybe OpenSearchServiceDataSourceConfig,
@@ -74,7 +75,7 @@ data CreateDataSource = CreateDataSource'
     -- CreateDataSourceRequest$openSearchServiceConfig to create an OpenSearch
     -- data source.
     elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
-    -- | Amazon Web Services Lambda settings.
+    -- | Lambda settings.
     lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
     -- | Amazon DynamoDB settings.
     dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
@@ -99,8 +100,9 @@ data CreateDataSource = CreateDataSource'
 --
 -- 'relationalDatabaseConfig', 'createDataSource_relationalDatabaseConfig' - Relational database settings.
 --
--- 'serviceRoleArn', 'createDataSource_serviceRoleArn' - The Identity and Access Management service role ARN for the data source.
--- The system assumes this role when accessing the data source.
+-- 'serviceRoleArn', 'createDataSource_serviceRoleArn' - The Identity and Access Management (IAM) service role Amazon Resource
+-- Name (ARN) for the data source. The system assumes this role when
+-- accessing the data source.
 --
 -- 'openSearchServiceConfig', 'createDataSource_openSearchServiceConfig' - Amazon OpenSearch Service settings.
 --
@@ -113,7 +115,7 @@ data CreateDataSource = CreateDataSource'
 -- CreateDataSourceRequest$openSearchServiceConfig to create an OpenSearch
 -- data source.
 --
--- 'lambdaConfig', 'createDataSource_lambdaConfig' - Amazon Web Services Lambda settings.
+-- 'lambdaConfig', 'createDataSource_lambdaConfig' - Lambda settings.
 --
 -- 'dynamodbConfig', 'createDataSource_dynamodbConfig' - Amazon DynamoDB settings.
 --
@@ -152,8 +154,9 @@ newCreateDataSource pApiId_ pName_ pType_ =
 createDataSource_relationalDatabaseConfig :: Lens.Lens' CreateDataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
 createDataSource_relationalDatabaseConfig = Lens.lens (\CreateDataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@CreateDataSource' {} a -> s {relationalDatabaseConfig = a} :: CreateDataSource)
 
--- | The Identity and Access Management service role ARN for the data source.
--- The system assumes this role when accessing the data source.
+-- | The Identity and Access Management (IAM) service role Amazon Resource
+-- Name (ARN) for the data source. The system assumes this role when
+-- accessing the data source.
 createDataSource_serviceRoleArn :: Lens.Lens' CreateDataSource (Prelude.Maybe Prelude.Text)
 createDataSource_serviceRoleArn = Lens.lens (\CreateDataSource' {serviceRoleArn} -> serviceRoleArn) (\s@CreateDataSource' {} a -> s {serviceRoleArn = a} :: CreateDataSource)
 
@@ -174,7 +177,7 @@ createDataSource_description = Lens.lens (\CreateDataSource' {description} -> de
 createDataSource_elasticsearchConfig :: Lens.Lens' CreateDataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 createDataSource_elasticsearchConfig = Lens.lens (\CreateDataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@CreateDataSource' {} a -> s {elasticsearchConfig = a} :: CreateDataSource)
 
--- | Amazon Web Services Lambda settings.
+-- | Lambda settings.
 createDataSource_lambdaConfig :: Lens.Lens' CreateDataSource (Prelude.Maybe LambdaDataSourceConfig)
 createDataSource_lambdaConfig = Lens.lens (\CreateDataSource' {lambdaConfig} -> lambdaConfig) (\s@CreateDataSource' {} a -> s {lambdaConfig = a} :: CreateDataSource)
 

@@ -39,9 +39,9 @@ data ManagedDataIdentifierSummary = ManagedDataIdentifierSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The category of sensitive data that the managed data identifier detects:
     -- CREDENTIALS, for credentials data such as private keys or Amazon Web
-    -- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
-    -- credit card numbers; or, PERSONAL_INFORMATION, for personal health
-    -- information, such as health insurance identification numbers, or
+    -- Services secret access keys; FINANCIAL_INFORMATION, for financial data
+    -- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
+    -- health information, such as health insurance identification numbers, or
     -- personally identifiable information, such as passport numbers.
     category :: Prelude.Maybe SensitiveDataItemCategory
   }
@@ -63,9 +63,9 @@ data ManagedDataIdentifierSummary = ManagedDataIdentifierSummary'
 --
 -- 'category', 'managedDataIdentifierSummary_category' - The category of sensitive data that the managed data identifier detects:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
--- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
--- credit card numbers; or, PERSONAL_INFORMATION, for personal health
--- information, such as health insurance identification numbers, or
+-- Services secret access keys; FINANCIAL_INFORMATION, for financial data
+-- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
+-- health information, such as health insurance identification numbers, or
 -- personally identifiable information, such as passport numbers.
 newManagedDataIdentifierSummary ::
   ManagedDataIdentifierSummary
@@ -85,9 +85,9 @@ managedDataIdentifierSummary_id = Lens.lens (\ManagedDataIdentifierSummary' {id}
 
 -- | The category of sensitive data that the managed data identifier detects:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
--- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
--- credit card numbers; or, PERSONAL_INFORMATION, for personal health
--- information, such as health insurance identification numbers, or
+-- Services secret access keys; FINANCIAL_INFORMATION, for financial data
+-- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
+-- health information, such as health insurance identification numbers, or
 -- personally identifiable information, such as passport numbers.
 managedDataIdentifierSummary_category :: Lens.Lens' ManagedDataIdentifierSummary (Prelude.Maybe SensitiveDataItemCategory)
 managedDataIdentifierSummary_category = Lens.lens (\ManagedDataIdentifierSummary' {category} -> category) (\s@ManagedDataIdentifierSummary' {} a -> s {category = a} :: ManagedDataIdentifierSummary)

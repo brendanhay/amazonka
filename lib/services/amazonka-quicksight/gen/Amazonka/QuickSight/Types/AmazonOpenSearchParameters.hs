@@ -23,9 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newAmazonOpenSearchParameters' smart constructor.
+-- | The parameters for OpenSearch.
+--
+-- /See:/ 'newAmazonOpenSearchParameters' smart constructor.
 data AmazonOpenSearchParameters = AmazonOpenSearchParameters'
-  { domain :: Prelude.Text
+  { -- | The OpenSearch domain.
+    domain :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -37,7 +40,7 @@ data AmazonOpenSearchParameters = AmazonOpenSearchParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'amazonOpenSearchParameters_domain' - Undocumented member.
+-- 'domain', 'amazonOpenSearchParameters_domain' - The OpenSearch domain.
 newAmazonOpenSearchParameters ::
   -- | 'domain'
   Prelude.Text ->
@@ -45,7 +48,7 @@ newAmazonOpenSearchParameters ::
 newAmazonOpenSearchParameters pDomain_ =
   AmazonOpenSearchParameters' {domain = pDomain_}
 
--- | Undocumented member.
+-- | The OpenSearch domain.
 amazonOpenSearchParameters_domain :: Lens.Lens' AmazonOpenSearchParameters Prelude.Text
 amazonOpenSearchParameters_domain = Lens.lens (\AmazonOpenSearchParameters' {domain} -> domain) (\s@AmazonOpenSearchParameters' {} a -> s {domain = a} :: AmazonOpenSearchParameters)
 

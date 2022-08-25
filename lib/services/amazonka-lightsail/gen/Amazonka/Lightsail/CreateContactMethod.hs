@@ -24,9 +24,10 @@
 --
 -- A contact method is used to send you notifications about your Amazon
 -- Lightsail resources. You can add one email address and one mobile phone
--- number contact method in each AWS Region. However, SMS text messaging is
--- not supported in some AWS Regions, and SMS text messages cannot be sent
--- to some countries\/regions. For more information, see
+-- number contact method in each Amazon Web Services Region. However, SMS
+-- text messaging is not supported in some Amazon Web Services Regions, and
+-- SMS text messages cannot be sent to some countries\/regions. For more
+-- information, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail>.
 module Amazonka.Lightsail.CreateContactMethod
   ( -- * Creating a Request
@@ -59,7 +60,8 @@ data CreateContactMethod = CreateContactMethod'
   { -- | The protocol of the contact method, such as @Email@ or @SMS@ (text
     -- messaging).
     --
-    -- The @SMS@ protocol is supported only in the following AWS Regions.
+    -- The @SMS@ protocol is supported only in the following Amazon Web
+    -- Services Regions.
     --
     -- -   US East (N. Virginia) (@us-east-1@)
     --
@@ -74,7 +76,8 @@ data CreateContactMethod = CreateContactMethod'
     -- -   Asia Pacific (Sydney) (@ap-southeast-2@)
     --
     -- For a list of countries\/regions where SMS text messages can be sent,
-    -- and the latest AWS Regions where SMS text messaging is supported, see
+    -- and the latest Amazon Web Services Regions where SMS text messaging is
+    -- supported, see
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries>
     -- in the /Amazon SNS Developer Guide/.
     --
@@ -106,7 +109,8 @@ data CreateContactMethod = CreateContactMethod'
 -- 'protocol', 'createContactMethod_protocol' - The protocol of the contact method, such as @Email@ or @SMS@ (text
 -- messaging).
 --
--- The @SMS@ protocol is supported only in the following AWS Regions.
+-- The @SMS@ protocol is supported only in the following Amazon Web
+-- Services Regions.
 --
 -- -   US East (N. Virginia) (@us-east-1@)
 --
@@ -121,7 +125,8 @@ data CreateContactMethod = CreateContactMethod'
 -- -   Asia Pacific (Sydney) (@ap-southeast-2@)
 --
 -- For a list of countries\/regions where SMS text messages can be sent,
--- and the latest AWS Regions where SMS text messaging is supported, see
+-- and the latest Amazon Web Services Regions where SMS text messaging is
+-- supported, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries>
 -- in the /Amazon SNS Developer Guide/.
 --
@@ -153,7 +158,8 @@ newCreateContactMethod pProtocol_ pContactEndpoint_ =
 -- | The protocol of the contact method, such as @Email@ or @SMS@ (text
 -- messaging).
 --
--- The @SMS@ protocol is supported only in the following AWS Regions.
+-- The @SMS@ protocol is supported only in the following Amazon Web
+-- Services Regions.
 --
 -- -   US East (N. Virginia) (@us-east-1@)
 --
@@ -168,7 +174,8 @@ newCreateContactMethod pProtocol_ pContactEndpoint_ =
 -- -   Asia Pacific (Sydney) (@ap-southeast-2@)
 --
 -- For a list of countries\/regions where SMS text messages can be sent,
--- and the latest AWS Regions where SMS text messaging is supported, see
+-- and the latest Amazon Web Services Regions where SMS text messaging is
+-- supported, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries>
 -- in the /Amazon SNS Developer Guide/.
 --

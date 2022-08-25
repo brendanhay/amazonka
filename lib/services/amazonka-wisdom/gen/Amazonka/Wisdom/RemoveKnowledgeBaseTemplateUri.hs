@@ -47,8 +47,8 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newRemoveKnowledgeBaseTemplateUri' smart constructor.
 data RemoveKnowledgeBaseTemplateUri = RemoveKnowledgeBaseTemplateUri'
-  { -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+  { -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +61,8 @@ data RemoveKnowledgeBaseTemplateUri = RemoveKnowledgeBaseTemplateUri'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'knowledgeBaseId', 'removeKnowledgeBaseTemplateUri_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'removeKnowledgeBaseTemplateUri_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newRemoveKnowledgeBaseTemplateUri ::
   -- | 'knowledgeBaseId'
   Prelude.Text ->
@@ -73,8 +73,8 @@ newRemoveKnowledgeBaseTemplateUri pKnowledgeBaseId_ =
         pKnowledgeBaseId_
     }
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 removeKnowledgeBaseTemplateUri_knowledgeBaseId :: Lens.Lens' RemoveKnowledgeBaseTemplateUri Prelude.Text
 removeKnowledgeBaseTemplateUri_knowledgeBaseId = Lens.lens (\RemoveKnowledgeBaseTemplateUri' {knowledgeBaseId} -> knowledgeBaseId) (\s@RemoveKnowledgeBaseTemplateUri' {} a -> s {knowledgeBaseId = a} :: RemoveKnowledgeBaseTemplateUri)
 

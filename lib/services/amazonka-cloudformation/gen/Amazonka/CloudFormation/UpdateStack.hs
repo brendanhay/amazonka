@@ -22,7 +22,7 @@
 --
 -- Updates a stack as specified in the template. After the call completes
 -- successfully, the stack update starts. You can check the status of the
--- stack via the DescribeStacks action.
+-- stack through the DescribeStacks action.
 --
 -- To get a copy of the template for an existing stack, you can use the
 -- GetTemplate action.
@@ -87,9 +87,9 @@ data UpdateStack = UpdateStack'
     -- (IAM) role that CloudFormation assumes to update the stack.
     -- CloudFormation uses the role\'s credentials to make calls on your
     -- behalf. CloudFormation always uses this role for all future operations
-    -- on the stack. As long as users have permission to operate on the stack,
-    -- CloudFormation uses this role even if the users don\'t have permission
-    -- to pass it. Ensure that the role grants least privilege.
+    -- on the stack. Provided that users have permission to operate on the
+    -- stack, CloudFormation uses this role even if the users don\'t have
+    -- permission to pass it. Ensure that the role grants least privilege.
     --
     -- If you don\'t specify a value, CloudFormation uses the role that was
     -- previously associated with the stack. If no role is available,
@@ -123,7 +123,7 @@ data UpdateStack = UpdateStack'
     -- parameter, but not both.
     --
     -- If you want to update protected resources, specify a temporary
-    -- overriding stack policy during this update. If you do not specify a
+    -- overriding stack policy during this update. If you don\'t specify a
     -- stack policy, the current policy that is associated with the stack will
     -- be used.
     stackPolicyDuringUpdateURL :: Prelude.Maybe Prelude.Text,
@@ -142,7 +142,7 @@ data UpdateStack = UpdateStack'
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     --
     -- You might update the stack policy, for example, in order to protect a
-    -- new resource that you created during a stack update. If you do not
+    -- new resource that you created during a stack update. If you don\'t
     -- specify a stack policy, the current policy that is associated with the
     -- stack is unchanged.
     stackPolicyBody :: Prelude.Maybe Prelude.Text,
@@ -152,7 +152,7 @@ data UpdateStack = UpdateStack'
     -- @StackPolicyURL@ parameter, but not both.
     --
     -- You might update the stack policy, for example, in order to protect a
-    -- new resource that you created during a stack update. If you do not
+    -- new resource that you created during a stack update. If you don\'t
     -- specify a stack policy, the current policy that is associated with the
     -- stack is unchanged.
     stackPolicyURL :: Prelude.Maybe Prelude.Text,
@@ -204,8 +204,8 @@ data UpdateStack = UpdateStack'
     --     -   If you don\'t specify either of these capabilities,
     --         CloudFormation returns an @InsufficientCapabilities@ error.
     --
-    --     If your stack template contains these resources, we recommend that
-    --     you review all permissions associated with them and edit their
+    --     If your stack template contains these resources, we suggest that you
+    --     review all permissions associated with them and edit their
     --     permissions if necessary.
     --
     --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>
@@ -266,12 +266,12 @@ data UpdateStack = UpdateStack'
     -- @StackPolicyDuringUpdateURL@ parameter, but not both.
     --
     -- If you want to update protected resources, specify a temporary
-    -- overriding stack policy during this update. If you do not specify a
+    -- overriding stack policy during this update. If you don\'t specify a
     -- stack policy, the current policy that is associated with the stack will
     -- be used.
     stackPolicyDuringUpdateBody :: Prelude.Maybe Prelude.Text,
     -- | Location of file containing the template body. The URL must point to a
-    -- template that is located in an Amazon S3 bucket or a Systems Manager
+    -- template that\'s located in an Amazon S3 bucket or a Systems Manager
     -- document. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
     -- in the CloudFormation User Guide.
@@ -310,9 +310,9 @@ data UpdateStack = UpdateStack'
 -- (IAM) role that CloudFormation assumes to update the stack.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf. CloudFormation always uses this role for all future operations
--- on the stack. As long as users have permission to operate on the stack,
--- CloudFormation uses this role even if the users don\'t have permission
--- to pass it. Ensure that the role grants least privilege.
+-- on the stack. Provided that users have permission to operate on the
+-- stack, CloudFormation uses this role even if the users don\'t have
+-- permission to pass it. Ensure that the role grants least privilege.
 --
 -- If you don\'t specify a value, CloudFormation uses the role that was
 -- previously associated with the stack. If no role is available,
@@ -346,7 +346,7 @@ data UpdateStack = UpdateStack'
 -- parameter, but not both.
 --
 -- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
+-- overriding stack policy during this update. If you don\'t specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
 --
@@ -365,7 +365,7 @@ data UpdateStack = UpdateStack'
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
+-- new resource that you created during a stack update. If you don\'t
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
 --
@@ -375,7 +375,7 @@ data UpdateStack = UpdateStack'
 -- @StackPolicyURL@ parameter, but not both.
 --
 -- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
+-- new resource that you created during a stack update. If you don\'t
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
 --
@@ -427,8 +427,8 @@ data UpdateStack = UpdateStack'
 --     -   If you don\'t specify either of these capabilities,
 --         CloudFormation returns an @InsufficientCapabilities@ error.
 --
---     If your stack template contains these resources, we recommend that
---     you review all permissions associated with them and edit their
+--     If your stack template contains these resources, we suggest that you
+--     review all permissions associated with them and edit their
 --     permissions if necessary.
 --
 --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>
@@ -489,12 +489,12 @@ data UpdateStack = UpdateStack'
 -- @StackPolicyDuringUpdateURL@ parameter, but not both.
 --
 -- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
+-- overriding stack policy during this update. If you don\'t specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
 --
 -- 'templateURL', 'updateStack_templateURL' - Location of file containing the template body. The URL must point to a
--- template that is located in an Amazon S3 bucket or a Systems Manager
+-- template that\'s located in an Amazon S3 bucket or a Systems Manager
 -- document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the CloudFormation User Guide.
@@ -548,9 +548,9 @@ updateStack_tags = Lens.lens (\UpdateStack' {tags} -> tags) (\s@UpdateStack' {} 
 -- (IAM) role that CloudFormation assumes to update the stack.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf. CloudFormation always uses this role for all future operations
--- on the stack. As long as users have permission to operate on the stack,
--- CloudFormation uses this role even if the users don\'t have permission
--- to pass it. Ensure that the role grants least privilege.
+-- on the stack. Provided that users have permission to operate on the
+-- stack, CloudFormation uses this role even if the users don\'t have
+-- permission to pass it. Ensure that the role grants least privilege.
 --
 -- If you don\'t specify a value, CloudFormation uses the role that was
 -- previously associated with the stack. If no role is available,
@@ -588,7 +588,7 @@ updateStack_clientRequestToken = Lens.lens (\UpdateStack' {clientRequestToken} -
 -- parameter, but not both.
 --
 -- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
+-- overriding stack policy during this update. If you don\'t specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
 updateStack_stackPolicyDuringUpdateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
@@ -613,7 +613,7 @@ updateStack_usePreviousTemplate = Lens.lens (\UpdateStack' {usePreviousTemplate}
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
+-- new resource that you created during a stack update. If you don\'t
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
 updateStack_stackPolicyBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
@@ -625,7 +625,7 @@ updateStack_stackPolicyBody = Lens.lens (\UpdateStack' {stackPolicyBody} -> stac
 -- @StackPolicyURL@ parameter, but not both.
 --
 -- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
+-- new resource that you created during a stack update. If you don\'t
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
 updateStack_stackPolicyURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
@@ -685,8 +685,8 @@ updateStack_disableRollback = Lens.lens (\UpdateStack' {disableRollback} -> disa
 --     -   If you don\'t specify either of these capabilities,
 --         CloudFormation returns an @InsufficientCapabilities@ error.
 --
---     If your stack template contains these resources, we recommend that
---     you review all permissions associated with them and edit their
+--     If your stack template contains these resources, we suggest that you
+--     review all permissions associated with them and edit their
 --     permissions if necessary.
 --
 --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>
@@ -751,14 +751,14 @@ updateStack_rollbackConfiguration = Lens.lens (\UpdateStack' {rollbackConfigurat
 -- @StackPolicyDuringUpdateURL@ parameter, but not both.
 --
 -- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
+-- overriding stack policy during this update. If you don\'t specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
 updateStack_stackPolicyDuringUpdateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_stackPolicyDuringUpdateBody = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateBody} -> stackPolicyDuringUpdateBody) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateBody = a} :: UpdateStack)
 
 -- | Location of file containing the template body. The URL must point to a
--- template that is located in an Amazon S3 bucket or a Systems Manager
+-- template that\'s located in an Amazon S3 bucket or a Systems Manager
 -- document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the CloudFormation User Guide.

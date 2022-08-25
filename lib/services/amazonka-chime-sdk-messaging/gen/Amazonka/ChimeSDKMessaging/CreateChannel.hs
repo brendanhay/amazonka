@@ -34,8 +34,12 @@ module Amazonka.ChimeSDKMessaging.CreateChannel
 
     -- * Request Lenses
     createChannel_tags,
+    createChannel_elasticChannelConfiguration,
     createChannel_metadata,
+    createChannel_moderatorArns,
+    createChannel_memberArns,
     createChannel_privacy,
+    createChannel_channelId,
     createChannel_mode,
     createChannel_appInstanceArn,
     createChannel_name,
@@ -63,12 +67,22 @@ import qualified Amazonka.Response as Response
 data CreateChannel = CreateChannel'
   { -- | The tags for the creation request.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The attributes required to configure and create an elastic channel. An
+    -- elastic channel can support a maximum of 1-million users, excluding
+    -- moderators.
+    elasticChannelConfiguration :: Prelude.Maybe ElasticChannelConfiguration,
     -- | The metadata of the creation request. Limited to 1KB and UTF-8.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ARNs of the channel moderators in the request.
+    moderatorArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The ARNs of the channel members in the request.
+    memberArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
     -- aren\'t discoverable by users outside the channel. Public channels are
     -- discoverable by anyone in the @AppInstance@.
     privacy :: Prelude.Maybe ChannelPrivacy,
+    -- | The ID of the channel in the request.
+    channelId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
     -- moderators, and channel members can add themselves and other members to
     -- unrestricted channels. Only administrators and moderators can add
@@ -95,11 +109,21 @@ data CreateChannel = CreateChannel'
 --
 -- 'tags', 'createChannel_tags' - The tags for the creation request.
 --
+-- 'elasticChannelConfiguration', 'createChannel_elasticChannelConfiguration' - The attributes required to configure and create an elastic channel. An
+-- elastic channel can support a maximum of 1-million users, excluding
+-- moderators.
+--
 -- 'metadata', 'createChannel_metadata' - The metadata of the creation request. Limited to 1KB and UTF-8.
+--
+-- 'moderatorArns', 'createChannel_moderatorArns' - The ARNs of the channel moderators in the request.
+--
+-- 'memberArns', 'createChannel_memberArns' - The ARNs of the channel members in the request.
 --
 -- 'privacy', 'createChannel_privacy' - The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
 -- aren\'t discoverable by users outside the channel. Public channels are
 -- discoverable by anyone in the @AppInstance@.
+--
+-- 'channelId', 'createChannel_channelId' - The ID of the channel in the request.
 --
 -- 'mode', 'createChannel_mode' - The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
 -- moderators, and channel members can add themselves and other members to
@@ -130,8 +154,12 @@ newCreateChannel
   pChimeBearer_ =
     CreateChannel'
       { tags = Prelude.Nothing,
+        elasticChannelConfiguration = Prelude.Nothing,
         metadata = Prelude.Nothing,
+        moderatorArns = Prelude.Nothing,
+        memberArns = Prelude.Nothing,
         privacy = Prelude.Nothing,
+        channelId = Prelude.Nothing,
         mode = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
         name = Core._Sensitive Lens.# pName_,
@@ -144,15 +172,33 @@ newCreateChannel
 createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Tag))
 createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
 
+-- | The attributes required to configure and create an elastic channel. An
+-- elastic channel can support a maximum of 1-million users, excluding
+-- moderators.
+createChannel_elasticChannelConfiguration :: Lens.Lens' CreateChannel (Prelude.Maybe ElasticChannelConfiguration)
+createChannel_elasticChannelConfiguration = Lens.lens (\CreateChannel' {elasticChannelConfiguration} -> elasticChannelConfiguration) (\s@CreateChannel' {} a -> s {elasticChannelConfiguration = a} :: CreateChannel)
+
 -- | The metadata of the creation request. Limited to 1KB and UTF-8.
 createChannel_metadata :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
 createChannel_metadata = Lens.lens (\CreateChannel' {metadata} -> metadata) (\s@CreateChannel' {} a -> s {metadata = a} :: CreateChannel) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ARNs of the channel moderators in the request.
+createChannel_moderatorArns :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createChannel_moderatorArns = Lens.lens (\CreateChannel' {moderatorArns} -> moderatorArns) (\s@CreateChannel' {} a -> s {moderatorArns = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARNs of the channel members in the request.
+createChannel_memberArns :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createChannel_memberArns = Lens.lens (\CreateChannel' {memberArns} -> memberArns) (\s@CreateChannel' {} a -> s {memberArns = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
 -- aren\'t discoverable by users outside the channel. Public channels are
 -- discoverable by anyone in the @AppInstance@.
 createChannel_privacy :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelPrivacy)
 createChannel_privacy = Lens.lens (\CreateChannel' {privacy} -> privacy) (\s@CreateChannel' {} a -> s {privacy = a} :: CreateChannel)
+
+-- | The ID of the channel in the request.
+createChannel_channelId :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
+createChannel_channelId = Lens.lens (\CreateChannel' {channelId} -> channelId) (\s@CreateChannel' {} a -> s {channelId = a} :: CreateChannel) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
 -- moderators, and channel members can add themselves and other members to
@@ -193,8 +239,12 @@ instance Core.AWSRequest CreateChannel where
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` elasticChannelConfiguration
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` moderatorArns
+      `Prelude.hashWithSalt` memberArns
       `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` name
@@ -204,8 +254,12 @@ instance Prelude.Hashable CreateChannel where
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf elasticChannelConfiguration
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf moderatorArns
+      `Prelude.seq` Prelude.rnf memberArns
       `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf name
@@ -222,8 +276,13 @@ instance Core.ToJSON CreateChannel where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ElasticChannelConfiguration" Core..=)
+              Prelude.<$> elasticChannelConfiguration,
             ("Metadata" Core..=) Prelude.<$> metadata,
+            ("ModeratorArns" Core..=) Prelude.<$> moderatorArns,
+            ("MemberArns" Core..=) Prelude.<$> memberArns,
             ("Privacy" Core..=) Prelude.<$> privacy,
+            ("ChannelId" Core..=) Prelude.<$> channelId,
             ("Mode" Core..=) Prelude.<$> mode,
             Prelude.Just
               ("AppInstanceArn" Core..= appInstanceArn),

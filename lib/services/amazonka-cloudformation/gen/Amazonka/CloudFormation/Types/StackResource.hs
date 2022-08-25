@@ -53,9 +53,9 @@ data StackResource = StackResource'
     physicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | The logical name of the resource specified in the template.
     logicalResourceId :: Prelude.Text,
-    -- | Type of resource. (For more information, go to
+    -- | Type of resource. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
-    -- in the CloudFormation User Guide.)
+    -- in the CloudFormation User Guide.
     resourceType :: Prelude.Text,
     -- | Time the status was updated.
     timestamp :: Core.ISO8601,
@@ -95,9 +95,9 @@ data StackResource = StackResource'
 --
 -- 'logicalResourceId', 'stackResource_logicalResourceId' - The logical name of the resource specified in the template.
 --
--- 'resourceType', 'stackResource_resourceType' - Type of resource. (For more information, go to
+-- 'resourceType', 'stackResource_resourceType' - Type of resource. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
--- in the CloudFormation User Guide.)
+-- in the CloudFormation User Guide.
 --
 -- 'timestamp', 'stackResource_timestamp' - Time the status was updated.
 --
@@ -170,9 +170,9 @@ stackResource_physicalResourceId = Lens.lens (\StackResource' {physicalResourceI
 stackResource_logicalResourceId :: Lens.Lens' StackResource Prelude.Text
 stackResource_logicalResourceId = Lens.lens (\StackResource' {logicalResourceId} -> logicalResourceId) (\s@StackResource' {} a -> s {logicalResourceId = a} :: StackResource)
 
--- | Type of resource. (For more information, go to
+-- | Type of resource. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
--- in the CloudFormation User Guide.)
+-- in the CloudFormation User Guide.
 stackResource_resourceType :: Lens.Lens' StackResource Prelude.Text
 stackResource_resourceType = Lens.lens (\StackResource' {resourceType} -> resourceType) (\s@StackResource' {} a -> s {resourceType = a} :: StackResource)
 

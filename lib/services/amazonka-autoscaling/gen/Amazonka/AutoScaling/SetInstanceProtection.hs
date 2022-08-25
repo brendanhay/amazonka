@@ -25,7 +25,7 @@
 --
 -- For more information about preventing instances that are part of an Auto
 -- Scaling group from terminating on scale in, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html Using instance scale-in protection>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- If you exceed your maximum limit of instance IDs, which is 50 per Auto

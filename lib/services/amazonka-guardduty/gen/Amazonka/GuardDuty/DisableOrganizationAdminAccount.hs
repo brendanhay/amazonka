@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables an AWS account within the Organization as the GuardDuty
--- delegated administrator.
+-- Disables an Amazon Web Services account within the Organization as the
+-- GuardDuty delegated administrator.
 module Amazonka.GuardDuty.DisableOrganizationAdminAccount
   ( -- * Creating a Request
     DisableOrganizationAdminAccount (..),
@@ -48,8 +48,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisableOrganizationAdminAccount' smart constructor.
 data DisableOrganizationAdminAccount = DisableOrganizationAdminAccount'
-  { -- | The AWS Account ID for the organizations account to be disabled as a
-    -- GuardDuty delegated administrator.
+  { -- | The Amazon Web Services Account ID for the organizations account to be
+    -- disabled as a GuardDuty delegated administrator.
     adminAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +62,8 @@ data DisableOrganizationAdminAccount = DisableOrganizationAdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'disableOrganizationAdminAccount_adminAccountId' - The AWS Account ID for the organizations account to be disabled as a
--- GuardDuty delegated administrator.
+-- 'adminAccountId', 'disableOrganizationAdminAccount_adminAccountId' - The Amazon Web Services Account ID for the organizations account to be
+-- disabled as a GuardDuty delegated administrator.
 newDisableOrganizationAdminAccount ::
   -- | 'adminAccountId'
   Prelude.Text ->
@@ -74,8 +74,8 @@ newDisableOrganizationAdminAccount pAdminAccountId_ =
         pAdminAccountId_
     }
 
--- | The AWS Account ID for the organizations account to be disabled as a
--- GuardDuty delegated administrator.
+-- | The Amazon Web Services Account ID for the organizations account to be
+-- disabled as a GuardDuty delegated administrator.
 disableOrganizationAdminAccount_adminAccountId :: Lens.Lens' DisableOrganizationAdminAccount Prelude.Text
 disableOrganizationAdminAccount_adminAccountId = Lens.lens (\DisableOrganizationAdminAccount' {adminAccountId} -> adminAccountId) (\s@DisableOrganizationAdminAccount' {} a -> s {adminAccountId = a} :: DisableOrganizationAdminAccount)
 

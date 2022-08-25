@@ -25,9 +25,6 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner automatic scaling configuration resource.
--- Multiple revisions of a configuration have the same
--- @AutoScalingConfigurationName@ and different
--- @AutoScalingConfigurationRevision@ values.
 --
 -- A higher @MinSize@ increases the spread of your App Runner service over
 -- more Availability Zones in the Amazon Web Services Region. The tradeoff
@@ -35,6 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- A lower @MaxSize@ controls your cost. The tradeoff is lower
 -- responsiveness during peak demand.
+--
+-- Multiple revisions of a configuration might have the same
+-- @AutoScalingConfigurationName@ and different
+-- @AutoScalingConfigurationRevision@ values.
 --
 -- /See:/ 'newAutoScalingConfiguration' smart constructor.
 data AutoScalingConfiguration = AutoScalingConfiguration'
@@ -47,8 +48,8 @@ data AutoScalingConfiguration = AutoScalingConfiguration'
     -- time stamp format.
     deletedAt :: Prelude.Maybe Core.POSIX,
     -- | It\'s set to @true@ for the configuration with the highest @Revision@
-    -- among all configurations that share the same @Name@. It\'s set to
-    -- @false@ otherwise.
+    -- among all configurations that share the same
+    -- @AutoScalingConfigurationName@. It\'s set to @false@ otherwise.
     latest :: Prelude.Maybe Prelude.Bool,
     -- | The customer-provided auto scaling configuration name. It can be used in
     -- multiple revisions of a configuration.
@@ -101,8 +102,8 @@ data AutoScalingConfiguration = AutoScalingConfiguration'
 -- time stamp format.
 --
 -- 'latest', 'autoScalingConfiguration_latest' - It\'s set to @true@ for the configuration with the highest @Revision@
--- among all configurations that share the same @Name@. It\'s set to
--- @false@ otherwise.
+-- among all configurations that share the same
+-- @AutoScalingConfigurationName@. It\'s set to @false@ otherwise.
 --
 -- 'autoScalingConfigurationName', 'autoScalingConfiguration_autoScalingConfigurationName' - The customer-provided auto scaling configuration name. It can be used in
 -- multiple revisions of a configuration.
@@ -164,8 +165,8 @@ autoScalingConfiguration_deletedAt :: Lens.Lens' AutoScalingConfiguration (Prelu
 autoScalingConfiguration_deletedAt = Lens.lens (\AutoScalingConfiguration' {deletedAt} -> deletedAt) (\s@AutoScalingConfiguration' {} a -> s {deletedAt = a} :: AutoScalingConfiguration) Prelude.. Lens.mapping Core._Time
 
 -- | It\'s set to @true@ for the configuration with the highest @Revision@
--- among all configurations that share the same @Name@. It\'s set to
--- @false@ otherwise.
+-- among all configurations that share the same
+-- @AutoScalingConfigurationName@. It\'s set to @false@ otherwise.
 autoScalingConfiguration_latest :: Lens.Lens' AutoScalingConfiguration (Prelude.Maybe Prelude.Bool)
 autoScalingConfiguration_latest = Lens.lens (\AutoScalingConfiguration' {latest} -> latest) (\s@AutoScalingConfiguration' {} a -> s {latest = a} :: AutoScalingConfiguration)
 

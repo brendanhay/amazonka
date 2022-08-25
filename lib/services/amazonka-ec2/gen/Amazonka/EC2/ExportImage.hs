@@ -87,9 +87,8 @@ data ExportImage = ExportImage'
     diskImageFormat :: DiskImageFormat,
     -- | The ID of the image.
     imageId :: Prelude.Text,
-    -- | Information about the destination Amazon S3 bucket. The bucket must
-    -- exist and grant WRITE and READ_ACP permissions to the Amazon Web
-    -- Services account vm-import-export\@amazon.com.
+    -- | The Amazon S3 bucket for the destination image. The destination bucket
+    -- must exist.
     s3ExportLocation :: ExportTaskS3LocationRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -122,9 +121,8 @@ data ExportImage = ExportImage'
 --
 -- 'imageId', 'exportImage_imageId' - The ID of the image.
 --
--- 's3ExportLocation', 'exportImage_s3ExportLocation' - Information about the destination Amazon S3 bucket. The bucket must
--- exist and grant WRITE and READ_ACP permissions to the Amazon Web
--- Services account vm-import-export\@amazon.com.
+-- 's3ExportLocation', 'exportImage_s3ExportLocation' - The Amazon S3 bucket for the destination image. The destination bucket
+-- must exist.
 newExportImage ::
   -- | 'diskImageFormat'
   DiskImageFormat ->
@@ -182,9 +180,8 @@ exportImage_diskImageFormat = Lens.lens (\ExportImage' {diskImageFormat} -> disk
 exportImage_imageId :: Lens.Lens' ExportImage Prelude.Text
 exportImage_imageId = Lens.lens (\ExportImage' {imageId} -> imageId) (\s@ExportImage' {} a -> s {imageId = a} :: ExportImage)
 
--- | Information about the destination Amazon S3 bucket. The bucket must
--- exist and grant WRITE and READ_ACP permissions to the Amazon Web
--- Services account vm-import-export\@amazon.com.
+-- | The Amazon S3 bucket for the destination image. The destination bucket
+-- must exist.
 exportImage_s3ExportLocation :: Lens.Lens' ExportImage ExportTaskS3LocationRequest
 exportImage_s3ExportLocation = Lens.lens (\ExportImage' {s3ExportLocation} -> s3ExportLocation) (\s@ExportImage' {} a -> s {s3ExportLocation = a} :: ExportImage)
 

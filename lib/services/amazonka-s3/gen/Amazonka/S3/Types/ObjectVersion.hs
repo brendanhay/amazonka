@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
+import Amazonka.S3.Types.ChecksumAlgorithm
 import Amazonka.S3.Types.ObjectVersionStorageClass
 import Amazonka.S3.Types.Owner
 
@@ -30,7 +31,9 @@ import Amazonka.S3.Types.Owner
 --
 -- /See:/ 'newObjectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-  { -- | The object key.
+  { -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe [ChecksumAlgorithm],
+    -- | The object key.
     key :: Prelude.Maybe ObjectKey,
     -- | Specifies whether the object is (true) or is not (false) the latest
     -- version of an object.
@@ -58,6 +61,8 @@ data ObjectVersion = ObjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'objectVersion_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
+--
 -- 'key', 'objectVersion_key' - The object key.
 --
 -- 'isLatest', 'objectVersion_isLatest' - Specifies whether the object is (true) or is not (false) the latest
@@ -78,7 +83,8 @@ newObjectVersion ::
   ObjectVersion
 newObjectVersion =
   ObjectVersion'
-    { key = Prelude.Nothing,
+    { checksumAlgorithm = Prelude.Nothing,
+      key = Prelude.Nothing,
       isLatest = Prelude.Nothing,
       size = Prelude.Nothing,
       owner = Prelude.Nothing,
@@ -87,6 +93,10 @@ newObjectVersion =
       eTag = Prelude.Nothing,
       versionId = Prelude.Nothing
     }
+
+-- | The algorithm that was used to create a checksum of the object.
+objectVersion_checksumAlgorithm :: Lens.Lens' ObjectVersion (Prelude.Maybe [ChecksumAlgorithm])
+objectVersion_checksumAlgorithm = Lens.lens (\ObjectVersion' {checksumAlgorithm} -> checksumAlgorithm) (\s@ObjectVersion' {} a -> s {checksumAlgorithm = a} :: ObjectVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The object key.
 objectVersion_key :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectKey)
@@ -124,7 +134,8 @@ objectVersion_versionId = Lens.lens (\ObjectVersion' {versionId} -> versionId) (
 instance Core.FromXML ObjectVersion where
   parseXML x =
     ObjectVersion'
-      Prelude.<$> (x Core..@? "Key")
+      Prelude.<$> (Core.may (Core.parseXMLList "ChecksumAlgorithm") x)
+      Prelude.<*> (x Core..@? "Key")
       Prelude.<*> (x Core..@? "IsLatest")
       Prelude.<*> (x Core..@? "Size")
       Prelude.<*> (x Core..@? "Owner")
@@ -135,7 +146,8 @@ instance Core.FromXML ObjectVersion where
 
 instance Prelude.Hashable ObjectVersion where
   hashWithSalt _salt ObjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` isLatest
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` owner
@@ -146,7 +158,8 @@ instance Prelude.Hashable ObjectVersion where
 
 instance Prelude.NFData ObjectVersion where
   rnf ObjectVersion' {..} =
-    Prelude.rnf key
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf isLatest
       `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf owner

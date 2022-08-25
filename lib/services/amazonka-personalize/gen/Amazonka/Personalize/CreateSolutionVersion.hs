@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Trains or retrains an active solution. A solution is created using the
--- CreateSolution operation and must be in the ACTIVE state before calling
+-- Trains or retrains an active solution in a Custom dataset group. A
+-- solution is created using the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>
+-- operation and must be in the ACTIVE state before calling
 -- @CreateSolutionVersion@. A new version of the solution is created every
 -- time you call this operation.
 --
@@ -41,31 +43,33 @@
 --
 -- -   CREATE STOPPED
 --
--- To get the status of the version, call DescribeSolutionVersion. Wait
--- until the status shows as ACTIVE before calling @CreateCampaign@.
+-- To get the status of the version, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html DescribeSolutionVersion>.
+-- Wait until the status shows as ACTIVE before calling @CreateCampaign@.
 --
 -- If the status shows as CREATE FAILED, the response includes a
 -- @failureReason@ key, which describes why the job failed.
 --
 -- __Related APIs__
 --
--- -   ListSolutionVersions
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html ListSolutionVersions>
 --
--- -   DescribeSolutionVersion
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html DescribeSolutionVersion>
 --
--- -   ListSolutions
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html ListSolutions>
 --
--- -   CreateSolution
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>
 --
--- -   DescribeSolution
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html DescribeSolution>
 --
--- -   DeleteSolution
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html DeleteSolution>
 module Amazonka.Personalize.CreateSolutionVersion
   ( -- * Creating a Request
     CreateSolutionVersion (..),
     newCreateSolutionVersion,
 
     -- * Request Lenses
+    createSolutionVersion_tags,
     createSolutionVersion_trainingMode,
     createSolutionVersion_solutionArn,
 
@@ -88,7 +92,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSolutionVersion' smart constructor.
 data CreateSolutionVersion = CreateSolutionVersion'
-  { -- | The scope of training to be performed when creating the solution
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the solution version.
+    tags :: Prelude.Maybe [Tag],
+    -- | The scope of training to be performed when creating the solution
     -- version. The @FULL@ option trains the solution version based on the
     -- entirety of the input solution\'s training data, while the @UPDATE@
     -- option processes only the data that has changed in comparison to the
@@ -117,6 +125,10 @@ data CreateSolutionVersion = CreateSolutionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSolutionVersion_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the solution version.
+--
 -- 'trainingMode', 'createSolutionVersion_trainingMode' - The scope of training to be performed when creating the solution
 -- version. The @FULL@ option trains the solution version based on the
 -- entirety of the input solution\'s training data, while the @UPDATE@
@@ -140,10 +152,16 @@ newCreateSolutionVersion ::
   CreateSolutionVersion
 newCreateSolutionVersion pSolutionArn_ =
   CreateSolutionVersion'
-    { trainingMode =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      trainingMode = Prelude.Nothing,
       solutionArn = pSolutionArn_
     }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the solution version.
+createSolutionVersion_tags :: Lens.Lens' CreateSolutionVersion (Prelude.Maybe [Tag])
+createSolutionVersion_tags = Lens.lens (\CreateSolutionVersion' {tags} -> tags) (\s@CreateSolutionVersion' {} a -> s {tags = a} :: CreateSolutionVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The scope of training to be performed when creating the solution
 -- version. The @FULL@ option trains the solution version based on the
@@ -182,12 +200,14 @@ instance Core.AWSRequest CreateSolutionVersion where
 
 instance Prelude.Hashable CreateSolutionVersion where
   hashWithSalt _salt CreateSolutionVersion' {..} =
-    _salt `Prelude.hashWithSalt` trainingMode
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` trainingMode
       `Prelude.hashWithSalt` solutionArn
 
 instance Prelude.NFData CreateSolutionVersion where
   rnf CreateSolutionVersion' {..} =
-    Prelude.rnf trainingMode
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf trainingMode
       `Prelude.seq` Prelude.rnf solutionArn
 
 instance Core.ToHeaders CreateSolutionVersion where
@@ -209,7 +229,8 @@ instance Core.ToJSON CreateSolutionVersion where
   toJSON CreateSolutionVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("trainingMode" Core..=) Prelude.<$> trainingMode,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("trainingMode" Core..=) Prelude.<$> trainingMode,
             Prelude.Just ("solutionArn" Core..= solutionArn)
           ]
       )

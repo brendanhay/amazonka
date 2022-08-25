@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a vocabulary from Amazon Transcribe.
+-- Deletes a custom vocabulary. To use this operation, specify the name of
+-- the vocabulary you want to delete using @VocabularyName@. Vocabulary
+-- names are case sensitive.
 module Amazonka.Transcribe.DeleteVocabulary
   ( -- * Creating a Request
     DeleteVocabulary (..),
@@ -44,7 +46,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteVocabulary' smart constructor.
 data DeleteVocabulary = DeleteVocabulary'
-  { -- | The name of the vocabulary to delete.
+  { -- | The name of the custom vocabulary you want to delete. Vocabulary names
+    -- are case sensitive.
     vocabularyName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +60,8 @@ data DeleteVocabulary = DeleteVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'deleteVocabulary_vocabularyName' - The name of the vocabulary to delete.
+-- 'vocabularyName', 'deleteVocabulary_vocabularyName' - The name of the custom vocabulary you want to delete. Vocabulary names
+-- are case sensitive.
 newDeleteVocabulary ::
   -- | 'vocabularyName'
   Prelude.Text ->
@@ -68,7 +72,8 @@ newDeleteVocabulary pVocabularyName_ =
         pVocabularyName_
     }
 
--- | The name of the vocabulary to delete.
+-- | The name of the custom vocabulary you want to delete. Vocabulary names
+-- are case sensitive.
 deleteVocabulary_vocabularyName :: Lens.Lens' DeleteVocabulary Prelude.Text
 deleteVocabulary_vocabularyName = Lens.lens (\DeleteVocabulary' {vocabularyName} -> vocabularyName) (\s@DeleteVocabulary' {} a -> s {vocabularyName = a} :: DeleteVocabulary)
 

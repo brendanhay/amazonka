@@ -26,8 +26,13 @@ import Amazonka.EC2.Types.RIProductDescription
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the maximum price per hour that you are willing to pay for a
--- Spot Instance.
+-- | The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 --
 -- /See:/ 'newSpotPrice' smart constructor.
 data SpotPrice = SpotPrice'
@@ -40,8 +45,13 @@ data SpotPrice = SpotPrice'
     instanceType :: Prelude.Maybe InstanceType,
     -- | A general description of the AMI.
     productDescription :: Prelude.Maybe RIProductDescription,
-    -- | The maximum price per hour that you are willing to pay for a Spot
-    -- Instance.
+    -- | The maximum price per unit hour that you are willing to pay for a Spot
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify this parameter.
     spotPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +73,13 @@ data SpotPrice = SpotPrice'
 --
 -- 'productDescription', 'spotPrice_productDescription' - A general description of the AMI.
 --
--- 'spotPrice', 'spotPrice_spotPrice' - The maximum price per hour that you are willing to pay for a Spot
--- Instance.
+-- 'spotPrice', 'spotPrice_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 newSpotPrice ::
   SpotPrice
 newSpotPrice =
@@ -93,8 +108,13 @@ spotPrice_instanceType = Lens.lens (\SpotPrice' {instanceType} -> instanceType) 
 spotPrice_productDescription :: Lens.Lens' SpotPrice (Prelude.Maybe RIProductDescription)
 spotPrice_productDescription = Lens.lens (\SpotPrice' {productDescription} -> productDescription) (\s@SpotPrice' {} a -> s {productDescription = a} :: SpotPrice)
 
--- | The maximum price per hour that you are willing to pay for a Spot
--- Instance.
+-- | The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 spotPrice_spotPrice :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
 spotPrice_spotPrice = Lens.lens (\SpotPrice' {spotPrice} -> spotPrice) (\s@SpotPrice' {} a -> s {spotPrice = a} :: SpotPrice)
 

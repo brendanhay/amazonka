@@ -31,26 +31,28 @@ import qualified Amazonka.Prelude as Prelude
 -- @--sysctl@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- It is not recommended that you specify network-related @systemControls@
--- parameters for multiple containers in a single task that also uses
--- either the @awsvpc@ or @host@ network mode for the following reasons:
+-- We don\'t recommend that you specify network-related @systemControls@
+-- parameters for multiple containers in a single task. This task also uses
+-- either the @awsvpc@ or @host@ network mode. It does it for the following
+-- reasons.
 --
 -- -   For tasks that use the @awsvpc@ network mode, if you set
 --     @systemControls@ for any container, it applies to all containers in
 --     the task. If you set different @systemControls@ for multiple
---     containers in a single task, the container that is started last
+--     containers in a single task, the container that\'s started last
 --     determines which @systemControls@ take effect.
 --
 -- -   For tasks that use the @host@ network mode, the @systemControls@
---     parameter applies to the container instance\'s kernel parameter as
---     well as that of all containers of any tasks running on that
---     container instance.
+--     parameter applies to the container instance\'s kernel parameter and
+--     that of all containers of any tasks running on that container
+--     instance.
 --
 -- /See:/ 'newSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { -- | The namespaced kernel parameter for which to set a @value@.
+  { -- | The namespaced kernel parameter to set a @value@ for.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The value for the namespaced kernel parameter specified in @namespace@.
+    -- | The value for the namespaced kernel parameter that\'s specified in
+    -- @namespace@.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +65,10 @@ data SystemControl = SystemControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespace', 'systemControl_namespace' - The namespaced kernel parameter for which to set a @value@.
+-- 'namespace', 'systemControl_namespace' - The namespaced kernel parameter to set a @value@ for.
 --
--- 'value', 'systemControl_value' - The value for the namespaced kernel parameter specified in @namespace@.
+-- 'value', 'systemControl_value' - The value for the namespaced kernel parameter that\'s specified in
+-- @namespace@.
 newSystemControl ::
   SystemControl
 newSystemControl =
@@ -74,11 +77,12 @@ newSystemControl =
       value = Prelude.Nothing
     }
 
--- | The namespaced kernel parameter for which to set a @value@.
+-- | The namespaced kernel parameter to set a @value@ for.
 systemControl_namespace :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_namespace = Lens.lens (\SystemControl' {namespace} -> namespace) (\s@SystemControl' {} a -> s {namespace = a} :: SystemControl)
 
--- | The value for the namespaced kernel parameter specified in @namespace@.
+-- | The value for the namespaced kernel parameter that\'s specified in
+-- @namespace@.
 systemControl_value :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_value = Lens.lens (\SystemControl' {value} -> value) (\s@SystemControl' {} a -> s {value = a} :: SystemControl)
 

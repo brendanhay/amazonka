@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables an Amazon Macie account and deletes Macie resources for the
+-- Disables Amazon Macie and deletes all settings and resources for a Macie
 -- account.
 module Amazonka.MacieV2.DisableMacie
   ( -- * Creating a Request

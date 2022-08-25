@@ -56,6 +56,7 @@ module Amazonka.DataBrew.DescribeJob
     describeJobResponse_createdBy,
     describeJobResponse_maxCapacity,
     describeJobResponse_encryptionMode,
+    describeJobResponse_validationConfigurations,
     describeJobResponse_httpStatus,
     describeJobResponse_name,
   )
@@ -123,6 +124,7 @@ instance Core.AWSRequest DescribeJob where
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (x Core..?> "MaxCapacity")
             Prelude.<*> (x Core..?> "EncryptionMode")
+            Prelude.<*> (x Core..?> "ValidationConfigurations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
@@ -216,6 +218,8 @@ data DescribeJobResponse = DescribeJobResponse'
     --
     -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
     encryptionMode :: Prelude.Maybe EncryptionMode,
+    -- | List of validation configurations that are applied to the profile job.
+    validationConfigurations :: Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the job.
@@ -294,6 +298,8 @@ data DescribeJobResponse = DescribeJobResponse'
 --
 -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
 --
+-- 'validationConfigurations', 'describeJobResponse_validationConfigurations' - List of validation configurations that are applied to the profile job.
+--
 -- 'httpStatus', 'describeJobResponse_httpStatus' - The response's http status code.
 --
 -- 'name', 'describeJobResponse_name' - The name of the job.
@@ -327,6 +333,7 @@ newDescribeJobResponse pHttpStatus_ pName_ =
       createdBy = Prelude.Nothing,
       maxCapacity = Prelude.Nothing,
       encryptionMode = Prelude.Nothing,
+      validationConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       name = pName_
     }
@@ -438,6 +445,10 @@ describeJobResponse_maxCapacity = Lens.lens (\DescribeJobResponse' {maxCapacity}
 describeJobResponse_encryptionMode :: Lens.Lens' DescribeJobResponse (Prelude.Maybe EncryptionMode)
 describeJobResponse_encryptionMode = Lens.lens (\DescribeJobResponse' {encryptionMode} -> encryptionMode) (\s@DescribeJobResponse' {} a -> s {encryptionMode = a} :: DescribeJobResponse)
 
+-- | List of validation configurations that are applied to the profile job.
+describeJobResponse_validationConfigurations :: Lens.Lens' DescribeJobResponse (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
+describeJobResponse_validationConfigurations = Lens.lens (\DescribeJobResponse' {validationConfigurations} -> validationConfigurations) (\s@DescribeJobResponse' {} a -> s {validationConfigurations = a} :: DescribeJobResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeJobResponse_httpStatus :: Lens.Lens' DescribeJobResponse Prelude.Int
 describeJobResponse_httpStatus = Lens.lens (\DescribeJobResponse' {httpStatus} -> httpStatus) (\s@DescribeJobResponse' {} a -> s {httpStatus = a} :: DescribeJobResponse)
@@ -470,5 +481,7 @@ instance Prelude.NFData DescribeJobResponse where
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf
+        validationConfigurations
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name

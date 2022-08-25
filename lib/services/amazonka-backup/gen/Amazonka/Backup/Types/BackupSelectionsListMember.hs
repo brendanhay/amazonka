@@ -35,7 +35,11 @@ data BackupSelectionsListMember = BackupSelectionsListMember'
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
+    -- to be retried without the risk of running the operation twice. This
+    -- parameter is optional.
+    --
+    -- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+    -- characters.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the IAM role Amazon Resource Name (ARN) to create the target
     -- recovery point; for example, @arn:aws:iam::123456789012:role\/S3Access@.
@@ -64,7 +68,11 @@ data BackupSelectionsListMember = BackupSelectionsListMember'
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'creatorRequestId', 'backupSelectionsListMember_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 --
 -- 'iamRoleArn', 'backupSelectionsListMember_iamRoleArn' - Specifies the IAM role Amazon Resource Name (ARN) to create the target
 -- recovery point; for example, @arn:aws:iam::123456789012:role\/S3Access@.
@@ -98,7 +106,11 @@ backupSelectionsListMember_creationDate :: Lens.Lens' BackupSelectionsListMember
 backupSelectionsListMember_creationDate = Lens.lens (\BackupSelectionsListMember' {creationDate} -> creationDate) (\s@BackupSelectionsListMember' {} a -> s {creationDate = a} :: BackupSelectionsListMember) Prelude.. Lens.mapping Core._Time
 
 -- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 backupSelectionsListMember_creatorRequestId :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
 backupSelectionsListMember_creatorRequestId = Lens.lens (\BackupSelectionsListMember' {creatorRequestId} -> creatorRequestId) (\s@BackupSelectionsListMember' {} a -> s {creatorRequestId = a} :: BackupSelectionsListMember)
 

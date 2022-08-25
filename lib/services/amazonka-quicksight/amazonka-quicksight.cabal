@@ -46,6 +46,7 @@ library
     Amazonka.QuickSight
     Amazonka.QuickSight.CancelIngestion
     Amazonka.QuickSight.CreateAccountCustomization
+    Amazonka.QuickSight.CreateAccountSubscription
     Amazonka.QuickSight.CreateAnalysis
     Amazonka.QuickSight.CreateDashboard
     Amazonka.QuickSight.CreateDataSet
@@ -80,6 +81,7 @@ library
     Amazonka.QuickSight.DeleteUserByPrincipalId
     Amazonka.QuickSight.DescribeAccountCustomization
     Amazonka.QuickSight.DescribeAccountSettings
+    Amazonka.QuickSight.DescribeAccountSubscription
     Amazonka.QuickSight.DescribeAnalysis
     Amazonka.QuickSight.DescribeAnalysisPermissions
     Amazonka.QuickSight.DescribeDashboard
@@ -92,6 +94,7 @@ library
     Amazonka.QuickSight.DescribeFolderPermissions
     Amazonka.QuickSight.DescribeFolderResolvedPermissions
     Amazonka.QuickSight.DescribeGroup
+    Amazonka.QuickSight.DescribeGroupMembership
     Amazonka.QuickSight.DescribeIAMPolicyAssignment
     Amazonka.QuickSight.DescribeIngestion
     Amazonka.QuickSight.DescribeIpRestriction
@@ -135,9 +138,11 @@ library
     Amazonka.QuickSight.SearchAnalyses
     Amazonka.QuickSight.SearchDashboards
     Amazonka.QuickSight.SearchFolders
+    Amazonka.QuickSight.SearchGroups
     Amazonka.QuickSight.TagResource
     Amazonka.QuickSight.Types
     Amazonka.QuickSight.Types.AccountCustomization
+    Amazonka.QuickSight.Types.AccountInfo
     Amazonka.QuickSight.Types.AccountSettings
     Amazonka.QuickSight.Types.ActiveIAMPolicyAssignment
     Amazonka.QuickSight.Types.AdHocFilteringOption
@@ -157,6 +162,7 @@ library
     Amazonka.QuickSight.Types.AthenaParameters
     Amazonka.QuickSight.Types.AuroraParameters
     Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
+    Amazonka.QuickSight.Types.AuthenticationMethodOption
     Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
     Amazonka.QuickSight.Types.BorderStyle
     Amazonka.QuickSight.Types.CalculatedColumn
@@ -205,6 +211,7 @@ library
     Amazonka.QuickSight.Types.Edition
     Amazonka.QuickSight.Types.EmbeddingIdentityType
     Amazonka.QuickSight.Types.ErrorInfo
+    Amazonka.QuickSight.Types.ExasolParameters
     Amazonka.QuickSight.Types.ExportToCSVOption
     Amazonka.QuickSight.Types.FieldFolder
     Amazonka.QuickSight.Types.FileFormat
@@ -220,7 +227,10 @@ library
     Amazonka.QuickSight.Types.GeoSpatialCountryCode
     Amazonka.QuickSight.Types.GeoSpatialDataRole
     Amazonka.QuickSight.Types.Group
+    Amazonka.QuickSight.Types.GroupFilterAttribute
+    Amazonka.QuickSight.Types.GroupFilterOperator
     Amazonka.QuickSight.Types.GroupMember
+    Amazonka.QuickSight.Types.GroupSearchFilter
     Amazonka.QuickSight.Types.GutterStyle
     Amazonka.QuickSight.Types.IAMPolicyAssignment
     Amazonka.QuickSight.Types.IAMPolicyAssignmentSummary
@@ -239,6 +249,7 @@ library
     Amazonka.QuickSight.Types.JoinInstruction
     Amazonka.QuickSight.Types.JoinKeyProperties
     Amazonka.QuickSight.Types.JoinType
+    Amazonka.QuickSight.Types.LinkSharingConfiguration
     Amazonka.QuickSight.Types.LogicalTable
     Amazonka.QuickSight.Types.LogicalTableSource
     Amazonka.QuickSight.Types.ManifestFileLocation
@@ -282,6 +293,7 @@ library
     Amazonka.QuickSight.Types.Sheet
     Amazonka.QuickSight.Types.SheetControlsOption
     Amazonka.QuickSight.Types.SheetStyle
+    Amazonka.QuickSight.Types.SignupResponse
     Amazonka.QuickSight.Types.SnowflakeParameters
     Amazonka.QuickSight.Types.SparkParameters
     Amazonka.QuickSight.Types.SqlServerParameters
@@ -338,6 +350,7 @@ library
     Amazonka.QuickSight.UpdateGroup
     Amazonka.QuickSight.UpdateIAMPolicyAssignment
     Amazonka.QuickSight.UpdateIpRestriction
+    Amazonka.QuickSight.UpdatePublicSharingSettings
     Amazonka.QuickSight.UpdateTemplate
     Amazonka.QuickSight.UpdateTemplateAlias
     Amazonka.QuickSight.UpdateTemplatePermissions

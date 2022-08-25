@@ -23,13 +23,22 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about a tag.
+-- | A structure containing a tag. A tag is metadata that you can attach to
+-- your resources to help organize and categorize them. You can also use
+-- them to help you secure your resources. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key of the tag.
+  { -- | The key, or name, attached to the tag. Every tag must have a key. Key
+    -- names are case sensitive.
     key :: Prelude.Maybe Prelude.Text,
-    -- | The value of the tag.
+    -- | The string value attached to the tag. The value can be an empty string.
+    -- Key values are case sensitive.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +51,11 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key of the tag.
+-- 'key', 'tag_key' - The key, or name, attached to the tag. Every tag must have a key. Key
+-- names are case sensitive.
 --
--- 'value', 'tag_value' - The value of the tag.
+-- 'value', 'tag_value' - The string value attached to the tag. The value can be an empty string.
+-- Key values are case sensitive.
 newTag ::
   Tag
 newTag =
@@ -53,11 +64,13 @@ newTag =
       value = Prelude.Nothing
     }
 
--- | The key of the tag.
+-- | The key, or name, attached to the tag. Every tag must have a key. Key
+-- names are case sensitive.
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The value of the tag.
+-- | The string value attached to the tag. The value can be an empty string.
+-- Key values are case sensitive.
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

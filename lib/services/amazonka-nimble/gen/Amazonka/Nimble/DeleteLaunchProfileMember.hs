@@ -28,9 +28,9 @@ module Amazonka.Nimble.DeleteLaunchProfileMember
 
     -- * Request Lenses
     deleteLaunchProfileMember_clientToken,
-    deleteLaunchProfileMember_studioId,
-    deleteLaunchProfileMember_principalId,
     deleteLaunchProfileMember_launchProfileId,
+    deleteLaunchProfileMember_principalId,
+    deleteLaunchProfileMember_studioId,
 
     -- * Destructuring the Response
     DeleteLaunchProfileMemberResponse (..),
@@ -50,21 +50,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteLaunchProfileMember' smart constructor.
 data DeleteLaunchProfileMember = DeleteLaunchProfileMember'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The principal ID.
+    -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
+    -- | The principal ID. This currently supports a Amazon Web Services SSO
+    -- UserId.
     principalId :: Prelude.Text,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,62 +73,56 @@ data DeleteLaunchProfileMember = DeleteLaunchProfileMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'deleteLaunchProfileMember_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'deleteLaunchProfileMember_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
+--
+-- 'launchProfileId', 'deleteLaunchProfileMember_launchProfileId' - The Launch Profile ID.
+--
+-- 'principalId', 'deleteLaunchProfileMember_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
 --
 -- 'studioId', 'deleteLaunchProfileMember_studioId' - The studio ID.
---
--- 'principalId', 'deleteLaunchProfileMember_principalId' - The principal ID.
---
--- 'launchProfileId', 'deleteLaunchProfileMember_launchProfileId' - The launch profile ID.
 newDeleteLaunchProfileMember ::
-  -- | 'studioId'
+  -- | 'launchProfileId'
   Prelude.Text ->
   -- | 'principalId'
   Prelude.Text ->
-  -- | 'launchProfileId'
+  -- | 'studioId'
   Prelude.Text ->
   DeleteLaunchProfileMember
 newDeleteLaunchProfileMember
-  pStudioId_
+  pLaunchProfileId_
   pPrincipalId_
-  pLaunchProfileId_ =
+  pStudioId_ =
     DeleteLaunchProfileMember'
       { clientToken =
           Prelude.Nothing,
-        studioId = pStudioId_,
+        launchProfileId = pLaunchProfileId_,
         principalId = pPrincipalId_,
-        launchProfileId = pLaunchProfileId_
+        studioId = pStudioId_
       }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 deleteLaunchProfileMember_clientToken :: Lens.Lens' DeleteLaunchProfileMember (Prelude.Maybe Prelude.Text)
 deleteLaunchProfileMember_clientToken = Lens.lens (\DeleteLaunchProfileMember' {clientToken} -> clientToken) (\s@DeleteLaunchProfileMember' {} a -> s {clientToken = a} :: DeleteLaunchProfileMember)
+
+-- | The Launch Profile ID.
+deleteLaunchProfileMember_launchProfileId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
+deleteLaunchProfileMember_launchProfileId = Lens.lens (\DeleteLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@DeleteLaunchProfileMember' {} a -> s {launchProfileId = a} :: DeleteLaunchProfileMember)
+
+-- | The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
+deleteLaunchProfileMember_principalId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
+deleteLaunchProfileMember_principalId = Lens.lens (\DeleteLaunchProfileMember' {principalId} -> principalId) (\s@DeleteLaunchProfileMember' {} a -> s {principalId = a} :: DeleteLaunchProfileMember)
 
 -- | The studio ID.
 deleteLaunchProfileMember_studioId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
 deleteLaunchProfileMember_studioId = Lens.lens (\DeleteLaunchProfileMember' {studioId} -> studioId) (\s@DeleteLaunchProfileMember' {} a -> s {studioId = a} :: DeleteLaunchProfileMember)
-
--- | The principal ID.
-deleteLaunchProfileMember_principalId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
-deleteLaunchProfileMember_principalId = Lens.lens (\DeleteLaunchProfileMember' {principalId} -> principalId) (\s@DeleteLaunchProfileMember' {} a -> s {principalId = a} :: DeleteLaunchProfileMember)
-
--- | The launch profile ID.
-deleteLaunchProfileMember_launchProfileId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
-deleteLaunchProfileMember_launchProfileId = Lens.lens (\DeleteLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@DeleteLaunchProfileMember' {} a -> s {launchProfileId = a} :: DeleteLaunchProfileMember)
 
 instance Core.AWSRequest DeleteLaunchProfileMember where
   type
@@ -148,16 +139,16 @@ instance Core.AWSRequest DeleteLaunchProfileMember where
 instance Prelude.Hashable DeleteLaunchProfileMember where
   hashWithSalt _salt DeleteLaunchProfileMember' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData DeleteLaunchProfileMember where
   rnf DeleteLaunchProfileMember' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders DeleteLaunchProfileMember where
   toHeaders DeleteLaunchProfileMember' {..} =

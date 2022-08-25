@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data TargetInstance = TargetInstance'
   { -- | The expected cost to operate this instance type on a monthly basis.
     estimatedMonthlyCost :: Prelude.Maybe Prelude.Text,
-    -- | Explains the actions you might need to take in order to successfully
-    -- migrate your workloads from the current instance type to the recommended
+    -- | Explains the actions that you might need to take to successfully migrate
+    -- your workloads from the current instance type to the recommended
     -- instance type.
     platformDifferences :: Prelude.Maybe [PlatformDifference],
     -- | The expected utilization metrics for target instance type.
@@ -61,8 +61,8 @@ data TargetInstance = TargetInstance'
 --
 -- 'estimatedMonthlyCost', 'targetInstance_estimatedMonthlyCost' - The expected cost to operate this instance type on a monthly basis.
 --
--- 'platformDifferences', 'targetInstance_platformDifferences' - Explains the actions you might need to take in order to successfully
--- migrate your workloads from the current instance type to the recommended
+-- 'platformDifferences', 'targetInstance_platformDifferences' - Explains the actions that you might need to take to successfully migrate
+-- your workloads from the current instance type to the recommended
 -- instance type.
 --
 -- 'expectedResourceUtilization', 'targetInstance_expectedResourceUtilization' - The expected utilization metrics for target instance type.
@@ -94,8 +94,8 @@ newTargetInstance =
 targetInstance_estimatedMonthlyCost :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_estimatedMonthlyCost = Lens.lens (\TargetInstance' {estimatedMonthlyCost} -> estimatedMonthlyCost) (\s@TargetInstance' {} a -> s {estimatedMonthlyCost = a} :: TargetInstance)
 
--- | Explains the actions you might need to take in order to successfully
--- migrate your workloads from the current instance type to the recommended
+-- | Explains the actions that you might need to take to successfully migrate
+-- your workloads from the current instance type to the recommended
 -- instance type.
 targetInstance_platformDifferences :: Lens.Lens' TargetInstance (Prelude.Maybe [PlatformDifference])
 targetInstance_platformDifferences = Lens.lens (\TargetInstance' {platformDifferences} -> platformDifferences) (\s@TargetInstance' {} a -> s {platformDifferences = a} :: TargetInstance) Prelude.. Lens.mapping Lens.coerced

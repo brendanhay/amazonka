@@ -77,8 +77,9 @@ data GetCostAndUsage = GetCostAndUsage'
     -- by types.
     --
     -- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,
-    -- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,
-    -- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
+    -- @LEGAL_ENTITY_NAME@, @INVOICING_ENTITY@, @LINKED_ACCOUNT@, @OPERATION@,
+    -- @PLATFORM@, @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and
+    -- @USAGE_TYPE@.
     --
     -- When you group by the @TAG@ type and include a valid tag key, you get
     -- all tag values, including empty strings.
@@ -89,6 +90,13 @@ data GetCostAndUsage = GetCostAndUsage'
     -- @Expression@ objects to define any combination of dimension filters. For
     -- more information, see
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>.
+    --
+    -- Valid values for @MatchOptions@ for @Dimensions@ are @EQUALS@ and
+    -- @CASE_SENSITIVE@.
+    --
+    -- Valid values for @MatchOptions@ for @CostCategories@ and @Tags@ are
+    -- @EQUALS@, @ABSENT@, and @CASE_SENSITIVE@. Default values are @EQUALS@
+    -- and @CASE_SENSITIVE@.
     filter' :: Prelude.Maybe Expression,
     -- | Sets the start date and end date for retrieving Amazon Web Services
     -- costs. The start date is inclusive, but the end date is exclusive. For
@@ -138,8 +146,9 @@ data GetCostAndUsage = GetCostAndUsage'
 -- by types.
 --
 -- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,
--- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,
--- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
+-- @LEGAL_ENTITY_NAME@, @INVOICING_ENTITY@, @LINKED_ACCOUNT@, @OPERATION@,
+-- @PLATFORM@, @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and
+-- @USAGE_TYPE@.
 --
 -- When you group by the @TAG@ type and include a valid tag key, you get
 -- all tag values, including empty strings.
@@ -150,6 +159,13 @@ data GetCostAndUsage = GetCostAndUsage'
 -- @Expression@ objects to define any combination of dimension filters. For
 -- more information, see
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>.
+--
+-- Valid values for @MatchOptions@ for @Dimensions@ are @EQUALS@ and
+-- @CASE_SENSITIVE@.
+--
+-- Valid values for @MatchOptions@ for @CostCategories@ and @Tags@ are
+-- @EQUALS@, @ABSENT@, and @CASE_SENSITIVE@. Default values are @EQUALS@
+-- and @CASE_SENSITIVE@.
 --
 -- 'timePeriod', 'getCostAndUsage_timePeriod' - Sets the start date and end date for retrieving Amazon Web Services
 -- costs. The start date is inclusive, but the end date is exclusive. For
@@ -205,8 +221,9 @@ getCostAndUsage_nextPageToken = Lens.lens (\GetCostAndUsage' {nextPageToken} -> 
 -- by types.
 --
 -- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,
--- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,
--- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
+-- @LEGAL_ENTITY_NAME@, @INVOICING_ENTITY@, @LINKED_ACCOUNT@, @OPERATION@,
+-- @PLATFORM@, @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and
+-- @USAGE_TYPE@.
 --
 -- When you group by the @TAG@ type and include a valid tag key, you get
 -- all tag values, including empty strings.
@@ -219,6 +236,13 @@ getCostAndUsage_groupBy = Lens.lens (\GetCostAndUsage' {groupBy} -> groupBy) (\s
 -- @Expression@ objects to define any combination of dimension filters. For
 -- more information, see
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>.
+--
+-- Valid values for @MatchOptions@ for @Dimensions@ are @EQUALS@ and
+-- @CASE_SENSITIVE@.
+--
+-- Valid values for @MatchOptions@ for @CostCategories@ and @Tags@ are
+-- @EQUALS@, @ABSENT@, and @CASE_SENSITIVE@. Default values are @EQUALS@
+-- and @CASE_SENSITIVE@.
 getCostAndUsage_filter :: Lens.Lens' GetCostAndUsage (Prelude.Maybe Expression)
 getCostAndUsage_filter = Lens.lens (\GetCostAndUsage' {filter'} -> filter') (\s@GetCostAndUsage' {} a -> s {filter' = a} :: GetCostAndUsage)
 

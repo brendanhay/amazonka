@@ -40,6 +40,12 @@ module Amazonka.SNS
     -- * Errors
     -- $errors
 
+    -- ** BatchEntryIdsNotDistinctException
+    _BatchEntryIdsNotDistinctException,
+
+    -- ** EmptyBatchRequestException
+    _EmptyBatchRequestException,
+
     -- ** PlatformApplicationDisabledException
     _PlatformApplicationDisabledException,
 
@@ -67,6 +73,12 @@ module Amazonka.SNS
     -- ** ConcurrentAccessException
     _ConcurrentAccessException,
 
+    -- ** InvalidBatchEntryIdException
+    _InvalidBatchEntryIdException,
+
+    -- ** BatchRequestTooLongException
+    _BatchRequestTooLongException,
+
     -- ** SubscriptionLimitExceededException
     _SubscriptionLimitExceededException,
 
@@ -78,6 +90,9 @@ module Amazonka.SNS
 
     -- ** KMSDisabledException
     _KMSDisabledException,
+
+    -- ** TooManyEntriesInBatchRequestException
+    _TooManyEntriesInBatchRequestException,
 
     -- ** FilterPolicyLimitExceededException
     _FilterPolicyLimitExceededException,
@@ -295,6 +310,12 @@ module Amazonka.SNS
     PublishResponse (PublishResponse'),
     newPublishResponse,
 
+    -- ** PublishBatch
+    PublishBatch (PublishBatch'),
+    newPublishBatch,
+    PublishBatchResponse (PublishBatchResponse'),
+    newPublishBatchResponse,
+
     -- ** RemovePermission
     RemovePermission (RemovePermission'),
     newRemovePermission,
@@ -375,6 +396,10 @@ module Amazonka.SNS
     -- ** SMSSandboxPhoneNumberVerificationStatus
     SMSSandboxPhoneNumberVerificationStatus (..),
 
+    -- ** BatchResultErrorEntry
+    BatchResultErrorEntry (BatchResultErrorEntry'),
+    newBatchResultErrorEntry,
+
     -- ** Endpoint
     Endpoint (Endpoint'),
     newEndpoint,
@@ -390,6 +415,14 @@ module Amazonka.SNS
     -- ** PlatformApplication
     PlatformApplication (PlatformApplication'),
     newPlatformApplication,
+
+    -- ** PublishBatchRequestEntry
+    PublishBatchRequestEntry (PublishBatchRequestEntry'),
+    newPublishBatchRequestEntry,
+
+    -- ** PublishBatchResultEntry
+    PublishBatchResultEntry (PublishBatchResultEntry'),
+    newPublishBatchResultEntry,
 
     -- ** SMSSandboxPhoneNumber
     SMSSandboxPhoneNumber (SMSSandboxPhoneNumber'),
@@ -438,6 +471,7 @@ import Amazonka.SNS.ListTagsForResource
 import Amazonka.SNS.ListTopics
 import Amazonka.SNS.OptInPhoneNumber
 import Amazonka.SNS.Publish
+import Amazonka.SNS.PublishBatch
 import Amazonka.SNS.RemovePermission
 import Amazonka.SNS.SetEndpointAttributes
 import Amazonka.SNS.SetPlatformApplicationAttributes

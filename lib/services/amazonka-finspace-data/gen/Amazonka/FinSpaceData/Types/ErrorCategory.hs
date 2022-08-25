@@ -20,14 +20,14 @@
 module Amazonka.FinSpaceData.Types.ErrorCategory
   ( ErrorCategory
       ( ..,
-        ErrorCategory_A_user_recoverable_error_has_occurred,
-        ErrorCategory_An_internal_error_has_occurred,
-        ErrorCategory_Cancelled,
-        ErrorCategory_Missing_required_permission_to_perform_this_request,
-        ErrorCategory_One_or_more_inputs_to_this_request_were_not_found,
-        ErrorCategory_Service_limits_have_been_exceeded,
-        ErrorCategory_The_inputs_to_this_request_are_invalid,
-        ErrorCategory_The_system_temporarily_lacks_sufficient_resources_to_process_the_request
+        ErrorCategory_ACCESS_DENIED,
+        ErrorCategory_CANCELLED,
+        ErrorCategory_INTERNAL_SERVICE_EXCEPTION,
+        ErrorCategory_RESOURCE_NOT_FOUND,
+        ErrorCategory_SERVICE_QUOTA_EXCEEDED,
+        ErrorCategory_THROTTLING,
+        ErrorCategory_USER_RECOVERABLE,
+        ErrorCategory_VALIDATION
       ),
   )
 where
@@ -35,6 +35,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
+-- | Changeset Error Category
 newtype ErrorCategory = ErrorCategory'
   { fromErrorCategory ::
       Core.Text
@@ -63,38 +64,38 @@ newtype ErrorCategory = ErrorCategory'
       Core.ToXML
     )
 
-pattern ErrorCategory_A_user_recoverable_error_has_occurred :: ErrorCategory
-pattern ErrorCategory_A_user_recoverable_error_has_occurred = ErrorCategory' "A_user_recoverable_error_has_occurred"
+pattern ErrorCategory_ACCESS_DENIED :: ErrorCategory
+pattern ErrorCategory_ACCESS_DENIED = ErrorCategory' "ACCESS_DENIED"
 
-pattern ErrorCategory_An_internal_error_has_occurred :: ErrorCategory
-pattern ErrorCategory_An_internal_error_has_occurred = ErrorCategory' "An_internal_error_has_occurred"
+pattern ErrorCategory_CANCELLED :: ErrorCategory
+pattern ErrorCategory_CANCELLED = ErrorCategory' "CANCELLED"
 
-pattern ErrorCategory_Cancelled :: ErrorCategory
-pattern ErrorCategory_Cancelled = ErrorCategory' "Cancelled"
+pattern ErrorCategory_INTERNAL_SERVICE_EXCEPTION :: ErrorCategory
+pattern ErrorCategory_INTERNAL_SERVICE_EXCEPTION = ErrorCategory' "INTERNAL_SERVICE_EXCEPTION"
 
-pattern ErrorCategory_Missing_required_permission_to_perform_this_request :: ErrorCategory
-pattern ErrorCategory_Missing_required_permission_to_perform_this_request = ErrorCategory' "Missing_required_permission_to_perform_this_request"
+pattern ErrorCategory_RESOURCE_NOT_FOUND :: ErrorCategory
+pattern ErrorCategory_RESOURCE_NOT_FOUND = ErrorCategory' "RESOURCE_NOT_FOUND"
 
-pattern ErrorCategory_One_or_more_inputs_to_this_request_were_not_found :: ErrorCategory
-pattern ErrorCategory_One_or_more_inputs_to_this_request_were_not_found = ErrorCategory' "One_or_more_inputs_to_this_request_were_not_found"
+pattern ErrorCategory_SERVICE_QUOTA_EXCEEDED :: ErrorCategory
+pattern ErrorCategory_SERVICE_QUOTA_EXCEEDED = ErrorCategory' "SERVICE_QUOTA_EXCEEDED"
 
-pattern ErrorCategory_Service_limits_have_been_exceeded :: ErrorCategory
-pattern ErrorCategory_Service_limits_have_been_exceeded = ErrorCategory' "Service_limits_have_been_exceeded"
+pattern ErrorCategory_THROTTLING :: ErrorCategory
+pattern ErrorCategory_THROTTLING = ErrorCategory' "THROTTLING"
 
-pattern ErrorCategory_The_inputs_to_this_request_are_invalid :: ErrorCategory
-pattern ErrorCategory_The_inputs_to_this_request_are_invalid = ErrorCategory' "The_inputs_to_this_request_are_invalid"
+pattern ErrorCategory_USER_RECOVERABLE :: ErrorCategory
+pattern ErrorCategory_USER_RECOVERABLE = ErrorCategory' "USER_RECOVERABLE"
 
-pattern ErrorCategory_The_system_temporarily_lacks_sufficient_resources_to_process_the_request :: ErrorCategory
-pattern ErrorCategory_The_system_temporarily_lacks_sufficient_resources_to_process_the_request = ErrorCategory' "The_system_temporarily_lacks_sufficient_resources_to_process_the_request"
+pattern ErrorCategory_VALIDATION :: ErrorCategory
+pattern ErrorCategory_VALIDATION = ErrorCategory' "VALIDATION"
 
 {-# COMPLETE
-  ErrorCategory_A_user_recoverable_error_has_occurred,
-  ErrorCategory_An_internal_error_has_occurred,
-  ErrorCategory_Cancelled,
-  ErrorCategory_Missing_required_permission_to_perform_this_request,
-  ErrorCategory_One_or_more_inputs_to_this_request_were_not_found,
-  ErrorCategory_Service_limits_have_been_exceeded,
-  ErrorCategory_The_inputs_to_this_request_are_invalid,
-  ErrorCategory_The_system_temporarily_lacks_sufficient_resources_to_process_the_request,
+  ErrorCategory_ACCESS_DENIED,
+  ErrorCategory_CANCELLED,
+  ErrorCategory_INTERNAL_SERVICE_EXCEPTION,
+  ErrorCategory_RESOURCE_NOT_FOUND,
+  ErrorCategory_SERVICE_QUOTA_EXCEEDED,
+  ErrorCategory_THROTTLING,
+  ErrorCategory_USER_RECOVERABLE,
+  ErrorCategory_VALIDATION,
   ErrorCategory'
   #-}

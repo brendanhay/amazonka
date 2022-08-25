@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Athena.Types.ResultConfiguration where
 
+import Amazonka.Athena.Types.AclConfiguration
 import Amazonka.Athena.Types.EncryptionConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -31,7 +32,32 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResultConfiguration' smart constructor.
 data ResultConfiguration = ResultConfiguration'
-  { -- | The location in Amazon S3 where your query results are stored, such as
+  { -- | Indicates that an Amazon S3 canned ACL should be set to control
+    -- ownership of stored query results. Currently the only supported canned
+    -- ACL is @BUCKET_OWNER_FULL_CONTROL@. This is a client-side setting. If
+    -- workgroup settings override client-side settings, then the query uses
+    -- the ACL configuration that is specified for the workgroup, and also uses
+    -- the location for storing query results specified in the workgroup. For
+    -- more information, see
+    -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    aclConfiguration :: Prelude.Maybe AclConfiguration,
+    -- | The Amazon Web Services account ID that you expect to be the owner of
+    -- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
+    -- set, Athena uses the value for @ExpectedBucketOwner@ when it makes
+    -- Amazon S3 calls to your specified output location. If the
+    -- @ExpectedBucketOwner@ Amazon Web Services account ID does not match the
+    -- actual owner of the Amazon S3 bucket, the call fails with a permissions
+    -- error.
+    --
+    -- This is a client-side setting. If workgroup settings override
+    -- client-side settings, then the query uses the @ExpectedBucketOwner@
+    -- setting that is specified for the workgroup, and also uses the location
+    -- for storing query results specified in the workgroup. See
+    -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The location in Amazon S3 where your query results are stored, such as
     -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
     -- the query results location using one of the ways: either for individual
     -- queries using either this setting (client-side), or in the workgroup,
@@ -43,7 +69,7 @@ data ResultConfiguration = ResultConfiguration'
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     outputLocation :: Prelude.Maybe Prelude.Text,
     -- | If query results are encrypted in Amazon S3, indicates the encryption
-    -- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
+    -- option used (for example, @SSE_KMS@ or @CSE_KMS@) and key information.
     -- This is a client-side setting. If workgroup settings override
     -- client-side settings, then the query uses the encryption configuration
     -- that is specified for the workgroup, and also uses the location for
@@ -62,6 +88,31 @@ data ResultConfiguration = ResultConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aclConfiguration', 'resultConfiguration_aclConfiguration' - Indicates that an Amazon S3 canned ACL should be set to control
+-- ownership of stored query results. Currently the only supported canned
+-- ACL is @BUCKET_OWNER_FULL_CONTROL@. This is a client-side setting. If
+-- workgroup settings override client-side settings, then the query uses
+-- the ACL configuration that is specified for the workgroup, and also uses
+-- the location for storing query results specified in the workgroup. For
+-- more information, see
+-- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+--
+-- 'expectedBucketOwner', 'resultConfiguration_expectedBucketOwner' - The Amazon Web Services account ID that you expect to be the owner of
+-- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
+-- set, Athena uses the value for @ExpectedBucketOwner@ when it makes
+-- Amazon S3 calls to your specified output location. If the
+-- @ExpectedBucketOwner@ Amazon Web Services account ID does not match the
+-- actual owner of the Amazon S3 bucket, the call fails with a permissions
+-- error.
+--
+-- This is a client-side setting. If workgroup settings override
+-- client-side settings, then the query uses the @ExpectedBucketOwner@
+-- setting that is specified for the workgroup, and also uses the location
+-- for storing query results specified in the workgroup. See
+-- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+--
 -- 'outputLocation', 'resultConfiguration_outputLocation' - The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
 -- the query results location using one of the ways: either for individual
@@ -74,7 +125,7 @@ data ResultConfiguration = ResultConfiguration'
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
 -- 'encryptionConfiguration', 'resultConfiguration_encryptionConfiguration' - If query results are encrypted in Amazon S3, indicates the encryption
--- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
+-- option used (for example, @SSE_KMS@ or @CSE_KMS@) and key information.
 -- This is a client-side setting. If workgroup settings override
 -- client-side settings, then the query uses the encryption configuration
 -- that is specified for the workgroup, and also uses the location for
@@ -85,10 +136,41 @@ newResultConfiguration ::
   ResultConfiguration
 newResultConfiguration =
   ResultConfiguration'
-    { outputLocation =
+    { aclConfiguration =
         Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
       encryptionConfiguration = Prelude.Nothing
     }
+
+-- | Indicates that an Amazon S3 canned ACL should be set to control
+-- ownership of stored query results. Currently the only supported canned
+-- ACL is @BUCKET_OWNER_FULL_CONTROL@. This is a client-side setting. If
+-- workgroup settings override client-side settings, then the query uses
+-- the ACL configuration that is specified for the workgroup, and also uses
+-- the location for storing query results specified in the workgroup. For
+-- more information, see
+-- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+resultConfiguration_aclConfiguration :: Lens.Lens' ResultConfiguration (Prelude.Maybe AclConfiguration)
+resultConfiguration_aclConfiguration = Lens.lens (\ResultConfiguration' {aclConfiguration} -> aclConfiguration) (\s@ResultConfiguration' {} a -> s {aclConfiguration = a} :: ResultConfiguration)
+
+-- | The Amazon Web Services account ID that you expect to be the owner of
+-- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
+-- set, Athena uses the value for @ExpectedBucketOwner@ when it makes
+-- Amazon S3 calls to your specified output location. If the
+-- @ExpectedBucketOwner@ Amazon Web Services account ID does not match the
+-- actual owner of the Amazon S3 bucket, the call fails with a permissions
+-- error.
+--
+-- This is a client-side setting. If workgroup settings override
+-- client-side settings, then the query uses the @ExpectedBucketOwner@
+-- setting that is specified for the workgroup, and also uses the location
+-- for storing query results specified in the workgroup. See
+-- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+resultConfiguration_expectedBucketOwner :: Lens.Lens' ResultConfiguration (Prelude.Maybe Prelude.Text)
+resultConfiguration_expectedBucketOwner = Lens.lens (\ResultConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@ResultConfiguration' {} a -> s {expectedBucketOwner = a} :: ResultConfiguration)
 
 -- | The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
@@ -104,7 +186,7 @@ resultConfiguration_outputLocation :: Lens.Lens' ResultConfiguration (Prelude.Ma
 resultConfiguration_outputLocation = Lens.lens (\ResultConfiguration' {outputLocation} -> outputLocation) (\s@ResultConfiguration' {} a -> s {outputLocation = a} :: ResultConfiguration)
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption
--- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
+-- option used (for example, @SSE_KMS@ or @CSE_KMS@) and key information.
 -- This is a client-side setting. If workgroup settings override
 -- client-side settings, then the query uses the encryption configuration
 -- that is specified for the workgroup, and also uses the location for
@@ -120,25 +202,35 @@ instance Core.FromJSON ResultConfiguration where
       "ResultConfiguration"
       ( \x ->
           ResultConfiguration'
-            Prelude.<$> (x Core..:? "OutputLocation")
+            Prelude.<$> (x Core..:? "AclConfiguration")
+            Prelude.<*> (x Core..:? "ExpectedBucketOwner")
+            Prelude.<*> (x Core..:? "OutputLocation")
             Prelude.<*> (x Core..:? "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable ResultConfiguration where
   hashWithSalt _salt ResultConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` outputLocation
+    _salt `Prelude.hashWithSalt` aclConfiguration
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` encryptionConfiguration
 
 instance Prelude.NFData ResultConfiguration where
   rnf ResultConfiguration' {..} =
-    Prelude.rnf outputLocation
+    Prelude.rnf aclConfiguration
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf encryptionConfiguration
 
 instance Core.ToJSON ResultConfiguration where
   toJSON ResultConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OutputLocation" Core..=)
+          [ ("AclConfiguration" Core..=)
+              Prelude.<$> aclConfiguration,
+            ("ExpectedBucketOwner" Core..=)
+              Prelude.<$> expectedBucketOwner,
+            ("OutputLocation" Core..=)
               Prelude.<$> outputLocation,
             ("EncryptionConfiguration" Core..=)
               Prelude.<$> encryptionConfiguration

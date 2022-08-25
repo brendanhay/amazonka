@@ -79,6 +79,9 @@ library
     Amazonka.MacieV2.GetMacieSession
     Amazonka.MacieV2.GetMasterAccount
     Amazonka.MacieV2.GetMember
+    Amazonka.MacieV2.GetRevealConfiguration
+    Amazonka.MacieV2.GetSensitiveDataOccurrences
+    Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
     Amazonka.MacieV2.GetUsageStatistics
     Amazonka.MacieV2.GetUsageTotals
     Amazonka.MacieV2.Lens
@@ -105,6 +108,7 @@ library
     Amazonka.MacieV2.Types.AllowsUnencryptedObjectUploads
     Amazonka.MacieV2.Types.ApiCallDetails
     Amazonka.MacieV2.Types.AssumedRole
+    Amazonka.MacieV2.Types.AvailabilityCode
     Amazonka.MacieV2.Types.AwsAccount
     Amazonka.MacieV2.Types.AwsService
     Amazonka.MacieV2.Types.BatchGetCustomDataIdentifierSummary
@@ -135,8 +139,10 @@ library
     Amazonka.MacieV2.Types.CustomDataIdentifierSummary
     Amazonka.MacieV2.Types.CustomDetection
     Amazonka.MacieV2.Types.DailySchedule
+    Amazonka.MacieV2.Types.DataIdentifierSeverity
     Amazonka.MacieV2.Types.DayOfWeek
     Amazonka.MacieV2.Types.DefaultDetection
+    Amazonka.MacieV2.Types.DetectedDataDetails
     Amazonka.MacieV2.Types.DomainDetails
     Amazonka.MacieV2.Types.EffectivePermission
     Amazonka.MacieV2.Types.EncryptionType
@@ -192,6 +198,7 @@ library
     Amazonka.MacieV2.Types.ObjectLevelStatistics
     Amazonka.MacieV2.Types.Occurrences
     Amazonka.MacieV2.Types.OrderBy
+    Amazonka.MacieV2.Types.OriginType
     Amazonka.MacieV2.Types.Page
     Amazonka.MacieV2.Types.PolicyDetails
     Amazonka.MacieV2.Types.Range
@@ -199,6 +206,9 @@ library
     Amazonka.MacieV2.Types.RelationshipStatus
     Amazonka.MacieV2.Types.ReplicationDetails
     Amazonka.MacieV2.Types.ResourcesAffected
+    Amazonka.MacieV2.Types.RevealConfiguration
+    Amazonka.MacieV2.Types.RevealRequestStatus
+    Amazonka.MacieV2.Types.RevealStatus
     Amazonka.MacieV2.Types.S3Bucket
     Amazonka.MacieV2.Types.S3BucketCriteriaForJob
     Amazonka.MacieV2.Types.S3BucketDefinitionForJob
@@ -228,6 +238,7 @@ library
     Amazonka.MacieV2.Types.SessionIssuer
     Amazonka.MacieV2.Types.Severity
     Amazonka.MacieV2.Types.SeverityDescription
+    Amazonka.MacieV2.Types.SeverityLevel
     Amazonka.MacieV2.Types.SharedAccess
     Amazonka.MacieV2.Types.SimpleCriterionForJob
     Amazonka.MacieV2.Types.SimpleCriterionKeyForJob
@@ -242,6 +253,7 @@ library
     Amazonka.MacieV2.Types.TagValuePair
     Amazonka.MacieV2.Types.TimeRange
     Amazonka.MacieV2.Types.Type
+    Amazonka.MacieV2.Types.UnavailabilityReasonCode
     Amazonka.MacieV2.Types.Unit
     Amazonka.MacieV2.Types.UnprocessedAccount
     Amazonka.MacieV2.Types.UsageByAccount
@@ -264,6 +276,7 @@ library
     Amazonka.MacieV2.UpdateMacieSession
     Amazonka.MacieV2.UpdateMemberSession
     Amazonka.MacieV2.UpdateOrganizationConfiguration
+    Amazonka.MacieV2.UpdateRevealConfiguration
     Amazonka.MacieV2.Waiters
 
   build-depends:

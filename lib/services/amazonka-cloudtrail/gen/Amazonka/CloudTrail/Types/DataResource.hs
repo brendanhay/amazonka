@@ -79,13 +79,33 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDataResource' smart constructor.
 data DataResource = DataResource'
   { -- | The resource type in which you want to log data events. You can specify
-    -- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
-    -- resources.
+    -- the following /basic/ event selector resource types:
     --
-    -- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
-    -- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
-    -- types are not valid in basic event selectors. To log data events on
-    -- these resource types, use advanced event selectors.
+    -- -   @AWS::S3::Object@
+    --
+    -- -   @AWS::Lambda::Function@
+    --
+    -- -   @AWS::DynamoDB::Table@
+    --
+    -- The following resource types are also availble through /advanced/ event
+    -- selectors. Basic event selector resource types are valid in advanced
+    -- event selectors, but advanced event selector resource types are not
+    -- valid in basic event selectors. For more information, see
+    -- AdvancedFieldSelector$Field.
+    --
+    -- -   @AWS::S3Outposts::Object@
+    --
+    -- -   @AWS::ManagedBlockchain::Node@
+    --
+    -- -   @AWS::S3ObjectLambda::AccessPoint@
+    --
+    -- -   @AWS::EC2::Snapshot@
+    --
+    -- -   @AWS::S3::AccessPoint@
+    --
+    -- -   @AWS::DynamoDB::Stream@
+    --
+    -- -   @AWS::Glue::Table@
     type' :: Prelude.Maybe Prelude.Text,
     -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings
     -- for the specified objects.
@@ -141,13 +161,33 @@ data DataResource = DataResource'
 -- for backwards compatibility:
 --
 -- 'type'', 'dataResource_type' - The resource type in which you want to log data events. You can specify
--- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
--- resources.
+-- the following /basic/ event selector resource types:
 --
--- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
--- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
--- types are not valid in basic event selectors. To log data events on
--- these resource types, use advanced event selectors.
+-- -   @AWS::S3::Object@
+--
+-- -   @AWS::Lambda::Function@
+--
+-- -   @AWS::DynamoDB::Table@
+--
+-- The following resource types are also availble through /advanced/ event
+-- selectors. Basic event selector resource types are valid in advanced
+-- event selectors, but advanced event selector resource types are not
+-- valid in basic event selectors. For more information, see
+-- AdvancedFieldSelector$Field.
+--
+-- -   @AWS::S3Outposts::Object@
+--
+-- -   @AWS::ManagedBlockchain::Node@
+--
+-- -   @AWS::S3ObjectLambda::AccessPoint@
+--
+-- -   @AWS::EC2::Snapshot@
+--
+-- -   @AWS::S3::AccessPoint@
+--
+-- -   @AWS::DynamoDB::Stream@
+--
+-- -   @AWS::Glue::Table@
 --
 -- 'values', 'dataResource_values' - An array of Amazon Resource Name (ARN) strings or partial ARN strings
 -- for the specified objects.
@@ -199,13 +239,33 @@ newDataResource =
     }
 
 -- | The resource type in which you want to log data events. You can specify
--- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
--- resources.
+-- the following /basic/ event selector resource types:
 --
--- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
--- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
--- types are not valid in basic event selectors. To log data events on
--- these resource types, use advanced event selectors.
+-- -   @AWS::S3::Object@
+--
+-- -   @AWS::Lambda::Function@
+--
+-- -   @AWS::DynamoDB::Table@
+--
+-- The following resource types are also availble through /advanced/ event
+-- selectors. Basic event selector resource types are valid in advanced
+-- event selectors, but advanced event selector resource types are not
+-- valid in basic event selectors. For more information, see
+-- AdvancedFieldSelector$Field.
+--
+-- -   @AWS::S3Outposts::Object@
+--
+-- -   @AWS::ManagedBlockchain::Node@
+--
+-- -   @AWS::S3ObjectLambda::AccessPoint@
+--
+-- -   @AWS::EC2::Snapshot@
+--
+-- -   @AWS::S3::AccessPoint@
+--
+-- -   @AWS::DynamoDB::Stream@
+--
+-- -   @AWS::Glue::Table@
 dataResource_type :: Lens.Lens' DataResource (Prelude.Maybe Prelude.Text)
 dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource' {} a -> s {type' = a} :: DataResource)
 

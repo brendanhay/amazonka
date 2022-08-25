@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPostgreSQLSettings' smart constructor.
 data PostgreSQLSettings = PostgreSQLSettings'
-  { -- | Endpoint TCP port.
+  { -- | Endpoint TCP port. The default is 5432.
     port :: Prelude.Maybe Prelude.Int,
     -- | Specifies the maximum size (in KB) of any .csv file used to transfer
     -- data to PostgreSQL.
@@ -56,6 +56,9 @@ data PostgreSQLSettings = PostgreSQLSettings'
     -- and
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html ModifyReplicationTask>.
     slotName :: Prelude.Maybe Prelude.Text,
+    -- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+    -- and NCHAR data types during migration. The default value is @true@.
+    trimSpaceInChar :: Prelude.Maybe Prelude.Bool,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
     -- as the trusted entity and grants the required permissions to access the
     -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
@@ -133,7 +136,7 @@ data PostgreSQLSettings = PostgreSQLSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'postgreSQLSettings_port' - Endpoint TCP port.
+-- 'port', 'postgreSQLSettings_port' - Endpoint TCP port. The default is 5432.
 --
 -- 'maxFileSize', 'postgreSQLSettings_maxFileSize' - Specifies the maximum size (in KB) of any .csv file used to transfer
 -- data to PostgreSQL.
@@ -160,6 +163,9 @@ data PostgreSQLSettings = PostgreSQLSettings'
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html StartReplicationTask>,
 -- and
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html ModifyReplicationTask>.
+--
+-- 'trimSpaceInChar', 'postgreSQLSettings_trimSpaceInChar' - Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+-- and NCHAR data types during migration. The default value is @true@.
 --
 -- 'secretsManagerAccessRoleArn', 'postgreSQLSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -233,6 +239,7 @@ newPostgreSQLSettings =
     { port = Prelude.Nothing,
       maxFileSize = Prelude.Nothing,
       slotName = Prelude.Nothing,
+      trimSpaceInChar = Prelude.Nothing,
       secretsManagerAccessRoleArn = Prelude.Nothing,
       executeTimeout = Prelude.Nothing,
       password = Prelude.Nothing,
@@ -250,7 +257,7 @@ newPostgreSQLSettings =
       heartbeatEnable = Prelude.Nothing
     }
 
--- | Endpoint TCP port.
+-- | Endpoint TCP port. The default is 5432.
 postgreSQLSettings_port :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Int)
 postgreSQLSettings_port = Lens.lens (\PostgreSQLSettings' {port} -> port) (\s@PostgreSQLSettings' {} a -> s {port = a} :: PostgreSQLSettings)
 
@@ -283,6 +290,11 @@ postgreSQLSettings_maxFileSize = Lens.lens (\PostgreSQLSettings' {maxFileSize} -
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html ModifyReplicationTask>.
 postgreSQLSettings_slotName :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
 postgreSQLSettings_slotName = Lens.lens (\PostgreSQLSettings' {slotName} -> slotName) (\s@PostgreSQLSettings' {} a -> s {slotName = a} :: PostgreSQLSettings)
+
+-- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+-- and NCHAR data types during migration. The default value is @true@.
+postgreSQLSettings_trimSpaceInChar :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Bool)
+postgreSQLSettings_trimSpaceInChar = Lens.lens (\PostgreSQLSettings' {trimSpaceInChar} -> trimSpaceInChar) (\s@PostgreSQLSettings' {} a -> s {trimSpaceInChar = a} :: PostgreSQLSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -389,6 +401,7 @@ instance Core.FromJSON PostgreSQLSettings where
             Prelude.<$> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "MaxFileSize")
             Prelude.<*> (x Core..:? "SlotName")
+            Prelude.<*> (x Core..:? "TrimSpaceInChar")
             Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "ExecuteTimeout")
             Prelude.<*> (x Core..:? "Password")
@@ -411,6 +424,7 @@ instance Prelude.Hashable PostgreSQLSettings where
     _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` maxFileSize
       `Prelude.hashWithSalt` slotName
+      `Prelude.hashWithSalt` trimSpaceInChar
       `Prelude.hashWithSalt` secretsManagerAccessRoleArn
       `Prelude.hashWithSalt` executeTimeout
       `Prelude.hashWithSalt` password
@@ -432,6 +446,7 @@ instance Prelude.NFData PostgreSQLSettings where
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf maxFileSize
       `Prelude.seq` Prelude.rnf slotName
+      `Prelude.seq` Prelude.rnf trimSpaceInChar
       `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
       `Prelude.seq` Prelude.rnf executeTimeout
       `Prelude.seq` Prelude.rnf password
@@ -455,6 +470,8 @@ instance Core.ToJSON PostgreSQLSettings where
           [ ("Port" Core..=) Prelude.<$> port,
             ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
             ("SlotName" Core..=) Prelude.<$> slotName,
+            ("TrimSpaceInChar" Core..=)
+              Prelude.<$> trimSpaceInChar,
             ("SecretsManagerAccessRoleArn" Core..=)
               Prelude.<$> secretsManagerAccessRoleArn,
             ("ExecuteTimeout" Core..=)

@@ -305,6 +305,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     createUserPool_emailVerificationSubject,
     createUserPool_accountRecoverySetting,
     createUserPool_schema,
+    createUserPool_userAttributeUpdateSettings,
     createUserPool_userPoolTags,
     createUserPool_emailVerificationMessage,
     createUserPool_smsAuthenticationMessage,
@@ -326,6 +327,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     createUserPoolClient_refreshTokenValidity,
     createUserPoolClient_analyticsConfiguration,
     createUserPoolClient_preventUserExistenceErrors,
+    createUserPoolClient_enablePropagateAdditionalUserContextData,
     createUserPoolClient_tokenValidityUnits,
     createUserPoolClient_generateSecret,
     createUserPoolClient_enableTokenRevocation,
@@ -750,6 +752,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     updateUserPool_smsVerificationMessage,
     updateUserPool_emailVerificationSubject,
     updateUserPool_accountRecoverySetting,
+    updateUserPool_userAttributeUpdateSettings,
     updateUserPool_userPoolTags,
     updateUserPool_emailVerificationMessage,
     updateUserPool_smsAuthenticationMessage,
@@ -769,6 +772,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     updateUserPoolClient_refreshTokenValidity,
     updateUserPoolClient_analyticsConfiguration,
     updateUserPoolClient_preventUserExistenceErrors,
+    updateUserPoolClient_enablePropagateAdditionalUserContextData,
     updateUserPoolClient_tokenValidityUnits,
     updateUserPoolClient_clientName,
     updateUserPoolClient_enableTokenRevocation,
@@ -1070,6 +1074,7 @@ module Amazonka.CognitoIdentityProvider.Lens
 
     -- ** SmsConfigurationType
     smsConfigurationType_externalId,
+    smsConfigurationType_snsRegion,
     smsConfigurationType_snsCallerArn,
 
     -- ** SmsMfaConfigType
@@ -1101,8 +1106,12 @@ module Amazonka.CognitoIdentityProvider.Lens
     uICustomizationType_userPoolId,
     uICustomizationType_css,
 
+    -- ** UserAttributeUpdateSettingsType
+    userAttributeUpdateSettingsType_attributesRequireVerificationBeforeUpdate,
+
     -- ** UserContextDataType
     userContextDataType_encodedData,
+    userContextDataType_ipAddress,
 
     -- ** UserImportJobType
     userImportJobType_skippedUsers,
@@ -1142,6 +1151,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     userPoolClientType_refreshTokenValidity,
     userPoolClientType_analyticsConfiguration,
     userPoolClientType_preventUserExistenceErrors,
+    userPoolClientType_enablePropagateAdditionalUserContextData,
     userPoolClientType_tokenValidityUnits,
     userPoolClientType_clientName,
     userPoolClientType_enableTokenRevocation,
@@ -1186,6 +1196,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     userPoolType_smsVerificationMessage,
     userPoolType_emailVerificationSubject,
     userPoolType_accountRecoverySetting,
+    userPoolType_userAttributeUpdateSettings,
     userPoolType_userPoolTags,
     userPoolType_emailVerificationMessage,
     userPoolType_smsAuthenticationMessage,
@@ -1360,6 +1371,7 @@ import Amazonka.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType
 import Amazonka.CognitoIdentityProvider.Types.StringAttributeConstraintsType
 import Amazonka.CognitoIdentityProvider.Types.TokenValidityUnitsType
 import Amazonka.CognitoIdentityProvider.Types.UICustomizationType
+import Amazonka.CognitoIdentityProvider.Types.UserAttributeUpdateSettingsType
 import Amazonka.CognitoIdentityProvider.Types.UserContextDataType
 import Amazonka.CognitoIdentityProvider.Types.UserImportJobType
 import Amazonka.CognitoIdentityProvider.Types.UserPoolAddOnsType

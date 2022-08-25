@@ -24,7 +24,7 @@
 -- delivery network (CDN) distributions.
 --
 -- A distribution bundle specifies the monthly network transfer quota and
--- monthly cost of your dsitribution.
+-- monthly cost of your distribution.
 module Amazonka.Lightsail.GetDistributionBundles
   ( -- * Creating a Request
     GetDistributionBundles (..),

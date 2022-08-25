@@ -25,7 +25,7 @@
 -- If the hosted zone was created by another service, such as Cloud Map,
 -- see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service Deleting Public Hosted Zones That Were Created by Another Service>
--- in the /Amazon Route 53 Developer Guide/ for information about how to
+-- in the /Amazon Route 53 Developer Guide/ for information about how to
 -- delete it. (The process is the same for public and private hosted zones
 -- that were created by another service.)
 --
@@ -46,9 +46,9 @@
 -- If you want to avoid the monthly charge for the hosted zone, you can
 -- transfer DNS service for the domain to a free DNS service. When you
 -- transfer DNS service, you have to update the name servers for the domain
--- registration. If the domain is registered with Route 53, see
+-- registration. If the domain is registered with Route 53, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html UpdateDomainNameservers>
--- for information about how to replace Route 53 name servers with name
+-- for information about how to replace Route 53 name servers with name
 -- servers for the new DNS service. If the domain is registered with
 -- another registrar, use the method provided by the registrar to update
 -- name servers for the domain registration. For more information, perform
@@ -58,7 +58,7 @@
 -- record and NS resource record sets. If the hosted zone contains other
 -- resource record sets, you must delete them before you can delete the
 -- hosted zone. If you try to delete a hosted zone that contains other
--- resource record sets, the request fails, and Route 53 returns a
+-- resource record sets, the request fails, and Route 53 returns a
 -- @HostedZoneNotEmpty@ error. For information about deleting records from
 -- your hosted zone, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html ChangeResourceRecordSets>.

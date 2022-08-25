@@ -44,6 +44,7 @@ module Amazonka.AutoScaling.PutWarmPool
     -- * Request Lenses
     putWarmPool_poolState,
     putWarmPool_minSize,
+    putWarmPool_instanceReusePolicy,
     putWarmPool_maxGroupPreparedCapacity,
     putWarmPool_autoScalingGroupName,
 
@@ -73,6 +74,10 @@ data PutWarmPool = PutWarmPool'
     -- instances available to handle traffic spikes. Defaults to 0 if not
     -- specified.
     minSize :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates whether instances in the Auto Scaling group can be returned to
+    -- the warm pool on scale in. The default is to terminate instances in the
+    -- Auto Scaling group when the group scales in.
+    instanceReusePolicy :: Prelude.Maybe InstanceReusePolicy,
     -- | Specifies the maximum number of instances that are allowed to be in the
     -- warm pool or in any state except @Terminated@ for the Auto Scaling
     -- group. This is an optional property. Specify it only if you do not want
@@ -115,6 +120,10 @@ data PutWarmPool = PutWarmPool'
 -- instances available to handle traffic spikes. Defaults to 0 if not
 -- specified.
 --
+-- 'instanceReusePolicy', 'putWarmPool_instanceReusePolicy' - Indicates whether instances in the Auto Scaling group can be returned to
+-- the warm pool on scale in. The default is to terminate instances in the
+-- Auto Scaling group when the group scales in.
+--
 -- 'maxGroupPreparedCapacity', 'putWarmPool_maxGroupPreparedCapacity' - Specifies the maximum number of instances that are allowed to be in the
 -- warm pool or in any state except @Terminated@ for the Auto Scaling
 -- group. This is an optional property. Specify it only if you do not want
@@ -145,6 +154,7 @@ newPutWarmPool pAutoScalingGroupName_ =
   PutWarmPool'
     { poolState = Prelude.Nothing,
       minSize = Prelude.Nothing,
+      instanceReusePolicy = Prelude.Nothing,
       maxGroupPreparedCapacity = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
@@ -160,6 +170,12 @@ putWarmPool_poolState = Lens.lens (\PutWarmPool' {poolState} -> poolState) (\s@P
 -- specified.
 putWarmPool_minSize :: Lens.Lens' PutWarmPool (Prelude.Maybe Prelude.Natural)
 putWarmPool_minSize = Lens.lens (\PutWarmPool' {minSize} -> minSize) (\s@PutWarmPool' {} a -> s {minSize = a} :: PutWarmPool)
+
+-- | Indicates whether instances in the Auto Scaling group can be returned to
+-- the warm pool on scale in. The default is to terminate instances in the
+-- Auto Scaling group when the group scales in.
+putWarmPool_instanceReusePolicy :: Lens.Lens' PutWarmPool (Prelude.Maybe InstanceReusePolicy)
+putWarmPool_instanceReusePolicy = Lens.lens (\PutWarmPool' {instanceReusePolicy} -> instanceReusePolicy) (\s@PutWarmPool' {} a -> s {instanceReusePolicy = a} :: PutWarmPool)
 
 -- | Specifies the maximum number of instances that are allowed to be in the
 -- warm pool or in any state except @Terminated@ for the Auto Scaling
@@ -203,6 +219,7 @@ instance Prelude.Hashable PutWarmPool where
   hashWithSalt _salt PutWarmPool' {..} =
     _salt `Prelude.hashWithSalt` poolState
       `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` instanceReusePolicy
       `Prelude.hashWithSalt` maxGroupPreparedCapacity
       `Prelude.hashWithSalt` autoScalingGroupName
 
@@ -210,6 +227,7 @@ instance Prelude.NFData PutWarmPool where
   rnf PutWarmPool' {..} =
     Prelude.rnf poolState
       `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf instanceReusePolicy
       `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
@@ -228,6 +246,7 @@ instance Core.ToQuery PutWarmPool where
           Core.=: ("2011-01-01" :: Prelude.ByteString),
         "PoolState" Core.=: poolState,
         "MinSize" Core.=: minSize,
+        "InstanceReusePolicy" Core.=: instanceReusePolicy,
         "MaxGroupPreparedCapacity"
           Core.=: maxGroupPreparedCapacity,
         "AutoScalingGroupName" Core.=: autoScalingGroupName

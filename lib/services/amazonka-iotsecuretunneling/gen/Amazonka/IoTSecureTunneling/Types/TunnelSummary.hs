@@ -36,8 +36,7 @@ data TunnelSummary = TunnelSummary'
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique alpha-numeric identifier for the tunnel.
     tunnelId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the tunnel. The tunnel ARN format is
-    -- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+    -- | The Amazon Resource Name of the tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
     -- | The time the tunnel was created.
     createdAt :: Prelude.Maybe Core.POSIX
@@ -60,8 +59,7 @@ data TunnelSummary = TunnelSummary'
 --
 -- 'tunnelId', 'tunnelSummary_tunnelId' - The unique alpha-numeric identifier for the tunnel.
 --
--- 'tunnelArn', 'tunnelSummary_tunnelArn' - The Amazon Resource Name of the tunnel. The tunnel ARN format is
--- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+-- 'tunnelArn', 'tunnelSummary_tunnelArn' - The Amazon Resource Name of the tunnel.
 --
 -- 'createdAt', 'tunnelSummary_createdAt' - The time the tunnel was created.
 newTunnelSummary ::
@@ -92,8 +90,7 @@ tunnelSummary_description = Lens.lens (\TunnelSummary' {description} -> descript
 tunnelSummary_tunnelId :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
 tunnelSummary_tunnelId = Lens.lens (\TunnelSummary' {tunnelId} -> tunnelId) (\s@TunnelSummary' {} a -> s {tunnelId = a} :: TunnelSummary)
 
--- | The Amazon Resource Name of the tunnel. The tunnel ARN format is
--- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+-- | The Amazon Resource Name of the tunnel.
 tunnelSummary_tunnelArn :: Lens.Lens' TunnelSummary (Prelude.Maybe Prelude.Text)
 tunnelSummary_tunnelArn = Lens.lens (\TunnelSummary' {tunnelArn} -> tunnelArn) (\s@TunnelSummary' {} a -> s {tunnelArn = a} :: TunnelSummary)
 

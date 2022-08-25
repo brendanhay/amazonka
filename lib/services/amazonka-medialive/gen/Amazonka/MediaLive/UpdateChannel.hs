@@ -28,6 +28,7 @@ module Amazonka.MediaLive.UpdateChannel
 
     -- * Request Lenses
     updateChannel'_name,
+    updateChannel'_maintenance,
     updateChannel'_roleArn,
     updateChannel'_logLevel,
     updateChannel'_inputSpecification,
@@ -60,6 +61,8 @@ import qualified Amazonka.Response as Response
 data UpdateChannel' = UpdateChannel''
   { -- | The name of the channel.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceUpdateSettings,
     -- | An optional Amazon Resource Name (ARN) of the role to assume when
     -- running the Channel. If you do not specify this on an update call but
     -- the role was previously set that role will be removed.
@@ -90,6 +93,8 @@ data UpdateChannel' = UpdateChannel''
 --
 -- 'name', 'updateChannel'_name' - The name of the channel.
 --
+-- 'maintenance', 'updateChannel'_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'updateChannel'_roleArn' - An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel. If you do not specify this on an update call but
 -- the role was previously set that role will be removed.
@@ -114,6 +119,7 @@ newUpdateChannel' ::
 newUpdateChannel' pChannelId_ =
   UpdateChannel''
     { name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       logLevel = Prelude.Nothing,
       inputSpecification = Prelude.Nothing,
@@ -127,6 +133,10 @@ newUpdateChannel' pChannelId_ =
 -- | The name of the channel.
 updateChannel'_name :: Lens.Lens' UpdateChannel' (Prelude.Maybe Prelude.Text)
 updateChannel'_name = Lens.lens (\UpdateChannel'' {name} -> name) (\s@UpdateChannel'' {} a -> s {name = a} :: UpdateChannel')
+
+-- | Maintenance settings for this channel.
+updateChannel'_maintenance :: Lens.Lens' UpdateChannel' (Prelude.Maybe MaintenanceUpdateSettings)
+updateChannel'_maintenance = Lens.lens (\UpdateChannel'' {maintenance} -> maintenance) (\s@UpdateChannel'' {} a -> s {maintenance = a} :: UpdateChannel')
 
 -- | An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel. If you do not specify this on an update call but
@@ -178,6 +188,7 @@ instance Core.AWSRequest UpdateChannel' where
 instance Prelude.Hashable UpdateChannel' where
   hashWithSalt _salt UpdateChannel'' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` inputSpecification
@@ -190,6 +201,7 @@ instance Prelude.Hashable UpdateChannel' where
 instance Prelude.NFData UpdateChannel' where
   rnf UpdateChannel'' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf logLevel
       `Prelude.seq` Prelude.rnf inputSpecification
@@ -215,6 +227,7 @@ instance Core.ToJSON UpdateChannel' where
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
+            ("maintenance" Core..=) Prelude.<$> maintenance,
             ("roleArn" Core..=) Prelude.<$> roleArn,
             ("logLevel" Core..=) Prelude.<$> logLevel,
             ("inputSpecification" Core..=)

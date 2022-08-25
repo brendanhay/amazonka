@@ -90,10 +90,10 @@ data AddPermission = AddPermission'
     -- example, @AliceSendMessage@). Maximum 80 characters. Allowed characters
     -- include alphanumeric characters, hyphens (@-@), and underscores (@_@).
     label :: Prelude.Text,
-    -- | The account numbers of the
+    -- | The Amazon Web Services account numbers of the
     -- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principals>
-    -- who are to receive permission. For information about locating the
-    -- account identification, see
+    -- who are to receive permission. For information about locating the Amazon
+    -- Web Services account identification, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
     -- in the /Amazon SQS Developer Guide/.
     aWSAccountIds :: [Prelude.Text],
@@ -128,10 +128,10 @@ data AddPermission = AddPermission'
 -- example, @AliceSendMessage@). Maximum 80 characters. Allowed characters
 -- include alphanumeric characters, hyphens (@-@), and underscores (@_@).
 --
--- 'aWSAccountIds', 'addPermission_aWSAccountIds' - The account numbers of the
+-- 'aWSAccountIds', 'addPermission_aWSAccountIds' - The Amazon Web Services account numbers of the
 -- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principals>
--- who are to receive permission. For information about locating the
--- account identification, see
+-- who are to receive permission. For information about locating the Amazon
+-- Web Services account identification, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
 -- in the /Amazon SQS Developer Guide/.
 --
@@ -172,10 +172,10 @@ addPermission_queueUrl = Lens.lens (\AddPermission' {queueUrl} -> queueUrl) (\s@
 addPermission_label :: Lens.Lens' AddPermission Prelude.Text
 addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermission' {} a -> s {label = a} :: AddPermission)
 
--- | The account numbers of the
+-- | The Amazon Web Services account numbers of the
 -- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principals>
--- who are to receive permission. For information about locating the
--- account identification, see
+-- who are to receive permission. For information about locating the Amazon
+-- Web Services account identification, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
 -- in the /Amazon SQS Developer Guide/.
 addPermission_aWSAccountIds :: Lens.Lens' AddPermission [Prelude.Text]

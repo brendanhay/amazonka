@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-  { -- | The names of one or more lifecycle hooks. If you omit this parameter,
-    -- all lifecycle hooks are described.
+  { -- | The names of one or more lifecycle hooks. If you omit this property, all
+    -- lifecycle hooks are described.
     lifecycleHookNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -66,8 +66,8 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecycleHookNames', 'describeLifecycleHooks_lifecycleHookNames' - The names of one or more lifecycle hooks. If you omit this parameter,
--- all lifecycle hooks are described.
+-- 'lifecycleHookNames', 'describeLifecycleHooks_lifecycleHookNames' - The names of one or more lifecycle hooks. If you omit this property, all
+-- lifecycle hooks are described.
 --
 -- 'autoScalingGroupName', 'describeLifecycleHooks_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeLifecycleHooks ::
@@ -81,8 +81,8 @@ newDescribeLifecycleHooks pAutoScalingGroupName_ =
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | The names of one or more lifecycle hooks. If you omit this parameter,
--- all lifecycle hooks are described.
+-- | The names of one or more lifecycle hooks. If you omit this property, all
+-- lifecycle hooks are described.
 describeLifecycleHooks_lifecycleHookNames :: Lens.Lens' DescribeLifecycleHooks (Prelude.Maybe [Prelude.Text])
 describeLifecycleHooks_lifecycleHookNames = Lens.lens (\DescribeLifecycleHooks' {lifecycleHookNames} -> lifecycleHookNames) (\s@DescribeLifecycleHooks' {} a -> s {lifecycleHookNames = a} :: DescribeLifecycleHooks) Prelude.. Lens.mapping Lens.coerced
 

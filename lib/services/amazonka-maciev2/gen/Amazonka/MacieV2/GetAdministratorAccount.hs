@@ -98,9 +98,9 @@ instance Core.ToQuery GetAdministratorAccount where
 -- | /See:/ 'newGetAdministratorAccountResponse' smart constructor.
 data GetAdministratorAccountResponse = GetAdministratorAccountResponse'
   { -- | The Amazon Web Services account ID for the administrator account. If the
-    -- accounts are associated by a Macie membership invitation, this object
-    -- also provides details about the invitation that was sent to establish
-    -- the relationship between the accounts.
+    -- accounts are associated by an Amazon Macie membership invitation, this
+    -- object also provides details about the invitation that was sent to
+    -- establish the relationship between the accounts.
     administrator :: Prelude.Maybe Invitation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -116,9 +116,9 @@ data GetAdministratorAccountResponse = GetAdministratorAccountResponse'
 -- for backwards compatibility:
 --
 -- 'administrator', 'getAdministratorAccountResponse_administrator' - The Amazon Web Services account ID for the administrator account. If the
--- accounts are associated by a Macie membership invitation, this object
--- also provides details about the invitation that was sent to establish
--- the relationship between the accounts.
+-- accounts are associated by an Amazon Macie membership invitation, this
+-- object also provides details about the invitation that was sent to
+-- establish the relationship between the accounts.
 --
 -- 'httpStatus', 'getAdministratorAccountResponse_httpStatus' - The response's http status code.
 newGetAdministratorAccountResponse ::
@@ -133,9 +133,9 @@ newGetAdministratorAccountResponse pHttpStatus_ =
     }
 
 -- | The Amazon Web Services account ID for the administrator account. If the
--- accounts are associated by a Macie membership invitation, this object
--- also provides details about the invitation that was sent to establish
--- the relationship between the accounts.
+-- accounts are associated by an Amazon Macie membership invitation, this
+-- object also provides details about the invitation that was sent to
+-- establish the relationship between the accounts.
 getAdministratorAccountResponse_administrator :: Lens.Lens' GetAdministratorAccountResponse (Prelude.Maybe Invitation)
 getAdministratorAccountResponse_administrator = Lens.lens (\GetAdministratorAccountResponse' {administrator} -> administrator) (\s@GetAdministratorAccountResponse' {} a -> s {administrator = a} :: GetAdministratorAccountResponse)
 

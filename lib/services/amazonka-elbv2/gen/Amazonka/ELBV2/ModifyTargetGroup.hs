@@ -22,6 +22,10 @@
 --
 -- Modifies the health checks used when evaluating the health state of the
 -- targets in the specified target group.
+--
+-- If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you
+-- can\'t modify the health check protocol, interval, timeout, or success
+-- codes.
 module Amazonka.ELBV2.ModifyTargetGroup
   ( -- * Creating a Request
     ModifyTargetGroup (..),
@@ -66,13 +70,9 @@ data ModifyTargetGroup = ModifyTargetGroup'
     -- only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
     -- The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
     -- checks.
-    --
-    -- With Network Load Balancers, you can\'t modify this setting.
     healthCheckProtocol :: Prelude.Maybe ProtocolEnum,
     -- | [HTTP\/HTTPS health checks] The amount of time, in seconds, during which
     -- no response means a failed health check.
-    --
-    -- With Network Load Balancers, you can\'t modify this setting.
     healthCheckTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | [HTTP\/HTTPS health checks] The destination for health checks on the
     -- targets.
@@ -92,8 +92,6 @@ data ModifyTargetGroup = ModifyTargetGroup'
     -- | The approximate amount of time, in seconds, between health checks of an
     -- individual target. For TCP health checks, the supported values are 10 or
     -- 30 seconds.
-    --
-    -- With Network Load Balancers, you can\'t modify this setting.
     healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The number of consecutive health checks successes required before
     -- considering an unhealthy target healthy.
@@ -103,8 +101,6 @@ data ModifyTargetGroup = ModifyTargetGroup'
     healthCheckPort :: Prelude.Maybe Prelude.Text,
     -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
     -- for a successful response from a target.
-    --
-    -- With Network Load Balancers, you can\'t modify this setting.
     matcher :: Prelude.Maybe Matcher,
     -- | The Amazon Resource Name (ARN) of the target group.
     targetGroupArn :: Prelude.Text
@@ -128,12 +124,8 @@ data ModifyTargetGroup = ModifyTargetGroup'
 -- The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
 -- checks.
 --
--- With Network Load Balancers, you can\'t modify this setting.
---
 -- 'healthCheckTimeoutSeconds', 'modifyTargetGroup_healthCheckTimeoutSeconds' - [HTTP\/HTTPS health checks] The amount of time, in seconds, during which
 -- no response means a failed health check.
---
--- With Network Load Balancers, you can\'t modify this setting.
 --
 -- 'healthCheckPath', 'modifyTargetGroup_healthCheckPath' - [HTTP\/HTTPS health checks] The destination for health checks on the
 -- targets.
@@ -154,8 +146,6 @@ data ModifyTargetGroup = ModifyTargetGroup'
 -- individual target. For TCP health checks, the supported values are 10 or
 -- 30 seconds.
 --
--- With Network Load Balancers, you can\'t modify this setting.
---
 -- 'healthyThresholdCount', 'modifyTargetGroup_healthyThresholdCount' - The number of consecutive health checks successes required before
 -- considering an unhealthy target healthy.
 --
@@ -164,8 +154,6 @@ data ModifyTargetGroup = ModifyTargetGroup'
 --
 -- 'matcher', 'modifyTargetGroup_matcher' - [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
 -- for a successful response from a target.
---
--- With Network Load Balancers, you can\'t modify this setting.
 --
 -- 'targetGroupArn', 'modifyTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
 newModifyTargetGroup ::
@@ -195,15 +183,11 @@ newModifyTargetGroup pTargetGroupArn_ =
 -- only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
 -- The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
 -- checks.
---
--- With Network Load Balancers, you can\'t modify this setting.
 modifyTargetGroup_healthCheckProtocol :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe ProtocolEnum)
 modifyTargetGroup_healthCheckProtocol = Lens.lens (\ModifyTargetGroup' {healthCheckProtocol} -> healthCheckProtocol) (\s@ModifyTargetGroup' {} a -> s {healthCheckProtocol = a} :: ModifyTargetGroup)
 
 -- | [HTTP\/HTTPS health checks] The amount of time, in seconds, during which
 -- no response means a failed health check.
---
--- With Network Load Balancers, you can\'t modify this setting.
 modifyTargetGroup_healthCheckTimeoutSeconds :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
 modifyTargetGroup_healthCheckTimeoutSeconds = Lens.lens (\ModifyTargetGroup' {healthCheckTimeoutSeconds} -> healthCheckTimeoutSeconds) (\s@ModifyTargetGroup' {} a -> s {healthCheckTimeoutSeconds = a} :: ModifyTargetGroup)
 
@@ -231,8 +215,6 @@ modifyTargetGroup_healthCheckEnabled = Lens.lens (\ModifyTargetGroup' {healthChe
 -- | The approximate amount of time, in seconds, between health checks of an
 -- individual target. For TCP health checks, the supported values are 10 or
 -- 30 seconds.
---
--- With Network Load Balancers, you can\'t modify this setting.
 modifyTargetGroup_healthCheckIntervalSeconds :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
 modifyTargetGroup_healthCheckIntervalSeconds = Lens.lens (\ModifyTargetGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@ModifyTargetGroup' {} a -> s {healthCheckIntervalSeconds = a} :: ModifyTargetGroup)
 
@@ -248,8 +230,6 @@ modifyTargetGroup_healthCheckPort = Lens.lens (\ModifyTargetGroup' {healthCheckP
 
 -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
 -- for a successful response from a target.
---
--- With Network Load Balancers, you can\'t modify this setting.
 modifyTargetGroup_matcher :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Matcher)
 modifyTargetGroup_matcher = Lens.lens (\ModifyTargetGroup' {matcher} -> matcher) (\s@ModifyTargetGroup' {} a -> s {matcher = a} :: ModifyTargetGroup)
 

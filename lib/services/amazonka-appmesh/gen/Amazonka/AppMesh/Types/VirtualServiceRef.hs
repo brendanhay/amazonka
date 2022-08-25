@@ -37,14 +37,15 @@ data VirtualServiceRef = VirtualServiceRef'
     lastUpdatedAt :: Core.POSIX,
     -- | The name of the service mesh that the virtual service resides in.
     meshName :: Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Text,
-    -- | The AWS IAM account ID of the resource owner. If the account ID is not
-    -- your own, then it\'s the ID of the mesh owner or of another account that
-    -- the mesh is shared with. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the resource owner. If the
+    -- account ID is not your own, then it\'s the ID of the mesh owner or of
+    -- another account that the mesh is shared with. For more information about
+    -- mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     resourceOwner :: Prelude.Text,
     -- | The version of the resource. Resources are created at version 1, and
@@ -72,14 +73,15 @@ data VirtualServiceRef = VirtualServiceRef'
 --
 -- 'meshName', 'virtualServiceRef_meshName' - The name of the service mesh that the virtual service resides in.
 --
--- 'meshOwner', 'virtualServiceRef_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'virtualServiceRef_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
--- 'resourceOwner', 'virtualServiceRef_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- 'resourceOwner', 'virtualServiceRef_resourceOwner' - The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'version', 'virtualServiceRef_version' - The version of the resource. Resources are created at version 1, and
@@ -141,16 +143,17 @@ virtualServiceRef_lastUpdatedAt = Lens.lens (\VirtualServiceRef' {lastUpdatedAt}
 virtualServiceRef_meshName :: Lens.Lens' VirtualServiceRef Prelude.Text
 virtualServiceRef_meshName = Lens.lens (\VirtualServiceRef' {meshName} -> meshName) (\s@VirtualServiceRef' {} a -> s {meshName = a} :: VirtualServiceRef)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 virtualServiceRef_meshOwner :: Lens.Lens' VirtualServiceRef Prelude.Text
 virtualServiceRef_meshOwner = Lens.lens (\VirtualServiceRef' {meshOwner} -> meshOwner) (\s@VirtualServiceRef' {} a -> s {meshOwner = a} :: VirtualServiceRef)
 
--- | The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 virtualServiceRef_resourceOwner :: Lens.Lens' VirtualServiceRef Prelude.Text
 virtualServiceRef_resourceOwner = Lens.lens (\VirtualServiceRef' {resourceOwner} -> resourceOwner) (\s@VirtualServiceRef' {} a -> s {resourceOwner = a} :: VirtualServiceRef)

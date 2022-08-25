@@ -80,25 +80,18 @@ data PutIntegrationResponse = PutIntegrationResponse'
     -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
     -- following behaviors:
     --
-    -- -   @CONVERT_TO_BINARY@: Converts a response payload from a
-    --     Base64-encoded string to the corresponding binary blob.
-    --
-    -- -   @CONVERT_TO_TEXT@: Converts a response payload from a binary blob to
-    --     a Base64-encoded string.
-    --
     -- If this property is not defined, the response payload will be passed
     -- through from the integration response to the method response without
     -- modification.
     contentHandling :: Prelude.Maybe ContentHandlingStrategy,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a put integration response request\'s resource
-    -- identifier.
+    -- | Specifies a put integration response request\'s resource identifier.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies a put integration response request\'s HTTP method.
+    -- | Specifies a put integration response request\'s HTTP method.
     httpMethod :: Prelude.Text,
-    -- | [Required] Specifies the status code that is used to map the integration
-    -- response to an existing MethodResponse.
+    -- | Specifies the status code that is used to map the integration response
+    -- to an existing MethodResponse.
     statusCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -131,25 +124,18 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
 -- following behaviors:
 --
--- -   @CONVERT_TO_BINARY@: Converts a response payload from a
---     Base64-encoded string to the corresponding binary blob.
---
--- -   @CONVERT_TO_TEXT@: Converts a response payload from a binary blob to
---     a Base64-encoded string.
---
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without
 -- modification.
 --
--- 'restApiId', 'putIntegrationResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'putIntegrationResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'putIntegrationResponse_resourceId' - [Required] Specifies a put integration response request\'s resource
--- identifier.
+-- 'resourceId', 'putIntegrationResponse_resourceId' - Specifies a put integration response request\'s resource identifier.
 --
--- 'httpMethod', 'putIntegrationResponse_httpMethod' - [Required] Specifies a put integration response request\'s HTTP method.
+-- 'httpMethod', 'putIntegrationResponse_httpMethod' - Specifies a put integration response request\'s HTTP method.
 --
--- 'statusCode', 'putIntegrationResponse_statusCode' - [Required] Specifies the status code that is used to map the integration
--- response to an existing MethodResponse.
+-- 'statusCode', 'putIntegrationResponse_statusCode' - Specifies the status code that is used to map the integration response
+-- to an existing MethodResponse.
 newPutIntegrationResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -203,33 +189,26 @@ putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {s
 -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
 -- following behaviors:
 --
--- -   @CONVERT_TO_BINARY@: Converts a response payload from a
---     Base64-encoded string to the corresponding binary blob.
---
--- -   @CONVERT_TO_TEXT@: Converts a response payload from a binary blob to
---     a Base64-encoded string.
---
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without
 -- modification.
 putIntegrationResponse_contentHandling :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
 putIntegrationResponse_contentHandling = Lens.lens (\PutIntegrationResponse' {contentHandling} -> contentHandling) (\s@PutIntegrationResponse' {} a -> s {contentHandling = a} :: PutIntegrationResponse)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 putIntegrationResponse_restApiId :: Lens.Lens' PutIntegrationResponse Prelude.Text
 putIntegrationResponse_restApiId = Lens.lens (\PutIntegrationResponse' {restApiId} -> restApiId) (\s@PutIntegrationResponse' {} a -> s {restApiId = a} :: PutIntegrationResponse)
 
--- | [Required] Specifies a put integration response request\'s resource
--- identifier.
+-- | Specifies a put integration response request\'s resource identifier.
 putIntegrationResponse_resourceId :: Lens.Lens' PutIntegrationResponse Prelude.Text
 putIntegrationResponse_resourceId = Lens.lens (\PutIntegrationResponse' {resourceId} -> resourceId) (\s@PutIntegrationResponse' {} a -> s {resourceId = a} :: PutIntegrationResponse)
 
--- | [Required] Specifies a put integration response request\'s HTTP method.
+-- | Specifies a put integration response request\'s HTTP method.
 putIntegrationResponse_httpMethod :: Lens.Lens' PutIntegrationResponse Prelude.Text
 putIntegrationResponse_httpMethod = Lens.lens (\PutIntegrationResponse' {httpMethod} -> httpMethod) (\s@PutIntegrationResponse' {} a -> s {httpMethod = a} :: PutIntegrationResponse)
 
--- | [Required] Specifies the status code that is used to map the integration
--- response to an existing MethodResponse.
+-- | Specifies the status code that is used to map the integration response
+-- to an existing MethodResponse.
 putIntegrationResponse_statusCode :: Lens.Lens' PutIntegrationResponse Prelude.Text
 putIntegrationResponse_statusCode = Lens.lens (\PutIntegrationResponse' {statusCode} -> statusCode) (\s@PutIntegrationResponse' {} a -> s {statusCode = a} :: PutIntegrationResponse)
 

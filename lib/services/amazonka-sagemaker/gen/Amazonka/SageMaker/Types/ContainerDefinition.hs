@@ -57,7 +57,7 @@ data ContainerDefinition = ContainerDefinition'
     containerHostname :: Prelude.Maybe Prelude.Text,
     -- | The S3 path where the model artifacts, which result from model training,
     -- are stored. This path must point to a single gzip compressed tar archive
-    -- (.tar.gz suffix). The S3 path is required for Amazon SageMaker built-in
+    -- (.tar.gz suffix). The S3 path is required for SageMaker built-in
     -- algorithms, but not if you use your own algorithms. For more information
     -- on built-in algorithms, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Common Parameters>.
@@ -65,31 +65,31 @@ data ContainerDefinition = ContainerDefinition'
     -- The model artifacts must be in an S3 bucket that is in the same region
     -- as the model or endpoint you are creating.
     --
-    -- If you provide a value for this parameter, Amazon SageMaker uses Amazon
-    -- Web Services Security Token Service to download model artifacts from the
-    -- S3 path you provide. Amazon Web Services STS is activated in your IAM
-    -- user account by default. If you previously deactivated Amazon Web
-    -- Services STS for a region, you need to reactivate Amazon Web Services
-    -- STS for that region. For more information, see
+    -- If you provide a value for this parameter, SageMaker uses Amazon Web
+    -- Services Security Token Service to download model artifacts from the S3
+    -- path you provide. Amazon Web Services STS is activated in your IAM user
+    -- account by default. If you previously deactivated Amazon Web Services
+    -- STS for a region, you need to reactivate Amazon Web Services STS for
+    -- that region. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
     -- in the /Amazon Web Services Identity and Access Management User Guide/.
     --
-    -- If you use a built-in algorithm to create a model, Amazon SageMaker
-    -- requires that you provide a S3 path to the model artifacts in
-    -- @ModelDataUrl@.
+    -- If you use a built-in algorithm to create a model, SageMaker requires
+    -- that you provide a S3 path to the model artifacts in @ModelDataUrl@.
     modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | Specifies additional configuration for multi-model endpoints.
     multiModelConfig :: Prelude.Maybe MultiModelConfig,
+    -- | The inference specification name in the model package version.
+    inferenceSpecificationName :: Prelude.Maybe Prelude.Text,
     -- | Whether the container hosts a single model or multiple models.
     mode :: Prelude.Maybe ContainerMode,
     -- | The path where inference code is stored. This can be either in Amazon
     -- EC2 Container Registry or in a Docker registry that is accessible from
     -- the same VPC that you configure for your endpoint. If you are using your
-    -- own custom algorithm instead of an algorithm provided by Amazon
-    -- SageMaker, the inference code must meet Amazon SageMaker requirements.
-    -- Amazon SageMaker supports both @registry\/repository[:tag]@ and
-    -- @registry\/repository[\@digest]@ image path formats. For more
-    -- information, see
+    -- own custom algorithm instead of an algorithm provided by SageMaker, the
+    -- inference code must meet SageMaker requirements. SageMaker supports both
+    -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
+    -- path formats. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
     image :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the model package to use to
@@ -133,7 +133,7 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- 'modelDataUrl', 'containerDefinition_modelDataUrl' - The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
--- (.tar.gz suffix). The S3 path is required for Amazon SageMaker built-in
+-- (.tar.gz suffix). The S3 path is required for SageMaker built-in
 -- algorithms, but not if you use your own algorithms. For more information
 -- on built-in algorithms, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Common Parameters>.
@@ -141,31 +141,31 @@ data ContainerDefinition = ContainerDefinition'
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model or endpoint you are creating.
 --
--- If you provide a value for this parameter, Amazon SageMaker uses Amazon
--- Web Services Security Token Service to download model artifacts from the
--- S3 path you provide. Amazon Web Services STS is activated in your IAM
--- user account by default. If you previously deactivated Amazon Web
--- Services STS for a region, you need to reactivate Amazon Web Services
--- STS for that region. For more information, see
+-- If you provide a value for this parameter, SageMaker uses Amazon Web
+-- Services Security Token Service to download model artifacts from the S3
+-- path you provide. Amazon Web Services STS is activated in your IAM user
+-- account by default. If you previously deactivated Amazon Web Services
+-- STS for a region, you need to reactivate Amazon Web Services STS for
+-- that region. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
--- If you use a built-in algorithm to create a model, Amazon SageMaker
--- requires that you provide a S3 path to the model artifacts in
--- @ModelDataUrl@.
+-- If you use a built-in algorithm to create a model, SageMaker requires
+-- that you provide a S3 path to the model artifacts in @ModelDataUrl@.
 --
 -- 'multiModelConfig', 'containerDefinition_multiModelConfig' - Specifies additional configuration for multi-model endpoints.
+--
+-- 'inferenceSpecificationName', 'containerDefinition_inferenceSpecificationName' - The inference specification name in the model package version.
 --
 -- 'mode', 'containerDefinition_mode' - Whether the container hosts a single model or multiple models.
 --
 -- 'image', 'containerDefinition_image' - The path where inference code is stored. This can be either in Amazon
 -- EC2 Container Registry or in a Docker registry that is accessible from
 -- the same VPC that you configure for your endpoint. If you are using your
--- own custom algorithm instead of an algorithm provided by Amazon
--- SageMaker, the inference code must meet Amazon SageMaker requirements.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
--- @registry\/repository[\@digest]@ image path formats. For more
--- information, see
+-- own custom algorithm instead of an algorithm provided by SageMaker, the
+-- inference code must meet SageMaker requirements. SageMaker supports both
+-- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
+-- path formats. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
 --
 -- 'modelPackageName', 'containerDefinition_modelPackageName' - The name or Amazon Resource Name (ARN) of the model package to use to
@@ -179,6 +179,7 @@ newContainerDefinition =
       containerHostname = Prelude.Nothing,
       modelDataUrl = Prelude.Nothing,
       multiModelConfig = Prelude.Nothing,
+      inferenceSpecificationName = Prelude.Nothing,
       mode = Prelude.Nothing,
       image = Prelude.Nothing,
       modelPackageName = Prelude.Nothing
@@ -217,7 +218,7 @@ containerDefinition_containerHostname = Lens.lens (\ContainerDefinition' {contai
 
 -- | The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
--- (.tar.gz suffix). The S3 path is required for Amazon SageMaker built-in
+-- (.tar.gz suffix). The S3 path is required for SageMaker built-in
 -- algorithms, but not if you use your own algorithms. For more information
 -- on built-in algorithms, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Common Parameters>.
@@ -225,24 +226,27 @@ containerDefinition_containerHostname = Lens.lens (\ContainerDefinition' {contai
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model or endpoint you are creating.
 --
--- If you provide a value for this parameter, Amazon SageMaker uses Amazon
--- Web Services Security Token Service to download model artifacts from the
--- S3 path you provide. Amazon Web Services STS is activated in your IAM
--- user account by default. If you previously deactivated Amazon Web
--- Services STS for a region, you need to reactivate Amazon Web Services
--- STS for that region. For more information, see
+-- If you provide a value for this parameter, SageMaker uses Amazon Web
+-- Services Security Token Service to download model artifacts from the S3
+-- path you provide. Amazon Web Services STS is activated in your IAM user
+-- account by default. If you previously deactivated Amazon Web Services
+-- STS for a region, you need to reactivate Amazon Web Services STS for
+-- that region. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
--- If you use a built-in algorithm to create a model, Amazon SageMaker
--- requires that you provide a S3 path to the model artifacts in
--- @ModelDataUrl@.
+-- If you use a built-in algorithm to create a model, SageMaker requires
+-- that you provide a S3 path to the model artifacts in @ModelDataUrl@.
 containerDefinition_modelDataUrl :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_modelDataUrl = Lens.lens (\ContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@ContainerDefinition' {} a -> s {modelDataUrl = a} :: ContainerDefinition)
 
 -- | Specifies additional configuration for multi-model endpoints.
 containerDefinition_multiModelConfig :: Lens.Lens' ContainerDefinition (Prelude.Maybe MultiModelConfig)
 containerDefinition_multiModelConfig = Lens.lens (\ContainerDefinition' {multiModelConfig} -> multiModelConfig) (\s@ContainerDefinition' {} a -> s {multiModelConfig = a} :: ContainerDefinition)
+
+-- | The inference specification name in the model package version.
+containerDefinition_inferenceSpecificationName :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
+containerDefinition_inferenceSpecificationName = Lens.lens (\ContainerDefinition' {inferenceSpecificationName} -> inferenceSpecificationName) (\s@ContainerDefinition' {} a -> s {inferenceSpecificationName = a} :: ContainerDefinition)
 
 -- | Whether the container hosts a single model or multiple models.
 containerDefinition_mode :: Lens.Lens' ContainerDefinition (Prelude.Maybe ContainerMode)
@@ -251,11 +255,10 @@ containerDefinition_mode = Lens.lens (\ContainerDefinition' {mode} -> mode) (\s@
 -- | The path where inference code is stored. This can be either in Amazon
 -- EC2 Container Registry or in a Docker registry that is accessible from
 -- the same VPC that you configure for your endpoint. If you are using your
--- own custom algorithm instead of an algorithm provided by Amazon
--- SageMaker, the inference code must meet Amazon SageMaker requirements.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
--- @registry\/repository[\@digest]@ image path formats. For more
--- information, see
+-- own custom algorithm instead of an algorithm provided by SageMaker, the
+-- inference code must meet SageMaker requirements. SageMaker supports both
+-- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
+-- path formats. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
 containerDefinition_image :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (\s@ContainerDefinition' {} a -> s {image = a} :: ContainerDefinition)
@@ -276,6 +279,7 @@ instance Core.FromJSON ContainerDefinition where
             Prelude.<*> (x Core..:? "ContainerHostname")
             Prelude.<*> (x Core..:? "ModelDataUrl")
             Prelude.<*> (x Core..:? "MultiModelConfig")
+            Prelude.<*> (x Core..:? "InferenceSpecificationName")
             Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "Image")
             Prelude.<*> (x Core..:? "ModelPackageName")
@@ -288,6 +292,7 @@ instance Prelude.Hashable ContainerDefinition where
       `Prelude.hashWithSalt` containerHostname
       `Prelude.hashWithSalt` modelDataUrl
       `Prelude.hashWithSalt` multiModelConfig
+      `Prelude.hashWithSalt` inferenceSpecificationName
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` modelPackageName
@@ -299,6 +304,7 @@ instance Prelude.NFData ContainerDefinition where
       `Prelude.seq` Prelude.rnf containerHostname
       `Prelude.seq` Prelude.rnf modelDataUrl
       `Prelude.seq` Prelude.rnf multiModelConfig
+      `Prelude.seq` Prelude.rnf inferenceSpecificationName
       `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf modelPackageName
@@ -314,6 +320,8 @@ instance Core.ToJSON ContainerDefinition where
             ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
             ("MultiModelConfig" Core..=)
               Prelude.<$> multiModelConfig,
+            ("InferenceSpecificationName" Core..=)
+              Prelude.<$> inferenceSpecificationName,
             ("Mode" Core..=) Prelude.<$> mode,
             ("Image" Core..=) Prelude.<$> image,
             ("ModelPackageName" Core..=)

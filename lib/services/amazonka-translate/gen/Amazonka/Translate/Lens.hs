@@ -47,9 +47,10 @@ module Amazonka.Translate.Lens
     getParallelDataResponse_httpStatus,
 
     -- ** GetTerminology
-    getTerminology_name,
     getTerminology_terminologyDataFormat,
+    getTerminology_name,
     getTerminologyResponse_terminologyDataLocation,
+    getTerminologyResponse_auxiliaryDataLocation,
     getTerminologyResponse_terminologyProperties,
     getTerminologyResponse_httpStatus,
 
@@ -59,8 +60,18 @@ module Amazonka.Translate.Lens
     importTerminology_name,
     importTerminology_mergeStrategy,
     importTerminology_terminologyData,
+    importTerminologyResponse_auxiliaryDataLocation,
     importTerminologyResponse_terminologyProperties,
     importTerminologyResponse_httpStatus,
+
+    -- ** ListLanguages
+    listLanguages_nextToken,
+    listLanguages_maxResults,
+    listLanguages_displayLanguageCode,
+    listLanguagesResponse_nextToken,
+    listLanguagesResponse_languages,
+    listLanguagesResponse_displayLanguageCode,
+    listLanguagesResponse_httpStatus,
 
     -- ** ListParallelData
     listParallelData_nextToken,
@@ -87,6 +98,7 @@ module Amazonka.Translate.Lens
     -- ** StartTextTranslationJob
     startTextTranslationJob_jobName,
     startTextTranslationJob_terminologyNames,
+    startTextTranslationJob_settings,
     startTextTranslationJob_parallelDataNames,
     startTextTranslationJob_inputDataConfig,
     startTextTranslationJob_outputDataConfig,
@@ -106,10 +118,12 @@ module Amazonka.Translate.Lens
 
     -- ** TranslateText
     translateText_terminologyNames,
+    translateText_settings,
     translateText_text,
     translateText_sourceLanguageCode,
     translateText_targetLanguageCode,
     translateTextResponse_appliedTerminologies,
+    translateTextResponse_appliedSettings,
     translateTextResponse_httpStatus,
     translateTextResponse_translatedText,
     translateTextResponse_sourceLanguageCode,
@@ -145,7 +159,12 @@ module Amazonka.Translate.Lens
     jobDetails_translatedDocumentsCount,
     jobDetails_inputDocumentsCount,
 
+    -- ** Language
+    language_languageName,
+    language_languageCode,
+
     -- ** OutputDataConfig
+    outputDataConfig_encryptionKey,
     outputDataConfig_s3Uri,
 
     -- ** ParallelDataConfig
@@ -180,6 +199,7 @@ module Amazonka.Translate.Lens
     term_sourceText,
 
     -- ** TerminologyData
+    terminologyData_directionality,
     terminologyData_file,
     terminologyData_format,
 
@@ -188,9 +208,13 @@ module Amazonka.Translate.Lens
     terminologyDataLocation_location,
 
     -- ** TerminologyProperties
+    terminologyProperties_skippedTermCount,
+    terminologyProperties_message,
     terminologyProperties_name,
     terminologyProperties_lastUpdatedAt,
+    terminologyProperties_directionality,
     terminologyProperties_termCount,
+    terminologyProperties_format,
     terminologyProperties_sizeBytes,
     terminologyProperties_arn,
     terminologyProperties_targetLanguageCodes,
@@ -217,9 +241,14 @@ module Amazonka.Translate.Lens
     textTranslationJobProperties_dataAccessRoleArn,
     textTranslationJobProperties_terminologyNames,
     textTranslationJobProperties_endTime,
+    textTranslationJobProperties_settings,
     textTranslationJobProperties_sourceLanguageCode,
     textTranslationJobProperties_inputDataConfig,
     textTranslationJobProperties_parallelDataNames,
+
+    -- ** TranslationSettings
+    translationSettings_formality,
+    translationSettings_profanity,
   )
 where
 
@@ -230,6 +259,7 @@ import Amazonka.Translate.DescribeTextTranslationJob
 import Amazonka.Translate.GetParallelData
 import Amazonka.Translate.GetTerminology
 import Amazonka.Translate.ImportTerminology
+import Amazonka.Translate.ListLanguages
 import Amazonka.Translate.ListParallelData
 import Amazonka.Translate.ListTerminologies
 import Amazonka.Translate.ListTextTranslationJobs
@@ -240,6 +270,7 @@ import Amazonka.Translate.Types.AppliedTerminology
 import Amazonka.Translate.Types.EncryptionKey
 import Amazonka.Translate.Types.InputDataConfig
 import Amazonka.Translate.Types.JobDetails
+import Amazonka.Translate.Types.Language
 import Amazonka.Translate.Types.OutputDataConfig
 import Amazonka.Translate.Types.ParallelDataConfig
 import Amazonka.Translate.Types.ParallelDataDataLocation
@@ -250,4 +281,5 @@ import Amazonka.Translate.Types.TerminologyDataLocation
 import Amazonka.Translate.Types.TerminologyProperties
 import Amazonka.Translate.Types.TextTranslationJobFilter
 import Amazonka.Translate.Types.TextTranslationJobProperties
+import Amazonka.Translate.Types.TranslationSettings
 import Amazonka.Translate.UpdateParallelData

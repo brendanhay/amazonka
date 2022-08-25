@@ -21,7 +21,9 @@ module Amazonka.EC2.Types.ServiceConfiguration where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.PayerResponsibility
 import Amazonka.EC2.Types.PrivateDnsNameConfiguration
+import Amazonka.EC2.Types.ServiceConnectivityType
 import Amazonka.EC2.Types.ServiceState
 import Amazonka.EC2.Types.ServiceTypeDetail
 import Amazonka.EC2.Types.Tag
@@ -40,12 +42,16 @@ data ServiceConfiguration = ServiceConfiguration'
     -- | Indicates whether requests from other Amazon Web Services accounts to
     -- create an endpoint to the service must first be accepted.
     acceptanceRequired :: Prelude.Maybe Prelude.Bool,
+    -- | The supported IP address types.
+    supportedIpAddressTypes :: Prelude.Maybe [ServiceConnectivityType],
     -- | The Availability Zones in which the service is available.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The type of service.
     serviceType :: Prelude.Maybe [ServiceTypeDetail],
     -- | Information about the endpoint service private DNS name configuration.
     privateDnsNameConfiguration :: Prelude.Maybe PrivateDnsNameConfiguration,
+    -- | The payer responsibility.
+    payerResponsibility :: Prelude.Maybe PayerResponsibility,
     -- | Indicates whether the service manages its VPC endpoints. Management of
     -- the service VPC endpoints using the VPC endpoint API is restricted.
     managesVpcEndpoints :: Prelude.Maybe Prelude.Bool,
@@ -81,11 +87,15 @@ data ServiceConfiguration = ServiceConfiguration'
 -- 'acceptanceRequired', 'serviceConfiguration_acceptanceRequired' - Indicates whether requests from other Amazon Web Services accounts to
 -- create an endpoint to the service must first be accepted.
 --
+-- 'supportedIpAddressTypes', 'serviceConfiguration_supportedIpAddressTypes' - The supported IP address types.
+--
 -- 'availabilityZones', 'serviceConfiguration_availabilityZones' - The Availability Zones in which the service is available.
 --
 -- 'serviceType', 'serviceConfiguration_serviceType' - The type of service.
 --
 -- 'privateDnsNameConfiguration', 'serviceConfiguration_privateDnsNameConfiguration' - Information about the endpoint service private DNS name configuration.
+--
+-- 'payerResponsibility', 'serviceConfiguration_payerResponsibility' - The payer responsibility.
 --
 -- 'managesVpcEndpoints', 'serviceConfiguration_managesVpcEndpoints' - Indicates whether the service manages its VPC endpoints. Management of
 -- the service VPC endpoints using the VPC endpoint API is restricted.
@@ -109,9 +119,11 @@ newServiceConfiguration =
     { tags = Prelude.Nothing,
       gatewayLoadBalancerArns = Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
+      supportedIpAddressTypes = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
       serviceType = Prelude.Nothing,
       privateDnsNameConfiguration = Prelude.Nothing,
+      payerResponsibility = Prelude.Nothing,
       managesVpcEndpoints = Prelude.Nothing,
       baseEndpointDnsNames = Prelude.Nothing,
       networkLoadBalancerArns = Prelude.Nothing,
@@ -135,6 +147,10 @@ serviceConfiguration_gatewayLoadBalancerArns = Lens.lens (\ServiceConfiguration'
 serviceConfiguration_acceptanceRequired :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Bool)
 serviceConfiguration_acceptanceRequired = Lens.lens (\ServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@ServiceConfiguration' {} a -> s {acceptanceRequired = a} :: ServiceConfiguration)
 
+-- | The supported IP address types.
+serviceConfiguration_supportedIpAddressTypes :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [ServiceConnectivityType])
+serviceConfiguration_supportedIpAddressTypes = Lens.lens (\ServiceConfiguration' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@ServiceConfiguration' {} a -> s {supportedIpAddressTypes = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Availability Zones in which the service is available.
 serviceConfiguration_availabilityZones :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Prelude.Text])
 serviceConfiguration_availabilityZones = Lens.lens (\ServiceConfiguration' {availabilityZones} -> availabilityZones) (\s@ServiceConfiguration' {} a -> s {availabilityZones = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
@@ -146,6 +162,10 @@ serviceConfiguration_serviceType = Lens.lens (\ServiceConfiguration' {serviceTyp
 -- | Information about the endpoint service private DNS name configuration.
 serviceConfiguration_privateDnsNameConfiguration :: Lens.Lens' ServiceConfiguration (Prelude.Maybe PrivateDnsNameConfiguration)
 serviceConfiguration_privateDnsNameConfiguration = Lens.lens (\ServiceConfiguration' {privateDnsNameConfiguration} -> privateDnsNameConfiguration) (\s@ServiceConfiguration' {} a -> s {privateDnsNameConfiguration = a} :: ServiceConfiguration)
+
+-- | The payer responsibility.
+serviceConfiguration_payerResponsibility :: Lens.Lens' ServiceConfiguration (Prelude.Maybe PayerResponsibility)
+serviceConfiguration_payerResponsibility = Lens.lens (\ServiceConfiguration' {payerResponsibility} -> payerResponsibility) (\s@ServiceConfiguration' {} a -> s {payerResponsibility = a} :: ServiceConfiguration)
 
 -- | Indicates whether the service manages its VPC endpoints. Management of
 -- the service VPC endpoints using the VPC endpoint API is restricted.
@@ -188,6 +208,10 @@ instance Core.FromXML ServiceConfiguration where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "acceptanceRequired")
+      Prelude.<*> ( x Core..@? "supportedIpAddressTypeSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> ( x Core..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -196,6 +220,7 @@ instance Core.FromXML ServiceConfiguration where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "privateDnsNameConfiguration")
+      Prelude.<*> (x Core..@? "payerResponsibility")
       Prelude.<*> (x Core..@? "managesVpcEndpoints")
       Prelude.<*> ( x Core..@? "baseEndpointDnsNameSet"
                       Core..!@ Prelude.mempty
@@ -215,9 +240,11 @@ instance Prelude.Hashable ServiceConfiguration where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gatewayLoadBalancerArns
       `Prelude.hashWithSalt` acceptanceRequired
+      `Prelude.hashWithSalt` supportedIpAddressTypes
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` privateDnsNameConfiguration
+      `Prelude.hashWithSalt` payerResponsibility
       `Prelude.hashWithSalt` managesVpcEndpoints
       `Prelude.hashWithSalt` baseEndpointDnsNames
       `Prelude.hashWithSalt` networkLoadBalancerArns
@@ -231,9 +258,11 @@ instance Prelude.NFData ServiceConfiguration where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
       `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf privateDnsNameConfiguration
+      `Prelude.seq` Prelude.rnf payerResponsibility
       `Prelude.seq` Prelude.rnf managesVpcEndpoints
       `Prelude.seq` Prelude.rnf baseEndpointDnsNames
       `Prelude.seq` Prelude.rnf networkLoadBalancerArns

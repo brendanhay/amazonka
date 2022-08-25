@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes attributes of your AWS account. The following are the
--- supported account attributes:
+-- Describes attributes of your Amazon Web Services account. The following
+-- are the supported account attributes:
 --
 -- -   @supported-platforms@: Indicates whether your account can launch
 --     instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
@@ -43,6 +43,11 @@
 --
 -- -   @vpc-max-elastic-ips@: The maximum number of Elastic IP addresses
 --     that you can allocate for use with EC2-VPC.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.DescribeAccountAttributes
   ( -- * Creating a Request
     DescribeAccountAttributes (..),

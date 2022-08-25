@@ -30,23 +30,47 @@ import Test.Tasty
 --         [ requestAddLFTagsToResource $
 --             newAddLFTagsToResource
 --
+--         , requestAssumeDecoratedRoleWithSAML $
+--             newAssumeDecoratedRoleWithSAML
+--
 --         , requestBatchGrantPermissions $
 --             newBatchGrantPermissions
 --
 --         , requestBatchRevokePermissions $
 --             newBatchRevokePermissions
 --
+--         , requestCancelTransaction $
+--             newCancelTransaction
+--
+--         , requestCommitTransaction $
+--             newCommitTransaction
+--
+--         , requestCreateDataCellsFilter $
+--             newCreateDataCellsFilter
+--
 --         , requestCreateLFTag $
 --             newCreateLFTag
 --
+--         , requestDeleteDataCellsFilter $
+--             newDeleteDataCellsFilter
+--
 --         , requestDeleteLFTag $
 --             newDeleteLFTag
+--
+--         , requestDeleteObjectsOnCancel $
+--             newDeleteObjectsOnCancel
 --
 --         , requestDeregisterResource $
 --             newDeregisterResource
 --
 --         , requestDescribeResource $
 --             newDescribeResource
+--
+--         , requestDescribeTransaction $
+--             newDescribeTransaction
+--
+--         , requestExtendTransaction $
+--             newExtendTransaction
 --
 --         , requestGetDataLakeSettings $
 --             newGetDataLakeSettings
@@ -57,11 +81,35 @@ import Test.Tasty
 --         , requestGetLFTag $
 --             newGetLFTag
 --
+--         , requestGetQueryState $
+--             newGetQueryState
+--
+--         , requestGetQueryStatistics $
+--             newGetQueryStatistics
+--
 --         , requestGetResourceLFTags $
 --             newGetResourceLFTags
 --
+--         , requestGetTableObjects $
+--             newGetTableObjects
+--
+--         , requestGetTemporaryGluePartitionCredentials $
+--             newGetTemporaryGluePartitionCredentials
+--
+--         , requestGetTemporaryGlueTableCredentials $
+--             newGetTemporaryGlueTableCredentials
+--
+--         , requestGetWorkUnitResults $
+--             newGetWorkUnitResults
+--
+--         , requestGetWorkUnits $
+--             newGetWorkUnits
+--
 --         , requestGrantPermissions $
 --             newGrantPermissions
+--
+--         , requestListDataCellsFilter $
+--             newListDataCellsFilter
 --
 --         , requestListLFTags $
 --             newListLFTags
@@ -71,6 +119,12 @@ import Test.Tasty
 --
 --         , requestListResources $
 --             newListResources
+--
+--         , requestListTableStorageOptimizers $
+--             newListTableStorageOptimizers
+--
+--         , requestListTransactions $
+--             newListTransactions
 --
 --         , requestPutDataLakeSettings $
 --             newPutDataLakeSettings
@@ -90,11 +144,23 @@ import Test.Tasty
 --         , requestSearchTablesByLFTags $
 --             newSearchTablesByLFTags
 --
+--         , requestStartQueryPlanning $
+--             newStartQueryPlanning
+--
+--         , requestStartTransaction $
+--             newStartTransaction
+--
 --         , requestUpdateLFTag $
 --             newUpdateLFTag
 --
 --         , requestUpdateResource $
 --             newUpdateResource
+--
+--         , requestUpdateTableObjects $
+--             newUpdateTableObjects
+--
+--         , requestUpdateTableStorageOptimizer $
+--             newUpdateTableStorageOptimizer
 --
 --           ]
 
@@ -102,23 +168,47 @@ import Test.Tasty
 --         [ responseAddLFTagsToResource $
 --             newAddLFTagsToResourceResponse
 --
+--         , responseAssumeDecoratedRoleWithSAML $
+--             newAssumeDecoratedRoleWithSAMLResponse
+--
 --         , responseBatchGrantPermissions $
 --             newBatchGrantPermissionsResponse
 --
 --         , responseBatchRevokePermissions $
 --             newBatchRevokePermissionsResponse
 --
+--         , responseCancelTransaction $
+--             newCancelTransactionResponse
+--
+--         , responseCommitTransaction $
+--             newCommitTransactionResponse
+--
+--         , responseCreateDataCellsFilter $
+--             newCreateDataCellsFilterResponse
+--
 --         , responseCreateLFTag $
 --             newCreateLFTagResponse
 --
+--         , responseDeleteDataCellsFilter $
+--             newDeleteDataCellsFilterResponse
+--
 --         , responseDeleteLFTag $
 --             newDeleteLFTagResponse
+--
+--         , responseDeleteObjectsOnCancel $
+--             newDeleteObjectsOnCancelResponse
 --
 --         , responseDeregisterResource $
 --             newDeregisterResourceResponse
 --
 --         , responseDescribeResource $
 --             newDescribeResourceResponse
+--
+--         , responseDescribeTransaction $
+--             newDescribeTransactionResponse
+--
+--         , responseExtendTransaction $
+--             newExtendTransactionResponse
 --
 --         , responseGetDataLakeSettings $
 --             newGetDataLakeSettingsResponse
@@ -129,11 +219,35 @@ import Test.Tasty
 --         , responseGetLFTag $
 --             newGetLFTagResponse
 --
+--         , responseGetQueryState $
+--             newGetQueryStateResponse
+--
+--         , responseGetQueryStatistics $
+--             newGetQueryStatisticsResponse
+--
 --         , responseGetResourceLFTags $
 --             newGetResourceLFTagsResponse
 --
+--         , responseGetTableObjects $
+--             newGetTableObjectsResponse
+--
+--         , responseGetTemporaryGluePartitionCredentials $
+--             newGetTemporaryGluePartitionCredentialsResponse
+--
+--         , responseGetTemporaryGlueTableCredentials $
+--             newGetTemporaryGlueTableCredentialsResponse
+--
+--         , responseGetWorkUnitResults $
+--             newGetWorkUnitResultsResponse
+--
+--         , responseGetWorkUnits $
+--             newGetWorkUnitsResponse
+--
 --         , responseGrantPermissions $
 --             newGrantPermissionsResponse
+--
+--         , responseListDataCellsFilter $
+--             newListDataCellsFilterResponse
 --
 --         , responseListLFTags $
 --             newListLFTagsResponse
@@ -143,6 +257,12 @@ import Test.Tasty
 --
 --         , responseListResources $
 --             newListResourcesResponse
+--
+--         , responseListTableStorageOptimizers $
+--             newListTableStorageOptimizersResponse
+--
+--         , responseListTransactions $
+--             newListTransactionsResponse
 --
 --         , responsePutDataLakeSettings $
 --             newPutDataLakeSettingsResponse
@@ -162,11 +282,23 @@ import Test.Tasty
 --         , responseSearchTablesByLFTags $
 --             newSearchTablesByLFTagsResponse
 --
+--         , responseStartQueryPlanning $
+--             newStartQueryPlanningResponse
+--
+--         , responseStartTransaction $
+--             newStartTransactionResponse
+--
 --         , responseUpdateLFTag $
 --             newUpdateLFTagResponse
 --
 --         , responseUpdateResource $
 --             newUpdateResourceResponse
+--
+--         , responseUpdateTableObjects $
+--             newUpdateTableObjectsResponse
+--
+--         , responseUpdateTableStorageOptimizer $
+--             newUpdateTableStorageOptimizerResponse
 --
 --           ]
 --     ]
@@ -178,6 +310,12 @@ requestAddLFTagsToResource =
   req
     "AddLFTagsToResource"
     "fixture/AddLFTagsToResource.yaml"
+
+requestAssumeDecoratedRoleWithSAML :: AssumeDecoratedRoleWithSAML -> TestTree
+requestAssumeDecoratedRoleWithSAML =
+  req
+    "AssumeDecoratedRoleWithSAML"
+    "fixture/AssumeDecoratedRoleWithSAML.yaml"
 
 requestBatchGrantPermissions :: BatchGrantPermissions -> TestTree
 requestBatchGrantPermissions =
@@ -191,17 +329,47 @@ requestBatchRevokePermissions =
     "BatchRevokePermissions"
     "fixture/BatchRevokePermissions.yaml"
 
+requestCancelTransaction :: CancelTransaction -> TestTree
+requestCancelTransaction =
+  req
+    "CancelTransaction"
+    "fixture/CancelTransaction.yaml"
+
+requestCommitTransaction :: CommitTransaction -> TestTree
+requestCommitTransaction =
+  req
+    "CommitTransaction"
+    "fixture/CommitTransaction.yaml"
+
+requestCreateDataCellsFilter :: CreateDataCellsFilter -> TestTree
+requestCreateDataCellsFilter =
+  req
+    "CreateDataCellsFilter"
+    "fixture/CreateDataCellsFilter.yaml"
+
 requestCreateLFTag :: CreateLFTag -> TestTree
 requestCreateLFTag =
   req
     "CreateLFTag"
     "fixture/CreateLFTag.yaml"
 
+requestDeleteDataCellsFilter :: DeleteDataCellsFilter -> TestTree
+requestDeleteDataCellsFilter =
+  req
+    "DeleteDataCellsFilter"
+    "fixture/DeleteDataCellsFilter.yaml"
+
 requestDeleteLFTag :: DeleteLFTag -> TestTree
 requestDeleteLFTag =
   req
     "DeleteLFTag"
     "fixture/DeleteLFTag.yaml"
+
+requestDeleteObjectsOnCancel :: DeleteObjectsOnCancel -> TestTree
+requestDeleteObjectsOnCancel =
+  req
+    "DeleteObjectsOnCancel"
+    "fixture/DeleteObjectsOnCancel.yaml"
 
 requestDeregisterResource :: DeregisterResource -> TestTree
 requestDeregisterResource =
@@ -214,6 +382,18 @@ requestDescribeResource =
   req
     "DescribeResource"
     "fixture/DescribeResource.yaml"
+
+requestDescribeTransaction :: DescribeTransaction -> TestTree
+requestDescribeTransaction =
+  req
+    "DescribeTransaction"
+    "fixture/DescribeTransaction.yaml"
+
+requestExtendTransaction :: ExtendTransaction -> TestTree
+requestExtendTransaction =
+  req
+    "ExtendTransaction"
+    "fixture/ExtendTransaction.yaml"
 
 requestGetDataLakeSettings :: GetDataLakeSettings -> TestTree
 requestGetDataLakeSettings =
@@ -233,17 +413,65 @@ requestGetLFTag =
     "GetLFTag"
     "fixture/GetLFTag.yaml"
 
+requestGetQueryState :: GetQueryState -> TestTree
+requestGetQueryState =
+  req
+    "GetQueryState"
+    "fixture/GetQueryState.yaml"
+
+requestGetQueryStatistics :: GetQueryStatistics -> TestTree
+requestGetQueryStatistics =
+  req
+    "GetQueryStatistics"
+    "fixture/GetQueryStatistics.yaml"
+
 requestGetResourceLFTags :: GetResourceLFTags -> TestTree
 requestGetResourceLFTags =
   req
     "GetResourceLFTags"
     "fixture/GetResourceLFTags.yaml"
 
+requestGetTableObjects :: GetTableObjects -> TestTree
+requestGetTableObjects =
+  req
+    "GetTableObjects"
+    "fixture/GetTableObjects.yaml"
+
+requestGetTemporaryGluePartitionCredentials :: GetTemporaryGluePartitionCredentials -> TestTree
+requestGetTemporaryGluePartitionCredentials =
+  req
+    "GetTemporaryGluePartitionCredentials"
+    "fixture/GetTemporaryGluePartitionCredentials.yaml"
+
+requestGetTemporaryGlueTableCredentials :: GetTemporaryGlueTableCredentials -> TestTree
+requestGetTemporaryGlueTableCredentials =
+  req
+    "GetTemporaryGlueTableCredentials"
+    "fixture/GetTemporaryGlueTableCredentials.yaml"
+
+requestGetWorkUnitResults :: GetWorkUnitResults -> TestTree
+requestGetWorkUnitResults =
+  req
+    "GetWorkUnitResults"
+    "fixture/GetWorkUnitResults.yaml"
+
+requestGetWorkUnits :: GetWorkUnits -> TestTree
+requestGetWorkUnits =
+  req
+    "GetWorkUnits"
+    "fixture/GetWorkUnits.yaml"
+
 requestGrantPermissions :: GrantPermissions -> TestTree
 requestGrantPermissions =
   req
     "GrantPermissions"
     "fixture/GrantPermissions.yaml"
+
+requestListDataCellsFilter :: ListDataCellsFilter -> TestTree
+requestListDataCellsFilter =
+  req
+    "ListDataCellsFilter"
+    "fixture/ListDataCellsFilter.yaml"
 
 requestListLFTags :: ListLFTags -> TestTree
 requestListLFTags =
@@ -262,6 +490,18 @@ requestListResources =
   req
     "ListResources"
     "fixture/ListResources.yaml"
+
+requestListTableStorageOptimizers :: ListTableStorageOptimizers -> TestTree
+requestListTableStorageOptimizers =
+  req
+    "ListTableStorageOptimizers"
+    "fixture/ListTableStorageOptimizers.yaml"
+
+requestListTransactions :: ListTransactions -> TestTree
+requestListTransactions =
+  req
+    "ListTransactions"
+    "fixture/ListTransactions.yaml"
 
 requestPutDataLakeSettings :: PutDataLakeSettings -> TestTree
 requestPutDataLakeSettings =
@@ -299,6 +539,18 @@ requestSearchTablesByLFTags =
     "SearchTablesByLFTags"
     "fixture/SearchTablesByLFTags.yaml"
 
+requestStartQueryPlanning :: StartQueryPlanning -> TestTree
+requestStartQueryPlanning =
+  req
+    "StartQueryPlanning"
+    "fixture/StartQueryPlanning.yaml"
+
+requestStartTransaction :: StartTransaction -> TestTree
+requestStartTransaction =
+  req
+    "StartTransaction"
+    "fixture/StartTransaction.yaml"
+
 requestUpdateLFTag :: UpdateLFTag -> TestTree
 requestUpdateLFTag =
   req
@@ -311,6 +563,18 @@ requestUpdateResource =
     "UpdateResource"
     "fixture/UpdateResource.yaml"
 
+requestUpdateTableObjects :: UpdateTableObjects -> TestTree
+requestUpdateTableObjects =
+  req
+    "UpdateTableObjects"
+    "fixture/UpdateTableObjects.yaml"
+
+requestUpdateTableStorageOptimizer :: UpdateTableStorageOptimizer -> TestTree
+requestUpdateTableStorageOptimizer =
+  req
+    "UpdateTableStorageOptimizer"
+    "fixture/UpdateTableStorageOptimizer.yaml"
+
 -- Responses
 
 responseAddLFTagsToResource :: AddLFTagsToResourceResponse -> TestTree
@@ -320,6 +584,14 @@ responseAddLFTagsToResource =
     "fixture/AddLFTagsToResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddLFTagsToResource)
+
+responseAssumeDecoratedRoleWithSAML :: AssumeDecoratedRoleWithSAMLResponse -> TestTree
+responseAssumeDecoratedRoleWithSAML =
+  res
+    "AssumeDecoratedRoleWithSAMLResponse"
+    "fixture/AssumeDecoratedRoleWithSAMLResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssumeDecoratedRoleWithSAML)
 
 responseBatchGrantPermissions :: BatchGrantPermissionsResponse -> TestTree
 responseBatchGrantPermissions =
@@ -337,6 +609,30 @@ responseBatchRevokePermissions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchRevokePermissions)
 
+responseCancelTransaction :: CancelTransactionResponse -> TestTree
+responseCancelTransaction =
+  res
+    "CancelTransactionResponse"
+    "fixture/CancelTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelTransaction)
+
+responseCommitTransaction :: CommitTransactionResponse -> TestTree
+responseCommitTransaction =
+  res
+    "CommitTransactionResponse"
+    "fixture/CommitTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CommitTransaction)
+
+responseCreateDataCellsFilter :: CreateDataCellsFilterResponse -> TestTree
+responseCreateDataCellsFilter =
+  res
+    "CreateDataCellsFilterResponse"
+    "fixture/CreateDataCellsFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDataCellsFilter)
+
 responseCreateLFTag :: CreateLFTagResponse -> TestTree
 responseCreateLFTag =
   res
@@ -345,6 +641,14 @@ responseCreateLFTag =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLFTag)
 
+responseDeleteDataCellsFilter :: DeleteDataCellsFilterResponse -> TestTree
+responseDeleteDataCellsFilter =
+  res
+    "DeleteDataCellsFilterResponse"
+    "fixture/DeleteDataCellsFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataCellsFilter)
+
 responseDeleteLFTag :: DeleteLFTagResponse -> TestTree
 responseDeleteLFTag =
   res
@@ -352,6 +656,14 @@ responseDeleteLFTag =
     "fixture/DeleteLFTagResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteLFTag)
+
+responseDeleteObjectsOnCancel :: DeleteObjectsOnCancelResponse -> TestTree
+responseDeleteObjectsOnCancel =
+  res
+    "DeleteObjectsOnCancelResponse"
+    "fixture/DeleteObjectsOnCancelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteObjectsOnCancel)
 
 responseDeregisterResource :: DeregisterResourceResponse -> TestTree
 responseDeregisterResource =
@@ -368,6 +680,22 @@ responseDescribeResource =
     "fixture/DescribeResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeResource)
+
+responseDescribeTransaction :: DescribeTransactionResponse -> TestTree
+responseDescribeTransaction =
+  res
+    "DescribeTransactionResponse"
+    "fixture/DescribeTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransaction)
+
+responseExtendTransaction :: ExtendTransactionResponse -> TestTree
+responseExtendTransaction =
+  res
+    "ExtendTransactionResponse"
+    "fixture/ExtendTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExtendTransaction)
 
 responseGetDataLakeSettings :: GetDataLakeSettingsResponse -> TestTree
 responseGetDataLakeSettings =
@@ -393,6 +721,22 @@ responseGetLFTag =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLFTag)
 
+responseGetQueryState :: GetQueryStateResponse -> TestTree
+responseGetQueryState =
+  res
+    "GetQueryStateResponse"
+    "fixture/GetQueryStateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetQueryState)
+
+responseGetQueryStatistics :: GetQueryStatisticsResponse -> TestTree
+responseGetQueryStatistics =
+  res
+    "GetQueryStatisticsResponse"
+    "fixture/GetQueryStatisticsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetQueryStatistics)
+
 responseGetResourceLFTags :: GetResourceLFTagsResponse -> TestTree
 responseGetResourceLFTags =
   res
@@ -401,6 +745,38 @@ responseGetResourceLFTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceLFTags)
 
+responseGetTableObjects :: GetTableObjectsResponse -> TestTree
+responseGetTableObjects =
+  res
+    "GetTableObjectsResponse"
+    "fixture/GetTableObjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTableObjects)
+
+responseGetTemporaryGluePartitionCredentials :: GetTemporaryGluePartitionCredentialsResponse -> TestTree
+responseGetTemporaryGluePartitionCredentials =
+  res
+    "GetTemporaryGluePartitionCredentialsResponse"
+    "fixture/GetTemporaryGluePartitionCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTemporaryGluePartitionCredentials)
+
+responseGetTemporaryGlueTableCredentials :: GetTemporaryGlueTableCredentialsResponse -> TestTree
+responseGetTemporaryGlueTableCredentials =
+  res
+    "GetTemporaryGlueTableCredentialsResponse"
+    "fixture/GetTemporaryGlueTableCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTemporaryGlueTableCredentials)
+
+responseGetWorkUnits :: GetWorkUnitsResponse -> TestTree
+responseGetWorkUnits =
+  res
+    "GetWorkUnitsResponse"
+    "fixture/GetWorkUnitsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWorkUnits)
+
 responseGrantPermissions :: GrantPermissionsResponse -> TestTree
 responseGrantPermissions =
   res
@@ -408,6 +784,14 @@ responseGrantPermissions =
     "fixture/GrantPermissionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GrantPermissions)
+
+responseListDataCellsFilter :: ListDataCellsFilterResponse -> TestTree
+responseListDataCellsFilter =
+  res
+    "ListDataCellsFilterResponse"
+    "fixture/ListDataCellsFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataCellsFilter)
 
 responseListLFTags :: ListLFTagsResponse -> TestTree
 responseListLFTags =
@@ -432,6 +816,22 @@ responseListResources =
     "fixture/ListResourcesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListResources)
+
+responseListTableStorageOptimizers :: ListTableStorageOptimizersResponse -> TestTree
+responseListTableStorageOptimizers =
+  res
+    "ListTableStorageOptimizersResponse"
+    "fixture/ListTableStorageOptimizersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTableStorageOptimizers)
+
+responseListTransactions :: ListTransactionsResponse -> TestTree
+responseListTransactions =
+  res
+    "ListTransactionsResponse"
+    "fixture/ListTransactionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTransactions)
 
 responsePutDataLakeSettings :: PutDataLakeSettingsResponse -> TestTree
 responsePutDataLakeSettings =
@@ -481,6 +881,22 @@ responseSearchTablesByLFTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchTablesByLFTags)
 
+responseStartQueryPlanning :: StartQueryPlanningResponse -> TestTree
+responseStartQueryPlanning =
+  res
+    "StartQueryPlanningResponse"
+    "fixture/StartQueryPlanningResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartQueryPlanning)
+
+responseStartTransaction :: StartTransactionResponse -> TestTree
+responseStartTransaction =
+  res
+    "StartTransactionResponse"
+    "fixture/StartTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartTransaction)
+
 responseUpdateLFTag :: UpdateLFTagResponse -> TestTree
 responseUpdateLFTag =
   res
@@ -496,3 +912,19 @@ responseUpdateResource =
     "fixture/UpdateResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateResource)
+
+responseUpdateTableObjects :: UpdateTableObjectsResponse -> TestTree
+responseUpdateTableObjects =
+  res
+    "UpdateTableObjectsResponse"
+    "fixture/UpdateTableObjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTableObjects)
+
+responseUpdateTableStorageOptimizer :: UpdateTableStorageOptimizerResponse -> TestTree
+responseUpdateTableStorageOptimizer =
+  res
+    "UpdateTableStorageOptimizerResponse"
+    "fixture/UpdateTableStorageOptimizerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTableStorageOptimizer)

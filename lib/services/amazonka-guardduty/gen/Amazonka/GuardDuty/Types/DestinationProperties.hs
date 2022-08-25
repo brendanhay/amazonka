@@ -32,6 +32,9 @@ data DestinationProperties = DestinationProperties'
   { -- | The ARN of the KMS key to use for encryption.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource to publish to.
+    --
+    -- To specify an S3 bucket folder use the following format:
+    -- @arn:aws:s3:::DOC-EXAMPLE-BUCKET\/myFolder\/@
     destinationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,6 +50,9 @@ data DestinationProperties = DestinationProperties'
 -- 'kmsKeyArn', 'destinationProperties_kmsKeyArn' - The ARN of the KMS key to use for encryption.
 --
 -- 'destinationArn', 'destinationProperties_destinationArn' - The ARN of the resource to publish to.
+--
+-- To specify an S3 bucket folder use the following format:
+-- @arn:aws:s3:::DOC-EXAMPLE-BUCKET\/myFolder\/@
 newDestinationProperties ::
   DestinationProperties
 newDestinationProperties =
@@ -60,6 +66,9 @@ destinationProperties_kmsKeyArn :: Lens.Lens' DestinationProperties (Prelude.May
 destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn} -> kmsKeyArn) (\s@DestinationProperties' {} a -> s {kmsKeyArn = a} :: DestinationProperties)
 
 -- | The ARN of the resource to publish to.
+--
+-- To specify an S3 bucket folder use the following format:
+-- @arn:aws:s3:::DOC-EXAMPLE-BUCKET\/myFolder\/@
 destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
 destinationProperties_destinationArn = Lens.lens (\DestinationProperties' {destinationArn} -> destinationArn) (\s@DestinationProperties' {} a -> s {destinationArn = a} :: DestinationProperties)
 

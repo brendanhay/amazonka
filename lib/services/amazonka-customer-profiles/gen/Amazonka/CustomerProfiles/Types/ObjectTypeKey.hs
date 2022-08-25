@@ -32,15 +32,15 @@ data ObjectTypeKey = ObjectTypeKey'
   { -- | The reference for the key name of the fields map.
     fieldNames :: Prelude.Maybe [Prelude.Text],
     -- | The types of keys that a ProfileObject can have. Each ProfileObject can
-    -- have only 1 UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE
-    -- means that this key can be used to tie an object to a PROFILE, ASSET or
-    -- CASE respectively. UNIQUE means that it can be used to uniquely identify
-    -- an object. If a key a is marked as SECONDARY, it will be used to search
-    -- for profiles after all other PROFILE keys have been searched. A
-    -- LOOKUP_ONLY key is only used to match a profile but is not persisted to
-    -- be used for searching of the profile. A NEW_ONLY key is only used if the
-    -- profile does not already exist before the object is ingested, otherwise
-    -- it is only used for matching objects to profiles.
+    -- have only 1 UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE,
+    -- or ORDER means that this key can be used to tie an object to a PROFILE,
+    -- ASSET, CASE, or ORDER respectively. UNIQUE means that it can be used to
+    -- uniquely identify an object. If a key a is marked as SECONDARY, it will
+    -- be used to search for profiles after all other PROFILE keys have been
+    -- searched. A LOOKUP_ONLY key is only used to match a profile but is not
+    -- persisted to be used for searching of the profile. A NEW_ONLY key is
+    -- only used if the profile does not already exist before the object is
+    -- ingested, otherwise it is only used for matching objects to profiles.
     standardIdentifiers :: Prelude.Maybe [StandardIdentifier]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,15 +56,15 @@ data ObjectTypeKey = ObjectTypeKey'
 -- 'fieldNames', 'objectTypeKey_fieldNames' - The reference for the key name of the fields map.
 --
 -- 'standardIdentifiers', 'objectTypeKey_standardIdentifiers' - The types of keys that a ProfileObject can have. Each ProfileObject can
--- have only 1 UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE
--- means that this key can be used to tie an object to a PROFILE, ASSET or
--- CASE respectively. UNIQUE means that it can be used to uniquely identify
--- an object. If a key a is marked as SECONDARY, it will be used to search
--- for profiles after all other PROFILE keys have been searched. A
--- LOOKUP_ONLY key is only used to match a profile but is not persisted to
--- be used for searching of the profile. A NEW_ONLY key is only used if the
--- profile does not already exist before the object is ingested, otherwise
--- it is only used for matching objects to profiles.
+-- have only 1 UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE,
+-- or ORDER means that this key can be used to tie an object to a PROFILE,
+-- ASSET, CASE, or ORDER respectively. UNIQUE means that it can be used to
+-- uniquely identify an object. If a key a is marked as SECONDARY, it will
+-- be used to search for profiles after all other PROFILE keys have been
+-- searched. A LOOKUP_ONLY key is only used to match a profile but is not
+-- persisted to be used for searching of the profile. A NEW_ONLY key is
+-- only used if the profile does not already exist before the object is
+-- ingested, otherwise it is only used for matching objects to profiles.
 newObjectTypeKey ::
   ObjectTypeKey
 newObjectTypeKey =
@@ -78,15 +78,15 @@ objectTypeKey_fieldNames :: Lens.Lens' ObjectTypeKey (Prelude.Maybe [Prelude.Tex
 objectTypeKey_fieldNames = Lens.lens (\ObjectTypeKey' {fieldNames} -> fieldNames) (\s@ObjectTypeKey' {} a -> s {fieldNames = a} :: ObjectTypeKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | The types of keys that a ProfileObject can have. Each ProfileObject can
--- have only 1 UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE
--- means that this key can be used to tie an object to a PROFILE, ASSET or
--- CASE respectively. UNIQUE means that it can be used to uniquely identify
--- an object. If a key a is marked as SECONDARY, it will be used to search
--- for profiles after all other PROFILE keys have been searched. A
--- LOOKUP_ONLY key is only used to match a profile but is not persisted to
--- be used for searching of the profile. A NEW_ONLY key is only used if the
--- profile does not already exist before the object is ingested, otherwise
--- it is only used for matching objects to profiles.
+-- have only 1 UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE,
+-- or ORDER means that this key can be used to tie an object to a PROFILE,
+-- ASSET, CASE, or ORDER respectively. UNIQUE means that it can be used to
+-- uniquely identify an object. If a key a is marked as SECONDARY, it will
+-- be used to search for profiles after all other PROFILE keys have been
+-- searched. A LOOKUP_ONLY key is only used to match a profile but is not
+-- persisted to be used for searching of the profile. A NEW_ONLY key is
+-- only used if the profile does not already exist before the object is
+-- ingested, otherwise it is only used for matching objects to profiles.
 objectTypeKey_standardIdentifiers :: Lens.Lens' ObjectTypeKey (Prelude.Maybe [StandardIdentifier])
 objectTypeKey_standardIdentifiers = Lens.lens (\ObjectTypeKey' {standardIdentifiers} -> standardIdentifiers) (\s@ObjectTypeKey' {} a -> s {standardIdentifiers = a} :: ObjectTypeKey) Prelude.. Lens.mapping Lens.coerced
 

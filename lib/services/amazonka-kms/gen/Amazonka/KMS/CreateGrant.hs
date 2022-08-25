@@ -31,7 +31,7 @@
 -- it without changing your key policies or IAM policies.
 --
 -- For detailed information about grants, including grant terminology, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants in KMS>
 -- in the //Key Management Service Developer Guide// . For examples of
 -- working with grants in several programming languages, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants>.
@@ -56,7 +56,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: Yes. To perform this operation on a KMS key in a
@@ -130,23 +130,31 @@ data CreateGrant = CreateGrant'
     -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
     -- grant constraints. Each constraint value can include up to 8 encryption
     -- context pairs. The encryption context value in each constraint cannot
-    -- exceed 384 characters.
-    --
-    -- These grant constraints allow the permissions in the grant only when the
-    -- encryption context in the request matches (@EncryptionContextEquals@) or
-    -- includes (@EncryptionContextSubset@) the encryption context specified in
-    -- this structure. For information about grant constraints, see
+    -- exceed 384 characters. For information about grant constraints, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
     -- in the /Key Management Service Developer Guide/. For more information
     -- about encryption context, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
     -- in the //Key Management Service Developer Guide// .
     --
+    -- The encryption context grant constraints allow the permissions in the
+    -- grant only when the encryption context in the request matches
+    -- (@EncryptionContextEquals@) or includes (@EncryptionContextSubset@) the
+    -- encryption context specified in this structure.
+    --
     -- The encryption context grant constraints are supported only on
-    -- operations that include an encryption context. You cannot use an
-    -- encryption context grant constraint for cryptographic operations with
-    -- asymmetric KMS keys or for management operations, such as DescribeKey or
-    -- RetireGrant.
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations grant operations>
+    -- that include an @EncryptionContext@ parameter, such as cryptographic
+    -- operations on symmetric encryption KMS keys. Grants with grant
+    -- constraints can include the DescribeKey and RetireGrant operations, but
+    -- the constraint doesn\'t apply to these operations. If a grant with a
+    -- grant constraint includes the @CreateGrant@ operation, the constraint
+    -- requires that any grants created with the @CreateGrant@ permission have
+    -- an equally strict or stricter encryption context constraint.
+    --
+    -- You cannot use an encryption context grant constraint for cryptographic
+    -- operations with asymmetric KMS keys or HMAC KMS keys. These keys don\'t
+    -- support an encryption context.
     constraints :: Prelude.Maybe GrantConstraints,
     -- | The principal that has permission to use the RetireGrant operation to
     -- retire the grant.
@@ -207,11 +215,12 @@ data CreateGrant = CreateGrant'
     granteePrincipal :: Prelude.Text,
     -- | A list of operations that the grant permits.
     --
-    -- The operation must be supported on the KMS key. For example, you cannot
-    -- create a grant for a symmetric KMS key that allows the Sign operation,
-    -- or a grant for an asymmetric KMS key that allows the GenerateDataKey
-    -- operation. If you try, KMS returns a @ValidationError@ exception. For
-    -- details, see
+    -- This list must include only operations that are permitted in a grant.
+    -- Also, the operation must be supported on the KMS key. For example, you
+    -- cannot create a grant for a symmetric encryption KMS key that allows the
+    -- Sign operation, or a grant for an asymmetric KMS key that allows the
+    -- GenerateDataKey operation. If you try, KMS returns a @ValidationError@
+    -- exception. For details, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations Grant operations>
     -- in the /Key Management Service Developer Guide/.
     operations :: [GrantOperation]
@@ -246,23 +255,31 @@ data CreateGrant = CreateGrant'
 -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
 -- grant constraints. Each constraint value can include up to 8 encryption
 -- context pairs. The encryption context value in each constraint cannot
--- exceed 384 characters.
---
--- These grant constraints allow the permissions in the grant only when the
--- encryption context in the request matches (@EncryptionContextEquals@) or
--- includes (@EncryptionContextSubset@) the encryption context specified in
--- this structure. For information about grant constraints, see
+-- exceed 384 characters. For information about grant constraints, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
 -- in the /Key Management Service Developer Guide/. For more information
 -- about encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the //Key Management Service Developer Guide// .
 --
+-- The encryption context grant constraints allow the permissions in the
+-- grant only when the encryption context in the request matches
+-- (@EncryptionContextEquals@) or includes (@EncryptionContextSubset@) the
+-- encryption context specified in this structure.
+--
 -- The encryption context grant constraints are supported only on
--- operations that include an encryption context. You cannot use an
--- encryption context grant constraint for cryptographic operations with
--- asymmetric KMS keys or for management operations, such as DescribeKey or
--- RetireGrant.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations grant operations>
+-- that include an @EncryptionContext@ parameter, such as cryptographic
+-- operations on symmetric encryption KMS keys. Grants with grant
+-- constraints can include the DescribeKey and RetireGrant operations, but
+-- the constraint doesn\'t apply to these operations. If a grant with a
+-- grant constraint includes the @CreateGrant@ operation, the constraint
+-- requires that any grants created with the @CreateGrant@ permission have
+-- an equally strict or stricter encryption context constraint.
+--
+-- You cannot use an encryption context grant constraint for cryptographic
+-- operations with asymmetric KMS keys or HMAC KMS keys. These keys don\'t
+-- support an encryption context.
 --
 -- 'retiringPrincipal', 'createGrant_retiringPrincipal' - The principal that has permission to use the RetireGrant operation to
 -- retire the grant.
@@ -323,11 +340,12 @@ data CreateGrant = CreateGrant'
 --
 -- 'operations', 'createGrant_operations' - A list of operations that the grant permits.
 --
--- The operation must be supported on the KMS key. For example, you cannot
--- create a grant for a symmetric KMS key that allows the Sign operation,
--- or a grant for an asymmetric KMS key that allows the GenerateDataKey
--- operation. If you try, KMS returns a @ValidationError@ exception. For
--- details, see
+-- This list must include only operations that are permitted in a grant.
+-- Also, the operation must be supported on the KMS key. For example, you
+-- cannot create a grant for a symmetric encryption KMS key that allows the
+-- Sign operation, or a grant for an asymmetric KMS key that allows the
+-- GenerateDataKey operation. If you try, KMS returns a @ValidationError@
+-- exception. For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations Grant operations>
 -- in the /Key Management Service Developer Guide/.
 newCreateGrant ::
@@ -369,23 +387,31 @@ createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} 
 -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
 -- grant constraints. Each constraint value can include up to 8 encryption
 -- context pairs. The encryption context value in each constraint cannot
--- exceed 384 characters.
---
--- These grant constraints allow the permissions in the grant only when the
--- encryption context in the request matches (@EncryptionContextEquals@) or
--- includes (@EncryptionContextSubset@) the encryption context specified in
--- this structure. For information about grant constraints, see
+-- exceed 384 characters. For information about grant constraints, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
 -- in the /Key Management Service Developer Guide/. For more information
 -- about encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the //Key Management Service Developer Guide// .
 --
+-- The encryption context grant constraints allow the permissions in the
+-- grant only when the encryption context in the request matches
+-- (@EncryptionContextEquals@) or includes (@EncryptionContextSubset@) the
+-- encryption context specified in this structure.
+--
 -- The encryption context grant constraints are supported only on
--- operations that include an encryption context. You cannot use an
--- encryption context grant constraint for cryptographic operations with
--- asymmetric KMS keys or for management operations, such as DescribeKey or
--- RetireGrant.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations grant operations>
+-- that include an @EncryptionContext@ parameter, such as cryptographic
+-- operations on symmetric encryption KMS keys. Grants with grant
+-- constraints can include the DescribeKey and RetireGrant operations, but
+-- the constraint doesn\'t apply to these operations. If a grant with a
+-- grant constraint includes the @CreateGrant@ operation, the constraint
+-- requires that any grants created with the @CreateGrant@ permission have
+-- an equally strict or stricter encryption context constraint.
+--
+-- You cannot use an encryption context grant constraint for cryptographic
+-- operations with asymmetric KMS keys or HMAC KMS keys. These keys don\'t
+-- support an encryption context.
 createGrant_constraints :: Lens.Lens' CreateGrant (Prelude.Maybe GrantConstraints)
 createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints) (\s@CreateGrant' {} a -> s {constraints = a} :: CreateGrant)
 
@@ -456,11 +482,12 @@ createGrant_granteePrincipal = Lens.lens (\CreateGrant' {granteePrincipal} -> gr
 
 -- | A list of operations that the grant permits.
 --
--- The operation must be supported on the KMS key. For example, you cannot
--- create a grant for a symmetric KMS key that allows the Sign operation,
--- or a grant for an asymmetric KMS key that allows the GenerateDataKey
--- operation. If you try, KMS returns a @ValidationError@ exception. For
--- details, see
+-- This list must include only operations that are permitted in a grant.
+-- Also, the operation must be supported on the KMS key. For example, you
+-- cannot create a grant for a symmetric encryption KMS key that allows the
+-- Sign operation, or a grant for an asymmetric KMS key that allows the
+-- GenerateDataKey operation. If you try, KMS returns a @ValidationError@
+-- exception. For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations Grant operations>
 -- in the /Key Management Service Developer Guide/.
 createGrant_operations :: Lens.Lens' CreateGrant [GrantOperation]

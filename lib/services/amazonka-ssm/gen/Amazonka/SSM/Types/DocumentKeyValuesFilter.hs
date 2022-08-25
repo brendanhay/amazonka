@@ -44,8 +44,6 @@ import qualified Amazonka.Prelude as Prelude
 --
 --     -   @Command@
 --
---     -   @DeploymentStrategy@
---
 --     -   @Package@
 --
 --     -   @Policy@

@@ -32,7 +32,7 @@ import Amazonka.SSM.Types.ComplianceStatus
 --
 -- /See:/ 'newComplianceItem' smart constructor.
 data ComplianceItem = ComplianceItem'
-  { -- | An ID for the resource. For a managed instance, this is the instance ID.
+  { -- | An ID for the resource. For a managed node, this is the node ID.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of resource. @ManagedInstance@ is currently the only supported
     -- resource type.
@@ -72,7 +72,7 @@ data ComplianceItem = ComplianceItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'complianceItem_resourceId' - An ID for the resource. For a managed instance, this is the instance ID.
+-- 'resourceId', 'complianceItem_resourceId' - An ID for the resource. For a managed node, this is the node ID.
 --
 -- 'resourceType', 'complianceItem_resourceType' - The type of resource. @ManagedInstance@ is currently the only supported
 -- resource type.
@@ -115,7 +115,7 @@ newComplianceItem =
       complianceType = Prelude.Nothing
     }
 
--- | An ID for the resource. For a managed instance, this is the instance ID.
+-- | An ID for the resource. For a managed node, this is the node ID.
 complianceItem_resourceId :: Lens.Lens' ComplianceItem (Prelude.Maybe Prelude.Text)
 complianceItem_resourceId = Lens.lens (\ComplianceItem' {resourceId} -> resourceId) (\s@ComplianceItem' {} a -> s {resourceId = a} :: ComplianceItem)
 

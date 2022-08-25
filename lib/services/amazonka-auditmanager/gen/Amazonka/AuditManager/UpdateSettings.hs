@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 data UpdateSettings = UpdateSettings'
   { -- | A list of the default audit owners.
     defaultProcessOwners :: Prelude.Maybe [Role],
-    -- | The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
-    -- Manager sends notifications.
+    -- | The Amazon Simple Notification Service (Amazon SNS) topic that Audit
+    -- Manager sends notifications to.
     snsTopic :: Prelude.Maybe Prelude.Text,
     -- | The KMS key details.
     kmsKey :: Prelude.Maybe Prelude.Text,
@@ -73,8 +73,8 @@ data UpdateSettings = UpdateSettings'
 --
 -- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
 --
--- 'snsTopic', 'updateSettings_snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
--- Manager sends notifications.
+-- 'snsTopic', 'updateSettings_snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic that Audit
+-- Manager sends notifications to.
 --
 -- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
 --
@@ -95,8 +95,8 @@ newUpdateSettings =
 updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
 updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProcessOwners} -> defaultProcessOwners) (\s@UpdateSettings' {} a -> s {defaultProcessOwners = a} :: UpdateSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
--- Manager sends notifications.
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that Audit
+-- Manager sends notifications to.
 updateSettings_snsTopic :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
 updateSettings_snsTopic = Lens.lens (\UpdateSettings' {snsTopic} -> snsTopic) (\s@UpdateSettings' {} a -> s {snsTopic = a} :: UpdateSettings)
 

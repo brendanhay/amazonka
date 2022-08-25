@@ -24,14 +24,14 @@
 -- detection on a stack set, it performs drift detection on the stack
 -- associated with each stack instance in the stack set. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html How CloudFormation Performs Drift Detection on a Stack Set>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html How CloudFormation performs drift detection on a stack set>.
 --
 -- @DetectStackSetDrift@ returns the @OperationId@ of the stack set drift
 -- detection operation. Use this operation id with
 -- @ DescribeStackSetOperation @ to monitor the progress of the drift
 -- detection operation. The drift detection operation may take some time,
--- depending on the number of stack instances included in the stack set, as
--- well as the number of resources included in each stack.
+-- depending on the number of stack instances included in the stack set, in
+-- addition to the number of resources included in each stack.
 --
 -- Once the operation has completed, use the following actions to return
 -- drift information:
@@ -39,7 +39,7 @@
 -- -   Use @ DescribeStackSet @ to return detailed information about the
 --     stack set, including detailed information about the last /completed/
 --     drift operation performed on the stack set. (Information about drift
---     operations that are in progress is not included.)
+--     operations that are in progress isn\'t included.)
 --
 -- -   Use @ ListStackInstances @ to return a list of stack instances
 --     belonging to the stack set, including the drift status and last
@@ -49,9 +49,9 @@
 --     specific stack instance, including its drift status and last drift
 --     time checked.
 --
--- For more information on performing a drift detection operation on a
+-- For more information about performing a drift detection operation on a
 -- stack set, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting unmanaged changes in stack sets>.
 --
 -- You can only run a single drift detection operation on a given stack set
 -- at one time.
@@ -241,7 +241,7 @@ instance Core.ToQuery DetectStackSetDrift where
 data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
   { -- | The ID of the drift detection stack set operation.
     --
-    -- you can use this operation id with @ DescribeStackSetOperation @ to
+    -- You can use this operation ID with @ DescribeStackSetOperation @ to
     -- monitor the progress of the drift detection operation.
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -259,7 +259,7 @@ data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
 --
 -- 'operationId', 'detectStackSetDriftResponse_operationId' - The ID of the drift detection stack set operation.
 --
--- you can use this operation id with @ DescribeStackSetOperation @ to
+-- You can use this operation ID with @ DescribeStackSetOperation @ to
 -- monitor the progress of the drift detection operation.
 --
 -- 'httpStatus', 'detectStackSetDriftResponse_httpStatus' - The response's http status code.
@@ -276,7 +276,7 @@ newDetectStackSetDriftResponse pHttpStatus_ =
 
 -- | The ID of the drift detection stack set operation.
 --
--- you can use this operation id with @ DescribeStackSetOperation @ to
+-- You can use this operation ID with @ DescribeStackSetOperation @ to
 -- monitor the progress of the drift detection operation.
 detectStackSetDriftResponse_operationId :: Lens.Lens' DetectStackSetDriftResponse (Prelude.Maybe Prelude.Text)
 detectStackSetDriftResponse_operationId = Lens.lens (\DetectStackSetDriftResponse' {operationId} -> operationId) (\s@DetectStackSetDriftResponse' {} a -> s {operationId = a} :: DetectStackSetDriftResponse)

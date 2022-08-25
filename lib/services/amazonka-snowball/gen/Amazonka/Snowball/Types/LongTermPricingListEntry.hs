@@ -49,8 +49,8 @@ data LongTermPricingListEntry = LongTermPricingListEntry'
     replacementJob :: Prelude.Maybe Prelude.Text,
     -- | The start date of the long-term pricing contract.
     longTermPricingStartDate :: Prelude.Maybe Core.POSIX,
-    -- | The type of AWS Snow Family device associated with this long-term
-    -- pricing job.
+    -- | The type of Snow Family Devices associated with this long-term pricing
+    -- job.
     snowballType :: Prelude.Maybe SnowballType,
     -- | The IDs of the jobs that are associated with a long-term pricing type.
     jobIds :: Prelude.Maybe [Prelude.Text]
@@ -84,8 +84,8 @@ data LongTermPricingListEntry = LongTermPricingListEntry'
 --
 -- 'longTermPricingStartDate', 'longTermPricingListEntry_longTermPricingStartDate' - The start date of the long-term pricing contract.
 --
--- 'snowballType', 'longTermPricingListEntry_snowballType' - The type of AWS Snow Family device associated with this long-term
--- pricing job.
+-- 'snowballType', 'longTermPricingListEntry_snowballType' - The type of Snow Family Devices associated with this long-term pricing
+-- job.
 --
 -- 'jobIds', 'longTermPricingListEntry_jobIds' - The IDs of the jobs that are associated with a long-term pricing type.
 newLongTermPricingListEntry ::
@@ -140,8 +140,8 @@ longTermPricingListEntry_replacementJob = Lens.lens (\LongTermPricingListEntry' 
 longTermPricingListEntry_longTermPricingStartDate :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe Prelude.UTCTime)
 longTermPricingListEntry_longTermPricingStartDate = Lens.lens (\LongTermPricingListEntry' {longTermPricingStartDate} -> longTermPricingStartDate) (\s@LongTermPricingListEntry' {} a -> s {longTermPricingStartDate = a} :: LongTermPricingListEntry) Prelude.. Lens.mapping Core._Time
 
--- | The type of AWS Snow Family device associated with this long-term
--- pricing job.
+-- | The type of Snow Family Devices associated with this long-term pricing
+-- job.
 longTermPricingListEntry_snowballType :: Lens.Lens' LongTermPricingListEntry (Prelude.Maybe SnowballType)
 longTermPricingListEntry_snowballType = Lens.lens (\LongTermPricingListEntry' {snowballType} -> snowballType) (\s@LongTermPricingListEntry' {} a -> s {snowballType = a} :: LongTermPricingListEntry)
 

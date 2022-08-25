@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For example, a route with a departure position and destination position
 -- returns one leg with the positions
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>:
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>:
 --
 -- -   The @StartPosition@ is the departure position.
 --
@@ -64,13 +64,13 @@ data Leg = Leg'
     -- @[longitude,latitude]@.
     --
     -- If the @EndPosition@ isn\'t located on a road, it\'s
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>.
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html snapped to a nearby road>.
     endPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The starting position of the leg. Follows the format
     -- @[longitude,latitude]@.
     --
     -- If the @StartPosition@ isn\'t located on a road, it\'s
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>.
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>.
     startPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | Contains a list of steps, which represent subsections of a leg. Each
     -- step provides instructions for how to move to the next step in the leg
@@ -104,13 +104,13 @@ data Leg = Leg'
 -- @[longitude,latitude]@.
 --
 -- If the @EndPosition@ isn\'t located on a road, it\'s
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html snapped to a nearby road>.
 --
 -- 'startPosition', 'leg_startPosition' - The starting position of the leg. Follows the format
 -- @[longitude,latitude]@.
 --
 -- If the @StartPosition@ isn\'t located on a road, it\'s
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>.
 --
 -- 'steps', 'leg_steps' - Contains a list of steps, which represent subsections of a leg. Each
 -- step provides instructions for how to move to the next step in the leg
@@ -166,7 +166,7 @@ leg_durationSeconds = Lens.lens (\Leg' {durationSeconds} -> durationSeconds) (\s
 -- @[longitude,latitude]@.
 --
 -- If the @EndPosition@ isn\'t located on a road, it\'s
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html snapped to a nearby road>.
 leg_endPosition :: Lens.Lens' Leg (Prelude.NonEmpty Prelude.Double)
 leg_endPosition = Lens.lens (\Leg' {endPosition} -> endPosition) (\s@Leg' {} a -> s {endPosition = a} :: Leg) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
@@ -174,7 +174,7 @@ leg_endPosition = Lens.lens (\Leg' {endPosition} -> endPosition) (\s@Leg' {} a -
 -- @[longitude,latitude]@.
 --
 -- If the @StartPosition@ isn\'t located on a road, it\'s
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>.
 leg_startPosition :: Lens.Lens' Leg (Prelude.NonEmpty Prelude.Double)
 leg_startPosition = Lens.lens (\Leg' {startPosition} -> startPosition) (\s@Leg' {} a -> s {startPosition = a} :: Leg) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

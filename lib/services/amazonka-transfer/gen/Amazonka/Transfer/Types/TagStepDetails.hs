@@ -34,7 +34,18 @@ data TagStepDetails = TagStepDetails'
   { -- | Array that contains from 1 to 10 key\/value pairs.
     tags :: Prelude.Maybe (Prelude.NonEmpty S3Tag),
     -- | The name of the step, used as an identifier.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies which file to use as input to the workflow step: either the
+    -- output from the previous step, or the originally uploaded file for the
+    -- workflow.
+    --
+    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    --     this case, this workflow step uses the output file from the previous
+    --     workflow step as input. This is the default value.
+    --
+    -- -   Enter @${original.file}@ to use the originally-uploaded file
+    --     location as input for this step.
+    sourceFileLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,12 +60,24 @@ data TagStepDetails = TagStepDetails'
 -- 'tags', 'tagStepDetails_tags' - Array that contains from 1 to 10 key\/value pairs.
 --
 -- 'name', 'tagStepDetails_name' - The name of the step, used as an identifier.
+--
+-- 'sourceFileLocation', 'tagStepDetails_sourceFileLocation' - Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   Enter @${previous.file}@ to use the previous file as the input. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   Enter @${original.file}@ to use the originally-uploaded file
+--     location as input for this step.
 newTagStepDetails ::
   TagStepDetails
 newTagStepDetails =
   TagStepDetails'
     { tags = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      sourceFileLocation = Prelude.Nothing
     }
 
 -- | Array that contains from 1 to 10 key\/value pairs.
@@ -65,29 +88,49 @@ tagStepDetails_tags = Lens.lens (\TagStepDetails' {tags} -> tags) (\s@TagStepDet
 tagStepDetails_name :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
 tagStepDetails_name = Lens.lens (\TagStepDetails' {name} -> name) (\s@TagStepDetails' {} a -> s {name = a} :: TagStepDetails)
 
+-- | Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   Enter @${previous.file}@ to use the previous file as the input. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   Enter @${original.file}@ to use the originally-uploaded file
+--     location as input for this step.
+tagStepDetails_sourceFileLocation :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
+tagStepDetails_sourceFileLocation = Lens.lens (\TagStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@TagStepDetails' {} a -> s {sourceFileLocation = a} :: TagStepDetails)
+
 instance Core.FromJSON TagStepDetails where
   parseJSON =
     Core.withObject
       "TagStepDetails"
       ( \x ->
           TagStepDetails'
-            Prelude.<$> (x Core..:? "Tags") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Tags")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SourceFileLocation")
       )
 
 instance Prelude.Hashable TagStepDetails where
   hashWithSalt _salt TagStepDetails' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceFileLocation
 
 instance Prelude.NFData TagStepDetails where
   rnf TagStepDetails' {..} =
-    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceFileLocation
 
 instance Core.ToJSON TagStepDetails where
   toJSON TagStepDetails' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name
+            ("Name" Core..=) Prelude.<$> name,
+            ("SourceFileLocation" Core..=)
+              Prelude.<$> sourceFileLocation
           ]
       )

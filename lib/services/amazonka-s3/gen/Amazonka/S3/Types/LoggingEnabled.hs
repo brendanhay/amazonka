@@ -33,6 +33,11 @@ import Amazonka.S3.Types.TargetGrant
 -- /See:/ 'newLoggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
   { -- | Container for granting information.
+    --
+    -- Buckets that use the bucket owner enforced setting for Object Ownership
+    -- don\'t support target grants. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general Permissions for server access log delivery>
+    -- in the /Amazon S3 User Guide/.
     targetGrants :: Prelude.Maybe [TargetGrant],
     -- | Specifies the bucket where you want Amazon S3 to store server access
     -- logs. You can have your logs delivered to any bucket that you own,
@@ -58,6 +63,11 @@ data LoggingEnabled = LoggingEnabled'
 --
 -- 'targetGrants', 'loggingEnabled_targetGrants' - Container for granting information.
 --
+-- Buckets that use the bucket owner enforced setting for Object Ownership
+-- don\'t support target grants. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general Permissions for server access log delivery>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'targetBucket', 'loggingEnabled_targetBucket' - Specifies the bucket where you want Amazon S3 to store server access
 -- logs. You can have your logs delivered to any bucket that you own,
 -- including the same bucket that is being logged. You can also configure
@@ -82,6 +92,11 @@ newLoggingEnabled pTargetBucket_ pTargetPrefix_ =
     }
 
 -- | Container for granting information.
+--
+-- Buckets that use the bucket owner enforced setting for Object Ownership
+-- don\'t support target grants. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general Permissions for server access log delivery>
+-- in the /Amazon S3 User Guide/.
 loggingEnabled_targetGrants :: Lens.Lens' LoggingEnabled (Prelude.Maybe [TargetGrant])
 loggingEnabled_targetGrants = Lens.lens (\LoggingEnabled' {targetGrants} -> targetGrants) (\s@LoggingEnabled' {} a -> s {targetGrants = a} :: LoggingEnabled) Prelude.. Lens.mapping Lens.coerced
 

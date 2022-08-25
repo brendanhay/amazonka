@@ -25,28 +25,35 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.RelativeTimeRange
 
--- | An object that enables you to configure your category to be applied to
--- call analytics jobs where either the customer or agent was interrupted.
+-- | Flag the presence or absence of periods of silence in your Call
+-- Analytics transcription output.
+--
+-- Rules using @NonTalkTimeFilter@ are designed to match:
+--
+-- -   The presence of silence at specified periods throughout the call
+--
+-- -   The presence of speech at specified periods throughout the call
+--
+-- See
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
+-- for usage examples.
 --
 -- /See:/ 'newNonTalkTimeFilter' smart constructor.
 data NonTalkTimeFilter = NonTalkTimeFilter'
-  { -- | Set to @TRUE@ to look for a time period when people were talking.
+  { -- | Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
+    -- of silence
     negate :: Prelude.Maybe Prelude.Bool,
-    -- | An object you can use to specify a time range (in milliseconds) for when
-    -- no one is talking. For example, you could specify a time period between
-    -- the 30,000 millisecond mark and the 45,000 millisecond mark. You could
-    -- also specify the time period as the first 15,000 milliseconds or the
-    -- last 15,000 milliseconds.
+    -- | Allows you to specify a time range (in milliseconds) in your audio,
+    -- during which you want to search for a period of silence. See for more
+    -- detail.
     absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
-    -- | The duration of the period when neither the customer nor agent was
-    -- talking.
+    -- | Specify the duration, in milliseconds, of the period of silence you want
+    -- to flag. For example, you can flag a silent period that lasts 30000
+    -- milliseconds.
     threshold :: Prelude.Maybe Prelude.Natural,
-    -- | An object that allows percentages to specify the proportion of the call
-    -- where there was silence. For example, you can specify the first half of
-    -- the call. You can also specify the period of time between halfway
-    -- through to three-quarters of the way through the call. Because the
-    -- length of conversation can vary between calls, you can apply relative
-    -- time ranges across all calls.
+    -- | Allows you to specify a time range (in percentage) in your media file,
+    -- during which you want to search for a period of silence. See for more
+    -- detail.
     relativeTimeRange :: Prelude.Maybe RelativeTimeRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,23 +66,20 @@ data NonTalkTimeFilter = NonTalkTimeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'negate', 'nonTalkTimeFilter_negate' - Set to @TRUE@ to look for a time period when people were talking.
+-- 'negate', 'nonTalkTimeFilter_negate' - Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
+-- of silence
 --
--- 'absoluteTimeRange', 'nonTalkTimeFilter_absoluteTimeRange' - An object you can use to specify a time range (in milliseconds) for when
--- no one is talking. For example, you could specify a time period between
--- the 30,000 millisecond mark and the 45,000 millisecond mark. You could
--- also specify the time period as the first 15,000 milliseconds or the
--- last 15,000 milliseconds.
+-- 'absoluteTimeRange', 'nonTalkTimeFilter_absoluteTimeRange' - Allows you to specify a time range (in milliseconds) in your audio,
+-- during which you want to search for a period of silence. See for more
+-- detail.
 --
--- 'threshold', 'nonTalkTimeFilter_threshold' - The duration of the period when neither the customer nor agent was
--- talking.
+-- 'threshold', 'nonTalkTimeFilter_threshold' - Specify the duration, in milliseconds, of the period of silence you want
+-- to flag. For example, you can flag a silent period that lasts 30000
+-- milliseconds.
 --
--- 'relativeTimeRange', 'nonTalkTimeFilter_relativeTimeRange' - An object that allows percentages to specify the proportion of the call
--- where there was silence. For example, you can specify the first half of
--- the call. You can also specify the period of time between halfway
--- through to three-quarters of the way through the call. Because the
--- length of conversation can vary between calls, you can apply relative
--- time ranges across all calls.
+-- 'relativeTimeRange', 'nonTalkTimeFilter_relativeTimeRange' - Allows you to specify a time range (in percentage) in your media file,
+-- during which you want to search for a period of silence. See for more
+-- detail.
 newNonTalkTimeFilter ::
   NonTalkTimeFilter
 newNonTalkTimeFilter =
@@ -86,29 +90,26 @@ newNonTalkTimeFilter =
       relativeTimeRange = Prelude.Nothing
     }
 
--- | Set to @TRUE@ to look for a time period when people were talking.
+-- | Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
+-- of silence
 nonTalkTimeFilter_negate :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe Prelude.Bool)
 nonTalkTimeFilter_negate = Lens.lens (\NonTalkTimeFilter' {negate} -> negate) (\s@NonTalkTimeFilter' {} a -> s {negate = a} :: NonTalkTimeFilter)
 
--- | An object you can use to specify a time range (in milliseconds) for when
--- no one is talking. For example, you could specify a time period between
--- the 30,000 millisecond mark and the 45,000 millisecond mark. You could
--- also specify the time period as the first 15,000 milliseconds or the
--- last 15,000 milliseconds.
+-- | Allows you to specify a time range (in milliseconds) in your audio,
+-- during which you want to search for a period of silence. See for more
+-- detail.
 nonTalkTimeFilter_absoluteTimeRange :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe AbsoluteTimeRange)
 nonTalkTimeFilter_absoluteTimeRange = Lens.lens (\NonTalkTimeFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@NonTalkTimeFilter' {} a -> s {absoluteTimeRange = a} :: NonTalkTimeFilter)
 
--- | The duration of the period when neither the customer nor agent was
--- talking.
+-- | Specify the duration, in milliseconds, of the period of silence you want
+-- to flag. For example, you can flag a silent period that lasts 30000
+-- milliseconds.
 nonTalkTimeFilter_threshold :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe Prelude.Natural)
 nonTalkTimeFilter_threshold = Lens.lens (\NonTalkTimeFilter' {threshold} -> threshold) (\s@NonTalkTimeFilter' {} a -> s {threshold = a} :: NonTalkTimeFilter)
 
--- | An object that allows percentages to specify the proportion of the call
--- where there was silence. For example, you can specify the first half of
--- the call. You can also specify the period of time between halfway
--- through to three-quarters of the way through the call. Because the
--- length of conversation can vary between calls, you can apply relative
--- time ranges across all calls.
+-- | Allows you to specify a time range (in percentage) in your media file,
+-- during which you want to search for a period of silence. See for more
+-- detail.
 nonTalkTimeFilter_relativeTimeRange :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe RelativeTimeRange)
 nonTalkTimeFilter_relativeTimeRange = Lens.lens (\NonTalkTimeFilter' {relativeTimeRange} -> relativeTimeRange) (\s@NonTalkTimeFilter' {} a -> s {relativeTimeRange = a} :: NonTalkTimeFilter)
 

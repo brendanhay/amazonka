@@ -24,7 +24,7 @@
 -- change.
 --
 -- Remove the Lambda function from the dropdown options available in the
--- relevant contact flow blocks.
+-- relevant flow blocks.
 module Amazonka.Connect.DisassociateLambdaFunction
   ( -- * Creating a Request
     DisassociateLambdaFunction (..),

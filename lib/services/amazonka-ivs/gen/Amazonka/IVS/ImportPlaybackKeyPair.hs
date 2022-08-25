@@ -56,7 +56,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newImportPlaybackKeyPair' smart constructor.
 data ImportPlaybackKeyPair = ImportPlaybackKeyPair'
   { -- | Any tags provided with the request are added to the playback key pair
-    -- tags.
+    -- tags. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Playback-key-pair name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
@@ -74,7 +78,11 @@ data ImportPlaybackKeyPair = ImportPlaybackKeyPair'
 -- for backwards compatibility:
 --
 -- 'tags', 'importPlaybackKeyPair_tags' - Any tags provided with the request are added to the playback key pair
--- tags.
+-- tags. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 --
 -- 'name', 'importPlaybackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
 --
@@ -91,7 +99,11 @@ newImportPlaybackKeyPair pPublicKeyMaterial_ =
     }
 
 -- | Any tags provided with the request are added to the playback key pair
--- tags.
+-- tags. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 importPlaybackKeyPair_tags :: Lens.Lens' ImportPlaybackKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 importPlaybackKeyPair_tags = Lens.lens (\ImportPlaybackKeyPair' {tags} -> tags) (\s@ImportPlaybackKeyPair' {} a -> s {tags = a} :: ImportPlaybackKeyPair) Prelude.. Lens.mapping Lens.coerced
 

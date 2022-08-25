@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOtaaV1_0_x' smart constructor.
 data OtaaV1_0_x = OtaaV1_0_x'
-  { -- | The AppKey value.
+  { -- | The GenAppKey value.
+    genAppKey :: Prelude.Maybe Prelude.Text,
+    -- | The AppKey value.
     appKey :: Prelude.Maybe Prelude.Text,
     -- | The AppEUI value.
     appEui :: Prelude.Maybe Prelude.Text
@@ -42,6 +44,8 @@ data OtaaV1_0_x = OtaaV1_0_x'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'genAppKey', 'otaaV1_0_x_genAppKey' - The GenAppKey value.
+--
 -- 'appKey', 'otaaV1_0_x_appKey' - The AppKey value.
 --
 -- 'appEui', 'otaaV1_0_x_appEui' - The AppEUI value.
@@ -49,9 +53,14 @@ newOtaaV1_0_x ::
   OtaaV1_0_x
 newOtaaV1_0_x =
   OtaaV1_0_x'
-    { appKey = Prelude.Nothing,
+    { genAppKey = Prelude.Nothing,
+      appKey = Prelude.Nothing,
       appEui = Prelude.Nothing
     }
+
+-- | The GenAppKey value.
+otaaV1_0_x_genAppKey :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
+otaaV1_0_x_genAppKey = Lens.lens (\OtaaV1_0_x' {genAppKey} -> genAppKey) (\s@OtaaV1_0_x' {} a -> s {genAppKey = a} :: OtaaV1_0_x)
 
 -- | The AppKey value.
 otaaV1_0_x_appKey :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
@@ -67,24 +76,29 @@ instance Core.FromJSON OtaaV1_0_x where
       "OtaaV1_0_x"
       ( \x ->
           OtaaV1_0_x'
-            Prelude.<$> (x Core..:? "AppKey")
+            Prelude.<$> (x Core..:? "GenAppKey")
+            Prelude.<*> (x Core..:? "AppKey")
             Prelude.<*> (x Core..:? "AppEui")
       )
 
 instance Prelude.Hashable OtaaV1_0_x where
   hashWithSalt _salt OtaaV1_0_x' {..} =
-    _salt `Prelude.hashWithSalt` appKey
+    _salt `Prelude.hashWithSalt` genAppKey
+      `Prelude.hashWithSalt` appKey
       `Prelude.hashWithSalt` appEui
 
 instance Prelude.NFData OtaaV1_0_x where
   rnf OtaaV1_0_x' {..} =
-    Prelude.rnf appKey `Prelude.seq` Prelude.rnf appEui
+    Prelude.rnf genAppKey
+      `Prelude.seq` Prelude.rnf appKey
+      `Prelude.seq` Prelude.rnf appEui
 
 instance Core.ToJSON OtaaV1_0_x where
   toJSON OtaaV1_0_x' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AppKey" Core..=) Prelude.<$> appKey,
+          [ ("GenAppKey" Core..=) Prelude.<$> genAppKey,
+            ("AppKey" Core..=) Prelude.<$> appKey,
             ("AppEui" Core..=) Prelude.<$> appEui
           ]
       )

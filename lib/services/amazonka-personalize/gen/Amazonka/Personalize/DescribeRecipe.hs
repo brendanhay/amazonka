@@ -32,10 +32,11 @@
 --     before training.
 --
 -- Amazon Personalize provides a set of predefined recipes. You specify a
--- recipe when you create a solution with the CreateSolution API.
--- @CreateSolution@ trains a model by using the algorithm in the specified
--- recipe and a training dataset. The solution, when deployed as a
--- campaign, can provide recommendations using the
+-- recipe when you create a solution with the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>
+-- API. @CreateSolution@ trains a model by using the algorithm in the
+-- specified recipe and a training dataset. The solution, when deployed as
+-- a campaign, can provide recommendations using the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html GetRecommendations>
 -- API.
 module Amazonka.Personalize.DescribeRecipe

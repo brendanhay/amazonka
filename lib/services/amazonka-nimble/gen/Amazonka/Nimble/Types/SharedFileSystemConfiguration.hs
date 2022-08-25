@@ -33,16 +33,16 @@ data SharedFileSystemConfiguration = SharedFileSystemConfiguration'
     windowsMountDrive :: Prelude.Maybe Prelude.Text,
     -- | The mount location for a shared file system on a Linux virtual
     -- workstation.
-    linuxMountPoint :: Prelude.Maybe Prelude.Text,
+    linuxMountPoint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The unique identifier for a file system.
     fileSystemId :: Prelude.Maybe Prelude.Text,
     -- | The name of the file share.
-    shareName :: Prelude.Maybe Prelude.Text,
+    shareName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The endpoint of the shared file system that is accessed by the studio
     -- component resource.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SharedFileSystemConfiguration' with all optional fields omitted.
@@ -84,7 +84,7 @@ sharedFileSystemConfiguration_windowsMountDrive = Lens.lens (\SharedFileSystemCo
 -- | The mount location for a shared file system on a Linux virtual
 -- workstation.
 sharedFileSystemConfiguration_linuxMountPoint :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
-sharedFileSystemConfiguration_linuxMountPoint = Lens.lens (\SharedFileSystemConfiguration' {linuxMountPoint} -> linuxMountPoint) (\s@SharedFileSystemConfiguration' {} a -> s {linuxMountPoint = a} :: SharedFileSystemConfiguration)
+sharedFileSystemConfiguration_linuxMountPoint = Lens.lens (\SharedFileSystemConfiguration' {linuxMountPoint} -> linuxMountPoint) (\s@SharedFileSystemConfiguration' {} a -> s {linuxMountPoint = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The unique identifier for a file system.
 sharedFileSystemConfiguration_fileSystemId :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
@@ -92,12 +92,12 @@ sharedFileSystemConfiguration_fileSystemId = Lens.lens (\SharedFileSystemConfigu
 
 -- | The name of the file share.
 sharedFileSystemConfiguration_shareName :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
-sharedFileSystemConfiguration_shareName = Lens.lens (\SharedFileSystemConfiguration' {shareName} -> shareName) (\s@SharedFileSystemConfiguration' {} a -> s {shareName = a} :: SharedFileSystemConfiguration)
+sharedFileSystemConfiguration_shareName = Lens.lens (\SharedFileSystemConfiguration' {shareName} -> shareName) (\s@SharedFileSystemConfiguration' {} a -> s {shareName = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The endpoint of the shared file system that is accessed by the studio
 -- component resource.
 sharedFileSystemConfiguration_endpoint :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
-sharedFileSystemConfiguration_endpoint = Lens.lens (\SharedFileSystemConfiguration' {endpoint} -> endpoint) (\s@SharedFileSystemConfiguration' {} a -> s {endpoint = a} :: SharedFileSystemConfiguration)
+sharedFileSystemConfiguration_endpoint = Lens.lens (\SharedFileSystemConfiguration' {endpoint} -> endpoint) (\s@SharedFileSystemConfiguration' {} a -> s {endpoint = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON SharedFileSystemConfiguration where
   parseJSON =

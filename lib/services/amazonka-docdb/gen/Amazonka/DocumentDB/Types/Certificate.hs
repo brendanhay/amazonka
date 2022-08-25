@@ -23,7 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A certificate authority (CA) certificate for an account.
+-- | A certificate authority (CA) certificate for an Amazon Web Services
+-- account.
 --
 -- /See:/ 'newCertificate' smart constructor.
 data Certificate = Certificate'

@@ -20,6 +20,7 @@
 module Amazonka.Textract.Types.EntityType
   ( EntityType
       ( ..,
+        EntityType_COLUMN_HEADER,
         EntityType_KEY,
         EntityType_VALUE
       ),
@@ -57,6 +58,9 @@ newtype EntityType = EntityType'
       Core.ToXML
     )
 
+pattern EntityType_COLUMN_HEADER :: EntityType
+pattern EntityType_COLUMN_HEADER = EntityType' "COLUMN_HEADER"
+
 pattern EntityType_KEY :: EntityType
 pattern EntityType_KEY = EntityType' "KEY"
 
@@ -64,6 +68,7 @@ pattern EntityType_VALUE :: EntityType
 pattern EntityType_VALUE = EntityType' "VALUE"
 
 {-# COMPLETE
+  EntityType_COLUMN_HEADER,
   EntityType_KEY,
   EntityType_VALUE,
   EntityType'

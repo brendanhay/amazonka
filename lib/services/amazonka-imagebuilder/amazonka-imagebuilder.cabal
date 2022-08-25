@@ -71,6 +71,7 @@ library
     Amazonka.ImageBuilder.GetImageRecipePolicy
     Amazonka.ImageBuilder.GetInfrastructureConfiguration
     Amazonka.ImageBuilder.ImportComponent
+    Amazonka.ImageBuilder.ImportVmImage
     Amazonka.ImageBuilder.Lens
     Amazonka.ImageBuilder.ListComponentBuildVersions
     Amazonka.ImageBuilder.ListComponents
@@ -94,6 +95,7 @@ library
     Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
     Amazonka.ImageBuilder.Types.Ami
     Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
+    Amazonka.ImageBuilder.Types.BuildType
     Amazonka.ImageBuilder.Types.Component
     Amazonka.ImageBuilder.Types.ComponentConfiguration
     Amazonka.ImageBuilder.Types.ComponentFormat
@@ -110,11 +112,15 @@ library
     Amazonka.ImageBuilder.Types.ContainerRecipeSummary
     Amazonka.ImageBuilder.Types.ContainerRepositoryService
     Amazonka.ImageBuilder.Types.ContainerType
+    Amazonka.ImageBuilder.Types.DiskImageFormat
     Amazonka.ImageBuilder.Types.Distribution
     Amazonka.ImageBuilder.Types.DistributionConfiguration
     Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
     Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
     Amazonka.ImageBuilder.Types.EbsVolumeType
+    Amazonka.ImageBuilder.Types.FastLaunchConfiguration
+    Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
+    Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
     Amazonka.ImageBuilder.Types.Filter
     Amazonka.ImageBuilder.Types.Image
     Amazonka.ImageBuilder.Types.ImagePackage
@@ -140,6 +146,7 @@ library
     Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
     Amazonka.ImageBuilder.Types.PipelineStatus
     Amazonka.ImageBuilder.Types.Platform
+    Amazonka.ImageBuilder.Types.S3ExportConfiguration
     Amazonka.ImageBuilder.Types.S3Logs
     Amazonka.ImageBuilder.Types.Schedule
     Amazonka.ImageBuilder.Types.SystemsManagerAgent

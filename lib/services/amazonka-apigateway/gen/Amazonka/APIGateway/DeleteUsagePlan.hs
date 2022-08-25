@@ -46,7 +46,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteUsagePlan' smart constructor.
 data DeleteUsagePlan = DeleteUsagePlan'
-  { -- | [Required] The Id of the to-be-deleted usage plan.
+  { -- | The Id of the to-be-deleted usage plan.
     usagePlanId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data DeleteUsagePlan = DeleteUsagePlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usagePlanId', 'deleteUsagePlan_usagePlanId' - [Required] The Id of the to-be-deleted usage plan.
+-- 'usagePlanId', 'deleteUsagePlan_usagePlanId' - The Id of the to-be-deleted usage plan.
 newDeleteUsagePlan ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -67,7 +67,7 @@ newDeleteUsagePlan ::
 newDeleteUsagePlan pUsagePlanId_ =
   DeleteUsagePlan' {usagePlanId = pUsagePlanId_}
 
--- | [Required] The Id of the to-be-deleted usage plan.
+-- | The Id of the to-be-deleted usage plan.
 deleteUsagePlan_usagePlanId :: Lens.Lens' DeleteUsagePlan Prelude.Text
 deleteUsagePlan_usagePlanId = Lens.lens (\DeleteUsagePlan' {usagePlanId} -> usagePlanId) (\s@DeleteUsagePlan' {} a -> s {usagePlanId = a} :: DeleteUsagePlan)
 

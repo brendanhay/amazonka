@@ -24,7 +24,8 @@ module Amazonka.Rekognition.Types.StreamProcessorStatus
         StreamProcessorStatus_RUNNING,
         StreamProcessorStatus_STARTING,
         StreamProcessorStatus_STOPPED,
-        StreamProcessorStatus_STOPPING
+        StreamProcessorStatus_STOPPING,
+        StreamProcessorStatus_UPDATING
       ),
   )
 where
@@ -75,11 +76,15 @@ pattern StreamProcessorStatus_STOPPED = StreamProcessorStatus' "STOPPED"
 pattern StreamProcessorStatus_STOPPING :: StreamProcessorStatus
 pattern StreamProcessorStatus_STOPPING = StreamProcessorStatus' "STOPPING"
 
+pattern StreamProcessorStatus_UPDATING :: StreamProcessorStatus
+pattern StreamProcessorStatus_UPDATING = StreamProcessorStatus' "UPDATING"
+
 {-# COMPLETE
   StreamProcessorStatus_FAILED,
   StreamProcessorStatus_RUNNING,
   StreamProcessorStatus_STARTING,
   StreamProcessorStatus_STOPPED,
   StreamProcessorStatus_STOPPING,
+  StreamProcessorStatus_UPDATING,
   StreamProcessorStatus'
   #-}

@@ -47,6 +47,9 @@ data Host = Host'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on
+    -- which the Dedicated Host is allocated.
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the Dedicated Host.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | Information about the instances running on the Dedicated Host.
@@ -103,6 +106,9 @@ data Host = Host'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
+-- 'outpostArn', 'host_outpostArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on
+-- which the Dedicated Host is allocated.
+--
 -- 'ownerId', 'host_ownerId' - The ID of the Amazon Web Services account that owns the Dedicated Host.
 --
 -- 'availableCapacity', 'host_availableCapacity' - Information about the instances running on the Dedicated Host.
@@ -144,6 +150,7 @@ newHost =
       instances = Prelude.Nothing,
       autoPlacement = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       availableCapacity = Prelude.Nothing,
       hostRecovery = Prelude.Nothing,
@@ -177,6 +184,11 @@ host_autoPlacement = Lens.lens (\Host' {autoPlacement} -> autoPlacement) (\s@Hos
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 host_clientToken :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_clientToken = Lens.lens (\Host' {clientToken} -> clientToken) (\s@Host' {} a -> s {clientToken = a} :: Host)
+
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on
+-- which the Dedicated Host is allocated.
+host_outpostArn :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
+host_outpostArn = Lens.lens (\Host' {outpostArn} -> outpostArn) (\s@Host' {} a -> s {outpostArn = a} :: Host)
 
 -- | The ID of the Amazon Web Services account that owns the Dedicated Host.
 host_ownerId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
@@ -249,6 +261,7 @@ instance Core.FromXML Host where
                   )
       Prelude.<*> (x Core..@? "autoPlacement")
       Prelude.<*> (x Core..@? "clientToken")
+      Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "availableCapacity")
       Prelude.<*> (x Core..@? "hostRecovery")
@@ -269,6 +282,7 @@ instance Prelude.Hashable Host where
       `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` availableCapacity
       `Prelude.hashWithSalt` hostRecovery
@@ -289,6 +303,7 @@ instance Prelude.NFData Host where
       `Prelude.seq` Prelude.rnf instances
       `Prelude.seq` Prelude.rnf autoPlacement
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf availableCapacity
       `Prelude.seq` Prelude.rnf hostRecovery

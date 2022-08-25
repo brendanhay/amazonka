@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets SDK types
 --
 -- This operation returns paginated results.
 module Amazonka.APIGateway.GetSdkTypes

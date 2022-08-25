@@ -30,6 +30,10 @@
 -- to enable
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html identity resolution>:
 -- set @Matching@ to true.
+--
+-- To prevent cross-service impersonation when you call this API, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html Cross-service confused deputy prevention>
+-- for sample policies that you should apply.
 module Amazonka.CustomerProfiles.UpdateDomain
   ( -- * Creating a Request
     UpdateDomain (..),
@@ -73,12 +77,17 @@ data UpdateDomain = UpdateDomain'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The default number of days until the data within the domain expires.
     defaultExpirationDays :: Prelude.Maybe Prelude.Natural,
-    -- | The process of matching duplicate profiles. If Matching = true, Amazon
-    -- Connect Customer Profiles starts a weekly batch process every Saturday
-    -- at 12AM UTC to detect duplicate profiles in your domains. After that
-    -- batch process completes, use the
+    -- | The process of matching duplicate profiles. If @Matching@ = @true@,
+    -- Amazon Connect Customer Profiles starts a weekly batch process called
+    -- Identity Resolution Job. If you do not specify a date and time for
+    -- Identity Resolution Job to run, by default it runs every Saturday at
+    -- 12AM UTC to detect duplicate profiles in your domains.
+    --
+    -- After the Identity Resolution Job completes, use the
     -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
-    -- API to return and review the results.
+    -- API to return and review the results. Or, if you have configured
+    -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+    -- from S3.
     matching :: Prelude.Maybe MatchingRequest,
     -- | The URL of the SQS dead letter queue, which is used for reporting errors
     -- associated with ingesting data from third party applications. If
@@ -109,12 +118,17 @@ data UpdateDomain = UpdateDomain'
 --
 -- 'defaultExpirationDays', 'updateDomain_defaultExpirationDays' - The default number of days until the data within the domain expires.
 --
--- 'matching', 'updateDomain_matching' - The process of matching duplicate profiles. If Matching = true, Amazon
--- Connect Customer Profiles starts a weekly batch process every Saturday
--- at 12AM UTC to detect duplicate profiles in your domains. After that
--- batch process completes, use the
+-- 'matching', 'updateDomain_matching' - The process of matching duplicate profiles. If @Matching@ = @true@,
+-- Amazon Connect Customer Profiles starts a weekly batch process called
+-- Identity Resolution Job. If you do not specify a date and time for
+-- Identity Resolution Job to run, by default it runs every Saturday at
+-- 12AM UTC to detect duplicate profiles in your domains.
+--
+-- After the Identity Resolution Job completes, use the
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
--- API to return and review the results.
+-- API to return and review the results. Or, if you have configured
+-- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+-- from S3.
 --
 -- 'deadLetterQueueUrl', 'updateDomain_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
 -- associated with ingesting data from third party applications. If
@@ -151,12 +165,17 @@ updateDomain_tags = Lens.lens (\UpdateDomain' {tags} -> tags) (\s@UpdateDomain' 
 updateDomain_defaultExpirationDays :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Natural)
 updateDomain_defaultExpirationDays = Lens.lens (\UpdateDomain' {defaultExpirationDays} -> defaultExpirationDays) (\s@UpdateDomain' {} a -> s {defaultExpirationDays = a} :: UpdateDomain)
 
--- | The process of matching duplicate profiles. If Matching = true, Amazon
--- Connect Customer Profiles starts a weekly batch process every Saturday
--- at 12AM UTC to detect duplicate profiles in your domains. After that
--- batch process completes, use the
+-- | The process of matching duplicate profiles. If @Matching@ = @true@,
+-- Amazon Connect Customer Profiles starts a weekly batch process called
+-- Identity Resolution Job. If you do not specify a date and time for
+-- Identity Resolution Job to run, by default it runs every Saturday at
+-- 12AM UTC to detect duplicate profiles in your domains.
+--
+-- After the Identity Resolution Job completes, use the
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
--- API to return and review the results.
+-- API to return and review the results. Or, if you have configured
+-- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+-- from S3.
 updateDomain_matching :: Lens.Lens' UpdateDomain (Prelude.Maybe MatchingRequest)
 updateDomain_matching = Lens.lens (\UpdateDomain' {matching} -> matching) (\s@UpdateDomain' {} a -> s {matching = a} :: UpdateDomain)
 
@@ -255,12 +274,17 @@ data UpdateDomainResponse = UpdateDomainResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The default number of days until the data within the domain expires.
     defaultExpirationDays :: Prelude.Maybe Prelude.Natural,
-    -- | The process of matching duplicate profiles. If Matching = true, Amazon
-    -- Connect Customer Profiles starts a weekly batch process every Saturday
-    -- at 12AM UTC to detect duplicate profiles in your domains. After that
-    -- batch process completes, use the
+    -- | The process of matching duplicate profiles. If @Matching@ = @true@,
+    -- Amazon Connect Customer Profiles starts a weekly batch process called
+    -- Identity Resolution Job. If you do not specify a date and time for
+    -- Identity Resolution Job to run, by default it runs every Saturday at
+    -- 12AM UTC to detect duplicate profiles in your domains.
+    --
+    -- After the Identity Resolution Job completes, use the
     -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
-    -- API to return and review the results.
+    -- API to return and review the results. Or, if you have configured
+    -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+    -- from S3.
     matching :: Prelude.Maybe MatchingResponse,
     -- | The URL of the SQS dead letter queue, which is used for reporting errors
     -- associated with ingesting data from third party applications.
@@ -292,12 +316,17 @@ data UpdateDomainResponse = UpdateDomainResponse'
 --
 -- 'defaultExpirationDays', 'updateDomainResponse_defaultExpirationDays' - The default number of days until the data within the domain expires.
 --
--- 'matching', 'updateDomainResponse_matching' - The process of matching duplicate profiles. If Matching = true, Amazon
--- Connect Customer Profiles starts a weekly batch process every Saturday
--- at 12AM UTC to detect duplicate profiles in your domains. After that
--- batch process completes, use the
+-- 'matching', 'updateDomainResponse_matching' - The process of matching duplicate profiles. If @Matching@ = @true@,
+-- Amazon Connect Customer Profiles starts a weekly batch process called
+-- Identity Resolution Job. If you do not specify a date and time for
+-- Identity Resolution Job to run, by default it runs every Saturday at
+-- 12AM UTC to detect duplicate profiles in your domains.
+--
+-- After the Identity Resolution Job completes, use the
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
--- API to return and review the results.
+-- API to return and review the results. Or, if you have configured
+-- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+-- from S3.
 --
 -- 'deadLetterQueueUrl', 'updateDomainResponse_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
 -- associated with ingesting data from third party applications.
@@ -348,12 +377,17 @@ updateDomainResponse_tags = Lens.lens (\UpdateDomainResponse' {tags} -> tags) (\
 updateDomainResponse_defaultExpirationDays :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe Prelude.Natural)
 updateDomainResponse_defaultExpirationDays = Lens.lens (\UpdateDomainResponse' {defaultExpirationDays} -> defaultExpirationDays) (\s@UpdateDomainResponse' {} a -> s {defaultExpirationDays = a} :: UpdateDomainResponse)
 
--- | The process of matching duplicate profiles. If Matching = true, Amazon
--- Connect Customer Profiles starts a weekly batch process every Saturday
--- at 12AM UTC to detect duplicate profiles in your domains. After that
--- batch process completes, use the
+-- | The process of matching duplicate profiles. If @Matching@ = @true@,
+-- Amazon Connect Customer Profiles starts a weekly batch process called
+-- Identity Resolution Job. If you do not specify a date and time for
+-- Identity Resolution Job to run, by default it runs every Saturday at
+-- 12AM UTC to detect duplicate profiles in your domains.
+--
+-- After the Identity Resolution Job completes, use the
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
--- API to return and review the results.
+-- API to return and review the results. Or, if you have configured
+-- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+-- from S3.
 updateDomainResponse_matching :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe MatchingResponse)
 updateDomainResponse_matching = Lens.lens (\UpdateDomainResponse' {matching} -> matching) (\s@UpdateDomainResponse' {} a -> s {matching = a} :: UpdateDomainResponse)
 

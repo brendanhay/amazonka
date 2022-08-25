@@ -30,11 +30,12 @@ import Amazonka.S3Outposts.Types.NetworkInterface
 -- scale for shared datasets in S3 on Outposts. S3 on Outposts uses
 -- endpoints to connect to Outposts buckets so that you can perform actions
 -- within your virtual private cloud (VPC). For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html Accessing S3 on Outposts using VPC only access points>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html Accessing S3 on Outposts using VPC-only access points>
+-- in the /Amazon Simple Storage Service User Guide/.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The ID of the AWS Outposts.
+  { -- | The ID of the Outposts.
     outpostsId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet used for the endpoint.
     subnetId :: Prelude.Maybe Prelude.Text,
@@ -42,12 +43,14 @@ data Endpoint = Endpoint'
     securityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The status of the endpoint.
     status :: Prelude.Maybe EndpointStatus,
-    -- | The ID of the customer-owned IPv4 pool used for the endpoint.
+    -- | The ID of the customer-owned IPv4 address pool used for the endpoint.
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
     -- | The VPC CIDR committed by this endpoint.
     cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The time the endpoint was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of connectivity used to access the Amazon S3 on Outposts
+    -- endpoint.
     accessType :: Prelude.Maybe EndpointAccessType,
     -- | The ID of the VPC used for the endpoint.
     vpcId :: Prelude.Maybe Prelude.Text,
@@ -66,7 +69,7 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outpostsId', 'endpoint_outpostsId' - The ID of the AWS Outposts.
+-- 'outpostsId', 'endpoint_outpostsId' - The ID of the Outposts.
 --
 -- 'subnetId', 'endpoint_subnetId' - The ID of the subnet used for the endpoint.
 --
@@ -74,13 +77,14 @@ data Endpoint = Endpoint'
 --
 -- 'status', 'endpoint_status' - The status of the endpoint.
 --
--- 'customerOwnedIpv4Pool', 'endpoint_customerOwnedIpv4Pool' - The ID of the customer-owned IPv4 pool used for the endpoint.
+-- 'customerOwnedIpv4Pool', 'endpoint_customerOwnedIpv4Pool' - The ID of the customer-owned IPv4 address pool used for the endpoint.
 --
 -- 'cidrBlock', 'endpoint_cidrBlock' - The VPC CIDR committed by this endpoint.
 --
 -- 'creationTime', 'endpoint_creationTime' - The time the endpoint was created.
 --
--- 'accessType', 'endpoint_accessType' -
+-- 'accessType', 'endpoint_accessType' - The type of connectivity used to access the Amazon S3 on Outposts
+-- endpoint.
 --
 -- 'vpcId', 'endpoint_vpcId' - The ID of the VPC used for the endpoint.
 --
@@ -104,7 +108,7 @@ newEndpoint =
       networkInterfaces = Prelude.Nothing
     }
 
--- | The ID of the AWS Outposts.
+-- | The ID of the Outposts.
 endpoint_outpostsId :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_outpostsId = Lens.lens (\Endpoint' {outpostsId} -> outpostsId) (\s@Endpoint' {} a -> s {outpostsId = a} :: Endpoint)
 
@@ -120,7 +124,7 @@ endpoint_securityGroupId = Lens.lens (\Endpoint' {securityGroupId} -> securityGr
 endpoint_status :: Lens.Lens' Endpoint (Prelude.Maybe EndpointStatus)
 endpoint_status = Lens.lens (\Endpoint' {status} -> status) (\s@Endpoint' {} a -> s {status = a} :: Endpoint)
 
--- | The ID of the customer-owned IPv4 pool used for the endpoint.
+-- | The ID of the customer-owned IPv4 address pool used for the endpoint.
 endpoint_customerOwnedIpv4Pool :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_customerOwnedIpv4Pool = Lens.lens (\Endpoint' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@Endpoint' {} a -> s {customerOwnedIpv4Pool = a} :: Endpoint)
 
@@ -132,7 +136,8 @@ endpoint_cidrBlock = Lens.lens (\Endpoint' {cidrBlock} -> cidrBlock) (\s@Endpoin
 endpoint_creationTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
 endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Core._Time
 
--- |
+-- | The type of connectivity used to access the Amazon S3 on Outposts
+-- endpoint.
 endpoint_accessType :: Lens.Lens' Endpoint (Prelude.Maybe EndpointAccessType)
 endpoint_accessType = Lens.lens (\Endpoint' {accessType} -> accessType) (\s@Endpoint' {} a -> s {accessType = a} :: Endpoint)
 

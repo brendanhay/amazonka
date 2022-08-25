@@ -34,8 +34,8 @@ data ImageReplicationStatus = ImageReplicationStatus'
     status :: Prelude.Maybe ReplicationStatus,
     -- | The destination Region for the image replication.
     region :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the registry to which the image
-    -- belongs.
+    -- | The Amazon Web Services account ID associated with the registry to which
+    -- the image belongs.
     registryId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,8 +54,8 @@ data ImageReplicationStatus = ImageReplicationStatus'
 --
 -- 'region', 'imageReplicationStatus_region' - The destination Region for the image replication.
 --
--- 'registryId', 'imageReplicationStatus_registryId' - The AWS account ID associated with the registry to which the image
--- belongs.
+-- 'registryId', 'imageReplicationStatus_registryId' - The Amazon Web Services account ID associated with the registry to which
+-- the image belongs.
 newImageReplicationStatus ::
   ImageReplicationStatus
 newImageReplicationStatus =
@@ -79,8 +79,8 @@ imageReplicationStatus_status = Lens.lens (\ImageReplicationStatus' {status} -> 
 imageReplicationStatus_region :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
 imageReplicationStatus_region = Lens.lens (\ImageReplicationStatus' {region} -> region) (\s@ImageReplicationStatus' {} a -> s {region = a} :: ImageReplicationStatus)
 
--- | The AWS account ID associated with the registry to which the image
--- belongs.
+-- | The Amazon Web Services account ID associated with the registry to which
+-- the image belongs.
 imageReplicationStatus_registryId :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
 imageReplicationStatus_registryId = Lens.lens (\ImageReplicationStatus' {registryId} -> registryId) (\s@ImageReplicationStatus' {} a -> s {registryId = a} :: ImageReplicationStatus)
 

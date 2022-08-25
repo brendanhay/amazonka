@@ -24,12 +24,18 @@
 -- calling CreateStreamProcessor. To tell @StartStreamProcessor@ which
 -- stream processor to start, use the value of the @Name@ field specified
 -- in the call to @CreateStreamProcessor@.
+--
+-- If you are using a label detection stream processor to detect labels,
+-- you need to provide a @Start selector@ and a @Stop selector@ to
+-- determine the length of the stream processing time.
 module Amazonka.Rekognition.StartStreamProcessor
   ( -- * Creating a Request
     StartStreamProcessor (..),
     newStartStreamProcessor,
 
     -- * Request Lenses
+    startStreamProcessor_startSelector,
+    startStreamProcessor_stopSelector,
     startStreamProcessor_name,
 
     -- * Destructuring the Response
@@ -37,6 +43,7 @@ module Amazonka.Rekognition.StartStreamProcessor
     newStartStreamProcessorResponse,
 
     -- * Response Lenses
+    startStreamProcessorResponse_sessionId,
     startStreamProcessorResponse_httpStatus,
   )
 where
@@ -50,7 +57,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartStreamProcessor' smart constructor.
 data StartStreamProcessor = StartStreamProcessor'
-  { -- | The name of the stream processor to start processing.
+  { -- | Specifies the starting point in the Kinesis stream to start processing.
+    -- You can use the producer timestamp or the fragment number. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
+    --
+    -- This is a required parameter for label detection stream processors and
+    -- should not be used to start a face search stream processor.
+    startSelector :: Prelude.Maybe StreamProcessingStartSelector,
+    -- | Specifies when to stop processing the stream. You can specify a maximum
+    -- amount of time to process the video.
+    --
+    -- This is a required parameter for label detection stream processors and
+    -- should not be used to start a face search stream processor.
+    stopSelector :: Prelude.Maybe StreamProcessingStopSelector,
+    -- | The name of the stream processor to start processing.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,13 +84,50 @@ data StartStreamProcessor = StartStreamProcessor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'startSelector', 'startStreamProcessor_startSelector' - Specifies the starting point in the Kinesis stream to start processing.
+-- You can use the producer timestamp or the fragment number. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
+--
+-- This is a required parameter for label detection stream processors and
+-- should not be used to start a face search stream processor.
+--
+-- 'stopSelector', 'startStreamProcessor_stopSelector' - Specifies when to stop processing the stream. You can specify a maximum
+-- amount of time to process the video.
+--
+-- This is a required parameter for label detection stream processors and
+-- should not be used to start a face search stream processor.
+--
 -- 'name', 'startStreamProcessor_name' - The name of the stream processor to start processing.
 newStartStreamProcessor ::
   -- | 'name'
   Prelude.Text ->
   StartStreamProcessor
 newStartStreamProcessor pName_ =
-  StartStreamProcessor' {name = pName_}
+  StartStreamProcessor'
+    { startSelector =
+        Prelude.Nothing,
+      stopSelector = Prelude.Nothing,
+      name = pName_
+    }
+
+-- | Specifies the starting point in the Kinesis stream to start processing.
+-- You can use the producer timestamp or the fragment number. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html Fragment>.
+--
+-- This is a required parameter for label detection stream processors and
+-- should not be used to start a face search stream processor.
+startStreamProcessor_startSelector :: Lens.Lens' StartStreamProcessor (Prelude.Maybe StreamProcessingStartSelector)
+startStreamProcessor_startSelector = Lens.lens (\StartStreamProcessor' {startSelector} -> startSelector) (\s@StartStreamProcessor' {} a -> s {startSelector = a} :: StartStreamProcessor)
+
+-- | Specifies when to stop processing the stream. You can specify a maximum
+-- amount of time to process the video.
+--
+-- This is a required parameter for label detection stream processors and
+-- should not be used to start a face search stream processor.
+startStreamProcessor_stopSelector :: Lens.Lens' StartStreamProcessor (Prelude.Maybe StreamProcessingStopSelector)
+startStreamProcessor_stopSelector = Lens.lens (\StartStreamProcessor' {stopSelector} -> stopSelector) (\s@StartStreamProcessor' {} a -> s {stopSelector = a} :: StartStreamProcessor)
 
 -- | The name of the stream processor to start processing.
 startStreamProcessor_name :: Lens.Lens' StartStreamProcessor Prelude.Text
@@ -81,18 +139,24 @@ instance Core.AWSRequest StartStreamProcessor where
       StartStreamProcessorResponse
   request = Request.postJSON defaultService
   response =
-    Response.receiveEmpty
+    Response.receiveJSON
       ( \s h x ->
           StartStreamProcessorResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "SessionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable StartStreamProcessor where
   hashWithSalt _salt StartStreamProcessor' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` startSelector
+      `Prelude.hashWithSalt` stopSelector
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StartStreamProcessor where
-  rnf StartStreamProcessor' {..} = Prelude.rnf name
+  rnf StartStreamProcessor' {..} =
+    Prelude.rnf startSelector
+      `Prelude.seq` Prelude.rnf stopSelector
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartStreamProcessor where
   toHeaders =
@@ -113,7 +177,10 @@ instance Core.ToJSON StartStreamProcessor where
   toJSON StartStreamProcessor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [ ("StartSelector" Core..=) Prelude.<$> startSelector,
+            ("StopSelector" Core..=) Prelude.<$> stopSelector,
+            Prelude.Just ("Name" Core..= name)
+          ]
       )
 
 instance Core.ToPath StartStreamProcessor where
@@ -124,7 +191,9 @@ instance Core.ToQuery StartStreamProcessor where
 
 -- | /See:/ 'newStartStreamProcessorResponse' smart constructor.
 data StartStreamProcessorResponse = StartStreamProcessorResponse'
-  { -- | The response's http status code.
+  { -- | A unique identifier for the stream processing session.
+    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,6 +206,8 @@ data StartStreamProcessorResponse = StartStreamProcessorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sessionId', 'startStreamProcessorResponse_sessionId' - A unique identifier for the stream processing session.
+--
 -- 'httpStatus', 'startStreamProcessorResponse_httpStatus' - The response's http status code.
 newStartStreamProcessorResponse ::
   -- | 'httpStatus'
@@ -144,9 +215,14 @@ newStartStreamProcessorResponse ::
   StartStreamProcessorResponse
 newStartStreamProcessorResponse pHttpStatus_ =
   StartStreamProcessorResponse'
-    { httpStatus =
-        pHttpStatus_
+    { sessionId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | A unique identifier for the stream processing session.
+startStreamProcessorResponse_sessionId :: Lens.Lens' StartStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+startStreamProcessorResponse_sessionId = Lens.lens (\StartStreamProcessorResponse' {sessionId} -> sessionId) (\s@StartStreamProcessorResponse' {} a -> s {sessionId = a} :: StartStreamProcessorResponse)
 
 -- | The response's http status code.
 startStreamProcessorResponse_httpStatus :: Lens.Lens' StartStreamProcessorResponse Prelude.Int
@@ -154,4 +230,5 @@ startStreamProcessorResponse_httpStatus = Lens.lens (\StartStreamProcessorRespon
 
 instance Prelude.NFData StartStreamProcessorResponse where
   rnf StartStreamProcessorResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf httpStatus

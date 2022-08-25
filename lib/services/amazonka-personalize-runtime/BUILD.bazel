@@ -10,6 +10,7 @@ haskell_library(
         "gen/Amazonka/PersonalizeRuntime/Lens.hs",
         "gen/Amazonka/PersonalizeRuntime/Types.hs",
         "gen/Amazonka/PersonalizeRuntime/Types/PredictedItem.hs",
+        "gen/Amazonka/PersonalizeRuntime/Types/Promotion.hs",
         "gen/Amazonka/PersonalizeRuntime/Waiters.hs",
     ],
     compiler_flags = [

@@ -24,7 +24,11 @@ import Amazonka.DLM.Types.RetentionIntervalUnitValues
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies an AMI deprecation rule for a schedule.
+-- | __[AMI policies only]__ Specifies an AMI deprecation rule for AMIs
+-- created by an AMI lifecycle policy.
+--
+-- For age-based schedules, you must specify __Interval__ and
+-- __IntervalUnit__. For count-based schedules, you must specify __Count__.
 --
 -- /See:/ 'newDeprecateRule' smart constructor.
 data DeprecateRule = DeprecateRule'

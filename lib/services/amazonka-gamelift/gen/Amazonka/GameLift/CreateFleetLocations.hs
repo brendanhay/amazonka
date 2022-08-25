@@ -25,9 +25,10 @@
 -- type, auto-scaling, and other configuration settings.
 --
 -- This operation cannot be used with fleets that don\'t support remote
--- locations. Fleets can have multiple locations only if they reside in AWS
--- Regions that support this feature (see CreateFleet for the complete
--- list) and were created after the feature was released in March 2021.
+-- locations. Fleets can have multiple locations only if they reside in
+-- Amazon Web Services Regions that support this feature (see CreateFleet
+-- for the complete list) and were created after the feature was released
+-- in March 2021.
 --
 -- To add fleet locations, specify the fleet to be updated and provide a
 -- list of one or more locations.
@@ -91,8 +92,9 @@ data CreateFleetLocations = CreateFleetLocations'
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
     -- | A list of locations to deploy additional instances to and manage as part
-    -- of the fleet. You can add any GameLift-supported AWS Region as a remote
-    -- location, in the form of an AWS Region code such as @us-west-2@.
+    -- of the fleet. You can add any GameLift-supported Amazon Web Services
+    -- Region as a remote location, in the form of an Amazon Web Services
+    -- Region code such as @us-west-2@.
     locations :: Prelude.NonEmpty LocationConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,8 +111,9 @@ data CreateFleetLocations = CreateFleetLocations'
 -- either the fleet ID or ARN value.
 --
 -- 'locations', 'createFleetLocations_locations' - A list of locations to deploy additional instances to and manage as part
--- of the fleet. You can add any GameLift-supported AWS Region as a remote
--- location, in the form of an AWS Region code such as @us-west-2@.
+-- of the fleet. You can add any GameLift-supported Amazon Web Services
+-- Region as a remote location, in the form of an Amazon Web Services
+-- Region code such as @us-west-2@.
 newCreateFleetLocations ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -129,8 +132,9 @@ createFleetLocations_fleetId :: Lens.Lens' CreateFleetLocations Prelude.Text
 createFleetLocations_fleetId = Lens.lens (\CreateFleetLocations' {fleetId} -> fleetId) (\s@CreateFleetLocations' {} a -> s {fleetId = a} :: CreateFleetLocations)
 
 -- | A list of locations to deploy additional instances to and manage as part
--- of the fleet. You can add any GameLift-supported AWS Region as a remote
--- location, in the form of an AWS Region code such as @us-west-2@.
+-- of the fleet. You can add any GameLift-supported Amazon Web Services
+-- Region as a remote location, in the form of an Amazon Web Services
+-- Region code such as @us-west-2@.
 createFleetLocations_locations :: Lens.Lens' CreateFleetLocations (Prelude.NonEmpty LocationConfiguration)
 createFleetLocations_locations = Lens.lens (\CreateFleetLocations' {locations} -> locations) (\s@CreateFleetLocations' {} a -> s {locations = a} :: CreateFleetLocations) Prelude.. Lens.coerced
 

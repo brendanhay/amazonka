@@ -163,7 +163,7 @@ data CreateFileSystem = CreateFileSystem'
     -- Default is @false@. However, if you specify an @AvailabilityZoneName@,
     -- the default is @true@.
     --
-    -- Backup is not available in all Amazon Web Services Regionswhere Amazon
+    -- Backup is not available in all Amazon Web Services Regions where Amazon
     -- EFS is available.
     backup :: Prelude.Maybe Prelude.Bool,
     -- | Used to create a file system that uses One Zone storage classes. It
@@ -177,16 +177,17 @@ data CreateFileSystem = CreateFileSystem'
     -- Amazon Web Services Regions where Amazon EFS is available.
     availabilityZoneName :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that, if true, creates an encrypted file system. When
-    -- creating an encrypted file system, you have the option of specifying
-    -- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
-    -- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
-    -- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
-    -- protect the encrypted file system.
+    -- creating an encrypted file system, you have the option of specifying an
+    -- existing Key Management Service key (KMS key). If you don\'t specify a
+    -- KMS key, then the default KMS key for Amazon EFS,
+    -- @\/aws\/elasticfilesystem@, is used to protect the encrypted file
+    -- system.
     encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the KMS CMK that you want to use to protect the encrypted file
-    -- system. This parameter is only required if you want to use a non-default
-    -- KMS key. If this parameter is not specified, the default CMK for Amazon
-    -- EFS is used. This ID can be in one of the following formats:
+    -- | The ID of the KMS key that you want to use to protect the encrypted file
+    -- system. This parameter is required only if you want to use a non-default
+    -- KMS key. If this parameter is not specified, the default KMS key for
+    -- Amazon EFS is used. You can specify a KMS key ID using the following
+    -- formats:
     --
     -- -   Key ID - A unique identifier of the key, for example
     --     @1234abcd-12ab-34cd-56ef-1234567890ab@.
@@ -200,11 +201,11 @@ data CreateFileSystem = CreateFileSystem'
     -- -   Key alias ARN - An ARN for a key alias, for example
     --     @arn:aws:kms:us-west-2:444455556666:alias\/projectKey1@.
     --
-    -- If @KmsKeyId@ is specified, the CreateFileSystemRequest$Encrypted
-    -- parameter must be set to true.
+    -- If you use @KmsKeyId@, you must set the
+    -- CreateFileSystemRequest$Encrypted parameter to true.
     --
     -- EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys
-    -- with EFS file systems.
+    -- with Amazon EFS file systems.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the throughput mode for the file system, either @bursting@ or
     -- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
@@ -267,7 +268,7 @@ data CreateFileSystem = CreateFileSystem'
 -- Default is @false@. However, if you specify an @AvailabilityZoneName@,
 -- the default is @true@.
 --
--- Backup is not available in all Amazon Web Services Regionswhere Amazon
+-- Backup is not available in all Amazon Web Services Regions where Amazon
 -- EFS is available.
 --
 -- 'availabilityZoneName', 'createFileSystem_availabilityZoneName' - Used to create a file system that uses One Zone storage classes. It
@@ -281,16 +282,17 @@ data CreateFileSystem = CreateFileSystem'
 -- Amazon Web Services Regions where Amazon EFS is available.
 --
 -- 'encrypted', 'createFileSystem_encrypted' - A Boolean value that, if true, creates an encrypted file system. When
--- creating an encrypted file system, you have the option of specifying
--- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
--- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
--- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
--- protect the encrypted file system.
+-- creating an encrypted file system, you have the option of specifying an
+-- existing Key Management Service key (KMS key). If you don\'t specify a
+-- KMS key, then the default KMS key for Amazon EFS,
+-- @\/aws\/elasticfilesystem@, is used to protect the encrypted file
+-- system.
 --
--- 'kmsKeyId', 'createFileSystem_kmsKeyId' - The ID of the KMS CMK that you want to use to protect the encrypted file
--- system. This parameter is only required if you want to use a non-default
--- KMS key. If this parameter is not specified, the default CMK for Amazon
--- EFS is used. This ID can be in one of the following formats:
+-- 'kmsKeyId', 'createFileSystem_kmsKeyId' - The ID of the KMS key that you want to use to protect the encrypted file
+-- system. This parameter is required only if you want to use a non-default
+-- KMS key. If this parameter is not specified, the default KMS key for
+-- Amazon EFS is used. You can specify a KMS key ID using the following
+-- formats:
 --
 -- -   Key ID - A unique identifier of the key, for example
 --     @1234abcd-12ab-34cd-56ef-1234567890ab@.
@@ -304,11 +306,11 @@ data CreateFileSystem = CreateFileSystem'
 -- -   Key alias ARN - An ARN for a key alias, for example
 --     @arn:aws:kms:us-west-2:444455556666:alias\/projectKey1@.
 --
--- If @KmsKeyId@ is specified, the CreateFileSystemRequest$Encrypted
--- parameter must be set to true.
+-- If you use @KmsKeyId@, you must set the
+-- CreateFileSystemRequest$Encrypted parameter to true.
 --
 -- EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys
--- with EFS file systems.
+-- with Amazon EFS file systems.
 --
 -- 'throughputMode', 'createFileSystem_throughputMode' - Specifies the throughput mode for the file system, either @bursting@ or
 -- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
@@ -382,7 +384,7 @@ createFileSystem_provisionedThroughputInMibps = Lens.lens (\CreateFileSystem' {p
 -- Default is @false@. However, if you specify an @AvailabilityZoneName@,
 -- the default is @true@.
 --
--- Backup is not available in all Amazon Web Services Regionswhere Amazon
+-- Backup is not available in all Amazon Web Services Regions where Amazon
 -- EFS is available.
 createFileSystem_backup :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
 createFileSystem_backup = Lens.lens (\CreateFileSystem' {backup} -> backup) (\s@CreateFileSystem' {} a -> s {backup = a} :: CreateFileSystem)
@@ -400,18 +402,19 @@ createFileSystem_availabilityZoneName :: Lens.Lens' CreateFileSystem (Prelude.Ma
 createFileSystem_availabilityZoneName = Lens.lens (\CreateFileSystem' {availabilityZoneName} -> availabilityZoneName) (\s@CreateFileSystem' {} a -> s {availabilityZoneName = a} :: CreateFileSystem)
 
 -- | A Boolean value that, if true, creates an encrypted file system. When
--- creating an encrypted file system, you have the option of specifying
--- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
--- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
--- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
--- protect the encrypted file system.
+-- creating an encrypted file system, you have the option of specifying an
+-- existing Key Management Service key (KMS key). If you don\'t specify a
+-- KMS key, then the default KMS key for Amazon EFS,
+-- @\/aws\/elasticfilesystem@, is used to protect the encrypted file
+-- system.
 createFileSystem_encrypted :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
 createFileSystem_encrypted = Lens.lens (\CreateFileSystem' {encrypted} -> encrypted) (\s@CreateFileSystem' {} a -> s {encrypted = a} :: CreateFileSystem)
 
--- | The ID of the KMS CMK that you want to use to protect the encrypted file
--- system. This parameter is only required if you want to use a non-default
--- KMS key. If this parameter is not specified, the default CMK for Amazon
--- EFS is used. This ID can be in one of the following formats:
+-- | The ID of the KMS key that you want to use to protect the encrypted file
+-- system. This parameter is required only if you want to use a non-default
+-- KMS key. If this parameter is not specified, the default KMS key for
+-- Amazon EFS is used. You can specify a KMS key ID using the following
+-- formats:
 --
 -- -   Key ID - A unique identifier of the key, for example
 --     @1234abcd-12ab-34cd-56ef-1234567890ab@.
@@ -425,11 +428,11 @@ createFileSystem_encrypted = Lens.lens (\CreateFileSystem' {encrypted} -> encryp
 -- -   Key alias ARN - An ARN for a key alias, for example
 --     @arn:aws:kms:us-west-2:444455556666:alias\/projectKey1@.
 --
--- If @KmsKeyId@ is specified, the CreateFileSystemRequest$Encrypted
--- parameter must be set to true.
+-- If you use @KmsKeyId@, you must set the
+-- CreateFileSystemRequest$Encrypted parameter to true.
 --
 -- EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys
--- with EFS file systems.
+-- with Amazon EFS file systems.
 createFileSystem_kmsKeyId :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
 createFileSystem_kmsKeyId = Lens.lens (\CreateFileSystem' {kmsKeyId} -> kmsKeyId) (\s@CreateFileSystem' {} a -> s {kmsKeyId = a} :: CreateFileSystem)
 

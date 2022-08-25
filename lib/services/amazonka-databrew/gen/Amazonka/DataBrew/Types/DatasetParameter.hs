@@ -26,7 +26,7 @@ import Amazonka.DataBrew.Types.ParameterType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a dataset paramater that defines type and conditions for a
+-- | Represents a dataset parameter that defines type and conditions for a
 -- parameter in the Amazon S3 path of the dataset.
 --
 -- /See:/ 'newDatasetParameter' smart constructor.

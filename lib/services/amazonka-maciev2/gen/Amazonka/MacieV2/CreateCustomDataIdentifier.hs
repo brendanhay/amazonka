@@ -29,13 +29,14 @@ module Amazonka.MacieV2.CreateCustomDataIdentifier
 
     -- * Request Lenses
     createCustomDataIdentifier_tags,
-    createCustomDataIdentifier_name,
     createCustomDataIdentifier_clientToken,
-    createCustomDataIdentifier_regex,
     createCustomDataIdentifier_ignoreWords,
     createCustomDataIdentifier_keywords,
     createCustomDataIdentifier_description,
+    createCustomDataIdentifier_severityLevels,
     createCustomDataIdentifier_maximumMatchDistance,
+    createCustomDataIdentifier_name,
+    createCustomDataIdentifier_regex,
 
     -- * Destructuring the Response
     CreateCustomDataIdentifierResponse (..),
@@ -64,46 +65,62 @@ data CreateCustomDataIdentifier = CreateCustomDataIdentifier'
     -- a tag key is 128 characters. The maximum length of a tag value is 256
     -- characters.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A custom name for the custom data identifier. The name can contain as
-    -- many as 128 characters.
-    --
-    -- We strongly recommend that you avoid including any sensitive data in the
-    -- name of a custom data identifier. Other users of your account might be
-    -- able to see the identifier\'s name, depending on the actions that
-    -- they\'re allowed to perform in Amazon Macie.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A unique, case-sensitive token that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The regular expression (/regex/) that defines the pattern to match. The
-    -- expression can contain as many as 512 characters.
-    regex :: Prelude.Maybe Prelude.Text,
-    -- | An array that lists specific character sequences (ignore words) to
+    -- | An array that lists specific character sequences (/ignore words/) to
     -- exclude from the results. If the text matched by the regular expression
-    -- is the same as any string in this array, Amazon Macie ignores it. The
-    -- array can contain as many as 10 ignore words. Each ignore word can
-    -- contain 4-90 UTF-8 characters. Ignore words are case sensitive.
+    -- contains any string in this array, Amazon Macie ignores it. The array
+    -- can contain as many as 10 ignore words. Each ignore word can contain
+    -- 4-90 UTF-8 characters. Ignore words are case sensitive.
     ignoreWords :: Prelude.Maybe [Prelude.Text],
-    -- | An array that lists specific character sequences (keywords), one of
-    -- which must be within proximity (maximumMatchDistance) of the regular
-    -- expression to match. The array can contain as many as 50 keywords. Each
-    -- keyword can contain 3-90 UTF-8 characters. Keywords aren\'t case
-    -- sensitive.
+    -- | An array that lists specific character sequences (/keywords/), one of
+    -- which must precede and be within proximity (maximumMatchDistance) of the
+    -- regular expression to match. The array can contain as many as 50
+    -- keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords
+    -- aren\'t case sensitive.
     keywords :: Prelude.Maybe [Prelude.Text],
     -- | A custom description of the custom data identifier. The description can
     -- contain as many as 512 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
     -- description of a custom data identifier. Other users of your account
-    -- might be able to see the identifier\'s description, depending on the
-    -- actions that they\'re allowed to perform in Amazon Macie.
+    -- might be able to see this description, depending on the actions that
+    -- they\'re allowed to perform in Amazon Macie.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of characters that can exist between text that
-    -- matches the regex pattern and the character sequences specified by the
-    -- keywords array. Amazon Macie includes or excludes a result based on the
-    -- proximity of a keyword to text that matches the regex pattern. The
+    -- | The severity to assign to findings that the custom data identifier
+    -- produces, based on the number of occurrences of text that matches the
+    -- custom data identifier\'s detection criteria. You can specify as many as
+    -- three SeverityLevel objects in this array, one for each severity: LOW,
+    -- MEDIUM, or HIGH. If you specify more than one, the occurrences
+    -- thresholds must be in ascending order by severity, moving from LOW to
+    -- HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3
+    -- object contains fewer occurrences than the lowest specified threshold,
+    -- Amazon Macie doesn\'t create a finding.
+    --
+    -- If you don\'t specify any values for this array, Macie creates findings
+    -- for S3 objects that contain at least one occurrence of text that matches
+    -- the detection criteria, and Macie assigns the MEDIUM severity to those
+    -- findings.
+    severityLevels :: Prelude.Maybe [SeverityLevel],
+    -- | The maximum number of characters that can exist between the end of at
+    -- least one complete character sequence specified by the keywords array
+    -- and the end of the text that matches the regex pattern. If a complete
+    -- keyword precedes all the text that matches the pattern and the keyword
+    -- is within the specified distance, Amazon Macie includes the result. The
     -- distance can be 1-300 characters. The default value is 50.
-    maximumMatchDistance :: Prelude.Maybe Prelude.Int
+    maximumMatchDistance :: Prelude.Maybe Prelude.Int,
+    -- | A custom name for the custom data identifier. The name can contain as
+    -- many as 128 characters.
+    --
+    -- We strongly recommend that you avoid including any sensitive data in the
+    -- name of a custom data identifier. Other users of your account might be
+    -- able to see this name, depending on the actions that they\'re allowed to
+    -- perform in Amazon Macie.
+    name :: Prelude.Text,
+    -- | The regular expression (/regex/) that defines the pattern to match. The
+    -- expression can contain as many as 512 characters.
+    regex :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,57 +140,78 @@ data CreateCustomDataIdentifier = CreateCustomDataIdentifier'
 -- a tag key is 128 characters. The maximum length of a tag value is 256
 -- characters.
 --
--- 'name', 'createCustomDataIdentifier_name' - A custom name for the custom data identifier. The name can contain as
--- many as 128 characters.
---
--- We strongly recommend that you avoid including any sensitive data in the
--- name of a custom data identifier. Other users of your account might be
--- able to see the identifier\'s name, depending on the actions that
--- they\'re allowed to perform in Amazon Macie.
---
 -- 'clientToken', 'createCustomDataIdentifier_clientToken' - A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
 --
--- 'regex', 'createCustomDataIdentifier_regex' - The regular expression (/regex/) that defines the pattern to match. The
--- expression can contain as many as 512 characters.
---
--- 'ignoreWords', 'createCustomDataIdentifier_ignoreWords' - An array that lists specific character sequences (ignore words) to
+-- 'ignoreWords', 'createCustomDataIdentifier_ignoreWords' - An array that lists specific character sequences (/ignore words/) to
 -- exclude from the results. If the text matched by the regular expression
--- is the same as any string in this array, Amazon Macie ignores it. The
--- array can contain as many as 10 ignore words. Each ignore word can
--- contain 4-90 UTF-8 characters. Ignore words are case sensitive.
+-- contains any string in this array, Amazon Macie ignores it. The array
+-- can contain as many as 10 ignore words. Each ignore word can contain
+-- 4-90 UTF-8 characters. Ignore words are case sensitive.
 --
--- 'keywords', 'createCustomDataIdentifier_keywords' - An array that lists specific character sequences (keywords), one of
--- which must be within proximity (maximumMatchDistance) of the regular
--- expression to match. The array can contain as many as 50 keywords. Each
--- keyword can contain 3-90 UTF-8 characters. Keywords aren\'t case
--- sensitive.
+-- 'keywords', 'createCustomDataIdentifier_keywords' - An array that lists specific character sequences (/keywords/), one of
+-- which must precede and be within proximity (maximumMatchDistance) of the
+-- regular expression to match. The array can contain as many as 50
+-- keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords
+-- aren\'t case sensitive.
 --
 -- 'description', 'createCustomDataIdentifier_description' - A custom description of the custom data identifier. The description can
 -- contain as many as 512 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
 -- description of a custom data identifier. Other users of your account
--- might be able to see the identifier\'s description, depending on the
--- actions that they\'re allowed to perform in Amazon Macie.
+-- might be able to see this description, depending on the actions that
+-- they\'re allowed to perform in Amazon Macie.
 --
--- 'maximumMatchDistance', 'createCustomDataIdentifier_maximumMatchDistance' - The maximum number of characters that can exist between text that
--- matches the regex pattern and the character sequences specified by the
--- keywords array. Amazon Macie includes or excludes a result based on the
--- proximity of a keyword to text that matches the regex pattern. The
+-- 'severityLevels', 'createCustomDataIdentifier_severityLevels' - The severity to assign to findings that the custom data identifier
+-- produces, based on the number of occurrences of text that matches the
+-- custom data identifier\'s detection criteria. You can specify as many as
+-- three SeverityLevel objects in this array, one for each severity: LOW,
+-- MEDIUM, or HIGH. If you specify more than one, the occurrences
+-- thresholds must be in ascending order by severity, moving from LOW to
+-- HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3
+-- object contains fewer occurrences than the lowest specified threshold,
+-- Amazon Macie doesn\'t create a finding.
+--
+-- If you don\'t specify any values for this array, Macie creates findings
+-- for S3 objects that contain at least one occurrence of text that matches
+-- the detection criteria, and Macie assigns the MEDIUM severity to those
+-- findings.
+--
+-- 'maximumMatchDistance', 'createCustomDataIdentifier_maximumMatchDistance' - The maximum number of characters that can exist between the end of at
+-- least one complete character sequence specified by the keywords array
+-- and the end of the text that matches the regex pattern. If a complete
+-- keyword precedes all the text that matches the pattern and the keyword
+-- is within the specified distance, Amazon Macie includes the result. The
 -- distance can be 1-300 characters. The default value is 50.
+--
+-- 'name', 'createCustomDataIdentifier_name' - A custom name for the custom data identifier. The name can contain as
+-- many as 128 characters.
+--
+-- We strongly recommend that you avoid including any sensitive data in the
+-- name of a custom data identifier. Other users of your account might be
+-- able to see this name, depending on the actions that they\'re allowed to
+-- perform in Amazon Macie.
+--
+-- 'regex', 'createCustomDataIdentifier_regex' - The regular expression (/regex/) that defines the pattern to match. The
+-- expression can contain as many as 512 characters.
 newCreateCustomDataIdentifier ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'regex'
+  Prelude.Text ->
   CreateCustomDataIdentifier
-newCreateCustomDataIdentifier =
+newCreateCustomDataIdentifier pName_ pRegex_ =
   CreateCustomDataIdentifier'
     { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      regex = Prelude.Nothing,
       ignoreWords = Prelude.Nothing,
       keywords = Prelude.Nothing,
       description = Prelude.Nothing,
-      maximumMatchDistance = Prelude.Nothing
+      severityLevels = Prelude.Nothing,
+      maximumMatchDistance = Prelude.Nothing,
+      name = pName_,
+      regex = pRegex_
     }
 
 -- | A map of key-value pairs that specifies the tags to associate with the
@@ -186,39 +224,24 @@ newCreateCustomDataIdentifier =
 createCustomDataIdentifier_tags :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createCustomDataIdentifier_tags = Lens.lens (\CreateCustomDataIdentifier' {tags} -> tags) (\s@CreateCustomDataIdentifier' {} a -> s {tags = a} :: CreateCustomDataIdentifier) Prelude.. Lens.mapping Lens.coerced
 
--- | A custom name for the custom data identifier. The name can contain as
--- many as 128 characters.
---
--- We strongly recommend that you avoid including any sensitive data in the
--- name of a custom data identifier. Other users of your account might be
--- able to see the identifier\'s name, depending on the actions that
--- they\'re allowed to perform in Amazon Macie.
-createCustomDataIdentifier_name :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe Prelude.Text)
-createCustomDataIdentifier_name = Lens.lens (\CreateCustomDataIdentifier' {name} -> name) (\s@CreateCustomDataIdentifier' {} a -> s {name = a} :: CreateCustomDataIdentifier)
-
 -- | A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
 createCustomDataIdentifier_clientToken :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe Prelude.Text)
 createCustomDataIdentifier_clientToken = Lens.lens (\CreateCustomDataIdentifier' {clientToken} -> clientToken) (\s@CreateCustomDataIdentifier' {} a -> s {clientToken = a} :: CreateCustomDataIdentifier)
 
--- | The regular expression (/regex/) that defines the pattern to match. The
--- expression can contain as many as 512 characters.
-createCustomDataIdentifier_regex :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe Prelude.Text)
-createCustomDataIdentifier_regex = Lens.lens (\CreateCustomDataIdentifier' {regex} -> regex) (\s@CreateCustomDataIdentifier' {} a -> s {regex = a} :: CreateCustomDataIdentifier)
-
--- | An array that lists specific character sequences (ignore words) to
+-- | An array that lists specific character sequences (/ignore words/) to
 -- exclude from the results. If the text matched by the regular expression
--- is the same as any string in this array, Amazon Macie ignores it. The
--- array can contain as many as 10 ignore words. Each ignore word can
--- contain 4-90 UTF-8 characters. Ignore words are case sensitive.
+-- contains any string in this array, Amazon Macie ignores it. The array
+-- can contain as many as 10 ignore words. Each ignore word can contain
+-- 4-90 UTF-8 characters. Ignore words are case sensitive.
 createCustomDataIdentifier_ignoreWords :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe [Prelude.Text])
 createCustomDataIdentifier_ignoreWords = Lens.lens (\CreateCustomDataIdentifier' {ignoreWords} -> ignoreWords) (\s@CreateCustomDataIdentifier' {} a -> s {ignoreWords = a} :: CreateCustomDataIdentifier) Prelude.. Lens.mapping Lens.coerced
 
--- | An array that lists specific character sequences (keywords), one of
--- which must be within proximity (maximumMatchDistance) of the regular
--- expression to match. The array can contain as many as 50 keywords. Each
--- keyword can contain 3-90 UTF-8 characters. Keywords aren\'t case
--- sensitive.
+-- | An array that lists specific character sequences (/keywords/), one of
+-- which must precede and be within proximity (maximumMatchDistance) of the
+-- regular expression to match. The array can contain as many as 50
+-- keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords
+-- aren\'t case sensitive.
 createCustomDataIdentifier_keywords :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe [Prelude.Text])
 createCustomDataIdentifier_keywords = Lens.lens (\CreateCustomDataIdentifier' {keywords} -> keywords) (\s@CreateCustomDataIdentifier' {} a -> s {keywords = a} :: CreateCustomDataIdentifier) Prelude.. Lens.mapping Lens.coerced
 
@@ -227,18 +250,51 @@ createCustomDataIdentifier_keywords = Lens.lens (\CreateCustomDataIdentifier' {k
 --
 -- We strongly recommend that you avoid including any sensitive data in the
 -- description of a custom data identifier. Other users of your account
--- might be able to see the identifier\'s description, depending on the
--- actions that they\'re allowed to perform in Amazon Macie.
+-- might be able to see this description, depending on the actions that
+-- they\'re allowed to perform in Amazon Macie.
 createCustomDataIdentifier_description :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe Prelude.Text)
 createCustomDataIdentifier_description = Lens.lens (\CreateCustomDataIdentifier' {description} -> description) (\s@CreateCustomDataIdentifier' {} a -> s {description = a} :: CreateCustomDataIdentifier)
 
--- | The maximum number of characters that can exist between text that
--- matches the regex pattern and the character sequences specified by the
--- keywords array. Amazon Macie includes or excludes a result based on the
--- proximity of a keyword to text that matches the regex pattern. The
+-- | The severity to assign to findings that the custom data identifier
+-- produces, based on the number of occurrences of text that matches the
+-- custom data identifier\'s detection criteria. You can specify as many as
+-- three SeverityLevel objects in this array, one for each severity: LOW,
+-- MEDIUM, or HIGH. If you specify more than one, the occurrences
+-- thresholds must be in ascending order by severity, moving from LOW to
+-- HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3
+-- object contains fewer occurrences than the lowest specified threshold,
+-- Amazon Macie doesn\'t create a finding.
+--
+-- If you don\'t specify any values for this array, Macie creates findings
+-- for S3 objects that contain at least one occurrence of text that matches
+-- the detection criteria, and Macie assigns the MEDIUM severity to those
+-- findings.
+createCustomDataIdentifier_severityLevels :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe [SeverityLevel])
+createCustomDataIdentifier_severityLevels = Lens.lens (\CreateCustomDataIdentifier' {severityLevels} -> severityLevels) (\s@CreateCustomDataIdentifier' {} a -> s {severityLevels = a} :: CreateCustomDataIdentifier) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of characters that can exist between the end of at
+-- least one complete character sequence specified by the keywords array
+-- and the end of the text that matches the regex pattern. If a complete
+-- keyword precedes all the text that matches the pattern and the keyword
+-- is within the specified distance, Amazon Macie includes the result. The
 -- distance can be 1-300 characters. The default value is 50.
 createCustomDataIdentifier_maximumMatchDistance :: Lens.Lens' CreateCustomDataIdentifier (Prelude.Maybe Prelude.Int)
 createCustomDataIdentifier_maximumMatchDistance = Lens.lens (\CreateCustomDataIdentifier' {maximumMatchDistance} -> maximumMatchDistance) (\s@CreateCustomDataIdentifier' {} a -> s {maximumMatchDistance = a} :: CreateCustomDataIdentifier)
+
+-- | A custom name for the custom data identifier. The name can contain as
+-- many as 128 characters.
+--
+-- We strongly recommend that you avoid including any sensitive data in the
+-- name of a custom data identifier. Other users of your account might be
+-- able to see this name, depending on the actions that they\'re allowed to
+-- perform in Amazon Macie.
+createCustomDataIdentifier_name :: Lens.Lens' CreateCustomDataIdentifier Prelude.Text
+createCustomDataIdentifier_name = Lens.lens (\CreateCustomDataIdentifier' {name} -> name) (\s@CreateCustomDataIdentifier' {} a -> s {name = a} :: CreateCustomDataIdentifier)
+
+-- | The regular expression (/regex/) that defines the pattern to match. The
+-- expression can contain as many as 512 characters.
+createCustomDataIdentifier_regex :: Lens.Lens' CreateCustomDataIdentifier Prelude.Text
+createCustomDataIdentifier_regex = Lens.lens (\CreateCustomDataIdentifier' {regex} -> regex) (\s@CreateCustomDataIdentifier' {} a -> s {regex = a} :: CreateCustomDataIdentifier)
 
 instance Core.AWSRequest CreateCustomDataIdentifier where
   type
@@ -256,24 +312,26 @@ instance Core.AWSRequest CreateCustomDataIdentifier where
 instance Prelude.Hashable CreateCustomDataIdentifier where
   hashWithSalt _salt CreateCustomDataIdentifier' {..} =
     _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` regex
       `Prelude.hashWithSalt` ignoreWords
       `Prelude.hashWithSalt` keywords
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` severityLevels
       `Prelude.hashWithSalt` maximumMatchDistance
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` regex
 
 instance Prelude.NFData CreateCustomDataIdentifier where
   rnf CreateCustomDataIdentifier' {..} =
     Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf regex
       `Prelude.seq` Prelude.rnf ignoreWords
       `Prelude.seq` Prelude.rnf keywords
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf severityLevels
       `Prelude.seq` Prelude.rnf maximumMatchDistance
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf regex
 
 instance Core.ToHeaders CreateCustomDataIdentifier where
   toHeaders =
@@ -291,14 +349,16 @@ instance Core.ToJSON CreateCustomDataIdentifier where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
             ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("regex" Core..=) Prelude.<$> regex,
             ("ignoreWords" Core..=) Prelude.<$> ignoreWords,
             ("keywords" Core..=) Prelude.<$> keywords,
             ("description" Core..=) Prelude.<$> description,
+            ("severityLevels" Core..=)
+              Prelude.<$> severityLevels,
             ("maximumMatchDistance" Core..=)
-              Prelude.<$> maximumMatchDistance
+              Prelude.<$> maximumMatchDistance,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("regex" Core..= regex)
           ]
       )
 

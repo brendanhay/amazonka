@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.SSOAdmin
+    Amazonka.SSOAdmin.AttachCustomerManagedPolicyReferenceToPermissionSet
     Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
     Amazonka.SSOAdmin.CreateAccountAssignment
     Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
@@ -51,19 +52,23 @@ library
     Amazonka.SSOAdmin.DeleteAccountAssignment
     Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet
     Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
+    Amazonka.SSOAdmin.DeletePermissionsBoundaryFromPermissionSet
     Amazonka.SSOAdmin.DeletePermissionSet
     Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus
     Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus
     Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
     Amazonka.SSOAdmin.DescribePermissionSet
     Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus
+    Amazonka.SSOAdmin.DetachCustomerManagedPolicyReferenceFromPermissionSet
     Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet
     Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet
+    Amazonka.SSOAdmin.GetPermissionsBoundaryForPermissionSet
     Amazonka.SSOAdmin.Lens
     Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
     Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
     Amazonka.SSOAdmin.ListAccountAssignments
     Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet
+    Amazonka.SSOAdmin.ListCustomerManagedPolicyReferencesInPermissionSet
     Amazonka.SSOAdmin.ListInstances
     Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
     Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
@@ -72,6 +77,7 @@ library
     Amazonka.SSOAdmin.ListTagsForResource
     Amazonka.SSOAdmin.ProvisionPermissionSet
     Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet
+    Amazonka.SSOAdmin.PutPermissionsBoundaryToPermissionSet
     Amazonka.SSOAdmin.TagResource
     Amazonka.SSOAdmin.Types
     Amazonka.SSOAdmin.Types.AccessControlAttribute
@@ -80,10 +86,12 @@ library
     Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
     Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
     Amazonka.SSOAdmin.Types.AttachedManagedPolicy
+    Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference
     Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
     Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
     Amazonka.SSOAdmin.Types.InstanceMetadata
     Amazonka.SSOAdmin.Types.OperationStatusFilter
+    Amazonka.SSOAdmin.Types.PermissionsBoundary
     Amazonka.SSOAdmin.Types.PermissionSet
     Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
     Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata

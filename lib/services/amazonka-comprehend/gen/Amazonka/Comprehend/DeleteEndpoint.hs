@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a model-specific endpoint for a previously-trained custom model.
--- All endpoints must be deleted in order for the model to be deleted.
+-- All endpoints must be deleted in order for the model to be deleted. For
+-- information about endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 module Amazonka.Comprehend.DeleteEndpoint
   ( -- * Creating a Request
     DeleteEndpoint (..),

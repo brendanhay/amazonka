@@ -24,7 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of an event tracker. For a complete
--- listing, call the DescribeEventTracker API.
+-- listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html DescribeEventTracker>
+-- API.
 --
 -- /See:/ 'newEventTrackerSummary' smart constructor.
 data EventTrackerSummary = EventTrackerSummary'

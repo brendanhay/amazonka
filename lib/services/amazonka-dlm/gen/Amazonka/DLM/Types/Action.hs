@@ -24,7 +24,8 @@ import Amazonka.DLM.Types.CrossRegionCopyAction
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies an action for an event-based policy.
+-- | __[Event-based policies only]__ Specifies an action for an event-based
+-- policy.
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'

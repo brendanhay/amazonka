@@ -21,7 +21,8 @@ module Amazonka.Translate.Types.TerminologyDataFormat
   ( TerminologyDataFormat
       ( ..,
         TerminologyDataFormat_CSV,
-        TerminologyDataFormat_TMX
+        TerminologyDataFormat_TMX,
+        TerminologyDataFormat_TSV
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern TerminologyDataFormat_CSV = TerminologyDataFormat' "CSV"
 pattern TerminologyDataFormat_TMX :: TerminologyDataFormat
 pattern TerminologyDataFormat_TMX = TerminologyDataFormat' "TMX"
 
+pattern TerminologyDataFormat_TSV :: TerminologyDataFormat
+pattern TerminologyDataFormat_TSV = TerminologyDataFormat' "TSV"
+
 {-# COMPLETE
   TerminologyDataFormat_CSV,
   TerminologyDataFormat_TMX,
+  TerminologyDataFormat_TSV,
   TerminologyDataFormat'
   #-}

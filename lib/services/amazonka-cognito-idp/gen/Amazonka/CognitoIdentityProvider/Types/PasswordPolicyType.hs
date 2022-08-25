@@ -39,16 +39,16 @@ data PasswordPolicyType = PasswordPolicyType'
     -- | In the password policy that you have set, refers to whether you have
     -- required users to use at least one uppercase letter in their password.
     requireUppercase :: Prelude.Maybe Prelude.Bool,
-    -- | The minimum length of the password policy that you have set. Cannot be
-    -- less than 6.
+    -- | The minimum length of the password in the policy that you have set. This
+    -- value can\'t be less than 6.
     minimumLength :: Prelude.Maybe Prelude.Natural,
-    -- | In the password policy you have set, refers to the number of days a
-    -- temporary password is valid. If the user does not sign-in during this
-    -- time, their password will need to be reset by an administrator.
+    -- | The number of days a temporary password is valid in the password policy.
+    -- If the user doesn\'t sign in during this time, an administrator must
+    -- reset their password.
     --
-    -- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
-    -- no longer be able to set the deprecated @UnusedAccountValidityDays@
-    -- value for that user pool.
+    -- When you set @TemporaryPasswordValidityDays@ for a user pool, you can no
+    -- longer set a value for the legacy @UnusedAccountValidityDays@ parameter
+    -- in that user pool.
     temporaryPasswordValidityDays :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,16 +73,16 @@ data PasswordPolicyType = PasswordPolicyType'
 -- 'requireUppercase', 'passwordPolicyType_requireUppercase' - In the password policy that you have set, refers to whether you have
 -- required users to use at least one uppercase letter in their password.
 --
--- 'minimumLength', 'passwordPolicyType_minimumLength' - The minimum length of the password policy that you have set. Cannot be
--- less than 6.
+-- 'minimumLength', 'passwordPolicyType_minimumLength' - The minimum length of the password in the policy that you have set. This
+-- value can\'t be less than 6.
 --
--- 'temporaryPasswordValidityDays', 'passwordPolicyType_temporaryPasswordValidityDays' - In the password policy you have set, refers to the number of days a
--- temporary password is valid. If the user does not sign-in during this
--- time, their password will need to be reset by an administrator.
+-- 'temporaryPasswordValidityDays', 'passwordPolicyType_temporaryPasswordValidityDays' - The number of days a temporary password is valid in the password policy.
+-- If the user doesn\'t sign in during this time, an administrator must
+-- reset their password.
 --
--- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
--- no longer be able to set the deprecated @UnusedAccountValidityDays@
--- value for that user pool.
+-- When you set @TemporaryPasswordValidityDays@ for a user pool, you can no
+-- longer set a value for the legacy @UnusedAccountValidityDays@ parameter
+-- in that user pool.
 newPasswordPolicyType ::
   PasswordPolicyType
 newPasswordPolicyType =
@@ -116,18 +116,18 @@ passwordPolicyType_requireSymbols = Lens.lens (\PasswordPolicyType' {requireSymb
 passwordPolicyType_requireUppercase :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
 passwordPolicyType_requireUppercase = Lens.lens (\PasswordPolicyType' {requireUppercase} -> requireUppercase) (\s@PasswordPolicyType' {} a -> s {requireUppercase = a} :: PasswordPolicyType)
 
--- | The minimum length of the password policy that you have set. Cannot be
--- less than 6.
+-- | The minimum length of the password in the policy that you have set. This
+-- value can\'t be less than 6.
 passwordPolicyType_minimumLength :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
 passwordPolicyType_minimumLength = Lens.lens (\PasswordPolicyType' {minimumLength} -> minimumLength) (\s@PasswordPolicyType' {} a -> s {minimumLength = a} :: PasswordPolicyType)
 
--- | In the password policy you have set, refers to the number of days a
--- temporary password is valid. If the user does not sign-in during this
--- time, their password will need to be reset by an administrator.
+-- | The number of days a temporary password is valid in the password policy.
+-- If the user doesn\'t sign in during this time, an administrator must
+-- reset their password.
 --
--- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
--- no longer be able to set the deprecated @UnusedAccountValidityDays@
--- value for that user pool.
+-- When you set @TemporaryPasswordValidityDays@ for a user pool, you can no
+-- longer set a value for the legacy @UnusedAccountValidityDays@ parameter
+-- in that user pool.
 passwordPolicyType_temporaryPasswordValidityDays :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
 passwordPolicyType_temporaryPasswordValidityDays = Lens.lens (\PasswordPolicyType' {temporaryPasswordValidityDays} -> temporaryPasswordValidityDays) (\s@PasswordPolicyType' {} a -> s {temporaryPasswordValidityDays = a} :: PasswordPolicyType)
 

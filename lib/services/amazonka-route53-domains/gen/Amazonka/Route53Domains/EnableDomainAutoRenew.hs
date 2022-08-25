@@ -22,7 +22,8 @@
 --
 -- This operation configures Amazon Route 53 to automatically renew the
 -- specified domain before the domain registration expires. The cost of
--- renewing your domain registration is billed to your AWS account.
+-- renewing your domain registration is billed to your Amazon Web Services
+-- account.
 --
 -- The period during which you can renew a domain name varies by TLD. For a
 -- list of TLDs and their renewal policies, see

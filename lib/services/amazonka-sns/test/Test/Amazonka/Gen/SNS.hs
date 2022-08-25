@@ -111,6 +111,9 @@ import Test.Tasty
 --         , requestPublish $
 --             newPublish
 --
+--         , requestPublishBatch $
+--             newPublishBatch
+--
 --         , requestRemovePermission $
 --             newRemovePermission
 --
@@ -230,6 +233,9 @@ import Test.Tasty
 --
 --         , responsePublish $
 --             newPublishResponse
+--
+--         , responsePublishBatch $
+--             newPublishBatchResponse
 --
 --         , responseRemovePermission $
 --             newRemovePermissionResponse
@@ -436,6 +442,12 @@ requestPublish =
   req
     "Publish"
     "fixture/Publish.yaml"
+
+requestPublishBatch :: PublishBatch -> TestTree
+requestPublishBatch =
+  req
+    "PublishBatch"
+    "fixture/PublishBatch.yaml"
 
 requestRemovePermission :: RemovePermission -> TestTree
 requestRemovePermission =
@@ -728,6 +740,14 @@ responsePublish =
     "fixture/PublishResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Publish)
+
+responsePublishBatch :: PublishBatchResponse -> TestTree
+responsePublishBatch =
+  res
+    "PublishBatchResponse"
+    "fixture/PublishBatchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PublishBatch)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =

@@ -24,7 +24,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata objects associated with the specified assessment report.
+-- | The metadata objects that are associated with the specified assessment
+-- report.
 --
 -- /See:/ 'newAssessmentReportMetadata' smart constructor.
 data AssessmentReportMetadata = AssessmentReportMetadata'
@@ -38,7 +39,7 @@ data AssessmentReportMetadata = AssessmentReportMetadata'
     assessmentName :: Prelude.Maybe Prelude.Text,
     -- | The current status of the assessment report.
     status :: Prelude.Maybe AssessmentReportStatus,
-    -- | The description of the specified assessment report.
+    -- | The description of the assessment report.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the assessment report.
     id :: Prelude.Maybe Prelude.Text,
@@ -65,7 +66,7 @@ data AssessmentReportMetadata = AssessmentReportMetadata'
 --
 -- 'status', 'assessmentReportMetadata_status' - The current status of the assessment report.
 --
--- 'description', 'assessmentReportMetadata_description' - The description of the specified assessment report.
+-- 'description', 'assessmentReportMetadata_description' - The description of the assessment report.
 --
 -- 'id', 'assessmentReportMetadata_id' - The unique identifier for the assessment report.
 --
@@ -104,7 +105,7 @@ assessmentReportMetadata_assessmentName = Lens.lens (\AssessmentReportMetadata' 
 assessmentReportMetadata_status :: Lens.Lens' AssessmentReportMetadata (Prelude.Maybe AssessmentReportStatus)
 assessmentReportMetadata_status = Lens.lens (\AssessmentReportMetadata' {status} -> status) (\s@AssessmentReportMetadata' {} a -> s {status = a} :: AssessmentReportMetadata)
 
--- | The description of the specified assessment report.
+-- | The description of the assessment report.
 assessmentReportMetadata_description :: Lens.Lens' AssessmentReportMetadata (Prelude.Maybe Prelude.Text)
 assessmentReportMetadata_description = Lens.lens (\AssessmentReportMetadata' {description} -> description) (\s@AssessmentReportMetadata' {} a -> s {description = a} :: AssessmentReportMetadata)
 

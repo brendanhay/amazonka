@@ -28,6 +28,7 @@ module Amazonka.MediaLive.UpdateReservation
 
     -- * Request Lenses
     updateReservation'_name,
+    updateReservation'_renewalSettings,
     updateReservation'_reservationId,
 
     -- * Destructuring the Response
@@ -53,6 +54,8 @@ import qualified Amazonka.Response as Response
 data UpdateReservation' = UpdateReservation''
   { -- | Name of the reservation
     name :: Prelude.Maybe Prelude.Text,
+    -- | Renewal settings for the reservation
+    renewalSettings :: Prelude.Maybe RenewalSettings,
     -- | Unique reservation ID, e.g. \'1234567\'
     reservationId :: Prelude.Text
   }
@@ -68,6 +71,8 @@ data UpdateReservation' = UpdateReservation''
 --
 -- 'name', 'updateReservation'_name' - Name of the reservation
 --
+-- 'renewalSettings', 'updateReservation'_renewalSettings' - Renewal settings for the reservation
+--
 -- 'reservationId', 'updateReservation'_reservationId' - Unique reservation ID, e.g. \'1234567\'
 newUpdateReservation' ::
   -- | 'reservationId'
@@ -76,12 +81,17 @@ newUpdateReservation' ::
 newUpdateReservation' pReservationId_ =
   UpdateReservation''
     { name = Prelude.Nothing,
+      renewalSettings = Prelude.Nothing,
       reservationId = pReservationId_
     }
 
 -- | Name of the reservation
 updateReservation'_name :: Lens.Lens' UpdateReservation' (Prelude.Maybe Prelude.Text)
 updateReservation'_name = Lens.lens (\UpdateReservation'' {name} -> name) (\s@UpdateReservation'' {} a -> s {name = a} :: UpdateReservation')
+
+-- | Renewal settings for the reservation
+updateReservation'_renewalSettings :: Lens.Lens' UpdateReservation' (Prelude.Maybe RenewalSettings)
+updateReservation'_renewalSettings = Lens.lens (\UpdateReservation'' {renewalSettings} -> renewalSettings) (\s@UpdateReservation'' {} a -> s {renewalSettings = a} :: UpdateReservation')
 
 -- | Unique reservation ID, e.g. \'1234567\'
 updateReservation'_reservationId :: Lens.Lens' UpdateReservation' Prelude.Text
@@ -103,11 +113,13 @@ instance Core.AWSRequest UpdateReservation' where
 instance Prelude.Hashable UpdateReservation' where
   hashWithSalt _salt UpdateReservation'' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` renewalSettings
       `Prelude.hashWithSalt` reservationId
 
 instance Prelude.NFData UpdateReservation' where
   rnf UpdateReservation'' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSettings
       `Prelude.seq` Prelude.rnf reservationId
 
 instance Core.ToHeaders UpdateReservation' where
@@ -125,7 +137,10 @@ instance Core.ToJSON UpdateReservation' where
   toJSON UpdateReservation'' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("name" Core..=) Prelude.<$> name]
+          [ ("name" Core..=) Prelude.<$> name,
+            ("renewalSettings" Core..=)
+              Prelude.<$> renewalSettings
+          ]
       )
 
 instance Core.ToPath UpdateReservation' where

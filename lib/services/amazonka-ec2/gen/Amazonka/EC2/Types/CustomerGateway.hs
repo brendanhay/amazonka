@@ -40,8 +40,7 @@ data CustomerGateway = CustomerGateway'
     bgpAsn :: Prelude.Text,
     -- | The ID of the customer gateway.
     customerGatewayId :: Prelude.Text,
-    -- | The Internet-routable IP address of the customer gateway\'s outside
-    -- interface.
+    -- | The IP address of the customer gateway device\'s outside interface.
     ipAddress :: Prelude.Text,
     -- | The current state of the customer gateway
     -- (@pending | available | deleting | deleted@).
@@ -70,8 +69,7 @@ data CustomerGateway = CustomerGateway'
 --
 -- 'customerGatewayId', 'customerGateway_customerGatewayId' - The ID of the customer gateway.
 --
--- 'ipAddress', 'customerGateway_ipAddress' - The Internet-routable IP address of the customer gateway\'s outside
--- interface.
+-- 'ipAddress', 'customerGateway_ipAddress' - The IP address of the customer gateway device\'s outside interface.
 --
 -- 'state', 'customerGateway_state' - The current state of the customer gateway
 -- (@pending | available | deleting | deleted@).
@@ -127,8 +125,7 @@ customerGateway_bgpAsn = Lens.lens (\CustomerGateway' {bgpAsn} -> bgpAsn) (\s@Cu
 customerGateway_customerGatewayId :: Lens.Lens' CustomerGateway Prelude.Text
 customerGateway_customerGatewayId = Lens.lens (\CustomerGateway' {customerGatewayId} -> customerGatewayId) (\s@CustomerGateway' {} a -> s {customerGatewayId = a} :: CustomerGateway)
 
--- | The Internet-routable IP address of the customer gateway\'s outside
--- interface.
+-- | The IP address of the customer gateway device\'s outside interface.
 customerGateway_ipAddress :: Lens.Lens' CustomerGateway Prelude.Text
 customerGateway_ipAddress = Lens.lens (\CustomerGateway' {ipAddress} -> ipAddress) (\s@CustomerGateway' {} a -> s {ipAddress = a} :: CustomerGateway)
 

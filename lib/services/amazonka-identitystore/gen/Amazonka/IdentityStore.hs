@@ -11,10 +11,19 @@
 --
 -- Derived from API version @2020-06-15@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The AWS Single Sign-On (SSO) Identity Store service provides a single
--- place to retrieve all of your identities (users and groups). For more
--- information about AWS, see the
--- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html AWS Single Sign-On User Guide>.
+-- The Identity Store service used by Amazon Web Services Single Sign On
+-- provides a single place to retrieve all of your identities (users and
+-- groups). For more information, see the
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html Amazon Web Services SSO User Guide>.
+--
+-- Although Amazon Web Services Single Sign-On was renamed, the @sso@ and
+-- @identitystore@ API namespaces will continue to retain their original
+-- name for backward compatibility purposes. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed Amazon Web Services SSO rename>.
+--
+-- This reference guide describes the identity store operations that you
+-- can call programatically and includes detailed information on data types
+-- and errors.
 module Amazonka.IdentityStore
   ( -- * Service Configuration
     defaultService,

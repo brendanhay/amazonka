@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 data DestinationConfig = DestinationConfig'
   { -- | The name of the IoT thing to which you want to connect.
     thingName :: Prelude.Maybe Prelude.Text,
-    -- | A list of service names that identity the target application. The AWS
-    -- IoT client running on the destination device reads this value and uses
-    -- it to look up a port or an IP address and a port. The AWS IoT client
-    -- instantiates the local proxy which uses this information to connect to
-    -- the destination application.
+    -- | A list of service names that identify the target application. The IoT
+    -- client running on the destination device reads this value and uses it to
+    -- look up a port or an IP address and a port. The IoT client instantiates
+    -- the local proxy, which uses this information to connect to the
+    -- destination application.
     services :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,11 +48,11 @@ data DestinationConfig = DestinationConfig'
 --
 -- 'thingName', 'destinationConfig_thingName' - The name of the IoT thing to which you want to connect.
 --
--- 'services', 'destinationConfig_services' - A list of service names that identity the target application. The AWS
--- IoT client running on the destination device reads this value and uses
--- it to look up a port or an IP address and a port. The AWS IoT client
--- instantiates the local proxy which uses this information to connect to
--- the destination application.
+-- 'services', 'destinationConfig_services' - A list of service names that identify the target application. The IoT
+-- client running on the destination device reads this value and uses it to
+-- look up a port or an IP address and a port. The IoT client instantiates
+-- the local proxy, which uses this information to connect to the
+-- destination application.
 newDestinationConfig ::
   -- | 'services'
   Prelude.NonEmpty Prelude.Text ->
@@ -67,11 +67,11 @@ newDestinationConfig pServices_ =
 destinationConfig_thingName :: Lens.Lens' DestinationConfig (Prelude.Maybe Prelude.Text)
 destinationConfig_thingName = Lens.lens (\DestinationConfig' {thingName} -> thingName) (\s@DestinationConfig' {} a -> s {thingName = a} :: DestinationConfig)
 
--- | A list of service names that identity the target application. The AWS
--- IoT client running on the destination device reads this value and uses
--- it to look up a port or an IP address and a port. The AWS IoT client
--- instantiates the local proxy which uses this information to connect to
--- the destination application.
+-- | A list of service names that identify the target application. The IoT
+-- client running on the destination device reads this value and uses it to
+-- look up a port or an IP address and a port. The IoT client instantiates
+-- the local proxy, which uses this information to connect to the
+-- destination application.
 destinationConfig_services :: Lens.Lens' DestinationConfig (Prelude.NonEmpty Prelude.Text)
 destinationConfig_services = Lens.lens (\DestinationConfig' {services} -> services) (\s@DestinationConfig' {} a -> s {services = a} :: DestinationConfig) Prelude.. Lens.coerced
 

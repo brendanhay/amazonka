@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
-  { -- | Excludes the root volume from being snapshotted.
+  { excludeDataVolumeIds :: Prelude.Maybe [Prelude.Text],
+    -- | Excludes the root volume from being snapshotted.
     excludeBootVolume :: Prelude.Maybe Prelude.Bool,
     -- | The instance to specify which volumes should be snapshotted.
     instanceId :: Prelude.Maybe Prelude.Text
@@ -43,6 +44,8 @@ data InstanceSpecification = InstanceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'excludeDataVolumeIds', 'instanceSpecification_excludeDataVolumeIds' - Undocumented member.
+--
 -- 'excludeBootVolume', 'instanceSpecification_excludeBootVolume' - Excludes the root volume from being snapshotted.
 --
 -- 'instanceId', 'instanceSpecification_instanceId' - The instance to specify which volumes should be snapshotted.
@@ -50,10 +53,15 @@ newInstanceSpecification ::
   InstanceSpecification
 newInstanceSpecification =
   InstanceSpecification'
-    { excludeBootVolume =
+    { excludeDataVolumeIds =
         Prelude.Nothing,
+      excludeBootVolume = Prelude.Nothing,
       instanceId = Prelude.Nothing
     }
+
+-- | Undocumented member.
+instanceSpecification_excludeDataVolumeIds :: Lens.Lens' InstanceSpecification (Prelude.Maybe [Prelude.Text])
+instanceSpecification_excludeDataVolumeIds = Lens.lens (\InstanceSpecification' {excludeDataVolumeIds} -> excludeDataVolumeIds) (\s@InstanceSpecification' {} a -> s {excludeDataVolumeIds = a} :: InstanceSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | Excludes the root volume from being snapshotted.
 instanceSpecification_excludeBootVolume :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Bool)
@@ -65,17 +73,23 @@ instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceI
 
 instance Prelude.Hashable InstanceSpecification where
   hashWithSalt _salt InstanceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` excludeBootVolume
+    _salt `Prelude.hashWithSalt` excludeDataVolumeIds
+      `Prelude.hashWithSalt` excludeBootVolume
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData InstanceSpecification where
   rnf InstanceSpecification' {..} =
-    Prelude.rnf excludeBootVolume
+    Prelude.rnf excludeDataVolumeIds
+      `Prelude.seq` Prelude.rnf excludeBootVolume
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =
     Prelude.mconcat
-      [ "ExcludeBootVolume" Core.=: excludeBootVolume,
+      [ Core.toQuery
+          ( Core.toQueryList "ExcludeDataVolumeId"
+              Prelude.<$> excludeDataVolumeIds
+          ),
+        "ExcludeBootVolume" Core.=: excludeBootVolume,
         "InstanceId" Core.=: instanceId
       ]

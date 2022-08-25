@@ -59,7 +59,13 @@ import qualified Amazonka.Response as Response
 data AddProfileKey = AddProfileKey'
   { -- | The unique identifier of a customer profile.
     profileId :: Prelude.Text,
-    -- | A searchable identifier of a customer profile.
+    -- | A searchable identifier of a customer profile. The predefined keys you
+    -- can use include: _account, _profileId, _assetId, _caseId, _orderId,
+    -- _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+    -- _salesforceAccountId, _salesforceContactId, _salesforceAssetId,
+    -- _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+    -- _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId,
+    -- _shopifyCustomerId, _shopifyOrderId.
     keyName :: Prelude.Text,
     -- | A list of key values.
     values :: [Prelude.Text],
@@ -78,7 +84,13 @@ data AddProfileKey = AddProfileKey'
 --
 -- 'profileId', 'addProfileKey_profileId' - The unique identifier of a customer profile.
 --
--- 'keyName', 'addProfileKey_keyName' - A searchable identifier of a customer profile.
+-- 'keyName', 'addProfileKey_keyName' - A searchable identifier of a customer profile. The predefined keys you
+-- can use include: _account, _profileId, _assetId, _caseId, _orderId,
+-- _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+-- _salesforceAccountId, _salesforceContactId, _salesforceAssetId,
+-- _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+-- _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId,
+-- _shopifyCustomerId, _shopifyOrderId.
 --
 -- 'values', 'addProfileKey_values' - A list of key values.
 --
@@ -103,7 +115,13 @@ newAddProfileKey pProfileId_ pKeyName_ pDomainName_ =
 addProfileKey_profileId :: Lens.Lens' AddProfileKey Prelude.Text
 addProfileKey_profileId = Lens.lens (\AddProfileKey' {profileId} -> profileId) (\s@AddProfileKey' {} a -> s {profileId = a} :: AddProfileKey)
 
--- | A searchable identifier of a customer profile.
+-- | A searchable identifier of a customer profile. The predefined keys you
+-- can use include: _account, _profileId, _assetId, _caseId, _orderId,
+-- _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+-- _salesforceAccountId, _salesforceContactId, _salesforceAssetId,
+-- _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+-- _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId,
+-- _shopifyCustomerId, _shopifyOrderId.
 addProfileKey_keyName :: Lens.Lens' AddProfileKey Prelude.Text
 addProfileKey_keyName = Lens.lens (\AddProfileKey' {keyName} -> keyName) (\s@AddProfileKey' {} a -> s {keyName = a} :: AddProfileKey)
 

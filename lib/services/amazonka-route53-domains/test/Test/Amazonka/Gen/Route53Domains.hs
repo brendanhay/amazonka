@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestCheckDomainTransferability $
 --             newCheckDomainTransferability
 --
+--         , requestDeleteDomain $
+--             newDeleteDomain
+--
 --         , requestDeleteTagsForDomain $
 --             newDeleteTagsForDomain
 --
@@ -71,6 +74,9 @@ import Test.Tasty
 --
 --         , requestListOperations $
 --             newListOperations
+--
+--         , requestListPrices $
+--             newListPrices
 --
 --         , requestListTagsForDomain $
 --             newListTagsForDomain
@@ -126,6 +132,9 @@ import Test.Tasty
 --         , responseCheckDomainTransferability $
 --             newCheckDomainTransferabilityResponse
 --
+--         , responseDeleteDomain $
+--             newDeleteDomainResponse
+--
 --         , responseDeleteTagsForDomain $
 --             newDeleteTagsForDomainResponse
 --
@@ -158,6 +167,9 @@ import Test.Tasty
 --
 --         , responseListOperations $
 --             newListOperationsResponse
+--
+--         , responseListPrices $
+--             newListPricesResponse
 --
 --         , responseListTagsForDomain $
 --             newListTagsForDomainResponse
@@ -227,6 +239,12 @@ requestCheckDomainTransferability =
     "CheckDomainTransferability"
     "fixture/CheckDomainTransferability.yaml"
 
+requestDeleteDomain :: DeleteDomain -> TestTree
+requestDeleteDomain =
+  req
+    "DeleteDomain"
+    "fixture/DeleteDomain.yaml"
+
 requestDeleteTagsForDomain :: DeleteTagsForDomain -> TestTree
 requestDeleteTagsForDomain =
   req
@@ -292,6 +310,12 @@ requestListOperations =
   req
     "ListOperations"
     "fixture/ListOperations.yaml"
+
+requestListPrices :: ListPrices -> TestTree
+requestListPrices =
+  req
+    "ListPrices"
+    "fixture/ListPrices.yaml"
 
 requestListTagsForDomain :: ListTagsForDomain -> TestTree
 requestListTagsForDomain =
@@ -405,6 +429,14 @@ responseCheckDomainTransferability =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CheckDomainTransferability)
 
+responseDeleteDomain :: DeleteDomainResponse -> TestTree
+responseDeleteDomain =
+  res
+    "DeleteDomainResponse"
+    "fixture/DeleteDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
+
 responseDeleteTagsForDomain :: DeleteTagsForDomainResponse -> TestTree
 responseDeleteTagsForDomain =
   res
@@ -492,6 +524,14 @@ responseListOperations =
     "fixture/ListOperationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListOperations)
+
+responseListPrices :: ListPricesResponse -> TestTree
+responseListPrices =
+  res
+    "ListPricesResponse"
+    "fixture/ListPricesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPrices)
 
 responseListTagsForDomain :: ListTagsForDomainResponse -> TestTree
 responseListTagsForDomain =

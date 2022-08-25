@@ -39,7 +39,7 @@ data BrokerNodeInfo = BrokerNodeInfo'
     -- | The attached elastic network interface of the broker.
     attachedENIId :: Prelude.Maybe Prelude.Text,
     -- | Information about the version of software currently deployed on the
-    -- Kafka brokers in the cluster.
+    -- Apache Kafka brokers in the cluster.
     currentBrokerSoftwareInfo :: Prelude.Maybe BrokerSoftwareInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data BrokerNodeInfo = BrokerNodeInfo'
 -- 'attachedENIId', 'brokerNodeInfo_attachedENIId' - The attached elastic network interface of the broker.
 --
 -- 'currentBrokerSoftwareInfo', 'brokerNodeInfo_currentBrokerSoftwareInfo' - Information about the version of software currently deployed on the
--- Kafka brokers in the cluster.
+-- Apache Kafka brokers in the cluster.
 newBrokerNodeInfo ::
   BrokerNodeInfo
 newBrokerNodeInfo =
@@ -97,7 +97,7 @@ brokerNodeInfo_attachedENIId :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude
 brokerNodeInfo_attachedENIId = Lens.lens (\BrokerNodeInfo' {attachedENIId} -> attachedENIId) (\s@BrokerNodeInfo' {} a -> s {attachedENIId = a} :: BrokerNodeInfo)
 
 -- | Information about the version of software currently deployed on the
--- Kafka brokers in the cluster.
+-- Apache Kafka brokers in the cluster.
 brokerNodeInfo_currentBrokerSoftwareInfo :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe BrokerSoftwareInfo)
 brokerNodeInfo_currentBrokerSoftwareInfo = Lens.lens (\BrokerNodeInfo' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@BrokerNodeInfo' {} a -> s {currentBrokerSoftwareInfo = a} :: BrokerNodeInfo)
 

@@ -50,28 +50,44 @@ library
     Amazonka.ChimeSDKIdentity.DeleteAppInstance
     Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
     Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
+    Amazonka.ChimeSDKIdentity.DeregisterAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.DescribeAppInstance
     Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
     Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
+    Amazonka.ChimeSDKIdentity.DescribeAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
     Amazonka.ChimeSDKIdentity.Lens
     Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
     Amazonka.ChimeSDKIdentity.ListAppInstances
+    Amazonka.ChimeSDKIdentity.ListAppInstanceUserEndpoints
     Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
+    Amazonka.ChimeSDKIdentity.ListTagsForResource
     Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+    Amazonka.ChimeSDKIdentity.RegisterAppInstanceUserEndpoint
+    Amazonka.ChimeSDKIdentity.TagResource
     Amazonka.ChimeSDKIdentity.Types
+    Amazonka.ChimeSDKIdentity.Types.AllowMessages
     Amazonka.ChimeSDKIdentity.Types.AppInstance
     Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
     Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
     Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
     Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
     Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpoint
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointSummary
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
     Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
     Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+    Amazonka.ChimeSDKIdentity.Types.EndpointAttributes
+    Amazonka.ChimeSDKIdentity.Types.EndpointState
+    Amazonka.ChimeSDKIdentity.Types.EndpointStatus
+    Amazonka.ChimeSDKIdentity.Types.EndpointStatusReason
     Amazonka.ChimeSDKIdentity.Types.Identity
     Amazonka.ChimeSDKIdentity.Types.Tag
+    Amazonka.ChimeSDKIdentity.UntagResource
     Amazonka.ChimeSDKIdentity.UpdateAppInstance
     Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
+    Amazonka.ChimeSDKIdentity.UpdateAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.Waiters
 
   build-depends:

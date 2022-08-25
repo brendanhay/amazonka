@@ -26,29 +26,42 @@ import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.ParticipantRole
 import Amazonka.Transcribe.Types.RelativeTimeRange
 
--- | An object that enables you to configure your category to be applied to
--- call analytics jobs where either the customer or agent was interrupted.
+-- | Flag the presence or absence of interruptions in your Call Analytics
+-- transcription output.
+--
+-- Rules using @InterruptionFilter@ are designed to match:
+--
+-- -   Instances where an agent interrupts a customer
+--
+-- -   Instances where a customer interrupts an agent
+--
+-- -   Either participant interrupting the other
+--
+-- -   A lack of interruptions
+--
+-- See
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
+-- for usage examples.
 --
 -- /See:/ 'newInterruptionFilter' smart constructor.
 data InterruptionFilter = InterruptionFilter'
-  { -- | Set to @TRUE@ to look for a time period where there was no interruption.
+  { -- | Set to @TRUE@ to flag speech that does not contain interruptions. Set to
+    -- @FALSE@ to flag speech that contains interruptions.
     negate :: Prelude.Maybe Prelude.Bool,
-    -- | An object you can use to specify a time range (in milliseconds) for when
-    -- you\'d want to find the interruption. For example, you could search for
-    -- an interruption between the 30,000 millisecond mark and the 45,000
-    -- millisecond mark. You could also specify the time period as the first
-    -- 15,000 milliseconds or the last 15,000 milliseconds.
+    -- | Allows you to specify a time range (in milliseconds) in your audio,
+    -- during which you want to search for an interruption. See for more
+    -- detail.
     absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
-    -- | Indicates whether the caller or customer was interrupting.
+    -- | Specify the interrupter you want to flag. Omitting this parameter is
+    -- equivalent to specifying both participants.
     participantRole :: Prelude.Maybe ParticipantRole,
-    -- | The duration of the interruption.
+    -- | Specify the duration of the interruptions in milliseconds. For example,
+    -- you can flag speech that contains more than 10000 milliseconds of
+    -- interruptions.
     threshold :: Prelude.Maybe Prelude.Natural,
-    -- | An object that allows percentages to specify the proportion of the call
-    -- where there was a interruption. For example, you can specify the first
-    -- half of the call. You can also specify the period of time between
-    -- halfway through to three-quarters of the way through the call. Because
-    -- the length of conversation can vary between calls, you can apply
-    -- relative time ranges across all calls.
+    -- | Allows you to specify a time range (in percentage) in your media file,
+    -- during which you want to search for an interruption. See for more
+    -- detail.
     relativeTimeRange :: Prelude.Maybe RelativeTimeRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,24 +74,23 @@ data InterruptionFilter = InterruptionFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'negate', 'interruptionFilter_negate' - Set to @TRUE@ to look for a time period where there was no interruption.
+-- 'negate', 'interruptionFilter_negate' - Set to @TRUE@ to flag speech that does not contain interruptions. Set to
+-- @FALSE@ to flag speech that contains interruptions.
 --
--- 'absoluteTimeRange', 'interruptionFilter_absoluteTimeRange' - An object you can use to specify a time range (in milliseconds) for when
--- you\'d want to find the interruption. For example, you could search for
--- an interruption between the 30,000 millisecond mark and the 45,000
--- millisecond mark. You could also specify the time period as the first
--- 15,000 milliseconds or the last 15,000 milliseconds.
+-- 'absoluteTimeRange', 'interruptionFilter_absoluteTimeRange' - Allows you to specify a time range (in milliseconds) in your audio,
+-- during which you want to search for an interruption. See for more
+-- detail.
 --
--- 'participantRole', 'interruptionFilter_participantRole' - Indicates whether the caller or customer was interrupting.
+-- 'participantRole', 'interruptionFilter_participantRole' - Specify the interrupter you want to flag. Omitting this parameter is
+-- equivalent to specifying both participants.
 --
--- 'threshold', 'interruptionFilter_threshold' - The duration of the interruption.
+-- 'threshold', 'interruptionFilter_threshold' - Specify the duration of the interruptions in milliseconds. For example,
+-- you can flag speech that contains more than 10000 milliseconds of
+-- interruptions.
 --
--- 'relativeTimeRange', 'interruptionFilter_relativeTimeRange' - An object that allows percentages to specify the proportion of the call
--- where there was a interruption. For example, you can specify the first
--- half of the call. You can also specify the period of time between
--- halfway through to three-quarters of the way through the call. Because
--- the length of conversation can vary between calls, you can apply
--- relative time ranges across all calls.
+-- 'relativeTimeRange', 'interruptionFilter_relativeTimeRange' - Allows you to specify a time range (in percentage) in your media file,
+-- during which you want to search for an interruption. See for more
+-- detail.
 newInterruptionFilter ::
   InterruptionFilter
 newInterruptionFilter =
@@ -90,32 +102,31 @@ newInterruptionFilter =
       relativeTimeRange = Prelude.Nothing
     }
 
--- | Set to @TRUE@ to look for a time period where there was no interruption.
+-- | Set to @TRUE@ to flag speech that does not contain interruptions. Set to
+-- @FALSE@ to flag speech that contains interruptions.
 interruptionFilter_negate :: Lens.Lens' InterruptionFilter (Prelude.Maybe Prelude.Bool)
 interruptionFilter_negate = Lens.lens (\InterruptionFilter' {negate} -> negate) (\s@InterruptionFilter' {} a -> s {negate = a} :: InterruptionFilter)
 
--- | An object you can use to specify a time range (in milliseconds) for when
--- you\'d want to find the interruption. For example, you could search for
--- an interruption between the 30,000 millisecond mark and the 45,000
--- millisecond mark. You could also specify the time period as the first
--- 15,000 milliseconds or the last 15,000 milliseconds.
+-- | Allows you to specify a time range (in milliseconds) in your audio,
+-- during which you want to search for an interruption. See for more
+-- detail.
 interruptionFilter_absoluteTimeRange :: Lens.Lens' InterruptionFilter (Prelude.Maybe AbsoluteTimeRange)
 interruptionFilter_absoluteTimeRange = Lens.lens (\InterruptionFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@InterruptionFilter' {} a -> s {absoluteTimeRange = a} :: InterruptionFilter)
 
--- | Indicates whether the caller or customer was interrupting.
+-- | Specify the interrupter you want to flag. Omitting this parameter is
+-- equivalent to specifying both participants.
 interruptionFilter_participantRole :: Lens.Lens' InterruptionFilter (Prelude.Maybe ParticipantRole)
 interruptionFilter_participantRole = Lens.lens (\InterruptionFilter' {participantRole} -> participantRole) (\s@InterruptionFilter' {} a -> s {participantRole = a} :: InterruptionFilter)
 
--- | The duration of the interruption.
+-- | Specify the duration of the interruptions in milliseconds. For example,
+-- you can flag speech that contains more than 10000 milliseconds of
+-- interruptions.
 interruptionFilter_threshold :: Lens.Lens' InterruptionFilter (Prelude.Maybe Prelude.Natural)
 interruptionFilter_threshold = Lens.lens (\InterruptionFilter' {threshold} -> threshold) (\s@InterruptionFilter' {} a -> s {threshold = a} :: InterruptionFilter)
 
--- | An object that allows percentages to specify the proportion of the call
--- where there was a interruption. For example, you can specify the first
--- half of the call. You can also specify the period of time between
--- halfway through to three-quarters of the way through the call. Because
--- the length of conversation can vary between calls, you can apply
--- relative time ranges across all calls.
+-- | Allows you to specify a time range (in percentage) in your media file,
+-- during which you want to search for an interruption. See for more
+-- detail.
 interruptionFilter_relativeTimeRange :: Lens.Lens' InterruptionFilter (Prelude.Maybe RelativeTimeRange)
 interruptionFilter_relativeTimeRange = Lens.lens (\InterruptionFilter' {relativeTimeRange} -> relativeTimeRange) (\s@InterruptionFilter' {} a -> s {relativeTimeRange = a} :: InterruptionFilter)
 

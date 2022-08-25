@@ -25,12 +25,12 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
 
 -- | The type of experience you want to embed. For anonymous users, you can
--- embed an Amazon QuickSight dashboard.
+-- embed Amazon QuickSight dashboards.
 --
 -- /See:/ 'newAnonymousUserEmbeddingExperienceConfiguration' smart constructor.
 data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExperienceConfiguration'
-  { -- | The type of embedding experience. In this case, an Amazon QuickSight
-    -- dashboard.
+  { -- | The type of embedding experience. In this case, Amazon QuickSight
+    -- dashboards.
     dashboard :: Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +43,8 @@ data AnonymousUserEmbeddingExperienceConfiguration = AnonymousUserEmbeddingExper
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dashboard', 'anonymousUserEmbeddingExperienceConfiguration_dashboard' - The type of embedding experience. In this case, an Amazon QuickSight
--- dashboard.
+-- 'dashboard', 'anonymousUserEmbeddingExperienceConfiguration_dashboard' - The type of embedding experience. In this case, Amazon QuickSight
+-- dashboards.
 newAnonymousUserEmbeddingExperienceConfiguration ::
   AnonymousUserEmbeddingExperienceConfiguration
 newAnonymousUserEmbeddingExperienceConfiguration =
@@ -53,8 +53,8 @@ newAnonymousUserEmbeddingExperienceConfiguration =
         Prelude.Nothing
     }
 
--- | The type of embedding experience. In this case, an Amazon QuickSight
--- dashboard.
+-- | The type of embedding experience. In this case, Amazon QuickSight
+-- dashboards.
 anonymousUserEmbeddingExperienceConfiguration_dashboard :: Lens.Lens' AnonymousUserEmbeddingExperienceConfiguration (Prelude.Maybe AnonymousUserDashboardEmbeddingConfiguration)
 anonymousUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\AnonymousUserEmbeddingExperienceConfiguration' {dashboard} -> dashboard) (\s@AnonymousUserEmbeddingExperienceConfiguration' {} a -> s {dashboard = a} :: AnonymousUserEmbeddingExperienceConfiguration)
 

@@ -103,6 +103,12 @@ module Amazonka.LookoutVision
     DescribeModelResponse (DescribeModelResponse'),
     newDescribeModelResponse,
 
+    -- ** DescribeModelPackagingJob
+    DescribeModelPackagingJob (DescribeModelPackagingJob'),
+    newDescribeModelPackagingJob,
+    DescribeModelPackagingJobResponse (DescribeModelPackagingJobResponse'),
+    newDescribeModelPackagingJobResponse,
+
     -- ** DescribeProject
     DescribeProject (DescribeProject'),
     newDescribeProject,
@@ -120,6 +126,12 @@ module Amazonka.LookoutVision
     newListDatasetEntries,
     ListDatasetEntriesResponse (ListDatasetEntriesResponse'),
     newListDatasetEntriesResponse,
+
+    -- ** ListModelPackagingJobs (Paginated)
+    ListModelPackagingJobs (ListModelPackagingJobs'),
+    newListModelPackagingJobs,
+    ListModelPackagingJobsResponse (ListModelPackagingJobsResponse'),
+    newListModelPackagingJobsResponse,
 
     -- ** ListModels (Paginated)
     ListModels (ListModels'),
@@ -144,6 +156,12 @@ module Amazonka.LookoutVision
     newStartModel,
     StartModelResponse (StartModelResponse'),
     newStartModelResponse,
+
+    -- ** StartModelPackagingJob
+    StartModelPackagingJob (StartModelPackagingJob'),
+    newStartModelPackagingJob,
+    StartModelPackagingJobResponse (StartModelPackagingJobResponse'),
+    newStartModelPackagingJobResponse,
 
     -- ** StopModel
     StopModel (StopModel'),
@@ -177,8 +195,27 @@ module Amazonka.LookoutVision
     -- ** ModelHostingStatus
     ModelHostingStatus (..),
 
+    -- ** ModelPackagingJobStatus
+    ModelPackagingJobStatus (..),
+
     -- ** ModelStatus
     ModelStatus (..),
+
+    -- ** TargetDevice
+    TargetDevice (..),
+
+    -- ** TargetPlatformAccelerator
+    TargetPlatformAccelerator (..),
+
+    -- ** TargetPlatformArch
+    TargetPlatformArch (..),
+
+    -- ** TargetPlatformOs
+    TargetPlatformOs (..),
+
+    -- ** Anomaly
+    Anomaly (Anomaly'),
+    newAnomaly,
 
     -- ** DatasetDescription
     DatasetDescription (DatasetDescription'),
@@ -204,6 +241,14 @@ module Amazonka.LookoutVision
     DetectAnomalyResult (DetectAnomalyResult'),
     newDetectAnomalyResult,
 
+    -- ** GreengrassConfiguration
+    GreengrassConfiguration (GreengrassConfiguration'),
+    newGreengrassConfiguration,
+
+    -- ** GreengrassOutputDetails
+    GreengrassOutputDetails (GreengrassOutputDetails'),
+    newGreengrassOutputDetails,
+
     -- ** ImageSource
     ImageSource (ImageSource'),
     newImageSource,
@@ -220,6 +265,22 @@ module Amazonka.LookoutVision
     ModelMetadata (ModelMetadata'),
     newModelMetadata,
 
+    -- ** ModelPackagingConfiguration
+    ModelPackagingConfiguration (ModelPackagingConfiguration'),
+    newModelPackagingConfiguration,
+
+    -- ** ModelPackagingDescription
+    ModelPackagingDescription (ModelPackagingDescription'),
+    newModelPackagingDescription,
+
+    -- ** ModelPackagingJobMetadata
+    ModelPackagingJobMetadata (ModelPackagingJobMetadata'),
+    newModelPackagingJobMetadata,
+
+    -- ** ModelPackagingOutputDetails
+    ModelPackagingOutputDetails (ModelPackagingOutputDetails'),
+    newModelPackagingOutputDetails,
+
     -- ** ModelPerformance
     ModelPerformance (ModelPerformance'),
     newModelPerformance,
@@ -231,6 +292,10 @@ module Amazonka.LookoutVision
     -- ** OutputS3Object
     OutputS3Object (OutputS3Object'),
     newOutputS3Object,
+
+    -- ** PixelAnomaly
+    PixelAnomaly (PixelAnomaly'),
+    newPixelAnomaly,
 
     -- ** ProjectDescription
     ProjectDescription (ProjectDescription'),
@@ -247,6 +312,10 @@ module Amazonka.LookoutVision
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TargetPlatform
+    TargetPlatform (TargetPlatform'),
+    newTargetPlatform,
   )
 where
 
@@ -258,14 +327,17 @@ import Amazonka.LookoutVision.DeleteModel
 import Amazonka.LookoutVision.DeleteProject
 import Amazonka.LookoutVision.DescribeDataset
 import Amazonka.LookoutVision.DescribeModel
+import Amazonka.LookoutVision.DescribeModelPackagingJob
 import Amazonka.LookoutVision.DescribeProject
 import Amazonka.LookoutVision.DetectAnomalies
 import Amazonka.LookoutVision.Lens
 import Amazonka.LookoutVision.ListDatasetEntries
+import Amazonka.LookoutVision.ListModelPackagingJobs
 import Amazonka.LookoutVision.ListModels
 import Amazonka.LookoutVision.ListProjects
 import Amazonka.LookoutVision.ListTagsForResource
 import Amazonka.LookoutVision.StartModel
+import Amazonka.LookoutVision.StartModelPackagingJob
 import Amazonka.LookoutVision.StopModel
 import Amazonka.LookoutVision.TagResource
 import Amazonka.LookoutVision.Types

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the resource policy that AWS Resource Access Manager uses to
--- share your Incident Manager resource.
+-- Deletes the resource policy that Resource Access Manager uses to share
+-- your Incident Manager resource.
 module Amazonka.SSMIncidents.DeleteResourcePolicy
   ( -- * Creating a Request
     DeleteResourcePolicy (..),

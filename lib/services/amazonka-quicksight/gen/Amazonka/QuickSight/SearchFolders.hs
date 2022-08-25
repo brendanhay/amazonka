@@ -58,7 +58,7 @@ data SearchFolders = SearchFolders'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS account ID.
+    -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text,
     -- | The filters to apply to the search. Currently, you can search only by
     -- the parent folder ARN. For example,
@@ -80,7 +80,7 @@ data SearchFolders = SearchFolders'
 --
 -- 'maxResults', 'searchFolders_maxResults' - The maximum number of results to be returned per request.
 --
--- 'awsAccountId', 'searchFolders_awsAccountId' - The AWS account ID.
+-- 'awsAccountId', 'searchFolders_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 --
 -- 'filters', 'searchFolders_filters' - The filters to apply to the search. Currently, you can search only by
 -- the parent folder ARN. For example,
@@ -106,7 +106,7 @@ searchFolders_nextToken = Lens.lens (\SearchFolders' {nextToken} -> nextToken) (
 searchFolders_maxResults :: Lens.Lens' SearchFolders (Prelude.Maybe Prelude.Natural)
 searchFolders_maxResults = Lens.lens (\SearchFolders' {maxResults} -> maxResults) (\s@SearchFolders' {} a -> s {maxResults = a} :: SearchFolders)
 
--- | The AWS account ID.
+-- | The ID for the Amazon Web Services account that contains the folder.
 searchFolders_awsAccountId :: Lens.Lens' SearchFolders Prelude.Text
 searchFolders_awsAccountId = Lens.lens (\SearchFolders' {awsAccountId} -> awsAccountId) (\s@SearchFolders' {} a -> s {awsAccountId = a} :: SearchFolders)
 
@@ -184,12 +184,12 @@ data SearchFoldersResponse = SearchFoldersResponse'
   { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains all of the folders in your AWS account. This
-    -- structure provides basic information about the folders.
+    -- | A structure that contains all of the folders in the Amazon Web Services
+    -- account. This structure provides basic information about the folders.
     folderSummaryList :: Prelude.Maybe [FolderSummary],
-    -- | The request ID.
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The status. If succeeded, the status is @SC_OK@.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -205,12 +205,12 @@ data SearchFoldersResponse = SearchFoldersResponse'
 -- 'nextToken', 'searchFoldersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
--- 'folderSummaryList', 'searchFoldersResponse_folderSummaryList' - A structure that contains all of the folders in your AWS account. This
--- structure provides basic information about the folders.
+-- 'folderSummaryList', 'searchFoldersResponse_folderSummaryList' - A structure that contains all of the folders in the Amazon Web Services
+-- account. This structure provides basic information about the folders.
 --
--- 'requestId', 'searchFoldersResponse_requestId' - The request ID.
+-- 'requestId', 'searchFoldersResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'status', 'searchFoldersResponse_status' - The status. If succeeded, the status is @SC_OK@.
+-- 'status', 'searchFoldersResponse_status' - The HTTP status of the request.
 newSearchFoldersResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -228,16 +228,16 @@ newSearchFoldersResponse pStatus_ =
 searchFoldersResponse_nextToken :: Lens.Lens' SearchFoldersResponse (Prelude.Maybe Prelude.Text)
 searchFoldersResponse_nextToken = Lens.lens (\SearchFoldersResponse' {nextToken} -> nextToken) (\s@SearchFoldersResponse' {} a -> s {nextToken = a} :: SearchFoldersResponse)
 
--- | A structure that contains all of the folders in your AWS account. This
--- structure provides basic information about the folders.
+-- | A structure that contains all of the folders in the Amazon Web Services
+-- account. This structure provides basic information about the folders.
 searchFoldersResponse_folderSummaryList :: Lens.Lens' SearchFoldersResponse (Prelude.Maybe [FolderSummary])
 searchFoldersResponse_folderSummaryList = Lens.lens (\SearchFoldersResponse' {folderSummaryList} -> folderSummaryList) (\s@SearchFoldersResponse' {} a -> s {folderSummaryList = a} :: SearchFoldersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 searchFoldersResponse_requestId :: Lens.Lens' SearchFoldersResponse (Prelude.Maybe Prelude.Text)
 searchFoldersResponse_requestId = Lens.lens (\SearchFoldersResponse' {requestId} -> requestId) (\s@SearchFoldersResponse' {} a -> s {requestId = a} :: SearchFoldersResponse)
 
--- | The status. If succeeded, the status is @SC_OK@.
+-- | The HTTP status of the request.
 searchFoldersResponse_status :: Lens.Lens' SearchFoldersResponse Prelude.Int
 searchFoldersResponse_status = Lens.lens (\SearchFoldersResponse' {status} -> status) (\s@SearchFoldersResponse' {} a -> s {status = a} :: SearchFoldersResponse)
 

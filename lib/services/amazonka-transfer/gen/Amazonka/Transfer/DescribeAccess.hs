@@ -22,7 +22,7 @@
 --
 -- Describes the access that is assigned to the specific file transfer
 -- protocol-enabled server, as identified by its @ServerId@ property and
--- its @ExternalID@.
+-- its @ExternalId@.
 --
 -- The response from this call returns the properties of the access that is
 -- associated with the @ServerId@ value that was specified.
@@ -61,18 +61,17 @@ data DescribeAccess = DescribeAccess'
     -- | A unique identifier that is required to identify specific groups within
     -- your directory. The users of the group that you associate have access to
     -- your Amazon S3 or Amazon EFS resources over the enabled protocols using
-    -- Amazon Web Services Transfer Family. If you know the group name, you can
-    -- view the SID values by running the following command using Windows
-    -- PowerShell.
+    -- Transfer Family. If you know the group name, you can view the SID values
+    -- by running the following command using Windows PowerShell.
     --
     -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
     --
     -- In that command, replace /YourGroupName/ with the name of your Active
     -- Directory group.
     --
-    -- The regex used to validate this parameter is a string of characters
-    -- consisting of uppercase and lowercase alphanumeric characters with no
-    -- spaces. You can also include underscores or any of the following
+    -- The regular expression used to validate this parameter is a string of
+    -- characters consisting of uppercase and lowercase alphanumeric characters
+    -- with no spaces. You can also include underscores or any of the following
     -- characters: =,.\@:\/-
     externalId :: Prelude.Text
   }
@@ -92,18 +91,17 @@ data DescribeAccess = DescribeAccess'
 -- 'externalId', 'describeAccess_externalId' - A unique identifier that is required to identify specific groups within
 -- your directory. The users of the group that you associate have access to
 -- your Amazon S3 or Amazon EFS resources over the enabled protocols using
--- Amazon Web Services Transfer Family. If you know the group name, you can
--- view the SID values by running the following command using Windows
--- PowerShell.
+-- Transfer Family. If you know the group name, you can view the SID values
+-- by running the following command using Windows PowerShell.
 --
 -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
 --
--- The regex used to validate this parameter is a string of characters
--- consisting of uppercase and lowercase alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
+-- The regular expression used to validate this parameter is a string of
+-- characters consisting of uppercase and lowercase alphanumeric characters
+-- with no spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
 newDescribeAccess ::
   -- | 'serverId'
@@ -125,18 +123,17 @@ describeAccess_serverId = Lens.lens (\DescribeAccess' {serverId} -> serverId) (\
 -- | A unique identifier that is required to identify specific groups within
 -- your directory. The users of the group that you associate have access to
 -- your Amazon S3 or Amazon EFS resources over the enabled protocols using
--- Amazon Web Services Transfer Family. If you know the group name, you can
--- view the SID values by running the following command using Windows
--- PowerShell.
+-- Transfer Family. If you know the group name, you can view the SID values
+-- by running the following command using Windows PowerShell.
 --
 -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
 --
--- The regex used to validate this parameter is a string of characters
--- consisting of uppercase and lowercase alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
+-- The regular expression used to validate this parameter is a string of
+-- characters consisting of uppercase and lowercase alphanumeric characters
+-- with no spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
 describeAccess_externalId :: Lens.Lens' DescribeAccess Prelude.Text
 describeAccess_externalId = Lens.lens (\DescribeAccess' {externalId} -> externalId) (\s@DescribeAccess' {} a -> s {externalId = a} :: DescribeAccess)

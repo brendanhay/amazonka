@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified DB cluster parameter group.
---
--- This action only applies to Aurora DB clusters.
 module Amazonka.RDS.CopyDBClusterParameterGroup
   ( -- * Creating a Request
     CopyDBClusterParameterGroup (..),

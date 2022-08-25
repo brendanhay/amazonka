@@ -36,7 +36,7 @@ data CacheEngineVersion = CacheEngineVersion'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@ |
+    -- @redis6.x@
     cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The description of the cache engine.
     cacheEngineDescription :: Prelude.Maybe Prelude.Text,
@@ -62,7 +62,7 @@ data CacheEngineVersion = CacheEngineVersion'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@
 --
 -- 'cacheEngineDescription', 'cacheEngineVersion_cacheEngineDescription' - The description of the cache engine.
 --
@@ -92,7 +92,7 @@ cacheEngineVersion_engine = Lens.lens (\CacheEngineVersion' {engine} -> engine) 
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@
 cacheEngineVersion_cacheParameterGroupFamily :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
 cacheEngineVersion_cacheParameterGroupFamily = Lens.lens (\CacheEngineVersion' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@CacheEngineVersion' {} a -> s {cacheParameterGroupFamily = a} :: CacheEngineVersion)
 

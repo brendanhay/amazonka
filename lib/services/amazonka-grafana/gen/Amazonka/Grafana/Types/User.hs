@@ -29,6 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newUser' smart constructor.
 data User = User'
   { -- | The ID of the user or group.
+    --
+    -- Pattern:
+    -- @^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$@
     id :: Prelude.Text,
     -- | Specifies whether this is a single user or a group.
     type' :: UserType
@@ -45,6 +48,9 @@ data User = User'
 --
 -- 'id', 'user_id' - The ID of the user or group.
 --
+-- Pattern:
+-- @^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$@
+--
 -- 'type'', 'user_type' - Specifies whether this is a single user or a group.
 newUser ::
   -- | 'id'
@@ -56,6 +62,9 @@ newUser pId_ pType_ =
   User' {id = pId_, type' = pType_}
 
 -- | The ID of the user or group.
+--
+-- Pattern:
+-- @^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$@
 user_id :: Lens.Lens' User Prelude.Text
 user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
 

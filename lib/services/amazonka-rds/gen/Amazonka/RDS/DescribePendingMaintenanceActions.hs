@@ -68,13 +68,12 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     -- Supported filters:
     --
     -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
-    --     Amazon Resource Names (ARNs). The results list will only include
-    --     pending maintenance actions for the DB clusters identified by these
-    --     ARNs.
+    --     Amazon Resource Names (ARNs). The results list only includes pending
+    --     maintenance actions for the DB clusters identified by these ARNs.
     --
     -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
-    --     ARNs. The results list will only include pending maintenance actions
-    --     for the DB instances identified by these ARNs.
+    --     ARNs. The results list only includes pending maintenance actions for
+    --     the DB instances identified by these ARNs.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -109,13 +108,12 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- Supported filters:
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
---     Amazon Resource Names (ARNs). The results list will only include
---     pending maintenance actions for the DB clusters identified by these
---     ARNs.
+--     Amazon Resource Names (ARNs). The results list only includes pending
+--     maintenance actions for the DB clusters identified by these ARNs.
 --
 -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
---     ARNs. The results list will only include pending maintenance actions
---     for the DB instances identified by these ARNs.
+--     ARNs. The results list only includes pending maintenance actions for
+--     the DB instances identified by these ARNs.
 --
 -- 'maxRecords', 'describePendingMaintenanceActions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -151,13 +149,12 @@ describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanc
 -- Supported filters:
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
---     Amazon Resource Names (ARNs). The results list will only include
---     pending maintenance actions for the DB clusters identified by these
---     ARNs.
+--     Amazon Resource Names (ARNs). The results list only includes pending
+--     maintenance actions for the DB clusters identified by these ARNs.
 --
 -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
---     ARNs. The results list will only include pending maintenance actions
---     for the DB instances identified by these ARNs.
+--     ARNs. The results list only includes pending maintenance actions for
+--     the DB instances identified by these ARNs.
 describePendingMaintenanceActions_filters :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe [Filter])
 describePendingMaintenanceActions_filters = Lens.lens (\DescribePendingMaintenanceActions' {filters} -> filters) (\s@DescribePendingMaintenanceActions' {} a -> s {filters = a} :: DescribePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
 

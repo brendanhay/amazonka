@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Analyzes an input document for financially related relationships between
--- text.
+-- @AnalyzeExpense@ synchronously analyzes an input document for
+-- financially related relationships between text.
 --
 -- Information is returned as @ExpenseDocuments@ and seperated as follows.
 --

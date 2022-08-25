@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestBatchGetNamedQuery $
 --             newBatchGetNamedQuery
 --
+--         , requestBatchGetPreparedStatement $
+--             newBatchGetPreparedStatement
+--
 --         , requestBatchGetQueryExecution $
 --             newBatchGetQueryExecution
 --
@@ -74,6 +77,9 @@ import Test.Tasty
 --
 --         , requestGetQueryResults $
 --             newGetQueryResults
+--
+--         , requestGetQueryRuntimeStatistics $
+--             newGetQueryRuntimeStatistics
 --
 --         , requestGetTableMetadata $
 --             newGetTableMetadata
@@ -123,6 +129,9 @@ import Test.Tasty
 --         , requestUpdateDataCatalog $
 --             newUpdateDataCatalog
 --
+--         , requestUpdateNamedQuery $
+--             newUpdateNamedQuery
+--
 --         , requestUpdatePreparedStatement $
 --             newUpdatePreparedStatement
 --
@@ -134,6 +143,9 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseBatchGetNamedQuery $
 --             newBatchGetNamedQueryResponse
+--
+--         , responseBatchGetPreparedStatement $
+--             newBatchGetPreparedStatementResponse
 --
 --         , responseBatchGetQueryExecution $
 --             newBatchGetQueryExecutionResponse
@@ -179,6 +191,9 @@ import Test.Tasty
 --
 --         , responseGetQueryResults $
 --             newGetQueryResultsResponse
+--
+--         , responseGetQueryRuntimeStatistics $
+--             newGetQueryRuntimeStatisticsResponse
 --
 --         , responseGetTableMetadata $
 --             newGetTableMetadataResponse
@@ -228,6 +243,9 @@ import Test.Tasty
 --         , responseUpdateDataCatalog $
 --             newUpdateDataCatalogResponse
 --
+--         , responseUpdateNamedQuery $
+--             newUpdateNamedQueryResponse
+--
 --         , responseUpdatePreparedStatement $
 --             newUpdatePreparedStatementResponse
 --
@@ -244,6 +262,12 @@ requestBatchGetNamedQuery =
   req
     "BatchGetNamedQuery"
     "fixture/BatchGetNamedQuery.yaml"
+
+requestBatchGetPreparedStatement :: BatchGetPreparedStatement -> TestTree
+requestBatchGetPreparedStatement =
+  req
+    "BatchGetPreparedStatement"
+    "fixture/BatchGetPreparedStatement.yaml"
 
 requestBatchGetQueryExecution :: BatchGetQueryExecution -> TestTree
 requestBatchGetQueryExecution =
@@ -334,6 +358,12 @@ requestGetQueryResults =
   req
     "GetQueryResults"
     "fixture/GetQueryResults.yaml"
+
+requestGetQueryRuntimeStatistics :: GetQueryRuntimeStatistics -> TestTree
+requestGetQueryRuntimeStatistics =
+  req
+    "GetQueryRuntimeStatistics"
+    "fixture/GetQueryRuntimeStatistics.yaml"
 
 requestGetTableMetadata :: GetTableMetadata -> TestTree
 requestGetTableMetadata =
@@ -431,6 +461,12 @@ requestUpdateDataCatalog =
     "UpdateDataCatalog"
     "fixture/UpdateDataCatalog.yaml"
 
+requestUpdateNamedQuery :: UpdateNamedQuery -> TestTree
+requestUpdateNamedQuery =
+  req
+    "UpdateNamedQuery"
+    "fixture/UpdateNamedQuery.yaml"
+
 requestUpdatePreparedStatement :: UpdatePreparedStatement -> TestTree
 requestUpdatePreparedStatement =
   req
@@ -452,6 +488,14 @@ responseBatchGetNamedQuery =
     "fixture/BatchGetNamedQueryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetNamedQuery)
+
+responseBatchGetPreparedStatement :: BatchGetPreparedStatementResponse -> TestTree
+responseBatchGetPreparedStatement =
+  res
+    "BatchGetPreparedStatementResponse"
+    "fixture/BatchGetPreparedStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetPreparedStatement)
 
 responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
 responseBatchGetQueryExecution =
@@ -572,6 +616,14 @@ responseGetQueryResults =
     "fixture/GetQueryResultsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetQueryResults)
+
+responseGetQueryRuntimeStatistics :: GetQueryRuntimeStatisticsResponse -> TestTree
+responseGetQueryRuntimeStatistics =
+  res
+    "GetQueryRuntimeStatisticsResponse"
+    "fixture/GetQueryRuntimeStatisticsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetQueryRuntimeStatistics)
 
 responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
 responseGetTableMetadata =
@@ -700,6 +752,14 @@ responseUpdateDataCatalog =
     "fixture/UpdateDataCatalogResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDataCatalog)
+
+responseUpdateNamedQuery :: UpdateNamedQueryResponse -> TestTree
+responseUpdateNamedQuery =
+  res
+    "UpdateNamedQueryResponse"
+    "fixture/UpdateNamedQueryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNamedQuery)
 
 responseUpdatePreparedStatement :: UpdatePreparedStatementResponse -> TestTree
 responseUpdatePreparedStatement =

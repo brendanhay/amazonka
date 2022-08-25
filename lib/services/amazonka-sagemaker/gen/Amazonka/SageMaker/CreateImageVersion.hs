@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a version of the SageMaker image specified by @ImageName@. The
--- version represents the Amazon Container Registry (ECR) container image
--- specified by @BaseImage@.
+-- version represents the Amazon Elastic Container Registry (ECR) container
+-- image specified by @BaseImage@.
 module Amazonka.SageMaker.CreateImageVersion
   ( -- * Creating a Request
     CreateImageVersion (..),
@@ -53,8 +53,8 @@ import Amazonka.SageMaker.Types
 -- | /See:/ 'newCreateImageVersion' smart constructor.
 data CreateImageVersion = CreateImageVersion'
   { -- | The registry path of the container image to use as the starting point
-    -- for this version. The path is an Amazon Container Registry (ECR) URI in
-    -- the following format:
+    -- for this version. The path is an Amazon Elastic Container Registry (ECR)
+    -- URI in the following format:
     --
     -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
     baseImage :: Prelude.Text,
@@ -76,8 +76,8 @@ data CreateImageVersion = CreateImageVersion'
 -- for backwards compatibility:
 --
 -- 'baseImage', 'createImageVersion_baseImage' - The registry path of the container image to use as the starting point
--- for this version. The path is an Amazon Container Registry (ECR) URI in
--- the following format:
+-- for this version. The path is an Amazon Elastic Container Registry (ECR)
+-- URI in the following format:
 --
 -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
 --
@@ -105,8 +105,8 @@ newCreateImageVersion
       }
 
 -- | The registry path of the container image to use as the starting point
--- for this version. The path is an Amazon Container Registry (ECR) URI in
--- the following format:
+-- for this version. The path is an Amazon Elastic Container Registry (ECR)
+-- URI in the following format:
 --
 -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
 createImageVersion_baseImage :: Lens.Lens' CreateImageVersion Prelude.Text

@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An AWS CodeArtifact resource policy that contains a resource ARN,
--- document details, and a revision.
+-- | An CodeArtifact resource policy that contains a resource ARN, document
+-- details, and a revision.
 --
 -- /See:/ 'newResourcePolicy' smart constructor.
 data ResourcePolicy = ResourcePolicy'

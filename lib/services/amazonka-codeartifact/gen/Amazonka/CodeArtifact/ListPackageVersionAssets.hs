@@ -72,36 +72,31 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
+    -- | The namespace of the package version that contains the requested package
+    -- version assets. The package version component that specifies its
     -- namespace depends on its type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository associated with the
     -- package version assets.
     domain :: Prelude.Text,
     -- | The name of the repository that contains the package that contains the
-    -- returned package version assets.
+    -- requested package version assets.
     repository :: Prelude.Text,
-    -- | The format of the package that contains the returned package version
-    -- assets. The valid package types are:
-    --
-    -- -   @npm@: A Node Package Manager (npm) package.
-    --
-    -- -   @pypi@: A Python Package Index (PyPI) package.
-    --
-    -- -   @maven@: A Maven package that contains compiled code in a
-    --     distributable format, such as a JAR file.
+    -- | The format of the package that contains the requested package version
+    -- assets.
     format :: PackageFormat,
-    -- | The name of the package that contains the returned package version
+    -- | The name of the package that contains the requested package version
     -- assets.
     package :: Prelude.Text,
     -- | A string that contains the package version (for example, @3.5.2@).
@@ -123,36 +118,31 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
 --
 -- 'maxResults', 'listPackageVersionAssets_maxResults' - The maximum number of results to return per page.
 --
--- 'domainOwner', 'listPackageVersionAssets_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'listPackageVersionAssets_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'listPackageVersionAssets_namespace' - The namespace of the package. The package component that specifies its
+-- 'namespace', 'listPackageVersionAssets_namespace' - The namespace of the package version that contains the requested package
+-- version assets. The package version component that specifies its
 -- namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'domain', 'listPackageVersionAssets_domain' - The name of the domain that contains the repository associated with the
 -- package version assets.
 --
 -- 'repository', 'listPackageVersionAssets_repository' - The name of the repository that contains the package that contains the
--- returned package version assets.
+-- requested package version assets.
 --
--- 'format', 'listPackageVersionAssets_format' - The format of the package that contains the returned package version
--- assets. The valid package types are:
+-- 'format', 'listPackageVersionAssets_format' - The format of the package that contains the requested package version
+-- assets.
 --
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
---
--- 'package', 'listPackageVersionAssets_package' - The name of the package that contains the returned package version
+-- 'package', 'listPackageVersionAssets_package' - The name of the package that contains the requested package version
 -- assets.
 --
 -- 'packageVersion', 'listPackageVersionAssets_packageVersion' - A string that contains the package version (for example, @3.5.2@).
@@ -197,20 +187,22 @@ listPackageVersionAssets_nextToken = Lens.lens (\ListPackageVersionAssets' {next
 listPackageVersionAssets_maxResults :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Natural)
 listPackageVersionAssets_maxResults = Lens.lens (\ListPackageVersionAssets' {maxResults} -> maxResults) (\s@ListPackageVersionAssets' {} a -> s {maxResults = a} :: ListPackageVersionAssets)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 listPackageVersionAssets_domainOwner :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
 listPackageVersionAssets_domainOwner = Lens.lens (\ListPackageVersionAssets' {domainOwner} -> domainOwner) (\s@ListPackageVersionAssets' {} a -> s {domainOwner = a} :: ListPackageVersionAssets)
 
--- | The namespace of the package. The package component that specifies its
+-- | The namespace of the package version that contains the requested package
+-- version assets. The package version component that specifies its
 -- namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 listPackageVersionAssets_namespace :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
 listPackageVersionAssets_namespace = Lens.lens (\ListPackageVersionAssets' {namespace} -> namespace) (\s@ListPackageVersionAssets' {} a -> s {namespace = a} :: ListPackageVersionAssets)
 
@@ -220,23 +212,16 @@ listPackageVersionAssets_domain :: Lens.Lens' ListPackageVersionAssets Prelude.T
 listPackageVersionAssets_domain = Lens.lens (\ListPackageVersionAssets' {domain} -> domain) (\s@ListPackageVersionAssets' {} a -> s {domain = a} :: ListPackageVersionAssets)
 
 -- | The name of the repository that contains the package that contains the
--- returned package version assets.
+-- requested package version assets.
 listPackageVersionAssets_repository :: Lens.Lens' ListPackageVersionAssets Prelude.Text
 listPackageVersionAssets_repository = Lens.lens (\ListPackageVersionAssets' {repository} -> repository) (\s@ListPackageVersionAssets' {} a -> s {repository = a} :: ListPackageVersionAssets)
 
--- | The format of the package that contains the returned package version
--- assets. The valid package types are:
---
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- | The format of the package that contains the requested package version
+-- assets.
 listPackageVersionAssets_format :: Lens.Lens' ListPackageVersionAssets PackageFormat
 listPackageVersionAssets_format = Lens.lens (\ListPackageVersionAssets' {format} -> format) (\s@ListPackageVersionAssets' {} a -> s {format = a} :: ListPackageVersionAssets)
 
--- | The name of the package that contains the returned package version
+-- | The name of the package that contains the requested package version
 -- assets.
 listPackageVersionAssets_package :: Lens.Lens' ListPackageVersionAssets Prelude.Text
 listPackageVersionAssets_package = Lens.lens (\ListPackageVersionAssets' {package} -> package) (\s@ListPackageVersionAssets' {} a -> s {package = a} :: ListPackageVersionAssets)
@@ -348,27 +333,29 @@ data ListPackageVersionAssetsResponse = ListPackageVersionAssetsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The current revision associated with the package version.
     versionRevision :: Prelude.Maybe Prelude.Text,
-    -- | The format of the package that contains the returned package version
+    -- | The format of the package that contains the requested package version
     -- assets.
     format :: Prelude.Maybe PackageFormat,
-    -- | The name of the package that contains the returned package version
+    -- | The name of the package that contains the requested package version
     -- assets.
     package :: Prelude.Maybe Prelude.Text,
     -- | The returned list of
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
     -- objects.
     assets :: Prelude.Maybe [AssetSummary],
-    -- | The namespace of the package. The package component that specifies its
+    -- | The namespace of the package version that contains the requested package
+    -- version assets. The package version component that specifies its
     -- namespace depends on its type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The version of the package associated with the returned assets.
+    -- | The version of the package associated with the requested assets.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -388,27 +375,29 @@ data ListPackageVersionAssetsResponse = ListPackageVersionAssetsResponse'
 --
 -- 'versionRevision', 'listPackageVersionAssetsResponse_versionRevision' - The current revision associated with the package version.
 --
--- 'format', 'listPackageVersionAssetsResponse_format' - The format of the package that contains the returned package version
+-- 'format', 'listPackageVersionAssetsResponse_format' - The format of the package that contains the requested package version
 -- assets.
 --
--- 'package', 'listPackageVersionAssetsResponse_package' - The name of the package that contains the returned package version
+-- 'package', 'listPackageVersionAssetsResponse_package' - The name of the package that contains the requested package version
 -- assets.
 --
 -- 'assets', 'listPackageVersionAssetsResponse_assets' - The returned list of
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
 -- objects.
 --
--- 'namespace', 'listPackageVersionAssetsResponse_namespace' - The namespace of the package. The package component that specifies its
+-- 'namespace', 'listPackageVersionAssetsResponse_namespace' - The namespace of the package version that contains the requested package
+-- version assets. The package version component that specifies its
 -- namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
--- 'version', 'listPackageVersionAssetsResponse_version' - The version of the package associated with the returned assets.
+-- 'version', 'listPackageVersionAssetsResponse_version' - The version of the package associated with the requested assets.
 --
 -- 'httpStatus', 'listPackageVersionAssetsResponse_httpStatus' - The response's http status code.
 newListPackageVersionAssetsResponse ::
@@ -437,12 +426,12 @@ listPackageVersionAssetsResponse_nextToken = Lens.lens (\ListPackageVersionAsset
 listPackageVersionAssetsResponse_versionRevision :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionAssetsResponse_versionRevision = Lens.lens (\ListPackageVersionAssetsResponse' {versionRevision} -> versionRevision) (\s@ListPackageVersionAssetsResponse' {} a -> s {versionRevision = a} :: ListPackageVersionAssetsResponse)
 
--- | The format of the package that contains the returned package version
+-- | The format of the package that contains the requested package version
 -- assets.
 listPackageVersionAssetsResponse_format :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe PackageFormat)
 listPackageVersionAssetsResponse_format = Lens.lens (\ListPackageVersionAssetsResponse' {format} -> format) (\s@ListPackageVersionAssetsResponse' {} a -> s {format = a} :: ListPackageVersionAssetsResponse)
 
--- | The name of the package that contains the returned package version
+-- | The name of the package that contains the requested package version
 -- assets.
 listPackageVersionAssetsResponse_package :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionAssetsResponse_package = Lens.lens (\ListPackageVersionAssetsResponse' {package} -> package) (\s@ListPackageVersionAssetsResponse' {} a -> s {package = a} :: ListPackageVersionAssetsResponse)
@@ -453,19 +442,21 @@ listPackageVersionAssetsResponse_package = Lens.lens (\ListPackageVersionAssetsR
 listPackageVersionAssetsResponse_assets :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe [AssetSummary])
 listPackageVersionAssetsResponse_assets = Lens.lens (\ListPackageVersionAssetsResponse' {assets} -> assets) (\s@ListPackageVersionAssetsResponse' {} a -> s {assets = a} :: ListPackageVersionAssetsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The namespace of the package. The package component that specifies its
+-- | The namespace of the package version that contains the requested package
+-- version assets. The package version component that specifies its
 -- namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 listPackageVersionAssetsResponse_namespace :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionAssetsResponse_namespace = Lens.lens (\ListPackageVersionAssetsResponse' {namespace} -> namespace) (\s@ListPackageVersionAssetsResponse' {} a -> s {namespace = a} :: ListPackageVersionAssetsResponse)
 
--- | The version of the package associated with the returned assets.
+-- | The version of the package associated with the requested assets.
 listPackageVersionAssetsResponse_version :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionAssetsResponse_version = Lens.lens (\ListPackageVersionAssetsResponse' {version} -> version) (\s@ListPackageVersionAssetsResponse' {} a -> s {version = a} :: ListPackageVersionAssetsResponse)
 

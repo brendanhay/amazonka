@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTypeRegistrations' smart constructor.
 data ListTypeRegistrations = ListTypeRegistrations'
-  { -- | If the previous paginated request didn\'t return all of the remaining
+  { -- | If the previous paginated request didn\'t return all the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call this action again and
     -- assign that token to the request object\'s @NextToken@ parameter. If
@@ -93,7 +93,7 @@ data ListTypeRegistrations = ListTypeRegistrations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypeRegistrations_nextToken' - If the previous paginated request didn\'t return all of the remaining
+-- 'nextToken', 'listTypeRegistrations_nextToken' - If the previous paginated request didn\'t return all the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
@@ -132,7 +132,7 @@ newListTypeRegistrations =
       maxResults = Prelude.Nothing
     }
 
--- | If the previous paginated request didn\'t return all of the remaining
+-- | If the previous paginated request didn\'t return all the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
@@ -232,8 +232,8 @@ instance Core.ToQuery ListTypeRegistrations where
 
 -- | /See:/ 'newListTypeRegistrationsResponse' smart constructor.
 data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
-  { -- | If the request doesn\'t return all of the remaining results, @NextToken@
-    -- is set to a token. To retrieve the next set of results, call this action
+  { -- | If the request doesn\'t return all the remaining results, @NextToken@ is
+    -- set to a token. To retrieve the next set of results, call this action
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If the request returns all results, @NextToken@ is set to
     -- @null@.
@@ -256,8 +256,8 @@ data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypeRegistrationsResponse_nextToken' - If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call this action
+-- 'nextToken', 'listTypeRegistrationsResponse_nextToken' - If the request doesn\'t return all the remaining results, @NextToken@ is
+-- set to a token. To retrieve the next set of results, call this action
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.
@@ -280,8 +280,8 @@ newListTypeRegistrationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call this action
+-- | If the request doesn\'t return all the remaining results, @NextToken@ is
+-- set to a token. To retrieve the next set of results, call this action
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a client with AWS SSO. This allows clients to initiate device
--- authorization. The output should be persisted for reuse through many
--- authentication requests.
+-- Registers a client with Amazon Web Services SSO. This allows clients to
+-- initiate device authorization. The output should be persisted for reuse
+-- through many authentication requests.
 module Amazonka.SSOOIDC.RegisterClient
   ( -- * Creating a Request
     RegisterClient (..),

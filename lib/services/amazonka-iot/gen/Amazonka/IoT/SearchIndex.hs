@@ -67,7 +67,9 @@ data SearchIndex = SearchIndex'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The query version.
     queryVersion :: Prelude.Maybe Prelude.Text,
-    -- | The search query string.
+    -- | The search query string. For more information about the search query
+    -- syntax, see
+    -- <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query syntax>.
     queryString :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,7 +91,9 @@ data SearchIndex = SearchIndex'
 --
 -- 'queryVersion', 'searchIndex_queryVersion' - The query version.
 --
--- 'queryString', 'searchIndex_queryString' - The search query string.
+-- 'queryString', 'searchIndex_queryString' - The search query string. For more information about the search query
+-- syntax, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query syntax>.
 newSearchIndex ::
   -- | 'queryString'
   Prelude.Text ->
@@ -120,7 +124,9 @@ searchIndex_maxResults = Lens.lens (\SearchIndex' {maxResults} -> maxResults) (\
 searchIndex_queryVersion :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
 searchIndex_queryVersion = Lens.lens (\SearchIndex' {queryVersion} -> queryVersion) (\s@SearchIndex' {} a -> s {queryVersion = a} :: SearchIndex)
 
--- | The search query string.
+-- | The search query string. For more information about the search query
+-- syntax, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query syntax>.
 searchIndex_queryString :: Lens.Lens' SearchIndex Prelude.Text
 searchIndex_queryString = Lens.lens (\SearchIndex' {queryString} -> queryString) (\s@SearchIndex' {} a -> s {queryString = a} :: SearchIndex)
 

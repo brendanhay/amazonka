@@ -86,8 +86,10 @@ data CreateDBProxy = CreateDBProxy'
     dbProxyName :: Prelude.Text,
     -- | The kinds of databases that the proxy can connect to. This value
     -- determines which database network protocol the proxy recognizes when it
-    -- interprets network traffic to and from the database. The engine family
-    -- applies to MySQL and PostgreSQL for both RDS and Aurora.
+    -- interprets network traffic to and from the database. For Aurora MySQL,
+    -- RDS for MariaDB, and RDS for MySQL databases, specify @MYSQL@. For
+    -- Aurora PostgreSQL and RDS for PostgreSQL databases, specify
+    -- @POSTGRESQL@.
     engineFamily :: EngineFamily,
     -- | The authorization mechanism that the proxy uses.
     auth :: [UserAuthConfig],
@@ -136,8 +138,10 @@ data CreateDBProxy = CreateDBProxy'
 --
 -- 'engineFamily', 'createDBProxy_engineFamily' - The kinds of databases that the proxy can connect to. This value
 -- determines which database network protocol the proxy recognizes when it
--- interprets network traffic to and from the database. The engine family
--- applies to MySQL and PostgreSQL for both RDS and Aurora.
+-- interprets network traffic to and from the database. For Aurora MySQL,
+-- RDS for MariaDB, and RDS for MySQL databases, specify @MYSQL@. For
+-- Aurora PostgreSQL and RDS for PostgreSQL databases, specify
+-- @POSTGRESQL@.
 --
 -- 'auth', 'createDBProxy_auth' - The authorization mechanism that the proxy uses.
 --
@@ -211,8 +215,10 @@ createDBProxy_dbProxyName = Lens.lens (\CreateDBProxy' {dbProxyName} -> dbProxyN
 
 -- | The kinds of databases that the proxy can connect to. This value
 -- determines which database network protocol the proxy recognizes when it
--- interprets network traffic to and from the database. The engine family
--- applies to MySQL and PostgreSQL for both RDS and Aurora.
+-- interprets network traffic to and from the database. For Aurora MySQL,
+-- RDS for MariaDB, and RDS for MySQL databases, specify @MYSQL@. For
+-- Aurora PostgreSQL and RDS for PostgreSQL databases, specify
+-- @POSTGRESQL@.
 createDBProxy_engineFamily :: Lens.Lens' CreateDBProxy EngineFamily
 createDBProxy_engineFamily = Lens.lens (\CreateDBProxy' {engineFamily} -> engineFamily) (\s@CreateDBProxy' {} a -> s {engineFamily = a} :: CreateDBProxy)
 

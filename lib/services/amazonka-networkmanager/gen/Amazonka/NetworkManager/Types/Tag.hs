@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 data Tag = Tag'
   { -- | The tag key.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     key :: Prelude.Maybe Prelude.Text,
     -- | The tag value.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,11 +48,11 @@ data Tag = Tag'
 --
 -- 'key', 'tag_key' - The tag key.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'value', 'tag_value' - The tag value.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 newTag ::
   Tag
 newTag =
@@ -63,13 +63,13 @@ newTag =
 
 -- | The tag key.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The tag value.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

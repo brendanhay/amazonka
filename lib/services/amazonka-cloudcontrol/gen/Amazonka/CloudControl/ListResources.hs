@@ -22,12 +22,14 @@
 --
 -- Returns information about the specified resources. For more information,
 -- see
--- <cloudcontrolapi/latest/userguide/resource-operations-list.html Discovering resources>
+-- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html Discovering resources>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
 -- You can use this action to return information about existing resources
--- in your account and Amazon Web Services Region, whether or not those
--- resources were provisioned using Cloud Control API.
+-- in your account and Amazon Web Services Region, whether those resources
+-- were provisioned using Cloud Control API.
+--
+-- This operation returns paginated results.
 module Amazonka.CloudControl.ListResources
   ( -- * Creating a Request
     ListResources (..),
@@ -72,7 +74,7 @@ data ListResources = ListResources'
     -- @NextToken@ parameter is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) for Cloud Control API to use when performing this resource
+    -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
     -- defined in the @ handlers @ section of the
@@ -85,12 +87,7 @@ data ListResources = ListResources'
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call. If the
-    -- number of available results exceeds this maximum, the response includes
-    -- a @NextToken@ value that you can assign to the @NextToken@ request
-    -- parameter to get the next set of results.
-    --
-    -- The default is @20@.
+    -- | Reserved.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | For private resource types, the type version to use in this resource
     -- operation. If you do not specify a resource version, CloudFormation uses
@@ -119,7 +116,7 @@ data ListResources = ListResources'
 -- @NextToken@ parameter is set to @null@.
 --
 -- 'roleArn', 'listResources_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -132,12 +129,7 @@ data ListResources = ListResources'
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
--- 'maxResults', 'listResources_maxResults' - The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
---
--- The default is @20@.
+-- 'maxResults', 'listResources_maxResults' - Reserved.
 --
 -- 'typeVersionId', 'listResources_typeVersionId' - For private resource types, the type version to use in this resource
 -- operation. If you do not specify a resource version, CloudFormation uses
@@ -172,7 +164,7 @@ listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -187,12 +179,7 @@ listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (
 listResources_roleArn :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_roleArn = Lens.lens (\ListResources' {roleArn} -> roleArn) (\s@ListResources' {} a -> s {roleArn = a} :: ListResources)
 
--- | The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
---
--- The default is @20@.
+-- | Reserved.
 listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
 listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
@@ -205,6 +192,26 @@ listResources_typeVersionId = Lens.lens (\ListResources' {typeVersionId} -> type
 -- | The name of the resource type.
 listResources_typeName :: Lens.Lens' ListResources Prelude.Text
 listResources_typeName = Lens.lens (\ListResources' {typeName} -> typeName) (\s@ListResources' {} a -> s {typeName = a} :: ListResources)
+
+instance Core.AWSPager ListResources where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listResourcesResponse_resourceDescriptions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listResources_nextToken
+          Lens..~ rs
+          Lens.^? listResourcesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResources where
   type

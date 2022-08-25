@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironments' smart constructor.
 data ListEnvironments = ListEnvironments'
-  { -- | A token to indicate the location of the next environment in the array of
-    -- environments, after the list of environments that was previously
+  { -- | A token that indicates the location of the next environment in the array
+    -- of environments, after the list of environments that was previously
     -- requested.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of environments to list.
@@ -72,8 +72,8 @@ data ListEnvironments = ListEnvironments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironments_nextToken' - A token to indicate the location of the next environment in the array of
--- environments, after the list of environments that was previously
+-- 'nextToken', 'listEnvironments_nextToken' - A token that indicates the location of the next environment in the array
+-- of environments, after the list of environments that was previously
 -- requested.
 --
 -- 'maxResults', 'listEnvironments_maxResults' - The maximum number of environments to list.
@@ -88,8 +88,8 @@ newListEnvironments =
       environmentTemplates = Prelude.Nothing
     }
 
--- | A token to indicate the location of the next environment in the array of
--- environments, after the list of environments that was previously
+-- | A token that indicates the location of the next environment in the array
+-- of environments, after the list of environments that was previously
 -- requested.
 listEnvironments_nextToken :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Text)
 listEnvironments_nextToken = Lens.lens (\ListEnvironments' {nextToken} -> nextToken) (\s@ListEnvironments' {} a -> s {nextToken = a} :: ListEnvironments)
@@ -181,8 +181,8 @@ instance Core.ToQuery ListEnvironments where
 
 -- | /See:/ 'newListEnvironmentsResponse' smart constructor.
 data ListEnvironmentsResponse = ListEnvironmentsResponse'
-  { -- | A token to indicate the location of the next environment in the array of
-    -- environments, after the current requested list of environments.
+  { -- | A token that indicates the location of the next environment in the array
+    -- of environments, after the current requested list of environments.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -199,8 +199,8 @@ data ListEnvironmentsResponse = ListEnvironmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentsResponse_nextToken' - A token to indicate the location of the next environment in the array of
--- environments, after the current requested list of environments.
+-- 'nextToken', 'listEnvironmentsResponse_nextToken' - A token that indicates the location of the next environment in the array
+-- of environments, after the current requested list of environments.
 --
 -- 'httpStatus', 'listEnvironmentsResponse_httpStatus' - The response's http status code.
 --
@@ -217,8 +217,8 @@ newListEnvironmentsResponse pHttpStatus_ =
       environments = Prelude.mempty
     }
 
--- | A token to indicate the location of the next environment in the array of
--- environments, after the current requested list of environments.
+-- | A token that indicates the location of the next environment in the array
+-- of environments, after the current requested list of environments.
 listEnvironmentsResponse_nextToken :: Lens.Lens' ListEnvironmentsResponse (Prelude.Maybe Prelude.Text)
 listEnvironmentsResponse_nextToken = Lens.lens (\ListEnvironmentsResponse' {nextToken} -> nextToken) (\s@ListEnvironmentsResponse' {} a -> s {nextToken = a} :: ListEnvironmentsResponse)
 

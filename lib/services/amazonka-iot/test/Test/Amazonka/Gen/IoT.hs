@@ -315,6 +315,9 @@ import Test.Tasty
 --         , requestDescribeJobTemplate $
 --             newDescribeJobTemplate
 --
+--         , requestDescribeManagedJobTemplate $
+--             newDescribeManagedJobTemplate
+--
 --         , requestDescribeMitigationAction $
 --             newDescribeMitigationAction
 --
@@ -479,6 +482,12 @@ import Test.Tasty
 --
 --         , requestListJobs $
 --             newListJobs
+--
+--         , requestListManagedJobTemplates $
+--             newListManagedJobTemplates
+--
+--         , requestListMetricValues $
+--             newListMetricValues
 --
 --         , requestListMitigationActions $
 --             newListMitigationActions
@@ -1008,6 +1017,9 @@ import Test.Tasty
 --         , responseDescribeJobTemplate $
 --             newDescribeJobTemplateResponse
 --
+--         , responseDescribeManagedJobTemplate $
+--             newDescribeManagedJobTemplateResponse
+--
 --         , responseDescribeMitigationAction $
 --             newDescribeMitigationActionResponse
 --
@@ -1172,6 +1184,12 @@ import Test.Tasty
 --
 --         , responseListJobs $
 --             newListJobsResponse
+--
+--         , responseListManagedJobTemplates $
+--             newListManagedJobTemplatesResponse
+--
+--         , responseListMetricValues $
+--             newListMetricValuesResponse
 --
 --         , responseListMitigationActions $
 --             newListMitigationActionsResponse
@@ -1991,6 +2009,12 @@ requestDescribeJobTemplate =
     "DescribeJobTemplate"
     "fixture/DescribeJobTemplate.yaml"
 
+requestDescribeManagedJobTemplate :: DescribeManagedJobTemplate -> TestTree
+requestDescribeManagedJobTemplate =
+  req
+    "DescribeManagedJobTemplate"
+    "fixture/DescribeManagedJobTemplate.yaml"
+
 requestDescribeMitigationAction :: DescribeMitigationAction -> TestTree
 requestDescribeMitigationAction =
   req
@@ -2320,6 +2344,18 @@ requestListJobs =
   req
     "ListJobs"
     "fixture/ListJobs.yaml"
+
+requestListManagedJobTemplates :: ListManagedJobTemplates -> TestTree
+requestListManagedJobTemplates =
+  req
+    "ListManagedJobTemplates"
+    "fixture/ListManagedJobTemplates.yaml"
+
+requestListMetricValues :: ListMetricValues -> TestTree
+requestListMetricValues =
+  req
+    "ListMetricValues"
+    "fixture/ListMetricValues.yaml"
 
 requestListMitigationActions :: ListMitigationActions -> TestTree
 requestListMitigationActions =
@@ -3565,6 +3601,14 @@ responseDescribeJobTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJobTemplate)
 
+responseDescribeManagedJobTemplate :: DescribeManagedJobTemplateResponse -> TestTree
+responseDescribeManagedJobTemplate =
+  res
+    "DescribeManagedJobTemplateResponse"
+    "fixture/DescribeManagedJobTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeManagedJobTemplate)
+
 responseDescribeMitigationAction :: DescribeMitigationActionResponse -> TestTree
 responseDescribeMitigationAction =
   res
@@ -4004,6 +4048,22 @@ responseListJobs =
     "fixture/ListJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListJobs)
+
+responseListManagedJobTemplates :: ListManagedJobTemplatesResponse -> TestTree
+responseListManagedJobTemplates =
+  res
+    "ListManagedJobTemplatesResponse"
+    "fixture/ListManagedJobTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListManagedJobTemplates)
+
+responseListMetricValues :: ListMetricValuesResponse -> TestTree
+responseListMetricValues =
+  res
+    "ListMetricValuesResponse"
+    "fixture/ListMetricValuesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMetricValues)
 
 responseListMitigationActions :: ListMitigationActionsResponse -> TestTree
 responseListMitigationActions =

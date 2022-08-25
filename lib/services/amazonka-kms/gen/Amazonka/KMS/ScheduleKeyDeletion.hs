@@ -62,7 +62,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a KMS
@@ -109,9 +109,9 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
   { -- | The waiting period, specified in number of days. After the waiting
     -- period ends, KMS deletes the KMS key.
     --
-    -- If the KMS key is a multi-Region primary key with replicas, the waiting
-    -- period begins when the last of its replica keys is deleted. Otherwise,
-    -- the waiting period begins immediately.
+    -- If the KMS key is a multi-Region primary key with replica keys, the
+    -- waiting period begins when the last of its replica keys is deleted.
+    -- Otherwise, the waiting period begins immediately.
     --
     -- This value is optional. If you include a value, it must be between 7 and
     -- 30, inclusive. If you do not include a value, it defaults to 30.
@@ -144,9 +144,9 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
 -- 'pendingWindowInDays', 'scheduleKeyDeletion_pendingWindowInDays' - The waiting period, specified in number of days. After the waiting
 -- period ends, KMS deletes the KMS key.
 --
--- If the KMS key is a multi-Region primary key with replicas, the waiting
--- period begins when the last of its replica keys is deleted. Otherwise,
--- the waiting period begins immediately.
+-- If the KMS key is a multi-Region primary key with replica keys, the
+-- waiting period begins when the last of its replica keys is deleted.
+-- Otherwise, the waiting period begins immediately.
 --
 -- This value is optional. If you include a value, it must be between 7 and
 -- 30, inclusive. If you do not include a value, it defaults to 30.
@@ -178,9 +178,9 @@ newScheduleKeyDeletion pKeyId_ =
 -- | The waiting period, specified in number of days. After the waiting
 -- period ends, KMS deletes the KMS key.
 --
--- If the KMS key is a multi-Region primary key with replicas, the waiting
--- period begins when the last of its replica keys is deleted. Otherwise,
--- the waiting period begins immediately.
+-- If the KMS key is a multi-Region primary key with replica keys, the
+-- waiting period begins when the last of its replica keys is deleted.
+-- Otherwise, the waiting period begins immediately.
 --
 -- This value is optional. If you include a value, it must be between 7 and
 -- 30, inclusive. If you do not include a value, it defaults to 30.
@@ -272,7 +272,7 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
     --
     -- For more information about how key state affects the use of a KMS key,
     -- see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
     -- in the /Key Management Service Developer Guide/.
     keyState :: Prelude.Maybe KeyState,
     -- | The date and time after which KMS deletes the KMS key.
@@ -308,7 +308,7 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
 --
 -- For more information about how key state affects the use of a KMS key,
 -- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'deletionDate', 'scheduleKeyDeletionResponse_deletionDate' - The date and time after which KMS deletes the KMS key.
@@ -348,7 +348,7 @@ scheduleKeyDeletionResponse_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletio
 --
 -- For more information about how key state affects the use of a KMS key,
 -- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 scheduleKeyDeletionResponse_keyState :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe KeyState)
 scheduleKeyDeletionResponse_keyState = Lens.lens (\ScheduleKeyDeletionResponse' {keyState} -> keyState) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyState = a} :: ScheduleKeyDeletionResponse)

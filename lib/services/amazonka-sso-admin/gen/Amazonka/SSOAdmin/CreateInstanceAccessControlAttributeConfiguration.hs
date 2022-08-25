@@ -26,6 +26,10 @@
 -- process. For more information about ABAC, see
 -- </singlesignon/latest/userguide/abac.html Attribute-Based Access Control>
 -- in the /Amazon Web Services SSO User Guide/.
+--
+-- After a successful response, call
+-- @DescribeInstanceAccessControlAttributeConfiguration@ to validate that
+-- @InstanceAccessControlAttributeConfiguration@ was created.
 module Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
   ( -- * Creating a Request
     CreateInstanceAccessControlAttributeConfiguration (..),
@@ -53,7 +57,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newCreateInstanceAccessControlAttributeConfiguration' smart constructor.
 data CreateInstanceAccessControlAttributeConfiguration = CreateInstanceAccessControlAttributeConfiguration'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed.
     instanceArn :: Prelude.Text,
     -- | Specifies the Amazon Web Services SSO identity store attributes to add
     -- to your ABAC configuration. When using an external identity provider as
@@ -74,7 +79,8 @@ data CreateInstanceAccessControlAttributeConfiguration = CreateInstanceAccessCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'createInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
+-- 'instanceArn', 'createInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 --
 -- 'instanceAccessControlAttributeConfiguration', 'createInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration' - Specifies the Amazon Web Services SSO identity store attributes to add
 -- to your ABAC configuration. When using an external identity provider as
@@ -99,7 +105,8 @@ newCreateInstanceAccessControlAttributeConfiguration
           pInstanceAccessControlAttributeConfiguration_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 createInstanceAccessControlAttributeConfiguration_instanceArn :: Lens.Lens' CreateInstanceAccessControlAttributeConfiguration Prelude.Text
 createInstanceAccessControlAttributeConfiguration_instanceArn = Lens.lens (\CreateInstanceAccessControlAttributeConfiguration' {instanceArn} -> instanceArn) (\s@CreateInstanceAccessControlAttributeConfiguration' {} a -> s {instanceArn = a} :: CreateInstanceAccessControlAttributeConfiguration)
 

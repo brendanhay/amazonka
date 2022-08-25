@@ -68,7 +68,7 @@ data StopTask = StopTask'
     -- cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | An optional message specified when a task is stopped. For example, if
-    -- you are using a custom scheduler, you can use this parameter to specify
+    -- you\'re using a custom scheduler, you can use this parameter to specify
     -- the reason for stopping the task here, and the message appears in
     -- subsequent DescribeTasks API operations on this task. Up to 255
     -- characters are allowed in this message.
@@ -91,7 +91,7 @@ data StopTask = StopTask'
 -- cluster is assumed.
 --
 -- 'reason', 'stopTask_reason' - An optional message specified when a task is stopped. For example, if
--- you are using a custom scheduler, you can use this parameter to specify
+-- you\'re using a custom scheduler, you can use this parameter to specify
 -- the reason for stopping the task here, and the message appears in
 -- subsequent DescribeTasks API operations on this task. Up to 255
 -- characters are allowed in this message.
@@ -115,7 +115,7 @@ stopTask_cluster :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
 stopTask_cluster = Lens.lens (\StopTask' {cluster} -> cluster) (\s@StopTask' {} a -> s {cluster = a} :: StopTask)
 
 -- | An optional message specified when a task is stopped. For example, if
--- you are using a custom scheduler, you can use this parameter to specify
+-- you\'re using a custom scheduler, you can use this parameter to specify
 -- the reason for stopping the task here, and the message appears in
 -- subsequent DescribeTasks API operations on this task. Up to 255
 -- characters are allowed in this message.

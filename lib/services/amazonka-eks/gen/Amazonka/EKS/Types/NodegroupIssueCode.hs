@@ -30,6 +30,7 @@ module Amazonka.EKS.Types.NodegroupIssueCode
         NodegroupIssueCode_Ec2SecurityGroupDeletionFailure,
         NodegroupIssueCode_Ec2SecurityGroupNotFound,
         NodegroupIssueCode_Ec2SubnetInvalidConfiguration,
+        NodegroupIssueCode_Ec2SubnetMissingIpv6Assignment,
         NodegroupIssueCode_Ec2SubnetNotFound,
         NodegroupIssueCode_IamInstanceProfileNotFound,
         NodegroupIssueCode_IamLimitExceeded,
@@ -103,6 +104,9 @@ pattern NodegroupIssueCode_Ec2SecurityGroupNotFound = NodegroupIssueCode' "Ec2Se
 pattern NodegroupIssueCode_Ec2SubnetInvalidConfiguration :: NodegroupIssueCode
 pattern NodegroupIssueCode_Ec2SubnetInvalidConfiguration = NodegroupIssueCode' "Ec2SubnetInvalidConfiguration"
 
+pattern NodegroupIssueCode_Ec2SubnetMissingIpv6Assignment :: NodegroupIssueCode
+pattern NodegroupIssueCode_Ec2SubnetMissingIpv6Assignment = NodegroupIssueCode' "Ec2SubnetMissingIpv6Assignment"
+
 pattern NodegroupIssueCode_Ec2SubnetNotFound :: NodegroupIssueCode
 pattern NodegroupIssueCode_Ec2SubnetNotFound = NodegroupIssueCode' "Ec2SubnetNotFound"
 
@@ -138,6 +142,7 @@ pattern NodegroupIssueCode_NodeCreationFailure = NodegroupIssueCode' "NodeCreati
   NodegroupIssueCode_Ec2SecurityGroupDeletionFailure,
   NodegroupIssueCode_Ec2SecurityGroupNotFound,
   NodegroupIssueCode_Ec2SubnetInvalidConfiguration,
+  NodegroupIssueCode_Ec2SubnetMissingIpv6Assignment,
   NodegroupIssueCode_Ec2SubnetNotFound,
   NodegroupIssueCode_IamInstanceProfileNotFound,
   NodegroupIssueCode_IamLimitExceeded,

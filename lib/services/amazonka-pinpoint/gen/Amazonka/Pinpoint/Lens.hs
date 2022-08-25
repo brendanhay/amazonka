@@ -563,6 +563,12 @@ module Amazonka.Pinpoint.Lens
     sendMessagesResponse_httpStatus,
     sendMessagesResponse_messageResponse,
 
+    -- ** SendOTPMessage
+    sendOTPMessage_applicationId,
+    sendOTPMessage_sendOTPMessageRequestParameters,
+    sendOTPMessageResponse_httpStatus,
+    sendOTPMessageResponse_messageResponse,
+
     -- ** SendUsersMessages
     sendUsersMessages_applicationId,
     sendUsersMessages_sendUsersMessageRequest,
@@ -736,6 +742,12 @@ module Amazonka.Pinpoint.Lens
     updateVoiceTemplate_voiceTemplateRequest,
     updateVoiceTemplateResponse_httpStatus,
     updateVoiceTemplateResponse_messageBody,
+
+    -- ** VerifyOTPMessage
+    verifyOTPMessage_applicationId,
+    verifyOTPMessage_verifyOTPMessageRequestParameters,
+    verifyOTPMessageResponse_httpStatus,
+    verifyOTPMessageResponse_verificationResponse,
 
     -- * Types
 
@@ -960,6 +972,7 @@ module Amazonka.Pinpoint.Lens
 
     -- ** ApplicationResponse
     applicationResponse_tags,
+    applicationResponse_creationDate,
     applicationResponse_id,
     applicationResponse_arn,
     applicationResponse_name,
@@ -1116,6 +1129,18 @@ module Amazonka.Pinpoint.Lens
 
     -- ** ChannelsResponse
     channelsResponse_channels,
+
+    -- ** ClosedDays
+    closedDays_sms,
+    closedDays_email,
+    closedDays_voice,
+    closedDays_push,
+    closedDays_custom,
+
+    -- ** ClosedDaysRule
+    closedDaysRule_name,
+    closedDaysRule_startDateTime,
+    closedDaysRule_endDateTime,
 
     -- ** Condition
     condition_conditions,
@@ -1650,8 +1675,11 @@ module Amazonka.Pinpoint.Lens
     journeyResponse_creationDate,
     journeyResponse_refreshFrequency,
     journeyResponse_localTime,
+    journeyResponse_openHours,
     journeyResponse_quietTime,
+    journeyResponse_sendingSchedule,
     journeyResponse_waitForQuietTime,
+    journeyResponse_closedDays,
     journeyResponse_journeyChannelSettings,
     journeyResponse_name,
     journeyResponse_id,
@@ -1762,6 +1790,17 @@ module Amazonka.Pinpoint.Lens
     numberValidateResponse_city,
     numberValidateResponse_countryCodeNumeric,
     numberValidateResponse_countryCodeIso2,
+
+    -- ** OpenHours
+    openHours_sms,
+    openHours_email,
+    openHours_voice,
+    openHours_push,
+    openHours_custom,
+
+    -- ** OpenHoursRule
+    openHoursRule_endTime,
+    openHoursRule_startTime,
 
     -- ** OverrideButtonConfiguration
     overrideButtonConfiguration_link,
@@ -1988,6 +2027,19 @@ module Amazonka.Pinpoint.Lens
     segmentsResponse_nextToken,
     segmentsResponse_item,
 
+    -- ** SendOTPMessageRequestParameters
+    sendOTPMessageRequestParameters_entityId,
+    sendOTPMessageRequestParameters_templateId,
+    sendOTPMessageRequestParameters_allowedAttempts,
+    sendOTPMessageRequestParameters_codeLength,
+    sendOTPMessageRequestParameters_validityPeriod,
+    sendOTPMessageRequestParameters_language,
+    sendOTPMessageRequestParameters_brandName,
+    sendOTPMessageRequestParameters_referenceId,
+    sendOTPMessageRequestParameters_channel,
+    sendOTPMessageRequestParameters_destinationIdentity,
+    sendOTPMessageRequestParameters_originationIdentity,
+
     -- ** SendUsersMessageRequest
     sendUsersMessageRequest_context,
     sendUsersMessageRequest_templateConfiguration,
@@ -2105,6 +2157,14 @@ module Amazonka.Pinpoint.Lens
     updateRecommenderConfiguration_recommendationProviderUri,
     updateRecommenderConfiguration_recommendationProviderRoleArn,
 
+    -- ** VerificationResponse
+    verificationResponse_valid,
+
+    -- ** VerifyOTPMessageRequestParameters
+    verifyOTPMessageRequestParameters_referenceId,
+    verifyOTPMessageRequestParameters_otp,
+    verifyOTPMessageRequestParameters_destinationIdentity,
+
     -- ** VoiceChannelRequest
     voiceChannelRequest_enabled,
 
@@ -2199,8 +2259,12 @@ module Amazonka.Pinpoint.Lens
     writeJourneyRequest_creationDate,
     writeJourneyRequest_refreshFrequency,
     writeJourneyRequest_localTime,
+    writeJourneyRequest_openHours,
     writeJourneyRequest_quietTime,
+    writeJourneyRequest_sendingSchedule,
     writeJourneyRequest_waitForQuietTime,
+    writeJourneyRequest_closedDays,
+    writeJourneyRequest_journeyChannelSettings,
     writeJourneyRequest_name,
 
     -- ** WriteSegmentRequest
@@ -2310,6 +2374,7 @@ import Amazonka.Pinpoint.PutEventStream
 import Amazonka.Pinpoint.PutEvents
 import Amazonka.Pinpoint.RemoveAttributes
 import Amazonka.Pinpoint.SendMessages
+import Amazonka.Pinpoint.SendOTPMessage
 import Amazonka.Pinpoint.SendUsersMessages
 import Amazonka.Pinpoint.TagResource
 import Amazonka.Pinpoint.Types.ADMChannelRequest
@@ -2353,6 +2418,8 @@ import Amazonka.Pinpoint.Types.CampaignState
 import Amazonka.Pinpoint.Types.CampaignsResponse
 import Amazonka.Pinpoint.Types.ChannelResponse
 import Amazonka.Pinpoint.Types.ChannelsResponse
+import Amazonka.Pinpoint.Types.ClosedDays
+import Amazonka.Pinpoint.Types.ClosedDaysRule
 import Amazonka.Pinpoint.Types.Condition
 import Amazonka.Pinpoint.Types.ConditionalSplitActivity
 import Amazonka.Pinpoint.Types.ContactCenterActivity
@@ -2443,6 +2510,8 @@ import Amazonka.Pinpoint.Types.MultiConditionalBranch
 import Amazonka.Pinpoint.Types.MultiConditionalSplitActivity
 import Amazonka.Pinpoint.Types.NumberValidateRequest
 import Amazonka.Pinpoint.Types.NumberValidateResponse
+import Amazonka.Pinpoint.Types.OpenHours
+import Amazonka.Pinpoint.Types.OpenHoursRule
 import Amazonka.Pinpoint.Types.OverrideButtonConfiguration
 import Amazonka.Pinpoint.Types.PublicEndpoint
 import Amazonka.Pinpoint.Types.PushMessageActivity
@@ -2474,6 +2543,7 @@ import Amazonka.Pinpoint.Types.SegmentLocation
 import Amazonka.Pinpoint.Types.SegmentReference
 import Amazonka.Pinpoint.Types.SegmentResponse
 import Amazonka.Pinpoint.Types.SegmentsResponse
+import Amazonka.Pinpoint.Types.SendOTPMessageRequestParameters
 import Amazonka.Pinpoint.Types.SendUsersMessageRequest
 import Amazonka.Pinpoint.Types.SendUsersMessageResponse
 import Amazonka.Pinpoint.Types.Session
@@ -2494,6 +2564,8 @@ import Amazonka.Pinpoint.Types.TemplatesResponse
 import Amazonka.Pinpoint.Types.TreatmentResource
 import Amazonka.Pinpoint.Types.UpdateAttributesRequest
 import Amazonka.Pinpoint.Types.UpdateRecommenderConfiguration
+import Amazonka.Pinpoint.Types.VerificationResponse
+import Amazonka.Pinpoint.Types.VerifyOTPMessageRequestParameters
 import Amazonka.Pinpoint.Types.VoiceChannelRequest
 import Amazonka.Pinpoint.Types.VoiceChannelResponse
 import Amazonka.Pinpoint.Types.VoiceMessage
@@ -2532,3 +2604,4 @@ import Amazonka.Pinpoint.UpdateSmsTemplate
 import Amazonka.Pinpoint.UpdateTemplateActiveVersion
 import Amazonka.Pinpoint.UpdateVoiceChannel
 import Amazonka.Pinpoint.UpdateVoiceTemplate
+import Amazonka.Pinpoint.VerifyOTPMessage

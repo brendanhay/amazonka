@@ -74,13 +74,13 @@ data PutMethodResponse = PutMethodResponse'
     -- Response models are represented as a key\/value map, with a content type
     -- as the key and a Model name as the value.
     responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The Resource identifier for the Method resource.
+    -- | The Resource identifier for the Method resource.
     resourceId :: Prelude.Text,
-    -- | [Required] The HTTP verb of the Method resource.
+    -- | The HTTP verb of the Method resource.
     httpMethod :: Prelude.Text,
-    -- | [Required] The method response\'s status code.
+    -- | The method response\'s status code.
     statusCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,13 +111,13 @@ data PutMethodResponse = PutMethodResponse'
 -- Response models are represented as a key\/value map, with a content type
 -- as the key and a Model name as the value.
 --
--- 'restApiId', 'putMethodResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'putMethodResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'putMethodResponse_resourceId' - [Required] The Resource identifier for the Method resource.
+-- 'resourceId', 'putMethodResponse_resourceId' - The Resource identifier for the Method resource.
 --
--- 'httpMethod', 'putMethodResponse_httpMethod' - [Required] The HTTP verb of the Method resource.
+-- 'httpMethod', 'putMethodResponse_httpMethod' - The HTTP verb of the Method resource.
 --
--- 'statusCode', 'putMethodResponse_statusCode' - [Required] The method response\'s status code.
+-- 'statusCode', 'putMethodResponse_statusCode' - The method response\'s status code.
 newPutMethodResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -165,19 +165,19 @@ putMethodResponse_responseParameters = Lens.lens (\PutMethodResponse' {responseP
 putMethodResponse_responseModels :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 putMethodResponse_restApiId :: Lens.Lens' PutMethodResponse Prelude.Text
 putMethodResponse_restApiId = Lens.lens (\PutMethodResponse' {restApiId} -> restApiId) (\s@PutMethodResponse' {} a -> s {restApiId = a} :: PutMethodResponse)
 
--- | [Required] The Resource identifier for the Method resource.
+-- | The Resource identifier for the Method resource.
 putMethodResponse_resourceId :: Lens.Lens' PutMethodResponse Prelude.Text
 putMethodResponse_resourceId = Lens.lens (\PutMethodResponse' {resourceId} -> resourceId) (\s@PutMethodResponse' {} a -> s {resourceId = a} :: PutMethodResponse)
 
--- | [Required] The HTTP verb of the Method resource.
+-- | The HTTP verb of the Method resource.
 putMethodResponse_httpMethod :: Lens.Lens' PutMethodResponse Prelude.Text
 putMethodResponse_httpMethod = Lens.lens (\PutMethodResponse' {httpMethod} -> httpMethod) (\s@PutMethodResponse' {} a -> s {httpMethod = a} :: PutMethodResponse)
 
--- | [Required] The method response\'s status code.
+-- | The method response\'s status code.
 putMethodResponse_statusCode :: Lens.Lens' PutMethodResponse Prelude.Text
 putMethodResponse_statusCode = Lens.lens (\PutMethodResponse' {statusCode} -> statusCode) (\s@PutMethodResponse' {} a -> s {statusCode = a} :: PutMethodResponse)
 

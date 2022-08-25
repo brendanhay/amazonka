@@ -26,8 +26,8 @@ import Amazonka.CostExplorer.Types.SavingsPlansUtilization
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A single daily or monthly Savings Plans utilization rate, and details
--- for your account. A management account in an organization have access to
+-- | A single daily or monthly Savings Plans utilization rate and details for
+-- your account. A management account in an organization have access to
 -- member accounts. You can use @GetDimensionValues@ to determine the
 -- possible dimension values.
 --
@@ -40,8 +40,8 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
     -- to workloads that are Savings Plans eligible.
     utilization :: Prelude.Maybe SavingsPlansUtilization,
     -- | The amount saved by using existing Savings Plans. Savings returns both
-    -- net savings from savings plans as well as the @onDemandCostEquivalent@
-    -- of the Savings Plans when considering the utilization rate.
+    -- net savings from savings plans and also the @onDemandCostEquivalent@ of
+    -- the Savings Plans when considering the utilization rate.
     savings :: Prelude.Maybe SavingsPlansSavings,
     -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
     savingsPlanArn :: Prelude.Maybe Prelude.Text,
@@ -65,8 +65,8 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
 -- to workloads that are Savings Plans eligible.
 --
 -- 'savings', 'savingsPlansUtilizationDetail_savings' - The amount saved by using existing Savings Plans. Savings returns both
--- net savings from savings plans as well as the @onDemandCostEquivalent@
--- of the Savings Plans when considering the utilization rate.
+-- net savings from savings plans and also the @onDemandCostEquivalent@ of
+-- the Savings Plans when considering the utilization rate.
 --
 -- 'savingsPlanArn', 'savingsPlansUtilizationDetail_savingsPlanArn' - The unique Amazon Resource Name (ARN) for a particular Savings Plan.
 --
@@ -94,8 +94,8 @@ savingsPlansUtilizationDetail_utilization :: Lens.Lens' SavingsPlansUtilizationD
 savingsPlansUtilizationDetail_utilization = Lens.lens (\SavingsPlansUtilizationDetail' {utilization} -> utilization) (\s@SavingsPlansUtilizationDetail' {} a -> s {utilization = a} :: SavingsPlansUtilizationDetail)
 
 -- | The amount saved by using existing Savings Plans. Savings returns both
--- net savings from savings plans as well as the @onDemandCostEquivalent@
--- of the Savings Plans when considering the utilization rate.
+-- net savings from savings plans and also the @onDemandCostEquivalent@ of
+-- the Savings Plans when considering the utilization rate.
 savingsPlansUtilizationDetail_savings :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansSavings)
 savingsPlansUtilizationDetail_savings = Lens.lens (\SavingsPlansUtilizationDetail' {savings} -> savings) (\s@SavingsPlansUtilizationDetail' {} a -> s {savings = a} :: SavingsPlansUtilizationDetail)
 

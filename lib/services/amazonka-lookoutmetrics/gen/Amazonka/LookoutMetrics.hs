@@ -78,6 +78,12 @@ module Amazonka.LookoutMetrics
     CreateMetricSetResponse (CreateMetricSetResponse'),
     newCreateMetricSetResponse,
 
+    -- ** DeactivateAnomalyDetector
+    DeactivateAnomalyDetector (DeactivateAnomalyDetector'),
+    newDeactivateAnomalyDetector,
+    DeactivateAnomalyDetectorResponse (DeactivateAnomalyDetectorResponse'),
+    newDeactivateAnomalyDetectorResponse,
+
     -- ** DeleteAlert
     DeleteAlert (DeleteAlert'),
     newDeleteAlert,
@@ -114,11 +120,23 @@ module Amazonka.LookoutMetrics
     DescribeMetricSetResponse (DescribeMetricSetResponse'),
     newDescribeMetricSetResponse,
 
+    -- ** DetectMetricSetConfig
+    DetectMetricSetConfig (DetectMetricSetConfig'),
+    newDetectMetricSetConfig,
+    DetectMetricSetConfigResponse (DetectMetricSetConfigResponse'),
+    newDetectMetricSetConfigResponse,
+
     -- ** GetAnomalyGroup
     GetAnomalyGroup (GetAnomalyGroup'),
     newGetAnomalyGroup,
     GetAnomalyGroupResponse (GetAnomalyGroupResponse'),
     newGetAnomalyGroupResponse,
+
+    -- ** GetDataQualityMetrics
+    GetDataQualityMetrics (GetDataQualityMetrics'),
+    newGetDataQualityMetrics,
+    GetDataQualityMetricsResponse (GetDataQualityMetricsResponse'),
+    newGetDataQualityMetricsResponse,
 
     -- ** GetFeedback
     GetFeedback (GetFeedback'),
@@ -143,6 +161,12 @@ module Amazonka.LookoutMetrics
     newListAnomalyDetectors,
     ListAnomalyDetectorsResponse (ListAnomalyDetectorsResponse'),
     newListAnomalyDetectorsResponse,
+
+    -- ** ListAnomalyGroupRelatedMetrics
+    ListAnomalyGroupRelatedMetrics (ListAnomalyGroupRelatedMetrics'),
+    newListAnomalyGroupRelatedMetrics,
+    ListAnomalyGroupRelatedMetricsResponse (ListAnomalyGroupRelatedMetricsResponse'),
+    newListAnomalyGroupRelatedMetricsResponse,
 
     -- ** ListAnomalyGroupSummaries
     ListAnomalyGroupSummaries (ListAnomalyGroupSummaries'),
@@ -186,6 +210,12 @@ module Amazonka.LookoutMetrics
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateAlert
+    UpdateAlert (UpdateAlert'),
+    newUpdateAlert,
+    UpdateAlertResponse (UpdateAlertResponse'),
+    newUpdateAlertResponse,
+
     -- ** UpdateAnomalyDetector
     UpdateAnomalyDetector (UpdateAnomalyDetector'),
     newUpdateAnomalyDetector,
@@ -212,17 +242,32 @@ module Amazonka.LookoutMetrics
     -- ** AnomalyDetectionTaskStatus
     AnomalyDetectionTaskStatus (..),
 
+    -- ** AnomalyDetectorFailureType
+    AnomalyDetectorFailureType (..),
+
     -- ** AnomalyDetectorStatus
     AnomalyDetectorStatus (..),
 
     -- ** CSVFileCompression
     CSVFileCompression (..),
 
+    -- ** Confidence
+    Confidence (..),
+
+    -- ** DataQualityMetricType
+    DataQualityMetricType (..),
+
     -- ** Frequency
     Frequency (..),
 
     -- ** JsonFileCompression
     JsonFileCompression (..),
+
+    -- ** RelationshipType
+    RelationshipType (..),
+
+    -- ** SnsFormat
+    SnsFormat (..),
 
     -- ** Action
     Action (Action'),
@@ -231,6 +276,10 @@ module Amazonka.LookoutMetrics
     -- ** Alert
     Alert (Alert'),
     newAlert,
+
+    -- ** AlertFilters
+    AlertFilters (AlertFilters'),
+    newAlertFilters,
 
     -- ** AlertSummary
     AlertSummary (AlertSummary'),
@@ -243,6 +292,10 @@ module Amazonka.LookoutMetrics
     -- ** AnomalyDetectorConfigSummary
     AnomalyDetectorConfigSummary (AnomalyDetectorConfigSummary'),
     newAnomalyDetectorConfigSummary,
+
+    -- ** AnomalyDetectorDataQualityMetric
+    AnomalyDetectorDataQualityMetric (AnomalyDetectorDataQualityMetric'),
+    newAnomalyDetectorDataQualityMetric,
 
     -- ** AnomalyDetectorSummary
     AnomalyDetectorSummary (AnomalyDetectorSummary'),
@@ -272,6 +325,26 @@ module Amazonka.LookoutMetrics
     AppFlowConfig (AppFlowConfig'),
     newAppFlowConfig,
 
+    -- ** AthenaSourceConfig
+    AthenaSourceConfig (AthenaSourceConfig'),
+    newAthenaSourceConfig,
+
+    -- ** AttributeValue
+    AttributeValue (AttributeValue'),
+    newAttributeValue,
+
+    -- ** AutoDetectionMetricSource
+    AutoDetectionMetricSource (AutoDetectionMetricSource'),
+    newAutoDetectionMetricSource,
+
+    -- ** AutoDetectionS3SourceConfig
+    AutoDetectionS3SourceConfig (AutoDetectionS3SourceConfig'),
+    newAutoDetectionS3SourceConfig,
+
+    -- ** BackTestConfiguration
+    BackTestConfiguration (BackTestConfiguration'),
+    newBackTestConfiguration,
+
     -- ** CloudWatchConfig
     CloudWatchConfig (CloudWatchConfig'),
     newCloudWatchConfig,
@@ -284,9 +357,45 @@ module Amazonka.LookoutMetrics
     CsvFormatDescriptor (CsvFormatDescriptor'),
     newCsvFormatDescriptor,
 
+    -- ** DataQualityMetric
+    DataQualityMetric (DataQualityMetric'),
+    newDataQualityMetric,
+
+    -- ** DetectedCsvFormatDescriptor
+    DetectedCsvFormatDescriptor (DetectedCsvFormatDescriptor'),
+    newDetectedCsvFormatDescriptor,
+
+    -- ** DetectedField
+    DetectedField (DetectedField'),
+    newDetectedField,
+
+    -- ** DetectedFileFormatDescriptor
+    DetectedFileFormatDescriptor (DetectedFileFormatDescriptor'),
+    newDetectedFileFormatDescriptor,
+
+    -- ** DetectedJsonFormatDescriptor
+    DetectedJsonFormatDescriptor (DetectedJsonFormatDescriptor'),
+    newDetectedJsonFormatDescriptor,
+
+    -- ** DetectedMetricSetConfig
+    DetectedMetricSetConfig (DetectedMetricSetConfig'),
+    newDetectedMetricSetConfig,
+
+    -- ** DetectedMetricSource
+    DetectedMetricSource (DetectedMetricSource'),
+    newDetectedMetricSource,
+
+    -- ** DetectedS3SourceConfig
+    DetectedS3SourceConfig (DetectedS3SourceConfig'),
+    newDetectedS3SourceConfig,
+
     -- ** DimensionContribution
     DimensionContribution (DimensionContribution'),
     newDimensionContribution,
+
+    -- ** DimensionFilter
+    DimensionFilter (DimensionFilter'),
+    newDimensionFilter,
 
     -- ** DimensionNameValue
     DimensionNameValue (DimensionNameValue'),
@@ -303,6 +412,10 @@ module Amazonka.LookoutMetrics
     -- ** FileFormatDescriptor
     FileFormatDescriptor (FileFormatDescriptor'),
     newFileFormatDescriptor,
+
+    -- ** InterMetricImpactDetails
+    InterMetricImpactDetails (InterMetricImpactDetails'),
+    newInterMetricImpactDetails,
 
     -- ** ItemizedMetricStats
     ItemizedMetricStats (ItemizedMetricStats'),
@@ -323,6 +436,10 @@ module Amazonka.LookoutMetrics
     -- ** MetricLevelImpact
     MetricLevelImpact (MetricLevelImpact'),
     newMetricLevelImpact,
+
+    -- ** MetricSetDataQualityMetric
+    MetricSetDataQualityMetric (MetricSetDataQualityMetric'),
+    newMetricSetDataQualityMetric,
 
     -- ** MetricSetSummary
     MetricSetSummary (MetricSetSummary'),
@@ -375,18 +492,22 @@ import Amazonka.LookoutMetrics.BackTestAnomalyDetector
 import Amazonka.LookoutMetrics.CreateAlert
 import Amazonka.LookoutMetrics.CreateAnomalyDetector
 import Amazonka.LookoutMetrics.CreateMetricSet
+import Amazonka.LookoutMetrics.DeactivateAnomalyDetector
 import Amazonka.LookoutMetrics.DeleteAlert
 import Amazonka.LookoutMetrics.DeleteAnomalyDetector
 import Amazonka.LookoutMetrics.DescribeAlert
 import Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
 import Amazonka.LookoutMetrics.DescribeAnomalyDetector
 import Amazonka.LookoutMetrics.DescribeMetricSet
+import Amazonka.LookoutMetrics.DetectMetricSetConfig
 import Amazonka.LookoutMetrics.GetAnomalyGroup
+import Amazonka.LookoutMetrics.GetDataQualityMetrics
 import Amazonka.LookoutMetrics.GetFeedback
 import Amazonka.LookoutMetrics.GetSampleData
 import Amazonka.LookoutMetrics.Lens
 import Amazonka.LookoutMetrics.ListAlerts
 import Amazonka.LookoutMetrics.ListAnomalyDetectors
+import Amazonka.LookoutMetrics.ListAnomalyGroupRelatedMetrics
 import Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
 import Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
 import Amazonka.LookoutMetrics.ListMetricSets
@@ -395,6 +516,7 @@ import Amazonka.LookoutMetrics.PutFeedback
 import Amazonka.LookoutMetrics.TagResource
 import Amazonka.LookoutMetrics.Types
 import Amazonka.LookoutMetrics.UntagResource
+import Amazonka.LookoutMetrics.UpdateAlert
 import Amazonka.LookoutMetrics.UpdateAnomalyDetector
 import Amazonka.LookoutMetrics.UpdateMetricSet
 import Amazonka.LookoutMetrics.Waiters

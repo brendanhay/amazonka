@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about AWS tags for a specified Amazon Resource Name
--- (ARN) in AWS CodeArtifact.
+-- Gets information about Amazon Web Services tags for a specified Amazon
+-- Resource Name (ARN) in CodeArtifact.
 module Amazonka.CodeArtifact.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

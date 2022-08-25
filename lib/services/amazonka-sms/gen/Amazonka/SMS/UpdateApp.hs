@@ -59,7 +59,8 @@ data UpdateApp = UpdateApp'
     tags :: Prelude.Maybe [Tag],
     -- | The new name of the application.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The name of the service role in the customer\'s account used by AWS SMS.
+    -- | The name of the service role in the customer\'s account used by Server
+    -- Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | The new description of the application.
     description :: Prelude.Maybe Prelude.Text,
@@ -82,7 +83,8 @@ data UpdateApp = UpdateApp'
 --
 -- 'name', 'updateApp_name' - The new name of the application.
 --
--- 'roleName', 'updateApp_roleName' - The name of the service role in the customer\'s account used by AWS SMS.
+-- 'roleName', 'updateApp_roleName' - The name of the service role in the customer\'s account used by Server
+-- Migration Service.
 --
 -- 'description', 'updateApp_description' - The new description of the application.
 --
@@ -109,7 +111,8 @@ updateApp_tags = Lens.lens (\UpdateApp' {tags} -> tags) (\s@UpdateApp' {} a -> s
 updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s {name = a} :: UpdateApp)
 
--- | The name of the service role in the customer\'s account used by AWS SMS.
+-- | The name of the service role in the customer\'s account used by Server
+-- Migration Service.
 updateApp_roleName :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_roleName = Lens.lens (\UpdateApp' {roleName} -> roleName) (\s@UpdateApp' {} a -> s {roleName = a} :: UpdateApp)
 

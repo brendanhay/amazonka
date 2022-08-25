@@ -30,8 +30,8 @@
 -- Remote Desktop client. For a Linux instance, GameLift returns a user
 -- name and RSA private key, also as strings, for use with an SSH client.
 -- The private key must be saved in the proper format to a @.pem@ file
--- before using. If you\'re making this request using the AWS CLI, saving
--- the secret can be handled as part of the @GetInstanceAccess@ request, as
+-- before using. If you\'re making this request using the CLI, saving the
+-- secret can be handled as part of the @GetInstanceAccess@ request, as
 -- shown in one of the examples for this operation.
 --
 -- To request access to a specific instance, specify the IDs of both the

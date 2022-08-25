@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-  { -- | The Docker version running on the container instance.
+  { -- | The Docker version that\'s running on the container instance.
     dockerVersion :: Prelude.Maybe Prelude.Text,
     -- | The Git commit hash for the Amazon ECS container agent build on the
     -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
@@ -47,7 +47,7 @@ data VersionInfo = VersionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dockerVersion', 'versionInfo_dockerVersion' - The Docker version running on the container instance.
+-- 'dockerVersion', 'versionInfo_dockerVersion' - The Docker version that\'s running on the container instance.
 --
 -- 'agentHash', 'versionInfo_agentHash' - The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
@@ -63,7 +63,7 @@ newVersionInfo =
       agentVersion = Prelude.Nothing
     }
 
--- | The Docker version running on the container instance.
+-- | The Docker version that\'s running on the container instance.
 versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_dockerVersion = Lens.lens (\VersionInfo' {dockerVersion} -> dockerVersion) (\s@VersionInfo' {} a -> s {dockerVersion = a} :: VersionInfo)
 

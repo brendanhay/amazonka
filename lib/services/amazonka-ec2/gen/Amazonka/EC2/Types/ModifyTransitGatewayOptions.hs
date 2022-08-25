@@ -46,6 +46,10 @@ data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
     propagationDefaultRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | Enable or disable automatic acceptance of attachment requests.
     autoAcceptSharedAttachments :: Prelude.Maybe AutoAcceptSharedAttachmentsValue,
+    -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
+    -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
+    -- 4294967294 for 32-bit ASNs.
+    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
     -- | Enable or disable Equal Cost Multipath Protocol support.
     vpnEcmpSupport :: Prelude.Maybe VpnEcmpSupportValue,
     -- | Enable or disable automatic propagation of routes to the default
@@ -79,6 +83,10 @@ data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
 --
 -- 'autoAcceptSharedAttachments', 'modifyTransitGatewayOptions_autoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests.
 --
+-- 'amazonSideAsn', 'modifyTransitGatewayOptions_amazonSideAsn' - A private Autonomous System Number (ASN) for the Amazon side of a BGP
+-- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
+-- 4294967294 for 32-bit ASNs.
+--
 -- 'vpnEcmpSupport', 'modifyTransitGatewayOptions_vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
 --
 -- 'defaultRouteTablePropagation', 'modifyTransitGatewayOptions_defaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default
@@ -100,6 +108,7 @@ newModifyTransitGatewayOptions =
       propagationDefaultRouteTableId =
         Prelude.Nothing,
       autoAcceptSharedAttachments = Prelude.Nothing,
+      amazonSideAsn = Prelude.Nothing,
       vpnEcmpSupport = Prelude.Nothing,
       defaultRouteTablePropagation = Prelude.Nothing,
       addTransitGatewayCidrBlocks = Prelude.Nothing
@@ -130,6 +139,12 @@ modifyTransitGatewayOptions_propagationDefaultRouteTableId = Lens.lens (\ModifyT
 modifyTransitGatewayOptions_autoAcceptSharedAttachments :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe AutoAcceptSharedAttachmentsValue)
 modifyTransitGatewayOptions_autoAcceptSharedAttachments = Lens.lens (\ModifyTransitGatewayOptions' {autoAcceptSharedAttachments} -> autoAcceptSharedAttachments) (\s@ModifyTransitGatewayOptions' {} a -> s {autoAcceptSharedAttachments = a} :: ModifyTransitGatewayOptions)
 
+-- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
+-- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
+-- 4294967294 for 32-bit ASNs.
+modifyTransitGatewayOptions_amazonSideAsn :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe Prelude.Integer)
+modifyTransitGatewayOptions_amazonSideAsn = Lens.lens (\ModifyTransitGatewayOptions' {amazonSideAsn} -> amazonSideAsn) (\s@ModifyTransitGatewayOptions' {} a -> s {amazonSideAsn = a} :: ModifyTransitGatewayOptions)
+
 -- | Enable or disable Equal Cost Multipath Protocol support.
 modifyTransitGatewayOptions_vpnEcmpSupport :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe VpnEcmpSupportValue)
 modifyTransitGatewayOptions_vpnEcmpSupport = Lens.lens (\ModifyTransitGatewayOptions' {vpnEcmpSupport} -> vpnEcmpSupport) (\s@ModifyTransitGatewayOptions' {} a -> s {vpnEcmpSupport = a} :: ModifyTransitGatewayOptions)
@@ -154,6 +169,7 @@ instance Prelude.Hashable ModifyTransitGatewayOptions where
       `Prelude.hashWithSalt` removeTransitGatewayCidrBlocks
       `Prelude.hashWithSalt` propagationDefaultRouteTableId
       `Prelude.hashWithSalt` autoAcceptSharedAttachments
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` vpnEcmpSupport
       `Prelude.hashWithSalt` defaultRouteTablePropagation
       `Prelude.hashWithSalt` addTransitGatewayCidrBlocks
@@ -166,6 +182,7 @@ instance Prelude.NFData ModifyTransitGatewayOptions where
       `Prelude.seq` Prelude.rnf removeTransitGatewayCidrBlocks
       `Prelude.seq` Prelude.rnf propagationDefaultRouteTableId
       `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments
+      `Prelude.seq` Prelude.rnf amazonSideAsn
       `Prelude.seq` Prelude.rnf vpnEcmpSupport
       `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
       `Prelude.seq` Prelude.rnf addTransitGatewayCidrBlocks
@@ -186,6 +203,7 @@ instance Core.ToQuery ModifyTransitGatewayOptions where
           Core.=: propagationDefaultRouteTableId,
         "AutoAcceptSharedAttachments"
           Core.=: autoAcceptSharedAttachments,
+        "AmazonSideAsn" Core.=: amazonSideAsn,
         "VpnEcmpSupport" Core.=: vpnEcmpSupport,
         "DefaultRouteTablePropagation"
           Core.=: defaultRouteTablePropagation,

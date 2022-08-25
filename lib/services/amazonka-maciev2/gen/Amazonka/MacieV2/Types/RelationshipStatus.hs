@@ -38,8 +38,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of the relationship between an account and an
--- associated Amazon Macie administrator account (/inviter account/).
--- Possible values are:
+-- associated Amazon Macie administrator account. Possible values are:
 newtype RelationshipStatus = RelationshipStatus'
   { fromRelationshipStatus ::
       Core.Text

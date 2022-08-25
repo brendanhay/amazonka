@@ -80,6 +80,7 @@ library
     Amazonka.FraudDetector.GetEntityTypes
     Amazonka.FraudDetector.GetEvent
     Amazonka.FraudDetector.GetEventPrediction
+    Amazonka.FraudDetector.GetEventPredictionMetadata
     Amazonka.FraudDetector.GetEventTypes
     Amazonka.FraudDetector.GetExternalModels
     Amazonka.FraudDetector.GetKMSEncryptionKey
@@ -90,6 +91,7 @@ library
     Amazonka.FraudDetector.GetRules
     Amazonka.FraudDetector.GetVariables
     Amazonka.FraudDetector.Lens
+    Amazonka.FraudDetector.ListEventPredictions
     Amazonka.FraudDetector.ListTagsForResource
     Amazonka.FraudDetector.PutDetector
     Amazonka.FraudDetector.PutEntityType
@@ -101,7 +103,13 @@ library
     Amazonka.FraudDetector.SendEvent
     Amazonka.FraudDetector.TagResource
     Amazonka.FraudDetector.Types
+    Amazonka.FraudDetector.Types.AggregatedLogOddsMetric
+    Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation
+    Amazonka.FraudDetector.Types.AggregatedVariablesImportanceMetrics
     Amazonka.FraudDetector.Types.AsyncJobStatus
+    Amazonka.FraudDetector.Types.ATIMetricDataPoint
+    Amazonka.FraudDetector.Types.ATIModelPerformance
+    Amazonka.FraudDetector.Types.ATITrainingMetricsValue
     Amazonka.FraudDetector.Types.BatchCreateVariableError
     Amazonka.FraudDetector.Types.BatchGetVariableError
     Amazonka.FraudDetector.Types.BatchImport
@@ -114,15 +122,21 @@ library
     Amazonka.FraudDetector.Types.DetectorVersionSummary
     Amazonka.FraudDetector.Types.Entity
     Amazonka.FraudDetector.Types.EntityType
+    Amazonka.FraudDetector.Types.EvaluatedExternalModel
+    Amazonka.FraudDetector.Types.EvaluatedModelVersion
+    Amazonka.FraudDetector.Types.EvaluatedRule
     Amazonka.FraudDetector.Types.Event
     Amazonka.FraudDetector.Types.EventIngestion
+    Amazonka.FraudDetector.Types.EventPredictionSummary
     Amazonka.FraudDetector.Types.EventType
+    Amazonka.FraudDetector.Types.EventVariableSummary
     Amazonka.FraudDetector.Types.ExternalEventsDetail
     Amazonka.FraudDetector.Types.ExternalModel
     Amazonka.FraudDetector.Types.ExternalModelOutputs
     Amazonka.FraudDetector.Types.ExternalModelSummary
     Amazonka.FraudDetector.Types.FieldValidationMessage
     Amazonka.FraudDetector.Types.FileValidationMessage
+    Amazonka.FraudDetector.Types.FilterCondition
     Amazonka.FraudDetector.Types.IngestedEventsDetail
     Amazonka.FraudDetector.Types.IngestedEventStatistics
     Amazonka.FraudDetector.Types.IngestedEventsTimeWindow
@@ -144,20 +158,32 @@ library
     Amazonka.FraudDetector.Types.ModelTypeEnum
     Amazonka.FraudDetector.Types.ModelVersion
     Amazonka.FraudDetector.Types.ModelVersionDetail
+    Amazonka.FraudDetector.Types.ModelVersionEvaluation
     Amazonka.FraudDetector.Types.ModelVersionStatus
+    Amazonka.FraudDetector.Types.OFIMetricDataPoint
+    Amazonka.FraudDetector.Types.OFIModelPerformance
+    Amazonka.FraudDetector.Types.OFITrainingMetricsValue
     Amazonka.FraudDetector.Types.Outcome
+    Amazonka.FraudDetector.Types.PredictionExplanations
+    Amazonka.FraudDetector.Types.PredictionTimeRange
     Amazonka.FraudDetector.Types.Rule
     Amazonka.FraudDetector.Types.RuleDetail
     Amazonka.FraudDetector.Types.RuleExecutionMode
     Amazonka.FraudDetector.Types.RuleResult
     Amazonka.FraudDetector.Types.Tag
+    Amazonka.FraudDetector.Types.TFIMetricDataPoint
+    Amazonka.FraudDetector.Types.TFIModelPerformance
+    Amazonka.FraudDetector.Types.TFITrainingMetricsValue
     Amazonka.FraudDetector.Types.TrainingDataSchema
     Amazonka.FraudDetector.Types.TrainingDataSourceEnum
     Amazonka.FraudDetector.Types.TrainingMetrics
+    Amazonka.FraudDetector.Types.TrainingMetricsV2
     Amazonka.FraudDetector.Types.TrainingResult
+    Amazonka.FraudDetector.Types.TrainingResultV2
     Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
     Amazonka.FraudDetector.Types.Variable
     Amazonka.FraudDetector.Types.VariableEntry
+    Amazonka.FraudDetector.Types.VariableImpactExplanation
     Amazonka.FraudDetector.Types.VariableImportanceMetrics
     Amazonka.FraudDetector.UntagResource
     Amazonka.FraudDetector.UpdateDetectorVersion

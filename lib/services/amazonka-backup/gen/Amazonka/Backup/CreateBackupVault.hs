@@ -63,7 +63,11 @@ data CreateBackupVault = CreateBackupVault'
     -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
     encryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
+    -- to be retried without the risk of running the operation twice. This
+    -- parameter is optional.
+    --
+    -- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+    -- characters.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Metadata that you can assign to help organize the resources that you
     -- create. Each tag is a key-value pair.
@@ -89,7 +93,11 @@ data CreateBackupVault = CreateBackupVault'
 -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
 --
 -- 'creatorRequestId', 'createBackupVault_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 --
 -- 'backupVaultTags', 'createBackupVault_backupVaultTags' - Metadata that you can assign to help organize the resources that you
 -- create. Each tag is a key-value pair.
@@ -118,7 +126,11 @@ createBackupVault_encryptionKeyArn :: Lens.Lens' CreateBackupVault (Prelude.Mayb
 createBackupVault_encryptionKeyArn = Lens.lens (\CreateBackupVault' {encryptionKeyArn} -> encryptionKeyArn) (\s@CreateBackupVault' {} a -> s {encryptionKeyArn = a} :: CreateBackupVault)
 
 -- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 createBackupVault_creatorRequestId :: Lens.Lens' CreateBackupVault (Prelude.Maybe Prelude.Text)
 createBackupVault_creatorRequestId = Lens.lens (\CreateBackupVault' {creatorRequestId} -> creatorRequestId) (\s@CreateBackupVault' {} a -> s {creatorRequestId = a} :: CreateBackupVault)
 

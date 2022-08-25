@@ -36,6 +36,7 @@ module Amazonka.MediaLive.DescribeChannel
     -- * Response Lenses
     describeChannelResponse_tags,
     describeChannelResponse_name,
+    describeChannelResponse_maintenance,
     describeChannelResponse_roleArn,
     describeChannelResponse_vpc,
     describeChannelResponse_logLevel,
@@ -102,6 +103,7 @@ instance Core.AWSRequest DescribeChannel where
           DescribeChannelResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "maintenance")
             Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (x Core..?> "vpc")
             Prelude.<*> (x Core..?> "logLevel")
@@ -160,6 +162,8 @@ data DescribeChannelResponse = DescribeChannelResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel. (user-mutable)
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceStatus,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -209,6 +213,8 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- 'name', 'describeChannelResponse_name' - The name of the channel. (user-mutable)
 --
+-- 'maintenance', 'describeChannelResponse_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'describeChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 --
@@ -252,6 +258,7 @@ newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -277,6 +284,10 @@ describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> ta
 -- | The name of the channel. (user-mutable)
 describeChannelResponse_name :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
 describeChannelResponse_name = Lens.lens (\DescribeChannelResponse' {name} -> name) (\s@DescribeChannelResponse' {} a -> s {name = a} :: DescribeChannelResponse)
+
+-- | Maintenance settings for this channel.
+describeChannelResponse_maintenance :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe MaintenanceStatus)
+describeChannelResponse_maintenance = Lens.lens (\DescribeChannelResponse' {maintenance} -> maintenance) (\s@DescribeChannelResponse' {} a -> s {maintenance = a} :: DescribeChannelResponse)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
@@ -350,6 +361,7 @@ instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel

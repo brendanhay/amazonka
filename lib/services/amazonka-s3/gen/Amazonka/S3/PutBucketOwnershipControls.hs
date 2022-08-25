@@ -23,10 +23,10 @@
 -- Creates or modifies @OwnershipControls@ for an Amazon S3 bucket. To use
 -- this operation, you must have the @s3:PutBucketOwnershipControls@
 -- permission. For more information about Amazon S3 permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html Specifying permissions in a policy>.
 --
 -- For information about Amazon S3 Object Ownership, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html Using Object Ownership>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html Using object ownership>.
 --
 -- The following operations are related to @PutBucketOwnershipControls@:
 --
@@ -66,14 +66,14 @@ data PutBucketOwnershipControls = PutBucketOwnershipControls'
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
     -- set.
     bucket :: BucketName,
-    -- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you
-    -- want to apply to this Amazon S3 bucket.
+    -- | The @OwnershipControls@ (BucketOwnerEnforced, BucketOwnerPreferred, or
+    -- ObjectWriter) that you want to apply to this Amazon S3 bucket.
     ownershipControls :: OwnershipControls
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,14 +93,14 @@ data PutBucketOwnershipControls = PutBucketOwnershipControls'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'putBucketOwnershipControls_bucket' - The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
 -- set.
 --
--- 'ownershipControls', 'putBucketOwnershipControls_ownershipControls' - The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you
--- want to apply to this Amazon S3 bucket.
+-- 'ownershipControls', 'putBucketOwnershipControls_ownershipControls' - The @OwnershipControls@ (BucketOwnerEnforced, BucketOwnerPreferred, or
+-- ObjectWriter) that you want to apply to this Amazon S3 bucket.
 newPutBucketOwnershipControls ::
   -- | 'bucket'
   BucketName ->
@@ -127,8 +127,8 @@ putBucketOwnershipControls_contentMD5 :: Lens.Lens' PutBucketOwnershipControls (
 putBucketOwnershipControls_contentMD5 = Lens.lens (\PutBucketOwnershipControls' {contentMD5} -> contentMD5) (\s@PutBucketOwnershipControls' {} a -> s {contentMD5 = a} :: PutBucketOwnershipControls)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' PutBucketOwnershipControls (Prelude.Maybe Prelude.Text)
 putBucketOwnershipControls_expectedBucketOwner = Lens.lens (\PutBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: PutBucketOwnershipControls)
 
@@ -137,8 +137,8 @@ putBucketOwnershipControls_expectedBucketOwner = Lens.lens (\PutBucketOwnershipC
 putBucketOwnershipControls_bucket :: Lens.Lens' PutBucketOwnershipControls BucketName
 putBucketOwnershipControls_bucket = Lens.lens (\PutBucketOwnershipControls' {bucket} -> bucket) (\s@PutBucketOwnershipControls' {} a -> s {bucket = a} :: PutBucketOwnershipControls)
 
--- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you
--- want to apply to this Amazon S3 bucket.
+-- | The @OwnershipControls@ (BucketOwnerEnforced, BucketOwnerPreferred, or
+-- ObjectWriter) that you want to apply to this Amazon S3 bucket.
 putBucketOwnershipControls_ownershipControls :: Lens.Lens' PutBucketOwnershipControls OwnershipControls
 putBucketOwnershipControls_ownershipControls = Lens.lens (\PutBucketOwnershipControls' {ownershipControls} -> ownershipControls) (\s@PutBucketOwnershipControls' {} a -> s {ownershipControls = a} :: PutBucketOwnershipControls)
 

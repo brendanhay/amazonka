@@ -60,6 +60,7 @@ library
     Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
     Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
     Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
+    Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
     Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
     Amazonka.ServiceCatalogAppRegistry.SyncResource
     Amazonka.ServiceCatalogAppRegistry.TagResource
@@ -67,6 +68,7 @@ library
     Amazonka.ServiceCatalogAppRegistry.Types.Application
     Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
     Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupDetails
     Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
     Amazonka.ServiceCatalogAppRegistry.Types.Integrations
     Amazonka.ServiceCatalogAppRegistry.Types.Resource

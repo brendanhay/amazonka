@@ -24,8 +24,10 @@
 -- dataset is not specified, all the dataset export jobs associated with
 -- the account are listed. The response provides the properties for each
 -- dataset export job, including the Amazon Resource Name (ARN). For more
--- information on dataset export jobs, see CreateDatasetExportJob. For more
--- information on datasets, see CreateDataset.
+-- information on dataset export jobs, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html CreateDatasetExportJob>.
+-- For more information on datasets, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListDatasetExportJobs

@@ -25,9 +25,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the usage data of a usage plan.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>,
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html#api-gateway-usage-plan-manage-usage Manage Usage in a Usage Plan>
---
 -- /See:/ 'newUsage' smart constructor.
 data Usage = Usage'
   { -- | The usage data, as daily logs of used and remaining quotas, over the

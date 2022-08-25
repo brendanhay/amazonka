@@ -25,11 +25,13 @@
 -- A DB parameter group is initially created with the default parameters
 -- for the database engine used by the DB instance. To provide custom
 -- values for any of the parameters, you must modify the group after
--- creating it using /ModifyDBParameterGroup/. Once you\'ve created a DB
+-- creating it using @ModifyDBParameterGroup@. Once you\'ve created a DB
 -- parameter group, you need to associate it with your DB instance using
--- /ModifyDBInstance/. When you associate a new DB parameter group with a
+-- @ModifyDBInstance@. When you associate a new DB parameter group with a
 -- running DB instance, you need to reboot the DB instance without failover
 -- for the new DB parameter group and associated settings to take effect.
+--
+-- This command doesn\'t apply to RDS Custom.
 --
 -- After you create a DB parameter group, you should wait at least 5
 -- minutes before creating your first DB instance that uses that DB
@@ -110,7 +112,8 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     --
     -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
     --
-    -- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+    --     Aurora)
     --
     -- -   @aurora-postgresql@
     --
@@ -184,7 +187,8 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
 --
 -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
 --
--- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
 --
 -- -   @aurora-postgresql@
 --
@@ -269,7 +273,8 @@ createDBParameterGroup_dbParameterGroupName = Lens.lens (\CreateDBParameterGroup
 --
 -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
 --
--- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
 --
 -- -   @aurora-postgresql@
 --

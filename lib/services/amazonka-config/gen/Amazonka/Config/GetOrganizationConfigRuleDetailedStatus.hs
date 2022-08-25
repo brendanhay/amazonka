@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns detailed status for each member account within an organization
--- for a given organization config rule.
+-- for a given organization Config rule.
 --
 -- This operation returns paginated results.
 module Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
@@ -64,8 +64,8 @@ data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailed
     -- each page. If you do not specify a number, Config uses the default. The
     -- default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The name of organization config rule for which you want status details
-    -- for member accounts.
+    -- | The name of your organization Config rule for which you want status
+    -- details for member accounts.
     organizationConfigRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,8 +87,8 @@ data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailed
 -- each page. If you do not specify a number, Config uses the default. The
 -- default is 100.
 --
--- 'organizationConfigRuleName', 'getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName' - The name of organization config rule for which you want status details
--- for member accounts.
+-- 'organizationConfigRuleName', 'getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName' - The name of your organization Config rule for which you want status
+-- details for member accounts.
 newGetOrganizationConfigRuleDetailedStatus ::
   -- | 'organizationConfigRuleName'
   Prelude.Text ->
@@ -119,8 +119,8 @@ getOrganizationConfigRuleDetailedStatus_filters = Lens.lens (\GetOrganizationCon
 getOrganizationConfigRuleDetailedStatus_limit :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe Prelude.Natural)
 getOrganizationConfigRuleDetailedStatus_limit = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {limit} -> limit) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {limit = a} :: GetOrganizationConfigRuleDetailedStatus)
 
--- | The name of organization config rule for which you want status details
--- for member accounts.
+-- | The name of your organization Config rule for which you want status
+-- details for member accounts.
 getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus Prelude.Text
 getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {organizationConfigRuleName = a} :: GetOrganizationConfigRuleDetailedStatus)
 

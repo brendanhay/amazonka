@@ -315,6 +315,12 @@ module Amazonka.KafkaConnect.Types
     newScaleOutPolicyUpdate,
     scaleOutPolicyUpdate_cpuUtilizationPercentage,
 
+    -- * StateDescription
+    StateDescription (..),
+    newStateDescription,
+    stateDescription_message,
+    stateDescription_code,
+
     -- * Vpc
     Vpc (..),
     newVpc,
@@ -428,6 +434,7 @@ import Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate
 import Amazonka.KafkaConnect.Types.ScaleOutPolicy
 import Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
 import Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate
+import Amazonka.KafkaConnect.Types.StateDescription
 import Amazonka.KafkaConnect.Types.Vpc
 import Amazonka.KafkaConnect.Types.VpcDescription
 import Amazonka.KafkaConnect.Types.WorkerConfiguration

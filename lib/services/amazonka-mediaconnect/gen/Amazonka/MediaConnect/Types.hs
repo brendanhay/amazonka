@@ -51,6 +51,9 @@ module Amazonka.MediaConnect.Types
     -- * KeyType
     KeyType (..),
 
+    -- * MaintenanceDay
+    MaintenanceDay (..),
+
     -- * MediaStreamType
     MediaStreamType (..),
 
@@ -87,6 +90,12 @@ module Amazonka.MediaConnect.Types
     -- * Tcs
     Tcs (..),
 
+    -- * AddMaintenance
+    AddMaintenance (..),
+    newAddMaintenance,
+    addMaintenance_maintenanceDay,
+    addMaintenance_maintenanceStartHour,
+
     -- * AddMediaStreamRequest
     AddMediaStreamRequest (..),
     newAddMediaStreamRequest,
@@ -112,6 +121,7 @@ module Amazonka.MediaConnect.Types
     addOutputRequest_remoteId,
     addOutputRequest_vpcInterfaceAttachment,
     addOutputRequest_description,
+    addOutputRequest_senderControlPort,
     addOutputRequest_encryption,
     addOutputRequest_minLatency,
     addOutputRequest_protocol,
@@ -179,6 +189,7 @@ module Amazonka.MediaConnect.Types
     Flow (..),
     newFlow,
     flow_sources,
+    flow_maintenance,
     flow_vpcInterfaces,
     flow_egressIp,
     flow_description,
@@ -257,12 +268,21 @@ module Amazonka.MediaConnect.Types
     -- * ListedFlow
     ListedFlow (..),
     newListedFlow,
+    listedFlow_maintenance,
     listedFlow_status,
     listedFlow_description,
     listedFlow_sourceType,
     listedFlow_availabilityZone,
     listedFlow_flowArn,
     listedFlow_name,
+
+    -- * Maintenance
+    Maintenance (..),
+    newMaintenance,
+    maintenance_maintenanceDeadline,
+    maintenance_maintenanceScheduledDate,
+    maintenance_maintenanceStartHour,
+    maintenance_maintenanceDay,
 
     -- * MediaStream
     MediaStream (..),
@@ -386,8 +406,10 @@ module Amazonka.MediaConnect.Types
     setSourceRequest_maxSyncBuffer,
     setSourceRequest_maxBitrate,
     setSourceRequest_streamId,
+    setSourceRequest_senderIpAddress,
     setSourceRequest_decryption,
     setSourceRequest_description,
+    setSourceRequest_senderControlPort,
     setSourceRequest_protocol,
     setSourceRequest_ingestPort,
     setSourceRequest_whitelistCidr,
@@ -400,9 +422,11 @@ module Amazonka.MediaConnect.Types
     source_ingestIp,
     source_entitlementArn,
     source_vpcInterfaceName,
+    source_senderIpAddress,
     source_decryption,
     source_description,
     source_transport,
+    source_senderControlPort,
     source_dataTransferSubscriberFeePercent,
     source_ingestPort,
     source_whitelistCidr,
@@ -424,6 +448,8 @@ module Amazonka.MediaConnect.Types
     transport_cidrAllowList,
     transport_streamId,
     transport_remoteId,
+    transport_senderIpAddress,
+    transport_senderControlPort,
     transport_minLatency,
     transport_protocol,
 
@@ -447,6 +473,13 @@ module Amazonka.MediaConnect.Types
     updateFailoverConfig_state,
     updateFailoverConfig_sourcePriority,
     updateFailoverConfig_failoverMode,
+
+    -- * UpdateMaintenance
+    UpdateMaintenance (..),
+    newUpdateMaintenance,
+    updateMaintenance_maintenanceScheduledDate,
+    updateMaintenance_maintenanceStartHour,
+    updateMaintenance_maintenanceDay,
 
     -- * VpcInterface
     VpcInterface (..),
@@ -476,6 +509,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.AddMaintenance
 import Amazonka.MediaConnect.Types.AddMediaStreamRequest
 import Amazonka.MediaConnect.Types.AddOutputRequest
 import Amazonka.MediaConnect.Types.Algorithm
@@ -503,6 +537,8 @@ import Amazonka.MediaConnect.Types.InterfaceRequest
 import Amazonka.MediaConnect.Types.KeyType
 import Amazonka.MediaConnect.Types.ListedEntitlement
 import Amazonka.MediaConnect.Types.ListedFlow
+import Amazonka.MediaConnect.Types.Maintenance
+import Amazonka.MediaConnect.Types.MaintenanceDay
 import Amazonka.MediaConnect.Types.MediaStream
 import Amazonka.MediaConnect.Types.MediaStreamAttributes
 import Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
@@ -533,6 +569,7 @@ import Amazonka.MediaConnect.Types.Tcs
 import Amazonka.MediaConnect.Types.Transport
 import Amazonka.MediaConnect.Types.UpdateEncryption
 import Amazonka.MediaConnect.Types.UpdateFailoverConfig
+import Amazonka.MediaConnect.Types.UpdateMaintenance
 import Amazonka.MediaConnect.Types.VpcInterface
 import Amazonka.MediaConnect.Types.VpcInterfaceAttachment
 import Amazonka.MediaConnect.Types.VpcInterfaceRequest

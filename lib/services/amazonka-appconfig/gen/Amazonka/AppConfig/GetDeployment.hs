@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve information about a configuration deployment.
+-- Retrieves information about a configuration deployment.
 module Amazonka.AppConfig.GetDeployment
   ( -- * Creating a Request
     GetDeployment (..),
@@ -46,6 +46,7 @@ module Amazonka.AppConfig.GetDeployment
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,

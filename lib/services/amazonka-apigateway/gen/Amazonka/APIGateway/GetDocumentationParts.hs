@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets documentation parts.
 --
 -- This operation returns paginated results.
 module Amazonka.APIGateway.GetDocumentationParts
@@ -75,7 +75,7 @@ data GetDocumentationParts = GetDocumentationParts'
     -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
     -- @UNDOCUMENTED@ for DocumentationPart resources without content.
     locationStatus :: Prelude.Maybe LocationStatusType,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,7 +103,7 @@ data GetDocumentationParts = GetDocumentationParts'
 -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
 -- @UNDOCUMENTED@ for DocumentationPart resources without content.
 --
--- 'restApiId', 'getDocumentationParts_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getDocumentationParts_restApiId' - The string identifier of the associated RestApi.
 newGetDocumentationParts ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -146,7 +146,7 @@ getDocumentationParts_position = Lens.lens (\GetDocumentationParts' {position} -
 getDocumentationParts_locationStatus :: Lens.Lens' GetDocumentationParts (Prelude.Maybe LocationStatusType)
 getDocumentationParts_locationStatus = Lens.lens (\GetDocumentationParts' {locationStatus} -> locationStatus) (\s@GetDocumentationParts' {} a -> s {locationStatus = a} :: GetDocumentationParts)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDocumentationParts_restApiId :: Lens.Lens' GetDocumentationParts Prelude.Text
 getDocumentationParts_restApiId = Lens.lens (\GetDocumentationParts' {restApiId} -> restApiId) (\s@GetDocumentationParts' {} a -> s {restApiId = a} :: GetDocumentationParts)
 
@@ -235,9 +235,6 @@ instance Core.ToQuery GetDocumentationParts where
       ]
 
 -- | The collection of documentation parts of an API.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API>,
--- DocumentationPart
 --
 -- /See:/ 'newGetDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'

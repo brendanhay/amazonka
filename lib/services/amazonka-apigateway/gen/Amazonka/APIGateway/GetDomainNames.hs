@@ -153,8 +153,6 @@ instance Core.ToQuery GetDomainNames where
 
 -- | Represents a collection of DomainName resources.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
---
 -- /See:/ 'newGetDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'
   { -- | The current page of elements from this collection.

@@ -30,7 +30,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The comparison operator of a notification. Currently the service
+-- | The comparison operator of a notification. Currently, the service
 -- supports the following operators:
 --
 -- @GREATER_THAN@, @LESS_THAN@, @EQUAL_TO@

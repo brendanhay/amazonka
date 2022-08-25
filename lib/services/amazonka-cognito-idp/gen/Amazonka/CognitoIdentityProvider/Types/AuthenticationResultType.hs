@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuthenticationResultType' smart constructor.
 data AuthenticationResultType = AuthenticationResultType'
-  { -- | The access token.
+  { -- | A valid access token that Amazon Cognito issued to the user who you want
+    -- to authenticate.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The expiration period of the authentication result in seconds.
     expiresIn :: Prelude.Maybe Prelude.Int,
@@ -51,7 +52,8 @@ data AuthenticationResultType = AuthenticationResultType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'authenticationResultType_accessToken' - The access token.
+-- 'accessToken', 'authenticationResultType_accessToken' - A valid access token that Amazon Cognito issued to the user who you want
+-- to authenticate.
 --
 -- 'expiresIn', 'authenticationResultType_expiresIn' - The expiration period of the authentication result in seconds.
 --
@@ -75,7 +77,8 @@ newAuthenticationResultType =
       refreshToken = Prelude.Nothing
     }
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user who you want
+-- to authenticate.
 authenticationResultType_accessToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
 authenticationResultType_accessToken = Lens.lens (\AuthenticationResultType' {accessToken} -> accessToken) (\s@AuthenticationResultType' {} a -> s {accessToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
 

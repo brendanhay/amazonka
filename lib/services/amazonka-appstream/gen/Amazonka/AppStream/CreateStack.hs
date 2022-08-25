@@ -37,6 +37,7 @@ module Amazonka.AppStream.CreateStack
     createStack_accessEndpoints,
     createStack_description,
     createStack_redirectURL,
+    createStack_streamingExperienceSettings,
     createStack_feedbackURL,
     createStack_userSettings,
     createStack_name,
@@ -96,6 +97,9 @@ data CreateStack = CreateStack'
     description :: Prelude.Maybe Prelude.Text,
     -- | The URL that users are redirected to after their streaming session ends.
     redirectURL :: Prelude.Maybe Prelude.Text,
+    -- | The streaming protocol you want your stack to prefer. This can be UDP or
+    -- TCP. Currently, UDP is only supported in the Windows native client.
+    streamingExperienceSettings :: Prelude.Maybe StreamingExperienceSettings,
     -- | The URL that users are redirected to after they click the Send Feedback
     -- link. If no URL is specified, no Send Feedback link is displayed.
     feedbackURL :: Prelude.Maybe Prelude.Text,
@@ -151,6 +155,9 @@ data CreateStack = CreateStack'
 --
 -- 'redirectURL', 'createStack_redirectURL' - The URL that users are redirected to after their streaming session ends.
 --
+-- 'streamingExperienceSettings', 'createStack_streamingExperienceSettings' - The streaming protocol you want your stack to prefer. This can be UDP or
+-- TCP. Currently, UDP is only supported in the Windows native client.
+--
 -- 'feedbackURL', 'createStack_feedbackURL' - The URL that users are redirected to after they click the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
 --
@@ -172,6 +179,7 @@ newCreateStack pName_ =
       accessEndpoints = Prelude.Nothing,
       description = Prelude.Nothing,
       redirectURL = Prelude.Nothing,
+      streamingExperienceSettings = Prelude.Nothing,
       feedbackURL = Prelude.Nothing,
       userSettings = Prelude.Nothing,
       name = pName_
@@ -229,6 +237,11 @@ createStack_description = Lens.lens (\CreateStack' {description} -> description)
 createStack_redirectURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_redirectURL = Lens.lens (\CreateStack' {redirectURL} -> redirectURL) (\s@CreateStack' {} a -> s {redirectURL = a} :: CreateStack)
 
+-- | The streaming protocol you want your stack to prefer. This can be UDP or
+-- TCP. Currently, UDP is only supported in the Windows native client.
+createStack_streamingExperienceSettings :: Lens.Lens' CreateStack (Prelude.Maybe StreamingExperienceSettings)
+createStack_streamingExperienceSettings = Lens.lens (\CreateStack' {streamingExperienceSettings} -> streamingExperienceSettings) (\s@CreateStack' {} a -> s {streamingExperienceSettings = a} :: CreateStack)
+
 -- | The URL that users are redirected to after they click the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
 createStack_feedbackURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
@@ -264,6 +277,7 @@ instance Prelude.Hashable CreateStack where
       `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` redirectURL
+      `Prelude.hashWithSalt` streamingExperienceSettings
       `Prelude.hashWithSalt` feedbackURL
       `Prelude.hashWithSalt` userSettings
       `Prelude.hashWithSalt` name
@@ -278,6 +292,7 @@ instance Prelude.NFData CreateStack where
       `Prelude.seq` Prelude.rnf accessEndpoints
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf redirectURL
+      `Prelude.seq` Prelude.rnf streamingExperienceSettings
       `Prelude.seq` Prelude.rnf feedbackURL
       `Prelude.seq` Prelude.rnf userSettings
       `Prelude.seq` Prelude.rnf name
@@ -313,6 +328,8 @@ instance Core.ToJSON CreateStack where
               Prelude.<$> accessEndpoints,
             ("Description" Core..=) Prelude.<$> description,
             ("RedirectURL" Core..=) Prelude.<$> redirectURL,
+            ("StreamingExperienceSettings" Core..=)
+              Prelude.<$> streamingExperienceSettings,
             ("FeedbackURL" Core..=) Prelude.<$> feedbackURL,
             ("UserSettings" Core..=) Prelude.<$> userSettings,
             Prelude.Just ("Name" Core..= name)

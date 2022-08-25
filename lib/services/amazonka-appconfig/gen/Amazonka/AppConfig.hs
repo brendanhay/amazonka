@@ -11,23 +11,21 @@
 --
 -- Derived from API version @2019-10-09@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS AppConfig
---
--- Use AWS AppConfig, a capability of AWS Systems Manager, to create,
--- manage, and quickly deploy application configurations. AppConfig
+-- Use AppConfig, a capability of Amazon Web Services Systems Manager, to
+-- create, manage, and quickly deploy application configurations. AppConfig
 -- supports controlled deployments to applications of any size and includes
 -- built-in validation checks and monitoring. You can use AppConfig with
--- applications hosted on Amazon EC2 instances, AWS Lambda, containers,
--- mobile applications, or IoT devices.
+-- applications hosted on Amazon EC2 instances, Lambda, containers, mobile
+-- applications, or IoT devices.
 --
 -- To prevent errors when deploying application configurations, especially
 -- for production systems where a simple typo could cause an unexpected
 -- outage, AppConfig includes validators. A validator provides a syntactic
 -- or semantic check to ensure that the configuration you want to deploy
 -- works as intended. To validate your application configuration data, you
--- provide a schema or a Lambda function that runs against the
--- configuration. The configuration deployment or update can only proceed
--- when the configuration data is valid.
+-- provide a schema or an Amazon Web Services Lambda function that runs
+-- against the configuration. The configuration deployment or update can
+-- only proceed when the configuration data is valid.
 --
 -- During a configuration deployment, AppConfig monitors the application to
 -- ensure that the deployment is successful. If the system encounters an
@@ -38,14 +36,14 @@
 -- if a deployment triggers an alarm, AppConfig automatically rolls back to
 -- the previous version.
 --
--- AppConfig supports multiple use cases. Here are some examples.
+-- AppConfig supports multiple use cases. Here are some examples:
+--
+-- -   __Feature flags__: Use AppConfig to turn on new features that
+--     require a timely deployment, such as a product launch or
+--     announcement.
 --
 -- -   __Application tuning__: Use AppConfig to carefully introduce changes
 --     to your application that can only be tested with production traffic.
---
--- -   __Feature toggle__: Use AppConfig to turn on new features that
---     require a timely deployment, such as a product launch or
---     announcement.
 --
 -- -   __Allow list__: Use AppConfig to allow premium subscribers to access
 --     paid content.
@@ -55,7 +53,7 @@
 --     system.
 --
 -- This reference is intended to be used with the
--- <http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html AWS AppConfig User Guide>.
+-- <http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html AppConfig User Guide>.
 module Amazonka.AppConfig
   ( -- * Service Configuration
     defaultService,
@@ -111,6 +109,18 @@ module Amazonka.AppConfig
     Environment (Environment'),
     newEnvironment,
 
+    -- ** CreateExtension
+    CreateExtension (CreateExtension'),
+    newCreateExtension,
+    Extension (Extension'),
+    newExtension,
+
+    -- ** CreateExtensionAssociation
+    CreateExtensionAssociation (CreateExtensionAssociation'),
+    newCreateExtensionAssociation,
+    ExtensionAssociation (ExtensionAssociation'),
+    newExtensionAssociation,
+
     -- ** CreateHostedConfigurationVersion
     CreateHostedConfigurationVersion (CreateHostedConfigurationVersion'),
     newCreateHostedConfigurationVersion,
@@ -141,6 +151,18 @@ module Amazonka.AppConfig
     DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
     newDeleteEnvironmentResponse,
 
+    -- ** DeleteExtension
+    DeleteExtension (DeleteExtension'),
+    newDeleteExtension,
+    DeleteExtensionResponse (DeleteExtensionResponse'),
+    newDeleteExtensionResponse,
+
+    -- ** DeleteExtensionAssociation
+    DeleteExtensionAssociation (DeleteExtensionAssociation'),
+    newDeleteExtensionAssociation,
+    DeleteExtensionAssociationResponse (DeleteExtensionAssociationResponse'),
+    newDeleteExtensionAssociationResponse,
+
     -- ** DeleteHostedConfigurationVersion
     DeleteHostedConfigurationVersion (DeleteHostedConfigurationVersion'),
     newDeleteHostedConfigurationVersion,
@@ -152,12 +174,6 @@ module Amazonka.AppConfig
     newGetApplication,
     Application (Application'),
     newApplication,
-
-    -- ** GetConfiguration
-    GetConfiguration (GetConfiguration'),
-    newGetConfiguration,
-    GetConfigurationResponse (GetConfigurationResponse'),
-    newGetConfigurationResponse,
 
     -- ** GetConfigurationProfile
     GetConfigurationProfile (GetConfigurationProfile'),
@@ -182,6 +198,18 @@ module Amazonka.AppConfig
     newGetEnvironment,
     Environment (Environment'),
     newEnvironment,
+
+    -- ** GetExtension
+    GetExtension (GetExtension'),
+    newGetExtension,
+    Extension (Extension'),
+    newExtension,
+
+    -- ** GetExtensionAssociation
+    GetExtensionAssociation (GetExtensionAssociation'),
+    newGetExtensionAssociation,
+    ExtensionAssociation (ExtensionAssociation'),
+    newExtensionAssociation,
 
     -- ** GetHostedConfigurationVersion
     GetHostedConfigurationVersion (GetHostedConfigurationVersion'),
@@ -218,6 +246,18 @@ module Amazonka.AppConfig
     newListEnvironments,
     ListEnvironmentsResponse (ListEnvironmentsResponse'),
     newListEnvironmentsResponse,
+
+    -- ** ListExtensionAssociations
+    ListExtensionAssociations (ListExtensionAssociations'),
+    newListExtensionAssociations,
+    ListExtensionAssociationsResponse (ListExtensionAssociationsResponse'),
+    newListExtensionAssociationsResponse,
+
+    -- ** ListExtensions
+    ListExtensions (ListExtensions'),
+    newListExtensions,
+    ListExtensionsResponse (ListExtensionsResponse'),
+    newListExtensionsResponse,
 
     -- ** ListHostedConfigurationVersions
     ListHostedConfigurationVersions (ListHostedConfigurationVersions'),
@@ -279,6 +319,18 @@ module Amazonka.AppConfig
     Environment (Environment'),
     newEnvironment,
 
+    -- ** UpdateExtension
+    UpdateExtension (UpdateExtension'),
+    newUpdateExtension,
+    Extension (Extension'),
+    newExtension,
+
+    -- ** UpdateExtensionAssociation
+    UpdateExtensionAssociation (UpdateExtensionAssociation'),
+    newUpdateExtensionAssociation,
+    ExtensionAssociation (ExtensionAssociation'),
+    newExtensionAssociation,
+
     -- ** ValidateConfiguration
     ValidateConfiguration (ValidateConfiguration'),
     newValidateConfiguration,
@@ -286,6 +338,9 @@ module Amazonka.AppConfig
     newValidateConfigurationResponse,
 
     -- * Types
+
+    -- ** ActionPoint
+    ActionPoint (..),
 
     -- ** DeploymentEventType
     DeploymentEventType (..),
@@ -308,9 +363,21 @@ module Amazonka.AppConfig
     -- ** ValidatorType
     ValidatorType (..),
 
+    -- ** Action
+    Action (Action'),
+    newAction,
+
+    -- ** ActionInvocation
+    ActionInvocation (ActionInvocation'),
+    newActionInvocation,
+
     -- ** Application
     Application (Application'),
     newApplication,
+
+    -- ** AppliedExtension
+    AppliedExtension (AppliedExtension'),
+    newAppliedExtension,
 
     -- ** ConfigurationProfile
     ConfigurationProfile (ConfigurationProfile'),
@@ -340,6 +407,22 @@ module Amazonka.AppConfig
     Environment (Environment'),
     newEnvironment,
 
+    -- ** Extension
+    Extension (Extension'),
+    newExtension,
+
+    -- ** ExtensionAssociation
+    ExtensionAssociation (ExtensionAssociation'),
+    newExtensionAssociation,
+
+    -- ** ExtensionAssociationSummary
+    ExtensionAssociationSummary (ExtensionAssociationSummary'),
+    newExtensionAssociationSummary,
+
+    -- ** ExtensionSummary
+    ExtensionSummary (ExtensionSummary'),
+    newExtensionSummary,
+
     -- ** HostedConfigurationVersion
     HostedConfigurationVersion (HostedConfigurationVersion'),
     newHostedConfigurationVersion,
@@ -352,6 +435,10 @@ module Amazonka.AppConfig
     Monitor (Monitor'),
     newMonitor,
 
+    -- ** Parameter
+    Parameter (Parameter'),
+    newParameter,
+
     -- ** Validator
     Validator (Validator'),
     newValidator,
@@ -362,18 +449,23 @@ import Amazonka.AppConfig.CreateApplication
 import Amazonka.AppConfig.CreateConfigurationProfile
 import Amazonka.AppConfig.CreateDeploymentStrategy
 import Amazonka.AppConfig.CreateEnvironment
+import Amazonka.AppConfig.CreateExtension
+import Amazonka.AppConfig.CreateExtensionAssociation
 import Amazonka.AppConfig.CreateHostedConfigurationVersion
 import Amazonka.AppConfig.DeleteApplication
 import Amazonka.AppConfig.DeleteConfigurationProfile
 import Amazonka.AppConfig.DeleteDeploymentStrategy
 import Amazonka.AppConfig.DeleteEnvironment
+import Amazonka.AppConfig.DeleteExtension
+import Amazonka.AppConfig.DeleteExtensionAssociation
 import Amazonka.AppConfig.DeleteHostedConfigurationVersion
 import Amazonka.AppConfig.GetApplication
-import Amazonka.AppConfig.GetConfiguration
 import Amazonka.AppConfig.GetConfigurationProfile
 import Amazonka.AppConfig.GetDeployment
 import Amazonka.AppConfig.GetDeploymentStrategy
 import Amazonka.AppConfig.GetEnvironment
+import Amazonka.AppConfig.GetExtension
+import Amazonka.AppConfig.GetExtensionAssociation
 import Amazonka.AppConfig.GetHostedConfigurationVersion
 import Amazonka.AppConfig.Lens
 import Amazonka.AppConfig.ListApplications
@@ -381,6 +473,8 @@ import Amazonka.AppConfig.ListConfigurationProfiles
 import Amazonka.AppConfig.ListDeploymentStrategies
 import Amazonka.AppConfig.ListDeployments
 import Amazonka.AppConfig.ListEnvironments
+import Amazonka.AppConfig.ListExtensionAssociations
+import Amazonka.AppConfig.ListExtensions
 import Amazonka.AppConfig.ListHostedConfigurationVersions
 import Amazonka.AppConfig.ListTagsForResource
 import Amazonka.AppConfig.StartDeployment
@@ -392,6 +486,8 @@ import Amazonka.AppConfig.UpdateApplication
 import Amazonka.AppConfig.UpdateConfigurationProfile
 import Amazonka.AppConfig.UpdateDeploymentStrategy
 import Amazonka.AppConfig.UpdateEnvironment
+import Amazonka.AppConfig.UpdateExtension
+import Amazonka.AppConfig.UpdateExtensionAssociation
 import Amazonka.AppConfig.ValidateConfiguration
 import Amazonka.AppConfig.Waiters
 

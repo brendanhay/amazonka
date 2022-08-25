@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current snapshot for the patch baseline the instance uses.
--- This API is primarily used by the @AWS-RunPatchBaseline@ Systems Manager
--- document (SSM document).
+-- Retrieves the current snapshot for the patch baseline the managed node
+-- uses. This API is primarily used by the @AWS-RunPatchBaseline@ Systems
+-- Manager document (SSM document).
 --
 -- If you run the command locally, such as with the Command Line Interface
 -- (CLI), the system attempts to use your local Amazon Web Services
 -- credentials and the operation fails. To avoid this, you can run the
 -- command in the Amazon Web Services Systems Manager console. Use Run
 -- Command, a capability of Amazon Web Services Systems Manager, with an
--- SSM document that enables you to target an instance with a script or
+-- SSM document that enables you to target a managed node with a script or
 -- command. For example, run the command using the @AWS-RunShellScript@
 -- document or the @AWS-RunPowerShellScript@ document.
 module Amazonka.SSM.GetDeployablePatchSnapshotForInstance
@@ -66,8 +66,8 @@ import Amazonka.SSM.Types
 data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstance'
   { -- | Defines the basic information about a patch baseline override.
     baselineOverride :: Prelude.Maybe BaselineOverride,
-    -- | The ID of the instance for which the appropriate patch snapshot should
-    -- be retrieved.
+    -- | The ID of the managed node for which the appropriate patch snapshot
+    -- should be retrieved.
     instanceId :: Prelude.Text,
     -- | The snapshot ID provided by the user when running
     -- @AWS-RunPatchBaseline@.
@@ -85,8 +85,8 @@ data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstan
 --
 -- 'baselineOverride', 'getDeployablePatchSnapshotForInstance_baselineOverride' - Defines the basic information about a patch baseline override.
 --
--- 'instanceId', 'getDeployablePatchSnapshotForInstance_instanceId' - The ID of the instance for which the appropriate patch snapshot should
--- be retrieved.
+-- 'instanceId', 'getDeployablePatchSnapshotForInstance_instanceId' - The ID of the managed node for which the appropriate patch snapshot
+-- should be retrieved.
 --
 -- 'snapshotId', 'getDeployablePatchSnapshotForInstance_snapshotId' - The snapshot ID provided by the user when running
 -- @AWS-RunPatchBaseline@.
@@ -110,8 +110,8 @@ newGetDeployablePatchSnapshotForInstance
 getDeployablePatchSnapshotForInstance_baselineOverride :: Lens.Lens' GetDeployablePatchSnapshotForInstance (Prelude.Maybe BaselineOverride)
 getDeployablePatchSnapshotForInstance_baselineOverride = Lens.lens (\GetDeployablePatchSnapshotForInstance' {baselineOverride} -> baselineOverride) (\s@GetDeployablePatchSnapshotForInstance' {} a -> s {baselineOverride = a} :: GetDeployablePatchSnapshotForInstance)
 
--- | The ID of the instance for which the appropriate patch snapshot should
--- be retrieved.
+-- | The ID of the managed node for which the appropriate patch snapshot
+-- should be retrieved.
 getDeployablePatchSnapshotForInstance_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Prelude.Text
 getDeployablePatchSnapshotForInstance_instanceId = Lens.lens (\GetDeployablePatchSnapshotForInstance' {instanceId} -> instanceId) (\s@GetDeployablePatchSnapshotForInstance' {} a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstance)
 
@@ -207,12 +207,12 @@ instance
 -- | /See:/ 'newGetDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
   { -- | Returns the specific operating system (for example Windows Server 2012
-    -- or Amazon Linux 2015.09) on the instance for the specified patch
+    -- or Amazon Linux 2015.09) on the managed node for the specified patch
     -- snapshot.
     product :: Prelude.Maybe Prelude.Text,
     -- | The user-defined snapshot ID.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID.
+    -- | The managed node ID.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | A pre-signed Amazon Simple Storage Service (Amazon S3) URL that can be
     -- used to download the patch snapshot.
@@ -231,12 +231,12 @@ data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotF
 -- for backwards compatibility:
 --
 -- 'product', 'getDeployablePatchSnapshotForInstanceResponse_product' - Returns the specific operating system (for example Windows Server 2012
--- or Amazon Linux 2015.09) on the instance for the specified patch
+-- or Amazon Linux 2015.09) on the managed node for the specified patch
 -- snapshot.
 --
 -- 'snapshotId', 'getDeployablePatchSnapshotForInstanceResponse_snapshotId' - The user-defined snapshot ID.
 --
--- 'instanceId', 'getDeployablePatchSnapshotForInstanceResponse_instanceId' - The instance ID.
+-- 'instanceId', 'getDeployablePatchSnapshotForInstanceResponse_instanceId' - The managed node ID.
 --
 -- 'snapshotDownloadUrl', 'getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl' - A pre-signed Amazon Simple Storage Service (Amazon S3) URL that can be
 -- used to download the patch snapshot.
@@ -259,7 +259,7 @@ newGetDeployablePatchSnapshotForInstanceResponse
       }
 
 -- | Returns the specific operating system (for example Windows Server 2012
--- or Amazon Linux 2015.09) on the instance for the specified patch
+-- or Amazon Linux 2015.09) on the managed node for the specified patch
 -- snapshot.
 getDeployablePatchSnapshotForInstanceResponse_product :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
 getDeployablePatchSnapshotForInstanceResponse_product = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {product} -> product) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {product = a} :: GetDeployablePatchSnapshotForInstanceResponse)
@@ -268,7 +268,7 @@ getDeployablePatchSnapshotForInstanceResponse_product = Lens.lens (\GetDeployabl
 getDeployablePatchSnapshotForInstanceResponse_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
 getDeployablePatchSnapshotForInstanceResponse_snapshotId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {snapshotId} -> snapshotId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
--- | The instance ID.
+-- | The managed node ID.
 getDeployablePatchSnapshotForInstanceResponse_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
 getDeployablePatchSnapshotForInstanceResponse_instanceId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {instanceId} -> instanceId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 

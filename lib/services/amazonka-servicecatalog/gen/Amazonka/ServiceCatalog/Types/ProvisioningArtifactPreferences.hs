@@ -30,19 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 -- For more information on maximum concurrent accounts and failure
 -- tolerance, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- /See:/ 'newProvisioningArtifactPreferences' smart constructor.
 data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
-  { -- | One or more AWS Regions where stack instances are deployed from the
-    -- stack set. These regions can be scoped in
+  { -- | One or more Amazon Web Services Regions where stack instances are
+    -- deployed from the stack set. These Regions can be scoped in
     -- @ProvisioningPreferences$StackSetRegions@ and
     -- @UpdateProvisioningPreferences$StackSetRegions@.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
     stackSetRegions :: Prelude.Maybe [Prelude.Text],
-    -- | One or more AWS accounts where stack instances are deployed from the
-    -- stack set. These accounts can be scoped in
+    -- | One or more Amazon Web Services accounts where stack instances are
+    -- deployed from the stack set. These accounts can be scoped in
     -- @ProvisioningPreferences$StackSetAccounts@ and
     -- @UpdateProvisioningPreferences$StackSetAccounts@.
     --
@@ -59,15 +59,15 @@ data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackSetRegions', 'provisioningArtifactPreferences_stackSetRegions' - One or more AWS Regions where stack instances are deployed from the
--- stack set. These regions can be scoped in
+-- 'stackSetRegions', 'provisioningArtifactPreferences_stackSetRegions' - One or more Amazon Web Services Regions where stack instances are
+-- deployed from the stack set. These Regions can be scoped in
 -- @ProvisioningPreferences$StackSetRegions@ and
 -- @UpdateProvisioningPreferences$StackSetRegions@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
--- 'stackSetAccounts', 'provisioningArtifactPreferences_stackSetAccounts' - One or more AWS accounts where stack instances are deployed from the
--- stack set. These accounts can be scoped in
+-- 'stackSetAccounts', 'provisioningArtifactPreferences_stackSetAccounts' - One or more Amazon Web Services accounts where stack instances are
+-- deployed from the stack set. These accounts can be scoped in
 -- @ProvisioningPreferences$StackSetAccounts@ and
 -- @UpdateProvisioningPreferences$StackSetAccounts@.
 --
@@ -81,8 +81,8 @@ newProvisioningArtifactPreferences =
       stackSetAccounts = Prelude.Nothing
     }
 
--- | One or more AWS Regions where stack instances are deployed from the
--- stack set. These regions can be scoped in
+-- | One or more Amazon Web Services Regions where stack instances are
+-- deployed from the stack set. These Regions can be scoped in
 -- @ProvisioningPreferences$StackSetRegions@ and
 -- @UpdateProvisioningPreferences$StackSetRegions@.
 --
@@ -90,8 +90,8 @@ newProvisioningArtifactPreferences =
 provisioningArtifactPreferences_stackSetRegions :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
 provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more AWS accounts where stack instances are deployed from the
--- stack set. These accounts can be scoped in
+-- | One or more Amazon Web Services accounts where stack instances are
+-- deployed from the stack set. These accounts can be scoped in
 -- @ProvisioningPreferences$StackSetAccounts@ and
 -- @UpdateProvisioningPreferences$StackSetAccounts@.
 --

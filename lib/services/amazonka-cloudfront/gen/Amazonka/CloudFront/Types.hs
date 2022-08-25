@@ -86,13 +86,16 @@ module Amazonka.CloudFront.Types
     _InvalidRequiredProtocol,
     _TooManyCookiesInOriginRequestPolicy,
     _RealtimeLogConfigInUse,
+    _ResponseHeadersPolicyAlreadyExists,
     _QueryArgProfileEmpty,
     _InvalidIfMatchVersion,
     _TooManyPublicKeysInKeyGroup,
+    _ResponseHeadersPolicyInUse,
     _InvalidRelativePath,
     _TooManyCachePolicies,
     _RealtimeLogConfigAlreadyExists,
     _TooManyHeadersInCachePolicy,
+    _TooLongCSPInResponseHeadersPolicy,
     _TooManyDistributionsAssociatedToOriginRequestPolicy,
     _InvalidTagging,
     _FieldLevelEncryptionConfigAlreadyExists,
@@ -103,6 +106,7 @@ module Amazonka.CloudFront.Types
     _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
     _TrustedKeyGroupDoesNotExist,
     _TooManyQueryStringsInCachePolicy,
+    _TooManyResponseHeadersPolicies,
     _TooManyOriginGroupsPerDistribution,
     _TooManyDistributionsWithFunctionAssociations,
     _InvalidLocationCode,
@@ -127,9 +131,12 @@ module Amazonka.CloudFront.Types
     _IllegalDelete,
     _NoSuchDistribution,
     _InconsistentQuantities,
+    _TooManyDistributionsAssociatedToResponseHeadersPolicy,
     _CloudFrontOriginAccessIdentityAlreadyExists,
+    _TooManyCustomHeadersInResponseHeadersPolicy,
     _OriginRequestPolicyInUse,
     _CachePolicyAlreadyExists,
+    _NoSuchResponseHeadersPolicy,
     _InvalidProtocolSettings,
     _NoSuchCachePolicy,
     _TooManyFieldLevelEncryptionConfigs,
@@ -159,6 +166,9 @@ module Amazonka.CloudFront.Types
 
     -- * Format
     Format (..),
+
+    -- * FrameOptionsList
+    FrameOptionsList (..),
 
     -- * FunctionRuntime
     FunctionRuntime (..),
@@ -204,6 +214,15 @@ module Amazonka.CloudFront.Types
 
     -- * RealtimeMetricsSubscriptionStatus
     RealtimeMetricsSubscriptionStatus (..),
+
+    -- * ReferrerPolicyList
+    ReferrerPolicyList (..),
+
+    -- * ResponseHeadersPolicyAccessControlAllowMethodsValues
+    ResponseHeadersPolicyAccessControlAllowMethodsValues (..),
+
+    -- * ResponseHeadersPolicyType
+    ResponseHeadersPolicyType (..),
 
     -- * SSLSupportMethod
     SSLSupportMethod (..),
@@ -259,6 +278,7 @@ module Amazonka.CloudFront.Types
     cacheBehavior_originRequestPolicyId,
     cacheBehavior_functionAssociations,
     cacheBehavior_forwardedValues,
+    cacheBehavior_responseHeadersPolicyId,
     cacheBehavior_minTTL,
     cacheBehavior_realtimeLogConfigArn,
     cacheBehavior_compress,
@@ -448,6 +468,7 @@ module Amazonka.CloudFront.Types
     defaultCacheBehavior_originRequestPolicyId,
     defaultCacheBehavior_functionAssociations,
     defaultCacheBehavior_forwardedValues,
+    defaultCacheBehavior_responseHeadersPolicyId,
     defaultCacheBehavior_minTTL,
     defaultCacheBehavior_realtimeLogConfigArn,
     defaultCacheBehavior_compress,
@@ -1010,6 +1031,140 @@ module Amazonka.CloudFront.Types
     newRealtimeMetricsSubscriptionConfig,
     realtimeMetricsSubscriptionConfig_realtimeMetricsSubscriptionStatus,
 
+    -- * ResponseHeadersPolicy
+    ResponseHeadersPolicy (..),
+    newResponseHeadersPolicy,
+    responseHeadersPolicy_id,
+    responseHeadersPolicy_lastModifiedTime,
+    responseHeadersPolicy_responseHeadersPolicyConfig,
+
+    -- * ResponseHeadersPolicyAccessControlAllowHeaders
+    ResponseHeadersPolicyAccessControlAllowHeaders (..),
+    newResponseHeadersPolicyAccessControlAllowHeaders,
+    responseHeadersPolicyAccessControlAllowHeaders_quantity,
+    responseHeadersPolicyAccessControlAllowHeaders_items,
+
+    -- * ResponseHeadersPolicyAccessControlAllowMethods
+    ResponseHeadersPolicyAccessControlAllowMethods (..),
+    newResponseHeadersPolicyAccessControlAllowMethods,
+    responseHeadersPolicyAccessControlAllowMethods_quantity,
+    responseHeadersPolicyAccessControlAllowMethods_items,
+
+    -- * ResponseHeadersPolicyAccessControlAllowOrigins
+    ResponseHeadersPolicyAccessControlAllowOrigins (..),
+    newResponseHeadersPolicyAccessControlAllowOrigins,
+    responseHeadersPolicyAccessControlAllowOrigins_quantity,
+    responseHeadersPolicyAccessControlAllowOrigins_items,
+
+    -- * ResponseHeadersPolicyAccessControlExposeHeaders
+    ResponseHeadersPolicyAccessControlExposeHeaders (..),
+    newResponseHeadersPolicyAccessControlExposeHeaders,
+    responseHeadersPolicyAccessControlExposeHeaders_items,
+    responseHeadersPolicyAccessControlExposeHeaders_quantity,
+
+    -- * ResponseHeadersPolicyConfig
+    ResponseHeadersPolicyConfig (..),
+    newResponseHeadersPolicyConfig,
+    responseHeadersPolicyConfig_serverTimingHeadersConfig,
+    responseHeadersPolicyConfig_comment,
+    responseHeadersPolicyConfig_securityHeadersConfig,
+    responseHeadersPolicyConfig_corsConfig,
+    responseHeadersPolicyConfig_customHeadersConfig,
+    responseHeadersPolicyConfig_name,
+
+    -- * ResponseHeadersPolicyContentSecurityPolicy
+    ResponseHeadersPolicyContentSecurityPolicy (..),
+    newResponseHeadersPolicyContentSecurityPolicy,
+    responseHeadersPolicyContentSecurityPolicy_override,
+    responseHeadersPolicyContentSecurityPolicy_contentSecurityPolicy,
+
+    -- * ResponseHeadersPolicyContentTypeOptions
+    ResponseHeadersPolicyContentTypeOptions (..),
+    newResponseHeadersPolicyContentTypeOptions,
+    responseHeadersPolicyContentTypeOptions_override,
+
+    -- * ResponseHeadersPolicyCorsConfig
+    ResponseHeadersPolicyCorsConfig (..),
+    newResponseHeadersPolicyCorsConfig,
+    responseHeadersPolicyCorsConfig_accessControlMaxAgeSec,
+    responseHeadersPolicyCorsConfig_accessControlExposeHeaders,
+    responseHeadersPolicyCorsConfig_accessControlAllowOrigins,
+    responseHeadersPolicyCorsConfig_accessControlAllowHeaders,
+    responseHeadersPolicyCorsConfig_accessControlAllowMethods,
+    responseHeadersPolicyCorsConfig_accessControlAllowCredentials,
+    responseHeadersPolicyCorsConfig_originOverride,
+
+    -- * ResponseHeadersPolicyCustomHeader
+    ResponseHeadersPolicyCustomHeader (..),
+    newResponseHeadersPolicyCustomHeader,
+    responseHeadersPolicyCustomHeader_header,
+    responseHeadersPolicyCustomHeader_value,
+    responseHeadersPolicyCustomHeader_override,
+
+    -- * ResponseHeadersPolicyCustomHeadersConfig
+    ResponseHeadersPolicyCustomHeadersConfig (..),
+    newResponseHeadersPolicyCustomHeadersConfig,
+    responseHeadersPolicyCustomHeadersConfig_items,
+    responseHeadersPolicyCustomHeadersConfig_quantity,
+
+    -- * ResponseHeadersPolicyFrameOptions
+    ResponseHeadersPolicyFrameOptions (..),
+    newResponseHeadersPolicyFrameOptions,
+    responseHeadersPolicyFrameOptions_override,
+    responseHeadersPolicyFrameOptions_frameOption,
+
+    -- * ResponseHeadersPolicyList
+    ResponseHeadersPolicyList (..),
+    newResponseHeadersPolicyList,
+    responseHeadersPolicyList_items,
+    responseHeadersPolicyList_nextMarker,
+    responseHeadersPolicyList_maxItems,
+    responseHeadersPolicyList_quantity,
+
+    -- * ResponseHeadersPolicyReferrerPolicy
+    ResponseHeadersPolicyReferrerPolicy (..),
+    newResponseHeadersPolicyReferrerPolicy,
+    responseHeadersPolicyReferrerPolicy_override,
+    responseHeadersPolicyReferrerPolicy_referrerPolicy,
+
+    -- * ResponseHeadersPolicySecurityHeadersConfig
+    ResponseHeadersPolicySecurityHeadersConfig (..),
+    newResponseHeadersPolicySecurityHeadersConfig,
+    responseHeadersPolicySecurityHeadersConfig_contentTypeOptions,
+    responseHeadersPolicySecurityHeadersConfig_xSSProtection,
+    responseHeadersPolicySecurityHeadersConfig_frameOptions,
+    responseHeadersPolicySecurityHeadersConfig_contentSecurityPolicy,
+    responseHeadersPolicySecurityHeadersConfig_referrerPolicy,
+    responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity,
+
+    -- * ResponseHeadersPolicyServerTimingHeadersConfig
+    ResponseHeadersPolicyServerTimingHeadersConfig (..),
+    newResponseHeadersPolicyServerTimingHeadersConfig,
+    responseHeadersPolicyServerTimingHeadersConfig_samplingRate,
+    responseHeadersPolicyServerTimingHeadersConfig_enabled,
+
+    -- * ResponseHeadersPolicyStrictTransportSecurity
+    ResponseHeadersPolicyStrictTransportSecurity (..),
+    newResponseHeadersPolicyStrictTransportSecurity,
+    responseHeadersPolicyStrictTransportSecurity_includeSubdomains,
+    responseHeadersPolicyStrictTransportSecurity_preload,
+    responseHeadersPolicyStrictTransportSecurity_override,
+    responseHeadersPolicyStrictTransportSecurity_accessControlMaxAgeSec,
+
+    -- * ResponseHeadersPolicySummary
+    ResponseHeadersPolicySummary (..),
+    newResponseHeadersPolicySummary,
+    responseHeadersPolicySummary_type,
+    responseHeadersPolicySummary_responseHeadersPolicy,
+
+    -- * ResponseHeadersPolicyXSSProtection
+    ResponseHeadersPolicyXSSProtection (..),
+    newResponseHeadersPolicyXSSProtection,
+    responseHeadersPolicyXSSProtection_modeBlock,
+    responseHeadersPolicyXSSProtection_reportUri,
+    responseHeadersPolicyXSSProtection_override,
+    responseHeadersPolicyXSSProtection_protection,
+
     -- * Restrictions
     Restrictions (..),
     newRestrictions,
@@ -1208,6 +1363,7 @@ import Amazonka.CloudFront.Types.FieldLevelEncryptionSummary
 import Amazonka.CloudFront.Types.FieldPatterns
 import Amazonka.CloudFront.Types.Format
 import Amazonka.CloudFront.Types.ForwardedValues
+import Amazonka.CloudFront.Types.FrameOptionsList
 import Amazonka.CloudFront.Types.FunctionAssociation
 import Amazonka.CloudFront.Types.FunctionAssociations
 import Amazonka.CloudFront.Types.FunctionConfig
@@ -1277,6 +1433,28 @@ import Amazonka.CloudFront.Types.RealtimeLogConfig
 import Amazonka.CloudFront.Types.RealtimeLogConfigs
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionStatus
+import Amazonka.CloudFront.Types.ReferrerPolicyList
+import Amazonka.CloudFront.Types.ResponseHeadersPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowHeaders
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethods
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethodsValues
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowOrigins
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlExposeHeaders
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyContentSecurityPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyContentTypeOptions
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyCorsConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeader
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyFrameOptions
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyList
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity
+import Amazonka.CloudFront.Types.ResponseHeadersPolicySummary
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyType
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection
 import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.S3OriginConfig
@@ -1504,8 +1682,8 @@ _TooManyInvalidationsInProgress =
     "TooManyInvalidationsInProgress"
     Prelude.. Core.hasStatus 400
 
--- | You have reached the maximum number of key groups for this account. For
--- more information, see
+-- | You have reached the maximum number of key groups for this Amazon Web
+-- Services account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
 _TooManyKeyGroups :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1557,7 +1735,7 @@ _TooManyStreamingDistributions =
     Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum number of real-time log configurations for
--- this account. For more information, see
+-- this Amazon Web Services account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
 _TooManyRealtimeLogConfigs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1811,9 +1989,9 @@ _TooManyCloudFrontOriginAccessIdentities =
     "TooManyCloudFrontOriginAccessIdentities"
     Prelude.. Core.hasStatus 400
 
--- | A function with the same name already exists in this account. To create
--- a function, you must provide a unique name. To update an existing
--- function, use @UpdateFunction@.
+-- | A function with the same name already exists in this Amazon Web Services
+-- account. To create a function, you must provide a unique name. To update
+-- an existing function, use @UpdateFunction@.
 _FunctionAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FunctionAlreadyExists =
   Core._MatchServiceError
@@ -1912,7 +2090,7 @@ _TrustedSignerDoesNotExist =
     Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum number of CloudFront functions for this
--- account. For more information, see
+-- Amazon Web Services account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
 _TooManyFunctions :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1985,6 +2163,16 @@ _RealtimeLogConfigInUse =
     "RealtimeLogConfigInUse"
     Prelude.. Core.hasStatus 400
 
+-- | A response headers policy with this name already exists. You must
+-- provide a unique name. To modify an existing response headers policy,
+-- use @UpdateResponseHeadersPolicy@.
+_ResponseHeadersPolicyAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResponseHeadersPolicyAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "ResponseHeadersPolicyAlreadyExists"
+    Prelude.. Core.hasStatus 409
+
 -- | No profile specified for the field-level encryption query argument.
 _QueryArgProfileEmpty :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _QueryArgProfileEmpty =
@@ -2012,6 +2200,15 @@ _TooManyPublicKeysInKeyGroup =
     "TooManyPublicKeysInKeyGroup"
     Prelude.. Core.hasStatus 400
 
+-- | Cannot delete the response headers policy because it is attached to one
+-- or more cache behaviors in a CloudFront distribution.
+_ResponseHeadersPolicyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResponseHeadersPolicyInUse =
+  Core._MatchServiceError
+    defaultService
+    "ResponseHeadersPolicyInUse"
+    Prelude.. Core.hasStatus 409
+
 -- | The relative path is too big, is not URL-encoded, or does not begin with
 -- a slash (\/).
 _InvalidRelativePath :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2021,8 +2218,8 @@ _InvalidRelativePath =
     "InvalidRelativePath"
     Prelude.. Core.hasStatus 400
 
--- | You have reached the maximum number of cache policies for this account.
--- For more information, see
+-- | You have reached the maximum number of cache policies for this Amazon
+-- Web Services account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
 _TooManyCachePolicies :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2051,6 +2248,19 @@ _TooManyHeadersInCachePolicy =
   Core._MatchServiceError
     defaultService
     "TooManyHeadersInCachePolicy"
+    Prelude.. Core.hasStatus 400
+
+-- | The length of the @Content-Security-Policy@ header value in the response
+-- headers policy exceeds the maximum.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
+-- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
+_TooLongCSPInResponseHeadersPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooLongCSPInResponseHeadersPolicy =
+  Core._MatchServiceError
+    defaultService
+    "TooLongCSPInResponseHeadersPolicy"
     Prelude.. Core.hasStatus 400
 
 -- | The maximum number of distributions have been associated with the
@@ -2089,8 +2299,8 @@ _StreamingDistributionAlreadyExists =
     "StreamingDistributionAlreadyExists"
     Prelude.. Core.hasStatus 409
 
--- | The specified real-time log configuration belongs to a different
--- account.
+-- | The specified real-time log configuration belongs to a different Amazon
+-- Web Services account.
 _RealtimeLogConfigOwnerMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RealtimeLogConfigOwnerMismatch =
   Core._MatchServiceError
@@ -2141,6 +2351,19 @@ _TooManyQueryStringsInCachePolicy =
   Core._MatchServiceError
     defaultService
     "TooManyQueryStringsInCachePolicy"
+    Prelude.. Core.hasStatus 400
+
+-- | You have reached the maximum number of response headers policies for
+-- this Amazon Web Services account.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
+-- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
+_TooManyResponseHeadersPolicies :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyResponseHeadersPolicies =
+  Core._MatchServiceError
+    defaultService
+    "TooManyResponseHeadersPolicies"
     Prelude.. Core.hasStatus 400
 
 -- | Processing your request would cause you to exceed the maximum number of
@@ -2347,6 +2570,19 @@ _InconsistentQuantities =
     "InconsistentQuantities"
     Prelude.. Core.hasStatus 400
 
+-- | The maximum number of distributions have been associated with the
+-- specified response headers policy.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
+-- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
+_TooManyDistributionsAssociatedToResponseHeadersPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsAssociatedToResponseHeadersPolicy =
+  Core._MatchServiceError
+    defaultService
+    "TooManyDistributionsAssociatedToResponseHeadersPolicy"
+    Prelude.. Core.hasStatus 400
+
 -- | If the @CallerReference@ is a value you already sent in a previous
 -- request to create an identity but the content of the
 -- @CloudFrontOriginAccessIdentityConfig@ is different from the original
@@ -2358,6 +2594,19 @@ _CloudFrontOriginAccessIdentityAlreadyExists =
     defaultService
     "CloudFrontOriginAccessIdentityAlreadyExists"
     Prelude.. Core.hasStatus 409
+
+-- | The number of custom headers in the response headers policy exceeds the
+-- maximum.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
+-- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
+_TooManyCustomHeadersInResponseHeadersPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyCustomHeadersInResponseHeadersPolicy =
+  Core._MatchServiceError
+    defaultService
+    "TooManyCustomHeadersInResponseHeadersPolicy"
+    Prelude.. Core.hasStatus 400
 
 -- | Cannot delete the origin request policy because it is attached to one or
 -- more cache behaviors.
@@ -2376,6 +2625,14 @@ _CachePolicyAlreadyExists =
     defaultService
     "CachePolicyAlreadyExists"
     Prelude.. Core.hasStatus 409
+
+-- | The response headers policy does not exist.
+_NoSuchResponseHeadersPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchResponseHeadersPolicy =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchResponseHeadersPolicy"
+    Prelude.. Core.hasStatus 404
 
 -- | You cannot specify SSLv3 as the minimum protocol version if you only
 -- want to support only clients that support Server Name Indication (SNI).
@@ -2434,7 +2691,7 @@ _TooManyHeadersInOriginRequestPolicy =
     Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum number of origin request policies for this
--- account. For more information, see
+-- Amazon Web Services account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
 _TooManyOriginRequestPolicies :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

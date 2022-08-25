@@ -89,7 +89,7 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
     -- @releaseVersion@, or the node group update will fail. For more
     -- information about using launch templates with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
+    -- in the /Amazon EKS User Guide/.
     releaseVersion :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
@@ -111,7 +111,7 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
     -- then don\'t specify @version@, or the node group update will fail. For
     -- more information about using launch templates with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
+    -- in the /Amazon EKS User Guide/.
     version :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS cluster that is associated with the managed
     -- node group to update.
@@ -138,7 +138,7 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
 -- @releaseVersion@, or the node group update will fail. For more
 -- information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
+-- in the /Amazon EKS User Guide/.
 --
 -- 'clientRequestToken', 'updateNodegroupVersion_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -160,7 +160,7 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
 -- then don\'t specify @version@, or the node group update will fail. For
 -- more information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
+-- in the /Amazon EKS User Guide/.
 --
 -- 'clusterName', 'updateNodegroupVersion_clusterName' - The name of the Amazon EKS cluster that is associated with the managed
 -- node group to update.
@@ -195,7 +195,7 @@ newUpdateNodegroupVersion
 -- @releaseVersion@, or the node group update will fail. For more
 -- information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
+-- in the /Amazon EKS User Guide/.
 updateNodegroupVersion_releaseVersion :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Text)
 updateNodegroupVersion_releaseVersion = Lens.lens (\UpdateNodegroupVersion' {releaseVersion} -> releaseVersion) (\s@UpdateNodegroupVersion' {} a -> s {releaseVersion = a} :: UpdateNodegroupVersion)
 
@@ -225,7 +225,7 @@ updateNodegroupVersion_force = Lens.lens (\UpdateNodegroupVersion' {force} -> fo
 -- then don\'t specify @version@, or the node group update will fail. For
 -- more information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
+-- in the /Amazon EKS User Guide/.
 updateNodegroupVersion_version :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Text)
 updateNodegroupVersion_version = Lens.lens (\UpdateNodegroupVersion' {version} -> version) (\s@UpdateNodegroupVersion' {} a -> s {version = a} :: UpdateNodegroupVersion)
 

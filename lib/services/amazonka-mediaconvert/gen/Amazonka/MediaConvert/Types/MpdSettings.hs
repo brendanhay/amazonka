@@ -24,8 +24,10 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MediaConvert.Types.MpdAccessibilityCaptionHints
 import Amazonka.MediaConvert.Types.MpdAudioDuration
 import Amazonka.MediaConvert.Types.MpdCaptionContainerType
+import Amazonka.MediaConvert.Types.MpdKlvMetadata
 import Amazonka.MediaConvert.Types.MpdScte35Esam
 import Amazonka.MediaConvert.Types.MpdScte35Source
+import Amazonka.MediaConvert.Types.MpdTimedMetadata
 import qualified Amazonka.Prelude as Prelude
 
 -- | These settings relate to the fragmented MP4 container for the segments
@@ -48,6 +50,19 @@ data MpdSettings = MpdSettings'
     -- the file. When you keep the default value, any minor discrepancies
     -- between audio and video duration will depend on your output audio codec.
     audioDuration :: Prelude.Maybe MpdAudioDuration,
+    -- | To include ID3 metadata in this output: Set ID3 metadata (timedMetadata)
+    -- to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3
+    -- metadata inserter (timedMetadataInsertion). MediaConvert writes each
+    -- instance of ID3 metadata in a separate Event Message (eMSG) box. To
+    -- exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave
+    -- blank.
+    timedMetadata :: Prelude.Maybe MpdTimedMetadata,
+    -- | To include key-length-value metadata in this output: Set KLV metadata
+    -- insertion to Passthrough. MediaConvert reads KLV metadata present in
+    -- your input and writes each instance to a separate event message box in
+    -- the output, according to MISB ST1910.1. To exclude this KLV metadata:
+    -- Set KLV metadata insertion to None or leave blank.
+    klvMetadata :: Prelude.Maybe MpdKlvMetadata,
     -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
     -- INSERT to put SCTE-35 markers in this output at the insertion points
     -- that you specify in an ESAM XML document. Provide the document in the
@@ -99,6 +114,19 @@ data MpdSettings = MpdSettings'
 -- the file. When you keep the default value, any minor discrepancies
 -- between audio and video duration will depend on your output audio codec.
 --
+-- 'timedMetadata', 'mpdSettings_timedMetadata' - To include ID3 metadata in this output: Set ID3 metadata (timedMetadata)
+-- to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3
+-- metadata inserter (timedMetadataInsertion). MediaConvert writes each
+-- instance of ID3 metadata in a separate Event Message (eMSG) box. To
+-- exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave
+-- blank.
+--
+-- 'klvMetadata', 'mpdSettings_klvMetadata' - To include key-length-value metadata in this output: Set KLV metadata
+-- insertion to Passthrough. MediaConvert reads KLV metadata present in
+-- your input and writes each instance to a separate event message box in
+-- the output, according to MISB ST1910.1. To exclude this KLV metadata:
+-- Set KLV metadata insertion to None or leave blank.
+--
 -- 'scte35Esam', 'mpdSettings_scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
 -- that you specify in an ESAM XML document. Provide the document in the
@@ -128,6 +156,8 @@ newMpdSettings ::
 newMpdSettings =
   MpdSettings'
     { audioDuration = Prelude.Nothing,
+      timedMetadata = Prelude.Nothing,
+      klvMetadata = Prelude.Nothing,
       scte35Esam = Prelude.Nothing,
       accessibilityCaptionHints = Prelude.Nothing,
       captionContainerType = Prelude.Nothing,
@@ -150,6 +180,23 @@ newMpdSettings =
 -- between audio and video duration will depend on your output audio codec.
 mpdSettings_audioDuration :: Lens.Lens' MpdSettings (Prelude.Maybe MpdAudioDuration)
 mpdSettings_audioDuration = Lens.lens (\MpdSettings' {audioDuration} -> audioDuration) (\s@MpdSettings' {} a -> s {audioDuration = a} :: MpdSettings)
+
+-- | To include ID3 metadata in this output: Set ID3 metadata (timedMetadata)
+-- to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3
+-- metadata inserter (timedMetadataInsertion). MediaConvert writes each
+-- instance of ID3 metadata in a separate Event Message (eMSG) box. To
+-- exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave
+-- blank.
+mpdSettings_timedMetadata :: Lens.Lens' MpdSettings (Prelude.Maybe MpdTimedMetadata)
+mpdSettings_timedMetadata = Lens.lens (\MpdSettings' {timedMetadata} -> timedMetadata) (\s@MpdSettings' {} a -> s {timedMetadata = a} :: MpdSettings)
+
+-- | To include key-length-value metadata in this output: Set KLV metadata
+-- insertion to Passthrough. MediaConvert reads KLV metadata present in
+-- your input and writes each instance to a separate event message box in
+-- the output, according to MISB ST1910.1. To exclude this KLV metadata:
+-- Set KLV metadata insertion to None or leave blank.
+mpdSettings_klvMetadata :: Lens.Lens' MpdSettings (Prelude.Maybe MpdKlvMetadata)
+mpdSettings_klvMetadata = Lens.lens (\MpdSettings' {klvMetadata} -> klvMetadata) (\s@MpdSettings' {} a -> s {klvMetadata = a} :: MpdSettings)
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
@@ -191,6 +238,8 @@ instance Core.FromJSON MpdSettings where
       ( \x ->
           MpdSettings'
             Prelude.<$> (x Core..:? "audioDuration")
+            Prelude.<*> (x Core..:? "timedMetadata")
+            Prelude.<*> (x Core..:? "klvMetadata")
             Prelude.<*> (x Core..:? "scte35Esam")
             Prelude.<*> (x Core..:? "accessibilityCaptionHints")
             Prelude.<*> (x Core..:? "captionContainerType")
@@ -200,6 +249,8 @@ instance Core.FromJSON MpdSettings where
 instance Prelude.Hashable MpdSettings where
   hashWithSalt _salt MpdSettings' {..} =
     _salt `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` timedMetadata
+      `Prelude.hashWithSalt` klvMetadata
       `Prelude.hashWithSalt` scte35Esam
       `Prelude.hashWithSalt` accessibilityCaptionHints
       `Prelude.hashWithSalt` captionContainerType
@@ -208,6 +259,8 @@ instance Prelude.Hashable MpdSettings where
 instance Prelude.NFData MpdSettings where
   rnf MpdSettings' {..} =
     Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf timedMetadata
+      `Prelude.seq` Prelude.rnf klvMetadata
       `Prelude.seq` Prelude.rnf scte35Esam
       `Prelude.seq` Prelude.rnf accessibilityCaptionHints
       `Prelude.seq` Prelude.rnf captionContainerType
@@ -218,6 +271,8 @@ instance Core.ToJSON MpdSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("audioDuration" Core..=) Prelude.<$> audioDuration,
+            ("timedMetadata" Core..=) Prelude.<$> timedMetadata,
+            ("klvMetadata" Core..=) Prelude.<$> klvMetadata,
             ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
             ("accessibilityCaptionHints" Core..=)
               Prelude.<$> accessibilityCaptionHints,

@@ -125,10 +125,10 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
     -- | The number of hours before the end of the maintenance window that Amazon
     -- Web Services Systems Manager stops scheduling new tasks for execution.
     cutoff :: Prelude.Natural,
-    -- | Enables a maintenance window task to run on managed instances, even if
-    -- you haven\'t registered those instances as targets. If enabled, then you
-    -- must specify the unregistered instances (by instance ID) when you
-    -- register a task with the maintenance window.
+    -- | Enables a maintenance window task to run on managed nodes, even if you
+    -- haven\'t registered those nodes as targets. If enabled, then you must
+    -- specify the unregistered managed nodes (by node ID) when you register a
+    -- task with the maintenance window.
     --
     -- If you don\'t enable this option, then you must specify
     -- previously-registered targets when you register a task with the
@@ -203,10 +203,10 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 -- 'cutoff', 'createMaintenanceWindow_cutoff' - The number of hours before the end of the maintenance window that Amazon
 -- Web Services Systems Manager stops scheduling new tasks for execution.
 --
--- 'allowUnassociatedTargets', 'createMaintenanceWindow_allowUnassociatedTargets' - Enables a maintenance window task to run on managed instances, even if
--- you haven\'t registered those instances as targets. If enabled, then you
--- must specify the unregistered instances (by instance ID) when you
--- register a task with the maintenance window.
+-- 'allowUnassociatedTargets', 'createMaintenanceWindow_allowUnassociatedTargets' - Enables a maintenance window task to run on managed nodes, even if you
+-- haven\'t registered those nodes as targets. If enabled, then you must
+-- specify the unregistered managed nodes (by node ID) when you register a
+-- task with the maintenance window.
 --
 -- If you don\'t enable this option, then you must specify
 -- previously-registered targets when you register a task with the
@@ -325,10 +325,10 @@ createMaintenanceWindow_duration = Lens.lens (\CreateMaintenanceWindow' {duratio
 createMaintenanceWindow_cutoff :: Lens.Lens' CreateMaintenanceWindow Prelude.Natural
 createMaintenanceWindow_cutoff = Lens.lens (\CreateMaintenanceWindow' {cutoff} -> cutoff) (\s@CreateMaintenanceWindow' {} a -> s {cutoff = a} :: CreateMaintenanceWindow)
 
--- | Enables a maintenance window task to run on managed instances, even if
--- you haven\'t registered those instances as targets. If enabled, then you
--- must specify the unregistered instances (by instance ID) when you
--- register a task with the maintenance window.
+-- | Enables a maintenance window task to run on managed nodes, even if you
+-- haven\'t registered those nodes as targets. If enabled, then you must
+-- specify the unregistered managed nodes (by node ID) when you register a
+-- task with the maintenance window.
 --
 -- If you don\'t enable this option, then you must specify
 -- previously-registered targets when you register a task with the

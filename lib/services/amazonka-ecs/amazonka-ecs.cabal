@@ -115,10 +115,12 @@ library
     Amazonka.ECS.Types.ContainerDependency
     Amazonka.ECS.Types.ContainerInstance
     Amazonka.ECS.Types.ContainerInstanceField
+    Amazonka.ECS.Types.ContainerInstanceHealthStatus
     Amazonka.ECS.Types.ContainerInstanceStatus
     Amazonka.ECS.Types.ContainerOverride
     Amazonka.ECS.Types.ContainerService
     Amazonka.ECS.Types.ContainerStateChange
+    Amazonka.ECS.Types.CPUArchitecture
     Amazonka.ECS.Types.Deployment
     Amazonka.ECS.Types.DeploymentCircuitBreaker
     Amazonka.ECS.Types.DeploymentConfiguration
@@ -150,6 +152,9 @@ library
     Amazonka.ECS.Types.HostVolumeProperties
     Amazonka.ECS.Types.InferenceAccelerator
     Amazonka.ECS.Types.InferenceAcceleratorOverride
+    Amazonka.ECS.Types.InstanceHealthCheckResult
+    Amazonka.ECS.Types.InstanceHealthCheckState
+    Amazonka.ECS.Types.InstanceHealthCheckType
     Amazonka.ECS.Types.IpcMode
     Amazonka.ECS.Types.KernelCapabilities
     Amazonka.ECS.Types.KeyValuePair
@@ -169,6 +174,7 @@ library
     Amazonka.ECS.Types.NetworkConfiguration
     Amazonka.ECS.Types.NetworkInterface
     Amazonka.ECS.Types.NetworkMode
+    Amazonka.ECS.Types.OSFamily
     Amazonka.ECS.Types.PidMode
     Amazonka.ECS.Types.PlacementConstraint
     Amazonka.ECS.Types.PlacementConstraintType
@@ -184,6 +190,7 @@ library
     Amazonka.ECS.Types.Resource
     Amazonka.ECS.Types.ResourceRequirement
     Amazonka.ECS.Types.ResourceType
+    Amazonka.ECS.Types.RuntimePlatform
     Amazonka.ECS.Types.Scale
     Amazonka.ECS.Types.ScaleUnit
     Amazonka.ECS.Types.SchedulingStrategy

@@ -48,6 +48,7 @@ module Amazonka.AppConfig.StopDeployment
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,

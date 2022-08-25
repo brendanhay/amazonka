@@ -52,7 +52,7 @@ data GetContainerServices = GetContainerServices'
   { -- | The name of the container service for which to return information.
     --
     -- When omitted, the response includes all of your container services in
-    -- the AWS Region where the request is made.
+    -- the Amazon Web Services Region where the request is made.
     serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data GetContainerServices = GetContainerServices'
 -- 'serviceName', 'getContainerServices_serviceName' - The name of the container service for which to return information.
 --
 -- When omitted, the response includes all of your container services in
--- the AWS Region where the request is made.
+-- the Amazon Web Services Region where the request is made.
 newGetContainerServices ::
   GetContainerServices
 newGetContainerServices =
@@ -80,7 +80,7 @@ newGetContainerServices =
 -- | The name of the container service for which to return information.
 --
 -- When omitted, the response includes all of your container services in
--- the AWS Region where the request is made.
+-- the Amazon Web Services Region where the request is made.
 getContainerServices_serviceName :: Lens.Lens' GetContainerServices (Prelude.Maybe Prelude.Text)
 getContainerServices_serviceName = Lens.lens (\GetContainerServices' {serviceName} -> serviceName) (\s@GetContainerServices' {} a -> s {serviceName = a} :: GetContainerServices)
 

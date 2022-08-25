@@ -24,9 +24,9 @@
 -- or plugin.
 --
 -- @GetCommandInvocation@ only gives the execution status of a plugin in a
--- document. To get the command execution status on a specific instance,
--- use ListCommandInvocations. To get the command execution status across
--- instances, use ListCommands.
+-- document. To get the command execution status on a specific managed
+-- node, use ListCommandInvocations. To get the command execution status
+-- across managed nodes, use ListCommands.
 module Amazonka.SSM.GetCommandInvocation
   ( -- * Creating a Request
     GetCommandInvocation (..),
@@ -72,26 +72,25 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetCommandInvocation' smart constructor.
 data GetCommandInvocation = GetCommandInvocation'
-  { -- | The name of the plugin for which you want detailed results. If the
-    -- document contains only one plugin, you can omit the name and details for
-    -- that plugin. If the document contains more than one plugin, you must
-    -- specify the name of the plugin for which you want to view details.
-    --
-    -- Plugin names are also referred to as /step names/ in Systems Manager
-    -- documents (SSM documents). For example, @aws:RunShellScript@ is a
-    -- plugin.
+  { -- | The name of the step for which you want detailed results. If the
+    -- document contains only one step, you can omit the name and details for
+    -- that step. If the document contains more than one step, you must specify
+    -- the name of the step for which you want to view details. Be sure to
+    -- specify the name of the step, not the name of a plugin like
+    -- @aws:RunShellScript@.
     --
     -- To find the @PluginName@, check the document content and find the name
-    -- of the plugin. Alternatively, use ListCommandInvocations with the
-    -- @CommandId@ and @Details@ parameters. The @PluginName@ is the @Name@
-    -- attribute of the @CommandPlugin@ object in the @CommandPlugins@ list.
+    -- of the step you want details for. Alternatively, use
+    -- ListCommandInvocations with the @CommandId@ and @Details@ parameters.
+    -- The @PluginName@ is the @Name@ attribute of the @CommandPlugin@ object
+    -- in the @CommandPlugins@ list.
     pluginName :: Prelude.Maybe Prelude.Text,
     -- | (Required) The parent command ID of the invocation plugin.
     commandId :: Prelude.Text,
-    -- | (Required) The ID of the managed instance targeted by the command. A
-    -- managed instance can be an Amazon Elastic Compute Cloud (Amazon EC2)
-    -- instance or an instance in your hybrid environment that is configured
-    -- for Amazon Web Services Systems Manager.
+    -- | (Required) The ID of the managed node targeted by the command. A
+    -- /managed node/ can be an Amazon Elastic Compute Cloud (Amazon EC2)
+    -- instance, edge device, and on-premises server or VM in your hybrid
+    -- environment that is configured for Amazon Web Services Systems Manager.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,26 +103,25 @@ data GetCommandInvocation = GetCommandInvocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pluginName', 'getCommandInvocation_pluginName' - The name of the plugin for which you want detailed results. If the
--- document contains only one plugin, you can omit the name and details for
--- that plugin. If the document contains more than one plugin, you must
--- specify the name of the plugin for which you want to view details.
---
--- Plugin names are also referred to as /step names/ in Systems Manager
--- documents (SSM documents). For example, @aws:RunShellScript@ is a
--- plugin.
+-- 'pluginName', 'getCommandInvocation_pluginName' - The name of the step for which you want detailed results. If the
+-- document contains only one step, you can omit the name and details for
+-- that step. If the document contains more than one step, you must specify
+-- the name of the step for which you want to view details. Be sure to
+-- specify the name of the step, not the name of a plugin like
+-- @aws:RunShellScript@.
 --
 -- To find the @PluginName@, check the document content and find the name
--- of the plugin. Alternatively, use ListCommandInvocations with the
--- @CommandId@ and @Details@ parameters. The @PluginName@ is the @Name@
--- attribute of the @CommandPlugin@ object in the @CommandPlugins@ list.
+-- of the step you want details for. Alternatively, use
+-- ListCommandInvocations with the @CommandId@ and @Details@ parameters.
+-- The @PluginName@ is the @Name@ attribute of the @CommandPlugin@ object
+-- in the @CommandPlugins@ list.
 --
 -- 'commandId', 'getCommandInvocation_commandId' - (Required) The parent command ID of the invocation plugin.
 --
--- 'instanceId', 'getCommandInvocation_instanceId' - (Required) The ID of the managed instance targeted by the command. A
--- managed instance can be an Amazon Elastic Compute Cloud (Amazon EC2)
--- instance or an instance in your hybrid environment that is configured
--- for Amazon Web Services Systems Manager.
+-- 'instanceId', 'getCommandInvocation_instanceId' - (Required) The ID of the managed node targeted by the command. A
+-- /managed node/ can be an Amazon Elastic Compute Cloud (Amazon EC2)
+-- instance, edge device, and on-premises server or VM in your hybrid
+-- environment that is configured for Amazon Web Services Systems Manager.
 newGetCommandInvocation ::
   -- | 'commandId'
   Prelude.Text ->
@@ -137,19 +135,18 @@ newGetCommandInvocation pCommandId_ pInstanceId_ =
       instanceId = pInstanceId_
     }
 
--- | The name of the plugin for which you want detailed results. If the
--- document contains only one plugin, you can omit the name and details for
--- that plugin. If the document contains more than one plugin, you must
--- specify the name of the plugin for which you want to view details.
---
--- Plugin names are also referred to as /step names/ in Systems Manager
--- documents (SSM documents). For example, @aws:RunShellScript@ is a
--- plugin.
+-- | The name of the step for which you want detailed results. If the
+-- document contains only one step, you can omit the name and details for
+-- that step. If the document contains more than one step, you must specify
+-- the name of the step for which you want to view details. Be sure to
+-- specify the name of the step, not the name of a plugin like
+-- @aws:RunShellScript@.
 --
 -- To find the @PluginName@, check the document content and find the name
--- of the plugin. Alternatively, use ListCommandInvocations with the
--- @CommandId@ and @Details@ parameters. The @PluginName@ is the @Name@
--- attribute of the @CommandPlugin@ object in the @CommandPlugins@ list.
+-- of the step you want details for. Alternatively, use
+-- ListCommandInvocations with the @CommandId@ and @Details@ parameters.
+-- The @PluginName@ is the @Name@ attribute of the @CommandPlugin@ object
+-- in the @CommandPlugins@ list.
 getCommandInvocation_pluginName :: Lens.Lens' GetCommandInvocation (Prelude.Maybe Prelude.Text)
 getCommandInvocation_pluginName = Lens.lens (\GetCommandInvocation' {pluginName} -> pluginName) (\s@GetCommandInvocation' {} a -> s {pluginName = a} :: GetCommandInvocation)
 
@@ -157,10 +154,10 @@ getCommandInvocation_pluginName = Lens.lens (\GetCommandInvocation' {pluginName}
 getCommandInvocation_commandId :: Lens.Lens' GetCommandInvocation Prelude.Text
 getCommandInvocation_commandId = Lens.lens (\GetCommandInvocation' {commandId} -> commandId) (\s@GetCommandInvocation' {} a -> s {commandId = a} :: GetCommandInvocation)
 
--- | (Required) The ID of the managed instance targeted by the command. A
--- managed instance can be an Amazon Elastic Compute Cloud (Amazon EC2)
--- instance or an instance in your hybrid environment that is configured
--- for Amazon Web Services Systems Manager.
+-- | (Required) The ID of the managed node targeted by the command. A
+-- /managed node/ can be an Amazon Elastic Compute Cloud (Amazon EC2)
+-- instance, edge device, and on-premises server or VM in your hybrid
+-- environment that is configured for Amazon Web Services Systems Manager.
 getCommandInvocation_instanceId :: Lens.Lens' GetCommandInvocation Prelude.Text
 getCommandInvocation_instanceId = Lens.lens (\GetCommandInvocation' {instanceId} -> instanceId) (\s@GetCommandInvocation' {} a -> s {instanceId = a} :: GetCommandInvocation)
 
@@ -247,41 +244,42 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
     -- in the /Amazon Web Services Systems Manager User Guide/. @StatusDetails@
     -- can be one of the following values:
     --
-    -- -   Pending: The command hasn\'t been sent to the instance.
+    -- -   Pending: The command hasn\'t been sent to the managed node.
     --
-    -- -   In Progress: The command has been sent to the instance but hasn\'t
-    --     reached a terminal state.
+    -- -   In Progress: The command has been sent to the managed node but
+    --     hasn\'t reached a terminal state.
     --
     -- -   Delayed: The system attempted to send the command to the target, but
-    --     the target wasn\'t available. The instance might not be available
-    --     because of network issues, because the instance was stopped, or for
-    --     similar reasons. The system will try to send the command again.
+    --     the target wasn\'t available. The managed node might not be
+    --     available because of network issues, because the node was stopped,
+    --     or for similar reasons. The system will try to send the command
+    --     again.
     --
     -- -   Success: The command or plugin ran successfully. This is a terminal
     --     state.
     --
-    -- -   Delivery Timed Out: The command wasn\'t delivered to the instance
-    --     before the delivery timeout expired. Delivery timeouts don\'t count
-    --     against the parent command\'s @MaxErrors@ limit, but they do
+    -- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+    --     node before the delivery timeout expired. Delivery timeouts don\'t
+    --     count against the parent command\'s @MaxErrors@ limit, but they do
     --     contribute to whether the parent command status is Success or
     --     Incomplete. This is a terminal state.
     --
-    -- -   Execution Timed Out: The command started to run on the instance, but
-    --     the execution wasn\'t complete before the timeout expired. Execution
-    --     timeouts count against the @MaxErrors@ limit of the parent command.
-    --     This is a terminal state.
+    -- -   Execution Timed Out: The command started to run on the managed node,
+    --     but the execution wasn\'t complete before the timeout expired.
+    --     Execution timeouts count against the @MaxErrors@ limit of the parent
+    --     command. This is a terminal state.
     --
-    -- -   Failed: The command wasn\'t run successfully on the instance. For a
-    --     plugin, this indicates that the result code wasn\'t zero. For a
-    --     command invocation, this indicates that the result code for one or
+    -- -   Failed: The command wasn\'t run successfully on the managed node.
+    --     For a plugin, this indicates that the result code wasn\'t zero. For
+    --     a command invocation, this indicates that the result code for one or
     --     more plugins wasn\'t zero. Invocation failures count against the
     --     @MaxErrors@ limit of the parent command. This is a terminal state.
     --
-    -- -   Canceled: The command was terminated before it was completed. This
+    -- -   Cancelled: The command was terminated before it was completed. This
     --     is a terminal state.
     --
-    -- -   Undeliverable: The command can\'t be delivered to the instance. The
-    --     instance might not exist or might not be responding. Undeliverable
+    -- -   Undeliverable: The command can\'t be delivered to the managed node.
+    --     The node might not exist or might not be responding. Undeliverable
     --     invocations don\'t count against the parent command\'s @MaxErrors@
     --     limit and don\'t contribute to whether the parent command status is
     --     Success or Incomplete. This is a terminal state.
@@ -310,9 +308,10 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
     standardOutputContent :: Prelude.Maybe Prelude.Text,
     -- | The comment text for the command.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the managed instance targeted by the command. A managed
-    -- instance can be an EC2 instance or an instance in your hybrid
-    -- environment that is configured for Systems Manager.
+    -- | The ID of the managed node targeted by the command. A /managed node/ can
+    -- be an Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device,
+    -- or on-premises server or VM in your hybrid environment that is
+    -- configured for Amazon Web Services Systems Manager.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the plugin, or /step name/, for which details are reported.
     -- For example, @aws:RunShellScript@ is a plugin.
@@ -341,8 +340,8 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
     -- | Duration since @ExecutionStartDateTime@.
     executionElapsedTime :: Prelude.Maybe Prelude.Text,
     -- | The error level response code for the plugin script. If the response
-    -- code is @-1@, then the command hasn\'t started running on the instance,
-    -- or it wasn\'t received by the instance.
+    -- code is @-1@, then the command hasn\'t started running on the managed
+    -- node, or it wasn\'t received by the node.
     responseCode :: Prelude.Maybe Prelude.Int,
     -- | The Systems Manager document (SSM document) version used in the request.
     documentVersion :: Prelude.Maybe Prelude.Text,
@@ -372,41 +371,42 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
 -- in the /Amazon Web Services Systems Manager User Guide/. @StatusDetails@
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the managed node.
 --
--- -   In Progress: The command has been sent to the instance but hasn\'t
---     reached a terminal state.
+-- -   In Progress: The command has been sent to the managed node but
+--     hasn\'t reached a terminal state.
 --
 -- -   Delayed: The system attempted to send the command to the target, but
---     the target wasn\'t available. The instance might not be available
---     because of network issues, because the instance was stopped, or for
---     similar reasons. The system will try to send the command again.
+--     the target wasn\'t available. The managed node might not be
+--     available because of network issues, because the node was stopped,
+--     or for similar reasons. The system will try to send the command
+--     again.
 --
 -- -   Success: The command or plugin ran successfully. This is a terminal
 --     state.
 --
--- -   Delivery Timed Out: The command wasn\'t delivered to the instance
---     before the delivery timeout expired. Delivery timeouts don\'t count
---     against the parent command\'s @MaxErrors@ limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+--     node before the delivery timeout expired. Delivery timeouts don\'t
+--     count against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
--- -   Execution Timed Out: The command started to run on the instance, but
---     the execution wasn\'t complete before the timeout expired. Execution
---     timeouts count against the @MaxErrors@ limit of the parent command.
---     This is a terminal state.
+-- -   Execution Timed Out: The command started to run on the managed node,
+--     but the execution wasn\'t complete before the timeout expired.
+--     Execution timeouts count against the @MaxErrors@ limit of the parent
+--     command. This is a terminal state.
 --
--- -   Failed: The command wasn\'t run successfully on the instance. For a
---     plugin, this indicates that the result code wasn\'t zero. For a
---     command invocation, this indicates that the result code for one or
+-- -   Failed: The command wasn\'t run successfully on the managed node.
+--     For a plugin, this indicates that the result code wasn\'t zero. For
+--     a command invocation, this indicates that the result code for one or
 --     more plugins wasn\'t zero. Invocation failures count against the
 --     @MaxErrors@ limit of the parent command. This is a terminal state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Undeliverable: The command can\'t be delivered to the instance. The
---     instance might not exist or might not be responding. Undeliverable
+-- -   Undeliverable: The command can\'t be delivered to the managed node.
+--     The node might not exist or might not be responding. Undeliverable
 --     invocations don\'t count against the parent command\'s @MaxErrors@
 --     limit and don\'t contribute to whether the parent command status is
 --     Success or Incomplete. This is a terminal state.
@@ -435,9 +435,10 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
 --
 -- 'comment', 'getCommandInvocationResponse_comment' - The comment text for the command.
 --
--- 'instanceId', 'getCommandInvocationResponse_instanceId' - The ID of the managed instance targeted by the command. A managed
--- instance can be an EC2 instance or an instance in your hybrid
--- environment that is configured for Systems Manager.
+-- 'instanceId', 'getCommandInvocationResponse_instanceId' - The ID of the managed node targeted by the command. A /managed node/ can
+-- be an Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device,
+-- or on-premises server or VM in your hybrid environment that is
+-- configured for Amazon Web Services Systems Manager.
 --
 -- 'pluginName', 'getCommandInvocationResponse_pluginName' - The name of the plugin, or /step name/, for which details are reported.
 -- For example, @aws:RunShellScript@ is a plugin.
@@ -466,8 +467,8 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
 -- 'executionElapsedTime', 'getCommandInvocationResponse_executionElapsedTime' - Duration since @ExecutionStartDateTime@.
 --
 -- 'responseCode', 'getCommandInvocationResponse_responseCode' - The error level response code for the plugin script. If the response
--- code is @-1@, then the command hasn\'t started running on the instance,
--- or it wasn\'t received by the instance.
+-- code is @-1@, then the command hasn\'t started running on the managed
+-- node, or it wasn\'t received by the node.
 --
 -- 'documentVersion', 'getCommandInvocationResponse_documentVersion' - The Systems Manager document (SSM document) version used in the request.
 --
@@ -512,41 +513,42 @@ newGetCommandInvocationResponse pHttpStatus_ =
 -- in the /Amazon Web Services Systems Manager User Guide/. @StatusDetails@
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the managed node.
 --
--- -   In Progress: The command has been sent to the instance but hasn\'t
---     reached a terminal state.
+-- -   In Progress: The command has been sent to the managed node but
+--     hasn\'t reached a terminal state.
 --
 -- -   Delayed: The system attempted to send the command to the target, but
---     the target wasn\'t available. The instance might not be available
---     because of network issues, because the instance was stopped, or for
---     similar reasons. The system will try to send the command again.
+--     the target wasn\'t available. The managed node might not be
+--     available because of network issues, because the node was stopped,
+--     or for similar reasons. The system will try to send the command
+--     again.
 --
 -- -   Success: The command or plugin ran successfully. This is a terminal
 --     state.
 --
--- -   Delivery Timed Out: The command wasn\'t delivered to the instance
---     before the delivery timeout expired. Delivery timeouts don\'t count
---     against the parent command\'s @MaxErrors@ limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+--     node before the delivery timeout expired. Delivery timeouts don\'t
+--     count against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
--- -   Execution Timed Out: The command started to run on the instance, but
---     the execution wasn\'t complete before the timeout expired. Execution
---     timeouts count against the @MaxErrors@ limit of the parent command.
---     This is a terminal state.
+-- -   Execution Timed Out: The command started to run on the managed node,
+--     but the execution wasn\'t complete before the timeout expired.
+--     Execution timeouts count against the @MaxErrors@ limit of the parent
+--     command. This is a terminal state.
 --
--- -   Failed: The command wasn\'t run successfully on the instance. For a
---     plugin, this indicates that the result code wasn\'t zero. For a
---     command invocation, this indicates that the result code for one or
+-- -   Failed: The command wasn\'t run successfully on the managed node.
+--     For a plugin, this indicates that the result code wasn\'t zero. For
+--     a command invocation, this indicates that the result code for one or
 --     more plugins wasn\'t zero. Invocation failures count against the
 --     @MaxErrors@ limit of the parent command. This is a terminal state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Undeliverable: The command can\'t be delivered to the instance. The
---     instance might not exist or might not be responding. Undeliverable
+-- -   Undeliverable: The command can\'t be delivered to the managed node.
+--     The node might not exist or might not be responding. Undeliverable
 --     invocations don\'t count against the parent command\'s @MaxErrors@
 --     limit and don\'t contribute to whether the parent command status is
 --     Success or Incomplete. This is a terminal state.
@@ -591,9 +593,10 @@ getCommandInvocationResponse_standardOutputContent = Lens.lens (\GetCommandInvoc
 getCommandInvocationResponse_comment :: Lens.Lens' GetCommandInvocationResponse (Prelude.Maybe Prelude.Text)
 getCommandInvocationResponse_comment = Lens.lens (\GetCommandInvocationResponse' {comment} -> comment) (\s@GetCommandInvocationResponse' {} a -> s {comment = a} :: GetCommandInvocationResponse)
 
--- | The ID of the managed instance targeted by the command. A managed
--- instance can be an EC2 instance or an instance in your hybrid
--- environment that is configured for Systems Manager.
+-- | The ID of the managed node targeted by the command. A /managed node/ can
+-- be an Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device,
+-- or on-premises server or VM in your hybrid environment that is
+-- configured for Amazon Web Services Systems Manager.
 getCommandInvocationResponse_instanceId :: Lens.Lens' GetCommandInvocationResponse (Prelude.Maybe Prelude.Text)
 getCommandInvocationResponse_instanceId = Lens.lens (\GetCommandInvocationResponse' {instanceId} -> instanceId) (\s@GetCommandInvocationResponse' {} a -> s {instanceId = a} :: GetCommandInvocationResponse)
 
@@ -634,8 +637,8 @@ getCommandInvocationResponse_executionElapsedTime :: Lens.Lens' GetCommandInvoca
 getCommandInvocationResponse_executionElapsedTime = Lens.lens (\GetCommandInvocationResponse' {executionElapsedTime} -> executionElapsedTime) (\s@GetCommandInvocationResponse' {} a -> s {executionElapsedTime = a} :: GetCommandInvocationResponse)
 
 -- | The error level response code for the plugin script. If the response
--- code is @-1@, then the command hasn\'t started running on the instance,
--- or it wasn\'t received by the instance.
+-- code is @-1@, then the command hasn\'t started running on the managed
+-- node, or it wasn\'t received by the node.
 getCommandInvocationResponse_responseCode :: Lens.Lens' GetCommandInvocationResponse (Prelude.Maybe Prelude.Int)
 getCommandInvocationResponse_responseCode = Lens.lens (\GetCommandInvocationResponse' {responseCode} -> responseCode) (\s@GetCommandInvocationResponse' {} a -> s {responseCode = a} :: GetCommandInvocationResponse)
 

@@ -165,7 +165,7 @@ instance Core.ToQuery ListTextTranslationJobs where
 
 -- | /See:/ 'newListTextTranslationJobsResponse' smart constructor.
 data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
-  { -- | The token to use to retreive the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list containing the properties of each job that is returned.
@@ -183,7 +183,7 @@ data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTextTranslationJobsResponse_nextToken' - The token to use to retreive the next page of results. This value is
+-- 'nextToken', 'listTextTranslationJobsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
 -- 'textTranslationJobPropertiesList', 'listTextTranslationJobsResponse_textTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
@@ -202,7 +202,7 @@ newListTextTranslationJobsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retreive the next page of results. This value is
+-- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 listTextTranslationJobsResponse_nextToken :: Lens.Lens' ListTextTranslationJobsResponse (Prelude.Maybe Prelude.Text)
 listTextTranslationJobsResponse_nextToken = Lens.lens (\ListTextTranslationJobsResponse' {nextToken} -> nextToken) (\s@ListTextTranslationJobsResponse' {} a -> s {nextToken = a} :: ListTextTranslationJobsResponse)

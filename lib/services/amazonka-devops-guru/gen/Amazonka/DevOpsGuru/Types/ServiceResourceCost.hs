@@ -25,19 +25,19 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the estimated monthly cost to
--- analyze an AWS resource. For more information, see
+-- analyze an Amazon Web Services resource. For more information, see
 -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html Estimate your Amazon DevOps Guru costs>
 -- and
 -- <http://aws.amazon.com/devops-guru/pricing/ Amazon DevOps Guru pricing>.
 --
 -- /See:/ 'newServiceResourceCost' smart constructor.
 data ServiceResourceCost = ServiceResourceCost'
-  { -- | The type of the AWS resource.
+  { -- | The type of the Amazon Web Services resource.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The state of the resource. The resource is @ACTIVE@ if it produces
     -- metrics, events, or logs within an hour, otherwise it is @INACTIVE@. You
-    -- pay for the number of active AWS resource hours analyzed for each
-    -- resource. Inactive resources are not charged.
+    -- pay for the number of active Amazon Web Services resource hours analyzed
+    -- for each resource. Inactive resources are not charged.
     state :: Prelude.Maybe CostEstimationServiceResourceState,
     -- | The number of active resources analyzed for this service to create a
     -- monthly cost estimate.
@@ -62,12 +62,12 @@ data ServiceResourceCost = ServiceResourceCost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'serviceResourceCost_type' - The type of the AWS resource.
+-- 'type'', 'serviceResourceCost_type' - The type of the Amazon Web Services resource.
 --
 -- 'state', 'serviceResourceCost_state' - The state of the resource. The resource is @ACTIVE@ if it produces
 -- metrics, events, or logs within an hour, otherwise it is @INACTIVE@. You
--- pay for the number of active AWS resource hours analyzed for each
--- resource. Inactive resources are not charged.
+-- pay for the number of active Amazon Web Services resource hours analyzed
+-- for each resource. Inactive resources are not charged.
 --
 -- 'count', 'serviceResourceCost_count' - The number of active resources analyzed for this service to create a
 -- monthly cost estimate.
@@ -91,14 +91,14 @@ newServiceResourceCost =
       cost = Prelude.Nothing
     }
 
--- | The type of the AWS resource.
+-- | The type of the Amazon Web Services resource.
 serviceResourceCost_type :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Text)
 serviceResourceCost_type = Lens.lens (\ServiceResourceCost' {type'} -> type') (\s@ServiceResourceCost' {} a -> s {type' = a} :: ServiceResourceCost)
 
 -- | The state of the resource. The resource is @ACTIVE@ if it produces
 -- metrics, events, or logs within an hour, otherwise it is @INACTIVE@. You
--- pay for the number of active AWS resource hours analyzed for each
--- resource. Inactive resources are not charged.
+-- pay for the number of active Amazon Web Services resource hours analyzed
+-- for each resource. Inactive resources are not charged.
 serviceResourceCost_state :: Lens.Lens' ServiceResourceCost (Prelude.Maybe CostEstimationServiceResourceState)
 serviceResourceCost_state = Lens.lens (\ServiceResourceCost' {state} -> state) (\s@ServiceResourceCost' {} a -> s {state = a} :: ServiceResourceCost)
 

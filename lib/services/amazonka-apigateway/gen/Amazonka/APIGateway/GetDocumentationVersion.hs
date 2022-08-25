@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets a documentation version.
 module Amazonka.APIGateway.GetDocumentationVersion
   ( -- * Creating a Request
     GetDocumentationVersion (..),
@@ -52,10 +52,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The version identifier of the to-be-retrieved documentation
-    -- snapshot.
+    -- | The version identifier of the to-be-retrieved documentation snapshot.
     documentationVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,10 +67,9 @@ data GetDocumentationVersion = GetDocumentationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getDocumentationVersion_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getDocumentationVersion_restApiId' - The string identifier of the associated RestApi.
 --
--- 'documentationVersion', 'getDocumentationVersion_documentationVersion' - [Required] The version identifier of the to-be-retrieved documentation
--- snapshot.
+-- 'documentationVersion', 'getDocumentationVersion_documentationVersion' - The version identifier of the to-be-retrieved documentation snapshot.
 newGetDocumentationVersion ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -86,12 +84,11 @@ newGetDocumentationVersion
         documentationVersion = pDocumentationVersion_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDocumentationVersion_restApiId :: Lens.Lens' GetDocumentationVersion Prelude.Text
 getDocumentationVersion_restApiId = Lens.lens (\GetDocumentationVersion' {restApiId} -> restApiId) (\s@GetDocumentationVersion' {} a -> s {restApiId = a} :: GetDocumentationVersion)
 
--- | [Required] The version identifier of the to-be-retrieved documentation
--- snapshot.
+-- | The version identifier of the to-be-retrieved documentation snapshot.
 getDocumentationVersion_documentationVersion :: Lens.Lens' GetDocumentationVersion Prelude.Text
 getDocumentationVersion_documentationVersion = Lens.lens (\GetDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@GetDocumentationVersion' {} a -> s {documentationVersion = a} :: GetDocumentationVersion)
 

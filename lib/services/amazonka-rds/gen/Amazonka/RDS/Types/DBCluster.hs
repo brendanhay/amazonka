@@ -30,23 +30,65 @@ import Amazonka.RDS.Types.DBClusterOptionGroupStatus
 import Amazonka.RDS.Types.DBClusterRole
 import Amazonka.RDS.Types.DomainMembership
 import Amazonka.RDS.Types.ScalingConfigurationInfo
+import Amazonka.RDS.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.RDS.Types.Tag
 import Amazonka.RDS.Types.VpcSecurityGroupMembership
 import Amazonka.RDS.Types.WriteForwardingStatus
 
--- | Contains the details of an Amazon Aurora DB cluster.
+-- | Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB
+-- cluster.
 --
--- This data type is used as a response element in the
--- @DescribeDBClusters@, @StopDBCluster@, and @StartDBCluster@ actions.
+-- For an Amazon Aurora DB cluster, this data type is used as a response
+-- element in the operations @CreateDBCluster@, @DeleteDBCluster@,
+-- @DescribeDBClusters@, @FailoverDBCluster@, @ModifyDBCluster@,
+-- @PromoteReadReplicaDBCluster@, @RestoreDBClusterFromS3@,
+-- @RestoreDBClusterFromSnapshot@, @RestoreDBClusterToPointInTime@,
+-- @StartDBCluster@, and @StopDBCluster@.
+--
+-- For a Multi-AZ DB cluster, this data type is used as a response element
+-- in the operations @CreateDBCluster@, @DeleteDBCluster@,
+-- @DescribeDBClusters@, @FailoverDBCluster@, @ModifyDBCluster@,
+-- @RebootDBCluster@, @RestoreDBClusterFromSnapshot@, and
+-- @RestoreDBClusterToPointInTime@.
+--
+-- For more information on Amazon Aurora DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide./
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide./
 --
 -- /See:/ 'newDBCluster' smart constructor.
 data DBCluster = DBCluster'
   { -- | Specifies the port that the database engine is listening on.
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfigurationInfo,
     -- | Identifies the clone group to which the DB cluster is associated.
     cloneGroupId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the DB cluster.
     dbClusterArn :: Prelude.Maybe Prelude.Text,
+    -- | The number of days to retain Performance Insights data. The default is 7
+    -- days. The following values are valid:
+    --
+    -- -   7
+    --
+    -- -   /month/ * 31, where /month/ is a number of months from 1-23
+    --
+    -- -   731
+    --
+    -- For example, the following values are valid:
+    --
+    -- -   93 (3 months * 31)
+    --
+    -- -   341 (11 months * 31)
+    --
+    -- -   589 (19 months * 31)
+    --
+    -- -   731
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
     -- zone.
     hostedZoneId :: Prelude.Maybe Prelude.Text,
@@ -79,6 +121,11 @@ data DBCluster = DBCluster'
     dbClusterMembers :: Prelude.Maybe [DBClusterMember],
     -- | Specifies the name of the DB cluster parameter group for the DB cluster.
     dbClusterParameterGroup :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates that minor version patches are applied
+    -- automatically.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The mode of the database activity stream. Database events such as a
     -- change or access generate an activity stream event. The database session
     -- can handle these events either synchronously or asynchronously.
@@ -87,6 +134,10 @@ data DBCluster = DBCluster'
     -- | Specifies the latest time to which a database can be restored with
     -- point-in-time restore.
     latestRestorableTime :: Prelude.Maybe Core.ISO8601,
+    -- | The name of the compute and memory capacity class of the DB instance.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    dbClusterInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | Contains the name of the initial database of this DB cluster that was
     -- provided at create time, if one was specified when the DB cluster was
     -- created. This same name is returned for the life of the DB cluster.
@@ -105,6 +156,14 @@ data DBCluster = DBCluster'
     earliestBacktrackTime :: Prelude.Maybe Core.ISO8601,
     -- | The time when a stopped DB cluster is restarted automatically.
     automaticRestartTime :: Prelude.Maybe Core.ISO8601,
+    -- | The Amazon Web Services KMS key identifier for encryption of Performance
+    -- Insights data.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the DB cluster is a clone of a DB cluster owned by a
     -- different Amazon Web Services account.
     crossAccountClone :: Prelude.Maybe Prelude.Bool,
@@ -114,23 +173,54 @@ data DBCluster = DBCluster'
     -- cluster, including the name, description, and subnets in the subnet
     -- group.
     dbSubnetGroup :: Prelude.Maybe Prelude.Text,
+    -- | The interval, in seconds, between points when Enhanced Monitoring
+    -- metrics are collected for the DB cluster.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    monitoringInterval :: Prelude.Maybe Prelude.Int,
+    -- | True if Performance Insights is enabled for the DB cluster, and
+    -- otherwise false.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    performanceInsightsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the current state of this DB cluster.
     status :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Kinesis data stream used for the database
     -- activity stream.
     activityStreamKinesisStreamName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the HTTP endpoint for an Aurora
-    -- Serverless DB cluster is enabled.
+    -- Serverless v1 DB cluster is enabled.
     --
     -- When enabled, the HTTP endpoint provides a connectionless web service
-    -- API for running SQL queries on the Aurora Serverless DB cluster. You can
-    -- also query your database from inside the RDS console with the query
+    -- API for running SQL queries on the Aurora Serverless v1 DB cluster. You
+    -- can also query your database from inside the RDS console with the query
     -- editor.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless v1>
     -- in the /Amazon Aurora User Guide/.
     httpEndpointEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the accessibility options for the DB instance.
+    --
+    -- When the DB instance is publicly accessible, its Domain Name System
+    -- (DNS) endpoint resolves to the private IP address from within the DB
+    -- instance\'s virtual private cloud (VPC). It resolves to the public IP
+    -- address from outside of the DB instance\'s VPC. Access to the DB
+    -- instance is ultimately controlled by the security group it uses. That
+    -- public access is not permitted if the security group assigned to the DB
+    -- instance doesn\'t permit it.
+    --
+    -- When the DB instance isn\'t publicly accessible, it is an internal DB
+    -- instance with a DNS name that resolves to a private IP address.
+    --
+    -- For more information, see CreateDBInstance.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | The storage type associated with the DB cluster.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    storageType :: Prelude.Maybe Prelude.Text,
     -- | The target backtrack window, in seconds. If this value is set to 0,
     -- backtracking is disabled for the DB cluster. Otherwise, backtracking is
     -- enabled.
@@ -140,6 +230,11 @@ data DBCluster = DBCluster'
     -- | Contains the identifier of the source DB cluster if this DB cluster is a
     -- read replica.
     replicationSourceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring
+    -- metrics to Amazon CloudWatch Logs.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    monitoringRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The number of change records stored for Backtrack.
     backtrackConsumedChangeRecords :: Prelude.Maybe Prelude.Integer,
     -- | The DB engine mode of the DB cluster, either @provisioned@,
@@ -154,8 +249,7 @@ data DBCluster = DBCluster'
     -- identifier for the encrypted DB cluster.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database engine to be used for this DB cluster.
     engine :: Prelude.Maybe Prelude.Text,
@@ -196,11 +290,11 @@ data DBCluster = DBCluster'
     -- | Specifies the connection endpoint for the primary instance of the DB
     -- cluster.
     endpoint :: Prelude.Maybe Prelude.Text,
-    -- | The current capacity of an Aurora Serverless DB cluster. The capacity is
-    -- 0 (zero) when the cluster is paused.
+    -- | The current capacity of an Aurora Serverless v1 DB cluster. The capacity
+    -- is 0 (zero) when the cluster is paused.
     --
-    -- For more information about Aurora Serverless, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless>
+    -- For more information about Aurora Serverless v1, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless v1>
     -- in the /Amazon Aurora User Guide/.
     capacity :: Prelude.Maybe Prelude.Int,
     -- | Specifies the time when the DB cluster was created, in Universal
@@ -217,10 +311,13 @@ data DBCluster = DBCluster'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files>
     -- in the /Amazon Aurora User Guide./
     enabledCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
+    -- | The Provisioned IOPS (I\/O operations per second) value.
+    --
+    -- This setting is only for non-Aurora Multi-AZ DB clusters.
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Web Services Region-unique, immutable identifier for the DB
     -- cluster. This identifier is found in Amazon Web Services CloudTrail log
-    -- entries whenever the Amazon Web Services KMS CMK for the DB cluster is
-    -- accessed.
+    -- entries whenever the KMS key for the DB cluster is accessed.
     dbClusterResourceId :: Prelude.Maybe Prelude.Text,
     -- | Provides a list of the Amazon Web Services Identity and Access
     -- Management (IAM) roles that are associated with the DB cluster. IAM
@@ -229,6 +326,24 @@ data DBCluster = DBCluster'
     associatedRoles :: Prelude.Maybe [DBClusterRole],
     -- | Indicates the database engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The network type of the DB instance.
+    --
+    -- Valid values:
+    --
+    -- -   @IPV4@
+    --
+    -- -   @DUAL@
+    --
+    -- The network type is determined by the @DBSubnetGroup@ specified for the
+    -- DB cluster. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+    -- IPv4 and the IPv6 protocols (@DUAL@).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- This setting is only for Aurora DB clusters.
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the DB cluster has instances in multiple Availability
     -- Zones.
     multiAZ :: Prelude.Maybe Prelude.Bool,
@@ -236,8 +351,7 @@ data DBCluster = DBCluster'
     -- in the database activity stream.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     activityStreamKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether a secondary cluster in an Aurora global database has
     -- write forwarding enabled, not enabled, or is in the process of enabling
@@ -258,9 +372,32 @@ data DBCluster = DBCluster'
 --
 -- 'port', 'dbCluster_port' - Specifies the port that the database engine is listening on.
 --
+-- 'serverlessV2ScalingConfiguration', 'dbCluster_serverlessV2ScalingConfiguration' - Undocumented member.
+--
 -- 'cloneGroupId', 'dbCluster_cloneGroupId' - Identifies the clone group to which the DB cluster is associated.
 --
 -- 'dbClusterArn', 'dbCluster_dbClusterArn' - The Amazon Resource Name (ARN) for the DB cluster.
+--
+-- 'performanceInsightsRetentionPeriod', 'dbCluster_performanceInsightsRetentionPeriod' - The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
 --
 -- 'hostedZoneId', 'dbCluster_hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
@@ -294,6 +431,11 @@ data DBCluster = DBCluster'
 --
 -- 'dbClusterParameterGroup', 'dbCluster_dbClusterParameterGroup' - Specifies the name of the DB cluster parameter group for the DB cluster.
 --
+-- 'autoMinorVersionUpgrade', 'dbCluster_autoMinorVersionUpgrade' - A value that indicates that minor version patches are applied
+-- automatically.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+--
 -- 'activityStreamMode', 'dbCluster_activityStreamMode' - The mode of the database activity stream. Database events such as a
 -- change or access generate an activity stream event. The database session
 -- can handle these events either synchronously or asynchronously.
@@ -302,6 +444,10 @@ data DBCluster = DBCluster'
 --
 -- 'latestRestorableTime', 'dbCluster_latestRestorableTime' - Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
+--
+-- 'dbClusterInstanceClass', 'dbCluster_dbClusterInstanceClass' - The name of the compute and memory capacity class of the DB instance.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
 --
 -- 'databaseName', 'dbCluster_databaseName' - Contains the name of the initial database of this DB cluster that was
 -- provided at create time, if one was specified when the DB cluster was
@@ -322,6 +468,14 @@ data DBCluster = DBCluster'
 --
 -- 'automaticRestartTime', 'dbCluster_automaticRestartTime' - The time when a stopped DB cluster is restarted automatically.
 --
+-- 'performanceInsightsKMSKeyId', 'dbCluster_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+--
 -- 'crossAccountClone', 'dbCluster_crossAccountClone' - Specifies whether the DB cluster is a clone of a DB cluster owned by a
 -- different Amazon Web Services account.
 --
@@ -331,22 +485,53 @@ data DBCluster = DBCluster'
 -- cluster, including the name, description, and subnets in the subnet
 -- group.
 --
+-- 'monitoringInterval', 'dbCluster_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB cluster.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+--
+-- 'performanceInsightsEnabled', 'dbCluster_performanceInsightsEnabled' - True if Performance Insights is enabled for the DB cluster, and
+-- otherwise false.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+--
 -- 'status', 'dbCluster_status' - Specifies the current state of this DB cluster.
 --
 -- 'activityStreamKinesisStreamName', 'dbCluster_activityStreamKinesisStreamName' - The name of the Amazon Kinesis data stream used for the database
 -- activity stream.
 --
 -- 'httpEndpointEnabled', 'dbCluster_httpEndpointEnabled' - A value that indicates whether the HTTP endpoint for an Aurora
--- Serverless DB cluster is enabled.
+-- Serverless v1 DB cluster is enabled.
 --
 -- When enabled, the HTTP endpoint provides a connectionless web service
--- API for running SQL queries on the Aurora Serverless DB cluster. You can
--- also query your database from inside the RDS console with the query
+-- API for running SQL queries on the Aurora Serverless v1 DB cluster. You
+-- can also query your database from inside the RDS console with the query
 -- editor.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
+--
+-- 'publiclyAccessible', 'dbCluster_publiclyAccessible' - Specifies the accessibility options for the DB instance.
+--
+-- When the DB instance is publicly accessible, its Domain Name System
+-- (DNS) endpoint resolves to the private IP address from within the DB
+-- instance\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB instance\'s VPC. Access to the DB
+-- instance is ultimately controlled by the security group it uses. That
+-- public access is not permitted if the security group assigned to the DB
+-- instance doesn\'t permit it.
+--
+-- When the DB instance isn\'t publicly accessible, it is an internal DB
+-- instance with a DNS name that resolves to a private IP address.
+--
+-- For more information, see CreateDBInstance.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+--
+-- 'storageType', 'dbCluster_storageType' - The storage type associated with the DB cluster.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
 --
 -- 'backtrackWindow', 'dbCluster_backtrackWindow' - The target backtrack window, in seconds. If this value is set to 0,
 -- backtracking is disabled for the DB cluster. Otherwise, backtracking is
@@ -356,6 +541,11 @@ data DBCluster = DBCluster'
 --
 -- 'replicationSourceIdentifier', 'dbCluster_replicationSourceIdentifier' - Contains the identifier of the source DB cluster if this DB cluster is a
 -- read replica.
+--
+-- 'monitoringRoleArn', 'dbCluster_monitoringRoleArn' - The ARN for the IAM role that permits RDS to send Enhanced Monitoring
+-- metrics to Amazon CloudWatch Logs.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
 --
 -- 'backtrackConsumedChangeRecords', 'dbCluster_backtrackConsumedChangeRecords' - The number of change records stored for Backtrack.
 --
@@ -371,8 +561,7 @@ data DBCluster = DBCluster'
 -- identifier for the encrypted DB cluster.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'engine', 'dbCluster_engine' - The name of the database engine to be used for this DB cluster.
 --
@@ -413,11 +602,11 @@ data DBCluster = DBCluster'
 -- 'endpoint', 'dbCluster_endpoint' - Specifies the connection endpoint for the primary instance of the DB
 -- cluster.
 --
--- 'capacity', 'dbCluster_capacity' - The current capacity of an Aurora Serverless DB cluster. The capacity is
--- 0 (zero) when the cluster is paused.
+-- 'capacity', 'dbCluster_capacity' - The current capacity of an Aurora Serverless v1 DB cluster. The capacity
+-- is 0 (zero) when the cluster is paused.
 --
--- For more information about Aurora Serverless, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless>
+-- For more information about Aurora Serverless v1, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 --
 -- 'clusterCreateTime', 'dbCluster_clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal
@@ -434,10 +623,13 @@ data DBCluster = DBCluster'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files>
 -- in the /Amazon Aurora User Guide./
 --
+-- 'iops', 'dbCluster_iops' - The Provisioned IOPS (I\/O operations per second) value.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+--
 -- 'dbClusterResourceId', 'dbCluster_dbClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the DB
 -- cluster. This identifier is found in Amazon Web Services CloudTrail log
--- entries whenever the Amazon Web Services KMS CMK for the DB cluster is
--- accessed.
+-- entries whenever the KMS key for the DB cluster is accessed.
 --
 -- 'associatedRoles', 'dbCluster_associatedRoles' - Provides a list of the Amazon Web Services Identity and Access
 -- Management (IAM) roles that are associated with the DB cluster. IAM
@@ -446,6 +638,24 @@ data DBCluster = DBCluster'
 --
 -- 'engineVersion', 'dbCluster_engineVersion' - Indicates the database engine version.
 --
+-- 'networkType', 'dbCluster_networkType' - The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB cluster. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon Aurora User Guide./
+--
+-- This setting is only for Aurora DB clusters.
+--
 -- 'multiAZ', 'dbCluster_multiAZ' - Specifies whether the DB cluster has instances in multiple Availability
 -- Zones.
 --
@@ -453,8 +663,7 @@ data DBCluster = DBCluster'
 -- in the database activity stream.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'globalWriteForwardingStatus', 'dbCluster_globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has
 -- write forwarding enabled, not enabled, or is in the process of enabling
@@ -466,8 +675,10 @@ newDBCluster ::
 newDBCluster =
   DBCluster'
     { port = Prelude.Nothing,
+      serverlessV2ScalingConfiguration = Prelude.Nothing,
       cloneGroupId = Prelude.Nothing,
       dbClusterArn = Prelude.Nothing,
+      performanceInsightsRetentionPeriod = Prelude.Nothing,
       hostedZoneId = Prelude.Nothing,
       percentProgress = Prelude.Nothing,
       globalWriteForwardingRequested = Prelude.Nothing,
@@ -479,9 +690,11 @@ newDBCluster =
       activityStreamStatus = Prelude.Nothing,
       dbClusterMembers = Prelude.Nothing,
       dbClusterParameterGroup = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       activityStreamMode = Prelude.Nothing,
       tagList = Prelude.Nothing,
       latestRestorableTime = Prelude.Nothing,
+      dbClusterInstanceClass = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       dbClusterIdentifier = Prelude.Nothing,
       domainMemberships = Prelude.Nothing,
@@ -489,15 +702,21 @@ newDBCluster =
       availabilityZones = Prelude.Nothing,
       earliestBacktrackTime = Prelude.Nothing,
       automaticRestartTime = Prelude.Nothing,
+      performanceInsightsKMSKeyId = Prelude.Nothing,
       crossAccountClone = Prelude.Nothing,
       dbClusterOptionGroupMemberships = Prelude.Nothing,
       dbSubnetGroup = Prelude.Nothing,
+      monitoringInterval = Prelude.Nothing,
+      performanceInsightsEnabled = Prelude.Nothing,
       status = Prelude.Nothing,
       activityStreamKinesisStreamName = Prelude.Nothing,
       httpEndpointEnabled = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      storageType = Prelude.Nothing,
       backtrackWindow = Prelude.Nothing,
       customEndpoints = Prelude.Nothing,
       replicationSourceIdentifier = Prelude.Nothing,
+      monitoringRoleArn = Prelude.Nothing,
       backtrackConsumedChangeRecords = Prelude.Nothing,
       engineMode = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
@@ -515,9 +734,11 @@ newDBCluster =
       clusterCreateTime = Prelude.Nothing,
       readReplicaIdentifiers = Prelude.Nothing,
       enabledCloudwatchLogsExports = Prelude.Nothing,
+      iops = Prelude.Nothing,
       dbClusterResourceId = Prelude.Nothing,
       associatedRoles = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
       activityStreamKmsKeyId = Prelude.Nothing,
       globalWriteForwardingStatus = Prelude.Nothing,
@@ -528,6 +749,10 @@ newDBCluster =
 dbCluster_port :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
 dbCluster_port = Lens.lens (\DBCluster' {port} -> port) (\s@DBCluster' {} a -> s {port = a} :: DBCluster)
 
+-- | Undocumented member.
+dbCluster_serverlessV2ScalingConfiguration :: Lens.Lens' DBCluster (Prelude.Maybe ServerlessV2ScalingConfigurationInfo)
+dbCluster_serverlessV2ScalingConfiguration = Lens.lens (\DBCluster' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@DBCluster' {} a -> s {serverlessV2ScalingConfiguration = a} :: DBCluster)
+
 -- | Identifies the clone group to which the DB cluster is associated.
 dbCluster_cloneGroupId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_cloneGroupId = Lens.lens (\DBCluster' {cloneGroupId} -> cloneGroupId) (\s@DBCluster' {} a -> s {cloneGroupId = a} :: DBCluster)
@@ -535,6 +760,29 @@ dbCluster_cloneGroupId = Lens.lens (\DBCluster' {cloneGroupId} -> cloneGroupId) 
 -- | The Amazon Resource Name (ARN) for the DB cluster.
 dbCluster_dbClusterArn :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_dbClusterArn = Lens.lens (\DBCluster' {dbClusterArn} -> dbClusterArn) (\s@DBCluster' {} a -> s {dbClusterArn = a} :: DBCluster)
+
+-- | The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_performanceInsightsRetentionPeriod :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
+dbCluster_performanceInsightsRetentionPeriod = Lens.lens (\DBCluster' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@DBCluster' {} a -> s {performanceInsightsRetentionPeriod = a} :: DBCluster)
 
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
@@ -590,6 +838,13 @@ dbCluster_dbClusterMembers = Lens.lens (\DBCluster' {dbClusterMembers} -> dbClus
 dbCluster_dbClusterParameterGroup :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_dbClusterParameterGroup = Lens.lens (\DBCluster' {dbClusterParameterGroup} -> dbClusterParameterGroup) (\s@DBCluster' {} a -> s {dbClusterParameterGroup = a} :: DBCluster)
 
+-- | A value that indicates that minor version patches are applied
+-- automatically.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_autoMinorVersionUpgrade :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
+dbCluster_autoMinorVersionUpgrade = Lens.lens (\DBCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@DBCluster' {} a -> s {autoMinorVersionUpgrade = a} :: DBCluster)
+
 -- | The mode of the database activity stream. Database events such as a
 -- change or access generate an activity stream event. The database session
 -- can handle these events either synchronously or asynchronously.
@@ -604,6 +859,12 @@ dbCluster_tagList = Lens.lens (\DBCluster' {tagList} -> tagList) (\s@DBCluster' 
 -- point-in-time restore.
 dbCluster_latestRestorableTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
 dbCluster_latestRestorableTime = Lens.lens (\DBCluster' {latestRestorableTime} -> latestRestorableTime) (\s@DBCluster' {} a -> s {latestRestorableTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the compute and memory capacity class of the DB instance.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_dbClusterInstanceClass :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_dbClusterInstanceClass = Lens.lens (\DBCluster' {dbClusterInstanceClass} -> dbClusterInstanceClass) (\s@DBCluster' {} a -> s {dbClusterInstanceClass = a} :: DBCluster)
 
 -- | Contains the name of the initial database of this DB cluster that was
 -- provided at create time, if one was specified when the DB cluster was
@@ -638,6 +899,16 @@ dbCluster_earliestBacktrackTime = Lens.lens (\DBCluster' {earliestBacktrackTime}
 dbCluster_automaticRestartTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
 dbCluster_automaticRestartTime = Lens.lens (\DBCluster' {automaticRestartTime} -> automaticRestartTime) (\s@DBCluster' {} a -> s {automaticRestartTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_performanceInsightsKMSKeyId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_performanceInsightsKMSKeyId = Lens.lens (\DBCluster' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@DBCluster' {} a -> s {performanceInsightsKMSKeyId = a} :: DBCluster)
+
 -- | Specifies whether the DB cluster is a clone of a DB cluster owned by a
 -- different Amazon Web Services account.
 dbCluster_crossAccountClone :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
@@ -653,6 +924,20 @@ dbCluster_dbClusterOptionGroupMemberships = Lens.lens (\DBCluster' {dbClusterOpt
 dbCluster_dbSubnetGroup :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_dbSubnetGroup = Lens.lens (\DBCluster' {dbSubnetGroup} -> dbSubnetGroup) (\s@DBCluster' {} a -> s {dbSubnetGroup = a} :: DBCluster)
 
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB cluster.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_monitoringInterval :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
+dbCluster_monitoringInterval = Lens.lens (\DBCluster' {monitoringInterval} -> monitoringInterval) (\s@DBCluster' {} a -> s {monitoringInterval = a} :: DBCluster)
+
+-- | True if Performance Insights is enabled for the DB cluster, and
+-- otherwise false.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_performanceInsightsEnabled :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
+dbCluster_performanceInsightsEnabled = Lens.lens (\DBCluster' {performanceInsightsEnabled} -> performanceInsightsEnabled) (\s@DBCluster' {} a -> s {performanceInsightsEnabled = a} :: DBCluster)
+
 -- | Specifies the current state of this DB cluster.
 dbCluster_status :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_status = Lens.lens (\DBCluster' {status} -> status) (\s@DBCluster' {} a -> s {status = a} :: DBCluster)
@@ -663,18 +948,43 @@ dbCluster_activityStreamKinesisStreamName :: Lens.Lens' DBCluster (Prelude.Maybe
 dbCluster_activityStreamKinesisStreamName = Lens.lens (\DBCluster' {activityStreamKinesisStreamName} -> activityStreamKinesisStreamName) (\s@DBCluster' {} a -> s {activityStreamKinesisStreamName = a} :: DBCluster)
 
 -- | A value that indicates whether the HTTP endpoint for an Aurora
--- Serverless DB cluster is enabled.
+-- Serverless v1 DB cluster is enabled.
 --
 -- When enabled, the HTTP endpoint provides a connectionless web service
--- API for running SQL queries on the Aurora Serverless DB cluster. You can
--- also query your database from inside the RDS console with the query
+-- API for running SQL queries on the Aurora Serverless v1 DB cluster. You
+-- can also query your database from inside the RDS console with the query
 -- editor.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 dbCluster_httpEndpointEnabled :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
 dbCluster_httpEndpointEnabled = Lens.lens (\DBCluster' {httpEndpointEnabled} -> httpEndpointEnabled) (\s@DBCluster' {} a -> s {httpEndpointEnabled = a} :: DBCluster)
+
+-- | Specifies the accessibility options for the DB instance.
+--
+-- When the DB instance is publicly accessible, its Domain Name System
+-- (DNS) endpoint resolves to the private IP address from within the DB
+-- instance\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB instance\'s VPC. Access to the DB
+-- instance is ultimately controlled by the security group it uses. That
+-- public access is not permitted if the security group assigned to the DB
+-- instance doesn\'t permit it.
+--
+-- When the DB instance isn\'t publicly accessible, it is an internal DB
+-- instance with a DNS name that resolves to a private IP address.
+--
+-- For more information, see CreateDBInstance.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_publiclyAccessible :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
+dbCluster_publiclyAccessible = Lens.lens (\DBCluster' {publiclyAccessible} -> publiclyAccessible) (\s@DBCluster' {} a -> s {publiclyAccessible = a} :: DBCluster)
+
+-- | The storage type associated with the DB cluster.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_storageType :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_storageType = Lens.lens (\DBCluster' {storageType} -> storageType) (\s@DBCluster' {} a -> s {storageType = a} :: DBCluster)
 
 -- | The target backtrack window, in seconds. If this value is set to 0,
 -- backtracking is disabled for the DB cluster. Otherwise, backtracking is
@@ -690,6 +1000,13 @@ dbCluster_customEndpoints = Lens.lens (\DBCluster' {customEndpoints} -> customEn
 -- read replica.
 dbCluster_replicationSourceIdentifier :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_replicationSourceIdentifier = Lens.lens (\DBCluster' {replicationSourceIdentifier} -> replicationSourceIdentifier) (\s@DBCluster' {} a -> s {replicationSourceIdentifier = a} :: DBCluster)
+
+-- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring
+-- metrics to Amazon CloudWatch Logs.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_monitoringRoleArn :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_monitoringRoleArn = Lens.lens (\DBCluster' {monitoringRoleArn} -> monitoringRoleArn) (\s@DBCluster' {} a -> s {monitoringRoleArn = a} :: DBCluster)
 
 -- | The number of change records stored for Backtrack.
 dbCluster_backtrackConsumedChangeRecords :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Integer)
@@ -711,8 +1028,7 @@ dbCluster_storageEncrypted = Lens.lens (\DBCluster' {storageEncrypted} -> storag
 -- identifier for the encrypted DB cluster.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbCluster_kmsKeyId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_kmsKeyId = Lens.lens (\DBCluster' {kmsKeyId} -> kmsKeyId) (\s@DBCluster' {} a -> s {kmsKeyId = a} :: DBCluster)
 
@@ -773,11 +1089,11 @@ dbCluster_preferredMaintenanceWindow = Lens.lens (\DBCluster' {preferredMaintena
 dbCluster_endpoint :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_endpoint = Lens.lens (\DBCluster' {endpoint} -> endpoint) (\s@DBCluster' {} a -> s {endpoint = a} :: DBCluster)
 
--- | The current capacity of an Aurora Serverless DB cluster. The capacity is
--- 0 (zero) when the cluster is paused.
+-- | The current capacity of an Aurora Serverless v1 DB cluster. The capacity
+-- is 0 (zero) when the cluster is paused.
 --
--- For more information about Aurora Serverless, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless>
+-- For more information about Aurora Serverless v1, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 dbCluster_capacity :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
 dbCluster_capacity = Lens.lens (\DBCluster' {capacity} -> capacity) (\s@DBCluster' {} a -> s {capacity = a} :: DBCluster)
@@ -802,10 +1118,15 @@ dbCluster_readReplicaIdentifiers = Lens.lens (\DBCluster' {readReplicaIdentifier
 dbCluster_enabledCloudwatchLogsExports :: Lens.Lens' DBCluster (Prelude.Maybe [Prelude.Text])
 dbCluster_enabledCloudwatchLogsExports = Lens.lens (\DBCluster' {enabledCloudwatchLogsExports} -> enabledCloudwatchLogsExports) (\s@DBCluster' {} a -> s {enabledCloudwatchLogsExports = a} :: DBCluster) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Provisioned IOPS (I\/O operations per second) value.
+--
+-- This setting is only for non-Aurora Multi-AZ DB clusters.
+dbCluster_iops :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Int)
+dbCluster_iops = Lens.lens (\DBCluster' {iops} -> iops) (\s@DBCluster' {} a -> s {iops = a} :: DBCluster)
+
 -- | The Amazon Web Services Region-unique, immutable identifier for the DB
 -- cluster. This identifier is found in Amazon Web Services CloudTrail log
--- entries whenever the Amazon Web Services KMS CMK for the DB cluster is
--- accessed.
+-- entries whenever the KMS key for the DB cluster is accessed.
 dbCluster_dbClusterResourceId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_dbClusterResourceId = Lens.lens (\DBCluster' {dbClusterResourceId} -> dbClusterResourceId) (\s@DBCluster' {} a -> s {dbClusterResourceId = a} :: DBCluster)
 
@@ -820,6 +1141,26 @@ dbCluster_associatedRoles = Lens.lens (\DBCluster' {associatedRoles} -> associat
 dbCluster_engineVersion :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_engineVersion = Lens.lens (\DBCluster' {engineVersion} -> engineVersion) (\s@DBCluster' {} a -> s {engineVersion = a} :: DBCluster)
 
+-- | The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB cluster. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon Aurora User Guide./
+--
+-- This setting is only for Aurora DB clusters.
+dbCluster_networkType :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_networkType = Lens.lens (\DBCluster' {networkType} -> networkType) (\s@DBCluster' {} a -> s {networkType = a} :: DBCluster)
+
 -- | Specifies whether the DB cluster has instances in multiple Availability
 -- Zones.
 dbCluster_multiAZ :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
@@ -829,8 +1170,7 @@ dbCluster_multiAZ = Lens.lens (\DBCluster' {multiAZ} -> multiAZ) (\s@DBCluster' 
 -- in the database activity stream.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbCluster_activityStreamKmsKeyId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_activityStreamKmsKeyId = Lens.lens (\DBCluster' {activityStreamKmsKeyId} -> activityStreamKmsKeyId) (\s@DBCluster' {} a -> s {activityStreamKmsKeyId = a} :: DBCluster)
 
@@ -848,8 +1188,10 @@ instance Core.FromXML DBCluster where
   parseXML x =
     DBCluster'
       Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "ServerlessV2ScalingConfiguration")
       Prelude.<*> (x Core..@? "CloneGroupId")
       Prelude.<*> (x Core..@? "DBClusterArn")
+      Prelude.<*> (x Core..@? "PerformanceInsightsRetentionPeriod")
       Prelude.<*> (x Core..@? "HostedZoneId")
       Prelude.<*> (x Core..@? "PercentProgress")
       Prelude.<*> (x Core..@? "GlobalWriteForwardingRequested")
@@ -864,11 +1206,13 @@ instance Core.FromXML DBCluster where
                       Prelude.>>= Core.may (Core.parseXMLList "DBClusterMember")
                   )
       Prelude.<*> (x Core..@? "DBClusterParameterGroup")
+      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
       Prelude.<*> (x Core..@? "ActivityStreamMode")
       Prelude.<*> ( x Core..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
       Prelude.<*> (x Core..@? "LatestRestorableTime")
+      Prelude.<*> (x Core..@? "DBClusterInstanceClass")
       Prelude.<*> (x Core..@? "DatabaseName")
       Prelude.<*> (x Core..@? "DBClusterIdentifier")
       Prelude.<*> ( x Core..@? "DomainMemberships"
@@ -882,20 +1226,26 @@ instance Core.FromXML DBCluster where
                   )
       Prelude.<*> (x Core..@? "EarliestBacktrackTime")
       Prelude.<*> (x Core..@? "AutomaticRestartTime")
+      Prelude.<*> (x Core..@? "PerformanceInsightsKMSKeyId")
       Prelude.<*> (x Core..@? "CrossAccountClone")
       Prelude.<*> ( x Core..@? "DBClusterOptionGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "DBClusterOptionGroup")
                   )
       Prelude.<*> (x Core..@? "DBSubnetGroup")
+      Prelude.<*> (x Core..@? "MonitoringInterval")
+      Prelude.<*> (x Core..@? "PerformanceInsightsEnabled")
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "ActivityStreamKinesisStreamName")
       Prelude.<*> (x Core..@? "HttpEndpointEnabled")
+      Prelude.<*> (x Core..@? "PubliclyAccessible")
+      Prelude.<*> (x Core..@? "StorageType")
       Prelude.<*> (x Core..@? "BacktrackWindow")
       Prelude.<*> ( x Core..@? "CustomEndpoints" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "ReplicationSourceIdentifier")
+      Prelude.<*> (x Core..@? "MonitoringRoleArn")
       Prelude.<*> (x Core..@? "BacktrackConsumedChangeRecords")
       Prelude.<*> (x Core..@? "EngineMode")
       Prelude.<*> (x Core..@? "StorageEncrypted")
@@ -919,11 +1269,13 @@ instance Core.FromXML DBCluster where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "Iops")
       Prelude.<*> (x Core..@? "DbClusterResourceId")
       Prelude.<*> ( x Core..@? "AssociatedRoles" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "DBClusterRole")
                   )
       Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<*> (x Core..@? "NetworkType")
       Prelude.<*> (x Core..@? "MultiAZ")
       Prelude.<*> (x Core..@? "ActivityStreamKmsKeyId")
       Prelude.<*> (x Core..@? "GlobalWriteForwardingStatus")
@@ -936,8 +1288,10 @@ instance Core.FromXML DBCluster where
 instance Prelude.Hashable DBCluster where
   hashWithSalt _salt DBCluster' {..} =
     _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` cloneGroupId
       `Prelude.hashWithSalt` dbClusterArn
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` percentProgress
       `Prelude.hashWithSalt` globalWriteForwardingRequested
@@ -949,9 +1303,11 @@ instance Prelude.Hashable DBCluster where
       `Prelude.hashWithSalt` activityStreamStatus
       `Prelude.hashWithSalt` dbClusterMembers
       `Prelude.hashWithSalt` dbClusterParameterGroup
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` activityStreamMode
       `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` latestRestorableTime
+      `Prelude.hashWithSalt` dbClusterInstanceClass
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` domainMemberships
@@ -959,15 +1315,21 @@ instance Prelude.Hashable DBCluster where
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` earliestBacktrackTime
       `Prelude.hashWithSalt` automaticRestartTime
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
       `Prelude.hashWithSalt` crossAccountClone
       `Prelude.hashWithSalt` dbClusterOptionGroupMemberships
       `Prelude.hashWithSalt` dbSubnetGroup
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` performanceInsightsEnabled
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` activityStreamKinesisStreamName
       `Prelude.hashWithSalt` httpEndpointEnabled
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` backtrackWindow
       `Prelude.hashWithSalt` customEndpoints
       `Prelude.hashWithSalt` replicationSourceIdentifier
+      `Prelude.hashWithSalt` monitoringRoleArn
       `Prelude.hashWithSalt` backtrackConsumedChangeRecords
       `Prelude.hashWithSalt` engineMode
       `Prelude.hashWithSalt` storageEncrypted
@@ -985,9 +1347,11 @@ instance Prelude.Hashable DBCluster where
       `Prelude.hashWithSalt` clusterCreateTime
       `Prelude.hashWithSalt` readReplicaIdentifiers
       `Prelude.hashWithSalt` enabledCloudwatchLogsExports
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` dbClusterResourceId
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` activityStreamKmsKeyId
       `Prelude.hashWithSalt` globalWriteForwardingStatus
@@ -996,8 +1360,10 @@ instance Prelude.Hashable DBCluster where
 instance Prelude.NFData DBCluster where
   rnf DBCluster' {..} =
     Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf cloneGroupId
       `Prelude.seq` Prelude.rnf dbClusterArn
+      `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
       `Prelude.seq` Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf percentProgress
       `Prelude.seq` Prelude.rnf globalWriteForwardingRequested
@@ -1009,12 +1375,18 @@ instance Prelude.NFData DBCluster where
       `Prelude.seq` Prelude.rnf activityStreamStatus
       `Prelude.seq` Prelude.rnf dbClusterMembers
       `Prelude.seq` Prelude.rnf dbClusterParameterGroup
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf activityStreamMode
       `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf latestRestorableTime
+      `Prelude.seq` Prelude.rnf
+        latestRestorableTime
+      `Prelude.seq` Prelude.rnf
+        dbClusterInstanceClass
       `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf domainMemberships
+      `Prelude.seq` Prelude.rnf
+        dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        domainMemberships
       `Prelude.seq` Prelude.rnf
         scalingConfigurationInfo
       `Prelude.seq` Prelude.rnf
@@ -1024,11 +1396,17 @@ instance Prelude.NFData DBCluster where
       `Prelude.seq` Prelude.rnf
         automaticRestartTime
       `Prelude.seq` Prelude.rnf
+        performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf
         crossAccountClone
       `Prelude.seq` Prelude.rnf
         dbClusterOptionGroupMemberships
       `Prelude.seq` Prelude.rnf
         dbSubnetGroup
+      `Prelude.seq` Prelude.rnf
+        monitoringInterval
+      `Prelude.seq` Prelude.rnf
+        performanceInsightsEnabled
       `Prelude.seq` Prelude.rnf
         status
       `Prelude.seq` Prelude.rnf
@@ -1036,11 +1414,17 @@ instance Prelude.NFData DBCluster where
       `Prelude.seq` Prelude.rnf
         httpEndpointEnabled
       `Prelude.seq` Prelude.rnf
+        publiclyAccessible
+      `Prelude.seq` Prelude.rnf
+        storageType
+      `Prelude.seq` Prelude.rnf
         backtrackWindow
       `Prelude.seq` Prelude.rnf
         customEndpoints
       `Prelude.seq` Prelude.rnf
         replicationSourceIdentifier
+      `Prelude.seq` Prelude.rnf
+        monitoringRoleArn
       `Prelude.seq` Prelude.rnf
         backtrackConsumedChangeRecords
       `Prelude.seq` Prelude.rnf
@@ -1076,11 +1460,15 @@ instance Prelude.NFData DBCluster where
       `Prelude.seq` Prelude.rnf
         enabledCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf
+        iops
+      `Prelude.seq` Prelude.rnf
         dbClusterResourceId
       `Prelude.seq` Prelude.rnf
         associatedRoles
       `Prelude.seq` Prelude.rnf
         engineVersion
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         multiAZ
       `Prelude.seq` Prelude.rnf

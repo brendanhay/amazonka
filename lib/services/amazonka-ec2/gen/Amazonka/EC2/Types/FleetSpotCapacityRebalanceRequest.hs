@@ -26,25 +26,38 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Spot Instance replacement strategy to use when Amazon EC2 emits a
--- signal that your Spot Instance is at an elevated risk of being
--- interrupted. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance Capacity rebalancing>
+-- rebalance notification signal that your Spot Instance is at an elevated
+-- risk of being interrupted. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html Capacity rebalancing>
 -- in the /Amazon EC2 User Guide/.
 --
 -- /See:/ 'newFleetSpotCapacityRebalanceRequest' smart constructor.
 data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
-  { -- | The replacement strategy to use. Only available for fleets of type
+  { -- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+    -- the old Spot Instance after launching a new replacement Spot Instance.
+    --
+    -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+    --
+    -- Not valid when @ReplacementStrategy@ is set to @launch@.
+    --
+    -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+    -- seconds.
+    terminationDelay :: Prelude.Maybe Prelude.Int,
+    -- | The replacement strategy to use. Only available for fleets of type
     -- @maintain@.
     --
-    -- To allow EC2 Fleet to launch a replacement Spot Instance when an
-    -- instance rebalance notification is emitted for an existing Spot Instance
-    -- in the fleet, specify @launch@. You must specify a value, otherwise you
-    -- get an error.
-    --
-    -- When a replacement instance is launched, the instance marked for
-    -- rebalance is not automatically terminated. You can terminate it, or you
-    -- can leave it running. You are charged for all instances while they are
+    -- @launch@ - EC2 Fleet launches a replacement Spot Instance when a
+    -- rebalance notification is emitted for an existing Spot Instance in the
+    -- fleet. EC2 Fleet does not terminate the instances that receive a
+    -- rebalance notification. You can terminate the old instances, or you can
+    -- leave them running. You are charged for all instances while they are
     -- running.
+    --
+    -- @launch-before-terminate@ - EC2 Fleet launches a replacement Spot
+    -- Instance when a rebalance notification is emitted for an existing Spot
+    -- Instance in the fleet, and then, after a delay that you specify (in
+    -- @TerminationDelay@), terminates the instances that received a rebalance
+    -- notification.
     replacementStrategy :: Prelude.Maybe FleetReplacementStrategy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,38 +70,67 @@ data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'terminationDelay', 'fleetSpotCapacityRebalanceRequest_terminationDelay' - The amount of time (in seconds) that Amazon EC2 waits before terminating
+-- the old Spot Instance after launching a new replacement Spot Instance.
+--
+-- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+--
+-- Not valid when @ReplacementStrategy@ is set to @launch@.
+--
+-- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+-- seconds.
+--
 -- 'replacementStrategy', 'fleetSpotCapacityRebalanceRequest_replacementStrategy' - The replacement strategy to use. Only available for fleets of type
 -- @maintain@.
 --
--- To allow EC2 Fleet to launch a replacement Spot Instance when an
--- instance rebalance notification is emitted for an existing Spot Instance
--- in the fleet, specify @launch@. You must specify a value, otherwise you
--- get an error.
---
--- When a replacement instance is launched, the instance marked for
--- rebalance is not automatically terminated. You can terminate it, or you
--- can leave it running. You are charged for all instances while they are
+-- @launch@ - EC2 Fleet launches a replacement Spot Instance when a
+-- rebalance notification is emitted for an existing Spot Instance in the
+-- fleet. EC2 Fleet does not terminate the instances that receive a
+-- rebalance notification. You can terminate the old instances, or you can
+-- leave them running. You are charged for all instances while they are
 -- running.
+--
+-- @launch-before-terminate@ - EC2 Fleet launches a replacement Spot
+-- Instance when a rebalance notification is emitted for an existing Spot
+-- Instance in the fleet, and then, after a delay that you specify (in
+-- @TerminationDelay@), terminates the instances that received a rebalance
+-- notification.
 newFleetSpotCapacityRebalanceRequest ::
   FleetSpotCapacityRebalanceRequest
 newFleetSpotCapacityRebalanceRequest =
   FleetSpotCapacityRebalanceRequest'
-    { replacementStrategy =
-        Prelude.Nothing
+    { terminationDelay =
+        Prelude.Nothing,
+      replacementStrategy = Prelude.Nothing
     }
+
+-- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+-- the old Spot Instance after launching a new replacement Spot Instance.
+--
+-- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+--
+-- Not valid when @ReplacementStrategy@ is set to @launch@.
+--
+-- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+-- seconds.
+fleetSpotCapacityRebalanceRequest_terminationDelay :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Prelude.Maybe Prelude.Int)
+fleetSpotCapacityRebalanceRequest_terminationDelay = Lens.lens (\FleetSpotCapacityRebalanceRequest' {terminationDelay} -> terminationDelay) (\s@FleetSpotCapacityRebalanceRequest' {} a -> s {terminationDelay = a} :: FleetSpotCapacityRebalanceRequest)
 
 -- | The replacement strategy to use. Only available for fleets of type
 -- @maintain@.
 --
--- To allow EC2 Fleet to launch a replacement Spot Instance when an
--- instance rebalance notification is emitted for an existing Spot Instance
--- in the fleet, specify @launch@. You must specify a value, otherwise you
--- get an error.
---
--- When a replacement instance is launched, the instance marked for
--- rebalance is not automatically terminated. You can terminate it, or you
--- can leave it running. You are charged for all instances while they are
+-- @launch@ - EC2 Fleet launches a replacement Spot Instance when a
+-- rebalance notification is emitted for an existing Spot Instance in the
+-- fleet. EC2 Fleet does not terminate the instances that receive a
+-- rebalance notification. You can terminate the old instances, or you can
+-- leave them running. You are charged for all instances while they are
 -- running.
+--
+-- @launch-before-terminate@ - EC2 Fleet launches a replacement Spot
+-- Instance when a rebalance notification is emitted for an existing Spot
+-- Instance in the fleet, and then, after a delay that you specify (in
+-- @TerminationDelay@), terminates the instances that received a rebalance
+-- notification.
 fleetSpotCapacityRebalanceRequest_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Prelude.Maybe FleetReplacementStrategy)
 fleetSpotCapacityRebalanceRequest_replacementStrategy = Lens.lens (\FleetSpotCapacityRebalanceRequest' {replacementStrategy} -> replacementStrategy) (\s@FleetSpotCapacityRebalanceRequest' {} a -> s {replacementStrategy = a} :: FleetSpotCapacityRebalanceRequest)
 
@@ -99,14 +141,16 @@ instance
   hashWithSalt
     _salt
     FleetSpotCapacityRebalanceRequest' {..} =
-      _salt `Prelude.hashWithSalt` replacementStrategy
+      _salt `Prelude.hashWithSalt` terminationDelay
+        `Prelude.hashWithSalt` replacementStrategy
 
 instance
   Prelude.NFData
     FleetSpotCapacityRebalanceRequest
   where
   rnf FleetSpotCapacityRebalanceRequest' {..} =
-    Prelude.rnf replacementStrategy
+    Prelude.rnf terminationDelay
+      `Prelude.seq` Prelude.rnf replacementStrategy
 
 instance
   Core.ToQuery
@@ -114,4 +158,6 @@ instance
   where
   toQuery FleetSpotCapacityRebalanceRequest' {..} =
     Prelude.mconcat
-      ["ReplacementStrategy" Core.=: replacementStrategy]
+      [ "TerminationDelay" Core.=: terminationDelay,
+        "ReplacementStrategy" Core.=: replacementStrategy
+      ]

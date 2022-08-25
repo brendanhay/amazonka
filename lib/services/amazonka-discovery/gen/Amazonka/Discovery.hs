@@ -11,13 +11,13 @@
 --
 -- Derived from API version @2015-11-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Application Discovery Service
+-- Amazon Web Services Application Discovery Service
 --
--- AWS Application Discovery Service helps you plan application migration
--- projects. It automatically identifies servers, virtual machines (VMs),
--- and network dependencies in your on-premises data centers. For more
--- information, see the
--- <http://aws.amazon.com/application-discovery/faqs/ AWS Application Discovery Service FAQ>.
+-- Amazon Web Services Application Discovery Service helps you plan
+-- application migration projects. It automatically identifies servers,
+-- virtual machines (VMs), and network dependencies in your on-premises
+-- data centers. For more information, see the
+-- <http://aws.amazon.com/application-discovery/faqs/ Amazon Web Services Application Discovery Service FAQ>.
 -- Application Discovery Service offers three ways of performing discovery
 -- and collecting data about your on-premises servers:
 --
@@ -34,8 +34,9 @@
 --         information.
 --
 -- -   __Agent-based discovery__ collects a richer set of data than
---     agentless discovery by using the AWS Application Discovery Agent,
---     which you install on one or more hosts in your data center.
+--     agentless discovery by using the Amazon Web Services Application
+--     Discovery Agent, which you install on one or more hosts in your data
+--     center.
 --
 --     -   The agent captures infrastructure and application information,
 --         including an inventory of running processes, system performance
@@ -45,14 +46,14 @@
 --         transit to the Application Discovery Service database in the
 --         cloud.
 --
--- -   __AWS Partner Network (APN) solutions__ integrate with Application
---     Discovery Service, enabling you to import details of your
---     on-premises environment directly into Migration Hub without using
---     the discovery connector or discovery agent.
+-- -   __Amazon Web Services Partner Network (APN) solutions__ integrate
+--     with Application Discovery Service, enabling you to import details
+--     of your on-premises environment directly into Migration Hub without
+--     using the discovery connector or discovery agent.
 --
---     -   Third-party application discovery tools can query AWS
---         Application Discovery Service, and they can write to the
---         Application Discovery Service database using the public API.
+--     -   Third-party application discovery tools can query Amazon Web
+--         Services Application Discovery Service, and they can write to
+--         the Application Discovery Service database using the public API.
 --
 --     -   In this way, you can import data into Migration Hub and view it,
 --         so that you can associate applications with servers and track
@@ -72,10 +73,10 @@
 -- This API reference provides descriptions, syntax, and usage examples for
 -- each of the actions and data types for Application Discovery Service.
 -- The topic for each action shows the API request parameters and the
--- response. Alternatively, you can use one of the AWS SDKs to access an
--- API that is tailored to the programming language or platform that
--- you\'re using. For more information, see
--- <http://aws.amazon.com/tools/#SDKs AWS SDKs>.
+-- response. Alternatively, you can use one of the Amazon Web Services SDKs
+-- to access an API that is tailored to the programming language or
+-- platform that you\'re using. For more information, see
+-- <http://aws.amazon.com/tools/#SDKs Amazon Web Services SDKs>.
 --
 -- -   Remember that you must set your Migration Hub home region before you
 --     call any of these APIs.
@@ -95,12 +96,12 @@
 --     home region.
 --
 -- This guide is intended for use with the
--- <http://docs.aws.amazon.com/application-discovery/latest/userguide/ AWS Application Discovery Service User Guide>.
+-- <http://docs.aws.amazon.com/application-discovery/latest/userguide/ Amazon Web Services Application Discovery Service User Guide>.
 --
 -- All data is handled according to the
--- <http://aws.amazon.com/privacy/ AWS Privacy Policy>. You can operate
--- Application Discovery Service offline to inspect collected data before
--- it is shared with the service.
+-- <http://aws.amazon.com/privacy/ Amazon Web Services Privacy Policy>. You
+-- can operate Application Discovery Service offline to inspect collected
+-- data before it is shared with the service.
 module Amazonka.Discovery
   ( -- * Service Configuration
     defaultService,
@@ -339,9 +340,17 @@ module Amazonka.Discovery
     CustomerAgentInfo (CustomerAgentInfo'),
     newCustomerAgentInfo,
 
+    -- ** CustomerAgentlessCollectorInfo
+    CustomerAgentlessCollectorInfo (CustomerAgentlessCollectorInfo'),
+    newCustomerAgentlessCollectorInfo,
+
     -- ** CustomerConnectorInfo
     CustomerConnectorInfo (CustomerConnectorInfo'),
     newCustomerConnectorInfo,
+
+    -- ** CustomerMeCollectorInfo
+    CustomerMeCollectorInfo (CustomerMeCollectorInfo'),
+    newCustomerMeCollectorInfo,
 
     -- ** ExportFilter
     ExportFilter (ExportFilter'),

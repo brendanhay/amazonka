@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The mapping between a Region and the key that\'s used to encrypt the
--- data.
+-- | The mapping between a Amazon Web Services Region and the key that\'s
+-- used to encrypt the data.
 --
 -- /See:/ 'newRegionMapInputValue' smart constructor.
 data RegionMapInputValue = RegionMapInputValue'

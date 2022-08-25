@@ -36,8 +36,8 @@ data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The description of the provisioning artifact.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The metadata for the provisioning artifact. This is used with AWS
-    -- Marketplace products.
+    -- | The metadata for the provisioning artifact. This is used with Amazon Web
+    -- Services Marketplace products.
     provisioningArtifactMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,8 +58,8 @@ data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
 --
 -- 'description', 'provisioningArtifactSummary_description' - The description of the provisioning artifact.
 --
--- 'provisioningArtifactMetadata', 'provisioningArtifactSummary_provisioningArtifactMetadata' - The metadata for the provisioning artifact. This is used with AWS
--- Marketplace products.
+-- 'provisioningArtifactMetadata', 'provisioningArtifactSummary_provisioningArtifactMetadata' - The metadata for the provisioning artifact. This is used with Amazon Web
+-- Services Marketplace products.
 newProvisioningArtifactSummary ::
   ProvisioningArtifactSummary
 newProvisioningArtifactSummary =
@@ -88,8 +88,8 @@ provisioningArtifactSummary_id = Lens.lens (\ProvisioningArtifactSummary' {id} -
 provisioningArtifactSummary_description :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.Text)
 provisioningArtifactSummary_description = Lens.lens (\ProvisioningArtifactSummary' {description} -> description) (\s@ProvisioningArtifactSummary' {} a -> s {description = a} :: ProvisioningArtifactSummary)
 
--- | The metadata for the provisioning artifact. This is used with AWS
--- Marketplace products.
+-- | The metadata for the provisioning artifact. This is used with Amazon Web
+-- Services Marketplace products.
 provisioningArtifactSummary_provisioningArtifactMetadata :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 provisioningArtifactSummary_provisioningArtifactMetadata = Lens.lens (\ProvisioningArtifactSummary' {provisioningArtifactMetadata} -> provisioningArtifactMetadata) (\s@ProvisioningArtifactSummary' {} a -> s {provisioningArtifactMetadata = a} :: ProvisioningArtifactSummary) Prelude.. Lens.mapping Lens.coerced
 

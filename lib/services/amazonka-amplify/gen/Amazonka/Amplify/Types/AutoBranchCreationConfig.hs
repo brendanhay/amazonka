@@ -35,7 +35,9 @@ data AutoBranchCreationConfig = AutoBranchCreationConfig'
     -- is enabled, hosting configuration or code changes can take up to 10
     -- minutes to roll out.
     enablePerformanceMode :: Prelude.Maybe Prelude.Bool,
-    -- | The basic authorization credentials for the autocreated branch.
+    -- | The basic authorization credentials for the autocreated branch. You must
+    -- base64-encode the authorization credentials and provide them in the
+    -- format @user:password@.
     basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The environment variables for the autocreated branch.
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -50,7 +52,7 @@ data AutoBranchCreationConfig = AutoBranchCreationConfig'
     -- | The framework for the autocreated branch.
     framework :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) for the autocreated branch.
-    buildSpec :: Prelude.Maybe Prelude.Text,
+    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Enables pull request previews for the autocreated branch.
     enablePullRequestPreview :: Prelude.Maybe Prelude.Bool
   }
@@ -71,7 +73,9 @@ data AutoBranchCreationConfig = AutoBranchCreationConfig'
 -- is enabled, hosting configuration or code changes can take up to 10
 -- minutes to roll out.
 --
--- 'basicAuthCredentials', 'autoBranchCreationConfig_basicAuthCredentials' - The basic authorization credentials for the autocreated branch.
+-- 'basicAuthCredentials', 'autoBranchCreationConfig_basicAuthCredentials' - The basic authorization credentials for the autocreated branch. You must
+-- base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 --
 -- 'environmentVariables', 'autoBranchCreationConfig_environmentVariables' - The environment variables for the autocreated branch.
 --
@@ -114,7 +118,9 @@ newAutoBranchCreationConfig =
 autoBranchCreationConfig_enablePerformanceMode :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Bool)
 autoBranchCreationConfig_enablePerformanceMode = Lens.lens (\AutoBranchCreationConfig' {enablePerformanceMode} -> enablePerformanceMode) (\s@AutoBranchCreationConfig' {} a -> s {enablePerformanceMode = a} :: AutoBranchCreationConfig)
 
--- | The basic authorization credentials for the autocreated branch.
+-- | The basic authorization credentials for the autocreated branch. You must
+-- base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 autoBranchCreationConfig_basicAuthCredentials :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Text)
 autoBranchCreationConfig_basicAuthCredentials = Lens.lens (\AutoBranchCreationConfig' {basicAuthCredentials} -> basicAuthCredentials) (\s@AutoBranchCreationConfig' {} a -> s {basicAuthCredentials = a} :: AutoBranchCreationConfig) Prelude.. Lens.mapping Core._Sensitive
 
@@ -144,7 +150,7 @@ autoBranchCreationConfig_framework = Lens.lens (\AutoBranchCreationConfig' {fram
 
 -- | The build specification (build spec) for the autocreated branch.
 autoBranchCreationConfig_buildSpec :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Text)
-autoBranchCreationConfig_buildSpec = Lens.lens (\AutoBranchCreationConfig' {buildSpec} -> buildSpec) (\s@AutoBranchCreationConfig' {} a -> s {buildSpec = a} :: AutoBranchCreationConfig)
+autoBranchCreationConfig_buildSpec = Lens.lens (\AutoBranchCreationConfig' {buildSpec} -> buildSpec) (\s@AutoBranchCreationConfig' {} a -> s {buildSpec = a} :: AutoBranchCreationConfig) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Enables pull request previews for the autocreated branch.
 autoBranchCreationConfig_enablePullRequestPreview :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Bool)

@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetDeviceRegistration $
+--         [ requestGetDeployments $
+--             newGetDeployments
+--
+--         , requestGetDeviceRegistration $
 --             newGetDeviceRegistration
 --
 --         , requestSendHeartbeat $
@@ -36,7 +39,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseGetDeviceRegistration $
+--         [ responseGetDeployments $
+--             newGetDeploymentsResponse
+--
+--         , responseGetDeviceRegistration $
 --             newGetDeviceRegistrationResponse
 --
 --         , responseSendHeartbeat $
@@ -46,6 +52,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestGetDeployments :: GetDeployments -> TestTree
+requestGetDeployments =
+  req
+    "GetDeployments"
+    "fixture/GetDeployments.yaml"
 
 requestGetDeviceRegistration :: GetDeviceRegistration -> TestTree
 requestGetDeviceRegistration =
@@ -60,6 +72,14 @@ requestSendHeartbeat =
     "fixture/SendHeartbeat.yaml"
 
 -- Responses
+
+responseGetDeployments :: GetDeploymentsResponse -> TestTree
+responseGetDeployments =
+  res
+    "GetDeploymentsResponse"
+    "fixture/GetDeploymentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDeployments)
 
 responseGetDeviceRegistration :: GetDeviceRegistrationResponse -> TestTree
 responseGetDeviceRegistration =

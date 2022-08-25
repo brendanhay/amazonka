@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about the contact flows for the specified Amazon
--- Connect instance.
+-- Provides information about the flows for the specified Amazon Connect
+-- instance.
 --
--- You can also create and update contact flows using the
+-- You can also create and update flows using the
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language>.
 --
--- For more information about contact flows, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html Contact Flows>
+-- For more information about flows, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html Flows>
 -- in the /Amazon Connect Administrator Guide/.
 --
 -- This operation returns paginated results.
@@ -66,9 +66,10 @@ data ListContactFlows = ListContactFlows'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The type of contact flow.
+    -- | The type of flow.
     contactFlowTypes :: Prelude.Maybe [ContactFlowType],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -88,9 +89,10 @@ data ListContactFlows = ListContactFlows'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listContactFlows_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listContactFlows_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
--- 'contactFlowTypes', 'listContactFlows_contactFlowTypes' - The type of contact flow.
+-- 'contactFlowTypes', 'listContactFlows_contactFlowTypes' - The type of flow.
 --
 -- 'instanceId', 'listContactFlows_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -112,11 +114,12 @@ newListContactFlows pInstanceId_ =
 listContactFlows_nextToken :: Lens.Lens' ListContactFlows (Prelude.Maybe Prelude.Text)
 listContactFlows_nextToken = Lens.lens (\ListContactFlows' {nextToken} -> nextToken) (\s@ListContactFlows' {} a -> s {nextToken = a} :: ListContactFlows)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listContactFlows_maxResults :: Lens.Lens' ListContactFlows (Prelude.Maybe Prelude.Natural)
 listContactFlows_maxResults = Lens.lens (\ListContactFlows' {maxResults} -> maxResults) (\s@ListContactFlows' {} a -> s {maxResults = a} :: ListContactFlows)
 
--- | The type of contact flow.
+-- | The type of flow.
 listContactFlows_contactFlowTypes :: Lens.Lens' ListContactFlows (Prelude.Maybe [ContactFlowType])
 listContactFlows_contactFlowTypes = Lens.lens (\ListContactFlows' {contactFlowTypes} -> contactFlowTypes) (\s@ListContactFlows' {} a -> s {contactFlowTypes = a} :: ListContactFlows) Prelude.. Lens.mapping Lens.coerced
 
@@ -210,7 +213,7 @@ data ListContactFlowsResponse = ListContactFlowsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the contact flows.
+    -- | Information about the flows.
     contactFlowSummaryList :: Prelude.Maybe [ContactFlowSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -228,7 +231,7 @@ data ListContactFlowsResponse = ListContactFlowsResponse'
 -- 'nextToken', 'listContactFlowsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
--- 'contactFlowSummaryList', 'listContactFlowsResponse_contactFlowSummaryList' - Information about the contact flows.
+-- 'contactFlowSummaryList', 'listContactFlowsResponse_contactFlowSummaryList' - Information about the flows.
 --
 -- 'httpStatus', 'listContactFlowsResponse_httpStatus' - The response's http status code.
 newListContactFlowsResponse ::
@@ -248,7 +251,7 @@ newListContactFlowsResponse pHttpStatus_ =
 listContactFlowsResponse_nextToken :: Lens.Lens' ListContactFlowsResponse (Prelude.Maybe Prelude.Text)
 listContactFlowsResponse_nextToken = Lens.lens (\ListContactFlowsResponse' {nextToken} -> nextToken) (\s@ListContactFlowsResponse' {} a -> s {nextToken = a} :: ListContactFlowsResponse)
 
--- | Information about the contact flows.
+-- | Information about the flows.
 listContactFlowsResponse_contactFlowSummaryList :: Lens.Lens' ListContactFlowsResponse (Prelude.Maybe [ContactFlowSummary])
 listContactFlowsResponse_contactFlowSummaryList = Lens.lens (\ListContactFlowsResponse' {contactFlowSummaryList} -> contactFlowSummaryList) (\s@ListContactFlowsResponse' {} a -> s {contactFlowSummaryList = a} :: ListContactFlowsResponse) Prelude.. Lens.mapping Lens.coerced
 

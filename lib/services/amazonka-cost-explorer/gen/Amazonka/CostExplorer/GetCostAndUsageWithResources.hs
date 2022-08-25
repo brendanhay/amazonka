@@ -32,7 +32,7 @@
 -- Amazon Elastic Compute Cloud – Compute service only.
 --
 -- This is an opt-in only feature. You can enable this feature from the
--- Cost Explorer Settings page. For information on how to access the
+-- Cost Explorer Settings page. For information about how to access the
 -- Settings page, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html Controlling Access for Cost Explorer>
 -- in the /Billing and Cost Management User Guide/.
@@ -90,7 +90,7 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
     -- usage numbers without taking the units into account. For example, if you
     -- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t
     -- meaningful because Amazon EC2 compute hours and data transfer are
-    -- measured in different units (for example, hours vs. GB). To get more
+    -- measured in different units (for example, hour or GB). To get more
     -- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or
     -- @UsageTypeGroups@.
     --
@@ -119,6 +119,13 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
     -- group by or filter by a @ResourceId@. It requires the
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
     -- @\"SERVICE = Amazon Elastic Compute Cloud - Compute\"@ in the filter.
+    --
+    -- Valid values for @MatchOptions@ for @Dimensions@ are @EQUALS@ and
+    -- @CASE_SENSITIVE@.
+    --
+    -- Valid values for @MatchOptions@ for @CostCategories@ and @Tags@ are
+    -- @EQUALS@, @ABSENT@, and @CASE_SENSITIVE@. Default values are @EQUALS@
+    -- and @CASE_SENSITIVE@.
     filter' :: Expression
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -150,7 +157,7 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
 -- usage numbers without taking the units into account. For example, if you
 -- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t
 -- meaningful because Amazon EC2 compute hours and data transfer are
--- measured in different units (for example, hours vs. GB). To get more
+-- measured in different units (for example, hour or GB). To get more
 -- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or
 -- @UsageTypeGroups@.
 --
@@ -179,6 +186,13 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
 -- group by or filter by a @ResourceId@. It requires the
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
 -- @\"SERVICE = Amazon Elastic Compute Cloud - Compute\"@ in the filter.
+--
+-- Valid values for @MatchOptions@ for @Dimensions@ are @EQUALS@ and
+-- @CASE_SENSITIVE@.
+--
+-- Valid values for @MatchOptions@ for @CostCategories@ and @Tags@ are
+-- @EQUALS@, @ABSENT@, and @CASE_SENSITIVE@. Default values are @EQUALS@
+-- and @CASE_SENSITIVE@.
 newGetCostAndUsageWithResources ::
   -- | 'timePeriod'
   DateInterval ->
@@ -224,7 +238,7 @@ getCostAndUsageWithResources_groupBy = Lens.lens (\GetCostAndUsageWithResources'
 -- usage numbers without taking the units into account. For example, if you
 -- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t
 -- meaningful because Amazon EC2 compute hours and data transfer are
--- measured in different units (for example, hours vs. GB). To get more
+-- measured in different units (for example, hour or GB). To get more
 -- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or
 -- @UsageTypeGroups@.
 --
@@ -259,6 +273,13 @@ getCostAndUsageWithResources_granularity = Lens.lens (\GetCostAndUsageWithResour
 -- group by or filter by a @ResourceId@. It requires the
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
 -- @\"SERVICE = Amazon Elastic Compute Cloud - Compute\"@ in the filter.
+--
+-- Valid values for @MatchOptions@ for @Dimensions@ are @EQUALS@ and
+-- @CASE_SENSITIVE@.
+--
+-- Valid values for @MatchOptions@ for @CostCategories@ and @Tags@ are
+-- @EQUALS@, @ABSENT@, and @CASE_SENSITIVE@. Default values are @EQUALS@
+-- and @CASE_SENSITIVE@.
 getCostAndUsageWithResources_filter :: Lens.Lens' GetCostAndUsageWithResources Expression
 getCostAndUsageWithResources_filter = Lens.lens (\GetCostAndUsageWithResources' {filter'} -> filter') (\s@GetCostAndUsageWithResources' {} a -> s {filter' = a} :: GetCostAndUsageWithResources)
 
@@ -349,7 +370,7 @@ data GetCostAndUsageWithResourcesResponse = GetCostAndUsageWithResourcesResponse
     -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
     -- the request.
     groupDefinitions :: Prelude.Maybe [GroupDefinition],
-    -- | The time period that is covered by the results in the response.
+    -- | The time period that\'s covered by the results in the response.
     resultsByTime :: Prelude.Maybe [ResultByTime],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -374,7 +395,7 @@ data GetCostAndUsageWithResourcesResponse = GetCostAndUsageWithResourcesResponse
 -- 'groupDefinitions', 'getCostAndUsageWithResourcesResponse_groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in
 -- the request.
 --
--- 'resultsByTime', 'getCostAndUsageWithResourcesResponse_resultsByTime' - The time period that is covered by the results in the response.
+-- 'resultsByTime', 'getCostAndUsageWithResourcesResponse_resultsByTime' - The time period that\'s covered by the results in the response.
 --
 -- 'httpStatus', 'getCostAndUsageWithResourcesResponse_httpStatus' - The response's http status code.
 newGetCostAndUsageWithResourcesResponse ::
@@ -408,7 +429,7 @@ getCostAndUsageWithResourcesResponse_dimensionValueAttributes = Lens.lens (\GetC
 getCostAndUsageWithResourcesResponse_groupDefinitions :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Prelude.Maybe [GroupDefinition])
 getCostAndUsageWithResourcesResponse_groupDefinitions = Lens.lens (\GetCostAndUsageWithResourcesResponse' {groupDefinitions} -> groupDefinitions) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {groupDefinitions = a} :: GetCostAndUsageWithResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time period that is covered by the results in the response.
+-- | The time period that\'s covered by the results in the response.
 getCostAndUsageWithResourcesResponse_resultsByTime :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Prelude.Maybe [ResultByTime])
 getCostAndUsageWithResourcesResponse_resultsByTime = Lens.lens (\GetCostAndUsageWithResourcesResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageWithResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

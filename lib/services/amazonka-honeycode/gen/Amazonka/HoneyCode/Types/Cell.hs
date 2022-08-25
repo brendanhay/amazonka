@@ -44,6 +44,11 @@ data Cell = Cell'
     -- | The formula contained in the cell. This field is empty if a cell does
     -- not have a formula.
     formula :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A list of formatted values of the cell. This field is only returned when
+    -- the cell is ROWSET format (aka multi-select or multi-record picklist).
+    -- Values in the list are always represented as strings. The formattedValue
+    -- field will be empty if this field is returned.
+    formattedValues :: Prelude.Maybe [Prelude.Text],
     -- | The raw value of the data contained in the cell. The raw value depends
     -- on the format of the data in the cell. However the attribute in the API
     -- return value is always a string containing the raw value.
@@ -84,6 +89,21 @@ data Cell = Cell'
     -- \"row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4\/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\"
     -- as the raw value.
     --
+    -- Cells with format ROWSET (aka multi-select or multi-record picklist)
+    -- will by default have the first column of each of the linked rows as the
+    -- formatted value in the list, and the rowset id of the linked rows as the
+    -- raw value. For example, a cell containing a multi-select picklist to a
+    -- table that contains items might have \"Item A\", \"Item B\" in the
+    -- formatted value list and \"rows:b742c1f4-6cb0-4650-a845-35eb86fcc2bb\/
+    -- [fdea123b-8f68-474a-aa8a-5ff87aa333af,6daf41f0-a138-4eee-89da-123086d36ecf]\"
+    -- as the raw value.
+    --
+    -- Cells with format ATTACHMENT will have the name of the attachment as the
+    -- formatted value and the attachment id as the raw value. For example, a
+    -- cell containing an attachment named \"image.jpeg\" will have
+    -- \"image.jpeg\" as the formatted value and
+    -- \"attachment:ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\" as the raw value.
+    --
     -- Cells with format AUTO or cells without any format that are
     -- auto-detected as one of the formats above will contain the raw and
     -- formatted values as mentioned above, based on the auto-detected formats.
@@ -116,6 +136,11 @@ data Cell = Cell'
 --
 -- 'formula', 'cell_formula' - The formula contained in the cell. This field is empty if a cell does
 -- not have a formula.
+--
+-- 'formattedValues', 'cell_formattedValues' - A list of formatted values of the cell. This field is only returned when
+-- the cell is ROWSET format (aka multi-select or multi-record picklist).
+-- Values in the list are always represented as strings. The formattedValue
+-- field will be empty if this field is returned.
 --
 -- 'rawValue', 'cell_rawValue' - The raw value of the data contained in the cell. The raw value depends
 -- on the format of the data in the cell. However the attribute in the API
@@ -157,6 +182,21 @@ data Cell = Cell'
 -- \"row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4\/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\"
 -- as the raw value.
 --
+-- Cells with format ROWSET (aka multi-select or multi-record picklist)
+-- will by default have the first column of each of the linked rows as the
+-- formatted value in the list, and the rowset id of the linked rows as the
+-- raw value. For example, a cell containing a multi-select picklist to a
+-- table that contains items might have \"Item A\", \"Item B\" in the
+-- formatted value list and \"rows:b742c1f4-6cb0-4650-a845-35eb86fcc2bb\/
+-- [fdea123b-8f68-474a-aa8a-5ff87aa333af,6daf41f0-a138-4eee-89da-123086d36ecf]\"
+-- as the raw value.
+--
+-- Cells with format ATTACHMENT will have the name of the attachment as the
+-- formatted value and the attachment id as the raw value. For example, a
+-- cell containing an attachment named \"image.jpeg\" will have
+-- \"image.jpeg\" as the formatted value and
+-- \"attachment:ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\" as the raw value.
+--
 -- Cells with format AUTO or cells without any format that are
 -- auto-detected as one of the formats above will contain the raw and
 -- formatted values as mentioned above, based on the auto-detected formats.
@@ -169,6 +209,7 @@ newCell =
     { format = Prelude.Nothing,
       formattedValue = Prelude.Nothing,
       formula = Prelude.Nothing,
+      formattedValues = Prelude.Nothing,
       rawValue = Prelude.Nothing
     }
 
@@ -193,6 +234,13 @@ cell_formattedValue = Lens.lens (\Cell' {formattedValue} -> formattedValue) (\s@
 -- not have a formula.
 cell_formula :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
 cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A list of formatted values of the cell. This field is only returned when
+-- the cell is ROWSET format (aka multi-select or multi-record picklist).
+-- Values in the list are always represented as strings. The formattedValue
+-- field will be empty if this field is returned.
+cell_formattedValues :: Lens.Lens' Cell (Prelude.Maybe [Prelude.Text])
+cell_formattedValues = Lens.lens (\Cell' {formattedValues} -> formattedValues) (\s@Cell' {} a -> s {formattedValues = a} :: Cell) Prelude.. Lens.mapping Lens.coerced
 
 -- | The raw value of the data contained in the cell. The raw value depends
 -- on the format of the data in the cell. However the attribute in the API
@@ -234,6 +282,21 @@ cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {form
 -- \"row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4\/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\"
 -- as the raw value.
 --
+-- Cells with format ROWSET (aka multi-select or multi-record picklist)
+-- will by default have the first column of each of the linked rows as the
+-- formatted value in the list, and the rowset id of the linked rows as the
+-- raw value. For example, a cell containing a multi-select picklist to a
+-- table that contains items might have \"Item A\", \"Item B\" in the
+-- formatted value list and \"rows:b742c1f4-6cb0-4650-a845-35eb86fcc2bb\/
+-- [fdea123b-8f68-474a-aa8a-5ff87aa333af,6daf41f0-a138-4eee-89da-123086d36ecf]\"
+-- as the raw value.
+--
+-- Cells with format ATTACHMENT will have the name of the attachment as the
+-- formatted value and the attachment id as the raw value. For example, a
+-- cell containing an attachment named \"image.jpeg\" will have
+-- \"image.jpeg\" as the formatted value and
+-- \"attachment:ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\" as the raw value.
+--
 -- Cells with format AUTO or cells without any format that are
 -- auto-detected as one of the formats above will contain the raw and
 -- formatted values as mentioned above, based on the auto-detected formats.
@@ -251,6 +314,9 @@ instance Core.FromJSON Cell where
             Prelude.<$> (x Core..:? "format")
             Prelude.<*> (x Core..:? "formattedValue")
             Prelude.<*> (x Core..:? "formula")
+            Prelude.<*> ( x Core..:? "formattedValues"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "rawValue")
       )
 
@@ -259,6 +325,7 @@ instance Prelude.Hashable Cell where
     _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formattedValue
       `Prelude.hashWithSalt` formula
+      `Prelude.hashWithSalt` formattedValues
       `Prelude.hashWithSalt` rawValue
 
 instance Prelude.NFData Cell where
@@ -266,4 +333,5 @@ instance Prelude.NFData Cell where
     Prelude.rnf format
       `Prelude.seq` Prelude.rnf formattedValue
       `Prelude.seq` Prelude.rnf formula
+      `Prelude.seq` Prelude.rnf formattedValues
       `Prelude.seq` Prelude.rnf rawValue

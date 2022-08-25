@@ -24,7 +24,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The compromised credentials actions type
+-- | The compromised credentials actions type.
 --
 -- /See:/ 'newCompromisedCredentialsActionsType' smart constructor.
 data CompromisedCredentialsActionsType = CompromisedCredentialsActionsType'

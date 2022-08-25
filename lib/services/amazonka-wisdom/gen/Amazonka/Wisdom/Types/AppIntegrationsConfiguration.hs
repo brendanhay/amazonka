@@ -44,8 +44,8 @@ data AppIntegrationsConfiguration = AppIntegrationsConfiguration'
     --     you must include at least @number@, @short_description@,
     --     @sys_mod_count@, @workflow_state@, and @active@.
     --
-    -- Make sure to include additional field(s); these are indexed and used to
-    -- source recommendations.
+    -- Make sure to include additional fields. These fields are indexed and
+    -- used to source recommendations.
     objectFields :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +74,8 @@ data AppIntegrationsConfiguration = AppIntegrationsConfiguration'
 --     you must include at least @number@, @short_description@,
 --     @sys_mod_count@, @workflow_state@, and @active@.
 --
--- Make sure to include additional field(s); these are indexed and used to
--- source recommendations.
+-- Make sure to include additional fields. These fields are indexed and
+-- used to source recommendations.
 newAppIntegrationsConfiguration ::
   -- | 'appIntegrationArn'
   Prelude.Text ->
@@ -110,8 +110,8 @@ appIntegrationsConfiguration_appIntegrationArn = Lens.lens (\AppIntegrationsConf
 --     you must include at least @number@, @short_description@,
 --     @sys_mod_count@, @workflow_state@, and @active@.
 --
--- Make sure to include additional field(s); these are indexed and used to
--- source recommendations.
+-- Make sure to include additional fields. These fields are indexed and
+-- used to source recommendations.
 appIntegrationsConfiguration_objectFields :: Lens.Lens' AppIntegrationsConfiguration (Prelude.NonEmpty Prelude.Text)
 appIntegrationsConfiguration_objectFields = Lens.lens (\AppIntegrationsConfiguration' {objectFields} -> objectFields) (\s@AppIntegrationsConfiguration' {} a -> s {objectFields = a} :: AppIntegrationsConfiguration) Prelude.. Lens.coerced
 

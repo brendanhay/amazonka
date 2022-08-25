@@ -33,8 +33,17 @@ import Test.Tasty
 --         , requestGetDimensionKeyDetails $
 --             newGetDimensionKeyDetails
 --
+--         , requestGetResourceMetadata $
+--             newGetResourceMetadata
+--
 --         , requestGetResourceMetrics $
 --             newGetResourceMetrics
+--
+--         , requestListAvailableResourceDimensions $
+--             newListAvailableResourceDimensions
+--
+--         , requestListAvailableResourceMetrics $
+--             newListAvailableResourceMetrics
 --
 --           ]
 
@@ -45,8 +54,17 @@ import Test.Tasty
 --         , responseGetDimensionKeyDetails $
 --             newGetDimensionKeyDetailsResponse
 --
+--         , responseGetResourceMetadata $
+--             newGetResourceMetadataResponse
+--
 --         , responseGetResourceMetrics $
 --             newGetResourceMetricsResponse
+--
+--         , responseListAvailableResourceDimensions $
+--             newListAvailableResourceDimensionsResponse
+--
+--         , responseListAvailableResourceMetrics $
+--             newListAvailableResourceMetricsResponse
 --
 --           ]
 --     ]
@@ -65,11 +83,29 @@ requestGetDimensionKeyDetails =
     "GetDimensionKeyDetails"
     "fixture/GetDimensionKeyDetails.yaml"
 
+requestGetResourceMetadata :: GetResourceMetadata -> TestTree
+requestGetResourceMetadata =
+  req
+    "GetResourceMetadata"
+    "fixture/GetResourceMetadata.yaml"
+
 requestGetResourceMetrics :: GetResourceMetrics -> TestTree
 requestGetResourceMetrics =
   req
     "GetResourceMetrics"
     "fixture/GetResourceMetrics.yaml"
+
+requestListAvailableResourceDimensions :: ListAvailableResourceDimensions -> TestTree
+requestListAvailableResourceDimensions =
+  req
+    "ListAvailableResourceDimensions"
+    "fixture/ListAvailableResourceDimensions.yaml"
+
+requestListAvailableResourceMetrics :: ListAvailableResourceMetrics -> TestTree
+requestListAvailableResourceMetrics =
+  req
+    "ListAvailableResourceMetrics"
+    "fixture/ListAvailableResourceMetrics.yaml"
 
 -- Responses
 
@@ -89,6 +125,14 @@ responseGetDimensionKeyDetails =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDimensionKeyDetails)
 
+responseGetResourceMetadata :: GetResourceMetadataResponse -> TestTree
+responseGetResourceMetadata =
+  res
+    "GetResourceMetadataResponse"
+    "fixture/GetResourceMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceMetadata)
+
 responseGetResourceMetrics :: GetResourceMetricsResponse -> TestTree
 responseGetResourceMetrics =
   res
@@ -96,3 +140,19 @@ responseGetResourceMetrics =
     "fixture/GetResourceMetricsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceMetrics)
+
+responseListAvailableResourceDimensions :: ListAvailableResourceDimensionsResponse -> TestTree
+responseListAvailableResourceDimensions =
+  res
+    "ListAvailableResourceDimensionsResponse"
+    "fixture/ListAvailableResourceDimensionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAvailableResourceDimensions)
+
+responseListAvailableResourceMetrics :: ListAvailableResourceMetricsResponse -> TestTree
+responseListAvailableResourceMetrics =
+  res
+    "ListAvailableResourceMetricsResponse"
+    "fixture/ListAvailableResourceMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAvailableResourceMetrics)

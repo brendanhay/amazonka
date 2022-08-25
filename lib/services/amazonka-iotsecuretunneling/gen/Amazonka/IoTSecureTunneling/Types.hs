@@ -20,6 +20,9 @@ module Amazonka.IoTSecureTunneling.Types
     _ResourceNotFoundException,
     _LimitExceededException,
 
+    -- * ClientMode
+    ClientMode (..),
+
     -- * ConnectionStatus
     ConnectionStatus (..),
 
@@ -77,6 +80,7 @@ module Amazonka.IoTSecureTunneling.Types
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.IoTSecureTunneling.Types.ClientMode
 import Amazonka.IoTSecureTunneling.Types.ConnectionState
 import Amazonka.IoTSecureTunneling.Types.ConnectionStatus
 import Amazonka.IoTSecureTunneling.Types.DestinationConfig

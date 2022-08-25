@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a tag definition.
+-- Returns an LF-tag definition.
 module Amazonka.LakeFormation.GetLFTag
   ( -- * Creating a Request
     GetLFTag (..),
@@ -54,9 +54,9 @@ data GetLFTag = GetLFTag'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The key-name for the tag.
+    -- | The key-name for the LF-tag.
     tagKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,9 +72,9 @@ data GetLFTag = GetLFTag'
 -- 'catalogId', 'getLFTag_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'tagKey', 'getLFTag_tagKey' - The key-name for the tag.
+-- 'tagKey', 'getLFTag_tagKey' - The key-name for the LF-tag.
 newGetLFTag ::
   -- | 'tagKey'
   Prelude.Text ->
@@ -88,11 +88,11 @@ newGetLFTag pTagKey_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 getLFTag_catalogId :: Lens.Lens' GetLFTag (Prelude.Maybe Prelude.Text)
 getLFTag_catalogId = Lens.lens (\GetLFTag' {catalogId} -> catalogId) (\s@GetLFTag' {} a -> s {catalogId = a} :: GetLFTag)
 
--- | The key-name for the tag.
+-- | The key-name for the LF-tag.
 getLFTag_tagKey :: Lens.Lens' GetLFTag Prelude.Text
 getLFTag_tagKey = Lens.lens (\GetLFTag' {tagKey} -> tagKey) (\s@GetLFTag' {} a -> s {tagKey = a} :: GetLFTag)
 
@@ -123,9 +123,7 @@ instance Core.ToHeaders GetLFTag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ("AWSLakeFormation.GetLFTag" :: Prelude.ByteString),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -142,7 +140,7 @@ instance Core.ToJSON GetLFTag where
       )
 
 instance Core.ToPath GetLFTag where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/GetLFTag"
 
 instance Core.ToQuery GetLFTag where
   toQuery = Prelude.const Prelude.mempty
@@ -151,12 +149,12 @@ instance Core.ToQuery GetLFTag where
 data GetLFTagResponse = GetLFTagResponse'
   { -- | A list of possible values an attribute can take.
     tagValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The key-name for the tag.
+    -- | The key-name for the LF-tag.
     tagKey :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,12 +171,12 @@ data GetLFTagResponse = GetLFTagResponse'
 --
 -- 'tagValues', 'getLFTagResponse_tagValues' - A list of possible values an attribute can take.
 --
--- 'tagKey', 'getLFTagResponse_tagKey' - The key-name for the tag.
+-- 'tagKey', 'getLFTagResponse_tagKey' - The key-name for the LF-tag.
 --
 -- 'catalogId', 'getLFTagResponse_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'httpStatus', 'getLFTagResponse_httpStatus' - The response's http status code.
 newGetLFTagResponse ::
@@ -197,14 +195,14 @@ newGetLFTagResponse pHttpStatus_ =
 getLFTagResponse_tagValues :: Lens.Lens' GetLFTagResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getLFTagResponse_tagValues = Lens.lens (\GetLFTagResponse' {tagValues} -> tagValues) (\s@GetLFTagResponse' {} a -> s {tagValues = a} :: GetLFTagResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The key-name for the tag.
+-- | The key-name for the LF-tag.
 getLFTagResponse_tagKey :: Lens.Lens' GetLFTagResponse (Prelude.Maybe Prelude.Text)
 getLFTagResponse_tagKey = Lens.lens (\GetLFTagResponse' {tagKey} -> tagKey) (\s@GetLFTagResponse' {} a -> s {tagKey = a} :: GetLFTagResponse)
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 getLFTagResponse_catalogId :: Lens.Lens' GetLFTagResponse (Prelude.Maybe Prelude.Text)
 getLFTagResponse_catalogId = Lens.lens (\GetLFTagResponse' {catalogId} -> catalogId) (\s@GetLFTagResponse' {} a -> s {catalogId = a} :: GetLFTagResponse)
 

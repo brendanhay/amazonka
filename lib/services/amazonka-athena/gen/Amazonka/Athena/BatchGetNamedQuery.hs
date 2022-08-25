@@ -56,7 +56,9 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newBatchGetNamedQuery' smart constructor.
+-- | Contains an array of named query IDs.
+--
+-- /See:/ 'newBatchGetNamedQuery' smart constructor.
 data BatchGetNamedQuery = BatchGetNamedQuery'
   { -- | An array of query IDs.
     namedQueryIds :: Prelude.NonEmpty Prelude.Text

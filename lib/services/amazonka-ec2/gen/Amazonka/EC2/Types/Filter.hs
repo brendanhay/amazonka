@@ -28,9 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 -- of results from a describe operation. Filters can be used to match a set
 -- of resources by specific criteria, such as tags, attributes, or IDs.
 --
+-- If you specify multiple filters, the filters are joined with an @AND@,
+-- and the request returns only results that match all of the specified
+-- filters.
+--
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | The filter values. Filter values are case-sensitive.
+  { -- | The filter values. Filter values are case-sensitive. If you specify
+    -- multiple values for a filter, the values are joined with an @OR@, and
+    -- the request returns all results that match any of the specified values.
     values :: Prelude.Maybe [Prelude.Text],
     -- | The name of the filter. Filter names are case-sensitive.
     name :: Prelude.Text
@@ -45,7 +51,9 @@ data Filter = Filter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'filter_values' - The filter values. Filter values are case-sensitive.
+-- 'values', 'filter_values' - The filter values. Filter values are case-sensitive. If you specify
+-- multiple values for a filter, the values are joined with an @OR@, and
+-- the request returns all results that match any of the specified values.
 --
 -- 'name', 'filter_name' - The name of the filter. Filter names are case-sensitive.
 newFilter ::
@@ -55,7 +63,9 @@ newFilter ::
 newFilter pName_ =
   Filter' {values = Prelude.Nothing, name = pName_}
 
--- | The filter values. Filter values are case-sensitive.
+-- | The filter values. Filter values are case-sensitive. If you specify
+-- multiple values for a filter, the values are joined with an @OR@, and
+-- the request returns all results that match any of the specified values.
 filter_values :: Lens.Lens' Filter (Prelude.Maybe [Prelude.Text])
 filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 

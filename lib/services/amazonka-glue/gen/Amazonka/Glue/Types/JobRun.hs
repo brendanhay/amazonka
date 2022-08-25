@@ -20,6 +20,7 @@
 module Amazonka.Glue.Types.JobRun where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.JobRunState
 import Amazonka.Glue.Types.NotificationProperty
 import Amazonka.Glue.Types.Predecessor
@@ -36,8 +37,10 @@ data JobRun = JobRun'
     securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
     -- can consume resources before it is terminated and enters @TIMEOUT@
-    -- status. The default is 2,880 minutes (48 hours). This overrides the
-    -- timeout value set in the parent job.
+    -- status. This value overrides the timeout value set in the parent job.
+    --
+    -- Streaming jobs do not have a timeout. The default for non-streaming jobs
+    -- is 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The name of the trigger that started this job run.
     triggerName :: Prelude.Maybe Prelude.Text,
@@ -45,9 +48,6 @@ data JobRun = JobRun'
     lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a job runs.
-    --
-    -- The maximum number of workers you can define are 299 for @G.1X@, and 149
-    -- for @G.2X@.
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
     -- | The date and time at which this job run was started.
     startedOn :: Prelude.Maybe Core.POSIX,
@@ -75,7 +75,7 @@ data JobRun = JobRun'
     -- | Specifies configuration properties of a job run notification.
     notificationProperty :: Prelude.Maybe NotificationProperty,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
-    -- a value of Standard, G.1X, or G.2X.
+    -- a value of Standard, G.1X, G.2X, or G.025X.
     --
     -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
     --     of memory and a 50GB disk, and 2 executors per worker.
@@ -85,6 +85,11 @@ data JobRun = JobRun'
     --
     -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
     --     memory and a 128GB disk, and 1 executor per worker.
+    --
+    -- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
+    --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
+    --     recommend this worker type for low volume streaming jobs. This
+    --     worker type is only available for Glue version 3.0 streaming jobs.
     workerType :: Prelude.Maybe WorkerType,
     -- | The amount of time (in seconds) that the job run consumed resources.
     executionTime :: Prelude.Maybe Prelude.Int,
@@ -122,6 +127,15 @@ data JobRun = JobRun'
     -- statuses of jobs that have terminated abnormally, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html Glue Job Run Statuses>.
     jobRunState :: Prelude.Maybe JobRunState,
+    -- | This field populates only for Auto Scaling job runs, and represents the
+    -- total time each executor ran during the lifecycle of a job run in
+    -- seconds, multiplied by a DPU factor (1 for @G.1X@, 2 for @G.2X@, or 0.25
+    -- for @G.025X@ workers). This value may be different than the
+    -- @executionEngineRuntime@ * @MaxCapacity@ as in the case of Auto Scaling
+    -- jobs, as the number of executors running at a given time may be less
+    -- than the @MaxCapacity@. Therefore, it is possible that the value of
+    -- @DPUSeconds@ is less than @executionEngineRuntime@ * @MaxCapacity@.
+    dPUSeconds :: Prelude.Maybe Prelude.Double,
     -- | The number of Glue data processing units (DPUs) that can be allocated
     -- when this job runs. A DPU is a relative measure of processing power that
     -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
@@ -138,10 +152,21 @@ data JobRun = JobRun'
     --     or 1 DPU. The default is 0.0625 DPU.
     --
     -- -   When you specify an Apache Spark ETL job
-    --     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
+    --     (@JobCommand.Name@=\"glueetl\"), you can allocate a minimum of 2
     --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
     --     DPU allocation.
     maxCapacity :: Prelude.Maybe Prelude.Double,
+    -- | Indicates whether the job is run with a standard or flexible execution
+    -- class. The standard execution-class is ideal for time-sensitive
+    -- workloads that require fast job startup and dedicated resources.
+    --
+    -- The flexible execution class is appropriate for time-insensitive jobs
+    -- whose start and completion times may vary.
+    --
+    -- Only jobs with Glue version 3.0 and above and command type @glueetl@
+    -- will be allowed to set @ExecutionClass@ to @FLEX@. The flexible
+    -- execution class is available for Spark jobs.
+    executionClass :: Prelude.Maybe ExecutionClass,
     -- | The name of the log group for secure logging that can be server-side
     -- encrypted in Amazon CloudWatch using KMS. This name can be
     -- @\/aws-glue\/jobs\/@, in which case the default encryption is @NONE@. If
@@ -165,8 +190,10 @@ data JobRun = JobRun'
 --
 -- 'timeout', 'jobRun_timeout' - The @JobRun@ timeout in minutes. This is the maximum time that a job run
 -- can consume resources before it is terminated and enters @TIMEOUT@
--- status. The default is 2,880 minutes (48 hours). This overrides the
--- timeout value set in the parent job.
+-- status. This value overrides the timeout value set in the parent job.
+--
+-- Streaming jobs do not have a timeout. The default for non-streaming jobs
+-- is 2,880 minutes (48 hours).
 --
 -- 'triggerName', 'jobRun_triggerName' - The name of the trigger that started this job run.
 --
@@ -174,9 +201,6 @@ data JobRun = JobRun'
 --
 -- 'numberOfWorkers', 'jobRun_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when
 -- a job runs.
---
--- The maximum number of workers you can define are 299 for @G.1X@, and 149
--- for @G.2X@.
 --
 -- 'startedOn', 'jobRun_startedOn' - The date and time at which this job run was started.
 --
@@ -204,7 +228,7 @@ data JobRun = JobRun'
 -- 'notificationProperty', 'jobRun_notificationProperty' - Specifies configuration properties of a job run notification.
 --
 -- 'workerType', 'jobRun_workerType' - The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, or G.2X.
+-- a value of Standard, G.1X, G.2X, or G.025X.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -214,6 +238,11 @@ data JobRun = JobRun'
 --
 -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
 --     memory and a 128GB disk, and 1 executor per worker.
+--
+-- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
+--     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for low volume streaming jobs. This
+--     worker type is only available for Glue version 3.0 streaming jobs.
 --
 -- 'executionTime', 'jobRun_executionTime' - The amount of time (in seconds) that the job run consumed resources.
 --
@@ -251,6 +280,15 @@ data JobRun = JobRun'
 -- statuses of jobs that have terminated abnormally, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html Glue Job Run Statuses>.
 --
+-- 'dPUSeconds', 'jobRun_dPUSeconds' - This field populates only for Auto Scaling job runs, and represents the
+-- total time each executor ran during the lifecycle of a job run in
+-- seconds, multiplied by a DPU factor (1 for @G.1X@, 2 for @G.2X@, or 0.25
+-- for @G.025X@ workers). This value may be different than the
+-- @executionEngineRuntime@ * @MaxCapacity@ as in the case of Auto Scaling
+-- jobs, as the number of executors running at a given time may be less
+-- than the @MaxCapacity@. Therefore, it is possible that the value of
+-- @DPUSeconds@ is less than @executionEngineRuntime@ * @MaxCapacity@.
+--
 -- 'maxCapacity', 'jobRun_maxCapacity' - The number of Glue data processing units (DPUs) that can be allocated
 -- when this job runs. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
@@ -267,9 +305,20 @@ data JobRun = JobRun'
 --     or 1 DPU. The default is 0.0625 DPU.
 --
 -- -   When you specify an Apache Spark ETL job
---     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
+--     (@JobCommand.Name@=\"glueetl\"), you can allocate a minimum of 2
 --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
 --     DPU allocation.
+--
+-- 'executionClass', 'jobRun_executionClass' - Indicates whether the job is run with a standard or flexible execution
+-- class. The standard execution-class is ideal for time-sensitive
+-- workloads that require fast job startup and dedicated resources.
+--
+-- The flexible execution class is appropriate for time-insensitive jobs
+-- whose start and completion times may vary.
+--
+-- Only jobs with Glue version 3.0 and above and command type @glueetl@
+-- will be allowed to set @ExecutionClass@ to @FLEX@. The flexible
+-- execution class is available for Spark jobs.
 --
 -- 'logGroupName', 'jobRun_logGroupName' - The name of the log group for secure logging that can be server-side
 -- encrypted in Amazon CloudWatch using KMS. This name can be
@@ -301,7 +350,9 @@ newJobRun =
       completedOn = Prelude.Nothing,
       arguments = Prelude.Nothing,
       jobRunState = Prelude.Nothing,
+      dPUSeconds = Prelude.Nothing,
       maxCapacity = Prelude.Nothing,
+      executionClass = Prelude.Nothing,
       logGroupName = Prelude.Nothing
     }
 
@@ -312,8 +363,10 @@ jobRun_securityConfiguration = Lens.lens (\JobRun' {securityConfiguration} -> se
 
 -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
 -- can consume resources before it is terminated and enters @TIMEOUT@
--- status. The default is 2,880 minutes (48 hours). This overrides the
--- timeout value set in the parent job.
+-- status. This value overrides the timeout value set in the parent job.
+--
+-- Streaming jobs do not have a timeout. The default for non-streaming jobs
+-- is 2,880 minutes (48 hours).
 jobRun_timeout :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Natural)
 jobRun_timeout = Lens.lens (\JobRun' {timeout} -> timeout) (\s@JobRun' {} a -> s {timeout = a} :: JobRun)
 
@@ -327,9 +380,6 @@ jobRun_lastModifiedOn = Lens.lens (\JobRun' {lastModifiedOn} -> lastModifiedOn) 
 
 -- | The number of workers of a defined @workerType@ that are allocated when
 -- a job runs.
---
--- The maximum number of workers you can define are 299 for @G.1X@, and 149
--- for @G.2X@.
 jobRun_numberOfWorkers :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Int)
 jobRun_numberOfWorkers = Lens.lens (\JobRun' {numberOfWorkers} -> numberOfWorkers) (\s@JobRun' {} a -> s {numberOfWorkers = a} :: JobRun)
 
@@ -373,7 +423,7 @@ jobRun_notificationProperty :: Lens.Lens' JobRun (Prelude.Maybe NotificationProp
 jobRun_notificationProperty = Lens.lens (\JobRun' {notificationProperty} -> notificationProperty) (\s@JobRun' {} a -> s {notificationProperty = a} :: JobRun)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, or G.2X.
+-- a value of Standard, G.1X, G.2X, or G.025X.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -383,6 +433,11 @@ jobRun_notificationProperty = Lens.lens (\JobRun' {notificationProperty} -> noti
 --
 -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
 --     memory and a 128GB disk, and 1 executor per worker.
+--
+-- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
+--     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for low volume streaming jobs. This
+--     worker type is only available for Glue version 3.0 streaming jobs.
 jobRun_workerType :: Lens.Lens' JobRun (Prelude.Maybe WorkerType)
 jobRun_workerType = Lens.lens (\JobRun' {workerType} -> workerType) (\s@JobRun' {} a -> s {workerType = a} :: JobRun)
 
@@ -436,6 +491,17 @@ jobRun_arguments = Lens.lens (\JobRun' {arguments} -> arguments) (\s@JobRun' {} 
 jobRun_jobRunState :: Lens.Lens' JobRun (Prelude.Maybe JobRunState)
 jobRun_jobRunState = Lens.lens (\JobRun' {jobRunState} -> jobRunState) (\s@JobRun' {} a -> s {jobRunState = a} :: JobRun)
 
+-- | This field populates only for Auto Scaling job runs, and represents the
+-- total time each executor ran during the lifecycle of a job run in
+-- seconds, multiplied by a DPU factor (1 for @G.1X@, 2 for @G.2X@, or 0.25
+-- for @G.025X@ workers). This value may be different than the
+-- @executionEngineRuntime@ * @MaxCapacity@ as in the case of Auto Scaling
+-- jobs, as the number of executors running at a given time may be less
+-- than the @MaxCapacity@. Therefore, it is possible that the value of
+-- @DPUSeconds@ is less than @executionEngineRuntime@ * @MaxCapacity@.
+jobRun_dPUSeconds :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Double)
+jobRun_dPUSeconds = Lens.lens (\JobRun' {dPUSeconds} -> dPUSeconds) (\s@JobRun' {} a -> s {dPUSeconds = a} :: JobRun)
+
 -- | The number of Glue data processing units (DPUs) that can be allocated
 -- when this job runs. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
@@ -452,11 +518,24 @@ jobRun_jobRunState = Lens.lens (\JobRun' {jobRunState} -> jobRunState) (\s@JobRu
 --     or 1 DPU. The default is 0.0625 DPU.
 --
 -- -   When you specify an Apache Spark ETL job
---     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
+--     (@JobCommand.Name@=\"glueetl\"), you can allocate a minimum of 2
 --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
 --     DPU allocation.
 jobRun_maxCapacity :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Double)
 jobRun_maxCapacity = Lens.lens (\JobRun' {maxCapacity} -> maxCapacity) (\s@JobRun' {} a -> s {maxCapacity = a} :: JobRun)
+
+-- | Indicates whether the job is run with a standard or flexible execution
+-- class. The standard execution-class is ideal for time-sensitive
+-- workloads that require fast job startup and dedicated resources.
+--
+-- The flexible execution class is appropriate for time-insensitive jobs
+-- whose start and completion times may vary.
+--
+-- Only jobs with Glue version 3.0 and above and command type @glueetl@
+-- will be allowed to set @ExecutionClass@ to @FLEX@. The flexible
+-- execution class is available for Spark jobs.
+jobRun_executionClass :: Lens.Lens' JobRun (Prelude.Maybe ExecutionClass)
+jobRun_executionClass = Lens.lens (\JobRun' {executionClass} -> executionClass) (\s@JobRun' {} a -> s {executionClass = a} :: JobRun)
 
 -- | The name of the log group for secure logging that can be server-side
 -- encrypted in Amazon CloudWatch using KMS. This name can be
@@ -495,7 +574,9 @@ instance Core.FromJSON JobRun where
             Prelude.<*> (x Core..:? "CompletedOn")
             Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "JobRunState")
+            Prelude.<*> (x Core..:? "DPUSeconds")
             Prelude.<*> (x Core..:? "MaxCapacity")
+            Prelude.<*> (x Core..:? "ExecutionClass")
             Prelude.<*> (x Core..:? "LogGroupName")
       )
 
@@ -521,7 +602,9 @@ instance Prelude.Hashable JobRun where
       `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` arguments
       `Prelude.hashWithSalt` jobRunState
+      `Prelude.hashWithSalt` dPUSeconds
       `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` executionClass
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData JobRun where
@@ -546,5 +629,9 @@ instance Prelude.NFData JobRun where
       `Prelude.seq` Prelude.rnf completedOn
       `Prelude.seq` Prelude.rnf arguments
       `Prelude.seq` Prelude.rnf jobRunState
+      `Prelude.seq` Prelude.rnf dPUSeconds
       `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf
+        executionClass
+      `Prelude.seq` Prelude.rnf
+        logGroupName

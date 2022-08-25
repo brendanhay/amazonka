@@ -199,7 +199,12 @@ instance Core.ToQuery ImportKeyPair where
 data ImportKeyPairResponse = ImportKeyPairResponse'
   { -- | The tags applied to the imported key pair.
     tags :: Prelude.Maybe [Tag],
-    -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+    -- | -   For RSA key pairs, the key fingerprint is the MD5 public key
+    --     fingerprint as specified in section 4 of RFC 4716.
+    --
+    -- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
+    --     SHA-256 digest, which is the default for OpenSSH, starting with
+    --     <http://www.openssh.com/txt/release-6.8 OpenSSH 6.8>.
     keyFingerprint :: Prelude.Maybe Prelude.Text,
     -- | The key pair name that you provided.
     keyName :: Prelude.Maybe Prelude.Text,
@@ -220,7 +225,12 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 --
 -- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.
 --
--- 'keyFingerprint', 'importKeyPairResponse_keyFingerprint' - The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+-- 'keyFingerprint', 'importKeyPairResponse_keyFingerprint' - -   For RSA key pairs, the key fingerprint is the MD5 public key
+--     fingerprint as specified in section 4 of RFC 4716.
+--
+-- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
+--     SHA-256 digest, which is the default for OpenSSH, starting with
+--     <http://www.openssh.com/txt/release-6.8 OpenSSH 6.8>.
 --
 -- 'keyName', 'importKeyPairResponse_keyName' - The key pair name that you provided.
 --
@@ -244,7 +254,12 @@ newImportKeyPairResponse pHttpStatus_ =
 importKeyPairResponse_tags :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe [Tag])
 importKeyPairResponse_tags = Lens.lens (\ImportKeyPairResponse' {tags} -> tags) (\s@ImportKeyPairResponse' {} a -> s {tags = a} :: ImportKeyPairResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+-- | -   For RSA key pairs, the key fingerprint is the MD5 public key
+--     fingerprint as specified in section 4 of RFC 4716.
+--
+-- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
+--     SHA-256 digest, which is the default for OpenSSH, starting with
+--     <http://www.openssh.com/txt/release-6.8 OpenSSH 6.8>.
 importKeyPairResponse_keyFingerprint :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
 importKeyPairResponse_keyFingerprint = Lens.lens (\ImportKeyPairResponse' {keyFingerprint} -> keyFingerprint) (\s@ImportKeyPairResponse' {} a -> s {keyFingerprint = a} :: ImportKeyPairResponse)
 

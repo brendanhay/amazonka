@@ -32,7 +32,7 @@ data RelationalDatabaseDataSourceConfig = RelationalDatabaseDataSourceConfig'
   { -- | Source type for the relational database.
     --
     -- -   __RDS_HTTP_ENDPOINT__: The relational database source type is an
-    --     Amazon RDS HTTP endpoint.
+    --     Amazon Relational Database Service (Amazon RDS) HTTP endpoint.
     relationalDatabaseSourceType :: Prelude.Maybe RelationalDatabaseSourceType,
     -- | Amazon RDS HTTP endpoint settings.
     rdsHttpEndpointConfig :: Prelude.Maybe RdsHttpEndpointConfig
@@ -50,7 +50,7 @@ data RelationalDatabaseDataSourceConfig = RelationalDatabaseDataSourceConfig'
 -- 'relationalDatabaseSourceType', 'relationalDatabaseDataSourceConfig_relationalDatabaseSourceType' - Source type for the relational database.
 --
 -- -   __RDS_HTTP_ENDPOINT__: The relational database source type is an
---     Amazon RDS HTTP endpoint.
+--     Amazon Relational Database Service (Amazon RDS) HTTP endpoint.
 --
 -- 'rdsHttpEndpointConfig', 'relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig' - Amazon RDS HTTP endpoint settings.
 newRelationalDatabaseDataSourceConfig ::
@@ -65,7 +65,7 @@ newRelationalDatabaseDataSourceConfig =
 -- | Source type for the relational database.
 --
 -- -   __RDS_HTTP_ENDPOINT__: The relational database source type is an
---     Amazon RDS HTTP endpoint.
+--     Amazon Relational Database Service (Amazon RDS) HTTP endpoint.
 relationalDatabaseDataSourceConfig_relationalDatabaseSourceType :: Lens.Lens' RelationalDatabaseDataSourceConfig (Prelude.Maybe RelationalDatabaseSourceType)
 relationalDatabaseDataSourceConfig_relationalDatabaseSourceType = Lens.lens (\RelationalDatabaseDataSourceConfig' {relationalDatabaseSourceType} -> relationalDatabaseSourceType) (\s@RelationalDatabaseDataSourceConfig' {} a -> s {relationalDatabaseSourceType = a} :: RelationalDatabaseDataSourceConfig)
 

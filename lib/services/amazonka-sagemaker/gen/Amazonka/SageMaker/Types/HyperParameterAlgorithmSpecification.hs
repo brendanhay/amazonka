@@ -41,7 +41,7 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- algorithm. For information about Docker registry paths for built-in
     -- algorithms, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
-    -- Amazon SageMaker supports both @registry\/repository[:tag]@ and
+    -- SageMaker supports both @registry\/repository[:tag]@ and
     -- @registry\/repository[\@digest]@ image path formats. For more
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
@@ -69,7 +69,7 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
 -- algorithm. For information about Docker registry paths for built-in
 -- algorithms, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
+-- SageMaker supports both @registry\/repository[:tag]@ and
 -- @registry\/repository[\@digest]@ image path formats. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
@@ -105,7 +105,7 @@ hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParame
 -- algorithm. For information about Docker registry paths for built-in
 -- algorithms, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
+-- SageMaker supports both @registry\/repository[:tag]@ and
 -- @registry\/repository[\@digest]@ image path formats. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.

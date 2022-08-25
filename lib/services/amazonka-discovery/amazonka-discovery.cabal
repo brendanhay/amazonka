@@ -79,7 +79,9 @@ library
     Amazonka.Discovery.Types.ContinuousExportDescription
     Amazonka.Discovery.Types.ContinuousExportStatus
     Amazonka.Discovery.Types.CustomerAgentInfo
+    Amazonka.Discovery.Types.CustomerAgentlessCollectorInfo
     Amazonka.Discovery.Types.CustomerConnectorInfo
+    Amazonka.Discovery.Types.CustomerMeCollectorInfo
     Amazonka.Discovery.Types.DataSource
     Amazonka.Discovery.Types.ExportDataFormat
     Amazonka.Discovery.Types.ExportFilter

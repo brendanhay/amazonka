@@ -34,11 +34,15 @@ data ResponseResourceMetricKey = ResponseResourceMetricKey'
     --
     -- Valid values for @Metric@ are:
     --
-    -- -   @db.load.avg@ - a scaled representation of the number of active
+    -- -   @db.load.avg@ - A scaled representation of the number of active
     --     sessions for the database engine.
     --
-    -- -   @db.sampledload.avg@ - the raw number of active sessions for the
+    -- -   @db.sampledload.avg@ - The raw number of active sessions for the
     --     database engine.
+    --
+    -- -   The counter metrics listed in
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS Performance Insights operating system counters>
+    --     in the /Amazon Aurora User Guide/.
     --
     -- If the number of active sessions is less than an internal Performance
     -- Insights threshold, @db.load.avg@ and @db.sampledload.avg@ are the same
@@ -65,11 +69,15 @@ data ResponseResourceMetricKey = ResponseResourceMetricKey'
 --
 -- Valid values for @Metric@ are:
 --
--- -   @db.load.avg@ - a scaled representation of the number of active
+-- -   @db.load.avg@ - A scaled representation of the number of active
 --     sessions for the database engine.
 --
--- -   @db.sampledload.avg@ - the raw number of active sessions for the
+-- -   @db.sampledload.avg@ - The raw number of active sessions for the
 --     database engine.
+--
+-- -   The counter metrics listed in
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS Performance Insights operating system counters>
+--     in the /Amazon Aurora User Guide/.
 --
 -- If the number of active sessions is less than an internal Performance
 -- Insights threshold, @db.load.avg@ and @db.sampledload.avg@ are the same
@@ -97,11 +105,15 @@ responseResourceMetricKey_dimensions = Lens.lens (\ResponseResourceMetricKey' {d
 --
 -- Valid values for @Metric@ are:
 --
--- -   @db.load.avg@ - a scaled representation of the number of active
+-- -   @db.load.avg@ - A scaled representation of the number of active
 --     sessions for the database engine.
 --
--- -   @db.sampledload.avg@ - the raw number of active sessions for the
+-- -   @db.sampledload.avg@ - The raw number of active sessions for the
 --     database engine.
+--
+-- -   The counter metrics listed in
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS Performance Insights operating system counters>
+--     in the /Amazon Aurora User Guide/.
 --
 -- If the number of active sessions is less than an internal Performance
 -- Insights threshold, @db.load.avg@ and @db.sampledload.avg@ are the same

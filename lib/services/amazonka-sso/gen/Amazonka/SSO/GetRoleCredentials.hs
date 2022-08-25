@@ -53,12 +53,13 @@ import Amazonka.SSO.Types
 data GetRoleCredentials = GetRoleCredentials'
   { -- | The friendly name of the role that is assigned to the user.
     roleName :: Prelude.Text,
-    -- | The identifier for the AWS account that is assigned to the user.
+    -- | The identifier for the Amazon Web Services account that is assigned to
+    -- the user.
     accountId :: Prelude.Text,
     -- | The token issued by the @CreateToken@ API call. For more information,
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
-    -- in the /AWS SSO OIDC API Reference Guide/.
+    -- in the /Amazon Web Services SSO OIDC API Reference Guide/.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -73,12 +74,13 @@ data GetRoleCredentials = GetRoleCredentials'
 --
 -- 'roleName', 'getRoleCredentials_roleName' - The friendly name of the role that is assigned to the user.
 --
--- 'accountId', 'getRoleCredentials_accountId' - The identifier for the AWS account that is assigned to the user.
+-- 'accountId', 'getRoleCredentials_accountId' - The identifier for the Amazon Web Services account that is assigned to
+-- the user.
 --
 -- 'accessToken', 'getRoleCredentials_accessToken' - The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /AWS SSO OIDC API Reference Guide/.
+-- in the /Amazon Web Services SSO OIDC API Reference Guide/.
 newGetRoleCredentials ::
   -- | 'roleName'
   Prelude.Text ->
@@ -101,14 +103,15 @@ newGetRoleCredentials
 getRoleCredentials_roleName :: Lens.Lens' GetRoleCredentials Prelude.Text
 getRoleCredentials_roleName = Lens.lens (\GetRoleCredentials' {roleName} -> roleName) (\s@GetRoleCredentials' {} a -> s {roleName = a} :: GetRoleCredentials)
 
--- | The identifier for the AWS account that is assigned to the user.
+-- | The identifier for the Amazon Web Services account that is assigned to
+-- the user.
 getRoleCredentials_accountId :: Lens.Lens' GetRoleCredentials Prelude.Text
 getRoleCredentials_accountId = Lens.lens (\GetRoleCredentials' {accountId} -> accountId) (\s@GetRoleCredentials' {} a -> s {accountId = a} :: GetRoleCredentials)
 
 -- | The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /AWS SSO OIDC API Reference Guide/.
+-- in the /Amazon Web Services SSO OIDC API Reference Guide/.
 getRoleCredentials_accessToken :: Lens.Lens' GetRoleCredentials Prelude.Text
 getRoleCredentials_accessToken = Lens.lens (\GetRoleCredentials' {accessToken} -> accessToken) (\s@GetRoleCredentials' {} a -> s {accessToken = a} :: GetRoleCredentials) Prelude.. Core._Sensitive
 

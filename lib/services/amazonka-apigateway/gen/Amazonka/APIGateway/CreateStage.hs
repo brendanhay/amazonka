@@ -96,14 +96,13 @@ data CreateStage = CreateStage'
     -- Variable names can have alphanumeric and underscore characters, and the
     -- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
     variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name for the Stage resource. Stage names can only contain
+    -- | The name for the Stage resource. Stage names can only contain
     -- alphanumeric characters, hyphens, and underscores. Maximum length is 128
     -- characters.
     stageName :: Prelude.Text,
-    -- | [Required] The identifier of the Deployment resource for the Stage
-    -- resource.
+    -- | The identifier of the Deployment resource for the Stage resource.
     deploymentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -136,14 +135,13 @@ data CreateStage = CreateStage'
 -- Variable names can have alphanumeric and underscore characters, and the
 -- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
 --
--- 'restApiId', 'createStage_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createStage_restApiId' - The string identifier of the associated RestApi.
 --
--- 'stageName', 'createStage_stageName' - [Required] The name for the Stage resource. Stage names can only contain
+-- 'stageName', 'createStage_stageName' - The name for the Stage resource. Stage names can only contain
 -- alphanumeric characters, hyphens, and underscores. Maximum length is 128
 -- characters.
 --
--- 'deploymentId', 'createStage_deploymentId' - [Required] The identifier of the Deployment resource for the Stage
--- resource.
+-- 'deploymentId', 'createStage_deploymentId' - The identifier of the Deployment resource for the Stage resource.
 newCreateStage ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -203,18 +201,17 @@ createStage_documentationVersion = Lens.lens (\CreateStage' {documentationVersio
 createStage_variables :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createStage_variables = Lens.lens (\CreateStage' {variables} -> variables) (\s@CreateStage' {} a -> s {variables = a} :: CreateStage) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createStage_restApiId :: Lens.Lens' CreateStage Prelude.Text
 createStage_restApiId = Lens.lens (\CreateStage' {restApiId} -> restApiId) (\s@CreateStage' {} a -> s {restApiId = a} :: CreateStage)
 
--- | [Required] The name for the Stage resource. Stage names can only contain
+-- | The name for the Stage resource. Stage names can only contain
 -- alphanumeric characters, hyphens, and underscores. Maximum length is 128
 -- characters.
 createStage_stageName :: Lens.Lens' CreateStage Prelude.Text
 createStage_stageName = Lens.lens (\CreateStage' {stageName} -> stageName) (\s@CreateStage' {} a -> s {stageName = a} :: CreateStage)
 
--- | [Required] The identifier of the Deployment resource for the Stage
--- resource.
+-- | The identifier of the Deployment resource for the Stage resource.
 createStage_deploymentId :: Lens.Lens' CreateStage Prelude.Text
 createStage_deploymentId = Lens.lens (\CreateStage' {deploymentId} -> deploymentId) (\s@CreateStage' {} a -> s {deploymentId = a} :: CreateStage)
 

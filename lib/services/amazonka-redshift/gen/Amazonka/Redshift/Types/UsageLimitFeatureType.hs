@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.UsageLimitFeatureType
   ( UsageLimitFeatureType
       ( ..,
         UsageLimitFeatureType_Concurrency_scaling,
+        UsageLimitFeatureType_Cross_region_datasharing,
         UsageLimitFeatureType_Spectrum
       ),
   )
@@ -61,11 +62,15 @@ newtype UsageLimitFeatureType = UsageLimitFeatureType'
 pattern UsageLimitFeatureType_Concurrency_scaling :: UsageLimitFeatureType
 pattern UsageLimitFeatureType_Concurrency_scaling = UsageLimitFeatureType' "concurrency-scaling"
 
+pattern UsageLimitFeatureType_Cross_region_datasharing :: UsageLimitFeatureType
+pattern UsageLimitFeatureType_Cross_region_datasharing = UsageLimitFeatureType' "cross-region-datasharing"
+
 pattern UsageLimitFeatureType_Spectrum :: UsageLimitFeatureType
 pattern UsageLimitFeatureType_Spectrum = UsageLimitFeatureType' "spectrum"
 
 {-# COMPLETE
   UsageLimitFeatureType_Concurrency_scaling,
+  UsageLimitFeatureType_Cross_region_datasharing,
   UsageLimitFeatureType_Spectrum,
   UsageLimitFeatureType'
   #-}

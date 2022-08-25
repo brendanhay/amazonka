@@ -54,6 +54,7 @@ module Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
     newGetChannelMessageStatus,
 
     -- * Request Lenses
+    getChannelMessageStatus_subChannelId,
     getChannelMessageStatus_channelArn,
     getChannelMessageStatus_messageId,
     getChannelMessageStatus_chimeBearer,
@@ -77,7 +78,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetChannelMessageStatus' smart constructor.
 data GetChannelMessageStatus = GetChannelMessageStatus'
-  { -- | The ARN of the channel
+  { -- | The ID of the SubChannel in the request.
+    --
+    -- Only required when getting message status in a SubChannel that the user
+    -- belongs to.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel
     channelArn :: Prelude.Text,
     -- | The ID of the message.
     messageId :: Prelude.Text,
@@ -93,6 +99,11 @@ data GetChannelMessageStatus = GetChannelMessageStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'subChannelId', 'getChannelMessageStatus_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only required when getting message status in a SubChannel that the user
+-- belongs to.
 --
 -- 'channelArn', 'getChannelMessageStatus_channelArn' - The ARN of the channel
 --
@@ -112,10 +123,19 @@ newGetChannelMessageStatus
   pMessageId_
   pChimeBearer_ =
     GetChannelMessageStatus'
-      { channelArn = pChannelArn_,
+      { subChannelId =
+          Prelude.Nothing,
+        channelArn = pChannelArn_,
         messageId = pMessageId_,
         chimeBearer = pChimeBearer_
       }
+
+-- | The ID of the SubChannel in the request.
+--
+-- Only required when getting message status in a SubChannel that the user
+-- belongs to.
+getChannelMessageStatus_subChannelId :: Lens.Lens' GetChannelMessageStatus (Prelude.Maybe Prelude.Text)
+getChannelMessageStatus_subChannelId = Lens.lens (\GetChannelMessageStatus' {subChannelId} -> subChannelId) (\s@GetChannelMessageStatus' {} a -> s {subChannelId = a} :: GetChannelMessageStatus)
 
 -- | The ARN of the channel
 getChannelMessageStatus_channelArn :: Lens.Lens' GetChannelMessageStatus Prelude.Text
@@ -144,13 +164,15 @@ instance Core.AWSRequest GetChannelMessageStatus where
 
 instance Prelude.Hashable GetChannelMessageStatus where
   hashWithSalt _salt GetChannelMessageStatus' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData GetChannelMessageStatus where
   rnf GetChannelMessageStatus' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf chimeBearer
 
@@ -169,9 +191,11 @@ instance Core.ToPath GetChannelMessageStatus where
       ]
 
 instance Core.ToQuery GetChannelMessageStatus where
-  toQuery =
-    Prelude.const
-      (Prelude.mconcat ["scope=message-status"])
+  toQuery GetChannelMessageStatus' {..} =
+    Prelude.mconcat
+      [ "sub-channel-id" Core.=: subChannelId,
+        "scope=message-status"
+      ]
 
 -- | /See:/ 'newGetChannelMessageStatusResponse' smart constructor.
 data GetChannelMessageStatusResponse = GetChannelMessageStatusResponse'

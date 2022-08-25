@@ -41,6 +41,7 @@ module Amazonka.Glue.CreateCrawler
     createCrawler_description,
     createCrawler_lineageConfiguration,
     createCrawler_crawlerSecurityConfiguration,
+    createCrawler_lakeFormationConfiguration,
     createCrawler_name,
     createCrawler_role,
     createCrawler_targets,
@@ -100,6 +101,8 @@ data CreateCrawler = CreateCrawler'
     -- | The name of the @SecurityConfiguration@ structure to be used by this
     -- crawler.
     crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | Specifies Lake Formation configuration settings for the crawler.
+    lakeFormationConfiguration :: Prelude.Maybe LakeFormationConfiguration,
     -- | Name of the new crawler.
     name :: Prelude.Text,
     -- | The IAM role or Amazon Resource Name (ARN) of an IAM role used by the
@@ -155,6 +158,8 @@ data CreateCrawler = CreateCrawler'
 -- 'crawlerSecurityConfiguration', 'createCrawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
 -- crawler.
 --
+-- 'lakeFormationConfiguration', 'createCrawler_lakeFormationConfiguration' - Specifies Lake Formation configuration settings for the crawler.
+--
 -- 'name', 'createCrawler_name' - Name of the new crawler.
 --
 -- 'role'', 'createCrawler_role' - The IAM role or Amazon Resource Name (ARN) of an IAM role used by the
@@ -182,6 +187,7 @@ newCreateCrawler pName_ pRole_ pTargets_ =
       description = Prelude.Nothing,
       lineageConfiguration = Prelude.Nothing,
       crawlerSecurityConfiguration = Prelude.Nothing,
+      lakeFormationConfiguration = Prelude.Nothing,
       name = pName_,
       role' = pRole_,
       targets = pTargets_
@@ -246,6 +252,10 @@ createCrawler_lineageConfiguration = Lens.lens (\CreateCrawler' {lineageConfigur
 createCrawler_crawlerSecurityConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
 createCrawler_crawlerSecurityConfiguration = Lens.lens (\CreateCrawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@CreateCrawler' {} a -> s {crawlerSecurityConfiguration = a} :: CreateCrawler)
 
+-- | Specifies Lake Formation configuration settings for the crawler.
+createCrawler_lakeFormationConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe LakeFormationConfiguration)
+createCrawler_lakeFormationConfiguration = Lens.lens (\CreateCrawler' {lakeFormationConfiguration} -> lakeFormationConfiguration) (\s@CreateCrawler' {} a -> s {lakeFormationConfiguration = a} :: CreateCrawler)
+
 -- | Name of the new crawler.
 createCrawler_name :: Lens.Lens' CreateCrawler Prelude.Text
 createCrawler_name = Lens.lens (\CreateCrawler' {name} -> name) (\s@CreateCrawler' {} a -> s {name = a} :: CreateCrawler)
@@ -284,6 +294,7 @@ instance Prelude.Hashable CreateCrawler where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lineageConfiguration
       `Prelude.hashWithSalt` crawlerSecurityConfiguration
+      `Prelude.hashWithSalt` lakeFormationConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` targets
@@ -301,6 +312,7 @@ instance Prelude.NFData CreateCrawler where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lineageConfiguration
       `Prelude.seq` Prelude.rnf crawlerSecurityConfiguration
+      `Prelude.seq` Prelude.rnf lakeFormationConfiguration
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf targets
@@ -336,6 +348,8 @@ instance Core.ToJSON CreateCrawler where
               Prelude.<$> lineageConfiguration,
             ("CrawlerSecurityConfiguration" Core..=)
               Prelude.<$> crawlerSecurityConfiguration,
+            ("LakeFormationConfiguration" Core..=)
+              Prelude.<$> lakeFormationConfiguration,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Role" Core..= role'),
             Prelude.Just ("Targets" Core..= targets)

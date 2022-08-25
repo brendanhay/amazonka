@@ -11,15 +11,15 @@
 --
 -- Derived from API version @2020-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Well-Architected Tool
+-- Well-Architected Tool
 --
--- This is the /AWS Well-Architected Tool API Reference/. The AWS
--- Well-Architected Tool API provides programmatic access to the
--- <http://aws.amazon.com/well-architected-tool AWS Well-Architected Tool>
--- in the
--- <https://console.aws.amazon.com/wellarchitected AWS Management Console>.
--- For information about the AWS Well-Architected Tool, see the
--- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html AWS Well-Architected Tool User Guide>.
+-- This is the /Well-Architected Tool API Reference/. The WA Tool API
+-- provides programmatic access to the
+-- <http://aws.amazon.com/well-architected-tool Well-Architected Tool> in
+-- the
+-- <https://console.aws.amazon.com/wellarchitected Amazon Web Services Management Console>.
+-- For information about the Well-Architected Tool, see the
+-- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html Well-Architected Tool User Guide>.
 module Amazonka.WellArchitected
   ( -- * Service Configuration
     defaultService,
@@ -60,6 +60,18 @@ module Amazonka.WellArchitected
     AssociateLensesResponse (AssociateLensesResponse'),
     newAssociateLensesResponse,
 
+    -- ** CreateLensShare
+    CreateLensShare (CreateLensShare'),
+    newCreateLensShare,
+    CreateLensShareResponse (CreateLensShareResponse'),
+    newCreateLensShareResponse,
+
+    -- ** CreateLensVersion
+    CreateLensVersion (CreateLensVersion'),
+    newCreateLensVersion,
+    CreateLensVersionResponse (CreateLensVersionResponse'),
+    newCreateLensVersionResponse,
+
     -- ** CreateMilestone
     CreateMilestone (CreateMilestone'),
     newCreateMilestone,
@@ -77,6 +89,18 @@ module Amazonka.WellArchitected
     newCreateWorkloadShare,
     CreateWorkloadShareResponse (CreateWorkloadShareResponse'),
     newCreateWorkloadShareResponse,
+
+    -- ** DeleteLens
+    DeleteLens (DeleteLens'),
+    newDeleteLens,
+    DeleteLensResponse (DeleteLensResponse'),
+    newDeleteLensResponse,
+
+    -- ** DeleteLensShare
+    DeleteLensShare (DeleteLensShare'),
+    newDeleteLensShare,
+    DeleteLensShareResponse (DeleteLensShareResponse'),
+    newDeleteLensShareResponse,
 
     -- ** DeleteWorkload
     DeleteWorkload (DeleteWorkload'),
@@ -96,11 +120,23 @@ module Amazonka.WellArchitected
     DisassociateLensesResponse (DisassociateLensesResponse'),
     newDisassociateLensesResponse,
 
+    -- ** ExportLens
+    ExportLens (ExportLens'),
+    newExportLens,
+    ExportLensResponse (ExportLensResponse'),
+    newExportLensResponse,
+
     -- ** GetAnswer
     GetAnswer (GetAnswer'),
     newGetAnswer,
     GetAnswerResponse (GetAnswerResponse'),
     newGetAnswerResponse,
+
+    -- ** GetLens
+    GetLens (GetLens'),
+    newGetLens,
+    GetLensResponse (GetLensResponse'),
+    newGetLensResponse,
 
     -- ** GetLensReview
     GetLensReview (GetLensReview'),
@@ -132,6 +168,12 @@ module Amazonka.WellArchitected
     GetWorkloadResponse (GetWorkloadResponse'),
     newGetWorkloadResponse,
 
+    -- ** ImportLens
+    ImportLens (ImportLens'),
+    newImportLens,
+    ImportLensResponse (ImportLensResponse'),
+    newImportLensResponse,
+
     -- ** ListAnswers
     ListAnswers (ListAnswers'),
     newListAnswers,
@@ -149,6 +191,12 @@ module Amazonka.WellArchitected
     newListLensReviews,
     ListLensReviewsResponse (ListLensReviewsResponse'),
     newListLensReviewsResponse,
+
+    -- ** ListLensShares
+    ListLensShares (ListLensShares'),
+    newListLensShares,
+    ListLensSharesResponse (ListLensSharesResponse'),
+    newListLensSharesResponse,
 
     -- ** ListLenses
     ListLenses (ListLenses'),
@@ -210,6 +258,12 @@ module Amazonka.WellArchitected
     UpdateAnswerResponse (UpdateAnswerResponse'),
     newUpdateAnswerResponse,
 
+    -- ** UpdateGlobalSettings
+    UpdateGlobalSettings (UpdateGlobalSettings'),
+    newUpdateGlobalSettings,
+    UpdateGlobalSettingsResponse (UpdateGlobalSettingsResponse'),
+    newUpdateGlobalSettingsResponse,
+
     -- ** UpdateLensReview
     UpdateLensReview (UpdateLensReview'),
     newUpdateLensReview,
@@ -242,6 +296,9 @@ module Amazonka.WellArchitected
 
     -- * Types
 
+    -- ** AdditionalResourceType
+    AdditionalResourceType (..),
+
     -- ** AnswerReason
     AnswerReason (..),
 
@@ -254,11 +311,23 @@ module Amazonka.WellArchitected
     -- ** DifferenceStatus
     DifferenceStatus (..),
 
+    -- ** ImportLensStatus
+    ImportLensStatus (..),
+
     -- ** LensStatus
     LensStatus (..),
 
+    -- ** LensStatusType
+    LensStatusType (..),
+
+    -- ** LensType
+    LensType (..),
+
     -- ** NotificationType
     NotificationType (..),
+
+    -- ** OrganizationSharingStatus
+    OrganizationSharingStatus (..),
 
     -- ** PermissionType
     PermissionType (..),
@@ -269,6 +338,9 @@ module Amazonka.WellArchitected
     -- ** ShareInvitationAction
     ShareInvitationAction (..),
 
+    -- ** ShareResourceType
+    ShareResourceType (..),
+
     -- ** ShareStatus
     ShareStatus (..),
 
@@ -277,6 +349,10 @@ module Amazonka.WellArchitected
 
     -- ** WorkloadImprovementStatus
     WorkloadImprovementStatus (..),
+
+    -- ** AdditionalResources
+    AdditionalResources (AdditionalResources'),
+    newAdditionalResources,
 
     -- ** Answer
     Answer (Answer'),
@@ -298,6 +374,14 @@ module Amazonka.WellArchitected
     ChoiceAnswerSummary (ChoiceAnswerSummary'),
     newChoiceAnswerSummary,
 
+    -- ** ChoiceContent
+    ChoiceContent (ChoiceContent'),
+    newChoiceContent,
+
+    -- ** ChoiceImprovementPlan
+    ChoiceImprovementPlan (ChoiceImprovementPlan'),
+    newChoiceImprovementPlan,
+
     -- ** ChoiceUpdate
     ChoiceUpdate (ChoiceUpdate'),
     newChoiceUpdate,
@@ -305,6 +389,10 @@ module Amazonka.WellArchitected
     -- ** ImprovementSummary
     ImprovementSummary (ImprovementSummary'),
     newImprovementSummary,
+
+    -- ** Lens
+    Lens (Lens'),
+    newLens,
 
     -- ** LensReview
     LensReview (LensReview'),
@@ -317,6 +405,10 @@ module Amazonka.WellArchitected
     -- ** LensReviewSummary
     LensReviewSummary (LensReviewSummary'),
     newLensReviewSummary,
+
+    -- ** LensShareSummary
+    LensShareSummary (LensShareSummary'),
+    newLensShareSummary,
 
     -- ** LensSummary
     LensSummary (LensSummary'),
@@ -381,22 +473,30 @@ module Amazonka.WellArchitected
 where
 
 import Amazonka.WellArchitected.AssociateLenses
+import Amazonka.WellArchitected.CreateLensShare
+import Amazonka.WellArchitected.CreateLensVersion
 import Amazonka.WellArchitected.CreateMilestone
 import Amazonka.WellArchitected.CreateWorkload
 import Amazonka.WellArchitected.CreateWorkloadShare
+import Amazonka.WellArchitected.DeleteLens
+import Amazonka.WellArchitected.DeleteLensShare
 import Amazonka.WellArchitected.DeleteWorkload
 import Amazonka.WellArchitected.DeleteWorkloadShare
 import Amazonka.WellArchitected.DisassociateLenses
+import Amazonka.WellArchitected.ExportLens
 import Amazonka.WellArchitected.GetAnswer
+import Amazonka.WellArchitected.GetLens
 import Amazonka.WellArchitected.GetLensReview
 import Amazonka.WellArchitected.GetLensReviewReport
 import Amazonka.WellArchitected.GetLensVersionDifference
 import Amazonka.WellArchitected.GetMilestone
 import Amazonka.WellArchitected.GetWorkload
+import Amazonka.WellArchitected.ImportLens
 import Amazonka.WellArchitected.Lens
 import Amazonka.WellArchitected.ListAnswers
 import Amazonka.WellArchitected.ListLensReviewImprovements
 import Amazonka.WellArchitected.ListLensReviews
+import Amazonka.WellArchitected.ListLensShares
 import Amazonka.WellArchitected.ListLenses
 import Amazonka.WellArchitected.ListMilestones
 import Amazonka.WellArchitected.ListNotifications
@@ -408,6 +508,7 @@ import Amazonka.WellArchitected.TagResource
 import Amazonka.WellArchitected.Types
 import Amazonka.WellArchitected.UntagResource
 import Amazonka.WellArchitected.UpdateAnswer
+import Amazonka.WellArchitected.UpdateGlobalSettings
 import Amazonka.WellArchitected.UpdateLensReview
 import Amazonka.WellArchitected.UpdateShareInvitation
 import Amazonka.WellArchitected.UpdateWorkload

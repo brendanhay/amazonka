@@ -57,12 +57,24 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListSnapshotBlocks' smart constructor.
 data ListSnapshotBlocks = ListSnapshotBlocks'
   { -- | The token to request the next page of results.
+    --
+    -- If you specify __NextToken__, then __StartingBlockIndex__ is ignored.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The block index from which the list should start. The list in the
     -- response will start from this block index or the next valid block index
     -- in the snapshot.
+    --
+    -- If you specify __NextToken__, then __StartingBlockIndex__ is ignored.
     startingBlockIndex :: Prelude.Maybe Prelude.Natural,
-    -- | The number of results to return.
+    -- | The maximum number of blocks to be returned by the request.
+    --
+    -- Even if additional blocks can be retrieved from the snapshot, the
+    -- request can return less blocks than __MaxResults__ or an empty array of
+    -- blocks.
+    --
+    -- To retrieve the next set of blocks from the snapshot, make another
+    -- request with the returned __NextToken__ value. The value of
+    -- __NextToken__ is @null@ when there are no more blocks to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the snapshot from which to get block indexes and block tokens.
     snapshotId :: Prelude.Text
@@ -79,11 +91,23 @@ data ListSnapshotBlocks = ListSnapshotBlocks'
 --
 -- 'nextToken', 'listSnapshotBlocks_nextToken' - The token to request the next page of results.
 --
+-- If you specify __NextToken__, then __StartingBlockIndex__ is ignored.
+--
 -- 'startingBlockIndex', 'listSnapshotBlocks_startingBlockIndex' - The block index from which the list should start. The list in the
 -- response will start from this block index or the next valid block index
 -- in the snapshot.
 --
--- 'maxResults', 'listSnapshotBlocks_maxResults' - The number of results to return.
+-- If you specify __NextToken__, then __StartingBlockIndex__ is ignored.
+--
+-- 'maxResults', 'listSnapshotBlocks_maxResults' - The maximum number of blocks to be returned by the request.
+--
+-- Even if additional blocks can be retrieved from the snapshot, the
+-- request can return less blocks than __MaxResults__ or an empty array of
+-- blocks.
+--
+-- To retrieve the next set of blocks from the snapshot, make another
+-- request with the returned __NextToken__ value. The value of
+-- __NextToken__ is @null@ when there are no more blocks to return.
 --
 -- 'snapshotId', 'listSnapshotBlocks_snapshotId' - The ID of the snapshot from which to get block indexes and block tokens.
 newListSnapshotBlocks ::
@@ -99,16 +123,28 @@ newListSnapshotBlocks pSnapshotId_ =
     }
 
 -- | The token to request the next page of results.
+--
+-- If you specify __NextToken__, then __StartingBlockIndex__ is ignored.
 listSnapshotBlocks_nextToken :: Lens.Lens' ListSnapshotBlocks (Prelude.Maybe Prelude.Text)
 listSnapshotBlocks_nextToken = Lens.lens (\ListSnapshotBlocks' {nextToken} -> nextToken) (\s@ListSnapshotBlocks' {} a -> s {nextToken = a} :: ListSnapshotBlocks)
 
 -- | The block index from which the list should start. The list in the
 -- response will start from this block index or the next valid block index
 -- in the snapshot.
+--
+-- If you specify __NextToken__, then __StartingBlockIndex__ is ignored.
 listSnapshotBlocks_startingBlockIndex :: Lens.Lens' ListSnapshotBlocks (Prelude.Maybe Prelude.Natural)
 listSnapshotBlocks_startingBlockIndex = Lens.lens (\ListSnapshotBlocks' {startingBlockIndex} -> startingBlockIndex) (\s@ListSnapshotBlocks' {} a -> s {startingBlockIndex = a} :: ListSnapshotBlocks)
 
--- | The number of results to return.
+-- | The maximum number of blocks to be returned by the request.
+--
+-- Even if additional blocks can be retrieved from the snapshot, the
+-- request can return less blocks than __MaxResults__ or an empty array of
+-- blocks.
+--
+-- To retrieve the next set of blocks from the snapshot, make another
+-- request with the returned __NextToken__ value. The value of
+-- __NextToken__ is @null@ when there are no more blocks to return.
 listSnapshotBlocks_maxResults :: Lens.Lens' ListSnapshotBlocks (Prelude.Maybe Prelude.Natural)
 listSnapshotBlocks_maxResults = Lens.lens (\ListSnapshotBlocks' {maxResults} -> maxResults) (\s@ListSnapshotBlocks' {} a -> s {maxResults = a} :: ListSnapshotBlocks)
 

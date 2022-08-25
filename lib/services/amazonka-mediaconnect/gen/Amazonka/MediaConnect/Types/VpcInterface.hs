@@ -40,7 +40,7 @@ data VpcInterface = VpcInterface'
     -- | Role Arn MediaConnect can assumes to create ENIs in customer\'s account
     roleArn :: Prelude.Text,
     -- | Immutable and has to be a unique against other VpcInterfaces in this
-    -- Flow
+    -- Flow.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data VpcInterface = VpcInterface'
 -- 'roleArn', 'vpcInterface_roleArn' - Role Arn MediaConnect can assumes to create ENIs in customer\'s account
 --
 -- 'name', 'vpcInterface_name' - Immutable and has to be a unique against other VpcInterfaces in this
--- Flow
+-- Flow.
 newVpcInterface ::
   -- | 'networkInterfaceType'
   NetworkInterfaceType ->
@@ -113,7 +113,7 @@ vpcInterface_roleArn :: Lens.Lens' VpcInterface Prelude.Text
 vpcInterface_roleArn = Lens.lens (\VpcInterface' {roleArn} -> roleArn) (\s@VpcInterface' {} a -> s {roleArn = a} :: VpcInterface)
 
 -- | Immutable and has to be a unique against other VpcInterfaces in this
--- Flow
+-- Flow.
 vpcInterface_name :: Lens.Lens' VpcInterface Prelude.Text
 vpcInterface_name = Lens.lens (\VpcInterface' {name} -> name) (\s@VpcInterface' {} a -> s {name = a} :: VpcInterface)
 

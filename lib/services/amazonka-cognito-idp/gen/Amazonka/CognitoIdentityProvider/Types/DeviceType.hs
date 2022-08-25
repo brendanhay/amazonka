@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data DeviceType = DeviceType'
   { -- | The device key.
     deviceKey :: Prelude.Maybe Prelude.Text,
-    -- | The date in which the device was last authenticated.
+    -- | The date when the device was last authenticated.
     deviceLastAuthenticatedDate :: Prelude.Maybe Core.POSIX,
     -- | The device attributes.
     deviceAttributes :: Prelude.Maybe [AttributeType],
@@ -51,7 +51,7 @@ data DeviceType = DeviceType'
 --
 -- 'deviceKey', 'deviceType_deviceKey' - The device key.
 --
--- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date in which the device was last authenticated.
+-- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date when the device was last authenticated.
 --
 -- 'deviceAttributes', 'deviceType_deviceAttributes' - The device attributes.
 --
@@ -73,7 +73,7 @@ newDeviceType =
 deviceType_deviceKey :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.Text)
 deviceType_deviceKey = Lens.lens (\DeviceType' {deviceKey} -> deviceKey) (\s@DeviceType' {} a -> s {deviceKey = a} :: DeviceType)
 
--- | The date in which the device was last authenticated.
+-- | The date when the device was last authenticated.
 deviceType_deviceLastAuthenticatedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
 deviceType_deviceLastAuthenticatedDate = Lens.lens (\DeviceType' {deviceLastAuthenticatedDate} -> deviceLastAuthenticatedDate) (\s@DeviceType' {} a -> s {deviceLastAuthenticatedDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
 

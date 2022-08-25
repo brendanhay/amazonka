@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacityForecast' smart constructor.
 data CapacityForecast = CapacityForecast'
-  { -- | The time stamps for the data points, in UTC format.
+  { -- | The timestamps for the data points, in UTC format.
     timestamps :: [Core.ISO8601],
     -- | The values of the data points.
     values :: [Prelude.Double]
@@ -44,7 +44,7 @@ data CapacityForecast = CapacityForecast'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamps', 'capacityForecast_timestamps' - The time stamps for the data points, in UTC format.
+-- 'timestamps', 'capacityForecast_timestamps' - The timestamps for the data points, in UTC format.
 --
 -- 'values', 'capacityForecast_values' - The values of the data points.
 newCapacityForecast ::
@@ -55,7 +55,7 @@ newCapacityForecast =
       values = Prelude.mempty
     }
 
--- | The time stamps for the data points, in UTC format.
+-- | The timestamps for the data points, in UTC format.
 capacityForecast_timestamps :: Lens.Lens' CapacityForecast [Prelude.UTCTime]
 capacityForecast_timestamps = Lens.lens (\CapacityForecast' {timestamps} -> timestamps) (\s@CapacityForecast' {} a -> s {timestamps = a} :: CapacityForecast) Prelude.. Lens.coerced
 

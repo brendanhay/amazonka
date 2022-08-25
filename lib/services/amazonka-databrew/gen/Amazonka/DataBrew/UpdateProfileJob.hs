@@ -35,6 +35,7 @@ module Amazonka.DataBrew.UpdateProfileJob
     updateProfileJob_maxRetries,
     updateProfileJob_maxCapacity,
     updateProfileJob_encryptionMode,
+    updateProfileJob_validationConfigurations,
     updateProfileJob_name,
     updateProfileJob_outputLocation,
     updateProfileJob_roleArn,
@@ -88,6 +89,8 @@ data UpdateProfileJob = UpdateProfileJob'
     --
     -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
     encryptionMode :: Prelude.Maybe EncryptionMode,
+    -- | List of validation configurations that are applied to the profile job.
+    validationConfigurations :: Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration),
     -- | The name of the job to be updated.
     name :: Prelude.Text,
     outputLocation :: S3Location,
@@ -135,6 +138,8 @@ data UpdateProfileJob = UpdateProfileJob'
 --
 -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
 --
+-- 'validationConfigurations', 'updateProfileJob_validationConfigurations' - List of validation configurations that are applied to the profile job.
+--
 -- 'name', 'updateProfileJob_name' - The name of the job to be updated.
 --
 -- 'outputLocation', 'updateProfileJob_outputLocation' - Undocumented member.
@@ -160,6 +165,7 @@ newUpdateProfileJob pName_ pOutputLocation_ pRoleArn_ =
       maxRetries = Prelude.Nothing,
       maxCapacity = Prelude.Nothing,
       encryptionMode = Prelude.Nothing,
+      validationConfigurations = Prelude.Nothing,
       name = pName_,
       outputLocation = pOutputLocation_,
       roleArn = pRoleArn_
@@ -211,6 +217,10 @@ updateProfileJob_maxCapacity = Lens.lens (\UpdateProfileJob' {maxCapacity} -> ma
 updateProfileJob_encryptionMode :: Lens.Lens' UpdateProfileJob (Prelude.Maybe EncryptionMode)
 updateProfileJob_encryptionMode = Lens.lens (\UpdateProfileJob' {encryptionMode} -> encryptionMode) (\s@UpdateProfileJob' {} a -> s {encryptionMode = a} :: UpdateProfileJob)
 
+-- | List of validation configurations that are applied to the profile job.
+updateProfileJob_validationConfigurations :: Lens.Lens' UpdateProfileJob (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
+updateProfileJob_validationConfigurations = Lens.lens (\UpdateProfileJob' {validationConfigurations} -> validationConfigurations) (\s@UpdateProfileJob' {} a -> s {validationConfigurations = a} :: UpdateProfileJob) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the job to be updated.
 updateProfileJob_name :: Lens.Lens' UpdateProfileJob Prelude.Text
 updateProfileJob_name = Lens.lens (\UpdateProfileJob' {name} -> name) (\s@UpdateProfileJob' {} a -> s {name = a} :: UpdateProfileJob)
@@ -247,6 +257,7 @@ instance Prelude.Hashable UpdateProfileJob where
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` validationConfigurations
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` roleArn
@@ -261,6 +272,7 @@ instance Prelude.NFData UpdateProfileJob where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf validationConfigurations
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf roleArn
@@ -291,6 +303,8 @@ instance Core.ToJSON UpdateProfileJob where
             ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
             ("EncryptionMode" Core..=)
               Prelude.<$> encryptionMode,
+            ("ValidationConfigurations" Core..=)
+              Prelude.<$> validationConfigurations,
             Prelude.Just
               ("OutputLocation" Core..= outputLocation),
             Prelude.Just ("RoleArn" Core..= roleArn)

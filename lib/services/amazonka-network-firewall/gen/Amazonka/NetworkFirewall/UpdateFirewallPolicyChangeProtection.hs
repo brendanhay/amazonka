@@ -19,6 +19,11 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
+-- Modifies the flag, @ChangeProtection@, which indicates whether it is
+-- possible to change the firewall. If the flag is set to @TRUE@, the
+-- firewall is protected from changes. This setting helps protect against
+-- accidentally changing a firewall that\'s in use.
 module Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
   ( -- * Creating a Request
     UpdateFirewallPolicyChangeProtection (..),

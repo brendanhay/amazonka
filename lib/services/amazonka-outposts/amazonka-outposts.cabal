@@ -44,28 +44,72 @@ library
 
   exposed-modules:
     Amazonka.Outposts
+    Amazonka.Outposts.CancelOrder
     Amazonka.Outposts.CreateOrder
     Amazonka.Outposts.CreateOutpost
+    Amazonka.Outposts.CreateSite
     Amazonka.Outposts.DeleteOutpost
     Amazonka.Outposts.DeleteSite
+    Amazonka.Outposts.GetCatalogItem
+    Amazonka.Outposts.GetConnection
+    Amazonka.Outposts.GetOrder
     Amazonka.Outposts.GetOutpost
     Amazonka.Outposts.GetOutpostInstanceTypes
+    Amazonka.Outposts.GetSite
+    Amazonka.Outposts.GetSiteAddress
     Amazonka.Outposts.Lens
+    Amazonka.Outposts.ListAssets
+    Amazonka.Outposts.ListCatalogItems
+    Amazonka.Outposts.ListOrders
     Amazonka.Outposts.ListOutposts
     Amazonka.Outposts.ListSites
     Amazonka.Outposts.ListTagsForResource
+    Amazonka.Outposts.StartConnection
     Amazonka.Outposts.TagResource
     Amazonka.Outposts.Types
+    Amazonka.Outposts.Types.Address
+    Amazonka.Outposts.Types.AddressType
+    Amazonka.Outposts.Types.AssetInfo
+    Amazonka.Outposts.Types.AssetLocation
+    Amazonka.Outposts.Types.AssetType
+    Amazonka.Outposts.Types.CatalogItem
+    Amazonka.Outposts.Types.CatalogItemClass
+    Amazonka.Outposts.Types.CatalogItemStatus
+    Amazonka.Outposts.Types.ComputeAttributes
+    Amazonka.Outposts.Types.ConnectionDetails
+    Amazonka.Outposts.Types.EC2Capacity
+    Amazonka.Outposts.Types.FiberOpticCableType
     Amazonka.Outposts.Types.InstanceTypeItem
     Amazonka.Outposts.Types.LineItem
+    Amazonka.Outposts.Types.LineItemAssetInformation
     Amazonka.Outposts.Types.LineItemRequest
+    Amazonka.Outposts.Types.LineItemStatus
+    Amazonka.Outposts.Types.MaximumSupportedWeightLbs
+    Amazonka.Outposts.Types.OpticalStandard
     Amazonka.Outposts.Types.Order
     Amazonka.Outposts.Types.OrderStatus
+    Amazonka.Outposts.Types.OrderSummary
+    Amazonka.Outposts.Types.OrderType
     Amazonka.Outposts.Types.Outpost
     Amazonka.Outposts.Types.PaymentOption
     Amazonka.Outposts.Types.PaymentTerm
+    Amazonka.Outposts.Types.PowerConnector
+    Amazonka.Outposts.Types.PowerDrawKva
+    Amazonka.Outposts.Types.PowerFeedDrop
+    Amazonka.Outposts.Types.PowerPhase
+    Amazonka.Outposts.Types.RackPhysicalProperties
+    Amazonka.Outposts.Types.ShipmentCarrier
+    Amazonka.Outposts.Types.ShipmentInformation
     Amazonka.Outposts.Types.Site
+    Amazonka.Outposts.Types.SupportedHardwareType
+    Amazonka.Outposts.Types.SupportedStorageEnum
+    Amazonka.Outposts.Types.UplinkCount
+    Amazonka.Outposts.Types.UplinkGbps
     Amazonka.Outposts.UntagResource
+    Amazonka.Outposts.UpdateOutpost
+    Amazonka.Outposts.UpdateSite
+    Amazonka.Outposts.UpdateSiteAddress
+    Amazonka.Outposts.UpdateSiteRackPhysicalProperties
     Amazonka.Outposts.Waiters
 
   build-depends:

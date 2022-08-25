@@ -111,6 +111,13 @@ module Amazonka.CloudFront.Lens
     createRealtimeLogConfigResponse_realtimeLogConfig,
     createRealtimeLogConfigResponse_httpStatus,
 
+    -- ** CreateResponseHeadersPolicy
+    createResponseHeadersPolicy_responseHeadersPolicyConfig,
+    createResponseHeadersPolicyResponse_responseHeadersPolicy,
+    createResponseHeadersPolicyResponse_location,
+    createResponseHeadersPolicyResponse_eTag,
+    createResponseHeadersPolicyResponse_httpStatus,
+
     -- ** CreateStreamingDistribution
     createStreamingDistribution_streamingDistributionConfig,
     createStreamingDistributionResponse_location,
@@ -168,6 +175,10 @@ module Amazonka.CloudFront.Lens
     -- ** DeleteRealtimeLogConfig
     deleteRealtimeLogConfig_name,
     deleteRealtimeLogConfig_arn,
+
+    -- ** DeleteResponseHeadersPolicy
+    deleteResponseHeadersPolicy_ifMatch,
+    deleteResponseHeadersPolicy_id,
 
     -- ** DeleteStreamingDistribution
     deleteStreamingDistribution_ifMatch,
@@ -301,6 +312,18 @@ module Amazonka.CloudFront.Lens
     getRealtimeLogConfigResponse_realtimeLogConfig,
     getRealtimeLogConfigResponse_httpStatus,
 
+    -- ** GetResponseHeadersPolicy
+    getResponseHeadersPolicy_id,
+    getResponseHeadersPolicyResponse_responseHeadersPolicy,
+    getResponseHeadersPolicyResponse_eTag,
+    getResponseHeadersPolicyResponse_httpStatus,
+
+    -- ** GetResponseHeadersPolicyConfig
+    getResponseHeadersPolicyConfig_id,
+    getResponseHeadersPolicyConfigResponse_eTag,
+    getResponseHeadersPolicyConfigResponse_responseHeadersPolicyConfig,
+    getResponseHeadersPolicyConfigResponse_httpStatus,
+
     -- ** GetStreamingDistribution
     getStreamingDistribution_id,
     getStreamingDistributionResponse_streamingDistribution,
@@ -369,6 +392,13 @@ module Amazonka.CloudFront.Lens
     listDistributionsByRealtimeLogConfigResponse_distributionList,
     listDistributionsByRealtimeLogConfigResponse_httpStatus,
 
+    -- ** ListDistributionsByResponseHeadersPolicyId
+    listDistributionsByResponseHeadersPolicyId_marker,
+    listDistributionsByResponseHeadersPolicyId_maxItems,
+    listDistributionsByResponseHeadersPolicyId_responseHeadersPolicyId,
+    listDistributionsByResponseHeadersPolicyIdResponse_distributionIdList,
+    listDistributionsByResponseHeadersPolicyIdResponse_httpStatus,
+
     -- ** ListDistributionsByWebACLId
     listDistributionsByWebACLId_marker,
     listDistributionsByWebACLId_maxItems,
@@ -426,6 +456,13 @@ module Amazonka.CloudFront.Lens
     listRealtimeLogConfigs_maxItems,
     listRealtimeLogConfigsResponse_realtimeLogConfigs,
     listRealtimeLogConfigsResponse_httpStatus,
+
+    -- ** ListResponseHeadersPolicies
+    listResponseHeadersPolicies_type,
+    listResponseHeadersPolicies_marker,
+    listResponseHeadersPolicies_maxItems,
+    listResponseHeadersPoliciesResponse_responseHeadersPolicyList,
+    listResponseHeadersPoliciesResponse_httpStatus,
 
     -- ** ListStreamingDistributions
     listStreamingDistributions_marker,
@@ -542,6 +579,14 @@ module Amazonka.CloudFront.Lens
     updateRealtimeLogConfigResponse_realtimeLogConfig,
     updateRealtimeLogConfigResponse_httpStatus,
 
+    -- ** UpdateResponseHeadersPolicy
+    updateResponseHeadersPolicy_ifMatch,
+    updateResponseHeadersPolicy_responseHeadersPolicyConfig,
+    updateResponseHeadersPolicy_id,
+    updateResponseHeadersPolicyResponse_responseHeadersPolicy,
+    updateResponseHeadersPolicyResponse_eTag,
+    updateResponseHeadersPolicyResponse_httpStatus,
+
     -- ** UpdateStreamingDistribution
     updateStreamingDistribution_ifMatch,
     updateStreamingDistribution_streamingDistributionConfig,
@@ -585,6 +630,7 @@ module Amazonka.CloudFront.Lens
     cacheBehavior_originRequestPolicyId,
     cacheBehavior_functionAssociations,
     cacheBehavior_forwardedValues,
+    cacheBehavior_responseHeadersPolicyId,
     cacheBehavior_minTTL,
     cacheBehavior_realtimeLogConfigArn,
     cacheBehavior_compress,
@@ -724,6 +770,7 @@ module Amazonka.CloudFront.Lens
     defaultCacheBehavior_originRequestPolicyId,
     defaultCacheBehavior_functionAssociations,
     defaultCacheBehavior_forwardedValues,
+    defaultCacheBehavior_responseHeadersPolicyId,
     defaultCacheBehavior_minTTL,
     defaultCacheBehavior_realtimeLogConfigArn,
     defaultCacheBehavior_compress,
@@ -1140,6 +1187,102 @@ module Amazonka.CloudFront.Lens
     -- ** RealtimeMetricsSubscriptionConfig
     realtimeMetricsSubscriptionConfig_realtimeMetricsSubscriptionStatus,
 
+    -- ** ResponseHeadersPolicy
+    responseHeadersPolicy_id,
+    responseHeadersPolicy_lastModifiedTime,
+    responseHeadersPolicy_responseHeadersPolicyConfig,
+
+    -- ** ResponseHeadersPolicyAccessControlAllowHeaders
+    responseHeadersPolicyAccessControlAllowHeaders_quantity,
+    responseHeadersPolicyAccessControlAllowHeaders_items,
+
+    -- ** ResponseHeadersPolicyAccessControlAllowMethods
+    responseHeadersPolicyAccessControlAllowMethods_quantity,
+    responseHeadersPolicyAccessControlAllowMethods_items,
+
+    -- ** ResponseHeadersPolicyAccessControlAllowOrigins
+    responseHeadersPolicyAccessControlAllowOrigins_quantity,
+    responseHeadersPolicyAccessControlAllowOrigins_items,
+
+    -- ** ResponseHeadersPolicyAccessControlExposeHeaders
+    responseHeadersPolicyAccessControlExposeHeaders_items,
+    responseHeadersPolicyAccessControlExposeHeaders_quantity,
+
+    -- ** ResponseHeadersPolicyConfig
+    responseHeadersPolicyConfig_serverTimingHeadersConfig,
+    responseHeadersPolicyConfig_comment,
+    responseHeadersPolicyConfig_securityHeadersConfig,
+    responseHeadersPolicyConfig_corsConfig,
+    responseHeadersPolicyConfig_customHeadersConfig,
+    responseHeadersPolicyConfig_name,
+
+    -- ** ResponseHeadersPolicyContentSecurityPolicy
+    responseHeadersPolicyContentSecurityPolicy_override,
+    responseHeadersPolicyContentSecurityPolicy_contentSecurityPolicy,
+
+    -- ** ResponseHeadersPolicyContentTypeOptions
+    responseHeadersPolicyContentTypeOptions_override,
+
+    -- ** ResponseHeadersPolicyCorsConfig
+    responseHeadersPolicyCorsConfig_accessControlMaxAgeSec,
+    responseHeadersPolicyCorsConfig_accessControlExposeHeaders,
+    responseHeadersPolicyCorsConfig_accessControlAllowOrigins,
+    responseHeadersPolicyCorsConfig_accessControlAllowHeaders,
+    responseHeadersPolicyCorsConfig_accessControlAllowMethods,
+    responseHeadersPolicyCorsConfig_accessControlAllowCredentials,
+    responseHeadersPolicyCorsConfig_originOverride,
+
+    -- ** ResponseHeadersPolicyCustomHeader
+    responseHeadersPolicyCustomHeader_header,
+    responseHeadersPolicyCustomHeader_value,
+    responseHeadersPolicyCustomHeader_override,
+
+    -- ** ResponseHeadersPolicyCustomHeadersConfig
+    responseHeadersPolicyCustomHeadersConfig_items,
+    responseHeadersPolicyCustomHeadersConfig_quantity,
+
+    -- ** ResponseHeadersPolicyFrameOptions
+    responseHeadersPolicyFrameOptions_override,
+    responseHeadersPolicyFrameOptions_frameOption,
+
+    -- ** ResponseHeadersPolicyList
+    responseHeadersPolicyList_items,
+    responseHeadersPolicyList_nextMarker,
+    responseHeadersPolicyList_maxItems,
+    responseHeadersPolicyList_quantity,
+
+    -- ** ResponseHeadersPolicyReferrerPolicy
+    responseHeadersPolicyReferrerPolicy_override,
+    responseHeadersPolicyReferrerPolicy_referrerPolicy,
+
+    -- ** ResponseHeadersPolicySecurityHeadersConfig
+    responseHeadersPolicySecurityHeadersConfig_contentTypeOptions,
+    responseHeadersPolicySecurityHeadersConfig_xSSProtection,
+    responseHeadersPolicySecurityHeadersConfig_frameOptions,
+    responseHeadersPolicySecurityHeadersConfig_contentSecurityPolicy,
+    responseHeadersPolicySecurityHeadersConfig_referrerPolicy,
+    responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity,
+
+    -- ** ResponseHeadersPolicyServerTimingHeadersConfig
+    responseHeadersPolicyServerTimingHeadersConfig_samplingRate,
+    responseHeadersPolicyServerTimingHeadersConfig_enabled,
+
+    -- ** ResponseHeadersPolicyStrictTransportSecurity
+    responseHeadersPolicyStrictTransportSecurity_includeSubdomains,
+    responseHeadersPolicyStrictTransportSecurity_preload,
+    responseHeadersPolicyStrictTransportSecurity_override,
+    responseHeadersPolicyStrictTransportSecurity_accessControlMaxAgeSec,
+
+    -- ** ResponseHeadersPolicySummary
+    responseHeadersPolicySummary_type,
+    responseHeadersPolicySummary_responseHeadersPolicy,
+
+    -- ** ResponseHeadersPolicyXSSProtection
+    responseHeadersPolicyXSSProtection_modeBlock,
+    responseHeadersPolicyXSSProtection_reportUri,
+    responseHeadersPolicyXSSProtection_override,
+    responseHeadersPolicyXSSProtection_protection,
+
     -- ** Restrictions
     restrictions_geoRestriction,
 
@@ -1259,6 +1402,7 @@ import Amazonka.CloudFront.CreateMonitoringSubscription
 import Amazonka.CloudFront.CreateOriginRequestPolicy
 import Amazonka.CloudFront.CreatePublicKey
 import Amazonka.CloudFront.CreateRealtimeLogConfig
+import Amazonka.CloudFront.CreateResponseHeadersPolicy
 import Amazonka.CloudFront.CreateStreamingDistribution
 import Amazonka.CloudFront.CreateStreamingDistributionWithTags
 import Amazonka.CloudFront.DeleteCachePolicy
@@ -1272,6 +1416,7 @@ import Amazonka.CloudFront.DeleteMonitoringSubscription
 import Amazonka.CloudFront.DeleteOriginRequestPolicy
 import Amazonka.CloudFront.DeletePublicKey
 import Amazonka.CloudFront.DeleteRealtimeLogConfig
+import Amazonka.CloudFront.DeleteResponseHeadersPolicy
 import Amazonka.CloudFront.DeleteStreamingDistribution
 import Amazonka.CloudFront.DescribeFunction
 import Amazonka.CloudFront.GetCachePolicy
@@ -1294,6 +1439,8 @@ import Amazonka.CloudFront.GetOriginRequestPolicyConfig
 import Amazonka.CloudFront.GetPublicKey
 import Amazonka.CloudFront.GetPublicKeyConfig
 import Amazonka.CloudFront.GetRealtimeLogConfig
+import Amazonka.CloudFront.GetResponseHeadersPolicy
+import Amazonka.CloudFront.GetResponseHeadersPolicyConfig
 import Amazonka.CloudFront.GetStreamingDistribution
 import Amazonka.CloudFront.GetStreamingDistributionConfig
 import Amazonka.CloudFront.ListCachePolicies
@@ -1304,6 +1451,7 @@ import Amazonka.CloudFront.ListDistributionsByCachePolicyId
 import Amazonka.CloudFront.ListDistributionsByKeyGroup
 import Amazonka.CloudFront.ListDistributionsByOriginRequestPolicyId
 import Amazonka.CloudFront.ListDistributionsByRealtimeLogConfig
+import Amazonka.CloudFront.ListDistributionsByResponseHeadersPolicyId
 import Amazonka.CloudFront.ListDistributionsByWebACLId
 import Amazonka.CloudFront.ListFieldLevelEncryptionConfigs
 import Amazonka.CloudFront.ListFieldLevelEncryptionProfiles
@@ -1313,6 +1461,7 @@ import Amazonka.CloudFront.ListKeyGroups
 import Amazonka.CloudFront.ListOriginRequestPolicies
 import Amazonka.CloudFront.ListPublicKeys
 import Amazonka.CloudFront.ListRealtimeLogConfigs
+import Amazonka.CloudFront.ListResponseHeadersPolicies
 import Amazonka.CloudFront.ListStreamingDistributions
 import Amazonka.CloudFront.ListTagsForResource
 import Amazonka.CloudFront.PublishFunction
@@ -1422,6 +1571,25 @@ import Amazonka.CloudFront.Types.QueryStringNames
 import Amazonka.CloudFront.Types.RealtimeLogConfig
 import Amazonka.CloudFront.Types.RealtimeLogConfigs
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowHeaders
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethods
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowOrigins
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlExposeHeaders
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyContentSecurityPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyContentTypeOptions
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyCorsConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeader
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyFrameOptions
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyList
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity
+import Amazonka.CloudFront.Types.ResponseHeadersPolicySummary
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection
 import Amazonka.CloudFront.Types.Restrictions
 import Amazonka.CloudFront.Types.S3Origin
 import Amazonka.CloudFront.Types.S3OriginConfig
@@ -1451,4 +1619,5 @@ import Amazonka.CloudFront.UpdateKeyGroup
 import Amazonka.CloudFront.UpdateOriginRequestPolicy
 import Amazonka.CloudFront.UpdatePublicKey
 import Amazonka.CloudFront.UpdateRealtimeLogConfig
+import Amazonka.CloudFront.UpdateResponseHeadersPolicy
 import Amazonka.CloudFront.UpdateStreamingDistribution

@@ -84,9 +84,9 @@ data UpdateEnvironment = UpdateEnvironment'
     -- is required. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
     pluginsS3Path :: Prelude.Maybe Prelude.Text,
-    -- | The Apache Airflow version for your environment. For example,
-    -- @v1.10.12@. If no value is specified, defaults to the latest version.
-    -- Valid values: @v1.10.12@.
+    -- | The Apache Airflow version for your environment. If no value is
+    -- specified, defaults to the latest version. Valid values: @1.10.12@,
+    -- @2.0.2@, and @2.2.2@.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The relative path to the DAGs folder on your Amazon S3 bucket. For
     -- example, @dags@. To learn more, see
@@ -100,9 +100,10 @@ data UpdateEnvironment = UpdateEnvironment'
     -- | A list of key-value pairs containing the Apache Airflow configuration
     -- options you want to attach to your environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
-    airflowConfigurationOptions :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    airflowConfigurationOptions :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))),
     -- | The VPC networking components used to secure and enable network traffic
-    -- between the AWS resources for your environment. To learn more, see
+    -- between the Amazon Web Services resources for your environment. To learn
+    -- more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
     networkConfiguration :: Prelude.Maybe UpdateNetworkConfigurationInput,
     -- | The minimum number of workers that you want to run in your environment.
@@ -115,12 +116,10 @@ data UpdateEnvironment = UpdateEnvironment'
     -- @mw1.large@. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
     environmentClass :: Prelude.Maybe Prelude.Text,
-    -- | The day and time of the week to start weekly maintenance updates of your
-    -- environment in the following format: @DAY:HH:MM@. For example:
-    -- @TUE:03:30@. You can specify a start time in 30 minute increments only.
-    -- Supported input includes the following:
-    --
-    -- -   MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
+    -- | The day and time of the week in Coordinated Universal Time (UTC) 24-hour
+    -- standard time to start weekly maintenance updates of your environment in
+    -- the following format: @DAY:HH:MM@. For example: @TUE:03:30@. You can
+    -- specify a start time in 30 minute increments only.
     weeklyMaintenanceWindowStart :: Prelude.Maybe Prelude.Text,
     -- | The version of the requirements.txt file on your Amazon S3 bucket. A
     -- version must be specified each time a requirements.txt file is updated.
@@ -128,8 +127,9 @@ data UpdateEnvironment = UpdateEnvironment'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
     requirementsS3ObjectVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
-    -- MWAA to access AWS resources in your environment. For example,
-    -- @arn:aws:iam::123456789:role\/my-execution-role@. To learn more, see
+    -- MWAA to access Amazon Web Services resources in your environment. For
+    -- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
+    -- more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Apache Airflow /Web server/ access mode. To learn more, see
@@ -142,9 +142,7 @@ data UpdateEnvironment = UpdateEnvironment'
     -- workers leaving the one worker that is included with your environment,
     -- or the number you specify in @MinWorkers@.
     maxWorkers :: Prelude.Maybe Prelude.Natural,
-    -- | Defines the Apache Airflow logs to send to CloudWatch Logs:
-    -- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
-    -- @WorkerLogs@.
+    -- | The Apache Airflow log types to send to CloudWatch Logs.
     loggingConfiguration :: Prelude.Maybe LoggingConfigurationInput,
     -- | The name of your Amazon MWAA environment. For example,
     -- @MyMWAAEnvironment@.
@@ -178,9 +176,9 @@ data UpdateEnvironment = UpdateEnvironment'
 -- is required. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 --
--- 'airflowVersion', 'updateEnvironment_airflowVersion' - The Apache Airflow version for your environment. For example,
--- @v1.10.12@. If no value is specified, defaults to the latest version.
--- Valid values: @v1.10.12@.
+-- 'airflowVersion', 'updateEnvironment_airflowVersion' - The Apache Airflow version for your environment. If no value is
+-- specified, defaults to the latest version. Valid values: @1.10.12@,
+-- @2.0.2@, and @2.2.2@.
 --
 -- 'dagS3Path', 'updateEnvironment_dagS3Path' - The relative path to the DAGs folder on your Amazon S3 bucket. For
 -- example, @dags@. To learn more, see
@@ -196,7 +194,8 @@ data UpdateEnvironment = UpdateEnvironment'
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 --
 -- 'networkConfiguration', 'updateEnvironment_networkConfiguration' - The VPC networking components used to secure and enable network traffic
--- between the AWS resources for your environment. To learn more, see
+-- between the Amazon Web Services resources for your environment. To learn
+-- more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
 -- 'minWorkers', 'updateEnvironment_minWorkers' - The minimum number of workers that you want to run in your environment.
@@ -209,12 +208,10 @@ data UpdateEnvironment = UpdateEnvironment'
 -- @mw1.large@. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
 --
--- 'weeklyMaintenanceWindowStart', 'updateEnvironment_weeklyMaintenanceWindowStart' - The day and time of the week to start weekly maintenance updates of your
--- environment in the following format: @DAY:HH:MM@. For example:
--- @TUE:03:30@. You can specify a start time in 30 minute increments only.
--- Supported input includes the following:
---
--- -   MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
+-- 'weeklyMaintenanceWindowStart', 'updateEnvironment_weeklyMaintenanceWindowStart' - The day and time of the week in Coordinated Universal Time (UTC) 24-hour
+-- standard time to start weekly maintenance updates of your environment in
+-- the following format: @DAY:HH:MM@. For example: @TUE:03:30@. You can
+-- specify a start time in 30 minute increments only.
 --
 -- 'requirementsS3ObjectVersion', 'updateEnvironment_requirementsS3ObjectVersion' - The version of the requirements.txt file on your Amazon S3 bucket. A
 -- version must be specified each time a requirements.txt file is updated.
@@ -222,8 +219,9 @@ data UpdateEnvironment = UpdateEnvironment'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
 --
 -- 'executionRoleArn', 'updateEnvironment_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role in IAM that allows
--- MWAA to access AWS resources in your environment. For example,
--- @arn:aws:iam::123456789:role\/my-execution-role@. To learn more, see
+-- MWAA to access Amazon Web Services resources in your environment. For
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
+-- more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 --
 -- 'webserverAccessMode', 'updateEnvironment_webserverAccessMode' - The Apache Airflow /Web server/ access mode. To learn more, see
@@ -236,9 +234,7 @@ data UpdateEnvironment = UpdateEnvironment'
 -- workers leaving the one worker that is included with your environment,
 -- or the number you specify in @MinWorkers@.
 --
--- 'loggingConfiguration', 'updateEnvironment_loggingConfiguration' - Defines the Apache Airflow logs to send to CloudWatch Logs:
--- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
--- @WorkerLogs@.
+-- 'loggingConfiguration', 'updateEnvironment_loggingConfiguration' - The Apache Airflow log types to send to CloudWatch Logs.
 --
 -- 'name', 'updateEnvironment_name' - The name of your Amazon MWAA environment. For example,
 -- @MyMWAAEnvironment@.
@@ -294,9 +290,9 @@ updateEnvironment_requirementsS3Path = Lens.lens (\UpdateEnvironment' {requireme
 updateEnvironment_pluginsS3Path :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_pluginsS3Path = Lens.lens (\UpdateEnvironment' {pluginsS3Path} -> pluginsS3Path) (\s@UpdateEnvironment' {} a -> s {pluginsS3Path = a} :: UpdateEnvironment)
 
--- | The Apache Airflow version for your environment. For example,
--- @v1.10.12@. If no value is specified, defaults to the latest version.
--- Valid values: @v1.10.12@.
+-- | The Apache Airflow version for your environment. If no value is
+-- specified, defaults to the latest version. Valid values: @1.10.12@,
+-- @2.0.2@, and @2.2.2@.
 updateEnvironment_airflowVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_airflowVersion = Lens.lens (\UpdateEnvironment' {airflowVersion} -> airflowVersion) (\s@UpdateEnvironment' {} a -> s {airflowVersion = a} :: UpdateEnvironment)
 
@@ -320,7 +316,8 @@ updateEnvironment_airflowConfigurationOptions :: Lens.Lens' UpdateEnvironment (P
 updateEnvironment_airflowConfigurationOptions = Lens.lens (\UpdateEnvironment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@UpdateEnvironment' {} a -> s {airflowConfigurationOptions = a} :: UpdateEnvironment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The VPC networking components used to secure and enable network traffic
--- between the AWS resources for your environment. To learn more, see
+-- between the Amazon Web Services resources for your environment. To learn
+-- more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 updateEnvironment_networkConfiguration :: Lens.Lens' UpdateEnvironment (Prelude.Maybe UpdateNetworkConfigurationInput)
 updateEnvironment_networkConfiguration = Lens.lens (\UpdateEnvironment' {networkConfiguration} -> networkConfiguration) (\s@UpdateEnvironment' {} a -> s {networkConfiguration = a} :: UpdateEnvironment)
@@ -339,12 +336,10 @@ updateEnvironment_minWorkers = Lens.lens (\UpdateEnvironment' {minWorkers} -> mi
 updateEnvironment_environmentClass :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentClass = Lens.lens (\UpdateEnvironment' {environmentClass} -> environmentClass) (\s@UpdateEnvironment' {} a -> s {environmentClass = a} :: UpdateEnvironment)
 
--- | The day and time of the week to start weekly maintenance updates of your
--- environment in the following format: @DAY:HH:MM@. For example:
--- @TUE:03:30@. You can specify a start time in 30 minute increments only.
--- Supported input includes the following:
---
--- -   MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
+-- | The day and time of the week in Coordinated Universal Time (UTC) 24-hour
+-- standard time to start weekly maintenance updates of your environment in
+-- the following format: @DAY:HH:MM@. For example: @TUE:03:30@. You can
+-- specify a start time in 30 minute increments only.
 updateEnvironment_weeklyMaintenanceWindowStart :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_weeklyMaintenanceWindowStart = Lens.lens (\UpdateEnvironment' {weeklyMaintenanceWindowStart} -> weeklyMaintenanceWindowStart) (\s@UpdateEnvironment' {} a -> s {weeklyMaintenanceWindowStart = a} :: UpdateEnvironment)
 
@@ -356,8 +351,9 @@ updateEnvironment_requirementsS3ObjectVersion :: Lens.Lens' UpdateEnvironment (P
 updateEnvironment_requirementsS3ObjectVersion = Lens.lens (\UpdateEnvironment' {requirementsS3ObjectVersion} -> requirementsS3ObjectVersion) (\s@UpdateEnvironment' {} a -> s {requirementsS3ObjectVersion = a} :: UpdateEnvironment)
 
 -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
--- MWAA to access AWS resources in your environment. For example,
--- @arn:aws:iam::123456789:role\/my-execution-role@. To learn more, see
+-- MWAA to access Amazon Web Services resources in your environment. For
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
+-- more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 updateEnvironment_executionRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_executionRoleArn = Lens.lens (\UpdateEnvironment' {executionRoleArn} -> executionRoleArn) (\s@UpdateEnvironment' {} a -> s {executionRoleArn = a} :: UpdateEnvironment)
@@ -376,9 +372,7 @@ updateEnvironment_webserverAccessMode = Lens.lens (\UpdateEnvironment' {webserve
 updateEnvironment_maxWorkers :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Natural)
 updateEnvironment_maxWorkers = Lens.lens (\UpdateEnvironment' {maxWorkers} -> maxWorkers) (\s@UpdateEnvironment' {} a -> s {maxWorkers = a} :: UpdateEnvironment)
 
--- | Defines the Apache Airflow logs to send to CloudWatch Logs:
--- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
--- @WorkerLogs@.
+-- | The Apache Airflow log types to send to CloudWatch Logs.
 updateEnvironment_loggingConfiguration :: Lens.Lens' UpdateEnvironment (Prelude.Maybe LoggingConfigurationInput)
 updateEnvironment_loggingConfiguration = Lens.lens (\UpdateEnvironment' {loggingConfiguration} -> loggingConfiguration) (\s@UpdateEnvironment' {} a -> s {loggingConfiguration = a} :: UpdateEnvironment)
 

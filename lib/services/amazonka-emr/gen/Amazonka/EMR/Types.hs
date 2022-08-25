@@ -105,6 +105,9 @@ module Amazonka.EMR.Types
     -- * PlacementGroupStrategy
     PlacementGroupStrategy (..),
 
+    -- * ReconfigurationType
+    ReconfigurationType (..),
+
     -- * RepoUpgradeOnBoot
     RepoUpgradeOnBoot (..),
 
@@ -229,6 +232,7 @@ module Amazonka.EMR.Types
     cluster_serviceRole,
     cluster_configurations,
     cluster_autoTerminate,
+    cluster_oSReleaseLabel,
     cluster_stepConcurrencyLevel,
     cluster_logUri,
     cluster_visibleToAllUsers,
@@ -479,6 +483,7 @@ module Amazonka.EMR.Types
     instanceGroupModifyConfig_eC2InstanceIdsToTerminate,
     instanceGroupModifyConfig_shrinkPolicy,
     instanceGroupModifyConfig_configurations,
+    instanceGroupModifyConfig_reconfigurationType,
     instanceGroupModifyConfig_instanceCount,
     instanceGroupModifyConfig_instanceGroupId,
 
@@ -626,6 +631,11 @@ module Amazonka.EMR.Types
     notebookExecutionSummary_startTime,
     notebookExecutionSummary_notebookExecutionId,
 
+    -- * OSRelease
+    OSRelease (..),
+    newOSRelease,
+    oSRelease_label,
+
     -- * OnDemandCapacityReservationOptions
     OnDemandCapacityReservationOptions (..),
     newOnDemandCapacityReservationOptions,
@@ -755,6 +765,7 @@ module Amazonka.EMR.Types
     step_status,
     step_id,
     step_actionOnFailure,
+    step_executionRoleArn,
     step_config,
 
     -- * StepConfig
@@ -841,6 +852,7 @@ module Amazonka.EMR.Types
     -- * VolumeSpecification
     VolumeSpecification (..),
     newVolumeSpecification,
+    volumeSpecification_throughput,
     volumeSpecification_iops,
     volumeSpecification_volumeType,
     volumeSpecification_sizeInGB,
@@ -927,6 +939,7 @@ import Amazonka.EMR.Types.MetricDimension
 import Amazonka.EMR.Types.NotebookExecution
 import Amazonka.EMR.Types.NotebookExecutionStatus
 import Amazonka.EMR.Types.NotebookExecutionSummary
+import Amazonka.EMR.Types.OSRelease
 import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 import Amazonka.EMR.Types.OnDemandCapacityReservationPreference
 import Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
@@ -936,6 +949,7 @@ import Amazonka.EMR.Types.PlacementGroupConfig
 import Amazonka.EMR.Types.PlacementGroupStrategy
 import Amazonka.EMR.Types.PlacementType
 import Amazonka.EMR.Types.PortRange
+import Amazonka.EMR.Types.ReconfigurationType
 import Amazonka.EMR.Types.ReleaseLabelFilter
 import Amazonka.EMR.Types.RepoUpgradeOnBoot
 import Amazonka.EMR.Types.ScaleDownBehavior

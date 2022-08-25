@@ -21,24 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the JSON text of the resource-based policy document attached
--- to the specified secret. The JSON request string input and response
--- output displays formatted code with white space and line breaks for
--- better readability. Submit your input as a single line JSON string.
+-- to the secret. For more information about permissions policies attached
+-- to a secret, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html Permissions policies attached to a secret>.
 --
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:GetResourcePolicy
---
--- __Related operations__
---
--- -   To attach a resource policy to a secret, use PutResourcePolicy.
---
--- -   To delete the resource-based policy attached to a secret, use
---     DeleteResourcePolicy.
---
--- -   To list all of the currently available secrets, use ListSecrets.
+-- __Required permissions:__ @secretsmanager:GetResourcePolicy@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.GetResourcePolicy
   ( -- * Creating a Request
     GetResourcePolicy (..),
@@ -68,12 +59,12 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newGetResourcePolicy' smart constructor.
 data GetResourcePolicy = GetResourcePolicy'
-  { -- | Specifies the secret that you want to retrieve the attached
-    -- resource-based policy for. You can specify either the Amazon Resource
-    -- Name (ARN) or the friendly name of the secret.
+  { -- | The ARN or name of the secret to retrieve the attached resource-based
+    -- policy for.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,12 +77,12 @@ data GetResourcePolicy = GetResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'getResourcePolicy_secretId' - Specifies the secret that you want to retrieve the attached
--- resource-based policy for. You can specify either the Amazon Resource
--- Name (ARN) or the friendly name of the secret.
+-- 'secretId', 'getResourcePolicy_secretId' - The ARN or name of the secret to retrieve the attached resource-based
+-- policy for.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 newGetResourcePolicy ::
   -- | 'secretId'
   Prelude.Text ->
@@ -99,12 +90,12 @@ newGetResourcePolicy ::
 newGetResourcePolicy pSecretId_ =
   GetResourcePolicy' {secretId = pSecretId_}
 
--- | Specifies the secret that you want to retrieve the attached
--- resource-based policy for. You can specify either the Amazon Resource
--- Name (ARN) or the friendly name of the secret.
+-- | The ARN or name of the secret to retrieve the attached resource-based
+-- policy for.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 getResourcePolicy_secretId :: Lens.Lens' GetResourcePolicy Prelude.Text
 getResourcePolicy_secretId = Lens.lens (\GetResourcePolicy' {secretId} -> secretId) (\s@GetResourcePolicy' {} a -> s {secretId = a} :: GetResourcePolicy)
 
@@ -160,18 +151,13 @@ instance Core.ToQuery GetResourcePolicy where
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { -- | The friendly name of the secret that the resource-based policy was
-    -- retrieved for.
+  { -- | The name of the secret that the resource-based policy was retrieved for.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret that the resource-based policy was retrieved for.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | A JSON-formatted string that describes the permissions that are
-    -- associated with the attached secret. These permissions are combined with
-    -- any permissions that are associated with the user or role that attempts
-    -- to access this secret. The combined permissions specify who can access
-    -- the secret and what actions they can perform. For more information, see
-    -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
-    -- in the /Amazon Web Services Secrets Manager User Guide/.
+    -- | A JSON-formatted string that contains the permissions policy attached to
+    -- the secret. For more information about permissions policies, see
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control for Secrets Manager>.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -186,18 +172,13 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
--- retrieved for.
+-- 'name', 'getResourcePolicyResponse_name' - The name of the secret that the resource-based policy was retrieved for.
 --
 -- 'arn', 'getResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was retrieved for.
 --
--- 'resourcePolicy', 'getResourcePolicyResponse_resourcePolicy' - A JSON-formatted string that describes the permissions that are
--- associated with the attached secret. These permissions are combined with
--- any permissions that are associated with the user or role that attempts
--- to access this secret. The combined permissions specify who can access
--- the secret and what actions they can perform. For more information, see
--- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
--- in the /Amazon Web Services Secrets Manager User Guide/.
+-- 'resourcePolicy', 'getResourcePolicyResponse_resourcePolicy' - A JSON-formatted string that contains the permissions policy attached to
+-- the secret. For more information about permissions policies, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control for Secrets Manager>.
 --
 -- 'httpStatus', 'getResourcePolicyResponse_httpStatus' - The response's http status code.
 newGetResourcePolicyResponse ::
@@ -212,8 +193,7 @@ newGetResourcePolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The friendly name of the secret that the resource-based policy was
--- retrieved for.
+-- | The name of the secret that the resource-based policy was retrieved for.
 getResourcePolicyResponse_name :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -> name) (\s@GetResourcePolicyResponse' {} a -> s {name = a} :: GetResourcePolicyResponse)
 
@@ -221,13 +201,9 @@ getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -
 getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> arn) (\s@GetResourcePolicyResponse' {} a -> s {arn = a} :: GetResourcePolicyResponse)
 
--- | A JSON-formatted string that describes the permissions that are
--- associated with the attached secret. These permissions are combined with
--- any permissions that are associated with the user or role that attempts
--- to access this secret. The combined permissions specify who can access
--- the secret and what actions they can perform. For more information, see
--- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
--- in the /Amazon Web Services Secrets Manager User Guide/.
+-- | A JSON-formatted string that contains the permissions policy attached to
+-- the secret. For more information about permissions policies, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control for Secrets Manager>.
 getResourcePolicyResponse_resourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_resourcePolicy = Lens.lens (\GetResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@GetResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: GetResourcePolicyResponse)
 

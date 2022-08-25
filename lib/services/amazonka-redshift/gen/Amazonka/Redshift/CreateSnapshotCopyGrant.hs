@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot copy grant that permits Amazon Redshift to use a
--- customer master key (CMK) from Key Management Service (KMS) to encrypt
+-- Creates a snapshot copy grant that permits Amazon Redshift to use an
+-- encrypted symmetric key from Key Management Service (KMS) to encrypt
 -- copied snapshots in a destination region.
 --
 -- For more information about managing snapshot copy grants, go to
@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
   { -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag],
-    -- | The unique identifier of the customer master key (CMK) to which to grant
+    -- | The unique identifier of the encrypted symmetric key to which to grant
     -- Amazon Redshift permission. If no key is specified, the default key is
     -- used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -93,7 +93,7 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
 --
 -- 'tags', 'createSnapshotCopyGrant_tags' - A list of tag instances.
 --
--- 'kmsKeyId', 'createSnapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) to which to grant
+-- 'kmsKeyId', 'createSnapshotCopyGrant_kmsKeyId' - The unique identifier of the encrypted symmetric key to which to grant
 -- Amazon Redshift permission. If no key is specified, the default key is
 -- used.
 --
@@ -127,7 +127,7 @@ newCreateSnapshotCopyGrant pSnapshotCopyGrantName_ =
 createSnapshotCopyGrant_tags :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe [Tag])
 createSnapshotCopyGrant_tags = Lens.lens (\CreateSnapshotCopyGrant' {tags} -> tags) (\s@CreateSnapshotCopyGrant' {} a -> s {tags = a} :: CreateSnapshotCopyGrant) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique identifier of the customer master key (CMK) to which to grant
+-- | The unique identifier of the encrypted symmetric key to which to grant
 -- Amazon Redshift permission. If no key is specified, the default key is
 -- used.
 createSnapshotCopyGrant_kmsKeyId :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe Prelude.Text)

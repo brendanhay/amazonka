@@ -22,9 +22,9 @@
 --
 -- Updates variant weight of one or more variants associated with an
 -- existing endpoint, or capacity of one variant associated with an
--- existing endpoint. When it receives the request, Amazon SageMaker sets
--- the endpoint status to @Updating@. After updating the endpoint, it sets
--- the status to @InService@. To check the status of an endpoint, use the
+-- existing endpoint. When it receives the request, SageMaker sets the
+-- endpoint status to @Updating@. After updating the endpoint, it sets the
+-- status to @InService@. To check the status of an endpoint, use the
 -- DescribeEndpoint API.
 module Amazonka.SageMaker.UpdateEndpointWeightsAndCapacities
   ( -- * Creating a Request
@@ -54,7 +54,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateEndpointWeightsAndCapacities' smart constructor.
 data UpdateEndpointWeightsAndCapacities = UpdateEndpointWeightsAndCapacities'
-  { -- | The name of an existing Amazon SageMaker endpoint.
+  { -- | The name of an existing SageMaker endpoint.
     endpointName :: Prelude.Text,
     -- | An object that provides new capacity and weight values for a variant.
     desiredWeightsAndCapacities :: Prelude.NonEmpty DesiredWeightAndCapacity
@@ -69,7 +69,7 @@ data UpdateEndpointWeightsAndCapacities = UpdateEndpointWeightsAndCapacities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointName', 'updateEndpointWeightsAndCapacities_endpointName' - The name of an existing Amazon SageMaker endpoint.
+-- 'endpointName', 'updateEndpointWeightsAndCapacities_endpointName' - The name of an existing SageMaker endpoint.
 --
 -- 'desiredWeightsAndCapacities', 'updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities' - An object that provides new capacity and weight values for a variant.
 newUpdateEndpointWeightsAndCapacities ::
@@ -89,7 +89,7 @@ newUpdateEndpointWeightsAndCapacities
             Lens.# pDesiredWeightsAndCapacities_
       }
 
--- | The name of an existing Amazon SageMaker endpoint.
+-- | The name of an existing SageMaker endpoint.
 updateEndpointWeightsAndCapacities_endpointName :: Lens.Lens' UpdateEndpointWeightsAndCapacities Prelude.Text
 updateEndpointWeightsAndCapacities_endpointName = Lens.lens (\UpdateEndpointWeightsAndCapacities' {endpointName} -> endpointName) (\s@UpdateEndpointWeightsAndCapacities' {} a -> s {endpointName = a} :: UpdateEndpointWeightsAndCapacities)
 

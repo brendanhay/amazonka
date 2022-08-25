@@ -81,6 +81,9 @@ data OracleSettings = OracleSettings'
     --
     -- Example: @charLengthSemantics=CHAR;@
     charLengthSemantics :: Prelude.Maybe CharLengthSemantics,
+    -- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+    -- and NCHAR data types during migration. The default value is @true@.
+    trimSpaceInChar :: Prelude.Maybe Prelude.Bool,
     -- | Set this attribute to change the number of read-ahead blocks that DMS
     -- configures to perform a change data capture (CDC) load using Oracle
     -- Automatic Storage Management (ASM). You can specify an integer value
@@ -352,6 +355,9 @@ data OracleSettings = OracleSettings'
 --
 -- Example: @charLengthSemantics=CHAR;@
 --
+-- 'trimSpaceInChar', 'oracleSettings_trimSpaceInChar' - Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+-- and NCHAR data types during migration. The default value is @true@.
+--
 -- 'readAheadBlocks', 'oracleSettings_readAheadBlocks' - Set this attribute to change the number of read-ahead blocks that DMS
 -- configures to perform a change data capture (CDC) load using Oracle
 -- Automatic Storage Management (ASM). You can specify an integer value
@@ -572,6 +578,7 @@ newOracleSettings =
       secretsManagerOracleAsmAccessRoleArn =
         Prelude.Nothing,
       charLengthSemantics = Prelude.Nothing,
+      trimSpaceInChar = Prelude.Nothing,
       readAheadBlocks = Prelude.Nothing,
       secretsManagerAccessRoleArn = Prelude.Nothing,
       standbyDelayTime = Prelude.Nothing,
@@ -675,6 +682,11 @@ oracleSettings_secretsManagerOracleAsmAccessRoleArn = Lens.lens (\OracleSettings
 -- Example: @charLengthSemantics=CHAR;@
 oracleSettings_charLengthSemantics :: Lens.Lens' OracleSettings (Prelude.Maybe CharLengthSemantics)
 oracleSettings_charLengthSemantics = Lens.lens (\OracleSettings' {charLengthSemantics} -> charLengthSemantics) (\s@OracleSettings' {} a -> s {charLengthSemantics = a} :: OracleSettings)
+
+-- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+-- and NCHAR data types during migration. The default value is @true@.
+oracleSettings_trimSpaceInChar :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
+oracleSettings_trimSpaceInChar = Lens.lens (\OracleSettings' {trimSpaceInChar} -> trimSpaceInChar) (\s@OracleSettings' {} a -> s {trimSpaceInChar = a} :: OracleSettings)
 
 -- | Set this attribute to change the number of read-ahead blocks that DMS
 -- configures to perform a change data capture (CDC) load using Oracle
@@ -961,6 +973,7 @@ instance Core.FromJSON OracleSettings where
             Prelude.<*> (x Core..:? "ArchivedLogDestId")
             Prelude.<*> (x Core..:? "SecretsManagerOracleAsmAccessRoleArn")
             Prelude.<*> (x Core..:? "CharLengthSemantics")
+            Prelude.<*> (x Core..:? "TrimSpaceInChar")
             Prelude.<*> (x Core..:? "ReadAheadBlocks")
             Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "StandbyDelayTime")
@@ -1007,6 +1020,7 @@ instance Prelude.Hashable OracleSettings where
       `Prelude.hashWithSalt` archivedLogDestId
       `Prelude.hashWithSalt` secretsManagerOracleAsmAccessRoleArn
       `Prelude.hashWithSalt` charLengthSemantics
+      `Prelude.hashWithSalt` trimSpaceInChar
       `Prelude.hashWithSalt` readAheadBlocks
       `Prelude.hashWithSalt` secretsManagerAccessRoleArn
       `Prelude.hashWithSalt` standbyDelayTime
@@ -1050,6 +1064,7 @@ instance Prelude.NFData OracleSettings where
       `Prelude.seq` Prelude.rnf archivedLogDestId
       `Prelude.seq` Prelude.rnf secretsManagerOracleAsmAccessRoleArn
       `Prelude.seq` Prelude.rnf charLengthSemantics
+      `Prelude.seq` Prelude.rnf trimSpaceInChar
       `Prelude.seq` Prelude.rnf readAheadBlocks
       `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
       `Prelude.seq` Prelude.rnf standbyDelayTime
@@ -1121,6 +1136,8 @@ instance Core.ToJSON OracleSettings where
               Prelude.<$> secretsManagerOracleAsmAccessRoleArn,
             ("CharLengthSemantics" Core..=)
               Prelude.<$> charLengthSemantics,
+            ("TrimSpaceInChar" Core..=)
+              Prelude.<$> trimSpaceInChar,
             ("ReadAheadBlocks" Core..=)
               Prelude.<$> readAheadBlocks,
             ("SecretsManagerAccessRoleArn" Core..=)

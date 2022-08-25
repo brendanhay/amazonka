@@ -61,7 +61,9 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newCreateRoutingControl' smart constructor.
 data CreateRoutingControl = CreateRoutingControl'
-  { -- | Unique client idempotency token.
+  { -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
+    -- idempotent API request with an action, specify a client token in the
+    -- request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the control panel that includes the
     -- routing control.
@@ -82,7 +84,9 @@ data CreateRoutingControl = CreateRoutingControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createRoutingControl_clientToken' - Unique client idempotency token.
+-- 'clientToken', 'createRoutingControl_clientToken' - A unique, case-sensitive string of up to 64 ASCII characters. To make an
+-- idempotent API request with an action, specify a client token in the
+-- request.
 --
 -- 'controlPanelArn', 'createRoutingControl_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that includes the
 -- routing control.
@@ -108,7 +112,9 @@ newCreateRoutingControl
         routingControlName = pRoutingControlName_
       }
 
--- | Unique client idempotency token.
+-- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
+-- idempotent API request with an action, specify a client token in the
+-- request.
 createRoutingControl_clientToken :: Lens.Lens' CreateRoutingControl (Prelude.Maybe Prelude.Text)
 createRoutingControl_clientToken = Lens.lens (\CreateRoutingControl' {clientToken} -> clientToken) (\s@CreateRoutingControl' {} a -> s {clientToken = a} :: CreateRoutingControl)
 

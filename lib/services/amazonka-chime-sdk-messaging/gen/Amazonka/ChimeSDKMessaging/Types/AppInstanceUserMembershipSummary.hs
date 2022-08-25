@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data AppInstanceUserMembershipSummary = AppInstanceUserMembershipSummary'
   { -- | The type of @ChannelMembership@.
     type' :: Prelude.Maybe ChannelMembershipType,
-    -- | The time at which a message was last read.
+    -- | The ID of the SubChannel that the @AppInstanceUser@ is a member of.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The time at which an @AppInstanceUser@ last marked a channel as read.
     readMarkerTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,13 +47,16 @@ data AppInstanceUserMembershipSummary = AppInstanceUserMembershipSummary'
 --
 -- 'type'', 'appInstanceUserMembershipSummary_type' - The type of @ChannelMembership@.
 --
--- 'readMarkerTimestamp', 'appInstanceUserMembershipSummary_readMarkerTimestamp' - The time at which a message was last read.
+-- 'subChannelId', 'appInstanceUserMembershipSummary_subChannelId' - The ID of the SubChannel that the @AppInstanceUser@ is a member of.
+--
+-- 'readMarkerTimestamp', 'appInstanceUserMembershipSummary_readMarkerTimestamp' - The time at which an @AppInstanceUser@ last marked a channel as read.
 newAppInstanceUserMembershipSummary ::
   AppInstanceUserMembershipSummary
 newAppInstanceUserMembershipSummary =
   AppInstanceUserMembershipSummary'
     { type' =
         Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       readMarkerTimestamp = Prelude.Nothing
     }
 
@@ -59,7 +64,11 @@ newAppInstanceUserMembershipSummary =
 appInstanceUserMembershipSummary_type :: Lens.Lens' AppInstanceUserMembershipSummary (Prelude.Maybe ChannelMembershipType)
 appInstanceUserMembershipSummary_type = Lens.lens (\AppInstanceUserMembershipSummary' {type'} -> type') (\s@AppInstanceUserMembershipSummary' {} a -> s {type' = a} :: AppInstanceUserMembershipSummary)
 
--- | The time at which a message was last read.
+-- | The ID of the SubChannel that the @AppInstanceUser@ is a member of.
+appInstanceUserMembershipSummary_subChannelId :: Lens.Lens' AppInstanceUserMembershipSummary (Prelude.Maybe Prelude.Text)
+appInstanceUserMembershipSummary_subChannelId = Lens.lens (\AppInstanceUserMembershipSummary' {subChannelId} -> subChannelId) (\s@AppInstanceUserMembershipSummary' {} a -> s {subChannelId = a} :: AppInstanceUserMembershipSummary)
+
+-- | The time at which an @AppInstanceUser@ last marked a channel as read.
 appInstanceUserMembershipSummary_readMarkerTimestamp :: Lens.Lens' AppInstanceUserMembershipSummary (Prelude.Maybe Prelude.UTCTime)
 appInstanceUserMembershipSummary_readMarkerTimestamp = Lens.lens (\AppInstanceUserMembershipSummary' {readMarkerTimestamp} -> readMarkerTimestamp) (\s@AppInstanceUserMembershipSummary' {} a -> s {readMarkerTimestamp = a} :: AppInstanceUserMembershipSummary) Prelude.. Lens.mapping Core._Time
 
@@ -73,6 +82,7 @@ instance
       ( \x ->
           AppInstanceUserMembershipSummary'
             Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "SubChannelId")
             Prelude.<*> (x Core..:? "ReadMarkerTimestamp")
       )
 
@@ -84,6 +94,7 @@ instance
     _salt
     AppInstanceUserMembershipSummary' {..} =
       _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` subChannelId
         `Prelude.hashWithSalt` readMarkerTimestamp
 
 instance
@@ -92,4 +103,5 @@ instance
   where
   rnf AppInstanceUserMembershipSummary' {..} =
     Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf readMarkerTimestamp

@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWeightedTarget' smart constructor.
 data WeightedTarget = WeightedTarget'
-  { -- | The virtual node to associate with the weighted target.
+  { -- | The targeted port of the weighted object.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | The virtual node to associate with the weighted target.
     virtualNode :: Prelude.Text,
     -- | The relative weight of the weighted target.
     weight :: Prelude.Natural
@@ -46,6 +48,8 @@ data WeightedTarget = WeightedTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'weightedTarget_port' - The targeted port of the weighted object.
+--
 -- 'virtualNode', 'weightedTarget_virtualNode' - The virtual node to associate with the weighted target.
 --
 -- 'weight', 'weightedTarget_weight' - The relative weight of the weighted target.
@@ -57,9 +61,14 @@ newWeightedTarget ::
   WeightedTarget
 newWeightedTarget pVirtualNode_ pWeight_ =
   WeightedTarget'
-    { virtualNode = pVirtualNode_,
+    { port = Prelude.Nothing,
+      virtualNode = pVirtualNode_,
       weight = pWeight_
     }
+
+-- | The targeted port of the weighted object.
+weightedTarget_port :: Lens.Lens' WeightedTarget (Prelude.Maybe Prelude.Natural)
+weightedTarget_port = Lens.lens (\WeightedTarget' {port} -> port) (\s@WeightedTarget' {} a -> s {port = a} :: WeightedTarget)
 
 -- | The virtual node to associate with the weighted target.
 weightedTarget_virtualNode :: Lens.Lens' WeightedTarget Prelude.Text
@@ -75,25 +84,29 @@ instance Core.FromJSON WeightedTarget where
       "WeightedTarget"
       ( \x ->
           WeightedTarget'
-            Prelude.<$> (x Core..: "virtualNode")
+            Prelude.<$> (x Core..:? "port")
+            Prelude.<*> (x Core..: "virtualNode")
             Prelude.<*> (x Core..: "weight")
       )
 
 instance Prelude.Hashable WeightedTarget where
   hashWithSalt _salt WeightedTarget' {..} =
-    _salt `Prelude.hashWithSalt` virtualNode
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` virtualNode
       `Prelude.hashWithSalt` weight
 
 instance Prelude.NFData WeightedTarget where
   rnf WeightedTarget' {..} =
-    Prelude.rnf virtualNode
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf virtualNode
       `Prelude.seq` Prelude.rnf weight
 
 instance Core.ToJSON WeightedTarget where
   toJSON WeightedTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("virtualNode" Core..= virtualNode),
+          [ ("port" Core..=) Prelude.<$> port,
+            Prelude.Just ("virtualNode" Core..= virtualNode),
             Prelude.Just ("weight" Core..= weight)
           ]
       )

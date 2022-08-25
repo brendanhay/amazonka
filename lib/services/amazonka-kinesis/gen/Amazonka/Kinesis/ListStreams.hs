@@ -26,7 +26,7 @@
 -- @ListStreams@. You can limit the number of returned streams using the
 -- @Limit@ parameter. If you do not specify a value for the @Limit@
 -- parameter, Kinesis Data Streams uses the default limit, which is
--- currently 10.
+-- currently 100.
 --
 -- You can detect if there are more streams available to list by using the
 -- @HasMoreStreams@ flag from the returned output. If there are more
@@ -71,7 +71,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | The maximum number of streams to list.
+  { -- | The maximum number of streams to list. The default value is 100. If you
+    -- specify a value greater than 100, at most 100 results are returned.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stream to start the list with.
     exclusiveStartStreamName :: Prelude.Maybe Prelude.Text
@@ -86,7 +87,8 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listStreams_limit' - The maximum number of streams to list.
+-- 'limit', 'listStreams_limit' - The maximum number of streams to list. The default value is 100. If you
+-- specify a value greater than 100, at most 100 results are returned.
 --
 -- 'exclusiveStartStreamName', 'listStreams_exclusiveStartStreamName' - The name of the stream to start the list with.
 newListStreams ::
@@ -97,7 +99,8 @@ newListStreams =
       exclusiveStartStreamName = Prelude.Nothing
     }
 
--- | The maximum number of streams to list.
+-- | The maximum number of streams to list. The default value is 100. If you
+-- specify a value greater than 100, at most 100 results are returned.
 listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
 
@@ -181,8 +184,8 @@ instance Core.ToQuery ListStreams where
 data ListStreamsResponse = ListStreamsResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The names of the streams that are associated with the AWS account making
-    -- the @ListStreams@ request.
+    -- | The names of the streams that are associated with the Amazon Web
+    -- Services account making the @ListStreams@ request.
     streamNames :: [Prelude.Text],
     -- | If set to @true@, there are more streams available to list.
     hasMoreStreams :: Prelude.Bool
@@ -199,8 +202,8 @@ data ListStreamsResponse = ListStreamsResponse'
 --
 -- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
 --
--- 'streamNames', 'listStreamsResponse_streamNames' - The names of the streams that are associated with the AWS account making
--- the @ListStreams@ request.
+-- 'streamNames', 'listStreamsResponse_streamNames' - The names of the streams that are associated with the Amazon Web
+-- Services account making the @ListStreams@ request.
 --
 -- 'hasMoreStreams', 'listStreamsResponse_hasMoreStreams' - If set to @true@, there are more streams available to list.
 newListStreamsResponse ::
@@ -220,8 +223,8 @@ newListStreamsResponse pHttpStatus_ pHasMoreStreams_ =
 listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
 listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
--- | The names of the streams that are associated with the AWS account making
--- the @ListStreams@ request.
+-- | The names of the streams that are associated with the Amazon Web
+-- Services account making the @ListStreams@ request.
 listStreamsResponse_streamNames :: Lens.Lens' ListStreamsResponse [Prelude.Text]
 listStreamsResponse_streamNames = Lens.lens (\ListStreamsResponse' {streamNames} -> streamNames) (\s@ListStreamsResponse' {} a -> s {streamNames = a} :: ListStreamsResponse) Prelude.. Lens.coerced
 

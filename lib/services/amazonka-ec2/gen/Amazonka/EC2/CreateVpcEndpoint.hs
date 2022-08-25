@@ -24,26 +24,8 @@
 -- to create a private connection between your VPC and the service. The
 -- service may be provided by Amazon Web Services, an Amazon Web Services
 -- Marketplace Partner, or another Amazon Web Services account. For more
--- information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html VPC Endpoints>
--- in the /Amazon Virtual Private Cloud User Guide/.
---
--- A @gateway@ endpoint serves as a target for a route in your route table
--- for traffic destined for the Amazon Web Service. You can specify an
--- endpoint policy to attach to the endpoint, which will control access to
--- the service from your VPC. You can also specify the VPC route tables
--- that use the endpoint.
---
--- An @interface@ endpoint is a network interface in your subnet that
--- serves as an endpoint for communicating with the specified service. You
--- can specify the subnets in which to create an endpoint, and the security
--- groups to associate with the endpoint network interface.
---
--- A @GatewayLoadBalancer@ endpoint is a network interface in your subnet
--- that serves an endpoint for communicating with a Gateway Load Balancer
--- that you\'ve configured as a VPC endpoint service.
---
--- Use DescribeVpcEndpointServices to get a list of supported services.
+-- information, see the
+-- <https://docs.aws.amazon.com/vpc/latest/privatelink/ Amazon Web Services PrivateLink Guide>.
 module Amazonka.EC2.CreateVpcEndpoint
   ( -- * Creating a Request
     CreateVpcEndpoint (..),
@@ -58,6 +40,8 @@ module Amazonka.EC2.CreateVpcEndpoint
     createVpcEndpoint_dryRun,
     createVpcEndpoint_policyDocument,
     createVpcEndpoint_tagSpecifications,
+    createVpcEndpoint_dnsOptions,
+    createVpcEndpoint_ipAddressType,
     createVpcEndpoint_subnetIds,
     createVpcEndpoint_vpcId,
     createVpcEndpoint_serviceName,
@@ -124,6 +108,10 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The tags to associate with the endpoint.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The DNS options for the endpoint.
+    dnsOptions :: Prelude.Maybe DnsOptionsSpecification,
+    -- | The IP address type for the endpoint.
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
     -- subnets in which to create an endpoint network interface. For a Gateway
     -- Load Balancer endpoint, you can specify one subnet only.
@@ -185,6 +173,10 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
 --
 -- 'tagSpecifications', 'createVpcEndpoint_tagSpecifications' - The tags to associate with the endpoint.
 --
+-- 'dnsOptions', 'createVpcEndpoint_dnsOptions' - The DNS options for the endpoint.
+--
+-- 'ipAddressType', 'createVpcEndpoint_ipAddressType' - The IP address type for the endpoint.
+--
 -- 'subnetIds', 'createVpcEndpoint_subnetIds' - (Interface and Gateway Load Balancer endpoints) The ID of one or more
 -- subnets in which to create an endpoint network interface. For a Gateway
 -- Load Balancer endpoint, you can specify one subnet only.
@@ -211,6 +203,8 @@ newCreateVpcEndpoint pVpcId_ pServiceName_ =
       dryRun = Prelude.Nothing,
       policyDocument = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
+      dnsOptions = Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       vpcId = pVpcId_,
       serviceName = pServiceName_
@@ -272,6 +266,14 @@ createVpcEndpoint_policyDocument = Lens.lens (\CreateVpcEndpoint' {policyDocumen
 createVpcEndpoint_tagSpecifications :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [TagSpecification])
 createVpcEndpoint_tagSpecifications = Lens.lens (\CreateVpcEndpoint' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpoint' {} a -> s {tagSpecifications = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
+-- | The DNS options for the endpoint.
+createVpcEndpoint_dnsOptions :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe DnsOptionsSpecification)
+createVpcEndpoint_dnsOptions = Lens.lens (\CreateVpcEndpoint' {dnsOptions} -> dnsOptions) (\s@CreateVpcEndpoint' {} a -> s {dnsOptions = a} :: CreateVpcEndpoint)
+
+-- | The IP address type for the endpoint.
+createVpcEndpoint_ipAddressType :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe IpAddressType)
+createVpcEndpoint_ipAddressType = Lens.lens (\CreateVpcEndpoint' {ipAddressType} -> ipAddressType) (\s@CreateVpcEndpoint' {} a -> s {ipAddressType = a} :: CreateVpcEndpoint)
+
 -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
 -- subnets in which to create an endpoint network interface. For a Gateway
 -- Load Balancer endpoint, you can specify one subnet only.
@@ -312,6 +314,8 @@ instance Prelude.Hashable CreateVpcEndpoint where
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` dnsOptions
+      `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` serviceName
@@ -326,6 +330,8 @@ instance Prelude.NFData CreateVpcEndpoint where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf dnsOptions
+      `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf serviceName
@@ -360,6 +366,8 @@ instance Core.ToQuery CreateVpcEndpoint where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
+        "DnsOptions" Core.=: dnsOptions,
+        "IpAddressType" Core.=: ipAddressType,
         Core.toQuery
           (Core.toQueryList "SubnetId" Prelude.<$> subnetIds),
         "VpcId" Core.=: vpcId,

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches one or more tags to an existing resource.
+-- Attaches one or more LF-tags to an existing resource.
 module Amazonka.LakeFormation.AddLFTagsToResource
   ( -- * Creating a Request
     AddLFTagsToResource (..),
@@ -53,11 +53,11 @@ data AddLFTagsToResource = AddLFTagsToResource'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The resource to which to attach a tag.
+    -- | The database, table, or column resource to which to attach an LF-tag.
     resource :: Resource,
-    -- | The tags to attach to the resource.
+    -- | The LF-tags to attach to the resource.
     lFTags :: Prelude.NonEmpty LFTagPair
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,11 +73,11 @@ data AddLFTagsToResource = AddLFTagsToResource'
 -- 'catalogId', 'addLFTagsToResource_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'resource', 'addLFTagsToResource_resource' - The resource to which to attach a tag.
+-- 'resource', 'addLFTagsToResource_resource' - The database, table, or column resource to which to attach an LF-tag.
 --
--- 'lFTags', 'addLFTagsToResource_lFTags' - The tags to attach to the resource.
+-- 'lFTags', 'addLFTagsToResource_lFTags' - The LF-tags to attach to the resource.
 newAddLFTagsToResource ::
   -- | 'resource'
   Resource ->
@@ -94,15 +94,15 @@ newAddLFTagsToResource pResource_ pLFTags_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 addLFTagsToResource_catalogId :: Lens.Lens' AddLFTagsToResource (Prelude.Maybe Prelude.Text)
 addLFTagsToResource_catalogId = Lens.lens (\AddLFTagsToResource' {catalogId} -> catalogId) (\s@AddLFTagsToResource' {} a -> s {catalogId = a} :: AddLFTagsToResource)
 
--- | The resource to which to attach a tag.
+-- | The database, table, or column resource to which to attach an LF-tag.
 addLFTagsToResource_resource :: Lens.Lens' AddLFTagsToResource Resource
 addLFTagsToResource_resource = Lens.lens (\AddLFTagsToResource' {resource} -> resource) (\s@AddLFTagsToResource' {} a -> s {resource = a} :: AddLFTagsToResource)
 
--- | The tags to attach to the resource.
+-- | The LF-tags to attach to the resource.
 addLFTagsToResource_lFTags :: Lens.Lens' AddLFTagsToResource (Prelude.NonEmpty LFTagPair)
 addLFTagsToResource_lFTags = Lens.lens (\AddLFTagsToResource' {lFTags} -> lFTags) (\s@AddLFTagsToResource' {} a -> s {lFTags = a} :: AddLFTagsToResource) Prelude.. Lens.coerced
 
@@ -135,11 +135,7 @@ instance Core.ToHeaders AddLFTagsToResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.AddLFTagsToResource" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -157,7 +153,7 @@ instance Core.ToJSON AddLFTagsToResource where
       )
 
 instance Core.ToPath AddLFTagsToResource where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/AddLFTagsToResource"
 
 instance Core.ToQuery AddLFTagsToResource where
   toQuery = Prelude.const Prelude.mempty

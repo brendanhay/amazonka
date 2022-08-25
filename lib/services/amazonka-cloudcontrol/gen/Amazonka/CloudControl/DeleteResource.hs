@@ -77,7 +77,7 @@ data DeleteResource = DeleteResource'
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) for Cloud Control API to use when performing this resource
+    -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
     -- defined in the @ handlers @ section of the
@@ -140,7 +140,7 @@ data DeleteResource = DeleteResource'
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
 -- 'roleArn', 'deleteResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -208,7 +208,7 @@ deleteResource_clientToken :: Lens.Lens' DeleteResource (Prelude.Maybe Prelude.T
 deleteResource_clientToken = Lens.lens (\DeleteResource' {clientToken} -> clientToken) (\s@DeleteResource' {} a -> s {clientToken = a} :: DeleteResource)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the

@@ -61,8 +61,8 @@ import Amazonka.Wisdom.Types
 data StartContentUpload = StartContentUpload'
   { -- | The type of content to upload.
     contentType :: Prelude.Text,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,8 +77,8 @@ data StartContentUpload = StartContentUpload'
 --
 -- 'contentType', 'startContentUpload_contentType' - The type of content to upload.
 --
--- 'knowledgeBaseId', 'startContentUpload_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'startContentUpload_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newStartContentUpload ::
   -- | 'contentType'
   Prelude.Text ->
@@ -95,8 +95,8 @@ newStartContentUpload pContentType_ pKnowledgeBaseId_ =
 startContentUpload_contentType :: Lens.Lens' StartContentUpload Prelude.Text
 startContentUpload_contentType = Lens.lens (\StartContentUpload' {contentType} -> contentType) (\s@StartContentUpload' {} a -> s {contentType = a} :: StartContentUpload)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 startContentUpload_knowledgeBaseId :: Lens.Lens' StartContentUpload Prelude.Text
 startContentUpload_knowledgeBaseId = Lens.lens (\StartContentUpload' {knowledgeBaseId} -> knowledgeBaseId) (\s@StartContentUpload' {} a -> s {knowledgeBaseId = a} :: StartContentUpload)
 

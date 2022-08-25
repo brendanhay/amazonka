@@ -28,6 +28,7 @@ module Amazonka.SageMaker.StartPipelineExecution
 
     -- * Request Lenses
     startPipelineExecution_pipelineParameters,
+    startPipelineExecution_parallelismConfiguration,
     startPipelineExecution_pipelineExecutionDescription,
     startPipelineExecution_pipelineExecutionDisplayName,
     startPipelineExecution_pipelineName,
@@ -54,6 +55,9 @@ import Amazonka.SageMaker.Types
 data StartPipelineExecution = StartPipelineExecution'
   { -- | Contains a list of pipeline parameters. This list can be empty.
     pipelineParameters :: Prelude.Maybe [Parameter],
+    -- | This configuration, if specified, overrides the parallelism
+    -- configuration of the parent pipeline for this specific run.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The description of the pipeline execution.
     pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The display name of the pipeline execution.
@@ -77,6 +81,9 @@ data StartPipelineExecution = StartPipelineExecution'
 --
 -- 'pipelineParameters', 'startPipelineExecution_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
 --
+-- 'parallelismConfiguration', 'startPipelineExecution_parallelismConfiguration' - This configuration, if specified, overrides the parallelism
+-- configuration of the parent pipeline for this specific run.
+--
 -- 'pipelineExecutionDescription', 'startPipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
 --
 -- 'pipelineExecutionDisplayName', 'startPipelineExecution_pipelineExecutionDisplayName' - The display name of the pipeline execution.
@@ -98,6 +105,7 @@ newStartPipelineExecution
     StartPipelineExecution'
       { pipelineParameters =
           Prelude.Nothing,
+        parallelismConfiguration = Prelude.Nothing,
         pipelineExecutionDescription = Prelude.Nothing,
         pipelineExecutionDisplayName = Prelude.Nothing,
         pipelineName = pPipelineName_,
@@ -107,6 +115,11 @@ newStartPipelineExecution
 -- | Contains a list of pipeline parameters. This list can be empty.
 startPipelineExecution_pipelineParameters :: Lens.Lens' StartPipelineExecution (Prelude.Maybe [Parameter])
 startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | This configuration, if specified, overrides the parallelism
+-- configuration of the parent pipeline for this specific run.
+startPipelineExecution_parallelismConfiguration :: Lens.Lens' StartPipelineExecution (Prelude.Maybe ParallelismConfiguration)
+startPipelineExecution_parallelismConfiguration = Lens.lens (\StartPipelineExecution' {parallelismConfiguration} -> parallelismConfiguration) (\s@StartPipelineExecution' {} a -> s {parallelismConfiguration = a} :: StartPipelineExecution)
 
 -- | The description of the pipeline execution.
 startPipelineExecution_pipelineExecutionDescription :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
@@ -142,6 +155,7 @@ instance Core.AWSRequest StartPipelineExecution where
 instance Prelude.Hashable StartPipelineExecution where
   hashWithSalt _salt StartPipelineExecution' {..} =
     _salt `Prelude.hashWithSalt` pipelineParameters
+      `Prelude.hashWithSalt` parallelismConfiguration
       `Prelude.hashWithSalt` pipelineExecutionDescription
       `Prelude.hashWithSalt` pipelineExecutionDisplayName
       `Prelude.hashWithSalt` pipelineName
@@ -150,6 +164,7 @@ instance Prelude.Hashable StartPipelineExecution where
 instance Prelude.NFData StartPipelineExecution where
   rnf StartPipelineExecution' {..} =
     Prelude.rnf pipelineParameters
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
       `Prelude.seq` Prelude.rnf pipelineExecutionDescription
       `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
       `Prelude.seq` Prelude.rnf pipelineName
@@ -176,6 +191,8 @@ instance Core.ToJSON StartPipelineExecution where
       ( Prelude.catMaybes
           [ ("PipelineParameters" Core..=)
               Prelude.<$> pipelineParameters,
+            ("ParallelismConfiguration" Core..=)
+              Prelude.<$> parallelismConfiguration,
             ("PipelineExecutionDescription" Core..=)
               Prelude.<$> pipelineExecutionDescription,
             ("PipelineExecutionDisplayName" Core..=)

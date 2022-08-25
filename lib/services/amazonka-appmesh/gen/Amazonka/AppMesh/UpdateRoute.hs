@@ -60,9 +60,9 @@ data UpdateRoute = UpdateRoute'
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh that the route resides in.
@@ -88,9 +88,9 @@ data UpdateRoute = UpdateRoute'
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
--- 'meshOwner', 'updateRoute_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'updateRoute_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'updateRoute_meshName' - The name of the service mesh that the route resides in.
@@ -130,9 +130,9 @@ newUpdateRoute
 updateRoute_clientToken :: Lens.Lens' UpdateRoute (Prelude.Maybe Prelude.Text)
 updateRoute_clientToken = Lens.lens (\UpdateRoute' {clientToken} -> clientToken) (\s@UpdateRoute' {} a -> s {clientToken = a} :: UpdateRoute)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 updateRoute_meshOwner :: Lens.Lens' UpdateRoute (Prelude.Maybe Prelude.Text)
 updateRoute_meshOwner = Lens.lens (\UpdateRoute' {meshOwner} -> meshOwner) (\s@UpdateRoute' {} a -> s {meshOwner = a} :: UpdateRoute)

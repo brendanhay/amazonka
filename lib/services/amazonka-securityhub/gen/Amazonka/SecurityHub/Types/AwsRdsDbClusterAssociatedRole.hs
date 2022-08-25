@@ -30,6 +30,13 @@ data AwsRdsDbClusterAssociatedRole = AwsRdsDbClusterAssociatedRole'
   { -- | The ARN of the IAM role.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the association between the IAM role and the DB cluster.
+    -- Valid values are as follows:
+    --
+    -- -   @ACTIVE@
+    --
+    -- -   @INVALID@
+    --
+    -- -   @PENDING@
     status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,6 +52,13 @@ data AwsRdsDbClusterAssociatedRole = AwsRdsDbClusterAssociatedRole'
 -- 'roleArn', 'awsRdsDbClusterAssociatedRole_roleArn' - The ARN of the IAM role.
 --
 -- 'status', 'awsRdsDbClusterAssociatedRole_status' - The status of the association between the IAM role and the DB cluster.
+-- Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @INVALID@
+--
+-- -   @PENDING@
 newAwsRdsDbClusterAssociatedRole ::
   AwsRdsDbClusterAssociatedRole
 newAwsRdsDbClusterAssociatedRole =
@@ -59,6 +73,13 @@ awsRdsDbClusterAssociatedRole_roleArn :: Lens.Lens' AwsRdsDbClusterAssociatedRol
 awsRdsDbClusterAssociatedRole_roleArn = Lens.lens (\AwsRdsDbClusterAssociatedRole' {roleArn} -> roleArn) (\s@AwsRdsDbClusterAssociatedRole' {} a -> s {roleArn = a} :: AwsRdsDbClusterAssociatedRole)
 
 -- | The status of the association between the IAM role and the DB cluster.
+-- Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @INVALID@
+--
+-- -   @PENDING@
 awsRdsDbClusterAssociatedRole_status :: Lens.Lens' AwsRdsDbClusterAssociatedRole (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterAssociatedRole_status = Lens.lens (\AwsRdsDbClusterAssociatedRole' {status} -> status) (\s@AwsRdsDbClusterAssociatedRole' {} a -> s {status = a} :: AwsRdsDbClusterAssociatedRole)
 

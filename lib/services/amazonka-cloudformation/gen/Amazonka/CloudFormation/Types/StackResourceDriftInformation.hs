@@ -47,8 +47,8 @@ data StackResourceDriftInformation = StackResourceDriftInformation'
     --     status of @NOT_CHECKED@. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection>.
     --
-    -- -   @IN_SYNC@: The resources\'s actual configuration matches its
-    --     expected configuration.
+    -- -   @IN_SYNC@: The resource\'s actual configuration matches its expected
+    --     configuration.
     stackResourceDriftStatus :: StackResourceDriftStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,8 +79,8 @@ data StackResourceDriftInformation = StackResourceDriftInformation'
 --     status of @NOT_CHECKED@. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection>.
 --
--- -   @IN_SYNC@: The resources\'s actual configuration matches its
---     expected configuration.
+-- -   @IN_SYNC@: The resource\'s actual configuration matches its expected
+--     configuration.
 newStackResourceDriftInformation ::
   -- | 'stackResourceDriftStatus'
   StackResourceDriftStatus ->
@@ -114,8 +114,8 @@ stackResourceDriftInformation_lastCheckTimestamp = Lens.lens (\StackResourceDrif
 --     status of @NOT_CHECKED@. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection>.
 --
--- -   @IN_SYNC@: The resources\'s actual configuration matches its
---     expected configuration.
+-- -   @IN_SYNC@: The resource\'s actual configuration matches its expected
+--     configuration.
 stackResourceDriftInformation_stackResourceDriftStatus :: Lens.Lens' StackResourceDriftInformation StackResourceDriftStatus
 stackResourceDriftInformation_stackResourceDriftStatus = Lens.lens (\StackResourceDriftInformation' {stackResourceDriftStatus} -> stackResourceDriftStatus) (\s@StackResourceDriftInformation' {} a -> s {stackResourceDriftStatus = a} :: StackResourceDriftInformation)
 

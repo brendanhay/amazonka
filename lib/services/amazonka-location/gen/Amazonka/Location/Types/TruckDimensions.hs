@@ -34,14 +34,23 @@ data TruckDimensions = TruckDimensions'
   { -- | The length of the truck.
     --
     -- -   For example, @15.5@.
+    --
+    -- For routes calculated with a HERE resource, this value must be between 0
+    -- and 300 meters.
     length :: Prelude.Maybe Prelude.Double,
     -- | The width of the truck.
     --
     -- -   For example, @4.5@.
+    --
+    -- For routes calculated with a HERE resource, this value must be between 0
+    -- and 50 meters.
     width :: Prelude.Maybe Prelude.Double,
     -- | The height of the truck.
     --
     -- -   For example, @4.5@.
+    --
+    -- For routes calculated with a HERE resource, this value must be between 0
+    -- and 50 meters.
     height :: Prelude.Maybe Prelude.Double,
     -- | Specifies the unit of measurement for the truck dimensions.
     --
@@ -62,13 +71,22 @@ data TruckDimensions = TruckDimensions'
 --
 -- -   For example, @15.5@.
 --
+-- For routes calculated with a HERE resource, this value must be between 0
+-- and 300 meters.
+--
 -- 'width', 'truckDimensions_width' - The width of the truck.
 --
 -- -   For example, @4.5@.
 --
+-- For routes calculated with a HERE resource, this value must be between 0
+-- and 50 meters.
+--
 -- 'height', 'truckDimensions_height' - The height of the truck.
 --
 -- -   For example, @4.5@.
+--
+-- For routes calculated with a HERE resource, this value must be between 0
+-- and 50 meters.
 --
 -- 'unit', 'truckDimensions_unit' - Specifies the unit of measurement for the truck dimensions.
 --
@@ -86,18 +104,27 @@ newTruckDimensions =
 -- | The length of the truck.
 --
 -- -   For example, @15.5@.
+--
+-- For routes calculated with a HERE resource, this value must be between 0
+-- and 300 meters.
 truckDimensions_length :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
 truckDimensions_length = Lens.lens (\TruckDimensions' {length} -> length) (\s@TruckDimensions' {} a -> s {length = a} :: TruckDimensions)
 
 -- | The width of the truck.
 --
 -- -   For example, @4.5@.
+--
+-- For routes calculated with a HERE resource, this value must be between 0
+-- and 50 meters.
 truckDimensions_width :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
 truckDimensions_width = Lens.lens (\TruckDimensions' {width} -> width) (\s@TruckDimensions' {} a -> s {width = a} :: TruckDimensions)
 
 -- | The height of the truck.
 --
 -- -   For example, @4.5@.
+--
+-- For routes calculated with a HERE resource, this value must be between 0
+-- and 50 meters.
 truckDimensions_height :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
 truckDimensions_height = Lens.lens (\TruckDimensions' {height} -> height) (\s@TruckDimensions' {} a -> s {height = a} :: TruckDimensions)
 

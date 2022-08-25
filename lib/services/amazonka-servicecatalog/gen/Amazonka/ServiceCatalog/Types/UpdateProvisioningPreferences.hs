@@ -30,7 +30,7 @@ import Amazonka.ServiceCatalog.Types.StackSetOperationType
 --
 -- /See:/ 'newUpdateProvisioningPreferences' smart constructor.
 data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
-  { -- | Determines what action AWS Service Catalog performs to a stack set or a
+  { -- | Determines what action Service Catalog performs to a stack set or a
     -- stack instance represented by the provisioned product. The default value
     -- is @UPDATE@ if nothing is specified.
     --
@@ -39,7 +39,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     -- [CREATE]
     --     Creates a new stack instance in the stack set represented by the
     --     provisioned product. In this case, only new stack instances are
-    --     created based on accounts and regions; if new ProductId or
+    --     created based on accounts and Regions; if new ProductId or
     --     ProvisioningArtifactID are passed, they will be ignored.
     --
     -- [UPDATE]
@@ -50,21 +50,22 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --     Deletes a stack instance in the stack set represented by the
     --     provisioned product.
     stackSetOperationType :: Prelude.Maybe StackSetOperationType,
-    -- | One or more AWS Regions where the provisioned product will be available.
+    -- | One or more Amazon Web Services Regions where the provisioned product
+    -- will be available.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
     --
-    -- The specified regions should be within the list of regions from the
-    -- @STACKSET@ constraint. To get the list of regions in the @STACKSET@
+    -- The specified Regions should be within the list of Regions from the
+    -- @STACKSET@ constraint. To get the list of Regions in the @STACKSET@
     -- constraint, use the @DescribeProvisioningParameters@ operation.
     --
-    -- If no values are specified, the default value is all regions from the
+    -- If no values are specified, the default value is all Regions from the
     -- @STACKSET@ constraint.
     stackSetRegions :: Prelude.Maybe [Prelude.Text],
-    -- | The number of accounts, per region, for which this operation can fail
-    -- before AWS Service Catalog stops the operation in that region. If the
-    -- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
-    -- the operation in any subsequent regions.
+    -- | The number of accounts, per Region, for which this operation can fail
+    -- before Service Catalog stops the operation in that Region. If the
+    -- operation is stopped in a Region, Service Catalog doesn\'t attempt the
+    -- operation in any subsequent Regions.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
     --
@@ -77,9 +78,9 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     -- one time.
     --
     -- When calculating the number of accounts based on the specified
-    -- percentage, AWS Service Catalog rounds down to the next whole number.
-    -- This is true except in cases where rounding down would result is zero.
-    -- In this case, AWS Service Catalog sets the number as @1@ instead.
+    -- percentage, Service Catalog rounds down to the next whole number. This
+    -- is true except in cases where rounding down would result is zero. In
+    -- this case, Service Catalog sets the number as @1@ instead.
     --
     -- Note that this setting lets you specify the maximum for operations. For
     -- large deployments, under certain circumstances the actual number of
@@ -90,14 +91,15 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
     -- @StackSetMaxConcurrentPercentage@, but not both.
     stackSetMaxConcurrencyPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | One or more AWS accounts that will have access to the provisioned
-    -- product.
+    -- | One or more Amazon Web Services accounts that will have access to the
+    -- provisioned product.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
     --
-    -- The AWS accounts specified should be within the list of accounts in the
-    -- @STACKSET@ constraint. To get the list of accounts in the @STACKSET@
-    -- constraint, use the @DescribeProvisioningParameters@ operation.
+    -- The Amazon Web Services accounts specified should be within the list of
+    -- accounts in the @STACKSET@ constraint. To get the list of accounts in
+    -- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
+    -- operation.
     --
     -- If no values are specified, the default value is all accounts from the
     -- @STACKSET@ constraint.
@@ -116,13 +118,13 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
     -- @StackSetMaxConcurrentPercentage@, but not both.
     stackSetMaxConcurrencyCount :: Prelude.Maybe Prelude.Natural,
-    -- | The percentage of accounts, per region, for which this stack operation
-    -- can fail before AWS Service Catalog stops the operation in that region.
-    -- If the operation is stopped in a region, AWS Service Catalog doesn\'t
-    -- attempt the operation in any subsequent regions.
+    -- | The percentage of accounts, per Region, for which this stack operation
+    -- can fail before Service Catalog stops the operation in that Region. If
+    -- the operation is stopped in a Region, Service Catalog doesn\'t attempt
+    -- the operation in any subsequent Regions.
     --
     -- When calculating the number of accounts based on the specified
-    -- percentage, AWS Service Catalog rounds down to the next whole number.
+    -- percentage, Service Catalog rounds down to the next whole number.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
     --
@@ -140,7 +142,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackSetOperationType', 'updateProvisioningPreferences_stackSetOperationType' - Determines what action AWS Service Catalog performs to a stack set or a
+-- 'stackSetOperationType', 'updateProvisioningPreferences_stackSetOperationType' - Determines what action Service Catalog performs to a stack set or a
 -- stack instance represented by the provisioned product. The default value
 -- is @UPDATE@ if nothing is specified.
 --
@@ -149,7 +151,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 -- [CREATE]
 --     Creates a new stack instance in the stack set represented by the
 --     provisioned product. In this case, only new stack instances are
---     created based on accounts and regions; if new ProductId or
+--     created based on accounts and Regions; if new ProductId or
 --     ProvisioningArtifactID are passed, they will be ignored.
 --
 -- [UPDATE]
@@ -160,21 +162,22 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 --     Deletes a stack instance in the stack set represented by the
 --     provisioned product.
 --
--- 'stackSetRegions', 'updateProvisioningPreferences_stackSetRegions' - One or more AWS Regions where the provisioned product will be available.
+-- 'stackSetRegions', 'updateProvisioningPreferences_stackSetRegions' - One or more Amazon Web Services Regions where the provisioned product
+-- will be available.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
--- The specified regions should be within the list of regions from the
--- @STACKSET@ constraint. To get the list of regions in the @STACKSET@
+-- The specified Regions should be within the list of Regions from the
+-- @STACKSET@ constraint. To get the list of Regions in the @STACKSET@
 -- constraint, use the @DescribeProvisioningParameters@ operation.
 --
--- If no values are specified, the default value is all regions from the
+-- If no values are specified, the default value is all Regions from the
 -- @STACKSET@ constraint.
 --
--- 'stackSetFailureToleranceCount', 'updateProvisioningPreferences_stackSetFailureToleranceCount' - The number of accounts, per region, for which this operation can fail
--- before AWS Service Catalog stops the operation in that region. If the
--- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
--- the operation in any subsequent regions.
+-- 'stackSetFailureToleranceCount', 'updateProvisioningPreferences_stackSetFailureToleranceCount' - The number of accounts, per Region, for which this operation can fail
+-- before Service Catalog stops the operation in that Region. If the
+-- operation is stopped in a Region, Service Catalog doesn\'t attempt the
+-- operation in any subsequent Regions.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
@@ -187,9 +190,9 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 -- one time.
 --
 -- When calculating the number of accounts based on the specified
--- percentage, AWS Service Catalog rounds down to the next whole number.
--- This is true except in cases where rounding down would result is zero.
--- In this case, AWS Service Catalog sets the number as @1@ instead.
+-- percentage, Service Catalog rounds down to the next whole number. This
+-- is true except in cases where rounding down would result is zero. In
+-- this case, Service Catalog sets the number as @1@ instead.
 --
 -- Note that this setting lets you specify the maximum for operations. For
 -- large deployments, under certain circumstances the actual number of
@@ -200,14 +203,15 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
 --
--- 'stackSetAccounts', 'updateProvisioningPreferences_stackSetAccounts' - One or more AWS accounts that will have access to the provisioned
--- product.
+-- 'stackSetAccounts', 'updateProvisioningPreferences_stackSetAccounts' - One or more Amazon Web Services accounts that will have access to the
+-- provisioned product.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
--- The AWS accounts specified should be within the list of accounts in the
--- @STACKSET@ constraint. To get the list of accounts in the @STACKSET@
--- constraint, use the @DescribeProvisioningParameters@ operation.
+-- The Amazon Web Services accounts specified should be within the list of
+-- accounts in the @STACKSET@ constraint. To get the list of accounts in
+-- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
+-- operation.
 --
 -- If no values are specified, the default value is all accounts from the
 -- @STACKSET@ constraint.
@@ -226,13 +230,13 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
 --
--- 'stackSetFailureTolerancePercentage', 'updateProvisioningPreferences_stackSetFailureTolerancePercentage' - The percentage of accounts, per region, for which this stack operation
--- can fail before AWS Service Catalog stops the operation in that region.
--- If the operation is stopped in a region, AWS Service Catalog doesn\'t
--- attempt the operation in any subsequent regions.
+-- 'stackSetFailureTolerancePercentage', 'updateProvisioningPreferences_stackSetFailureTolerancePercentage' - The percentage of accounts, per Region, for which this stack operation
+-- can fail before Service Catalog stops the operation in that Region. If
+-- the operation is stopped in a Region, Service Catalog doesn\'t attempt
+-- the operation in any subsequent Regions.
 --
 -- When calculating the number of accounts based on the specified
--- percentage, AWS Service Catalog rounds down to the next whole number.
+-- percentage, Service Catalog rounds down to the next whole number.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
@@ -256,7 +260,7 @@ newUpdateProvisioningPreferences =
         Prelude.Nothing
     }
 
--- | Determines what action AWS Service Catalog performs to a stack set or a
+-- | Determines what action Service Catalog performs to a stack set or a
 -- stack instance represented by the provisioned product. The default value
 -- is @UPDATE@ if nothing is specified.
 --
@@ -265,7 +269,7 @@ newUpdateProvisioningPreferences =
 -- [CREATE]
 --     Creates a new stack instance in the stack set represented by the
 --     provisioned product. In this case, only new stack instances are
---     created based on accounts and regions; if new ProductId or
+--     created based on accounts and Regions; if new ProductId or
 --     ProvisioningArtifactID are passed, they will be ignored.
 --
 -- [UPDATE]
@@ -278,23 +282,24 @@ newUpdateProvisioningPreferences =
 updateProvisioningPreferences_stackSetOperationType :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe StackSetOperationType)
 updateProvisioningPreferences_stackSetOperationType = Lens.lens (\UpdateProvisioningPreferences' {stackSetOperationType} -> stackSetOperationType) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetOperationType = a} :: UpdateProvisioningPreferences)
 
--- | One or more AWS Regions where the provisioned product will be available.
+-- | One or more Amazon Web Services Regions where the provisioned product
+-- will be available.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
--- The specified regions should be within the list of regions from the
--- @STACKSET@ constraint. To get the list of regions in the @STACKSET@
+-- The specified Regions should be within the list of Regions from the
+-- @STACKSET@ constraint. To get the list of Regions in the @STACKSET@
 -- constraint, use the @DescribeProvisioningParameters@ operation.
 --
--- If no values are specified, the default value is all regions from the
+-- If no values are specified, the default value is all Regions from the
 -- @STACKSET@ constraint.
 updateProvisioningPreferences_stackSetRegions :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe [Prelude.Text])
 updateProvisioningPreferences_stackSetRegions = Lens.lens (\UpdateProvisioningPreferences' {stackSetRegions} -> stackSetRegions) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetRegions = a} :: UpdateProvisioningPreferences) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of accounts, per region, for which this operation can fail
--- before AWS Service Catalog stops the operation in that region. If the
--- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
--- the operation in any subsequent regions.
+-- | The number of accounts, per Region, for which this operation can fail
+-- before Service Catalog stops the operation in that Region. If the
+-- operation is stopped in a Region, Service Catalog doesn\'t attempt the
+-- operation in any subsequent Regions.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
@@ -309,9 +314,9 @@ updateProvisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\Update
 -- one time.
 --
 -- When calculating the number of accounts based on the specified
--- percentage, AWS Service Catalog rounds down to the next whole number.
--- This is true except in cases where rounding down would result is zero.
--- In this case, AWS Service Catalog sets the number as @1@ instead.
+-- percentage, Service Catalog rounds down to the next whole number. This
+-- is true except in cases where rounding down would result is zero. In
+-- this case, Service Catalog sets the number as @1@ instead.
 --
 -- Note that this setting lets you specify the maximum for operations. For
 -- large deployments, under certain circumstances the actual number of
@@ -324,14 +329,15 @@ updateProvisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\Update
 updateProvisioningPreferences_stackSetMaxConcurrencyPercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 updateProvisioningPreferences_stackSetMaxConcurrencyPercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyPercentage} -> stackSetMaxConcurrencyPercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyPercentage = a} :: UpdateProvisioningPreferences)
 
--- | One or more AWS accounts that will have access to the provisioned
--- product.
+-- | One or more Amazon Web Services accounts that will have access to the
+-- provisioned product.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --
--- The AWS accounts specified should be within the list of accounts in the
--- @STACKSET@ constraint. To get the list of accounts in the @STACKSET@
--- constraint, use the @DescribeProvisioningParameters@ operation.
+-- The Amazon Web Services accounts specified should be within the list of
+-- accounts in the @STACKSET@ constraint. To get the list of accounts in
+-- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
+-- operation.
 --
 -- If no values are specified, the default value is all accounts from the
 -- @STACKSET@ constraint.
@@ -354,13 +360,13 @@ updateProvisioningPreferences_stackSetAccounts = Lens.lens (\UpdateProvisioningP
 updateProvisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 updateProvisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyCount} -> stackSetMaxConcurrencyCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyCount = a} :: UpdateProvisioningPreferences)
 
--- | The percentage of accounts, per region, for which this stack operation
--- can fail before AWS Service Catalog stops the operation in that region.
--- If the operation is stopped in a region, AWS Service Catalog doesn\'t
--- attempt the operation in any subsequent regions.
+-- | The percentage of accounts, per Region, for which this stack operation
+-- can fail before Service Catalog stops the operation in that Region. If
+-- the operation is stopped in a Region, Service Catalog doesn\'t attempt
+-- the operation in any subsequent Regions.
 --
 -- When calculating the number of accounts based on the specified
--- percentage, AWS Service Catalog rounds down to the next whole number.
+-- percentage, Service Catalog rounds down to the next whole number.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 --

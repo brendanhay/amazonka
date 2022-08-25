@@ -23,6 +23,7 @@ module Amazonka.DataBrew.Types.InputFormat
         InputFormat_CSV,
         InputFormat_EXCEL,
         InputFormat_JSON,
+        InputFormat_ORC,
         InputFormat_PARQUET
       ),
   )
@@ -68,6 +69,9 @@ pattern InputFormat_EXCEL = InputFormat' "EXCEL"
 pattern InputFormat_JSON :: InputFormat
 pattern InputFormat_JSON = InputFormat' "JSON"
 
+pattern InputFormat_ORC :: InputFormat
+pattern InputFormat_ORC = InputFormat' "ORC"
+
 pattern InputFormat_PARQUET :: InputFormat
 pattern InputFormat_PARQUET = InputFormat' "PARQUET"
 
@@ -75,6 +79,7 @@ pattern InputFormat_PARQUET = InputFormat' "PARQUET"
   InputFormat_CSV,
   InputFormat_EXCEL,
   InputFormat_JSON,
+  InputFormat_ORC,
   InputFormat_PARQUET,
   InputFormat'
   #-}

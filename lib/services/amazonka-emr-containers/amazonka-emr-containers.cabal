@@ -60,6 +60,7 @@ library
     Amazonka.EMRContainers.StartJobRun
     Amazonka.EMRContainers.TagResource
     Amazonka.EMRContainers.Types
+    Amazonka.EMRContainers.Types.Certificate
     Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
     Amazonka.EMRContainers.Types.Configuration
     Amazonka.EMRContainers.Types.ConfigurationOverrides

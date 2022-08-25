@@ -32,7 +32,7 @@
 -- action.
 --
 -- For more information about messaging costs, see
--- <http://aws.amazon.com/iot-core/pricing/#Messaging IoT Core pricing - Messaging>.
+-- <http://aws.amazon.com/iot-core/pricing/#Messaging Amazon Web Services IoT Core pricing - Messaging>.
 module Amazonka.IoTData.GetRetainedMessage
   ( -- * Creating a Request
     GetRetainedMessage (..),

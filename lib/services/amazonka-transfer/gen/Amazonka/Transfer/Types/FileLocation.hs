@@ -29,7 +29,7 @@ import Amazonka.Transfer.Types.S3FileLocation
 --
 -- /See:/ 'newFileLocation' smart constructor.
 data FileLocation = FileLocation'
-  { -- | Specifies the S3 details for the file being used, such as bucket, Etag,
+  { -- | Specifies the S3 details for the file being used, such as bucket, ETag,
     -- and so forth.
     s3FileLocation :: Prelude.Maybe S3FileLocation,
     -- | Specifies the Amazon EFS ID and the path for the file being used.
@@ -45,7 +45,7 @@ data FileLocation = FileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3FileLocation', 'fileLocation_s3FileLocation' - Specifies the S3 details for the file being used, such as bucket, Etag,
+-- 's3FileLocation', 'fileLocation_s3FileLocation' - Specifies the S3 details for the file being used, such as bucket, ETag,
 -- and so forth.
 --
 -- 'efsFileLocation', 'fileLocation_efsFileLocation' - Specifies the Amazon EFS ID and the path for the file being used.
@@ -57,7 +57,7 @@ newFileLocation =
       efsFileLocation = Prelude.Nothing
     }
 
--- | Specifies the S3 details for the file being used, such as bucket, Etag,
+-- | Specifies the S3 details for the file being used, such as bucket, ETag,
 -- and so forth.
 fileLocation_s3FileLocation :: Lens.Lens' FileLocation (Prelude.Maybe S3FileLocation)
 fileLocation_s3FileLocation = Lens.lens (\FileLocation' {s3FileLocation} -> s3FileLocation) (\s@FileLocation' {} a -> s {s3FileLocation = a} :: FileLocation)

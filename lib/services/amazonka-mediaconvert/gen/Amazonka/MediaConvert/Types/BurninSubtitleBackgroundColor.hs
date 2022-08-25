@@ -34,8 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | Specify the color of the rectangle behind the captions. Leave background
 -- color (BackgroundColor) blank and set Style passthrough
 -- (StylePassthrough) to enabled to use the background color data from your
--- input captions, if present. Within your job settings, all of your
--- DVB-Sub settings must be identical.
+-- input captions, if present.
 newtype BurninSubtitleBackgroundColor = BurninSubtitleBackgroundColor'
   { fromBurninSubtitleBackgroundColor ::
       Core.Text

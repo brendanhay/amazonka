@@ -57,7 +57,7 @@ library
     Amazonka.RDS.CopyDBParameterGroup
     Amazonka.RDS.CopyDBSnapshot
     Amazonka.RDS.CopyOptionGroup
-    Amazonka.RDS.CreateCustomAvailabilityZone
+    Amazonka.RDS.CreateCustomDBEngineVersion
     Amazonka.RDS.CreateDBCluster
     Amazonka.RDS.CreateDBClusterEndpoint
     Amazonka.RDS.CreateDBClusterParameterGroup
@@ -73,7 +73,7 @@ library
     Amazonka.RDS.CreateEventSubscription
     Amazonka.RDS.CreateGlobalCluster
     Amazonka.RDS.CreateOptionGroup
-    Amazonka.RDS.DeleteCustomAvailabilityZone
+    Amazonka.RDS.DeleteCustomDBEngineVersion
     Amazonka.RDS.DeleteDBCluster
     Amazonka.RDS.DeleteDBClusterEndpoint
     Amazonka.RDS.DeleteDBClusterParameterGroup
@@ -88,12 +88,10 @@ library
     Amazonka.RDS.DeleteDBSubnetGroup
     Amazonka.RDS.DeleteEventSubscription
     Amazonka.RDS.DeleteGlobalCluster
-    Amazonka.RDS.DeleteInstallationMedia
     Amazonka.RDS.DeleteOptionGroup
     Amazonka.RDS.DeregisterDBProxyTargets
     Amazonka.RDS.DescribeAccountAttributes
     Amazonka.RDS.DescribeCertificates
-    Amazonka.RDS.DescribeCustomAvailabilityZones
     Amazonka.RDS.DescribeDBClusterBacktracks
     Amazonka.RDS.DescribeDBClusterEndpoints
     Amazonka.RDS.DescribeDBClusterParameterGroups
@@ -122,7 +120,6 @@ library
     Amazonka.RDS.DescribeEventSubscriptions
     Amazonka.RDS.DescribeExportTasks
     Amazonka.RDS.DescribeGlobalClusters
-    Amazonka.RDS.DescribeInstallationMedia
     Amazonka.RDS.DescribeOptionGroupOptions
     Amazonka.RDS.DescribeOptionGroups
     Amazonka.RDS.DescribeOrderableDBInstanceOptions
@@ -134,11 +131,12 @@ library
     Amazonka.RDS.DownloadDBLogFilePortion
     Amazonka.RDS.FailoverDBCluster
     Amazonka.RDS.FailoverGlobalCluster
-    Amazonka.RDS.ImportInstallationMedia
     Amazonka.RDS.Lens
     Amazonka.RDS.ListTagsForResource
+    Amazonka.RDS.ModifyActivityStream
     Amazonka.RDS.ModifyCertificates
     Amazonka.RDS.ModifyCurrentDBClusterCapacity
+    Amazonka.RDS.ModifyCustomDBEngineVersion
     Amazonka.RDS.ModifyDBCluster
     Amazonka.RDS.ModifyDBClusterEndpoint
     Amazonka.RDS.ModifyDBClusterParameterGroup
@@ -157,6 +155,7 @@ library
     Amazonka.RDS.PromoteReadReplica
     Amazonka.RDS.PromoteReadReplicaDBCluster
     Amazonka.RDS.PurchaseReservedDBInstancesOffering
+    Amazonka.RDS.RebootDBCluster
     Amazonka.RDS.RebootDBInstance
     Amazonka.RDS.RegisterDBProxyTargets
     Amazonka.RDS.RemoveFromGlobalCluster
@@ -182,12 +181,16 @@ library
     Amazonka.RDS.StopDBCluster
     Amazonka.RDS.StopDBInstance
     Amazonka.RDS.StopDBInstanceAutomatedBackupsReplication
+    Amazonka.RDS.SwitchoverReadReplica
     Amazonka.RDS.Types
     Amazonka.RDS.Types.AccountQuota
     Amazonka.RDS.Types.ActivityStreamMode
+    Amazonka.RDS.Types.ActivityStreamPolicyStatus
     Amazonka.RDS.Types.ActivityStreamStatus
     Amazonka.RDS.Types.ApplyMethod
+    Amazonka.RDS.Types.AuditPolicyState
     Amazonka.RDS.Types.AuthScheme
+    Amazonka.RDS.Types.AutomationMode
     Amazonka.RDS.Types.AvailabilityZone
     Amazonka.RDS.Types.AvailableProcessorFeature
     Amazonka.RDS.Types.Certificate
@@ -196,7 +199,7 @@ library
     Amazonka.RDS.Types.ClusterPendingModifiedValues
     Amazonka.RDS.Types.ConnectionPoolConfiguration
     Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
-    Amazonka.RDS.Types.CustomAvailabilityZone
+    Amazonka.RDS.Types.CustomEngineVersionStatus
     Amazonka.RDS.Types.DBCluster
     Amazonka.RDS.Types.DBClusterBacktrack
     Amazonka.RDS.Types.DBClusterEndpoint
@@ -247,8 +250,6 @@ library
     Amazonka.RDS.Types.GlobalCluster
     Amazonka.RDS.Types.GlobalClusterMember
     Amazonka.RDS.Types.IAMAuthMode
-    Amazonka.RDS.Types.InstallationMedia
-    Amazonka.RDS.Types.InstallationMediaFailureCause
     Amazonka.RDS.Types.IPRange
     Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
     Amazonka.RDS.Types.Option
@@ -275,6 +276,8 @@ library
     Amazonka.RDS.Types.RestoreWindow
     Amazonka.RDS.Types.ScalingConfiguration
     Amazonka.RDS.Types.ScalingConfigurationInfo
+    Amazonka.RDS.Types.ServerlessV2ScalingConfiguration
+    Amazonka.RDS.Types.ServerlessV2ScalingConfigurationInfo
     Amazonka.RDS.Types.SourceRegion
     Amazonka.RDS.Types.SourceType
     Amazonka.RDS.Types.Subnet
@@ -291,7 +294,6 @@ library
     Amazonka.RDS.Types.ValidDBInstanceModificationsMessage
     Amazonka.RDS.Types.ValidStorageOptions
     Amazonka.RDS.Types.VpcSecurityGroupMembership
-    Amazonka.RDS.Types.VpnDetails
     Amazonka.RDS.Types.WriteForwardingStatus
     Amazonka.RDS.Waiters
 

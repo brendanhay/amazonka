@@ -27,9 +27,9 @@ import Amazonka.SSM.Types.InstancePatchStateOperatorType
 -- | Defines a filter used in DescribeInstancePatchStatesForPatchGroup to
 -- scope down the information returned by the API.
 --
--- __Example__: To filter for all instances in a patch group having more
--- than three patches with a @FailedCount@ status, use the following for
--- the filter:
+-- __Example__: To filter for all managed nodes in a patch group having
+-- more than three patches with a @FailedCount@ status, use the following
+-- for the filter:
 --
 -- -   Value for @Key@: @FailedCount@
 --

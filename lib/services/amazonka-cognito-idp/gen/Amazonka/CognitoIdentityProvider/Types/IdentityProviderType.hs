@@ -24,19 +24,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A container for information about an identity provider.
+-- | A container for information about an IdP.
 --
 -- /See:/ 'newIdentityProviderType' smart constructor.
 data IdentityProviderType = IdentityProviderType'
-  { -- | The identity provider name.
+  { -- | The IdP name.
     providerName :: Prelude.Maybe Prelude.Text,
-    -- | The date the identity provider was last modified.
+    -- | The date the IdP was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | A mapping of identity provider attributes to standard and custom user
-    -- pool attributes.
+    -- | A mapping of IdP attributes to standard and custom user pool attributes.
     attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identity provider details. The following list describes the provider
-    -- detail keys for each identity provider type.
+    -- | The IdP details. The following list describes the provider detail keys
+    -- for each IdP type.
     --
     -- -   For Google and Login with Amazon:
     --
@@ -66,6 +65,9 @@ data IdentityProviderType = IdentityProviderType'
     --
     --     -   private_key
     --
+    --         /You can submit a private_key when you add or update an IdP.
+    --         Describe operations don\'t return the private key./
+    --
     --     -   authorize_scopes
     --
     -- -   For OIDC providers:
@@ -80,29 +82,33 @@ data IdentityProviderType = IdentityProviderType'
     --
     --     -   authorize_scopes
     --
-    --     -   authorize_url /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --     -   The following keys are only present if Amazon Cognito didn\'t
+    --         discover them at the @oidc_issuer@ URL.
     --
-    --     -   token_url /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --         -   authorize_url
     --
-    --     -   attributes_url /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --         -   token_url
     --
-    --     -   jwks_uri /if not available from discovery URL specified by
-    --         oidc_issuer key/
+    --         -   attributes_url
+    --
+    --         -   jwks_uri
+    --
+    --     -   Amazon Cognito sets the value of the following keys
+    --         automatically. They are read-only.
+    --
+    --         -   attributes_url_add_attributes
     --
     -- -   For SAML providers:
     --
-    --     -   MetadataFile OR MetadataURL
+    --     -   MetadataFile or MetadataURL
     --
-    --     -   IDPSignOut /optional/
+    --     -   IDPSignout /optional/
     providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of identity provider identifiers.
+    -- | A list of IdP identifiers.
     idpIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | The date the identity provider was created.
+    -- | The date the IdP was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The identity provider type.
+    -- | The IdP type.
     providerType :: Prelude.Maybe IdentityProviderTypeType,
     -- | The user pool ID.
     userPoolId :: Prelude.Maybe Prelude.Text
@@ -117,15 +123,14 @@ data IdentityProviderType = IdentityProviderType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'identityProviderType_providerName' - The identity provider name.
+-- 'providerName', 'identityProviderType_providerName' - The IdP name.
 --
--- 'lastModifiedDate', 'identityProviderType_lastModifiedDate' - The date the identity provider was last modified.
+-- 'lastModifiedDate', 'identityProviderType_lastModifiedDate' - The date the IdP was last modified.
 --
--- 'attributeMapping', 'identityProviderType_attributeMapping' - A mapping of identity provider attributes to standard and custom user
--- pool attributes.
+-- 'attributeMapping', 'identityProviderType_attributeMapping' - A mapping of IdP attributes to standard and custom user pool attributes.
 --
--- 'providerDetails', 'identityProviderType_providerDetails' - The identity provider details. The following list describes the provider
--- detail keys for each identity provider type.
+-- 'providerDetails', 'identityProviderType_providerDetails' - The IdP details. The following list describes the provider detail keys
+-- for each IdP type.
 --
 -- -   For Google and Login with Amazon:
 --
@@ -155,6 +160,9 @@ data IdentityProviderType = IdentityProviderType'
 --
 --     -   private_key
 --
+--         /You can submit a private_key when you add or update an IdP.
+--         Describe operations don\'t return the private key./
+--
 --     -   authorize_scopes
 --
 -- -   For OIDC providers:
@@ -169,29 +177,33 @@ data IdentityProviderType = IdentityProviderType'
 --
 --     -   authorize_scopes
 --
---     -   authorize_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--     -   The following keys are only present if Amazon Cognito didn\'t
+--         discover them at the @oidc_issuer@ URL.
 --
---     -   token_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   authorize_url
 --
---     -   attributes_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   token_url
 --
---     -   jwks_uri /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   attributes_url
+--
+--         -   jwks_uri
+--
+--     -   Amazon Cognito sets the value of the following keys
+--         automatically. They are read-only.
+--
+--         -   attributes_url_add_attributes
 --
 -- -   For SAML providers:
 --
---     -   MetadataFile OR MetadataURL
+--     -   MetadataFile or MetadataURL
 --
---     -   IDPSignOut /optional/
+--     -   IDPSignout /optional/
 --
--- 'idpIdentifiers', 'identityProviderType_idpIdentifiers' - A list of identity provider identifiers.
+-- 'idpIdentifiers', 'identityProviderType_idpIdentifiers' - A list of IdP identifiers.
 --
--- 'creationDate', 'identityProviderType_creationDate' - The date the identity provider was created.
+-- 'creationDate', 'identityProviderType_creationDate' - The date the IdP was created.
 --
--- 'providerType', 'identityProviderType_providerType' - The identity provider type.
+-- 'providerType', 'identityProviderType_providerType' - The IdP type.
 --
 -- 'userPoolId', 'identityProviderType_userPoolId' - The user pool ID.
 newIdentityProviderType ::
@@ -209,21 +221,20 @@ newIdentityProviderType =
       userPoolId = Prelude.Nothing
     }
 
--- | The identity provider name.
+-- | The IdP name.
 identityProviderType_providerName :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.Text)
 identityProviderType_providerName = Lens.lens (\IdentityProviderType' {providerName} -> providerName) (\s@IdentityProviderType' {} a -> s {providerName = a} :: IdentityProviderType)
 
--- | The date the identity provider was last modified.
+-- | The date the IdP was last modified.
 identityProviderType_lastModifiedDate :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.UTCTime)
 identityProviderType_lastModifiedDate = Lens.lens (\IdentityProviderType' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityProviderType' {} a -> s {lastModifiedDate = a} :: IdentityProviderType) Prelude.. Lens.mapping Core._Time
 
--- | A mapping of identity provider attributes to standard and custom user
--- pool attributes.
+-- | A mapping of IdP attributes to standard and custom user pool attributes.
 identityProviderType_attributeMapping :: Lens.Lens' IdentityProviderType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 identityProviderType_attributeMapping = Lens.lens (\IdentityProviderType' {attributeMapping} -> attributeMapping) (\s@IdentityProviderType' {} a -> s {attributeMapping = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens.coerced
 
--- | The identity provider details. The following list describes the provider
--- detail keys for each identity provider type.
+-- | The IdP details. The following list describes the provider detail keys
+-- for each IdP type.
 --
 -- -   For Google and Login with Amazon:
 --
@@ -253,6 +264,9 @@ identityProviderType_attributeMapping = Lens.lens (\IdentityProviderType' {attri
 --
 --     -   private_key
 --
+--         /You can submit a private_key when you add or update an IdP.
+--         Describe operations don\'t return the private key./
+--
 --     -   authorize_scopes
 --
 -- -   For OIDC providers:
@@ -267,35 +281,39 @@ identityProviderType_attributeMapping = Lens.lens (\IdentityProviderType' {attri
 --
 --     -   authorize_scopes
 --
---     -   authorize_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--     -   The following keys are only present if Amazon Cognito didn\'t
+--         discover them at the @oidc_issuer@ URL.
 --
---     -   token_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   authorize_url
 --
---     -   attributes_url /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   token_url
 --
---     -   jwks_uri /if not available from discovery URL specified by
---         oidc_issuer key/
+--         -   attributes_url
+--
+--         -   jwks_uri
+--
+--     -   Amazon Cognito sets the value of the following keys
+--         automatically. They are read-only.
+--
+--         -   attributes_url_add_attributes
 --
 -- -   For SAML providers:
 --
---     -   MetadataFile OR MetadataURL
+--     -   MetadataFile or MetadataURL
 --
---     -   IDPSignOut /optional/
+--     -   IDPSignout /optional/
 identityProviderType_providerDetails :: Lens.Lens' IdentityProviderType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 identityProviderType_providerDetails = Lens.lens (\IdentityProviderType' {providerDetails} -> providerDetails) (\s@IdentityProviderType' {} a -> s {providerDetails = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of identity provider identifiers.
+-- | A list of IdP identifiers.
 identityProviderType_idpIdentifiers :: Lens.Lens' IdentityProviderType (Prelude.Maybe [Prelude.Text])
 identityProviderType_idpIdentifiers = Lens.lens (\IdentityProviderType' {idpIdentifiers} -> idpIdentifiers) (\s@IdentityProviderType' {} a -> s {idpIdentifiers = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens.coerced
 
--- | The date the identity provider was created.
+-- | The date the IdP was created.
 identityProviderType_creationDate :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.UTCTime)
 identityProviderType_creationDate = Lens.lens (\IdentityProviderType' {creationDate} -> creationDate) (\s@IdentityProviderType' {} a -> s {creationDate = a} :: IdentityProviderType) Prelude.. Lens.mapping Core._Time
 
--- | The identity provider type.
+-- | The IdP type.
 identityProviderType_providerType :: Lens.Lens' IdentityProviderType (Prelude.Maybe IdentityProviderTypeType)
 identityProviderType_providerType = Lens.lens (\IdentityProviderType' {providerType} -> providerType) (\s@IdentityProviderType' {} a -> s {providerType = a} :: IdentityProviderType)
 

@@ -55,7 +55,7 @@ data RevokePermissions = RevokePermissions'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | Indicates a list of permissions for which to revoke the grant option
     -- allowing the principal to pass permissions to other principals.
@@ -82,7 +82,7 @@ data RevokePermissions = RevokePermissions'
 -- 'catalogId', 'revokePermissions_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'permissionsWithGrantOption', 'revokePermissions_permissionsWithGrantOption' - Indicates a list of permissions for which to revoke the grant option
 -- allowing the principal to pass permissions to other principals.
@@ -112,7 +112,7 @@ newRevokePermissions pPrincipal_ pResource_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 revokePermissions_catalogId :: Lens.Lens' RevokePermissions (Prelude.Maybe Prelude.Text)
 revokePermissions_catalogId = Lens.lens (\RevokePermissions' {catalogId} -> catalogId) (\s@RevokePermissions' {} a -> s {catalogId = a} :: RevokePermissions)
 
@@ -167,11 +167,7 @@ instance Core.ToHeaders RevokePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.RevokePermissions" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -192,7 +188,7 @@ instance Core.ToJSON RevokePermissions where
       )
 
 instance Core.ToPath RevokePermissions where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/RevokePermissions"
 
 instance Core.ToQuery RevokePermissions where
   toQuery = Prelude.const Prelude.mempty

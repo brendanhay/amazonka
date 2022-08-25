@@ -102,17 +102,32 @@ import Test.Tasty
 --         , requestGetUsageForecast $
 --             newGetUsageForecast
 --
+--         , requestListCostAllocationTags $
+--             newListCostAllocationTags
+--
 --         , requestListCostCategoryDefinitions $
 --             newListCostCategoryDefinitions
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestProvideAnomalyFeedback $
 --             newProvideAnomalyFeedback
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdateAnomalyMonitor $
 --             newUpdateAnomalyMonitor
 --
 --         , requestUpdateAnomalySubscription $
 --             newUpdateAnomalySubscription
+--
+--         , requestUpdateCostAllocationTagsStatus $
+--             newUpdateCostAllocationTagsStatus
 --
 --         , requestUpdateCostCategoryDefinition $
 --             newUpdateCostCategoryDefinition
@@ -195,17 +210,32 @@ import Test.Tasty
 --         , responseGetUsageForecast $
 --             newGetUsageForecastResponse
 --
+--         , responseListCostAllocationTags $
+--             newListCostAllocationTagsResponse
+--
 --         , responseListCostCategoryDefinitions $
 --             newListCostCategoryDefinitionsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseProvideAnomalyFeedback $
 --             newProvideAnomalyFeedbackResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateAnomalyMonitor $
 --             newUpdateAnomalyMonitorResponse
 --
 --         , responseUpdateAnomalySubscription $
 --             newUpdateAnomalySubscriptionResponse
+--
+--         , responseUpdateCostAllocationTagsStatus $
+--             newUpdateCostAllocationTagsStatusResponse
 --
 --         , responseUpdateCostCategoryDefinition $
 --             newUpdateCostCategoryDefinitionResponse
@@ -365,17 +395,41 @@ requestGetUsageForecast =
     "GetUsageForecast"
     "fixture/GetUsageForecast.yaml"
 
+requestListCostAllocationTags :: ListCostAllocationTags -> TestTree
+requestListCostAllocationTags =
+  req
+    "ListCostAllocationTags"
+    "fixture/ListCostAllocationTags.yaml"
+
 requestListCostCategoryDefinitions :: ListCostCategoryDefinitions -> TestTree
 requestListCostCategoryDefinitions =
   req
     "ListCostCategoryDefinitions"
     "fixture/ListCostCategoryDefinitions.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestProvideAnomalyFeedback :: ProvideAnomalyFeedback -> TestTree
 requestProvideAnomalyFeedback =
   req
     "ProvideAnomalyFeedback"
     "fixture/ProvideAnomalyFeedback.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateAnomalyMonitor :: UpdateAnomalyMonitor -> TestTree
 requestUpdateAnomalyMonitor =
@@ -388,6 +442,12 @@ requestUpdateAnomalySubscription =
   req
     "UpdateAnomalySubscription"
     "fixture/UpdateAnomalySubscription.yaml"
+
+requestUpdateCostAllocationTagsStatus :: UpdateCostAllocationTagsStatus -> TestTree
+requestUpdateCostAllocationTagsStatus =
+  req
+    "UpdateCostAllocationTagsStatus"
+    "fixture/UpdateCostAllocationTagsStatus.yaml"
 
 requestUpdateCostCategoryDefinition :: UpdateCostCategoryDefinition -> TestTree
 requestUpdateCostCategoryDefinition =
@@ -597,6 +657,14 @@ responseGetUsageForecast =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetUsageForecast)
 
+responseListCostAllocationTags :: ListCostAllocationTagsResponse -> TestTree
+responseListCostAllocationTags =
+  res
+    "ListCostAllocationTagsResponse"
+    "fixture/ListCostAllocationTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCostAllocationTags)
+
 responseListCostCategoryDefinitions :: ListCostCategoryDefinitionsResponse -> TestTree
 responseListCostCategoryDefinitions =
   res
@@ -605,6 +673,14 @@ responseListCostCategoryDefinitions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCostCategoryDefinitions)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responseProvideAnomalyFeedback :: ProvideAnomalyFeedbackResponse -> TestTree
 responseProvideAnomalyFeedback =
   res
@@ -612,6 +688,22 @@ responseProvideAnomalyFeedback =
     "fixture/ProvideAnomalyFeedbackResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ProvideAnomalyFeedback)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateAnomalyMonitor :: UpdateAnomalyMonitorResponse -> TestTree
 responseUpdateAnomalyMonitor =
@@ -628,6 +720,14 @@ responseUpdateAnomalySubscription =
     "fixture/UpdateAnomalySubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAnomalySubscription)
+
+responseUpdateCostAllocationTagsStatus :: UpdateCostAllocationTagsStatusResponse -> TestTree
+responseUpdateCostAllocationTagsStatus =
+  res
+    "UpdateCostAllocationTagsStatusResponse"
+    "fixture/UpdateCostAllocationTagsStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateCostAllocationTagsStatus)
 
 responseUpdateCostCategoryDefinition :: UpdateCostCategoryDefinitionResponse -> TestTree
 responseUpdateCostCategoryDefinition =

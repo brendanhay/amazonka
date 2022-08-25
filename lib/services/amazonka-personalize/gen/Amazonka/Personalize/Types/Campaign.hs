@@ -25,8 +25,9 @@ import Amazonka.Personalize.Types.CampaignConfig
 import Amazonka.Personalize.Types.CampaignUpdateSummary
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a deployed solution version, otherwise known as a campaign.
--- For more information on campaigns, see CreateCampaign.
+-- | An object that describes the deployment of a solution version. For more
+-- information on campaigns, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html CreateCampaign>.
 --
 -- /See:/ 'newCampaign' smart constructor.
 data Campaign = Campaign'

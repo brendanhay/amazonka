@@ -276,7 +276,8 @@ instance Core.ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'newUpdateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-  { -- | The URL of the CloudFormation template in Amazon S3.
+  { -- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+    -- CodeCommit, or GitHub in JSON format.
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The status of the current request.
     status :: Prelude.Maybe RequestStatus,
@@ -295,7 +296,8 @@ data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'info', 'updateProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3.
+-- 'info', 'updateProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format.
 --
 -- 'status', 'updateProvisioningArtifactResponse_status' - The status of the current request.
 --
@@ -316,7 +318,8 @@ newUpdateProvisioningArtifactResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The URL of the CloudFormation template in Amazon S3.
+-- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format.
 updateProvisioningArtifactResponse_info :: Lens.Lens' UpdateProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateProvisioningArtifactResponse_info = Lens.lens (\UpdateProvisioningArtifactResponse' {info} -> info) (\s@UpdateProvisioningArtifactResponse' {} a -> s {info = a} :: UpdateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 

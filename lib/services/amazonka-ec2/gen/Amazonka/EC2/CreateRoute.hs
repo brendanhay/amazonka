@@ -22,10 +22,9 @@
 --
 -- Creates a route in a route table within a VPC.
 --
--- You must specify one of the following targets: internet gateway or
--- virtual private gateway, NAT instance, NAT gateway, VPC peering
--- connection, network interface, egress-only internet gateway, or transit
--- gateway.
+-- You must specify either a destination CIDR block or a prefix list ID.
+-- You must also specify exactly one of the resources from the parameter
+-- list.
 --
 -- When determining how to route traffic, we use the route with the most
 -- specific match. For example, traffic is destined for the IPv4 address
@@ -58,6 +57,7 @@ module Amazonka.EC2.CreateRoute
     createRoute_vpcEndpointId,
     createRoute_dryRun,
     createRoute_destinationCidrBlock,
+    createRoute_coreNetworkArn,
     createRoute_instanceId,
     createRoute_egressOnlyInternetGatewayId,
     createRoute_networkInterfaceId,
@@ -112,6 +112,8 @@ data CreateRoute = CreateRoute'
     -- CIDR block to its canonical form; for example, if you specify
     -- @100.68.0.18\/18@, we modify it to @100.68.0.0\/18@.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the core network.
+    coreNetworkArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a NAT instance in your VPC. The operation fails if you specify
     -- an instance ID unless exactly one network interface is attached.
     instanceId :: Prelude.Maybe Prelude.Text,
@@ -166,6 +168,8 @@ data CreateRoute = CreateRoute'
 -- CIDR block to its canonical form; for example, if you specify
 -- @100.68.0.18\/18@, we modify it to @100.68.0.0\/18@.
 --
+-- 'coreNetworkArn', 'createRoute_coreNetworkArn' - The Amazon Resource Name (ARN) of the core network.
+--
 -- 'instanceId', 'createRoute_instanceId' - The ID of a NAT instance in your VPC. The operation fails if you specify
 -- an instance ID unless exactly one network interface is attached.
 --
@@ -195,6 +199,7 @@ newCreateRoute pRouteTableId_ =
       vpcEndpointId = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
+      coreNetworkArn = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
@@ -249,6 +254,10 @@ createRoute_dryRun = Lens.lens (\CreateRoute' {dryRun} -> dryRun) (\s@CreateRout
 createRoute_destinationCidrBlock :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
 createRoute_destinationCidrBlock = Lens.lens (\CreateRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@CreateRoute' {} a -> s {destinationCidrBlock = a} :: CreateRoute)
 
+-- | The Amazon Resource Name (ARN) of the core network.
+createRoute_coreNetworkArn :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
+createRoute_coreNetworkArn = Lens.lens (\CreateRoute' {coreNetworkArn} -> coreNetworkArn) (\s@CreateRoute' {} a -> s {coreNetworkArn = a} :: CreateRoute)
+
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify
 -- an instance ID unless exactly one network interface is attached.
 createRoute_instanceId :: Lens.Lens' CreateRoute (Prelude.Maybe Prelude.Text)
@@ -298,6 +307,7 @@ instance Prelude.Hashable CreateRoute where
       `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` egressOnlyInternetGatewayId
       `Prelude.hashWithSalt` networkInterfaceId
@@ -316,6 +326,7 @@ instance Prelude.NFData CreateRoute where
       `Prelude.seq` Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf coreNetworkArn
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
       `Prelude.seq` Prelude.rnf networkInterfaceId
@@ -347,6 +358,7 @@ instance Core.ToQuery CreateRoute where
         "VpcEndpointId" Core.=: vpcEndpointId,
         "DryRun" Core.=: dryRun,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
+        "CoreNetworkArn" Core.=: coreNetworkArn,
         "InstanceId" Core.=: instanceId,
         "EgressOnlyInternetGatewayId"
           Core.=: egressOnlyInternetGatewayId,

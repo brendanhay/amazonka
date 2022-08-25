@@ -43,6 +43,11 @@
 -- call fails. If you describe instances and specify only instance IDs that
 -- are in an unaffected zone, the call works normally.
 --
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 User Guide/.
+--
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeInstances
   ( -- * Creating a Request
@@ -103,6 +108,9 @@ data DescribeInstances = DescribeInstances'
     --
     -- -   @block-device-mapping.volume-id@ - The volume ID of the EBS volume.
     --
+    -- -   @capacity-reservation-id@ - The ID of the Capacity Reservation into
+    --     which the instance was launched.
+    --
     -- -   @client-token@ - The idempotency token you provided when you
     --     launched the instance.
     --
@@ -162,7 +170,10 @@ data DescribeInstances = DescribeInstances'
     --     index for the instance in the launch group (for example, 0, 1, 2,
     --     and so on).
     --
-    -- -   @launch-time@ - The time when the instance was launched.
+    -- -   @launch-time@ - The time when the instance was launched, in the ISO
+    --     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for
+    --     example, @2021-09-29T11:04:43.305Z@. You can use a wildcard (@*@),
+    --     for example, @2021-09-29T*@, which matches an entire day.
     --
     -- -   @metadata-options.http-tokens@ - The metadata request authorization
     --     state (@optional@ | @required@)
@@ -407,6 +418,9 @@ data DescribeInstances = DescribeInstances'
 --
 -- -   @block-device-mapping.volume-id@ - The volume ID of the EBS volume.
 --
+-- -   @capacity-reservation-id@ - The ID of the Capacity Reservation into
+--     which the instance was launched.
+--
 -- -   @client-token@ - The idempotency token you provided when you
 --     launched the instance.
 --
@@ -466,7 +480,10 @@ data DescribeInstances = DescribeInstances'
 --     index for the instance in the launch group (for example, 0, 1, 2,
 --     and so on).
 --
--- -   @launch-time@ - The time when the instance was launched.
+-- -   @launch-time@ - The time when the instance was launched, in the ISO
+--     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for
+--     example, @2021-09-29T11:04:43.305Z@. You can use a wildcard (@*@),
+--     for example, @2021-09-29T*@, which matches an entire day.
 --
 -- -   @metadata-options.http-tokens@ - The metadata request authorization
 --     state (@optional@ | @required@)
@@ -712,6 +729,9 @@ describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> next
 --
 -- -   @block-device-mapping.volume-id@ - The volume ID of the EBS volume.
 --
+-- -   @capacity-reservation-id@ - The ID of the Capacity Reservation into
+--     which the instance was launched.
+--
 -- -   @client-token@ - The idempotency token you provided when you
 --     launched the instance.
 --
@@ -771,7 +791,10 @@ describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> next
 --     index for the instance in the launch group (for example, 0, 1, 2,
 --     and so on).
 --
--- -   @launch-time@ - The time when the instance was launched.
+-- -   @launch-time@ - The time when the instance was launched, in the ISO
+--     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for
+--     example, @2021-09-29T11:04:43.305Z@. You can use a wildcard (@*@),
+--     for example, @2021-09-29T*@, which matches an entire day.
 --
 -- -   @metadata-options.http-tokens@ - The metadata request authorization
 --     state (@optional@ | @required@)

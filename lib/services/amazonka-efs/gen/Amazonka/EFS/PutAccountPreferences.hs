@@ -30,8 +30,8 @@
 --
 -- Starting in October, 2021, you will receive an error if you try to set
 -- the account preference to use the short 8 character format resource ID.
--- Contact Amazon Web Services support if you receive an error and need to
--- use short IDs for file system and mount target resources.
+-- Contact Amazon Web Services support if you receive an error and must use
+-- short IDs for file system and mount target resources.
 module Amazonka.EFS.PutAccountPreferences
   ( -- * Creating a Request
     PutAccountPreferences (..),
@@ -65,7 +65,7 @@ data PutAccountPreferences = PutAccountPreferences'
     --
     -- Starting in October, 2021, you will receive an error when setting the
     -- account preference to @SHORT_ID@. Contact Amazon Web Services support if
-    -- you receive an error and need to use short IDs for file system and mount
+    -- you receive an error and must use short IDs for file system and mount
     -- target resources.
     resourceIdType :: ResourceIdType
   }
@@ -85,7 +85,7 @@ data PutAccountPreferences = PutAccountPreferences'
 --
 -- Starting in October, 2021, you will receive an error when setting the
 -- account preference to @SHORT_ID@. Contact Amazon Web Services support if
--- you receive an error and need to use short IDs for file system and mount
+-- you receive an error and must use short IDs for file system and mount
 -- target resources.
 newPutAccountPreferences ::
   -- | 'resourceIdType'
@@ -103,7 +103,7 @@ newPutAccountPreferences pResourceIdType_ =
 --
 -- Starting in October, 2021, you will receive an error when setting the
 -- account preference to @SHORT_ID@. Contact Amazon Web Services support if
--- you receive an error and need to use short IDs for file system and mount
+-- you receive an error and must use short IDs for file system and mount
 -- target resources.
 putAccountPreferences_resourceIdType :: Lens.Lens' PutAccountPreferences ResourceIdType
 putAccountPreferences_resourceIdType = Lens.lens (\PutAccountPreferences' {resourceIdType} -> resourceIdType) (\s@PutAccountPreferences' {} a -> s {resourceIdType = a} :: PutAccountPreferences)

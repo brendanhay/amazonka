@@ -9,6 +9,7 @@ haskell_library(
         "gen/Amazonka/S3Outposts/DeleteEndpoint.hs",
         "gen/Amazonka/S3Outposts/Lens.hs",
         "gen/Amazonka/S3Outposts/ListEndpoints.hs",
+        "gen/Amazonka/S3Outposts/ListSharedEndpoints.hs",
         "gen/Amazonka/S3Outposts/Types.hs",
         "gen/Amazonka/S3Outposts/Types/Endpoint.hs",
         "gen/Amazonka/S3Outposts/Types/EndpointAccessType.hs",

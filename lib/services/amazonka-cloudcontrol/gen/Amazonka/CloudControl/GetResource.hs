@@ -25,8 +25,8 @@
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html Reading a resource\'s current state>.
 --
 -- You can use this action to return information about an existing resource
--- in your account and Amazon Web Services Region, whether or not those
--- resources were provisioned using Cloud Control API.
+-- in your account and Amazon Web Services Region, whether those resources
+-- were provisioned using Cloud Control API.
 module Amazonka.CloudControl.GetResource
   ( -- * Creating a Request
     GetResource (..),
@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetResource' smart constructor.
 data GetResource = GetResource'
   { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) for Cloud Control API to use when performing this resource
+    -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
     -- defined in the @ handlers @ section of the
@@ -106,7 +106,7 @@ data GetResource = GetResource'
 -- for backwards compatibility:
 --
 -- 'roleArn', 'getResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -155,7 +155,7 @@ newGetResource pTypeName_ pIdentifier_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the

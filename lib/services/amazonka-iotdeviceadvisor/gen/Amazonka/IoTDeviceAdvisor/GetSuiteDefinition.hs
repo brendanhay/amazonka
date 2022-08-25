@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a Device Advisor test suite.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetSuiteDefinition>
+-- action.
 module Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
   ( -- * Creating a Request
     GetSuiteDefinition (..),
@@ -58,7 +62,7 @@ import qualified Amazonka.Response as Response
 data GetSuiteDefinition = GetSuiteDefinition'
   { -- | Suite definition version of the test suite to get.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Suite definition Id of the test suite to get.
+    -- | Suite definition ID of the test suite to get.
     suiteDefinitionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +77,7 @@ data GetSuiteDefinition = GetSuiteDefinition'
 --
 -- 'suiteDefinitionVersion', 'getSuiteDefinition_suiteDefinitionVersion' - Suite definition version of the test suite to get.
 --
--- 'suiteDefinitionId', 'getSuiteDefinition_suiteDefinitionId' - Suite definition Id of the test suite to get.
+-- 'suiteDefinitionId', 'getSuiteDefinition_suiteDefinitionId' - Suite definition ID of the test suite to get.
 newGetSuiteDefinition ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -89,7 +93,7 @@ newGetSuiteDefinition pSuiteDefinitionId_ =
 getSuiteDefinition_suiteDefinitionVersion :: Lens.Lens' GetSuiteDefinition (Prelude.Maybe Prelude.Text)
 getSuiteDefinition_suiteDefinitionVersion = Lens.lens (\GetSuiteDefinition' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@GetSuiteDefinition' {} a -> s {suiteDefinitionVersion = a} :: GetSuiteDefinition)
 
--- | Suite definition Id of the test suite to get.
+-- | Suite definition ID of the test suite to get.
 getSuiteDefinition_suiteDefinitionId :: Lens.Lens' GetSuiteDefinition Prelude.Text
 getSuiteDefinition_suiteDefinitionId = Lens.lens (\GetSuiteDefinition' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteDefinition' {} a -> s {suiteDefinitionId = a} :: GetSuiteDefinition)
 
@@ -158,7 +162,7 @@ data GetSuiteDefinitionResponse = GetSuiteDefinitionResponse'
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | Suite definition version of the suite definition.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Suite definition Id of the suite definition.
+    -- | Suite definition ID of the suite definition.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Date (in Unix epoch time) when the suite definition was created.
     createdAt :: Prelude.Maybe Core.POSIX,
@@ -187,7 +191,7 @@ data GetSuiteDefinitionResponse = GetSuiteDefinitionResponse'
 --
 -- 'suiteDefinitionVersion', 'getSuiteDefinitionResponse_suiteDefinitionVersion' - Suite definition version of the suite definition.
 --
--- 'suiteDefinitionId', 'getSuiteDefinitionResponse_suiteDefinitionId' - Suite definition Id of the suite definition.
+-- 'suiteDefinitionId', 'getSuiteDefinitionResponse_suiteDefinitionId' - Suite definition ID of the suite definition.
 --
 -- 'createdAt', 'getSuiteDefinitionResponse_createdAt' - Date (in Unix epoch time) when the suite definition was created.
 --
@@ -231,7 +235,7 @@ getSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\GetSuiteDefinitionRe
 getSuiteDefinitionResponse_suiteDefinitionVersion :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSuiteDefinitionResponse_suiteDefinitionVersion = Lens.lens (\GetSuiteDefinitionResponse' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@GetSuiteDefinitionResponse' {} a -> s {suiteDefinitionVersion = a} :: GetSuiteDefinitionResponse)
 
--- | Suite definition Id of the suite definition.
+-- | Suite definition ID of the suite definition.
 getSuiteDefinitionResponse_suiteDefinitionId :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\GetSuiteDefinitionResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteDefinitionResponse' {} a -> s {suiteDefinitionId = a} :: GetSuiteDefinitionResponse)
 

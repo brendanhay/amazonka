@@ -24,6 +24,7 @@ module Amazonka.Batch.Lens
     createComputeEnvironment_state,
     createComputeEnvironment_serviceRole,
     createComputeEnvironment_computeResources,
+    createComputeEnvironment_unmanagedvCpus,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
     createComputeEnvironmentResponse_computeEnvironmentArn,
@@ -33,12 +34,21 @@ module Amazonka.Batch.Lens
     -- ** CreateJobQueue
     createJobQueue_tags,
     createJobQueue_state,
+    createJobQueue_schedulingPolicyArn,
     createJobQueue_jobQueueName,
     createJobQueue_priority,
     createJobQueue_computeEnvironmentOrder,
     createJobQueueResponse_httpStatus,
     createJobQueueResponse_jobQueueName,
     createJobQueueResponse_jobQueueArn,
+
+    -- ** CreateSchedulingPolicy
+    createSchedulingPolicy_tags,
+    createSchedulingPolicy_fairsharePolicy,
+    createSchedulingPolicy_name,
+    createSchedulingPolicyResponse_httpStatus,
+    createSchedulingPolicyResponse_name,
+    createSchedulingPolicyResponse_arn,
 
     -- ** DeleteComputeEnvironment
     deleteComputeEnvironment_computeEnvironment,
@@ -47,6 +57,10 @@ module Amazonka.Batch.Lens
     -- ** DeleteJobQueue
     deleteJobQueue_jobQueue,
     deleteJobQueueResponse_httpStatus,
+
+    -- ** DeleteSchedulingPolicy
+    deleteSchedulingPolicy_arn,
+    deleteSchedulingPolicyResponse_httpStatus,
 
     -- ** DeregisterJobDefinition
     deregisterJobDefinition_jobDefinition,
@@ -83,6 +97,11 @@ module Amazonka.Batch.Lens
     describeJobsResponse_jobs,
     describeJobsResponse_httpStatus,
 
+    -- ** DescribeSchedulingPolicies
+    describeSchedulingPolicies_arns,
+    describeSchedulingPoliciesResponse_schedulingPolicies,
+    describeSchedulingPoliciesResponse_httpStatus,
+
     -- ** ListJobs
     listJobs_nextToken,
     listJobs_jobStatus,
@@ -94,6 +113,13 @@ module Amazonka.Batch.Lens
     listJobsResponse_nextToken,
     listJobsResponse_httpStatus,
     listJobsResponse_jobSummaryList,
+
+    -- ** ListSchedulingPolicies
+    listSchedulingPolicies_nextToken,
+    listSchedulingPolicies_maxResults,
+    listSchedulingPoliciesResponse_nextToken,
+    listSchedulingPoliciesResponse_schedulingPolicies,
+    listSchedulingPoliciesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -108,6 +134,7 @@ module Amazonka.Batch.Lens
     registerJobDefinition_platformCapabilities,
     registerJobDefinition_propagateTags,
     registerJobDefinition_nodeProperties,
+    registerJobDefinition_schedulingPriority,
     registerJobDefinition_parameters,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
@@ -120,6 +147,8 @@ module Amazonka.Batch.Lens
     submitJob_tags,
     submitJob_timeout,
     submitJob_dependsOn,
+    submitJob_shareIdentifier,
+    submitJob_schedulingPriorityOverride,
     submitJob_nodeOverrides,
     submitJob_retryStrategy,
     submitJob_arrayProperties,
@@ -152,7 +181,9 @@ module Amazonka.Batch.Lens
     -- ** UpdateComputeEnvironment
     updateComputeEnvironment_state,
     updateComputeEnvironment_serviceRole,
+    updateComputeEnvironment_updatePolicy,
     updateComputeEnvironment_computeResources,
+    updateComputeEnvironment_unmanagedvCpus,
     updateComputeEnvironment_computeEnvironment,
     updateComputeEnvironmentResponse_computeEnvironmentArn,
     updateComputeEnvironmentResponse_computeEnvironmentName,
@@ -162,10 +193,16 @@ module Amazonka.Batch.Lens
     updateJobQueue_computeEnvironmentOrder,
     updateJobQueue_state,
     updateJobQueue_priority,
+    updateJobQueue_schedulingPolicyArn,
     updateJobQueue_jobQueue,
     updateJobQueueResponse_jobQueueArn,
     updateJobQueueResponse_jobQueueName,
     updateJobQueueResponse_httpStatus,
+
+    -- ** UpdateSchedulingPolicy
+    updateSchedulingPolicy_fairsharePolicy,
+    updateSchedulingPolicy_arn,
+    updateSchedulingPolicyResponse_httpStatus,
 
     -- * Types
 
@@ -198,14 +235,16 @@ module Amazonka.Batch.Lens
     -- ** ComputeEnvironmentDetail
     computeEnvironmentDetail_tags,
     computeEnvironmentDetail_type,
+    computeEnvironmentDetail_ecsClusterArn,
     computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_state,
     computeEnvironmentDetail_status,
     computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_updatePolicy,
     computeEnvironmentDetail_computeResources,
+    computeEnvironmentDetail_unmanagedvCpus,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
-    computeEnvironmentDetail_ecsClusterArn,
 
     -- ** ComputeEnvironmentOrder
     computeEnvironmentOrder_order,
@@ -231,11 +270,23 @@ module Amazonka.Batch.Lens
     computeResource_subnets,
 
     -- ** ComputeResourceUpdate
+    computeResourceUpdate_tags,
+    computeResourceUpdate_updateToLatestImageVersion,
+    computeResourceUpdate_ec2KeyPair,
+    computeResourceUpdate_type,
+    computeResourceUpdate_ec2Configuration,
     computeResourceUpdate_minvCpus,
+    computeResourceUpdate_instanceTypes,
     computeResourceUpdate_securityGroupIds,
     computeResourceUpdate_desiredvCpus,
     computeResourceUpdate_maxvCpus,
     computeResourceUpdate_subnets,
+    computeResourceUpdate_launchTemplate,
+    computeResourceUpdate_bidPercentage,
+    computeResourceUpdate_instanceRole,
+    computeResourceUpdate_allocationStrategy,
+    computeResourceUpdate_placementGroup,
+    computeResourceUpdate_imageId,
 
     -- ** ContainerDetail
     containerDetail_readonlyRootFilesystem,
@@ -325,6 +376,11 @@ module Amazonka.Batch.Lens
     evaluateOnExit_onStatusReason,
     evaluateOnExit_action,
 
+    -- ** FairsharePolicy
+    fairsharePolicy_shareDistribution,
+    fairsharePolicy_shareDecaySeconds,
+    fairsharePolicy_computeReservation,
+
     -- ** FargatePlatformConfiguration
     fargatePlatformConfiguration_platformVersion,
 
@@ -340,6 +396,7 @@ module Amazonka.Batch.Lens
     jobDefinition_status,
     jobDefinition_propagateTags,
     jobDefinition_nodeProperties,
+    jobDefinition_schedulingPriority,
     jobDefinition_parameters,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
@@ -354,6 +411,7 @@ module Amazonka.Batch.Lens
     jobDetail_tags,
     jobDetail_timeout,
     jobDetail_dependsOn,
+    jobDetail_shareIdentifier,
     jobDetail_retryStrategy,
     jobDetail_platformCapabilities,
     jobDetail_arrayProperties,
@@ -363,6 +421,7 @@ module Amazonka.Batch.Lens
     jobDetail_propagateTags,
     jobDetail_nodeProperties,
     jobDetail_container,
+    jobDetail_schedulingPriority,
     jobDetail_attempts,
     jobDetail_stoppedAt,
     jobDetail_jobArn,
@@ -378,6 +437,7 @@ module Amazonka.Batch.Lens
     jobQueueDetail_tags,
     jobQueueDetail_statusReason,
     jobQueueDetail_status,
+    jobQueueDetail_schedulingPolicyArn,
     jobQueueDetail_jobQueueName,
     jobQueueDetail_jobQueueArn,
     jobQueueDetail_state,
@@ -474,9 +534,22 @@ module Amazonka.Batch.Lens
     retryStrategy_evaluateOnExit,
     retryStrategy_attempts,
 
+    -- ** SchedulingPolicyDetail
+    schedulingPolicyDetail_tags,
+    schedulingPolicyDetail_fairsharePolicy,
+    schedulingPolicyDetail_name,
+    schedulingPolicyDetail_arn,
+
+    -- ** SchedulingPolicyListingDetail
+    schedulingPolicyListingDetail_arn,
+
     -- ** Secret
     secret_name,
     secret_valueFrom,
+
+    -- ** ShareAttributes
+    shareAttributes_weightFactor,
+    shareAttributes_shareIdentifier,
 
     -- ** Tmpfs
     tmpfs_mountOptions,
@@ -488,6 +561,10 @@ module Amazonka.Batch.Lens
     ulimit_name,
     ulimit_softLimit,
 
+    -- ** UpdatePolicy
+    updatePolicy_terminateJobsOnUpdate,
+    updatePolicy_jobExecutionTimeoutMinutes,
+
     -- ** Volume
     volume_efsVolumeConfiguration,
     volume_name,
@@ -498,14 +575,18 @@ where
 import Amazonka.Batch.CancelJob
 import Amazonka.Batch.CreateComputeEnvironment
 import Amazonka.Batch.CreateJobQueue
+import Amazonka.Batch.CreateSchedulingPolicy
 import Amazonka.Batch.DeleteComputeEnvironment
 import Amazonka.Batch.DeleteJobQueue
+import Amazonka.Batch.DeleteSchedulingPolicy
 import Amazonka.Batch.DeregisterJobDefinition
 import Amazonka.Batch.DescribeComputeEnvironments
 import Amazonka.Batch.DescribeJobDefinitions
 import Amazonka.Batch.DescribeJobQueues
 import Amazonka.Batch.DescribeJobs
+import Amazonka.Batch.DescribeSchedulingPolicies
 import Amazonka.Batch.ListJobs
+import Amazonka.Batch.ListSchedulingPolicies
 import Amazonka.Batch.ListTagsForResource
 import Amazonka.Batch.RegisterJobDefinition
 import Amazonka.Batch.SubmitJob
@@ -529,6 +610,7 @@ import Amazonka.Batch.Types.EFSAuthorizationConfig
 import Amazonka.Batch.Types.EFSVolumeConfiguration
 import Amazonka.Batch.Types.Ec2Configuration
 import Amazonka.Batch.Types.EvaluateOnExit
+import Amazonka.Batch.Types.FairsharePolicy
 import Amazonka.Batch.Types.FargatePlatformConfiguration
 import Amazonka.Batch.Types.Host
 import Amazonka.Batch.Types.JobDefinition
@@ -553,10 +635,15 @@ import Amazonka.Batch.Types.NodePropertyOverride
 import Amazonka.Batch.Types.NodeRangeProperty
 import Amazonka.Batch.Types.ResourceRequirement
 import Amazonka.Batch.Types.RetryStrategy
+import Amazonka.Batch.Types.SchedulingPolicyDetail
+import Amazonka.Batch.Types.SchedulingPolicyListingDetail
 import Amazonka.Batch.Types.Secret
+import Amazonka.Batch.Types.ShareAttributes
 import Amazonka.Batch.Types.Tmpfs
 import Amazonka.Batch.Types.Ulimit
+import Amazonka.Batch.Types.UpdatePolicy
 import Amazonka.Batch.Types.Volume
 import Amazonka.Batch.UntagResource
 import Amazonka.Batch.UpdateComputeEnvironment
 import Amazonka.Batch.UpdateJobQueue
+import Amazonka.Batch.UpdateSchedulingPolicy

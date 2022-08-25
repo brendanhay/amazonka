@@ -44,41 +44,123 @@ library
 
   exposed-modules:
     Amazonka.NetworkManager
+    Amazonka.NetworkManager.AcceptAttachment
+    Amazonka.NetworkManager.AssociateConnectPeer
     Amazonka.NetworkManager.AssociateCustomerGateway
     Amazonka.NetworkManager.AssociateLink
     Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer
+    Amazonka.NetworkManager.CreateConnectAttachment
     Amazonka.NetworkManager.CreateConnection
+    Amazonka.NetworkManager.CreateConnectPeer
+    Amazonka.NetworkManager.CreateCoreNetwork
     Amazonka.NetworkManager.CreateDevice
     Amazonka.NetworkManager.CreateGlobalNetwork
     Amazonka.NetworkManager.CreateLink
     Amazonka.NetworkManager.CreateSite
+    Amazonka.NetworkManager.CreateSiteToSiteVpnAttachment
+    Amazonka.NetworkManager.CreateTransitGatewayPeering
+    Amazonka.NetworkManager.CreateTransitGatewayRouteTableAttachment
+    Amazonka.NetworkManager.CreateVpcAttachment
+    Amazonka.NetworkManager.DeleteAttachment
     Amazonka.NetworkManager.DeleteConnection
+    Amazonka.NetworkManager.DeleteConnectPeer
+    Amazonka.NetworkManager.DeleteCoreNetwork
+    Amazonka.NetworkManager.DeleteCoreNetworkPolicyVersion
     Amazonka.NetworkManager.DeleteDevice
     Amazonka.NetworkManager.DeleteGlobalNetwork
     Amazonka.NetworkManager.DeleteLink
+    Amazonka.NetworkManager.DeletePeering
+    Amazonka.NetworkManager.DeleteResourcePolicy
     Amazonka.NetworkManager.DeleteSite
     Amazonka.NetworkManager.DeregisterTransitGateway
     Amazonka.NetworkManager.DescribeGlobalNetworks
+    Amazonka.NetworkManager.DisassociateConnectPeer
     Amazonka.NetworkManager.DisassociateCustomerGateway
     Amazonka.NetworkManager.DisassociateLink
     Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer
+    Amazonka.NetworkManager.ExecuteCoreNetworkChangeSet
+    Amazonka.NetworkManager.GetConnectAttachment
     Amazonka.NetworkManager.GetConnections
+    Amazonka.NetworkManager.GetConnectPeer
+    Amazonka.NetworkManager.GetConnectPeerAssociations
+    Amazonka.NetworkManager.GetCoreNetwork
+    Amazonka.NetworkManager.GetCoreNetworkChangeEvents
+    Amazonka.NetworkManager.GetCoreNetworkChangeSet
+    Amazonka.NetworkManager.GetCoreNetworkPolicy
     Amazonka.NetworkManager.GetCustomerGatewayAssociations
     Amazonka.NetworkManager.GetDevices
     Amazonka.NetworkManager.GetLinkAssociations
     Amazonka.NetworkManager.GetLinks
+    Amazonka.NetworkManager.GetNetworkResourceCounts
+    Amazonka.NetworkManager.GetNetworkResourceRelationships
+    Amazonka.NetworkManager.GetNetworkResources
+    Amazonka.NetworkManager.GetNetworkRoutes
+    Amazonka.NetworkManager.GetNetworkTelemetry
+    Amazonka.NetworkManager.GetResourcePolicy
+    Amazonka.NetworkManager.GetRouteAnalysis
     Amazonka.NetworkManager.GetSites
+    Amazonka.NetworkManager.GetSiteToSiteVpnAttachment
     Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
+    Amazonka.NetworkManager.GetTransitGatewayPeering
     Amazonka.NetworkManager.GetTransitGatewayRegistrations
+    Amazonka.NetworkManager.GetTransitGatewayRouteTableAttachment
+    Amazonka.NetworkManager.GetVpcAttachment
     Amazonka.NetworkManager.Lens
+    Amazonka.NetworkManager.ListAttachments
+    Amazonka.NetworkManager.ListConnectPeers
+    Amazonka.NetworkManager.ListCoreNetworkPolicyVersions
+    Amazonka.NetworkManager.ListCoreNetworks
+    Amazonka.NetworkManager.ListOrganizationServiceAccessStatus
+    Amazonka.NetworkManager.ListPeerings
     Amazonka.NetworkManager.ListTagsForResource
+    Amazonka.NetworkManager.PutCoreNetworkPolicy
+    Amazonka.NetworkManager.PutResourcePolicy
     Amazonka.NetworkManager.RegisterTransitGateway
+    Amazonka.NetworkManager.RejectAttachment
+    Amazonka.NetworkManager.RestoreCoreNetworkPolicyVersion
+    Amazonka.NetworkManager.StartOrganizationServiceAccessUpdate
+    Amazonka.NetworkManager.StartRouteAnalysis
     Amazonka.NetworkManager.TagResource
     Amazonka.NetworkManager.Types
+    Amazonka.NetworkManager.Types.AccountStatus
+    Amazonka.NetworkManager.Types.Attachment
+    Amazonka.NetworkManager.Types.AttachmentState
+    Amazonka.NetworkManager.Types.AttachmentType
     Amazonka.NetworkManager.Types.AWSLocation
     Amazonka.NetworkManager.Types.Bandwidth
+    Amazonka.NetworkManager.Types.BgpOptions
+    Amazonka.NetworkManager.Types.ChangeAction
+    Amazonka.NetworkManager.Types.ChangeSetState
+    Amazonka.NetworkManager.Types.ChangeStatus
+    Amazonka.NetworkManager.Types.ChangeType
+    Amazonka.NetworkManager.Types.ConnectAttachment
+    Amazonka.NetworkManager.Types.ConnectAttachmentOptions
     Amazonka.NetworkManager.Types.Connection
+    Amazonka.NetworkManager.Types.ConnectionHealth
     Amazonka.NetworkManager.Types.ConnectionState
+    Amazonka.NetworkManager.Types.ConnectionStatus
+    Amazonka.NetworkManager.Types.ConnectionType
+    Amazonka.NetworkManager.Types.ConnectPeer
+    Amazonka.NetworkManager.Types.ConnectPeerAssociation
+    Amazonka.NetworkManager.Types.ConnectPeerAssociationState
+    Amazonka.NetworkManager.Types.ConnectPeerBgpConfiguration
+    Amazonka.NetworkManager.Types.ConnectPeerConfiguration
+    Amazonka.NetworkManager.Types.ConnectPeerState
+    Amazonka.NetworkManager.Types.ConnectPeerSummary
+    Amazonka.NetworkManager.Types.CoreNetwork
+    Amazonka.NetworkManager.Types.CoreNetworkChange
+    Amazonka.NetworkManager.Types.CoreNetworkChangeEvent
+    Amazonka.NetworkManager.Types.CoreNetworkChangeEventValues
+    Amazonka.NetworkManager.Types.CoreNetworkChangeValues
+    Amazonka.NetworkManager.Types.CoreNetworkEdge
+    Amazonka.NetworkManager.Types.CoreNetworkPolicy
+    Amazonka.NetworkManager.Types.CoreNetworkPolicyAlias
+    Amazonka.NetworkManager.Types.CoreNetworkPolicyError
+    Amazonka.NetworkManager.Types.CoreNetworkPolicyVersion
+    Amazonka.NetworkManager.Types.CoreNetworkSegment
+    Amazonka.NetworkManager.Types.CoreNetworkSegmentEdgeIdentifier
+    Amazonka.NetworkManager.Types.CoreNetworkState
+    Amazonka.NetworkManager.Types.CoreNetworkSummary
     Amazonka.NetworkManager.Types.CustomerGatewayAssociation
     Amazonka.NetworkManager.Types.CustomerGatewayAssociationState
     Amazonka.NetworkManager.Types.Device
@@ -90,20 +172,54 @@ library
     Amazonka.NetworkManager.Types.LinkAssociationState
     Amazonka.NetworkManager.Types.LinkState
     Amazonka.NetworkManager.Types.Location
+    Amazonka.NetworkManager.Types.NetworkResource
+    Amazonka.NetworkManager.Types.NetworkResourceCount
+    Amazonka.NetworkManager.Types.NetworkResourceSummary
+    Amazonka.NetworkManager.Types.NetworkRoute
+    Amazonka.NetworkManager.Types.NetworkRouteDestination
+    Amazonka.NetworkManager.Types.NetworkTelemetry
+    Amazonka.NetworkManager.Types.OrganizationStatus
+    Amazonka.NetworkManager.Types.PathComponent
+    Amazonka.NetworkManager.Types.Peering
+    Amazonka.NetworkManager.Types.PeeringState
+    Amazonka.NetworkManager.Types.PeeringType
+    Amazonka.NetworkManager.Types.ProposedSegmentChange
+    Amazonka.NetworkManager.Types.Relationship
+    Amazonka.NetworkManager.Types.RouteAnalysis
+    Amazonka.NetworkManager.Types.RouteAnalysisCompletion
+    Amazonka.NetworkManager.Types.RouteAnalysisCompletionReasonCode
+    Amazonka.NetworkManager.Types.RouteAnalysisCompletionResultCode
+    Amazonka.NetworkManager.Types.RouteAnalysisEndpointOptions
+    Amazonka.NetworkManager.Types.RouteAnalysisEndpointOptionsSpecification
+    Amazonka.NetworkManager.Types.RouteAnalysisPath
+    Amazonka.NetworkManager.Types.RouteAnalysisStatus
+    Amazonka.NetworkManager.Types.RouteState
+    Amazonka.NetworkManager.Types.RouteTableIdentifier
+    Amazonka.NetworkManager.Types.RouteTableType
+    Amazonka.NetworkManager.Types.RouteType
     Amazonka.NetworkManager.Types.Site
     Amazonka.NetworkManager.Types.SiteState
+    Amazonka.NetworkManager.Types.SiteToSiteVpnAttachment
     Amazonka.NetworkManager.Types.Tag
     Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation
     Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
+    Amazonka.NetworkManager.Types.TransitGatewayPeering
     Amazonka.NetworkManager.Types.TransitGatewayRegistration
     Amazonka.NetworkManager.Types.TransitGatewayRegistrationState
     Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason
+    Amazonka.NetworkManager.Types.TransitGatewayRouteTableAttachment
+    Amazonka.NetworkManager.Types.TunnelProtocol
+    Amazonka.NetworkManager.Types.VpcAttachment
+    Amazonka.NetworkManager.Types.VpcOptions
     Amazonka.NetworkManager.UntagResource
     Amazonka.NetworkManager.UpdateConnection
+    Amazonka.NetworkManager.UpdateCoreNetwork
     Amazonka.NetworkManager.UpdateDevice
     Amazonka.NetworkManager.UpdateGlobalNetwork
     Amazonka.NetworkManager.UpdateLink
+    Amazonka.NetworkManager.UpdateNetworkResourceMetadata
     Amazonka.NetworkManager.UpdateSite
+    Amazonka.NetworkManager.UpdateVpcAttachment
     Amazonka.NetworkManager.Waiters
 
   build-depends:

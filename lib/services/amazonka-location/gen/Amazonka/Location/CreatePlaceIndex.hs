@@ -20,8 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a place index resource in your AWS account, which supports
--- functions with geospatial data sourced from your chosen data provider.
+-- Creates a place index resource in your AWS account. Use a place index
+-- resource to geocode addresses and other text queries by using the
+-- @SearchPlaceIndexForText@ operation, and reverse geocode coordinates by
+-- using the @SearchPlaceIndexForPosition@ operation, and enable
+-- autosuggestions by using the @SearchPlaceIndexForSuggestions@ operation.
+--
+-- If your application is tracking or routing assets you use in your
+-- business, such as delivery vehicles or employees, you may only use HERE
+-- as your geolocation provider. See section 82 of the
+-- <http://aws.amazon.com/service-terms AWS service terms> for more
+-- details.
 module Amazonka.Location.CreatePlaceIndex
   ( -- * Creating a Request
     CreatePlaceIndex (..),
@@ -31,9 +40,9 @@ module Amazonka.Location.CreatePlaceIndex
     createPlaceIndex_tags,
     createPlaceIndex_dataSourceConfiguration,
     createPlaceIndex_description,
+    createPlaceIndex_pricingPlan,
     createPlaceIndex_dataSource,
     createPlaceIndex_indexName,
-    createPlaceIndex_pricingPlan,
 
     -- * Destructuring the Response
     CreatePlaceIndexResponse (..),
@@ -57,29 +66,35 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreatePlaceIndex' smart constructor.
 data CreatePlaceIndex = CreatePlaceIndex'
   { -- | Applies one or more tags to the place index resource. A tag is a
-    -- key-value pair helps manage, identify, search, and filter your resources
-    -- by labelling them.
+    -- key-value pair that helps you manage, identify, search, and filter your
+    -- resources.
     --
     -- Format: @\"key\" : \"value\"@
     --
     -- Restrictions:
     --
-    -- -   Maximum 50 tags per resource
+    -- -   Maximum 50 tags per resource.
     --
-    -- -   Each resource tag must be unique with a maximum of one value.
+    -- -   Each tag key must be unique and must have exactly one associated
+    --     value.
     --
-    -- -   Maximum key length: 128 Unicode characters in UTF-8
+    -- -   Maximum key length: 128 Unicode characters in UTF-8.
     --
-    -- -   Maximum value length: 256 Unicode characters in UTF-8
+    -- -   Maximum value length: 256 Unicode characters in UTF-8.
     --
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
-    --     characters: + - = . _ : \/ \@.
+    --     characters: + - = . _ : \/ \@
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the data storage option requesting Places.
     dataSourceConfiguration :: Prelude.Maybe DataSourceConfiguration,
     -- | The optional description for the place index resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the data provider of geospatial data.
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | Specifies the geospatial data provider for the new place index.
     --
     -- This field is case-sensitive. Enter the valid values as shown. For
     -- example, entering @HERE@ returns an error.
@@ -96,8 +111,8 @@ data CreatePlaceIndex = CreatePlaceIndex'
     --     coverage in your region of interest, see
     --     <https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html HERE details on goecoding coverage>.
     --
-    --     Place index resources using HERE Technologies as a data provider
-    --     can\'t
+    --     If you specify HERE Technologies (@Here@) as the data provider, you
+    --     may not
     --     <https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results>
     --     for locations in Japan. For more information, see the
     --     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
@@ -117,12 +132,7 @@ data CreatePlaceIndex = CreatePlaceIndex'
     -- -   Must be a unique place index resource name.
     --
     -- -   No spaces allowed. For example, @ExamplePlaceIndex@.
-    indexName :: Prelude.Text,
-    -- | Specifies the pricing plan for your place index resource.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: PricingPlan
+    indexName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -135,29 +145,35 @@ data CreatePlaceIndex = CreatePlaceIndex'
 -- for backwards compatibility:
 --
 -- 'tags', 'createPlaceIndex_tags' - Applies one or more tags to the place index resource. A tag is a
--- key-value pair helps manage, identify, search, and filter your resources
--- by labelling them.
+-- key-value pair that helps you manage, identify, search, and filter your
+-- resources.
 --
 -- Format: @\"key\" : \"value\"@
 --
 -- Restrictions:
 --
--- -   Maximum 50 tags per resource
+-- -   Maximum 50 tags per resource.
 --
--- -   Each resource tag must be unique with a maximum of one value.
+-- -   Each tag key must be unique and must have exactly one associated
+--     value.
 --
--- -   Maximum key length: 128 Unicode characters in UTF-8
+-- -   Maximum key length: 128 Unicode characters in UTF-8.
 --
--- -   Maximum value length: 256 Unicode characters in UTF-8
+-- -   Maximum value length: 256 Unicode characters in UTF-8.
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
+--     characters: + - = . _ : \/ \@
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 --
 -- 'dataSourceConfiguration', 'createPlaceIndex_dataSourceConfiguration' - Specifies the data storage option requesting Places.
 --
 -- 'description', 'createPlaceIndex_description' - The optional description for the place index resource.
 --
--- 'dataSource', 'createPlaceIndex_dataSource' - Specifies the data provider of geospatial data.
+-- 'pricingPlan', 'createPlaceIndex_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+--
+-- 'dataSource', 'createPlaceIndex_dataSource' - Specifies the geospatial data provider for the new place index.
 --
 -- This field is case-sensitive. Enter the valid values as shown. For
 -- example, entering @HERE@ returns an error.
@@ -174,8 +190,8 @@ data CreatePlaceIndex = CreatePlaceIndex'
 --     coverage in your region of interest, see
 --     <https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html HERE details on goecoding coverage>.
 --
---     Place index resources using HERE Technologies as a data provider
---     can\'t
+--     If you specify HERE Technologies (@Here@) as the data provider, you
+--     may not
 --     <https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results>
 --     for locations in Japan. For more information, see the
 --     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
@@ -195,50 +211,43 @@ data CreatePlaceIndex = CreatePlaceIndex'
 -- -   Must be a unique place index resource name.
 --
 -- -   No spaces allowed. For example, @ExamplePlaceIndex@.
---
--- 'pricingPlan', 'createPlaceIndex_pricingPlan' - Specifies the pricing plan for your place index resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 newCreatePlaceIndex ::
   -- | 'dataSource'
   Prelude.Text ->
   -- | 'indexName'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   CreatePlaceIndex
-newCreatePlaceIndex
-  pDataSource_
-  pIndexName_
-  pPricingPlan_ =
-    CreatePlaceIndex'
-      { tags = Prelude.Nothing,
-        dataSourceConfiguration = Prelude.Nothing,
-        description = Prelude.Nothing,
-        dataSource = pDataSource_,
-        indexName = pIndexName_,
-        pricingPlan = pPricingPlan_
-      }
+newCreatePlaceIndex pDataSource_ pIndexName_ =
+  CreatePlaceIndex'
+    { tags = Prelude.Nothing,
+      dataSourceConfiguration = Prelude.Nothing,
+      description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
+      dataSource = pDataSource_,
+      indexName = pIndexName_
+    }
 
 -- | Applies one or more tags to the place index resource. A tag is a
--- key-value pair helps manage, identify, search, and filter your resources
--- by labelling them.
+-- key-value pair that helps you manage, identify, search, and filter your
+-- resources.
 --
 -- Format: @\"key\" : \"value\"@
 --
 -- Restrictions:
 --
--- -   Maximum 50 tags per resource
+-- -   Maximum 50 tags per resource.
 --
--- -   Each resource tag must be unique with a maximum of one value.
+-- -   Each tag key must be unique and must have exactly one associated
+--     value.
 --
--- -   Maximum key length: 128 Unicode characters in UTF-8
+-- -   Maximum key length: 128 Unicode characters in UTF-8.
 --
--- -   Maximum value length: 256 Unicode characters in UTF-8
+-- -   Maximum value length: 256 Unicode characters in UTF-8.
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
+--     characters: + - = . _ : \/ \@
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 createPlaceIndex_tags :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createPlaceIndex_tags = Lens.lens (\CreatePlaceIndex' {tags} -> tags) (\s@CreatePlaceIndex' {} a -> s {tags = a} :: CreatePlaceIndex) Prelude.. Lens.mapping Lens.coerced
 
@@ -250,7 +259,12 @@ createPlaceIndex_dataSourceConfiguration = Lens.lens (\CreatePlaceIndex' {dataSo
 createPlaceIndex_description :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe Prelude.Text)
 createPlaceIndex_description = Lens.lens (\CreatePlaceIndex' {description} -> description) (\s@CreatePlaceIndex' {} a -> s {description = a} :: CreatePlaceIndex)
 
--- | Specifies the data provider of geospatial data.
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createPlaceIndex_pricingPlan :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe PricingPlan)
+createPlaceIndex_pricingPlan = Lens.lens (\CreatePlaceIndex' {pricingPlan} -> pricingPlan) (\s@CreatePlaceIndex' {} a -> s {pricingPlan = a} :: CreatePlaceIndex)
+
+-- | Specifies the geospatial data provider for the new place index.
 --
 -- This field is case-sensitive. Enter the valid values as shown. For
 -- example, entering @HERE@ returns an error.
@@ -267,8 +281,8 @@ createPlaceIndex_description = Lens.lens (\CreatePlaceIndex' {description} -> de
 --     coverage in your region of interest, see
 --     <https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html HERE details on goecoding coverage>.
 --
---     Place index resources using HERE Technologies as a data provider
---     can\'t
+--     If you specify HERE Technologies (@Here@) as the data provider, you
+--     may not
 --     <https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results>
 --     for locations in Japan. For more information, see the
 --     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
@@ -293,13 +307,6 @@ createPlaceIndex_dataSource = Lens.lens (\CreatePlaceIndex' {dataSource} -> data
 createPlaceIndex_indexName :: Lens.Lens' CreatePlaceIndex Prelude.Text
 createPlaceIndex_indexName = Lens.lens (\CreatePlaceIndex' {indexName} -> indexName) (\s@CreatePlaceIndex' {} a -> s {indexName = a} :: CreatePlaceIndex)
 
--- | Specifies the pricing plan for your place index resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-createPlaceIndex_pricingPlan :: Lens.Lens' CreatePlaceIndex PricingPlan
-createPlaceIndex_pricingPlan = Lens.lens (\CreatePlaceIndex' {pricingPlan} -> pricingPlan) (\s@CreatePlaceIndex' {} a -> s {pricingPlan = a} :: CreatePlaceIndex)
-
 instance Core.AWSRequest CreatePlaceIndex where
   type
     AWSResponse CreatePlaceIndex =
@@ -320,18 +327,18 @@ instance Prelude.Hashable CreatePlaceIndex where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataSourceConfiguration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` indexName
-      `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreatePlaceIndex where
   rnf CreatePlaceIndex' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataSourceConfiguration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf pricingPlan
 
 instance Core.ToHeaders CreatePlaceIndex where
   toHeaders =
@@ -352,9 +359,9 @@ instance Core.ToJSON CreatePlaceIndex where
             ("DataSourceConfiguration" Core..=)
               Prelude.<$> dataSourceConfiguration,
             ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
             Prelude.Just ("DataSource" Core..= dataSource),
-            Prelude.Just ("IndexName" Core..= indexName),
-            Prelude.Just ("PricingPlan" Core..= pricingPlan)
+            Prelude.Just ("IndexName" Core..= indexName)
           ]
       )
 

@@ -22,10 +22,10 @@
 --
 -- @TransactWriteItems@ is a synchronous write operation that groups up to
 -- 25 action requests. These actions can target items in different tables,
--- but not in different AWS accounts or Regions, and no two actions can
--- target the same item. For example, you cannot both @ConditionCheck@ and
--- @Update@ the same item. The aggregate size of the items in the
--- transaction cannot exceed 4 MB.
+-- but not in different Amazon Web Services accounts or Regions, and no two
+-- actions can target the same item. For example, you cannot both
+-- @ConditionCheck@ and @Update@ the same item. The aggregate size of the
+-- items in the transaction cannot exceed 4 MB.
 --
 -- The actions are completed atomically so that either all of them succeed,
 -- or all of them fail. They are defined by the following objects:
@@ -138,8 +138,8 @@ data TransactWriteItems = TransactWriteItems'
     -- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which
     -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
     -- can operate on items in different tables, but the tables must reside in
-    -- the same AWS account and Region, and no two of them can operate on the
-    -- same item.
+    -- the same Amazon Web Services account and Region, and no two of them can
+    -- operate on the same item.
     transactItems :: Prelude.NonEmpty TransactWriteItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -184,8 +184,8 @@ data TransactWriteItems = TransactWriteItems'
 -- 'transactItems', 'transactWriteItems_transactItems' - An ordered array of up to 25 @TransactWriteItem@ objects, each of which
 -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
 -- can operate on items in different tables, but the tables must reside in
--- the same AWS account and Region, and no two of them can operate on the
--- same item.
+-- the same Amazon Web Services account and Region, and no two of them can
+-- operate on the same item.
 newTransactWriteItems ::
   -- | 'transactItems'
   Prelude.NonEmpty TransactWriteItem ->
@@ -237,8 +237,8 @@ transactWriteItems_returnItemCollectionMetrics = Lens.lens (\TransactWriteItems'
 -- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which
 -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
 -- can operate on items in different tables, but the tables must reside in
--- the same AWS account and Region, and no two of them can operate on the
--- same item.
+-- the same Amazon Web Services account and Region, and no two of them can
+-- operate on the same item.
 transactWriteItems_transactItems :: Lens.Lens' TransactWriteItems (Prelude.NonEmpty TransactWriteItem)
 transactWriteItems_transactItems = Lens.lens (\TransactWriteItems' {transactItems} -> transactItems) (\s@TransactWriteItems' {} a -> s {transactItems = a} :: TransactWriteItems) Prelude.. Lens.coerced
 

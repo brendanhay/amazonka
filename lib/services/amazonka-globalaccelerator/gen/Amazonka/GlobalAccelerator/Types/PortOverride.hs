@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 -- respectively, on the endpoints.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Overriding listener ports>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- /See:/ 'newPortOverride' smart constructor.
 data PortOverride = PortOverride'

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NetworkConnectionStatus
   ( NetworkConnectionStatus
       ( ..,
         NetworkConnectionStatus_CONNECTED,
+        NetworkConnectionStatus_CONNECTING,
         NetworkConnectionStatus_NOT_CONNECTED
       ),
   )
@@ -60,11 +61,15 @@ newtype NetworkConnectionStatus = NetworkConnectionStatus'
 pattern NetworkConnectionStatus_CONNECTED :: NetworkConnectionStatus
 pattern NetworkConnectionStatus_CONNECTED = NetworkConnectionStatus' "CONNECTED"
 
+pattern NetworkConnectionStatus_CONNECTING :: NetworkConnectionStatus
+pattern NetworkConnectionStatus_CONNECTING = NetworkConnectionStatus' "CONNECTING"
+
 pattern NetworkConnectionStatus_NOT_CONNECTED :: NetworkConnectionStatus
 pattern NetworkConnectionStatus_NOT_CONNECTED = NetworkConnectionStatus' "NOT_CONNECTED"
 
 {-# COMPLETE
   NetworkConnectionStatus_CONNECTED,
+  NetworkConnectionStatus_CONNECTING,
   NetworkConnectionStatus_NOT_CONNECTED,
   NetworkConnectionStatus'
   #-}

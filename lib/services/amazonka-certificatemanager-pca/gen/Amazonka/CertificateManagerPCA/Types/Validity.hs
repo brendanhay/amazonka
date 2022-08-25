@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 -- valid. Validity can be expressed as an explicit date and time when the
 -- validity of a certificate starts or expires, or as a span of time after
 -- issuance, stated in days, months, or years. For more information, see
--- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
--- 5280.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+-- in RFC 5280.
 --
 -- ACM Private CA API consumes the @Validity@ data type differently in two
 -- distinct parameters of the @IssueCertificate@ action. The required

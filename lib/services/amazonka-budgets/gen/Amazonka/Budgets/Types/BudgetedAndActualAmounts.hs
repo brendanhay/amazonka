@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
   { -- | The amount of cost or usage that you created the budget for.
     budgetedAmount :: Prelude.Maybe Spend,
-    -- | The time period covered by this budget comparison.
+    -- | The time period that\'s covered by this budget comparison.
     timePeriod :: Prelude.Maybe TimePeriod,
     -- | Your actual costs or usage for a budget period.
     actualAmount :: Prelude.Maybe Spend
@@ -49,7 +49,7 @@ data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
 --
 -- 'budgetedAmount', 'budgetedAndActualAmounts_budgetedAmount' - The amount of cost or usage that you created the budget for.
 --
--- 'timePeriod', 'budgetedAndActualAmounts_timePeriod' - The time period covered by this budget comparison.
+-- 'timePeriod', 'budgetedAndActualAmounts_timePeriod' - The time period that\'s covered by this budget comparison.
 --
 -- 'actualAmount', 'budgetedAndActualAmounts_actualAmount' - Your actual costs or usage for a budget period.
 newBudgetedAndActualAmounts ::
@@ -66,7 +66,7 @@ newBudgetedAndActualAmounts =
 budgetedAndActualAmounts_budgetedAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
 budgetedAndActualAmounts_budgetedAmount = Lens.lens (\BudgetedAndActualAmounts' {budgetedAmount} -> budgetedAmount) (\s@BudgetedAndActualAmounts' {} a -> s {budgetedAmount = a} :: BudgetedAndActualAmounts)
 
--- | The time period covered by this budget comparison.
+-- | The time period that\'s covered by this budget comparison.
 budgetedAndActualAmounts_timePeriod :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe TimePeriod)
 budgetedAndActualAmounts_timePeriod = Lens.lens (\BudgetedAndActualAmounts' {timePeriod} -> timePeriod) (\s@BudgetedAndActualAmounts' {} a -> s {timePeriod = a} :: BudgetedAndActualAmounts)
 

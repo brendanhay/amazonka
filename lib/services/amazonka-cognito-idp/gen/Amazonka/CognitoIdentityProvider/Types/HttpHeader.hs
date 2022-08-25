@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data HttpHeader = HttpHeader'
   { -- | The header value.
     headerValue :: Prelude.Maybe Prelude.Text,
-    -- | The header name
+    -- | The header name.
     headerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data HttpHeader = HttpHeader'
 --
 -- 'headerValue', 'httpHeader_headerValue' - The header value.
 --
--- 'headerName', 'httpHeader_headerName' - The header name
+-- 'headerName', 'httpHeader_headerName' - The header name.
 newHttpHeader ::
   HttpHeader
 newHttpHeader =
@@ -57,7 +57,7 @@ newHttpHeader =
 httpHeader_headerValue :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
 httpHeader_headerValue = Lens.lens (\HttpHeader' {headerValue} -> headerValue) (\s@HttpHeader' {} a -> s {headerValue = a} :: HttpHeader)
 
--- | The header name
+-- | The header name.
 httpHeader_headerName :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
 httpHeader_headerName = Lens.lens (\HttpHeader' {headerName} -> headerName) (\s@HttpHeader' {} a -> s {headerName = a} :: HttpHeader)
 

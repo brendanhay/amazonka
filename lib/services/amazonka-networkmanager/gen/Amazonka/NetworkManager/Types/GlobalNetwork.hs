@@ -25,7 +25,9 @@ import Amazonka.NetworkManager.Types.GlobalNetworkState
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a global network.
+-- | Describes a global network. This is a single private network acting as a
+-- high-level container for your network objects, including an Amazon Web
+-- Services-managed Core Network.
 --
 -- /See:/ 'newGlobalNetwork' smart constructor.
 data GlobalNetwork = GlobalNetwork'

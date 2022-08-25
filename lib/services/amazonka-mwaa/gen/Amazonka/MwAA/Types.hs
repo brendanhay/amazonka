@@ -77,6 +77,7 @@ module Amazonka.MwAA.Types
     LastUpdate (..),
     newLastUpdate,
     lastUpdate_status,
+    lastUpdate_source,
     lastUpdate_error,
     lastUpdate_createdAt,
 
@@ -240,9 +241,9 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Access to the Airflow Web UI or CLI has been Denied. Please follow the
--- MWAA user guide to setup permissions to access the Web UI and CLI
--- functionality.
+-- | Access to the Apache Airflow Web UI or CLI has been denied due to
+-- insufficient permissions. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html Accessing an Amazon MWAA environment>.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError

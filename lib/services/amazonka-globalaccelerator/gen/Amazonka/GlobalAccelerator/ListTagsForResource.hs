@@ -23,8 +23,8 @@
 -- List all tags for an accelerator.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 module Amazonka.GlobalAccelerator.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

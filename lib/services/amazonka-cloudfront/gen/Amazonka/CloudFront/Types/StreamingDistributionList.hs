@@ -29,7 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStreamingDistributionList' smart constructor.
 data StreamingDistributionList = StreamingDistributionList'
   { -- | A complex type that contains one @StreamingDistributionSummary@ element
-    -- for each distribution that was created by the current account.
+    -- for each distribution that was created by the current Amazon Web
+    -- Services account.
     items :: Prelude.Maybe [StreamingDistributionSummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value you can use for the @Marker@ request parameter to continue listing
@@ -45,7 +46,7 @@ data StreamingDistributionList = StreamingDistributionList'
     -- distributions in the list.
     isTruncated :: Prelude.Bool,
     -- | The number of streaming distributions that were created by the current
-    -- account.
+    -- Amazon Web Services account.
     quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +60,8 @@ data StreamingDistributionList = StreamingDistributionList'
 -- for backwards compatibility:
 --
 -- 'items', 'streamingDistributionList_items' - A complex type that contains one @StreamingDistributionSummary@ element
--- for each distribution that was created by the current account.
+-- for each distribution that was created by the current Amazon Web
+-- Services account.
 --
 -- 'nextMarker', 'streamingDistributionList_nextMarker' - If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing
@@ -75,7 +77,7 @@ data StreamingDistributionList = StreamingDistributionList'
 -- distributions in the list.
 --
 -- 'quantity', 'streamingDistributionList_quantity' - The number of streaming distributions that were created by the current
--- account.
+-- Amazon Web Services account.
 newStreamingDistributionList ::
   -- | 'marker'
   Prelude.Text ->
@@ -101,7 +103,8 @@ newStreamingDistributionList
       }
 
 -- | A complex type that contains one @StreamingDistributionSummary@ element
--- for each distribution that was created by the current account.
+-- for each distribution that was created by the current Amazon Web
+-- Services account.
 streamingDistributionList_items :: Lens.Lens' StreamingDistributionList (Prelude.Maybe [StreamingDistributionSummary])
 streamingDistributionList_items = Lens.lens (\StreamingDistributionList' {items} -> items) (\s@StreamingDistributionList' {} a -> s {items = a} :: StreamingDistributionList) Prelude.. Lens.mapping Lens.coerced
 
@@ -127,7 +130,7 @@ streamingDistributionList_isTruncated :: Lens.Lens' StreamingDistributionList Pr
 streamingDistributionList_isTruncated = Lens.lens (\StreamingDistributionList' {isTruncated} -> isTruncated) (\s@StreamingDistributionList' {} a -> s {isTruncated = a} :: StreamingDistributionList)
 
 -- | The number of streaming distributions that were created by the current
--- account.
+-- Amazon Web Services account.
 streamingDistributionList_quantity :: Lens.Lens' StreamingDistributionList Prelude.Int
 streamingDistributionList_quantity = Lens.lens (\StreamingDistributionList' {quantity} -> quantity) (\s@StreamingDistributionList' {} a -> s {quantity = a} :: StreamingDistributionList)
 

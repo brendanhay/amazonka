@@ -55,7 +55,7 @@ data UpdateInstanceAttribute = UpdateInstanceAttribute'
     -- | The type of attribute.
     --
     -- Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access
-    -- this feature, contact AWS Support for allowlisting.
+    -- this feature, contact Amazon Web Services Support for allowlisting.
     attributeType :: InstanceAttributeType,
     -- | The value for the attribute. Maximum character limit is 100.
     value :: Prelude.Text
@@ -76,7 +76,7 @@ data UpdateInstanceAttribute = UpdateInstanceAttribute'
 -- 'attributeType', 'updateInstanceAttribute_attributeType' - The type of attribute.
 --
 -- Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access
--- this feature, contact AWS Support for allowlisting.
+-- this feature, contact Amazon Web Services Support for allowlisting.
 --
 -- 'value', 'updateInstanceAttribute_value' - The value for the attribute. Maximum character limit is 100.
 newUpdateInstanceAttribute ::
@@ -105,7 +105,7 @@ updateInstanceAttribute_instanceId = Lens.lens (\UpdateInstanceAttribute' {insta
 -- | The type of attribute.
 --
 -- Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access
--- this feature, contact AWS Support for allowlisting.
+-- this feature, contact Amazon Web Services Support for allowlisting.
 updateInstanceAttribute_attributeType :: Lens.Lens' UpdateInstanceAttribute InstanceAttributeType
 updateInstanceAttribute_attributeType = Lens.lens (\UpdateInstanceAttribute' {attributeType} -> attributeType) (\s@UpdateInstanceAttribute' {} a -> s {attributeType = a} :: UpdateInstanceAttribute)
 

@@ -22,6 +22,7 @@ module Amazonka.EC2.Types.TargetCapacitySpecification where
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DefaultTargetCapacityType
+import Amazonka.EC2.Types.TargetCapacityUnitType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,7 +46,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetCapacitySpecification' smart constructor.
 data TargetCapacitySpecification = TargetCapacitySpecification'
-  { -- | The number of units to request, filled using
+  { -- | The unit for the target capacity.
+    --
+    -- Default: @units@ (translates to number of instances)
+    targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
+    -- | The number of units to request, filled using
     -- @DefaultTargetCapacityType@.
     totalTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The default @TotalTargetCapacity@, which is either @Spot@ or
@@ -70,6 +75,10 @@ data TargetCapacitySpecification = TargetCapacitySpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetCapacityUnitType', 'targetCapacitySpecification_targetCapacityUnitType' - The unit for the target capacity.
+--
+-- Default: @units@ (translates to number of instances)
+--
 -- 'totalTargetCapacity', 'targetCapacitySpecification_totalTargetCapacity' - The number of units to request, filled using
 -- @DefaultTargetCapacityType@.
 --
@@ -87,12 +96,19 @@ newTargetCapacitySpecification ::
   TargetCapacitySpecification
 newTargetCapacitySpecification =
   TargetCapacitySpecification'
-    { totalTargetCapacity =
+    { targetCapacityUnitType =
         Prelude.Nothing,
+      totalTargetCapacity = Prelude.Nothing,
       defaultTargetCapacityType = Prelude.Nothing,
       onDemandTargetCapacity = Prelude.Nothing,
       spotTargetCapacity = Prelude.Nothing
     }
+
+-- | The unit for the target capacity.
+--
+-- Default: @units@ (translates to number of instances)
+targetCapacitySpecification_targetCapacityUnitType :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe TargetCapacityUnitType)
+targetCapacitySpecification_targetCapacityUnitType = Lens.lens (\TargetCapacitySpecification' {targetCapacityUnitType} -> targetCapacityUnitType) (\s@TargetCapacitySpecification' {} a -> s {targetCapacityUnitType = a} :: TargetCapacitySpecification)
 
 -- | The number of units to request, filled using
 -- @DefaultTargetCapacityType@.
@@ -119,21 +135,24 @@ targetCapacitySpecification_spotTargetCapacity = Lens.lens (\TargetCapacitySpeci
 instance Core.FromXML TargetCapacitySpecification where
   parseXML x =
     TargetCapacitySpecification'
-      Prelude.<$> (x Core..@? "totalTargetCapacity")
+      Prelude.<$> (x Core..@? "targetCapacityUnitType")
+      Prelude.<*> (x Core..@? "totalTargetCapacity")
       Prelude.<*> (x Core..@? "defaultTargetCapacityType")
       Prelude.<*> (x Core..@? "onDemandTargetCapacity")
       Prelude.<*> (x Core..@? "spotTargetCapacity")
 
 instance Prelude.Hashable TargetCapacitySpecification where
   hashWithSalt _salt TargetCapacitySpecification' {..} =
-    _salt `Prelude.hashWithSalt` totalTargetCapacity
+    _salt `Prelude.hashWithSalt` targetCapacityUnitType
+      `Prelude.hashWithSalt` totalTargetCapacity
       `Prelude.hashWithSalt` defaultTargetCapacityType
       `Prelude.hashWithSalt` onDemandTargetCapacity
       `Prelude.hashWithSalt` spotTargetCapacity
 
 instance Prelude.NFData TargetCapacitySpecification where
   rnf TargetCapacitySpecification' {..} =
-    Prelude.rnf totalTargetCapacity
+    Prelude.rnf targetCapacityUnitType
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
       `Prelude.seq` Prelude.rnf defaultTargetCapacityType
       `Prelude.seq` Prelude.rnf onDemandTargetCapacity
       `Prelude.seq` Prelude.rnf spotTargetCapacity

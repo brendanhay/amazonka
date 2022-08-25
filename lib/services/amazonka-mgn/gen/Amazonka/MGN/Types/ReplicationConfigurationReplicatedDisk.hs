@@ -34,6 +34,8 @@ data ReplicationConfigurationReplicatedDisk = ReplicationConfigurationReplicated
     deviceName :: Prelude.Maybe Prelude.Text,
     -- | Replication Configuration replicated disk staging disk type.
     stagingDiskType :: Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType,
+    -- | Replication Configuration replicated disk throughput.
+    throughput :: Prelude.Maybe Prelude.Natural,
     -- | Replication Configuration replicated disk IOPs.
     iops :: Prelude.Maybe Prelude.Natural
   }
@@ -53,6 +55,8 @@ data ReplicationConfigurationReplicatedDisk = ReplicationConfigurationReplicated
 --
 -- 'stagingDiskType', 'replicationConfigurationReplicatedDisk_stagingDiskType' - Replication Configuration replicated disk staging disk type.
 --
+-- 'throughput', 'replicationConfigurationReplicatedDisk_throughput' - Replication Configuration replicated disk throughput.
+--
 -- 'iops', 'replicationConfigurationReplicatedDisk_iops' - Replication Configuration replicated disk IOPs.
 newReplicationConfigurationReplicatedDisk ::
   ReplicationConfigurationReplicatedDisk
@@ -62,6 +66,7 @@ newReplicationConfigurationReplicatedDisk =
         Prelude.Nothing,
       deviceName = Prelude.Nothing,
       stagingDiskType = Prelude.Nothing,
+      throughput = Prelude.Nothing,
       iops = Prelude.Nothing
     }
 
@@ -76,6 +81,10 @@ replicationConfigurationReplicatedDisk_deviceName = Lens.lens (\ReplicationConfi
 -- | Replication Configuration replicated disk staging disk type.
 replicationConfigurationReplicatedDisk_stagingDiskType :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType)
 replicationConfigurationReplicatedDisk_stagingDiskType = Lens.lens (\ReplicationConfigurationReplicatedDisk' {stagingDiskType} -> stagingDiskType) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {stagingDiskType = a} :: ReplicationConfigurationReplicatedDisk)
+
+-- | Replication Configuration replicated disk throughput.
+replicationConfigurationReplicatedDisk_throughput :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Natural)
+replicationConfigurationReplicatedDisk_throughput = Lens.lens (\ReplicationConfigurationReplicatedDisk' {throughput} -> throughput) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {throughput = a} :: ReplicationConfigurationReplicatedDisk)
 
 -- | Replication Configuration replicated disk IOPs.
 replicationConfigurationReplicatedDisk_iops :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Natural)
@@ -93,6 +102,7 @@ instance
             Prelude.<$> (x Core..:? "isBootDisk")
             Prelude.<*> (x Core..:? "deviceName")
             Prelude.<*> (x Core..:? "stagingDiskType")
+            Prelude.<*> (x Core..:? "throughput")
             Prelude.<*> (x Core..:? "iops")
       )
 
@@ -106,6 +116,7 @@ instance
       _salt `Prelude.hashWithSalt` isBootDisk
         `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` stagingDiskType
+        `Prelude.hashWithSalt` throughput
         `Prelude.hashWithSalt` iops
 
 instance
@@ -116,6 +127,7 @@ instance
     Prelude.rnf isBootDisk
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf stagingDiskType
+      `Prelude.seq` Prelude.rnf throughput
       `Prelude.seq` Prelude.rnf iops
 
 instance
@@ -129,6 +141,7 @@ instance
             ("deviceName" Core..=) Prelude.<$> deviceName,
             ("stagingDiskType" Core..=)
               Prelude.<$> stagingDiskType,
+            ("throughput" Core..=) Prelude.<$> throughput,
             ("iops" Core..=) Prelude.<$> iops
           ]
       )

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.Lambda.Types.Architecture
 import Amazonka.Lambda.Types.DeadLetterConfig
 import Amazonka.Lambda.Types.EnvironmentResponse
+import Amazonka.Lambda.Types.EphemeralStorage
 import Amazonka.Lambda.Types.FileSystemConfig
 import Amazonka.Lambda.Types.ImageConfigResponse
 import Amazonka.Lambda.Types.LastUpdateStatus
@@ -48,13 +49,16 @@ data FunctionConfiguration = FunctionConfiguration'
     fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
     -- | The reason for the last update that was performed on the function.
     lastUpdateStatusReason :: Prelude.Maybe Prelude.Text,
-    -- | For Lambda\@Edge functions, the ARN of the master function.
+    -- | For Lambda\@Edge functions, the ARN of the main function.
     masterArn :: Prelude.Maybe Prelude.Text,
     -- | The function\'s Amazon Resource Name (ARN).
     functionArn :: Prelude.Maybe Prelude.Text,
     -- | The amount of time in seconds that Lambda allows a function to run
     -- before stopping it.
     timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The size of the function’s \/tmp directory in MB. The default value is
+    -- 512, but can be any whole number between 512 and 10240 MB.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The amount of memory available to the function at runtime.
     memorySize :: Prelude.Maybe Prelude.Natural,
     -- | The SHA256 hash of the function\'s deployment package.
@@ -77,7 +81,7 @@ data FunctionConfiguration = FunctionConfiguration'
     description :: Prelude.Maybe Prelude.Text,
     -- | The KMS key that\'s used to encrypt the function\'s environment
     -- variables. This key is only returned if you\'ve configured a customer
-    -- managed CMK.
+    -- managed key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The function that Lambda calls to begin executing your function.
     handler :: Prelude.Maybe Prelude.Text,
@@ -137,12 +141,15 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'lastUpdateStatusReason', 'functionConfiguration_lastUpdateStatusReason' - The reason for the last update that was performed on the function.
 --
--- 'masterArn', 'functionConfiguration_masterArn' - For Lambda\@Edge functions, the ARN of the master function.
+-- 'masterArn', 'functionConfiguration_masterArn' - For Lambda\@Edge functions, the ARN of the main function.
 --
 -- 'functionArn', 'functionConfiguration_functionArn' - The function\'s Amazon Resource Name (ARN).
 --
 -- 'timeout', 'functionConfiguration_timeout' - The amount of time in seconds that Lambda allows a function to run
 -- before stopping it.
+--
+-- 'ephemeralStorage', 'functionConfiguration_ephemeralStorage' - The size of the function’s \/tmp directory in MB. The default value is
+-- 512, but can be any whole number between 512 and 10240 MB.
 --
 -- 'memorySize', 'functionConfiguration_memorySize' - The amount of memory available to the function at runtime.
 --
@@ -166,7 +173,7 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'kmsKeyArn', 'functionConfiguration_kmsKeyArn' - The KMS key that\'s used to encrypt the function\'s environment
 -- variables. This key is only returned if you\'ve configured a customer
--- managed CMK.
+-- managed key.
 --
 -- 'handler', 'functionConfiguration_handler' - The function that Lambda calls to begin executing your function.
 --
@@ -218,6 +225,7 @@ newFunctionConfiguration =
       masterArn = Prelude.Nothing,
       functionArn = Prelude.Nothing,
       timeout = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       memorySize = Prelude.Nothing,
       codeSha256 = Prelude.Nothing,
       environment = Prelude.Nothing,
@@ -259,7 +267,7 @@ functionConfiguration_fileSystemConfigs = Lens.lens (\FunctionConfiguration' {fi
 functionConfiguration_lastUpdateStatusReason :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_lastUpdateStatusReason = Lens.lens (\FunctionConfiguration' {lastUpdateStatusReason} -> lastUpdateStatusReason) (\s@FunctionConfiguration' {} a -> s {lastUpdateStatusReason = a} :: FunctionConfiguration)
 
--- | For Lambda\@Edge functions, the ARN of the master function.
+-- | For Lambda\@Edge functions, the ARN of the main function.
 functionConfiguration_masterArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_masterArn = Lens.lens (\FunctionConfiguration' {masterArn} -> masterArn) (\s@FunctionConfiguration' {} a -> s {masterArn = a} :: FunctionConfiguration)
 
@@ -271,6 +279,11 @@ functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {function
 -- before stopping it.
 functionConfiguration_timeout :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Natural)
 functionConfiguration_timeout = Lens.lens (\FunctionConfiguration' {timeout} -> timeout) (\s@FunctionConfiguration' {} a -> s {timeout = a} :: FunctionConfiguration)
+
+-- | The size of the function’s \/tmp directory in MB. The default value is
+-- 512, but can be any whole number between 512 and 10240 MB.
+functionConfiguration_ephemeralStorage :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EphemeralStorage)
+functionConfiguration_ephemeralStorage = Lens.lens (\FunctionConfiguration' {ephemeralStorage} -> ephemeralStorage) (\s@FunctionConfiguration' {} a -> s {ephemeralStorage = a} :: FunctionConfiguration)
 
 -- | The amount of memory available to the function at runtime.
 functionConfiguration_memorySize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Natural)
@@ -312,7 +325,7 @@ functionConfiguration_description = Lens.lens (\FunctionConfiguration' {descript
 
 -- | The KMS key that\'s used to encrypt the function\'s environment
 -- variables. This key is only returned if you\'ve configured a customer
--- managed CMK.
+-- managed key.
 functionConfiguration_kmsKeyArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_kmsKeyArn = Lens.lens (\FunctionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@FunctionConfiguration' {} a -> s {kmsKeyArn = a} :: FunctionConfiguration)
 
@@ -402,6 +415,7 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "MasterArn")
             Prelude.<*> (x Core..:? "FunctionArn")
             Prelude.<*> (x Core..:? "Timeout")
+            Prelude.<*> (x Core..:? "EphemeralStorage")
             Prelude.<*> (x Core..:? "MemorySize")
             Prelude.<*> (x Core..:? "CodeSha256")
             Prelude.<*> (x Core..:? "Environment")
@@ -438,6 +452,7 @@ instance Prelude.Hashable FunctionConfiguration where
       `Prelude.hashWithSalt` masterArn
       `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` memorySize
       `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` environment
@@ -473,6 +488,7 @@ instance Prelude.NFData FunctionConfiguration where
       `Prelude.seq` Prelude.rnf masterArn
       `Prelude.seq` Prelude.rnf functionArn
       `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf memorySize
       `Prelude.seq` Prelude.rnf codeSha256
       `Prelude.seq` Prelude.rnf environment

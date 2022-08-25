@@ -35,6 +35,7 @@ import Amazonka.Redshift.Types.ElasticIpStatus
 import Amazonka.Redshift.Types.Endpoint
 import Amazonka.Redshift.Types.HsmStatus
 import Amazonka.Redshift.Types.PendingModifiedValues
+import Amazonka.Redshift.Types.ReservedNodeExchangeStatus
 import Amazonka.Redshift.Types.ResizeInfo
 import Amazonka.Redshift.Types.RestoreStatus
 import Amazonka.Redshift.Types.ScheduleState
@@ -184,6 +185,9 @@ data Cluster = Cluster'
     -- | The Key Management Service (KMS) key ID of the encryption key used to
     -- encrypt data in the cluster.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the IAM role set as default for the
+    -- cluster.
+    defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the next snapshot is expected to be taken for
     -- clusters with a valid snapshot schedule and backups enabled.
     expectedNextSnapshotScheduleTime :: Prelude.Maybe Core.ISO8601,
@@ -224,6 +228,9 @@ data Cluster = Cluster'
     automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The date and time that the cluster was created.
     clusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    -- | The status of the reserved-node exchange request. Statuses include
+    -- in-progress and requested.
+    reservedNodeExchangeStatus :: Prelude.Maybe ReservedNodeExchangeStatus,
     -- | The total storage capacity of the cluster in megabytes.
     totalStorageCapacityInMegaBytes :: Prelude.Maybe Prelude.Integer,
     -- | The name of the initial database that was created when the cluster was
@@ -405,6 +412,9 @@ data Cluster = Cluster'
 -- 'kmsKeyId', 'cluster_kmsKeyId' - The Key Management Service (KMS) key ID of the encryption key used to
 -- encrypt data in the cluster.
 --
+-- 'defaultIamRoleArn', 'cluster_defaultIamRoleArn' - The Amazon Resource Name (ARN) for the IAM role set as default for the
+-- cluster.
+--
 -- 'expectedNextSnapshotScheduleTime', 'cluster_expectedNextSnapshotScheduleTime' - The date and time when the next snapshot is expected to be taken for
 -- clusters with a valid snapshot schedule and backups enabled.
 --
@@ -444,6 +454,9 @@ data Cluster = Cluster'
 -- 'automatedSnapshotRetentionPeriod', 'cluster_automatedSnapshotRetentionPeriod' - The number of days that automatic cluster snapshots are retained.
 --
 -- 'clusterCreateTime', 'cluster_clusterCreateTime' - The date and time that the cluster was created.
+--
+-- 'reservedNodeExchangeStatus', 'cluster_reservedNodeExchangeStatus' - The status of the reserved-node exchange request. Statuses include
+-- in-progress and requested.
 --
 -- 'totalStorageCapacityInMegaBytes', 'cluster_totalStorageCapacityInMegaBytes' - The total storage capacity of the cluster in megabytes.
 --
@@ -514,6 +527,7 @@ newCluster =
       dataTransferProgress = Prelude.Nothing,
       numberOfNodes = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      defaultIamRoleArn = Prelude.Nothing,
       expectedNextSnapshotScheduleTime = Prelude.Nothing,
       elasticResizeNumberOfNodeOptions = Prelude.Nothing,
       pendingModifiedValues = Prelude.Nothing,
@@ -524,6 +538,7 @@ newCluster =
       vpcId = Prelude.Nothing,
       automatedSnapshotRetentionPeriod = Prelude.Nothing,
       clusterCreateTime = Prelude.Nothing,
+      reservedNodeExchangeStatus = Prelude.Nothing,
       totalStorageCapacityInMegaBytes = Prelude.Nothing,
       dbName = Prelude.Nothing,
       restoreStatus = Prelude.Nothing,
@@ -741,6 +756,11 @@ cluster_numberOfNodes = Lens.lens (\Cluster' {numberOfNodes} -> numberOfNodes) (
 cluster_kmsKeyId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_kmsKeyId = Lens.lens (\Cluster' {kmsKeyId} -> kmsKeyId) (\s@Cluster' {} a -> s {kmsKeyId = a} :: Cluster)
 
+-- | The Amazon Resource Name (ARN) for the IAM role set as default for the
+-- cluster.
+cluster_defaultIamRoleArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_defaultIamRoleArn = Lens.lens (\Cluster' {defaultIamRoleArn} -> defaultIamRoleArn) (\s@Cluster' {} a -> s {defaultIamRoleArn = a} :: Cluster)
+
 -- | The date and time when the next snapshot is expected to be taken for
 -- clusters with a valid snapshot schedule and backups enabled.
 cluster_expectedNextSnapshotScheduleTime :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
@@ -800,6 +820,11 @@ cluster_automatedSnapshotRetentionPeriod = Lens.lens (\Cluster' {automatedSnapsh
 -- | The date and time that the cluster was created.
 cluster_clusterCreateTime :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
 cluster_clusterCreateTime = Lens.lens (\Cluster' {clusterCreateTime} -> clusterCreateTime) (\s@Cluster' {} a -> s {clusterCreateTime = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+
+-- | The status of the reserved-node exchange request. Statuses include
+-- in-progress and requested.
+cluster_reservedNodeExchangeStatus :: Lens.Lens' Cluster (Prelude.Maybe ReservedNodeExchangeStatus)
+cluster_reservedNodeExchangeStatus = Lens.lens (\Cluster' {reservedNodeExchangeStatus} -> reservedNodeExchangeStatus) (\s@Cluster' {} a -> s {reservedNodeExchangeStatus = a} :: Cluster)
 
 -- | The total storage capacity of the cluster in megabytes.
 cluster_totalStorageCapacityInMegaBytes :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Integer)
@@ -894,6 +919,7 @@ instance Core.FromXML Cluster where
       Prelude.<*> (x Core..@? "DataTransferProgress")
       Prelude.<*> (x Core..@? "NumberOfNodes")
       Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Core..@? "DefaultIamRoleArn")
       Prelude.<*> (x Core..@? "ExpectedNextSnapshotScheduleTime")
       Prelude.<*> (x Core..@? "ElasticResizeNumberOfNodeOptions")
       Prelude.<*> (x Core..@? "PendingModifiedValues")
@@ -907,6 +933,7 @@ instance Core.FromXML Cluster where
       Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> (x Core..@? "AutomatedSnapshotRetentionPeriod")
       Prelude.<*> (x Core..@? "ClusterCreateTime")
+      Prelude.<*> (x Core..@? "ReservedNodeExchangeStatus")
       Prelude.<*> (x Core..@? "TotalStorageCapacityInMegaBytes")
       Prelude.<*> (x Core..@? "DBName")
       Prelude.<*> (x Core..@? "RestoreStatus")
@@ -953,6 +980,7 @@ instance Prelude.Hashable Cluster where
       `Prelude.hashWithSalt` dataTransferProgress
       `Prelude.hashWithSalt` numberOfNodes
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` defaultIamRoleArn
       `Prelude.hashWithSalt` expectedNextSnapshotScheduleTime
       `Prelude.hashWithSalt` elasticResizeNumberOfNodeOptions
       `Prelude.hashWithSalt` pendingModifiedValues
@@ -963,6 +991,7 @@ instance Prelude.Hashable Cluster where
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
       `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` reservedNodeExchangeStatus
       `Prelude.hashWithSalt` totalStorageCapacityInMegaBytes
       `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` restoreStatus
@@ -1020,6 +1049,8 @@ instance Prelude.NFData Cluster where
       `Prelude.seq` Prelude.rnf
         kmsKeyId
       `Prelude.seq` Prelude.rnf
+        defaultIamRoleArn
+      `Prelude.seq` Prelude.rnf
         expectedNextSnapshotScheduleTime
       `Prelude.seq` Prelude.rnf
         elasticResizeNumberOfNodeOptions
@@ -1039,6 +1070,8 @@ instance Prelude.NFData Cluster where
         automatedSnapshotRetentionPeriod
       `Prelude.seq` Prelude.rnf
         clusterCreateTime
+      `Prelude.seq` Prelude.rnf
+        reservedNodeExchangeStatus
       `Prelude.seq` Prelude.rnf
         totalStorageCapacityInMegaBytes
       `Prelude.seq` Prelude.rnf

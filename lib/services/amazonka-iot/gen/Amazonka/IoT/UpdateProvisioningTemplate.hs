@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a fleet provisioning template.
+-- Updates a provisioning template.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateProvisioningTemplate>
@@ -63,14 +63,14 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
     defaultVersionId :: Prelude.Maybe Prelude.Int,
     -- | Updates the pre-provisioning hook template.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
-    -- | The description of the fleet provisioning template.
+    -- | The description of the provisioning template.
     description :: Prelude.Maybe Prelude.Text,
-    -- | True to enable the fleet provisioning template, otherwise false.
+    -- | True to enable the provisioning template, otherwise false.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the role associated with the provisioning template. This IoT
     -- role grants permission to provision a device.
     provisioningRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the fleet provisioning template.
+    -- | The name of the provisioning template.
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,14 +89,14 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
 --
 -- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template.
 --
--- 'description', 'updateProvisioningTemplate_description' - The description of the fleet provisioning template.
+-- 'description', 'updateProvisioningTemplate_description' - The description of the provisioning template.
 --
--- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
+-- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the provisioning template, otherwise false.
 --
 -- 'provisioningRoleArn', 'updateProvisioningTemplate_provisioningRoleArn' - The ARN of the role associated with the provisioning template. This IoT
 -- role grants permission to provision a device.
 --
--- 'templateName', 'updateProvisioningTemplate_templateName' - The name of the fleet provisioning template.
+-- 'templateName', 'updateProvisioningTemplate_templateName' - The name of the provisioning template.
 newUpdateProvisioningTemplate ::
   -- | 'templateName'
   Prelude.Text ->
@@ -125,11 +125,11 @@ updateProvisioningTemplate_defaultVersionId = Lens.lens (\UpdateProvisioningTemp
 updateProvisioningTemplate_preProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
 updateProvisioningTemplate_preProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: UpdateProvisioningTemplate)
 
--- | The description of the fleet provisioning template.
+-- | The description of the provisioning template.
 updateProvisioningTemplate_description :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
 updateProvisioningTemplate_description = Lens.lens (\UpdateProvisioningTemplate' {description} -> description) (\s@UpdateProvisioningTemplate' {} a -> s {description = a} :: UpdateProvisioningTemplate)
 
--- | True to enable the fleet provisioning template, otherwise false.
+-- | True to enable the provisioning template, otherwise false.
 updateProvisioningTemplate_enabled :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
 updateProvisioningTemplate_enabled = Lens.lens (\UpdateProvisioningTemplate' {enabled} -> enabled) (\s@UpdateProvisioningTemplate' {} a -> s {enabled = a} :: UpdateProvisioningTemplate)
 
@@ -138,7 +138,7 @@ updateProvisioningTemplate_enabled = Lens.lens (\UpdateProvisioningTemplate' {en
 updateProvisioningTemplate_provisioningRoleArn :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
 updateProvisioningTemplate_provisioningRoleArn = Lens.lens (\UpdateProvisioningTemplate' {provisioningRoleArn} -> provisioningRoleArn) (\s@UpdateProvisioningTemplate' {} a -> s {provisioningRoleArn = a} :: UpdateProvisioningTemplate)
 
--- | The name of the fleet provisioning template.
+-- | The name of the provisioning template.
 updateProvisioningTemplate_templateName :: Lens.Lens' UpdateProvisioningTemplate Prelude.Text
 updateProvisioningTemplate_templateName = Lens.lens (\UpdateProvisioningTemplate' {templateName} -> templateName) (\s@UpdateProvisioningTemplate' {} a -> s {templateName = a} :: UpdateProvisioningTemplate)
 

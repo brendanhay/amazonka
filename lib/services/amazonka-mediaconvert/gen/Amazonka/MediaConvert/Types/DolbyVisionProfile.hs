@@ -20,7 +20,8 @@
 module Amazonka.MediaConvert.Types.DolbyVisionProfile
   ( DolbyVisionProfile
       ( ..,
-        DolbyVisionProfile_PROFILE_5
+        DolbyVisionProfile_PROFILE_5,
+        DolbyVisionProfile_PROFILE_8_1
       ),
   )
 where
@@ -28,9 +29,11 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | In the current MediaConvert implementation, the Dolby Vision profile is
--- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
--- Vision frame interleaved data.
+-- | Required when you enable Dolby Vision. Use Profile 5 to include
+-- frame-interleaved Dolby Vision metadata in your output. Your input must
+-- include Dolby Vision metadata or an HDR10 YUV color space. Use Profile
+-- 8.1 to include frame-interleaved Dolby Vision metadata and HDR10
+-- metadata in your output. Your input must include Dolby Vision metadata.
 newtype DolbyVisionProfile = DolbyVisionProfile'
   { fromDolbyVisionProfile ::
       Core.Text
@@ -62,7 +65,11 @@ newtype DolbyVisionProfile = DolbyVisionProfile'
 pattern DolbyVisionProfile_PROFILE_5 :: DolbyVisionProfile
 pattern DolbyVisionProfile_PROFILE_5 = DolbyVisionProfile' "PROFILE_5"
 
+pattern DolbyVisionProfile_PROFILE_8_1 :: DolbyVisionProfile
+pattern DolbyVisionProfile_PROFILE_8_1 = DolbyVisionProfile' "PROFILE_8_1"
+
 {-# COMPLETE
   DolbyVisionProfile_PROFILE_5,
+  DolbyVisionProfile_PROFILE_8_1,
   DolbyVisionProfile'
   #-}

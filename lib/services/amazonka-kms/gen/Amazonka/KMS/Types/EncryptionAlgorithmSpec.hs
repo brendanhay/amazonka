@@ -22,6 +22,7 @@ module Amazonka.KMS.Types.EncryptionAlgorithmSpec
       ( ..,
         EncryptionAlgorithmSpec_RSAES_OAEP_SHA_1,
         EncryptionAlgorithmSpec_RSAES_OAEP_SHA_256,
+        EncryptionAlgorithmSpec_SM2PKE,
         EncryptionAlgorithmSpec_SYMMETRIC_DEFAULT
       ),
   )
@@ -64,12 +65,16 @@ pattern EncryptionAlgorithmSpec_RSAES_OAEP_SHA_1 = EncryptionAlgorithmSpec' "RSA
 pattern EncryptionAlgorithmSpec_RSAES_OAEP_SHA_256 :: EncryptionAlgorithmSpec
 pattern EncryptionAlgorithmSpec_RSAES_OAEP_SHA_256 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_256"
 
+pattern EncryptionAlgorithmSpec_SM2PKE :: EncryptionAlgorithmSpec
+pattern EncryptionAlgorithmSpec_SM2PKE = EncryptionAlgorithmSpec' "SM2PKE"
+
 pattern EncryptionAlgorithmSpec_SYMMETRIC_DEFAULT :: EncryptionAlgorithmSpec
 pattern EncryptionAlgorithmSpec_SYMMETRIC_DEFAULT = EncryptionAlgorithmSpec' "SYMMETRIC_DEFAULT"
 
 {-# COMPLETE
   EncryptionAlgorithmSpec_RSAES_OAEP_SHA_1,
   EncryptionAlgorithmSpec_RSAES_OAEP_SHA_256,
+  EncryptionAlgorithmSpec_SM2PKE,
   EncryptionAlgorithmSpec_SYMMETRIC_DEFAULT,
   EncryptionAlgorithmSpec'
   #-}

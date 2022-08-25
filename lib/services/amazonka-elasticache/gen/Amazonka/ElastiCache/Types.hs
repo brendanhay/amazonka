@@ -103,6 +103,9 @@ module Amazonka.ElastiCache.Types
     -- * ChangeType
     ChangeType (..),
 
+    -- * DataTieringStatus
+    DataTieringStatus (..),
+
     -- * DestinationType
     DestinationType (..),
 
@@ -544,6 +547,7 @@ module Amazonka.ElastiCache.Types
     replicationGroup_memberClustersOutpostArns,
     replicationGroup_globalReplicationGroupInfo,
     replicationGroup_clusterEnabled,
+    replicationGroup_autoMinorVersionUpgrade,
     replicationGroup_replicationGroupCreateTime,
     replicationGroup_automaticFailover,
     replicationGroup_arn,
@@ -560,6 +564,7 @@ module Amazonka.ElastiCache.Types
     replicationGroup_userGroupIds,
     replicationGroup_kmsKeyId,
     replicationGroup_pendingModifiedValues,
+    replicationGroup_dataTiering,
     replicationGroup_authTokenLastModifiedDate,
     replicationGroup_replicationGroupId,
     replicationGroup_memberClusters,
@@ -669,6 +674,7 @@ module Amazonka.ElastiCache.Types
     snapshot_engine,
     snapshot_preferredMaintenanceWindow,
     snapshot_vpcId,
+    snapshot_dataTiering,
     snapshot_replicationGroupId,
     snapshot_nodeSnapshots,
     snapshot_numNodeGroups,
@@ -747,6 +753,7 @@ module Amazonka.ElastiCache.Types
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,
@@ -759,6 +766,7 @@ module Amazonka.ElastiCache.Types
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
 
@@ -800,6 +808,7 @@ import Amazonka.ElastiCache.Types.ChangeType
 import Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails
 import Amazonka.ElastiCache.Types.ConfigureShard
 import Amazonka.ElastiCache.Types.CustomerNodeEndpoint
+import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.DestinationDetails
 import Amazonka.ElastiCache.Types.DestinationType
 import Amazonka.ElastiCache.Types.EC2SecurityGroup

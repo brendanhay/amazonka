@@ -26,8 +26,8 @@
 -- @transactionID@ parameter, changes that result from the call are
 -- committed automatically.
 --
--- The response size limit is 1 MB. If the call returns more than 1 MB of
--- response data, the call is terminated.
+-- If the binary response data from the database is more than 1 MB, the
+-- call is terminated.
 module Amazonka.RDSData.ExecuteStatement
   ( -- * Creating a Request
     ExecuteStatement (..),
@@ -39,6 +39,7 @@ module Amazonka.RDSData.ExecuteStatement
     executeStatement_resultSetOptions,
     executeStatement_includeResultMetadata,
     executeStatement_transactionId,
+    executeStatement_formatRecordsAs,
     executeStatement_schema,
     executeStatement_parameters,
     executeStatement_resourceArn,
@@ -53,6 +54,7 @@ module Amazonka.RDSData.ExecuteStatement
     executeStatementResponse_records,
     executeStatementResponse_columnMetadata,
     executeStatementResponse_numberOfRecordsUpdated,
+    executeStatementResponse_formattedRecords,
     executeStatementResponse_generatedFields,
     executeStatementResponse_httpStatus,
   )
@@ -92,6 +94,16 @@ data ExecuteStatement = ExecuteStatement'
     -- If the SQL statement is not part of a transaction, don\'t set this
     -- parameter.
     transactionId :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to format the result set as a single JSON
+    -- string. This parameter only applies to @SELECT@ statements and is
+    -- ignored for other types of statements. Allowed values are @NONE@ and
+    -- @JSON@. The default value is @NONE@. The result is returned in the
+    -- @formattedRecords@ field.
+    --
+    -- For usage information about the JSON format for result sets, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API>
+    -- in the /Amazon Aurora User Guide/.
+    formatRecordsAs :: Prelude.Maybe RecordsFormatType,
     -- | The name of the database schema.
     --
     -- Currently, the @schema@ parameter isn\'t supported.
@@ -102,7 +114,11 @@ data ExecuteStatement = ExecuteStatement'
     parameters :: Prelude.Maybe [SqlParameter],
     -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
     resourceArn :: Prelude.Text,
-    -- | The name or ARN of the secret that enables access to the DB cluster.
+    -- | The ARN of the secret that enables access to the DB cluster. Enter the
+    -- database user name and password for the credentials in the secret.
+    --
+    -- For information about creating the secret, see
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html Create a database secret>.
     secretArn :: Prelude.Text,
     -- | The SQL statement to run.
     sql :: Prelude.Text
@@ -139,6 +155,16 @@ data ExecuteStatement = ExecuteStatement'
 -- If the SQL statement is not part of a transaction, don\'t set this
 -- parameter.
 --
+-- 'formatRecordsAs', 'executeStatement_formatRecordsAs' - A value that indicates whether to format the result set as a single JSON
+-- string. This parameter only applies to @SELECT@ statements and is
+-- ignored for other types of statements. Allowed values are @NONE@ and
+-- @JSON@. The default value is @NONE@. The result is returned in the
+-- @formattedRecords@ field.
+--
+-- For usage information about the JSON format for result sets, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API>
+-- in the /Amazon Aurora User Guide/.
+--
 -- 'schema', 'executeStatement_schema' - The name of the database schema.
 --
 -- Currently, the @schema@ parameter isn\'t supported.
@@ -149,7 +175,11 @@ data ExecuteStatement = ExecuteStatement'
 --
 -- 'resourceArn', 'executeStatement_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 --
--- 'secretArn', 'executeStatement_secretArn' - The name or ARN of the secret that enables access to the DB cluster.
+-- 'secretArn', 'executeStatement_secretArn' - The ARN of the secret that enables access to the DB cluster. Enter the
+-- database user name and password for the credentials in the secret.
+--
+-- For information about creating the secret, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html Create a database secret>.
 --
 -- 'sql', 'executeStatement_sql' - The SQL statement to run.
 newExecuteStatement ::
@@ -168,6 +198,7 @@ newExecuteStatement pResourceArn_ pSecretArn_ pSql_ =
       resultSetOptions = Prelude.Nothing,
       includeResultMetadata = Prelude.Nothing,
       transactionId = Prelude.Nothing,
+      formatRecordsAs = Prelude.Nothing,
       schema = Prelude.Nothing,
       parameters = Prelude.Nothing,
       resourceArn = pResourceArn_,
@@ -207,6 +238,18 @@ executeStatement_includeResultMetadata = Lens.lens (\ExecuteStatement' {includeR
 executeStatement_transactionId :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
 executeStatement_transactionId = Lens.lens (\ExecuteStatement' {transactionId} -> transactionId) (\s@ExecuteStatement' {} a -> s {transactionId = a} :: ExecuteStatement)
 
+-- | A value that indicates whether to format the result set as a single JSON
+-- string. This parameter only applies to @SELECT@ statements and is
+-- ignored for other types of statements. Allowed values are @NONE@ and
+-- @JSON@. The default value is @NONE@. The result is returned in the
+-- @formattedRecords@ field.
+--
+-- For usage information about the JSON format for result sets, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API>
+-- in the /Amazon Aurora User Guide/.
+executeStatement_formatRecordsAs :: Lens.Lens' ExecuteStatement (Prelude.Maybe RecordsFormatType)
+executeStatement_formatRecordsAs = Lens.lens (\ExecuteStatement' {formatRecordsAs} -> formatRecordsAs) (\s@ExecuteStatement' {} a -> s {formatRecordsAs = a} :: ExecuteStatement)
+
 -- | The name of the database schema.
 --
 -- Currently, the @schema@ parameter isn\'t supported.
@@ -223,7 +266,11 @@ executeStatement_parameters = Lens.lens (\ExecuteStatement' {parameters} -> para
 executeStatement_resourceArn :: Lens.Lens' ExecuteStatement Prelude.Text
 executeStatement_resourceArn = Lens.lens (\ExecuteStatement' {resourceArn} -> resourceArn) (\s@ExecuteStatement' {} a -> s {resourceArn = a} :: ExecuteStatement)
 
--- | The name or ARN of the secret that enables access to the DB cluster.
+-- | The ARN of the secret that enables access to the DB cluster. Enter the
+-- database user name and password for the credentials in the secret.
+--
+-- For information about creating the secret, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html Create a database secret>.
 executeStatement_secretArn :: Lens.Lens' ExecuteStatement Prelude.Text
 executeStatement_secretArn = Lens.lens (\ExecuteStatement' {secretArn} -> secretArn) (\s@ExecuteStatement' {} a -> s {secretArn = a} :: ExecuteStatement)
 
@@ -243,6 +290,7 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<$> (x Core..?> "records" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "columnMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "numberOfRecordsUpdated")
+            Prelude.<*> (x Core..?> "formattedRecords")
             Prelude.<*> ( x Core..?> "generatedFields"
                             Core..!@ Prelude.mempty
                         )
@@ -256,6 +304,7 @@ instance Prelude.Hashable ExecuteStatement where
       `Prelude.hashWithSalt` resultSetOptions
       `Prelude.hashWithSalt` includeResultMetadata
       `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` formatRecordsAs
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceArn
@@ -269,6 +318,7 @@ instance Prelude.NFData ExecuteStatement where
       `Prelude.seq` Prelude.rnf resultSetOptions
       `Prelude.seq` Prelude.rnf includeResultMetadata
       `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf formatRecordsAs
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf resourceArn
@@ -298,6 +348,8 @@ instance Core.ToJSON ExecuteStatement where
             ("includeResultMetadata" Core..=)
               Prelude.<$> includeResultMetadata,
             ("transactionId" Core..=) Prelude.<$> transactionId,
+            ("formatRecordsAs" Core..=)
+              Prelude.<$> formatRecordsAs,
             ("schema" Core..=) Prelude.<$> schema,
             ("parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("resourceArn" Core..= resourceArn),
@@ -317,13 +369,23 @@ instance Core.ToQuery ExecuteStatement where
 --
 -- /See:/ 'newExecuteStatementResponse' smart constructor.
 data ExecuteStatementResponse = ExecuteStatementResponse'
-  { -- | The records returned by the SQL statement.
+  { -- | The records returned by the SQL statement. This field is blank if the
+    -- @formatRecordsAs@ parameter is set to @JSON@.
     records :: Prelude.Maybe [[Field]],
-    -- | Metadata for the columns included in the results.
+    -- | Metadata for the columns included in the results. This field is blank if
+    -- the @formatRecordsAs@ parameter is set to @JSON@.
     columnMetadata :: Prelude.Maybe [ColumnMetadata],
     -- | The number of records updated by the request.
     numberOfRecordsUpdated :: Prelude.Maybe Prelude.Integer,
-    -- | Values for fields generated during the request.
+    -- | A string value that represents the result set of a @SELECT@ statement in
+    -- JSON format. This value is only present when the @formatRecordsAs@
+    -- parameter is set to @JSON@.
+    --
+    -- The size limit for this field is currently 10 MB. If the JSON-formatted
+    -- string representing the result set requires more than 10 MB, the call
+    -- returns an error.
+    formattedRecords :: Prelude.Maybe Prelude.Text,
+    -- | Values for fields generated during a DML request.
     --
     -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
     generatedFields :: Prelude.Maybe [Field],
@@ -340,13 +402,23 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'records', 'executeStatementResponse_records' - The records returned by the SQL statement.
+-- 'records', 'executeStatementResponse_records' - The records returned by the SQL statement. This field is blank if the
+-- @formatRecordsAs@ parameter is set to @JSON@.
 --
--- 'columnMetadata', 'executeStatementResponse_columnMetadata' - Metadata for the columns included in the results.
+-- 'columnMetadata', 'executeStatementResponse_columnMetadata' - Metadata for the columns included in the results. This field is blank if
+-- the @formatRecordsAs@ parameter is set to @JSON@.
 --
 -- 'numberOfRecordsUpdated', 'executeStatementResponse_numberOfRecordsUpdated' - The number of records updated by the request.
 --
--- 'generatedFields', 'executeStatementResponse_generatedFields' - Values for fields generated during the request.
+-- 'formattedRecords', 'executeStatementResponse_formattedRecords' - A string value that represents the result set of a @SELECT@ statement in
+-- JSON format. This value is only present when the @formatRecordsAs@
+-- parameter is set to @JSON@.
+--
+-- The size limit for this field is currently 10 MB. If the JSON-formatted
+-- string representing the result set requires more than 10 MB, the call
+-- returns an error.
+--
+-- 'generatedFields', 'executeStatementResponse_generatedFields' - Values for fields generated during a DML request.
 --
 -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
 --
@@ -361,15 +433,18 @@ newExecuteStatementResponse pHttpStatus_ =
         Prelude.Nothing,
       columnMetadata = Prelude.Nothing,
       numberOfRecordsUpdated = Prelude.Nothing,
+      formattedRecords = Prelude.Nothing,
       generatedFields = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The records returned by the SQL statement.
+-- | The records returned by the SQL statement. This field is blank if the
+-- @formatRecordsAs@ parameter is set to @JSON@.
 executeStatementResponse_records :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [[Field]])
 executeStatementResponse_records = Lens.lens (\ExecuteStatementResponse' {records} -> records) (\s@ExecuteStatementResponse' {} a -> s {records = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Metadata for the columns included in the results.
+-- | Metadata for the columns included in the results. This field is blank if
+-- the @formatRecordsAs@ parameter is set to @JSON@.
 executeStatementResponse_columnMetadata :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [ColumnMetadata])
 executeStatementResponse_columnMetadata = Lens.lens (\ExecuteStatementResponse' {columnMetadata} -> columnMetadata) (\s@ExecuteStatementResponse' {} a -> s {columnMetadata = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -377,7 +452,17 @@ executeStatementResponse_columnMetadata = Lens.lens (\ExecuteStatementResponse' 
 executeStatementResponse_numberOfRecordsUpdated :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Integer)
 executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementResponse' {numberOfRecordsUpdated} -> numberOfRecordsUpdated) (\s@ExecuteStatementResponse' {} a -> s {numberOfRecordsUpdated = a} :: ExecuteStatementResponse)
 
--- | Values for fields generated during the request.
+-- | A string value that represents the result set of a @SELECT@ statement in
+-- JSON format. This value is only present when the @formatRecordsAs@
+-- parameter is set to @JSON@.
+--
+-- The size limit for this field is currently 10 MB. If the JSON-formatted
+-- string representing the result set requires more than 10 MB, the call
+-- returns an error.
+executeStatementResponse_formattedRecords :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+executeStatementResponse_formattedRecords = Lens.lens (\ExecuteStatementResponse' {formattedRecords} -> formattedRecords) (\s@ExecuteStatementResponse' {} a -> s {formattedRecords = a} :: ExecuteStatementResponse)
+
+-- | Values for fields generated during a DML request.
 --
 -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
 executeStatementResponse_generatedFields :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [Field])
@@ -392,5 +477,6 @@ instance Prelude.NFData ExecuteStatementResponse where
     Prelude.rnf records
       `Prelude.seq` Prelude.rnf columnMetadata
       `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
+      `Prelude.seq` Prelude.rnf formattedRecords
       `Prelude.seq` Prelude.rnf generatedFields
       `Prelude.seq` Prelude.rnf httpStatus

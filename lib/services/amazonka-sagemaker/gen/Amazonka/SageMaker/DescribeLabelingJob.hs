@@ -245,8 +245,8 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     -- Management Service key ID for the key used to encrypt the output data,
     -- if any.
     outputConfig :: LabelingJobOutputConfig,
-    -- | The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform
-    -- tasks on your behalf during data labeling.
+    -- | The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks
+    -- on your behalf during data labeling.
     roleArn :: Prelude.Text,
     -- | Configuration information required for human workers to complete a
     -- labeling task.
@@ -344,8 +344,8 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 -- Management Service key ID for the key used to encrypt the output data,
 -- if any.
 --
--- 'roleArn', 'describeLabelingJobResponse_roleArn' - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform
--- tasks on your behalf during data labeling.
+-- 'roleArn', 'describeLabelingJobResponse_roleArn' - The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks
+-- on your behalf during data labeling.
 --
 -- 'humanTaskConfig', 'describeLabelingJobResponse_humanTaskConfig' - Configuration information required for human workers to complete a
 -- labeling task.
@@ -529,8 +529,8 @@ describeLabelingJobResponse_inputConfig = Lens.lens (\DescribeLabelingJobRespons
 describeLabelingJobResponse_outputConfig :: Lens.Lens' DescribeLabelingJobResponse LabelingJobOutputConfig
 describeLabelingJobResponse_outputConfig = Lens.lens (\DescribeLabelingJobResponse' {outputConfig} -> outputConfig) (\s@DescribeLabelingJobResponse' {} a -> s {outputConfig = a} :: DescribeLabelingJobResponse)
 
--- | The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform
--- tasks on your behalf during data labeling.
+-- | The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks
+-- on your behalf during data labeling.
 describeLabelingJobResponse_roleArn :: Lens.Lens' DescribeLabelingJobResponse Prelude.Text
 describeLabelingJobResponse_roleArn = Lens.lens (\DescribeLabelingJobResponse' {roleArn} -> roleArn) (\s@DescribeLabelingJobResponse' {} a -> s {roleArn = a} :: DescribeLabelingJobResponse)
 

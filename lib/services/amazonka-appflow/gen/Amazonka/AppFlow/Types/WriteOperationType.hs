@@ -20,6 +20,7 @@
 module Amazonka.AppFlow.Types.WriteOperationType
   ( WriteOperationType
       ( ..,
+        WriteOperationType_DELETE,
         WriteOperationType_INSERT,
         WriteOperationType_UPDATE,
         WriteOperationType_UPSERT
@@ -60,6 +61,9 @@ newtype WriteOperationType = WriteOperationType'
       Core.ToXML
     )
 
+pattern WriteOperationType_DELETE :: WriteOperationType
+pattern WriteOperationType_DELETE = WriteOperationType' "DELETE"
+
 pattern WriteOperationType_INSERT :: WriteOperationType
 pattern WriteOperationType_INSERT = WriteOperationType' "INSERT"
 
@@ -70,6 +74,7 @@ pattern WriteOperationType_UPSERT :: WriteOperationType
 pattern WriteOperationType_UPSERT = WriteOperationType' "UPSERT"
 
 {-# COMPLETE
+  WriteOperationType_DELETE,
   WriteOperationType_INSERT,
   WriteOperationType_UPDATE,
   WriteOperationType_UPSERT,

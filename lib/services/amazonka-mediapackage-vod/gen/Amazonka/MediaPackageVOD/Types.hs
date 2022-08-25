@@ -39,6 +39,9 @@ module Amazonka.MediaPackageVOD.Types
     -- * Profile
     Profile (..),
 
+    -- * ScteMarkersSource
+    ScteMarkersSource (..),
+
     -- * SegmentTemplateFormat
     SegmentTemplateFormat (..),
 
@@ -89,6 +92,7 @@ module Amazonka.MediaPackageVOD.Types
     dashManifest_streamSelection,
     dashManifest_manifestName,
     dashManifest_manifestLayout,
+    dashManifest_scteMarkersSource,
     dashManifest_minBufferTimeSeconds,
 
     -- * DashPackage
@@ -219,6 +223,7 @@ import Amazonka.MediaPackageVOD.Types.PackagingConfiguration
 import Amazonka.MediaPackageVOD.Types.PackagingGroup
 import Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
 import Amazonka.MediaPackageVOD.Types.Profile
+import Amazonka.MediaPackageVOD.Types.ScteMarkersSource
 import Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
 import Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
 import Amazonka.MediaPackageVOD.Types.StreamOrder

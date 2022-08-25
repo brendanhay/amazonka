@@ -28,8 +28,8 @@
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html Starting an Amazon RDS DB instance That Was Previously Stopped>
 -- in the /Amazon RDS User Guide./
 --
--- This command doesn\'t apply to Aurora MySQL and Aurora PostgreSQL. For
--- Aurora DB clusters, use @StartDBCluster@ instead.
+-- This command doesn\'t apply to RDS Custom, Aurora MySQL, and Aurora
+-- PostgreSQL. For Aurora DB clusters, use @StartDBCluster@ instead.
 module Amazonka.RDS.StartDBInstance
   ( -- * Creating a Request
     StartDBInstance (..),

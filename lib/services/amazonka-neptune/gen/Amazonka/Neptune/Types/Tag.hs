@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | A key is the required name of the tag. The string value can be from 1 to
-    -- 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or
-    -- \"rds:\". The string can only contain only the set of Unicode letters,
-    -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
-    -- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+    -- 128 Unicode characters in length and can\'t be prefixed with @aws:@ or
+    -- @rds:@. The string can only contain the set of Unicode letters, digits,
+    -- white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex:
+    -- \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
     key :: Prelude.Maybe Prelude.Text,
     -- | A value is the optional value of the tag. The string value can be from 1
-    -- to 256 Unicode characters in length and can\'t be prefixed with \"aws:\"
-    -- or \"rds:\". The string can only contain only the set of Unicode
-    -- letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\'
-    -- (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+    -- to 256 Unicode characters in length and can\'t be prefixed with @aws:@
+    -- or @rds:@. The string can only contain the set of Unicode letters,
+    -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
+    -- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,16 +52,16 @@ data Tag = Tag'
 -- for backwards compatibility:
 --
 -- 'key', 'tag_key' - A key is the required name of the tag. The string value can be from 1 to
--- 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or
--- \"rds:\". The string can only contain only the set of Unicode letters,
--- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
--- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- 128 Unicode characters in length and can\'t be prefixed with @aws:@ or
+-- @rds:@. The string can only contain the set of Unicode letters, digits,
+-- white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex:
+-- \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 --
 -- 'value', 'tag_value' - A value is the optional value of the tag. The string value can be from 1
--- to 256 Unicode characters in length and can\'t be prefixed with \"aws:\"
--- or \"rds:\". The string can only contain only the set of Unicode
--- letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\'
--- (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- to 256 Unicode characters in length and can\'t be prefixed with @aws:@
+-- or @rds:@. The string can only contain the set of Unicode letters,
+-- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
+-- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 newTag ::
   Tag
 newTag =
@@ -71,18 +71,18 @@ newTag =
     }
 
 -- | A key is the required name of the tag. The string value can be from 1 to
--- 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or
--- \"rds:\". The string can only contain only the set of Unicode letters,
--- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
--- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- 128 Unicode characters in length and can\'t be prefixed with @aws:@ or
+-- @rds:@. The string can only contain the set of Unicode letters, digits,
+-- white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex:
+-- \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | A value is the optional value of the tag. The string value can be from 1
--- to 256 Unicode characters in length and can\'t be prefixed with \"aws:\"
--- or \"rds:\". The string can only contain only the set of Unicode
--- letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\'
--- (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- to 256 Unicode characters in length and can\'t be prefixed with @aws:@
+-- or @rds:@. The string can only contain the set of Unicode letters,
+-- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
+-- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

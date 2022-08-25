@@ -34,8 +34,8 @@ data StreamInfo = StreamInfo'
     mediaType :: Prelude.Maybe Prelude.Text,
     -- | The status of the stream.
     status :: Prelude.Maybe StreamStatus,
-    -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
-    -- Video Streams uses to encrypt data on the stream.
+    -- | The ID of the Key Management Service (KMS) key that Kinesis Video
+    -- Streams uses to encrypt data on the stream.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A time stamp that indicates when the stream was created.
     creationTime :: Prelude.Maybe Core.POSIX,
@@ -64,8 +64,8 @@ data StreamInfo = StreamInfo'
 --
 -- 'status', 'streamInfo_status' - The status of the stream.
 --
--- 'kmsKeyId', 'streamInfo_kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
--- Video Streams uses to encrypt data on the stream.
+-- 'kmsKeyId', 'streamInfo_kmsKeyId' - The ID of the Key Management Service (KMS) key that Kinesis Video
+-- Streams uses to encrypt data on the stream.
 --
 -- 'creationTime', 'streamInfo_creationTime' - A time stamp that indicates when the stream was created.
 --
@@ -103,8 +103,8 @@ streamInfo_mediaType = Lens.lens (\StreamInfo' {mediaType} -> mediaType) (\s@Str
 streamInfo_status :: Lens.Lens' StreamInfo (Prelude.Maybe StreamStatus)
 streamInfo_status = Lens.lens (\StreamInfo' {status} -> status) (\s@StreamInfo' {} a -> s {status = a} :: StreamInfo)
 
--- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
--- Video Streams uses to encrypt data on the stream.
+-- | The ID of the Key Management Service (KMS) key that Kinesis Video
+-- Streams uses to encrypt data on the stream.
 streamInfo_kmsKeyId :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
 streamInfo_kmsKeyId = Lens.lens (\StreamInfo' {kmsKeyId} -> kmsKeyId) (\s@StreamInfo' {} a -> s {kmsKeyId = a} :: StreamInfo)
 

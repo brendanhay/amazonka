@@ -31,6 +31,8 @@ import Amazonka.WellArchitected.Types.Risk
 -- /See:/ 'newLensReview' smart constructor.
 data LensReview = LensReview'
   { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
     riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     lensAlias :: Prelude.Maybe Prelude.Text,
     -- | The version of the lens.
@@ -54,6 +56,8 @@ data LensReview = LensReview'
 --
 -- 'nextToken', 'lensReview_nextToken' - Undocumented member.
 --
+-- 'lensArn', 'lensReview_lensArn' - The ARN for the lens.
+--
 -- 'riskCounts', 'lensReview_riskCounts' - Undocumented member.
 --
 -- 'lensAlias', 'lensReview_lensAlias' - Undocumented member.
@@ -74,6 +78,7 @@ newLensReview ::
 newLensReview =
   LensReview'
     { nextToken = Prelude.Nothing,
+      lensArn = Prelude.Nothing,
       riskCounts = Prelude.Nothing,
       lensAlias = Prelude.Nothing,
       lensVersion = Prelude.Nothing,
@@ -87,6 +92,10 @@ newLensReview =
 -- | Undocumented member.
 lensReview_nextToken :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
 lensReview_nextToken = Lens.lens (\LensReview' {nextToken} -> nextToken) (\s@LensReview' {} a -> s {nextToken = a} :: LensReview)
+
+-- | The ARN for the lens.
+lensReview_lensArn :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
+lensReview_lensArn = Lens.lens (\LensReview' {lensArn} -> lensArn) (\s@LensReview' {} a -> s {lensArn = a} :: LensReview)
 
 -- | Undocumented member.
 lensReview_riskCounts :: Lens.Lens' LensReview (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
@@ -127,6 +136,7 @@ instance Core.FromJSON LensReview where
       ( \x ->
           LensReview'
             Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> (x Core..:? "LensArn")
             Prelude.<*> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LensAlias")
             Prelude.<*> (x Core..:? "LensVersion")
@@ -142,6 +152,7 @@ instance Core.FromJSON LensReview where
 instance Prelude.Hashable LensReview where
   hashWithSalt _salt LensReview' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensVersion
@@ -154,6 +165,7 @@ instance Prelude.Hashable LensReview where
 instance Prelude.NFData LensReview where
   rnf LensReview' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf lensVersion

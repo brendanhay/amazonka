@@ -56,6 +56,7 @@ library
     Amazonka.AuditManager.CreateControl
     Amazonka.AuditManager.DeleteAssessment
     Amazonka.AuditManager.DeleteAssessmentFramework
+    Amazonka.AuditManager.DeleteAssessmentFrameworkShare
     Amazonka.AuditManager.DeleteAssessmentReport
     Amazonka.AuditManager.DeleteControl
     Amazonka.AuditManager.DeregisterAccount
@@ -73,19 +74,27 @@ library
     Amazonka.AuditManager.GetEvidenceFolder
     Amazonka.AuditManager.GetEvidenceFoldersByAssessment
     Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
+    Amazonka.AuditManager.GetInsights
+    Amazonka.AuditManager.GetInsightsByAssessment
     Amazonka.AuditManager.GetOrganizationAdminAccount
     Amazonka.AuditManager.GetServicesInScope
     Amazonka.AuditManager.GetSettings
     Amazonka.AuditManager.Lens
+    Amazonka.AuditManager.ListAssessmentControlInsightsByControlDomain
     Amazonka.AuditManager.ListAssessmentFrameworks
+    Amazonka.AuditManager.ListAssessmentFrameworkShareRequests
     Amazonka.AuditManager.ListAssessmentReports
     Amazonka.AuditManager.ListAssessments
+    Amazonka.AuditManager.ListControlDomainInsights
+    Amazonka.AuditManager.ListControlDomainInsightsByAssessment
+    Amazonka.AuditManager.ListControlInsightsByControlDomain
     Amazonka.AuditManager.ListControls
     Amazonka.AuditManager.ListKeywordsForDataSource
     Amazonka.AuditManager.ListNotifications
     Amazonka.AuditManager.ListTagsForResource
     Amazonka.AuditManager.RegisterAccount
     Amazonka.AuditManager.RegisterOrganizationAdminAccount
+    Amazonka.AuditManager.StartAssessmentFrameworkShare
     Amazonka.AuditManager.TagResource
     Amazonka.AuditManager.Types
     Amazonka.AuditManager.Types.AccountStatus
@@ -96,6 +105,7 @@ library
     Amazonka.AuditManager.Types.AssessmentEvidenceFolder
     Amazonka.AuditManager.Types.AssessmentFramework
     Amazonka.AuditManager.Types.AssessmentFrameworkMetadata
+    Amazonka.AuditManager.Types.AssessmentFrameworkShareRequest
     Amazonka.AuditManager.Types.AssessmentMetadata
     Amazonka.AuditManager.Types.AssessmentMetadataItem
     Amazonka.AuditManager.Types.AssessmentReport
@@ -113,6 +123,9 @@ library
     Amazonka.AuditManager.Types.ChangeLog
     Amazonka.AuditManager.Types.Control
     Amazonka.AuditManager.Types.ControlComment
+    Amazonka.AuditManager.Types.ControlDomainInsights
+    Amazonka.AuditManager.Types.ControlInsightsMetadataByAssessmentItem
+    Amazonka.AuditManager.Types.ControlInsightsMetadataItem
     Amazonka.AuditManager.Types.ControlMappingSource
     Amazonka.AuditManager.Types.ControlMetadata
     Amazonka.AuditManager.Types.ControlResponse
@@ -128,9 +141,12 @@ library
     Amazonka.AuditManager.Types.DelegationMetadata
     Amazonka.AuditManager.Types.DelegationStatus
     Amazonka.AuditManager.Types.Evidence
+    Amazonka.AuditManager.Types.EvidenceInsights
     Amazonka.AuditManager.Types.Framework
     Amazonka.AuditManager.Types.FrameworkMetadata
     Amazonka.AuditManager.Types.FrameworkType
+    Amazonka.AuditManager.Types.Insights
+    Amazonka.AuditManager.Types.InsightsByAssessment
     Amazonka.AuditManager.Types.KeywordInputType
     Amazonka.AuditManager.Types.ManualEvidence
     Amazonka.AuditManager.Types.Notification
@@ -142,6 +158,9 @@ library
     Amazonka.AuditManager.Types.ServiceMetadata
     Amazonka.AuditManager.Types.SettingAttribute
     Amazonka.AuditManager.Types.Settings
+    Amazonka.AuditManager.Types.ShareRequestAction
+    Amazonka.AuditManager.Types.ShareRequestStatus
+    Amazonka.AuditManager.Types.ShareRequestType
     Amazonka.AuditManager.Types.SourceFrequency
     Amazonka.AuditManager.Types.SourceKeyword
     Amazonka.AuditManager.Types.SourceSetUpOption
@@ -153,6 +172,7 @@ library
     Amazonka.AuditManager.UpdateAssessmentControl
     Amazonka.AuditManager.UpdateAssessmentControlSetStatus
     Amazonka.AuditManager.UpdateAssessmentFramework
+    Amazonka.AuditManager.UpdateAssessmentFrameworkShare
     Amazonka.AuditManager.UpdateAssessmentStatus
     Amazonka.AuditManager.UpdateControl
     Amazonka.AuditManager.UpdateSettings

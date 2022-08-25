@@ -23,13 +23,13 @@ module Amazonka.EMRContainers.Lens
 
     -- ** CreateManagedEndpoint
     createManagedEndpoint_tags,
+    createManagedEndpoint_certificateArn,
     createManagedEndpoint_configurationOverrides,
     createManagedEndpoint_name,
     createManagedEndpoint_virtualClusterId,
     createManagedEndpoint_type,
     createManagedEndpoint_releaseLabel,
     createManagedEndpoint_executionRoleArn,
-    createManagedEndpoint_certificateArn,
     createManagedEndpoint_clientToken,
     createManagedEndpointResponse_name,
     createManagedEndpointResponse_arn,
@@ -144,6 +144,10 @@ module Amazonka.EMRContainers.Lens
 
     -- * Types
 
+    -- ** Certificate
+    certificate_certificateArn,
+    certificate_certificateData,
+
     -- ** CloudWatchMonitoringConfiguration
     cloudWatchMonitoringConfiguration_logStreamNamePrefix,
     cloudWatchMonitoringConfiguration_logGroupName,
@@ -181,6 +185,7 @@ module Amazonka.EMRContainers.Lens
     endpoint_id,
     endpoint_certificateArn,
     endpoint_configurationOverrides,
+    endpoint_certificateAuthority,
     endpoint_virtualClusterId,
     endpoint_executionRoleArn,
     endpoint_subnetIds,
@@ -246,6 +251,7 @@ import Amazonka.EMRContainers.ListTagsForResource
 import Amazonka.EMRContainers.ListVirtualClusters
 import Amazonka.EMRContainers.StartJobRun
 import Amazonka.EMRContainers.TagResource
+import Amazonka.EMRContainers.Types.Certificate
 import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.Configuration
 import Amazonka.EMRContainers.Types.ConfigurationOverrides

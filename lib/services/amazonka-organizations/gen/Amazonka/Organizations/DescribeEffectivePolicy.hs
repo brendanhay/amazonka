@@ -29,12 +29,12 @@
 -- policies (SCPs).
 --
 -- For more information about policy inheritance, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html How Policy Inheritance Works>
--- in the /AWS Organizations User Guide/.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html How Policy Inheritance Works>
+-- in the /Organizations User Guide/.
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 module Amazonka.Organizations.DescribeEffectivePolicy
   ( -- * Creating a Request
     DescribeEffectivePolicy (..),

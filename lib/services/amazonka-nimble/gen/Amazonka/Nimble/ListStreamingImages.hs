@@ -56,10 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamingImages' smart constructor.
 data ListStreamingImages = ListStreamingImages'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The owner.
+    -- | Filter this request to streaming images with the given owner
     owner :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -74,10 +73,9 @@ data ListStreamingImages = ListStreamingImages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStreamingImages_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listStreamingImages_nextToken' - The token to request the next page of results.
 --
--- 'owner', 'listStreamingImages_owner' - The owner.
+-- 'owner', 'listStreamingImages_owner' - Filter this request to streaming images with the given owner
 --
 -- 'studioId', 'listStreamingImages_studioId' - The studio ID.
 newListStreamingImages ::
@@ -91,12 +89,11 @@ newListStreamingImages pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listStreamingImages_nextToken :: Lens.Lens' ListStreamingImages (Prelude.Maybe Prelude.Text)
 listStreamingImages_nextToken = Lens.lens (\ListStreamingImages' {nextToken} -> nextToken) (\s@ListStreamingImages' {} a -> s {nextToken = a} :: ListStreamingImages)
 
--- | The owner.
+-- | Filter this request to streaming images with the given owner
 listStreamingImages_owner :: Lens.Lens' ListStreamingImages (Prelude.Maybe Prelude.Text)
 listStreamingImages_owner = Lens.lens (\ListStreamingImages' {owner} -> owner) (\s@ListStreamingImages' {} a -> s {owner = a} :: ListStreamingImages)
 
@@ -190,7 +187,7 @@ data ListStreamingImagesResponse = ListStreamingImagesResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStreamingImagesResponse' with all optional fields omitted.

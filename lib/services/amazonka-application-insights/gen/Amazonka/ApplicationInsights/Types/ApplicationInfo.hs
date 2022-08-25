@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ApplicationInsights.Types.ApplicationInfo where
 
+import Amazonka.ApplicationInsights.Types.DiscoveryType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -29,6 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ApplicationInfo = ApplicationInfo'
   { -- | The lifecycle of the application.
     lifeCycle :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether auto-configuration is turned on for this application.
+    autoConfigEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The method used by Application Insights to onboard your resources.
+    discoveryType :: Prelude.Maybe DiscoveryType,
     -- | The SNS topic provided to Application Insights that is associated to the
     -- created opsItems to receive SNS notifications for opsItem updates.
     opsItemSNSTopicArn :: Prelude.Maybe Prelude.Text,
@@ -61,6 +66,10 @@ data ApplicationInfo = ApplicationInfo'
 --
 -- 'lifeCycle', 'applicationInfo_lifeCycle' - The lifecycle of the application.
 --
+-- 'autoConfigEnabled', 'applicationInfo_autoConfigEnabled' - Indicates whether auto-configuration is turned on for this application.
+--
+-- 'discoveryType', 'applicationInfo_discoveryType' - The method used by Application Insights to onboard your resources.
+--
 -- 'opsItemSNSTopicArn', 'applicationInfo_opsItemSNSTopicArn' - The SNS topic provided to Application Insights that is associated to the
 -- created opsItems to receive SNS notifications for opsItem updates.
 --
@@ -84,6 +93,8 @@ newApplicationInfo ::
 newApplicationInfo =
   ApplicationInfo'
     { lifeCycle = Prelude.Nothing,
+      autoConfigEnabled = Prelude.Nothing,
+      discoveryType = Prelude.Nothing,
       opsItemSNSTopicArn = Prelude.Nothing,
       cWEMonitorEnabled = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
@@ -94,6 +105,14 @@ newApplicationInfo =
 -- | The lifecycle of the application.
 applicationInfo_lifeCycle :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
 applicationInfo_lifeCycle = Lens.lens (\ApplicationInfo' {lifeCycle} -> lifeCycle) (\s@ApplicationInfo' {} a -> s {lifeCycle = a} :: ApplicationInfo)
+
+-- | Indicates whether auto-configuration is turned on for this application.
+applicationInfo_autoConfigEnabled :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Bool)
+applicationInfo_autoConfigEnabled = Lens.lens (\ApplicationInfo' {autoConfigEnabled} -> autoConfigEnabled) (\s@ApplicationInfo' {} a -> s {autoConfigEnabled = a} :: ApplicationInfo)
+
+-- | The method used by Application Insights to onboard your resources.
+applicationInfo_discoveryType :: Lens.Lens' ApplicationInfo (Prelude.Maybe DiscoveryType)
+applicationInfo_discoveryType = Lens.lens (\ApplicationInfo' {discoveryType} -> discoveryType) (\s@ApplicationInfo' {} a -> s {discoveryType = a} :: ApplicationInfo)
 
 -- | The SNS topic provided to Application Insights that is associated to the
 -- created opsItems to receive SNS notifications for opsItem updates.
@@ -131,6 +150,8 @@ instance Core.FromJSON ApplicationInfo where
       ( \x ->
           ApplicationInfo'
             Prelude.<$> (x Core..:? "LifeCycle")
+            Prelude.<*> (x Core..:? "AutoConfigEnabled")
+            Prelude.<*> (x Core..:? "DiscoveryType")
             Prelude.<*> (x Core..:? "OpsItemSNSTopicArn")
             Prelude.<*> (x Core..:? "CWEMonitorEnabled")
             Prelude.<*> (x Core..:? "ResourceGroupName")
@@ -141,6 +162,8 @@ instance Core.FromJSON ApplicationInfo where
 instance Prelude.Hashable ApplicationInfo where
   hashWithSalt _salt ApplicationInfo' {..} =
     _salt `Prelude.hashWithSalt` lifeCycle
+      `Prelude.hashWithSalt` autoConfigEnabled
+      `Prelude.hashWithSalt` discoveryType
       `Prelude.hashWithSalt` opsItemSNSTopicArn
       `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` resourceGroupName
@@ -150,6 +173,8 @@ instance Prelude.Hashable ApplicationInfo where
 instance Prelude.NFData ApplicationInfo where
   rnf ApplicationInfo' {..} =
     Prelude.rnf lifeCycle
+      `Prelude.seq` Prelude.rnf autoConfigEnabled
+      `Prelude.seq` Prelude.rnf discoveryType
       `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
       `Prelude.seq` Prelude.rnf cWEMonitorEnabled
       `Prelude.seq` Prelude.rnf resourceGroupName

@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGatewayRouteTarget' smart constructor.
 data GatewayRouteTarget = GatewayRouteTarget'
-  { -- | An object that represents a virtual service gateway route target.
+  { -- | The port number of the gateway route target.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | An object that represents a virtual service gateway route target.
     virtualService :: GatewayRouteVirtualService
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,6 +43,8 @@ data GatewayRouteTarget = GatewayRouteTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'gatewayRouteTarget_port' - The port number of the gateway route target.
+--
 -- 'virtualService', 'gatewayRouteTarget_virtualService' - An object that represents a virtual service gateway route target.
 newGatewayRouteTarget ::
   -- | 'virtualService'
@@ -48,9 +52,13 @@ newGatewayRouteTarget ::
   GatewayRouteTarget
 newGatewayRouteTarget pVirtualService_ =
   GatewayRouteTarget'
-    { virtualService =
-        pVirtualService_
+    { port = Prelude.Nothing,
+      virtualService = pVirtualService_
     }
+
+-- | The port number of the gateway route target.
+gatewayRouteTarget_port :: Lens.Lens' GatewayRouteTarget (Prelude.Maybe Prelude.Natural)
+gatewayRouteTarget_port = Lens.lens (\GatewayRouteTarget' {port} -> port) (\s@GatewayRouteTarget' {} a -> s {port = a} :: GatewayRouteTarget)
 
 -- | An object that represents a virtual service gateway route target.
 gatewayRouteTarget_virtualService :: Lens.Lens' GatewayRouteTarget GatewayRouteVirtualService
@@ -62,22 +70,26 @@ instance Core.FromJSON GatewayRouteTarget where
       "GatewayRouteTarget"
       ( \x ->
           GatewayRouteTarget'
-            Prelude.<$> (x Core..: "virtualService")
+            Prelude.<$> (x Core..:? "port")
+            Prelude.<*> (x Core..: "virtualService")
       )
 
 instance Prelude.Hashable GatewayRouteTarget where
   hashWithSalt _salt GatewayRouteTarget' {..} =
-    _salt `Prelude.hashWithSalt` virtualService
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` virtualService
 
 instance Prelude.NFData GatewayRouteTarget where
   rnf GatewayRouteTarget' {..} =
-    Prelude.rnf virtualService
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf virtualService
 
 instance Core.ToJSON GatewayRouteTarget where
   toJSON GatewayRouteTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("port" Core..=) Prelude.<$> port,
+            Prelude.Just
               ("virtualService" Core..= virtualService)
           ]
       )

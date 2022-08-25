@@ -47,7 +47,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAssessment' smart constructor.
 data DeleteAssessment = DeleteAssessment'
-  { -- | The identifier for the specified assessment.
+  { -- | The identifier for the assessment.
     assessmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data DeleteAssessment = DeleteAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'deleteAssessment_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'deleteAssessment_assessmentId' - The identifier for the assessment.
 newDeleteAssessment ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newDeleteAssessment ::
 newDeleteAssessment pAssessmentId_ =
   DeleteAssessment' {assessmentId = pAssessmentId_}
 
--- | The identifier for the specified assessment.
+-- | The identifier for the assessment.
 deleteAssessment_assessmentId :: Lens.Lens' DeleteAssessment Prelude.Text
 deleteAssessment_assessmentId = Lens.lens (\DeleteAssessment' {assessmentId} -> assessmentId) (\s@DeleteAssessment' {} a -> s {assessmentId = a} :: DeleteAssessment)
 

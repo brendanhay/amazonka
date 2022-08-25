@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAwsVpcConfiguration' smart constructor.
 data AwsVpcConfiguration = AwsVpcConfiguration'
   { -- | The IDs of the security groups associated with the task or service. If
-    -- you do not specify a security group, the default security group for the
-    -- VPC is used. There is a limit of 5 security groups that can be specified
+    -- you don\'t specify a security group, the default security group for the
+    -- VPC is used. There\'s a limit of 5 security groups that can be specified
     -- per @AwsVpcConfiguration@.
     --
     -- All specified security groups must be from the same VPC.
@@ -38,7 +38,7 @@ data AwsVpcConfiguration = AwsVpcConfiguration'
     -- | Whether the task\'s elastic network interface receives a public IP
     -- address. The default value is @DISABLED@.
     assignPublicIp :: Prelude.Maybe AssignPublicIp,
-    -- | The IDs of the subnets associated with the task or service. There is a
+    -- | The IDs of the subnets associated with the task or service. There\'s a
     -- limit of 16 subnets that can be specified per @AwsVpcConfiguration@.
     --
     -- All specified subnets must be from the same VPC.
@@ -55,8 +55,8 @@ data AwsVpcConfiguration = AwsVpcConfiguration'
 -- for backwards compatibility:
 --
 -- 'securityGroups', 'awsVpcConfiguration_securityGroups' - The IDs of the security groups associated with the task or service. If
--- you do not specify a security group, the default security group for the
--- VPC is used. There is a limit of 5 security groups that can be specified
+-- you don\'t specify a security group, the default security group for the
+-- VPC is used. There\'s a limit of 5 security groups that can be specified
 -- per @AwsVpcConfiguration@.
 --
 -- All specified security groups must be from the same VPC.
@@ -64,7 +64,7 @@ data AwsVpcConfiguration = AwsVpcConfiguration'
 -- 'assignPublicIp', 'awsVpcConfiguration_assignPublicIp' - Whether the task\'s elastic network interface receives a public IP
 -- address. The default value is @DISABLED@.
 --
--- 'subnets', 'awsVpcConfiguration_subnets' - The IDs of the subnets associated with the task or service. There is a
+-- 'subnets', 'awsVpcConfiguration_subnets' - The IDs of the subnets associated with the task or service. There\'s a
 -- limit of 16 subnets that can be specified per @AwsVpcConfiguration@.
 --
 -- All specified subnets must be from the same VPC.
@@ -79,8 +79,8 @@ newAwsVpcConfiguration =
     }
 
 -- | The IDs of the security groups associated with the task or service. If
--- you do not specify a security group, the default security group for the
--- VPC is used. There is a limit of 5 security groups that can be specified
+-- you don\'t specify a security group, the default security group for the
+-- VPC is used. There\'s a limit of 5 security groups that can be specified
 -- per @AwsVpcConfiguration@.
 --
 -- All specified security groups must be from the same VPC.
@@ -92,7 +92,7 @@ awsVpcConfiguration_securityGroups = Lens.lens (\AwsVpcConfiguration' {securityG
 awsVpcConfiguration_assignPublicIp :: Lens.Lens' AwsVpcConfiguration (Prelude.Maybe AssignPublicIp)
 awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPublicIp} -> assignPublicIp) (\s@AwsVpcConfiguration' {} a -> s {assignPublicIp = a} :: AwsVpcConfiguration)
 
--- | The IDs of the subnets associated with the task or service. There is a
+-- | The IDs of the subnets associated with the task or service. There\'s a
 -- limit of 16 subnets that can be specified per @AwsVpcConfiguration@.
 --
 -- All specified subnets must be from the same VPC.

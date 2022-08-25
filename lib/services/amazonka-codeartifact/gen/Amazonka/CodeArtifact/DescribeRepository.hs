@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRepository' smart constructor.
 data DescribeRepository = DescribeRepository'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository to describe.
     domain :: Prelude.Text,
@@ -69,8 +69,8 @@ data DescribeRepository = DescribeRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'describeRepository_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'describeRepository_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'describeRepository_domain' - The name of the domain that contains the repository to describe.
 --
@@ -88,8 +88,8 @@ newDescribeRepository pDomain_ pRepository_ =
       repository = pRepository_
     }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 describeRepository_domainOwner :: Lens.Lens' DescribeRepository (Prelude.Maybe Prelude.Text)
 describeRepository_domainOwner = Lens.lens (\DescribeRepository' {domainOwner} -> domainOwner) (\s@DescribeRepository' {} a -> s {domainOwner = a} :: DescribeRepository)
 

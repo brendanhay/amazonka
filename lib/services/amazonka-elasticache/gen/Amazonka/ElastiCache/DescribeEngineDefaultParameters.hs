@@ -72,7 +72,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@ |
+    -- @redis6.x@ | @redis6.2@
     cacheParameterGroupFamily :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,7 +102,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@ | @redis6.2@
 newDescribeEngineDefaultParameters ::
   -- | 'cacheParameterGroupFamily'
   Prelude.Text ->
@@ -138,7 +138,7 @@ describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultPa
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@ | @redis6.2@
 describeEngineDefaultParameters_cacheParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Prelude.Text
 describeEngineDefaultParameters_cacheParameterGroupFamily = Lens.lens (\DescribeEngineDefaultParameters' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@DescribeEngineDefaultParameters' {} a -> s {cacheParameterGroupFamily = a} :: DescribeEngineDefaultParameters)
 

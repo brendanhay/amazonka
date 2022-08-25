@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAcceptEnvironmentAccountConnection $
 --             newAcceptEnvironmentAccountConnection
 --
+--         , requestCancelComponentDeployment $
+--             newCancelComponentDeployment
+--
 --         , requestCancelEnvironmentDeployment $
 --             newCancelEnvironmentDeployment
 --
@@ -38,6 +41,9 @@ import Test.Tasty
 --
 --         , requestCancelServicePipelineDeployment $
 --             newCancelServicePipelineDeployment
+--
+--         , requestCreateComponent $
+--             newCreateComponent
 --
 --         , requestCreateEnvironment $
 --             newCreateEnvironment
@@ -51,6 +57,9 @@ import Test.Tasty
 --         , requestCreateEnvironmentTemplateVersion $
 --             newCreateEnvironmentTemplateVersion
 --
+--         , requestCreateRepository $
+--             newCreateRepository
+--
 --         , requestCreateService $
 --             newCreateService
 --
@@ -59,6 +68,12 @@ import Test.Tasty
 --
 --         , requestCreateServiceTemplateVersion $
 --             newCreateServiceTemplateVersion
+--
+--         , requestCreateTemplateSyncConfig $
+--             newCreateTemplateSyncConfig
+--
+--         , requestDeleteComponent $
+--             newDeleteComponent
 --
 --         , requestDeleteEnvironment $
 --             newDeleteEnvironment
@@ -72,6 +87,9 @@ import Test.Tasty
 --         , requestDeleteEnvironmentTemplateVersion $
 --             newDeleteEnvironmentTemplateVersion
 --
+--         , requestDeleteRepository $
+--             newDeleteRepository
+--
 --         , requestDeleteService $
 --             newDeleteService
 --
@@ -81,8 +99,14 @@ import Test.Tasty
 --         , requestDeleteServiceTemplateVersion $
 --             newDeleteServiceTemplateVersion
 --
+--         , requestDeleteTemplateSyncConfig $
+--             newDeleteTemplateSyncConfig
+--
 --         , requestGetAccountSettings $
 --             newGetAccountSettings
+--
+--         , requestGetComponent $
+--             newGetComponent
 --
 --         , requestGetEnvironment $
 --             newGetEnvironment
@@ -96,6 +120,12 @@ import Test.Tasty
 --         , requestGetEnvironmentTemplateVersion $
 --             newGetEnvironmentTemplateVersion
 --
+--         , requestGetRepository $
+--             newGetRepository
+--
+--         , requestGetRepositorySyncStatus $
+--             newGetRepositorySyncStatus
+--
 --         , requestGetService $
 --             newGetService
 --
@@ -108,8 +138,29 @@ import Test.Tasty
 --         , requestGetServiceTemplateVersion $
 --             newGetServiceTemplateVersion
 --
+--         , requestGetTemplateSyncConfig $
+--             newGetTemplateSyncConfig
+--
+--         , requestGetTemplateSyncStatus $
+--             newGetTemplateSyncStatus
+--
+--         , requestListComponentOutputs $
+--             newListComponentOutputs
+--
+--         , requestListComponentProvisionedResources $
+--             newListComponentProvisionedResources
+--
+--         , requestListComponents $
+--             newListComponents
+--
 --         , requestListEnvironmentAccountConnections $
 --             newListEnvironmentAccountConnections
+--
+--         , requestListEnvironmentOutputs $
+--             newListEnvironmentOutputs
+--
+--         , requestListEnvironmentProvisionedResources $
+--             newListEnvironmentProvisionedResources
 --
 --         , requestListEnvironmentTemplateVersions $
 --             newListEnvironmentTemplateVersions
@@ -120,8 +171,26 @@ import Test.Tasty
 --         , requestListEnvironments $
 --             newListEnvironments
 --
+--         , requestListRepositories $
+--             newListRepositories
+--
+--         , requestListRepositorySyncDefinitions $
+--             newListRepositorySyncDefinitions
+--
+--         , requestListServiceInstanceOutputs $
+--             newListServiceInstanceOutputs
+--
+--         , requestListServiceInstanceProvisionedResources $
+--             newListServiceInstanceProvisionedResources
+--
 --         , requestListServiceInstances $
 --             newListServiceInstances
+--
+--         , requestListServicePipelineOutputs $
+--             newListServicePipelineOutputs
+--
+--         , requestListServicePipelineProvisionedResources $
+--             newListServicePipelineProvisionedResources
 --
 --         , requestListServiceTemplateVersions $
 --             newListServiceTemplateVersions
@@ -135,6 +204,9 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestNotifyResourceDeploymentStatusChange $
+--             newNotifyResourceDeploymentStatusChange
+--
 --         , requestRejectEnvironmentAccountConnection $
 --             newRejectEnvironmentAccountConnection
 --
@@ -146,6 +218,9 @@ import Test.Tasty
 --
 --         , requestUpdateAccountSettings $
 --             newUpdateAccountSettings
+--
+--         , requestUpdateComponent $
+--             newUpdateComponent
 --
 --         , requestUpdateEnvironment $
 --             newUpdateEnvironment
@@ -174,11 +249,17 @@ import Test.Tasty
 --         , requestUpdateServiceTemplateVersion $
 --             newUpdateServiceTemplateVersion
 --
+--         , requestUpdateTemplateSyncConfig $
+--             newUpdateTemplateSyncConfig
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseAcceptEnvironmentAccountConnection $
 --             newAcceptEnvironmentAccountConnectionResponse
+--
+--         , responseCancelComponentDeployment $
+--             newCancelComponentDeploymentResponse
 --
 --         , responseCancelEnvironmentDeployment $
 --             newCancelEnvironmentDeploymentResponse
@@ -188,6 +269,9 @@ import Test.Tasty
 --
 --         , responseCancelServicePipelineDeployment $
 --             newCancelServicePipelineDeploymentResponse
+--
+--         , responseCreateComponent $
+--             newCreateComponentResponse
 --
 --         , responseCreateEnvironment $
 --             newCreateEnvironmentResponse
@@ -201,6 +285,9 @@ import Test.Tasty
 --         , responseCreateEnvironmentTemplateVersion $
 --             newCreateEnvironmentTemplateVersionResponse
 --
+--         , responseCreateRepository $
+--             newCreateRepositoryResponse
+--
 --         , responseCreateService $
 --             newCreateServiceResponse
 --
@@ -209,6 +296,12 @@ import Test.Tasty
 --
 --         , responseCreateServiceTemplateVersion $
 --             newCreateServiceTemplateVersionResponse
+--
+--         , responseCreateTemplateSyncConfig $
+--             newCreateTemplateSyncConfigResponse
+--
+--         , responseDeleteComponent $
+--             newDeleteComponentResponse
 --
 --         , responseDeleteEnvironment $
 --             newDeleteEnvironmentResponse
@@ -222,6 +315,9 @@ import Test.Tasty
 --         , responseDeleteEnvironmentTemplateVersion $
 --             newDeleteEnvironmentTemplateVersionResponse
 --
+--         , responseDeleteRepository $
+--             newDeleteRepositoryResponse
+--
 --         , responseDeleteService $
 --             newDeleteServiceResponse
 --
@@ -231,8 +327,14 @@ import Test.Tasty
 --         , responseDeleteServiceTemplateVersion $
 --             newDeleteServiceTemplateVersionResponse
 --
+--         , responseDeleteTemplateSyncConfig $
+--             newDeleteTemplateSyncConfigResponse
+--
 --         , responseGetAccountSettings $
 --             newGetAccountSettingsResponse
+--
+--         , responseGetComponent $
+--             newGetComponentResponse
 --
 --         , responseGetEnvironment $
 --             newGetEnvironmentResponse
@@ -246,6 +348,12 @@ import Test.Tasty
 --         , responseGetEnvironmentTemplateVersion $
 --             newGetEnvironmentTemplateVersionResponse
 --
+--         , responseGetRepository $
+--             newGetRepositoryResponse
+--
+--         , responseGetRepositorySyncStatus $
+--             newGetRepositorySyncStatusResponse
+--
 --         , responseGetService $
 --             newGetServiceResponse
 --
@@ -258,8 +366,29 @@ import Test.Tasty
 --         , responseGetServiceTemplateVersion $
 --             newGetServiceTemplateVersionResponse
 --
+--         , responseGetTemplateSyncConfig $
+--             newGetTemplateSyncConfigResponse
+--
+--         , responseGetTemplateSyncStatus $
+--             newGetTemplateSyncStatusResponse
+--
+--         , responseListComponentOutputs $
+--             newListComponentOutputsResponse
+--
+--         , responseListComponentProvisionedResources $
+--             newListComponentProvisionedResourcesResponse
+--
+--         , responseListComponents $
+--             newListComponentsResponse
+--
 --         , responseListEnvironmentAccountConnections $
 --             newListEnvironmentAccountConnectionsResponse
+--
+--         , responseListEnvironmentOutputs $
+--             newListEnvironmentOutputsResponse
+--
+--         , responseListEnvironmentProvisionedResources $
+--             newListEnvironmentProvisionedResourcesResponse
 --
 --         , responseListEnvironmentTemplateVersions $
 --             newListEnvironmentTemplateVersionsResponse
@@ -270,8 +399,26 @@ import Test.Tasty
 --         , responseListEnvironments $
 --             newListEnvironmentsResponse
 --
+--         , responseListRepositories $
+--             newListRepositoriesResponse
+--
+--         , responseListRepositorySyncDefinitions $
+--             newListRepositorySyncDefinitionsResponse
+--
+--         , responseListServiceInstanceOutputs $
+--             newListServiceInstanceOutputsResponse
+--
+--         , responseListServiceInstanceProvisionedResources $
+--             newListServiceInstanceProvisionedResourcesResponse
+--
 --         , responseListServiceInstances $
 --             newListServiceInstancesResponse
+--
+--         , responseListServicePipelineOutputs $
+--             newListServicePipelineOutputsResponse
+--
+--         , responseListServicePipelineProvisionedResources $
+--             newListServicePipelineProvisionedResourcesResponse
 --
 --         , responseListServiceTemplateVersions $
 --             newListServiceTemplateVersionsResponse
@@ -285,6 +432,9 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseNotifyResourceDeploymentStatusChange $
+--             newNotifyResourceDeploymentStatusChangeResponse
+--
 --         , responseRejectEnvironmentAccountConnection $
 --             newRejectEnvironmentAccountConnectionResponse
 --
@@ -296,6 +446,9 @@ import Test.Tasty
 --
 --         , responseUpdateAccountSettings $
 --             newUpdateAccountSettingsResponse
+--
+--         , responseUpdateComponent $
+--             newUpdateComponentResponse
 --
 --         , responseUpdateEnvironment $
 --             newUpdateEnvironmentResponse
@@ -324,6 +477,9 @@ import Test.Tasty
 --         , responseUpdateServiceTemplateVersion $
 --             newUpdateServiceTemplateVersionResponse
 --
+--         , responseUpdateTemplateSyncConfig $
+--             newUpdateTemplateSyncConfigResponse
+--
 --           ]
 --     ]
 
@@ -334,6 +490,12 @@ requestAcceptEnvironmentAccountConnection =
   req
     "AcceptEnvironmentAccountConnection"
     "fixture/AcceptEnvironmentAccountConnection.yaml"
+
+requestCancelComponentDeployment :: CancelComponentDeployment -> TestTree
+requestCancelComponentDeployment =
+  req
+    "CancelComponentDeployment"
+    "fixture/CancelComponentDeployment.yaml"
 
 requestCancelEnvironmentDeployment :: CancelEnvironmentDeployment -> TestTree
 requestCancelEnvironmentDeployment =
@@ -352,6 +514,12 @@ requestCancelServicePipelineDeployment =
   req
     "CancelServicePipelineDeployment"
     "fixture/CancelServicePipelineDeployment.yaml"
+
+requestCreateComponent :: CreateComponent -> TestTree
+requestCreateComponent =
+  req
+    "CreateComponent"
+    "fixture/CreateComponent.yaml"
 
 requestCreateEnvironment :: CreateEnvironment -> TestTree
 requestCreateEnvironment =
@@ -377,6 +545,12 @@ requestCreateEnvironmentTemplateVersion =
     "CreateEnvironmentTemplateVersion"
     "fixture/CreateEnvironmentTemplateVersion.yaml"
 
+requestCreateRepository :: CreateRepository -> TestTree
+requestCreateRepository =
+  req
+    "CreateRepository"
+    "fixture/CreateRepository.yaml"
+
 requestCreateService :: CreateService -> TestTree
 requestCreateService =
   req
@@ -394,6 +568,18 @@ requestCreateServiceTemplateVersion =
   req
     "CreateServiceTemplateVersion"
     "fixture/CreateServiceTemplateVersion.yaml"
+
+requestCreateTemplateSyncConfig :: CreateTemplateSyncConfig -> TestTree
+requestCreateTemplateSyncConfig =
+  req
+    "CreateTemplateSyncConfig"
+    "fixture/CreateTemplateSyncConfig.yaml"
+
+requestDeleteComponent :: DeleteComponent -> TestTree
+requestDeleteComponent =
+  req
+    "DeleteComponent"
+    "fixture/DeleteComponent.yaml"
 
 requestDeleteEnvironment :: DeleteEnvironment -> TestTree
 requestDeleteEnvironment =
@@ -419,6 +605,12 @@ requestDeleteEnvironmentTemplateVersion =
     "DeleteEnvironmentTemplateVersion"
     "fixture/DeleteEnvironmentTemplateVersion.yaml"
 
+requestDeleteRepository :: DeleteRepository -> TestTree
+requestDeleteRepository =
+  req
+    "DeleteRepository"
+    "fixture/DeleteRepository.yaml"
+
 requestDeleteService :: DeleteService -> TestTree
 requestDeleteService =
   req
@@ -437,11 +629,23 @@ requestDeleteServiceTemplateVersion =
     "DeleteServiceTemplateVersion"
     "fixture/DeleteServiceTemplateVersion.yaml"
 
+requestDeleteTemplateSyncConfig :: DeleteTemplateSyncConfig -> TestTree
+requestDeleteTemplateSyncConfig =
+  req
+    "DeleteTemplateSyncConfig"
+    "fixture/DeleteTemplateSyncConfig.yaml"
+
 requestGetAccountSettings :: GetAccountSettings -> TestTree
 requestGetAccountSettings =
   req
     "GetAccountSettings"
     "fixture/GetAccountSettings.yaml"
+
+requestGetComponent :: GetComponent -> TestTree
+requestGetComponent =
+  req
+    "GetComponent"
+    "fixture/GetComponent.yaml"
 
 requestGetEnvironment :: GetEnvironment -> TestTree
 requestGetEnvironment =
@@ -467,6 +671,18 @@ requestGetEnvironmentTemplateVersion =
     "GetEnvironmentTemplateVersion"
     "fixture/GetEnvironmentTemplateVersion.yaml"
 
+requestGetRepository :: GetRepository -> TestTree
+requestGetRepository =
+  req
+    "GetRepository"
+    "fixture/GetRepository.yaml"
+
+requestGetRepositorySyncStatus :: GetRepositorySyncStatus -> TestTree
+requestGetRepositorySyncStatus =
+  req
+    "GetRepositorySyncStatus"
+    "fixture/GetRepositorySyncStatus.yaml"
+
 requestGetService :: GetService -> TestTree
 requestGetService =
   req
@@ -491,11 +707,53 @@ requestGetServiceTemplateVersion =
     "GetServiceTemplateVersion"
     "fixture/GetServiceTemplateVersion.yaml"
 
+requestGetTemplateSyncConfig :: GetTemplateSyncConfig -> TestTree
+requestGetTemplateSyncConfig =
+  req
+    "GetTemplateSyncConfig"
+    "fixture/GetTemplateSyncConfig.yaml"
+
+requestGetTemplateSyncStatus :: GetTemplateSyncStatus -> TestTree
+requestGetTemplateSyncStatus =
+  req
+    "GetTemplateSyncStatus"
+    "fixture/GetTemplateSyncStatus.yaml"
+
+requestListComponentOutputs :: ListComponentOutputs -> TestTree
+requestListComponentOutputs =
+  req
+    "ListComponentOutputs"
+    "fixture/ListComponentOutputs.yaml"
+
+requestListComponentProvisionedResources :: ListComponentProvisionedResources -> TestTree
+requestListComponentProvisionedResources =
+  req
+    "ListComponentProvisionedResources"
+    "fixture/ListComponentProvisionedResources.yaml"
+
+requestListComponents :: ListComponents -> TestTree
+requestListComponents =
+  req
+    "ListComponents"
+    "fixture/ListComponents.yaml"
+
 requestListEnvironmentAccountConnections :: ListEnvironmentAccountConnections -> TestTree
 requestListEnvironmentAccountConnections =
   req
     "ListEnvironmentAccountConnections"
     "fixture/ListEnvironmentAccountConnections.yaml"
+
+requestListEnvironmentOutputs :: ListEnvironmentOutputs -> TestTree
+requestListEnvironmentOutputs =
+  req
+    "ListEnvironmentOutputs"
+    "fixture/ListEnvironmentOutputs.yaml"
+
+requestListEnvironmentProvisionedResources :: ListEnvironmentProvisionedResources -> TestTree
+requestListEnvironmentProvisionedResources =
+  req
+    "ListEnvironmentProvisionedResources"
+    "fixture/ListEnvironmentProvisionedResources.yaml"
 
 requestListEnvironmentTemplateVersions :: ListEnvironmentTemplateVersions -> TestTree
 requestListEnvironmentTemplateVersions =
@@ -515,11 +773,47 @@ requestListEnvironments =
     "ListEnvironments"
     "fixture/ListEnvironments.yaml"
 
+requestListRepositories :: ListRepositories -> TestTree
+requestListRepositories =
+  req
+    "ListRepositories"
+    "fixture/ListRepositories.yaml"
+
+requestListRepositorySyncDefinitions :: ListRepositorySyncDefinitions -> TestTree
+requestListRepositorySyncDefinitions =
+  req
+    "ListRepositorySyncDefinitions"
+    "fixture/ListRepositorySyncDefinitions.yaml"
+
+requestListServiceInstanceOutputs :: ListServiceInstanceOutputs -> TestTree
+requestListServiceInstanceOutputs =
+  req
+    "ListServiceInstanceOutputs"
+    "fixture/ListServiceInstanceOutputs.yaml"
+
+requestListServiceInstanceProvisionedResources :: ListServiceInstanceProvisionedResources -> TestTree
+requestListServiceInstanceProvisionedResources =
+  req
+    "ListServiceInstanceProvisionedResources"
+    "fixture/ListServiceInstanceProvisionedResources.yaml"
+
 requestListServiceInstances :: ListServiceInstances -> TestTree
 requestListServiceInstances =
   req
     "ListServiceInstances"
     "fixture/ListServiceInstances.yaml"
+
+requestListServicePipelineOutputs :: ListServicePipelineOutputs -> TestTree
+requestListServicePipelineOutputs =
+  req
+    "ListServicePipelineOutputs"
+    "fixture/ListServicePipelineOutputs.yaml"
+
+requestListServicePipelineProvisionedResources :: ListServicePipelineProvisionedResources -> TestTree
+requestListServicePipelineProvisionedResources =
+  req
+    "ListServicePipelineProvisionedResources"
+    "fixture/ListServicePipelineProvisionedResources.yaml"
 
 requestListServiceTemplateVersions :: ListServiceTemplateVersions -> TestTree
 requestListServiceTemplateVersions =
@@ -545,6 +839,12 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestNotifyResourceDeploymentStatusChange :: NotifyResourceDeploymentStatusChange -> TestTree
+requestNotifyResourceDeploymentStatusChange =
+  req
+    "NotifyResourceDeploymentStatusChange"
+    "fixture/NotifyResourceDeploymentStatusChange.yaml"
+
 requestRejectEnvironmentAccountConnection :: RejectEnvironmentAccountConnection -> TestTree
 requestRejectEnvironmentAccountConnection =
   req
@@ -568,6 +868,12 @@ requestUpdateAccountSettings =
   req
     "UpdateAccountSettings"
     "fixture/UpdateAccountSettings.yaml"
+
+requestUpdateComponent :: UpdateComponent -> TestTree
+requestUpdateComponent =
+  req
+    "UpdateComponent"
+    "fixture/UpdateComponent.yaml"
 
 requestUpdateEnvironment :: UpdateEnvironment -> TestTree
 requestUpdateEnvironment =
@@ -623,6 +929,12 @@ requestUpdateServiceTemplateVersion =
     "UpdateServiceTemplateVersion"
     "fixture/UpdateServiceTemplateVersion.yaml"
 
+requestUpdateTemplateSyncConfig :: UpdateTemplateSyncConfig -> TestTree
+requestUpdateTemplateSyncConfig =
+  req
+    "UpdateTemplateSyncConfig"
+    "fixture/UpdateTemplateSyncConfig.yaml"
+
 -- Responses
 
 responseAcceptEnvironmentAccountConnection :: AcceptEnvironmentAccountConnectionResponse -> TestTree
@@ -632,6 +944,14 @@ responseAcceptEnvironmentAccountConnection =
     "fixture/AcceptEnvironmentAccountConnectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptEnvironmentAccountConnection)
+
+responseCancelComponentDeployment :: CancelComponentDeploymentResponse -> TestTree
+responseCancelComponentDeployment =
+  res
+    "CancelComponentDeploymentResponse"
+    "fixture/CancelComponentDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelComponentDeployment)
 
 responseCancelEnvironmentDeployment :: CancelEnvironmentDeploymentResponse -> TestTree
 responseCancelEnvironmentDeployment =
@@ -656,6 +976,14 @@ responseCancelServicePipelineDeployment =
     "fixture/CancelServicePipelineDeploymentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelServicePipelineDeployment)
+
+responseCreateComponent :: CreateComponentResponse -> TestTree
+responseCreateComponent =
+  res
+    "CreateComponentResponse"
+    "fixture/CreateComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
 
 responseCreateEnvironment :: CreateEnvironmentResponse -> TestTree
 responseCreateEnvironment =
@@ -689,6 +1017,14 @@ responseCreateEnvironmentTemplateVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateEnvironmentTemplateVersion)
 
+responseCreateRepository :: CreateRepositoryResponse -> TestTree
+responseCreateRepository =
+  res
+    "CreateRepositoryResponse"
+    "fixture/CreateRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
+
 responseCreateService :: CreateServiceResponse -> TestTree
 responseCreateService =
   res
@@ -712,6 +1048,22 @@ responseCreateServiceTemplateVersion =
     "fixture/CreateServiceTemplateVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateServiceTemplateVersion)
+
+responseCreateTemplateSyncConfig :: CreateTemplateSyncConfigResponse -> TestTree
+responseCreateTemplateSyncConfig =
+  res
+    "CreateTemplateSyncConfigResponse"
+    "fixture/CreateTemplateSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTemplateSyncConfig)
+
+responseDeleteComponent :: DeleteComponentResponse -> TestTree
+responseDeleteComponent =
+  res
+    "DeleteComponentResponse"
+    "fixture/DeleteComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -745,6 +1097,14 @@ responseDeleteEnvironmentTemplateVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEnvironmentTemplateVersion)
 
+responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
+responseDeleteRepository =
+  res
+    "DeleteRepositoryResponse"
+    "fixture/DeleteRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
+
 responseDeleteService :: DeleteServiceResponse -> TestTree
 responseDeleteService =
   res
@@ -769,6 +1129,14 @@ responseDeleteServiceTemplateVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteServiceTemplateVersion)
 
+responseDeleteTemplateSyncConfig :: DeleteTemplateSyncConfigResponse -> TestTree
+responseDeleteTemplateSyncConfig =
+  res
+    "DeleteTemplateSyncConfigResponse"
+    "fixture/DeleteTemplateSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTemplateSyncConfig)
+
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
 responseGetAccountSettings =
   res
@@ -776,6 +1144,14 @@ responseGetAccountSettings =
     "fixture/GetAccountSettingsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
+
+responseGetComponent :: GetComponentResponse -> TestTree
+responseGetComponent =
+  res
+    "GetComponentResponse"
+    "fixture/GetComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComponent)
 
 responseGetEnvironment :: GetEnvironmentResponse -> TestTree
 responseGetEnvironment =
@@ -809,6 +1185,22 @@ responseGetEnvironmentTemplateVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEnvironmentTemplateVersion)
 
+responseGetRepository :: GetRepositoryResponse -> TestTree
+responseGetRepository =
+  res
+    "GetRepositoryResponse"
+    "fixture/GetRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRepository)
+
+responseGetRepositorySyncStatus :: GetRepositorySyncStatusResponse -> TestTree
+responseGetRepositorySyncStatus =
+  res
+    "GetRepositorySyncStatusResponse"
+    "fixture/GetRepositorySyncStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRepositorySyncStatus)
+
 responseGetService :: GetServiceResponse -> TestTree
 responseGetService =
   res
@@ -841,6 +1233,46 @@ responseGetServiceTemplateVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetServiceTemplateVersion)
 
+responseGetTemplateSyncConfig :: GetTemplateSyncConfigResponse -> TestTree
+responseGetTemplateSyncConfig =
+  res
+    "GetTemplateSyncConfigResponse"
+    "fixture/GetTemplateSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTemplateSyncConfig)
+
+responseGetTemplateSyncStatus :: GetTemplateSyncStatusResponse -> TestTree
+responseGetTemplateSyncStatus =
+  res
+    "GetTemplateSyncStatusResponse"
+    "fixture/GetTemplateSyncStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTemplateSyncStatus)
+
+responseListComponentOutputs :: ListComponentOutputsResponse -> TestTree
+responseListComponentOutputs =
+  res
+    "ListComponentOutputsResponse"
+    "fixture/ListComponentOutputsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListComponentOutputs)
+
+responseListComponentProvisionedResources :: ListComponentProvisionedResourcesResponse -> TestTree
+responseListComponentProvisionedResources =
+  res
+    "ListComponentProvisionedResourcesResponse"
+    "fixture/ListComponentProvisionedResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListComponentProvisionedResources)
+
+responseListComponents :: ListComponentsResponse -> TestTree
+responseListComponents =
+  res
+    "ListComponentsResponse"
+    "fixture/ListComponentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListComponents)
+
 responseListEnvironmentAccountConnections :: ListEnvironmentAccountConnectionsResponse -> TestTree
 responseListEnvironmentAccountConnections =
   res
@@ -848,6 +1280,22 @@ responseListEnvironmentAccountConnections =
     "fixture/ListEnvironmentAccountConnectionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEnvironmentAccountConnections)
+
+responseListEnvironmentOutputs :: ListEnvironmentOutputsResponse -> TestTree
+responseListEnvironmentOutputs =
+  res
+    "ListEnvironmentOutputsResponse"
+    "fixture/ListEnvironmentOutputsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironmentOutputs)
+
+responseListEnvironmentProvisionedResources :: ListEnvironmentProvisionedResourcesResponse -> TestTree
+responseListEnvironmentProvisionedResources =
+  res
+    "ListEnvironmentProvisionedResourcesResponse"
+    "fixture/ListEnvironmentProvisionedResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironmentProvisionedResources)
 
 responseListEnvironmentTemplateVersions :: ListEnvironmentTemplateVersionsResponse -> TestTree
 responseListEnvironmentTemplateVersions =
@@ -873,6 +1321,38 @@ responseListEnvironments =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
 
+responseListRepositories :: ListRepositoriesResponse -> TestTree
+responseListRepositories =
+  res
+    "ListRepositoriesResponse"
+    "fixture/ListRepositoriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRepositories)
+
+responseListRepositorySyncDefinitions :: ListRepositorySyncDefinitionsResponse -> TestTree
+responseListRepositorySyncDefinitions =
+  res
+    "ListRepositorySyncDefinitionsResponse"
+    "fixture/ListRepositorySyncDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRepositorySyncDefinitions)
+
+responseListServiceInstanceOutputs :: ListServiceInstanceOutputsResponse -> TestTree
+responseListServiceInstanceOutputs =
+  res
+    "ListServiceInstanceOutputsResponse"
+    "fixture/ListServiceInstanceOutputsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServiceInstanceOutputs)
+
+responseListServiceInstanceProvisionedResources :: ListServiceInstanceProvisionedResourcesResponse -> TestTree
+responseListServiceInstanceProvisionedResources =
+  res
+    "ListServiceInstanceProvisionedResourcesResponse"
+    "fixture/ListServiceInstanceProvisionedResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServiceInstanceProvisionedResources)
+
 responseListServiceInstances :: ListServiceInstancesResponse -> TestTree
 responseListServiceInstances =
   res
@@ -880,6 +1360,22 @@ responseListServiceInstances =
     "fixture/ListServiceInstancesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListServiceInstances)
+
+responseListServicePipelineOutputs :: ListServicePipelineOutputsResponse -> TestTree
+responseListServicePipelineOutputs =
+  res
+    "ListServicePipelineOutputsResponse"
+    "fixture/ListServicePipelineOutputsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServicePipelineOutputs)
+
+responseListServicePipelineProvisionedResources :: ListServicePipelineProvisionedResourcesResponse -> TestTree
+responseListServicePipelineProvisionedResources =
+  res
+    "ListServicePipelineProvisionedResourcesResponse"
+    "fixture/ListServicePipelineProvisionedResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServicePipelineProvisionedResources)
 
 responseListServiceTemplateVersions :: ListServiceTemplateVersionsResponse -> TestTree
 responseListServiceTemplateVersions =
@@ -913,6 +1409,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseNotifyResourceDeploymentStatusChange :: NotifyResourceDeploymentStatusChangeResponse -> TestTree
+responseNotifyResourceDeploymentStatusChange =
+  res
+    "NotifyResourceDeploymentStatusChangeResponse"
+    "fixture/NotifyResourceDeploymentStatusChangeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyResourceDeploymentStatusChange)
+
 responseRejectEnvironmentAccountConnection :: RejectEnvironmentAccountConnectionResponse -> TestTree
 responseRejectEnvironmentAccountConnection =
   res
@@ -944,6 +1448,14 @@ responseUpdateAccountSettings =
     "fixture/UpdateAccountSettingsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
+
+responseUpdateComponent :: UpdateComponentResponse -> TestTree
+responseUpdateComponent =
+  res
+    "UpdateComponentResponse"
+    "fixture/UpdateComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateComponent)
 
 responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
 responseUpdateEnvironment =
@@ -1016,3 +1528,11 @@ responseUpdateServiceTemplateVersion =
     "fixture/UpdateServiceTemplateVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateServiceTemplateVersion)
+
+responseUpdateTemplateSyncConfig :: UpdateTemplateSyncConfigResponse -> TestTree
+responseUpdateTemplateSyncConfig =
+  res
+    "UpdateTemplateSyncConfigResponse"
+    "fixture/UpdateTemplateSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplateSyncConfig)

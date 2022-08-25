@@ -39,6 +39,9 @@ module Amazonka.MacieV2
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
+
     -- ** ConflictException
     _ConflictException,
 
@@ -50,6 +53,9 @@ module Amazonka.MacieV2
 
     -- * Waiters
     -- $waiters
+
+    -- ** FindingRevealed
+    newFindingRevealed,
 
     -- * Operations
     -- $operations
@@ -264,6 +270,24 @@ module Amazonka.MacieV2
     GetMemberResponse (GetMemberResponse'),
     newGetMemberResponse,
 
+    -- ** GetRevealConfiguration
+    GetRevealConfiguration (GetRevealConfiguration'),
+    newGetRevealConfiguration,
+    GetRevealConfigurationResponse (GetRevealConfigurationResponse'),
+    newGetRevealConfigurationResponse,
+
+    -- ** GetSensitiveDataOccurrences
+    GetSensitiveDataOccurrences (GetSensitiveDataOccurrences'),
+    newGetSensitiveDataOccurrences,
+    GetSensitiveDataOccurrencesResponse (GetSensitiveDataOccurrencesResponse'),
+    newGetSensitiveDataOccurrencesResponse,
+
+    -- ** GetSensitiveDataOccurrencesAvailability
+    GetSensitiveDataOccurrencesAvailability (GetSensitiveDataOccurrencesAvailability'),
+    newGetSensitiveDataOccurrencesAvailability,
+    GetSensitiveDataOccurrencesAvailabilityResponse (GetSensitiveDataOccurrencesAvailabilityResponse'),
+    newGetSensitiveDataOccurrencesAvailabilityResponse,
+
     -- ** GetUsageStatistics (Paginated)
     GetUsageStatistics (GetUsageStatistics'),
     newGetUsageStatistics,
@@ -396,6 +420,12 @@ module Amazonka.MacieV2
     UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
     newUpdateOrganizationConfigurationResponse,
 
+    -- ** UpdateRevealConfiguration
+    UpdateRevealConfiguration (UpdateRevealConfiguration'),
+    newUpdateRevealConfiguration,
+    UpdateRevealConfigurationResponse (UpdateRevealConfigurationResponse'),
+    newUpdateRevealConfigurationResponse,
+
     -- * Types
 
     -- ** AdminStatus
@@ -404,11 +434,17 @@ module Amazonka.MacieV2
     -- ** AllowsUnencryptedObjectUploads
     AllowsUnencryptedObjectUploads (..),
 
+    -- ** AvailabilityCode
+    AvailabilityCode (..),
+
     -- ** BucketMetadataErrorCode
     BucketMetadataErrorCode (..),
 
     -- ** Currency
     Currency (..),
+
+    -- ** DataIdentifierSeverity
+    DataIdentifierSeverity (..),
 
     -- ** DayOfWeek
     DayOfWeek (..),
@@ -476,8 +512,17 @@ module Amazonka.MacieV2
     -- ** OrderBy
     OrderBy (..),
 
+    -- ** OriginType
+    OriginType (..),
+
     -- ** RelationshipStatus
     RelationshipStatus (..),
+
+    -- ** RevealRequestStatus
+    RevealRequestStatus (..),
+
+    -- ** RevealStatus
+    RevealStatus (..),
 
     -- ** ScopeFilterKey
     ScopeFilterKey (..),
@@ -514,6 +559,9 @@ module Amazonka.MacieV2
 
     -- ** Type
     Type (..),
+
+    -- ** UnavailabilityReasonCode
+    UnavailabilityReasonCode (..),
 
     -- ** Unit
     Unit (..),
@@ -672,6 +720,10 @@ module Amazonka.MacieV2
     -- ** DefaultDetection
     DefaultDetection (DefaultDetection'),
     newDefaultDetection,
+
+    -- ** DetectedDataDetails
+    DetectedDataDetails (DetectedDataDetails'),
+    newDetectedDataDetails,
 
     -- ** DomainDetails
     DomainDetails (DomainDetails'),
@@ -833,6 +885,10 @@ module Amazonka.MacieV2
     ResourcesAffected (ResourcesAffected'),
     newResourcesAffected,
 
+    -- ** RevealConfiguration
+    RevealConfiguration (RevealConfiguration'),
+    newRevealConfiguration,
+
     -- ** S3Bucket
     S3Bucket (S3Bucket'),
     newS3Bucket,
@@ -924,6 +980,10 @@ module Amazonka.MacieV2
     -- ** Severity
     Severity (Severity'),
     newSeverity,
+
+    -- ** SeverityLevel
+    SeverityLevel (SeverityLevel'),
+    newSeverityLevel,
 
     -- ** SimpleCriterionForJob
     SimpleCriterionForJob (SimpleCriterionForJob'),
@@ -1034,6 +1094,9 @@ import Amazonka.MacieV2.GetInvitationsCount
 import Amazonka.MacieV2.GetMacieSession
 import Amazonka.MacieV2.GetMasterAccount
 import Amazonka.MacieV2.GetMember
+import Amazonka.MacieV2.GetRevealConfiguration
+import Amazonka.MacieV2.GetSensitiveDataOccurrences
+import Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
 import Amazonka.MacieV2.GetUsageStatistics
 import Amazonka.MacieV2.GetUsageTotals
 import Amazonka.MacieV2.Lens
@@ -1058,6 +1121,7 @@ import Amazonka.MacieV2.UpdateFindingsFilter
 import Amazonka.MacieV2.UpdateMacieSession
 import Amazonka.MacieV2.UpdateMemberSession
 import Amazonka.MacieV2.UpdateOrganizationConfiguration
+import Amazonka.MacieV2.UpdateRevealConfiguration
 import Amazonka.MacieV2.Waiters
 
 -- $errors

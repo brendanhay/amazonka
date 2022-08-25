@@ -24,7 +24,10 @@ import Amazonka.Forecast.Types.FeaturizationMethod
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides featurization (transformation) information for a dataset field.
+-- | This object belongs to the CreatePredictor operation. If you created
+-- your predictor with CreateAutoPredictor, see AttributeConfig.
+--
+-- Provides featurization (transformation) information for a dataset field.
 -- This object is part of the FeaturizationConfig object.
 --
 -- For example:

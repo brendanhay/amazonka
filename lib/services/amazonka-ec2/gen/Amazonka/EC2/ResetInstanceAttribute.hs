@@ -63,8 +63,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
     -- | The attribute to reset.
     --
     -- You can only reset the following attributes: @kernel@ | @ramdisk@ |
-    -- @sourceDestCheck@. To change an instance attribute, use
-    -- ModifyInstanceAttribute.
+    -- @sourceDestCheck@.
     attribute :: InstanceAttributeName,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
@@ -87,8 +86,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
 -- 'attribute', 'resetInstanceAttribute_attribute' - The attribute to reset.
 --
 -- You can only reset the following attributes: @kernel@ | @ramdisk@ |
--- @sourceDestCheck@. To change an instance attribute, use
--- ModifyInstanceAttribute.
+-- @sourceDestCheck@.
 --
 -- 'instanceId', 'resetInstanceAttribute_instanceId' - The ID of the instance.
 newResetInstanceAttribute ::
@@ -114,8 +112,7 @@ resetInstanceAttribute_dryRun = Lens.lens (\ResetInstanceAttribute' {dryRun} -> 
 -- | The attribute to reset.
 --
 -- You can only reset the following attributes: @kernel@ | @ramdisk@ |
--- @sourceDestCheck@. To change an instance attribute, use
--- ModifyInstanceAttribute.
+-- @sourceDestCheck@.
 resetInstanceAttribute_attribute :: Lens.Lens' ResetInstanceAttribute InstanceAttributeName
 resetInstanceAttribute_attribute = Lens.lens (\ResetInstanceAttribute' {attribute} -> attribute) (\s@ResetInstanceAttribute' {} a -> s {attribute = a} :: ResetInstanceAttribute)
 

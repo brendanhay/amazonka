@@ -192,8 +192,7 @@ data ListChannelMembershipsForAppInstanceUserResponse = ListChannelMembershipsFo
   { -- | The token passed by previous API calls until all requested users are
     -- returned.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The token passed by previous API calls until all requested users are
-    -- returned.
+    -- | The information for the requested channel memberships.
     channelMemberships :: Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -211,8 +210,7 @@ data ListChannelMembershipsForAppInstanceUserResponse = ListChannelMembershipsFo
 -- 'nextToken', 'listChannelMembershipsForAppInstanceUserResponse_nextToken' - The token passed by previous API calls until all requested users are
 -- returned.
 --
--- 'channelMemberships', 'listChannelMembershipsForAppInstanceUserResponse_channelMemberships' - The token passed by previous API calls until all requested users are
--- returned.
+-- 'channelMemberships', 'listChannelMembershipsForAppInstanceUserResponse_channelMemberships' - The information for the requested channel memberships.
 --
 -- 'httpStatus', 'listChannelMembershipsForAppInstanceUserResponse_httpStatus' - The response's http status code.
 newListChannelMembershipsForAppInstanceUserResponse ::
@@ -234,8 +232,7 @@ newListChannelMembershipsForAppInstanceUserResponse
 listChannelMembershipsForAppInstanceUserResponse_nextToken :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse (Prelude.Maybe Prelude.Text)
 listChannelMembershipsForAppInstanceUserResponse_nextToken = Lens.lens (\ListChannelMembershipsForAppInstanceUserResponse' {nextToken} -> nextToken) (\s@ListChannelMembershipsForAppInstanceUserResponse' {} a -> s {nextToken = a} :: ListChannelMembershipsForAppInstanceUserResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The token passed by previous API calls until all requested users are
--- returned.
+-- | The information for the requested channel memberships.
 listChannelMembershipsForAppInstanceUserResponse_channelMemberships :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse (Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary])
 listChannelMembershipsForAppInstanceUserResponse_channelMemberships = Lens.lens (\ListChannelMembershipsForAppInstanceUserResponse' {channelMemberships} -> channelMemberships) (\s@ListChannelMembershipsForAppInstanceUserResponse' {} a -> s {channelMemberships = a} :: ListChannelMembershipsForAppInstanceUserResponse) Prelude.. Lens.mapping Lens.coerced
 

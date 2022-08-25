@@ -33,6 +33,7 @@ haskell_library(
         "gen/Amazonka/QLDB/Types/LedgerEncryptionDescription.hs",
         "gen/Amazonka/QLDB/Types/LedgerState.hs",
         "gen/Amazonka/QLDB/Types/LedgerSummary.hs",
+        "gen/Amazonka/QLDB/Types/OutputFormat.hs",
         "gen/Amazonka/QLDB/Types/PermissionsMode.hs",
         "gen/Amazonka/QLDB/Types/S3EncryptionConfiguration.hs",
         "gen/Amazonka/QLDB/Types/S3ExportConfiguration.hs",

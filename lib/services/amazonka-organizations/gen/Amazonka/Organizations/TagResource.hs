@@ -22,10 +22,10 @@
 --
 -- Adds one or more tags to the specified resource.
 --
--- Currently, you can attach tags to the following resources in AWS
+-- Currently, you can attach tags to the following resources in
 -- Organizations.
 --
--- -   AWS account
+-- -   Amazon Web Services account
 --
 -- -   Organization root
 --
@@ -60,12 +60,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The ID of the resource to add a tag to.
-    resourceId :: Prelude.Text,
-    -- | A list of tags to add to the specified resource.
     --
     -- You can specify any of the following taggable resources.
     --
-    -- -   AWS account – specify the account ID number.
+    -- -   Amazon Web Services account – specify the account ID number.
     --
     -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
     --     looks similar to: @ou-1a2b-34uvwxyz @
@@ -75,14 +73,14 @@ data TagResource = TagResource'
     --
     -- -   Policy – specify the policy ID that begins with @p-@ andlooks
     --     similar to: @p-12abcdefg3 @
+    resourceId :: Prelude.Text,
+    -- | A list of tags to add to the specified resource.
     --
     -- For each tag in the list, you must specify both a tag key and a value.
-    -- You can set the value to an empty string, but you can\'t set it to
-    -- @null@.
+    -- The value can be an empty string, but you can\'t set it to @null@.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed number of
-    -- tags for an account user, then the entire request fails and the account
-    -- is not created.
+    -- If any one of the tags is invalid or if you exceed the maximum allowed
+    -- number of tags for a resource, then the entire request fails.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,11 +95,9 @@ data TagResource = TagResource'
 --
 -- 'resourceId', 'tagResource_resourceId' - The ID of the resource to add a tag to.
 --
--- 'tags', 'tagResource_tags' - A list of tags to add to the specified resource.
---
 -- You can specify any of the following taggable resources.
 --
--- -   AWS account – specify the account ID number.
+-- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
 --     looks similar to: @ou-1a2b-34uvwxyz @
@@ -112,13 +108,13 @@ data TagResource = TagResource'
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
 --     similar to: @p-12abcdefg3 @
 --
--- For each tag in the list, you must specify both a tag key and a value.
--- You can set the value to an empty string, but you can\'t set it to
--- @null@.
+-- 'tags', 'tagResource_tags' - A list of tags to add to the specified resource.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account user, then the entire request fails and the account
--- is not created.
+-- For each tag in the list, you must specify both a tag key and a value.
+-- The value can be an empty string, but you can\'t set it to @null@.
+--
+-- If any one of the tags is invalid or if you exceed the maximum allowed
+-- number of tags for a resource, then the entire request fails.
 newTagResource ::
   -- | 'resourceId'
   Prelude.Text ->
@@ -130,14 +126,10 @@ newTagResource pResourceId_ =
     }
 
 -- | The ID of the resource to add a tag to.
-tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
-tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
-
--- | A list of tags to add to the specified resource.
 --
 -- You can specify any of the following taggable resources.
 --
--- -   AWS account – specify the account ID number.
+-- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
 --     looks similar to: @ou-1a2b-34uvwxyz @
@@ -147,14 +139,16 @@ tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
 --     similar to: @p-12abcdefg3 @
+tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
+
+-- | A list of tags to add to the specified resource.
 --
 -- For each tag in the list, you must specify both a tag key and a value.
--- You can set the value to an empty string, but you can\'t set it to
--- @null@.
+-- The value can be an empty string, but you can\'t set it to @null@.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account user, then the entire request fails and the account
--- is not created.
+-- If any one of the tags is invalid or if you exceed the maximum allowed
+-- number of tags for a resource, then the entire request fails.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

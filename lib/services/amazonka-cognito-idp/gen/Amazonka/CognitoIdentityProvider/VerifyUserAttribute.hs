@@ -21,6 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Verifies the specified user attributes in the user pool.
+--
+-- If your user pool requires verification before Amazon Cognito updates
+-- the attribute value, VerifyUserAttribute updates the affected attribute
+-- to its pending value. For more information, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html UserAttributeUpdateSettingsType>.
 module Amazonka.CognitoIdentityProvider.VerifyUserAttribute
   ( -- * Creating a Request
     VerifyUserAttribute (..),
@@ -51,7 +56,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newVerifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
-  { -- | Represents the access token of the request to verify user attributes.
+  { -- | A valid access token that Amazon Cognito issued to the user whose user
+    -- attributes you want to verify.
     accessToken :: Core.Sensitive Prelude.Text,
     -- | The attribute name in the request to verify user attributes.
     attributeName :: Prelude.Text,
@@ -68,7 +74,8 @@ data VerifyUserAttribute = VerifyUserAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'verifyUserAttribute_accessToken' - Represents the access token of the request to verify user attributes.
+-- 'accessToken', 'verifyUserAttribute_accessToken' - A valid access token that Amazon Cognito issued to the user whose user
+-- attributes you want to verify.
 --
 -- 'attributeName', 'verifyUserAttribute_attributeName' - The attribute name in the request to verify user attributes.
 --
@@ -92,7 +99,8 @@ newVerifyUserAttribute
         code = pCode_
       }
 
--- | Represents the access token of the request to verify user attributes.
+-- | A valid access token that Amazon Cognito issued to the user whose user
+-- attributes you want to verify.
 verifyUserAttribute_accessToken :: Lens.Lens' VerifyUserAttribute Prelude.Text
 verifyUserAttribute_accessToken = Lens.lens (\VerifyUserAttribute' {accessToken} -> accessToken) (\s@VerifyUserAttribute' {} a -> s {accessToken = a} :: VerifyUserAttribute) Prelude.. Core._Sensitive
 

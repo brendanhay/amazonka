@@ -28,9 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelClientConfig' smart constructor.
 data ModelClientConfig = ModelClientConfig'
-  { -- | The maximum number of retries when invocation requests are failing.
+  { -- | The maximum number of retries when invocation requests are failing. The
+    -- default value is 3.
     invocationsMaxRetries :: Prelude.Maybe Prelude.Natural,
-    -- | The timeout value in seconds for an invocation request.
+    -- | The timeout value in seconds for an invocation request. The default
+    -- value is 600.
     invocationsTimeoutInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +45,11 @@ data ModelClientConfig = ModelClientConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invocationsMaxRetries', 'modelClientConfig_invocationsMaxRetries' - The maximum number of retries when invocation requests are failing.
+-- 'invocationsMaxRetries', 'modelClientConfig_invocationsMaxRetries' - The maximum number of retries when invocation requests are failing. The
+-- default value is 3.
 --
--- 'invocationsTimeoutInSeconds', 'modelClientConfig_invocationsTimeoutInSeconds' - The timeout value in seconds for an invocation request.
+-- 'invocationsTimeoutInSeconds', 'modelClientConfig_invocationsTimeoutInSeconds' - The timeout value in seconds for an invocation request. The default
+-- value is 600.
 newModelClientConfig ::
   ModelClientConfig
 newModelClientConfig =
@@ -55,11 +59,13 @@ newModelClientConfig =
       invocationsTimeoutInSeconds = Prelude.Nothing
     }
 
--- | The maximum number of retries when invocation requests are failing.
+-- | The maximum number of retries when invocation requests are failing. The
+-- default value is 3.
 modelClientConfig_invocationsMaxRetries :: Lens.Lens' ModelClientConfig (Prelude.Maybe Prelude.Natural)
 modelClientConfig_invocationsMaxRetries = Lens.lens (\ModelClientConfig' {invocationsMaxRetries} -> invocationsMaxRetries) (\s@ModelClientConfig' {} a -> s {invocationsMaxRetries = a} :: ModelClientConfig)
 
--- | The timeout value in seconds for an invocation request.
+-- | The timeout value in seconds for an invocation request. The default
+-- value is 600.
 modelClientConfig_invocationsTimeoutInSeconds :: Lens.Lens' ModelClientConfig (Prelude.Maybe Prelude.Natural)
 modelClientConfig_invocationsTimeoutInSeconds = Lens.lens (\ModelClientConfig' {invocationsTimeoutInSeconds} -> invocationsTimeoutInSeconds) (\s@ModelClientConfig' {} a -> s {invocationsTimeoutInSeconds = a} :: ModelClientConfig)
 

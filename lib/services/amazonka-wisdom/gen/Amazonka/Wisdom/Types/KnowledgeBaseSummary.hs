@@ -34,7 +34,7 @@ import Amazonka.Wisdom.Types.SourceConfiguration
 data KnowledgeBaseSummary = KnowledgeBaseSummary'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [KEVIN]
+    -- | Configuration information about the external data source.
     sourceConfiguration :: Prelude.Maybe SourceConfiguration,
     -- | The KMS key used for encryption.
     serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
@@ -44,7 +44,7 @@ data KnowledgeBaseSummary = KnowledgeBaseSummary'
     renderingConfiguration :: Prelude.Maybe RenderingConfiguration,
     -- | The Amazon Resource Name (ARN) of the knowledge base.
     knowledgeBaseArn :: Prelude.Text,
-    -- | The the identifier of the knowledge base.
+    -- | The identifier of the knowledge base.
     knowledgeBaseId :: Prelude.Text,
     -- | The type of knowledge base.
     knowledgeBaseType :: KnowledgeBaseType,
@@ -65,7 +65,7 @@ data KnowledgeBaseSummary = KnowledgeBaseSummary'
 --
 -- 'tags', 'knowledgeBaseSummary_tags' - The tags used to organize, track, or control access for this resource.
 --
--- 'sourceConfiguration', 'knowledgeBaseSummary_sourceConfiguration' - [KEVIN]
+-- 'sourceConfiguration', 'knowledgeBaseSummary_sourceConfiguration' - Configuration information about the external data source.
 --
 -- 'serverSideEncryptionConfiguration', 'knowledgeBaseSummary_serverSideEncryptionConfiguration' - The KMS key used for encryption.
 --
@@ -75,7 +75,7 @@ data KnowledgeBaseSummary = KnowledgeBaseSummary'
 --
 -- 'knowledgeBaseArn', 'knowledgeBaseSummary_knowledgeBaseArn' - The Amazon Resource Name (ARN) of the knowledge base.
 --
--- 'knowledgeBaseId', 'knowledgeBaseSummary_knowledgeBaseId' - The the identifier of the knowledge base.
+-- 'knowledgeBaseId', 'knowledgeBaseSummary_knowledgeBaseId' - The identifier of the knowledge base.
 --
 -- 'knowledgeBaseType', 'knowledgeBaseSummary_knowledgeBaseType' - The type of knowledge base.
 --
@@ -117,7 +117,7 @@ newKnowledgeBaseSummary
 knowledgeBaseSummary_tags :: Lens.Lens' KnowledgeBaseSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 knowledgeBaseSummary_tags = Lens.lens (\KnowledgeBaseSummary' {tags} -> tags) (\s@KnowledgeBaseSummary' {} a -> s {tags = a} :: KnowledgeBaseSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | [KEVIN]
+-- | Configuration information about the external data source.
 knowledgeBaseSummary_sourceConfiguration :: Lens.Lens' KnowledgeBaseSummary (Prelude.Maybe SourceConfiguration)
 knowledgeBaseSummary_sourceConfiguration = Lens.lens (\KnowledgeBaseSummary' {sourceConfiguration} -> sourceConfiguration) (\s@KnowledgeBaseSummary' {} a -> s {sourceConfiguration = a} :: KnowledgeBaseSummary)
 
@@ -137,7 +137,7 @@ knowledgeBaseSummary_renderingConfiguration = Lens.lens (\KnowledgeBaseSummary' 
 knowledgeBaseSummary_knowledgeBaseArn :: Lens.Lens' KnowledgeBaseSummary Prelude.Text
 knowledgeBaseSummary_knowledgeBaseArn = Lens.lens (\KnowledgeBaseSummary' {knowledgeBaseArn} -> knowledgeBaseArn) (\s@KnowledgeBaseSummary' {} a -> s {knowledgeBaseArn = a} :: KnowledgeBaseSummary)
 
--- | The the identifier of the knowledge base.
+-- | The identifier of the knowledge base.
 knowledgeBaseSummary_knowledgeBaseId :: Lens.Lens' KnowledgeBaseSummary Prelude.Text
 knowledgeBaseSummary_knowledgeBaseId = Lens.lens (\KnowledgeBaseSummary' {knowledgeBaseId} -> knowledgeBaseId) (\s@KnowledgeBaseSummary' {} a -> s {knowledgeBaseId = a} :: KnowledgeBaseSummary)
 

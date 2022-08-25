@@ -39,6 +39,7 @@ module Amazonka.SageMaker.DescribeContext
     describeContextResponse_description,
     describeContextResponse_lastModifiedTime,
     describeContextResponse_source,
+    describeContextResponse_lineageGroupArn,
     describeContextResponse_creationTime,
     describeContextResponse_lastModifiedBy,
     describeContextResponse_contextType,
@@ -96,6 +97,7 @@ instance Core.AWSRequest DescribeContext where
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "Source")
+            Prelude.<*> (x Core..?> "LineageGroupArn")
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "LastModifiedBy")
             Prelude.<*> (x Core..?> "ContextType")
@@ -149,6 +151,8 @@ data DescribeContextResponse = DescribeContextResponse'
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The source of the context.
     source :: Prelude.Maybe ContextSource,
+    -- | The Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the context was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
@@ -180,6 +184,8 @@ data DescribeContextResponse = DescribeContextResponse'
 --
 -- 'source', 'describeContextResponse_source' - The source of the context.
 --
+-- 'lineageGroupArn', 'describeContextResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
+--
 -- 'creationTime', 'describeContextResponse_creationTime' - When the context was created.
 --
 -- 'lastModifiedBy', 'describeContextResponse_lastModifiedBy' - Undocumented member.
@@ -203,6 +209,7 @@ newDescribeContextResponse pHttpStatus_ =
       description = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
+      lineageGroupArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
       contextType = Prelude.Nothing,
@@ -230,6 +237,10 @@ describeContextResponse_lastModifiedTime = Lens.lens (\DescribeContextResponse' 
 -- | The source of the context.
 describeContextResponse_source :: Lens.Lens' DescribeContextResponse (Prelude.Maybe ContextSource)
 describeContextResponse_source = Lens.lens (\DescribeContextResponse' {source} -> source) (\s@DescribeContextResponse' {} a -> s {source = a} :: DescribeContextResponse)
+
+-- | The Amazon Resource Name (ARN) of the lineage group.
+describeContextResponse_lineageGroupArn :: Lens.Lens' DescribeContextResponse (Prelude.Maybe Prelude.Text)
+describeContextResponse_lineageGroupArn = Lens.lens (\DescribeContextResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeContextResponse' {} a -> s {lineageGroupArn = a} :: DescribeContextResponse)
 
 -- | When the context was created.
 describeContextResponse_creationTime :: Lens.Lens' DescribeContextResponse (Prelude.Maybe Prelude.UTCTime)
@@ -262,6 +273,7 @@ instance Prelude.NFData DescribeContextResponse where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf lineageGroupArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf contextType

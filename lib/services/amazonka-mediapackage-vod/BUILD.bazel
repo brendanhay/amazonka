@@ -44,6 +44,7 @@ haskell_library(
         "gen/Amazonka/MediaPackageVOD/Types/PackagingGroup.hs",
         "gen/Amazonka/MediaPackageVOD/Types/PeriodTriggersElement.hs",
         "gen/Amazonka/MediaPackageVOD/Types/Profile.hs",
+        "gen/Amazonka/MediaPackageVOD/Types/ScteMarkersSource.hs",
         "gen/Amazonka/MediaPackageVOD/Types/SegmentTemplateFormat.hs",
         "gen/Amazonka/MediaPackageVOD/Types/SpekeKeyProvider.hs",
         "gen/Amazonka/MediaPackageVOD/Types/StreamOrder.hs",

@@ -36,6 +36,7 @@ module Amazonka.MediaTailor.DescribeProgram
 
     -- * Response Lenses
     describeProgramResponse_scheduledStartTime,
+    describeProgramResponse_liveSourceName,
     describeProgramResponse_programName,
     describeProgramResponse_channelName,
     describeProgramResponse_vodSourceName,
@@ -104,6 +105,7 @@ instance Core.AWSRequest DescribeProgram where
       ( \s h x ->
           DescribeProgramResponse'
             Prelude.<$> (x Core..?> "ScheduledStartTime")
+            Prelude.<*> (x Core..?> "LiveSourceName")
             Prelude.<*> (x Core..?> "ProgramName")
             Prelude.<*> (x Core..?> "ChannelName")
             Prelude.<*> (x Core..?> "VodSourceName")
@@ -153,6 +155,8 @@ data DescribeProgramResponse = DescribeProgramResponse'
     -- format and Coordinated Universal Time (UTC). For example, the value
     -- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.
     scheduledStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the LiveSource for this Program.
+    liveSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the program.
     programName :: Prelude.Maybe Prelude.Text,
     -- | The name of the channel that the program belongs to.
@@ -184,6 +188,8 @@ data DescribeProgramResponse = DescribeProgramResponse'
 -- format and Coordinated Universal Time (UTC). For example, the value
 -- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.
 --
+-- 'liveSourceName', 'describeProgramResponse_liveSourceName' - The name of the LiveSource for this Program.
+--
 -- 'programName', 'describeProgramResponse_programName' - The name of the program.
 --
 -- 'channelName', 'describeProgramResponse_channelName' - The name of the channel that the program belongs to.
@@ -207,6 +213,7 @@ newDescribeProgramResponse pHttpStatus_ =
   DescribeProgramResponse'
     { scheduledStartTime =
         Prelude.Nothing,
+      liveSourceName = Prelude.Nothing,
       programName = Prelude.Nothing,
       channelName = Prelude.Nothing,
       vodSourceName = Prelude.Nothing,
@@ -222,6 +229,10 @@ newDescribeProgramResponse pHttpStatus_ =
 -- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.
 describeProgramResponse_scheduledStartTime :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.UTCTime)
 describeProgramResponse_scheduledStartTime = Lens.lens (\DescribeProgramResponse' {scheduledStartTime} -> scheduledStartTime) (\s@DescribeProgramResponse' {} a -> s {scheduledStartTime = a} :: DescribeProgramResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the LiveSource for this Program.
+describeProgramResponse_liveSourceName :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Text)
+describeProgramResponse_liveSourceName = Lens.lens (\DescribeProgramResponse' {liveSourceName} -> liveSourceName) (\s@DescribeProgramResponse' {} a -> s {liveSourceName = a} :: DescribeProgramResponse)
 
 -- | The name of the program.
 describeProgramResponse_programName :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Text)
@@ -258,6 +269,7 @@ describeProgramResponse_httpStatus = Lens.lens (\DescribeProgramResponse' {httpS
 instance Prelude.NFData DescribeProgramResponse where
   rnf DescribeProgramResponse' {..} =
     Prelude.rnf scheduledStartTime
+      `Prelude.seq` Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf programName
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf vodSourceName

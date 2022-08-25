@@ -179,10 +179,12 @@ library
     Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
     Amazonka.EMR.Types.OnDemandProvisioningAllocationStrategy
     Amazonka.EMR.Types.OnDemandProvisioningSpecification
+    Amazonka.EMR.Types.OSRelease
     Amazonka.EMR.Types.PlacementGroupConfig
     Amazonka.EMR.Types.PlacementGroupStrategy
     Amazonka.EMR.Types.PlacementType
     Amazonka.EMR.Types.PortRange
+    Amazonka.EMR.Types.ReconfigurationType
     Amazonka.EMR.Types.ReleaseLabelFilter
     Amazonka.EMR.Types.RepoUpgradeOnBoot
     Amazonka.EMR.Types.ScaleDownBehavior

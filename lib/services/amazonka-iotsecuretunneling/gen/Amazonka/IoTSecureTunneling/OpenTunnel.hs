@@ -21,7 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new tunnel, and returns two client access tokens for clients
--- to use to connect to the AWS IoT Secure Tunneling proxy server.
+-- to use to connect to the IoT Secure Tunneling proxy server.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions OpenTunnel>
+-- action.
 module Amazonka.IoTSecureTunneling.OpenTunnel
   ( -- * Creating a Request
     OpenTunnel (..),
@@ -170,16 +174,15 @@ instance Core.ToQuery OpenTunnel where
 
 -- | /See:/ 'newOpenTunnelResponse' smart constructor.
 data OpenTunnelResponse = OpenTunnelResponse'
-  { -- | The access token the source local proxy uses to connect to AWS IoT
-    -- Secure Tunneling.
+  { -- | The access token the source local proxy uses to connect to IoT Secure
+    -- Tunneling.
     sourceAccessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The access token the destination local proxy uses to connect to AWS IoT
+    -- | The access token the destination local proxy uses to connect to IoT
     -- Secure Tunneling.
     destinationAccessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A unique alpha-numeric tunnel ID.
     tunnelId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name for the tunnel. The tunnel ARN format is
-    -- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+    -- | The Amazon Resource Name for the tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -194,16 +197,15 @@ data OpenTunnelResponse = OpenTunnelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceAccessToken', 'openTunnelResponse_sourceAccessToken' - The access token the source local proxy uses to connect to AWS IoT
--- Secure Tunneling.
+-- 'sourceAccessToken', 'openTunnelResponse_sourceAccessToken' - The access token the source local proxy uses to connect to IoT Secure
+-- Tunneling.
 --
--- 'destinationAccessToken', 'openTunnelResponse_destinationAccessToken' - The access token the destination local proxy uses to connect to AWS IoT
+-- 'destinationAccessToken', 'openTunnelResponse_destinationAccessToken' - The access token the destination local proxy uses to connect to IoT
 -- Secure Tunneling.
 --
 -- 'tunnelId', 'openTunnelResponse_tunnelId' - A unique alpha-numeric tunnel ID.
 --
--- 'tunnelArn', 'openTunnelResponse_tunnelArn' - The Amazon Resource Name for the tunnel. The tunnel ARN format is
--- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+-- 'tunnelArn', 'openTunnelResponse_tunnelArn' - The Amazon Resource Name for the tunnel.
 --
 -- 'httpStatus', 'openTunnelResponse_httpStatus' - The response's http status code.
 newOpenTunnelResponse ::
@@ -220,12 +222,12 @@ newOpenTunnelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The access token the source local proxy uses to connect to AWS IoT
--- Secure Tunneling.
+-- | The access token the source local proxy uses to connect to IoT Secure
+-- Tunneling.
 openTunnelResponse_sourceAccessToken :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
 openTunnelResponse_sourceAccessToken = Lens.lens (\OpenTunnelResponse' {sourceAccessToken} -> sourceAccessToken) (\s@OpenTunnelResponse' {} a -> s {sourceAccessToken = a} :: OpenTunnelResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The access token the destination local proxy uses to connect to AWS IoT
+-- | The access token the destination local proxy uses to connect to IoT
 -- Secure Tunneling.
 openTunnelResponse_destinationAccessToken :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
 openTunnelResponse_destinationAccessToken = Lens.lens (\OpenTunnelResponse' {destinationAccessToken} -> destinationAccessToken) (\s@OpenTunnelResponse' {} a -> s {destinationAccessToken = a} :: OpenTunnelResponse) Prelude.. Lens.mapping Core._Sensitive
@@ -234,8 +236,7 @@ openTunnelResponse_destinationAccessToken = Lens.lens (\OpenTunnelResponse' {des
 openTunnelResponse_tunnelId :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
 openTunnelResponse_tunnelId = Lens.lens (\OpenTunnelResponse' {tunnelId} -> tunnelId) (\s@OpenTunnelResponse' {} a -> s {tunnelId = a} :: OpenTunnelResponse)
 
--- | The Amazon Resource Name for the tunnel. The tunnel ARN format is
--- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+-- | The Amazon Resource Name for the tunnel.
 openTunnelResponse_tunnelArn :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
 openTunnelResponse_tunnelArn = Lens.lens (\OpenTunnelResponse' {tunnelArn} -> tunnelArn) (\s@OpenTunnelResponse' {} a -> s {tunnelArn = a} :: OpenTunnelResponse)
 

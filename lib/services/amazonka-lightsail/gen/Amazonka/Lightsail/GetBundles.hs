@@ -20,8 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of bundles that are available for purchase. A bundle
--- describes the specs for your virtual private server (or /instance/).
+-- Returns the bundles that you can apply to an Amazon Lightsail instance
+-- when you create it.
+--
+-- A bundle describes the specifications of an instance, such as the
+-- monthly cost, amount of memory, the number of vCPUs, amount of storage
+-- space, and monthly network data transfer quota.
+--
+-- Bundles are referred to as /instance plans/ in the Lightsail console.
 --
 -- This operation returns paginated results.
 module Amazonka.Lightsail.GetBundles
@@ -53,8 +59,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBundles' smart constructor.
 data GetBundles = GetBundles'
-  { -- | A Boolean value that indicates whether to include inactive bundle
-    -- results in your request.
+  { -- | A Boolean value that indicates whether to include inactive (unavailable)
+    -- bundles in the response of your request.
     includeInactive :: Prelude.Maybe Prelude.Bool,
     -- | The token to advance to the next page of results from your request.
     --
@@ -73,8 +79,8 @@ data GetBundles = GetBundles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeInactive', 'getBundles_includeInactive' - A Boolean value that indicates whether to include inactive bundle
--- results in your request.
+-- 'includeInactive', 'getBundles_includeInactive' - A Boolean value that indicates whether to include inactive (unavailable)
+-- bundles in the response of your request.
 --
 -- 'pageToken', 'getBundles_pageToken' - The token to advance to the next page of results from your request.
 --
@@ -89,8 +95,8 @@ newGetBundles =
       pageToken = Prelude.Nothing
     }
 
--- | A Boolean value that indicates whether to include inactive bundle
--- results in your request.
+-- | A Boolean value that indicates whether to include inactive (unavailable)
+-- bundles in the response of your request.
 getBundles_includeInactive :: Lens.Lens' GetBundles (Prelude.Maybe Prelude.Bool)
 getBundles_includeInactive = Lens.lens (\GetBundles' {includeInactive} -> includeInactive) (\s@GetBundles' {} a -> s {includeInactive = a} :: GetBundles)
 

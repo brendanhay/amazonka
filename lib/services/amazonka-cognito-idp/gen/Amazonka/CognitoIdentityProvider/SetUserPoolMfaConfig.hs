@@ -20,26 +20,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Set the user pool multi-factor authentication (MFA) configuration.
+-- Sets the user pool multi-factor authentication (MFA) configuration.
 --
 -- This action might generate an SMS text message. Starting June 1, 2021,
--- U.S. telecom carriers require that you register an origination phone
--- number before you can send SMS messages to U.S. phone numbers. If you
--- use SMS text messages in Amazon Cognito, you must register a phone
--- number with
--- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
--- will use the the registered number automatically. Otherwise, Cognito
--- users that must receive SMS messages might be unable to sign up,
--- activate their accounts, or sign in.
+-- US telecom carriers require you to register an origination phone number
+-- before you can send SMS messages to US phone numbers. If you use SMS
+-- text messages in Amazon Cognito, you must register a phone number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Amazon
+-- Cognito uses the registered number automatically. Otherwise, Amazon
+-- Cognito users who must receive SMS messages might not be able to sign
+-- up, activate their accounts, or sign in.
 --
 -- If you have never used SMS text messages with Amazon Cognito or any
--- other Amazon Web Service, Amazon SNS might place your account in SMS
--- sandbox. In
+-- other Amazon Web Service, Amazon Simple Notification Service might place
+-- your account in the SMS sandbox. In
 -- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
--- , you’ll have limitations, such as sending messages to only verified
--- phone numbers. After testing in the sandbox environment, you can move
--- out of the SMS sandbox and into production. For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- , you can send messages only to verified phone numbers. After you test
+-- your app while in the sandbox environment, you can move out of the
+-- sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Amazon Cognito user pools>
 -- in the /Amazon Cognito Developer Guide/.
 module Amazonka.CognitoIdentityProvider.SetUserPoolMfaConfig
   ( -- * Creating a Request
@@ -73,17 +72,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetUserPoolMfaConfig' smart constructor.
 data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
-  { -- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t
-    -- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
-    -- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
-    -- to learn more. Valid values include:
+  { -- | The MFA configuration. If you set the MfaConfiguration value to ‘ON’,
+    -- only users who have set up an MFA factor can sign in. To learn more, see
+    -- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
+    -- Valid values include:
     --
-    -- -   @OFF@ MFA will not be used for any users.
+    -- -   @OFF@ MFA won\'t be used for any users.
     --
     -- -   @ON@ MFA is required for all users to sign in.
     --
     -- -   @OPTIONAL@ MFA will be required only for individual users who have
-    --     an MFA factor enabled.
+    --     an MFA factor activated.
     mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
     -- | The software token MFA configuration.
     softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
@@ -102,17 +101,17 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. Users who don\'t have an MFA factor set up won\'t
--- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
--- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
--- to learn more. Valid values include:
+-- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. If you set the MfaConfiguration value to ‘ON’,
+-- only users who have set up an MFA factor can sign in. To learn more, see
+-- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
+-- Valid values include:
 --
--- -   @OFF@ MFA will not be used for any users.
+-- -   @OFF@ MFA won\'t be used for any users.
 --
 -- -   @ON@ MFA is required for all users to sign in.
 --
 -- -   @OPTIONAL@ MFA will be required only for individual users who have
---     an MFA factor enabled.
+--     an MFA factor activated.
 --
 -- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.
 --
@@ -132,17 +131,17 @@ newSetUserPoolMfaConfig pUserPoolId_ =
       userPoolId = pUserPoolId_
     }
 
--- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t
--- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
--- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
--- to learn more. Valid values include:
+-- | The MFA configuration. If you set the MfaConfiguration value to ‘ON’,
+-- only users who have set up an MFA factor can sign in. To learn more, see
+-- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a user pool>.
+-- Valid values include:
 --
--- -   @OFF@ MFA will not be used for any users.
+-- -   @OFF@ MFA won\'t be used for any users.
 --
 -- -   @ON@ MFA is required for all users to sign in.
 --
 -- -   @OPTIONAL@ MFA will be required only for individual users who have
---     an MFA factor enabled.
+--     an MFA factor activated.
 setUserPoolMfaConfig_mfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe UserPoolMfaType)
 setUserPoolMfaConfig_mfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {mfaConfiguration} -> mfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {mfaConfiguration = a} :: SetUserPoolMfaConfig)
 
@@ -226,7 +225,7 @@ instance Core.ToQuery SetUserPoolMfaConfig where
 data SetUserPoolMfaConfigResponse = SetUserPoolMfaConfigResponse'
   { -- | The MFA configuration. Valid values include:
     --
-    -- -   @OFF@ MFA will not be used for any users.
+    -- -   @OFF@ MFA won\'t be used for any users.
     --
     -- -   @ON@ MFA is required for all users to sign in.
     --
@@ -252,7 +251,7 @@ data SetUserPoolMfaConfigResponse = SetUserPoolMfaConfigResponse'
 --
 -- 'mfaConfiguration', 'setUserPoolMfaConfigResponse_mfaConfiguration' - The MFA configuration. Valid values include:
 --
--- -   @OFF@ MFA will not be used for any users.
+-- -   @OFF@ MFA won\'t be used for any users.
 --
 -- -   @ON@ MFA is required for all users to sign in.
 --
@@ -280,7 +279,7 @@ newSetUserPoolMfaConfigResponse pHttpStatus_ =
 
 -- | The MFA configuration. Valid values include:
 --
--- -   @OFF@ MFA will not be used for any users.
+-- -   @OFF@ MFA won\'t be used for any users.
 --
 -- -   @ON@ MFA is required for all users to sign in.
 --

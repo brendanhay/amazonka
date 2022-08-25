@@ -148,6 +148,7 @@ library
     Amazonka.Lightsail.GetLoadBalancerMetricData
     Amazonka.Lightsail.GetLoadBalancers
     Amazonka.Lightsail.GetLoadBalancerTlsCertificates
+    Amazonka.Lightsail.GetLoadBalancerTlsPolicies
     Amazonka.Lightsail.GetOperation
     Amazonka.Lightsail.GetOperations
     Amazonka.Lightsail.GetOperationsForResource
@@ -193,6 +194,8 @@ library
     Amazonka.Lightsail.Types.AccessKeyLastUsed
     Amazonka.Lightsail.Types.AccessRules
     Amazonka.Lightsail.Types.AccessType
+    Amazonka.Lightsail.Types.AccountLevelBpaSync
+    Amazonka.Lightsail.Types.AccountLevelBpaSyncStatus
     Amazonka.Lightsail.Types.AddOn
     Amazonka.Lightsail.Types.AddOnRequest
     Amazonka.Lightsail.Types.AddOnType
@@ -206,7 +209,9 @@ library
     Amazonka.Lightsail.Types.BehaviorEnum
     Amazonka.Lightsail.Types.Blueprint
     Amazonka.Lightsail.Types.BlueprintType
+    Amazonka.Lightsail.Types.BPAStatusMessage
     Amazonka.Lightsail.Types.Bucket
+    Amazonka.Lightsail.Types.BucketAccessLogConfig
     Amazonka.Lightsail.Types.BucketBundle
     Amazonka.Lightsail.Types.BucketMetricName
     Amazonka.Lightsail.Types.BucketState
@@ -231,6 +236,8 @@ library
     Amazonka.Lightsail.Types.ContainerServiceDeployment
     Amazonka.Lightsail.Types.ContainerServiceDeploymentRequest
     Amazonka.Lightsail.Types.ContainerServiceDeploymentState
+    Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRole
+    Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRoleRequest
     Amazonka.Lightsail.Types.ContainerServiceEndpoint
     Amazonka.Lightsail.Types.ContainerServiceHealthCheckConfig
     Amazonka.Lightsail.Types.ContainerServiceLogEvent
@@ -300,6 +307,7 @@ library
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRevocationReason
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificateStatus
     Amazonka.Lightsail.Types.LoadBalancerTlsCertificateSummary
+    Amazonka.Lightsail.Types.LoadBalancerTlsPolicy
     Amazonka.Lightsail.Types.LogEvent
     Amazonka.Lightsail.Types.MetricDatapoint
     Amazonka.Lightsail.Types.MetricName
@@ -320,6 +328,8 @@ library
     Amazonka.Lightsail.Types.PortInfo
     Amazonka.Lightsail.Types.PortInfoSourceType
     Amazonka.Lightsail.Types.PortState
+    Amazonka.Lightsail.Types.PrivateRegistryAccess
+    Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
     Amazonka.Lightsail.Types.QueryStringObject
     Amazonka.Lightsail.Types.RecordState
     Amazonka.Lightsail.Types.RegionInfo

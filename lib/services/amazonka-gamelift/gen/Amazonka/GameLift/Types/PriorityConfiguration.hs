@@ -52,8 +52,8 @@ import qualified Amazonka.Prelude as Prelude
 data PriorityConfiguration = PriorityConfiguration'
   { -- | The prioritization order to use for fleet locations, when the
     -- @PriorityOrder@ property includes @LOCATION@. Locations are identified
-    -- by AWS Region codes such as @us-west-2@. Each location can only be
-    -- listed once.
+    -- by Amazon Web Services Region codes such as @us-west-2@. Each location
+    -- can only be listed once.
     locationOrder :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The recommended sequence to use when prioritizing where to place new
     -- game sessions. Each type can only be listed once.
@@ -85,8 +85,8 @@ data PriorityConfiguration = PriorityConfiguration'
 --
 -- 'locationOrder', 'priorityConfiguration_locationOrder' - The prioritization order to use for fleet locations, when the
 -- @PriorityOrder@ property includes @LOCATION@. Locations are identified
--- by AWS Region codes such as @us-west-2@. Each location can only be
--- listed once.
+-- by Amazon Web Services Region codes such as @us-west-2@. Each location
+-- can only be listed once.
 --
 -- 'priorityOrder', 'priorityConfiguration_priorityOrder' - The recommended sequence to use when prioritizing where to place new
 -- game sessions. Each type can only be listed once.
@@ -115,8 +115,8 @@ newPriorityConfiguration =
 
 -- | The prioritization order to use for fleet locations, when the
 -- @PriorityOrder@ property includes @LOCATION@. Locations are identified
--- by AWS Region codes such as @us-west-2@. Each location can only be
--- listed once.
+-- by Amazon Web Services Region codes such as @us-west-2@. Each location
+-- can only be listed once.
 priorityConfiguration_locationOrder :: Lens.Lens' PriorityConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 priorityConfiguration_locationOrder = Lens.lens (\PriorityConfiguration' {locationOrder} -> locationOrder) (\s@PriorityConfiguration' {} a -> s {locationOrder = a} :: PriorityConfiguration) Prelude.. Lens.mapping Lens.coerced
 

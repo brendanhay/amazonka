@@ -37,6 +37,8 @@ module Amazonka.DirectConnect.UpdateVirtualInterfaceAttributes
 
     -- * Request Lenses
     updateVirtualInterfaceAttributes_mtu,
+    updateVirtualInterfaceAttributes_enableSiteLink,
+    updateVirtualInterfaceAttributes_virtualInterfaceName,
     updateVirtualInterfaceAttributes_virtualInterfaceId,
 
     -- * Destructuring the Response
@@ -59,6 +61,7 @@ module Amazonka.DirectConnect.UpdateVirtualInterfaceAttributes
     virtualInterface_asn,
     virtualInterface_location,
     virtualInterface_region,
+    virtualInterface_siteLinkEnabled,
     virtualInterface_amazonAddress,
     virtualInterface_virtualInterfaceId,
     virtualInterface_bgpPeers,
@@ -84,6 +87,10 @@ data UpdateVirtualInterfaceAttributes = UpdateVirtualInterfaceAttributes'
   { -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
     mtu :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether to enable or disable SiteLink.
+    enableSiteLink :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the virtual private interface.
+    virtualInterfaceName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual private interface.
     virtualInterfaceId :: Prelude.Text
   }
@@ -100,6 +107,10 @@ data UpdateVirtualInterfaceAttributes = UpdateVirtualInterfaceAttributes'
 -- 'mtu', 'updateVirtualInterfaceAttributes_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
 --
+-- 'enableSiteLink', 'updateVirtualInterfaceAttributes_enableSiteLink' - Indicates whether to enable or disable SiteLink.
+--
+-- 'virtualInterfaceName', 'updateVirtualInterfaceAttributes_virtualInterfaceName' - The name of the virtual private interface.
+--
 -- 'virtualInterfaceId', 'updateVirtualInterfaceAttributes_virtualInterfaceId' - The ID of the virtual private interface.
 newUpdateVirtualInterfaceAttributes ::
   -- | 'virtualInterfaceId'
@@ -110,6 +121,8 @@ newUpdateVirtualInterfaceAttributes
     UpdateVirtualInterfaceAttributes'
       { mtu =
           Prelude.Nothing,
+        enableSiteLink = Prelude.Nothing,
+        virtualInterfaceName = Prelude.Nothing,
         virtualInterfaceId = pVirtualInterfaceId_
       }
 
@@ -117,6 +130,14 @@ newUpdateVirtualInterfaceAttributes
 -- 1500 and 9001. The default value is 1500.
 updateVirtualInterfaceAttributes_mtu :: Lens.Lens' UpdateVirtualInterfaceAttributes (Prelude.Maybe Prelude.Int)
 updateVirtualInterfaceAttributes_mtu = Lens.lens (\UpdateVirtualInterfaceAttributes' {mtu} -> mtu) (\s@UpdateVirtualInterfaceAttributes' {} a -> s {mtu = a} :: UpdateVirtualInterfaceAttributes)
+
+-- | Indicates whether to enable or disable SiteLink.
+updateVirtualInterfaceAttributes_enableSiteLink :: Lens.Lens' UpdateVirtualInterfaceAttributes (Prelude.Maybe Prelude.Bool)
+updateVirtualInterfaceAttributes_enableSiteLink = Lens.lens (\UpdateVirtualInterfaceAttributes' {enableSiteLink} -> enableSiteLink) (\s@UpdateVirtualInterfaceAttributes' {} a -> s {enableSiteLink = a} :: UpdateVirtualInterfaceAttributes)
+
+-- | The name of the virtual private interface.
+updateVirtualInterfaceAttributes_virtualInterfaceName :: Lens.Lens' UpdateVirtualInterfaceAttributes (Prelude.Maybe Prelude.Text)
+updateVirtualInterfaceAttributes_virtualInterfaceName = Lens.lens (\UpdateVirtualInterfaceAttributes' {virtualInterfaceName} -> virtualInterfaceName) (\s@UpdateVirtualInterfaceAttributes' {} a -> s {virtualInterfaceName = a} :: UpdateVirtualInterfaceAttributes)
 
 -- | The ID of the virtual private interface.
 updateVirtualInterfaceAttributes_virtualInterfaceId :: Lens.Lens' UpdateVirtualInterfaceAttributes Prelude.Text
@@ -142,6 +163,8 @@ instance
     _salt
     UpdateVirtualInterfaceAttributes' {..} =
       _salt `Prelude.hashWithSalt` mtu
+        `Prelude.hashWithSalt` enableSiteLink
+        `Prelude.hashWithSalt` virtualInterfaceName
         `Prelude.hashWithSalt` virtualInterfaceId
 
 instance
@@ -150,6 +173,8 @@ instance
   where
   rnf UpdateVirtualInterfaceAttributes' {..} =
     Prelude.rnf mtu
+      `Prelude.seq` Prelude.rnf enableSiteLink
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance
@@ -175,6 +200,10 @@ instance Core.ToJSON UpdateVirtualInterfaceAttributes where
     Core.object
       ( Prelude.catMaybes
           [ ("mtu" Core..=) Prelude.<$> mtu,
+            ("enableSiteLink" Core..=)
+              Prelude.<$> enableSiteLink,
+            ("virtualInterfaceName" Core..=)
+              Prelude.<$> virtualInterfaceName,
             Prelude.Just
               ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]

@@ -50,9 +50,9 @@ data SpotInstanceRequest = SpotInstanceRequest'
     -- group for all Spot Instance requests, all Spot Instances are launched in
     -- the same Availability Zone.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
-    -- | The state of the Spot Instance request. Spot status information helps
-    -- track your Spot Instance requests. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status>
+    -- | The state of the Spot Instance request. Spot request status information
+    -- helps track your Spot Instance requests. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html Spot request status>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     state :: Prelude.Maybe SpotInstanceState,
     -- | The status code and status message describing the Spot Instance request.
@@ -92,8 +92,13 @@ data SpotInstanceRequest = SpotInstanceRequest'
     launchSpecification :: Prelude.Maybe LaunchSpecification,
     -- | Deprecated.
     actualBlockHourlyPrice :: Prelude.Maybe Prelude.Text,
-    -- | The maximum price per hour that you are willing to pay for a Spot
-    -- Instance.
+    -- | The maximum price per unit hour that you are willing to pay for a Spot
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify this parameter.
     spotPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -120,9 +125,9 @@ data SpotInstanceRequest = SpotInstanceRequest'
 -- group for all Spot Instance requests, all Spot Instances are launched in
 -- the same Availability Zone.
 --
--- 'state', 'spotInstanceRequest_state' - The state of the Spot Instance request. Spot status information helps
--- track your Spot Instance requests. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status>
+-- 'state', 'spotInstanceRequest_state' - The state of the Spot Instance request. Spot request status information
+-- helps track your Spot Instance requests. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html Spot request status>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- 'status', 'spotInstanceRequest_status' - The status code and status message describing the Spot Instance request.
@@ -162,8 +167,13 @@ data SpotInstanceRequest = SpotInstanceRequest'
 --
 -- 'actualBlockHourlyPrice', 'spotInstanceRequest_actualBlockHourlyPrice' - Deprecated.
 --
--- 'spotPrice', 'spotInstanceRequest_spotPrice' - The maximum price per hour that you are willing to pay for a Spot
--- Instance.
+-- 'spotPrice', 'spotInstanceRequest_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 newSpotInstanceRequest ::
   SpotInstanceRequest
 newSpotInstanceRequest =
@@ -215,9 +225,9 @@ spotInstanceRequest_blockDurationMinutes = Lens.lens (\SpotInstanceRequest' {blo
 spotInstanceRequest_availabilityZoneGroup :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_availabilityZoneGroup = Lens.lens (\SpotInstanceRequest' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@SpotInstanceRequest' {} a -> s {availabilityZoneGroup = a} :: SpotInstanceRequest)
 
--- | The state of the Spot Instance request. Spot status information helps
--- track your Spot Instance requests. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status>
+-- | The state of the Spot Instance request. Spot request status information
+-- helps track your Spot Instance requests. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html Spot request status>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 spotInstanceRequest_state :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe SpotInstanceState)
 spotInstanceRequest_state = Lens.lens (\SpotInstanceRequest' {state} -> state) (\s@SpotInstanceRequest' {} a -> s {state = a} :: SpotInstanceRequest)
@@ -281,8 +291,13 @@ spotInstanceRequest_launchSpecification = Lens.lens (\SpotInstanceRequest' {laun
 spotInstanceRequest_actualBlockHourlyPrice :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_actualBlockHourlyPrice = Lens.lens (\SpotInstanceRequest' {actualBlockHourlyPrice} -> actualBlockHourlyPrice) (\s@SpotInstanceRequest' {} a -> s {actualBlockHourlyPrice = a} :: SpotInstanceRequest)
 
--- | The maximum price per hour that you are willing to pay for a Spot
--- Instance.
+-- | The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 spotInstanceRequest_spotPrice :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_spotPrice = Lens.lens (\SpotInstanceRequest' {spotPrice} -> spotPrice) (\s@SpotInstanceRequest' {} a -> s {spotPrice = a} :: SpotInstanceRequest)
 

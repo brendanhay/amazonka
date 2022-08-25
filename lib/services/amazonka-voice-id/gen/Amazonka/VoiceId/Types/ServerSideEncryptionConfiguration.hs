@@ -23,12 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The configuration containing information about the customer-managed KMS
--- Key used for encrypting customer data.
+-- | The configuration containing information about the customer managed key
+-- used for encrypting customer data.
 --
 -- /See:/ 'newServerSideEncryptionConfiguration' smart constructor.
 data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
-  { -- | The identifier of the KMS Key you want Voice ID to use to encrypt your
+  { -- | The identifier of the KMS key you want Voice ID to use to encrypt your
     -- data.
     kmsKeyId :: Prelude.Text
   }
@@ -42,7 +42,7 @@ data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'serverSideEncryptionConfiguration_kmsKeyId' - The identifier of the KMS Key you want Voice ID to use to encrypt your
+-- 'kmsKeyId', 'serverSideEncryptionConfiguration_kmsKeyId' - The identifier of the KMS key you want Voice ID to use to encrypt your
 -- data.
 newServerSideEncryptionConfiguration ::
   -- | 'kmsKeyId'
@@ -54,7 +54,7 @@ newServerSideEncryptionConfiguration pKmsKeyId_ =
         pKmsKeyId_
     }
 
--- | The identifier of the KMS Key you want Voice ID to use to encrypt your
+-- | The identifier of the KMS key you want Voice ID to use to encrypt your
 -- data.
 serverSideEncryptionConfiguration_kmsKeyId :: Lens.Lens' ServerSideEncryptionConfiguration Prelude.Text
 serverSideEncryptionConfiguration_kmsKeyId = Lens.lens (\ServerSideEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ServerSideEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: ServerSideEncryptionConfiguration)

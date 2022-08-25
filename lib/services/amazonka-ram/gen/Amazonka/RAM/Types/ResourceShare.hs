@@ -26,27 +26,30 @@ import Amazonka.RAM.Types.ResourceShareFeatureSet
 import Amazonka.RAM.Types.ResourceShareStatus
 import Amazonka.RAM.Types.Tag
 
--- | Describes a resource share.
+-- | Describes a resource share in RAM.
 --
 -- /See:/ 'newResourceShare' smart constructor.
 data ResourceShare = ResourceShare'
-  { -- | The tags for the resource share.
+  { -- | The tag key and value pairs attached to the resource share.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the resource share.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource share.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share
     resourceShareArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the resource share.
+    -- | The current status of the resource share.
     status :: Prelude.Maybe ResourceShareStatus,
-    -- | The time when the resource share was last updated.
+    -- | The date and time when the resource share was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | Indicates how the resource share was created. Possible values include:
     --
     -- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
-    --     created from an Amazon Web Services Identity and Access Management
-    --     (Amazon Web Services IAM) policy attached to a resource. These
-    --     resource shares are visible only to the Amazon Web Services account
-    --     that created it. They cannot be modified in RAM.
+    --     created from an Identity and Access Management (IAM) resource-based
+    --     permission policy attached to the resource. This type of resource
+    --     share is visible only to the Amazon Web Services account that
+    --     created it. You can\'t modify it in RAM unless you promote it. For
+    --     more information, see PromoteResourceShareCreatedFromPolicy.
     --
     -- -   @PROMOTING_TO_STANDARD@ - The resource share is in the process of
     --     being promoted. For more information, see
@@ -54,9 +57,10 @@ data ResourceShare = ResourceShare'
     --
     -- -   @STANDARD@ - Indicates that the resource share was created in RAM
     --     using the console or APIs. These resource shares are visible to all
-    --     principals. They can be modified in RAM.
+    --     principals you share the resource share with. You can modify these
+    --     resource shares in RAM using the console or APIs.
     featureSet :: Prelude.Maybe ResourceShareFeatureSet,
-    -- | The time when the resource share was created.
+    -- | The date and time when the resource share was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | A message about the status of the resource share.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -76,23 +80,26 @@ data ResourceShare = ResourceShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resourceShare_tags' - The tags for the resource share.
+-- 'tags', 'resourceShare_tags' - The tag key and value pairs attached to the resource share.
 --
 -- 'name', 'resourceShare_name' - The name of the resource share.
 --
--- 'resourceShareArn', 'resourceShare_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'resourceShareArn', 'resourceShare_resourceShareArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share
 --
--- 'status', 'resourceShare_status' - The status of the resource share.
+-- 'status', 'resourceShare_status' - The current status of the resource share.
 --
--- 'lastUpdatedTime', 'resourceShare_lastUpdatedTime' - The time when the resource share was last updated.
+-- 'lastUpdatedTime', 'resourceShare_lastUpdatedTime' - The date and time when the resource share was last updated.
 --
 -- 'featureSet', 'resourceShare_featureSet' - Indicates how the resource share was created. Possible values include:
 --
 -- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
---     created from an Amazon Web Services Identity and Access Management
---     (Amazon Web Services IAM) policy attached to a resource. These
---     resource shares are visible only to the Amazon Web Services account
---     that created it. They cannot be modified in RAM.
+--     created from an Identity and Access Management (IAM) resource-based
+--     permission policy attached to the resource. This type of resource
+--     share is visible only to the Amazon Web Services account that
+--     created it. You can\'t modify it in RAM unless you promote it. For
+--     more information, see PromoteResourceShareCreatedFromPolicy.
 --
 -- -   @PROMOTING_TO_STANDARD@ - The resource share is in the process of
 --     being promoted. For more information, see
@@ -100,9 +107,10 @@ data ResourceShare = ResourceShare'
 --
 -- -   @STANDARD@ - Indicates that the resource share was created in RAM
 --     using the console or APIs. These resource shares are visible to all
---     principals. They can be modified in RAM.
+--     principals you share the resource share with. You can modify these
+--     resource shares in RAM using the console or APIs.
 --
--- 'creationTime', 'resourceShare_creationTime' - The time when the resource share was created.
+-- 'creationTime', 'resourceShare_creationTime' - The date and time when the resource share was created.
 --
 -- 'statusMessage', 'resourceShare_statusMessage' - A message about the status of the resource share.
 --
@@ -126,7 +134,7 @@ newResourceShare =
       allowExternalPrincipals = Prelude.Nothing
     }
 
--- | The tags for the resource share.
+-- | The tag key and value pairs attached to the resource share.
 resourceShare_tags :: Lens.Lens' ResourceShare (Prelude.Maybe [Tag])
 resourceShare_tags = Lens.lens (\ResourceShare' {tags} -> tags) (\s@ResourceShare' {} a -> s {tags = a} :: ResourceShare) Prelude.. Lens.mapping Lens.coerced
 
@@ -134,25 +142,28 @@ resourceShare_tags = Lens.lens (\ResourceShare' {tags} -> tags) (\s@ResourceShar
 resourceShare_name :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.Text)
 resourceShare_name = Lens.lens (\ResourceShare' {name} -> name) (\s@ResourceShare' {} a -> s {name = a} :: ResourceShare)
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share
 resourceShare_resourceShareArn :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.Text)
 resourceShare_resourceShareArn = Lens.lens (\ResourceShare' {resourceShareArn} -> resourceShareArn) (\s@ResourceShare' {} a -> s {resourceShareArn = a} :: ResourceShare)
 
--- | The status of the resource share.
+-- | The current status of the resource share.
 resourceShare_status :: Lens.Lens' ResourceShare (Prelude.Maybe ResourceShareStatus)
 resourceShare_status = Lens.lens (\ResourceShare' {status} -> status) (\s@ResourceShare' {} a -> s {status = a} :: ResourceShare)
 
--- | The time when the resource share was last updated.
+-- | The date and time when the resource share was last updated.
 resourceShare_lastUpdatedTime :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.UTCTime)
 resourceShare_lastUpdatedTime = Lens.lens (\ResourceShare' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShare' {} a -> s {lastUpdatedTime = a} :: ResourceShare) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates how the resource share was created. Possible values include:
 --
 -- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
---     created from an Amazon Web Services Identity and Access Management
---     (Amazon Web Services IAM) policy attached to a resource. These
---     resource shares are visible only to the Amazon Web Services account
---     that created it. They cannot be modified in RAM.
+--     created from an Identity and Access Management (IAM) resource-based
+--     permission policy attached to the resource. This type of resource
+--     share is visible only to the Amazon Web Services account that
+--     created it. You can\'t modify it in RAM unless you promote it. For
+--     more information, see PromoteResourceShareCreatedFromPolicy.
 --
 -- -   @PROMOTING_TO_STANDARD@ - The resource share is in the process of
 --     being promoted. For more information, see
@@ -160,11 +171,12 @@ resourceShare_lastUpdatedTime = Lens.lens (\ResourceShare' {lastUpdatedTime} -> 
 --
 -- -   @STANDARD@ - Indicates that the resource share was created in RAM
 --     using the console or APIs. These resource shares are visible to all
---     principals. They can be modified in RAM.
+--     principals you share the resource share with. You can modify these
+--     resource shares in RAM using the console or APIs.
 resourceShare_featureSet :: Lens.Lens' ResourceShare (Prelude.Maybe ResourceShareFeatureSet)
 resourceShare_featureSet = Lens.lens (\ResourceShare' {featureSet} -> featureSet) (\s@ResourceShare' {} a -> s {featureSet = a} :: ResourceShare)
 
--- | The time when the resource share was created.
+-- | The date and time when the resource share was created.
 resourceShare_creationTime :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.UTCTime)
 resourceShare_creationTime = Lens.lens (\ResourceShare' {creationTime} -> creationTime) (\s@ResourceShare' {} a -> s {creationTime = a} :: ResourceShare) Prelude.. Lens.mapping Core._Time
 

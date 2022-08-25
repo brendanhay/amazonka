@@ -27,9 +27,7 @@
 -- the consumer can use the name to access the service.
 --
 -- Before the service provider runs this command, they must add a record to
--- the DNS server. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record Adding a TXT Record to Your Domain\'s DNS Server>
--- in the /Amazon VPC User Guide/.
+-- the DNS server.
 module Amazonka.EC2.StartVpcEndpointServicePrivateDnsVerification
   ( -- * Creating a Request
     StartVpcEndpointServicePrivateDnsVerification (..),

@@ -44,11 +44,17 @@ data DescribedServer = DescribedServer'
     -- | Specifies the number of users that are assigned to a server you
     -- specified with the @ServerId@.
     userCount :: Prelude.Maybe Prelude.Int,
+    -- | Specifies a string to display when users connect to a server. This
+    -- string is displayed before the user authenticates. For example, the
+    -- following banner displays details about using the system:
+    --
+    -- @This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.@
+    preAuthenticationLoginBanner :: Prelude.Maybe Prelude.Text,
     -- | The protocol settings that are configured for your server.
     --
     -- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
-    -- dotted-quad IPv4 address, such as the external IP address of a firewall,
-    -- router, or load balancer.
+    -- IPv4 address, such as the public IP address of a firewall, router, or
+    -- load balancer.
     protocolDetails :: Prelude.Maybe ProtocolDetails,
     -- | Specifies information to call a customer-supplied authentication API.
     -- This field is not populated when the @IdentityProviderType@ of a server
@@ -57,35 +63,40 @@ data DescribedServer = DescribedServer'
     -- | Specifies the domain of the storage system that is used for file
     -- transfers.
     domain :: Prelude.Maybe Domain,
-    -- | Specifies the mode of authentication for a server. The default value is
+    -- | The mode of authentication for a server. The default value is
     -- @SERVICE_MANAGED@, which allows you to store and access user credentials
-    -- within the Amazon Web Services Transfer Family service.
+    -- within the Transfer Family service.
     --
     -- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups
-    -- in Amazon Web Services Managed Active Directory or Microsoft Active
+    -- in Directory Service for Microsoft Active Directory or Microsoft Active
     -- Directory in your on-premises environment or in Amazon Web Services
-    -- using AD Connectors. This option also requires you to provide a
-    -- Directory ID using the @IdentityProviderDetails@ parameter.
+    -- using AD Connector. This option also requires you to provide a Directory
+    -- ID by using the @IdentityProviderDetails@ parameter.
     --
     -- Use the @API_GATEWAY@ value to integrate with an identity provider of
-    -- your choosing. The @API_GATEWAY@ setting requires you to provide an API
-    -- Gateway endpoint URL to call for authentication using the
+    -- your choosing. The @API_GATEWAY@ setting requires you to provide an
+    -- Amazon API Gateway endpoint URL to call for authentication by using the
     -- @IdentityProviderDetails@ parameter.
+    --
+    -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
+    -- identity provider. If you choose this value, you must specify the ARN
+    -- for the Lambda function in the @Function@ parameter or the
+    -- @IdentityProviderDetails@ data type.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | Specifies the name of the security policy that is attached to the
     -- server.
     securityPolicyName :: Prelude.Maybe Prelude.Text,
     -- | The virtual private cloud (VPC) endpoint settings that are configured
     -- for your server. When you host your endpoint within your VPC, you can
-    -- make it accessible only to resources within your VPC, or you can attach
-    -- Elastic IP addresses and make it accessible to clients over the
-    -- internet. Your VPC\'s default security groups are automatically assigned
-    -- to your endpoint.
+    -- make your endpoint accessible only to resources within your VPC, or you
+    -- can attach Elastic IP addresses and make your endpoint accessible to
+    -- clients over the internet. Your VPC\'s default security groups are
+    -- automatically assigned to your endpoint.
     endpointDetails :: Prelude.Maybe EndpointDetails,
-    -- | Specifies the condition of a server for the server that was described. A
-    -- value of @ONLINE@ indicates that the server can accept jobs and transfer
-    -- files. A @State@ value of @OFFLINE@ means that the server cannot perform
-    -- file transfer operations.
+    -- | The condition of the server that was described. A value of @ONLINE@
+    -- indicates that the server can accept jobs and transfer files. A @State@
+    -- value of @OFFLINE@ means that the server cannot perform file transfer
+    -- operations.
     --
     -- The states of @STARTING@ and @STOPPING@ indicate that the server is in
     -- an intermediate state, either not fully able to respond, or not fully
@@ -115,16 +126,21 @@ data DescribedServer = DescribedServer'
     -- key. This value is equivalent to the output of the
     -- @ssh-keygen -l -f my-new-server-key@ command.
     hostKeyFingerprint :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
-    -- Identity and Access Management (IAM) role that allows a server to turn
-    -- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
-    -- set, user activity can be viewed in your CloudWatch logs.
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+    -- Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+    -- your CloudWatch logs.
     loggingRole :: Prelude.Maybe Prelude.Text,
     -- | Specifies the unique system-assigned identifier for a server that you
     -- instantiate.
     serverId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a string to display when users connect to a server. This
+    -- string is displayed after the user authenticates.
+    --
+    -- The SFTP protocol does not support post-authentication display banners.
+    postAuthenticationLoginBanner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the workflow ID for the workflow to assign and the execution
-    -- role used for executing the workflow.
+    -- role that\'s used for executing the workflow.
     workflowDetails :: Prelude.Maybe WorkflowDetails,
     -- | Specifies the unique Amazon Resource Name (ARN) of the server.
     arn :: Prelude.Text
@@ -145,11 +161,17 @@ data DescribedServer = DescribedServer'
 -- 'userCount', 'describedServer_userCount' - Specifies the number of users that are assigned to a server you
 -- specified with the @ServerId@.
 --
+-- 'preAuthenticationLoginBanner', 'describedServer_preAuthenticationLoginBanner' - Specifies a string to display when users connect to a server. This
+-- string is displayed before the user authenticates. For example, the
+-- following banner displays details about using the system:
+--
+-- @This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.@
+--
 -- 'protocolDetails', 'describedServer_protocolDetails' - The protocol settings that are configured for your server.
 --
 -- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
--- dotted-quad IPv4 address, such as the external IP address of a firewall,
--- router, or load balancer.
+-- IPv4 address, such as the public IP address of a firewall, router, or
+-- load balancer.
 --
 -- 'identityProviderDetails', 'describedServer_identityProviderDetails' - Specifies information to call a customer-supplied authentication API.
 -- This field is not populated when the @IdentityProviderType@ of a server
@@ -158,35 +180,40 @@ data DescribedServer = DescribedServer'
 -- 'domain', 'describedServer_domain' - Specifies the domain of the storage system that is used for file
 -- transfers.
 --
--- 'identityProviderType', 'describedServer_identityProviderType' - Specifies the mode of authentication for a server. The default value is
+-- 'identityProviderType', 'describedServer_identityProviderType' - The mode of authentication for a server. The default value is
 -- @SERVICE_MANAGED@, which allows you to store and access user credentials
--- within the Amazon Web Services Transfer Family service.
+-- within the Transfer Family service.
 --
 -- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups
--- in Amazon Web Services Managed Active Directory or Microsoft Active
+-- in Directory Service for Microsoft Active Directory or Microsoft Active
 -- Directory in your on-premises environment or in Amazon Web Services
--- using AD Connectors. This option also requires you to provide a
--- Directory ID using the @IdentityProviderDetails@ parameter.
+-- using AD Connector. This option also requires you to provide a Directory
+-- ID by using the @IdentityProviderDetails@ parameter.
 --
 -- Use the @API_GATEWAY@ value to integrate with an identity provider of
--- your choosing. The @API_GATEWAY@ setting requires you to provide an API
--- Gateway endpoint URL to call for authentication using the
+-- your choosing. The @API_GATEWAY@ setting requires you to provide an
+-- Amazon API Gateway endpoint URL to call for authentication by using the
 -- @IdentityProviderDetails@ parameter.
+--
+-- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
+-- identity provider. If you choose this value, you must specify the ARN
+-- for the Lambda function in the @Function@ parameter or the
+-- @IdentityProviderDetails@ data type.
 --
 -- 'securityPolicyName', 'describedServer_securityPolicyName' - Specifies the name of the security policy that is attached to the
 -- server.
 --
 -- 'endpointDetails', 'describedServer_endpointDetails' - The virtual private cloud (VPC) endpoint settings that are configured
 -- for your server. When you host your endpoint within your VPC, you can
--- make it accessible only to resources within your VPC, or you can attach
--- Elastic IP addresses and make it accessible to clients over the
--- internet. Your VPC\'s default security groups are automatically assigned
--- to your endpoint.
+-- make your endpoint accessible only to resources within your VPC, or you
+-- can attach Elastic IP addresses and make your endpoint accessible to
+-- clients over the internet. Your VPC\'s default security groups are
+-- automatically assigned to your endpoint.
 --
--- 'state', 'describedServer_state' - Specifies the condition of a server for the server that was described. A
--- value of @ONLINE@ indicates that the server can accept jobs and transfer
--- files. A @State@ value of @OFFLINE@ means that the server cannot perform
--- file transfer operations.
+-- 'state', 'describedServer_state' - The condition of the server that was described. A value of @ONLINE@
+-- indicates that the server can accept jobs and transfer files. A @State@
+-- value of @OFFLINE@ means that the server cannot perform file transfer
+-- operations.
 --
 -- The states of @STARTING@ and @STOPPING@ indicate that the server is in
 -- an intermediate state, either not fully able to respond, or not fully
@@ -216,16 +243,21 @@ data DescribedServer = DescribedServer'
 -- key. This value is equivalent to the output of the
 -- @ssh-keygen -l -f my-new-server-key@ command.
 --
--- 'loggingRole', 'describedServer_loggingRole' - Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
--- Identity and Access Management (IAM) role that allows a server to turn
--- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
--- set, user activity can be viewed in your CloudWatch logs.
+-- 'loggingRole', 'describedServer_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+-- Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+-- your CloudWatch logs.
 --
 -- 'serverId', 'describedServer_serverId' - Specifies the unique system-assigned identifier for a server that you
 -- instantiate.
 --
+-- 'postAuthenticationLoginBanner', 'describedServer_postAuthenticationLoginBanner' - Specifies a string to display when users connect to a server. This
+-- string is displayed after the user authenticates.
+--
+-- The SFTP protocol does not support post-authentication display banners.
+--
 -- 'workflowDetails', 'describedServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
--- role used for executing the workflow.
+-- role that\'s used for executing the workflow.
 --
 -- 'arn', 'describedServer_arn' - Specifies the unique Amazon Resource Name (ARN) of the server.
 newDescribedServer ::
@@ -236,6 +268,7 @@ newDescribedServer pArn_ =
   DescribedServer'
     { tags = Prelude.Nothing,
       userCount = Prelude.Nothing,
+      preAuthenticationLoginBanner = Prelude.Nothing,
       protocolDetails = Prelude.Nothing,
       identityProviderDetails = Prelude.Nothing,
       domain = Prelude.Nothing,
@@ -249,6 +282,7 @@ newDescribedServer pArn_ =
       hostKeyFingerprint = Prelude.Nothing,
       loggingRole = Prelude.Nothing,
       serverId = Prelude.Nothing,
+      postAuthenticationLoginBanner = Prelude.Nothing,
       workflowDetails = Prelude.Nothing,
       arn = pArn_
     }
@@ -263,11 +297,19 @@ describedServer_tags = Lens.lens (\DescribedServer' {tags} -> tags) (\s@Describe
 describedServer_userCount :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Int)
 describedServer_userCount = Lens.lens (\DescribedServer' {userCount} -> userCount) (\s@DescribedServer' {} a -> s {userCount = a} :: DescribedServer)
 
+-- | Specifies a string to display when users connect to a server. This
+-- string is displayed before the user authenticates. For example, the
+-- following banner displays details about using the system:
+--
+-- @This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.@
+describedServer_preAuthenticationLoginBanner :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
+describedServer_preAuthenticationLoginBanner = Lens.lens (\DescribedServer' {preAuthenticationLoginBanner} -> preAuthenticationLoginBanner) (\s@DescribedServer' {} a -> s {preAuthenticationLoginBanner = a} :: DescribedServer)
+
 -- | The protocol settings that are configured for your server.
 --
 -- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
--- dotted-quad IPv4 address, such as the external IP address of a firewall,
--- router, or load balancer.
+-- IPv4 address, such as the public IP address of a firewall, router, or
+-- load balancer.
 describedServer_protocolDetails :: Lens.Lens' DescribedServer (Prelude.Maybe ProtocolDetails)
 describedServer_protocolDetails = Lens.lens (\DescribedServer' {protocolDetails} -> protocolDetails) (\s@DescribedServer' {} a -> s {protocolDetails = a} :: DescribedServer)
 
@@ -282,20 +324,25 @@ describedServer_identityProviderDetails = Lens.lens (\DescribedServer' {identity
 describedServer_domain :: Lens.Lens' DescribedServer (Prelude.Maybe Domain)
 describedServer_domain = Lens.lens (\DescribedServer' {domain} -> domain) (\s@DescribedServer' {} a -> s {domain = a} :: DescribedServer)
 
--- | Specifies the mode of authentication for a server. The default value is
+-- | The mode of authentication for a server. The default value is
 -- @SERVICE_MANAGED@, which allows you to store and access user credentials
--- within the Amazon Web Services Transfer Family service.
+-- within the Transfer Family service.
 --
 -- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups
--- in Amazon Web Services Managed Active Directory or Microsoft Active
+-- in Directory Service for Microsoft Active Directory or Microsoft Active
 -- Directory in your on-premises environment or in Amazon Web Services
--- using AD Connectors. This option also requires you to provide a
--- Directory ID using the @IdentityProviderDetails@ parameter.
+-- using AD Connector. This option also requires you to provide a Directory
+-- ID by using the @IdentityProviderDetails@ parameter.
 --
 -- Use the @API_GATEWAY@ value to integrate with an identity provider of
--- your choosing. The @API_GATEWAY@ setting requires you to provide an API
--- Gateway endpoint URL to call for authentication using the
+-- your choosing. The @API_GATEWAY@ setting requires you to provide an
+-- Amazon API Gateway endpoint URL to call for authentication by using the
 -- @IdentityProviderDetails@ parameter.
+--
+-- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
+-- identity provider. If you choose this value, you must specify the ARN
+-- for the Lambda function in the @Function@ parameter or the
+-- @IdentityProviderDetails@ data type.
 describedServer_identityProviderType :: Lens.Lens' DescribedServer (Prelude.Maybe IdentityProviderType)
 describedServer_identityProviderType = Lens.lens (\DescribedServer' {identityProviderType} -> identityProviderType) (\s@DescribedServer' {} a -> s {identityProviderType = a} :: DescribedServer)
 
@@ -306,17 +353,17 @@ describedServer_securityPolicyName = Lens.lens (\DescribedServer' {securityPolic
 
 -- | The virtual private cloud (VPC) endpoint settings that are configured
 -- for your server. When you host your endpoint within your VPC, you can
--- make it accessible only to resources within your VPC, or you can attach
--- Elastic IP addresses and make it accessible to clients over the
--- internet. Your VPC\'s default security groups are automatically assigned
--- to your endpoint.
+-- make your endpoint accessible only to resources within your VPC, or you
+-- can attach Elastic IP addresses and make your endpoint accessible to
+-- clients over the internet. Your VPC\'s default security groups are
+-- automatically assigned to your endpoint.
 describedServer_endpointDetails :: Lens.Lens' DescribedServer (Prelude.Maybe EndpointDetails)
 describedServer_endpointDetails = Lens.lens (\DescribedServer' {endpointDetails} -> endpointDetails) (\s@DescribedServer' {} a -> s {endpointDetails = a} :: DescribedServer)
 
--- | Specifies the condition of a server for the server that was described. A
--- value of @ONLINE@ indicates that the server can accept jobs and transfer
--- files. A @State@ value of @OFFLINE@ means that the server cannot perform
--- file transfer operations.
+-- | The condition of the server that was described. A value of @ONLINE@
+-- indicates that the server can accept jobs and transfer files. A @State@
+-- value of @OFFLINE@ means that the server cannot perform file transfer
+-- operations.
 --
 -- The states of @STARTING@ and @STOPPING@ indicate that the server is in
 -- an intermediate state, either not fully able to respond, or not fully
@@ -356,10 +403,10 @@ describedServer_endpointType = Lens.lens (\DescribedServer' {endpointType} -> en
 describedServer_hostKeyFingerprint :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
 describedServer_hostKeyFingerprint = Lens.lens (\DescribedServer' {hostKeyFingerprint} -> hostKeyFingerprint) (\s@DescribedServer' {} a -> s {hostKeyFingerprint = a} :: DescribedServer)
 
--- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
--- Identity and Access Management (IAM) role that allows a server to turn
--- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
--- set, user activity can be viewed in your CloudWatch logs.
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+-- Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+-- your CloudWatch logs.
 describedServer_loggingRole :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
 describedServer_loggingRole = Lens.lens (\DescribedServer' {loggingRole} -> loggingRole) (\s@DescribedServer' {} a -> s {loggingRole = a} :: DescribedServer)
 
@@ -368,8 +415,15 @@ describedServer_loggingRole = Lens.lens (\DescribedServer' {loggingRole} -> logg
 describedServer_serverId :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
 describedServer_serverId = Lens.lens (\DescribedServer' {serverId} -> serverId) (\s@DescribedServer' {} a -> s {serverId = a} :: DescribedServer)
 
+-- | Specifies a string to display when users connect to a server. This
+-- string is displayed after the user authenticates.
+--
+-- The SFTP protocol does not support post-authentication display banners.
+describedServer_postAuthenticationLoginBanner :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
+describedServer_postAuthenticationLoginBanner = Lens.lens (\DescribedServer' {postAuthenticationLoginBanner} -> postAuthenticationLoginBanner) (\s@DescribedServer' {} a -> s {postAuthenticationLoginBanner = a} :: DescribedServer)
+
 -- | Specifies the workflow ID for the workflow to assign and the execution
--- role used for executing the workflow.
+-- role that\'s used for executing the workflow.
 describedServer_workflowDetails :: Lens.Lens' DescribedServer (Prelude.Maybe WorkflowDetails)
 describedServer_workflowDetails = Lens.lens (\DescribedServer' {workflowDetails} -> workflowDetails) (\s@DescribedServer' {} a -> s {workflowDetails = a} :: DescribedServer)
 
@@ -385,6 +439,7 @@ instance Core.FromJSON DescribedServer where
           DescribedServer'
             Prelude.<$> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "UserCount")
+            Prelude.<*> (x Core..:? "PreAuthenticationLoginBanner")
             Prelude.<*> (x Core..:? "ProtocolDetails")
             Prelude.<*> (x Core..:? "IdentityProviderDetails")
             Prelude.<*> (x Core..:? "Domain")
@@ -398,6 +453,7 @@ instance Core.FromJSON DescribedServer where
             Prelude.<*> (x Core..:? "HostKeyFingerprint")
             Prelude.<*> (x Core..:? "LoggingRole")
             Prelude.<*> (x Core..:? "ServerId")
+            Prelude.<*> (x Core..:? "PostAuthenticationLoginBanner")
             Prelude.<*> (x Core..:? "WorkflowDetails")
             Prelude.<*> (x Core..: "Arn")
       )
@@ -406,6 +462,7 @@ instance Prelude.Hashable DescribedServer where
   hashWithSalt _salt DescribedServer' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userCount
+      `Prelude.hashWithSalt` preAuthenticationLoginBanner
       `Prelude.hashWithSalt` protocolDetails
       `Prelude.hashWithSalt` identityProviderDetails
       `Prelude.hashWithSalt` domain
@@ -419,6 +476,7 @@ instance Prelude.Hashable DescribedServer where
       `Prelude.hashWithSalt` hostKeyFingerprint
       `Prelude.hashWithSalt` loggingRole
       `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` postAuthenticationLoginBanner
       `Prelude.hashWithSalt` workflowDetails
       `Prelude.hashWithSalt` arn
 
@@ -426,6 +484,7 @@ instance Prelude.NFData DescribedServer where
   rnf DescribedServer' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userCount
+      `Prelude.seq` Prelude.rnf preAuthenticationLoginBanner
       `Prelude.seq` Prelude.rnf protocolDetails
       `Prelude.seq` Prelude.rnf identityProviderDetails
       `Prelude.seq` Prelude.rnf domain
@@ -439,5 +498,7 @@ instance Prelude.NFData DescribedServer where
       `Prelude.seq` Prelude.rnf hostKeyFingerprint
       `Prelude.seq` Prelude.rnf loggingRole
       `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf
+        postAuthenticationLoginBanner
       `Prelude.seq` Prelude.rnf workflowDetails
       `Prelude.seq` Prelude.rnf arn

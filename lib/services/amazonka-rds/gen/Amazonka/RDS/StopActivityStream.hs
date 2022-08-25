@@ -157,8 +157,7 @@ data StopActivityStreamResponse = StopActivityStreamResponse'
     -- in the database activity stream.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -182,8 +181,7 @@ data StopActivityStreamResponse = StopActivityStreamResponse'
 -- in the database activity stream.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'httpStatus', 'stopActivityStreamResponse_httpStatus' - The response's http status code.
 newStopActivityStreamResponse ::
@@ -212,8 +210,7 @@ stopActivityStreamResponse_kinesisStreamName = Lens.lens (\StopActivityStreamRes
 -- in the database activity stream.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 stopActivityStreamResponse_kmsKeyId :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
 stopActivityStreamResponse_kmsKeyId = Lens.lens (\StopActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@StopActivityStreamResponse' {} a -> s {kmsKeyId = a} :: StopActivityStreamResponse)
 

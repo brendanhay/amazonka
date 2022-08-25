@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an application. Deleting an application does not delete a
+-- Deletes an application. Deleting an application does not delete a
 -- configuration from a host.
 module Amazonka.AppConfig.DeleteApplication
   ( -- * Creating a Request

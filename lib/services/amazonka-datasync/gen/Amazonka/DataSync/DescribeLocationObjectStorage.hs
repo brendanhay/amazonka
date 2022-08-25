@@ -20,9 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata about a self-managed object storage server location.
--- For more information about self-managed object storage locations, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html Creating a location for object storage>.
+-- Returns metadata about your DataSync location for an object storage
+-- system.
 module Amazonka.DataSync.DescribeLocationObjectStorage
   ( -- * Creating a Request
     DescribeLocationObjectStorage (..),
@@ -58,8 +57,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeLocationObjectStorage' smart constructor.
 data DescribeLocationObjectStorage = DescribeLocationObjectStorage'
-  { -- | The Amazon Resource Name (ARN) of the self-managed object storage server
-    -- location that was described.
+  { -- | The Amazon Resource Name (ARN) of the object storage system location
+    -- that you want information about.
     locationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +71,8 @@ data DescribeLocationObjectStorage = DescribeLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locationArn', 'describeLocationObjectStorage_locationArn' - The Amazon Resource Name (ARN) of the self-managed object storage server
--- location that was described.
+-- 'locationArn', 'describeLocationObjectStorage_locationArn' - The Amazon Resource Name (ARN) of the object storage system location
+-- that you want information about.
 newDescribeLocationObjectStorage ::
   -- | 'locationArn'
   Prelude.Text ->
@@ -84,8 +83,8 @@ newDescribeLocationObjectStorage pLocationArn_ =
         pLocationArn_
     }
 
--- | The Amazon Resource Name (ARN) of the self-managed object storage server
--- location that was described.
+-- | The Amazon Resource Name (ARN) of the object storage system location
+-- that you want information about.
 describeLocationObjectStorage_locationArn :: Lens.Lens' DescribeLocationObjectStorage Prelude.Text
 describeLocationObjectStorage_locationArn = Lens.lens (\DescribeLocationObjectStorage' {locationArn} -> locationArn) (\s@DescribeLocationObjectStorage' {} a -> s {locationArn = a} :: DescribeLocationObjectStorage)
 
@@ -154,28 +153,22 @@ instance Core.ToQuery DescribeLocationObjectStorage where
 --
 -- /See:/ 'newDescribeLocationObjectStorageResponse' smart constructor.
 data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageResponse'
-  { -- | The protocol that the object storage server uses to communicate. Valid
-    -- values are HTTP or HTTPS.
+  { -- | The protocol that your object storage server uses to communicate.
     serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
-    -- | The Amazon Resource Name (ARN) of the self-managed object storage server
-    -- location to describe.
+    -- | The ARN of the object storage system location.
     locationArn :: Prelude.Maybe Prelude.Text,
-    -- | The port that your self-managed object storage server accepts inbound
-    -- network traffic on. The server port is set by default to TCP 80 (HTTP)
-    -- or TCP 443 (HTTPS).
+    -- | The port that your object storage server accepts inbound network traffic
+    -- on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | Optional. The access key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
+    -- | The access key (for example, a user name) required to authenticate with
+    -- the object storage server.
     accessKey :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the source self-managed object storage server location that
-    -- was described.
+    -- | The URL of the object storage system location.
     locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The time that the self-managed object storage server agent was created.
+    -- | The time that the location was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the agents associated with the
-    -- self-managed object storage server location.
+    -- | The ARNs of the DataSync agents that can securely connect with your
+    -- location.
     agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -190,28 +183,22 @@ data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverProtocol', 'describeLocationObjectStorageResponse_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
--- values are HTTP or HTTPS.
+-- 'serverProtocol', 'describeLocationObjectStorageResponse_serverProtocol' - The protocol that your object storage server uses to communicate.
 --
--- 'locationArn', 'describeLocationObjectStorageResponse_locationArn' - The Amazon Resource Name (ARN) of the self-managed object storage server
--- location to describe.
+-- 'locationArn', 'describeLocationObjectStorageResponse_locationArn' - The ARN of the object storage system location.
 --
--- 'serverPort', 'describeLocationObjectStorageResponse_serverPort' - The port that your self-managed object storage server accepts inbound
--- network traffic on. The server port is set by default to TCP 80 (HTTP)
--- or TCP 443 (HTTPS).
+-- 'serverPort', 'describeLocationObjectStorageResponse_serverPort' - The port that your object storage server accepts inbound network traffic
+-- on (for example, port 443).
 --
--- 'accessKey', 'describeLocationObjectStorageResponse_accessKey' - Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- 'accessKey', 'describeLocationObjectStorageResponse_accessKey' - The access key (for example, a user name) required to authenticate with
+-- the object storage server.
 --
--- 'locationUri', 'describeLocationObjectStorageResponse_locationUri' - The URL of the source self-managed object storage server location that
--- was described.
+-- 'locationUri', 'describeLocationObjectStorageResponse_locationUri' - The URL of the object storage system location.
 --
--- 'creationTime', 'describeLocationObjectStorageResponse_creationTime' - The time that the self-managed object storage server agent was created.
+-- 'creationTime', 'describeLocationObjectStorageResponse_creationTime' - The time that the location was created.
 --
--- 'agentArns', 'describeLocationObjectStorageResponse_agentArns' - The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- 'agentArns', 'describeLocationObjectStorageResponse_agentArns' - The ARNs of the DataSync agents that can securely connect with your
+-- location.
 --
 -- 'httpStatus', 'describeLocationObjectStorageResponse_httpStatus' - The response's http status code.
 newDescribeLocationObjectStorageResponse ::
@@ -231,40 +218,34 @@ newDescribeLocationObjectStorageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The protocol that the object storage server uses to communicate. Valid
--- values are HTTP or HTTPS.
+-- | The protocol that your object storage server uses to communicate.
 describeLocationObjectStorageResponse_serverProtocol :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe ObjectStorageServerProtocol)
 describeLocationObjectStorageResponse_serverProtocol = Lens.lens (\DescribeLocationObjectStorageResponse' {serverProtocol} -> serverProtocol) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverProtocol = a} :: DescribeLocationObjectStorageResponse)
 
--- | The Amazon Resource Name (ARN) of the self-managed object storage server
--- location to describe.
+-- | The ARN of the object storage system location.
 describeLocationObjectStorageResponse_locationArn :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
 describeLocationObjectStorageResponse_locationArn = Lens.lens (\DescribeLocationObjectStorageResponse' {locationArn} -> locationArn) (\s@DescribeLocationObjectStorageResponse' {} a -> s {locationArn = a} :: DescribeLocationObjectStorageResponse)
 
--- | The port that your self-managed object storage server accepts inbound
--- network traffic on. The server port is set by default to TCP 80 (HTTP)
--- or TCP 443 (HTTPS).
+-- | The port that your object storage server accepts inbound network traffic
+-- on (for example, port 443).
 describeLocationObjectStorageResponse_serverPort :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Natural)
 describeLocationObjectStorageResponse_serverPort = Lens.lens (\DescribeLocationObjectStorageResponse' {serverPort} -> serverPort) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverPort = a} :: DescribeLocationObjectStorageResponse)
 
--- | Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- | The access key (for example, a user name) required to authenticate with
+-- the object storage server.
 describeLocationObjectStorageResponse_accessKey :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
 describeLocationObjectStorageResponse_accessKey = Lens.lens (\DescribeLocationObjectStorageResponse' {accessKey} -> accessKey) (\s@DescribeLocationObjectStorageResponse' {} a -> s {accessKey = a} :: DescribeLocationObjectStorageResponse)
 
--- | The URL of the source self-managed object storage server location that
--- was described.
+-- | The URL of the object storage system location.
 describeLocationObjectStorageResponse_locationUri :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
 describeLocationObjectStorageResponse_locationUri = Lens.lens (\DescribeLocationObjectStorageResponse' {locationUri} -> locationUri) (\s@DescribeLocationObjectStorageResponse' {} a -> s {locationUri = a} :: DescribeLocationObjectStorageResponse)
 
--- | The time that the self-managed object storage server agent was created.
+-- | The time that the location was created.
 describeLocationObjectStorageResponse_creationTime :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.UTCTime)
 describeLocationObjectStorageResponse_creationTime = Lens.lens (\DescribeLocationObjectStorageResponse' {creationTime} -> creationTime) (\s@DescribeLocationObjectStorageResponse' {} a -> s {creationTime = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
+-- | The ARNs of the DataSync agents that can securely connect with your
+-- location.
 describeLocationObjectStorageResponse_agentArns :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeLocationObjectStorageResponse_agentArns = Lens.lens (\DescribeLocationObjectStorageResponse' {agentArns} -> agentArns) (\s@DescribeLocationObjectStorageResponse' {} a -> s {agentArns = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Lens.coerced
 

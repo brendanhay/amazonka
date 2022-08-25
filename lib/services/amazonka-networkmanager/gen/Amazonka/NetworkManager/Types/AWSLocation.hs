@@ -23,14 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a location in AWS.
+-- | Specifies a location in Amazon Web Services.
 --
 -- /See:/ 'newAWSLocation' smart constructor.
 data AWSLocation = AWSLocation'
-  { -- | The Zone the device is located in. This can be the ID of an Availability
-    -- Zone, Local Zone, Wavelength Zone, or an Outpost.
+  { -- | The Zone that the device is located in. Specify the ID of an
+    -- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
     zone :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the subnet the device is located in.
+    -- | The Amazon Resource Name (ARN) of the subnet that the device is located
+    -- in.
     subnetArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,10 +44,11 @@ data AWSLocation = AWSLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'zone', 'aWSLocation_zone' - The Zone the device is located in. This can be the ID of an Availability
--- Zone, Local Zone, Wavelength Zone, or an Outpost.
+-- 'zone', 'aWSLocation_zone' - The Zone that the device is located in. Specify the ID of an
+-- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 --
--- 'subnetArn', 'aWSLocation_subnetArn' - The Amazon Resource Name (ARN) of the subnet the device is located in.
+-- 'subnetArn', 'aWSLocation_subnetArn' - The Amazon Resource Name (ARN) of the subnet that the device is located
+-- in.
 newAWSLocation ::
   AWSLocation
 newAWSLocation =
@@ -55,12 +57,13 @@ newAWSLocation =
       subnetArn = Prelude.Nothing
     }
 
--- | The Zone the device is located in. This can be the ID of an Availability
--- Zone, Local Zone, Wavelength Zone, or an Outpost.
+-- | The Zone that the device is located in. Specify the ID of an
+-- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 aWSLocation_zone :: Lens.Lens' AWSLocation (Prelude.Maybe Prelude.Text)
 aWSLocation_zone = Lens.lens (\AWSLocation' {zone} -> zone) (\s@AWSLocation' {} a -> s {zone = a} :: AWSLocation)
 
--- | The Amazon Resource Name (ARN) of the subnet the device is located in.
+-- | The Amazon Resource Name (ARN) of the subnet that the device is located
+-- in.
 aWSLocation_subnetArn :: Lens.Lens' AWSLocation (Prelude.Maybe Prelude.Text)
 aWSLocation_subnetArn = Lens.lens (\AWSLocation' {subnetArn} -> subnetArn) (\s@AWSLocation' {} a -> s {subnetArn = a} :: AWSLocation)
 

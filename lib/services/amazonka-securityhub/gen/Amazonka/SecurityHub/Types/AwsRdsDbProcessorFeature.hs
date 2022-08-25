@@ -27,7 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRdsDbProcessorFeature' smart constructor.
 data AwsRdsDbProcessorFeature = AwsRdsDbProcessorFeature'
-  { -- | The name of the processor feature.
+  { -- | The name of the processor feature. Valid values are @coreCount@ or
+    -- @threadsPerCore@.
     name :: Prelude.Maybe Prelude.Text,
     -- | The value of the processor feature.
     value :: Prelude.Maybe Prelude.Text
@@ -42,7 +43,8 @@ data AwsRdsDbProcessorFeature = AwsRdsDbProcessorFeature'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsRdsDbProcessorFeature_name' - The name of the processor feature.
+-- 'name', 'awsRdsDbProcessorFeature_name' - The name of the processor feature. Valid values are @coreCount@ or
+-- @threadsPerCore@.
 --
 -- 'value', 'awsRdsDbProcessorFeature_value' - The value of the processor feature.
 newAwsRdsDbProcessorFeature ::
@@ -53,7 +55,8 @@ newAwsRdsDbProcessorFeature =
       value = Prelude.Nothing
     }
 
--- | The name of the processor feature.
+-- | The name of the processor feature. Valid values are @coreCount@ or
+-- @threadsPerCore@.
 awsRdsDbProcessorFeature_name :: Lens.Lens' AwsRdsDbProcessorFeature (Prelude.Maybe Prelude.Text)
 awsRdsDbProcessorFeature_name = Lens.lens (\AwsRdsDbProcessorFeature' {name} -> name) (\s@AwsRdsDbProcessorFeature' {} a -> s {name = a} :: AwsRdsDbProcessorFeature)
 

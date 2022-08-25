@@ -55,7 +55,10 @@ data CancelImageCreation = CancelImageCreation'
   { -- | The Amazon Resource Name (ARN) of the image whose creation you want to
     -- cancel.
     imageBuildVersionArn :: Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+    -- | Unique, case-sensitive identifier you provide to ensure idempotency of
+    -- the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
+    -- in the /Amazon EC2 API Reference/.
     clientToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +74,10 @@ data CancelImageCreation = CancelImageCreation'
 -- 'imageBuildVersionArn', 'cancelImageCreation_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image whose creation you want to
 -- cancel.
 --
--- 'clientToken', 'cancelImageCreation_clientToken' - The idempotency token used to make this request idempotent.
+-- 'clientToken', 'cancelImageCreation_clientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of
+-- the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
+-- in the /Amazon EC2 API Reference/.
 newCancelImageCreation ::
   -- | 'imageBuildVersionArn'
   Prelude.Text ->
@@ -92,7 +98,10 @@ newCancelImageCreation
 cancelImageCreation_imageBuildVersionArn :: Lens.Lens' CancelImageCreation Prelude.Text
 cancelImageCreation_imageBuildVersionArn = Lens.lens (\CancelImageCreation' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@CancelImageCreation' {} a -> s {imageBuildVersionArn = a} :: CancelImageCreation)
 
--- | The idempotency token used to make this request idempotent.
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of
+-- the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
+-- in the /Amazon EC2 API Reference/.
 cancelImageCreation_clientToken :: Lens.Lens' CancelImageCreation Prelude.Text
 cancelImageCreation_clientToken = Lens.lens (\CancelImageCreation' {clientToken} -> clientToken) (\s@CancelImageCreation' {} a -> s {clientToken = a} :: CancelImageCreation)
 
@@ -152,7 +161,7 @@ instance Core.ToQuery CancelImageCreation where
 
 -- | /See:/ 'newCancelImageCreationResponse' smart constructor.
 data CancelImageCreationResponse = CancelImageCreationResponse'
-  { -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token that was used for this request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -172,7 +181,7 @@ data CancelImageCreationResponse = CancelImageCreationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'cancelImageCreationResponse_clientToken' - The idempotency token used to make this request idempotent.
+-- 'clientToken', 'cancelImageCreationResponse_clientToken' - The idempotency token that was used for this request.
 --
 -- 'requestId', 'cancelImageCreationResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -193,7 +202,7 @@ newCancelImageCreationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The idempotency token used to make this request idempotent.
+-- | The idempotency token that was used for this request.
 cancelImageCreationResponse_clientToken :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
 cancelImageCreationResponse_clientToken = Lens.lens (\CancelImageCreationResponse' {clientToken} -> clientToken) (\s@CancelImageCreationResponse' {} a -> s {clientToken = a} :: CancelImageCreationResponse)
 

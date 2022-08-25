@@ -53,6 +53,7 @@ module Amazonka.S3.GetBucketNotificationConfiguration
     newNotificationConfiguration,
 
     -- * Response Lenses
+    notificationConfiguration_eventBridgeConfiguration,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
     notificationConfiguration_lambdaFunctionConfigurations,
@@ -69,8 +70,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketNotificationConfiguration' smart constructor.
 data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the notification configuration.
     bucket :: BucketName
@@ -86,8 +87,8 @@ data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketNotificationConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketNotificationConfiguration_bucket' - The name of the bucket for which to get the notification configuration.
 newGetBucketNotificationConfiguration ::
@@ -102,8 +103,8 @@ newGetBucketNotificationConfiguration pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketNotificationConfiguration (Prelude.Maybe Prelude.Text)
 getBucketNotificationConfiguration_expectedBucketOwner = Lens.lens (\GetBucketNotificationConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketNotificationConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketNotificationConfiguration)
 

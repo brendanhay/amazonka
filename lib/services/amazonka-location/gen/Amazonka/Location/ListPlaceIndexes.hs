@@ -175,8 +175,8 @@ instance Core.ToQuery ListPlaceIndexes where
 
 -- | /See:/ 'newListPlaceIndexesResponse' smart constructor.
 data ListPlaceIndexesResponse = ListPlaceIndexesResponse'
-  { -- | A pagination token indicating there are additional pages available. You
-    -- can use the token in a following request to fetch the next set of
+  { -- | A pagination token indicating that there are additional pages available.
+    -- You can use the token in a new request to fetch the next page of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -194,8 +194,8 @@ data ListPlaceIndexesResponse = ListPlaceIndexesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlaceIndexesResponse_nextToken' - A pagination token indicating there are additional pages available. You
--- can use the token in a following request to fetch the next set of
+-- 'nextToken', 'listPlaceIndexesResponse_nextToken' - A pagination token indicating that there are additional pages available.
+-- You can use the token in a new request to fetch the next page of
 -- results.
 --
 -- 'httpStatus', 'listPlaceIndexesResponse_httpStatus' - The response's http status code.
@@ -213,8 +213,8 @@ newListPlaceIndexesResponse pHttpStatus_ =
       entries = Prelude.mempty
     }
 
--- | A pagination token indicating there are additional pages available. You
--- can use the token in a following request to fetch the next set of
+-- | A pagination token indicating that there are additional pages available.
+-- You can use the token in a new request to fetch the next page of
 -- results.
 listPlaceIndexesResponse_nextToken :: Lens.Lens' ListPlaceIndexesResponse (Prelude.Maybe Prelude.Text)
 listPlaceIndexesResponse_nextToken = Lens.lens (\ListPlaceIndexesResponse' {nextToken} -> nextToken) (\s@ListPlaceIndexesResponse' {} a -> s {nextToken = a} :: ListPlaceIndexesResponse)

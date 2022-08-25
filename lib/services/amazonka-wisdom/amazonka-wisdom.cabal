@@ -67,6 +67,7 @@ library
     Amazonka.Wisdom.ListKnowledgeBases
     Amazonka.Wisdom.ListTagsForResource
     Amazonka.Wisdom.NotifyRecommendationsReceived
+    Amazonka.Wisdom.PutFeedback
     Amazonka.Wisdom.QueryAssistant
     Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
     Amazonka.Wisdom.SearchContent
@@ -90,6 +91,7 @@ library
     Amazonka.Wisdom.Types.ContentSummary
     Amazonka.Wisdom.Types.Document
     Amazonka.Wisdom.Types.DocumentText
+    Amazonka.Wisdom.Types.FeedbackData
     Amazonka.Wisdom.Types.Filter
     Amazonka.Wisdom.Types.FilterField
     Amazonka.Wisdom.Types.FilterOperator
@@ -100,7 +102,14 @@ library
     Amazonka.Wisdom.Types.KnowledgeBaseSummary
     Amazonka.Wisdom.Types.KnowledgeBaseType
     Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
+    Amazonka.Wisdom.Types.QueryRecommendationTriggerData
     Amazonka.Wisdom.Types.RecommendationData
+    Amazonka.Wisdom.Types.RecommendationSourceType
+    Amazonka.Wisdom.Types.RecommendationTrigger
+    Amazonka.Wisdom.Types.RecommendationTriggerData
+    Amazonka.Wisdom.Types.RecommendationTriggerType
+    Amazonka.Wisdom.Types.RecommendationType
+    Amazonka.Wisdom.Types.Relevance
     Amazonka.Wisdom.Types.RelevanceLevel
     Amazonka.Wisdom.Types.RenderingConfiguration
     Amazonka.Wisdom.Types.ResultData
@@ -109,6 +118,7 @@ library
     Amazonka.Wisdom.Types.SessionData
     Amazonka.Wisdom.Types.SessionSummary
     Amazonka.Wisdom.Types.SourceConfiguration
+    Amazonka.Wisdom.Types.TargetType
     Amazonka.Wisdom.UntagResource
     Amazonka.Wisdom.UpdateContent
     Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri

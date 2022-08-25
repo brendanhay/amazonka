@@ -22,10 +22,14 @@ module Amazonka.Location.Types.Place where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Location.Types.PlaceGeometry
+import Amazonka.Location.Types.TimeZone
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about addresses or points of interest that match the
 -- search criteria.
+--
+-- Not all details are included with all responses. Some details may only
+-- be returned by specific data partners.
 --
 -- /See:/ 'newPlace' smart constructor.
 data Place = Place'
@@ -43,12 +47,26 @@ data Place = Place'
     -- | The full name and address of the point of interest such as a city,
     -- region, or country. For example, @123 Any Street, Any Town, USA@.
     label :: Prelude.Maybe Prelude.Text,
+    -- | The time zone in which the @Place@ is located. Returned only when using
+    -- Here as the selected partner.
+    timeZone :: Prelude.Maybe TimeZone,
     -- | A name for an area or geographical division, such as a province or state
     -- name. For example, @British Columbia@.
     region :: Prelude.Maybe Prelude.Text,
-    -- | A country, or an area that\'s part of a larger region . For example,
+    -- | A country, or an area that\'s part of a larger region. For example,
     -- @Metro Vancouver@.
     subRegion :: Prelude.Maybe Prelude.Text,
+    -- | @True@ if the result is interpolated from other known places.
+    --
+    -- @False@ if the Place is a known place.
+    --
+    -- Not returned when the partner does not provide the information.
+    --
+    -- For example, returns @False@ for an address location that is found in
+    -- the partner data, but returns @True@ if an address does not exist in the
+    -- partner data and its location is calculated by interpolating between
+    -- other known addresses.
+    interpolated :: Prelude.Maybe Prelude.Bool,
     -- | The name for a street or a road to identify a location. For example,
     -- @Main Street@.
     street :: Prelude.Maybe Prelude.Text,
@@ -81,11 +99,25 @@ data Place = Place'
 -- 'label', 'place_label' - The full name and address of the point of interest such as a city,
 -- region, or country. For example, @123 Any Street, Any Town, USA@.
 --
+-- 'timeZone', 'place_timeZone' - The time zone in which the @Place@ is located. Returned only when using
+-- Here as the selected partner.
+--
 -- 'region', 'place_region' - A name for an area or geographical division, such as a province or state
 -- name. For example, @British Columbia@.
 --
--- 'subRegion', 'place_subRegion' - A country, or an area that\'s part of a larger region . For example,
+-- 'subRegion', 'place_subRegion' - A country, or an area that\'s part of a larger region. For example,
 -- @Metro Vancouver@.
+--
+-- 'interpolated', 'place_interpolated' - @True@ if the result is interpolated from other known places.
+--
+-- @False@ if the Place is a known place.
+--
+-- Not returned when the partner does not provide the information.
+--
+-- For example, returns @False@ for an address location that is found in
+-- the partner data, but returns @True@ if an address does not exist in the
+-- partner data and its location is calculated by interpolating between
+-- other known addresses.
 --
 -- 'street', 'place_street' - The name for a street or a road to identify a location. For example,
 -- @Main Street@.
@@ -105,8 +137,10 @@ newPlace pGeometry_ =
       neighborhood = Prelude.Nothing,
       country = Prelude.Nothing,
       label = Prelude.Nothing,
+      timeZone = Prelude.Nothing,
       region = Prelude.Nothing,
       subRegion = Prelude.Nothing,
+      interpolated = Prelude.Nothing,
       street = Prelude.Nothing,
       municipality = Prelude.Nothing,
       geometry = pGeometry_
@@ -136,15 +170,33 @@ place_country = Lens.lens (\Place' {country} -> country) (\s@Place' {} a -> s {c
 place_label :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_label = Lens.lens (\Place' {label} -> label) (\s@Place' {} a -> s {label = a} :: Place)
 
+-- | The time zone in which the @Place@ is located. Returned only when using
+-- Here as the selected partner.
+place_timeZone :: Lens.Lens' Place (Prelude.Maybe TimeZone)
+place_timeZone = Lens.lens (\Place' {timeZone} -> timeZone) (\s@Place' {} a -> s {timeZone = a} :: Place)
+
 -- | A name for an area or geographical division, such as a province or state
 -- name. For example, @British Columbia@.
 place_region :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_region = Lens.lens (\Place' {region} -> region) (\s@Place' {} a -> s {region = a} :: Place)
 
--- | A country, or an area that\'s part of a larger region . For example,
+-- | A country, or an area that\'s part of a larger region. For example,
 -- @Metro Vancouver@.
 place_subRegion :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_subRegion = Lens.lens (\Place' {subRegion} -> subRegion) (\s@Place' {} a -> s {subRegion = a} :: Place)
+
+-- | @True@ if the result is interpolated from other known places.
+--
+-- @False@ if the Place is a known place.
+--
+-- Not returned when the partner does not provide the information.
+--
+-- For example, returns @False@ for an address location that is found in
+-- the partner data, but returns @True@ if an address does not exist in the
+-- partner data and its location is calculated by interpolating between
+-- other known addresses.
+place_interpolated :: Lens.Lens' Place (Prelude.Maybe Prelude.Bool)
+place_interpolated = Lens.lens (\Place' {interpolated} -> interpolated) (\s@Place' {} a -> s {interpolated = a} :: Place)
 
 -- | The name for a street or a road to identify a location. For example,
 -- @Main Street@.
@@ -171,8 +223,10 @@ instance Core.FromJSON Place where
             Prelude.<*> (x Core..:? "Neighborhood")
             Prelude.<*> (x Core..:? "Country")
             Prelude.<*> (x Core..:? "Label")
+            Prelude.<*> (x Core..:? "TimeZone")
             Prelude.<*> (x Core..:? "Region")
             Prelude.<*> (x Core..:? "SubRegion")
+            Prelude.<*> (x Core..:? "Interpolated")
             Prelude.<*> (x Core..:? "Street")
             Prelude.<*> (x Core..:? "Municipality")
             Prelude.<*> (x Core..: "Geometry")
@@ -185,8 +239,10 @@ instance Prelude.Hashable Place where
       `Prelude.hashWithSalt` neighborhood
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` subRegion
+      `Prelude.hashWithSalt` interpolated
       `Prelude.hashWithSalt` street
       `Prelude.hashWithSalt` municipality
       `Prelude.hashWithSalt` geometry
@@ -198,8 +254,10 @@ instance Prelude.NFData Place where
       `Prelude.seq` Prelude.rnf neighborhood
       `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf subRegion
+      `Prelude.seq` Prelude.rnf interpolated
       `Prelude.seq` Prelude.rnf street
       `Prelude.seq` Prelude.rnf municipality
       `Prelude.seq` Prelude.rnf geometry

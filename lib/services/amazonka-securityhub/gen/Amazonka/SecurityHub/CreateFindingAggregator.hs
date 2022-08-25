@@ -24,7 +24,7 @@
 -- Region.
 --
 -- For more details about cross-Region replication, see
--- <securityhub/latest/userguide/finding-aggregation.html Configuring finding aggregation>
+-- <https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html Configuring finding aggregation>
 -- in the /Security Hub User Guide/.
 module Amazonka.SecurityHub.CreateFindingAggregator
   ( -- * Creating a Request

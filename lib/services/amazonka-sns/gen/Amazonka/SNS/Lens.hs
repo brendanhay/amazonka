@@ -176,6 +176,13 @@ module Amazonka.SNS.Lens
     publishResponse_sequenceNumber,
     publishResponse_httpStatus,
 
+    -- ** PublishBatch
+    publishBatch_topicArn,
+    publishBatch_publishBatchRequestEntries,
+    publishBatchResponse_failed,
+    publishBatchResponse_successful,
+    publishBatchResponse_httpStatus,
+
     -- ** RemovePermission
     removePermission_topicArn,
     removePermission_label,
@@ -231,6 +238,12 @@ module Amazonka.SNS.Lens
 
     -- * Types
 
+    -- ** BatchResultErrorEntry
+    batchResultErrorEntry_message,
+    batchResultErrorEntry_id,
+    batchResultErrorEntry_code,
+    batchResultErrorEntry_senderFault,
+
     -- ** Endpoint
     endpoint_attributes,
     endpoint_endpointArn,
@@ -251,6 +264,20 @@ module Amazonka.SNS.Lens
     -- ** PlatformApplication
     platformApplication_platformApplicationArn,
     platformApplication_attributes,
+
+    -- ** PublishBatchRequestEntry
+    publishBatchRequestEntry_messageDeduplicationId,
+    publishBatchRequestEntry_messageGroupId,
+    publishBatchRequestEntry_messageAttributes,
+    publishBatchRequestEntry_messageStructure,
+    publishBatchRequestEntry_subject,
+    publishBatchRequestEntry_id,
+    publishBatchRequestEntry_message,
+
+    -- ** PublishBatchResultEntry
+    publishBatchResultEntry_messageId,
+    publishBatchResultEntry_id,
+    publishBatchResultEntry_sequenceNumber,
 
     -- ** SMSSandboxPhoneNumber
     sMSSandboxPhoneNumber_status,
@@ -300,6 +327,7 @@ import Amazonka.SNS.ListTagsForResource
 import Amazonka.SNS.ListTopics
 import Amazonka.SNS.OptInPhoneNumber
 import Amazonka.SNS.Publish
+import Amazonka.SNS.PublishBatch
 import Amazonka.SNS.RemovePermission
 import Amazonka.SNS.SetEndpointAttributes
 import Amazonka.SNS.SetPlatformApplicationAttributes
@@ -308,10 +336,13 @@ import Amazonka.SNS.SetSubscriptionAttributes
 import Amazonka.SNS.SetTopicAttributes
 import Amazonka.SNS.Subscribe
 import Amazonka.SNS.TagResource
+import Amazonka.SNS.Types.BatchResultErrorEntry
 import Amazonka.SNS.Types.Endpoint
 import Amazonka.SNS.Types.MessageAttributeValue
 import Amazonka.SNS.Types.PhoneNumberInformation
 import Amazonka.SNS.Types.PlatformApplication
+import Amazonka.SNS.Types.PublishBatchRequestEntry
+import Amazonka.SNS.Types.PublishBatchResultEntry
 import Amazonka.SNS.Types.SMSSandboxPhoneNumber
 import Amazonka.SNS.Types.Subscription
 import Amazonka.SNS.Types.Tag

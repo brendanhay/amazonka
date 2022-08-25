@@ -24,28 +24,28 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InstanceAssociationOutputUrl
 
--- | Status information about the instance association.
+-- | Status information about the association.
 --
 -- /See:/ 'newInstanceAssociationStatusInfo' smart constructor.
 data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
-  { -- | The date the instance association ran.
+  { -- | The date the association ran.
     executionDate :: Prelude.Maybe Core.POSIX,
-    -- | The name of the association applied to the instance.
+    -- | The name of the association applied to the managed node.
     associationName :: Prelude.Maybe Prelude.Text,
     -- | The name of the association.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The version of the association applied to the instance.
+    -- | The version of the association applied to the managed node.
     associationVersion :: Prelude.Maybe Prelude.Text,
     -- | A URL for an S3 bucket where you want to store the results of this
     -- request.
     outputUrl :: Prelude.Maybe InstanceAssociationOutputUrl,
-    -- | Status information about the instance association.
+    -- | Status information about the association.
     status :: Prelude.Maybe Prelude.Text,
     -- | Summary information about association execution.
     executionSummary :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID where the association was created.
+    -- | The managed node ID where the association was created.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | Detailed status information about the instance association.
+    -- | Detailed status information about the association.
     detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | An error code returned by the request to create the association.
     errorCode :: Prelude.Maybe Prelude.Text,
@@ -64,24 +64,24 @@ data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionDate', 'instanceAssociationStatusInfo_executionDate' - The date the instance association ran.
+-- 'executionDate', 'instanceAssociationStatusInfo_executionDate' - The date the association ran.
 --
--- 'associationName', 'instanceAssociationStatusInfo_associationName' - The name of the association applied to the instance.
+-- 'associationName', 'instanceAssociationStatusInfo_associationName' - The name of the association applied to the managed node.
 --
 -- 'name', 'instanceAssociationStatusInfo_name' - The name of the association.
 --
--- 'associationVersion', 'instanceAssociationStatusInfo_associationVersion' - The version of the association applied to the instance.
+-- 'associationVersion', 'instanceAssociationStatusInfo_associationVersion' - The version of the association applied to the managed node.
 --
 -- 'outputUrl', 'instanceAssociationStatusInfo_outputUrl' - A URL for an S3 bucket where you want to store the results of this
 -- request.
 --
--- 'status', 'instanceAssociationStatusInfo_status' - Status information about the instance association.
+-- 'status', 'instanceAssociationStatusInfo_status' - Status information about the association.
 --
 -- 'executionSummary', 'instanceAssociationStatusInfo_executionSummary' - Summary information about association execution.
 --
--- 'instanceId', 'instanceAssociationStatusInfo_instanceId' - The instance ID where the association was created.
+-- 'instanceId', 'instanceAssociationStatusInfo_instanceId' - The managed node ID where the association was created.
 --
--- 'detailedStatus', 'instanceAssociationStatusInfo_detailedStatus' - Detailed status information about the instance association.
+-- 'detailedStatus', 'instanceAssociationStatusInfo_detailedStatus' - Detailed status information about the association.
 --
 -- 'errorCode', 'instanceAssociationStatusInfo_errorCode' - An error code returned by the request to create the association.
 --
@@ -107,11 +107,11 @@ newInstanceAssociationStatusInfo =
       documentVersion = Prelude.Nothing
     }
 
--- | The date the instance association ran.
+-- | The date the association ran.
 instanceAssociationStatusInfo_executionDate :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.UTCTime)
 instanceAssociationStatusInfo_executionDate = Lens.lens (\InstanceAssociationStatusInfo' {executionDate} -> executionDate) (\s@InstanceAssociationStatusInfo' {} a -> s {executionDate = a} :: InstanceAssociationStatusInfo) Prelude.. Lens.mapping Core._Time
 
--- | The name of the association applied to the instance.
+-- | The name of the association applied to the managed node.
 instanceAssociationStatusInfo_associationName :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_associationName = Lens.lens (\InstanceAssociationStatusInfo' {associationName} -> associationName) (\s@InstanceAssociationStatusInfo' {} a -> s {associationName = a} :: InstanceAssociationStatusInfo)
 
@@ -119,7 +119,7 @@ instanceAssociationStatusInfo_associationName = Lens.lens (\InstanceAssociationS
 instanceAssociationStatusInfo_name :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_name = Lens.lens (\InstanceAssociationStatusInfo' {name} -> name) (\s@InstanceAssociationStatusInfo' {} a -> s {name = a} :: InstanceAssociationStatusInfo)
 
--- | The version of the association applied to the instance.
+-- | The version of the association applied to the managed node.
 instanceAssociationStatusInfo_associationVersion :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_associationVersion = Lens.lens (\InstanceAssociationStatusInfo' {associationVersion} -> associationVersion) (\s@InstanceAssociationStatusInfo' {} a -> s {associationVersion = a} :: InstanceAssociationStatusInfo)
 
@@ -128,7 +128,7 @@ instanceAssociationStatusInfo_associationVersion = Lens.lens (\InstanceAssociati
 instanceAssociationStatusInfo_outputUrl :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe InstanceAssociationOutputUrl)
 instanceAssociationStatusInfo_outputUrl = Lens.lens (\InstanceAssociationStatusInfo' {outputUrl} -> outputUrl) (\s@InstanceAssociationStatusInfo' {} a -> s {outputUrl = a} :: InstanceAssociationStatusInfo)
 
--- | Status information about the instance association.
+-- | Status information about the association.
 instanceAssociationStatusInfo_status :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_status = Lens.lens (\InstanceAssociationStatusInfo' {status} -> status) (\s@InstanceAssociationStatusInfo' {} a -> s {status = a} :: InstanceAssociationStatusInfo)
 
@@ -136,11 +136,11 @@ instanceAssociationStatusInfo_status = Lens.lens (\InstanceAssociationStatusInfo
 instanceAssociationStatusInfo_executionSummary :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_executionSummary = Lens.lens (\InstanceAssociationStatusInfo' {executionSummary} -> executionSummary) (\s@InstanceAssociationStatusInfo' {} a -> s {executionSummary = a} :: InstanceAssociationStatusInfo)
 
--- | The instance ID where the association was created.
+-- | The managed node ID where the association was created.
 instanceAssociationStatusInfo_instanceId :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_instanceId = Lens.lens (\InstanceAssociationStatusInfo' {instanceId} -> instanceId) (\s@InstanceAssociationStatusInfo' {} a -> s {instanceId = a} :: InstanceAssociationStatusInfo)
 
--- | Detailed status information about the instance association.
+-- | Detailed status information about the association.
 instanceAssociationStatusInfo_detailedStatus :: Lens.Lens' InstanceAssociationStatusInfo (Prelude.Maybe Prelude.Text)
 instanceAssociationStatusInfo_detailedStatus = Lens.lens (\InstanceAssociationStatusInfo' {detailedStatus} -> detailedStatus) (\s@InstanceAssociationStatusInfo' {} a -> s {detailedStatus = a} :: InstanceAssociationStatusInfo)
 

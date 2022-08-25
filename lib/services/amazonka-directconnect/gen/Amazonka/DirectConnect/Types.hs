@@ -257,6 +257,7 @@ module Amazonka.DirectConnect.Types
     newPrivateVirtualInterface_customerAddress,
     newPrivateVirtualInterface_amazonAddress,
     newPrivateVirtualInterface_mtu,
+    newPrivateVirtualInterface_enableSiteLink,
     newPrivateVirtualInterface_virtualInterfaceName,
     newPrivateVirtualInterface_vlan,
     newPrivateVirtualInterface_asn,
@@ -312,6 +313,7 @@ module Amazonka.DirectConnect.Types
     newTransitVirtualInterface_asn,
     newTransitVirtualInterface_amazonAddress,
     newTransitVirtualInterface_mtu,
+    newTransitVirtualInterface_enableSiteLink,
     newTransitVirtualInterface_virtualInterfaceName,
 
     -- * NewTransitVirtualInterfaceAllocation
@@ -378,6 +380,7 @@ module Amazonka.DirectConnect.Types
     virtualInterface_asn,
     virtualInterface_location,
     virtualInterface_region,
+    virtualInterface_siteLinkEnabled,
     virtualInterface_amazonAddress,
     virtualInterface_virtualInterfaceId,
     virtualInterface_bgpPeers,

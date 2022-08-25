@@ -83,6 +83,8 @@ library
     Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
     Amazonka.CertificateManagerPCA.Types.CrlConfiguration
     Amazonka.CertificateManagerPCA.Types.CsrExtensions
+    Amazonka.CertificateManagerPCA.Types.CustomAttribute
+    Amazonka.CertificateManagerPCA.Types.CustomExtension
     Amazonka.CertificateManagerPCA.Types.EdiPartyName
     Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
     Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsageType

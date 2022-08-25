@@ -32,7 +32,9 @@ data WorkloadShareSummary = WorkloadShareSummary'
   { permissionType :: Prelude.Maybe PermissionType,
     sharedWith :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ShareStatus,
-    shareId :: Prelude.Maybe Prelude.Text
+    shareId :: Prelude.Maybe Prelude.Text,
+    -- | Optional message to compliment the Status field.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +53,8 @@ data WorkloadShareSummary = WorkloadShareSummary'
 -- 'status', 'workloadShareSummary_status' - Undocumented member.
 --
 -- 'shareId', 'workloadShareSummary_shareId' - Undocumented member.
+--
+-- 'statusMessage', 'workloadShareSummary_statusMessage' - Optional message to compliment the Status field.
 newWorkloadShareSummary ::
   WorkloadShareSummary
 newWorkloadShareSummary =
@@ -59,7 +63,8 @@ newWorkloadShareSummary =
         Prelude.Nothing,
       sharedWith = Prelude.Nothing,
       status = Prelude.Nothing,
-      shareId = Prelude.Nothing
+      shareId = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -78,6 +83,10 @@ workloadShareSummary_status = Lens.lens (\WorkloadShareSummary' {status} -> stat
 workloadShareSummary_shareId :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
 workloadShareSummary_shareId = Lens.lens (\WorkloadShareSummary' {shareId} -> shareId) (\s@WorkloadShareSummary' {} a -> s {shareId = a} :: WorkloadShareSummary)
 
+-- | Optional message to compliment the Status field.
+workloadShareSummary_statusMessage :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
+workloadShareSummary_statusMessage = Lens.lens (\WorkloadShareSummary' {statusMessage} -> statusMessage) (\s@WorkloadShareSummary' {} a -> s {statusMessage = a} :: WorkloadShareSummary)
+
 instance Core.FromJSON WorkloadShareSummary where
   parseJSON =
     Core.withObject
@@ -88,6 +97,7 @@ instance Core.FromJSON WorkloadShareSummary where
             Prelude.<*> (x Core..:? "SharedWith")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ShareId")
+            Prelude.<*> (x Core..:? "StatusMessage")
       )
 
 instance Prelude.Hashable WorkloadShareSummary where
@@ -96,6 +106,7 @@ instance Prelude.Hashable WorkloadShareSummary where
       `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData WorkloadShareSummary where
   rnf WorkloadShareSummary' {..} =
@@ -103,3 +114,4 @@ instance Prelude.NFData WorkloadShareSummary where
       `Prelude.seq` Prelude.rnf sharedWith
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf statusMessage

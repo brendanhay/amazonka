@@ -36,14 +36,23 @@ module Amazonka.Route53Domains.Types
     -- * ExtraParamName
     ExtraParamName (..),
 
+    -- * ListDomainsAttributeName
+    ListDomainsAttributeName (..),
+
     -- * OperationStatus
     OperationStatus (..),
 
     -- * OperationType
     OperationType (..),
 
+    -- * Operator
+    Operator (..),
+
     -- * ReachabilityStatus
     ReachabilityStatus (..),
+
+    -- * SortOrder
+    SortOrder (..),
 
     -- * Transferable
     Transferable (..),
@@ -75,6 +84,16 @@ module Amazonka.Route53Domains.Types
     contactDetail_fax,
     contactDetail_phoneNumber,
 
+    -- * DomainPrice
+    DomainPrice (..),
+    newDomainPrice,
+    domainPrice_name,
+    domainPrice_transferPrice,
+    domainPrice_registrationPrice,
+    domainPrice_changeOwnershipPrice,
+    domainPrice_restorationPrice,
+    domainPrice_renewalPrice,
+
     -- * DomainSuggestion
     DomainSuggestion (..),
     newDomainSuggestion,
@@ -100,6 +119,13 @@ module Amazonka.Route53Domains.Types
     extraParam_name,
     extraParam_value,
 
+    -- * FilterCondition
+    FilterCondition (..),
+    newFilterCondition,
+    filterCondition_name,
+    filterCondition_operator,
+    filterCondition_values,
+
     -- * Nameserver
     Nameserver (..),
     newNameserver,
@@ -113,6 +139,18 @@ module Amazonka.Route53Domains.Types
     operationSummary_status,
     operationSummary_type,
     operationSummary_submittedDate,
+
+    -- * PriceWithCurrency
+    PriceWithCurrency (..),
+    newPriceWithCurrency,
+    priceWithCurrency_price,
+    priceWithCurrency_currency,
+
+    -- * SortCondition
+    SortCondition (..),
+    newSortCondition,
+    sortCondition_name,
+    sortCondition_sortOrder,
 
     -- * Tag
     Tag (..),
@@ -130,16 +168,23 @@ import Amazonka.Route53Domains.Types.ContactDetail
 import Amazonka.Route53Domains.Types.ContactType
 import Amazonka.Route53Domains.Types.CountryCode
 import Amazonka.Route53Domains.Types.DomainAvailability
+import Amazonka.Route53Domains.Types.DomainPrice
 import Amazonka.Route53Domains.Types.DomainSuggestion
 import Amazonka.Route53Domains.Types.DomainSummary
 import Amazonka.Route53Domains.Types.DomainTransferability
 import Amazonka.Route53Domains.Types.ExtraParam
 import Amazonka.Route53Domains.Types.ExtraParamName
+import Amazonka.Route53Domains.Types.FilterCondition
+import Amazonka.Route53Domains.Types.ListDomainsAttributeName
 import Amazonka.Route53Domains.Types.Nameserver
 import Amazonka.Route53Domains.Types.OperationStatus
 import Amazonka.Route53Domains.Types.OperationSummary
 import Amazonka.Route53Domains.Types.OperationType
+import Amazonka.Route53Domains.Types.Operator
+import Amazonka.Route53Domains.Types.PriceWithCurrency
 import Amazonka.Route53Domains.Types.ReachabilityStatus
+import Amazonka.Route53Domains.Types.SortCondition
+import Amazonka.Route53Domains.Types.SortOrder
 import Amazonka.Route53Domains.Types.Tag
 import Amazonka.Route53Domains.Types.Transferable
 import qualified Amazonka.Sign.V4 as Sign

@@ -26,6 +26,9 @@ module Amazonka.DataSync.Types
     -- * Atime
     Atime (..),
 
+    -- * EfsInTransitEncryption
+    EfsInTransitEncryption (..),
+
     -- * EndpointType
     EndpointType (..),
 
@@ -34,6 +37,15 @@ module Amazonka.DataSync.Types
 
     -- * Gid
     Gid (..),
+
+    -- * HdfsAuthenticationType
+    HdfsAuthenticationType (..),
+
+    -- * HdfsDataTransferProtection
+    HdfsDataTransferProtection (..),
+
+    -- * HdfsRpcProtection
+    HdfsRpcProtection (..),
 
     -- * LocationFilterName
     LocationFilterName (..),
@@ -49,6 +61,9 @@ module Amazonka.DataSync.Types
 
     -- * ObjectStorageServerProtocol
     ObjectStorageServerProtocol (..),
+
+    -- * ObjectTags
+    ObjectTags (..),
 
     -- * Operator
     Operator (..),
@@ -117,6 +132,31 @@ module Amazonka.DataSync.Types
     filterRule_filterType,
     filterRule_value,
 
+    -- * FsxProtocol
+    FsxProtocol (..),
+    newFsxProtocol,
+    fsxProtocol_smb,
+    fsxProtocol_nfs,
+
+    -- * FsxProtocolNfs
+    FsxProtocolNfs (..),
+    newFsxProtocolNfs,
+    fsxProtocolNfs_mountOptions,
+
+    -- * FsxProtocolSmb
+    FsxProtocolSmb (..),
+    newFsxProtocolSmb,
+    fsxProtocolSmb_domain,
+    fsxProtocolSmb_mountOptions,
+    fsxProtocolSmb_password,
+    fsxProtocolSmb_user,
+
+    -- * HdfsNameNode
+    HdfsNameNode (..),
+    newHdfsNameNode,
+    hdfsNameNode_hostname,
+    hdfsNameNode_port,
+
     -- * LocationFilter
     LocationFilter (..),
     newLocationFilter,
@@ -143,6 +183,7 @@ module Amazonka.DataSync.Types
     -- * Options
     Options (..),
     newOptions,
+    options_objectTags,
     options_gid,
     options_logLevel,
     options_taskQueueing,
@@ -165,6 +206,12 @@ module Amazonka.DataSync.Types
     privateLinkConfig_privateLinkEndpoint,
     privateLinkConfig_vpcEndpointId,
     privateLinkConfig_securityGroupArns,
+
+    -- * QopConfiguration
+    QopConfiguration (..),
+    newQopConfiguration,
+    qopConfiguration_dataTransferProtection,
+    qopConfiguration_rpcProtection,
 
     -- * S3Config
     S3Config (..),
@@ -227,10 +274,18 @@ import Amazonka.DataSync.Types.AgentListEntry
 import Amazonka.DataSync.Types.AgentStatus
 import Amazonka.DataSync.Types.Atime
 import Amazonka.DataSync.Types.Ec2Config
+import Amazonka.DataSync.Types.EfsInTransitEncryption
 import Amazonka.DataSync.Types.EndpointType
 import Amazonka.DataSync.Types.FilterRule
 import Amazonka.DataSync.Types.FilterType
+import Amazonka.DataSync.Types.FsxProtocol
+import Amazonka.DataSync.Types.FsxProtocolNfs
+import Amazonka.DataSync.Types.FsxProtocolSmb
 import Amazonka.DataSync.Types.Gid
+import Amazonka.DataSync.Types.HdfsAuthenticationType
+import Amazonka.DataSync.Types.HdfsDataTransferProtection
+import Amazonka.DataSync.Types.HdfsNameNode
+import Amazonka.DataSync.Types.HdfsRpcProtection
 import Amazonka.DataSync.Types.LocationFilter
 import Amazonka.DataSync.Types.LocationFilterName
 import Amazonka.DataSync.Types.LocationListEntry
@@ -239,6 +294,7 @@ import Amazonka.DataSync.Types.Mtime
 import Amazonka.DataSync.Types.NfsMountOptions
 import Amazonka.DataSync.Types.NfsVersion
 import Amazonka.DataSync.Types.ObjectStorageServerProtocol
+import Amazonka.DataSync.Types.ObjectTags
 import Amazonka.DataSync.Types.OnPremConfig
 import Amazonka.DataSync.Types.Operator
 import Amazonka.DataSync.Types.Options
@@ -248,6 +304,7 @@ import Amazonka.DataSync.Types.PosixPermissions
 import Amazonka.DataSync.Types.PreserveDeletedFiles
 import Amazonka.DataSync.Types.PreserveDevices
 import Amazonka.DataSync.Types.PrivateLinkConfig
+import Amazonka.DataSync.Types.QopConfiguration
 import Amazonka.DataSync.Types.S3Config
 import Amazonka.DataSync.Types.S3StorageClass
 import Amazonka.DataSync.Types.SmbMountOptions

@@ -32,16 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOriginShield' smart constructor.
 data OriginShield = OriginShield'
-  { -- | The Region for Origin Shield.
+  { -- | The Amazon Web Services Region for Origin Shield.
     --
-    -- Specify the Region that has the lowest latency to your origin. To
-    -- specify a region, use the region code, not the region name. For example,
-    -- specify the US East (Ohio) region as @us-east-2@.
+    -- Specify the Amazon Web Services Region that has the lowest latency to
+    -- your origin. To specify a region, use the region code, not the region
+    -- name. For example, specify the US East (Ohio) region as @us-east-2@.
     --
-    -- When you enable CloudFront Origin Shield, you must specify the Region
-    -- for Origin Shield. For the list of Regions that you can specify, and for
-    -- help choosing the best Region for your origin, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the Region for Origin Shield>
+    -- When you enable CloudFront Origin Shield, you must specify the Amazon
+    -- Web Services Region for Origin Shield. For the list of Amazon Web
+    -- Services Regions that you can specify, and for help choosing the best
+    -- Region for your origin, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the Amazon Web Services Region for Origin Shield>
     -- in the /Amazon CloudFront Developer Guide/.
     originShieldRegion :: Prelude.Maybe Prelude.Text,
     -- | A flag that specifies whether Origin Shield is enabled.
@@ -62,16 +63,17 @@ data OriginShield = OriginShield'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originShieldRegion', 'originShield_originShieldRegion' - The Region for Origin Shield.
+-- 'originShieldRegion', 'originShield_originShieldRegion' - The Amazon Web Services Region for Origin Shield.
 --
--- Specify the Region that has the lowest latency to your origin. To
--- specify a region, use the region code, not the region name. For example,
--- specify the US East (Ohio) region as @us-east-2@.
+-- Specify the Amazon Web Services Region that has the lowest latency to
+-- your origin. To specify a region, use the region code, not the region
+-- name. For example, specify the US East (Ohio) region as @us-east-2@.
 --
--- When you enable CloudFront Origin Shield, you must specify the Region
--- for Origin Shield. For the list of Regions that you can specify, and for
--- help choosing the best Region for your origin, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the Region for Origin Shield>
+-- When you enable CloudFront Origin Shield, you must specify the Amazon
+-- Web Services Region for Origin Shield. For the list of Amazon Web
+-- Services Regions that you can specify, and for help choosing the best
+-- Region for your origin, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the Amazon Web Services Region for Origin Shield>
 -- in the /Amazon CloudFront Developer Guide/.
 --
 -- 'enabled', 'originShield_enabled' - A flag that specifies whether Origin Shield is enabled.
@@ -90,16 +92,17 @@ newOriginShield pEnabled_ =
       enabled = pEnabled_
     }
 
--- | The Region for Origin Shield.
+-- | The Amazon Web Services Region for Origin Shield.
 --
--- Specify the Region that has the lowest latency to your origin. To
--- specify a region, use the region code, not the region name. For example,
--- specify the US East (Ohio) region as @us-east-2@.
+-- Specify the Amazon Web Services Region that has the lowest latency to
+-- your origin. To specify a region, use the region code, not the region
+-- name. For example, specify the US East (Ohio) region as @us-east-2@.
 --
--- When you enable CloudFront Origin Shield, you must specify the Region
--- for Origin Shield. For the list of Regions that you can specify, and for
--- help choosing the best Region for your origin, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the Region for Origin Shield>
+-- When you enable CloudFront Origin Shield, you must specify the Amazon
+-- Web Services Region for Origin Shield. For the list of Amazon Web
+-- Services Regions that you can specify, and for help choosing the best
+-- Region for your origin, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the Amazon Web Services Region for Origin Shield>
 -- in the /Amazon CloudFront Developer Guide/.
 originShield_originShieldRegion :: Lens.Lens' OriginShield (Prelude.Maybe Prelude.Text)
 originShield_originShieldRegion = Lens.lens (\OriginShield' {originShieldRegion} -> originShieldRegion) (\s@OriginShield' {} a -> s {originShieldRegion = a} :: OriginShield)

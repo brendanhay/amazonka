@@ -151,15 +151,7 @@ instance Prelude.NFData ListComponents where
       `Prelude.seq` Prelude.rnf scope
 
 instance Core.ToHeaders ListComponents where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListComponents where
   toPath = Prelude.const "/greengrass/v2/components"

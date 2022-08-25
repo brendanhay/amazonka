@@ -70,14 +70,13 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreatePortfolioShare' smart constructor.
 data CreatePortfolioShare = CreatePortfolioShare'
-  { -- | The AWS account ID. For example, @123456789012@.
+  { -- | The Amazon Web Services account ID. For example, @123456789012@.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The organization node to whom you are going to share. If
-    -- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
-    -- the node an ListOrganizationPortfolioAccessd its children (when
-    -- applies), and a @PortfolioShareToken@ will be returned in the output in
-    -- order for the administrator to monitor the status of the
-    -- @PortfolioShare@ creation process.
+    -- | The organization node to whom you are going to share. When you pass
+    -- @OrganizationNode@, it creates @PortfolioShare@ for all of the Amazon
+    -- Web Services accounts that are associated to the @OrganizationNode@. The
+    -- output returns a @PortfolioShareToken@, which enables the administrator
+    -- to monitor the status of the @PortfolioShare@ creation process.
     organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
     --
@@ -103,14 +102,13 @@ data CreatePortfolioShare = CreatePortfolioShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'createPortfolioShare_accountId' - The AWS account ID. For example, @123456789012@.
+-- 'accountId', 'createPortfolioShare_accountId' - The Amazon Web Services account ID. For example, @123456789012@.
 --
--- 'organizationNode', 'createPortfolioShare_organizationNode' - The organization node to whom you are going to share. If
--- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
--- the node an ListOrganizationPortfolioAccessd its children (when
--- applies), and a @PortfolioShareToken@ will be returned in the output in
--- order for the administrator to monitor the status of the
--- @PortfolioShare@ creation process.
+-- 'organizationNode', 'createPortfolioShare_organizationNode' - The organization node to whom you are going to share. When you pass
+-- @OrganizationNode@, it creates @PortfolioShare@ for all of the Amazon
+-- Web Services accounts that are associated to the @OrganizationNode@. The
+-- output returns a @PortfolioShareToken@, which enables the administrator
+-- to monitor the status of the @PortfolioShare@ creation process.
 --
 -- 'acceptLanguage', 'createPortfolioShare_acceptLanguage' - The language code.
 --
@@ -137,16 +135,15 @@ newCreatePortfolioShare pPortfolioId_ =
       portfolioId = pPortfolioId_
     }
 
--- | The AWS account ID. For example, @123456789012@.
+-- | The Amazon Web Services account ID. For example, @123456789012@.
 createPortfolioShare_accountId :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
 createPortfolioShare_accountId = Lens.lens (\CreatePortfolioShare' {accountId} -> accountId) (\s@CreatePortfolioShare' {} a -> s {accountId = a} :: CreatePortfolioShare)
 
--- | The organization node to whom you are going to share. If
--- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
--- the node an ListOrganizationPortfolioAccessd its children (when
--- applies), and a @PortfolioShareToken@ will be returned in the output in
--- order for the administrator to monitor the status of the
--- @PortfolioShare@ creation process.
+-- | The organization node to whom you are going to share. When you pass
+-- @OrganizationNode@, it creates @PortfolioShare@ for all of the Amazon
+-- Web Services accounts that are associated to the @OrganizationNode@. The
+-- output returns a @PortfolioShareToken@, which enables the administrator
+-- to monitor the status of the @PortfolioShare@ creation process.
 createPortfolioShare_organizationNode :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe OrganizationNode)
 createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organizationNode} -> organizationNode) (\s@CreatePortfolioShare' {} a -> s {organizationNode = a} :: CreatePortfolioShare)
 

@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption where
 
+import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -42,6 +43,10 @@ data VolumeRecommendationOption = VolumeRecommendationOption'
     performanceRisk :: Prelude.Maybe Prelude.Double,
     -- | An array of objects that describe a volume configuration.
     configuration :: Prelude.Maybe VolumeConfiguration,
+    -- | An object that describes the savings opportunity for the EBS volume
+    -- recommendation option. Savings opportunity includes the estimated
+    -- monthly savings amount and percentage.
+    savingsOpportunity :: Prelude.Maybe SavingsOpportunity,
     -- | The rank of the volume recommendation option.
     --
     -- The top recommendation option is ranked as @1@.
@@ -70,6 +75,10 @@ data VolumeRecommendationOption = VolumeRecommendationOption'
 --
 -- 'configuration', 'volumeRecommendationOption_configuration' - An array of objects that describe a volume configuration.
 --
+-- 'savingsOpportunity', 'volumeRecommendationOption_savingsOpportunity' - An object that describes the savings opportunity for the EBS volume
+-- recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+--
 -- 'rank', 'volumeRecommendationOption_rank' - The rank of the volume recommendation option.
 --
 -- The top recommendation option is ranked as @1@.
@@ -80,6 +89,7 @@ newVolumeRecommendationOption =
     { performanceRisk =
         Prelude.Nothing,
       configuration = Prelude.Nothing,
+      savingsOpportunity = Prelude.Nothing,
       rank = Prelude.Nothing
     }
 
@@ -100,6 +110,12 @@ volumeRecommendationOption_performanceRisk = Lens.lens (\VolumeRecommendationOpt
 volumeRecommendationOption_configuration :: Lens.Lens' VolumeRecommendationOption (Prelude.Maybe VolumeConfiguration)
 volumeRecommendationOption_configuration = Lens.lens (\VolumeRecommendationOption' {configuration} -> configuration) (\s@VolumeRecommendationOption' {} a -> s {configuration = a} :: VolumeRecommendationOption)
 
+-- | An object that describes the savings opportunity for the EBS volume
+-- recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+volumeRecommendationOption_savingsOpportunity :: Lens.Lens' VolumeRecommendationOption (Prelude.Maybe SavingsOpportunity)
+volumeRecommendationOption_savingsOpportunity = Lens.lens (\VolumeRecommendationOption' {savingsOpportunity} -> savingsOpportunity) (\s@VolumeRecommendationOption' {} a -> s {savingsOpportunity = a} :: VolumeRecommendationOption)
+
 -- | The rank of the volume recommendation option.
 --
 -- The top recommendation option is ranked as @1@.
@@ -114,6 +130,7 @@ instance Core.FromJSON VolumeRecommendationOption where
           VolumeRecommendationOption'
             Prelude.<$> (x Core..:? "performanceRisk")
             Prelude.<*> (x Core..:? "configuration")
+            Prelude.<*> (x Core..:? "savingsOpportunity")
             Prelude.<*> (x Core..:? "rank")
       )
 
@@ -121,10 +138,12 @@ instance Prelude.Hashable VolumeRecommendationOption where
   hashWithSalt _salt VolumeRecommendationOption' {..} =
     _salt `Prelude.hashWithSalt` performanceRisk
       `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` savingsOpportunity
       `Prelude.hashWithSalt` rank
 
 instance Prelude.NFData VolumeRecommendationOption where
   rnf VolumeRecommendationOption' {..} =
     Prelude.rnf performanceRisk
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf savingsOpportunity
       `Prelude.seq` Prelude.rnf rank

@@ -87,7 +87,7 @@ data StartTableDataImportJob = StartTableDataImportJob'
     -- use request tokens to dedupe requests spanning hours or days.
     clientRequestToken :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTableDataImportJob' with all optional fields omitted.

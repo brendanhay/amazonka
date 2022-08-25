@@ -24,16 +24,34 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.LanguageCode
 
--- | Provides information about a vocabulary filter.
+-- | Provides information about a vocabulary filter, including the language
+-- of the filter, when it was last modified, and its name.
 --
 -- /See:/ 'newVocabularyFilterInfo' smart constructor.
 data VocabularyFilterInfo = VocabularyFilterInfo'
-  { -- | The date and time that the vocabulary was last updated.
+  { -- | The date and time the specified vocabulary filter was last modified.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+    -- May 4, 2022.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The language code of the words in the vocabulary filter.
+    -- | The language code that represents the language of the entries in your
+    -- vocabulary filter. Each vocabulary filter must contain terms in only one
+    -- language.
+    --
+    -- A vocabulary filter can only be used to transcribe files in the same
+    -- language as the filter. For example, if you create a vocabulary filter
+    -- using US English (@en-US@), you can only apply this filter to files that
+    -- contain English audio.
+    --
+    -- For a list of supported languages and their associated language codes,
+    -- refer to the
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+    -- table.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the vocabulary filter. The name must be unique in the
-    -- account that holds the filter.
+    -- | A unique name, chosen by you, for your custom vocabulary filter. This
+    -- name is case sensitive, cannot contain spaces, and must be unique within
+    -- an Amazon Web Services account.
     vocabularyFilterName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,12 +64,29 @@ data VocabularyFilterInfo = VocabularyFilterInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedTime', 'vocabularyFilterInfo_lastModifiedTime' - The date and time that the vocabulary was last updated.
+-- 'lastModifiedTime', 'vocabularyFilterInfo_lastModifiedTime' - The date and time the specified vocabulary filter was last modified.
 --
--- 'languageCode', 'vocabularyFilterInfo_languageCode' - The language code of the words in the vocabulary filter.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 --
--- 'vocabularyFilterName', 'vocabularyFilterInfo_vocabularyFilterName' - The name of the vocabulary filter. The name must be unique in the
--- account that holds the filter.
+-- 'languageCode', 'vocabularyFilterInfo_languageCode' - The language code that represents the language of the entries in your
+-- vocabulary filter. Each vocabulary filter must contain terms in only one
+-- language.
+--
+-- A vocabulary filter can only be used to transcribe files in the same
+-- language as the filter. For example, if you create a vocabulary filter
+-- using US English (@en-US@), you can only apply this filter to files that
+-- contain English audio.
+--
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
+--
+-- 'vocabularyFilterName', 'vocabularyFilterInfo_vocabularyFilterName' - A unique name, chosen by you, for your custom vocabulary filter. This
+-- name is case sensitive, cannot contain spaces, and must be unique within
+-- an Amazon Web Services account.
 newVocabularyFilterInfo ::
   VocabularyFilterInfo
 newVocabularyFilterInfo =
@@ -62,16 +97,33 @@ newVocabularyFilterInfo =
       vocabularyFilterName = Prelude.Nothing
     }
 
--- | The date and time that the vocabulary was last updated.
+-- | The date and time the specified vocabulary filter was last modified.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 vocabularyFilterInfo_lastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.UTCTime)
 vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Prelude.. Lens.mapping Core._Time
 
--- | The language code of the words in the vocabulary filter.
+-- | The language code that represents the language of the entries in your
+-- vocabulary filter. Each vocabulary filter must contain terms in only one
+-- language.
+--
+-- A vocabulary filter can only be used to transcribe files in the same
+-- language as the filter. For example, if you create a vocabulary filter
+-- using US English (@en-US@), you can only apply this filter to files that
+-- contain English audio.
+--
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 vocabularyFilterInfo_languageCode :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe LanguageCode)
 vocabularyFilterInfo_languageCode = Lens.lens (\VocabularyFilterInfo' {languageCode} -> languageCode) (\s@VocabularyFilterInfo' {} a -> s {languageCode = a} :: VocabularyFilterInfo)
 
--- | The name of the vocabulary filter. The name must be unique in the
--- account that holds the filter.
+-- | A unique name, chosen by you, for your custom vocabulary filter. This
+-- name is case sensitive, cannot contain spaces, and must be unique within
+-- an Amazon Web Services account.
 vocabularyFilterInfo_vocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.Text)
 vocabularyFilterInfo_vocabularyFilterName = Lens.lens (\VocabularyFilterInfo' {vocabularyFilterName} -> vocabularyFilterName) (\s@VocabularyFilterInfo' {} a -> s {vocabularyFilterName = a} :: VocabularyFilterInfo)
 

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing Cell.
+-- Updates a cell to replace the list of nested cells with a new list of
+-- nested cells.
 module Amazonka.Route53RecoveryReadiness.UpdateCell
   ( -- * Creating a Request
     UpdateCell (..),
@@ -51,13 +52,12 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryReadiness.Types
 
--- | Parameters to update for the Cell
---
--- /See:/ 'newUpdateCell' smart constructor.
+-- | /See:/ 'newUpdateCell' smart constructor.
 data UpdateCell = UpdateCell'
-  { -- | The Cell to update
+  { -- | The name of the cell.
     cellName :: Prelude.Text,
-    -- | A list of Cell arns, completely replaces previous list
+    -- | A list of cell Amazon Resource Names (ARNs), which completely replaces
+    -- the previous list.
     cells :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,9 +70,10 @@ data UpdateCell = UpdateCell'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cellName', 'updateCell_cellName' - The Cell to update
+-- 'cellName', 'updateCell_cellName' - The name of the cell.
 --
--- 'cells', 'updateCell_cells' - A list of Cell arns, completely replaces previous list
+-- 'cells', 'updateCell_cells' - A list of cell Amazon Resource Names (ARNs), which completely replaces
+-- the previous list.
 newUpdateCell ::
   -- | 'cellName'
   Prelude.Text ->
@@ -83,11 +84,12 @@ newUpdateCell pCellName_ =
       cells = Prelude.mempty
     }
 
--- | The Cell to update
+-- | The name of the cell.
 updateCell_cellName :: Lens.Lens' UpdateCell Prelude.Text
 updateCell_cellName = Lens.lens (\UpdateCell' {cellName} -> cellName) (\s@UpdateCell' {} a -> s {cellName = a} :: UpdateCell)
 
--- | A list of Cell arns, completely replaces previous list
+-- | A list of cell Amazon Resource Names (ARNs), which completely replaces
+-- the previous list.
 updateCell_cells :: Lens.Lens' UpdateCell [Prelude.Text]
 updateCell_cells = Lens.lens (\UpdateCell' {cells} -> cells) (\s@UpdateCell' {} a -> s {cells = a} :: UpdateCell) Prelude.. Lens.coerced
 
@@ -145,14 +147,17 @@ instance Core.ToQuery UpdateCell where
 
 -- | /See:/ 'newUpdateCellResponse' smart constructor.
 data UpdateCellResponse = UpdateCellResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of Cell ARNs and\/or RecoveryGroup ARNs
+  { -- | Tags on the resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The readiness scope for the cell, which can be a cell Amazon Resource
+    -- Name (ARN) or a recovery group ARN. This is a list but currently can
+    -- have only one element.
     parentReadinessScopes :: Prelude.Maybe [Prelude.Text],
-    -- | The arn for the Cell
+    -- | The Amazon Resource Name (ARN) for the cell.
     cellArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Cell
+    -- | The name of the cell.
     cellName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Cell arns
+    -- | A list of cell ARNs.
     cells :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -167,15 +172,17 @@ data UpdateCellResponse = UpdateCellResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateCellResponse_tags' - Undocumented member.
+-- 'tags', 'updateCellResponse_tags' - Tags on the resources.
 --
--- 'parentReadinessScopes', 'updateCellResponse_parentReadinessScopes' - A list of Cell ARNs and\/or RecoveryGroup ARNs
+-- 'parentReadinessScopes', 'updateCellResponse_parentReadinessScopes' - The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
 --
--- 'cellArn', 'updateCellResponse_cellArn' - The arn for the Cell
+-- 'cellArn', 'updateCellResponse_cellArn' - The Amazon Resource Name (ARN) for the cell.
 --
--- 'cellName', 'updateCellResponse_cellName' - The name of the Cell
+-- 'cellName', 'updateCellResponse_cellName' - The name of the cell.
 --
--- 'cells', 'updateCellResponse_cells' - A list of Cell arns
+-- 'cells', 'updateCellResponse_cells' - A list of cell ARNs.
 --
 -- 'httpStatus', 'updateCellResponse_httpStatus' - The response's http status code.
 newUpdateCellResponse ::
@@ -192,23 +199,25 @@ newUpdateCellResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Tags on the resources.
 updateCellResponse_tags :: Lens.Lens' UpdateCellResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateCellResponse_tags = Lens.lens (\UpdateCellResponse' {tags} -> tags) (\s@UpdateCellResponse' {} a -> s {tags = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Cell ARNs and\/or RecoveryGroup ARNs
+-- | The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
 updateCellResponse_parentReadinessScopes :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
 updateCellResponse_parentReadinessScopes = Lens.lens (\UpdateCellResponse' {parentReadinessScopes} -> parentReadinessScopes) (\s@UpdateCellResponse' {} a -> s {parentReadinessScopes = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The arn for the Cell
+-- | The Amazon Resource Name (ARN) for the cell.
 updateCellResponse_cellArn :: Lens.Lens' UpdateCellResponse (Prelude.Maybe Prelude.Text)
 updateCellResponse_cellArn = Lens.lens (\UpdateCellResponse' {cellArn} -> cellArn) (\s@UpdateCellResponse' {} a -> s {cellArn = a} :: UpdateCellResponse)
 
--- | The name of the Cell
+-- | The name of the cell.
 updateCellResponse_cellName :: Lens.Lens' UpdateCellResponse (Prelude.Maybe Prelude.Text)
 updateCellResponse_cellName = Lens.lens (\UpdateCellResponse' {cellName} -> cellName) (\s@UpdateCellResponse' {} a -> s {cellName = a} :: UpdateCellResponse)
 
--- | A list of Cell arns
+-- | A list of cell ARNs.
 updateCellResponse_cells :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
 updateCellResponse_cells = Lens.lens (\UpdateCellResponse' {cells} -> cells) (\s@UpdateCellResponse' {} a -> s {cells = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 

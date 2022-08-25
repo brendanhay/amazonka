@@ -51,6 +51,9 @@ import Test.Tasty
 --         , requestCalculateRoute $
 --             newCalculateRoute
 --
+--         , requestCalculateRouteMatrix $
+--             newCalculateRouteMatrix
+--
 --         , requestCreateGeofenceCollection $
 --             newCreateGeofenceCollection
 --
@@ -153,6 +156,9 @@ import Test.Tasty
 --         , requestSearchPlaceIndexForPosition $
 --             newSearchPlaceIndexForPosition
 --
+--         , requestSearchPlaceIndexForSuggestions $
+--             newSearchPlaceIndexForSuggestions
+--
 --         , requestSearchPlaceIndexForText $
 --             newSearchPlaceIndexForText
 --
@@ -203,6 +209,9 @@ import Test.Tasty
 --
 --         , responseCalculateRoute $
 --             newCalculateRouteResponse
+--
+--         , responseCalculateRouteMatrix $
+--             newCalculateRouteMatrixResponse
 --
 --         , responseCreateGeofenceCollection $
 --             newCreateGeofenceCollectionResponse
@@ -306,6 +315,9 @@ import Test.Tasty
 --         , responseSearchPlaceIndexForPosition $
 --             newSearchPlaceIndexForPositionResponse
 --
+--         , responseSearchPlaceIndexForSuggestions $
+--             newSearchPlaceIndexForSuggestionsResponse
+--
 --         , responseSearchPlaceIndexForText $
 --             newSearchPlaceIndexForTextResponse
 --
@@ -382,6 +394,12 @@ requestCalculateRoute =
   req
     "CalculateRoute"
     "fixture/CalculateRoute.yaml"
+
+requestCalculateRouteMatrix :: CalculateRouteMatrix -> TestTree
+requestCalculateRouteMatrix =
+  req
+    "CalculateRouteMatrix"
+    "fixture/CalculateRouteMatrix.yaml"
 
 requestCreateGeofenceCollection :: CreateGeofenceCollection -> TestTree
 requestCreateGeofenceCollection =
@@ -587,6 +605,12 @@ requestSearchPlaceIndexForPosition =
     "SearchPlaceIndexForPosition"
     "fixture/SearchPlaceIndexForPosition.yaml"
 
+requestSearchPlaceIndexForSuggestions :: SearchPlaceIndexForSuggestions -> TestTree
+requestSearchPlaceIndexForSuggestions =
+  req
+    "SearchPlaceIndexForSuggestions"
+    "fixture/SearchPlaceIndexForSuggestions.yaml"
+
 requestSearchPlaceIndexForText :: SearchPlaceIndexForText -> TestTree
 requestSearchPlaceIndexForText =
   req
@@ -700,6 +724,14 @@ responseCalculateRoute =
     "fixture/CalculateRouteResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CalculateRoute)
+
+responseCalculateRouteMatrix :: CalculateRouteMatrixResponse -> TestTree
+responseCalculateRouteMatrix =
+  res
+    "CalculateRouteMatrixResponse"
+    "fixture/CalculateRouteMatrixResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CalculateRouteMatrix)
 
 responseCreateGeofenceCollection :: CreateGeofenceCollectionResponse -> TestTree
 responseCreateGeofenceCollection =
@@ -972,6 +1004,14 @@ responseSearchPlaceIndexForPosition =
     "fixture/SearchPlaceIndexForPositionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchPlaceIndexForPosition)
+
+responseSearchPlaceIndexForSuggestions :: SearchPlaceIndexForSuggestionsResponse -> TestTree
+responseSearchPlaceIndexForSuggestions =
+  res
+    "SearchPlaceIndexForSuggestionsResponse"
+    "fixture/SearchPlaceIndexForSuggestionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchPlaceIndexForSuggestions)
 
 responseSearchPlaceIndexForText :: SearchPlaceIndexForTextResponse -> TestTree
 responseSearchPlaceIndexForText =

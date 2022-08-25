@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new configuration in the AppConfig configuration store.
+-- Creates a new configuration in the AppConfig hosted configuration store.
 module Amazonka.AppConfig.CreateHostedConfigurationVersion
   ( -- * Creating a Request
     CreateHostedConfigurationVersion (..),
@@ -60,8 +60,8 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
   { -- | An optional locking token used to prevent race conditions from
     -- overwriting configuration updates when creating a new version. To ensure
     -- your data is not overwritten when creating multiple hosted configuration
-    -- versions in rapid succession, specify the version of the latest hosted
-    -- configuration version.
+    -- versions in rapid succession, specify the version number of the latest
+    -- hosted configuration version.
     latestVersionNumber :: Prelude.Maybe Prelude.Int,
     -- | A description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
@@ -73,7 +73,7 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
     content :: Core.Sensitive Prelude.ByteString,
     -- | A standard MIME type describing the format of the configuration content.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
+    -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
     contentType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -89,8 +89,8 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
 -- 'latestVersionNumber', 'createHostedConfigurationVersion_latestVersionNumber' - An optional locking token used to prevent race conditions from
 -- overwriting configuration updates when creating a new version. To ensure
 -- your data is not overwritten when creating multiple hosted configuration
--- versions in rapid succession, specify the version of the latest hosted
--- configuration version.
+-- versions in rapid succession, specify the version number of the latest
+-- hosted configuration version.
 --
 -- 'description', 'createHostedConfigurationVersion_description' - A description of the configuration.
 --
@@ -102,7 +102,7 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
 --
 -- 'contentType', 'createHostedConfigurationVersion_contentType' - A standard MIME type describing the format of the configuration content.
 -- For more information, see
--- <https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
+-- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
 newCreateHostedConfigurationVersion ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -133,8 +133,8 @@ newCreateHostedConfigurationVersion
 -- | An optional locking token used to prevent race conditions from
 -- overwriting configuration updates when creating a new version. To ensure
 -- your data is not overwritten when creating multiple hosted configuration
--- versions in rapid succession, specify the version of the latest hosted
--- configuration version.
+-- versions in rapid succession, specify the version number of the latest
+-- hosted configuration version.
 createHostedConfigurationVersion_latestVersionNumber :: Lens.Lens' CreateHostedConfigurationVersion (Prelude.Maybe Prelude.Int)
 createHostedConfigurationVersion_latestVersionNumber = Lens.lens (\CreateHostedConfigurationVersion' {latestVersionNumber} -> latestVersionNumber) (\s@CreateHostedConfigurationVersion' {} a -> s {latestVersionNumber = a} :: CreateHostedConfigurationVersion)
 
@@ -156,7 +156,7 @@ createHostedConfigurationVersion_content = Lens.lens (\CreateHostedConfiguration
 
 -- | A standard MIME type describing the format of the configuration content.
 -- For more information, see
--- <https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
+-- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
 createHostedConfigurationVersion_contentType :: Lens.Lens' CreateHostedConfigurationVersion Prelude.Text
 createHostedConfigurationVersion_contentType = Lens.lens (\CreateHostedConfigurationVersion' {contentType} -> contentType) (\s@CreateHostedConfigurationVersion' {} a -> s {contentType = a} :: CreateHostedConfigurationVersion)
 

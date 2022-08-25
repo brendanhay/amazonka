@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
+import Amazonka.DynamoDB.Types.TableClass
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -44,6 +45,9 @@ data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
     -- in the /Amazon DynamoDB Developer Guide/.
     replicaProvisionedReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
+    -- | Replica-specific table class. If not specified, uses the source table\'s
+    -- table class.
+    replicaTableClass :: Prelude.Maybe TableClass,
     -- | The Region of the replica to be added.
     regionName :: Prelude.Text
   }
@@ -69,6 +73,9 @@ data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'replicaTableClass', 'replicaSettingsUpdate_replicaTableClass' - Replica-specific table class. If not specified, uses the source table\'s
+-- table class.
+--
 -- 'regionName', 'replicaSettingsUpdate_regionName' - The Region of the replica to be added.
 newReplicaSettingsUpdate ::
   -- | 'regionName'
@@ -82,6 +89,7 @@ newReplicaSettingsUpdate pRegionName_ =
         Prelude.Nothing,
       replicaProvisionedReadCapacityUnits =
         Prelude.Nothing,
+      replicaTableClass = Prelude.Nothing,
       regionName = pRegionName_
     }
 
@@ -103,6 +111,11 @@ replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (\Re
 replicaSettingsUpdate_replicaProvisionedReadCapacityUnits :: Lens.Lens' ReplicaSettingsUpdate (Prelude.Maybe Prelude.Natural)
 replicaSettingsUpdate_replicaProvisionedReadCapacityUnits = Lens.lens (\ReplicaSettingsUpdate' {replicaProvisionedReadCapacityUnits} -> replicaProvisionedReadCapacityUnits) (\s@ReplicaSettingsUpdate' {} a -> s {replicaProvisionedReadCapacityUnits = a} :: ReplicaSettingsUpdate)
 
+-- | Replica-specific table class. If not specified, uses the source table\'s
+-- table class.
+replicaSettingsUpdate_replicaTableClass :: Lens.Lens' ReplicaSettingsUpdate (Prelude.Maybe TableClass)
+replicaSettingsUpdate_replicaTableClass = Lens.lens (\ReplicaSettingsUpdate' {replicaTableClass} -> replicaTableClass) (\s@ReplicaSettingsUpdate' {} a -> s {replicaTableClass = a} :: ReplicaSettingsUpdate)
+
 -- | The Region of the replica to be added.
 replicaSettingsUpdate_regionName :: Lens.Lens' ReplicaSettingsUpdate Prelude.Text
 replicaSettingsUpdate_regionName = Lens.lens (\ReplicaSettingsUpdate' {regionName} -> regionName) (\s@ReplicaSettingsUpdate' {} a -> s {regionName = a} :: ReplicaSettingsUpdate)
@@ -113,6 +126,7 @@ instance Prelude.Hashable ReplicaSettingsUpdate where
       `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettingsUpdate
       `Prelude.hashWithSalt` replicaGlobalSecondaryIndexSettingsUpdate
       `Prelude.hashWithSalt` replicaProvisionedReadCapacityUnits
+      `Prelude.hashWithSalt` replicaTableClass
       `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData ReplicaSettingsUpdate where
@@ -121,6 +135,7 @@ instance Prelude.NFData ReplicaSettingsUpdate where
       replicaProvisionedReadCapacityAutoScalingSettingsUpdate
       `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexSettingsUpdate
       `Prelude.seq` Prelude.rnf replicaProvisionedReadCapacityUnits
+      `Prelude.seq` Prelude.rnf replicaTableClass
       `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToJSON ReplicaSettingsUpdate where
@@ -135,6 +150,8 @@ instance Core.ToJSON ReplicaSettingsUpdate where
               Prelude.<$> replicaGlobalSecondaryIndexSettingsUpdate,
             ("ReplicaProvisionedReadCapacityUnits" Core..=)
               Prelude.<$> replicaProvisionedReadCapacityUnits,
+            ("ReplicaTableClass" Core..=)
+              Prelude.<$> replicaTableClass,
             Prelude.Just ("RegionName" Core..= regionName)
           ]
       )

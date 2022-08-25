@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the Identity and Access Management (IAM) role that is assigned
--- to the on-premises instance or virtual machines (VM). IAM roles are
--- first assigned to these hybrid instances during the activation process.
--- For more information, see CreateActivation.
+-- to the on-premises server, edge device, or virtual machines (VM). IAM
+-- roles are first assigned to these hybrid nodes during the activation
+-- process. For more information, see CreateActivation.
 module Amazonka.SSM.UpdateManagedInstanceRole
   ( -- * Creating a Request
     UpdateManagedInstanceRole (..),
@@ -51,7 +51,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newUpdateManagedInstanceRole' smart constructor.
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
-  { -- | The ID of the managed instance where you want to update the role.
+  { -- | The ID of the managed node where you want to update the role.
     instanceId :: Prelude.Text,
     -- | The IAM role you want to assign or change.
     iamRole :: Prelude.Text
@@ -66,7 +66,7 @@ data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateManagedInstanceRole_instanceId' - The ID of the managed instance where you want to update the role.
+-- 'instanceId', 'updateManagedInstanceRole_instanceId' - The ID of the managed node where you want to update the role.
 --
 -- 'iamRole', 'updateManagedInstanceRole_iamRole' - The IAM role you want to assign or change.
 newUpdateManagedInstanceRole ::
@@ -82,7 +82,7 @@ newUpdateManagedInstanceRole pInstanceId_ pIamRole_ =
       iamRole = pIamRole_
     }
 
--- | The ID of the managed instance where you want to update the role.
+-- | The ID of the managed node where you want to update the role.
 updateManagedInstanceRole_instanceId :: Lens.Lens' UpdateManagedInstanceRole Prelude.Text
 updateManagedInstanceRole_instanceId = Lens.lens (\UpdateManagedInstanceRole' {instanceId} -> instanceId) (\s@UpdateManagedInstanceRole' {} a -> s {instanceId = a} :: UpdateManagedInstanceRole)
 

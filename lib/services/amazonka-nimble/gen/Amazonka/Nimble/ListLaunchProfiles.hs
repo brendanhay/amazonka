@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLaunchProfiles' smart constructor.
 data ListLaunchProfiles = ListLaunchProfiles'
-  { -- | The principal ID.
+  { -- | The principal ID. This currently supports a Amazon Web Services SSO
+    -- UserId.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or null if there are no more
-    -- results.
+    -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
+    -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A list of states.
-    states :: Prelude.Maybe [Prelude.Text],
+    -- | Filter this request to launch profiles in any of the given states.
+    states :: Prelude.Maybe [LaunchProfileState],
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -77,14 +77,14 @@ data ListLaunchProfiles = ListLaunchProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'listLaunchProfiles_principalId' - The principal ID.
+-- 'principalId', 'listLaunchProfiles_principalId' - The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
 --
--- 'nextToken', 'listLaunchProfiles_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listLaunchProfiles_nextToken' - The token to request the next page of results.
 --
--- 'maxResults', 'listLaunchProfiles_maxResults' - The maximum number of results to be returned per request.
+-- 'maxResults', 'listLaunchProfiles_maxResults' - The max number of results to return in the response.
 --
--- 'states', 'listLaunchProfiles_states' - A list of states.
+-- 'states', 'listLaunchProfiles_states' - Filter this request to launch profiles in any of the given states.
 --
 -- 'studioId', 'listLaunchProfiles_studioId' - The studio ID.
 newListLaunchProfiles ::
@@ -100,21 +100,21 @@ newListLaunchProfiles pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The principal ID.
+-- | The principal ID. This currently supports a Amazon Web Services SSO
+-- UserId.
 listLaunchProfiles_principalId :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
 listLaunchProfiles_principalId = Lens.lens (\ListLaunchProfiles' {principalId} -> principalId) (\s@ListLaunchProfiles' {} a -> s {principalId = a} :: ListLaunchProfiles)
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listLaunchProfiles_nextToken :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
 listLaunchProfiles_nextToken = Lens.lens (\ListLaunchProfiles' {nextToken} -> nextToken) (\s@ListLaunchProfiles' {} a -> s {nextToken = a} :: ListLaunchProfiles)
 
--- | The maximum number of results to be returned per request.
+-- | The max number of results to return in the response.
 listLaunchProfiles_maxResults :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Natural)
 listLaunchProfiles_maxResults = Lens.lens (\ListLaunchProfiles' {maxResults} -> maxResults) (\s@ListLaunchProfiles' {} a -> s {maxResults = a} :: ListLaunchProfiles)
 
--- | A list of states.
-listLaunchProfiles_states :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe [Prelude.Text])
+-- | Filter this request to launch profiles in any of the given states.
+listLaunchProfiles_states :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe [LaunchProfileState])
 listLaunchProfiles_states = Lens.lens (\ListLaunchProfiles' {states} -> states) (\s@ListLaunchProfiles' {} a -> s {states = a} :: ListLaunchProfiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
@@ -213,7 +213,7 @@ data ListLaunchProfilesResponse = ListLaunchProfilesResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLaunchProfilesResponse' with all optional fields omitted.

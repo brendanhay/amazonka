@@ -28,8 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListGeofenceCollectionsResponseEntry' smart constructor.
 data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry'
-  { -- | The specified data provider for the geofence collection.
+  { -- | No longer used. Always returns an empty string.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. Always returns @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the geofence collection.
     collectionName :: Prelude.Text,
     -- | The timestamp for when the geofence collection was created in
@@ -38,12 +40,6 @@ data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry
     createTime :: Core.POSIX,
     -- | The description for the geofence collection
     description :: Prelude.Text,
-    -- | The pricing plan for the specified geofence collection.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- the
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
-    pricingPlan :: PricingPlan,
     -- | Specifies a timestamp for when the resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
@@ -59,7 +55,9 @@ data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pricingPlanDataSource', 'listGeofenceCollectionsResponseEntry_pricingPlanDataSource' - The specified data provider for the geofence collection.
+-- 'pricingPlanDataSource', 'listGeofenceCollectionsResponseEntry_pricingPlanDataSource' - No longer used. Always returns an empty string.
+--
+-- 'pricingPlan', 'listGeofenceCollectionsResponseEntry_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
 --
 -- 'collectionName', 'listGeofenceCollectionsResponseEntry_collectionName' - The name of the geofence collection.
 --
@@ -68,12 +66,6 @@ data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 --
 -- 'description', 'listGeofenceCollectionsResponseEntry_description' - The description for the geofence collection
---
--- 'pricingPlan', 'listGeofenceCollectionsResponseEntry_pricingPlan' - The pricing plan for the specified geofence collection.
---
--- For additional details and restrictions on each pricing plan option, see
--- the
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
 --
 -- 'updateTime', 'listGeofenceCollectionsResponseEntry_updateTime' - Specifies a timestamp for when the resource was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -85,8 +77,6 @@ newListGeofenceCollectionsResponseEntry ::
   Prelude.UTCTime ->
   -- | 'description'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   ListGeofenceCollectionsResponseEntry
@@ -94,23 +84,26 @@ newListGeofenceCollectionsResponseEntry
   pCollectionName_
   pCreateTime_
   pDescription_
-  pPricingPlan_
   pUpdateTime_ =
     ListGeofenceCollectionsResponseEntry'
       { pricingPlanDataSource =
           Prelude.Nothing,
+        pricingPlan = Prelude.Nothing,
         collectionName = pCollectionName_,
         createTime =
           Core._Time Lens.# pCreateTime_,
         description = pDescription_,
-        pricingPlan = pPricingPlan_,
         updateTime =
           Core._Time Lens.# pUpdateTime_
       }
 
--- | The specified data provider for the geofence collection.
+-- | No longer used. Always returns an empty string.
 listGeofenceCollectionsResponseEntry_pricingPlanDataSource :: Lens.Lens' ListGeofenceCollectionsResponseEntry (Prelude.Maybe Prelude.Text)
 listGeofenceCollectionsResponseEntry_pricingPlanDataSource = Lens.lens (\ListGeofenceCollectionsResponseEntry' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {pricingPlanDataSource = a} :: ListGeofenceCollectionsResponseEntry)
+
+-- | No longer used. Always returns @RequestBasedUsage@.
+listGeofenceCollectionsResponseEntry_pricingPlan :: Lens.Lens' ListGeofenceCollectionsResponseEntry (Prelude.Maybe PricingPlan)
+listGeofenceCollectionsResponseEntry_pricingPlan = Lens.lens (\ListGeofenceCollectionsResponseEntry' {pricingPlan} -> pricingPlan) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {pricingPlan = a} :: ListGeofenceCollectionsResponseEntry)
 
 -- | The name of the geofence collection.
 listGeofenceCollectionsResponseEntry_collectionName :: Lens.Lens' ListGeofenceCollectionsResponseEntry Prelude.Text
@@ -125,14 +118,6 @@ listGeofenceCollectionsResponseEntry_createTime = Lens.lens (\ListGeofenceCollec
 -- | The description for the geofence collection
 listGeofenceCollectionsResponseEntry_description :: Lens.Lens' ListGeofenceCollectionsResponseEntry Prelude.Text
 listGeofenceCollectionsResponseEntry_description = Lens.lens (\ListGeofenceCollectionsResponseEntry' {description} -> description) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {description = a} :: ListGeofenceCollectionsResponseEntry)
-
--- | The pricing plan for the specified geofence collection.
---
--- For additional details and restrictions on each pricing plan option, see
--- the
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
-listGeofenceCollectionsResponseEntry_pricingPlan :: Lens.Lens' ListGeofenceCollectionsResponseEntry PricingPlan
-listGeofenceCollectionsResponseEntry_pricingPlan = Lens.lens (\ListGeofenceCollectionsResponseEntry' {pricingPlan} -> pricingPlan) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {pricingPlan = a} :: ListGeofenceCollectionsResponseEntry)
 
 -- | Specifies a timestamp for when the resource was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -150,10 +135,10 @@ instance
       ( \x ->
           ListGeofenceCollectionsResponseEntry'
             Prelude.<$> (x Core..:? "PricingPlanDataSource")
+            Prelude.<*> (x Core..:? "PricingPlan")
             Prelude.<*> (x Core..: "CollectionName")
             Prelude.<*> (x Core..: "CreateTime")
             Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "PricingPlan")
             Prelude.<*> (x Core..: "UpdateTime")
       )
 
@@ -165,10 +150,10 @@ instance
     _salt
     ListGeofenceCollectionsResponseEntry' {..} =
       _salt `Prelude.hashWithSalt` pricingPlanDataSource
+        `Prelude.hashWithSalt` pricingPlan
         `Prelude.hashWithSalt` collectionName
         `Prelude.hashWithSalt` createTime
         `Prelude.hashWithSalt` description
-        `Prelude.hashWithSalt` pricingPlan
         `Prelude.hashWithSalt` updateTime
 
 instance
@@ -177,8 +162,8 @@ instance
   where
   rnf ListGeofenceCollectionsResponseEntry' {..} =
     Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf updateTime

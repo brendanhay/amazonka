@@ -30,13 +30,14 @@
 -- associated role, the new @RoleArn@ will replace the existing @RoleArn@.
 --
 -- Prior to making the @AssociateDRTRole@ request, you must attach the
--- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>
--- managed policy to the role you will specify in the request. For more
--- information see
--- <%20https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies>.
+-- @AWSShieldDRTAccessPolicy@ managed policy to the role that you\'ll
+-- specify in the request. You can access this policy in the IAM console at
+-- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>.
+-- For more information see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Adding and removing IAM identity permissions>.
 -- The role must also trust the service principal
--- @ drt.shield.amazonaws.com@. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html IAM JSON Policy Elements: Principal>.
+-- @drt.shield.amazonaws.com@. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html IAM JSON policy elements: Principal>.
 --
 -- The SRT will have access only to your WAF and Shield resources. By
 -- submitting this request, you authorize the SRT to inspect your WAF and
@@ -46,13 +47,13 @@
 --
 -- You must have the @iam:PassRole@ permission to make an
 -- @AssociateDRTRole@ request. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an Amazon Web Services Service>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a user permissions to pass a role to an Amazon Web Services service>.
 --
 -- To use the services of the SRT and make an @AssociateDRTRole@ request,
 -- you must be subscribed to the
--- <https://aws.amazon.com/premiumsupport/business-support/ Business Support plan>
+-- <http://aws.amazon.com/premiumsupport/business-support/ Business Support plan>
 -- or the
--- <https://aws.amazon.com/premiumsupport/enterprise-support/ Enterprise Support plan>.
+-- <http://aws.amazon.com/premiumsupport/enterprise-support/ Enterprise Support plan>.
 module Amazonka.Shield.AssociateDRTRole
   ( -- * Creating a Request
     AssociateDRTRole (..),

@@ -30,15 +30,18 @@ import Amazonka.DLM.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a backup schedule for a snapshot or AMI lifecycle policy.
+-- | __[Snapshot and AMI policies only]__ Specifies a schedule for a snapshot
+-- or AMI lifecycle policy.
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
   { -- | The name of the schedule.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The rule for enabling fast snapshot restore.
+    -- | __[Snapshot policies only]__ The rule for enabling fast snapshot
+    -- restore.
     fastRestoreRule :: Prelude.Maybe FastRestoreRule,
-    -- | A collection of key\/value pairs with values determined dynamically when
+    -- | __[AMI policies and snapshot policies that target instances only]__ A
+    -- collection of key\/value pairs with values determined dynamically when
     -- the policy is executed. Keys may be any valid Amazon EC2 tag key. Values
     -- must be in one of the two following formats: @$(instance-id)@ or
     -- @$(timestamp)@. Variable tags are only valid for EBS Snapshot Management
@@ -52,19 +55,18 @@ data Schedule = Schedule'
     -- | Copy all user-defined tags on a source volume to snapshots of the volume
     -- created by this policy.
     copyTags :: Prelude.Maybe Prelude.Bool,
-    -- | The retention rule.
+    -- | The retention rule for snapshots or AMIs created by the policy.
     retainRule :: Prelude.Maybe RetainRule,
-    -- | The AMI deprecation rule for the schedule.
+    -- | __[AMI policies only]__ The AMI deprecation rule for the schedule.
     deprecateRule :: Prelude.Maybe DeprecateRule,
-    -- | The rule for cross-Region snapshot copies.
+    -- | Specifies a rule for copying snapshots or AMIs across regions.
     --
-    -- You can only specify cross-Region copy rules for policies that create
-    -- snapshots in a Region. If the policy creates snapshots on an Outpost,
-    -- then you cannot copy the snapshots to a Region or to an Outpost. If the
-    -- policy creates snapshots in a Region, then snapshots can be copied to up
-    -- to three Regions or Outposts.
+    -- You can\'t specify cross-Region copy rules for policies that create
+    -- snapshots on an Outpost. If the policy creates snapshots in a Region,
+    -- then snapshots can be copied to up to three Regions or Outposts.
     crossRegionCopyRules :: Prelude.Maybe [CrossRegionCopyRule],
-    -- | The rule for sharing snapshots with other Amazon Web Services accounts.
+    -- | __[Snapshot policies only]__ The rule for sharing snapshots with other
+    -- Amazon Web Services accounts.
     shareRules :: Prelude.Maybe [ShareRule]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,9 +81,11 @@ data Schedule = Schedule'
 --
 -- 'name', 'schedule_name' - The name of the schedule.
 --
--- 'fastRestoreRule', 'schedule_fastRestoreRule' - The rule for enabling fast snapshot restore.
+-- 'fastRestoreRule', 'schedule_fastRestoreRule' - __[Snapshot policies only]__ The rule for enabling fast snapshot
+-- restore.
 --
--- 'variableTags', 'schedule_variableTags' - A collection of key\/value pairs with values determined dynamically when
+-- 'variableTags', 'schedule_variableTags' - __[AMI policies and snapshot policies that target instances only]__ A
+-- collection of key\/value pairs with values determined dynamically when
 -- the policy is executed. Keys may be any valid Amazon EC2 tag key. Values
 -- must be in one of the two following formats: @$(instance-id)@ or
 -- @$(timestamp)@. Variable tags are only valid for EBS Snapshot Management
@@ -95,19 +99,18 @@ data Schedule = Schedule'
 -- 'copyTags', 'schedule_copyTags' - Copy all user-defined tags on a source volume to snapshots of the volume
 -- created by this policy.
 --
--- 'retainRule', 'schedule_retainRule' - The retention rule.
+-- 'retainRule', 'schedule_retainRule' - The retention rule for snapshots or AMIs created by the policy.
 --
--- 'deprecateRule', 'schedule_deprecateRule' - The AMI deprecation rule for the schedule.
+-- 'deprecateRule', 'schedule_deprecateRule' - __[AMI policies only]__ The AMI deprecation rule for the schedule.
 --
--- 'crossRegionCopyRules', 'schedule_crossRegionCopyRules' - The rule for cross-Region snapshot copies.
+-- 'crossRegionCopyRules', 'schedule_crossRegionCopyRules' - Specifies a rule for copying snapshots or AMIs across regions.
 --
--- You can only specify cross-Region copy rules for policies that create
--- snapshots in a Region. If the policy creates snapshots on an Outpost,
--- then you cannot copy the snapshots to a Region or to an Outpost. If the
--- policy creates snapshots in a Region, then snapshots can be copied to up
--- to three Regions or Outposts.
+-- You can\'t specify cross-Region copy rules for policies that create
+-- snapshots on an Outpost. If the policy creates snapshots in a Region,
+-- then snapshots can be copied to up to three Regions or Outposts.
 --
--- 'shareRules', 'schedule_shareRules' - The rule for sharing snapshots with other Amazon Web Services accounts.
+-- 'shareRules', 'schedule_shareRules' - __[Snapshot policies only]__ The rule for sharing snapshots with other
+-- Amazon Web Services accounts.
 newSchedule ::
   Schedule
 newSchedule =
@@ -128,11 +131,13 @@ newSchedule =
 schedule_name :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
 schedule_name = Lens.lens (\Schedule' {name} -> name) (\s@Schedule' {} a -> s {name = a} :: Schedule)
 
--- | The rule for enabling fast snapshot restore.
+-- | __[Snapshot policies only]__ The rule for enabling fast snapshot
+-- restore.
 schedule_fastRestoreRule :: Lens.Lens' Schedule (Prelude.Maybe FastRestoreRule)
 schedule_fastRestoreRule = Lens.lens (\Schedule' {fastRestoreRule} -> fastRestoreRule) (\s@Schedule' {} a -> s {fastRestoreRule = a} :: Schedule)
 
--- | A collection of key\/value pairs with values determined dynamically when
+-- | __[AMI policies and snapshot policies that target instances only]__ A
+-- collection of key\/value pairs with values determined dynamically when
 -- the policy is executed. Keys may be any valid Amazon EC2 tag key. Values
 -- must be in one of the two following formats: @$(instance-id)@ or
 -- @$(timestamp)@. Variable tags are only valid for EBS Snapshot Management
@@ -154,25 +159,24 @@ schedule_createRule = Lens.lens (\Schedule' {createRule} -> createRule) (\s@Sche
 schedule_copyTags :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Bool)
 schedule_copyTags = Lens.lens (\Schedule' {copyTags} -> copyTags) (\s@Schedule' {} a -> s {copyTags = a} :: Schedule)
 
--- | The retention rule.
+-- | The retention rule for snapshots or AMIs created by the policy.
 schedule_retainRule :: Lens.Lens' Schedule (Prelude.Maybe RetainRule)
 schedule_retainRule = Lens.lens (\Schedule' {retainRule} -> retainRule) (\s@Schedule' {} a -> s {retainRule = a} :: Schedule)
 
--- | The AMI deprecation rule for the schedule.
+-- | __[AMI policies only]__ The AMI deprecation rule for the schedule.
 schedule_deprecateRule :: Lens.Lens' Schedule (Prelude.Maybe DeprecateRule)
 schedule_deprecateRule = Lens.lens (\Schedule' {deprecateRule} -> deprecateRule) (\s@Schedule' {} a -> s {deprecateRule = a} :: Schedule)
 
--- | The rule for cross-Region snapshot copies.
+-- | Specifies a rule for copying snapshots or AMIs across regions.
 --
--- You can only specify cross-Region copy rules for policies that create
--- snapshots in a Region. If the policy creates snapshots on an Outpost,
--- then you cannot copy the snapshots to a Region or to an Outpost. If the
--- policy creates snapshots in a Region, then snapshots can be copied to up
--- to three Regions or Outposts.
+-- You can\'t specify cross-Region copy rules for policies that create
+-- snapshots on an Outpost. If the policy creates snapshots in a Region,
+-- then snapshots can be copied to up to three Regions or Outposts.
 schedule_crossRegionCopyRules :: Lens.Lens' Schedule (Prelude.Maybe [CrossRegionCopyRule])
 schedule_crossRegionCopyRules = Lens.lens (\Schedule' {crossRegionCopyRules} -> crossRegionCopyRules) (\s@Schedule' {} a -> s {crossRegionCopyRules = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
 
--- | The rule for sharing snapshots with other Amazon Web Services accounts.
+-- | __[Snapshot policies only]__ The rule for sharing snapshots with other
+-- Amazon Web Services accounts.
 schedule_shareRules :: Lens.Lens' Schedule (Prelude.Maybe [ShareRule])
 schedule_shareRules = Lens.lens (\Schedule' {shareRules} -> shareRules) (\s@Schedule' {} a -> s {shareRules = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
 

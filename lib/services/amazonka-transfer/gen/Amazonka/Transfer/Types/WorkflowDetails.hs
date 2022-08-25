@@ -31,6 +31,11 @@ import Amazonka.Transfer.Types.WorkflowDetail
 data WorkflowDetails = WorkflowDetails'
   { -- | A trigger that starts a workflow: the workflow begins to execute after a
     -- file is uploaded.
+    --
+    -- To remove an associated workflow from a server, you can provide an empty
+    -- @OnUpload@ object, as in the following example.
+    --
+    -- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
     onUpload :: [WorkflowDetail]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,6 +50,11 @@ data WorkflowDetails = WorkflowDetails'
 --
 -- 'onUpload', 'workflowDetails_onUpload' - A trigger that starts a workflow: the workflow begins to execute after a
 -- file is uploaded.
+--
+-- To remove an associated workflow from a server, you can provide an empty
+-- @OnUpload@ object, as in the following example.
+--
+-- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
 newWorkflowDetails ::
   WorkflowDetails
 newWorkflowDetails =
@@ -52,6 +62,11 @@ newWorkflowDetails =
 
 -- | A trigger that starts a workflow: the workflow begins to execute after a
 -- file is uploaded.
+--
+-- To remove an associated workflow from a server, you can provide an empty
+-- @OnUpload@ object, as in the following example.
+--
+-- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
 workflowDetails_onUpload :: Lens.Lens' WorkflowDetails [WorkflowDetail]
 workflowDetails_onUpload = Lens.lens (\WorkflowDetails' {onUpload} -> onUpload) (\s@WorkflowDetails' {} a -> s {onUpload = a} :: WorkflowDetails) Prelude.. Lens.coerced
 

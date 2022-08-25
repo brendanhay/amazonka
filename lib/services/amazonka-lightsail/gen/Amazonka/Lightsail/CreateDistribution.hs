@@ -82,7 +82,7 @@ data CreateDistribution = CreateDistribution'
     -- | The name for the distribution.
     distributionName :: Prelude.Text,
     -- | An object that describes the origin resource for the distribution, such
-    -- as a Lightsail instance or load balancer.
+    -- as a Lightsail instance, bucket, or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
     origin :: InputOrigin,
@@ -129,7 +129,7 @@ data CreateDistribution = CreateDistribution'
 -- 'distributionName', 'createDistribution_distributionName' - The name for the distribution.
 --
 -- 'origin', 'createDistribution_origin' - An object that describes the origin resource for the distribution, such
--- as a Lightsail instance or load balancer.
+-- as a Lightsail instance, bucket, or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
 --
@@ -200,7 +200,7 @@ createDistribution_distributionName :: Lens.Lens' CreateDistribution Prelude.Tex
 createDistribution_distributionName = Lens.lens (\CreateDistribution' {distributionName} -> distributionName) (\s@CreateDistribution' {} a -> s {distributionName = a} :: CreateDistribution)
 
 -- | An object that describes the origin resource for the distribution, such
--- as a Lightsail instance or load balancer.
+-- as a Lightsail instance, bucket, or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
 createDistribution_origin :: Lens.Lens' CreateDistribution InputOrigin

@@ -52,7 +52,7 @@ data FleetData = FleetData'
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
     --
     -- Constraints: Maximum 64 ASCII characters
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -140,7 +140,7 @@ data FleetData = FleetData'
 --
 -- 'clientToken', 'fleetData_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- Constraints: Maximum 64 ASCII characters
 --
@@ -251,7 +251,7 @@ fleetData_fleetId = Lens.lens (\FleetData' {fleetId} -> fleetId) (\s@FleetData' 
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- Constraints: Maximum 64 ASCII characters
 fleetData_clientToken :: Lens.Lens' FleetData (Prelude.Maybe Prelude.Text)

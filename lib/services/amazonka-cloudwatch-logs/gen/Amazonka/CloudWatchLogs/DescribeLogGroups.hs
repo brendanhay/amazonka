@@ -196,7 +196,7 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The log groups.
     --
-    -- If the @retentionInDays@ value if not included for a log group, then
+    -- If the @retentionInDays@ value is not included for a log group, then
     -- that log group is set to have its events never expire.
     logGroups :: Prelude.Maybe [LogGroup],
     -- | The response's http status code.
@@ -216,7 +216,7 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 --
 -- 'logGroups', 'describeLogGroupsResponse_logGroups' - The log groups.
 --
--- If the @retentionInDays@ value if not included for a log group, then
+-- If the @retentionInDays@ value is not included for a log group, then
 -- that log group is set to have its events never expire.
 --
 -- 'httpStatus', 'describeLogGroupsResponse_httpStatus' - The response's http status code.
@@ -238,7 +238,7 @@ describeLogGroupsResponse_nextToken = Lens.lens (\DescribeLogGroupsResponse' {ne
 
 -- | The log groups.
 --
--- If the @retentionInDays@ value if not included for a log group, then
+-- If the @retentionInDays@ value is not included for a log group, then
 -- that log group is set to have its events never expire.
 describeLogGroupsResponse_logGroups :: Lens.Lens' DescribeLogGroupsResponse (Prelude.Maybe [LogGroup])
 describeLogGroupsResponse_logGroups = Lens.lens (\DescribeLogGroupsResponse' {logGroups} -> logGroups) (\s@DescribeLogGroupsResponse' {} a -> s {logGroups = a} :: DescribeLogGroupsResponse) Prelude.. Lens.mapping Lens.coerced

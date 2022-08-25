@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
-  { -- | The timestamp when the invitation was sent.
+  { -- | The administrator account ID.
+    administratorId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the invitation was sent.
     invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The detector ID of the member account.
     detectorId :: Prelude.Maybe Prelude.Text,
@@ -51,6 +53,8 @@ data Member = Member'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'administratorId', 'member_administratorId' - The administrator account ID.
 --
 -- 'invitedAt', 'member_invitedAt' - The timestamp when the invitation was sent.
 --
@@ -84,7 +88,8 @@ newMember
   pRelationshipStatus_
   pUpdatedAt_ =
     Member'
-      { invitedAt = Prelude.Nothing,
+      { administratorId = Prelude.Nothing,
+        invitedAt = Prelude.Nothing,
         detectorId = Prelude.Nothing,
         accountId = pAccountId_,
         masterId = pMasterId_,
@@ -92,6 +97,10 @@ newMember
         relationshipStatus = pRelationshipStatus_,
         updatedAt = pUpdatedAt_
       }
+
+-- | The administrator account ID.
+member_administratorId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_administratorId = Lens.lens (\Member' {administratorId} -> administratorId) (\s@Member' {} a -> s {administratorId = a} :: Member)
 
 -- | The timestamp when the invitation was sent.
 member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
@@ -127,7 +136,8 @@ instance Core.FromJSON Member where
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "invitedAt")
+            Prelude.<$> (x Core..:? "administratorId")
+            Prelude.<*> (x Core..:? "invitedAt")
             Prelude.<*> (x Core..:? "detectorId")
             Prelude.<*> (x Core..: "accountId")
             Prelude.<*> (x Core..: "masterId")
@@ -138,7 +148,8 @@ instance Core.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` invitedAt
+    _salt `Prelude.hashWithSalt` administratorId
+      `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` masterId
@@ -148,7 +159,8 @@ instance Prelude.Hashable Member where
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf invitedAt
+    Prelude.rnf administratorId
+      `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf masterId

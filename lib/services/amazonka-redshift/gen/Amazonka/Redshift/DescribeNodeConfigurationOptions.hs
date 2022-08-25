@@ -32,6 +32,7 @@ module Amazonka.Redshift.DescribeNodeConfigurationOptions
     -- * Request Lenses
     describeNodeConfigurationOptions_clusterIdentifier,
     describeNodeConfigurationOptions_marker,
+    describeNodeConfigurationOptions_snapshotArn,
     describeNodeConfigurationOptions_snapshotIdentifier,
     describeNodeConfigurationOptions_filters,
     describeNodeConfigurationOptions_maxRecords,
@@ -69,6 +70,9 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
     -- providing the returned marker value in the @Marker@ parameter and
     -- retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the snapshot associated with the
+    -- message to describe node configuration.
+    snapshotArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot to evaluate for possible node
     -- configurations.
     snapshotIdentifier :: Prelude.Maybe Prelude.Text,
@@ -117,6 +121,9 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
 -- providing the returned marker value in the @Marker@ parameter and
 -- retrying the request.
 --
+-- 'snapshotArn', 'describeNodeConfigurationOptions_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe node configuration.
+--
 -- 'snapshotIdentifier', 'describeNodeConfigurationOptions_snapshotIdentifier' - The identifier of the snapshot to evaluate for possible node
 -- configurations.
 --
@@ -151,6 +158,7 @@ newDescribeNodeConfigurationOptions pActionType_ =
     { clusterIdentifier =
         Prelude.Nothing,
       marker = Prelude.Nothing,
+      snapshotArn = Prelude.Nothing,
       snapshotIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
@@ -172,6 +180,11 @@ describeNodeConfigurationOptions_clusterIdentifier = Lens.lens (\DescribeNodeCon
 -- retrying the request.
 describeNodeConfigurationOptions_marker :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeNodeConfigurationOptions_marker = Lens.lens (\DescribeNodeConfigurationOptions' {marker} -> marker) (\s@DescribeNodeConfigurationOptions' {} a -> s {marker = a} :: DescribeNodeConfigurationOptions)
+
+-- | The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe node configuration.
+describeNodeConfigurationOptions_snapshotArn :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
+describeNodeConfigurationOptions_snapshotArn = Lens.lens (\DescribeNodeConfigurationOptions' {snapshotArn} -> snapshotArn) (\s@DescribeNodeConfigurationOptions' {} a -> s {snapshotArn = a} :: DescribeNodeConfigurationOptions)
 
 -- | The identifier of the snapshot to evaluate for possible node
 -- configurations.
@@ -265,6 +278,7 @@ instance
     DescribeNodeConfigurationOptions' {..} =
       _salt `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` snapshotArn
         `Prelude.hashWithSalt` snapshotIdentifier
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxRecords
@@ -278,6 +292,7 @@ instance
   rnf DescribeNodeConfigurationOptions' {..} =
     Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf snapshotArn
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
@@ -307,6 +322,7 @@ instance
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "Marker" Core.=: marker,
+        "SnapshotArn" Core.=: snapshotArn,
         "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "Filter"
           Core.=: Core.toQuery

@@ -29,19 +29,7 @@ import Amazonka.SSMIncidents.Types.ItemValue
 --
 -- /See:/ 'newItemIdentifier' smart constructor.
 data ItemIdentifier = ItemIdentifier'
-  { -- | The type of related item. Incident Manager supports the following types:
-    --
-    -- -   @ANALYSIS@
-    --
-    -- -   @INCIDENT@
-    --
-    -- -   @METRIC@
-    --
-    -- -   @PARENT@
-    --
-    -- -   @ATTACHMENT@
-    --
-    -- -   @OTHER@
+  { -- | The type of related item.
     type' :: ItemType,
     -- | Details about the related item.
     value :: ItemValue
@@ -56,19 +44,7 @@ data ItemIdentifier = ItemIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'itemIdentifier_type' - The type of related item. Incident Manager supports the following types:
---
--- -   @ANALYSIS@
---
--- -   @INCIDENT@
---
--- -   @METRIC@
---
--- -   @PARENT@
---
--- -   @ATTACHMENT@
---
--- -   @OTHER@
+-- 'type'', 'itemIdentifier_type' - The type of related item.
 --
 -- 'value', 'itemIdentifier_value' - Details about the related item.
 newItemIdentifier ::
@@ -80,19 +56,7 @@ newItemIdentifier ::
 newItemIdentifier pType_ pValue_ =
   ItemIdentifier' {type' = pType_, value = pValue_}
 
--- | The type of related item. Incident Manager supports the following types:
---
--- -   @ANALYSIS@
---
--- -   @INCIDENT@
---
--- -   @METRIC@
---
--- -   @PARENT@
---
--- -   @ATTACHMENT@
---
--- -   @OTHER@
+-- | The type of related item.
 itemIdentifier_type :: Lens.Lens' ItemIdentifier ItemType
 itemIdentifier_type = Lens.lens (\ItemIdentifier' {type'} -> type') (\s@ItemIdentifier' {} a -> s {type' = a} :: ItemIdentifier)
 

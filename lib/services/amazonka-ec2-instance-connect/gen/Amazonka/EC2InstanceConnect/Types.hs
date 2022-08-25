@@ -18,10 +18,12 @@ module Amazonka.EC2InstanceConnect.Types
 
     -- * Errors
     _SerialConsoleSessionUnavailableException,
+    _EC2InstanceStateInvalidException,
     _AuthException,
     _SerialConsoleSessionLimitExceededException,
     _EC2InstanceNotFoundException,
     _EC2InstanceTypeInvalidException,
+    _EC2InstanceUnavailableException,
     _ThrottlingException,
     _ServiceException,
     _SerialConsoleAccessDisabledException,
@@ -113,6 +115,15 @@ _SerialConsoleSessionUnavailableException =
     defaultService
     "SerialConsoleSessionUnavailableException"
 
+-- | Unable to connect because the instance is not in a valid state.
+-- Connecting to a stopped or terminated instance is not supported. If the
+-- instance is stopped, start your instance, and try to connect again.
+_EC2InstanceStateInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceStateInvalidException =
+  Core._MatchServiceError
+    defaultService
+    "EC2InstanceStateInvalidException"
+
 -- | Either your AWS credentials are not valid or you do not have access to
 -- the EC2 instance.
 _AuthException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -143,6 +154,13 @@ _EC2InstanceTypeInvalidException =
   Core._MatchServiceError
     defaultService
     "EC2InstanceTypeInvalidException"
+
+-- | The instance is currently unavailable. Wait a few minutes and try again.
+_EC2InstanceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "EC2InstanceUnavailableException"
 
 -- | The requests were made too frequently and have been throttled. Wait a
 -- while and try again. To increase the limit on your request frequency,

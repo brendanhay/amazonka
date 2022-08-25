@@ -27,9 +27,10 @@ import Amazonka.DevOpsGuru.Types.ResourceCollection
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An AWS resource event. AWS resource events and metrics are analyzed by
--- DevOps Guru to find anomalous behavior and provide recommendations to
--- improve your operational solutions.
+-- | An Amazon Web Services resource event. Amazon Web Services resource
+-- events and metrics are analyzed by DevOps Guru to find anomalous
+-- behavior and provide recommendations to improve your operational
+-- solutions.
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
@@ -49,7 +50,7 @@ data Event = Event'
     -- | An @EventResource@ object that contains information about the resource
     -- that emitted the event.
     resources :: Prelude.Maybe [EventResource],
-    -- | The AWS source that emitted the event.
+    -- | The Amazon Web Services source that emitted the event.
     eventSource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +80,7 @@ data Event = Event'
 -- 'resources', 'event_resources' - An @EventResource@ object that contains information about the resource
 -- that emitted the event.
 --
--- 'eventSource', 'event_eventSource' - The AWS source that emitted the event.
+-- 'eventSource', 'event_eventSource' - The Amazon Web Services source that emitted the event.
 newEvent ::
   Event
 newEvent =
@@ -125,7 +126,7 @@ event_eventClass = Lens.lens (\Event' {eventClass} -> eventClass) (\s@Event' {} 
 event_resources :: Lens.Lens' Event (Prelude.Maybe [EventResource])
 event_resources = Lens.lens (\Event' {resources} -> resources) (\s@Event' {} a -> s {resources = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
--- | The AWS source that emitted the event.
+-- | The Amazon Web Services source that emitted the event.
 event_eventSource :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventSource = Lens.lens (\Event' {eventSource} -> eventSource) (\s@Event' {} a -> s {eventSource = a} :: Event)
 

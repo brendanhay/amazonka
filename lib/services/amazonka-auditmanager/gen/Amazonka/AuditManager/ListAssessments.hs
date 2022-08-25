@@ -28,6 +28,7 @@ module Amazonka.AuditManager.ListAssessments
 
     -- * Request Lenses
     listAssessments_nextToken,
+    listAssessments_status,
     listAssessments_maxResults,
 
     -- * Destructuring the Response
@@ -50,9 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssessments' smart constructor.
 data ListAssessments = ListAssessments'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results per page, or per API request
+    -- | The current status of the assessment.
+    status :: Prelude.Maybe AssessmentStatus,
+    -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -66,23 +69,30 @@ data ListAssessments = ListAssessments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssessments_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'listAssessments_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'maxResults', 'listAssessments_maxResults' - Represents the maximum number of results per page, or per API request
+-- 'status', 'listAssessments_status' - The current status of the assessment.
+--
+-- 'maxResults', 'listAssessments_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
 newListAssessments ::
   ListAssessments
 newListAssessments =
   ListAssessments'
     { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 listAssessments_nextToken :: Lens.Lens' ListAssessments (Prelude.Maybe Prelude.Text)
 listAssessments_nextToken = Lens.lens (\ListAssessments' {nextToken} -> nextToken) (\s@ListAssessments' {} a -> s {nextToken = a} :: ListAssessments)
 
--- | Represents the maximum number of results per page, or per API request
+-- | The current status of the assessment.
+listAssessments_status :: Lens.Lens' ListAssessments (Prelude.Maybe AssessmentStatus)
+listAssessments_status = Lens.lens (\ListAssessments' {status} -> status) (\s@ListAssessments' {} a -> s {status = a} :: ListAssessments)
+
+-- | Represents the maximum number of results on a page or for an API request
 -- call.
 listAssessments_maxResults :: Lens.Lens' ListAssessments (Prelude.Maybe Prelude.Natural)
 listAssessments_maxResults = Lens.lens (\ListAssessments' {maxResults} -> maxResults) (\s@ListAssessments' {} a -> s {maxResults = a} :: ListAssessments)
@@ -106,11 +116,13 @@ instance Core.AWSRequest ListAssessments where
 instance Prelude.Hashable ListAssessments where
   hashWithSalt _salt ListAssessments' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAssessments where
   rnf ListAssessments' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssessments where
@@ -131,14 +143,15 @@ instance Core.ToQuery ListAssessments where
   toQuery ListAssessments' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
+        "status" Core.=: status,
         "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListAssessmentsResponse' smart constructor.
 data ListAssessmentsResponse = ListAssessmentsResponse'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The metadata associated with the assessment.
+    -- | The metadata that\'s associated with the assessment.
     assessmentMetadata :: Prelude.Maybe [AssessmentMetadataItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -153,9 +166,9 @@ data ListAssessmentsResponse = ListAssessmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssessmentsResponse_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'listAssessmentsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'assessmentMetadata', 'listAssessmentsResponse_assessmentMetadata' - The metadata associated with the assessment.
+-- 'assessmentMetadata', 'listAssessmentsResponse_assessmentMetadata' - The metadata that\'s associated with the assessment.
 --
 -- 'httpStatus', 'listAssessmentsResponse_httpStatus' - The response's http status code.
 newListAssessmentsResponse ::
@@ -170,11 +183,11 @@ newListAssessmentsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 listAssessmentsResponse_nextToken :: Lens.Lens' ListAssessmentsResponse (Prelude.Maybe Prelude.Text)
 listAssessmentsResponse_nextToken = Lens.lens (\ListAssessmentsResponse' {nextToken} -> nextToken) (\s@ListAssessmentsResponse' {} a -> s {nextToken = a} :: ListAssessmentsResponse)
 
--- | The metadata associated with the assessment.
+-- | The metadata that\'s associated with the assessment.
 listAssessmentsResponse_assessmentMetadata :: Lens.Lens' ListAssessmentsResponse (Prelude.Maybe [AssessmentMetadataItem])
 listAssessmentsResponse_assessmentMetadata = Lens.lens (\ListAssessmentsResponse' {assessmentMetadata} -> assessmentMetadata) (\s@ListAssessmentsResponse' {} a -> s {assessmentMetadata = a} :: ListAssessmentsResponse) Prelude.. Lens.mapping Lens.coerced
 

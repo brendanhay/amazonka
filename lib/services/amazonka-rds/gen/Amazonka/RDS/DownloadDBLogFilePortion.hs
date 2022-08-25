@@ -23,6 +23,8 @@
 -- Downloads all or a portion of the specified log file, up to 1 MB in
 -- size.
 --
+-- This command doesn\'t apply to RDS Custom.
+--
 -- This operation returns paginated results.
 module Amazonka.RDS.DownloadDBLogFilePortion
   ( -- * Creating a Request
@@ -282,8 +284,8 @@ instance Core.ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'newDownloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-  { -- | A pagination token that can be used in a later DownloadDBLogFilePortion
-    -- request.
+  { -- | A pagination token that can be used in a later
+    -- @DownloadDBLogFilePortion@ request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | Boolean value that if true, indicates there is more data to be
     -- downloaded.
@@ -303,8 +305,8 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later DownloadDBLogFilePortion
--- request.
+-- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later
+-- @DownloadDBLogFilePortion@ request.
 --
 -- 'additionalDataPending', 'downloadDBLogFilePortionResponse_additionalDataPending' - Boolean value that if true, indicates there is more data to be
 -- downloaded.
@@ -325,8 +327,8 @@ newDownloadDBLogFilePortionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A pagination token that can be used in a later DownloadDBLogFilePortion
--- request.
+-- | A pagination token that can be used in a later
+-- @DownloadDBLogFilePortion@ request.
 downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
 downloadDBLogFilePortionResponse_marker = Lens.lens (\DownloadDBLogFilePortionResponse' {marker} -> marker) (\s@DownloadDBLogFilePortionResponse' {} a -> s {marker = a} :: DownloadDBLogFilePortionResponse)
 

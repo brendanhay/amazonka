@@ -34,16 +34,16 @@ data RiskConfigurationType = RiskConfigurationType'
     clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The last modified date.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The account takeover risk configuration object including the
-    -- @NotifyConfiguration@ object and @Actions@ to take in the case of an
+    -- | The account takeover risk configuration object, including the
+    -- @NotifyConfiguration@ object and @Actions@ to take if there is an
     -- account takeover.
     accountTakeoverRiskConfiguration :: Prelude.Maybe AccountTakeoverRiskConfigurationType,
     -- | The configuration to override the risk decision.
     riskExceptionConfiguration :: Prelude.Maybe RiskExceptionConfigurationType,
     -- | The user pool ID.
     userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The compromised credentials risk configuration object including the
-    -- @EventFilter@ and the @EventAction@
+    -- | The compromised credentials risk configuration object, including the
+    -- @EventFilter@ and the @EventAction@.
     compromisedCredentialsRiskConfiguration :: Prelude.Maybe CompromisedCredentialsRiskConfigurationType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -60,16 +60,16 @@ data RiskConfigurationType = RiskConfigurationType'
 --
 -- 'lastModifiedDate', 'riskConfigurationType_lastModifiedDate' - The last modified date.
 --
--- 'accountTakeoverRiskConfiguration', 'riskConfigurationType_accountTakeoverRiskConfiguration' - The account takeover risk configuration object including the
--- @NotifyConfiguration@ object and @Actions@ to take in the case of an
+-- 'accountTakeoverRiskConfiguration', 'riskConfigurationType_accountTakeoverRiskConfiguration' - The account takeover risk configuration object, including the
+-- @NotifyConfiguration@ object and @Actions@ to take if there is an
 -- account takeover.
 --
 -- 'riskExceptionConfiguration', 'riskConfigurationType_riskExceptionConfiguration' - The configuration to override the risk decision.
 --
 -- 'userPoolId', 'riskConfigurationType_userPoolId' - The user pool ID.
 --
--- 'compromisedCredentialsRiskConfiguration', 'riskConfigurationType_compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration object including the
--- @EventFilter@ and the @EventAction@
+-- 'compromisedCredentialsRiskConfiguration', 'riskConfigurationType_compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration object, including the
+-- @EventFilter@ and the @EventAction@.
 newRiskConfigurationType ::
   RiskConfigurationType
 newRiskConfigurationType =
@@ -91,8 +91,8 @@ riskConfigurationType_clientId = Lens.lens (\RiskConfigurationType' {clientId} -
 riskConfigurationType_lastModifiedDate :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.UTCTime)
 riskConfigurationType_lastModifiedDate = Lens.lens (\RiskConfigurationType' {lastModifiedDate} -> lastModifiedDate) (\s@RiskConfigurationType' {} a -> s {lastModifiedDate = a} :: RiskConfigurationType) Prelude.. Lens.mapping Core._Time
 
--- | The account takeover risk configuration object including the
--- @NotifyConfiguration@ object and @Actions@ to take in the case of an
+-- | The account takeover risk configuration object, including the
+-- @NotifyConfiguration@ object and @Actions@ to take if there is an
 -- account takeover.
 riskConfigurationType_accountTakeoverRiskConfiguration :: Lens.Lens' RiskConfigurationType (Prelude.Maybe AccountTakeoverRiskConfigurationType)
 riskConfigurationType_accountTakeoverRiskConfiguration = Lens.lens (\RiskConfigurationType' {accountTakeoverRiskConfiguration} -> accountTakeoverRiskConfiguration) (\s@RiskConfigurationType' {} a -> s {accountTakeoverRiskConfiguration = a} :: RiskConfigurationType)
@@ -105,8 +105,8 @@ riskConfigurationType_riskExceptionConfiguration = Lens.lens (\RiskConfiguration
 riskConfigurationType_userPoolId :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.Text)
 riskConfigurationType_userPoolId = Lens.lens (\RiskConfigurationType' {userPoolId} -> userPoolId) (\s@RiskConfigurationType' {} a -> s {userPoolId = a} :: RiskConfigurationType)
 
--- | The compromised credentials risk configuration object including the
--- @EventFilter@ and the @EventAction@
+-- | The compromised credentials risk configuration object, including the
+-- @EventFilter@ and the @EventAction@.
 riskConfigurationType_compromisedCredentialsRiskConfiguration :: Lens.Lens' RiskConfigurationType (Prelude.Maybe CompromisedCredentialsRiskConfigurationType)
 riskConfigurationType_compromisedCredentialsRiskConfiguration = Lens.lens (\RiskConfigurationType' {compromisedCredentialsRiskConfiguration} -> compromisedCredentialsRiskConfiguration) (\s@RiskConfigurationType' {} a -> s {compromisedCredentialsRiskConfiguration = a} :: RiskConfigurationType)
 

@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChatMessage' smart constructor.
 data ChatMessage = ChatMessage'
-  { -- | The type of the content. Supported types are text and plain.
+  { -- | The type of the content. Supported types are @text\/plain@.
     contentType :: Prelude.Text,
     -- | The content of the chat message.
     content :: Prelude.Text
@@ -42,7 +42,7 @@ data ChatMessage = ChatMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentType', 'chatMessage_contentType' - The type of the content. Supported types are text and plain.
+-- 'contentType', 'chatMessage_contentType' - The type of the content. Supported types are @text\/plain@.
 --
 -- 'content', 'chatMessage_content' - The content of the chat message.
 newChatMessage ::
@@ -57,7 +57,7 @@ newChatMessage pContentType_ pContent_ =
       content = pContent_
     }
 
--- | The type of the content. Supported types are text and plain.
+-- | The type of the content. Supported types are @text\/plain@.
 chatMessage_contentType :: Lens.Lens' ChatMessage Prelude.Text
 chatMessage_contentType = Lens.lens (\ChatMessage' {contentType} -> contentType) (\s@ChatMessage' {} a -> s {contentType = a} :: ChatMessage)
 

@@ -81,11 +81,11 @@ data PutRestApi = PutRestApi'
     -- @parameters@ value, as in the AWS CLI command of
     -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The PUT request body containing external API definitions.
-    -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
-    -- maximum size of the API definition file is 6MB.
+    -- | The PUT request body containing external API definitions. Currently,
+    -- only OpenAPI definition JSON\/YAML files are supported. The maximum size
+    -- of the API definition file is 6MB.
     body :: Prelude.ByteString
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -110,11 +110,11 @@ data PutRestApi = PutRestApi'
 -- @parameters@ value, as in the AWS CLI command of
 -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
 --
--- 'restApiId', 'putRestApi_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'putRestApi_restApiId' - The string identifier of the associated RestApi.
 --
--- 'body', 'putRestApi_body' - [Required] The PUT request body containing external API definitions.
--- Currently, only OpenAPI definition JSON\/YAML files are supported. The
--- maximum size of the API definition file is 6MB.
+-- 'body', 'putRestApi_body' - The PUT request body containing external API definitions. Currently,
+-- only OpenAPI definition JSON\/YAML files are supported. The maximum size
+-- of the API definition file is 6MB.
 newPutRestApi ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -148,13 +148,13 @@ putRestApi_mode = Lens.lens (\PutRestApi' {mode} -> mode) (\s@PutRestApi' {} a -
 putRestApi_parameters :: Lens.Lens' PutRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putRestApi_parameters = Lens.lens (\PutRestApi' {parameters} -> parameters) (\s@PutRestApi' {} a -> s {parameters = a} :: PutRestApi) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 putRestApi_restApiId :: Lens.Lens' PutRestApi Prelude.Text
 putRestApi_restApiId = Lens.lens (\PutRestApi' {restApiId} -> restApiId) (\s@PutRestApi' {} a -> s {restApiId = a} :: PutRestApi)
 
--- | [Required] The PUT request body containing external API definitions.
--- Currently, only OpenAPI definition JSON\/YAML files are supported. The
--- maximum size of the API definition file is 6MB.
+-- | The PUT request body containing external API definitions. Currently,
+-- only OpenAPI definition JSON\/YAML files are supported. The maximum size
+-- of the API definition file is 6MB.
 putRestApi_body :: Lens.Lens' PutRestApi Prelude.ByteString
 putRestApi_body = Lens.lens (\PutRestApi' {body} -> body) (\s@PutRestApi' {} a -> s {body = a} :: PutRestApi)
 

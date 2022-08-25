@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServiceTemplate' smart constructor.
 data UpdateServiceTemplate = UpdateServiceTemplate'
-  { -- | The name of the service template to update as displayed in the developer
-    -- interface.
+  { -- | The name of the service template to update that\'s displayed in the
+    -- developer interface.
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A description of the service template update.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -68,8 +68,8 @@ data UpdateServiceTemplate = UpdateServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'displayName', 'updateServiceTemplate_displayName' - The name of the service template to update as displayed in the developer
--- interface.
+-- 'displayName', 'updateServiceTemplate_displayName' - The name of the service template to update that\'s displayed in the
+-- developer interface.
 --
 -- 'description', 'updateServiceTemplate_description' - A description of the service template update.
 --
@@ -86,8 +86,8 @@ newUpdateServiceTemplate pName_ =
       name = pName_
     }
 
--- | The name of the service template to update as displayed in the developer
--- interface.
+-- | The name of the service template to update that\'s displayed in the
+-- developer interface.
 updateServiceTemplate_displayName :: Lens.Lens' UpdateServiceTemplate (Prelude.Maybe Prelude.Text)
 updateServiceTemplate_displayName = Lens.lens (\UpdateServiceTemplate' {displayName} -> displayName) (\s@UpdateServiceTemplate' {} a -> s {displayName = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
 
@@ -159,7 +159,7 @@ instance Core.ToQuery UpdateServiceTemplate where
 data UpdateServiceTemplateResponse = UpdateServiceTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service template detail data that\'s returned by AWS Proton.
+    -- | The service template detail data that\'s returned by Proton.
     serviceTemplate :: ServiceTemplate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -174,7 +174,7 @@ data UpdateServiceTemplateResponse = UpdateServiceTemplateResponse'
 --
 -- 'httpStatus', 'updateServiceTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'serviceTemplate', 'updateServiceTemplateResponse_serviceTemplate' - The service template detail data that\'s returned by AWS Proton.
+-- 'serviceTemplate', 'updateServiceTemplateResponse_serviceTemplate' - The service template detail data that\'s returned by Proton.
 newUpdateServiceTemplateResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -194,7 +194,7 @@ newUpdateServiceTemplateResponse
 updateServiceTemplateResponse_httpStatus :: Lens.Lens' UpdateServiceTemplateResponse Prelude.Int
 updateServiceTemplateResponse_httpStatus = Lens.lens (\UpdateServiceTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceTemplateResponse' {} a -> s {httpStatus = a} :: UpdateServiceTemplateResponse)
 
--- | The service template detail data that\'s returned by AWS Proton.
+-- | The service template detail data that\'s returned by Proton.
 updateServiceTemplateResponse_serviceTemplate :: Lens.Lens' UpdateServiceTemplateResponse ServiceTemplate
 updateServiceTemplateResponse_serviceTemplate = Lens.lens (\UpdateServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@UpdateServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: UpdateServiceTemplateResponse)
 

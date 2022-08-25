@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from the specified resource. You can specify one or more
--- tags to remove.
+-- Removes a tag from a resource.
 module Amazonka.Route53RecoveryReadiness.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -46,10 +45,9 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | A comma-separated list of the tag keys to remove from the resource.
+  { -- | The keys for tags you add to resources.
     tagKeys :: [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) for the resource. You can get this from
-    -- the response to any request to the resource.
+    -- | The Amazon Resource Name (ARN) for a resource.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,10 +60,9 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKeys', 'untagResource_tagKeys' - A comma-separated list of the tag keys to remove from the resource.
+-- 'tagKeys', 'untagResource_tagKeys' - The keys for tags you add to resources.
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) for the resource. You can get this from
--- the response to any request to the resource.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) for a resource.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -76,12 +73,11 @@ newUntagResource pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- | A comma-separated list of the tag keys to remove from the resource.
+-- | The keys for tags you add to resources.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
--- | The Amazon Resource Name (ARN) for the resource. You can get this from
--- the response to any request to the resource.
+-- | The Amazon Resource Name (ARN) for a resource.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

@@ -47,7 +47,7 @@ data Operation = Operation'
     status :: Prelude.Maybe OperationStatus,
     -- | The ID of the operation.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region and Availability Zone.
+    -- | The Amazon Web Services Region and Availability Zone.
     location :: Prelude.Maybe ResourceLocation,
     -- | The error code.
     errorCode :: Prelude.Maybe Prelude.Text,
@@ -83,7 +83,7 @@ data Operation = Operation'
 --
 -- 'id', 'operation_id' - The ID of the operation.
 --
--- 'location', 'operation_location' - The AWS Region and Availability Zone.
+-- 'location', 'operation_location' - The Amazon Web Services Region and Availability Zone.
 --
 -- 'errorCode', 'operation_errorCode' - The error code.
 --
@@ -141,7 +141,7 @@ operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} 
 operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
--- | The AWS Region and Availability Zone.
+-- | The Amazon Web Services Region and Availability Zone.
 operation_location :: Lens.Lens' Operation (Prelude.Maybe ResourceLocation)
 operation_location = Lens.lens (\Operation' {location} -> location) (\s@Operation' {} a -> s {location = a} :: Operation)
 

@@ -23,7 +23,7 @@
 -- Describes the specified EC2 Fleets or all of your EC2 Fleets.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet Monitoring your EC2 Fleet>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet Monitor your EC2 Fleet>
 -- in the /Amazon EC2 User Guide/.
 --
 -- This operation returns paginated results.
@@ -84,7 +84,10 @@ data DescribeFleets = DescribeFleets'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the EC2 Fleets.
+    -- | The IDs of the EC2 Fleets.
+    --
+    -- If a fleet is of type @instant@, you must specify the fleet ID,
+    -- otherwise it does not appear in the response.
     fleetIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
@@ -127,7 +130,10 @@ data DescribeFleets = DescribeFleets'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'fleetIds', 'describeFleets_fleetIds' - The ID of the EC2 Fleets.
+-- 'fleetIds', 'describeFleets_fleetIds' - The IDs of the EC2 Fleets.
+--
+-- If a fleet is of type @instant@, you must specify the fleet ID,
+-- otherwise it does not appear in the response.
 --
 -- 'maxResults', 'describeFleets_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
@@ -175,7 +181,10 @@ describeFleets_filters = Lens.lens (\DescribeFleets' {filters} -> filters) (\s@D
 describeFleets_dryRun :: Lens.Lens' DescribeFleets (Prelude.Maybe Prelude.Bool)
 describeFleets_dryRun = Lens.lens (\DescribeFleets' {dryRun} -> dryRun) (\s@DescribeFleets' {} a -> s {dryRun = a} :: DescribeFleets)
 
--- | The ID of the EC2 Fleets.
+-- | The IDs of the EC2 Fleets.
+--
+-- If a fleet is of type @instant@, you must specify the fleet ID,
+-- otherwise it does not appear in the response.
 describeFleets_fleetIds :: Lens.Lens' DescribeFleets (Prelude.Maybe [Prelude.Text])
 describeFleets_fleetIds = Lens.lens (\DescribeFleets' {fleetIds} -> fleetIds) (\s@DescribeFleets' {} a -> s {fleetIds = a} :: DescribeFleets) Prelude.. Lens.mapping Lens.coerced
 

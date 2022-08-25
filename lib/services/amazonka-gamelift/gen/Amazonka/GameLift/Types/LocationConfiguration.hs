@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- __Related actions__
 --
--- CreateFleet
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html CreateFleet>
 --
 -- /See:/ 'newLocationConfiguration' smart constructor.
 data LocationConfiguration = LocationConfiguration'
-  { -- | An AWS Region code, such as @us-west-2@.
+  { -- | An Amazon Web Services Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,13 +45,13 @@ data LocationConfiguration = LocationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'locationConfiguration_location' - An AWS Region code, such as @us-west-2@.
+-- 'location', 'locationConfiguration_location' - An Amazon Web Services Region code, such as @us-west-2@.
 newLocationConfiguration ::
   LocationConfiguration
 newLocationConfiguration =
   LocationConfiguration' {location = Prelude.Nothing}
 
--- | An AWS Region code, such as @us-west-2@.
+-- | An Amazon Web Services Region code, such as @us-west-2@.
 locationConfiguration_location :: Lens.Lens' LocationConfiguration (Prelude.Maybe Prelude.Text)
 locationConfiguration_location = Lens.lens (\LocationConfiguration' {location} -> location) (\s@LocationConfiguration' {} a -> s {location = a} :: LocationConfiguration)
 

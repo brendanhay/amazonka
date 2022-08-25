@@ -27,21 +27,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsernameConfigurationType' smart constructor.
 data UsernameConfigurationType = UsernameConfigurationType'
-  { -- | Specifies whether username case sensitivity will be applied for all
-    -- users in the user pool through Cognito APIs.
+  { -- | Specifies whether user name case sensitivity will be applied for all
+    -- users in the user pool through Amazon Cognito APIs.
     --
     -- Valid values include:
     --
-    -- -   __@True@__ : Enables case sensitivity for all username input. When
-    --     this option is set to @True@, users must sign in using the exact
-    --     capitalization of their given username. For example, “UserName”.
-    --     This is the default value.
+    -- [True]
+    --     Enables case sensitivity for all username input. When this option is
+    --     set to @True@, users must sign in using the exact capitalization of
+    --     their given username, such as “UserName”. This is the default value.
     --
-    -- -   __@False@__ : Enables case insensitivity for all username input. For
-    --     example, when this option is set to @False@, users will be able to
-    --     sign in using either \"username\" or \"Username\". This option also
-    --     enables both @preferred_username@ and @email@ alias to be case
-    --     insensitive, in addition to the @username@ attribute.
+    -- [False]
+    --     Enables case insensitivity for all username input. For example, when
+    --     this option is set to @False@, users can sign in using either
+    --     \"username\" or \"Username\". This option also enables both
+    --     @preferred_username@ and @email@ alias to be case insensitive, in
+    --     addition to the @username@ attribute.
     caseSensitive :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,21 +55,22 @@ data UsernameConfigurationType = UsernameConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'caseSensitive', 'usernameConfigurationType_caseSensitive' - Specifies whether username case sensitivity will be applied for all
--- users in the user pool through Cognito APIs.
+-- 'caseSensitive', 'usernameConfigurationType_caseSensitive' - Specifies whether user name case sensitivity will be applied for all
+-- users in the user pool through Amazon Cognito APIs.
 --
 -- Valid values include:
 --
--- -   __@True@__ : Enables case sensitivity for all username input. When
---     this option is set to @True@, users must sign in using the exact
---     capitalization of their given username. For example, “UserName”.
---     This is the default value.
+-- [True]
+--     Enables case sensitivity for all username input. When this option is
+--     set to @True@, users must sign in using the exact capitalization of
+--     their given username, such as “UserName”. This is the default value.
 --
--- -   __@False@__ : Enables case insensitivity for all username input. For
---     example, when this option is set to @False@, users will be able to
---     sign in using either \"username\" or \"Username\". This option also
---     enables both @preferred_username@ and @email@ alias to be case
---     insensitive, in addition to the @username@ attribute.
+-- [False]
+--     Enables case insensitivity for all username input. For example, when
+--     this option is set to @False@, users can sign in using either
+--     \"username\" or \"Username\". This option also enables both
+--     @preferred_username@ and @email@ alias to be case insensitive, in
+--     addition to the @username@ attribute.
 newUsernameConfigurationType ::
   -- | 'caseSensitive'
   Prelude.Bool ->
@@ -79,21 +81,22 @@ newUsernameConfigurationType pCaseSensitive_ =
         pCaseSensitive_
     }
 
--- | Specifies whether username case sensitivity will be applied for all
--- users in the user pool through Cognito APIs.
+-- | Specifies whether user name case sensitivity will be applied for all
+-- users in the user pool through Amazon Cognito APIs.
 --
 -- Valid values include:
 --
--- -   __@True@__ : Enables case sensitivity for all username input. When
---     this option is set to @True@, users must sign in using the exact
---     capitalization of their given username. For example, “UserName”.
---     This is the default value.
+-- [True]
+--     Enables case sensitivity for all username input. When this option is
+--     set to @True@, users must sign in using the exact capitalization of
+--     their given username, such as “UserName”. This is the default value.
 --
--- -   __@False@__ : Enables case insensitivity for all username input. For
---     example, when this option is set to @False@, users will be able to
---     sign in using either \"username\" or \"Username\". This option also
---     enables both @preferred_username@ and @email@ alias to be case
---     insensitive, in addition to the @username@ attribute.
+-- [False]
+--     Enables case insensitivity for all username input. For example, when
+--     this option is set to @False@, users can sign in using either
+--     \"username\" or \"Username\". This option also enables both
+--     @preferred_username@ and @email@ alias to be case insensitive, in
+--     addition to the @username@ attribute.
 usernameConfigurationType_caseSensitive :: Lens.Lens' UsernameConfigurationType Prelude.Bool
 usernameConfigurationType_caseSensitive = Lens.lens (\UsernameConfigurationType' {caseSensitive} -> caseSensitive) (\s@UsernameConfigurationType' {} a -> s {caseSensitive = a} :: UsernameConfigurationType)
 

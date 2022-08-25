@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an Amazon Neptune DB cluster that was stopped using the AWS
+-- Starts an Amazon Neptune DB cluster that was stopped using the Amazon
 -- console, the Amazon CLI stop-db-cluster command, or the StopDBCluster
 -- API.
 module Amazonka.Neptune.StartDBCluster

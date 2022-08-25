@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves valid VPC peering authorizations that are pending for the AWS
--- account. This operation returns all VPC peering authorizations and
--- requests for peering. This includes those initiated and received by this
--- account.
+-- Retrieves valid VPC peering authorizations that are pending for the
+-- Amazon Web Services account. This operation returns all VPC peering
+-- authorizations and requests for peering. This includes those initiated
+-- and received by this account.
 --
 -- __Related actions__
 --
@@ -132,7 +132,7 @@ instance
 -- | /See:/ 'newDescribeVpcPeeringAuthorizationsResponse' smart constructor.
 data DescribeVpcPeeringAuthorizationsResponse = DescribeVpcPeeringAuthorizationsResponse'
   { -- | A collection of objects that describe all valid VPC peering operations
-    -- for the current AWS account.
+    -- for the current Amazon Web Services account.
     vpcPeeringAuthorizations :: Prelude.Maybe [VpcPeeringAuthorization],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -148,7 +148,7 @@ data DescribeVpcPeeringAuthorizationsResponse = DescribeVpcPeeringAuthorizations
 -- for backwards compatibility:
 --
 -- 'vpcPeeringAuthorizations', 'describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations' - A collection of objects that describe all valid VPC peering operations
--- for the current AWS account.
+-- for the current Amazon Web Services account.
 --
 -- 'httpStatus', 'describeVpcPeeringAuthorizationsResponse_httpStatus' - The response's http status code.
 newDescribeVpcPeeringAuthorizationsResponse ::
@@ -164,7 +164,7 @@ newDescribeVpcPeeringAuthorizationsResponse
       }
 
 -- | A collection of objects that describe all valid VPC peering operations
--- for the current AWS account.
+-- for the current Amazon Web Services account.
 describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse (Prelude.Maybe [VpcPeeringAuthorization])
 describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations = Lens.lens (\DescribeVpcPeeringAuthorizationsResponse' {vpcPeeringAuthorizations} -> vpcPeeringAuthorizations) (\s@DescribeVpcPeeringAuthorizationsResponse' {} a -> s {vpcPeeringAuthorizations = a} :: DescribeVpcPeeringAuthorizationsResponse) Prelude.. Lens.mapping Lens.coerced
 

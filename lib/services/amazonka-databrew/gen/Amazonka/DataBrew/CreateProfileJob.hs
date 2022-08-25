@@ -36,6 +36,7 @@ module Amazonka.DataBrew.CreateProfileJob
     createProfileJob_maxRetries,
     createProfileJob_maxCapacity,
     createProfileJob_encryptionMode,
+    createProfileJob_validationConfigurations,
     createProfileJob_datasetName,
     createProfileJob_name,
     createProfileJob_outputLocation,
@@ -92,6 +93,8 @@ data CreateProfileJob = CreateProfileJob'
     --
     -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
     encryptionMode :: Prelude.Maybe EncryptionMode,
+    -- | List of validation configurations that are applied to the profile job.
+    validationConfigurations :: Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration),
     -- | The name of the dataset that this job is to act upon.
     datasetName :: Prelude.Text,
     -- | The name of the job to be created. Valid characters are alphanumeric
@@ -144,6 +147,8 @@ data CreateProfileJob = CreateProfileJob'
 --
 -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
 --
+-- 'validationConfigurations', 'createProfileJob_validationConfigurations' - List of validation configurations that are applied to the profile job.
+--
 -- 'datasetName', 'createProfileJob_datasetName' - The name of the dataset that this job is to act upon.
 --
 -- 'name', 'createProfileJob_name' - The name of the job to be created. Valid characters are alphanumeric
@@ -178,6 +183,7 @@ newCreateProfileJob
         maxRetries = Prelude.Nothing,
         maxCapacity = Prelude.Nothing,
         encryptionMode = Prelude.Nothing,
+        validationConfigurations = Prelude.Nothing,
         datasetName = pDatasetName_,
         name = pName_,
         outputLocation = pOutputLocation_,
@@ -234,6 +240,10 @@ createProfileJob_maxCapacity = Lens.lens (\CreateProfileJob' {maxCapacity} -> ma
 createProfileJob_encryptionMode :: Lens.Lens' CreateProfileJob (Prelude.Maybe EncryptionMode)
 createProfileJob_encryptionMode = Lens.lens (\CreateProfileJob' {encryptionMode} -> encryptionMode) (\s@CreateProfileJob' {} a -> s {encryptionMode = a} :: CreateProfileJob)
 
+-- | List of validation configurations that are applied to the profile job.
+createProfileJob_validationConfigurations :: Lens.Lens' CreateProfileJob (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
+createProfileJob_validationConfigurations = Lens.lens (\CreateProfileJob' {validationConfigurations} -> validationConfigurations) (\s@CreateProfileJob' {} a -> s {validationConfigurations = a} :: CreateProfileJob) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the dataset that this job is to act upon.
 createProfileJob_datasetName :: Lens.Lens' CreateProfileJob Prelude.Text
 createProfileJob_datasetName = Lens.lens (\CreateProfileJob' {datasetName} -> datasetName) (\s@CreateProfileJob' {} a -> s {datasetName = a} :: CreateProfileJob)
@@ -276,6 +286,7 @@ instance Prelude.Hashable CreateProfileJob where
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` validationConfigurations
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputLocation
@@ -292,6 +303,7 @@ instance Prelude.NFData CreateProfileJob where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf validationConfigurations
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf outputLocation
@@ -324,6 +336,8 @@ instance Core.ToJSON CreateProfileJob where
             ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
             ("EncryptionMode" Core..=)
               Prelude.<$> encryptionMode,
+            ("ValidationConfigurations" Core..=)
+              Prelude.<$> validationConfigurations,
             Prelude.Just ("DatasetName" Core..= datasetName),
             Prelude.Just ("Name" Core..= name),
             Prelude.Just

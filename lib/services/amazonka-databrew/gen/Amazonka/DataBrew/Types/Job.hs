@@ -28,6 +28,7 @@ import Amazonka.DataBrew.Types.JobType
 import Amazonka.DataBrew.Types.LogSubscription
 import Amazonka.DataBrew.Types.Output
 import Amazonka.DataBrew.Types.RecipeReference
+import Amazonka.DataBrew.Types.ValidationConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,6 +98,8 @@ data Job = Job'
     --
     -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
     encryptionMode :: Prelude.Maybe EncryptionMode,
+    -- | List of validation configurations that are applied to the profile job.
+    validationConfigurations :: Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration),
     -- | The unique name of the job.
     name :: Prelude.Text
   }
@@ -172,6 +175,8 @@ data Job = Job'
 --
 -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
 --
+-- 'validationConfigurations', 'job_validationConfigurations' - List of validation configurations that are applied to the profile job.
+--
 -- 'name', 'job_name' - The unique name of the job.
 newJob ::
   -- | 'name'
@@ -201,6 +206,7 @@ newJob pName_ =
       createdBy = Prelude.Nothing,
       maxCapacity = Prelude.Nothing,
       encryptionMode = Prelude.Nothing,
+      validationConfigurations = Prelude.Nothing,
       name = pName_
     }
 
@@ -310,6 +316,10 @@ job_maxCapacity = Lens.lens (\Job' {maxCapacity} -> maxCapacity) (\s@Job' {} a -
 job_encryptionMode :: Lens.Lens' Job (Prelude.Maybe EncryptionMode)
 job_encryptionMode = Lens.lens (\Job' {encryptionMode} -> encryptionMode) (\s@Job' {} a -> s {encryptionMode = a} :: Job)
 
+-- | List of validation configurations that are applied to the profile job.
+job_validationConfigurations :: Lens.Lens' Job (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
+job_validationConfigurations = Lens.lens (\Job' {validationConfigurations} -> validationConfigurations) (\s@Job' {} a -> s {validationConfigurations = a} :: Job) Prelude.. Lens.mapping Lens.coerced
+
 -- | The unique name of the job.
 job_name :: Lens.Lens' Job Prelude.Text
 job_name = Lens.lens (\Job' {name} -> name) (\s@Job' {} a -> s {name = a} :: Job)
@@ -342,6 +352,7 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "MaxCapacity")
             Prelude.<*> (x Core..:? "EncryptionMode")
+            Prelude.<*> (x Core..:? "ValidationConfigurations")
             Prelude.<*> (x Core..: "Name")
       )
 
@@ -369,6 +380,7 @@ instance Prelude.Hashable Job where
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` validationConfigurations
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Job where
@@ -395,4 +407,6 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf
+        validationConfigurations
       `Prelude.seq` Prelude.rnf name

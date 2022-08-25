@@ -44,6 +44,7 @@ module Amazonka.MediaConnect.Lens
 
     -- ** CreateFlow
     createFlow_sources,
+    createFlow_maintenance,
     createFlow_vpcInterfaces,
     createFlow_entitlements,
     createFlow_availabilityZone,
@@ -181,6 +182,7 @@ module Amazonka.MediaConnect.Lens
     untagResource_resourceArn,
 
     -- ** UpdateFlow
+    updateFlow_maintenance,
     updateFlow_sourceFailoverConfig,
     updateFlow_flowArn,
     updateFlowResponse_flow,
@@ -218,8 +220,10 @@ module Amazonka.MediaConnect.Lens
     updateFlowOutput_cidrAllowList,
     updateFlowOutput_streamId,
     updateFlowOutput_remoteId,
+    updateFlowOutput_senderIpAddress,
     updateFlowOutput_vpcInterfaceAttachment,
     updateFlowOutput_description,
+    updateFlowOutput_senderControlPort,
     updateFlowOutput_encryption,
     updateFlowOutput_protocol,
     updateFlowOutput_minLatency,
@@ -237,8 +241,10 @@ module Amazonka.MediaConnect.Lens
     updateFlowSource_maxSyncBuffer,
     updateFlowSource_maxBitrate,
     updateFlowSource_streamId,
+    updateFlowSource_senderIpAddress,
     updateFlowSource_decryption,
     updateFlowSource_description,
+    updateFlowSource_senderControlPort,
     updateFlowSource_protocol,
     updateFlowSource_ingestPort,
     updateFlowSource_whitelistCidr,
@@ -250,6 +256,10 @@ module Amazonka.MediaConnect.Lens
     updateFlowSourceResponse_httpStatus,
 
     -- * Types
+
+    -- ** AddMaintenance
+    addMaintenance_maintenanceDay,
+    addMaintenance_maintenanceStartHour,
 
     -- ** AddMediaStreamRequest
     addMediaStreamRequest_videoFormat,
@@ -272,6 +282,7 @@ module Amazonka.MediaConnect.Lens
     addOutputRequest_remoteId,
     addOutputRequest_vpcInterfaceAttachment,
     addOutputRequest_description,
+    addOutputRequest_senderControlPort,
     addOutputRequest_encryption,
     addOutputRequest_minLatency,
     addOutputRequest_protocol,
@@ -323,6 +334,7 @@ module Amazonka.MediaConnect.Lens
 
     -- ** Flow
     flow_sources,
+    flow_maintenance,
     flow_vpcInterfaces,
     flow_egressIp,
     flow_description,
@@ -383,12 +395,19 @@ module Amazonka.MediaConnect.Lens
     listedEntitlement_entitlementName,
 
     -- ** ListedFlow
+    listedFlow_maintenance,
     listedFlow_status,
     listedFlow_description,
     listedFlow_sourceType,
     listedFlow_availabilityZone,
     listedFlow_flowArn,
     listedFlow_name,
+
+    -- ** Maintenance
+    maintenance_maintenanceDeadline,
+    maintenance_maintenanceScheduledDate,
+    maintenance_maintenanceStartHour,
+    maintenance_maintenanceDay,
 
     -- ** MediaStream
     mediaStream_videoFormat,
@@ -486,8 +505,10 @@ module Amazonka.MediaConnect.Lens
     setSourceRequest_maxSyncBuffer,
     setSourceRequest_maxBitrate,
     setSourceRequest_streamId,
+    setSourceRequest_senderIpAddress,
     setSourceRequest_decryption,
     setSourceRequest_description,
+    setSourceRequest_senderControlPort,
     setSourceRequest_protocol,
     setSourceRequest_ingestPort,
     setSourceRequest_whitelistCidr,
@@ -498,9 +519,11 @@ module Amazonka.MediaConnect.Lens
     source_ingestIp,
     source_entitlementArn,
     source_vpcInterfaceName,
+    source_senderIpAddress,
     source_decryption,
     source_description,
     source_transport,
+    source_senderControlPort,
     source_dataTransferSubscriberFeePercent,
     source_ingestPort,
     source_whitelistCidr,
@@ -518,6 +541,8 @@ module Amazonka.MediaConnect.Lens
     transport_cidrAllowList,
     transport_streamId,
     transport_remoteId,
+    transport_senderIpAddress,
+    transport_senderControlPort,
     transport_minLatency,
     transport_protocol,
 
@@ -537,6 +562,11 @@ module Amazonka.MediaConnect.Lens
     updateFailoverConfig_state,
     updateFailoverConfig_sourcePriority,
     updateFailoverConfig_failoverMode,
+
+    -- ** UpdateMaintenance
+    updateMaintenance_maintenanceScheduledDate,
+    updateMaintenance_maintenanceStartHour,
+    updateMaintenance_maintenanceDay,
 
     -- ** VpcInterface
     vpcInterface_networkInterfaceType,
@@ -582,6 +612,7 @@ import Amazonka.MediaConnect.RevokeFlowEntitlement
 import Amazonka.MediaConnect.StartFlow
 import Amazonka.MediaConnect.StopFlow
 import Amazonka.MediaConnect.TagResource
+import Amazonka.MediaConnect.Types.AddMaintenance
 import Amazonka.MediaConnect.Types.AddMediaStreamRequest
 import Amazonka.MediaConnect.Types.AddOutputRequest
 import Amazonka.MediaConnect.Types.DestinationConfiguration
@@ -601,6 +632,7 @@ import Amazonka.MediaConnect.Types.Interface
 import Amazonka.MediaConnect.Types.InterfaceRequest
 import Amazonka.MediaConnect.Types.ListedEntitlement
 import Amazonka.MediaConnect.Types.ListedFlow
+import Amazonka.MediaConnect.Types.Maintenance
 import Amazonka.MediaConnect.Types.MediaStream
 import Amazonka.MediaConnect.Types.MediaStreamAttributes
 import Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
@@ -619,6 +651,7 @@ import Amazonka.MediaConnect.Types.SourcePriority
 import Amazonka.MediaConnect.Types.Transport
 import Amazonka.MediaConnect.Types.UpdateEncryption
 import Amazonka.MediaConnect.Types.UpdateFailoverConfig
+import Amazonka.MediaConnect.Types.UpdateMaintenance
 import Amazonka.MediaConnect.Types.VpcInterface
 import Amazonka.MediaConnect.Types.VpcInterfaceAttachment
 import Amazonka.MediaConnect.Types.VpcInterfaceRequest

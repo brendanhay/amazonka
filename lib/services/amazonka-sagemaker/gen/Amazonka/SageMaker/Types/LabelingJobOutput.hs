@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelingJobOutput' smart constructor.
 data LabelingJobOutput = LabelingJobOutput'
-  { -- | The Amazon Resource Name (ARN) for the most recent Amazon SageMaker
-    -- model trained as part of automated data labeling.
+  { -- | The Amazon Resource Name (ARN) for the most recent SageMaker model
+    -- trained as part of automated data labeling.
     finalActiveLearningModelArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket location of the manifest file for labeled data.
     outputDatasetS3Uri :: Prelude.Text
@@ -43,8 +43,8 @@ data LabelingJobOutput = LabelingJobOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalActiveLearningModelArn', 'labelingJobOutput_finalActiveLearningModelArn' - The Amazon Resource Name (ARN) for the most recent Amazon SageMaker
--- model trained as part of automated data labeling.
+-- 'finalActiveLearningModelArn', 'labelingJobOutput_finalActiveLearningModelArn' - The Amazon Resource Name (ARN) for the most recent SageMaker model
+-- trained as part of automated data labeling.
 --
 -- 'outputDatasetS3Uri', 'labelingJobOutput_outputDatasetS3Uri' - The Amazon S3 bucket location of the manifest file for labeled data.
 newLabelingJobOutput ::
@@ -58,8 +58,8 @@ newLabelingJobOutput pOutputDatasetS3Uri_ =
       outputDatasetS3Uri = pOutputDatasetS3Uri_
     }
 
--- | The Amazon Resource Name (ARN) for the most recent Amazon SageMaker
--- model trained as part of automated data labeling.
+-- | The Amazon Resource Name (ARN) for the most recent SageMaker model
+-- trained as part of automated data labeling.
 labelingJobOutput_finalActiveLearningModelArn :: Lens.Lens' LabelingJobOutput (Prelude.Maybe Prelude.Text)
 labelingJobOutput_finalActiveLearningModelArn = Lens.lens (\LabelingJobOutput' {finalActiveLearningModelArn} -> finalActiveLearningModelArn) (\s@LabelingJobOutput' {} a -> s {finalActiveLearningModelArn = a} :: LabelingJobOutput)
 

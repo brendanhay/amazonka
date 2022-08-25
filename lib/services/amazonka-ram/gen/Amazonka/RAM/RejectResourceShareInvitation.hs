@@ -51,10 +51,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRejectResourceShareInvitation' smart constructor.
 data RejectResourceShareInvitation = RejectResourceShareInvitation'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | Specifies a unique, case-sensitive identifier that you provide to ensure
+    -- the idempotency of the request. This lets you safely retry the request
+    -- without accidentally performing the same operation a second time.
+    -- Passing the same value to a later call to an operation requires that you
+    -- also pass the same value for all other parameters. We recommend that you
+    -- use a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+    --
+    -- If you don\'t provide this value, then Amazon Web Services generates a
+    -- random one for you.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the invitation.
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the invitation that you want to reject.
     resourceShareInvitationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,10 +77,20 @@ data RejectResourceShareInvitation = RejectResourceShareInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'rejectResourceShareInvitation_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'rejectResourceShareInvitation_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
 --
--- 'resourceShareInvitationArn', 'rejectResourceShareInvitation_resourceShareInvitationArn' - The Amazon Resource Name (ARN) of the invitation.
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
+--
+-- 'resourceShareInvitationArn', 'rejectResourceShareInvitation_resourceShareInvitationArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the invitation that you want to reject.
 newRejectResourceShareInvitation ::
   -- | 'resourceShareInvitationArn'
   Prelude.Text ->
@@ -84,12 +104,22 @@ newRejectResourceShareInvitation
           pResourceShareInvitationArn_
       }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+--
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 rejectResourceShareInvitation_clientToken :: Lens.Lens' RejectResourceShareInvitation (Prelude.Maybe Prelude.Text)
 rejectResourceShareInvitation_clientToken = Lens.lens (\RejectResourceShareInvitation' {clientToken} -> clientToken) (\s@RejectResourceShareInvitation' {} a -> s {clientToken = a} :: RejectResourceShareInvitation)
 
--- | The Amazon Resource Name (ARN) of the invitation.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the invitation that you want to reject.
 rejectResourceShareInvitation_resourceShareInvitationArn :: Lens.Lens' RejectResourceShareInvitation Prelude.Text
 rejectResourceShareInvitation_resourceShareInvitationArn = Lens.lens (\RejectResourceShareInvitation' {resourceShareInvitationArn} -> resourceShareInvitationArn) (\s@RejectResourceShareInvitation' {} a -> s {resourceShareInvitationArn = a} :: RejectResourceShareInvitation)
 
@@ -155,10 +185,13 @@ instance Core.ToQuery RejectResourceShareInvitation where
 
 -- | /See:/ 'newRejectResourceShareInvitationResponse' smart constructor.
 data RejectResourceShareInvitationResponse = RejectResourceShareInvitationResponse'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | The idempotency identifier associated with this request. If you want to
+    -- repeat the same operation in an idempotent manner then you must include
+    -- this value in the @clientToken@ request parameter of that later call.
+    -- All other parameters must also have the same values that you used in the
+    -- first call.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the invitation.
+    -- | An object that contains the details about the rejected invitation.
     resourceShareInvitation :: Prelude.Maybe ResourceShareInvitation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,10 +206,13 @@ data RejectResourceShareInvitationResponse = RejectResourceShareInvitationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'rejectResourceShareInvitationResponse_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'rejectResourceShareInvitationResponse_clientToken' - The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 --
--- 'resourceShareInvitation', 'rejectResourceShareInvitationResponse_resourceShareInvitation' - Information about the invitation.
+-- 'resourceShareInvitation', 'rejectResourceShareInvitationResponse_resourceShareInvitation' - An object that contains the details about the rejected invitation.
 --
 -- 'httpStatus', 'rejectResourceShareInvitationResponse_httpStatus' - The response's http status code.
 newRejectResourceShareInvitationResponse ::
@@ -192,12 +228,15 @@ newRejectResourceShareInvitationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 rejectResourceShareInvitationResponse_clientToken :: Lens.Lens' RejectResourceShareInvitationResponse (Prelude.Maybe Prelude.Text)
 rejectResourceShareInvitationResponse_clientToken = Lens.lens (\RejectResourceShareInvitationResponse' {clientToken} -> clientToken) (\s@RejectResourceShareInvitationResponse' {} a -> s {clientToken = a} :: RejectResourceShareInvitationResponse)
 
--- | Information about the invitation.
+-- | An object that contains the details about the rejected invitation.
 rejectResourceShareInvitationResponse_resourceShareInvitation :: Lens.Lens' RejectResourceShareInvitationResponse (Prelude.Maybe ResourceShareInvitation)
 rejectResourceShareInvitationResponse_resourceShareInvitation = Lens.lens (\RejectResourceShareInvitationResponse' {resourceShareInvitation} -> resourceShareInvitation) (\s@RejectResourceShareInvitationResponse' {} a -> s {resourceShareInvitation = a} :: RejectResourceShareInvitationResponse)
 

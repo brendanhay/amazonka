@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows application import from AWS Migration Hub.
+-- Allows application import from Migration Hub.
 module Amazonka.SMS.ImportAppCatalog
   ( -- * Creating a Request
     ImportAppCatalog (..),
@@ -48,10 +48,10 @@ import Amazonka.SMS.Types
 -- | /See:/ 'newImportAppCatalog' smart constructor.
 data ImportAppCatalog = ImportAppCatalog'
   { -- | The name of the service role. If you omit this parameter, we create a
-    -- service-linked role for AWS Migration Hub in your account. Otherwise,
-    -- the role that you provide must have the
+    -- service-linked role for Migration Hub in your account. Otherwise, the
+    -- role that you provide must have the
     -- <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy>
-    -- described in the /AWS Migration Hub User Guide/.
+    -- described in the /Migration Hub User Guide/.
     roleName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,20 +65,20 @@ data ImportAppCatalog = ImportAppCatalog'
 -- for backwards compatibility:
 --
 -- 'roleName', 'importAppCatalog_roleName' - The name of the service role. If you omit this parameter, we create a
--- service-linked role for AWS Migration Hub in your account. Otherwise,
--- the role that you provide must have the
+-- service-linked role for Migration Hub in your account. Otherwise, the
+-- role that you provide must have the
 -- <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy>
--- described in the /AWS Migration Hub User Guide/.
+-- described in the /Migration Hub User Guide/.
 newImportAppCatalog ::
   ImportAppCatalog
 newImportAppCatalog =
   ImportAppCatalog' {roleName = Prelude.Nothing}
 
 -- | The name of the service role. If you omit this parameter, we create a
--- service-linked role for AWS Migration Hub in your account. Otherwise,
--- the role that you provide must have the
+-- service-linked role for Migration Hub in your account. Otherwise, the
+-- role that you provide must have the
 -- <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy>
--- described in the /AWS Migration Hub User Guide/.
+-- described in the /Migration Hub User Guide/.
 importAppCatalog_roleName :: Lens.Lens' ImportAppCatalog (Prelude.Maybe Prelude.Text)
 importAppCatalog_roleName = Lens.lens (\ImportAppCatalog' {roleName} -> roleName) (\s@ImportAppCatalog' {} a -> s {roleName = a} :: ImportAppCatalog)
 

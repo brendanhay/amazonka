@@ -22,6 +22,7 @@ module Amazonka.MQ.Types.BrokerState
       ( ..,
         BrokerState_CREATION_FAILED,
         BrokerState_CREATION_IN_PROGRESS,
+        BrokerState_CRITICAL_ACTION_REQUIRED,
         BrokerState_DELETION_IN_PROGRESS,
         BrokerState_REBOOT_IN_PROGRESS,
         BrokerState_RUNNING
@@ -67,6 +68,9 @@ pattern BrokerState_CREATION_FAILED = BrokerState' "CREATION_FAILED"
 pattern BrokerState_CREATION_IN_PROGRESS :: BrokerState
 pattern BrokerState_CREATION_IN_PROGRESS = BrokerState' "CREATION_IN_PROGRESS"
 
+pattern BrokerState_CRITICAL_ACTION_REQUIRED :: BrokerState
+pattern BrokerState_CRITICAL_ACTION_REQUIRED = BrokerState' "CRITICAL_ACTION_REQUIRED"
+
 pattern BrokerState_DELETION_IN_PROGRESS :: BrokerState
 pattern BrokerState_DELETION_IN_PROGRESS = BrokerState' "DELETION_IN_PROGRESS"
 
@@ -79,6 +83,7 @@ pattern BrokerState_RUNNING = BrokerState' "RUNNING"
 {-# COMPLETE
   BrokerState_CREATION_FAILED,
   BrokerState_CREATION_IN_PROGRESS,
+  BrokerState_CRITICAL_ACTION_REQUIRED,
   BrokerState_DELETION_IN_PROGRESS,
   BrokerState_REBOOT_IN_PROGRESS,
   BrokerState_RUNNING,

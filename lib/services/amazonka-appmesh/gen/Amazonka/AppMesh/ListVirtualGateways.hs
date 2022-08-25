@@ -59,9 +59,9 @@ data ListVirtualGateways = ListVirtualGateways'
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @ListVirtualGateways@ in
@@ -91,9 +91,9 @@ data ListVirtualGateways = ListVirtualGateways'
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @nextToken@ value.
 --
--- 'meshOwner', 'listVirtualGateways_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'listVirtualGateways_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'limit', 'listVirtualGateways_limit' - The maximum number of results returned by @ListVirtualGateways@ in
@@ -125,9 +125,9 @@ newListVirtualGateways pMeshName_ =
 listVirtualGateways_nextToken :: Lens.Lens' ListVirtualGateways (Prelude.Maybe Prelude.Text)
 listVirtualGateways_nextToken = Lens.lens (\ListVirtualGateways' {nextToken} -> nextToken) (\s@ListVirtualGateways' {} a -> s {nextToken = a} :: ListVirtualGateways)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 listVirtualGateways_meshOwner :: Lens.Lens' ListVirtualGateways (Prelude.Maybe Prelude.Text)
 listVirtualGateways_meshOwner = Lens.lens (\ListVirtualGateways' {meshOwner} -> meshOwner) (\s@ListVirtualGateways' {} a -> s {meshOwner = a} :: ListVirtualGateways)

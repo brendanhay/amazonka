@@ -32,7 +32,7 @@
 --
 -- To modify some attributes, the instance must be stopped. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying attributes of a stopped instance>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modify a stopped instance>
 -- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.ModifyInstanceAttribute
   ( -- * Creating a Request
@@ -53,6 +53,7 @@ module Amazonka.EC2.ModifyInstanceAttribute
     modifyInstanceAttribute_ramdisk,
     modifyInstanceAttribute_disableApiTermination,
     modifyInstanceAttribute_groups,
+    modifyInstanceAttribute_disableApiStop,
     modifyInstanceAttribute_enaSupport,
     modifyInstanceAttribute_value,
     modifyInstanceAttribute_instanceId,
@@ -99,7 +100,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     --
     -- To add instance store volumes to an Amazon EBS-backed instance, you must
     -- add them when you launch the instance. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Update the block device mapping when launching an instance>
     -- in the /Amazon EC2 User Guide/.
     blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMappingSpecification],
     -- | Enable or disable source\/destination checks, which ensure that the
@@ -145,6 +146,10 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- even if it\'s just the default security group for the VPC. You must
     -- specify the security group ID, not the security group name.
     groups :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether an instance is enabled for stop protection. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+    disableApiStop :: Prelude.Maybe AttributeBooleanValue,
     -- | Set to @true@ to enable enhanced networking with ENA for the instance.
     --
     -- This option is supported only for HVM instances. Specifying this option
@@ -194,7 +199,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 --
 -- To add instance store volumes to an Amazon EBS-backed instance, you must
 -- add them when you launch the instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Update the block device mapping when launching an instance>
 -- in the /Amazon EC2 User Guide/.
 --
 -- 'sourceDestCheck', 'modifyInstanceAttribute_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the
@@ -240,6 +245,10 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- even if it\'s just the default security group for the VPC. You must
 -- specify the security group ID, not the security group name.
 --
+-- 'disableApiStop', 'modifyInstanceAttribute_disableApiStop' - Indicates whether an instance is enabled for stop protection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+--
 -- 'enaSupport', 'modifyInstanceAttribute_enaSupport' - Set to @true@ to enable enhanced networking with ENA for the instance.
 --
 -- This option is supported only for HVM instances. Specifying this option
@@ -271,6 +280,7 @@ newModifyInstanceAttribute pInstanceId_ =
       ramdisk = Prelude.Nothing,
       disableApiTermination = Prelude.Nothing,
       groups = Prelude.Nothing,
+      disableApiStop = Prelude.Nothing,
       enaSupport = Prelude.Nothing,
       value = Prelude.Nothing,
       instanceId = pInstanceId_
@@ -309,7 +319,7 @@ modifyInstanceAttribute_userData = Lens.lens (\ModifyInstanceAttribute' {userDat
 --
 -- To add instance store volumes to an Amazon EBS-backed instance, you must
 -- add them when you launch the instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Update the block device mapping when launching an instance>
 -- in the /Amazon EC2 User Guide/.
 modifyInstanceAttribute_blockDeviceMappings :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe [InstanceBlockDeviceMappingSpecification])
 modifyInstanceAttribute_blockDeviceMappings = Lens.lens (\ModifyInstanceAttribute' {blockDeviceMappings} -> blockDeviceMappings) (\s@ModifyInstanceAttribute' {} a -> s {blockDeviceMappings = a} :: ModifyInstanceAttribute) Prelude.. Lens.mapping Lens.coerced
@@ -375,6 +385,12 @@ modifyInstanceAttribute_disableApiTermination = Lens.lens (\ModifyInstanceAttrib
 modifyInstanceAttribute_groups :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe [Prelude.Text])
 modifyInstanceAttribute_groups = Lens.lens (\ModifyInstanceAttribute' {groups} -> groups) (\s@ModifyInstanceAttribute' {} a -> s {groups = a} :: ModifyInstanceAttribute) Prelude.. Lens.mapping Lens.coerced
 
+-- | Indicates whether an instance is enabled for stop protection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+modifyInstanceAttribute_disableApiStop :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyInstanceAttribute_disableApiStop = Lens.lens (\ModifyInstanceAttribute' {disableApiStop} -> disableApiStop) (\s@ModifyInstanceAttribute' {} a -> s {disableApiStop = a} :: ModifyInstanceAttribute)
+
 -- | Set to @true@ to enable enhanced networking with ENA for the instance.
 --
 -- This option is supported only for HVM instances. Specifying this option
@@ -416,6 +432,7 @@ instance Prelude.Hashable ModifyInstanceAttribute where
       `Prelude.hashWithSalt` ramdisk
       `Prelude.hashWithSalt` disableApiTermination
       `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` disableApiStop
       `Prelude.hashWithSalt` enaSupport
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` instanceId
@@ -435,6 +452,7 @@ instance Prelude.NFData ModifyInstanceAttribute where
       `Prelude.seq` Prelude.rnf ramdisk
       `Prelude.seq` Prelude.rnf disableApiTermination
       `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf disableApiStop
       `Prelude.seq` Prelude.rnf enaSupport
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf instanceId
@@ -471,6 +489,7 @@ instance Core.ToQuery ModifyInstanceAttribute where
           Core.=: disableApiTermination,
         Core.toQuery
           (Core.toQueryList "GroupId" Prelude.<$> groups),
+        "DisableApiStop" Core.=: disableApiStop,
         "EnaSupport" Core.=: enaSupport,
         "Value" Core.=: value,
         "InstanceId" Core.=: instanceId

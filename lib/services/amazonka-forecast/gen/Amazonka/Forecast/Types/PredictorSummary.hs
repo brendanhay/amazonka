@@ -20,6 +20,7 @@
 module Amazonka.Forecast.Types.PredictorSummary where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.ReferencePredictorSummary
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -44,6 +45,8 @@ data PredictorSummary = PredictorSummary'
     lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
+    -- | Whether AutoPredictor was used to create the predictor.
+    isAutoPredictor :: Prelude.Maybe Prelude.Bool,
     -- | The name of the predictor.
     predictorName :: Prelude.Maybe Prelude.Text,
     -- | The status of the predictor. States include:
@@ -65,7 +68,10 @@ data PredictorSummary = PredictorSummary'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset group that contains the
     -- data used to train the predictor.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | A summary of the reference predictor used if the predictor was retrained
+    -- or upgraded.
+    referencePredictorSummary :: Prelude.Maybe ReferencePredictorSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +98,8 @@ data PredictorSummary = PredictorSummary'
 --
 -- 'message', 'predictorSummary_message' - If an error occurred, an informational message about the error.
 --
+-- 'isAutoPredictor', 'predictorSummary_isAutoPredictor' - Whether AutoPredictor was used to create the predictor.
+--
 -- 'predictorName', 'predictorSummary_predictorName' - The name of the predictor.
 --
 -- 'status', 'predictorSummary_status' - The status of the predictor. States include:
@@ -113,6 +121,9 @@ data PredictorSummary = PredictorSummary'
 --
 -- 'datasetGroupArn', 'predictorSummary_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that contains the
 -- data used to train the predictor.
+--
+-- 'referencePredictorSummary', 'predictorSummary_referencePredictorSummary' - A summary of the reference predictor used if the predictor was retrained
+-- or upgraded.
 newPredictorSummary ::
   PredictorSummary
 newPredictorSummary =
@@ -120,11 +131,13 @@ newPredictorSummary =
     { lastModificationTime =
         Prelude.Nothing,
       message = Prelude.Nothing,
+      isAutoPredictor = Prelude.Nothing,
       predictorName = Prelude.Nothing,
       status = Prelude.Nothing,
       predictorArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing
+      datasetGroupArn = Prelude.Nothing,
+      referencePredictorSummary = Prelude.Nothing
     }
 
 -- | The last time the resource was modified. The timestamp depends on the
@@ -145,6 +158,10 @@ predictorSummary_lastModificationTime = Lens.lens (\PredictorSummary' {lastModif
 -- | If an error occurred, an informational message about the error.
 predictorSummary_message :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
 predictorSummary_message = Lens.lens (\PredictorSummary' {message} -> message) (\s@PredictorSummary' {} a -> s {message = a} :: PredictorSummary)
+
+-- | Whether AutoPredictor was used to create the predictor.
+predictorSummary_isAutoPredictor :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Bool)
+predictorSummary_isAutoPredictor = Lens.lens (\PredictorSummary' {isAutoPredictor} -> isAutoPredictor) (\s@PredictorSummary' {} a -> s {isAutoPredictor = a} :: PredictorSummary)
 
 -- | The name of the predictor.
 predictorSummary_predictorName :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
@@ -178,6 +195,11 @@ predictorSummary_creationTime = Lens.lens (\PredictorSummary' {creationTime} -> 
 predictorSummary_datasetGroupArn :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
 predictorSummary_datasetGroupArn = Lens.lens (\PredictorSummary' {datasetGroupArn} -> datasetGroupArn) (\s@PredictorSummary' {} a -> s {datasetGroupArn = a} :: PredictorSummary)
 
+-- | A summary of the reference predictor used if the predictor was retrained
+-- or upgraded.
+predictorSummary_referencePredictorSummary :: Lens.Lens' PredictorSummary (Prelude.Maybe ReferencePredictorSummary)
+predictorSummary_referencePredictorSummary = Lens.lens (\PredictorSummary' {referencePredictorSummary} -> referencePredictorSummary) (\s@PredictorSummary' {} a -> s {referencePredictorSummary = a} :: PredictorSummary)
+
 instance Core.FromJSON PredictorSummary where
   parseJSON =
     Core.withObject
@@ -186,29 +208,35 @@ instance Core.FromJSON PredictorSummary where
           PredictorSummary'
             Prelude.<$> (x Core..:? "LastModificationTime")
             Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "IsAutoPredictor")
             Prelude.<*> (x Core..:? "PredictorName")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "PredictorArn")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "DatasetGroupArn")
+            Prelude.<*> (x Core..:? "ReferencePredictorSummary")
       )
 
 instance Prelude.Hashable PredictorSummary where
   hashWithSalt _salt PredictorSummary' {..} =
     _salt `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` isAutoPredictor
       `Prelude.hashWithSalt` predictorName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` predictorArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` referencePredictorSummary
 
 instance Prelude.NFData PredictorSummary where
   rnf PredictorSummary' {..} =
     Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf isAutoPredictor
       `Prelude.seq` Prelude.rnf predictorName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf predictorArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf referencePredictorSummary

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a JWT token to be used to login to Airflow Web UI with claims
--- based Authentication.
+-- Creates a web login token for the Airflow Web UI. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html Creating an Apache Airflow web login token>.
 module Amazonka.MwAA.CreateWebLoginToken
   ( -- * Creating a Request
     CreateWebLoginToken (..),
@@ -50,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWebLoginToken' smart constructor.
 data CreateWebLoginToken = CreateWebLoginToken'
-  { -- | Create an Airflow Web UI login token request for a MWAA environment.
+  { -- | The name of the Amazon MWAA environment. For example,
+    -- @MyMWAAEnvironment@.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +64,8 @@ data CreateWebLoginToken = CreateWebLoginToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createWebLoginToken_name' - Create an Airflow Web UI login token request for a MWAA environment.
+-- 'name', 'createWebLoginToken_name' - The name of the Amazon MWAA environment. For example,
+-- @MyMWAAEnvironment@.
 newCreateWebLoginToken ::
   -- | 'name'
   Prelude.Text ->
@@ -71,7 +73,8 @@ newCreateWebLoginToken ::
 newCreateWebLoginToken pName_ =
   CreateWebLoginToken' {name = pName_}
 
--- | Create an Airflow Web UI login token request for a MWAA environment.
+-- | The name of the Amazon MWAA environment. For example,
+-- @MyMWAAEnvironment@.
 createWebLoginToken_name :: Lens.Lens' CreateWebLoginToken Prelude.Text
 createWebLoginToken_name = Lens.lens (\CreateWebLoginToken' {name} -> name) (\s@CreateWebLoginToken' {} a -> s {name = a} :: CreateWebLoginToken)
 
@@ -119,11 +122,9 @@ instance Core.ToQuery CreateWebLoginToken where
 
 -- | /See:/ 'newCreateWebLoginTokenResponse' smart constructor.
 data CreateWebLoginTokenResponse = CreateWebLoginTokenResponse'
-  { -- | Create an Airflow Web UI login token response for the provided webserver
-    -- hostname.
+  { -- | The Airflow web server hostname for the environment.
     webServerHostname :: Prelude.Maybe Prelude.Text,
-    -- | Create an Airflow Web UI login token response for the provided JWT
-    -- token.
+    -- | An Airflow web server login token.
     webToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -138,11 +139,9 @@ data CreateWebLoginTokenResponse = CreateWebLoginTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'webServerHostname', 'createWebLoginTokenResponse_webServerHostname' - Create an Airflow Web UI login token response for the provided webserver
--- hostname.
+-- 'webServerHostname', 'createWebLoginTokenResponse_webServerHostname' - The Airflow web server hostname for the environment.
 --
--- 'webToken', 'createWebLoginTokenResponse_webToken' - Create an Airflow Web UI login token response for the provided JWT
--- token.
+-- 'webToken', 'createWebLoginTokenResponse_webToken' - An Airflow web server login token.
 --
 -- 'httpStatus', 'createWebLoginTokenResponse_httpStatus' - The response's http status code.
 newCreateWebLoginTokenResponse ::
@@ -157,13 +156,11 @@ newCreateWebLoginTokenResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Create an Airflow Web UI login token response for the provided webserver
--- hostname.
+-- | The Airflow web server hostname for the environment.
 createWebLoginTokenResponse_webServerHostname :: Lens.Lens' CreateWebLoginTokenResponse (Prelude.Maybe Prelude.Text)
 createWebLoginTokenResponse_webServerHostname = Lens.lens (\CreateWebLoginTokenResponse' {webServerHostname} -> webServerHostname) (\s@CreateWebLoginTokenResponse' {} a -> s {webServerHostname = a} :: CreateWebLoginTokenResponse)
 
--- | Create an Airflow Web UI login token response for the provided JWT
--- token.
+-- | An Airflow web server login token.
 createWebLoginTokenResponse_webToken :: Lens.Lens' CreateWebLoginTokenResponse (Prelude.Maybe Prelude.Text)
 createWebLoginTokenResponse_webToken = Lens.lens (\CreateWebLoginTokenResponse' {webToken} -> webToken) (\s@CreateWebLoginTokenResponse' {} a -> s {webToken = a} :: CreateWebLoginTokenResponse) Prelude.. Lens.mapping Core._Sensitive
 

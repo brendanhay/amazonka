@@ -21,16 +21,38 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new version of a model and begins training. Models are managed
--- as part of an Amazon Rekognition Custom Labels project. You can specify
--- one training dataset and one testing dataset. The response from
--- @CreateProjectVersion@ is an Amazon Resource Name (ARN) for the version
--- of the model.
+-- as part of an Amazon Rekognition Custom Labels project. The response
+-- from @CreateProjectVersion@ is an Amazon Resource Name (ARN) for the
+-- version of the model.
+--
+-- Training uses the training and test datasets associated with the
+-- project. For more information, see Creating training and test dataset in
+-- the /Amazon Rekognition Custom Labels Developer Guide/.
+--
+-- You can train a model in a project that doesn\'t have associated
+-- datasets by specifying manifest files in the @TrainingData@ and
+-- @TestingData@ fields.
+--
+-- If you open the console after training a model with manifest files,
+-- Amazon Rekognition Custom Labels creates the datasets for you using the
+-- most recent manifest files. You can no longer train a model version for
+-- the project by specifying manifest files.
+--
+-- Instead of training with a project without associated datasets, we
+-- recommend that you use the manifest files to create training and test
+-- datasets for the project.
 --
 -- Training takes a while to complete. You can get the current status by
--- calling DescribeProjectVersions.
+-- calling DescribeProjectVersions. Training completed successfully if the
+-- value of the @Status@ field is @TRAINING_COMPLETED@.
+--
+-- If training fails, see Debugging a failed model training in the /Amazon
+-- Rekognition Custom Labels/ developer guide.
 --
 -- Once training has successfully completed, call DescribeProjectVersions
--- to get the training results and evaluate the model.
+-- to get the training results and evaluate the model. For more
+-- information, see Improving a trained Amazon Rekognition Custom Labels
+-- model in the /Amazon Rekognition Custom Labels/ developers guide.
 --
 -- After evaluating the model, you start the model by calling
 -- StartProjectVersion.
@@ -44,12 +66,12 @@ module Amazonka.Rekognition.CreateProjectVersion
 
     -- * Request Lenses
     createProjectVersion_tags,
+    createProjectVersion_testingData,
     createProjectVersion_kmsKeyId,
+    createProjectVersion_trainingData,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
     createProjectVersion_outputConfig,
-    createProjectVersion_trainingData,
-    createProjectVersion_testingData,
 
     -- * Destructuring the Response
     CreateProjectVersionResponse (..),
@@ -72,16 +94,20 @@ import qualified Amazonka.Response as Response
 data CreateProjectVersion = CreateProjectVersion'
   { -- | A set of tags (key-value pairs) that you want to attach to the model.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier for your AWS Key Management Service (AWS KMS) customer
-    -- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
-    -- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
-    -- is used to encrypt training and test images copied into the service for
+    -- | Specifies an external manifest that the service uses to test the model.
+    -- If you specify @TestingData@ you must also specify @TrainingData@. The
+    -- project must not have any associated datasets.
+    testingData :: Prelude.Maybe TestingData,
+    -- | The identifier for your AWS Key Management Service key (AWS KMS key).
+    -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
+    -- your KMS key, an alias for your KMS key, or an alias ARN. The key is
+    -- used to encrypt training and test images copied into the service for
     -- model training. Your source images are unaffected. The key is also used
     -- to encrypt training results and manifest files written to the output
     -- Amazon S3 bucket (@OutputConfig@).
     --
-    -- If you choose to use your own CMK, you need the following permissions on
-    -- the CMK.
+    -- If you choose to use your own KMS key, you need the following
+    -- permissions on the KMS key.
     --
     -- -   kms:CreateGrant
     --
@@ -94,6 +120,10 @@ data CreateProjectVersion = CreateProjectVersion'
     -- If you don\'t specify a value for @KmsKeyId@, images copied into the
     -- service are encrypted using a key that AWS owns and manages.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies an external manifest that the services uses to train the
+    -- model. If you specify @TrainingData@ you must also specify
+    -- @TestingData@. The project must not have any associated datasets.
+    trainingData :: Prelude.Maybe TrainingData,
     -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
     -- model that you want to train.
     projectArn :: Prelude.Text,
@@ -102,11 +132,7 @@ data CreateProjectVersion = CreateProjectVersion'
     -- | The Amazon S3 bucket location to store the results of training. The S3
     -- bucket can be in any AWS account as long as the caller has
     -- @s3:PutObject@ permissions on the S3 bucket.
-    outputConfig :: OutputConfig,
-    -- | The dataset to use for training.
-    trainingData :: TrainingData,
-    -- | The dataset to use for testing.
-    testingData :: TestingData
+    outputConfig :: OutputConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,16 +146,20 @@ data CreateProjectVersion = CreateProjectVersion'
 --
 -- 'tags', 'createProjectVersion_tags' - A set of tags (key-value pairs) that you want to attach to the model.
 --
--- 'kmsKeyId', 'createProjectVersion_kmsKeyId' - The identifier for your AWS Key Management Service (AWS KMS) customer
--- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
--- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
--- is used to encrypt training and test images copied into the service for
+-- 'testingData', 'createProjectVersion_testingData' - Specifies an external manifest that the service uses to test the model.
+-- If you specify @TestingData@ you must also specify @TrainingData@. The
+-- project must not have any associated datasets.
+--
+-- 'kmsKeyId', 'createProjectVersion_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
+-- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
+-- your KMS key, an alias for your KMS key, or an alias ARN. The key is
+-- used to encrypt training and test images copied into the service for
 -- model training. Your source images are unaffected. The key is also used
 -- to encrypt training results and manifest files written to the output
 -- Amazon S3 bucket (@OutputConfig@).
 --
--- If you choose to use your own CMK, you need the following permissions on
--- the CMK.
+-- If you choose to use your own KMS key, you need the following
+-- permissions on the KMS key.
 --
 -- -   kms:CreateGrant
 --
@@ -142,6 +172,10 @@ data CreateProjectVersion = CreateProjectVersion'
 -- If you don\'t specify a value for @KmsKeyId@, images copied into the
 -- service are encrypted using a key that AWS owns and manages.
 --
+-- 'trainingData', 'createProjectVersion_trainingData' - Specifies an external manifest that the services uses to train the
+-- model. If you specify @TrainingData@ you must also specify
+-- @TestingData@. The project must not have any associated datasets.
+--
 -- 'projectArn', 'createProjectVersion_projectArn' - The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
 --
@@ -150,10 +184,6 @@ data CreateProjectVersion = CreateProjectVersion'
 -- 'outputConfig', 'createProjectVersion_outputConfig' - The Amazon S3 bucket location to store the results of training. The S3
 -- bucket can be in any AWS account as long as the caller has
 -- @s3:PutObject@ permissions on the S3 bucket.
---
--- 'trainingData', 'createProjectVersion_trainingData' - The dataset to use for training.
---
--- 'testingData', 'createProjectVersion_testingData' - The dataset to use for testing.
 newCreateProjectVersion ::
   -- | 'projectArn'
   Prelude.Text ->
@@ -161,41 +191,41 @@ newCreateProjectVersion ::
   Prelude.Text ->
   -- | 'outputConfig'
   OutputConfig ->
-  -- | 'trainingData'
-  TrainingData ->
-  -- | 'testingData'
-  TestingData ->
   CreateProjectVersion
 newCreateProjectVersion
   pProjectArn_
   pVersionName_
-  pOutputConfig_
-  pTrainingData_
-  pTestingData_ =
+  pOutputConfig_ =
     CreateProjectVersion'
       { tags = Prelude.Nothing,
+        testingData = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        trainingData = Prelude.Nothing,
         projectArn = pProjectArn_,
         versionName = pVersionName_,
-        outputConfig = pOutputConfig_,
-        trainingData = pTrainingData_,
-        testingData = pTestingData_
+        outputConfig = pOutputConfig_
       }
 
 -- | A set of tags (key-value pairs) that you want to attach to the model.
 createProjectVersion_tags :: Lens.Lens' CreateProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\s@CreateProjectVersion' {} a -> s {tags = a} :: CreateProjectVersion) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier for your AWS Key Management Service (AWS KMS) customer
--- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
--- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
--- is used to encrypt training and test images copied into the service for
+-- | Specifies an external manifest that the service uses to test the model.
+-- If you specify @TestingData@ you must also specify @TrainingData@. The
+-- project must not have any associated datasets.
+createProjectVersion_testingData :: Lens.Lens' CreateProjectVersion (Prelude.Maybe TestingData)
+createProjectVersion_testingData = Lens.lens (\CreateProjectVersion' {testingData} -> testingData) (\s@CreateProjectVersion' {} a -> s {testingData = a} :: CreateProjectVersion)
+
+-- | The identifier for your AWS Key Management Service key (AWS KMS key).
+-- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
+-- your KMS key, an alias for your KMS key, or an alias ARN. The key is
+-- used to encrypt training and test images copied into the service for
 -- model training. Your source images are unaffected. The key is also used
 -- to encrypt training results and manifest files written to the output
 -- Amazon S3 bucket (@OutputConfig@).
 --
--- If you choose to use your own CMK, you need the following permissions on
--- the CMK.
+-- If you choose to use your own KMS key, you need the following
+-- permissions on the KMS key.
 --
 -- -   kms:CreateGrant
 --
@@ -209,6 +239,12 @@ createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\
 -- service are encrypted using a key that AWS owns and manages.
 createProjectVersion_kmsKeyId :: Lens.Lens' CreateProjectVersion (Prelude.Maybe Prelude.Text)
 createProjectVersion_kmsKeyId = Lens.lens (\CreateProjectVersion' {kmsKeyId} -> kmsKeyId) (\s@CreateProjectVersion' {} a -> s {kmsKeyId = a} :: CreateProjectVersion)
+
+-- | Specifies an external manifest that the services uses to train the
+-- model. If you specify @TrainingData@ you must also specify
+-- @TestingData@. The project must not have any associated datasets.
+createProjectVersion_trainingData :: Lens.Lens' CreateProjectVersion (Prelude.Maybe TrainingData)
+createProjectVersion_trainingData = Lens.lens (\CreateProjectVersion' {trainingData} -> trainingData) (\s@CreateProjectVersion' {} a -> s {trainingData = a} :: CreateProjectVersion)
 
 -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
@@ -224,14 +260,6 @@ createProjectVersion_versionName = Lens.lens (\CreateProjectVersion' {versionNam
 -- @s3:PutObject@ permissions on the S3 bucket.
 createProjectVersion_outputConfig :: Lens.Lens' CreateProjectVersion OutputConfig
 createProjectVersion_outputConfig = Lens.lens (\CreateProjectVersion' {outputConfig} -> outputConfig) (\s@CreateProjectVersion' {} a -> s {outputConfig = a} :: CreateProjectVersion)
-
--- | The dataset to use for training.
-createProjectVersion_trainingData :: Lens.Lens' CreateProjectVersion TrainingData
-createProjectVersion_trainingData = Lens.lens (\CreateProjectVersion' {trainingData} -> trainingData) (\s@CreateProjectVersion' {} a -> s {trainingData = a} :: CreateProjectVersion)
-
--- | The dataset to use for testing.
-createProjectVersion_testingData :: Lens.Lens' CreateProjectVersion TestingData
-createProjectVersion_testingData = Lens.lens (\CreateProjectVersion' {testingData} -> testingData) (\s@CreateProjectVersion' {} a -> s {testingData = a} :: CreateProjectVersion)
 
 instance Core.AWSRequest CreateProjectVersion where
   type
@@ -249,22 +277,22 @@ instance Core.AWSRequest CreateProjectVersion where
 instance Prelude.Hashable CreateProjectVersion where
   hashWithSalt _salt CreateProjectVersion' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` testingData
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` trainingData
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` outputConfig
-      `Prelude.hashWithSalt` trainingData
-      `Prelude.hashWithSalt` testingData
 
 instance Prelude.NFData CreateProjectVersion where
   rnf CreateProjectVersion' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf testingData
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf trainingData
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf trainingData
-      `Prelude.seq` Prelude.rnf testingData
 
 instance Core.ToHeaders CreateProjectVersion where
   toHeaders =
@@ -286,12 +314,12 @@ instance Core.ToJSON CreateProjectVersion where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("TestingData" Core..=) Prelude.<$> testingData,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("TrainingData" Core..=) Prelude.<$> trainingData,
             Prelude.Just ("ProjectArn" Core..= projectArn),
             Prelude.Just ("VersionName" Core..= versionName),
-            Prelude.Just ("OutputConfig" Core..= outputConfig),
-            Prelude.Just ("TrainingData" Core..= trainingData),
-            Prelude.Just ("TestingData" Core..= testingData)
+            Prelude.Just ("OutputConfig" Core..= outputConfig)
           ]
       )
 

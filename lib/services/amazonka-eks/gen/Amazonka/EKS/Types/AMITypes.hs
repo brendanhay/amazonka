@@ -23,6 +23,10 @@ module Amazonka.EKS.Types.AMITypes
         AMITypes_AL2_ARM_64,
         AMITypes_AL2_x86_64,
         AMITypes_AL2_x86_64_GPU,
+        AMITypes_BOTTLEROCKET_ARM_64,
+        AMITypes_BOTTLEROCKET_ARM_64_NVIDIA,
+        AMITypes_BOTTLEROCKET_x86_64,
+        AMITypes_BOTTLEROCKET_x86_64_NVIDIA,
         AMITypes_CUSTOM
       ),
   )
@@ -68,6 +72,18 @@ pattern AMITypes_AL2_x86_64 = AMITypes' "AL2_x86_64"
 pattern AMITypes_AL2_x86_64_GPU :: AMITypes
 pattern AMITypes_AL2_x86_64_GPU = AMITypes' "AL2_x86_64_GPU"
 
+pattern AMITypes_BOTTLEROCKET_ARM_64 :: AMITypes
+pattern AMITypes_BOTTLEROCKET_ARM_64 = AMITypes' "BOTTLEROCKET_ARM_64"
+
+pattern AMITypes_BOTTLEROCKET_ARM_64_NVIDIA :: AMITypes
+pattern AMITypes_BOTTLEROCKET_ARM_64_NVIDIA = AMITypes' "BOTTLEROCKET_ARM_64_NVIDIA"
+
+pattern AMITypes_BOTTLEROCKET_x86_64 :: AMITypes
+pattern AMITypes_BOTTLEROCKET_x86_64 = AMITypes' "BOTTLEROCKET_x86_64"
+
+pattern AMITypes_BOTTLEROCKET_x86_64_NVIDIA :: AMITypes
+pattern AMITypes_BOTTLEROCKET_x86_64_NVIDIA = AMITypes' "BOTTLEROCKET_x86_64_NVIDIA"
+
 pattern AMITypes_CUSTOM :: AMITypes
 pattern AMITypes_CUSTOM = AMITypes' "CUSTOM"
 
@@ -75,6 +91,10 @@ pattern AMITypes_CUSTOM = AMITypes' "CUSTOM"
   AMITypes_AL2_ARM_64,
   AMITypes_AL2_x86_64,
   AMITypes_AL2_x86_64_GPU,
+  AMITypes_BOTTLEROCKET_ARM_64,
+  AMITypes_BOTTLEROCKET_ARM_64_NVIDIA,
+  AMITypes_BOTTLEROCKET_x86_64,
+  AMITypes_BOTTLEROCKET_x86_64_NVIDIA,
   AMITypes_CUSTOM,
   AMITypes'
   #-}

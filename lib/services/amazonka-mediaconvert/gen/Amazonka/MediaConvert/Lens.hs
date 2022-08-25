@@ -244,6 +244,11 @@ module Amazonka.MediaConvert.Lens
     aiffSettings_channels,
     aiffSettings_sampleRate,
 
+    -- ** AllowedRenditionSize
+    allowedRenditionSize_required,
+    allowedRenditionSize_width,
+    allowedRenditionSize_height,
+
     -- ** AncillarySourceSettings
     ancillarySourceSettings_convert608To708,
     ancillarySourceSettings_terminateCaptions,
@@ -288,6 +293,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** AudioSelector
     audioSelector_externalAudioFileInput,
+    audioSelector_audioDurationCorrection,
     audioSelector_pids,
     audioSelector_hlsRenditionGroupSettings,
     audioSelector_customLanguageCode,
@@ -302,8 +308,16 @@ module Amazonka.MediaConvert.Lens
     -- ** AudioSelectorGroup
     audioSelectorGroup_audioSelectorNames,
 
+    -- ** AutomatedAbrRule
+    automatedAbrRule_type,
+    automatedAbrRule_minTopRenditionSize,
+    automatedAbrRule_minBottomRenditionSize,
+    automatedAbrRule_forceIncludeRenditions,
+    automatedAbrRule_allowedRenditions,
+
     -- ** AutomatedAbrSettings
     automatedAbrSettings_minAbrBitrate,
+    automatedAbrSettings_rules,
     automatedAbrSettings_maxAbrBitrate,
     automatedAbrSettings_maxRenditions,
 
@@ -316,6 +330,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** Av1Settings
     av1Settings_framerateDenominator,
+    av1Settings_bitDepth,
     av1Settings_framerateControl,
     av1Settings_qvbrSettings,
     av1Settings_maxBitrate,
@@ -466,6 +481,8 @@ module Amazonka.MediaConvert.Lens
     cmfcSettings_descriptiveVideoServiceFlag,
     cmfcSettings_audioDuration,
     cmfcSettings_audioTrackType,
+    cmfcSettings_timedMetadata,
+    cmfcSettings_klvMetadata,
     cmfcSettings_iFrameOnlyManifest,
     cmfcSettings_audioRenditionSets,
     cmfcSettings_scte35Esam,
@@ -539,6 +556,7 @@ module Amazonka.MediaConvert.Lens
     -- ** DolbyVision
     dolbyVision_l6Metadata,
     dolbyVision_profile,
+    dolbyVision_mapping,
     dolbyVision_l6Mode,
 
     -- ** DolbyVisionLevel6Metadata
@@ -674,6 +692,10 @@ module Amazonka.MediaConvert.Lens
     fileSourceSettings_timeDeltaUnits,
     fileSourceSettings_sourceFile,
     fileSourceSettings_framerate,
+
+    -- ** ForceIncludeRenditionSize
+    forceIncludeRenditionSize_width,
+    forceIncludeRenditionSize_height,
 
     -- ** FrameCaptureSettings
     frameCaptureSettings_framerateDenominator,
@@ -832,6 +854,7 @@ module Amazonka.MediaConvert.Lens
     hlsGroupSettings_timedMetadataId3Frame,
     hlsGroupSettings_captionLanguageSetting,
     hlsGroupSettings_segmentControl,
+    hlsGroupSettings_captionSegmentLengthControl,
     hlsGroupSettings_encryption,
     hlsGroupSettings_imageBasedTrickPlay,
     hlsGroupSettings_clientCache,
@@ -880,6 +903,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** ImscDestinationSettings
     imscDestinationSettings_stylePassthrough,
+    imscDestinationSettings_accessibility,
 
     -- ** Input
     input_deblockFilter,
@@ -888,9 +912,11 @@ module Amazonka.MediaConvert.Lens
     input_audioSelectorGroups,
     input_filterStrength,
     input_timecodeStart,
+    input_dolbyVisionMetadataXml,
     input_inputClippings,
     input_audioSelectors,
     input_timecodeSource,
+    input_videoGenerator,
     input_programNumber,
     input_crop,
     input_supplementalImps,
@@ -920,6 +946,7 @@ module Amazonka.MediaConvert.Lens
     inputTemplate_audioSelectorGroups,
     inputTemplate_filterStrength,
     inputTemplate_timecodeStart,
+    inputTemplate_dolbyVisionMetadataXml,
     inputTemplate_inputClippings,
     inputTemplate_audioSelectors,
     inputTemplate_timecodeSource,
@@ -931,6 +958,9 @@ module Amazonka.MediaConvert.Lens
     inputTemplate_position,
     inputTemplate_inputScanType,
     inputTemplate_videoSelector,
+
+    -- ** InputVideoGenerator
+    inputVideoGenerator_duration,
 
     -- ** InsertableImage
     insertableImage_imageInserterInput,
@@ -1049,6 +1079,7 @@ module Amazonka.MediaConvert.Lens
     m2tsSettings_dvbTdtSettings,
     m2tsSettings_dvbNitSettings,
     m2tsSettings_bitrate,
+    m2tsSettings_klvMetadata,
     m2tsSettings_patInterval,
     m2tsSettings_esRateInPes,
     m2tsSettings_audioBufferModel,
@@ -1098,6 +1129,14 @@ module Amazonka.MediaConvert.Lens
     m3u8Settings_nielsenId3,
     m3u8Settings_audioPids,
 
+    -- ** MinBottomRenditionSize
+    minBottomRenditionSize_width,
+    minBottomRenditionSize_height,
+
+    -- ** MinTopRenditionSize
+    minTopRenditionSize_width,
+    minTopRenditionSize_height,
+
     -- ** MotionImageInserter
     motionImageInserter_insertionMode,
     motionImageInserter_playback,
@@ -1143,6 +1182,8 @@ module Amazonka.MediaConvert.Lens
 
     -- ** MpdSettings
     mpdSettings_audioDuration,
+    mpdSettings_timedMetadata,
+    mpdSettings_klvMetadata,
     mpdSettings_scte35Esam,
     mpdSettings_accessibilityCaptionHints,
     mpdSettings_captionContainerType,
@@ -1249,6 +1290,7 @@ module Amazonka.MediaConvert.Lens
     noiseReducerTemporalFilterSettings_strength,
     noiseReducerTemporalFilterSettings_aggressiveMode,
     noiseReducerTemporalFilterSettings_postTemporalSharpening,
+    noiseReducerTemporalFilterSettings_postTemporalSharpeningStrength,
     noiseReducerTemporalFilterSettings_speed,
 
     -- ** OpusSettings
@@ -1509,7 +1551,9 @@ module Amazonka.MediaConvert.Lens
     videoSelector_alphaBehavior,
     videoSelector_pid,
     videoSelector_colorSpace,
+    videoSelector_padVideo,
     videoSelector_colorSpaceUsage,
+    videoSelector_embeddedTimecodeOverride,
     videoSelector_sampleRange,
     videoSelector_programNumber,
     videoSelector_hdr10Metadata,
@@ -1558,6 +1602,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** WebvttDestinationSettings
     webvttDestinationSettings_stylePassthrough,
+    webvttDestinationSettings_accessibility,
 
     -- ** WebvttHlsSourceSettings
     webvttHlsSourceSettings_renditionLanguageCode,
@@ -1642,6 +1687,7 @@ import Amazonka.MediaConvert.Types.AacSettings
 import Amazonka.MediaConvert.Types.Ac3Settings
 import Amazonka.MediaConvert.Types.AccelerationSettings
 import Amazonka.MediaConvert.Types.AiffSettings
+import Amazonka.MediaConvert.Types.AllowedRenditionSize
 import Amazonka.MediaConvert.Types.AncillarySourceSettings
 import Amazonka.MediaConvert.Types.AudioChannelTaggingSettings
 import Amazonka.MediaConvert.Types.AudioCodecSettings
@@ -1649,6 +1695,7 @@ import Amazonka.MediaConvert.Types.AudioDescription
 import Amazonka.MediaConvert.Types.AudioNormalizationSettings
 import Amazonka.MediaConvert.Types.AudioSelector
 import Amazonka.MediaConvert.Types.AudioSelectorGroup
+import Amazonka.MediaConvert.Types.AutomatedAbrRule
 import Amazonka.MediaConvert.Types.AutomatedAbrSettings
 import Amazonka.MediaConvert.Types.AutomatedEncodingSettings
 import Amazonka.MediaConvert.Types.Av1QvbrSettings
@@ -1696,6 +1743,7 @@ import Amazonka.MediaConvert.Types.ExtendedDataServices
 import Amazonka.MediaConvert.Types.F4vSettings
 import Amazonka.MediaConvert.Types.FileGroupSettings
 import Amazonka.MediaConvert.Types.FileSourceSettings
+import Amazonka.MediaConvert.Types.ForceIncludeRenditionSize
 import Amazonka.MediaConvert.Types.FrameCaptureSettings
 import Amazonka.MediaConvert.Types.H264QvbrSettings
 import Amazonka.MediaConvert.Types.H264Settings
@@ -1718,6 +1766,7 @@ import Amazonka.MediaConvert.Types.Input
 import Amazonka.MediaConvert.Types.InputClipping
 import Amazonka.MediaConvert.Types.InputDecryptionSettings
 import Amazonka.MediaConvert.Types.InputTemplate
+import Amazonka.MediaConvert.Types.InputVideoGenerator
 import Amazonka.MediaConvert.Types.InsertableImage
 import Amazonka.MediaConvert.Types.Job
 import Amazonka.MediaConvert.Types.JobMessages
@@ -1728,6 +1777,8 @@ import Amazonka.MediaConvert.Types.KantarWatermarkSettings
 import Amazonka.MediaConvert.Types.M2tsScte35Esam
 import Amazonka.MediaConvert.Types.M2tsSettings
 import Amazonka.MediaConvert.Types.M3u8Settings
+import Amazonka.MediaConvert.Types.MinBottomRenditionSize
+import Amazonka.MediaConvert.Types.MinTopRenditionSize
 import Amazonka.MediaConvert.Types.MotionImageInserter
 import Amazonka.MediaConvert.Types.MotionImageInsertionFramerate
 import Amazonka.MediaConvert.Types.MotionImageInsertionOffset

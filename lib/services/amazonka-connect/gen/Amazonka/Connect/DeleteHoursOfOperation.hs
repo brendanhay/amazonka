@@ -20,6 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This API is in preview release for Amazon Connect and is subject to
+-- change.
+--
 -- Deletes an hours of operation.
 module Amazonka.Connect.DeleteHoursOfOperation
   ( -- * Creating a Request

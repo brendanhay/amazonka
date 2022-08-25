@@ -68,6 +68,9 @@ module Amazonka.OpenSearch.Types
     -- * OutboundConnectionStatusCode
     OutboundConnectionStatusCode (..),
 
+    -- * OverallChangeStatus
+    OverallChangeStatus (..),
+
     -- * PackageStatus
     PackageStatus (..),
 
@@ -131,13 +134,16 @@ module Amazonka.OpenSearch.Types
     newAdvancedSecurityOptions,
     advancedSecurityOptions_internalUserDatabaseEnabled,
     advancedSecurityOptions_sAMLOptions,
+    advancedSecurityOptions_anonymousAuthEnabled,
     advancedSecurityOptions_enabled,
+    advancedSecurityOptions_anonymousAuthDisableDate,
 
     -- * AdvancedSecurityOptionsInput
     AdvancedSecurityOptionsInput (..),
     newAdvancedSecurityOptionsInput,
     advancedSecurityOptionsInput_internalUserDatabaseEnabled,
     advancedSecurityOptionsInput_sAMLOptions,
+    advancedSecurityOptionsInput_anonymousAuthEnabled,
     advancedSecurityOptionsInput_enabled,
     advancedSecurityOptionsInput_masterUserOptions,
 
@@ -200,6 +206,31 @@ module Amazonka.OpenSearch.Types
     autoTuneStatus_updateDate,
     autoTuneStatus_state,
 
+    -- * ChangeProgressDetails
+    ChangeProgressDetails (..),
+    newChangeProgressDetails,
+    changeProgressDetails_message,
+    changeProgressDetails_changeId,
+
+    -- * ChangeProgressStage
+    ChangeProgressStage (..),
+    newChangeProgressStage,
+    changeProgressStage_name,
+    changeProgressStage_status,
+    changeProgressStage_description,
+    changeProgressStage_lastUpdated,
+
+    -- * ChangeProgressStatusDetails
+    ChangeProgressStatusDetails (..),
+    newChangeProgressStatusDetails,
+    changeProgressStatusDetails_totalNumberOfStages,
+    changeProgressStatusDetails_changeId,
+    changeProgressStatusDetails_pendingProperties,
+    changeProgressStatusDetails_status,
+    changeProgressStatusDetails_changeProgressStages,
+    changeProgressStatusDetails_completedProperties,
+    changeProgressStatusDetails_startTime,
+
     -- * ClusterConfig
     ClusterConfig (..),
     newClusterConfig,
@@ -258,6 +289,7 @@ module Amazonka.OpenSearch.Types
     domainConfig_nodeToNodeEncryptionOptions,
     domainConfig_clusterConfig,
     domainConfig_advancedOptions,
+    domainConfig_changeProgressDetails,
     domainConfig_advancedSecurityOptions,
     domainConfig_cognitoOptions,
     domainConfig_encryptionAtRestOptions,
@@ -314,6 +346,7 @@ module Amazonka.OpenSearch.Types
     newDomainStatus,
     domainStatus_nodeToNodeEncryptionOptions,
     domainStatus_advancedOptions,
+    domainStatus_changeProgressDetails,
     domainStatus_deleted,
     domainStatus_created,
     domainStatus_advancedSecurityOptions,
@@ -337,6 +370,12 @@ module Amazonka.OpenSearch.Types
     domainStatus_arn,
     domainStatus_clusterConfig,
 
+    -- * DryRunResults
+    DryRunResults (..),
+    newDryRunResults,
+    dryRunResults_message,
+    dryRunResults_deploymentType,
+
     -- * Duration
     Duration (..),
     newDuration,
@@ -348,6 +387,7 @@ module Amazonka.OpenSearch.Types
     newEBSOptions,
     eBSOptions_volumeType,
     eBSOptions_volumeSize,
+    eBSOptions_throughput,
     eBSOptions_eBSEnabled,
     eBSOptions_iops,
 
@@ -685,6 +725,9 @@ import Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
 import Amazonka.OpenSearch.Types.AutoTuneState
 import Amazonka.OpenSearch.Types.AutoTuneStatus
 import Amazonka.OpenSearch.Types.AutoTuneType
+import Amazonka.OpenSearch.Types.ChangeProgressDetails
+import Amazonka.OpenSearch.Types.ChangeProgressStage
+import Amazonka.OpenSearch.Types.ChangeProgressStatusDetails
 import Amazonka.OpenSearch.Types.ClusterConfig
 import Amazonka.OpenSearch.Types.ClusterConfigStatus
 import Amazonka.OpenSearch.Types.CognitoOptions
@@ -702,6 +745,7 @@ import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.DomainPackageDetails
 import Amazonka.OpenSearch.Types.DomainPackageStatus
 import Amazonka.OpenSearch.Types.DomainStatus
+import Amazonka.OpenSearch.Types.DryRunResults
 import Amazonka.OpenSearch.Types.Duration
 import Amazonka.OpenSearch.Types.EBSOptions
 import Amazonka.OpenSearch.Types.EBSOptionsStatus
@@ -730,6 +774,7 @@ import Amazonka.OpenSearch.Types.OptionStatus
 import Amazonka.OpenSearch.Types.OutboundConnection
 import Amazonka.OpenSearch.Types.OutboundConnectionStatus
 import Amazonka.OpenSearch.Types.OutboundConnectionStatusCode
+import Amazonka.OpenSearch.Types.OverallChangeStatus
 import Amazonka.OpenSearch.Types.PackageDetails
 import Amazonka.OpenSearch.Types.PackageSource
 import Amazonka.OpenSearch.Types.PackageStatus

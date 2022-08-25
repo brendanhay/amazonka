@@ -40,11 +40,11 @@ data DescribedUser = DescribedUser'
     --
     -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
     homeDirectory :: Prelude.Maybe Prelude.Text,
-    -- | A session policy for your user so that you can use the same IAM role
-    -- across multiple users. This policy scopes down user access to portions
-    -- of their Amazon S3 bucket. Variables that you can use inside this policy
-    -- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
-    -- @${Transfer:HomeBucket}@.
+    -- | A session policy for your user so that you can use the same Identity and
+    -- Access Management (IAM) role across multiple users. This policy scopes
+    -- down a user\'s access to portions of their Amazon S3 bucket. Variables
+    -- that you can use inside this policy include @${Transfer:UserName}@,
+    -- @${Transfer:HomeDirectory}@, and @${Transfer:HomeBucket}@.
     policy :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the user that was requested to be described. User
     -- names are used for authentication purposes. This is the string that will
@@ -60,30 +60,30 @@ data DescribedUser = DescribedUser'
     -- | Specifies the public key portion of the Secure Shell (SSH) keys stored
     -- for the described user.
     sshPublicKeys :: Prelude.Maybe [SshPublicKey],
-    -- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
-    -- your users\' access to your Amazon S3 bucket or EFS file system. The
-    -- policies attached to this role determine the level of access that you
-    -- want to provide your users when transferring files into and out of your
-    -- Amazon S3 bucket or EFS file system. The IAM role should also contain a
-    -- trust relationship that allows the server to access your resources when
-    -- servicing your users\' transfer requests.
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+    -- Amazon EFS file system. The policies attached to this role determine the
+    -- level of access that you want to provide your users when transferring
+    -- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+    -- The IAM role should also contain a trust relationship that allows the
+    -- server to access your resources when servicing your users\' transfer
+    -- requests.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The type of landing directory (folder) you want your users\' home
-    -- directory to be when they log into the server. If you set it to @PATH@,
+    -- | The type of landing directory (folder) that you want your users\' home
+    -- directory to be when they log in to the server. If you set it to @PATH@,
     -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
     -- their file transfer protocol clients. If you set it @LOGICAL@, you need
     -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
-    -- make Amazon S3 or EFS paths visible to your users.
+    -- make Amazon S3 or Amazon EFS paths visible to your users.
     homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
     -- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
     -- paths and keys should be visible to your user and how you want to make
     -- them visible. You must specify the @Entry@ and @Target@ pair, where
     -- @Entry@ shows how the path is made visible and @Target@ is the actual
     -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
-    -- displayed as is. You also must ensure that your Amazon Web Services
-    -- Identity and Access Management (IAM) role provides access to paths in
-    -- @Target@. This value can only be set when @HomeDirectoryType@ is set to
-    -- /LOGICAL/.
+    -- displayed as is. You also must ensure that your Identity and Access
+    -- Management (IAM) role provides access to paths in @Target@. This value
+    -- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
     --
     -- In most cases, you can use this value instead of the session policy to
     -- lock your user down to the designated home directory (\"@chroot@\"). To
@@ -112,11 +112,11 @@ data DescribedUser = DescribedUser'
 --
 -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
 --
--- 'policy', 'describedUser_policy' - A session policy for your user so that you can use the same IAM role
--- across multiple users. This policy scopes down user access to portions
--- of their Amazon S3 bucket. Variables that you can use inside this policy
--- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
--- @${Transfer:HomeBucket}@.
+-- 'policy', 'describedUser_policy' - A session policy for your user so that you can use the same Identity and
+-- Access Management (IAM) role across multiple users. This policy scopes
+-- down a user\'s access to portions of their Amazon S3 bucket. Variables
+-- that you can use inside this policy include @${Transfer:UserName}@,
+-- @${Transfer:HomeDirectory}@, and @${Transfer:HomeBucket}@.
 --
 -- 'userName', 'describedUser_userName' - Specifies the name of the user that was requested to be described. User
 -- names are used for authentication purposes. This is the string that will
@@ -132,30 +132,30 @@ data DescribedUser = DescribedUser'
 -- 'sshPublicKeys', 'describedUser_sshPublicKeys' - Specifies the public key portion of the Secure Shell (SSH) keys stored
 -- for the described user.
 --
--- 'role'', 'describedUser_role' - Specifies the Amazon Resource Name (ARN) of the IAM role that controls
--- your users\' access to your Amazon S3 bucket or EFS file system. The
--- policies attached to this role determine the level of access that you
--- want to provide your users when transferring files into and out of your
--- Amazon S3 bucket or EFS file system. The IAM role should also contain a
--- trust relationship that allows the server to access your resources when
--- servicing your users\' transfer requests.
+-- 'role'', 'describedUser_role' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+-- Amazon EFS file system. The policies attached to this role determine the
+-- level of access that you want to provide your users when transferring
+-- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+-- The IAM role should also contain a trust relationship that allows the
+-- server to access your resources when servicing your users\' transfer
+-- requests.
 --
--- 'homeDirectoryType', 'describedUser_homeDirectoryType' - The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
+-- 'homeDirectoryType', 'describedUser_homeDirectoryType' - The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
 -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
 -- their file transfer protocol clients. If you set it @LOGICAL@, you need
 -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 --
 -- 'homeDirectoryMappings', 'describedUser_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS
 -- paths and keys should be visible to your user and how you want to make
 -- them visible. You must specify the @Entry@ and @Target@ pair, where
 -- @Entry@ shows how the path is made visible and @Target@ is the actual
 -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
--- displayed as is. You also must ensure that your Amazon Web Services
--- Identity and Access Management (IAM) role provides access to paths in
--- @Target@. This value can only be set when @HomeDirectoryType@ is set to
--- /LOGICAL/.
+-- displayed as is. You also must ensure that your Identity and Access
+-- Management (IAM) role provides access to paths in @Target@. This value
+-- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
 --
 -- In most cases, you can use this value instead of the session policy to
 -- lock your user down to the designated home directory (\"@chroot@\"). To
@@ -194,11 +194,11 @@ describedUser_tags = Lens.lens (\DescribedUser' {tags} -> tags) (\s@DescribedUse
 describedUser_homeDirectory :: Lens.Lens' DescribedUser (Prelude.Maybe Prelude.Text)
 describedUser_homeDirectory = Lens.lens (\DescribedUser' {homeDirectory} -> homeDirectory) (\s@DescribedUser' {} a -> s {homeDirectory = a} :: DescribedUser)
 
--- | A session policy for your user so that you can use the same IAM role
--- across multiple users. This policy scopes down user access to portions
--- of their Amazon S3 bucket. Variables that you can use inside this policy
--- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
--- @${Transfer:HomeBucket}@.
+-- | A session policy for your user so that you can use the same Identity and
+-- Access Management (IAM) role across multiple users. This policy scopes
+-- down a user\'s access to portions of their Amazon S3 bucket. Variables
+-- that you can use inside this policy include @${Transfer:UserName}@,
+-- @${Transfer:HomeDirectory}@, and @${Transfer:HomeBucket}@.
 describedUser_policy :: Lens.Lens' DescribedUser (Prelude.Maybe Prelude.Text)
 describedUser_policy = Lens.lens (\DescribedUser' {policy} -> policy) (\s@DescribedUser' {} a -> s {policy = a} :: DescribedUser)
 
@@ -222,22 +222,23 @@ describedUser_posixProfile = Lens.lens (\DescribedUser' {posixProfile} -> posixP
 describedUser_sshPublicKeys :: Lens.Lens' DescribedUser (Prelude.Maybe [SshPublicKey])
 describedUser_sshPublicKeys = Lens.lens (\DescribedUser' {sshPublicKeys} -> sshPublicKeys) (\s@DescribedUser' {} a -> s {sshPublicKeys = a} :: DescribedUser) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
--- your users\' access to your Amazon S3 bucket or EFS file system. The
--- policies attached to this role determine the level of access that you
--- want to provide your users when transferring files into and out of your
--- Amazon S3 bucket or EFS file system. The IAM role should also contain a
--- trust relationship that allows the server to access your resources when
--- servicing your users\' transfer requests.
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+-- Amazon EFS file system. The policies attached to this role determine the
+-- level of access that you want to provide your users when transferring
+-- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+-- The IAM role should also contain a trust relationship that allows the
+-- server to access your resources when servicing your users\' transfer
+-- requests.
 describedUser_role :: Lens.Lens' DescribedUser (Prelude.Maybe Prelude.Text)
 describedUser_role = Lens.lens (\DescribedUser' {role'} -> role') (\s@DescribedUser' {} a -> s {role' = a} :: DescribedUser)
 
--- | The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
+-- | The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
 -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
 -- their file transfer protocol clients. If you set it @LOGICAL@, you need
 -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 describedUser_homeDirectoryType :: Lens.Lens' DescribedUser (Prelude.Maybe HomeDirectoryType)
 describedUser_homeDirectoryType = Lens.lens (\DescribedUser' {homeDirectoryType} -> homeDirectoryType) (\s@DescribedUser' {} a -> s {homeDirectoryType = a} :: DescribedUser)
 
@@ -246,10 +247,9 @@ describedUser_homeDirectoryType = Lens.lens (\DescribedUser' {homeDirectoryType}
 -- them visible. You must specify the @Entry@ and @Target@ pair, where
 -- @Entry@ shows how the path is made visible and @Target@ is the actual
 -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
--- displayed as is. You also must ensure that your Amazon Web Services
--- Identity and Access Management (IAM) role provides access to paths in
--- @Target@. This value can only be set when @HomeDirectoryType@ is set to
--- /LOGICAL/.
+-- displayed as is. You also must ensure that your Identity and Access
+-- Management (IAM) role provides access to paths in @Target@. This value
+-- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
 --
 -- In most cases, you can use this value instead of the session policy to
 -- lock your user down to the designated home directory (\"@chroot@\"). To

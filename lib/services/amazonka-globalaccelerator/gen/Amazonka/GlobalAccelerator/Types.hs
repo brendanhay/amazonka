@@ -60,6 +60,9 @@ module Amazonka.GlobalAccelerator.Types
     -- * HealthState
     HealthState (..),
 
+    -- * IpAddressFamily
+    IpAddressFamily (..),
+
     -- * IpAddressType
     IpAddressType (..),
 
@@ -76,6 +79,8 @@ module Amazonka.GlobalAccelerator.Types
     accelerator_status,
     accelerator_enabled,
     accelerator_lastModifiedTime,
+    accelerator_dualStackDnsName,
+    accelerator_events,
     accelerator_dnsName,
     accelerator_ipAddressType,
 
@@ -85,6 +90,12 @@ module Amazonka.GlobalAccelerator.Types
     acceleratorAttributes_flowLogsEnabled,
     acceleratorAttributes_flowLogsS3Bucket,
     acceleratorAttributes_flowLogsS3Prefix,
+
+    -- * AcceleratorEvent
+    AcceleratorEvent (..),
+    newAcceleratorEvent,
+    acceleratorEvent_message,
+    acceleratorEvent_timestamp,
 
     -- * ByoipCidr
     ByoipCidr (..),
@@ -209,6 +220,7 @@ module Amazonka.GlobalAccelerator.Types
     IpSet (..),
     newIpSet,
     ipSet_ipFamily,
+    ipSet_ipAddressFamily,
     ipSet_ipAddresses,
 
     -- * Listener
@@ -258,6 +270,7 @@ where
 import qualified Amazonka.Core as Core
 import Amazonka.GlobalAccelerator.Types.Accelerator
 import Amazonka.GlobalAccelerator.Types.AcceleratorAttributes
+import Amazonka.GlobalAccelerator.Types.AcceleratorEvent
 import Amazonka.GlobalAccelerator.Types.AcceleratorStatus
 import Amazonka.GlobalAccelerator.Types.ByoipCidr
 import Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
@@ -281,6 +294,7 @@ import Amazonka.GlobalAccelerator.Types.EndpointDescription
 import Amazonka.GlobalAccelerator.Types.EndpointGroup
 import Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
 import Amazonka.GlobalAccelerator.Types.HealthState
+import Amazonka.GlobalAccelerator.Types.IpAddressFamily
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.IpSet
 import Amazonka.GlobalAccelerator.Types.Listener
@@ -410,8 +424,8 @@ _AssociatedEndpointGroupFoundException =
     defaultService
     "AssociatedEndpointGroupFoundException"
 
--- | Processing your request would cause you to exceed an AWS Global
--- Accelerator limit.
+-- | Processing your request would cause you to exceed an Global Accelerator
+-- limit.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
@@ -476,7 +490,7 @@ _EndpointGroupNotFoundException =
     defaultService
     "EndpointGroupNotFoundException"
 
--- | There was an internal error for AWS Global Accelerator.
+-- | There was an internal error for Global Accelerator.
 _InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError

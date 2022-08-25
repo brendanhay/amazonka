@@ -28,6 +28,8 @@ module Amazonka.FinSpace.CreateEnvironment
 
     -- * Request Lenses
     createEnvironment_tags,
+    createEnvironment_dataBundles,
+    createEnvironment_superuserParameters,
     createEnvironment_federationParameters,
     createEnvironment_description,
     createEnvironment_federationMode,
@@ -57,6 +59,18 @@ import qualified Amazonka.Response as Response
 data CreateEnvironment = CreateEnvironment'
   { -- | Add tags to your FinSpace environment.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The list of Amazon Resource Names (ARN) of the data bundles to install.
+    -- Currently supported data bundle ARNs:
+    --
+    -- -   @arn:aws:finspace:${Region}::data-bundle\/capital-markets-sample@ -
+    --     Contains sample Capital Markets datasets, categories and controlled
+    --     vocabularies.
+    --
+    -- -   @arn:aws:finspace:${Region}::data-bundle\/taq@ (default) - Contains
+    --     trades and quotes data in addition to sample Capital Markets data.
+    dataBundles :: Prelude.Maybe [Prelude.Text],
+    -- | Configuration information for the superuser.
+    superuserParameters :: Prelude.Maybe SuperuserParameters,
     -- | Configuration information when authentication mode is FEDERATED.
     federationParameters :: Prelude.Maybe FederationParameters,
     -- | The description of the FinSpace environment to be created.
@@ -74,7 +88,7 @@ data CreateEnvironment = CreateEnvironment'
     -- | The name of the FinSpace environment to be created.
     name :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEnvironment' with all optional fields omitted.
@@ -85,6 +99,18 @@ data CreateEnvironment = CreateEnvironment'
 -- for backwards compatibility:
 --
 -- 'tags', 'createEnvironment_tags' - Add tags to your FinSpace environment.
+--
+-- 'dataBundles', 'createEnvironment_dataBundles' - The list of Amazon Resource Names (ARN) of the data bundles to install.
+-- Currently supported data bundle ARNs:
+--
+-- -   @arn:aws:finspace:${Region}::data-bundle\/capital-markets-sample@ -
+--     Contains sample Capital Markets datasets, categories and controlled
+--     vocabularies.
+--
+-- -   @arn:aws:finspace:${Region}::data-bundle\/taq@ (default) - Contains
+--     trades and quotes data in addition to sample Capital Markets data.
+--
+-- 'superuserParameters', 'createEnvironment_superuserParameters' - Configuration information for the superuser.
 --
 -- 'federationParameters', 'createEnvironment_federationParameters' - Configuration information when authentication mode is FEDERATED.
 --
@@ -108,6 +134,8 @@ newCreateEnvironment ::
 newCreateEnvironment pName_ =
   CreateEnvironment'
     { tags = Prelude.Nothing,
+      dataBundles = Prelude.Nothing,
+      superuserParameters = Prelude.Nothing,
       federationParameters = Prelude.Nothing,
       description = Prelude.Nothing,
       federationMode = Prelude.Nothing,
@@ -118,6 +146,22 @@ newCreateEnvironment pName_ =
 -- | Add tags to your FinSpace environment.
 createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of Amazon Resource Names (ARN) of the data bundles to install.
+-- Currently supported data bundle ARNs:
+--
+-- -   @arn:aws:finspace:${Region}::data-bundle\/capital-markets-sample@ -
+--     Contains sample Capital Markets datasets, categories and controlled
+--     vocabularies.
+--
+-- -   @arn:aws:finspace:${Region}::data-bundle\/taq@ (default) - Contains
+--     trades and quotes data in addition to sample Capital Markets data.
+createEnvironment_dataBundles :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Prelude.Text])
+createEnvironment_dataBundles = Lens.lens (\CreateEnvironment' {dataBundles} -> dataBundles) (\s@CreateEnvironment' {} a -> s {dataBundles = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configuration information for the superuser.
+createEnvironment_superuserParameters :: Lens.Lens' CreateEnvironment (Prelude.Maybe SuperuserParameters)
+createEnvironment_superuserParameters = Lens.lens (\CreateEnvironment' {superuserParameters} -> superuserParameters) (\s@CreateEnvironment' {} a -> s {superuserParameters = a} :: CreateEnvironment)
 
 -- | Configuration information when authentication mode is FEDERATED.
 createEnvironment_federationParameters :: Lens.Lens' CreateEnvironment (Prelude.Maybe FederationParameters)
@@ -163,6 +207,8 @@ instance Core.AWSRequest CreateEnvironment where
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataBundles
+      `Prelude.hashWithSalt` superuserParameters
       `Prelude.hashWithSalt` federationParameters
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` federationMode
@@ -172,6 +218,8 @@ instance Prelude.Hashable CreateEnvironment where
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataBundles
+      `Prelude.seq` Prelude.rnf superuserParameters
       `Prelude.seq` Prelude.rnf federationParameters
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf federationMode
@@ -194,6 +242,9 @@ instance Core.ToJSON CreateEnvironment where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
+            ("dataBundles" Core..=) Prelude.<$> dataBundles,
+            ("superuserParameters" Core..=)
+              Prelude.<$> superuserParameters,
             ("federationParameters" Core..=)
               Prelude.<$> federationParameters,
             ("description" Core..=) Prelude.<$> description,

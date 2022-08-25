@@ -21,15 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create an App Runner automatic scaling configuration resource. App
--- Runner requires this resource when you create App Runner services that
--- require non-default auto scaling settings. You can share an auto scaling
--- configuration across multiple services.
+-- Runner requires this resource when you create or update App Runner
+-- services and you require non-default auto scaling settings. You can
+-- share an auto scaling configuration across multiple services.
 --
--- Create multiple revisions of a configuration by using the same
--- @AutoScalingConfigurationName@ and different
--- @AutoScalingConfigurationRevision@ values. When you create a service,
--- you can set it to use the latest active revision of an auto scaling
--- configuration or a specific revision.
+-- Create multiple revisions of a configuration by calling this action
+-- multiple times using the same @AutoScalingConfigurationName@. The call
+-- returns incremental @AutoScalingConfigurationRevision@ values. When you
+-- create a service and configure an auto scaling configuration resource,
+-- the service uses the latest active revision of the auto scaling
+-- configuration by default. You can optionally configure the service to
+-- use a specific revision.
 --
 -- Configure a higher @MinSize@ to increase the spread of your App Runner
 -- service over more Availability Zones in the Amazon Web Services Region.
@@ -100,6 +102,15 @@ data CreateAutoScalingConfiguration = CreateAutoScalingConfiguration'
     -- time in an Amazon Web Services Region, App Runner creates revision
     -- number @1@ of this name. When you use the same name in subsequent calls,
     -- App Runner creates incremental revisions of the configuration.
+    --
+    -- The name @DefaultConfiguration@ is reserved (it\'s the configuration
+    -- that App Runner uses if you don\'t provide a custome one). You can\'t
+    -- use it to create a new auto scaling configuration, and you can\'t create
+    -- a revision of it.
+    --
+    -- When you want to use your own auto scaling configuration for your App
+    -- Runner service, /create a configuration with a different name/, and then
+    -- provide it when you create or update your service.
     autoScalingConfigurationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -144,6 +155,15 @@ data CreateAutoScalingConfiguration = CreateAutoScalingConfiguration'
 -- time in an Amazon Web Services Region, App Runner creates revision
 -- number @1@ of this name. When you use the same name in subsequent calls,
 -- App Runner creates incremental revisions of the configuration.
+--
+-- The name @DefaultConfiguration@ is reserved (it\'s the configuration
+-- that App Runner uses if you don\'t provide a custome one). You can\'t
+-- use it to create a new auto scaling configuration, and you can\'t create
+-- a revision of it.
+--
+-- When you want to use your own auto scaling configuration for your App
+-- Runner service, /create a configuration with a different name/, and then
+-- provide it when you create or update your service.
 newCreateAutoScalingConfiguration ::
   -- | 'autoScalingConfigurationName'
   Prelude.Text ->
@@ -200,6 +220,15 @@ createAutoScalingConfiguration_maxSize = Lens.lens (\CreateAutoScalingConfigurat
 -- time in an Amazon Web Services Region, App Runner creates revision
 -- number @1@ of this name. When you use the same name in subsequent calls,
 -- App Runner creates incremental revisions of the configuration.
+--
+-- The name @DefaultConfiguration@ is reserved (it\'s the configuration
+-- that App Runner uses if you don\'t provide a custome one). You can\'t
+-- use it to create a new auto scaling configuration, and you can\'t create
+-- a revision of it.
+--
+-- When you want to use your own auto scaling configuration for your App
+-- Runner service, /create a configuration with a different name/, and then
+-- provide it when you create or update your service.
 createAutoScalingConfiguration_autoScalingConfigurationName :: Lens.Lens' CreateAutoScalingConfiguration Prelude.Text
 createAutoScalingConfiguration_autoScalingConfigurationName = Lens.lens (\CreateAutoScalingConfiguration' {autoScalingConfigurationName} -> autoScalingConfigurationName) (\s@CreateAutoScalingConfiguration' {} a -> s {autoScalingConfigurationName = a} :: CreateAutoScalingConfiguration)
 

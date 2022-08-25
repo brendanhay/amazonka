@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Evidence that is uploaded to Audit Manager manually.
+-- | Evidence that\'s uploaded to Audit Manager manually.
 --
 -- /See:/ 'newManualEvidence' smart constructor.
 data ManualEvidence = ManualEvidence'

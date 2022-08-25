@@ -23,14 +23,17 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the location training output.
+-- | Information about the location of training output or the output of a
+-- model packaging job.
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The path of the folder, within the S3 bucket, that contains the training
-    -- output.
+  { -- | The path of the folder, within the S3 bucket, that contains the output.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket that contains the training output.
+    -- | The S3 bucket that contains the training or model packaging job output.
+    -- If you are training a model, the bucket must in your AWS account. If you
+    -- use an S3 bucket for a model packaging job, the S3 bucket must be in the
+    -- same AWS Region and AWS account in which you use AWS IoT Greengrass.
     bucket :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,10 +46,12 @@ data S3Location = S3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefix', 's3Location_prefix' - The path of the folder, within the S3 bucket, that contains the training
--- output.
+-- 'prefix', 's3Location_prefix' - The path of the folder, within the S3 bucket, that contains the output.
 --
--- 'bucket', 's3Location_bucket' - The S3 bucket that contains the training output.
+-- 'bucket', 's3Location_bucket' - The S3 bucket that contains the training or model packaging job output.
+-- If you are training a model, the bucket must in your AWS account. If you
+-- use an S3 bucket for a model packaging job, the S3 bucket must be in the
+-- same AWS Region and AWS account in which you use AWS IoT Greengrass.
 newS3Location ::
   -- | 'bucket'
   Prelude.Text ->
@@ -57,12 +62,14 @@ newS3Location pBucket_ =
       bucket = pBucket_
     }
 
--- | The path of the folder, within the S3 bucket, that contains the training
--- output.
+-- | The path of the folder, within the S3 bucket, that contains the output.
 s3Location_prefix :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' {} a -> s {prefix = a} :: S3Location)
 
--- | The S3 bucket that contains the training output.
+-- | The S3 bucket that contains the training or model packaging job output.
+-- If you are training a model, the bucket must in your AWS account. If you
+-- use an S3 bucket for a model packaging job, the S3 bucket must be in the
+-- same AWS Region and AWS account in which you use AWS IoT Greengrass.
 s3Location_bucket :: Lens.Lens' S3Location Prelude.Text
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 

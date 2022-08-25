@@ -152,7 +152,7 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Name of the Amazon SageMaker endpoint configuration.
+    -- | Name of the SageMaker endpoint configuration.
     endpointConfigName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the endpoint configuration.
     endpointConfigArn :: Prelude.Text,
@@ -183,7 +183,7 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
 --
 -- 'httpStatus', 'describeEndpointConfigResponse_httpStatus' - The response's http status code.
 --
--- 'endpointConfigName', 'describeEndpointConfigResponse_endpointConfigName' - Name of the Amazon SageMaker endpoint configuration.
+-- 'endpointConfigName', 'describeEndpointConfigResponse_endpointConfigName' - Name of the SageMaker endpoint configuration.
 --
 -- 'endpointConfigArn', 'describeEndpointConfigResponse_endpointConfigArn' - The Amazon Resource Name (ARN) of the endpoint configuration.
 --
@@ -242,7 +242,7 @@ describeEndpointConfigResponse_kmsKeyId = Lens.lens (\DescribeEndpointConfigResp
 describeEndpointConfigResponse_httpStatus :: Lens.Lens' DescribeEndpointConfigResponse Prelude.Int
 describeEndpointConfigResponse_httpStatus = Lens.lens (\DescribeEndpointConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointConfigResponse' {} a -> s {httpStatus = a} :: DescribeEndpointConfigResponse)
 
--- | Name of the Amazon SageMaker endpoint configuration.
+-- | Name of the SageMaker endpoint configuration.
 describeEndpointConfigResponse_endpointConfigName :: Lens.Lens' DescribeEndpointConfigResponse Prelude.Text
 describeEndpointConfigResponse_endpointConfigName = Lens.lens (\DescribeEndpointConfigResponse' {endpointConfigName} -> endpointConfigName) (\s@DescribeEndpointConfigResponse' {} a -> s {endpointConfigName = a} :: DescribeEndpointConfigResponse)
 

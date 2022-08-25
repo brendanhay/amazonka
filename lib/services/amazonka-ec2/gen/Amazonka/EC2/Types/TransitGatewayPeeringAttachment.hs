@@ -25,6 +25,7 @@ import Amazonka.EC2.Types.PeeringAttachmentStatus
 import Amazonka.EC2.Types.PeeringTgwInfo
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayAttachmentState
+import Amazonka.EC2.Types.TransitGatewayPeeringAttachmentOptions
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,8 +44,12 @@ data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The status of the transit gateway peering attachment.
     status :: Prelude.Maybe PeeringAttachmentStatus,
+    -- | Details about the transit gateway peering attachment.
+    options :: Prelude.Maybe TransitGatewayPeeringAttachmentOptions,
     -- | The time the transit gateway peering attachment was created.
     creationTime :: Prelude.Maybe Core.ISO8601,
+    -- | The ID of the accepter transit gateway attachment.
+    accepterTransitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | Information about the requester transit gateway.
     requesterTgwInfo :: Prelude.Maybe PeeringTgwInfo
   }
@@ -69,7 +74,11 @@ data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
 --
 -- 'status', 'transitGatewayPeeringAttachment_status' - The status of the transit gateway peering attachment.
 --
+-- 'options', 'transitGatewayPeeringAttachment_options' - Details about the transit gateway peering attachment.
+--
 -- 'creationTime', 'transitGatewayPeeringAttachment_creationTime' - The time the transit gateway peering attachment was created.
+--
+-- 'accepterTransitGatewayAttachmentId', 'transitGatewayPeeringAttachment_accepterTransitGatewayAttachmentId' - The ID of the accepter transit gateway attachment.
 --
 -- 'requesterTgwInfo', 'transitGatewayPeeringAttachment_requesterTgwInfo' - Information about the requester transit gateway.
 newTransitGatewayPeeringAttachment ::
@@ -83,7 +92,10 @@ newTransitGatewayPeeringAttachment =
       transitGatewayAttachmentId =
         Prelude.Nothing,
       status = Prelude.Nothing,
+      options = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      accepterTransitGatewayAttachmentId =
+        Prelude.Nothing,
       requesterTgwInfo = Prelude.Nothing
     }
 
@@ -108,9 +120,17 @@ transitGatewayPeeringAttachment_transitGatewayAttachmentId = Lens.lens (\Transit
 transitGatewayPeeringAttachment_status :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringAttachmentStatus)
 transitGatewayPeeringAttachment_status = Lens.lens (\TransitGatewayPeeringAttachment' {status} -> status) (\s@TransitGatewayPeeringAttachment' {} a -> s {status = a} :: TransitGatewayPeeringAttachment)
 
+-- | Details about the transit gateway peering attachment.
+transitGatewayPeeringAttachment_options :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe TransitGatewayPeeringAttachmentOptions)
+transitGatewayPeeringAttachment_options = Lens.lens (\TransitGatewayPeeringAttachment' {options} -> options) (\s@TransitGatewayPeeringAttachment' {} a -> s {options = a} :: TransitGatewayPeeringAttachment)
+
 -- | The time the transit gateway peering attachment was created.
 transitGatewayPeeringAttachment_creationTime :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.UTCTime)
 transitGatewayPeeringAttachment_creationTime = Lens.lens (\TransitGatewayPeeringAttachment' {creationTime} -> creationTime) (\s@TransitGatewayPeeringAttachment' {} a -> s {creationTime = a} :: TransitGatewayPeeringAttachment) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the accepter transit gateway attachment.
+transitGatewayPeeringAttachment_accepterTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayPeeringAttachment_accepterTransitGatewayAttachmentId = Lens.lens (\TransitGatewayPeeringAttachment' {accepterTransitGatewayAttachmentId} -> accepterTransitGatewayAttachmentId) (\s@TransitGatewayPeeringAttachment' {} a -> s {accepterTransitGatewayAttachmentId = a} :: TransitGatewayPeeringAttachment)
 
 -- | Information about the requester transit gateway.
 transitGatewayPeeringAttachment_requesterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
@@ -126,7 +146,9 @@ instance Core.FromXML TransitGatewayPeeringAttachment where
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
       Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "options")
       Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "accepterTransitGatewayAttachmentId")
       Prelude.<*> (x Core..@? "requesterTgwInfo")
 
 instance
@@ -141,7 +163,9 @@ instance
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` transitGatewayAttachmentId
         `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` accepterTransitGatewayAttachmentId
         `Prelude.hashWithSalt` requesterTgwInfo
 
 instance
@@ -154,5 +178,7 @@ instance
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf accepterTransitGatewayAttachmentId
       `Prelude.seq` Prelude.rnf requesterTgwInfo

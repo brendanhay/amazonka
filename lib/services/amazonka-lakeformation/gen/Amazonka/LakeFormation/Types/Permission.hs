@@ -22,16 +22,13 @@ module Amazonka.LakeFormation.Types.Permission
       ( ..,
         Permission_ALL,
         Permission_ALTER,
-        Permission_ALTER_TAG,
-        Permission_ASSOCIATE_TAG,
+        Permission_ASSOCIATE,
         Permission_CREATE_DATABASE,
         Permission_CREATE_TABLE,
         Permission_CREATE_TAG,
         Permission_DATA_LOCATION_ACCESS,
         Permission_DELETE,
-        Permission_DELETE_TAG,
         Permission_DESCRIBE,
-        Permission_DESCRIBE_TAG,
         Permission_DROP,
         Permission_INSERT,
         Permission_SELECT
@@ -76,11 +73,8 @@ pattern Permission_ALL = Permission' "ALL"
 pattern Permission_ALTER :: Permission
 pattern Permission_ALTER = Permission' "ALTER"
 
-pattern Permission_ALTER_TAG :: Permission
-pattern Permission_ALTER_TAG = Permission' "ALTER_TAG"
-
-pattern Permission_ASSOCIATE_TAG :: Permission
-pattern Permission_ASSOCIATE_TAG = Permission' "ASSOCIATE_TAG"
+pattern Permission_ASSOCIATE :: Permission
+pattern Permission_ASSOCIATE = Permission' "ASSOCIATE"
 
 pattern Permission_CREATE_DATABASE :: Permission
 pattern Permission_CREATE_DATABASE = Permission' "CREATE_DATABASE"
@@ -97,14 +91,8 @@ pattern Permission_DATA_LOCATION_ACCESS = Permission' "DATA_LOCATION_ACCESS"
 pattern Permission_DELETE :: Permission
 pattern Permission_DELETE = Permission' "DELETE"
 
-pattern Permission_DELETE_TAG :: Permission
-pattern Permission_DELETE_TAG = Permission' "DELETE_TAG"
-
 pattern Permission_DESCRIBE :: Permission
 pattern Permission_DESCRIBE = Permission' "DESCRIBE"
-
-pattern Permission_DESCRIBE_TAG :: Permission
-pattern Permission_DESCRIBE_TAG = Permission' "DESCRIBE_TAG"
 
 pattern Permission_DROP :: Permission
 pattern Permission_DROP = Permission' "DROP"
@@ -118,16 +106,13 @@ pattern Permission_SELECT = Permission' "SELECT"
 {-# COMPLETE
   Permission_ALL,
   Permission_ALTER,
-  Permission_ALTER_TAG,
-  Permission_ASSOCIATE_TAG,
+  Permission_ASSOCIATE,
   Permission_CREATE_DATABASE,
   Permission_CREATE_TABLE,
   Permission_CREATE_TAG,
   Permission_DATA_LOCATION_ACCESS,
   Permission_DELETE,
-  Permission_DELETE_TAG,
   Permission_DESCRIBE,
-  Permission_DESCRIBE_TAG,
   Permission_DROP,
   Permission_INSERT,
   Permission_SELECT,

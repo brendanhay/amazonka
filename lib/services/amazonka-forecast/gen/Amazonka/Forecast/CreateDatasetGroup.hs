@@ -22,18 +22,22 @@
 --
 -- Creates a dataset group, which holds a collection of related datasets.
 -- You can add datasets to the dataset group when you create the dataset
--- group, or later by using the UpdateDatasetGroup operation.
+-- group, or later by using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+-- operation.
 --
 -- After creating a dataset group and adding datasets, you use the dataset
 -- group when you create a predictor. For more information, see
--- howitworks-datasets-groups.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Dataset groups>.
 --
--- To get a list of all your datasets groups, use the ListDatasetGroups
+-- To get a list of all your datasets groups, use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html ListDatasetGroups>
 -- operation.
 --
 -- The @Status@ of a dataset group must be @ACTIVE@ before you can use the
 -- dataset group to create a predictor. To get the status, use the
--- DescribeDatasetGroup operation.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html DescribeDatasetGroup>
+-- operation.
 module Amazonka.Forecast.CreateDatasetGroup
   ( -- * Creating a Request
     CreateDatasetGroup (..),
@@ -102,14 +106,16 @@ data CreateDatasetGroup = CreateDatasetGroup'
     datasetGroupName :: Prelude.Text,
     -- | The domain associated with the dataset group. When you add a dataset to
     -- a dataset group, this value and the value specified for the @Domain@
-    -- parameter of the CreateDataset operation must match.
+    -- parameter of the
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+    -- operation must match.
     --
     -- The @Domain@ and @DatasetType@ that you choose determine the fields that
     -- must be present in training data that you import to a dataset. For
     -- example, if you choose the @RETAIL@ domain and @TARGET_TIME_SERIES@ as
     -- the @DatasetType@, Amazon Forecast requires that @item_id@, @timestamp@,
     -- and @demand@ fields are present in your data. For more information, see
-    -- howitworks-datasets-groups.
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Dataset groups>.
     domain :: Domain
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -160,14 +166,16 @@ data CreateDatasetGroup = CreateDatasetGroup'
 --
 -- 'domain', 'createDatasetGroup_domain' - The domain associated with the dataset group. When you add a dataset to
 -- a dataset group, this value and the value specified for the @Domain@
--- parameter of the CreateDataset operation must match.
+-- parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+-- operation must match.
 --
 -- The @Domain@ and @DatasetType@ that you choose determine the fields that
 -- must be present in training data that you import to a dataset. For
 -- example, if you choose the @RETAIL@ domain and @TARGET_TIME_SERIES@ as
 -- the @DatasetType@, Amazon Forecast requires that @item_id@, @timestamp@,
 -- and @demand@ fields are present in your data. For more information, see
--- howitworks-datasets-groups.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Dataset groups>.
 newCreateDatasetGroup ::
   -- | 'datasetGroupName'
   Prelude.Text ->
@@ -226,14 +234,16 @@ createDatasetGroup_datasetGroupName = Lens.lens (\CreateDatasetGroup' {datasetGr
 
 -- | The domain associated with the dataset group. When you add a dataset to
 -- a dataset group, this value and the value specified for the @Domain@
--- parameter of the CreateDataset operation must match.
+-- parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+-- operation must match.
 --
 -- The @Domain@ and @DatasetType@ that you choose determine the fields that
 -- must be present in training data that you import to a dataset. For
 -- example, if you choose the @RETAIL@ domain and @TARGET_TIME_SERIES@ as
 -- the @DatasetType@, Amazon Forecast requires that @item_id@, @timestamp@,
 -- and @demand@ fields are present in your data. For more information, see
--- howitworks-datasets-groups.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Dataset groups>.
 createDatasetGroup_domain :: Lens.Lens' CreateDatasetGroup Domain
 createDatasetGroup_domain = Lens.lens (\CreateDatasetGroup' {domain} -> domain) (\s@CreateDatasetGroup' {} a -> s {domain = a} :: CreateDatasetGroup)
 

@@ -67,8 +67,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketPolicyStatus' smart constructor.
 data GetBucketPolicyStatus = GetBucketPolicyStatus'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose policy status you want to
     -- retrieve.
@@ -85,8 +85,8 @@ data GetBucketPolicyStatus = GetBucketPolicyStatus'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketPolicyStatus_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketPolicyStatus_bucket' - The name of the Amazon S3 bucket whose policy status you want to
 -- retrieve.
@@ -102,8 +102,8 @@ newGetBucketPolicyStatus pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketPolicyStatus_expectedBucketOwner :: Lens.Lens' GetBucketPolicyStatus (Prelude.Maybe Prelude.Text)
 getBucketPolicyStatus_expectedBucketOwner = Lens.lens (\GetBucketPolicyStatus' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketPolicyStatus' {} a -> s {expectedBucketOwner = a} :: GetBucketPolicyStatus)
 

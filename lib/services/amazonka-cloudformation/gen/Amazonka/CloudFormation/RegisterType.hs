@@ -24,15 +24,15 @@
 -- extension makes it available for use in CloudFormation templates in your
 -- Amazon Web Services account, and includes:
 --
--- -   Validating the extension schema
+-- -   Validating the extension schema.
 --
 -- -   Determining which handlers, if any, have been specified for the
---     extension
+--     extension.
 --
--- -   Making the extension available for use in your account
+-- -   Making the extension available for use in your account.
 --
--- For more information on how to develop extensions and ready them for
--- registeration, see
+-- For more information about how to develop extensions and ready them for
+-- registration, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html Creating Resource Providers>
 -- in the /CloudFormation CLI User Guide/.
 --
@@ -89,7 +89,7 @@ data RegisterType = RegisterType'
     -- | A unique identifier that acts as an idempotency key for this
     -- registration request. Specifying a client request token prevents
     -- CloudFormation from generating more than one version of an extension
-    -- from the same registeration request, even if the request is submitted
+    -- from the same registration request, even if the request is submitted
     -- multiple times.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
@@ -97,7 +97,7 @@ data RegisterType = RegisterType'
     --
     -- For CloudFormation to assume the specified execution role, the role must
     -- contain a trust relationship with the CloudFormation service principle
-    -- (@resources.cloudformation.amazonaws.com@). For more information on
+    -- (@resources.cloudformation.amazonaws.com@). For more information about
     -- adding trust relationships, see
     -- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
     -- in the /Identity and Access Management User Guide/.
@@ -116,13 +116,15 @@ data RegisterType = RegisterType'
     loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | The name of the extension being registered.
     --
-    -- We recommend that extension names adhere to the following patterns:
+    -- We suggest that extension names adhere to the following patterns:
     --
     -- -   For resource types, /company_or_organization/::/service/::/type/.
     --
     -- -   For modules, /company_or_organization/::/service/::/type/::MODULE.
     --
-    -- The following organization namespaces are reserved and cannot be used in
+    -- -   For hooks, /MyCompany/::/Testing/::/MyTestHook/.
+    --
+    -- The following organization namespaces are reserved and can\'t be used in
     -- your extension names:
     --
     -- -   @Alexa@
@@ -137,16 +139,16 @@ data RegisterType = RegisterType'
     --
     -- -   @Dev@
     typeName :: Prelude.Text,
-    -- | A url to the S3 bucket containing the extension project package that
-    -- contains the neccessary files for the extension you want to register.
+    -- | A URL to the S3 bucket containing the extension project package that
+    -- contains the necessary files for the extension you want to register.
     --
-    -- For information on generating a schema handler package for the extension
-    -- you want to register, see
+    -- For information about generating a schema handler package for the
+    -- extension you want to register, see
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit>
     -- in the /CloudFormation CLI User Guide/.
     --
     -- The user registering the extension must be able to access the package in
-    -- the S3 bucket. That is, the user needs to have
+    -- the S3 bucket. That\'s, the user needs to have
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
     -- permissions for the schema handler package. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
@@ -168,7 +170,7 @@ data RegisterType = RegisterType'
 -- 'clientRequestToken', 'registerType_clientRequestToken' - A unique identifier that acts as an idempotency key for this
 -- registration request. Specifying a client request token prevents
 -- CloudFormation from generating more than one version of an extension
--- from the same registeration request, even if the request is submitted
+-- from the same registration request, even if the request is submitted
 -- multiple times.
 --
 -- 'executionRoleArn', 'registerType_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
@@ -176,7 +178,7 @@ data RegisterType = RegisterType'
 --
 -- For CloudFormation to assume the specified execution role, the role must
 -- contain a trust relationship with the CloudFormation service principle
--- (@resources.cloudformation.amazonaws.com@). For more information on
+-- (@resources.cloudformation.amazonaws.com@). For more information about
 -- adding trust relationships, see
 -- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
 -- in the /Identity and Access Management User Guide/.
@@ -195,13 +197,15 @@ data RegisterType = RegisterType'
 --
 -- 'typeName', 'registerType_typeName' - The name of the extension being registered.
 --
--- We recommend that extension names adhere to the following patterns:
+-- We suggest that extension names adhere to the following patterns:
 --
 -- -   For resource types, /company_or_organization/::/service/::/type/.
 --
 -- -   For modules, /company_or_organization/::/service/::/type/::MODULE.
 --
--- The following organization namespaces are reserved and cannot be used in
+-- -   For hooks, /MyCompany/::/Testing/::/MyTestHook/.
+--
+-- The following organization namespaces are reserved and can\'t be used in
 -- your extension names:
 --
 -- -   @Alexa@
@@ -216,16 +220,16 @@ data RegisterType = RegisterType'
 --
 -- -   @Dev@
 --
--- 'schemaHandlerPackage', 'registerType_schemaHandlerPackage' - A url to the S3 bucket containing the extension project package that
--- contains the neccessary files for the extension you want to register.
+-- 'schemaHandlerPackage', 'registerType_schemaHandlerPackage' - A URL to the S3 bucket containing the extension project package that
+-- contains the necessary files for the extension you want to register.
 --
--- For information on generating a schema handler package for the extension
--- you want to register, see
+-- For information about generating a schema handler package for the
+-- extension you want to register, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit>
 -- in the /CloudFormation CLI User Guide/.
 --
 -- The user registering the extension must be able to access the package in
--- the S3 bucket. That is, the user needs to have
+-- the S3 bucket. That\'s, the user needs to have
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 -- permissions for the schema handler package. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
@@ -253,7 +257,7 @@ registerType_type = Lens.lens (\RegisterType' {type'} -> type') (\s@RegisterType
 -- | A unique identifier that acts as an idempotency key for this
 -- registration request. Specifying a client request token prevents
 -- CloudFormation from generating more than one version of an extension
--- from the same registeration request, even if the request is submitted
+-- from the same registration request, even if the request is submitted
 -- multiple times.
 registerType_clientRequestToken :: Lens.Lens' RegisterType (Prelude.Maybe Prelude.Text)
 registerType_clientRequestToken = Lens.lens (\RegisterType' {clientRequestToken} -> clientRequestToken) (\s@RegisterType' {} a -> s {clientRequestToken = a} :: RegisterType)
@@ -263,7 +267,7 @@ registerType_clientRequestToken = Lens.lens (\RegisterType' {clientRequestToken}
 --
 -- For CloudFormation to assume the specified execution role, the role must
 -- contain a trust relationship with the CloudFormation service principle
--- (@resources.cloudformation.amazonaws.com@). For more information on
+-- (@resources.cloudformation.amazonaws.com@). For more information about
 -- adding trust relationships, see
 -- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
 -- in the /Identity and Access Management User Guide/.
@@ -286,13 +290,15 @@ registerType_loggingConfig = Lens.lens (\RegisterType' {loggingConfig} -> loggin
 
 -- | The name of the extension being registered.
 --
--- We recommend that extension names adhere to the following patterns:
+-- We suggest that extension names adhere to the following patterns:
 --
 -- -   For resource types, /company_or_organization/::/service/::/type/.
 --
 -- -   For modules, /company_or_organization/::/service/::/type/::MODULE.
 --
--- The following organization namespaces are reserved and cannot be used in
+-- -   For hooks, /MyCompany/::/Testing/::/MyTestHook/.
+--
+-- The following organization namespaces are reserved and can\'t be used in
 -- your extension names:
 --
 -- -   @Alexa@
@@ -309,16 +315,16 @@ registerType_loggingConfig = Lens.lens (\RegisterType' {loggingConfig} -> loggin
 registerType_typeName :: Lens.Lens' RegisterType Prelude.Text
 registerType_typeName = Lens.lens (\RegisterType' {typeName} -> typeName) (\s@RegisterType' {} a -> s {typeName = a} :: RegisterType)
 
--- | A url to the S3 bucket containing the extension project package that
--- contains the neccessary files for the extension you want to register.
+-- | A URL to the S3 bucket containing the extension project package that
+-- contains the necessary files for the extension you want to register.
 --
--- For information on generating a schema handler package for the extension
--- you want to register, see
+-- For information about generating a schema handler package for the
+-- extension you want to register, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit>
 -- in the /CloudFormation CLI User Guide/.
 --
 -- The user registering the extension must be able to access the package in
--- the S3 bucket. That is, the user needs to have
+-- the S3 bucket. That\'s, the user needs to have
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 -- permissions for the schema handler package. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>

@@ -41,6 +41,7 @@ module Amazonka.ElastiCache.ModifyUserGroup
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
   )

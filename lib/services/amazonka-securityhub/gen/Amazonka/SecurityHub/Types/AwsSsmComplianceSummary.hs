@@ -51,9 +51,7 @@ data AwsSsmComplianceSummary = AwsSsmComplianceSummary'
     -- | For the patches that are noncompliant, the number that have a severity
     -- of @INFORMATIONAL@.
     nonCompliantInformationalCount :: Prelude.Maybe Prelude.Int,
-    -- | The current patch compliance status.
-    --
-    -- The possible status values are:
+    -- | The current patch compliance status. Valid values are as follows:
     --
     -- -   @COMPLIANT@
     --
@@ -85,7 +83,19 @@ data AwsSsmComplianceSummary = AwsSsmComplianceSummary'
     -- | The type of resource for which the compliance was determined. For
     -- @AwsSsmPatchCompliance@, @ComplianceType@ is @Patch@.
     complianceType :: Prelude.Maybe Prelude.Text,
-    -- | The highest severity for the patches.
+    -- | The highest severity for the patches. Valid values are as follows:
+    --
+    -- -   @CRITICAL@
+    --
+    -- -   @HIGH@
+    --
+    -- -   @MEDIUM@
+    --
+    -- -   @LOW@
+    --
+    -- -   @INFORMATIONAL@
+    --
+    -- -   @UNSPECIFIED@
     overallSeverity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -122,9 +132,7 @@ data AwsSsmComplianceSummary = AwsSsmComplianceSummary'
 -- 'nonCompliantInformationalCount', 'awsSsmComplianceSummary_nonCompliantInformationalCount' - For the patches that are noncompliant, the number that have a severity
 -- of @INFORMATIONAL@.
 --
--- 'status', 'awsSsmComplianceSummary_status' - The current patch compliance status.
---
--- The possible status values are:
+-- 'status', 'awsSsmComplianceSummary_status' - The current patch compliance status. Valid values are as follows:
 --
 -- -   @COMPLIANT@
 --
@@ -156,7 +164,19 @@ data AwsSsmComplianceSummary = AwsSsmComplianceSummary'
 -- 'complianceType', 'awsSsmComplianceSummary_complianceType' - The type of resource for which the compliance was determined. For
 -- @AwsSsmPatchCompliance@, @ComplianceType@ is @Patch@.
 --
--- 'overallSeverity', 'awsSsmComplianceSummary_overallSeverity' - The highest severity for the patches.
+-- 'overallSeverity', 'awsSsmComplianceSummary_overallSeverity' - The highest severity for the patches. Valid values are as follows:
+--
+-- -   @CRITICAL@
+--
+-- -   @HIGH@
+--
+-- -   @MEDIUM@
+--
+-- -   @LOW@
+--
+-- -   @INFORMATIONAL@
+--
+-- -   @UNSPECIFIED@
 newAwsSsmComplianceSummary ::
   AwsSsmComplianceSummary
 newAwsSsmComplianceSummary =
@@ -222,9 +242,7 @@ awsSsmComplianceSummary_patchGroup = Lens.lens (\AwsSsmComplianceSummary' {patch
 awsSsmComplianceSummary_nonCompliantInformationalCount :: Lens.Lens' AwsSsmComplianceSummary (Prelude.Maybe Prelude.Int)
 awsSsmComplianceSummary_nonCompliantInformationalCount = Lens.lens (\AwsSsmComplianceSummary' {nonCompliantInformationalCount} -> nonCompliantInformationalCount) (\s@AwsSsmComplianceSummary' {} a -> s {nonCompliantInformationalCount = a} :: AwsSsmComplianceSummary)
 
--- | The current patch compliance status.
---
--- The possible status values are:
+-- | The current patch compliance status. Valid values are as follows:
 --
 -- -   @COMPLIANT@
 --
@@ -274,7 +292,19 @@ awsSsmComplianceSummary_nonCompliantLowCount = Lens.lens (\AwsSsmComplianceSumma
 awsSsmComplianceSummary_complianceType :: Lens.Lens' AwsSsmComplianceSummary (Prelude.Maybe Prelude.Text)
 awsSsmComplianceSummary_complianceType = Lens.lens (\AwsSsmComplianceSummary' {complianceType} -> complianceType) (\s@AwsSsmComplianceSummary' {} a -> s {complianceType = a} :: AwsSsmComplianceSummary)
 
--- | The highest severity for the patches.
+-- | The highest severity for the patches. Valid values are as follows:
+--
+-- -   @CRITICAL@
+--
+-- -   @HIGH@
+--
+-- -   @MEDIUM@
+--
+-- -   @LOW@
+--
+-- -   @INFORMATIONAL@
+--
+-- -   @UNSPECIFIED@
 awsSsmComplianceSummary_overallSeverity :: Lens.Lens' AwsSsmComplianceSummary (Prelude.Maybe Prelude.Text)
 awsSsmComplianceSummary_overallSeverity = Lens.lens (\AwsSsmComplianceSummary' {overallSeverity} -> overallSeverity) (\s@AwsSsmComplianceSummary' {} a -> s {overallSeverity = a} :: AwsSsmComplianceSummary)
 

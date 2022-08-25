@@ -25,6 +25,8 @@
 --
 -- To add a role to a DB instance, the status of the DB instance must be
 -- @available@.
+--
+-- This command doesn\'t apply to RDS Custom.
 module Amazonka.RDS.AddRoleToDBInstance
   ( -- * Creating a Request
     AddRoleToDBInstance (..),
@@ -56,7 +58,7 @@ data AddRoleToDBInstance = AddRoleToDBInstance'
     -- instance, for example @arn:aws:iam::123456789012:role\/AccessRole@.
     roleArn :: Prelude.Text,
     -- | The name of the feature for the DB instance that the IAM role is to be
-    -- associated with. For the list of supported feature names, see
+    -- associated with. For information about supported feature names, see
     -- DBEngineVersion.
     featureName :: Prelude.Text
   }
@@ -76,7 +78,7 @@ data AddRoleToDBInstance = AddRoleToDBInstance'
 -- instance, for example @arn:aws:iam::123456789012:role\/AccessRole@.
 --
 -- 'featureName', 'addRoleToDBInstance_featureName' - The name of the feature for the DB instance that the IAM role is to be
--- associated with. For the list of supported feature names, see
+-- associated with. For information about supported feature names, see
 -- DBEngineVersion.
 newAddRoleToDBInstance ::
   -- | 'dbInstanceIdentifier'
@@ -107,7 +109,7 @@ addRoleToDBInstance_roleArn :: Lens.Lens' AddRoleToDBInstance Prelude.Text
 addRoleToDBInstance_roleArn = Lens.lens (\AddRoleToDBInstance' {roleArn} -> roleArn) (\s@AddRoleToDBInstance' {} a -> s {roleArn = a} :: AddRoleToDBInstance)
 
 -- | The name of the feature for the DB instance that the IAM role is to be
--- associated with. For the list of supported feature names, see
+-- associated with. For information about supported feature names, see
 -- DBEngineVersion.
 addRoleToDBInstance_featureName :: Lens.Lens' AddRoleToDBInstance Prelude.Text
 addRoleToDBInstance_featureName = Lens.lens (\AddRoleToDBInstance' {featureName} -> featureName) (\s@AddRoleToDBInstance' {} a -> s {featureName = a} :: AddRoleToDBInstance)

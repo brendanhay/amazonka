@@ -236,8 +236,8 @@ instance Core.ToQuery ListModels where
 
 -- | /See:/ 'newListModelsResponse' smart constructor.
 data ListModelsResponse = ListModelsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of models, use it in the subsequent request.
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of models, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -254,8 +254,8 @@ data ListModelsResponse = ListModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listModelsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of models, use it in the subsequent request.
+-- 'nextToken', 'listModelsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of models, use it in the subsequent request.
 --
 -- 'httpStatus', 'listModelsResponse_httpStatus' - The response's http status code.
 --
@@ -271,8 +271,8 @@ newListModelsResponse pHttpStatus_ =
       models = Prelude.mempty
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of models, use it in the subsequent request.
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of models, use it in the subsequent request.
 listModelsResponse_nextToken :: Lens.Lens' ListModelsResponse (Prelude.Maybe Prelude.Text)
 listModelsResponse_nextToken = Lens.lens (\ListModelsResponse' {nextToken} -> nextToken) (\s@ListModelsResponse' {} a -> s {nextToken = a} :: ListModelsResponse)
 

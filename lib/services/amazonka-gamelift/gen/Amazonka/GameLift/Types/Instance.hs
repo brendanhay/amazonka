@@ -40,7 +40,8 @@ data Instance = Instance'
     operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | A unique identifier for the fleet that the instance is in.
     fleetId :: Prelude.Maybe Prelude.Text,
-    -- | EC2 instance type that defines the computing resources of this instance.
+    -- | Amazon EC2 instance type that defines the computing resources of this
+    -- instance.
     type' :: Prelude.Maybe EC2InstanceType,
     -- | Current status of the instance. Possible statuses include the following:
     --
@@ -57,8 +58,8 @@ data Instance = Instance'
     --     This may happen to reduce capacity during a scaling down event or to
     --     recycle resources in the event of a problem.
     status :: Prelude.Maybe InstanceStatus,
-    -- | The fleet location of the instance, expressed as an AWS Region code,
-    -- such as @us-west-2@.
+    -- | The fleet location of the instance, expressed as an Amazon Web Services
+    -- Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
@@ -102,7 +103,8 @@ data Instance = Instance'
 --
 -- 'fleetId', 'instance_fleetId' - A unique identifier for the fleet that the instance is in.
 --
--- 'type'', 'instance_type' - EC2 instance type that defines the computing resources of this instance.
+-- 'type'', 'instance_type' - Amazon EC2 instance type that defines the computing resources of this
+-- instance.
 --
 -- 'status', 'instance_status' - Current status of the instance. Possible statuses include the following:
 --
@@ -119,8 +121,8 @@ data Instance = Instance'
 --     This may happen to reduce capacity during a scaling down event or to
 --     recycle resources in the event of a problem.
 --
--- 'location', 'instance_location' - The fleet location of the instance, expressed as an AWS Region code,
--- such as @us-west-2@.
+-- 'location', 'instance_location' - The fleet location of the instance, expressed as an Amazon Web Services
+-- Region code, such as @us-west-2@.
 --
 -- 'instanceId', 'instance_instanceId' - A unique identifier for the instance.
 --
@@ -172,7 +174,8 @@ instance_operatingSystem = Lens.lens (\Instance' {operatingSystem} -> operatingS
 instance_fleetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_fleetId = Lens.lens (\Instance' {fleetId} -> fleetId) (\s@Instance' {} a -> s {fleetId = a} :: Instance)
 
--- | EC2 instance type that defines the computing resources of this instance.
+-- | Amazon EC2 instance type that defines the computing resources of this
+-- instance.
 instance_type :: Lens.Lens' Instance (Prelude.Maybe EC2InstanceType)
 instance_type = Lens.lens (\Instance' {type'} -> type') (\s@Instance' {} a -> s {type' = a} :: Instance)
 
@@ -193,8 +196,8 @@ instance_type = Lens.lens (\Instance' {type'} -> type') (\s@Instance' {} a -> s 
 instance_status :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
 instance_status = Lens.lens (\Instance' {status} -> status) (\s@Instance' {} a -> s {status = a} :: Instance)
 
--- | The fleet location of the instance, expressed as an AWS Region code,
--- such as @us-west-2@.
+-- | The fleet location of the instance, expressed as an Amazon Web Services
+-- Region code, such as @us-west-2@.
 instance_location :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_location = Lens.lens (\Instance' {location} -> location) (\s@Instance' {} a -> s {location = a} :: Instance)
 

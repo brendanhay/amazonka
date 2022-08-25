@@ -25,11 +25,11 @@ import Amazonka.Discovery.Types.AgentStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about agents or connectors associated with the user’s AWS
--- account. Information includes agent or connector IDs, IP addresses,
--- media access control (MAC) addresses, agent or connector health,
--- hostname where the agent or connector resides, and agent version for
--- each agent.
+-- | Information about agents or connectors associated with the user’s Amazon
+-- Web Services account. Information includes agent or connector IDs, IP
+-- addresses, media access control (MAC) addresses, agent or connector
+-- health, hostname where the agent or connector resides, and agent version
+-- for each agent.
 --
 -- /See:/ 'newAgentInfo' smart constructor.
 data AgentInfo = AgentInfo'

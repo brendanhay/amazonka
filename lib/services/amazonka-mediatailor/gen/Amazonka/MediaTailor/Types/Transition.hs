@@ -34,6 +34,8 @@ data Transition = Transition'
     -- | The date and time that the program is scheduled to start, in epoch
     -- milliseconds.
     scheduledStartTimeMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The duration of the live program in seconds.
+    durationMillis :: Prelude.Maybe Prelude.Integer,
     -- | Defines when the program plays in the schedule. You can set the value to
     -- ABSOLUTE or RELATIVE.
     --
@@ -72,6 +74,8 @@ data Transition = Transition'
 -- 'scheduledStartTimeMillis', 'transition_scheduledStartTimeMillis' - The date and time that the program is scheduled to start, in epoch
 -- milliseconds.
 --
+-- 'durationMillis', 'transition_durationMillis' - The duration of the live program in seconds.
+--
 -- 'type'', 'transition_type' - Defines when the program plays in the schedule. You can set the value to
 -- ABSOLUTE or RELATIVE.
 --
@@ -102,6 +106,7 @@ newTransition pType_ pRelativePosition_ =
   Transition'
     { relativeProgram = Prelude.Nothing,
       scheduledStartTimeMillis = Prelude.Nothing,
+      durationMillis = Prelude.Nothing,
       type' = pType_,
       relativePosition = pRelativePosition_
     }
@@ -115,6 +120,10 @@ transition_relativeProgram = Lens.lens (\Transition' {relativeProgram} -> relati
 -- milliseconds.
 transition_scheduledStartTimeMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
 transition_scheduledStartTimeMillis = Lens.lens (\Transition' {scheduledStartTimeMillis} -> scheduledStartTimeMillis) (\s@Transition' {} a -> s {scheduledStartTimeMillis = a} :: Transition)
+
+-- | The duration of the live program in seconds.
+transition_durationMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
+transition_durationMillis = Lens.lens (\Transition' {durationMillis} -> durationMillis) (\s@Transition' {} a -> s {durationMillis = a} :: Transition)
 
 -- | Defines when the program plays in the schedule. You can set the value to
 -- ABSOLUTE or RELATIVE.
@@ -145,6 +154,7 @@ instance Prelude.Hashable Transition where
   hashWithSalt _salt Transition' {..} =
     _salt `Prelude.hashWithSalt` relativeProgram
       `Prelude.hashWithSalt` scheduledStartTimeMillis
+      `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` relativePosition
 
@@ -152,6 +162,7 @@ instance Prelude.NFData Transition where
   rnf Transition' {..} =
     Prelude.rnf relativeProgram
       `Prelude.seq` Prelude.rnf scheduledStartTimeMillis
+      `Prelude.seq` Prelude.rnf durationMillis
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf relativePosition
 
@@ -163,6 +174,8 @@ instance Core.ToJSON Transition where
               Prelude.<$> relativeProgram,
             ("ScheduledStartTimeMillis" Core..=)
               Prelude.<$> scheduledStartTimeMillis,
+            ("DurationMillis" Core..=)
+              Prelude.<$> durationMillis,
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just
               ("RelativePosition" Core..= relativePosition)

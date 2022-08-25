@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a dataset.
+-- Creates a dataset. This operation doesn\'t support datasets that include
+-- uploaded files as a source.
 module Amazonka.QuickSight.CreateDataSet
   ( -- * Creating a Request
     CreateDataSet (..),

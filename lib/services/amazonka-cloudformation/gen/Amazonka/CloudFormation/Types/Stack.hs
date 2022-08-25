@@ -41,7 +41,7 @@ data Stack = Stack'
     -- | Unique identifier of the stack.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Identity and Access Management
-    -- (IAM) role that is associated with the stack. During a stack operation,
+    -- (IAM) role that\'s associated with the stack. During a stack operation,
     -- CloudFormation uses this role\'s credentials to make calls on your
     -- behalf.
     roleARN :: Prelude.Maybe Prelude.Text,
@@ -51,14 +51,15 @@ data Stack = Stack'
     --
     -- For
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks>,
-    -- termination protection is set on the root stack and cannot be changed
+    -- termination protection is set on the root stack and can\'t be changed
     -- directly on the nested stack. For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted>
     -- in the /CloudFormation User Guide/.
     enableTerminationProtection :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID of the change set.
     changeSetId :: Prelude.Maybe Prelude.Text,
-    -- | SNS topic ARNs to which stack related events are published.
+    -- | Amazon SNS topic Amazon Resource Names (ARNs) to which stack related
+    -- events are published.
     notificationARNs :: Prelude.Maybe [Prelude.Text],
     -- | Success\/failure message associated with the stack status.
     stackStatusReason :: Prelude.Maybe Prelude.Text,
@@ -72,9 +73,9 @@ data Stack = Stack'
     parentId :: Prelude.Maybe Prelude.Text,
     -- | Boolean to enable or disable rollback on stack creation failures:
     --
-    -- -   @true@: disable rollback
+    -- -   @true@: disable rollback.
     --
-    -- -   @false@: enable rollback
+    -- -   @false@: enable rollback.
     disableRollback :: Prelude.Maybe Prelude.Bool,
     -- | The time the stack was last updated. This field will only be returned if
     -- the stack has been updated at least once.
@@ -97,9 +98,9 @@ data Stack = Stack'
     -- creation and updating operations, and for the specified monitoring
     -- period afterwards.
     rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
-    -- | Information on whether a stack\'s actual configuration differs, or has
-    -- /drifted/, from it\'s expected configuration, as defined in the stack
-    -- template and any values specified as template parameters. For more
+    -- | Information about whether a stack\'s actual configuration differs, or
+    -- has /drifted/, from it\'s expected configuration, as defined in the
+    -- stack template and any values specified as template parameters. For more
     -- information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
     driftInformation :: Prelude.Maybe StackDriftInformation,
@@ -129,7 +130,7 @@ data Stack = Stack'
 -- 'stackId', 'stack_stackId' - Unique identifier of the stack.
 --
 -- 'roleARN', 'stack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
--- (IAM) role that is associated with the stack. During a stack operation,
+-- (IAM) role that\'s associated with the stack. During a stack operation,
 -- CloudFormation uses this role\'s credentials to make calls on your
 -- behalf.
 --
@@ -139,14 +140,15 @@ data Stack = Stack'
 --
 -- For
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks>,
--- termination protection is set on the root stack and cannot be changed
+-- termination protection is set on the root stack and can\'t be changed
 -- directly on the nested stack. For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted>
 -- in the /CloudFormation User Guide/.
 --
 -- 'changeSetId', 'stack_changeSetId' - The unique ID of the change set.
 --
--- 'notificationARNs', 'stack_notificationARNs' - SNS topic ARNs to which stack related events are published.
+-- 'notificationARNs', 'stack_notificationARNs' - Amazon SNS topic Amazon Resource Names (ARNs) to which stack related
+-- events are published.
 --
 -- 'stackStatusReason', 'stack_stackStatusReason' - Success\/failure message associated with the stack status.
 --
@@ -160,9 +162,9 @@ data Stack = Stack'
 --
 -- 'disableRollback', 'stack_disableRollback' - Boolean to enable or disable rollback on stack creation failures:
 --
--- -   @true@: disable rollback
+-- -   @true@: disable rollback.
 --
--- -   @false@: enable rollback
+-- -   @false@: enable rollback.
 --
 -- 'lastUpdatedTime', 'stack_lastUpdatedTime' - The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
@@ -185,9 +187,9 @@ data Stack = Stack'
 -- creation and updating operations, and for the specified monitoring
 -- period afterwards.
 --
--- 'driftInformation', 'stack_driftInformation' - Information on whether a stack\'s actual configuration differs, or has
--- /drifted/, from it\'s expected configuration, as defined in the stack
--- template and any values specified as template parameters. For more
+-- 'driftInformation', 'stack_driftInformation' - Information about whether a stack\'s actual configuration differs, or
+-- has /drifted/, from it\'s expected configuration, as defined in the
+-- stack template and any values specified as template parameters. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 --
@@ -245,7 +247,7 @@ stack_stackId :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
 stack_stackId = Lens.lens (\Stack' {stackId} -> stackId) (\s@Stack' {} a -> s {stackId = a} :: Stack)
 
 -- | The Amazon Resource Name (ARN) of an Identity and Access Management
--- (IAM) role that is associated with the stack. During a stack operation,
+-- (IAM) role that\'s associated with the stack. During a stack operation,
 -- CloudFormation uses this role\'s credentials to make calls on your
 -- behalf.
 stack_roleARN :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
@@ -259,7 +261,7 @@ stack_timeoutInMinutes = Lens.lens (\Stack' {timeoutInMinutes} -> timeoutInMinut
 --
 -- For
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks>,
--- termination protection is set on the root stack and cannot be changed
+-- termination protection is set on the root stack and can\'t be changed
 -- directly on the nested stack. For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted>
 -- in the /CloudFormation User Guide/.
@@ -270,7 +272,8 @@ stack_enableTerminationProtection = Lens.lens (\Stack' {enableTerminationProtect
 stack_changeSetId :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
 stack_changeSetId = Lens.lens (\Stack' {changeSetId} -> changeSetId) (\s@Stack' {} a -> s {changeSetId = a} :: Stack)
 
--- | SNS topic ARNs to which stack related events are published.
+-- | Amazon SNS topic Amazon Resource Names (ARNs) to which stack related
+-- events are published.
 stack_notificationARNs :: Lens.Lens' Stack (Prelude.Maybe [Prelude.Text])
 stack_notificationARNs = Lens.lens (\Stack' {notificationARNs} -> notificationARNs) (\s@Stack' {} a -> s {notificationARNs = a} :: Stack) Prelude.. Lens.mapping Lens.coerced
 
@@ -290,9 +293,9 @@ stack_parentId = Lens.lens (\Stack' {parentId} -> parentId) (\s@Stack' {} a -> s
 
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
--- -   @true@: disable rollback
+-- -   @true@: disable rollback.
 --
--- -   @false@: enable rollback
+-- -   @false@: enable rollback.
 stack_disableRollback :: Lens.Lens' Stack (Prelude.Maybe Prelude.Bool)
 stack_disableRollback = Lens.lens (\Stack' {disableRollback} -> disableRollback) (\s@Stack' {} a -> s {disableRollback = a} :: Stack)
 
@@ -329,9 +332,9 @@ stack_rootId = Lens.lens (\Stack' {rootId} -> rootId) (\s@Stack' {} a -> s {root
 stack_rollbackConfiguration :: Lens.Lens' Stack (Prelude.Maybe RollbackConfiguration)
 stack_rollbackConfiguration = Lens.lens (\Stack' {rollbackConfiguration} -> rollbackConfiguration) (\s@Stack' {} a -> s {rollbackConfiguration = a} :: Stack)
 
--- | Information on whether a stack\'s actual configuration differs, or has
--- /drifted/, from it\'s expected configuration, as defined in the stack
--- template and any values specified as template parameters. For more
+-- | Information about whether a stack\'s actual configuration differs, or
+-- has /drifted/, from it\'s expected configuration, as defined in the
+-- stack template and any values specified as template parameters. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 stack_driftInformation :: Lens.Lens' Stack (Prelude.Maybe StackDriftInformation)

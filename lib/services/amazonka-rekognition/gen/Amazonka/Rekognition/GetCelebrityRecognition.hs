@@ -25,9 +25,11 @@
 --
 -- Celebrity recognition in a video is an asynchronous operation. Analysis
 -- is started by a call to StartCelebrityRecognition which returns a job
--- identifier (@JobId@). When the celebrity recognition operation finishes,
--- Amazon Rekognition Video publishes a completion status to the Amazon
--- Simple Notification Service topic registered in the initial call to
+-- identifier (@JobId@).
+--
+-- When the celebrity recognition operation finishes, Amazon Rekognition
+-- Video publishes a completion status to the Amazon Simple Notification
+-- Service topic registered in the initial call to
 -- @StartCelebrityRecognition@. To get the results of the celebrity
 -- recognition analysis, first check that the status value published to the
 -- Amazon SNS topic is @SUCCEEDED@. If so, call @GetCelebrityDetection@ and
@@ -41,10 +43,13 @@
 -- they are detected in an array (@Celebrities@) of CelebrityRecognition
 -- objects. Each @CelebrityRecognition@ contains information about the
 -- celebrity in a CelebrityDetail object and the time, @Timestamp@, the
--- celebrity was detected.
+-- celebrity was detected. This CelebrityDetail object stores information
+-- about the detected celebrity\'s face attributes, a face bounding box,
+-- known gender, the celebrity\'s name, and a confidence estimate.
 --
 -- @GetCelebrityRecognition@ only returns the default facial attributes
 -- (@BoundingBox@, @Confidence@, @Landmarks@, @Pose@, and @Quality@). The
+-- @BoundingBox@ field only applies to the detected face instance. The
 -- other facial attributes listed in the @Face@ object of the following
 -- response syntax are not returned. For more information, see FaceDetail
 -- in the Amazon Rekognition Developer Guide.

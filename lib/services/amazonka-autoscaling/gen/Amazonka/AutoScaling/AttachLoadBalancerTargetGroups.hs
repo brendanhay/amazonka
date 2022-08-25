@@ -36,8 +36,11 @@
 -- DescribeLoadBalancerTargetGroups API. To detach the target group from
 -- the Auto Scaling group, call the DetachLoadBalancerTargetGroups API.
 --
+-- This operation is additive and does not detach existing target groups or
+-- Classic Load Balancers from the Auto Scaling group.
+--
 -- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 module Amazonka.AutoScaling.AttachLoadBalancerTargetGroups
   ( -- * Creating a Request

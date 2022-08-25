@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the specified identity provider.
+-- Gets the specified IdP.
 module Amazonka.CognitoIdentityProvider.GetIdentityProviderByIdentifier
   ( -- * Creating a Request
     GetIdentityProviderByIdentifier (..),
@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 data GetIdentityProviderByIdentifier = GetIdentityProviderByIdentifier'
   { -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The identity provider ID.
+    -- | The IdP identifier.
     idpIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data GetIdentityProviderByIdentifier = GetIdentityProviderByIdentifier'
 --
 -- 'userPoolId', 'getIdentityProviderByIdentifier_userPoolId' - The user pool ID.
 --
--- 'idpIdentifier', 'getIdentityProviderByIdentifier_idpIdentifier' - The identity provider ID.
+-- 'idpIdentifier', 'getIdentityProviderByIdentifier_idpIdentifier' - The IdP identifier.
 newGetIdentityProviderByIdentifier ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newGetIdentityProviderByIdentifier
 getIdentityProviderByIdentifier_userPoolId :: Lens.Lens' GetIdentityProviderByIdentifier Prelude.Text
 getIdentityProviderByIdentifier_userPoolId = Lens.lens (\GetIdentityProviderByIdentifier' {userPoolId} -> userPoolId) (\s@GetIdentityProviderByIdentifier' {} a -> s {userPoolId = a} :: GetIdentityProviderByIdentifier)
 
--- | The identity provider ID.
+-- | The IdP identifier.
 getIdentityProviderByIdentifier_idpIdentifier :: Lens.Lens' GetIdentityProviderByIdentifier Prelude.Text
 getIdentityProviderByIdentifier_idpIdentifier = Lens.lens (\GetIdentityProviderByIdentifier' {idpIdentifier} -> idpIdentifier) (\s@GetIdentityProviderByIdentifier' {} a -> s {idpIdentifier = a} :: GetIdentityProviderByIdentifier)
 
@@ -162,7 +162,7 @@ instance Core.ToQuery GetIdentityProviderByIdentifier where
 data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The identity provider object.
+    -- | The IdP object.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -177,7 +177,7 @@ data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierRe
 --
 -- 'httpStatus', 'getIdentityProviderByIdentifierResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'getIdentityProviderByIdentifierResponse_identityProvider' - The identity provider object.
+-- 'identityProvider', 'getIdentityProviderByIdentifierResponse_identityProvider' - The IdP object.
 newGetIdentityProviderByIdentifierResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,7 +198,7 @@ newGetIdentityProviderByIdentifierResponse
 getIdentityProviderByIdentifierResponse_httpStatus :: Lens.Lens' GetIdentityProviderByIdentifierResponse Prelude.Int
 getIdentityProviderByIdentifierResponse_httpStatus = Lens.lens (\GetIdentityProviderByIdentifierResponse' {httpStatus} -> httpStatus) (\s@GetIdentityProviderByIdentifierResponse' {} a -> s {httpStatus = a} :: GetIdentityProviderByIdentifierResponse)
 
--- | The identity provider object.
+-- | The IdP object.
 getIdentityProviderByIdentifierResponse_identityProvider :: Lens.Lens' GetIdentityProviderByIdentifierResponse IdentityProviderType
 getIdentityProviderByIdentifierResponse_identityProvider = Lens.lens (\GetIdentityProviderByIdentifierResponse' {identityProvider} -> identityProvider) (\s@GetIdentityProviderByIdentifierResponse' {} a -> s {identityProvider = a} :: GetIdentityProviderByIdentifierResponse)
 

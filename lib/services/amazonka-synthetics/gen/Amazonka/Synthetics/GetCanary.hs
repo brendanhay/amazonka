@@ -113,7 +113,7 @@ instance Core.ToQuery GetCanary where
 
 -- | /See:/ 'newGetCanaryResponse' smart constructor.
 data GetCanaryResponse = GetCanaryResponse'
-  { -- | A strucure that contains the full information about the canary.
+  { -- | A structure that contains the full information about the canary.
     canary :: Prelude.Maybe Canary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -128,7 +128,7 @@ data GetCanaryResponse = GetCanaryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'canary', 'getCanaryResponse_canary' - A strucure that contains the full information about the canary.
+-- 'canary', 'getCanaryResponse_canary' - A structure that contains the full information about the canary.
 --
 -- 'httpStatus', 'getCanaryResponse_httpStatus' - The response's http status code.
 newGetCanaryResponse ::
@@ -141,7 +141,7 @@ newGetCanaryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A strucure that contains the full information about the canary.
+-- | A structure that contains the full information about the canary.
 getCanaryResponse_canary :: Lens.Lens' GetCanaryResponse (Prelude.Maybe Canary)
 getCanaryResponse_canary = Lens.lens (\GetCanaryResponse' {canary} -> canary) (\s@GetCanaryResponse' {} a -> s {canary = a} :: GetCanaryResponse)
 

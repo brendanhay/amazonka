@@ -39,7 +39,7 @@ data Device = Device'
     type' :: Prelude.Maybe Prelude.Text,
     -- | The device model.
     model :: Prelude.Maybe Prelude.Text,
-    -- | The AWS location of the device.
+    -- | The Amazon Web Services location of the device.
     aWSLocation :: Prelude.Maybe AWSLocation,
     -- | The ID of the device.
     deviceId :: Prelude.Maybe Prelude.Text,
@@ -78,7 +78,7 @@ data Device = Device'
 --
 -- 'model', 'device_model' - The device model.
 --
--- 'aWSLocation', 'device_aWSLocation' - The AWS location of the device.
+-- 'aWSLocation', 'device_aWSLocation' - The Amazon Web Services location of the device.
 --
 -- 'deviceId', 'device_deviceId' - The ID of the device.
 --
@@ -133,7 +133,7 @@ device_type = Lens.lens (\Device' {type'} -> type') (\s@Device' {} a -> s {type'
 device_model :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_model = Lens.lens (\Device' {model} -> model) (\s@Device' {} a -> s {model = a} :: Device)
 
--- | The AWS location of the device.
+-- | The Amazon Web Services location of the device.
 device_aWSLocation :: Lens.Lens' Device (Prelude.Maybe AWSLocation)
 device_aWSLocation = Lens.lens (\Device' {aWSLocation} -> aWSLocation) (\s@Device' {} a -> s {aWSLocation = a} :: Device)
 

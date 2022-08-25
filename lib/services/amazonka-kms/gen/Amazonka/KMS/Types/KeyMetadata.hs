@@ -27,6 +27,7 @@ import Amazonka.KMS.Types.KeyManagerType
 import Amazonka.KMS.Types.KeySpec
 import Amazonka.KMS.Types.KeyState
 import Amazonka.KMS.Types.KeyUsageType
+import Amazonka.KMS.Types.MacAlgorithmSpec
 import Amazonka.KMS.Types.MultiRegionConfiguration
 import Amazonka.KMS.Types.OriginType
 import Amazonka.KMS.Types.SigningAlgorithmSpec
@@ -114,7 +115,7 @@ data KeyMetadata = KeyMetadata'
     -- keys and @False@ for regional KMS keys.
     --
     -- For more information about multi-Region keys, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Multi-Region keys in KMS>
     -- in the /Key Management Service Developer Guide/.
     multiRegion :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the KMS key is enabled. When @KeyState@ is @Enabled@
@@ -139,7 +140,7 @@ data KeyMetadata = KeyMetadata'
     --
     -- For more information about how key state affects the use of a KMS key,
     -- see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
     -- in the /Key Management Service Developer Guide/.
     keyState :: Prelude.Maybe KeyState,
     -- | The date and time after which KMS deletes this KMS key. This value is
@@ -157,6 +158,12 @@ data KeyMetadata = KeyMetadata'
     -- material. When this value is @AWS_CLOUDHSM@, the key material was
     -- created in the CloudHSM cluster associated with a custom key store.
     origin :: Prelude.Maybe OriginType,
+    -- | The message authentication code (MAC) algorithm that the HMAC KMS key
+    -- supports.
+    --
+    -- This value is present only when the @KeyUsage@ of the KMS key is
+    -- @GENERATE_VERIFY_MAC@.
+    macAlgorithms :: Prelude.Maybe [MacAlgorithmSpec],
     -- | The signing algorithms that the KMS key supports. You cannot use the KMS
     -- key with other signing algorithms within KMS.
     --
@@ -256,7 +263,7 @@ data KeyMetadata = KeyMetadata'
 -- keys and @False@ for regional KMS keys.
 --
 -- For more information about multi-Region keys, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Multi-Region keys in KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'enabled', 'keyMetadata_enabled' - Specifies whether the KMS key is enabled. When @KeyState@ is @Enabled@
@@ -281,7 +288,7 @@ data KeyMetadata = KeyMetadata'
 --
 -- For more information about how key state affects the use of a KMS key,
 -- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'deletionDate', 'keyMetadata_deletionDate' - The date and time after which KMS deletes this KMS key. This value is
@@ -298,6 +305,12 @@ data KeyMetadata = KeyMetadata'
 -- the key material was imported or the KMS key doesn\'t have any key
 -- material. When this value is @AWS_CLOUDHSM@, the key material was
 -- created in the CloudHSM cluster associated with a custom key store.
+--
+-- 'macAlgorithms', 'keyMetadata_macAlgorithms' - The message authentication code (MAC) algorithm that the HMAC KMS key
+-- supports.
+--
+-- This value is present only when the @KeyUsage@ of the KMS key is
+-- @GENERATE_VERIFY_MAC@.
 --
 -- 'signingAlgorithms', 'keyMetadata_signingAlgorithms' - The signing algorithms that the KMS key supports. You cannot use the KMS
 -- key with other signing algorithms within KMS.
@@ -337,6 +350,7 @@ newKeyMetadata pKeyId_ =
       keyState = Prelude.Nothing,
       deletionDate = Prelude.Nothing,
       origin = Prelude.Nothing,
+      macAlgorithms = Prelude.Nothing,
       signingAlgorithms = Prelude.Nothing,
       validTo = Prelude.Nothing,
       keyId = pKeyId_
@@ -438,7 +452,7 @@ keyMetadata_description = Lens.lens (\KeyMetadata' {description} -> description)
 -- keys and @False@ for regional KMS keys.
 --
 -- For more information about multi-Region keys, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Multi-Region keys in KMS>
 -- in the /Key Management Service Developer Guide/.
 keyMetadata_multiRegion :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Bool)
 keyMetadata_multiRegion = Lens.lens (\KeyMetadata' {multiRegion} -> multiRegion) (\s@KeyMetadata' {} a -> s {multiRegion = a} :: KeyMetadata)
@@ -473,7 +487,7 @@ keyMetadata_keySpec = Lens.lens (\KeyMetadata' {keySpec} -> keySpec) (\s@KeyMeta
 --
 -- For more information about how key state affects the use of a KMS key,
 -- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 keyMetadata_keyState :: Lens.Lens' KeyMetadata (Prelude.Maybe KeyState)
 keyMetadata_keyState = Lens.lens (\KeyMetadata' {keyState} -> keyState) (\s@KeyMetadata' {} a -> s {keyState = a} :: KeyMetadata)
@@ -496,6 +510,14 @@ keyMetadata_deletionDate = Lens.lens (\KeyMetadata' {deletionDate} -> deletionDa
 -- created in the CloudHSM cluster associated with a custom key store.
 keyMetadata_origin :: Lens.Lens' KeyMetadata (Prelude.Maybe OriginType)
 keyMetadata_origin = Lens.lens (\KeyMetadata' {origin} -> origin) (\s@KeyMetadata' {} a -> s {origin = a} :: KeyMetadata)
+
+-- | The message authentication code (MAC) algorithm that the HMAC KMS key
+-- supports.
+--
+-- This value is present only when the @KeyUsage@ of the KMS key is
+-- @GENERATE_VERIFY_MAC@.
+keyMetadata_macAlgorithms :: Lens.Lens' KeyMetadata (Prelude.Maybe [MacAlgorithmSpec])
+keyMetadata_macAlgorithms = Lens.lens (\KeyMetadata' {macAlgorithms} -> macAlgorithms) (\s@KeyMetadata' {} a -> s {macAlgorithms = a} :: KeyMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The signing algorithms that the KMS key supports. You cannot use the KMS
 -- key with other signing algorithms within KMS.
@@ -544,6 +566,7 @@ instance Core.FromJSON KeyMetadata where
             Prelude.<*> (x Core..:? "KeyState")
             Prelude.<*> (x Core..:? "DeletionDate")
             Prelude.<*> (x Core..:? "Origin")
+            Prelude.<*> (x Core..:? "MacAlgorithms" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "SigningAlgorithms"
                             Core..!= Prelude.mempty
                         )
@@ -572,6 +595,7 @@ instance Prelude.Hashable KeyMetadata where
       `Prelude.hashWithSalt` keyState
       `Prelude.hashWithSalt` deletionDate
       `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` macAlgorithms
       `Prelude.hashWithSalt` signingAlgorithms
       `Prelude.hashWithSalt` validTo
       `Prelude.hashWithSalt` keyId
@@ -597,6 +621,8 @@ instance Prelude.NFData KeyMetadata where
       `Prelude.seq` Prelude.rnf keyState
       `Prelude.seq` Prelude.rnf deletionDate
       `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf signingAlgorithms
+      `Prelude.seq` Prelude.rnf macAlgorithms
+      `Prelude.seq` Prelude.rnf
+        signingAlgorithms
       `Prelude.seq` Prelude.rnf validTo
       `Prelude.seq` Prelude.rnf keyId

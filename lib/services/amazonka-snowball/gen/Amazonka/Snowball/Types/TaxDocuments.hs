@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.INDTaxDocuments
 
--- | The tax documents required in your AWS Region.
+-- | The tax documents required in your Amazon Web Services Region.
 --
 -- /See:/ 'newTaxDocuments' smart constructor.
 data TaxDocuments = TaxDocuments'

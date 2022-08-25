@@ -32,7 +32,7 @@ data DelegatedAdministrator = DelegatedAdministrator'
   { -- | The friendly name of the delegated administrator\'s account.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The email address that is associated with the delegated administrator\'s
-    -- AWS account.
+    -- Amazon Web Services account.
     email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the delegated administrator\'s
     -- account.
@@ -64,7 +64,7 @@ data DelegatedAdministrator = DelegatedAdministrator'
 -- 'name', 'delegatedAdministrator_name' - The friendly name of the delegated administrator\'s account.
 --
 -- 'email', 'delegatedAdministrator_email' - The email address that is associated with the delegated administrator\'s
--- AWS account.
+-- Amazon Web Services account.
 --
 -- 'arn', 'delegatedAdministrator_arn' - The Amazon Resource Name (ARN) of the delegated administrator\'s
 -- account.
@@ -100,7 +100,7 @@ delegatedAdministrator_name :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe 
 delegatedAdministrator_name = Lens.lens (\DelegatedAdministrator' {name} -> name) (\s@DelegatedAdministrator' {} a -> s {name = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The email address that is associated with the delegated administrator\'s
--- AWS account.
+-- Amazon Web Services account.
 delegatedAdministrator_email :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
 delegatedAdministrator_email = Lens.lens (\DelegatedAdministrator' {email} -> email) (\s@DelegatedAdministrator' {} a -> s {email = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Sensitive
 

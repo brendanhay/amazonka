@@ -25,6 +25,7 @@ import Amazonka.Lightsail.Types.ContainerServiceDeployment
 import Amazonka.Lightsail.Types.ContainerServicePowerName
 import Amazonka.Lightsail.Types.ContainerServiceState
 import Amazonka.Lightsail.Types.ContainerServiceStateDetail
+import Amazonka.Lightsail.Types.PrivateRegistryAccess
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
 import Amazonka.Lightsail.Types.Tag
@@ -62,9 +63,9 @@ data ContainerService = ContainerService'
     -- | The principal ARN of the container service.
     --
     -- The principal ARN can be used to create a trust relationship between
-    -- your standard AWS account and your Lightsail container service. This
-    -- allows you to give your service permission to access resources in your
-    -- standard AWS account.
+    -- your standard Amazon Web Services account and your Lightsail container
+    -- service. This allows you to give your service permission to access
+    -- resources in your standard Amazon Web Services account.
     principalArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the container service.
     arn :: Prelude.Maybe Prelude.Text,
@@ -97,7 +98,7 @@ data ContainerService = ContainerService'
     -- returns a 404 response.
     url :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the location of the container service, such as
-    -- the AWS Region and Availability Zone.
+    -- the Amazon Web Services Region and Availability Zone.
     location :: Prelude.Maybe ResourceLocation,
     -- | The name of the container service.
     containerServiceName :: Prelude.Maybe Prelude.Text,
@@ -130,6 +131,14 @@ data ContainerService = ContainerService'
     -- about how to specify public domain names for your Lightsail container
     -- service.
     publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | An object that describes the configuration for the container service to
+    -- access private container image repositories, such as Amazon Elastic
+    -- Container Registry (Amazon ECR) private repositories.
+    --
+    -- For more information, see
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+    -- in the /Amazon Lightsail Developer Guide/.
+    privateRegistryAccess :: Prelude.Maybe PrivateRegistryAccess,
     -- | A Boolean value indicating whether the container service is disabled.
     isDisabled :: Prelude.Maybe Prelude.Bool,
     -- | An object that describes the next deployment of the container service.
@@ -175,9 +184,9 @@ data ContainerService = ContainerService'
 -- 'principalArn', 'containerService_principalArn' - The principal ARN of the container service.
 --
 -- The principal ARN can be used to create a trust relationship between
--- your standard AWS account and your Lightsail container service. This
--- allows you to give your service permission to access resources in your
--- standard AWS account.
+-- your standard Amazon Web Services account and your Lightsail container
+-- service. This allows you to give your service permission to access
+-- resources in your standard Amazon Web Services account.
 --
 -- 'arn', 'containerService_arn' - The Amazon Resource Name (ARN) of the container service.
 --
@@ -210,7 +219,7 @@ data ContainerService = ContainerService'
 -- returns a 404 response.
 --
 -- 'location', 'containerService_location' - An object that describes the location of the container service, such as
--- the AWS Region and Availability Zone.
+-- the Amazon Web Services Region and Availability Zone.
 --
 -- 'containerServiceName', 'containerService_containerServiceName' - The name of the container service.
 --
@@ -243,6 +252,14 @@ data ContainerService = ContainerService'
 -- about how to specify public domain names for your Lightsail container
 -- service.
 --
+-- 'privateRegistryAccess', 'containerService_privateRegistryAccess' - An object that describes the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+--
 -- 'isDisabled', 'containerService_isDisabled' - A Boolean value indicating whether the container service is disabled.
 --
 -- 'nextDeployment', 'containerService_nextDeployment' - An object that describes the next deployment of the container service.
@@ -268,6 +285,7 @@ newContainerService =
       scale = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       publicDomainNames = Prelude.Nothing,
+      privateRegistryAccess = Prelude.Nothing,
       isDisabled = Prelude.Nothing,
       nextDeployment = Prelude.Nothing
     }
@@ -312,9 +330,9 @@ containerService_privateDomainName = Lens.lens (\ContainerService' {privateDomai
 -- | The principal ARN of the container service.
 --
 -- The principal ARN can be used to create a trust relationship between
--- your standard AWS account and your Lightsail container service. This
--- allows you to give your service permission to access resources in your
--- standard AWS account.
+-- your standard Amazon Web Services account and your Lightsail container
+-- service. This allows you to give your service permission to access
+-- resources in your standard Amazon Web Services account.
 containerService_principalArn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_principalArn = Lens.lens (\ContainerService' {principalArn} -> principalArn) (\s@ContainerService' {} a -> s {principalArn = a} :: ContainerService)
 
@@ -355,7 +373,7 @@ containerService_url :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_url = Lens.lens (\ContainerService' {url} -> url) (\s@ContainerService' {} a -> s {url = a} :: ContainerService)
 
 -- | An object that describes the location of the container service, such as
--- the AWS Region and Availability Zone.
+-- the Amazon Web Services Region and Availability Zone.
 containerService_location :: Lens.Lens' ContainerService (Prelude.Maybe ResourceLocation)
 containerService_location = Lens.lens (\ContainerService' {location} -> location) (\s@ContainerService' {} a -> s {location = a} :: ContainerService)
 
@@ -400,6 +418,16 @@ containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> create
 containerService_publicDomainNames :: Lens.Lens' ContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 containerService_publicDomainNames = Lens.lens (\ContainerService' {publicDomainNames} -> publicDomainNames) (\s@ContainerService' {} a -> s {publicDomainNames = a} :: ContainerService) Prelude.. Lens.mapping Lens.coerced
 
+-- | An object that describes the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+containerService_privateRegistryAccess :: Lens.Lens' ContainerService (Prelude.Maybe PrivateRegistryAccess)
+containerService_privateRegistryAccess = Lens.lens (\ContainerService' {privateRegistryAccess} -> privateRegistryAccess) (\s@ContainerService' {} a -> s {privateRegistryAccess = a} :: ContainerService)
+
 -- | A Boolean value indicating whether the container service is disabled.
 containerService_isDisabled :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Bool)
 containerService_isDisabled = Lens.lens (\ContainerService' {isDisabled} -> isDisabled) (\s@ContainerService' {} a -> s {isDisabled = a} :: ContainerService)
@@ -434,6 +462,7 @@ instance Core.FromJSON ContainerService where
             Prelude.<*> ( x Core..:? "publicDomainNames"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "privateRegistryAccess")
             Prelude.<*> (x Core..:? "isDisabled")
             Prelude.<*> (x Core..:? "nextDeployment")
       )
@@ -456,6 +485,7 @@ instance Prelude.Hashable ContainerService where
       `Prelude.hashWithSalt` scale
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` privateRegistryAccess
       `Prelude.hashWithSalt` isDisabled
       `Prelude.hashWithSalt` nextDeployment
 
@@ -477,5 +507,6 @@ instance Prelude.NFData ContainerService where
       `Prelude.seq` Prelude.rnf scale
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf privateRegistryAccess
       `Prelude.seq` Prelude.rnf isDisabled
       `Prelude.seq` Prelude.rnf nextDeployment

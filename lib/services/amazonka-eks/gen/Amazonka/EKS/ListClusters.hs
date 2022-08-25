@@ -72,8 +72,10 @@ data ListClusters = ListClusters'
     -- use this parameter, @ListClusters@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether connected clusters are included in the returned list.
-    -- Default value is \'ALL\'.
+    -- | Indicates whether external clusters are included in the returned list.
+    -- Use \'@all@\' to return connected clusters, or blank to return only
+    -- Amazon EKS clusters. \'@all@\' must be in lowercase otherwise an error
+    -- occurs.
     include :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,8 +106,10 @@ data ListClusters = ListClusters'
 -- use this parameter, @ListClusters@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
 --
--- 'include', 'listClusters_include' - Indicates whether connected clusters are included in the returned list.
--- Default value is \'ALL\'.
+-- 'include', 'listClusters_include' - Indicates whether external clusters are included in the returned list.
+-- Use \'@all@\' to return connected clusters, or blank to return only
+-- Amazon EKS clusters. \'@all@\' must be in lowercase otherwise an error
+-- occurs.
 newListClusters ::
   ListClusters
 newListClusters =
@@ -137,8 +141,10 @@ listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s
 listClusters_maxResults :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Natural)
 listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) (\s@ListClusters' {} a -> s {maxResults = a} :: ListClusters)
 
--- | Indicates whether connected clusters are included in the returned list.
--- Default value is \'ALL\'.
+-- | Indicates whether external clusters are included in the returned list.
+-- Use \'@all@\' to return connected clusters, or blank to return only
+-- Amazon EKS clusters. \'@all@\' must be in lowercase otherwise an error
+-- occurs.
 listClusters_include :: Lens.Lens' ListClusters (Prelude.Maybe [Prelude.Text])
 listClusters_include = Lens.lens (\ListClusters' {include} -> include) (\s@ListClusters' {} a -> s {include = a} :: ListClusters) Prelude.. Lens.mapping Lens.coerced
 

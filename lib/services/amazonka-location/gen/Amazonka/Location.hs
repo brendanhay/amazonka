@@ -11,8 +11,8 @@
 --
 -- Derived from API version @2020-11-19@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Suite of geospatial services including Maps, Places, Routes, Tracking,
--- and Geofencing
+-- \"Suite of geospatial services including Maps, Places, Routes, Tracking,
+-- and Geofencing\"
 module Amazonka.Location
   ( -- * Service Configuration
     defaultService,
@@ -94,6 +94,12 @@ module Amazonka.Location
     newCalculateRoute,
     CalculateRouteResponse (CalculateRouteResponse'),
     newCalculateRouteResponse,
+
+    -- ** CalculateRouteMatrix
+    CalculateRouteMatrix (CalculateRouteMatrix'),
+    newCalculateRouteMatrix,
+    CalculateRouteMatrixResponse (CalculateRouteMatrixResponse'),
+    newCalculateRouteMatrixResponse,
 
     -- ** CreateGeofenceCollection
     CreateGeofenceCollection (CreateGeofenceCollection'),
@@ -299,6 +305,12 @@ module Amazonka.Location
     SearchPlaceIndexForPositionResponse (SearchPlaceIndexForPositionResponse'),
     newSearchPlaceIndexForPositionResponse,
 
+    -- ** SearchPlaceIndexForSuggestions
+    SearchPlaceIndexForSuggestions (SearchPlaceIndexForSuggestions'),
+    newSearchPlaceIndexForSuggestions,
+    SearchPlaceIndexForSuggestionsResponse (SearchPlaceIndexForSuggestionsResponse'),
+    newSearchPlaceIndexForSuggestionsResponse,
+
     -- ** SearchPlaceIndexForText
     SearchPlaceIndexForText (SearchPlaceIndexForText'),
     newSearchPlaceIndexForText,
@@ -367,6 +379,9 @@ module Amazonka.Location
     -- ** PricingPlan
     PricingPlan (..),
 
+    -- ** RouteMatrixErrorCode
+    RouteMatrixErrorCode (..),
+
     -- ** TravelMode
     TravelMode (..),
 
@@ -413,6 +428,10 @@ module Amazonka.Location
     CalculateRouteCarModeOptions (CalculateRouteCarModeOptions'),
     newCalculateRouteCarModeOptions,
 
+    -- ** CalculateRouteMatrixSummary
+    CalculateRouteMatrixSummary (CalculateRouteMatrixSummary'),
+    newCalculateRouteMatrixSummary,
+
     -- ** CalculateRouteSummary
     CalculateRouteSummary (CalculateRouteSummary'),
     newCalculateRouteSummary,
@@ -420,6 +439,10 @@ module Amazonka.Location
     -- ** CalculateRouteTruckModeOptions
     CalculateRouteTruckModeOptions (CalculateRouteTruckModeOptions'),
     newCalculateRouteTruckModeOptions,
+
+    -- ** Circle
+    Circle (Circle'),
+    newCircle,
 
     -- ** DataSourceConfiguration
     DataSourceConfiguration (DataSourceConfiguration'),
@@ -485,9 +508,25 @@ module Amazonka.Location
     PlaceGeometry (PlaceGeometry'),
     newPlaceGeometry,
 
+    -- ** PositionalAccuracy
+    PositionalAccuracy (PositionalAccuracy'),
+    newPositionalAccuracy,
+
+    -- ** RouteMatrixEntry
+    RouteMatrixEntry (RouteMatrixEntry'),
+    newRouteMatrixEntry,
+
+    -- ** RouteMatrixEntryError
+    RouteMatrixEntryError (RouteMatrixEntryError'),
+    newRouteMatrixEntryError,
+
     -- ** SearchForPositionResult
     SearchForPositionResult (SearchForPositionResult'),
     newSearchForPositionResult,
+
+    -- ** SearchForSuggestionsResult
+    SearchForSuggestionsResult (SearchForSuggestionsResult'),
+    newSearchForSuggestionsResult,
 
     -- ** SearchForTextResult
     SearchForTextResult (SearchForTextResult'),
@@ -497,6 +536,10 @@ module Amazonka.Location
     SearchPlaceIndexForPositionSummary (SearchPlaceIndexForPositionSummary'),
     newSearchPlaceIndexForPositionSummary,
 
+    -- ** SearchPlaceIndexForSuggestionsSummary
+    SearchPlaceIndexForSuggestionsSummary (SearchPlaceIndexForSuggestionsSummary'),
+    newSearchPlaceIndexForSuggestionsSummary,
+
     -- ** SearchPlaceIndexForTextSummary
     SearchPlaceIndexForTextSummary (SearchPlaceIndexForTextSummary'),
     newSearchPlaceIndexForTextSummary,
@@ -504,6 +547,10 @@ module Amazonka.Location
     -- ** Step
     Step (Step'),
     newStep,
+
+    -- ** TimeZone
+    TimeZone (TimeZone'),
+    newTimeZone,
 
     -- ** TruckDimensions
     TruckDimensions (TruckDimensions'),
@@ -523,6 +570,7 @@ import Amazonka.Location.BatchGetDevicePosition
 import Amazonka.Location.BatchPutGeofence
 import Amazonka.Location.BatchUpdateDevicePosition
 import Amazonka.Location.CalculateRoute
+import Amazonka.Location.CalculateRouteMatrix
 import Amazonka.Location.CreateGeofenceCollection
 import Amazonka.Location.CreateMap
 import Amazonka.Location.CreatePlaceIndex
@@ -558,6 +606,7 @@ import Amazonka.Location.ListTrackerConsumers
 import Amazonka.Location.ListTrackers
 import Amazonka.Location.PutGeofence
 import Amazonka.Location.SearchPlaceIndexForPosition
+import Amazonka.Location.SearchPlaceIndexForSuggestions
 import Amazonka.Location.SearchPlaceIndexForText
 import Amazonka.Location.TagResource
 import Amazonka.Location.Types

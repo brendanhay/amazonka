@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmailSettings' smart constructor.
 data EmailSettings = EmailSettings'
-  { -- | The subject of the email.
+  { -- | The contents of the subject line of the email message.
     emailSubject :: Prelude.Maybe Prelude.Text,
-    -- | The body of the email.
+    -- | The contents of the email message.
     emailMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data EmailSettings = EmailSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailSubject', 'emailSettings_emailSubject' - The subject of the email.
+-- 'emailSubject', 'emailSettings_emailSubject' - The contents of the subject line of the email message.
 --
--- 'emailMessage', 'emailSettings_emailMessage' - The body of the email.
+-- 'emailMessage', 'emailSettings_emailMessage' - The contents of the email message.
 newEmailSettings ::
   EmailSettings
 newEmailSettings =
@@ -54,11 +54,11 @@ newEmailSettings =
       emailMessage = Prelude.Nothing
     }
 
--- | The subject of the email.
+-- | The contents of the subject line of the email message.
 emailSettings_emailSubject :: Lens.Lens' EmailSettings (Prelude.Maybe Prelude.Text)
 emailSettings_emailSubject = Lens.lens (\EmailSettings' {emailSubject} -> emailSubject) (\s@EmailSettings' {} a -> s {emailSubject = a} :: EmailSettings)
 
--- | The body of the email.
+-- | The contents of the email message.
 emailSettings_emailMessage :: Lens.Lens' EmailSettings (Prelude.Maybe Prelude.Text)
 emailSettings_emailMessage = Lens.lens (\EmailSettings' {emailMessage} -> emailMessage) (\s@EmailSettings' {} a -> s {emailMessage = a} :: EmailSettings)
 

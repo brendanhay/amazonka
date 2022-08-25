@@ -40,12 +40,15 @@ data Project = Project'
     serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
     -- | The ID of the project.
     projectId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp container for when the project was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
     -- | The status of the project.
     projectStatus :: Prelude.Maybe ProjectStatus,
     -- | A timestamp specifying when the project was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The name of the project.
     projectName :: Prelude.Maybe Prelude.Text,
     -- | Who created the project.
@@ -73,11 +76,15 @@ data Project = Project'
 --
 -- 'projectId', 'project_projectId' - The ID of the project.
 --
+-- 'lastModifiedTime', 'project_lastModifiedTime' - A timestamp container for when the project was last modified.
+--
 -- 'projectDescription', 'project_projectDescription' - The description of the project.
 --
 -- 'projectStatus', 'project_projectStatus' - The status of the project.
 --
 -- 'creationTime', 'project_creationTime' - A timestamp specifying when the project was created.
+--
+-- 'lastModifiedBy', 'project_lastModifiedBy' - Undocumented member.
 --
 -- 'projectName', 'project_projectName' - The name of the project.
 --
@@ -94,9 +101,11 @@ newProject =
       serviceCatalogProvisionedProductDetails =
         Prelude.Nothing,
       projectId = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       projectDescription = Prelude.Nothing,
       projectStatus = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
       projectName = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       projectArn = Prelude.Nothing,
@@ -118,6 +127,10 @@ project_serviceCatalogProvisionedProductDetails = Lens.lens (\Project' {serviceC
 project_projectId :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_projectId = Lens.lens (\Project' {projectId} -> projectId) (\s@Project' {} a -> s {projectId = a} :: Project)
 
+-- | A timestamp container for when the project was last modified.
+project_lastModifiedTime :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
+project_lastModifiedTime = Lens.lens (\Project' {lastModifiedTime} -> lastModifiedTime) (\s@Project' {} a -> s {lastModifiedTime = a} :: Project) Prelude.. Lens.mapping Core._Time
+
 -- | The description of the project.
 project_projectDescription :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_projectDescription = Lens.lens (\Project' {projectDescription} -> projectDescription) (\s@Project' {} a -> s {projectDescription = a} :: Project)
@@ -129,6 +142,10 @@ project_projectStatus = Lens.lens (\Project' {projectStatus} -> projectStatus) (
 -- | A timestamp specifying when the project was created.
 project_creationTime :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
 project_creationTime = Lens.lens (\Project' {creationTime} -> creationTime) (\s@Project' {} a -> s {creationTime = a} :: Project) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+project_lastModifiedBy :: Lens.Lens' Project (Prelude.Maybe UserContext)
+project_lastModifiedBy = Lens.lens (\Project' {lastModifiedBy} -> lastModifiedBy) (\s@Project' {} a -> s {lastModifiedBy = a} :: Project)
 
 -- | The name of the project.
 project_projectName :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
@@ -157,9 +174,11 @@ instance Core.FromJSON Project where
                             Core..:? "ServiceCatalogProvisionedProductDetails"
                         )
             Prelude.<*> (x Core..:? "ProjectId")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "ProjectDescription")
             Prelude.<*> (x Core..:? "ProjectStatus")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
             Prelude.<*> (x Core..:? "ProjectName")
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "ProjectArn")
@@ -171,9 +190,11 @@ instance Prelude.Hashable Project where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serviceCatalogProvisionedProductDetails
       `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` projectDescription
       `Prelude.hashWithSalt` projectStatus
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedBy
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` projectArn
@@ -184,9 +205,11 @@ instance Prelude.NFData Project where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serviceCatalogProvisionedProductDetails
       `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf projectDescription
       `Prelude.seq` Prelude.rnf projectStatus
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf projectArn

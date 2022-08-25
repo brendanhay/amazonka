@@ -47,7 +47,8 @@ data EventSelector = EventSelector'
     -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
     -- or @rdsdata.amazonaws.com@. By default, @ExcludeManagementEventSources@
     -- is empty, and KMS and Amazon RDS Data API events are logged to your
-    -- trail.
+    -- trail. You can exclude management event sources only in regions that
+    -- support the event source.
     excludeManagementEventSources :: Prelude.Maybe [Prelude.Text],
     -- | Specify if you want your event selector to include management events for
     -- your trail.
@@ -100,7 +101,8 @@ data EventSelector = EventSelector'
 -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
 -- or @rdsdata.amazonaws.com@. By default, @ExcludeManagementEventSources@
 -- is empty, and KMS and Amazon RDS Data API events are logged to your
--- trail.
+-- trail. You can exclude management event sources only in regions that
+-- support the event source.
 --
 -- 'includeManagementEvents', 'eventSelector_includeManagementEvents' - Specify if you want your event selector to include management events for
 -- your trail.
@@ -152,7 +154,8 @@ newEventSelector =
 -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
 -- or @rdsdata.amazonaws.com@. By default, @ExcludeManagementEventSources@
 -- is empty, and KMS and Amazon RDS Data API events are logged to your
--- trail.
+-- trail. You can exclude management event sources only in regions that
+-- support the event source.
 eventSelector_excludeManagementEventSources :: Lens.Lens' EventSelector (Prelude.Maybe [Prelude.Text])
 eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {excludeManagementEventSources} -> excludeManagementEventSources) (\s@EventSelector' {} a -> s {excludeManagementEventSources = a} :: EventSelector) Prelude.. Lens.mapping Lens.coerced
 

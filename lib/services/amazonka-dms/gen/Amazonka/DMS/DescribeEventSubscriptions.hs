@@ -67,6 +67,8 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | Filters applied to event subscriptions.
+    --
+    -- Valid filter names: event-subscription-arn | event-subscription-id
     filters :: Prelude.Maybe [Filter],
     -- | The name of the DMS event subscription to be described.
     subscriptionName :: Prelude.Maybe Prelude.Text,
@@ -96,6 +98,8 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 --
 -- 'filters', 'describeEventSubscriptions_filters' - Filters applied to event subscriptions.
 --
+-- Valid filter names: event-subscription-arn | event-subscription-id
+--
 -- 'subscriptionName', 'describeEventSubscriptions_subscriptionName' - The name of the DMS event subscription to be described.
 --
 -- 'maxRecords', 'describeEventSubscriptions_maxRecords' - The maximum number of records to include in the response. If more
@@ -124,6 +128,8 @@ describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prel
 describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
 
 -- | Filters applied to event subscriptions.
+--
+-- Valid filter names: event-subscription-arn | event-subscription-id
 describeEventSubscriptions_filters :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Filter])
 describeEventSubscriptions_filters = Lens.lens (\DescribeEventSubscriptions' {filters} -> filters) (\s@DescribeEventSubscriptions' {} a -> s {filters = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens.coerced
 

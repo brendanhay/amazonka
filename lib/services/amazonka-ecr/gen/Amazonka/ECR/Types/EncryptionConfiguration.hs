@@ -57,14 +57,14 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- Amazon ECR, or specify your own KMS key, which you already created. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html Protecting data using server-side encryption with an KMS key stored in Key Management Service (SSE-KMS)>
-    -- in the /Amazon Simple Storage Service Console Developer Guide./.
+    -- in the /Amazon Simple Storage Service Console Developer Guide/.
     --
     -- If you use the @AES256@ encryption type, Amazon ECR uses server-side
     -- encryption with Amazon S3-managed encryption keys which encrypts the
     -- images in the repository using an AES-256 encryption algorithm. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)>
-    -- in the /Amazon Simple Storage Service Console Developer Guide./.
+    -- in the /Amazon Simple Storage Service Console Developer Guide/.
     encryptionType :: EncryptionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,14 +92,14 @@ data EncryptionConfiguration = EncryptionConfiguration'
 -- Amazon ECR, or specify your own KMS key, which you already created. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html Protecting data using server-side encryption with an KMS key stored in Key Management Service (SSE-KMS)>
--- in the /Amazon Simple Storage Service Console Developer Guide./.
+-- in the /Amazon Simple Storage Service Console Developer Guide/.
 --
 -- If you use the @AES256@ encryption type, Amazon ECR uses server-side
 -- encryption with Amazon S3-managed encryption keys which encrypts the
 -- images in the repository using an AES-256 encryption algorithm. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)>
--- in the /Amazon Simple Storage Service Console Developer Guide./.
+-- in the /Amazon Simple Storage Service Console Developer Guide/.
 newEncryptionConfiguration ::
   -- | 'encryptionType'
   EncryptionType ->
@@ -127,14 +127,14 @@ encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -
 -- Amazon ECR, or specify your own KMS key, which you already created. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html Protecting data using server-side encryption with an KMS key stored in Key Management Service (SSE-KMS)>
--- in the /Amazon Simple Storage Service Console Developer Guide./.
+-- in the /Amazon Simple Storage Service Console Developer Guide/.
 --
 -- If you use the @AES256@ encryption type, Amazon ECR uses server-side
 -- encryption with Amazon S3-managed encryption keys which encrypts the
 -- images in the repository using an AES-256 encryption algorithm. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)>
--- in the /Amazon Simple Storage Service Console Developer Guide./.
+-- in the /Amazon Simple Storage Service Console Developer Guide/.
 encryptionConfiguration_encryptionType :: Lens.Lens' EncryptionConfiguration EncryptionType
 encryptionConfiguration_encryptionType = Lens.lens (\EncryptionConfiguration' {encryptionType} -> encryptionType) (\s@EncryptionConfiguration' {} a -> s {encryptionType = a} :: EncryptionConfiguration)
 

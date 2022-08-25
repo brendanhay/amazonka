@@ -20,6 +20,7 @@
 module Amazonka.SSM.Types.ResourceTypeForTagging
   ( ResourceTypeForTagging
       ( ..,
+        ResourceTypeForTagging_Automation,
         ResourceTypeForTagging_Document,
         ResourceTypeForTagging_MaintenanceWindow,
         ResourceTypeForTagging_ManagedInstance,
@@ -62,6 +63,9 @@ newtype ResourceTypeForTagging = ResourceTypeForTagging'
       Core.ToXML
     )
 
+pattern ResourceTypeForTagging_Automation :: ResourceTypeForTagging
+pattern ResourceTypeForTagging_Automation = ResourceTypeForTagging' "Automation"
+
 pattern ResourceTypeForTagging_Document :: ResourceTypeForTagging
 pattern ResourceTypeForTagging_Document = ResourceTypeForTagging' "Document"
 
@@ -84,6 +88,7 @@ pattern ResourceTypeForTagging_PatchBaseline :: ResourceTypeForTagging
 pattern ResourceTypeForTagging_PatchBaseline = ResourceTypeForTagging' "PatchBaseline"
 
 {-# COMPLETE
+  ResourceTypeForTagging_Automation,
   ResourceTypeForTagging_Document,
   ResourceTypeForTagging_MaintenanceWindow,
   ResourceTypeForTagging_ManagedInstance,

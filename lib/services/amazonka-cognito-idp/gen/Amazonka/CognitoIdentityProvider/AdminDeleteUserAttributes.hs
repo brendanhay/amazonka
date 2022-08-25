@@ -60,7 +60,7 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
     -- | The user name of the user from which you would like to delete
     -- attributes.
     username :: Core.Sensitive Prelude.Text,
-    -- | An array of strings representing the user attribute names you wish to
+    -- | An array of strings representing the user attribute names you want to
     -- delete.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the
@@ -83,7 +83,7 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
 -- 'username', 'adminDeleteUserAttributes_username' - The user name of the user from which you would like to delete
 -- attributes.
 --
--- 'userAttributeNames', 'adminDeleteUserAttributes_userAttributeNames' - An array of strings representing the user attribute names you wish to
+-- 'userAttributeNames', 'adminDeleteUserAttributes_userAttributeNames' - An array of strings representing the user attribute names you want to
 -- delete.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the
@@ -112,7 +112,7 @@ adminDeleteUserAttributes_userPoolId = Lens.lens (\AdminDeleteUserAttributes' {u
 adminDeleteUserAttributes_username :: Lens.Lens' AdminDeleteUserAttributes Prelude.Text
 adminDeleteUserAttributes_username = Lens.lens (\AdminDeleteUserAttributes' {username} -> username) (\s@AdminDeleteUserAttributes' {} a -> s {username = a} :: AdminDeleteUserAttributes) Prelude.. Core._Sensitive
 
--- | An array of strings representing the user attribute names you wish to
+-- | An array of strings representing the user attribute names you want to
 -- delete.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the

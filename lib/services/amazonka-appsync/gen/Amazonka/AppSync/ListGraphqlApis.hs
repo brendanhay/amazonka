@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListGraphqlApis' smart constructor.
 data ListGraphqlApis = ListGraphqlApis'
   { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
+    -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results you want the request to return.
+    -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,10 +70,10 @@ data ListGraphqlApis = ListGraphqlApis'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listGraphqlApis_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 --
--- 'maxResults', 'listGraphqlApis_maxResults' - The maximum number of results you want the request to return.
+-- 'maxResults', 'listGraphqlApis_maxResults' - The maximum number of results that you want the request to return.
 newListGraphqlApis ::
   ListGraphqlApis
 newListGraphqlApis =
@@ -83,12 +83,12 @@ newListGraphqlApis =
     }
 
 -- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 listGraphqlApis_nextToken :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Text)
 listGraphqlApis_nextToken = Lens.lens (\ListGraphqlApis' {nextToken} -> nextToken) (\s@ListGraphqlApis' {} a -> s {nextToken = a} :: ListGraphqlApis)
 
--- | The maximum number of results you want the request to return.
+-- | The maximum number of results that you want the request to return.
 listGraphqlApis_maxResults :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Natural)
 listGraphqlApis_maxResults = Lens.lens (\ListGraphqlApis' {maxResults} -> maxResults) (\s@ListGraphqlApis' {} a -> s {maxResults = a} :: ListGraphqlApis)
 
@@ -161,8 +161,8 @@ instance Core.ToQuery ListGraphqlApis where
 
 -- | /See:/ 'newListGraphqlApisResponse' smart constructor.
 data ListGraphqlApisResponse = ListGraphqlApisResponse'
-  { -- | An identifier to be passed in the next request to this operation to
-    -- return the next set of items in the list.
+  { -- | An identifier to pass in the next request to this operation to return
+    -- the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The @GraphqlApi@ objects.
     graphqlApis :: Prelude.Maybe [GraphqlApi],
@@ -179,8 +179,8 @@ data ListGraphqlApisResponse = ListGraphqlApisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGraphqlApisResponse_nextToken' - An identifier to be passed in the next request to this operation to
--- return the next set of items in the list.
+-- 'nextToken', 'listGraphqlApisResponse_nextToken' - An identifier to pass in the next request to this operation to return
+-- the next set of items in the list.
 --
 -- 'graphqlApis', 'listGraphqlApisResponse_graphqlApis' - The @GraphqlApi@ objects.
 --
@@ -197,8 +197,8 @@ newListGraphqlApisResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An identifier to be passed in the next request to this operation to
--- return the next set of items in the list.
+-- | An identifier to pass in the next request to this operation to return
+-- the next set of items in the list.
 listGraphqlApisResponse_nextToken :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe Prelude.Text)
 listGraphqlApisResponse_nextToken = Lens.lens (\ListGraphqlApisResponse' {nextToken} -> nextToken) (\s@ListGraphqlApisResponse' {} a -> s {nextToken = a} :: ListGraphqlApisResponse)
 

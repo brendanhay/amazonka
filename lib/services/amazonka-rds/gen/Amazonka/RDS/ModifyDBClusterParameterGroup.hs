@@ -25,10 +25,6 @@
 -- @ParameterValue@, and @ApplyMethod@. A maximum of 20 parameters can be
 -- modified in a single request.
 --
--- For more information on Amazon Aurora, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
--- in the /Amazon Aurora User Guide./
---
 -- After you create a DB cluster parameter group, you should wait at least
 -- 5 minutes before creating your first DB cluster that uses that DB
 -- cluster parameter group as the default parameter group. This allows
@@ -39,16 +35,22 @@
 -- database defined by the @character_set_database@ parameter. You can use
 -- the /Parameter Groups/ option of the
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
--- @DescribeDBClusterParameters@ action to verify that your DB cluster
+-- @DescribeDBClusterParameters@ operation to verify that your DB cluster
 -- parameter group has been created or modified.
 --
 -- If the modified DB cluster parameter group is used by an Aurora
--- Serverless cluster, Aurora applies the update immediately. The cluster
--- restart might interrupt your workload. In that case, your application
--- must reopen any connections and retry any transactions that were active
--- when the parameter changes took effect.
+-- Serverless v1 cluster, Aurora applies the update immediately. The
+-- cluster restart might interrupt your workload. In that case, your
+-- application must reopen any connections and retry any transactions that
+-- were active when the parameter changes took effect.
 --
--- This action only applies to Aurora DB clusters.
+-- For more information on Amazon Aurora DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide/.
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide./
 module Amazonka.RDS.ModifyDBClusterParameterGroup
   ( -- * Creating a Request
     ModifyDBClusterParameterGroup (..),

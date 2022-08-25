@@ -20,11 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tag a resource. For more information, see /AWS Proton resources and
--- tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- Tag a resource. A tag is a key-value pair of metadata that you associate
+-- with an Proton resource.
+--
+-- For more information, see /Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 module Amazonka.Proton.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -52,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource that the resource tag is
-    -- applied to.
+  { -- | The Amazon Resource Name (ARN) of the Proton resource to apply customer
+    -- tags to.
     resourceArn :: Prelude.Text,
-    -- | An array of resource tags to apply to a resource.
+    -- | A list of customer tags to apply to the Proton resource.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,10 +70,10 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that the resource tag is
--- applied to.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the Proton resource to apply customer
+-- tags to.
 --
--- 'tags', 'tagResource_tags' - An array of resource tags to apply to a resource.
+-- 'tags', 'tagResource_tags' - A list of customer tags to apply to the Proton resource.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -82,12 +84,12 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource that the resource tag is
--- applied to.
+-- | The Amazon Resource Name (ARN) of the Proton resource to apply customer
+-- tags to.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | An array of resource tags to apply to a resource.
+-- | A list of customer tags to apply to the Proton resource.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

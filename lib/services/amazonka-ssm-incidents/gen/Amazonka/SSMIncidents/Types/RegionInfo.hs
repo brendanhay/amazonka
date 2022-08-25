@@ -24,17 +24,20 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.RegionStatus
 
--- | Information about a Region in your replication set.
+-- | Information about a Amazon Web Services Region in your replication set.
 --
 -- /See:/ 'newRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { -- | The ID of the KMS key used to encrypt the data in this Region.
+  { -- | The ID of the KMS key used to encrypt the data in this Amazon Web
+    -- Services Region.
     sseKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Information displayed about the status of the Region.
+    -- | Information displayed about the status of the Amazon Web Services
+    -- Region.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Region in the replication set.
+    -- | The status of the Amazon Web Services Region in the replication set.
     status :: RegionStatus,
-    -- | The most recent date and time that the Region\'s status was updated.
+    -- | The most recent date and time that Incident Manager updated the Amazon
+    -- Web Services Region\'s status.
     statusUpdateDateTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,13 +50,16 @@ data RegionInfo = RegionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sseKmsKeyId', 'regionInfo_sseKmsKeyId' - The ID of the KMS key used to encrypt the data in this Region.
+-- 'sseKmsKeyId', 'regionInfo_sseKmsKeyId' - The ID of the KMS key used to encrypt the data in this Amazon Web
+-- Services Region.
 --
--- 'statusMessage', 'regionInfo_statusMessage' - Information displayed about the status of the Region.
+-- 'statusMessage', 'regionInfo_statusMessage' - Information displayed about the status of the Amazon Web Services
+-- Region.
 --
--- 'status', 'regionInfo_status' - The status of the Region in the replication set.
+-- 'status', 'regionInfo_status' - The status of the Amazon Web Services Region in the replication set.
 --
--- 'statusUpdateDateTime', 'regionInfo_statusUpdateDateTime' - The most recent date and time that the Region\'s status was updated.
+-- 'statusUpdateDateTime', 'regionInfo_statusUpdateDateTime' - The most recent date and time that Incident Manager updated the Amazon
+-- Web Services Region\'s status.
 newRegionInfo ::
   -- | 'status'
   RegionStatus ->
@@ -69,19 +75,22 @@ newRegionInfo pStatus_ pStatusUpdateDateTime_ =
         Core._Time Lens.# pStatusUpdateDateTime_
     }
 
--- | The ID of the KMS key used to encrypt the data in this Region.
+-- | The ID of the KMS key used to encrypt the data in this Amazon Web
+-- Services Region.
 regionInfo_sseKmsKeyId :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_sseKmsKeyId = Lens.lens (\RegionInfo' {sseKmsKeyId} -> sseKmsKeyId) (\s@RegionInfo' {} a -> s {sseKmsKeyId = a} :: RegionInfo)
 
--- | Information displayed about the status of the Region.
+-- | Information displayed about the status of the Amazon Web Services
+-- Region.
 regionInfo_statusMessage :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_statusMessage = Lens.lens (\RegionInfo' {statusMessage} -> statusMessage) (\s@RegionInfo' {} a -> s {statusMessage = a} :: RegionInfo)
 
--- | The status of the Region in the replication set.
+-- | The status of the Amazon Web Services Region in the replication set.
 regionInfo_status :: Lens.Lens' RegionInfo RegionStatus
 regionInfo_status = Lens.lens (\RegionInfo' {status} -> status) (\s@RegionInfo' {} a -> s {status = a} :: RegionInfo)
 
--- | The most recent date and time that the Region\'s status was updated.
+-- | The most recent date and time that Incident Manager updated the Amazon
+-- Web Services Region\'s status.
 regionInfo_statusUpdateDateTime :: Lens.Lens' RegionInfo Prelude.UTCTime
 regionInfo_statusUpdateDateTime = Lens.lens (\RegionInfo' {statusUpdateDateTime} -> statusUpdateDateTime) (\s@RegionInfo' {} a -> s {statusUpdateDateTime = a} :: RegionInfo) Prelude.. Core._Time
 

@@ -31,9 +31,9 @@ module Amazonka.Location.CreateTracker
     createTracker_tags,
     createTracker_description,
     createTracker_pricingPlanDataSource,
+    createTracker_pricingPlan,
     createTracker_kmsKeyId,
     createTracker_positionFiltering,
-    createTracker_pricingPlan,
     createTracker_trackerName,
 
     -- * Destructuring the Response
@@ -75,26 +75,16 @@ data CreateTracker = CreateTracker'
     --
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
     --     characters: + - = . _ : \/ \@.
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An optional description for the tracker resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the data provider for the tracker resource.
-    --
-    -- -   Required value for the following pricing plans:
-    --     @MobileAssetTracking @| @MobileAssetManagement@
-    --
-    -- For more information about
-    -- <https://aws.amazon.com/location/data-providers/ Data Providers>, and
-    -- <https://aws.amazon.com/location/pricing/ Pricing plans>, see the Amazon
-    -- Location Service product page.
-    --
-    -- Amazon Location Service only uses @PricingPlanDataSource@ to calculate
-    -- billing for your tracker resource. Your data will not be shared with the
-    -- data provider, and will remain in your AWS account or Region unless you
-    -- move it.
-    --
-    -- Valid values: @Esri@ | @Here@
+    -- | This parameter is no longer used.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
@@ -109,21 +99,26 @@ data CreateTracker = CreateTracker'
     --     seconds is stored for each unique device ID.
     --
     -- -   @DistanceBased@ - If the device has moved less than 30 m (98.4 ft),
-    --     location updates are ignored. Location updates within this distance
-    --     are neither evaluated against linked geofence collections, nor
-    --     stored. This helps control costs by reducing the number of geofence
-    --     evaluations and device positions to retrieve. Distance-based
-    --     filtering can also reduce the jitter effect when displaying device
-    --     trajectory on a map.
+    --     location updates are ignored. Location updates within this area are
+    --     neither evaluated against linked geofence collections, nor stored.
+    --     This helps control costs by reducing the number of geofence
+    --     evaluations and historical device positions to paginate through.
+    --     Distance-based filtering can also reduce the effects of GPS noise
+    --     when displaying device trajectories on a map.
+    --
+    -- -   @AccuracyBased@ - If the device has moved less than the measured
+    --     accuracy, location updates are ignored. For example, if two
+    --     consecutive updates from a device have a horizontal accuracy of 5 m
+    --     and 10 m, the second update is ignored if the device has moved less
+    --     than 15 m. Ignored location updates are neither evaluated against
+    --     linked geofence collections, nor stored. This can reduce the effects
+    --     of GPS noise when displaying device trajectories on a map, and can
+    --     help control your costs by reducing the number of geofence
+    --     evaluations.
     --
     -- This field is optional. If not specified, the default value is
     -- @TimeBased@.
     positionFiltering :: Prelude.Maybe PositionFiltering,
-    -- | Specifies the pricing plan for the tracker resource.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: PricingPlan,
     -- | The name for the tracker resource.
     --
     -- Requirements:
@@ -165,24 +160,14 @@ data CreateTracker = CreateTracker'
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
 --
+-- -   Cannot use \"aws:\" as a prefix for a key.
+--
 -- 'description', 'createTracker_description' - An optional description for the tracker resource.
 --
--- 'pricingPlanDataSource', 'createTracker_pricingPlanDataSource' - Specifies the data provider for the tracker resource.
+-- 'pricingPlanDataSource', 'createTracker_pricingPlanDataSource' - This parameter is no longer used.
 --
--- -   Required value for the following pricing plans:
---     @MobileAssetTracking @| @MobileAssetManagement@
---
--- For more information about
--- <https://aws.amazon.com/location/data-providers/ Data Providers>, and
--- <https://aws.amazon.com/location/pricing/ Pricing plans>, see the Amazon
--- Location Service product page.
---
--- Amazon Location Service only uses @PricingPlanDataSource@ to calculate
--- billing for your tracker resource. Your data will not be shared with the
--- data provider, and will remain in your AWS account or Region unless you
--- move it.
---
--- Valid values: @Esri@ | @Here@
+-- 'pricingPlan', 'createTracker_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'kmsKeyId', 'createTracker_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
@@ -198,20 +183,25 @@ data CreateTracker = CreateTracker'
 --     seconds is stored for each unique device ID.
 --
 -- -   @DistanceBased@ - If the device has moved less than 30 m (98.4 ft),
---     location updates are ignored. Location updates within this distance
---     are neither evaluated against linked geofence collections, nor
---     stored. This helps control costs by reducing the number of geofence
---     evaluations and device positions to retrieve. Distance-based
---     filtering can also reduce the jitter effect when displaying device
---     trajectory on a map.
+--     location updates are ignored. Location updates within this area are
+--     neither evaluated against linked geofence collections, nor stored.
+--     This helps control costs by reducing the number of geofence
+--     evaluations and historical device positions to paginate through.
+--     Distance-based filtering can also reduce the effects of GPS noise
+--     when displaying device trajectories on a map.
+--
+-- -   @AccuracyBased@ - If the device has moved less than the measured
+--     accuracy, location updates are ignored. For example, if two
+--     consecutive updates from a device have a horizontal accuracy of 5 m
+--     and 10 m, the second update is ignored if the device has moved less
+--     than 15 m. Ignored location updates are neither evaluated against
+--     linked geofence collections, nor stored. This can reduce the effects
+--     of GPS noise when displaying device trajectories on a map, and can
+--     help control your costs by reducing the number of geofence
+--     evaluations.
 --
 -- This field is optional. If not specified, the default value is
 -- @TimeBased@.
---
--- 'pricingPlan', 'createTracker_pricingPlan' - Specifies the pricing plan for the tracker resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 --
 -- 'trackerName', 'createTracker_trackerName' - The name for the tracker resource.
 --
@@ -224,19 +214,17 @@ data CreateTracker = CreateTracker'
 --
 -- -   No spaces allowed. For example, @ExampleTracker@.
 newCreateTracker ::
-  -- | 'pricingPlan'
-  PricingPlan ->
   -- | 'trackerName'
   Prelude.Text ->
   CreateTracker
-newCreateTracker pPricingPlan_ pTrackerName_ =
+newCreateTracker pTrackerName_ =
   CreateTracker'
     { tags = Prelude.Nothing,
       description = Prelude.Nothing,
       pricingPlanDataSource = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       positionFiltering = Prelude.Nothing,
-      pricingPlan = pPricingPlan_,
       trackerName = pTrackerName_
     }
 
@@ -258,6 +246,8 @@ newCreateTracker pPricingPlan_ pTrackerName_ =
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 createTracker_tags :: Lens.Lens' CreateTracker (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createTracker_tags = Lens.lens (\CreateTracker' {tags} -> tags) (\s@CreateTracker' {} a -> s {tags = a} :: CreateTracker) Prelude.. Lens.mapping Lens.coerced
 
@@ -265,24 +255,14 @@ createTracker_tags = Lens.lens (\CreateTracker' {tags} -> tags) (\s@CreateTracke
 createTracker_description :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
 createTracker_description = Lens.lens (\CreateTracker' {description} -> description) (\s@CreateTracker' {} a -> s {description = a} :: CreateTracker)
 
--- | Specifies the data provider for the tracker resource.
---
--- -   Required value for the following pricing plans:
---     @MobileAssetTracking @| @MobileAssetManagement@
---
--- For more information about
--- <https://aws.amazon.com/location/data-providers/ Data Providers>, and
--- <https://aws.amazon.com/location/pricing/ Pricing plans>, see the Amazon
--- Location Service product page.
---
--- Amazon Location Service only uses @PricingPlanDataSource@ to calculate
--- billing for your tracker resource. Your data will not be shared with the
--- data provider, and will remain in your AWS account or Region unless you
--- move it.
---
--- Valid values: @Esri@ | @Here@
+-- | This parameter is no longer used.
 createTracker_pricingPlanDataSource :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
 createTracker_pricingPlanDataSource = Lens.lens (\CreateTracker' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@CreateTracker' {} a -> s {pricingPlanDataSource = a} :: CreateTracker)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createTracker_pricingPlan :: Lens.Lens' CreateTracker (Prelude.Maybe PricingPlan)
+createTracker_pricingPlan = Lens.lens (\CreateTracker' {pricingPlan} -> pricingPlan) (\s@CreateTracker' {} a -> s {pricingPlan = a} :: CreateTracker)
 
 -- | A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
@@ -300,24 +280,27 @@ createTracker_kmsKeyId = Lens.lens (\CreateTracker' {kmsKeyId} -> kmsKeyId) (\s@
 --     seconds is stored for each unique device ID.
 --
 -- -   @DistanceBased@ - If the device has moved less than 30 m (98.4 ft),
---     location updates are ignored. Location updates within this distance
---     are neither evaluated against linked geofence collections, nor
---     stored. This helps control costs by reducing the number of geofence
---     evaluations and device positions to retrieve. Distance-based
---     filtering can also reduce the jitter effect when displaying device
---     trajectory on a map.
+--     location updates are ignored. Location updates within this area are
+--     neither evaluated against linked geofence collections, nor stored.
+--     This helps control costs by reducing the number of geofence
+--     evaluations and historical device positions to paginate through.
+--     Distance-based filtering can also reduce the effects of GPS noise
+--     when displaying device trajectories on a map.
+--
+-- -   @AccuracyBased@ - If the device has moved less than the measured
+--     accuracy, location updates are ignored. For example, if two
+--     consecutive updates from a device have a horizontal accuracy of 5 m
+--     and 10 m, the second update is ignored if the device has moved less
+--     than 15 m. Ignored location updates are neither evaluated against
+--     linked geofence collections, nor stored. This can reduce the effects
+--     of GPS noise when displaying device trajectories on a map, and can
+--     help control your costs by reducing the number of geofence
+--     evaluations.
 --
 -- This field is optional. If not specified, the default value is
 -- @TimeBased@.
 createTracker_positionFiltering :: Lens.Lens' CreateTracker (Prelude.Maybe PositionFiltering)
 createTracker_positionFiltering = Lens.lens (\CreateTracker' {positionFiltering} -> positionFiltering) (\s@CreateTracker' {} a -> s {positionFiltering = a} :: CreateTracker)
-
--- | Specifies the pricing plan for the tracker resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-createTracker_pricingPlan :: Lens.Lens' CreateTracker PricingPlan
-createTracker_pricingPlan = Lens.lens (\CreateTracker' {pricingPlan} -> pricingPlan) (\s@CreateTracker' {} a -> s {pricingPlan = a} :: CreateTracker)
 
 -- | The name for the tracker resource.
 --
@@ -352,9 +335,9 @@ instance Prelude.Hashable CreateTracker where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` positionFiltering
-      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData CreateTracker where
@@ -362,9 +345,9 @@ instance Prelude.NFData CreateTracker where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf positionFiltering
-      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf trackerName
 
 instance Core.ToHeaders CreateTracker where
@@ -386,10 +369,10 @@ instance Core.ToJSON CreateTracker where
             ("Description" Core..=) Prelude.<$> description,
             ("PricingPlanDataSource" Core..=)
               Prelude.<$> pricingPlanDataSource,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("PositionFiltering" Core..=)
               Prelude.<$> positionFiltering,
-            Prelude.Just ("PricingPlan" Core..= pricingPlan),
             Prelude.Just ("TrackerName" Core..= trackerName)
           ]
       )

@@ -101,6 +101,7 @@ library
     Amazonka.SecurityHub.Types.Adjustment
     Amazonka.SecurityHub.Types.AdminAccount
     Amazonka.SecurityHub.Types.AdminStatus
+    Amazonka.SecurityHub.Types.AutoEnableStandards
     Amazonka.SecurityHub.Types.AvailabilityZone
     Amazonka.SecurityHub.Types.AwsApiCallAction
     Amazonka.SecurityHub.Types.AwsApiCallActionDomainDetails
@@ -113,11 +114,31 @@ library
     Amazonka.SecurityHub.Types.AwsApiGatewayV2ApiDetails
     Amazonka.SecurityHub.Types.AwsApiGatewayV2RouteSettings
     Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
     Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
+    Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
     Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
     Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
     Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationDetails
     Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
+    Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationMetadataOptions
+    Amazonka.SecurityHub.Types.AwsBackupBackupPlanAdvancedBackupSettingsDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupPlanBackupPlanDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupPlanDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleCopyActionsDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupVaultDetails
+    Amazonka.SecurityHub.Types.AwsBackupBackupVaultNotificationsDetails
+    Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCalculatedLifecycleDetails
+    Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCreatedByDetails
+    Amazonka.SecurityHub.Types.AwsBackupRecoveryPointDetails
+    Amazonka.SecurityHub.Types.AwsBackupRecoveryPointLifecycleDetails
     Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDetails
     Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDomainValidationOption
     Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateExtendedKeyUsage
@@ -125,11 +146,15 @@ library
     Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateOptions
     Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateRenewalSummary
     Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateResourceRecord
+    Amazonka.SecurityHub.Types.AwsCloudFormationStackDetails
+    Amazonka.SecurityHub.Types.AwsCloudFormationStackDriftInformationDetails
+    Amazonka.SecurityHub.Types.AwsCloudFormationStackOutputsDetails
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionCacheBehavior
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionCacheBehaviors
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDefaultCacheBehavior
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDetails
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionLogging
+    Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginCustomOriginConfig
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroup
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroupFailover
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
@@ -137,8 +162,11 @@ library
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginItem
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOrigins
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginS3OriginConfig
+    Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginSslProtocols
     Amazonka.SecurityHub.Types.AwsCloudFrontDistributionViewerCertificate
     Amazonka.SecurityHub.Types.AwsCloudTrailTrailDetails
+    Amazonka.SecurityHub.Types.AwsCloudWatchAlarmDetails
+    Amazonka.SecurityHub.Types.AwsCloudWatchAlarmDimensionsDetails
     Amazonka.SecurityHub.Types.AwsCodeBuildProjectArtifactsDetails
     Amazonka.SecurityHub.Types.AwsCodeBuildProjectDetails
     Amazonka.SecurityHub.Types.AwsCodeBuildProjectEnvironment
@@ -166,6 +194,7 @@ library
     Amazonka.SecurityHub.Types.AwsDynamoDbTableStreamSpecification
     Amazonka.SecurityHub.Types.AwsEc2EipDetails
     Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
+    Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
     Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
     Amazonka.SecurityHub.Types.AwsEc2NetworkAclAssociation
     Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
@@ -182,11 +211,15 @@ library
     Amazonka.SecurityHub.Types.AwsEc2SecurityGroupPrefixListId
     Amazonka.SecurityHub.Types.AwsEc2SecurityGroupUserIdGroupPair
     Amazonka.SecurityHub.Types.AwsEc2SubnetDetails
+    Amazonka.SecurityHub.Types.AwsEc2TransitGatewayDetails
     Amazonka.SecurityHub.Types.AwsEc2VolumeAttachment
     Amazonka.SecurityHub.Types.AwsEc2VolumeDetails
     Amazonka.SecurityHub.Types.AwsEc2VpcDetails
     Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceDetails
     Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceServiceTypeDetails
+    Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionDetails
+    Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionStatusDetails
+    Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionVpcInfoDetails
     Amazonka.SecurityHub.Types.AwsEc2VpnConnectionDetails
     Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsDetails
     Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsTunnelOptionsDetails
@@ -202,6 +235,7 @@ library
     Amazonka.SecurityHub.Types.AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
     Amazonka.SecurityHub.Types.AwsEcsClusterDefaultCapacityProviderStrategyDetails
     Amazonka.SecurityHub.Types.AwsEcsClusterDetails
+    Amazonka.SecurityHub.Types.AwsEcsContainerDetails
     Amazonka.SecurityHub.Types.AwsEcsServiceCapacityProviderStrategyDetails
     Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
     Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDetails
@@ -244,6 +278,13 @@ library
     Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
     Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
     Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesHostDetails
+    Amazonka.SecurityHub.Types.AwsEcsTaskDetails
+    Amazonka.SecurityHub.Types.AwsEcsTaskVolumeDetails
+    Amazonka.SecurityHub.Types.AwsEcsTaskVolumeHostDetails
+    Amazonka.SecurityHub.Types.AwsEfsAccessPointDetails
+    Amazonka.SecurityHub.Types.AwsEfsAccessPointPosixUserDetails
+    Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryCreationInfoDetails
+    Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryDetails
     Amazonka.SecurityHub.Types.AwsEksClusterDetails
     Amazonka.SecurityHub.Types.AwsEksClusterLoggingClusterLoggingDetails
     Amazonka.SecurityHub.Types.AwsEksClusterLoggingDetails
@@ -265,6 +306,7 @@ library
     Amazonka.SecurityHub.Types.AwsElbAppCookieStickinessPolicy
     Amazonka.SecurityHub.Types.AwsElbLbCookieStickinessPolicy
     Amazonka.SecurityHub.Types.AwsElbLoadBalancerAccessLog
+    Amazonka.SecurityHub.Types.AwsElbLoadBalancerAdditionalAttribute
     Amazonka.SecurityHub.Types.AwsElbLoadBalancerAttributes
     Amazonka.SecurityHub.Types.AwsElbLoadBalancerBackendServerDescription
     Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionDraining
@@ -296,6 +338,8 @@ library
     Amazonka.SecurityHub.Types.AwsIamRolePolicy
     Amazonka.SecurityHub.Types.AwsIamUserDetails
     Amazonka.SecurityHub.Types.AwsIamUserPolicy
+    Amazonka.SecurityHub.Types.AwsKinesisStreamDetails
+    Amazonka.SecurityHub.Types.AwsKinesisStreamStreamEncryptionDetails
     Amazonka.SecurityHub.Types.AwsKmsKeyDetails
     Amazonka.SecurityHub.Types.AwsLambdaFunctionCode
     Amazonka.SecurityHub.Types.AwsLambdaFunctionDeadLetterConfig
@@ -306,6 +350,12 @@ library
     Amazonka.SecurityHub.Types.AwsLambdaFunctionTracingConfig
     Amazonka.SecurityHub.Types.AwsLambdaFunctionVpcConfig
     Amazonka.SecurityHub.Types.AwsLambdaLayerVersionDetails
+    Amazonka.SecurityHub.Types.AwsMountPoint
+    Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallDetails
+    Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallPolicyDetails
+    Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallSubnetMappingsDetails
+    Amazonka.SecurityHub.Types.AwsNetworkFirewallRuleGroupDetails
+    Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails
@@ -313,6 +363,7 @@ library
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOption
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOptionsDetails
+    Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainMasterUserOptionsDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
     Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainVpcOptionsDetails
@@ -330,6 +381,9 @@ library
     Amazonka.SecurityHub.Types.AwsRdsDbParameterGroup
     Amazonka.SecurityHub.Types.AwsRdsDbPendingModifiedValues
     Amazonka.SecurityHub.Types.AwsRdsDbProcessorFeature
+    Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupDetails
+    Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupEc2SecurityGroup
+    Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupIpRange
     Amazonka.SecurityHub.Types.AwsRdsDbSnapshotDetails
     Amazonka.SecurityHub.Types.AwsRdsDbStatusInfo
     Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroup
@@ -348,6 +402,7 @@ library
     Amazonka.SecurityHub.Types.AwsRedshiftClusterEndpoint
     Amazonka.SecurityHub.Types.AwsRedshiftClusterHsmStatus
     Amazonka.SecurityHub.Types.AwsRedshiftClusterIamRole
+    Amazonka.SecurityHub.Types.AwsRedshiftClusterLoggingStatus
     Amazonka.SecurityHub.Types.AwsRedshiftClusterPendingModifiedValues
     Amazonka.SecurityHub.Types.AwsRedshiftClusterResizeInfo
     Amazonka.SecurityHub.Types.AwsRedshiftClusterRestoreStatus
@@ -363,6 +418,7 @@ library
     Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
     Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
     Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
+    Amazonka.SecurityHub.Types.AwsS3BucketBucketVersioningConfiguration
     Amazonka.SecurityHub.Types.AwsS3BucketDetails
     Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration
     Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration
@@ -395,10 +451,25 @@ library
     Amazonka.SecurityHub.Types.AwsWafRateBasedRuleMatchPredicate
     Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails
     Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleMatchPredicate
+    Amazonka.SecurityHub.Types.AwsWafRegionalRuleDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesActionDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalRulePredicateListDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalWebAclDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListActionDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListDetails
+    Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListOverrideActionDetails
+    Amazonka.SecurityHub.Types.AwsWafRuleDetails
+    Amazonka.SecurityHub.Types.AwsWafRuleGroupDetails
+    Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesActionDetails
+    Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesDetails
+    Amazonka.SecurityHub.Types.AwsWafRulePredicateListDetails
     Amazonka.SecurityHub.Types.AwsWafWebAclDetails
     Amazonka.SecurityHub.Types.AwsWafWebAclRule
     Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails
     Amazonka.SecurityHub.Types.BatchUpdateFindingsUnprocessedFinding
+    Amazonka.SecurityHub.Types.BooleanFilter
     Amazonka.SecurityHub.Types.Cell
     Amazonka.SecurityHub.Types.CidrBlockAssociation
     Amazonka.SecurityHub.Types.City
@@ -417,9 +488,14 @@ library
     Amazonka.SecurityHub.Types.DateRange
     Amazonka.SecurityHub.Types.DateRangeUnit
     Amazonka.SecurityHub.Types.DnsRequestAction
+    Amazonka.SecurityHub.Types.FilePaths
     Amazonka.SecurityHub.Types.FindingAggregator
     Amazonka.SecurityHub.Types.FindingProviderFields
     Amazonka.SecurityHub.Types.FindingProviderSeverity
+    Amazonka.SecurityHub.Types.FirewallPolicyDetails
+    Amazonka.SecurityHub.Types.FirewallPolicyStatefulRuleGroupReferencesDetails
+    Amazonka.SecurityHub.Types.FirewallPolicyStatelessCustomActionsDetails
+    Amazonka.SecurityHub.Types.FirewallPolicyStatelessRuleGroupReferencesDetails
     Amazonka.SecurityHub.Types.GeoLocation
     Amazonka.SecurityHub.Types.IcmpTypeCode
     Amazonka.SecurityHub.Types.ImportFindingsError
@@ -467,6 +543,25 @@ library
     Amazonka.SecurityHub.Types.Resource
     Amazonka.SecurityHub.Types.ResourceDetails
     Amazonka.SecurityHub.Types.Result
+    Amazonka.SecurityHub.Types.RuleGroupDetails
+    Amazonka.SecurityHub.Types.RuleGroupSource
+    Amazonka.SecurityHub.Types.RuleGroupSourceCustomActionsDetails
+    Amazonka.SecurityHub.Types.RuleGroupSourceListDetails
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesDetails
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesHeaderDetails
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesOptionsDetails
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleDefinition
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributes
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesDestinations
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesSources
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesAndCustomActionsDetails
+    Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesDetails
+    Amazonka.SecurityHub.Types.RuleGroupVariables
+    Amazonka.SecurityHub.Types.RuleGroupVariablesIpSetsDetails
+    Amazonka.SecurityHub.Types.RuleGroupVariablesPortSetsDetails
     Amazonka.SecurityHub.Types.SensitiveDataDetections
     Amazonka.SecurityHub.Types.SensitiveDataResult
     Amazonka.SecurityHub.Types.Severity
@@ -479,16 +574,27 @@ library
     Amazonka.SecurityHub.Types.Standard
     Amazonka.SecurityHub.Types.StandardsControl
     Amazonka.SecurityHub.Types.StandardsStatus
+    Amazonka.SecurityHub.Types.StandardsStatusReason
     Amazonka.SecurityHub.Types.StandardsSubscription
     Amazonka.SecurityHub.Types.StandardsSubscriptionRequest
+    Amazonka.SecurityHub.Types.StatelessCustomActionDefinition
+    Amazonka.SecurityHub.Types.StatelessCustomPublishMetricAction
+    Amazonka.SecurityHub.Types.StatelessCustomPublishMetricActionDimension
     Amazonka.SecurityHub.Types.StatusReason
+    Amazonka.SecurityHub.Types.StatusReasonCode
     Amazonka.SecurityHub.Types.StringFilter
     Amazonka.SecurityHub.Types.StringFilterComparison
+    Amazonka.SecurityHub.Types.Threat
     Amazonka.SecurityHub.Types.ThreatIntelIndicator
     Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory
     Amazonka.SecurityHub.Types.ThreatIntelIndicatorType
     Amazonka.SecurityHub.Types.VerificationState
+    Amazonka.SecurityHub.Types.VolumeMount
+    Amazonka.SecurityHub.Types.VpcInfoCidrBlockSetDetails
+    Amazonka.SecurityHub.Types.VpcInfoIpv6CidrBlockSetDetails
+    Amazonka.SecurityHub.Types.VpcInfoPeeringOptionsDetails
     Amazonka.SecurityHub.Types.Vulnerability
+    Amazonka.SecurityHub.Types.VulnerabilityFixAvailable
     Amazonka.SecurityHub.Types.VulnerabilityVendor
     Amazonka.SecurityHub.Types.WafAction
     Amazonka.SecurityHub.Types.WafExcludedRule

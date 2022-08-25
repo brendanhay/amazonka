@@ -181,8 +181,8 @@ instance Core.ToQuery GetSchemaByDefinition where
 data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
   { -- | The date and time the schema was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The data format of the schema definition. Currently only @AVRO@ and
-    -- @JSON@ are supported.
+    -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+    -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
     -- | The status of the schema version.
     status :: Prelude.Maybe SchemaVersionStatus,
@@ -205,8 +205,8 @@ data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
 --
 -- 'createdTime', 'getSchemaByDefinitionResponse_createdTime' - The date and time the schema was created.
 --
--- 'dataFormat', 'getSchemaByDefinitionResponse_dataFormat' - The data format of the schema definition. Currently only @AVRO@ and
--- @JSON@ are supported.
+-- 'dataFormat', 'getSchemaByDefinitionResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 --
 -- 'status', 'getSchemaByDefinitionResponse_status' - The status of the schema version.
 --
@@ -234,8 +234,8 @@ newGetSchemaByDefinitionResponse pHttpStatus_ =
 getSchemaByDefinitionResponse_createdTime :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSchemaByDefinitionResponse_createdTime = Lens.lens (\GetSchemaByDefinitionResponse' {createdTime} -> createdTime) (\s@GetSchemaByDefinitionResponse' {} a -> s {createdTime = a} :: GetSchemaByDefinitionResponse)
 
--- | The data format of the schema definition. Currently only @AVRO@ and
--- @JSON@ are supported.
+-- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 getSchemaByDefinitionResponse_dataFormat :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe DataFormat)
 getSchemaByDefinitionResponse_dataFormat = Lens.lens (\GetSchemaByDefinitionResponse' {dataFormat} -> dataFormat) (\s@GetSchemaByDefinitionResponse' {} a -> s {dataFormat = a} :: GetSchemaByDefinitionResponse)
 

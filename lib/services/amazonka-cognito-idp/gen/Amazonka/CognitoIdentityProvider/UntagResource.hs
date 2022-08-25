@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified tags from an Amazon Cognito user pool. You can use
--- this action up to 5 times per second, per account
+-- this action up to 5 times per second, per account.
 module Amazonka.CognitoIdentityProvider.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

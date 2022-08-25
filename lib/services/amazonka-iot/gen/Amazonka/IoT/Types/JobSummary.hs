@@ -31,12 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 data JobSummary = JobSummary'
   { -- | The time, in seconds since the epoch, when the job was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | Indicates whether a job is concurrent. Will be true when a job is
+    -- rolling out new job executions or canceling previously created
+    -- executions, otherwise false.
+    isConcurrent :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
     -- complete after all those things specified as targets have completed the
     -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
     -- change is detected in a target. For example, a job will run on a thing
     -- when the thing is added to a target group, even after the job was
     -- completed by all things originally in the group.
+    --
+    -- We recommend that you use continuous jobs instead of snapshot jobs for
+    -- dynamic thing group targets. By using continuous jobs, devices that join
+    -- the group receive the job execution even after the job has been created.
     targetSelection :: Prelude.Maybe TargetSelection,
     -- | The unique identifier you assigned to this job when it was created.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -63,12 +71,20 @@ data JobSummary = JobSummary'
 --
 -- 'lastUpdatedAt', 'jobSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
 --
+-- 'isConcurrent', 'jobSummary_isConcurrent' - Indicates whether a job is concurrent. Will be true when a job is
+-- rolling out new job executions or canceling previously created
+-- executions, otherwise false.
+--
 -- 'targetSelection', 'jobSummary_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
 -- complete after all those things specified as targets have completed the
 -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 --
 -- 'jobId', 'jobSummary_jobId' - The unique identifier you assigned to this job when it was created.
 --
@@ -86,6 +102,7 @@ newJobSummary ::
 newJobSummary =
   JobSummary'
     { lastUpdatedAt = Prelude.Nothing,
+      isConcurrent = Prelude.Nothing,
       targetSelection = Prelude.Nothing,
       jobId = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -99,12 +116,22 @@ newJobSummary =
 jobSummary_lastUpdatedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
 jobSummary_lastUpdatedAt = Lens.lens (\JobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobSummary' {} a -> s {lastUpdatedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
 
+-- | Indicates whether a job is concurrent. Will be true when a job is
+-- rolling out new job executions or canceling previously created
+-- executions, otherwise false.
+jobSummary_isConcurrent :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Bool)
+jobSummary_isConcurrent = Lens.lens (\JobSummary' {isConcurrent} -> isConcurrent) (\s@JobSummary' {} a -> s {isConcurrent = a} :: JobSummary)
+
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
 -- complete after all those things specified as targets have completed the
 -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 jobSummary_targetSelection :: Lens.Lens' JobSummary (Prelude.Maybe TargetSelection)
 jobSummary_targetSelection = Lens.lens (\JobSummary' {targetSelection} -> targetSelection) (\s@JobSummary' {} a -> s {targetSelection = a} :: JobSummary)
 
@@ -139,6 +166,7 @@ instance Core.FromJSON JobSummary where
       ( \x ->
           JobSummary'
             Prelude.<$> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "isConcurrent")
             Prelude.<*> (x Core..:? "targetSelection")
             Prelude.<*> (x Core..:? "jobId")
             Prelude.<*> (x Core..:? "status")
@@ -151,6 +179,7 @@ instance Core.FromJSON JobSummary where
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
     _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` isConcurrent
       `Prelude.hashWithSalt` targetSelection
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` status
@@ -162,6 +191,7 @@ instance Prelude.Hashable JobSummary where
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
     Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf isConcurrent
       `Prelude.seq` Prelude.rnf targetSelection
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf status

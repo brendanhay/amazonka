@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- subscriptions.
 --
 -- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
--- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.
+-- and @SAVINGS_PLANS_COVERAGE@ budgets don\'t have @CostTypes@.
 --
 -- /See:/ 'newCostTypes' smart constructor.
 data CostTypes = CostTypes'

@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterInlinePolicy' smart constructor.
 data ParameterInlinePolicy = ParameterInlinePolicy'
-  { -- | The type of policy. Parameter Store, a capablility of Amazon Web
-    -- Services Systems Manager, supports the following policy types:
-    -- Expiration, ExpirationNotification, and NoChangeNotification.
+  { -- | The type of policy. Parameter Store, a capability of Amazon Web Services
+    -- Systems Manager, supports the following policy types: Expiration,
+    -- ExpirationNotification, and NoChangeNotification.
     policyType :: Prelude.Maybe Prelude.Text,
     -- | The JSON text of the policy.
     policyText :: Prelude.Maybe Prelude.Text,
@@ -49,9 +49,9 @@ data ParameterInlinePolicy = ParameterInlinePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyType', 'parameterInlinePolicy_policyType' - The type of policy. Parameter Store, a capablility of Amazon Web
--- Services Systems Manager, supports the following policy types:
--- Expiration, ExpirationNotification, and NoChangeNotification.
+-- 'policyType', 'parameterInlinePolicy_policyType' - The type of policy. Parameter Store, a capability of Amazon Web Services
+-- Systems Manager, supports the following policy types: Expiration,
+-- ExpirationNotification, and NoChangeNotification.
 --
 -- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.
 --
@@ -69,9 +69,9 @@ newParameterInlinePolicy =
       policyStatus = Prelude.Nothing
     }
 
--- | The type of policy. Parameter Store, a capablility of Amazon Web
--- Services Systems Manager, supports the following policy types:
--- Expiration, ExpirationNotification, and NoChangeNotification.
+-- | The type of policy. Parameter Store, a capability of Amazon Web Services
+-- Systems Manager, supports the following policy types: Expiration,
+-- ExpirationNotification, and NoChangeNotification.
 parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
 

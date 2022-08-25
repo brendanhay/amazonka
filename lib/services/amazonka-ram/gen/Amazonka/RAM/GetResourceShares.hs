@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the resource shares that you own or the resource shares that are
+-- Retrieves details about the resource shares that you own or that are
 -- shared with you.
 --
 -- This operation returns paginated results.
@@ -59,24 +59,48 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceShares' smart constructor.
 data GetResourceShares = GetResourceShares'
-  { -- | The name of the resource share.
+  { -- | Specifies the name of an individual resource share that you want to
+    -- retrieve details about.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next page of results.
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The status of the resource share.
+    -- | Specifies that you want to retrieve details of only those resource
+    -- shares that have this status.
     resourceShareStatus :: Prelude.Maybe ResourceShareStatus,
-    -- | The Amazon Resource Name (ARN) of the RAM permission that is associated
-    -- with the resource share.
+    -- | Specifies that you want to retrieve details of only those resource
+    -- shares that use the RAM permission with this
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
     permissionArn :: Prelude.Maybe Prelude.Text,
-    -- | One or more tag filters.
+    -- | Specifies that you want to retrieve details of only those resource
+    -- shares that match the specified tag keys and values.
     tagFilters :: Prelude.Maybe [TagFilter],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | Specifies the total number of results that you want included on each
+    -- page of the response. If you do not include this parameter, it defaults
+    -- to a value that is specific to the operation. If additional items exist
+    -- beyond the number you specify, the @NextToken@ response element is
+    -- returned with a value (not null). Include the specified value as the
+    -- @NextToken@ request parameter in the next call to the operation to get
+    -- the next part of the results. Note that the service might return fewer
+    -- results than the maximum even when there are more results available. You
+    -- should check @NextToken@ after every operation to ensure that you
+    -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Names (ARNs) of the resource shares.
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- of individual resource shares that you want information about.
     resourceShareArns :: Prelude.Maybe [Prelude.Text],
-    -- | The type of owner.
+    -- | Specifies that you want to retrieve details of only those resource
+    -- shares that match the following:
+    --
+    -- -   __@SELF@__ – resource shares that your account shares with other
+    --     accounts
+    --
+    -- -   __@OTHER-ACCOUNTS@__ – resource shares that other accounts share
+    --     with your account
     resourceOwner :: ResourceOwner
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,24 +113,48 @@ data GetResourceShares = GetResourceShares'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getResourceShares_name' - The name of the resource share.
+-- 'name', 'getResourceShares_name' - Specifies the name of an individual resource share that you want to
+-- retrieve details about.
 --
--- 'nextToken', 'getResourceShares_nextToken' - The token for the next page of results.
+-- 'nextToken', 'getResourceShares_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 --
--- 'resourceShareStatus', 'getResourceShares_resourceShareStatus' - The status of the resource share.
+-- 'resourceShareStatus', 'getResourceShares_resourceShareStatus' - Specifies that you want to retrieve details of only those resource
+-- shares that have this status.
 --
--- 'permissionArn', 'getResourceShares_permissionArn' - The Amazon Resource Name (ARN) of the RAM permission that is associated
--- with the resource share.
+-- 'permissionArn', 'getResourceShares_permissionArn' - Specifies that you want to retrieve details of only those resource
+-- shares that use the RAM permission with this
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
 --
--- 'tagFilters', 'getResourceShares_tagFilters' - One or more tag filters.
+-- 'tagFilters', 'getResourceShares_tagFilters' - Specifies that you want to retrieve details of only those resource
+-- shares that match the specified tag keys and values.
 --
--- 'maxResults', 'getResourceShares_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'getResourceShares_maxResults' - Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 --
--- 'resourceShareArns', 'getResourceShares_resourceShareArns' - The Amazon Resource Names (ARNs) of the resource shares.
+-- 'resourceShareArns', 'getResourceShares_resourceShareArns' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- of individual resource shares that you want information about.
 --
--- 'resourceOwner', 'getResourceShares_resourceOwner' - The type of owner.
+-- 'resourceOwner', 'getResourceShares_resourceOwner' - Specifies that you want to retrieve details of only those resource
+-- shares that match the following:
+--
+-- -   __@SELF@__ – resource shares that your account shares with other
+--     accounts
+--
+-- -   __@OTHER-ACCOUNTS@__ – resource shares that other accounts share
+--     with your account
 newGetResourceShares ::
   -- | 'resourceOwner'
   ResourceOwner ->
@@ -123,38 +171,62 @@ newGetResourceShares pResourceOwner_ =
       resourceOwner = pResourceOwner_
     }
 
--- | The name of the resource share.
+-- | Specifies the name of an individual resource share that you want to
+-- retrieve details about.
 getResourceShares_name :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
 getResourceShares_name = Lens.lens (\GetResourceShares' {name} -> name) (\s@GetResourceShares' {} a -> s {name = a} :: GetResourceShares)
 
--- | The token for the next page of results.
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 getResourceShares_nextToken :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
 getResourceShares_nextToken = Lens.lens (\GetResourceShares' {nextToken} -> nextToken) (\s@GetResourceShares' {} a -> s {nextToken = a} :: GetResourceShares)
 
--- | The status of the resource share.
+-- | Specifies that you want to retrieve details of only those resource
+-- shares that have this status.
 getResourceShares_resourceShareStatus :: Lens.Lens' GetResourceShares (Prelude.Maybe ResourceShareStatus)
 getResourceShares_resourceShareStatus = Lens.lens (\GetResourceShares' {resourceShareStatus} -> resourceShareStatus) (\s@GetResourceShares' {} a -> s {resourceShareStatus = a} :: GetResourceShares)
 
--- | The Amazon Resource Name (ARN) of the RAM permission that is associated
--- with the resource share.
+-- | Specifies that you want to retrieve details of only those resource
+-- shares that use the RAM permission with this
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
 getResourceShares_permissionArn :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
 getResourceShares_permissionArn = Lens.lens (\GetResourceShares' {permissionArn} -> permissionArn) (\s@GetResourceShares' {} a -> s {permissionArn = a} :: GetResourceShares)
 
--- | One or more tag filters.
+-- | Specifies that you want to retrieve details of only those resource
+-- shares that match the specified tag keys and values.
 getResourceShares_tagFilters :: Lens.Lens' GetResourceShares (Prelude.Maybe [TagFilter])
 getResourceShares_tagFilters = Lens.lens (\GetResourceShares' {tagFilters} -> tagFilters) (\s@GetResourceShares' {} a -> s {tagFilters = a} :: GetResourceShares) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 getResourceShares_maxResults :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Natural)
 getResourceShares_maxResults = Lens.lens (\GetResourceShares' {maxResults} -> maxResults) (\s@GetResourceShares' {} a -> s {maxResults = a} :: GetResourceShares)
 
--- | The Amazon Resource Names (ARNs) of the resource shares.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- of individual resource shares that you want information about.
 getResourceShares_resourceShareArns :: Lens.Lens' GetResourceShares (Prelude.Maybe [Prelude.Text])
 getResourceShares_resourceShareArns = Lens.lens (\GetResourceShares' {resourceShareArns} -> resourceShareArns) (\s@GetResourceShares' {} a -> s {resourceShareArns = a} :: GetResourceShares) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of owner.
+-- | Specifies that you want to retrieve details of only those resource
+-- shares that match the following:
+--
+-- -   __@SELF@__ – resource shares that your account shares with other
+--     accounts
+--
+-- -   __@OTHER-ACCOUNTS@__ – resource shares that other accounts share
+--     with your account
 getResourceShares_resourceOwner :: Lens.Lens' GetResourceShares ResourceOwner
 getResourceShares_resourceOwner = Lens.lens (\GetResourceShares' {resourceOwner} -> resourceOwner) (\s@GetResourceShares' {} a -> s {resourceOwner = a} :: GetResourceShares)
 
@@ -253,10 +325,15 @@ instance Core.ToQuery GetResourceShares where
 
 -- | /See:/ 'newGetResourceSharesResponse' smart constructor.
 data GetResourceSharesResponse = GetResourceSharesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | If present, this value indicates that more output is available than is
+    -- included in the current response. Use this value in the @NextToken@
+    -- request parameter in a subsequent call to the operation to get the next
+    -- part of the output. You should repeat this until the @NextToken@
+    -- response element comes back as @null@. This indicates that this is the
+    -- last page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the resource shares.
+    -- | An array of objects that contain the information about the resource
+    -- shares.
     resourceShares :: Prelude.Maybe [ResourceShare],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -271,10 +348,15 @@ data GetResourceSharesResponse = GetResourceSharesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourceSharesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'getResourceSharesResponse_nextToken' - If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 --
--- 'resourceShares', 'getResourceSharesResponse_resourceShares' - Information about the resource shares.
+-- 'resourceShares', 'getResourceSharesResponse_resourceShares' - An array of objects that contain the information about the resource
+-- shares.
 --
 -- 'httpStatus', 'getResourceSharesResponse_httpStatus' - The response's http status code.
 newGetResourceSharesResponse ::
@@ -289,12 +371,17 @@ newGetResourceSharesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 getResourceSharesResponse_nextToken :: Lens.Lens' GetResourceSharesResponse (Prelude.Maybe Prelude.Text)
 getResourceSharesResponse_nextToken = Lens.lens (\GetResourceSharesResponse' {nextToken} -> nextToken) (\s@GetResourceSharesResponse' {} a -> s {nextToken = a} :: GetResourceSharesResponse)
 
--- | Information about the resource shares.
+-- | An array of objects that contain the information about the resource
+-- shares.
 getResourceSharesResponse_resourceShares :: Lens.Lens' GetResourceSharesResponse (Prelude.Maybe [ResourceShare])
 getResourceSharesResponse_resourceShares = Lens.lens (\GetResourceSharesResponse' {resourceShares} -> resourceShares) (\s@GetResourceSharesResponse' {} a -> s {resourceShares = a} :: GetResourceSharesResponse) Prelude.. Lens.mapping Lens.coerced
 

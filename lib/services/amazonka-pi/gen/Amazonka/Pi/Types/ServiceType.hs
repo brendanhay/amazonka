@@ -20,6 +20,7 @@
 module Amazonka.Pi.Types.ServiceType
   ( ServiceType
       ( ..,
+        ServiceType_DOCDB,
         ServiceType_RDS
       ),
   )
@@ -56,10 +57,14 @@ newtype ServiceType = ServiceType'
       Core.ToXML
     )
 
+pattern ServiceType_DOCDB :: ServiceType
+pattern ServiceType_DOCDB = ServiceType' "DOCDB"
+
 pattern ServiceType_RDS :: ServiceType
 pattern ServiceType_RDS = ServiceType' "RDS"
 
 {-# COMPLETE
+  ServiceType_DOCDB,
   ServiceType_RDS,
   ServiceType'
   #-}

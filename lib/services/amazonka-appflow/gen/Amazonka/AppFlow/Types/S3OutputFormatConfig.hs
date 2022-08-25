@@ -36,6 +36,18 @@ data S3OutputFormatConfig = S3OutputFormatConfig'
     -- frequency and date.
     prefixConfig :: Prelude.Maybe PrefixConfig,
     aggregationConfig :: Prelude.Maybe AggregationConfig,
+    -- | If your file output format is Parquet, use this parameter to set whether
+    -- Amazon AppFlow preserves the data types in your source data when it
+    -- writes the output to Amazon S3.
+    --
+    -- -   @true@: Amazon AppFlow preserves the data types when it writes to
+    --     Amazon S3. For example, an integer or @1@ in your source data is
+    --     still an integer in your output.
+    --
+    -- -   @false@: Amazon AppFlow converts all of the source data into strings
+    --     when it writes to Amazon S3. For example, an integer of @1@ in your
+    --     source data becomes the string @\"1\"@ in the output.
+    preserveSourceDataTyping :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the file type that Amazon AppFlow places in the Amazon S3
     -- bucket.
     fileType :: Prelude.Maybe FileType
@@ -56,6 +68,18 @@ data S3OutputFormatConfig = S3OutputFormatConfig'
 --
 -- 'aggregationConfig', 's3OutputFormatConfig_aggregationConfig' - Undocumented member.
 --
+-- 'preserveSourceDataTyping', 's3OutputFormatConfig_preserveSourceDataTyping' - If your file output format is Parquet, use this parameter to set whether
+-- Amazon AppFlow preserves the data types in your source data when it
+-- writes the output to Amazon S3.
+--
+-- -   @true@: Amazon AppFlow preserves the data types when it writes to
+--     Amazon S3. For example, an integer or @1@ in your source data is
+--     still an integer in your output.
+--
+-- -   @false@: Amazon AppFlow converts all of the source data into strings
+--     when it writes to Amazon S3. For example, an integer of @1@ in your
+--     source data becomes the string @\"1\"@ in the output.
+--
 -- 'fileType', 's3OutputFormatConfig_fileType' - Indicates the file type that Amazon AppFlow places in the Amazon S3
 -- bucket.
 newS3OutputFormatConfig ::
@@ -65,6 +89,7 @@ newS3OutputFormatConfig =
     { prefixConfig =
         Prelude.Nothing,
       aggregationConfig = Prelude.Nothing,
+      preserveSourceDataTyping = Prelude.Nothing,
       fileType = Prelude.Nothing
     }
 
@@ -77,6 +102,20 @@ s3OutputFormatConfig_prefixConfig = Lens.lens (\S3OutputFormatConfig' {prefixCon
 -- | Undocumented member.
 s3OutputFormatConfig_aggregationConfig :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe AggregationConfig)
 s3OutputFormatConfig_aggregationConfig = Lens.lens (\S3OutputFormatConfig' {aggregationConfig} -> aggregationConfig) (\s@S3OutputFormatConfig' {} a -> s {aggregationConfig = a} :: S3OutputFormatConfig)
+
+-- | If your file output format is Parquet, use this parameter to set whether
+-- Amazon AppFlow preserves the data types in your source data when it
+-- writes the output to Amazon S3.
+--
+-- -   @true@: Amazon AppFlow preserves the data types when it writes to
+--     Amazon S3. For example, an integer or @1@ in your source data is
+--     still an integer in your output.
+--
+-- -   @false@: Amazon AppFlow converts all of the source data into strings
+--     when it writes to Amazon S3. For example, an integer of @1@ in your
+--     source data becomes the string @\"1\"@ in the output.
+s3OutputFormatConfig_preserveSourceDataTyping :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe Prelude.Bool)
+s3OutputFormatConfig_preserveSourceDataTyping = Lens.lens (\S3OutputFormatConfig' {preserveSourceDataTyping} -> preserveSourceDataTyping) (\s@S3OutputFormatConfig' {} a -> s {preserveSourceDataTyping = a} :: S3OutputFormatConfig)
 
 -- | Indicates the file type that Amazon AppFlow places in the Amazon S3
 -- bucket.
@@ -91,6 +130,7 @@ instance Core.FromJSON S3OutputFormatConfig where
           S3OutputFormatConfig'
             Prelude.<$> (x Core..:? "prefixConfig")
             Prelude.<*> (x Core..:? "aggregationConfig")
+            Prelude.<*> (x Core..:? "preserveSourceDataTyping")
             Prelude.<*> (x Core..:? "fileType")
       )
 
@@ -98,12 +138,14 @@ instance Prelude.Hashable S3OutputFormatConfig where
   hashWithSalt _salt S3OutputFormatConfig' {..} =
     _salt `Prelude.hashWithSalt` prefixConfig
       `Prelude.hashWithSalt` aggregationConfig
+      `Prelude.hashWithSalt` preserveSourceDataTyping
       `Prelude.hashWithSalt` fileType
 
 instance Prelude.NFData S3OutputFormatConfig where
   rnf S3OutputFormatConfig' {..} =
     Prelude.rnf prefixConfig
       `Prelude.seq` Prelude.rnf aggregationConfig
+      `Prelude.seq` Prelude.rnf preserveSourceDataTyping
       `Prelude.seq` Prelude.rnf fileType
 
 instance Core.ToJSON S3OutputFormatConfig where
@@ -113,6 +155,8 @@ instance Core.ToJSON S3OutputFormatConfig where
           [ ("prefixConfig" Core..=) Prelude.<$> prefixConfig,
             ("aggregationConfig" Core..=)
               Prelude.<$> aggregationConfig,
+            ("preserveSourceDataTyping" Core..=)
+              Prelude.<$> preserveSourceDataTyping,
             ("fileType" Core..=) Prelude.<$> fileType
           ]
       )

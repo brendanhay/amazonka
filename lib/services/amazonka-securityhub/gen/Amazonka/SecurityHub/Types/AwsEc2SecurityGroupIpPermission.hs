@@ -34,7 +34,7 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
   { -- | The end of the port range for the TCP and UDP protocols, or an
     -- ICMP\/ICMPv6 code.
     --
-    -- A value of -1 indicates all ICMP\/ICMPv6 codes. If you specify all
+    -- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
     -- ICMP\/ICMPv6 types, you must specify all codes.
     toPort :: Prelude.Maybe Prelude.Int,
     -- | The IPv6 ranges.
@@ -43,7 +43,7 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
     --
     -- [VPC only] Use @-1@ to specify all protocols.
     --
-    -- When authorizing security group rules, specifying -1 or a protocol
+    -- When authorizing security group rules, specifying @-1@ or a protocol
     -- number other than @tcp@, @udp@, @icmp@, or @icmpv6@ allows traffic on
     -- all ports, regardless of any port range you specify.
     --
@@ -81,7 +81,7 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
 -- 'toPort', 'awsEc2SecurityGroupIpPermission_toPort' - The end of the port range for the TCP and UDP protocols, or an
 -- ICMP\/ICMPv6 code.
 --
--- A value of -1 indicates all ICMP\/ICMPv6 codes. If you specify all
+-- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
 -- ICMP\/ICMPv6 types, you must specify all codes.
 --
 -- 'ipv6Ranges', 'awsEc2SecurityGroupIpPermission_ipv6Ranges' - The IPv6 ranges.
@@ -90,7 +90,7 @@ data AwsEc2SecurityGroupIpPermission = AwsEc2SecurityGroupIpPermission'
 --
 -- [VPC only] Use @-1@ to specify all protocols.
 --
--- When authorizing security group rules, specifying -1 or a protocol
+-- When authorizing security group rules, specifying @-1@ or a protocol
 -- number other than @tcp@, @udp@, @icmp@, or @icmpv6@ allows traffic on
 -- all ports, regardless of any port range you specify.
 --
@@ -130,7 +130,7 @@ newAwsEc2SecurityGroupIpPermission =
 -- | The end of the port range for the TCP and UDP protocols, or an
 -- ICMP\/ICMPv6 code.
 --
--- A value of -1 indicates all ICMP\/ICMPv6 codes. If you specify all
+-- A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify all
 -- ICMP\/ICMPv6 types, you must specify all codes.
 awsEc2SecurityGroupIpPermission_toPort :: Lens.Lens' AwsEc2SecurityGroupIpPermission (Prelude.Maybe Prelude.Int)
 awsEc2SecurityGroupIpPermission_toPort = Lens.lens (\AwsEc2SecurityGroupIpPermission' {toPort} -> toPort) (\s@AwsEc2SecurityGroupIpPermission' {} a -> s {toPort = a} :: AwsEc2SecurityGroupIpPermission)
@@ -143,7 +143,7 @@ awsEc2SecurityGroupIpPermission_ipv6Ranges = Lens.lens (\AwsEc2SecurityGroupIpPe
 --
 -- [VPC only] Use @-1@ to specify all protocols.
 --
--- When authorizing security group rules, specifying -1 or a protocol
+-- When authorizing security group rules, specifying @-1@ or a protocol
 -- number other than @tcp@, @udp@, @icmp@, or @icmpv6@ allows traffic on
 -- all ports, regardless of any port range you specify.
 --

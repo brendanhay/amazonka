@@ -26,28 +26,28 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The control entity that represents a standard or custom control used in
--- an Audit Manager assessment.
+-- | The control entity that represents a standard control or a custom
+-- control in an Audit Manager assessment.
 --
 -- /See:/ 'newAssessmentControl' smart constructor.
 data AssessmentControl = AssessmentControl'
-  { -- | The name of the specified control.
+  { -- | The name of the control.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The amount of evidence generated for the control.
+    -- | The amount of evidence that\'s generated for the control.
     evidenceCount :: Prelude.Maybe Prelude.Int,
-    -- | The response of the specified control.
+    -- | The response of the control.
     response :: Prelude.Maybe ControlResponse,
     -- | The amount of evidence in the assessment report.
     assessmentReportEvidenceCount :: Prelude.Maybe Prelude.Int,
-    -- | The status of the specified control.
+    -- | The status of the control.
     status :: Prelude.Maybe ControlStatus,
-    -- | The description of the specified control.
+    -- | The description of the control.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified control.
+    -- | The identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The list of comments attached to the specified control.
+    -- | The list of comments that\'s attached to the control.
     comments :: Prelude.Maybe [ControlComment],
-    -- | The list of data sources for the specified evidence.
+    -- | The list of data sources for the evidence.
     evidenceSources :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,23 +60,23 @@ data AssessmentControl = AssessmentControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'assessmentControl_name' - The name of the specified control.
+-- 'name', 'assessmentControl_name' - The name of the control.
 --
--- 'evidenceCount', 'assessmentControl_evidenceCount' - The amount of evidence generated for the control.
+-- 'evidenceCount', 'assessmentControl_evidenceCount' - The amount of evidence that\'s generated for the control.
 --
--- 'response', 'assessmentControl_response' - The response of the specified control.
+-- 'response', 'assessmentControl_response' - The response of the control.
 --
 -- 'assessmentReportEvidenceCount', 'assessmentControl_assessmentReportEvidenceCount' - The amount of evidence in the assessment report.
 --
--- 'status', 'assessmentControl_status' - The status of the specified control.
+-- 'status', 'assessmentControl_status' - The status of the control.
 --
--- 'description', 'assessmentControl_description' - The description of the specified control.
+-- 'description', 'assessmentControl_description' - The description of the control.
 --
--- 'id', 'assessmentControl_id' - The identifier for the specified control.
+-- 'id', 'assessmentControl_id' - The identifier for the control.
 --
--- 'comments', 'assessmentControl_comments' - The list of comments attached to the specified control.
+-- 'comments', 'assessmentControl_comments' - The list of comments that\'s attached to the control.
 --
--- 'evidenceSources', 'assessmentControl_evidenceSources' - The list of data sources for the specified evidence.
+-- 'evidenceSources', 'assessmentControl_evidenceSources' - The list of data sources for the evidence.
 newAssessmentControl ::
   AssessmentControl
 newAssessmentControl =
@@ -92,15 +92,15 @@ newAssessmentControl =
       evidenceSources = Prelude.Nothing
     }
 
--- | The name of the specified control.
+-- | The name of the control.
 assessmentControl_name :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Text)
 assessmentControl_name = Lens.lens (\AssessmentControl' {name} -> name) (\s@AssessmentControl' {} a -> s {name = a} :: AssessmentControl)
 
--- | The amount of evidence generated for the control.
+-- | The amount of evidence that\'s generated for the control.
 assessmentControl_evidenceCount :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Int)
 assessmentControl_evidenceCount = Lens.lens (\AssessmentControl' {evidenceCount} -> evidenceCount) (\s@AssessmentControl' {} a -> s {evidenceCount = a} :: AssessmentControl)
 
--- | The response of the specified control.
+-- | The response of the control.
 assessmentControl_response :: Lens.Lens' AssessmentControl (Prelude.Maybe ControlResponse)
 assessmentControl_response = Lens.lens (\AssessmentControl' {response} -> response) (\s@AssessmentControl' {} a -> s {response = a} :: AssessmentControl)
 
@@ -108,23 +108,23 @@ assessmentControl_response = Lens.lens (\AssessmentControl' {response} -> respon
 assessmentControl_assessmentReportEvidenceCount :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Int)
 assessmentControl_assessmentReportEvidenceCount = Lens.lens (\AssessmentControl' {assessmentReportEvidenceCount} -> assessmentReportEvidenceCount) (\s@AssessmentControl' {} a -> s {assessmentReportEvidenceCount = a} :: AssessmentControl)
 
--- | The status of the specified control.
+-- | The status of the control.
 assessmentControl_status :: Lens.Lens' AssessmentControl (Prelude.Maybe ControlStatus)
 assessmentControl_status = Lens.lens (\AssessmentControl' {status} -> status) (\s@AssessmentControl' {} a -> s {status = a} :: AssessmentControl)
 
--- | The description of the specified control.
+-- | The description of the control.
 assessmentControl_description :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Text)
 assessmentControl_description = Lens.lens (\AssessmentControl' {description} -> description) (\s@AssessmentControl' {} a -> s {description = a} :: AssessmentControl)
 
--- | The identifier for the specified control.
+-- | The identifier for the control.
 assessmentControl_id :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Text)
 assessmentControl_id = Lens.lens (\AssessmentControl' {id} -> id) (\s@AssessmentControl' {} a -> s {id = a} :: AssessmentControl)
 
--- | The list of comments attached to the specified control.
+-- | The list of comments that\'s attached to the control.
 assessmentControl_comments :: Lens.Lens' AssessmentControl (Prelude.Maybe [ControlComment])
 assessmentControl_comments = Lens.lens (\AssessmentControl' {comments} -> comments) (\s@AssessmentControl' {} a -> s {comments = a} :: AssessmentControl) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of data sources for the specified evidence.
+-- | The list of data sources for the evidence.
 assessmentControl_evidenceSources :: Lens.Lens' AssessmentControl (Prelude.Maybe [Prelude.Text])
 assessmentControl_evidenceSources = Lens.lens (\AssessmentControl' {evidenceSources} -> evidenceSources) (\s@AssessmentControl' {} a -> s {evidenceSources = a} :: AssessmentControl) Prelude.. Lens.mapping Lens.coerced
 

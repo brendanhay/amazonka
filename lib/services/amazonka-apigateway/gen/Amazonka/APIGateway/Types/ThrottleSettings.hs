@@ -27,11 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThrottleSettings' smart constructor.
 data ThrottleSettings = ThrottleSettings'
-  { -- | The API request steady-state rate limit.
+  { -- | The API target request rate limit.
     rateLimit :: Prelude.Maybe Prelude.Double,
-    -- | The API request burst limit, the maximum rate limit over a time ranging
-    -- from one to a few seconds, depending upon whether the underlying token
-    -- bucket is at its full capacity.
+    -- | The API target request burst rate limit. This allows more requests
+    -- through for a period of time than the target rate limit.
     burstLimit :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,11 +43,10 @@ data ThrottleSettings = ThrottleSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rateLimit', 'throttleSettings_rateLimit' - The API request steady-state rate limit.
+-- 'rateLimit', 'throttleSettings_rateLimit' - The API target request rate limit.
 --
--- 'burstLimit', 'throttleSettings_burstLimit' - The API request burst limit, the maximum rate limit over a time ranging
--- from one to a few seconds, depending upon whether the underlying token
--- bucket is at its full capacity.
+-- 'burstLimit', 'throttleSettings_burstLimit' - The API target request burst rate limit. This allows more requests
+-- through for a period of time than the target rate limit.
 newThrottleSettings ::
   ThrottleSettings
 newThrottleSettings =
@@ -57,13 +55,12 @@ newThrottleSettings =
       burstLimit = Prelude.Nothing
     }
 
--- | The API request steady-state rate limit.
+-- | The API target request rate limit.
 throttleSettings_rateLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Double)
 throttleSettings_rateLimit = Lens.lens (\ThrottleSettings' {rateLimit} -> rateLimit) (\s@ThrottleSettings' {} a -> s {rateLimit = a} :: ThrottleSettings)
 
--- | The API request burst limit, the maximum rate limit over a time ranging
--- from one to a few seconds, depending upon whether the underlying token
--- bucket is at its full capacity.
+-- | The API target request burst rate limit. This allows more requests
+-- through for a period of time than the target rate limit.
 throttleSettings_burstLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Int)
 throttleSettings_burstLimit = Lens.lens (\ThrottleSettings' {burstLimit} -> burstLimit) (\s@ThrottleSettings' {} a -> s {burstLimit = a} :: ThrottleSettings)
 

@@ -28,7 +28,10 @@ module Amazonka.WellArchitected.ListLenses
 
     -- * Request Lenses
     listLenses_nextToken,
+    listLenses_lensName,
     listLenses_maxResults,
+    listLenses_lensType,
+    listLenses_lensStatus,
 
     -- * Destructuring the Response
     ListLensesResponse (..),
@@ -53,7 +56,12 @@ import Amazonka.WellArchitected.Types
 -- /See:/ 'newListLenses' smart constructor.
 data ListLenses = ListLenses'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    lensName :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The type of lenses to be returned.
+    lensType :: Prelude.Maybe LensType,
+    -- | The status of lenses to be returned.
+    lensStatus :: Prelude.Maybe LensStatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,13 +75,22 @@ data ListLenses = ListLenses'
 --
 -- 'nextToken', 'listLenses_nextToken' - Undocumented member.
 --
+-- 'lensName', 'listLenses_lensName' - Undocumented member.
+--
 -- 'maxResults', 'listLenses_maxResults' - Undocumented member.
+--
+-- 'lensType', 'listLenses_lensType' - The type of lenses to be returned.
+--
+-- 'lensStatus', 'listLenses_lensStatus' - The status of lenses to be returned.
 newListLenses ::
   ListLenses
 newListLenses =
   ListLenses'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      lensName = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      lensType = Prelude.Nothing,
+      lensStatus = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -81,8 +98,20 @@ listLenses_nextToken :: Lens.Lens' ListLenses (Prelude.Maybe Prelude.Text)
 listLenses_nextToken = Lens.lens (\ListLenses' {nextToken} -> nextToken) (\s@ListLenses' {} a -> s {nextToken = a} :: ListLenses)
 
 -- | Undocumented member.
+listLenses_lensName :: Lens.Lens' ListLenses (Prelude.Maybe Prelude.Text)
+listLenses_lensName = Lens.lens (\ListLenses' {lensName} -> lensName) (\s@ListLenses' {} a -> s {lensName = a} :: ListLenses)
+
+-- | Undocumented member.
 listLenses_maxResults :: Lens.Lens' ListLenses (Prelude.Maybe Prelude.Natural)
 listLenses_maxResults = Lens.lens (\ListLenses' {maxResults} -> maxResults) (\s@ListLenses' {} a -> s {maxResults = a} :: ListLenses)
+
+-- | The type of lenses to be returned.
+listLenses_lensType :: Lens.Lens' ListLenses (Prelude.Maybe LensType)
+listLenses_lensType = Lens.lens (\ListLenses' {lensType} -> lensType) (\s@ListLenses' {} a -> s {lensType = a} :: ListLenses)
+
+-- | The status of lenses to be returned.
+listLenses_lensStatus :: Lens.Lens' ListLenses (Prelude.Maybe LensStatusType)
+listLenses_lensStatus = Lens.lens (\ListLenses' {lensStatus} -> lensStatus) (\s@ListLenses' {} a -> s {lensStatus = a} :: ListLenses)
 
 instance Core.AWSRequest ListLenses where
   type AWSResponse ListLenses = ListLensesResponse
@@ -99,12 +128,18 @@ instance Core.AWSRequest ListLenses where
 instance Prelude.Hashable ListLenses where
   hashWithSalt _salt ListLenses' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` lensType
+      `Prelude.hashWithSalt` lensStatus
 
 instance Prelude.NFData ListLenses where
   rnf ListLenses' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lensName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf lensType
+      `Prelude.seq` Prelude.rnf lensStatus
 
 instance Core.ToHeaders ListLenses where
   toHeaders =
@@ -124,7 +159,10 @@ instance Core.ToQuery ListLenses where
   toQuery ListLenses' {..} =
     Prelude.mconcat
       [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+        "LensName" Core.=: lensName,
+        "MaxResults" Core.=: maxResults,
+        "LensType" Core.=: lensType,
+        "LensStatus" Core.=: lensStatus
       ]
 
 -- | Output of a list lenses call.

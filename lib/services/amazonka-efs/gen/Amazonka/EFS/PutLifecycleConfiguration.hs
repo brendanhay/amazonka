@@ -20,12 +20,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables lifecycle management by creating a new @LifecycleConfiguration@
--- object. A @LifecycleConfiguration@ object defines when files in an
--- Amazon EFS file system are automatically transitioned to the lower-cost
--- EFS Infrequent Access (IA) storage class. To enable EFS Intelligent
--- Tiering, set the value of @TransitionToPrimaryStorageClass@ to
--- @AFTER_1_ACCESS@. For more information, see
+-- Use this action to manage EFS lifecycle management and intelligent
+-- tiering. A @LifecycleConfiguration@ consists of one or more
+-- @LifecyclePolicy@ objects that define the following:
+--
+-- -   __EFS Lifecycle management__ - When Amazon EFS automatically
+--     transitions files in a file system into the lower-cost Infrequent
+--     Access (IA) storage class.
+--
+--     To enable EFS Lifecycle management, set the value of
+--     @TransitionToIA@ to one of the available options.
+--
+-- -   __EFS Intelligent tiering__ - When Amazon EFS automatically
+--     transitions files from IA back into the file system\'s primary
+--     storage class (Standard or One Zone Standard.
+--
+--     To enable EFS Intelligent Tiering, set the value of
+--     @TransitionToPrimaryStorageClass@ to @AFTER_1_ACCESS@.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html EFS Lifecycle Management>.
 --
 -- Each Amazon EFS file system supports one lifecycle configuration, which
@@ -34,19 +47,22 @@
 -- @PutLifecycleConfiguration@ call modifies the existing configuration. A
 -- @PutLifecycleConfiguration@ call with an empty @LifecyclePolicies@ array
 -- in the request body deletes any existing @LifecycleConfiguration@ and
--- turns off lifecycle management for the file system.
+-- turns off lifecycle management and intelligent tiering for the file
+-- system.
 --
 -- In the request, specify the following:
 --
 -- -   The ID for the file system for which you are enabling, disabling, or
---     modifying lifecycle management.
+--     modifying lifecycle management and intelligent tiering.
 --
 -- -   A @LifecyclePolicies@ array of @LifecyclePolicy@ objects that define
---     when files are moved to the IA storage class. Amazon EFS requires
---     that each @LifecyclePolicy@ object have only have a single
---     transition, so the @LifecyclePolicies@ array needs to be structured
---     with separate @LifecyclePolicy@ objects. See the example requests in
---     the following section for more information.
+--     when files are moved into IA storage, and when they are moved back
+--     to Standard storage.
+--
+--     Amazon EFS requires that each @LifecyclePolicy@ object have only
+--     have a single transition, so the @LifecyclePolicies@ array needs to
+--     be structured with separate @LifecyclePolicy@ objects. See the
+--     example requests in the following section for more information.
 --
 -- This operation requires permissions for the
 -- @elasticfilesystem:PutLifecycleConfiguration@ operation.
@@ -86,7 +102,7 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
     fileSystemId :: Prelude.Text,
     -- | An array of @LifecyclePolicy@ objects that define the file system\'s
     -- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object
-    -- informs EFS lifecycle management and intelligent tiering of the
+    -- informs EFS lifecycle management and EFS Intelligent-Tiering of the
     -- following:
     --
     -- -   When to move files in the file system from primary storage to the IA
@@ -97,8 +113,8 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
     -- When using the @put-lifecycle-configuration@ CLI command or the
     -- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
     -- @LifecyclePolicy@ object have only a single transition. This means that
-    -- in a request body, @LifecyclePolicies@ needs to be structured as an
-    -- array of @LifecyclePolicy@ objects, one object for each transition,
+    -- in a request body, @LifecyclePolicies@ must be structured as an array of
+    -- @LifecyclePolicy@ objects, one object for each transition,
     -- @TransitionToIA@, @TransitionToPrimaryStorageClass@. See the example
     -- requests in the following section for more information.
     lifecyclePolicies :: [LifecyclePolicy]
@@ -118,7 +134,7 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
 --
 -- 'lifecyclePolicies', 'putLifecycleConfiguration_lifecyclePolicies' - An array of @LifecyclePolicy@ objects that define the file system\'s
 -- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object
--- informs EFS lifecycle management and intelligent tiering of the
+-- informs EFS lifecycle management and EFS Intelligent-Tiering of the
 -- following:
 --
 -- -   When to move files in the file system from primary storage to the IA
@@ -129,8 +145,8 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
 -- When using the @put-lifecycle-configuration@ CLI command or the
 -- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
 -- @LifecyclePolicy@ object have only a single transition. This means that
--- in a request body, @LifecyclePolicies@ needs to be structured as an
--- array of @LifecyclePolicy@ objects, one object for each transition,
+-- in a request body, @LifecyclePolicies@ must be structured as an array of
+-- @LifecyclePolicy@ objects, one object for each transition,
 -- @TransitionToIA@, @TransitionToPrimaryStorageClass@. See the example
 -- requests in the following section for more information.
 newPutLifecycleConfiguration ::
@@ -151,7 +167,7 @@ putLifecycleConfiguration_fileSystemId = Lens.lens (\PutLifecycleConfiguration' 
 
 -- | An array of @LifecyclePolicy@ objects that define the file system\'s
 -- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object
--- informs EFS lifecycle management and intelligent tiering of the
+-- informs EFS lifecycle management and EFS Intelligent-Tiering of the
 -- following:
 --
 -- -   When to move files in the file system from primary storage to the IA
@@ -162,8 +178,8 @@ putLifecycleConfiguration_fileSystemId = Lens.lens (\PutLifecycleConfiguration' 
 -- When using the @put-lifecycle-configuration@ CLI command or the
 -- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
 -- @LifecyclePolicy@ object have only a single transition. This means that
--- in a request body, @LifecyclePolicies@ needs to be structured as an
--- array of @LifecyclePolicy@ objects, one object for each transition,
+-- in a request body, @LifecyclePolicies@ must be structured as an array of
+-- @LifecyclePolicy@ objects, one object for each transition,
 -- @TransitionToIA@, @TransitionToPrimaryStorageClass@. See the example
 -- requests in the following section for more information.
 putLifecycleConfiguration_lifecyclePolicies :: Lens.Lens' PutLifecycleConfiguration [LifecyclePolicy]

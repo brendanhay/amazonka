@@ -20,12 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates an Amazon Web Services Identity and Access Management
--- (IAM) role from an Amazon Aurora DB cluster. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html Authorizing Amazon Aurora MySQL to Access Other Amazon Web Services Services on Your Behalf>
+-- Removes the asssociation of an Amazon Web Services Identity and Access
+-- Management (IAM) role from a DB cluster.
+--
+-- For more information on Amazon Aurora DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
 -- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora DB clusters.
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide./
 module Amazonka.RDS.RemoveRoleFromDBCluster
   ( -- * Creating a Request
     RemoveRoleFromDBCluster (..),
@@ -52,7 +56,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newRemoveRoleFromDBCluster' smart constructor.
 data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
   { -- | The name of the feature for the DB cluster that the IAM role is to be
-    -- disassociated from. For the list of supported feature names, see
+    -- disassociated from. For information about supported feature names, see
     -- DBEngineVersion.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to disassociate the IAM role from.
@@ -73,7 +77,7 @@ data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
 -- for backwards compatibility:
 --
 -- 'featureName', 'removeRoleFromDBCluster_featureName' - The name of the feature for the DB cluster that the IAM role is to be
--- disassociated from. For the list of supported feature names, see
+-- disassociated from. For information about supported feature names, see
 -- DBEngineVersion.
 --
 -- 'dbClusterIdentifier', 'removeRoleFromDBCluster_dbClusterIdentifier' - The name of the DB cluster to disassociate the IAM role from.
@@ -98,7 +102,7 @@ newRemoveRoleFromDBCluster
       }
 
 -- | The name of the feature for the DB cluster that the IAM role is to be
--- disassociated from. For the list of supported feature names, see
+-- disassociated from. For information about supported feature names, see
 -- DBEngineVersion.
 removeRoleFromDBCluster_featureName :: Lens.Lens' RemoveRoleFromDBCluster (Prelude.Maybe Prelude.Text)
 removeRoleFromDBCluster_featureName = Lens.lens (\RemoveRoleFromDBCluster' {featureName} -> featureName) (\s@RemoveRoleFromDBCluster' {} a -> s {featureName = a} :: RemoveRoleFromDBCluster)

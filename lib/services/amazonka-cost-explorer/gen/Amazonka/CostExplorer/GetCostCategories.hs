@@ -62,13 +62,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetCostCategories' smart constructor.
 data GetCostCategories = GetCostCategories'
   { -- | If the number of objects that are still available for retrieval exceeds
-    -- the limit, Amazon Web Services returns a NextPageToken value in the
+    -- the quota, Amazon Web Services returns a NextPageToken value in the
     -- response. To retrieve the next batch of objects, provide the
-    -- NextPageToken from the prior call in your next request.
+    -- NextPageToken from the previous call in your next request.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | The value by which you want to sort the data.
+    -- | The value that you sort the data by.
     --
-    -- The key represents cost and usage metrics. The following values are
+    -- The key represents the cost and usage metrics. The following values are
     -- supported:
     --
     -- -   @BlendedCost@
@@ -85,26 +85,28 @@ data GetCostCategories = GetCostCategories'
     --
     -- -   @NormalizedUsageAmount@
     --
-    -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+    -- The supported key values for the @SortOrder@ value are @ASCENDING@ and
+    -- @DESCENDING@.
     --
-    -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
-    -- supported.
+    -- When you use the @SortBy@ value, the @NextPageToken@ and @SearchString@
+    -- key values aren\'t supported.
     sortBy :: Prelude.Maybe [SortDefinition],
     -- | The value that you want to search the filter values for.
     --
-    -- If you do not specify a @CostCategoryName@, @SearchString@ will be used
-    -- to filter Cost Category names that match the @SearchString@ pattern. If
-    -- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
-    -- filter Cost Category values that match the @SearchString@ pattern.
+    -- If you don\'t specify a @CostCategoryName@, @SearchString@ is used to
+    -- filter Cost Category names that match the @SearchString@ pattern. If you
+    -- specify a @CostCategoryName@, @SearchString@ is used to filter Cost
+    -- Category values that match the @SearchString@ pattern.
     searchString :: Prelude.Maybe Prelude.Text,
     filter' :: Prelude.Maybe Expression,
-    -- | This field is only used when @SortBy@ is provided in the request.
+    -- | This field is only used when the @SortBy@ value is provided in the
+    -- request.
     --
-    -- The maximum number of objects that to be returned for this request. If
-    -- @MaxResults@ is not specified with @SortBy@, the request will return
-    -- 1000 results as the default value for this parameter.
+    -- The maximum number of objects that are returned for this request. If
+    -- @MaxResults@ isn\'t specified with the @SortBy@ value, the request
+    -- returns 1000 results as the default value for this parameter.
     --
-    -- For @GetCostCategories@, MaxResults has an upper limit of 1000.
+    -- For @GetCostCategories@, MaxResults has an upper quota of 1000.
     maxResults :: Prelude.Maybe Prelude.Natural,
     costCategoryName :: Prelude.Maybe Prelude.Text,
     timePeriod :: DateInterval
@@ -120,13 +122,13 @@ data GetCostCategories = GetCostCategories'
 -- for backwards compatibility:
 --
 -- 'nextPageToken', 'getCostCategories_nextPageToken' - If the number of objects that are still available for retrieval exceeds
--- the limit, Amazon Web Services returns a NextPageToken value in the
+-- the quota, Amazon Web Services returns a NextPageToken value in the
 -- response. To retrieve the next batch of objects, provide the
--- NextPageToken from the prior call in your next request.
+-- NextPageToken from the previous call in your next request.
 --
--- 'sortBy', 'getCostCategories_sortBy' - The value by which you want to sort the data.
+-- 'sortBy', 'getCostCategories_sortBy' - The value that you sort the data by.
 --
--- The key represents cost and usage metrics. The following values are
+-- The key represents the cost and usage metrics. The following values are
 -- supported:
 --
 -- -   @BlendedCost@
@@ -143,27 +145,29 @@ data GetCostCategories = GetCostCategories'
 --
 -- -   @NormalizedUsageAmount@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported key values for the @SortOrder@ value are @ASCENDING@ and
+-- @DESCENDING@.
 --
--- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
--- supported.
+-- When you use the @SortBy@ value, the @NextPageToken@ and @SearchString@
+-- key values aren\'t supported.
 --
 -- 'searchString', 'getCostCategories_searchString' - The value that you want to search the filter values for.
 --
--- If you do not specify a @CostCategoryName@, @SearchString@ will be used
--- to filter Cost Category names that match the @SearchString@ pattern. If
--- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
--- filter Cost Category values that match the @SearchString@ pattern.
+-- If you don\'t specify a @CostCategoryName@, @SearchString@ is used to
+-- filter Cost Category names that match the @SearchString@ pattern. If you
+-- specify a @CostCategoryName@, @SearchString@ is used to filter Cost
+-- Category values that match the @SearchString@ pattern.
 --
 -- 'filter'', 'getCostCategories_filter' - Undocumented member.
 --
--- 'maxResults', 'getCostCategories_maxResults' - This field is only used when @SortBy@ is provided in the request.
+-- 'maxResults', 'getCostCategories_maxResults' - This field is only used when the @SortBy@ value is provided in the
+-- request.
 --
--- The maximum number of objects that to be returned for this request. If
--- @MaxResults@ is not specified with @SortBy@, the request will return
--- 1000 results as the default value for this parameter.
+-- The maximum number of objects that are returned for this request. If
+-- @MaxResults@ isn\'t specified with the @SortBy@ value, the request
+-- returns 1000 results as the default value for this parameter.
 --
--- For @GetCostCategories@, MaxResults has an upper limit of 1000.
+-- For @GetCostCategories@, MaxResults has an upper quota of 1000.
 --
 -- 'costCategoryName', 'getCostCategories_costCategoryName' - Undocumented member.
 --
@@ -184,15 +188,15 @@ newGetCostCategories pTimePeriod_ =
     }
 
 -- | If the number of objects that are still available for retrieval exceeds
--- the limit, Amazon Web Services returns a NextPageToken value in the
+-- the quota, Amazon Web Services returns a NextPageToken value in the
 -- response. To retrieve the next batch of objects, provide the
--- NextPageToken from the prior call in your next request.
+-- NextPageToken from the previous call in your next request.
 getCostCategories_nextPageToken :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_nextPageToken = Lens.lens (\GetCostCategories' {nextPageToken} -> nextPageToken) (\s@GetCostCategories' {} a -> s {nextPageToken = a} :: GetCostCategories)
 
--- | The value by which you want to sort the data.
+-- | The value that you sort the data by.
 --
--- The key represents cost and usage metrics. The following values are
+-- The key represents the cost and usage metrics. The following values are
 -- supported:
 --
 -- -   @BlendedCost@
@@ -209,19 +213,20 @@ getCostCategories_nextPageToken = Lens.lens (\GetCostCategories' {nextPageToken}
 --
 -- -   @NormalizedUsageAmount@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported key values for the @SortOrder@ value are @ASCENDING@ and
+-- @DESCENDING@.
 --
--- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
--- supported.
+-- When you use the @SortBy@ value, the @NextPageToken@ and @SearchString@
+-- key values aren\'t supported.
 getCostCategories_sortBy :: Lens.Lens' GetCostCategories (Prelude.Maybe [SortDefinition])
 getCostCategories_sortBy = Lens.lens (\GetCostCategories' {sortBy} -> sortBy) (\s@GetCostCategories' {} a -> s {sortBy = a} :: GetCostCategories) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value that you want to search the filter values for.
 --
--- If you do not specify a @CostCategoryName@, @SearchString@ will be used
--- to filter Cost Category names that match the @SearchString@ pattern. If
--- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
--- filter Cost Category values that match the @SearchString@ pattern.
+-- If you don\'t specify a @CostCategoryName@, @SearchString@ is used to
+-- filter Cost Category names that match the @SearchString@ pattern. If you
+-- specify a @CostCategoryName@, @SearchString@ is used to filter Cost
+-- Category values that match the @SearchString@ pattern.
 getCostCategories_searchString :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_searchString = Lens.lens (\GetCostCategories' {searchString} -> searchString) (\s@GetCostCategories' {} a -> s {searchString = a} :: GetCostCategories)
 
@@ -229,13 +234,14 @@ getCostCategories_searchString = Lens.lens (\GetCostCategories' {searchString} -
 getCostCategories_filter :: Lens.Lens' GetCostCategories (Prelude.Maybe Expression)
 getCostCategories_filter = Lens.lens (\GetCostCategories' {filter'} -> filter') (\s@GetCostCategories' {} a -> s {filter' = a} :: GetCostCategories)
 
--- | This field is only used when @SortBy@ is provided in the request.
+-- | This field is only used when the @SortBy@ value is provided in the
+-- request.
 --
--- The maximum number of objects that to be returned for this request. If
--- @MaxResults@ is not specified with @SortBy@, the request will return
--- 1000 results as the default value for this parameter.
+-- The maximum number of objects that are returned for this request. If
+-- @MaxResults@ isn\'t specified with the @SortBy@ value, the request
+-- returns 1000 results as the default value for this parameter.
 --
--- For @GetCostCategories@, MaxResults has an upper limit of 1000.
+-- For @GetCostCategories@, MaxResults has an upper quota of 1000.
 getCostCategories_maxResults :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Natural)
 getCostCategories_maxResults = Lens.lens (\GetCostCategories' {maxResults} -> maxResults) (\s@GetCostCategories' {} a -> s {maxResults = a} :: GetCostCategories)
 
@@ -327,20 +333,20 @@ instance Core.ToQuery GetCostCategories where
 -- | /See:/ 'newGetCostCategoriesResponse' smart constructor.
 data GetCostCategoriesResponse = GetCostCategoriesResponse'
   { -- | If the number of objects that are still available for retrieval exceeds
-    -- the limit, Amazon Web Services returns a NextPageToken value in the
+    -- the quota, Amazon Web Services returns a NextPageToken value in the
     -- response. To retrieve the next batch of objects, provide the marker from
     -- the prior call in your next request.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The Cost Category values.
     --
-    -- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
-    -- specified in the request.
+    -- If the @CostCategoryName@ key isn\'t specified in the request, the
+    -- @CostCategoryValues@ fields aren\'t returned.
     costCategoryValues :: Prelude.Maybe [Prelude.Text],
     -- | The names of the Cost Categories.
     costCategoryNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The number of objects returned.
+    -- | The number of objects that are returned.
     returnSize :: Prelude.Int,
     -- | The total number of objects.
     totalSize :: Prelude.Int
@@ -356,20 +362,20 @@ data GetCostCategoriesResponse = GetCostCategoriesResponse'
 -- for backwards compatibility:
 --
 -- 'nextPageToken', 'getCostCategoriesResponse_nextPageToken' - If the number of objects that are still available for retrieval exceeds
--- the limit, Amazon Web Services returns a NextPageToken value in the
+-- the quota, Amazon Web Services returns a NextPageToken value in the
 -- response. To retrieve the next batch of objects, provide the marker from
 -- the prior call in your next request.
 --
 -- 'costCategoryValues', 'getCostCategoriesResponse_costCategoryValues' - The Cost Category values.
 --
--- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
--- specified in the request.
+-- If the @CostCategoryName@ key isn\'t specified in the request, the
+-- @CostCategoryValues@ fields aren\'t returned.
 --
 -- 'costCategoryNames', 'getCostCategoriesResponse_costCategoryNames' - The names of the Cost Categories.
 --
 -- 'httpStatus', 'getCostCategoriesResponse_httpStatus' - The response's http status code.
 --
--- 'returnSize', 'getCostCategoriesResponse_returnSize' - The number of objects returned.
+-- 'returnSize', 'getCostCategoriesResponse_returnSize' - The number of objects that are returned.
 --
 -- 'totalSize', 'getCostCategoriesResponse_totalSize' - The total number of objects.
 newGetCostCategoriesResponse ::
@@ -395,7 +401,7 @@ newGetCostCategoriesResponse
       }
 
 -- | If the number of objects that are still available for retrieval exceeds
--- the limit, Amazon Web Services returns a NextPageToken value in the
+-- the quota, Amazon Web Services returns a NextPageToken value in the
 -- response. To retrieve the next batch of objects, provide the marker from
 -- the prior call in your next request.
 getCostCategoriesResponse_nextPageToken :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe Prelude.Text)
@@ -403,8 +409,8 @@ getCostCategoriesResponse_nextPageToken = Lens.lens (\GetCostCategoriesResponse'
 
 -- | The Cost Category values.
 --
--- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
--- specified in the request.
+-- If the @CostCategoryName@ key isn\'t specified in the request, the
+-- @CostCategoryValues@ fields aren\'t returned.
 getCostCategoriesResponse_costCategoryValues :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe [Prelude.Text])
 getCostCategoriesResponse_costCategoryValues = Lens.lens (\GetCostCategoriesResponse' {costCategoryValues} -> costCategoryValues) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryValues = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -416,7 +422,7 @@ getCostCategoriesResponse_costCategoryNames = Lens.lens (\GetCostCategoriesRespo
 getCostCategoriesResponse_httpStatus :: Lens.Lens' GetCostCategoriesResponse Prelude.Int
 getCostCategoriesResponse_httpStatus = Lens.lens (\GetCostCategoriesResponse' {httpStatus} -> httpStatus) (\s@GetCostCategoriesResponse' {} a -> s {httpStatus = a} :: GetCostCategoriesResponse)
 
--- | The number of objects returned.
+-- | The number of objects that are returned.
 getCostCategoriesResponse_returnSize :: Lens.Lens' GetCostCategoriesResponse Prelude.Int
 getCostCategoriesResponse_returnSize = Lens.lens (\GetCostCategoriesResponse' {returnSize} -> returnSize) (\s@GetCostCategoriesResponse' {} a -> s {returnSize = a} :: GetCostCategoriesResponse)
 

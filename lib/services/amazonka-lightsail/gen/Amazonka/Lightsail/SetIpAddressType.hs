@@ -59,8 +59,9 @@ data SetIpAddressType = SetIpAddressType'
     -- The possible values are @Distribution@, @Instance@, and @LoadBalancer@.
     --
     -- Distribution-related APIs are available only in the N. Virginia
-    -- (@us-east-1@) AWS Region. Set your AWS Region configuration to
-    -- @us-east-1@ to create, view, or edit distributions.
+    -- (@us-east-1@) Amazon Web Services Region. Set your Amazon Web Services
+    -- Region configuration to @us-east-1@ to create, view, or edit
+    -- distributions.
     resourceType :: ResourceType,
     -- | The name of the resource for which to set the IP address type.
     resourceName :: Prelude.Text,
@@ -85,8 +86,9 @@ data SetIpAddressType = SetIpAddressType'
 -- The possible values are @Distribution@, @Instance@, and @LoadBalancer@.
 --
 -- Distribution-related APIs are available only in the N. Virginia
--- (@us-east-1@) AWS Region. Set your AWS Region configuration to
--- @us-east-1@ to create, view, or edit distributions.
+-- (@us-east-1@) Amazon Web Services Region. Set your Amazon Web Services
+-- Region configuration to @us-east-1@ to create, view, or edit
+-- distributions.
 --
 -- 'resourceName', 'setIpAddressType_resourceName' - The name of the resource for which to set the IP address type.
 --
@@ -117,8 +119,9 @@ newSetIpAddressType
 -- The possible values are @Distribution@, @Instance@, and @LoadBalancer@.
 --
 -- Distribution-related APIs are available only in the N. Virginia
--- (@us-east-1@) AWS Region. Set your AWS Region configuration to
--- @us-east-1@ to create, view, or edit distributions.
+-- (@us-east-1@) Amazon Web Services Region. Set your Amazon Web Services
+-- Region configuration to @us-east-1@ to create, view, or edit
+-- distributions.
 setIpAddressType_resourceType :: Lens.Lens' SetIpAddressType ResourceType
 setIpAddressType_resourceType = Lens.lens (\SetIpAddressType' {resourceType} -> resourceType) (\s@SetIpAddressType' {} a -> s {resourceType = a} :: SetIpAddressType)
 

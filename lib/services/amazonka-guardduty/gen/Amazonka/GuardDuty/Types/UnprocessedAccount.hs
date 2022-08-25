@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedAccount' smart constructor.
 data UnprocessedAccount = UnprocessedAccount'
-  { -- | The AWS account ID.
+  { -- | The Amazon Web Services account ID.
     accountId :: Prelude.Text,
     -- | A reason why the account hasn\'t been processed.
     result :: Prelude.Text
@@ -42,7 +42,7 @@ data UnprocessedAccount = UnprocessedAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'unprocessedAccount_accountId' - The AWS account ID.
+-- 'accountId', 'unprocessedAccount_accountId' - The Amazon Web Services account ID.
 --
 -- 'result', 'unprocessedAccount_result' - A reason why the account hasn\'t been processed.
 newUnprocessedAccount ::
@@ -57,7 +57,7 @@ newUnprocessedAccount pAccountId_ pResult_ =
       result = pResult_
     }
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 unprocessedAccount_accountId :: Lens.Lens' UnprocessedAccount Prelude.Text
 unprocessedAccount_accountId = Lens.lens (\UnprocessedAccount' {accountId} -> accountId) (\s@UnprocessedAccount' {} a -> s {accountId = a} :: UnprocessedAccount)
 

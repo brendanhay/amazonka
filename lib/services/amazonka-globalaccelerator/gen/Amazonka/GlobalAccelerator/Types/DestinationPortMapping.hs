@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestinationPortMapping' smart constructor.
 data DestinationPortMapping = DestinationPortMapping'
-  { -- | The AWS Region for the endpoint group.
+  { -- | The Amazon Web Services Region for the endpoint group.
     endpointGroupRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the custom routing accelerator that
     -- you have port mappings for.
@@ -41,7 +41,8 @@ data DestinationPortMapping = DestinationPortMapping'
     -- The value is either ALLOW, if traffic is allowed to the destination, or
     -- DENY, if traffic is not allowed to the destination.
     destinationTrafficState :: Prelude.Maybe CustomRoutingDestinationTrafficState,
-    -- | The IP address type, which must be IPv4.
+    -- | The IP address type that an accelerator supports. For a custom routing
+    -- accelerator, the value must be IPV4.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The Amazon Resource Name (ARN) of the endpoint group.
     endpointGroupArn :: Prelude.Maybe Prelude.Text,
@@ -62,7 +63,7 @@ data DestinationPortMapping = DestinationPortMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointGroupRegion', 'destinationPortMapping_endpointGroupRegion' - The AWS Region for the endpoint group.
+-- 'endpointGroupRegion', 'destinationPortMapping_endpointGroupRegion' - The Amazon Web Services Region for the endpoint group.
 --
 -- 'acceleratorArn', 'destinationPortMapping_acceleratorArn' - The Amazon Resource Name (ARN) of the custom routing accelerator that
 -- you have port mappings for.
@@ -73,7 +74,8 @@ data DestinationPortMapping = DestinationPortMapping'
 -- The value is either ALLOW, if traffic is allowed to the destination, or
 -- DENY, if traffic is not allowed to the destination.
 --
--- 'ipAddressType', 'destinationPortMapping_ipAddressType' - The IP address type, which must be IPv4.
+-- 'ipAddressType', 'destinationPortMapping_ipAddressType' - The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 --
 -- 'endpointGroupArn', 'destinationPortMapping_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.
 --
@@ -97,7 +99,7 @@ newDestinationPortMapping =
       acceleratorSocketAddresses = Prelude.Nothing
     }
 
--- | The AWS Region for the endpoint group.
+-- | The Amazon Web Services Region for the endpoint group.
 destinationPortMapping_endpointGroupRegion :: Lens.Lens' DestinationPortMapping (Prelude.Maybe Prelude.Text)
 destinationPortMapping_endpointGroupRegion = Lens.lens (\DestinationPortMapping' {endpointGroupRegion} -> endpointGroupRegion) (\s@DestinationPortMapping' {} a -> s {endpointGroupRegion = a} :: DestinationPortMapping)
 
@@ -116,7 +118,8 @@ destinationPortMapping_endpointId = Lens.lens (\DestinationPortMapping' {endpoin
 destinationPortMapping_destinationTrafficState :: Lens.Lens' DestinationPortMapping (Prelude.Maybe CustomRoutingDestinationTrafficState)
 destinationPortMapping_destinationTrafficState = Lens.lens (\DestinationPortMapping' {destinationTrafficState} -> destinationTrafficState) (\s@DestinationPortMapping' {} a -> s {destinationTrafficState = a} :: DestinationPortMapping)
 
--- | The IP address type, which must be IPv4.
+-- | The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 destinationPortMapping_ipAddressType :: Lens.Lens' DestinationPortMapping (Prelude.Maybe IpAddressType)
 destinationPortMapping_ipAddressType = Lens.lens (\DestinationPortMapping' {ipAddressType} -> ipAddressType) (\s@DestinationPortMapping' {} a -> s {ipAddressType = a} :: DestinationPortMapping)
 

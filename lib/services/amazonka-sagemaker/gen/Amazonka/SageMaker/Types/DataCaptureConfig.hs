@@ -25,15 +25,40 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureContentTypeHeader
 import Amazonka.SageMaker.Types.CaptureOption
 
--- |
+-- | Configuration to control how SageMaker captures inference data.
 --
 -- /See:/ 'newDataCaptureConfig' smart constructor.
 data DataCaptureConfig = DataCaptureConfig'
-  { captureContentTypeHeader :: Prelude.Maybe CaptureContentTypeHeader,
+  { -- | Configuration specifying how to treat different headers. If no headers
+    -- are specified SageMaker will by default base64 encode when capturing the
+    -- data.
+    captureContentTypeHeader :: Prelude.Maybe CaptureContentTypeHeader,
+    -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+    -- Service key that SageMaker uses to encrypt data on the storage volume
+    -- attached to the ML compute instance that hosts the endpoint.
+    --
+    -- The KmsKeyId can be any of the following formats:
+    --
+    -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Key ARN:
+    --     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Alias name: @alias\/ExampleAlias@
+    --
+    -- -   Alias name ARN:
+    --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Whether data capture should be enabled or disabled (defaults to
+    -- enabled).
     enableCapture :: Prelude.Maybe Prelude.Bool,
+    -- | The percentage of requests SageMaker will capture. A lower value is
+    -- recommended for Endpoints with high traffic.
     initialSamplingPercentage :: Prelude.Natural,
+    -- | The Amazon S3 location used to capture the data.
     destinationS3Uri :: Prelude.Text,
+    -- | Specifies data Model Monitor will capture. You can configure whether to
+    -- collect only input, only output, or both
     captureOptions :: Prelude.NonEmpty CaptureOption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,17 +71,36 @@ data DataCaptureConfig = DataCaptureConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'captureContentTypeHeader', 'dataCaptureConfig_captureContentTypeHeader' -
+-- 'captureContentTypeHeader', 'dataCaptureConfig_captureContentTypeHeader' - Configuration specifying how to treat different headers. If no headers
+-- are specified SageMaker will by default base64 encode when capturing the
+-- data.
 --
--- 'kmsKeyId', 'dataCaptureConfig_kmsKeyId' -
+-- 'kmsKeyId', 'dataCaptureConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+-- Service key that SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance that hosts the endpoint.
 --
--- 'enableCapture', 'dataCaptureConfig_enableCapture' -
+-- The KmsKeyId can be any of the following formats:
 --
--- 'initialSamplingPercentage', 'dataCaptureConfig_initialSamplingPercentage' -
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- 'destinationS3Uri', 'dataCaptureConfig_destinationS3Uri' -
+-- -   Key ARN:
+--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- 'captureOptions', 'dataCaptureConfig_captureOptions' -
+-- -   Alias name: @alias\/ExampleAlias@
+--
+-- -   Alias name ARN:
+--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
+--
+-- 'enableCapture', 'dataCaptureConfig_enableCapture' - Whether data capture should be enabled or disabled (defaults to
+-- enabled).
+--
+-- 'initialSamplingPercentage', 'dataCaptureConfig_initialSamplingPercentage' - The percentage of requests SageMaker will capture. A lower value is
+-- recommended for Endpoints with high traffic.
+--
+-- 'destinationS3Uri', 'dataCaptureConfig_destinationS3Uri' - The Amazon S3 location used to capture the data.
+--
+-- 'captureOptions', 'dataCaptureConfig_captureOptions' - Specifies data Model Monitor will capture. You can configure whether to
+-- collect only input, only output, or both
 newDataCaptureConfig ::
   -- | 'initialSamplingPercentage'
   Prelude.Natural ->
@@ -81,27 +125,46 @@ newDataCaptureConfig
           Lens.coerced Lens.# pCaptureOptions_
       }
 
--- |
+-- | Configuration specifying how to treat different headers. If no headers
+-- are specified SageMaker will by default base64 encode when capturing the
+-- data.
 dataCaptureConfig_captureContentTypeHeader :: Lens.Lens' DataCaptureConfig (Prelude.Maybe CaptureContentTypeHeader)
 dataCaptureConfig_captureContentTypeHeader = Lens.lens (\DataCaptureConfig' {captureContentTypeHeader} -> captureContentTypeHeader) (\s@DataCaptureConfig' {} a -> s {captureContentTypeHeader = a} :: DataCaptureConfig)
 
--- |
+-- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+-- Service key that SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance that hosts the endpoint.
+--
+-- The KmsKeyId can be any of the following formats:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Alias name: @alias\/ExampleAlias@
+--
+-- -   Alias name ARN:
+--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
 dataCaptureConfig_kmsKeyId :: Lens.Lens' DataCaptureConfig (Prelude.Maybe Prelude.Text)
 dataCaptureConfig_kmsKeyId = Lens.lens (\DataCaptureConfig' {kmsKeyId} -> kmsKeyId) (\s@DataCaptureConfig' {} a -> s {kmsKeyId = a} :: DataCaptureConfig)
 
--- |
+-- | Whether data capture should be enabled or disabled (defaults to
+-- enabled).
 dataCaptureConfig_enableCapture :: Lens.Lens' DataCaptureConfig (Prelude.Maybe Prelude.Bool)
 dataCaptureConfig_enableCapture = Lens.lens (\DataCaptureConfig' {enableCapture} -> enableCapture) (\s@DataCaptureConfig' {} a -> s {enableCapture = a} :: DataCaptureConfig)
 
--- |
+-- | The percentage of requests SageMaker will capture. A lower value is
+-- recommended for Endpoints with high traffic.
 dataCaptureConfig_initialSamplingPercentage :: Lens.Lens' DataCaptureConfig Prelude.Natural
 dataCaptureConfig_initialSamplingPercentage = Lens.lens (\DataCaptureConfig' {initialSamplingPercentage} -> initialSamplingPercentage) (\s@DataCaptureConfig' {} a -> s {initialSamplingPercentage = a} :: DataCaptureConfig)
 
--- |
+-- | The Amazon S3 location used to capture the data.
 dataCaptureConfig_destinationS3Uri :: Lens.Lens' DataCaptureConfig Prelude.Text
 dataCaptureConfig_destinationS3Uri = Lens.lens (\DataCaptureConfig' {destinationS3Uri} -> destinationS3Uri) (\s@DataCaptureConfig' {} a -> s {destinationS3Uri = a} :: DataCaptureConfig)
 
--- |
+-- | Specifies data Model Monitor will capture. You can configure whether to
+-- collect only input, only output, or both
 dataCaptureConfig_captureOptions :: Lens.Lens' DataCaptureConfig (Prelude.NonEmpty CaptureOption)
 dataCaptureConfig_captureOptions = Lens.lens (\DataCaptureConfig' {captureOptions} -> captureOptions) (\s@DataCaptureConfig' {} a -> s {captureOptions = a} :: DataCaptureConfig) Prelude.. Lens.coerced
 

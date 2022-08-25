@@ -34,7 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 data BackupPlan = BackupPlan'
   { -- | Contains a list of @BackupOptions@ for each resource type.
     advancedBackupSettings :: Prelude.Maybe [AdvancedBackupSetting],
-    -- | The display name of a backup plan.
+    -- | The display name of a backup plan. Must contain 1 to 50 alphanumeric or
+    -- \'-_.\' characters.
     backupPlanName :: Prelude.Text,
     -- | An array of @BackupRule@ objects, each of which specifies a scheduled
     -- task that is used to back up a selection of resources.
@@ -52,7 +53,8 @@ data BackupPlan = BackupPlan'
 --
 -- 'advancedBackupSettings', 'backupPlan_advancedBackupSettings' - Contains a list of @BackupOptions@ for each resource type.
 --
--- 'backupPlanName', 'backupPlan_backupPlanName' - The display name of a backup plan.
+-- 'backupPlanName', 'backupPlan_backupPlanName' - The display name of a backup plan. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 --
 -- 'rules', 'backupPlan_rules' - An array of @BackupRule@ objects, each of which specifies a scheduled
 -- task that is used to back up a selection of resources.
@@ -72,7 +74,8 @@ newBackupPlan pBackupPlanName_ =
 backupPlan_advancedBackupSettings :: Lens.Lens' BackupPlan (Prelude.Maybe [AdvancedBackupSetting])
 backupPlan_advancedBackupSettings = Lens.lens (\BackupPlan' {advancedBackupSettings} -> advancedBackupSettings) (\s@BackupPlan' {} a -> s {advancedBackupSettings = a} :: BackupPlan) Prelude.. Lens.mapping Lens.coerced
 
--- | The display name of a backup plan.
+-- | The display name of a backup plan. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 backupPlan_backupPlanName :: Lens.Lens' BackupPlan Prelude.Text
 backupPlan_backupPlanName = Lens.lens (\BackupPlan' {backupPlanName} -> backupPlanName) (\s@BackupPlan' {} a -> s {backupPlanName = a} :: BackupPlan)
 

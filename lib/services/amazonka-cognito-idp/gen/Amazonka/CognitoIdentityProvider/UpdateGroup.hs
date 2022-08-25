@@ -54,8 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | The new role ARN for the group. This is used for setting the
-    -- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+  { -- | The new role Amazon Resource Name (ARN) for the group. This is used for
+    -- setting the @cognito:roles@ and @cognito:preferred_role@ claims in the
+    -- token.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A string containing the new description of the group.
     description :: Prelude.Maybe Prelude.Text,
@@ -78,8 +79,9 @@ data UpdateGroup = UpdateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateGroup_roleArn' - The new role ARN for the group. This is used for setting the
--- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+-- 'roleArn', 'updateGroup_roleArn' - The new role Amazon Resource Name (ARN) for the group. This is used for
+-- setting the @cognito:roles@ and @cognito:preferred_role@ claims in the
+-- token.
 --
 -- 'description', 'updateGroup_description' - A string containing the new description of the group.
 --
@@ -105,8 +107,9 @@ newUpdateGroup pGroupName_ pUserPoolId_ =
       userPoolId = pUserPoolId_
     }
 
--- | The new role ARN for the group. This is used for setting the
--- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+-- | The new role Amazon Resource Name (ARN) for the group. This is used for
+-- setting the @cognito:roles@ and @cognito:preferred_role@ claims in the
+-- token.
 updateGroup_roleArn :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_roleArn = Lens.lens (\UpdateGroup' {roleArn} -> roleArn) (\s@UpdateGroup' {} a -> s {roleArn = a} :: UpdateGroup)
 

@@ -63,9 +63,9 @@ data CreateBasePathMapping = CreateBasePathMapping'
     -- mappings across a single API. Specify \'(none)\' if you do not want
     -- callers to specify a base path name after the domain name.
     basePath :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The domain name of the BasePathMapping resource to create.
+    -- | The domain name of the BasePathMapping resource to create.
     domainName :: Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,9 +87,9 @@ data CreateBasePathMapping = CreateBasePathMapping'
 -- mappings across a single API. Specify \'(none)\' if you do not want
 -- callers to specify a base path name after the domain name.
 --
--- 'domainName', 'createBasePathMapping_domainName' - [Required] The domain name of the BasePathMapping resource to create.
+-- 'domainName', 'createBasePathMapping_domainName' - The domain name of the BasePathMapping resource to create.
 --
--- 'restApiId', 'createBasePathMapping_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createBasePathMapping_restApiId' - The string identifier of the associated RestApi.
 newCreateBasePathMapping ::
   -- | 'domainName'
   Prelude.Text ->
@@ -117,11 +117,11 @@ createBasePathMapping_stage = Lens.lens (\CreateBasePathMapping' {stage} -> stag
 createBasePathMapping_basePath :: Lens.Lens' CreateBasePathMapping (Prelude.Maybe Prelude.Text)
 createBasePathMapping_basePath = Lens.lens (\CreateBasePathMapping' {basePath} -> basePath) (\s@CreateBasePathMapping' {} a -> s {basePath = a} :: CreateBasePathMapping)
 
--- | [Required] The domain name of the BasePathMapping resource to create.
+-- | The domain name of the BasePathMapping resource to create.
 createBasePathMapping_domainName :: Lens.Lens' CreateBasePathMapping Prelude.Text
 createBasePathMapping_domainName = Lens.lens (\CreateBasePathMapping' {domainName} -> domainName) (\s@CreateBasePathMapping' {} a -> s {domainName = a} :: CreateBasePathMapping)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createBasePathMapping_restApiId :: Lens.Lens' CreateBasePathMapping Prelude.Text
 createBasePathMapping_restApiId = Lens.lens (\CreateBasePathMapping' {restApiId} -> restApiId) (\s@CreateBasePathMapping' {} a -> s {restApiId = a} :: CreateBasePathMapping)
 

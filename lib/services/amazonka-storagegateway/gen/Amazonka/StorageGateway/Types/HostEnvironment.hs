@@ -24,6 +24,7 @@ module Amazonka.StorageGateway.Types.HostEnvironment
         HostEnvironment_HYPER_V,
         HostEnvironment_KVM,
         HostEnvironment_OTHER,
+        HostEnvironment_SNOWBALL,
         HostEnvironment_VMWARE
       ),
   )
@@ -72,6 +73,9 @@ pattern HostEnvironment_KVM = HostEnvironment' "KVM"
 pattern HostEnvironment_OTHER :: HostEnvironment
 pattern HostEnvironment_OTHER = HostEnvironment' "OTHER"
 
+pattern HostEnvironment_SNOWBALL :: HostEnvironment
+pattern HostEnvironment_SNOWBALL = HostEnvironment' "SNOWBALL"
+
 pattern HostEnvironment_VMWARE :: HostEnvironment
 pattern HostEnvironment_VMWARE = HostEnvironment' "VMWARE"
 
@@ -80,6 +84,7 @@ pattern HostEnvironment_VMWARE = HostEnvironment' "VMWARE"
   HostEnvironment_HYPER_V,
   HostEnvironment_KVM,
   HostEnvironment_OTHER,
+  HostEnvironment_SNOWBALL,
   HostEnvironment_VMWARE,
   HostEnvironment'
   #-}

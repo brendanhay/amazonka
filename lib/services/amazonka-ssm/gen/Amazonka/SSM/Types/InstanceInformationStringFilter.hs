@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The filters to describe or get information about your managed instances.
+-- | The filters to describe or get information about your managed nodes.
 --
 -- /See:/ 'newInstanceInformationStringFilter' smart constructor.
 data InstanceInformationStringFilter = InstanceInformationStringFilter'
-  { -- | The filter key name to describe your instances. For example:
+  { -- | The filter key name to describe your managed nodes. For example:
     --
     -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
     -- Key\"
@@ -50,7 +50,7 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'instanceInformationStringFilter_key' - The filter key name to describe your instances. For example:
+-- 'key', 'instanceInformationStringFilter_key' - The filter key name to describe your managed nodes. For example:
 --
 -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
 -- Key\"
@@ -73,7 +73,7 @@ newInstanceInformationStringFilter pKey_ pValues_ =
       values = Lens.coerced Lens.# pValues_
     }
 
--- | The filter key name to describe your instances. For example:
+-- | The filter key name to describe your managed nodes. For example:
 --
 -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
 -- Key\"

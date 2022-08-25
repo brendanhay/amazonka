@@ -39,6 +39,12 @@ import Test.Tasty
 --         , requestDeleteStream $
 --             newDeleteStream
 --
+--         , requestDescribeImageGenerationConfiguration $
+--             newDescribeImageGenerationConfiguration
+--
+--         , requestDescribeNotificationConfiguration $
+--             newDescribeNotificationConfiguration
+--
 --         , requestDescribeSignalingChannel $
 --             newDescribeSignalingChannel
 --
@@ -78,6 +84,12 @@ import Test.Tasty
 --         , requestUpdateDataRetention $
 --             newUpdateDataRetention
 --
+--         , requestUpdateImageGenerationConfiguration $
+--             newUpdateImageGenerationConfiguration
+--
+--         , requestUpdateNotificationConfiguration $
+--             newUpdateNotificationConfiguration
+--
 --         , requestUpdateSignalingChannel $
 --             newUpdateSignalingChannel
 --
@@ -98,6 +110,12 @@ import Test.Tasty
 --
 --         , responseDeleteStream $
 --             newDeleteStreamResponse
+--
+--         , responseDescribeImageGenerationConfiguration $
+--             newDescribeImageGenerationConfigurationResponse
+--
+--         , responseDescribeNotificationConfiguration $
+--             newDescribeNotificationConfigurationResponse
 --
 --         , responseDescribeSignalingChannel $
 --             newDescribeSignalingChannelResponse
@@ -138,6 +156,12 @@ import Test.Tasty
 --         , responseUpdateDataRetention $
 --             newUpdateDataRetentionResponse
 --
+--         , responseUpdateImageGenerationConfiguration $
+--             newUpdateImageGenerationConfigurationResponse
+--
+--         , responseUpdateNotificationConfiguration $
+--             newUpdateNotificationConfigurationResponse
+--
 --         , responseUpdateSignalingChannel $
 --             newUpdateSignalingChannelResponse
 --
@@ -172,6 +196,18 @@ requestDeleteStream =
   req
     "DeleteStream"
     "fixture/DeleteStream.yaml"
+
+requestDescribeImageGenerationConfiguration :: DescribeImageGenerationConfiguration -> TestTree
+requestDescribeImageGenerationConfiguration =
+  req
+    "DescribeImageGenerationConfiguration"
+    "fixture/DescribeImageGenerationConfiguration.yaml"
+
+requestDescribeNotificationConfiguration :: DescribeNotificationConfiguration -> TestTree
+requestDescribeNotificationConfiguration =
+  req
+    "DescribeNotificationConfiguration"
+    "fixture/DescribeNotificationConfiguration.yaml"
 
 requestDescribeSignalingChannel :: DescribeSignalingChannel -> TestTree
 requestDescribeSignalingChannel =
@@ -251,6 +287,18 @@ requestUpdateDataRetention =
     "UpdateDataRetention"
     "fixture/UpdateDataRetention.yaml"
 
+requestUpdateImageGenerationConfiguration :: UpdateImageGenerationConfiguration -> TestTree
+requestUpdateImageGenerationConfiguration =
+  req
+    "UpdateImageGenerationConfiguration"
+    "fixture/UpdateImageGenerationConfiguration.yaml"
+
+requestUpdateNotificationConfiguration :: UpdateNotificationConfiguration -> TestTree
+requestUpdateNotificationConfiguration =
+  req
+    "UpdateNotificationConfiguration"
+    "fixture/UpdateNotificationConfiguration.yaml"
+
 requestUpdateSignalingChannel :: UpdateSignalingChannel -> TestTree
 requestUpdateSignalingChannel =
   req
@@ -296,6 +344,22 @@ responseDeleteStream =
     "fixture/DeleteStreamResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStream)
+
+responseDescribeImageGenerationConfiguration :: DescribeImageGenerationConfigurationResponse -> TestTree
+responseDescribeImageGenerationConfiguration =
+  res
+    "DescribeImageGenerationConfigurationResponse"
+    "fixture/DescribeImageGenerationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeImageGenerationConfiguration)
+
+responseDescribeNotificationConfiguration :: DescribeNotificationConfigurationResponse -> TestTree
+responseDescribeNotificationConfiguration =
+  res
+    "DescribeNotificationConfigurationResponse"
+    "fixture/DescribeNotificationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotificationConfiguration)
 
 responseDescribeSignalingChannel :: DescribeSignalingChannelResponse -> TestTree
 responseDescribeSignalingChannel =
@@ -400,6 +464,22 @@ responseUpdateDataRetention =
     "fixture/UpdateDataRetentionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDataRetention)
+
+responseUpdateImageGenerationConfiguration :: UpdateImageGenerationConfigurationResponse -> TestTree
+responseUpdateImageGenerationConfiguration =
+  res
+    "UpdateImageGenerationConfigurationResponse"
+    "fixture/UpdateImageGenerationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateImageGenerationConfiguration)
+
+responseUpdateNotificationConfiguration :: UpdateNotificationConfigurationResponse -> TestTree
+responseUpdateNotificationConfiguration =
+  res
+    "UpdateNotificationConfigurationResponse"
+    "fixture/UpdateNotificationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotificationConfiguration)
 
 responseUpdateSignalingChannel :: UpdateSignalingChannelResponse -> TestTree
 responseUpdateSignalingChannel =

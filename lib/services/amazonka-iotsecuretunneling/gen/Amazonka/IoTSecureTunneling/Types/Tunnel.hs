@@ -50,8 +50,7 @@ data Tunnel = Tunnel'
     tunnelId :: Prelude.Maybe Prelude.Text,
     -- | Timeout configuration for the tunnel.
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
-    -- | The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
-    -- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+    -- | The Amazon Resource Name (ARN) of a tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the tunnel was created.
     createdAt :: Prelude.Maybe Core.POSIX,
@@ -86,8 +85,7 @@ data Tunnel = Tunnel'
 --
 -- 'timeoutConfig', 'tunnel_timeoutConfig' - Timeout configuration for the tunnel.
 --
--- 'tunnelArn', 'tunnel_tunnelArn' - The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
--- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+-- 'tunnelArn', 'tunnel_tunnelArn' - The Amazon Resource Name (ARN) of a tunnel.
 --
 -- 'createdAt', 'tunnel_createdAt' - The time when the tunnel was created.
 --
@@ -143,8 +141,7 @@ tunnel_tunnelId = Lens.lens (\Tunnel' {tunnelId} -> tunnelId) (\s@Tunnel' {} a -
 tunnel_timeoutConfig :: Lens.Lens' Tunnel (Prelude.Maybe TimeoutConfig)
 tunnel_timeoutConfig = Lens.lens (\Tunnel' {timeoutConfig} -> timeoutConfig) (\s@Tunnel' {} a -> s {timeoutConfig = a} :: Tunnel)
 
--- | The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
--- @arn:aws:tunnel:\<region>:\<account-id>:tunnel\/\<tunnel-id>@
+-- | The Amazon Resource Name (ARN) of a tunnel.
 tunnel_tunnelArn :: Lens.Lens' Tunnel (Prelude.Maybe Prelude.Text)
 tunnel_tunnelArn = Lens.lens (\Tunnel' {tunnelArn} -> tunnelArn) (\s@Tunnel' {} a -> s {tunnelArn = a} :: Tunnel)
 

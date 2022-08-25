@@ -22,13 +22,17 @@ module Amazonka.Rekognition.Types.ProjectDescription where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.DatasetMetadata
 import Amazonka.Rekognition.Types.ProjectStatus
 
--- | A description of a Amazon Rekognition Custom Labels project.
+-- | A description of an Amazon Rekognition Custom Labels project. For more
+-- information, see DescribeProjects.
 --
 -- /See:/ 'newProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
-  { -- | The current status of the project.
+  { -- | Information about the training and test datasets in the project.
+    datasets :: Prelude.Maybe [DatasetMetadata],
+    -- | The current status of the project.
     status :: Prelude.Maybe ProjectStatus,
     -- | The Unix timestamp for the date and time that the project was created.
     creationTimestamp :: Prelude.Maybe Core.POSIX,
@@ -45,6 +49,8 @@ data ProjectDescription = ProjectDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasets', 'projectDescription_datasets' - Information about the training and test datasets in the project.
+--
 -- 'status', 'projectDescription_status' - The current status of the project.
 --
 -- 'creationTimestamp', 'projectDescription_creationTimestamp' - The Unix timestamp for the date and time that the project was created.
@@ -54,10 +60,15 @@ newProjectDescription ::
   ProjectDescription
 newProjectDescription =
   ProjectDescription'
-    { status = Prelude.Nothing,
+    { datasets = Prelude.Nothing,
+      status = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
       projectArn = Prelude.Nothing
     }
+
+-- | Information about the training and test datasets in the project.
+projectDescription_datasets :: Lens.Lens' ProjectDescription (Prelude.Maybe [DatasetMetadata])
+projectDescription_datasets = Lens.lens (\ProjectDescription' {datasets} -> datasets) (\s@ProjectDescription' {} a -> s {datasets = a} :: ProjectDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current status of the project.
 projectDescription_status :: Lens.Lens' ProjectDescription (Prelude.Maybe ProjectStatus)
@@ -77,19 +88,22 @@ instance Core.FromJSON ProjectDescription where
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Datasets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CreationTimestamp")
             Prelude.<*> (x Core..:? "ProjectArn")
       )
 
 instance Prelude.Hashable ProjectDescription where
   hashWithSalt _salt ProjectDescription' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` datasets
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` projectArn
 
 instance Prelude.NFData ProjectDescription where
   rnf ProjectDescription' {..} =
-    Prelude.rnf status
+    Prelude.rnf datasets
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf projectArn

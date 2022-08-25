@@ -98,10 +98,12 @@ module Amazonka.Discovery.Lens
 
     -- ** GetDiscoverySummary
     getDiscoverySummaryResponse_servers,
+    getDiscoverySummaryResponse_agentlessCollectorSummary,
     getDiscoverySummaryResponse_applications,
     getDiscoverySummaryResponse_agentSummary,
     getDiscoverySummaryResponse_connectorSummary,
     getDiscoverySummaryResponse_serversMappedtoTags,
+    getDiscoverySummaryResponse_meCollectorSummary,
     getDiscoverySummaryResponse_serversMappedToApplications,
     getDiscoverySummaryResponse_httpStatus,
 
@@ -225,6 +227,15 @@ module Amazonka.Discovery.Lens
     customerAgentInfo_totalAgents,
     customerAgentInfo_unknownAgents,
 
+    -- ** CustomerAgentlessCollectorInfo
+    customerAgentlessCollectorInfo_activeAgentlessCollectors,
+    customerAgentlessCollectorInfo_healthyAgentlessCollectors,
+    customerAgentlessCollectorInfo_denyListedAgentlessCollectors,
+    customerAgentlessCollectorInfo_shutdownAgentlessCollectors,
+    customerAgentlessCollectorInfo_unhealthyAgentlessCollectors,
+    customerAgentlessCollectorInfo_totalAgentlessCollectors,
+    customerAgentlessCollectorInfo_unknownAgentlessCollectors,
+
     -- ** CustomerConnectorInfo
     customerConnectorInfo_activeConnectors,
     customerConnectorInfo_healthyConnectors,
@@ -233,6 +244,15 @@ module Amazonka.Discovery.Lens
     customerConnectorInfo_unhealthyConnectors,
     customerConnectorInfo_totalConnectors,
     customerConnectorInfo_unknownConnectors,
+
+    -- ** CustomerMeCollectorInfo
+    customerMeCollectorInfo_activeMeCollectors,
+    customerMeCollectorInfo_healthyMeCollectors,
+    customerMeCollectorInfo_denyListedMeCollectors,
+    customerMeCollectorInfo_shutdownMeCollectors,
+    customerMeCollectorInfo_unhealthyMeCollectors,
+    customerMeCollectorInfo_totalMeCollectors,
+    customerMeCollectorInfo_unknownMeCollectors,
 
     -- ** ExportFilter
     exportFilter_name,
@@ -323,7 +343,9 @@ import Amazonka.Discovery.Types.BatchDeleteImportDataError
 import Amazonka.Discovery.Types.ConfigurationTag
 import Amazonka.Discovery.Types.ContinuousExportDescription
 import Amazonka.Discovery.Types.CustomerAgentInfo
+import Amazonka.Discovery.Types.CustomerAgentlessCollectorInfo
 import Amazonka.Discovery.Types.CustomerConnectorInfo
+import Amazonka.Discovery.Types.CustomerMeCollectorInfo
 import Amazonka.Discovery.Types.ExportFilter
 import Amazonka.Discovery.Types.ExportInfo
 import Amazonka.Discovery.Types.Filter

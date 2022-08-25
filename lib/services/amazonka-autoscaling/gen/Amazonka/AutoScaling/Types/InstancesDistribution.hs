@@ -23,66 +23,72 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes an instances distribution for an Auto Scaling group with a
--- MixedInstancesPolicy.
---
--- The instances distribution specifies the distribution of On-Demand
--- Instances and Spot Instances, the maximum price to pay for Spot
--- Instances, and how the Auto Scaling group allocates instance types to
--- fulfill On-Demand and Spot capacities.
---
--- When you modify @SpotAllocationStrategy@, @SpotInstancePools@, or
--- @SpotMaxPrice@ in the UpdateAutoScalingGroup API call, this update
--- action does not deploy any changes across the running Amazon EC2
--- instances in the group. Your existing Spot Instances continue to run as
--- long as the maximum price for those instances is higher than the current
--- Spot price. When scale out occurs, Amazon EC2 Auto Scaling launches
--- instances based on the new settings. When scale in occurs, Amazon EC2
--- Auto Scaling terminates instances according to the group\'s termination
--- policies.
+-- | Describes an instances distribution for an Auto Scaling group.
 --
 -- /See:/ 'newInstancesDistribution' smart constructor.
 data InstancesDistribution = InstancesDistribution'
   { -- | The minimum amount of the Auto Scaling group\'s capacity that must be
-    -- fulfilled by On-Demand Instances. This base portion is provisioned first
-    -- as your group scales. Defaults to 0 if not specified. If you specify
-    -- weights for the instance types in the overrides, set the value of
-    -- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not
-    -- the number of instances.
+    -- fulfilled by On-Demand Instances. This base portion is launched first as
+    -- your group scales.
+    --
+    -- If you specify weights for the instance types in the overrides, the base
+    -- capacity is measured in the same unit of measurement as the instance
+    -- types. If you specify InstanceRequirements in the overrides, the base
+    -- capacity is measured in the same unit of measurement as your group\'s
+    -- desired capacity.
+    --
+    -- Default: @0@
     onDemandBaseCapacity :: Prelude.Maybe Prelude.Int,
     -- | Controls the percentages of On-Demand Instances and Spot Instances for
     -- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
     -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
-    -- Instances). Defaults to 100 if not specified. If set to 100, only
-    -- On-Demand Instances are provisioned.
+    -- Instances). If set to 100, only On-Demand Instances are used.
+    --
+    -- Default: @100@
     onDemandPercentageAboveBaseCapacity :: Prelude.Maybe Prelude.Int,
-    -- | Indicates how to allocate instance types to fulfill On-Demand capacity.
-    -- The only valid value is @prioritized@, which is also the default value.
-    -- This strategy uses the order of instance types in the
-    -- @LaunchTemplateOverrides@ to define the launch priority of each instance
-    -- type. The first instance type in the array is prioritized higher than
-    -- the last. If all your On-Demand capacity cannot be fulfilled using your
-    -- highest priority instance, then the Auto Scaling groups launches the
-    -- remaining capacity using the second priority instance type, and so on.
+    -- | The order of the launch template overrides to use in fulfilling
+    -- On-Demand capacity.
+    --
+    -- If you specify @lowest-price@, Amazon EC2 Auto Scaling uses price to
+    -- determine the order, launching the lowest price first.
+    --
+    -- If you specify @prioritized@, Amazon EC2 Auto Scaling uses the priority
+    -- that you assigned to each launch template override, launching the
+    -- highest priority first. If all your On-Demand capacity cannot be
+    -- fulfilled using your highest priority instance, then Amazon EC2 Auto
+    -- Scaling launches the remaining capacity using the second priority
+    -- instance type, and so on.
+    --
+    -- Default: @lowest-price@ for Auto Scaling groups that specify
+    -- InstanceRequirements in the overrides and @prioritized@ for Auto Scaling
+    -- groups that don\'t.
+    --
+    -- Valid values: @lowest-price@ | @prioritized@
     onDemandAllocationStrategy :: Prelude.Maybe Prelude.Text,
     -- | The number of Spot Instance pools across which to allocate your Spot
     -- Instances. The Spot pools are determined from the different instance
     -- types in the overrides. Valid only when the Spot allocation strategy is
-    -- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if
-    -- not specified.
+    -- @lowest-price@. Value must be in the range of 1–20.
+    --
+    -- Default: @2@
     spotInstancePools :: Prelude.Maybe Prelude.Int,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
-    -- Instance. If you leave the value at its default (empty), Amazon EC2 Auto
-    -- Scaling uses the On-Demand price as the maximum Spot price. To remove a
-    -- value that you previously set, include the property but specify an empty
-    -- string (\"\") for the value.
+    -- Instance. If you keep the value at its default (unspecified), Amazon EC2
+    -- Auto Scaling uses the On-Demand price as the maximum Spot price. To
+    -- remove a value that you previously set, include the property but specify
+    -- an empty string (\"\") for the value.
+    --
+    -- If your maximum price is lower than the Spot price for the instance
+    -- types that you selected, your Spot Instances are not launched.
+    --
+    -- Valid Range: Minimum value of 0.001
     spotMaxPrice :: Prelude.Maybe Prelude.Text,
     -- | Indicates how to allocate instances across Spot Instance pools.
     --
     -- If the allocation strategy is @lowest-price@, the Auto Scaling group
     -- launches instances using the Spot pools with the lowest price, and
     -- evenly allocates your instances across the number of Spot pools that you
-    -- specify. Defaults to @lowest-price@ if not specified.
+    -- specify.
     --
     -- If the allocation strategy is @capacity-optimized@ (recommended), the
     -- Auto Scaling group launches instances using Spot pools that are
@@ -92,6 +98,11 @@ data InstancesDistribution = InstancesDistribution'
     -- lowest priority (from first to last in the list). Amazon EC2 Auto
     -- Scaling honors the instance type priorities on a best-effort basis but
     -- optimizes for capacity first.
+    --
+    -- Default: @lowest-price@
+    --
+    -- Valid values: @lowest-price@ | @capacity-optimized@ |
+    -- @capacity-optimized-prioritized@
     spotAllocationStrategy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,45 +116,67 @@ data InstancesDistribution = InstancesDistribution'
 -- for backwards compatibility:
 --
 -- 'onDemandBaseCapacity', 'instancesDistribution_onDemandBaseCapacity' - The minimum amount of the Auto Scaling group\'s capacity that must be
--- fulfilled by On-Demand Instances. This base portion is provisioned first
--- as your group scales. Defaults to 0 if not specified. If you specify
--- weights for the instance types in the overrides, set the value of
--- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not
--- the number of instances.
+-- fulfilled by On-Demand Instances. This base portion is launched first as
+-- your group scales.
+--
+-- If you specify weights for the instance types in the overrides, the base
+-- capacity is measured in the same unit of measurement as the instance
+-- types. If you specify InstanceRequirements in the overrides, the base
+-- capacity is measured in the same unit of measurement as your group\'s
+-- desired capacity.
+--
+-- Default: @0@
 --
 -- 'onDemandPercentageAboveBaseCapacity', 'instancesDistribution_onDemandPercentageAboveBaseCapacity' - Controls the percentages of On-Demand Instances and Spot Instances for
 -- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
 -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
--- Instances). Defaults to 100 if not specified. If set to 100, only
--- On-Demand Instances are provisioned.
+-- Instances). If set to 100, only On-Demand Instances are used.
 --
--- 'onDemandAllocationStrategy', 'instancesDistribution_onDemandAllocationStrategy' - Indicates how to allocate instance types to fulfill On-Demand capacity.
--- The only valid value is @prioritized@, which is also the default value.
--- This strategy uses the order of instance types in the
--- @LaunchTemplateOverrides@ to define the launch priority of each instance
--- type. The first instance type in the array is prioritized higher than
--- the last. If all your On-Demand capacity cannot be fulfilled using your
--- highest priority instance, then the Auto Scaling groups launches the
--- remaining capacity using the second priority instance type, and so on.
+-- Default: @100@
+--
+-- 'onDemandAllocationStrategy', 'instancesDistribution_onDemandAllocationStrategy' - The order of the launch template overrides to use in fulfilling
+-- On-Demand capacity.
+--
+-- If you specify @lowest-price@, Amazon EC2 Auto Scaling uses price to
+-- determine the order, launching the lowest price first.
+--
+-- If you specify @prioritized@, Amazon EC2 Auto Scaling uses the priority
+-- that you assigned to each launch template override, launching the
+-- highest priority first. If all your On-Demand capacity cannot be
+-- fulfilled using your highest priority instance, then Amazon EC2 Auto
+-- Scaling launches the remaining capacity using the second priority
+-- instance type, and so on.
+--
+-- Default: @lowest-price@ for Auto Scaling groups that specify
+-- InstanceRequirements in the overrides and @prioritized@ for Auto Scaling
+-- groups that don\'t.
+--
+-- Valid values: @lowest-price@ | @prioritized@
 --
 -- 'spotInstancePools', 'instancesDistribution_spotInstancePools' - The number of Spot Instance pools across which to allocate your Spot
 -- Instances. The Spot pools are determined from the different instance
 -- types in the overrides. Valid only when the Spot allocation strategy is
--- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if
--- not specified.
+-- @lowest-price@. Value must be in the range of 1–20.
+--
+-- Default: @2@
 --
 -- 'spotMaxPrice', 'instancesDistribution_spotMaxPrice' - The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. If you leave the value at its default (empty), Amazon EC2 Auto
--- Scaling uses the On-Demand price as the maximum Spot price. To remove a
--- value that you previously set, include the property but specify an empty
--- string (\"\") for the value.
+-- Instance. If you keep the value at its default (unspecified), Amazon EC2
+-- Auto Scaling uses the On-Demand price as the maximum Spot price. To
+-- remove a value that you previously set, include the property but specify
+-- an empty string (\"\") for the value.
+--
+-- If your maximum price is lower than the Spot price for the instance
+-- types that you selected, your Spot Instances are not launched.
+--
+-- Valid Range: Minimum value of 0.001
 --
 -- 'spotAllocationStrategy', 'instancesDistribution_spotAllocationStrategy' - Indicates how to allocate instances across Spot Instance pools.
 --
 -- If the allocation strategy is @lowest-price@, the Auto Scaling group
 -- launches instances using the Spot pools with the lowest price, and
 -- evenly allocates your instances across the number of Spot pools that you
--- specify. Defaults to @lowest-price@ if not specified.
+-- specify.
 --
 -- If the allocation strategy is @capacity-optimized@ (recommended), the
 -- Auto Scaling group launches instances using Spot pools that are
@@ -153,6 +186,11 @@ data InstancesDistribution = InstancesDistribution'
 -- lowest priority (from first to last in the list). Amazon EC2 Auto
 -- Scaling honors the instance type priorities on a best-effort basis but
 -- optimizes for capacity first.
+--
+-- Default: @lowest-price@
+--
+-- Valid values: @lowest-price@ | @capacity-optimized@ |
+-- @capacity-optimized-prioritized@
 newInstancesDistribution ::
   InstancesDistribution
 newInstancesDistribution =
@@ -168,46 +206,68 @@ newInstancesDistribution =
     }
 
 -- | The minimum amount of the Auto Scaling group\'s capacity that must be
--- fulfilled by On-Demand Instances. This base portion is provisioned first
--- as your group scales. Defaults to 0 if not specified. If you specify
--- weights for the instance types in the overrides, set the value of
--- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not
--- the number of instances.
+-- fulfilled by On-Demand Instances. This base portion is launched first as
+-- your group scales.
+--
+-- If you specify weights for the instance types in the overrides, the base
+-- capacity is measured in the same unit of measurement as the instance
+-- types. If you specify InstanceRequirements in the overrides, the base
+-- capacity is measured in the same unit of measurement as your group\'s
+-- desired capacity.
+--
+-- Default: @0@
 instancesDistribution_onDemandBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
 instancesDistribution_onDemandBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandBaseCapacity} -> onDemandBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandBaseCapacity = a} :: InstancesDistribution)
 
 -- | Controls the percentages of On-Demand Instances and Spot Instances for
 -- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
 -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
--- Instances). Defaults to 100 if not specified. If set to 100, only
--- On-Demand Instances are provisioned.
+-- Instances). If set to 100, only On-Demand Instances are used.
+--
+-- Default: @100@
 instancesDistribution_onDemandPercentageAboveBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
 instancesDistribution_onDemandPercentageAboveBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandPercentageAboveBaseCapacity} -> onDemandPercentageAboveBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandPercentageAboveBaseCapacity = a} :: InstancesDistribution)
 
--- | Indicates how to allocate instance types to fulfill On-Demand capacity.
--- The only valid value is @prioritized@, which is also the default value.
--- This strategy uses the order of instance types in the
--- @LaunchTemplateOverrides@ to define the launch priority of each instance
--- type. The first instance type in the array is prioritized higher than
--- the last. If all your On-Demand capacity cannot be fulfilled using your
--- highest priority instance, then the Auto Scaling groups launches the
--- remaining capacity using the second priority instance type, and so on.
+-- | The order of the launch template overrides to use in fulfilling
+-- On-Demand capacity.
+--
+-- If you specify @lowest-price@, Amazon EC2 Auto Scaling uses price to
+-- determine the order, launching the lowest price first.
+--
+-- If you specify @prioritized@, Amazon EC2 Auto Scaling uses the priority
+-- that you assigned to each launch template override, launching the
+-- highest priority first. If all your On-Demand capacity cannot be
+-- fulfilled using your highest priority instance, then Amazon EC2 Auto
+-- Scaling launches the remaining capacity using the second priority
+-- instance type, and so on.
+--
+-- Default: @lowest-price@ for Auto Scaling groups that specify
+-- InstanceRequirements in the overrides and @prioritized@ for Auto Scaling
+-- groups that don\'t.
+--
+-- Valid values: @lowest-price@ | @prioritized@
 instancesDistribution_onDemandAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_onDemandAllocationStrategy = Lens.lens (\InstancesDistribution' {onDemandAllocationStrategy} -> onDemandAllocationStrategy) (\s@InstancesDistribution' {} a -> s {onDemandAllocationStrategy = a} :: InstancesDistribution)
 
 -- | The number of Spot Instance pools across which to allocate your Spot
 -- Instances. The Spot pools are determined from the different instance
 -- types in the overrides. Valid only when the Spot allocation strategy is
--- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if
--- not specified.
+-- @lowest-price@. Value must be in the range of 1–20.
+--
+-- Default: @2@
 instancesDistribution_spotInstancePools :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
 instancesDistribution_spotInstancePools = Lens.lens (\InstancesDistribution' {spotInstancePools} -> spotInstancePools) (\s@InstancesDistribution' {} a -> s {spotInstancePools = a} :: InstancesDistribution)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. If you leave the value at its default (empty), Amazon EC2 Auto
--- Scaling uses the On-Demand price as the maximum Spot price. To remove a
--- value that you previously set, include the property but specify an empty
--- string (\"\") for the value.
+-- Instance. If you keep the value at its default (unspecified), Amazon EC2
+-- Auto Scaling uses the On-Demand price as the maximum Spot price. To
+-- remove a value that you previously set, include the property but specify
+-- an empty string (\"\") for the value.
+--
+-- If your maximum price is lower than the Spot price for the instance
+-- types that you selected, your Spot Instances are not launched.
+--
+-- Valid Range: Minimum value of 0.001
 instancesDistribution_spotMaxPrice :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMaxPrice} -> spotMaxPrice) (\s@InstancesDistribution' {} a -> s {spotMaxPrice = a} :: InstancesDistribution)
 
@@ -216,7 +276,7 @@ instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMax
 -- If the allocation strategy is @lowest-price@, the Auto Scaling group
 -- launches instances using the Spot pools with the lowest price, and
 -- evenly allocates your instances across the number of Spot pools that you
--- specify. Defaults to @lowest-price@ if not specified.
+-- specify.
 --
 -- If the allocation strategy is @capacity-optimized@ (recommended), the
 -- Auto Scaling group launches instances using Spot pools that are
@@ -226,6 +286,11 @@ instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMax
 -- lowest priority (from first to last in the list). Amazon EC2 Auto
 -- Scaling honors the instance type priorities on a best-effort basis but
 -- optimizes for capacity first.
+--
+-- Default: @lowest-price@
+--
+-- Valid values: @lowest-price@ | @capacity-optimized@ |
+-- @capacity-optimized-prioritized@
 instancesDistribution_spotAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_spotAllocationStrategy = Lens.lens (\InstancesDistribution' {spotAllocationStrategy} -> spotAllocationStrategy) (\s@InstancesDistribution' {} a -> s {spotAllocationStrategy = a} :: InstancesDistribution)
 

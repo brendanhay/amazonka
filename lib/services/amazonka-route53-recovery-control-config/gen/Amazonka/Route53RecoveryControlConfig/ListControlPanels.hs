@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of control panels for a cluster.
+-- Returns an array of control panels in an account or in a cluster.
 module Amazonka.Route53RecoveryControlConfig.ListControlPanels
   ( -- * Creating a Request
     ListControlPanels (..),

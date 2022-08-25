@@ -26,6 +26,12 @@ module Amazonka.Personalize
     -- ** InvalidInputException
     _InvalidInputException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyTagKeysException
+    _TooManyTagKeysException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
@@ -49,6 +55,12 @@ module Amazonka.Personalize
     newCreateBatchInferenceJob,
     CreateBatchInferenceJobResponse (CreateBatchInferenceJobResponse'),
     newCreateBatchInferenceJobResponse,
+
+    -- ** CreateBatchSegmentJob
+    CreateBatchSegmentJob (CreateBatchSegmentJob'),
+    newCreateBatchSegmentJob,
+    CreateBatchSegmentJobResponse (CreateBatchSegmentJobResponse'),
+    newCreateBatchSegmentJobResponse,
 
     -- ** CreateCampaign
     CreateCampaign (CreateCampaign'),
@@ -91,6 +103,12 @@ module Amazonka.Personalize
     newCreateFilter,
     CreateFilterResponse (CreateFilterResponse'),
     newCreateFilterResponse,
+
+    -- ** CreateRecommender
+    CreateRecommender (CreateRecommender'),
+    newCreateRecommender,
+    CreateRecommenderResponse (CreateRecommenderResponse'),
+    newCreateRecommenderResponse,
 
     -- ** CreateSchema
     CreateSchema (CreateSchema'),
@@ -140,6 +158,12 @@ module Amazonka.Personalize
     DeleteFilterResponse (DeleteFilterResponse'),
     newDeleteFilterResponse,
 
+    -- ** DeleteRecommender
+    DeleteRecommender (DeleteRecommender'),
+    newDeleteRecommender,
+    DeleteRecommenderResponse (DeleteRecommenderResponse'),
+    newDeleteRecommenderResponse,
+
     -- ** DeleteSchema
     DeleteSchema (DeleteSchema'),
     newDeleteSchema,
@@ -163,6 +187,12 @@ module Amazonka.Personalize
     newDescribeBatchInferenceJob,
     DescribeBatchInferenceJobResponse (DescribeBatchInferenceJobResponse'),
     newDescribeBatchInferenceJobResponse,
+
+    -- ** DescribeBatchSegmentJob
+    DescribeBatchSegmentJob (DescribeBatchSegmentJob'),
+    newDescribeBatchSegmentJob,
+    DescribeBatchSegmentJobResponse (DescribeBatchSegmentJobResponse'),
+    newDescribeBatchSegmentJobResponse,
 
     -- ** DescribeCampaign
     DescribeCampaign (DescribeCampaign'),
@@ -218,6 +248,12 @@ module Amazonka.Personalize
     DescribeRecipeResponse (DescribeRecipeResponse'),
     newDescribeRecipeResponse,
 
+    -- ** DescribeRecommender
+    DescribeRecommender (DescribeRecommender'),
+    newDescribeRecommender,
+    DescribeRecommenderResponse (DescribeRecommenderResponse'),
+    newDescribeRecommenderResponse,
+
     -- ** DescribeSchema
     DescribeSchema (DescribeSchema'),
     newDescribeSchema,
@@ -247,6 +283,12 @@ module Amazonka.Personalize
     newListBatchInferenceJobs,
     ListBatchInferenceJobsResponse (ListBatchInferenceJobsResponse'),
     newListBatchInferenceJobsResponse,
+
+    -- ** ListBatchSegmentJobs (Paginated)
+    ListBatchSegmentJobs (ListBatchSegmentJobs'),
+    newListBatchSegmentJobs,
+    ListBatchSegmentJobsResponse (ListBatchSegmentJobsResponse'),
+    newListBatchSegmentJobsResponse,
 
     -- ** ListCampaigns (Paginated)
     ListCampaigns (ListCampaigns'),
@@ -296,6 +338,12 @@ module Amazonka.Personalize
     ListRecipesResponse (ListRecipesResponse'),
     newListRecipesResponse,
 
+    -- ** ListRecommenders (Paginated)
+    ListRecommenders (ListRecommenders'),
+    newListRecommenders,
+    ListRecommendersResponse (ListRecommendersResponse'),
+    newListRecommendersResponse,
+
     -- ** ListSchemas (Paginated)
     ListSchemas (ListSchemas'),
     newListSchemas,
@@ -314,11 +362,41 @@ module Amazonka.Personalize
     ListSolutionsResponse (ListSolutionsResponse'),
     newListSolutionsResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** StartRecommender
+    StartRecommender (StartRecommender'),
+    newStartRecommender,
+    StartRecommenderResponse (StartRecommenderResponse'),
+    newStartRecommenderResponse,
+
+    -- ** StopRecommender
+    StopRecommender (StopRecommender'),
+    newStopRecommender,
+    StopRecommenderResponse (StopRecommenderResponse'),
+    newStopRecommenderResponse,
+
     -- ** StopSolutionVersionCreation
     StopSolutionVersionCreation (StopSolutionVersionCreation'),
     newStopSolutionVersionCreation,
     StopSolutionVersionCreationResponse (StopSolutionVersionCreationResponse'),
     newStopSolutionVersionCreationResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateCampaign
     UpdateCampaign (UpdateCampaign'),
@@ -326,7 +404,19 @@ module Amazonka.Personalize
     UpdateCampaignResponse (UpdateCampaignResponse'),
     newUpdateCampaignResponse,
 
+    -- ** UpdateRecommender
+    UpdateRecommender (UpdateRecommender'),
+    newUpdateRecommender,
+    UpdateRecommenderResponse (UpdateRecommenderResponse'),
+    newUpdateRecommenderResponse,
+
     -- * Types
+
+    -- ** Domain
+    Domain (..),
+
+    -- ** ImportMode
+    ImportMode (..),
 
     -- ** IngestionMode
     IngestionMode (..),
@@ -375,6 +465,22 @@ module Amazonka.Personalize
     -- ** BatchInferenceJobSummary
     BatchInferenceJobSummary (BatchInferenceJobSummary'),
     newBatchInferenceJobSummary,
+
+    -- ** BatchSegmentJob
+    BatchSegmentJob (BatchSegmentJob'),
+    newBatchSegmentJob,
+
+    -- ** BatchSegmentJobInput
+    BatchSegmentJobInput (BatchSegmentJobInput'),
+    newBatchSegmentJobInput,
+
+    -- ** BatchSegmentJobOutput
+    BatchSegmentJobOutput (BatchSegmentJobOutput'),
+    newBatchSegmentJobOutput,
+
+    -- ** BatchSegmentJobSummary
+    BatchSegmentJobSummary (BatchSegmentJobSummary'),
+    newBatchSegmentJobSummary,
 
     -- ** Campaign
     Campaign (Campaign'),
@@ -516,6 +622,22 @@ module Amazonka.Personalize
     RecipeSummary (RecipeSummary'),
     newRecipeSummary,
 
+    -- ** Recommender
+    Recommender (Recommender'),
+    newRecommender,
+
+    -- ** RecommenderConfig
+    RecommenderConfig (RecommenderConfig'),
+    newRecommenderConfig,
+
+    -- ** RecommenderSummary
+    RecommenderSummary (RecommenderSummary'),
+    newRecommenderSummary,
+
+    -- ** RecommenderUpdateSummary
+    RecommenderUpdateSummary (RecommenderUpdateSummary'),
+    newRecommenderUpdateSummary,
+
     -- ** S3DataConfig
     S3DataConfig (S3DataConfig'),
     newS3DataConfig,
@@ -540,6 +662,10 @@ module Amazonka.Personalize
     SolutionVersionSummary (SolutionVersionSummary'),
     newSolutionVersionSummary,
 
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+
     -- ** TunedHPOParams
     TunedHPOParams (TunedHPOParams'),
     newTunedHPOParams,
@@ -547,6 +673,7 @@ module Amazonka.Personalize
 where
 
 import Amazonka.Personalize.CreateBatchInferenceJob
+import Amazonka.Personalize.CreateBatchSegmentJob
 import Amazonka.Personalize.CreateCampaign
 import Amazonka.Personalize.CreateDataset
 import Amazonka.Personalize.CreateDatasetExportJob
@@ -554,6 +681,7 @@ import Amazonka.Personalize.CreateDatasetGroup
 import Amazonka.Personalize.CreateDatasetImportJob
 import Amazonka.Personalize.CreateEventTracker
 import Amazonka.Personalize.CreateFilter
+import Amazonka.Personalize.CreateRecommender
 import Amazonka.Personalize.CreateSchema
 import Amazonka.Personalize.CreateSolution
 import Amazonka.Personalize.CreateSolutionVersion
@@ -562,10 +690,12 @@ import Amazonka.Personalize.DeleteDataset
 import Amazonka.Personalize.DeleteDatasetGroup
 import Amazonka.Personalize.DeleteEventTracker
 import Amazonka.Personalize.DeleteFilter
+import Amazonka.Personalize.DeleteRecommender
 import Amazonka.Personalize.DeleteSchema
 import Amazonka.Personalize.DeleteSolution
 import Amazonka.Personalize.DescribeAlgorithm
 import Amazonka.Personalize.DescribeBatchInferenceJob
+import Amazonka.Personalize.DescribeBatchSegmentJob
 import Amazonka.Personalize.DescribeCampaign
 import Amazonka.Personalize.DescribeDataset
 import Amazonka.Personalize.DescribeDatasetExportJob
@@ -575,12 +705,14 @@ import Amazonka.Personalize.DescribeEventTracker
 import Amazonka.Personalize.DescribeFeatureTransformation
 import Amazonka.Personalize.DescribeFilter
 import Amazonka.Personalize.DescribeRecipe
+import Amazonka.Personalize.DescribeRecommender
 import Amazonka.Personalize.DescribeSchema
 import Amazonka.Personalize.DescribeSolution
 import Amazonka.Personalize.DescribeSolutionVersion
 import Amazonka.Personalize.GetSolutionMetrics
 import Amazonka.Personalize.Lens
 import Amazonka.Personalize.ListBatchInferenceJobs
+import Amazonka.Personalize.ListBatchSegmentJobs
 import Amazonka.Personalize.ListCampaigns
 import Amazonka.Personalize.ListDatasetExportJobs
 import Amazonka.Personalize.ListDatasetGroups
@@ -589,12 +721,19 @@ import Amazonka.Personalize.ListDatasets
 import Amazonka.Personalize.ListEventTrackers
 import Amazonka.Personalize.ListFilters
 import Amazonka.Personalize.ListRecipes
+import Amazonka.Personalize.ListRecommenders
 import Amazonka.Personalize.ListSchemas
 import Amazonka.Personalize.ListSolutionVersions
 import Amazonka.Personalize.ListSolutions
+import Amazonka.Personalize.ListTagsForResource
+import Amazonka.Personalize.StartRecommender
+import Amazonka.Personalize.StopRecommender
 import Amazonka.Personalize.StopSolutionVersionCreation
+import Amazonka.Personalize.TagResource
 import Amazonka.Personalize.Types
+import Amazonka.Personalize.UntagResource
 import Amazonka.Personalize.UpdateCampaign
+import Amazonka.Personalize.UpdateRecommender
 import Amazonka.Personalize.Waiters
 
 -- $errors

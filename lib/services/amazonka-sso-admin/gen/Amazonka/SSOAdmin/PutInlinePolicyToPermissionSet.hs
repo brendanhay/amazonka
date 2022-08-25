@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an IAM inline policy to a permission set.
+-- Attaches an inline policy to a permission set.
 --
 -- If the permission set is already referenced by one or more account
 -- assignments, you will need to call @ ProvisionPermissionSet @ after this
@@ -54,17 +54,17 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newPutInlinePolicyToPermissionSet' smart constructor.
 data PutInlinePolicyToPermissionSet = PutInlinePolicyToPermissionSet'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the permission set.
     permissionSetArn :: Prelude.Text,
-    -- | The IAM inline policy to attach to a PermissionSet.
-    inlinePolicy :: Core.Sensitive Prelude.Text
+    -- | The inline policy to attach to a PermissionSet.
+    inlinePolicy :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutInlinePolicyToPermissionSet' with all optional fields omitted.
@@ -74,14 +74,14 @@ data PutInlinePolicyToPermissionSet = PutInlinePolicyToPermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'putInlinePolicyToPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'putInlinePolicyToPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
 -- 'permissionSetArn', 'putInlinePolicyToPermissionSet_permissionSetArn' - The ARN of the permission set.
 --
--- 'inlinePolicy', 'putInlinePolicyToPermissionSet_inlinePolicy' - The IAM inline policy to attach to a PermissionSet.
+-- 'inlinePolicy', 'putInlinePolicyToPermissionSet_inlinePolicy' - The inline policy to attach to a PermissionSet.
 newPutInlinePolicyToPermissionSet ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -98,12 +98,11 @@ newPutInlinePolicyToPermissionSet
       { instanceArn =
           pInstanceArn_,
         permissionSetArn = pPermissionSetArn_,
-        inlinePolicy =
-          Core._Sensitive Lens.# pInlinePolicy_
+        inlinePolicy = pInlinePolicy_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 putInlinePolicyToPermissionSet_instanceArn :: Lens.Lens' PutInlinePolicyToPermissionSet Prelude.Text
@@ -113,9 +112,9 @@ putInlinePolicyToPermissionSet_instanceArn = Lens.lens (\PutInlinePolicyToPermis
 putInlinePolicyToPermissionSet_permissionSetArn :: Lens.Lens' PutInlinePolicyToPermissionSet Prelude.Text
 putInlinePolicyToPermissionSet_permissionSetArn = Lens.lens (\PutInlinePolicyToPermissionSet' {permissionSetArn} -> permissionSetArn) (\s@PutInlinePolicyToPermissionSet' {} a -> s {permissionSetArn = a} :: PutInlinePolicyToPermissionSet)
 
--- | The IAM inline policy to attach to a PermissionSet.
+-- | The inline policy to attach to a PermissionSet.
 putInlinePolicyToPermissionSet_inlinePolicy :: Lens.Lens' PutInlinePolicyToPermissionSet Prelude.Text
-putInlinePolicyToPermissionSet_inlinePolicy = Lens.lens (\PutInlinePolicyToPermissionSet' {inlinePolicy} -> inlinePolicy) (\s@PutInlinePolicyToPermissionSet' {} a -> s {inlinePolicy = a} :: PutInlinePolicyToPermissionSet) Prelude.. Core._Sensitive
+putInlinePolicyToPermissionSet_inlinePolicy = Lens.lens (\PutInlinePolicyToPermissionSet' {inlinePolicy} -> inlinePolicy) (\s@PutInlinePolicyToPermissionSet' {} a -> s {inlinePolicy = a} :: PutInlinePolicyToPermissionSet)
 
 instance
   Core.AWSRequest

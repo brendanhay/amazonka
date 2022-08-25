@@ -168,8 +168,6 @@ instance Core.ToQuery GetUsagePlans where
 
 -- | Represents a collection of usage plans for an AWS account.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
---
 -- /See:/ 'newGetUsagePlansResponse' smart constructor.
 data GetUsagePlansResponse = GetUsagePlansResponse'
   { -- | The current page of elements from this collection.

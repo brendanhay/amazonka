@@ -36,7 +36,11 @@ data BackupPlansListMember = BackupPlansListMember'
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
+    -- to be retried without the risk of running the operation twice. This
+    -- parameter is optional.
+    --
+    -- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+    -- characters.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
     -- for example,
@@ -79,7 +83,11 @@ data BackupPlansListMember = BackupPlansListMember'
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'creatorRequestId', 'backupPlansListMember_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 --
 -- 'backupPlanArn', 'backupPlansListMember_backupPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,
@@ -130,7 +138,11 @@ backupPlansListMember_creationDate :: Lens.Lens' BackupPlansListMember (Prelude.
 backupPlansListMember_creationDate = Lens.lens (\BackupPlansListMember' {creationDate} -> creationDate) (\s@BackupPlansListMember' {} a -> s {creationDate = a} :: BackupPlansListMember) Prelude.. Lens.mapping Core._Time
 
 -- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 backupPlansListMember_creatorRequestId :: Lens.Lens' BackupPlansListMember (Prelude.Maybe Prelude.Text)
 backupPlansListMember_creatorRequestId = Lens.lens (\BackupPlansListMember' {creatorRequestId} -> creatorRequestId) (\s@BackupPlansListMember' {} a -> s {creatorRequestId = a} :: BackupPlansListMember)
 

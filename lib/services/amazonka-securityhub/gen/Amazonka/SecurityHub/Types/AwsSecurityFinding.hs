@@ -36,16 +36,16 @@ import Amazonka.SecurityHub.Types.RelatedFinding
 import Amazonka.SecurityHub.Types.Remediation
 import Amazonka.SecurityHub.Types.Resource
 import Amazonka.SecurityHub.Types.Severity
+import Amazonka.SecurityHub.Types.Threat
 import Amazonka.SecurityHub.Types.ThreatIntelIndicator
 import Amazonka.SecurityHub.Types.VerificationState
 import Amazonka.SecurityHub.Types.Vulnerability
 import Amazonka.SecurityHub.Types.Workflow
 import Amazonka.SecurityHub.Types.WorkflowState
 
--- | Provides consistent format for the contents of the Security
--- Hub-aggregated findings. @AwsSecurityFinding@ format enables you to
--- share findings between Amazon Web Services security services and
--- third-party solutions, and security standards checks.
+-- | Provides a consistent format for Security Hub findings.
+-- @AwsSecurityFinding@ format allows you to share findings between Amazon
+-- Web Services security services and third-party solutions.
 --
 -- A finding is a potential security issue generated either by Amazon Web
 -- Services services or by the integrated third-party solutions and
@@ -56,18 +56,11 @@ data AwsSecurityFinding = AwsSecurityFinding'
   { -- | The name of the product that generated the finding.
     --
     -- Security Hub populates this attribute automatically for each finding.
-    -- You cannot update it using @BatchImportFindings@ or
-    -- @BatchUpdateFindings@. The exception to this is when you use a custom
-    -- integration.
+    -- You cannot update this attribute with @BatchImportFindings@ or
+    -- @BatchUpdateFindings@. The exception to this is a custom integration.
     --
-    -- When you use the Security Hub console to filter findings by product
-    -- name, you use this attribute.
-    --
-    -- When you use the Security Hub API to filter findings by product name,
-    -- you use the @aws\/securityhub\/ProductName@ attribute under
-    -- @ProductFields@.
-    --
-    -- Security Hub does not synchronize those two attributes.
+    -- When you use the Security Hub console or API to filter findings by
+    -- product name, you use this attribute.
     productName :: Prelude.Maybe Prelude.Text,
     -- | The level of importance assigned to the resources associated with the
     -- finding.
@@ -94,18 +87,11 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- | The name of the company for the product that generated the finding.
     --
     -- Security Hub populates this attribute automatically for each finding.
-    -- You cannot be updated using @BatchImportFindings@ or
-    -- @BatchUpdateFindings@. The exception to this is when you use a custom
-    -- integration.
+    -- You cannot update this attribute with @BatchImportFindings@ or
+    -- @BatchUpdateFindings@. The exception to this is a custom integration.
     --
-    -- When you use the Security Hub console to filter findings by company
-    -- name, you use this attribute.
-    --
-    -- When you use the Security Hub API to filter findings by company name,
-    -- you use the @aws\/securityhub\/CompanyName@ attribute under
-    -- @ProductFields@.
-    --
-    -- Security Hub does not synchronize those two attributes.
+    -- When you use the Security Hub console or API to filter findings by
+    -- company name, you use this attribute.
     companyName :: Prelude.Maybe Prelude.Text,
     -- | Provides a list of vulnerabilities associated with the findings.
     vulnerabilities :: Prelude.Maybe [Vulnerability],
@@ -161,6 +147,9 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     lastObservedAt :: Prelude.Maybe Prelude.Text,
+    -- | Details about the threat detected in a security finding and the file
+    -- paths that were affected by the threat.
+    threats :: Prelude.Maybe [Threat],
     -- | Provides details about an action that affects or that was taken on a
     -- resource.
     action :: Prelude.Maybe Action,
@@ -185,6 +174,8 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- such as CIS Amazon Web Services Foundations. Contains security
     -- standard-related finding details.
     compliance :: Prelude.Maybe Compliance,
+    -- | Indicates whether the finding is a sample finding.
+    sample :: Prelude.Maybe Prelude.Bool,
     -- | The schema version that a finding is formatted for.
     schemaVersion :: Prelude.Text,
     -- | The security findings provider-specific identifier for a finding.
@@ -242,18 +233,11 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- 'productName', 'awsSecurityFinding_productName' - The name of the product that generated the finding.
 --
 -- Security Hub populates this attribute automatically for each finding.
--- You cannot update it using @BatchImportFindings@ or
--- @BatchUpdateFindings@. The exception to this is when you use a custom
--- integration.
+-- You cannot update this attribute with @BatchImportFindings@ or
+-- @BatchUpdateFindings@. The exception to this is a custom integration.
 --
--- When you use the Security Hub console to filter findings by product
--- name, you use this attribute.
---
--- When you use the Security Hub API to filter findings by product name,
--- you use the @aws\/securityhub\/ProductName@ attribute under
--- @ProductFields@.
---
--- Security Hub does not synchronize those two attributes.
+-- When you use the Security Hub console or API to filter findings by
+-- product name, you use this attribute.
 --
 -- 'criticality', 'awsSecurityFinding_criticality' - The level of importance assigned to the resources associated with the
 -- finding.
@@ -280,18 +264,11 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- 'companyName', 'awsSecurityFinding_companyName' - The name of the company for the product that generated the finding.
 --
 -- Security Hub populates this attribute automatically for each finding.
--- You cannot be updated using @BatchImportFindings@ or
--- @BatchUpdateFindings@. The exception to this is when you use a custom
--- integration.
+-- You cannot update this attribute with @BatchImportFindings@ or
+-- @BatchUpdateFindings@. The exception to this is a custom integration.
 --
--- When you use the Security Hub console to filter findings by company
--- name, you use this attribute.
---
--- When you use the Security Hub API to filter findings by company name,
--- you use the @aws\/securityhub\/CompanyName@ attribute under
--- @ProductFields@.
---
--- Security Hub does not synchronize those two attributes.
+-- When you use the Security Hub console or API to filter findings by
+-- company name, you use this attribute.
 --
 -- 'vulnerabilities', 'awsSecurityFinding_vulnerabilities' - Provides a list of vulnerabilities associated with the findings.
 --
@@ -347,6 +324,9 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
+-- 'threats', 'awsSecurityFinding_threats' - Details about the threat detected in a security finding and the file
+-- paths that were affected by the threat.
+--
 -- 'action', 'awsSecurityFinding_action' - Provides details about an action that affects or that was taken on a
 -- resource.
 --
@@ -370,6 +350,8 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- of a check run against a specific rule in a supported security standard,
 -- such as CIS Amazon Web Services Foundations. Contains security
 -- standard-related finding details.
+--
+-- 'sample', 'awsSecurityFinding_sample' - Indicates whether the finding is a sample finding.
 --
 -- 'schemaVersion', 'awsSecurityFinding_schemaVersion' - The schema version that a finding is formatted for.
 --
@@ -465,6 +447,7 @@ newAwsSecurityFinding
         firstObservedAt = Prelude.Nothing,
         verificationState = Prelude.Nothing,
         lastObservedAt = Prelude.Nothing,
+        threats = Prelude.Nothing,
         action = Prelude.Nothing,
         findingProviderFields = Prelude.Nothing,
         process = Prelude.Nothing,
@@ -473,6 +456,7 @@ newAwsSecurityFinding
         sourceUrl = Prelude.Nothing,
         workflowState = Prelude.Nothing,
         compliance = Prelude.Nothing,
+        sample = Prelude.Nothing,
         schemaVersion = pSchemaVersion_,
         id = pId_,
         productArn = pProductArn_,
@@ -488,18 +472,11 @@ newAwsSecurityFinding
 -- | The name of the product that generated the finding.
 --
 -- Security Hub populates this attribute automatically for each finding.
--- You cannot update it using @BatchImportFindings@ or
--- @BatchUpdateFindings@. The exception to this is when you use a custom
--- integration.
+-- You cannot update this attribute with @BatchImportFindings@ or
+-- @BatchUpdateFindings@. The exception to this is a custom integration.
 --
--- When you use the Security Hub console to filter findings by product
--- name, you use this attribute.
---
--- When you use the Security Hub API to filter findings by product name,
--- you use the @aws\/securityhub\/ProductName@ attribute under
--- @ProductFields@.
---
--- Security Hub does not synchronize those two attributes.
+-- When you use the Security Hub console or API to filter findings by
+-- product name, you use this attribute.
 awsSecurityFinding_productName :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_productName = Lens.lens (\AwsSecurityFinding' {productName} -> productName) (\s@AwsSecurityFinding' {} a -> s {productName = a} :: AwsSecurityFinding)
 
@@ -540,18 +517,11 @@ awsSecurityFinding_productFields = Lens.lens (\AwsSecurityFinding' {productField
 -- | The name of the company for the product that generated the finding.
 --
 -- Security Hub populates this attribute automatically for each finding.
--- You cannot be updated using @BatchImportFindings@ or
--- @BatchUpdateFindings@. The exception to this is when you use a custom
--- integration.
+-- You cannot update this attribute with @BatchImportFindings@ or
+-- @BatchUpdateFindings@. The exception to this is a custom integration.
 --
--- When you use the Security Hub console to filter findings by company
--- name, you use this attribute.
---
--- When you use the Security Hub API to filter findings by company name,
--- you use the @aws\/securityhub\/CompanyName@ attribute under
--- @ProductFields@.
---
--- Security Hub does not synchronize those two attributes.
+-- When you use the Security Hub console or API to filter findings by
+-- company name, you use this attribute.
 awsSecurityFinding_companyName :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_companyName = Lens.lens (\AwsSecurityFinding' {companyName} -> companyName) (\s@AwsSecurityFinding' {} a -> s {companyName = a} :: AwsSecurityFinding)
 
@@ -635,6 +605,11 @@ awsSecurityFinding_verificationState = Lens.lens (\AwsSecurityFinding' {verifica
 awsSecurityFinding_lastObservedAt :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_lastObservedAt = Lens.lens (\AwsSecurityFinding' {lastObservedAt} -> lastObservedAt) (\s@AwsSecurityFinding' {} a -> s {lastObservedAt = a} :: AwsSecurityFinding)
 
+-- | Details about the threat detected in a security finding and the file
+-- paths that were affected by the threat.
+awsSecurityFinding_threats :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [Threat])
+awsSecurityFinding_threats = Lens.lens (\AwsSecurityFinding' {threats} -> threats) (\s@AwsSecurityFinding' {} a -> s {threats = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
+
 -- | Provides details about an action that affects or that was taken on a
 -- resource.
 awsSecurityFinding_action :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Action)
@@ -674,6 +649,10 @@ awsSecurityFinding_workflowState = Lens.lens (\AwsSecurityFinding' {workflowStat
 -- standard-related finding details.
 awsSecurityFinding_compliance :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Compliance)
 awsSecurityFinding_compliance = Lens.lens (\AwsSecurityFinding' {compliance} -> compliance) (\s@AwsSecurityFinding' {} a -> s {compliance = a} :: AwsSecurityFinding)
+
+-- | Indicates whether the finding is a sample finding.
+awsSecurityFinding_sample :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Bool)
+awsSecurityFinding_sample = Lens.lens (\AwsSecurityFinding' {sample} -> sample) (\s@AwsSecurityFinding' {} a -> s {sample = a} :: AwsSecurityFinding)
 
 -- | The schema version that a finding is formatted for.
 awsSecurityFinding_schemaVersion :: Lens.Lens' AwsSecurityFinding Prelude.Text
@@ -773,6 +752,7 @@ instance Core.FromJSON AwsSecurityFinding where
             Prelude.<*> (x Core..:? "FirstObservedAt")
             Prelude.<*> (x Core..:? "VerificationState")
             Prelude.<*> (x Core..:? "LastObservedAt")
+            Prelude.<*> (x Core..:? "Threats" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..:? "FindingProviderFields")
             Prelude.<*> (x Core..:? "Process")
@@ -781,6 +761,7 @@ instance Core.FromJSON AwsSecurityFinding where
             Prelude.<*> (x Core..:? "SourceUrl")
             Prelude.<*> (x Core..:? "WorkflowState")
             Prelude.<*> (x Core..:? "Compliance")
+            Prelude.<*> (x Core..:? "Sample")
             Prelude.<*> (x Core..: "SchemaVersion")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "ProductArn")
@@ -816,6 +797,7 @@ instance Prelude.Hashable AwsSecurityFinding where
       `Prelude.hashWithSalt` firstObservedAt
       `Prelude.hashWithSalt` verificationState
       `Prelude.hashWithSalt` lastObservedAt
+      `Prelude.hashWithSalt` threats
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` findingProviderFields
       `Prelude.hashWithSalt` process
@@ -824,6 +806,7 @@ instance Prelude.Hashable AwsSecurityFinding where
       `Prelude.hashWithSalt` sourceUrl
       `Prelude.hashWithSalt` workflowState
       `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` sample
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` productArn
@@ -858,11 +841,13 @@ instance Prelude.NFData AwsSecurityFinding where
       `Prelude.seq` Prelude.rnf firstObservedAt
       `Prelude.seq` Prelude.rnf verificationState
       `Prelude.seq` Prelude.rnf lastObservedAt
+      `Prelude.seq` Prelude.rnf threats
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf
         findingProviderFields
       `Prelude.seq` Prelude.rnf process
-      `Prelude.seq` Prelude.rnf workflow
+      `Prelude.seq` Prelude.rnf
+        workflow
       `Prelude.seq` Prelude.rnf note
       `Prelude.seq` Prelude.rnf
         sourceUrl
@@ -870,6 +855,8 @@ instance Prelude.NFData AwsSecurityFinding where
         workflowState
       `Prelude.seq` Prelude.rnf
         compliance
+      `Prelude.seq` Prelude.rnf
+        sample
       `Prelude.seq` Prelude.rnf
         schemaVersion
       `Prelude.seq` Prelude.rnf
@@ -923,6 +910,7 @@ instance Core.ToJSON AwsSecurityFinding where
               Prelude.<$> verificationState,
             ("LastObservedAt" Core..=)
               Prelude.<$> lastObservedAt,
+            ("Threats" Core..=) Prelude.<$> threats,
             ("Action" Core..=) Prelude.<$> action,
             ("FindingProviderFields" Core..=)
               Prelude.<$> findingProviderFields,
@@ -932,6 +920,7 @@ instance Core.ToJSON AwsSecurityFinding where
             ("SourceUrl" Core..=) Prelude.<$> sourceUrl,
             ("WorkflowState" Core..=) Prelude.<$> workflowState,
             ("Compliance" Core..=) Prelude.<$> compliance,
+            ("Sample" Core..=) Prelude.<$> sample,
             Prelude.Just ("SchemaVersion" Core..= schemaVersion),
             Prelude.Just ("Id" Core..= id),
             Prelude.Just ("ProductArn" Core..= productArn),

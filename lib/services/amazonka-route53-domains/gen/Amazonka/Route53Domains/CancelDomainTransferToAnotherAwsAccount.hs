@@ -20,12 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the transfer of a domain from the current AWS account to another
--- AWS account. You initiate a transfer between AWS accounts using
+-- Cancels the transfer of a domain from the current Amazon Web Services
+-- account to another Amazon Web Services account. You initiate a transfer
+-- betweenAmazon Web Services accounts using
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>.
 --
--- You must cancel the transfer before the other AWS account accepts the
--- transfer using
+-- You must cancel the transfer before the other Amazon Web Services
+-- account accepts the transfer using
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>.
 --
 -- Use either
@@ -67,7 +68,7 @@ import Amazonka.Route53Domains.Types
 -- /See:/ 'newCancelDomainTransferToAnotherAwsAccount' smart constructor.
 data CancelDomainTransferToAnotherAwsAccount = CancelDomainTransferToAnotherAwsAccount'
   { -- | The name of the domain for which you want to cancel the transfer to
-    -- another AWS account.
+    -- another Amazon Web Services account.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +82,7 @@ data CancelDomainTransferToAnotherAwsAccount = CancelDomainTransferToAnotherAwsA
 -- for backwards compatibility:
 --
 -- 'domainName', 'cancelDomainTransferToAnotherAwsAccount_domainName' - The name of the domain for which you want to cancel the transfer to
--- another AWS account.
+-- another Amazon Web Services account.
 newCancelDomainTransferToAnotherAwsAccount ::
   -- | 'domainName'
   Prelude.Text ->
@@ -94,7 +95,7 @@ newCancelDomainTransferToAnotherAwsAccount
       }
 
 -- | The name of the domain for which you want to cancel the transfer to
--- another AWS account.
+-- another Amazon Web Services account.
 cancelDomainTransferToAnotherAwsAccount_domainName :: Lens.Lens' CancelDomainTransferToAnotherAwsAccount Prelude.Text
 cancelDomainTransferToAnotherAwsAccount_domainName = Lens.lens (\CancelDomainTransferToAnotherAwsAccount' {domainName} -> domainName) (\s@CancelDomainTransferToAnotherAwsAccount' {} a -> s {domainName = a} :: CancelDomainTransferToAnotherAwsAccount)
 

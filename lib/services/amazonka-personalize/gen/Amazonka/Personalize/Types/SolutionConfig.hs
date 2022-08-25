@@ -38,8 +38,9 @@ data SolutionConfig = SolutionConfig'
     optimizationObjective :: Prelude.Maybe OptimizationObjective,
     -- | Lists the hyperparameter names and ranges.
     algorithmHyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The AutoMLConfig object containing a list of recipes to search when
-    -- AutoML is performed.
+    -- | The
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html AutoMLConfig>
+    -- object containing a list of recipes to search when AutoML is performed.
     autoMLConfig :: Prelude.Maybe AutoMLConfig,
     -- | Only events with a value greater than or equal to this threshold are
     -- used for training a model.
@@ -65,8 +66,9 @@ data SolutionConfig = SolutionConfig'
 --
 -- 'algorithmHyperParameters', 'solutionConfig_algorithmHyperParameters' - Lists the hyperparameter names and ranges.
 --
--- 'autoMLConfig', 'solutionConfig_autoMLConfig' - The AutoMLConfig object containing a list of recipes to search when
--- AutoML is performed.
+-- 'autoMLConfig', 'solutionConfig_autoMLConfig' - The
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html AutoMLConfig>
+-- object containing a list of recipes to search when AutoML is performed.
 --
 -- 'eventValueThreshold', 'solutionConfig_eventValueThreshold' - Only events with a value greater than or equal to this threshold are
 -- used for training a model.
@@ -99,8 +101,9 @@ solutionConfig_optimizationObjective = Lens.lens (\SolutionConfig' {optimization
 solutionConfig_algorithmHyperParameters :: Lens.Lens' SolutionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 solutionConfig_algorithmHyperParameters = Lens.lens (\SolutionConfig' {algorithmHyperParameters} -> algorithmHyperParameters) (\s@SolutionConfig' {} a -> s {algorithmHyperParameters = a} :: SolutionConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The AutoMLConfig object containing a list of recipes to search when
--- AutoML is performed.
+-- | The
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html AutoMLConfig>
+-- object containing a list of recipes to search when AutoML is performed.
 solutionConfig_autoMLConfig :: Lens.Lens' SolutionConfig (Prelude.Maybe AutoMLConfig)
 solutionConfig_autoMLConfig = Lens.lens (\SolutionConfig' {autoMLConfig} -> autoMLConfig) (\s@SolutionConfig' {} a -> s {autoMLConfig = a} :: SolutionConfig)
 

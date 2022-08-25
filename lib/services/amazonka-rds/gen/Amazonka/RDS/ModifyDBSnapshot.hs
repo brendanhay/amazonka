@@ -23,8 +23,8 @@
 -- Updates a manual DB snapshot with a new engine version. The snapshot can
 -- be encrypted or unencrypted, but not shared or public.
 --
--- Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and
--- PostgreSQL.
+-- Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and
+-- Oracle. This command doesn\'t apply to RDS Custom.
 module Amazonka.RDS.ModifyDBSnapshot
   ( -- * Creating a Request
     ModifyDBSnapshot (..),

@@ -55,11 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateClientCertificate' smart constructor.
 data UpdateClientCertificate = UpdateClientCertificate'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The identifier of the ClientCertificate resource to be
-    -- updated.
+    -- | The identifier of the ClientCertificate resource to be updated.
     clientCertificateId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,11 +71,10 @@ data UpdateClientCertificate = UpdateClientCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateClientCertificate_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateClientCertificate_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'clientCertificateId', 'updateClientCertificate_clientCertificateId' - [Required] The identifier of the ClientCertificate resource to be
--- updated.
+-- 'clientCertificateId', 'updateClientCertificate_clientCertificateId' - The identifier of the ClientCertificate resource to be updated.
 newUpdateClientCertificate ::
   -- | 'clientCertificateId'
   Prelude.Text ->
@@ -88,13 +86,12 @@ newUpdateClientCertificate pClientCertificateId_ =
       clientCertificateId = pClientCertificateId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateClientCertificate_patchOperations :: Lens.Lens' UpdateClientCertificate (Prelude.Maybe [PatchOperation])
 updateClientCertificate_patchOperations = Lens.lens (\UpdateClientCertificate' {patchOperations} -> patchOperations) (\s@UpdateClientCertificate' {} a -> s {patchOperations = a} :: UpdateClientCertificate) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The identifier of the ClientCertificate resource to be
--- updated.
+-- | The identifier of the ClientCertificate resource to be updated.
 updateClientCertificate_clientCertificateId :: Lens.Lens' UpdateClientCertificate Prelude.Text
 updateClientCertificate_clientCertificateId = Lens.lens (\UpdateClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@UpdateClientCertificate' {} a -> s {clientCertificateId = a} :: UpdateClientCertificate)
 

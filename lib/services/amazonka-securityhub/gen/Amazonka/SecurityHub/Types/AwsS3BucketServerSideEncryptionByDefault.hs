@@ -31,6 +31,7 @@ data AwsS3BucketServerSideEncryptionByDefault = AwsS3BucketServerSideEncryptionB
   { -- | KMS key ID to use for the default encryption.
     kmsMasterKeyID :: Prelude.Maybe Prelude.Text,
     -- | Server-side encryption algorithm to use for the default encryption.
+    -- Valid values are @aws: kms@ or @AES256@.
     sSEAlgorithm :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,6 +47,7 @@ data AwsS3BucketServerSideEncryptionByDefault = AwsS3BucketServerSideEncryptionB
 -- 'kmsMasterKeyID', 'awsS3BucketServerSideEncryptionByDefault_kmsMasterKeyID' - KMS key ID to use for the default encryption.
 --
 -- 'sSEAlgorithm', 'awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
+-- Valid values are @aws: kms@ or @AES256@.
 newAwsS3BucketServerSideEncryptionByDefault ::
   AwsS3BucketServerSideEncryptionByDefault
 newAwsS3BucketServerSideEncryptionByDefault =
@@ -60,6 +62,7 @@ awsS3BucketServerSideEncryptionByDefault_kmsMasterKeyID :: Lens.Lens' AwsS3Bucke
 awsS3BucketServerSideEncryptionByDefault_kmsMasterKeyID = Lens.lens (\AwsS3BucketServerSideEncryptionByDefault' {kmsMasterKeyID} -> kmsMasterKeyID) (\s@AwsS3BucketServerSideEncryptionByDefault' {} a -> s {kmsMasterKeyID = a} :: AwsS3BucketServerSideEncryptionByDefault)
 
 -- | Server-side encryption algorithm to use for the default encryption.
+-- Valid values are @aws: kms@ or @AES256@.
 awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm :: Lens.Lens' AwsS3BucketServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
 awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm = Lens.lens (\AwsS3BucketServerSideEncryptionByDefault' {sSEAlgorithm} -> sSEAlgorithm) (\s@AwsS3BucketServerSideEncryptionByDefault' {} a -> s {sSEAlgorithm = a} :: AwsS3BucketServerSideEncryptionByDefault)
 

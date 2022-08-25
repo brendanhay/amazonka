@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List backups associated with an AWS account. To list backups for a given
--- table, specify @TableName@. @ListBackups@ returns a paginated list of
--- results with at most 1 MB worth of items in a page. You can also specify
--- a maximum number of entries to be returned in a page.
+-- List backups associated with an Amazon Web Services account. To list
+-- backups for a given table, specify @TableName@. @ListBackups@ returns a
+-- paginated list of results with at most 1 MB worth of items in a page.
+-- You can also specify a maximum number of entries to be returned in a
+-- page.
 --
 -- In the request, start time is inclusive, but end time is exclusive. Note
 -- that these boundaries are for the time at which the original backup was
@@ -82,7 +83,8 @@ data ListBackups = ListBackups'
     --
     -- Where @BackupType@ can be:
     --
-    -- -   @USER@ - On-demand backup created by you.
+    -- -   @USER@ - On-demand backup created by you. (The default setting if no
+    --     other backup types are specified.)
     --
     -- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.
     --
@@ -119,7 +121,8 @@ data ListBackups = ListBackups'
 --
 -- Where @BackupType@ can be:
 --
--- -   @USER@ - On-demand backup created by you.
+-- -   @USER@ - On-demand backup created by you. (The default setting if no
+--     other backup types are specified.)
 --
 -- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.
 --
@@ -164,7 +167,8 @@ listBackups_limit = Lens.lens (\ListBackups' {limit} -> limit) (\s@ListBackups' 
 --
 -- Where @BackupType@ can be:
 --
--- -   @USER@ - On-demand backup created by you.
+-- -   @USER@ - On-demand backup created by you. (The default setting if no
+--     other backup types are specified.)
 --
 -- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.
 --

@@ -28,10 +28,10 @@ module Amazonka.Panorama.CreatePackageImportJob
 
     -- * Request Lenses
     createPackageImportJob_jobTags,
-    createPackageImportJob_jobType,
-    createPackageImportJob_inputConfig,
-    createPackageImportJob_outputConfig,
     createPackageImportJob_clientToken,
+    createPackageImportJob_inputConfig,
+    createPackageImportJob_jobType,
+    createPackageImportJob_outputConfig,
 
     -- * Destructuring the Response
     CreatePackageImportJobResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 data CreatePackageImportJob = CreatePackageImportJob'
   { -- | Tags for the package import job.
     jobTags :: Prelude.Maybe [JobResourceTags],
-    -- | A job type for the package import job.
-    jobType :: PackageImportJobType,
+    -- | A client token for the package import job.
+    clientToken :: Prelude.Text,
     -- | An input config for the package import job.
     inputConfig :: PackageImportJobInputConfig,
+    -- | A job type for the package import job.
+    jobType :: PackageImportJobType,
     -- | An output config for the package import job.
-    outputConfig :: PackageImportJobOutputConfig,
-    -- | A client token for the package import job.
-    clientToken :: Prelude.Text
+    outputConfig :: PackageImportJobOutputConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,55 +75,55 @@ data CreatePackageImportJob = CreatePackageImportJob'
 --
 -- 'jobTags', 'createPackageImportJob_jobTags' - Tags for the package import job.
 --
--- 'jobType', 'createPackageImportJob_jobType' - A job type for the package import job.
+-- 'clientToken', 'createPackageImportJob_clientToken' - A client token for the package import job.
 --
 -- 'inputConfig', 'createPackageImportJob_inputConfig' - An input config for the package import job.
 --
--- 'outputConfig', 'createPackageImportJob_outputConfig' - An output config for the package import job.
+-- 'jobType', 'createPackageImportJob_jobType' - A job type for the package import job.
 --
--- 'clientToken', 'createPackageImportJob_clientToken' - A client token for the package import job.
+-- 'outputConfig', 'createPackageImportJob_outputConfig' - An output config for the package import job.
 newCreatePackageImportJob ::
-  -- | 'jobType'
-  PackageImportJobType ->
-  -- | 'inputConfig'
-  PackageImportJobInputConfig ->
-  -- | 'outputConfig'
-  PackageImportJobOutputConfig ->
   -- | 'clientToken'
   Prelude.Text ->
+  -- | 'inputConfig'
+  PackageImportJobInputConfig ->
+  -- | 'jobType'
+  PackageImportJobType ->
+  -- | 'outputConfig'
+  PackageImportJobOutputConfig ->
   CreatePackageImportJob
 newCreatePackageImportJob
-  pJobType_
+  pClientToken_
   pInputConfig_
-  pOutputConfig_
-  pClientToken_ =
+  pJobType_
+  pOutputConfig_ =
     CreatePackageImportJob'
       { jobTags = Prelude.Nothing,
-        jobType = pJobType_,
+        clientToken = pClientToken_,
         inputConfig = pInputConfig_,
-        outputConfig = pOutputConfig_,
-        clientToken = pClientToken_
+        jobType = pJobType_,
+        outputConfig = pOutputConfig_
       }
 
 -- | Tags for the package import job.
 createPackageImportJob_jobTags :: Lens.Lens' CreatePackageImportJob (Prelude.Maybe [JobResourceTags])
 createPackageImportJob_jobTags = Lens.lens (\CreatePackageImportJob' {jobTags} -> jobTags) (\s@CreatePackageImportJob' {} a -> s {jobTags = a} :: CreatePackageImportJob) Prelude.. Lens.mapping Lens.coerced
 
--- | A job type for the package import job.
-createPackageImportJob_jobType :: Lens.Lens' CreatePackageImportJob PackageImportJobType
-createPackageImportJob_jobType = Lens.lens (\CreatePackageImportJob' {jobType} -> jobType) (\s@CreatePackageImportJob' {} a -> s {jobType = a} :: CreatePackageImportJob)
+-- | A client token for the package import job.
+createPackageImportJob_clientToken :: Lens.Lens' CreatePackageImportJob Prelude.Text
+createPackageImportJob_clientToken = Lens.lens (\CreatePackageImportJob' {clientToken} -> clientToken) (\s@CreatePackageImportJob' {} a -> s {clientToken = a} :: CreatePackageImportJob)
 
 -- | An input config for the package import job.
 createPackageImportJob_inputConfig :: Lens.Lens' CreatePackageImportJob PackageImportJobInputConfig
 createPackageImportJob_inputConfig = Lens.lens (\CreatePackageImportJob' {inputConfig} -> inputConfig) (\s@CreatePackageImportJob' {} a -> s {inputConfig = a} :: CreatePackageImportJob)
 
+-- | A job type for the package import job.
+createPackageImportJob_jobType :: Lens.Lens' CreatePackageImportJob PackageImportJobType
+createPackageImportJob_jobType = Lens.lens (\CreatePackageImportJob' {jobType} -> jobType) (\s@CreatePackageImportJob' {} a -> s {jobType = a} :: CreatePackageImportJob)
+
 -- | An output config for the package import job.
 createPackageImportJob_outputConfig :: Lens.Lens' CreatePackageImportJob PackageImportJobOutputConfig
 createPackageImportJob_outputConfig = Lens.lens (\CreatePackageImportJob' {outputConfig} -> outputConfig) (\s@CreatePackageImportJob' {} a -> s {outputConfig = a} :: CreatePackageImportJob)
-
--- | A client token for the package import job.
-createPackageImportJob_clientToken :: Lens.Lens' CreatePackageImportJob Prelude.Text
-createPackageImportJob_clientToken = Lens.lens (\CreatePackageImportJob' {clientToken} -> clientToken) (\s@CreatePackageImportJob' {} a -> s {clientToken = a} :: CreatePackageImportJob)
 
 instance Core.AWSRequest CreatePackageImportJob where
   type
@@ -141,18 +141,18 @@ instance Core.AWSRequest CreatePackageImportJob where
 instance Prelude.Hashable CreatePackageImportJob where
   hashWithSalt _salt CreatePackageImportJob' {..} =
     _salt `Prelude.hashWithSalt` jobTags
-      `Prelude.hashWithSalt` jobType
-      `Prelude.hashWithSalt` inputConfig
-      `Prelude.hashWithSalt` outputConfig
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` inputConfig
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData CreatePackageImportJob where
   rnf CreatePackageImportJob' {..} =
     Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf outputConfig
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf outputConfig
 
 instance Core.ToHeaders CreatePackageImportJob where
   toHeaders =
@@ -170,10 +170,10 @@ instance Core.ToJSON CreatePackageImportJob where
     Core.object
       ( Prelude.catMaybes
           [ ("JobTags" Core..=) Prelude.<$> jobTags,
-            Prelude.Just ("JobType" Core..= jobType),
+            Prelude.Just ("ClientToken" Core..= clientToken),
             Prelude.Just ("InputConfig" Core..= inputConfig),
-            Prelude.Just ("OutputConfig" Core..= outputConfig),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("JobType" Core..= jobType),
+            Prelude.Just ("OutputConfig" Core..= outputConfig)
           ]
       )
 

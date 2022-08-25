@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a permission with a resource share.
+-- Adds or replaces the RAM permission for a resource type included in a
+-- resource share. You can have exactly one permission associated with each
+-- resource type in the resource share. You can add a new RAM permission
+-- only if there are currently no resources of that resource type currently
+-- in the resource share.
 module Amazonka.RAM.AssociateResourceSharePermission
   ( -- * Creating a Request
     AssociateResourceSharePermission (..),
@@ -53,20 +57,45 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateResourceSharePermission' smart constructor.
 data AssociateResourceSharePermission = AssociateResourceSharePermission'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | Specifies a unique, case-sensitive identifier that you provide to ensure
+    -- the idempotency of the request. This lets you safely retry the request
+    -- without accidentally performing the same operation a second time.
+    -- Passing the same value to a later call to an operation requires that you
+    -- also pass the same value for all other parameters. We recommend that you
+    -- use a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+    --
+    -- If you don\'t provide this value, then Amazon Web Services generates a
+    -- random one for you.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the RAM permissions to associate with the resource share.
-    permissionVersion :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the permission should replace the permissions that are
-    -- currently associated with the resource share. Use @true@ to replace the
-    -- current permissions. Use @false@ to add the permission to the current
+    -- | Specifies the version of the RAM permission to associate with the
+    -- resource share. If you don\'t specify this parameter, the operation uses
+    -- the version designated as the default. You can use the
+    -- ListPermissionVersions operation to discover the available versions of a
     -- permission.
+    permissionVersion :: Prelude.Maybe Prelude.Int,
+    -- | Specifies whether the specified permission should replace or add to the
+    -- existing permission associated with the resource share. Use @true@ to
+    -- replace the current permissions. Use @false@ to add the permission to
+    -- the current permission. The default value is @false@.
+    --
+    -- A resource share can have only one permission per resource type. If a
+    -- resource share already has a permission for the specified resource type
+    -- and you don\'t set @replace@ to @true@ then the operation returns an
+    -- error. This helps prevent accidental overwriting of a permission.
     replace :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the resource share.
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share to which you want to add or replace permissions.
     resourceShareArn :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the RAM permission to associate with
-    -- the resource share.
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the RAM permission to associate with the resource share. To find the
+    -- ARN for a permission, use either the ListPermissions operation or go to
+    -- the
+    -- <https://console.aws.amazon.com/ram/home#Permissions: Permissions library>
+    -- page in the RAM console and then choose the name of the permission. The
+    -- ARN is displayed on the detail page.
     permissionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,20 +108,45 @@ data AssociateResourceSharePermission = AssociateResourceSharePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'associateResourceSharePermission_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'associateResourceSharePermission_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
 --
--- 'permissionVersion', 'associateResourceSharePermission_permissionVersion' - The version of the RAM permissions to associate with the resource share.
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 --
--- 'replace', 'associateResourceSharePermission_replace' - Indicates whether the permission should replace the permissions that are
--- currently associated with the resource share. Use @true@ to replace the
--- current permissions. Use @false@ to add the permission to the current
+-- 'permissionVersion', 'associateResourceSharePermission_permissionVersion' - Specifies the version of the RAM permission to associate with the
+-- resource share. If you don\'t specify this parameter, the operation uses
+-- the version designated as the default. You can use the
+-- ListPermissionVersions operation to discover the available versions of a
 -- permission.
 --
--- 'resourceShareArn', 'associateResourceSharePermission_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'replace', 'associateResourceSharePermission_replace' - Specifies whether the specified permission should replace or add to the
+-- existing permission associated with the resource share. Use @true@ to
+-- replace the current permissions. Use @false@ to add the permission to
+-- the current permission. The default value is @false@.
 --
--- 'permissionArn', 'associateResourceSharePermission_permissionArn' - The Amazon Resource Name (ARN) of the RAM permission to associate with
--- the resource share.
+-- A resource share can have only one permission per resource type. If a
+-- resource share already has a permission for the specified resource type
+-- and you don\'t set @replace@ to @true@ then the operation returns an
+-- error. This helps prevent accidental overwriting of a permission.
+--
+-- 'resourceShareArn', 'associateResourceSharePermission_resourceShareArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share to which you want to add or replace permissions.
+--
+-- 'permissionArn', 'associateResourceSharePermission_permissionArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the RAM permission to associate with the resource share. To find the
+-- ARN for a permission, use either the ListPermissions operation or go to
+-- the
+-- <https://console.aws.amazon.com/ram/home#Permissions: Permissions library>
+-- page in the RAM console and then choose the name of the permission. The
+-- ARN is displayed on the detail page.
 newAssociateResourceSharePermission ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -111,28 +165,53 @@ newAssociateResourceSharePermission
         permissionArn = pPermissionArn_
       }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+--
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 associateResourceSharePermission_clientToken :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Text)
 associateResourceSharePermission_clientToken = Lens.lens (\AssociateResourceSharePermission' {clientToken} -> clientToken) (\s@AssociateResourceSharePermission' {} a -> s {clientToken = a} :: AssociateResourceSharePermission)
 
--- | The version of the RAM permissions to associate with the resource share.
+-- | Specifies the version of the RAM permission to associate with the
+-- resource share. If you don\'t specify this parameter, the operation uses
+-- the version designated as the default. You can use the
+-- ListPermissionVersions operation to discover the available versions of a
+-- permission.
 associateResourceSharePermission_permissionVersion :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Int)
 associateResourceSharePermission_permissionVersion = Lens.lens (\AssociateResourceSharePermission' {permissionVersion} -> permissionVersion) (\s@AssociateResourceSharePermission' {} a -> s {permissionVersion = a} :: AssociateResourceSharePermission)
 
--- | Indicates whether the permission should replace the permissions that are
--- currently associated with the resource share. Use @true@ to replace the
--- current permissions. Use @false@ to add the permission to the current
--- permission.
+-- | Specifies whether the specified permission should replace or add to the
+-- existing permission associated with the resource share. Use @true@ to
+-- replace the current permissions. Use @false@ to add the permission to
+-- the current permission. The default value is @false@.
+--
+-- A resource share can have only one permission per resource type. If a
+-- resource share already has a permission for the specified resource type
+-- and you don\'t set @replace@ to @true@ then the operation returns an
+-- error. This helps prevent accidental overwriting of a permission.
 associateResourceSharePermission_replace :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Bool)
 associateResourceSharePermission_replace = Lens.lens (\AssociateResourceSharePermission' {replace} -> replace) (\s@AssociateResourceSharePermission' {} a -> s {replace = a} :: AssociateResourceSharePermission)
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share to which you want to add or replace permissions.
 associateResourceSharePermission_resourceShareArn :: Lens.Lens' AssociateResourceSharePermission Prelude.Text
 associateResourceSharePermission_resourceShareArn = Lens.lens (\AssociateResourceSharePermission' {resourceShareArn} -> resourceShareArn) (\s@AssociateResourceSharePermission' {} a -> s {resourceShareArn = a} :: AssociateResourceSharePermission)
 
--- | The Amazon Resource Name (ARN) of the RAM permission to associate with
--- the resource share.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the RAM permission to associate with the resource share. To find the
+-- ARN for a permission, use either the ListPermissions operation or go to
+-- the
+-- <https://console.aws.amazon.com/ram/home#Permissions: Permissions library>
+-- page in the RAM console and then choose the name of the permission. The
+-- ARN is displayed on the detail page.
 associateResourceSharePermission_permissionArn :: Lens.Lens' AssociateResourceSharePermission Prelude.Text
 associateResourceSharePermission_permissionArn = Lens.lens (\AssociateResourceSharePermission' {permissionArn} -> permissionArn) (\s@AssociateResourceSharePermission' {} a -> s {permissionArn = a} :: AssociateResourceSharePermission)
 
@@ -218,10 +297,14 @@ instance
 
 -- | /See:/ 'newAssociateResourceSharePermissionResponse' smart constructor.
 data AssociateResourceSharePermissionResponse = AssociateResourceSharePermissionResponse'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | The idempotency identifier associated with this request. If you want to
+    -- repeat the same operation in an idempotent manner then you must include
+    -- this value in the @clientToken@ request parameter of that later call.
+    -- All other parameters must also have the same values that you used in the
+    -- first call.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the request succeeded.
+    -- | A return value of @true@ indicates that the request succeeded. A value
+    -- of @false@ indicates that the request failed.
     returnValue :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -236,10 +319,14 @@ data AssociateResourceSharePermissionResponse = AssociateResourceSharePermission
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'associateResourceSharePermissionResponse_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'associateResourceSharePermissionResponse_clientToken' - The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 --
--- 'returnValue', 'associateResourceSharePermissionResponse_returnValue' - Indicates whether the request succeeded.
+-- 'returnValue', 'associateResourceSharePermissionResponse_returnValue' - A return value of @true@ indicates that the request succeeded. A value
+-- of @false@ indicates that the request failed.
 --
 -- 'httpStatus', 'associateResourceSharePermissionResponse_httpStatus' - The response's http status code.
 newAssociateResourceSharePermissionResponse ::
@@ -255,12 +342,16 @@ newAssociateResourceSharePermissionResponse
         httpStatus = pHttpStatus_
       }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 associateResourceSharePermissionResponse_clientToken :: Lens.Lens' AssociateResourceSharePermissionResponse (Prelude.Maybe Prelude.Text)
 associateResourceSharePermissionResponse_clientToken = Lens.lens (\AssociateResourceSharePermissionResponse' {clientToken} -> clientToken) (\s@AssociateResourceSharePermissionResponse' {} a -> s {clientToken = a} :: AssociateResourceSharePermissionResponse)
 
--- | Indicates whether the request succeeded.
+-- | A return value of @true@ indicates that the request succeeded. A value
+-- of @false@ indicates that the request failed.
 associateResourceSharePermissionResponse_returnValue :: Lens.Lens' AssociateResourceSharePermissionResponse (Prelude.Maybe Prelude.Bool)
 associateResourceSharePermissionResponse_returnValue = Lens.lens (\AssociateResourceSharePermissionResponse' {returnValue} -> returnValue) (\s@AssociateResourceSharePermissionResponse' {} a -> s {returnValue = a} :: AssociateResourceSharePermissionResponse)
 

@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendation where
 
+import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
@@ -64,12 +65,16 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
     findingReasonCodes :: Prelude.Maybe [LambdaFunctionRecommendationFindingReasonCode],
     -- | The Amazon Resource Name (ARN) of the current function.
     functionArn :: Prelude.Maybe Prelude.Text,
+    -- | The risk of the current Lambda function not meeting the performance
+    -- needs of its workloads. The higher the risk, the more likely the current
+    -- Lambda function requires more memory.
+    currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
     -- | The amount of memory, in MB, that\'s allocated to the current function.
     currentMemorySize :: Prelude.Maybe Prelude.Int,
     -- | The number of times your function code was applied during the look-back
     -- period.
     numberOfInvocations :: Prelude.Maybe Prelude.Integer,
-    -- | The timestamp of when the function recommendation was last refreshed.
+    -- | The timestamp of when the function recommendation was last generated.
     lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The version number of the current function.
     functionVersion :: Prelude.Maybe Prelude.Text,
@@ -157,12 +162,16 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
 --
 -- 'functionArn', 'lambdaFunctionRecommendation_functionArn' - The Amazon Resource Name (ARN) of the current function.
 --
+-- 'currentPerformanceRisk', 'lambdaFunctionRecommendation_currentPerformanceRisk' - The risk of the current Lambda function not meeting the performance
+-- needs of its workloads. The higher the risk, the more likely the current
+-- Lambda function requires more memory.
+--
 -- 'currentMemorySize', 'lambdaFunctionRecommendation_currentMemorySize' - The amount of memory, in MB, that\'s allocated to the current function.
 --
 -- 'numberOfInvocations', 'lambdaFunctionRecommendation_numberOfInvocations' - The number of times your function code was applied during the look-back
 -- period.
 --
--- 'lastRefreshTimestamp', 'lambdaFunctionRecommendation_lastRefreshTimestamp' - The timestamp of when the function recommendation was last refreshed.
+-- 'lastRefreshTimestamp', 'lambdaFunctionRecommendation_lastRefreshTimestamp' - The timestamp of when the function recommendation was last generated.
 --
 -- 'functionVersion', 'lambdaFunctionRecommendation_functionVersion' - The version number of the current function.
 --
@@ -212,6 +221,7 @@ newLambdaFunctionRecommendation =
     { findingReasonCodes =
         Prelude.Nothing,
       functionArn = Prelude.Nothing,
+      currentPerformanceRisk = Prelude.Nothing,
       currentMemorySize = Prelude.Nothing,
       numberOfInvocations = Prelude.Nothing,
       lastRefreshTimestamp = Prelude.Nothing,
@@ -261,6 +271,12 @@ lambdaFunctionRecommendation_findingReasonCodes = Lens.lens (\LambdaFunctionReco
 lambdaFunctionRecommendation_functionArn :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
 lambdaFunctionRecommendation_functionArn = Lens.lens (\LambdaFunctionRecommendation' {functionArn} -> functionArn) (\s@LambdaFunctionRecommendation' {} a -> s {functionArn = a} :: LambdaFunctionRecommendation)
 
+-- | The risk of the current Lambda function not meeting the performance
+-- needs of its workloads. The higher the risk, the more likely the current
+-- Lambda function requires more memory.
+lambdaFunctionRecommendation_currentPerformanceRisk :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe CurrentPerformanceRisk)
+lambdaFunctionRecommendation_currentPerformanceRisk = Lens.lens (\LambdaFunctionRecommendation' {currentPerformanceRisk} -> currentPerformanceRisk) (\s@LambdaFunctionRecommendation' {} a -> s {currentPerformanceRisk = a} :: LambdaFunctionRecommendation)
+
 -- | The amount of memory, in MB, that\'s allocated to the current function.
 lambdaFunctionRecommendation_currentMemorySize :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Int)
 lambdaFunctionRecommendation_currentMemorySize = Lens.lens (\LambdaFunctionRecommendation' {currentMemorySize} -> currentMemorySize) (\s@LambdaFunctionRecommendation' {} a -> s {currentMemorySize = a} :: LambdaFunctionRecommendation)
@@ -270,7 +286,7 @@ lambdaFunctionRecommendation_currentMemorySize = Lens.lens (\LambdaFunctionRecom
 lambdaFunctionRecommendation_numberOfInvocations :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Integer)
 lambdaFunctionRecommendation_numberOfInvocations = Lens.lens (\LambdaFunctionRecommendation' {numberOfInvocations} -> numberOfInvocations) (\s@LambdaFunctionRecommendation' {} a -> s {numberOfInvocations = a} :: LambdaFunctionRecommendation)
 
--- | The timestamp of when the function recommendation was last refreshed.
+-- | The timestamp of when the function recommendation was last generated.
 lambdaFunctionRecommendation_lastRefreshTimestamp :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.UTCTime)
 lambdaFunctionRecommendation_lastRefreshTimestamp = Lens.lens (\LambdaFunctionRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@LambdaFunctionRecommendation' {} a -> s {lastRefreshTimestamp = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Core._Time
 
@@ -338,6 +354,7 @@ instance Core.FromJSON LambdaFunctionRecommendation where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "functionArn")
+            Prelude.<*> (x Core..:? "currentPerformanceRisk")
             Prelude.<*> (x Core..:? "currentMemorySize")
             Prelude.<*> (x Core..:? "numberOfInvocations")
             Prelude.<*> (x Core..:? "lastRefreshTimestamp")
@@ -360,6 +377,7 @@ instance
   hashWithSalt _salt LambdaFunctionRecommendation' {..} =
     _salt `Prelude.hashWithSalt` findingReasonCodes
       `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` currentMemorySize
       `Prelude.hashWithSalt` numberOfInvocations
       `Prelude.hashWithSalt` lastRefreshTimestamp
@@ -374,6 +392,7 @@ instance Prelude.NFData LambdaFunctionRecommendation where
   rnf LambdaFunctionRecommendation' {..} =
     Prelude.rnf findingReasonCodes
       `Prelude.seq` Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf currentPerformanceRisk
       `Prelude.seq` Prelude.rnf currentMemorySize
       `Prelude.seq` Prelude.rnf numberOfInvocations
       `Prelude.seq` Prelude.rnf lastRefreshTimestamp

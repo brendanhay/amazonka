@@ -20,12 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a call analytics job. To see the status of the
--- job, check the @CallAnalyticsJobStatus@ field. If the status is
--- @COMPLETED@, the job is finished and you can find the results at the
--- location specified in the @TranscriptFileUri@ field. If you enable
--- personally identifiable information (PII) redaction, the redacted
--- transcript appears in the @RedactedTranscriptFileUri@ field.
+-- Provides information about the specified Call Analytics job.
+--
+-- To view the job\'s status, refer to @CallAnalyticsJobStatus@. If the
+-- status is @COMPLETED@, the job is finished. You can find your completed
+-- transcript at the URI specified in @TranscriptFileUri@. If the status is
+-- @FAILED@, @FailureReason@ provides details on why your transcription job
+-- failed.
+--
+-- If you enabled personally identifiable information (PII) redaction, the
+-- redacted transcript appears at the location specified in
+-- @RedactedTranscriptFileUri@.
+--
+-- If you chose to redact the audio in your media file, you can find your
+-- redacted media file at the location specified in @RedactedMediaFileUri@.
+--
+-- To get a list of your Call Analytics jobs, use the operation.
 module Amazonka.Transcribe.GetCallAnalyticsJob
   ( -- * Creating a Request
     GetCallAnalyticsJob (..),
@@ -53,8 +63,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newGetCallAnalyticsJob' smart constructor.
 data GetCallAnalyticsJob = GetCallAnalyticsJob'
-  { -- | The name of the analytics job you want information about. This value is
-    -- case sensitive.
+  { -- | The name of the Call Analytics job you want information about. Job names
+    -- are case sensitive.
     callAnalyticsJobName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,8 +77,8 @@ data GetCallAnalyticsJob = GetCallAnalyticsJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callAnalyticsJobName', 'getCallAnalyticsJob_callAnalyticsJobName' - The name of the analytics job you want information about. This value is
--- case sensitive.
+-- 'callAnalyticsJobName', 'getCallAnalyticsJob_callAnalyticsJobName' - The name of the Call Analytics job you want information about. Job names
+-- are case sensitive.
 newGetCallAnalyticsJob ::
   -- | 'callAnalyticsJobName'
   Prelude.Text ->
@@ -79,8 +89,8 @@ newGetCallAnalyticsJob pCallAnalyticsJobName_ =
         pCallAnalyticsJobName_
     }
 
--- | The name of the analytics job you want information about. This value is
--- case sensitive.
+-- | The name of the Call Analytics job you want information about. Job names
+-- are case sensitive.
 getCallAnalyticsJob_callAnalyticsJobName :: Lens.Lens' GetCallAnalyticsJob Prelude.Text
 getCallAnalyticsJob_callAnalyticsJobName = Lens.lens (\GetCallAnalyticsJob' {callAnalyticsJobName} -> callAnalyticsJobName) (\s@GetCallAnalyticsJob' {} a -> s {callAnalyticsJobName = a} :: GetCallAnalyticsJob)
 
@@ -139,7 +149,8 @@ instance Core.ToQuery GetCallAnalyticsJob where
 
 -- | /See:/ 'newGetCallAnalyticsJobResponse' smart constructor.
 data GetCallAnalyticsJobResponse = GetCallAnalyticsJobResponse'
-  { -- | An object that contains the results of your call analytics job.
+  { -- | Provides detailed information about the specified Call Analytics job,
+    -- including job status and, if applicable, failure reason.
     callAnalyticsJob :: Prelude.Maybe CallAnalyticsJob,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -154,7 +165,8 @@ data GetCallAnalyticsJobResponse = GetCallAnalyticsJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callAnalyticsJob', 'getCallAnalyticsJobResponse_callAnalyticsJob' - An object that contains the results of your call analytics job.
+-- 'callAnalyticsJob', 'getCallAnalyticsJobResponse_callAnalyticsJob' - Provides detailed information about the specified Call Analytics job,
+-- including job status and, if applicable, failure reason.
 --
 -- 'httpStatus', 'getCallAnalyticsJobResponse_httpStatus' - The response's http status code.
 newGetCallAnalyticsJobResponse ::
@@ -168,7 +180,8 @@ newGetCallAnalyticsJobResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An object that contains the results of your call analytics job.
+-- | Provides detailed information about the specified Call Analytics job,
+-- including job status and, if applicable, failure reason.
 getCallAnalyticsJobResponse_callAnalyticsJob :: Lens.Lens' GetCallAnalyticsJobResponse (Prelude.Maybe CallAnalyticsJob)
 getCallAnalyticsJobResponse_callAnalyticsJob = Lens.lens (\GetCallAnalyticsJobResponse' {callAnalyticsJob} -> callAnalyticsJob) (\s@GetCallAnalyticsJobResponse' {} a -> s {callAnalyticsJob = a} :: GetCallAnalyticsJobResponse)
 

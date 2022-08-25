@@ -22,6 +22,8 @@
 --
 -- Returns a list of DB log files for the DB instance.
 --
+-- This command doesn\'t apply to RDS Custom.
+--
 -- This operation returns paginated results.
 module Amazonka.RDS.DescribeDBLogFiles
   ( -- * Creating a Request
@@ -269,7 +271,7 @@ instance Core.ToQuery DescribeDBLogFiles where
 --
 -- /See:/ 'newDescribeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
-  { -- | A pagination token that can be used in a later DescribeDBLogFiles
+  { -- | A pagination token that can be used in a later @DescribeDBLogFiles@
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The DB log files returned.
@@ -287,7 +289,7 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeDBLogFilesResponse_marker' - A pagination token that can be used in a later DescribeDBLogFiles
+-- 'marker', 'describeDBLogFilesResponse_marker' - A pagination token that can be used in a later @DescribeDBLogFiles@
 -- request.
 --
 -- 'describeDBLogFiles', 'describeDBLogFilesResponse_describeDBLogFiles' - The DB log files returned.
@@ -305,7 +307,7 @@ newDescribeDBLogFilesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A pagination token that can be used in a later DescribeDBLogFiles
+-- | A pagination token that can be used in a later @DescribeDBLogFiles@
 -- request.
 describeDBLogFilesResponse_marker :: Lens.Lens' DescribeDBLogFilesResponse (Prelude.Maybe Prelude.Text)
 describeDBLogFilesResponse_marker = Lens.lens (\DescribeDBLogFilesResponse' {marker} -> marker) (\s@DescribeDBLogFilesResponse' {} a -> s {marker = a} :: DescribeDBLogFilesResponse)

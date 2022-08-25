@@ -22,9 +22,11 @@ module Amazonka.Pinpoint.Types.JourneyResponse where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Pinpoint.Types.Activity
+import Amazonka.Pinpoint.Types.ClosedDays
 import Amazonka.Pinpoint.Types.JourneyChannelSettings
 import Amazonka.Pinpoint.Types.JourneyLimits
 import Amazonka.Pinpoint.Types.JourneySchedule
+import Amazonka.Pinpoint.Types.OpenHours
 import Amazonka.Pinpoint.Types.QuietTime
 import Amazonka.Pinpoint.Types.StartCondition
 import Amazonka.Pinpoint.Types.State
@@ -89,6 +91,9 @@ data JourneyResponse = JourneyResponse'
     -- participant\'s local time. If this value is true, the schedule uses each
     -- participant\'s local time.
     localTime :: Prelude.Maybe Prelude.Bool,
+    -- | The time when journey allow to send messages. QuietTime should be
+    -- configured first and SendingSchedule should be set to true.
+    openHours :: Prelude.Maybe OpenHours,
     -- | The quiet time settings for the journey. Quiet time is a specific time
     -- range when a journey doesn\'t send messages to participants, if all the
     -- following conditions are met:
@@ -107,9 +112,16 @@ data JourneyResponse = JourneyResponse'
     -- If any of the preceding conditions isn\'t met, the participant will
     -- receive messages from the journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
+    -- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
+    -- This flag should be set to true in order to allow (OpenHours and
+    -- ClosedDays)
+    sendingSchedule :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether endpoints in quiet hours should enter a wait till the
     -- end of their quiet hours.
     waitForQuietTime :: Prelude.Maybe Prelude.Bool,
+    -- | The time when journey will stop sending messages. QuietTime should be
+    -- configured first and SendingSchedule should be set to true.
+    closedDays :: Prelude.Maybe ClosedDays,
     -- | The channel-specific configurations for the journey.
     journeyChannelSettings :: Prelude.Maybe JourneyChannelSettings,
     -- | The name of the journey.
@@ -183,6 +195,9 @@ data JourneyResponse = JourneyResponse'
 -- participant\'s local time. If this value is true, the schedule uses each
 -- participant\'s local time.
 --
+-- 'openHours', 'journeyResponse_openHours' - The time when journey allow to send messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+--
 -- 'quietTime', 'journeyResponse_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
 -- following conditions are met:
@@ -201,8 +216,15 @@ data JourneyResponse = JourneyResponse'
 -- If any of the preceding conditions isn\'t met, the participant will
 -- receive messages from the journey, even if quiet time is enabled.
 --
+-- 'sendingSchedule', 'journeyResponse_sendingSchedule' - Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
+-- This flag should be set to true in order to allow (OpenHours and
+-- ClosedDays)
+--
 -- 'waitForQuietTime', 'journeyResponse_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
 -- end of their quiet hours.
+--
+-- 'closedDays', 'journeyResponse_closedDays' - The time when journey will stop sending messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
 --
 -- 'journeyChannelSettings', 'journeyResponse_journeyChannelSettings' - The channel-specific configurations for the journey.
 --
@@ -233,8 +255,11 @@ newJourneyResponse pName_ pId_ pApplicationId_ =
       creationDate = Prelude.Nothing,
       refreshFrequency = Prelude.Nothing,
       localTime = Prelude.Nothing,
+      openHours = Prelude.Nothing,
       quietTime = Prelude.Nothing,
+      sendingSchedule = Prelude.Nothing,
       waitForQuietTime = Prelude.Nothing,
+      closedDays = Prelude.Nothing,
       journeyChannelSettings = Prelude.Nothing,
       name = pName_,
       id = pId_,
@@ -319,6 +344,11 @@ journeyResponse_refreshFrequency = Lens.lens (\JourneyResponse' {refreshFrequenc
 journeyResponse_localTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_localTime = Lens.lens (\JourneyResponse' {localTime} -> localTime) (\s@JourneyResponse' {} a -> s {localTime = a} :: JourneyResponse)
 
+-- | The time when journey allow to send messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+journeyResponse_openHours :: Lens.Lens' JourneyResponse (Prelude.Maybe OpenHours)
+journeyResponse_openHours = Lens.lens (\JourneyResponse' {openHours} -> openHours) (\s@JourneyResponse' {} a -> s {openHours = a} :: JourneyResponse)
+
 -- | The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
 -- following conditions are met:
@@ -339,10 +369,21 @@ journeyResponse_localTime = Lens.lens (\JourneyResponse' {localTime} -> localTim
 journeyResponse_quietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe QuietTime)
 journeyResponse_quietTime = Lens.lens (\JourneyResponse' {quietTime} -> quietTime) (\s@JourneyResponse' {} a -> s {quietTime = a} :: JourneyResponse)
 
+-- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
+-- This flag should be set to true in order to allow (OpenHours and
+-- ClosedDays)
+journeyResponse_sendingSchedule :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
+journeyResponse_sendingSchedule = Lens.lens (\JourneyResponse' {sendingSchedule} -> sendingSchedule) (\s@JourneyResponse' {} a -> s {sendingSchedule = a} :: JourneyResponse)
+
 -- | Specifies whether endpoints in quiet hours should enter a wait till the
 -- end of their quiet hours.
 journeyResponse_waitForQuietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_waitForQuietTime = Lens.lens (\JourneyResponse' {waitForQuietTime} -> waitForQuietTime) (\s@JourneyResponse' {} a -> s {waitForQuietTime = a} :: JourneyResponse)
+
+-- | The time when journey will stop sending messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+journeyResponse_closedDays :: Lens.Lens' JourneyResponse (Prelude.Maybe ClosedDays)
+journeyResponse_closedDays = Lens.lens (\JourneyResponse' {closedDays} -> closedDays) (\s@JourneyResponse' {} a -> s {closedDays = a} :: JourneyResponse)
 
 -- | The channel-specific configurations for the journey.
 journeyResponse_journeyChannelSettings :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneyChannelSettings)
@@ -378,8 +419,11 @@ instance Core.FromJSON JourneyResponse where
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "RefreshFrequency")
             Prelude.<*> (x Core..:? "LocalTime")
+            Prelude.<*> (x Core..:? "OpenHours")
             Prelude.<*> (x Core..:? "QuietTime")
+            Prelude.<*> (x Core..:? "SendingSchedule")
             Prelude.<*> (x Core..:? "WaitForQuietTime")
+            Prelude.<*> (x Core..:? "ClosedDays")
             Prelude.<*> (x Core..:? "JourneyChannelSettings")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Id")
@@ -400,8 +444,11 @@ instance Prelude.Hashable JourneyResponse where
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` refreshFrequency
       `Prelude.hashWithSalt` localTime
+      `Prelude.hashWithSalt` openHours
       `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` sendingSchedule
       `Prelude.hashWithSalt` waitForQuietTime
+      `Prelude.hashWithSalt` closedDays
       `Prelude.hashWithSalt` journeyChannelSettings
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
@@ -421,8 +468,11 @@ instance Prelude.NFData JourneyResponse where
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf refreshFrequency
       `Prelude.seq` Prelude.rnf localTime
+      `Prelude.seq` Prelude.rnf openHours
       `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf sendingSchedule
       `Prelude.seq` Prelude.rnf waitForQuietTime
+      `Prelude.seq` Prelude.rnf closedDays
       `Prelude.seq` Prelude.rnf journeyChannelSettings
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id

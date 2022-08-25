@@ -20,6 +20,7 @@
 module Amazonka.ECS.Types.ContainerInstanceField
   ( ContainerInstanceField
       ( ..,
+        ContainerInstanceField_CONTAINER_INSTANCE_HEALTH,
         ContainerInstanceField_TAGS
       ),
   )
@@ -56,10 +57,14 @@ newtype ContainerInstanceField = ContainerInstanceField'
       Core.ToXML
     )
 
+pattern ContainerInstanceField_CONTAINER_INSTANCE_HEALTH :: ContainerInstanceField
+pattern ContainerInstanceField_CONTAINER_INSTANCE_HEALTH = ContainerInstanceField' "CONTAINER_INSTANCE_HEALTH"
+
 pattern ContainerInstanceField_TAGS :: ContainerInstanceField
 pattern ContainerInstanceField_TAGS = ContainerInstanceField' "TAGS"
 
 {-# COMPLETE
+  ContainerInstanceField_CONTAINER_INSTANCE_HEALTH,
   ContainerInstanceField_TAGS,
   ContainerInstanceField'
   #-}

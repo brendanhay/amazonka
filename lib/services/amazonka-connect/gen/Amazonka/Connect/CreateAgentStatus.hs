@@ -57,7 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAgentStatus' smart constructor.
 data CreateAgentStatus = CreateAgentStatus'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The display order of the status.
     displayOrder :: Prelude.Maybe Prelude.Natural,
@@ -81,7 +82,8 @@ data CreateAgentStatus = CreateAgentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAgentStatus_tags' - One or more tags.
+-- 'tags', 'createAgentStatus_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'displayOrder', 'createAgentStatus_displayOrder' - The display order of the status.
 --
@@ -111,7 +113,8 @@ newCreateAgentStatus pInstanceId_ pName_ pState_ =
       state = pState_
     }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createAgentStatus_tags :: Lens.Lens' CreateAgentStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAgentStatus_tags = Lens.lens (\CreateAgentStatus' {tags} -> tags) (\s@CreateAgentStatus' {} a -> s {tags = a} :: CreateAgentStatus) Prelude.. Lens.mapping Lens.coerced
 

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the details of an Amazon Managed Workflows for Apache Airflow
--- (MWAA) environment.
+-- Describes an Amazon Managed Workflows for Apache Airflow (MWAA)
+-- environment.
 module Amazonka.MwAA.GetEnvironment
   ( -- * Creating a Request
     GetEnvironment (..),
@@ -122,7 +122,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEnvironmentResponse' with all optional fields omitted.

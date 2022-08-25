@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.Channel where
 
 import Amazonka.ChimeSDKMessaging.Types.ChannelMode
 import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
+import Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -36,6 +37,9 @@ data Channel = Channel'
     lastMessageTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of a channel.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The attributes required to configure and create an elastic channel. An
+    -- elastic channel can support a maximum of 1-million members.
+    elasticChannelConfiguration :: Prelude.Maybe ElasticChannelConfiguration,
     -- | The channel\'s metadata.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The time at which the @AppInstanceUser@ created the channel.
@@ -67,6 +71,9 @@ data Channel = Channel'
 --
 -- 'name', 'channel_name' - The name of a channel.
 --
+-- 'elasticChannelConfiguration', 'channel_elasticChannelConfiguration' - The attributes required to configure and create an elastic channel. An
+-- elastic channel can support a maximum of 1-million members.
+--
 -- 'metadata', 'channel_metadata' - The channel\'s metadata.
 --
 -- 'createdTimestamp', 'channel_createdTimestamp' - The time at which the @AppInstanceUser@ created the channel.
@@ -87,6 +94,7 @@ newChannel =
     { lastUpdatedTimestamp = Prelude.Nothing,
       lastMessageTimestamp = Prelude.Nothing,
       name = Prelude.Nothing,
+      elasticChannelConfiguration = Prelude.Nothing,
       metadata = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
       channelArn = Prelude.Nothing,
@@ -107,6 +115,11 @@ channel_lastMessageTimestamp = Lens.lens (\Channel' {lastMessageTimestamp} -> la
 -- | The name of a channel.
 channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The attributes required to configure and create an elastic channel. An
+-- elastic channel can support a maximum of 1-million members.
+channel_elasticChannelConfiguration :: Lens.Lens' Channel (Prelude.Maybe ElasticChannelConfiguration)
+channel_elasticChannelConfiguration = Lens.lens (\Channel' {elasticChannelConfiguration} -> elasticChannelConfiguration) (\s@Channel' {} a -> s {elasticChannelConfiguration = a} :: Channel)
 
 -- | The channel\'s metadata.
 channel_metadata :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
@@ -145,6 +158,7 @@ instance Core.FromJSON Channel where
             Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
             Prelude.<*> (x Core..:? "LastMessageTimestamp")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ElasticChannelConfiguration")
             Prelude.<*> (x Core..:? "Metadata")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "ChannelArn")
@@ -159,6 +173,7 @@ instance Prelude.Hashable Channel where
     _salt `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` lastMessageTimestamp
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` elasticChannelConfiguration
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` channelArn
@@ -172,6 +187,7 @@ instance Prelude.NFData Channel where
     Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf lastMessageTimestamp
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf elasticChannelConfiguration
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf channelArn

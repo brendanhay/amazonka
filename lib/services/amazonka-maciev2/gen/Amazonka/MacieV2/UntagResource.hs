@@ -49,9 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The key of the tag to remove from the resource. To remove multiple tags,
-    -- append the tagKeys parameter and argument for each additional tag to
-    -- remove, separated by an ampersand (&).
+  { -- | One or more tags (keys) to remove from the resource. In an HTTP request
+    -- to remove multiple tags, append the tagKeys parameter and argument for
+    -- each tag to remove, and separate them with an ampersand (&).
     tagKeys :: [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the classification job, custom data
     -- identifier, findings filter, or member account.
@@ -67,9 +67,9 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKeys', 'untagResource_tagKeys' - The key of the tag to remove from the resource. To remove multiple tags,
--- append the tagKeys parameter and argument for each additional tag to
--- remove, separated by an ampersand (&).
+-- 'tagKeys', 'untagResource_tagKeys' - One or more tags (keys) to remove from the resource. In an HTTP request
+-- to remove multiple tags, append the tagKeys parameter and argument for
+-- each tag to remove, and separate them with an ampersand (&).
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the classification job, custom data
 -- identifier, findings filter, or member account.
@@ -83,9 +83,9 @@ newUntagResource pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- | The key of the tag to remove from the resource. To remove multiple tags,
--- append the tagKeys parameter and argument for each additional tag to
--- remove, separated by an ampersand (&).
+-- | One or more tags (keys) to remove from the resource. In an HTTP request
+-- to remove multiple tags, append the tagKeys parameter and argument for
+-- each tag to remove, and separate them with an ampersand (&).
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 

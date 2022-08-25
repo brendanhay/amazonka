@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the high-level patch state for the instances in the specified
--- patch group.
+-- Retrieves the high-level patch state for the managed nodes in the
+-- specified patch group.
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.DescribeInstancePatchStatesForPatchGroup
@@ -250,7 +250,7 @@ data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchSta
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The high-level patch state for the requested instances.
+    -- | The high-level patch state for the requested managed nodes.
     instancePatchStates :: Prelude.Maybe (Prelude.NonEmpty InstancePatchState),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -268,7 +268,7 @@ data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchSta
 -- 'nextToken', 'describeInstancePatchStatesForPatchGroupResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 --
--- 'instancePatchStates', 'describeInstancePatchStatesForPatchGroupResponse_instancePatchStates' - The high-level patch state for the requested instances.
+-- 'instancePatchStates', 'describeInstancePatchStatesForPatchGroupResponse_instancePatchStates' - The high-level patch state for the requested managed nodes.
 --
 -- 'httpStatus', 'describeInstancePatchStatesForPatchGroupResponse_httpStatus' - The response's http status code.
 newDescribeInstancePatchStatesForPatchGroupResponse ::
@@ -290,7 +290,7 @@ newDescribeInstancePatchStatesForPatchGroupResponse
 describeInstancePatchStatesForPatchGroupResponse_nextToken :: Lens.Lens' DescribeInstancePatchStatesForPatchGroupResponse (Prelude.Maybe Prelude.Text)
 describeInstancePatchStatesForPatchGroupResponse_nextToken = Lens.lens (\DescribeInstancePatchStatesForPatchGroupResponse' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesForPatchGroupResponse' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesForPatchGroupResponse)
 
--- | The high-level patch state for the requested instances.
+-- | The high-level patch state for the requested managed nodes.
 describeInstancePatchStatesForPatchGroupResponse_instancePatchStates :: Lens.Lens' DescribeInstancePatchStatesForPatchGroupResponse (Prelude.Maybe (Prelude.NonEmpty InstancePatchState))
 describeInstancePatchStatesForPatchGroupResponse_instancePatchStates = Lens.lens (\DescribeInstancePatchStatesForPatchGroupResponse' {instancePatchStates} -> instancePatchStates) (\s@DescribeInstancePatchStatesForPatchGroupResponse' {} a -> s {instancePatchStates = a} :: DescribeInstancePatchStatesForPatchGroupResponse) Prelude.. Lens.mapping Lens.coerced
 

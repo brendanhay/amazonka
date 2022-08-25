@@ -37,9 +37,9 @@ data SavingsPlansPurchaseRecommendationDetail = SavingsPlansPurchaseRecommendati
     -- | The estimated monthly savings amount based on the recommended Savings
     -- Plans.
     estimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
-    -- | The estimated On-Demand costs you would expect with no additional
-    -- commitment, based on your usage of the selected time period and the
-    -- Savings Plans you own.
+    -- | The estimated On-Demand costs you expect with no additional commitment,
+    -- based on your usage of the selected time period and the Savings Plans
+    -- you own.
     estimatedOnDemandCostWithCurrentCommitment :: Prelude.Maybe Prelude.Text,
     -- | The upfront cost of the recommended Savings Plans, based on the selected
     -- payment option.
@@ -95,9 +95,9 @@ data SavingsPlansPurchaseRecommendationDetail = SavingsPlansPurchaseRecommendati
 -- 'estimatedMonthlySavingsAmount', 'savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount' - The estimated monthly savings amount based on the recommended Savings
 -- Plans.
 --
--- 'estimatedOnDemandCostWithCurrentCommitment', 'savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional
--- commitment, based on your usage of the selected time period and the
--- Savings Plans you own.
+-- 'estimatedOnDemandCostWithCurrentCommitment', 'savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you expect with no additional commitment,
+-- based on your usage of the selected time period and the Savings Plans
+-- you own.
 --
 -- 'upfrontCost', 'savingsPlansPurchaseRecommendationDetail_upfrontCost' - The upfront cost of the recommended Savings Plans, based on the selected
 -- payment option.
@@ -180,9 +180,9 @@ savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage = Lens.lens 
 savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount = Lens.lens (\SavingsPlansPurchaseRecommendationDetail' {estimatedMonthlySavingsAmount} -> estimatedMonthlySavingsAmount) (\s@SavingsPlansPurchaseRecommendationDetail' {} a -> s {estimatedMonthlySavingsAmount = a} :: SavingsPlansPurchaseRecommendationDetail)
 
--- | The estimated On-Demand costs you would expect with no additional
--- commitment, based on your usage of the selected time period and the
--- Savings Plans you own.
+-- | The estimated On-Demand costs you expect with no additional commitment,
+-- based on your usage of the selected time period and the Savings Plans
+-- you own.
 savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment :: Lens.Lens' SavingsPlansPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment = Lens.lens (\SavingsPlansPurchaseRecommendationDetail' {estimatedOnDemandCostWithCurrentCommitment} -> estimatedOnDemandCostWithCurrentCommitment) (\s@SavingsPlansPurchaseRecommendationDetail' {} a -> s {estimatedOnDemandCostWithCurrentCommitment = a} :: SavingsPlansPurchaseRecommendationDetail)
 

@@ -94,7 +94,7 @@ data RegisterGameServer = RegisterGameServer'
     gameServerGroupName :: Prelude.Text,
     -- | A custom string that uniquely identifies the game server to register.
     -- Game server IDs are developer-defined and must be unique across all game
-    -- server groups in your AWS account.
+    -- server groups in your Amazon Web Services account.
     gameServerId :: Prelude.Text,
     -- | The unique identifier for the instance where the game server is running.
     -- This ID is available in the instance metadata. EC2 instance IDs use a
@@ -124,7 +124,7 @@ data RegisterGameServer = RegisterGameServer'
 --
 -- 'gameServerId', 'registerGameServer_gameServerId' - A custom string that uniquely identifies the game server to register.
 -- Game server IDs are developer-defined and must be unique across all game
--- server groups in your AWS account.
+-- server groups in your Amazon Web Services account.
 --
 -- 'instanceId', 'registerGameServer_instanceId' - The unique identifier for the instance where the game server is running.
 -- This ID is available in the instance metadata. EC2 instance IDs use a
@@ -169,7 +169,7 @@ registerGameServer_gameServerGroupName = Lens.lens (\RegisterGameServer' {gameSe
 
 -- | A custom string that uniquely identifies the game server to register.
 -- Game server IDs are developer-defined and must be unique across all game
--- server groups in your AWS account.
+-- server groups in your Amazon Web Services account.
 registerGameServer_gameServerId :: Lens.Lens' RegisterGameServer Prelude.Text
 registerGameServer_gameServerId = Lens.lens (\RegisterGameServer' {gameServerId} -> gameServerId) (\s@RegisterGameServer' {} a -> s {gameServerId = a} :: RegisterGameServer)
 

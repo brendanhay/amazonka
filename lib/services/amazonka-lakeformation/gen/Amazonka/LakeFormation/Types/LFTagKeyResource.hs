@@ -23,16 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure containing a tag key and values for a resource.
+-- | A structure containing an LF-tag key and values for a resource.
 --
 -- /See:/ 'newLFTagKeyResource' smart constructor.
 data LFTagKeyResource = LFTagKeyResource'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The key-name for the tag.
+    -- | The key-name for the LF-tag.
     tagKey :: Prelude.Text,
     -- | A list of possible values an attribute can take.
     tagValues :: Prelude.NonEmpty Prelude.Text
@@ -50,9 +50,9 @@ data LFTagKeyResource = LFTagKeyResource'
 -- 'catalogId', 'lFTagKeyResource_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'tagKey', 'lFTagKeyResource_tagKey' - The key-name for the tag.
+-- 'tagKey', 'lFTagKeyResource_tagKey' - The key-name for the LF-tag.
 --
 -- 'tagValues', 'lFTagKeyResource_tagValues' - A list of possible values an attribute can take.
 newLFTagKeyResource ::
@@ -71,11 +71,11 @@ newLFTagKeyResource pTagKey_ pTagValues_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 lFTagKeyResource_catalogId :: Lens.Lens' LFTagKeyResource (Prelude.Maybe Prelude.Text)
 lFTagKeyResource_catalogId = Lens.lens (\LFTagKeyResource' {catalogId} -> catalogId) (\s@LFTagKeyResource' {} a -> s {catalogId = a} :: LFTagKeyResource)
 
--- | The key-name for the tag.
+-- | The key-name for the LF-tag.
 lFTagKeyResource_tagKey :: Lens.Lens' LFTagKeyResource Prelude.Text
 lFTagKeyResource_tagKey = Lens.lens (\LFTagKeyResource' {tagKey} -> tagKey) (\s@LFTagKeyResource' {} a -> s {tagKey = a} :: LFTagKeyResource)
 

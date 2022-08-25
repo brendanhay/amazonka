@@ -39,7 +39,7 @@ data FleetUtilization = FleetUtilization'
     -- across all instances in the fleet location.
     currentPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | The fleet location for the fleet utilization information, expressed as
-    -- an AWS Region code, such as @us-west-2@.
+    -- an Amazon Web Services Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -73,7 +73,7 @@ data FleetUtilization = FleetUtilization'
 -- across all instances in the fleet location.
 --
 -- 'location', 'fleetUtilization_location' - The fleet location for the fleet utilization information, expressed as
--- an AWS Region code, such as @us-west-2@.
+-- an Amazon Web Services Region code, such as @us-west-2@.
 --
 -- 'fleetArn', 'fleetUtilization_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -112,7 +112,7 @@ fleetUtilization_currentPlayerSessionCount :: Lens.Lens' FleetUtilization (Prelu
 fleetUtilization_currentPlayerSessionCount = Lens.lens (\FleetUtilization' {currentPlayerSessionCount} -> currentPlayerSessionCount) (\s@FleetUtilization' {} a -> s {currentPlayerSessionCount = a} :: FleetUtilization)
 
 -- | The fleet location for the fleet utilization information, expressed as
--- an AWS Region code, such as @us-west-2@.
+-- an Amazon Web Services Region code, such as @us-west-2@.
 fleetUtilization_location :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Text)
 fleetUtilization_location = Lens.lens (\FleetUtilization' {location} -> location) (\s@FleetUtilization' {} a -> s {location = a} :: FleetUtilization)
 

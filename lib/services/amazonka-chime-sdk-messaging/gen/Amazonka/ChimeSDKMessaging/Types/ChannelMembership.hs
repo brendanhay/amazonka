@@ -37,6 +37,8 @@ data ChannelMembership = ChannelMembership'
     type' :: Prelude.Maybe ChannelMembershipType,
     -- | The time at which the channel membership was created.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the SubChannel that a user belongs to.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the member\'s channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the member who invited another member.
@@ -60,6 +62,8 @@ data ChannelMembership = ChannelMembership'
 --
 -- 'createdTimestamp', 'channelMembership_createdTimestamp' - The time at which the channel membership was created.
 --
+-- 'subChannelId', 'channelMembership_subChannelId' - The ID of the SubChannel that a user belongs to.
+--
 -- 'channelArn', 'channelMembership_channelArn' - The ARN of the member\'s channel.
 --
 -- 'invitedBy', 'channelMembership_invitedBy' - The identifier of the member who invited another member.
@@ -72,6 +76,7 @@ newChannelMembership =
       member = Prelude.Nothing,
       type' = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       invitedBy = Prelude.Nothing
     }
@@ -92,6 +97,10 @@ channelMembership_type = Lens.lens (\ChannelMembership' {type'} -> type') (\s@Ch
 channelMembership_createdTimestamp :: Lens.Lens' ChannelMembership (Prelude.Maybe Prelude.UTCTime)
 channelMembership_createdTimestamp = Lens.lens (\ChannelMembership' {createdTimestamp} -> createdTimestamp) (\s@ChannelMembership' {} a -> s {createdTimestamp = a} :: ChannelMembership) Prelude.. Lens.mapping Core._Time
 
+-- | The ID of the SubChannel that a user belongs to.
+channelMembership_subChannelId :: Lens.Lens' ChannelMembership (Prelude.Maybe Prelude.Text)
+channelMembership_subChannelId = Lens.lens (\ChannelMembership' {subChannelId} -> subChannelId) (\s@ChannelMembership' {} a -> s {subChannelId = a} :: ChannelMembership)
+
 -- | The ARN of the member\'s channel.
 channelMembership_channelArn :: Lens.Lens' ChannelMembership (Prelude.Maybe Prelude.Text)
 channelMembership_channelArn = Lens.lens (\ChannelMembership' {channelArn} -> channelArn) (\s@ChannelMembership' {} a -> s {channelArn = a} :: ChannelMembership)
@@ -110,6 +119,7 @@ instance Core.FromJSON ChannelMembership where
             Prelude.<*> (x Core..:? "Member")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
+            Prelude.<*> (x Core..:? "SubChannelId")
             Prelude.<*> (x Core..:? "ChannelArn")
             Prelude.<*> (x Core..:? "InvitedBy")
       )
@@ -120,6 +130,7 @@ instance Prelude.Hashable ChannelMembership where
       `Prelude.hashWithSalt` member
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` invitedBy
 
@@ -129,5 +140,6 @@ instance Prelude.NFData ChannelMembership where
       `Prelude.seq` Prelude.rnf member
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf invitedBy

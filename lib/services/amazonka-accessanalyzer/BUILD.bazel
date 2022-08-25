@@ -96,6 +96,7 @@ haskell_library(
         "gen/Amazonka/AccessAnalyzer/Types/Type.hs",
         "gen/Amazonka/AccessAnalyzer/Types/ValidatePolicyFinding.hs",
         "gen/Amazonka/AccessAnalyzer/Types/ValidatePolicyFindingType.hs",
+        "gen/Amazonka/AccessAnalyzer/Types/ValidatePolicyResourceType.hs",
         "gen/Amazonka/AccessAnalyzer/Types/VpcConfiguration.hs",
         "gen/Amazonka/AccessAnalyzer/UntagResource.hs",
         "gen/Amazonka/AccessAnalyzer/UpdateArchiveRule.hs",

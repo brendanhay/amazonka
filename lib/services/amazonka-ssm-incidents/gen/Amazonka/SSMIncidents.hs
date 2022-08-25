@@ -11,10 +11,10 @@
 --
 -- Derived from API version @2018-05-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Systems Manager Incident Manager is an incident management console
+-- Systems Manager Incident Manager is an incident management console
 -- designed to help users mitigate and recover from incidents affecting
--- their AWS-hosted applications. An incident is any unplanned interruption
--- or reduction in quality of services.
+-- their Amazon Web Services-hosted applications. An incident is any
+-- unplanned interruption or reduction in quality of services.
 --
 -- Incident Manager increases incident resolution by notifying responders
 -- of impact, highlighting relevant troubleshooting data, and providing
@@ -259,6 +259,9 @@ module Amazonka.SSMIncidents
     -- ** TimelineEventSort
     TimelineEventSort (..),
 
+    -- ** VariableType
+    VariableType (..),
+
     -- ** Action
     Action (Action'),
     newAction,
@@ -286,6 +289,10 @@ module Amazonka.SSMIncidents
     -- ** DeleteRegionAction
     DeleteRegionAction (DeleteRegionAction'),
     newDeleteRegionAction,
+
+    -- ** DynamicSsmParameterValue
+    DynamicSsmParameterValue (DynamicSsmParameterValue'),
+    newDynamicSsmParameterValue,
 
     -- ** EmptyChatChannel
     EmptyChatChannel (EmptyChatChannel'),

@@ -30,17 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 data AccountTakeoverActionType = AccountTakeoverActionType'
   { -- | Flag specifying whether to send a notification.
     notify :: Prelude.Bool,
-    -- | The event action.
+    -- | The action to take in response to the account takeover action. Valid
+    -- values are as follows:
     --
     -- -   @BLOCK@ Choosing this action will block the request.
     --
-    -- -   @MFA_IF_CONFIGURED@ Throw MFA challenge if user has configured it,
-    --     else allow the request.
+    -- -   @MFA_IF_CONFIGURED@ Present an MFA challenge if user has configured
+    --     it, else allow the request.
     --
-    -- -   @MFA_REQUIRED@ Throw MFA challenge if user has configured it, else
-    --     block the request.
+    -- -   @MFA_REQUIRED@ Present an MFA challenge if user has configured it,
+    --     else block the request.
     --
-    -- -   @NO_ACTION@ Allow the user sign-in.
+    -- -   @NO_ACTION@ Allow the user to sign in.
     eventAction :: AccountTakeoverEventActionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,17 +56,18 @@ data AccountTakeoverActionType = AccountTakeoverActionType'
 --
 -- 'notify', 'accountTakeoverActionType_notify' - Flag specifying whether to send a notification.
 --
--- 'eventAction', 'accountTakeoverActionType_eventAction' - The event action.
+-- 'eventAction', 'accountTakeoverActionType_eventAction' - The action to take in response to the account takeover action. Valid
+-- values are as follows:
 --
 -- -   @BLOCK@ Choosing this action will block the request.
 --
--- -   @MFA_IF_CONFIGURED@ Throw MFA challenge if user has configured it,
---     else allow the request.
+-- -   @MFA_IF_CONFIGURED@ Present an MFA challenge if user has configured
+--     it, else allow the request.
 --
--- -   @MFA_REQUIRED@ Throw MFA challenge if user has configured it, else
---     block the request.
+-- -   @MFA_REQUIRED@ Present an MFA challenge if user has configured it,
+--     else block the request.
 --
--- -   @NO_ACTION@ Allow the user sign-in.
+-- -   @NO_ACTION@ Allow the user to sign in.
 newAccountTakeoverActionType ::
   -- | 'notify'
   Prelude.Bool ->
@@ -82,17 +84,18 @@ newAccountTakeoverActionType pNotify_ pEventAction_ =
 accountTakeoverActionType_notify :: Lens.Lens' AccountTakeoverActionType Prelude.Bool
 accountTakeoverActionType_notify = Lens.lens (\AccountTakeoverActionType' {notify} -> notify) (\s@AccountTakeoverActionType' {} a -> s {notify = a} :: AccountTakeoverActionType)
 
--- | The event action.
+-- | The action to take in response to the account takeover action. Valid
+-- values are as follows:
 --
 -- -   @BLOCK@ Choosing this action will block the request.
 --
--- -   @MFA_IF_CONFIGURED@ Throw MFA challenge if user has configured it,
---     else allow the request.
+-- -   @MFA_IF_CONFIGURED@ Present an MFA challenge if user has configured
+--     it, else allow the request.
 --
--- -   @MFA_REQUIRED@ Throw MFA challenge if user has configured it, else
---     block the request.
+-- -   @MFA_REQUIRED@ Present an MFA challenge if user has configured it,
+--     else block the request.
 --
--- -   @NO_ACTION@ Allow the user sign-in.
+-- -   @NO_ACTION@ Allow the user to sign in.
 accountTakeoverActionType_eventAction :: Lens.Lens' AccountTakeoverActionType AccountTakeoverEventActionType
 accountTakeoverActionType_eventAction = Lens.lens (\AccountTakeoverActionType' {eventAction} -> eventAction) (\s@AccountTakeoverActionType' {} a -> s {eventAction = a} :: AccountTakeoverActionType)
 

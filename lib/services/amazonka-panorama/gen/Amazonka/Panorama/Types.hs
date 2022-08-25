@@ -33,6 +33,9 @@ module Amazonka.Panorama.Types
     -- * ConnectionType
     ConnectionType (..),
 
+    -- * DeviceBrand
+    DeviceBrand (..),
+
     -- * DeviceConnectionStatus
     DeviceConnectionStatus (..),
 
@@ -81,6 +84,11 @@ module Amazonka.Panorama.Types
     -- * UpdateProgress
     UpdateProgress (..),
 
+    -- * AlternateSoftwareMetadata
+    AlternateSoftwareMetadata (..),
+    newAlternateSoftwareMetadata,
+    alternateSoftwareMetadata_version,
+
     -- * ApplicationInstance
     ApplicationInstance (..),
     newApplicationInstance,
@@ -105,6 +113,7 @@ module Amazonka.Panorama.Types
     device_provisioningStatus,
     device_deviceId,
     device_lastUpdatedTime,
+    device_brand,
 
     -- * DeviceJob
     DeviceJob (..),
@@ -158,11 +167,14 @@ module Amazonka.Panorama.Types
     NetworkPayload (..),
     newNetworkPayload,
     networkPayload_ethernet0,
+    networkPayload_ntp,
     networkPayload_ethernet1,
 
     -- * NetworkStatus
     NetworkStatus (..),
     newNetworkStatus,
+    networkStatus_ntpStatus,
+    networkStatus_lastUpdatedTime,
     networkStatus_ethernet0Status,
     networkStatus_ethernet1Status,
 
@@ -172,14 +184,14 @@ module Amazonka.Panorama.Types
     node_packageArn,
     node_description,
     node_ownerAccount,
-    node_nodeId,
-    node_name,
     node_category,
-    node_packageName,
+    node_createdTime,
+    node_name,
+    node_nodeId,
     node_packageId,
+    node_packageName,
     node_packageVersion,
     node_patchVersion,
-    node_createdTime,
 
     -- * NodeFromTemplateJob
     NodeFromTemplateJob (..),
@@ -208,8 +220,8 @@ module Amazonka.Panorama.Types
     nodeInstance_packagePatchVersion,
     nodeInstance_packageVersion,
     nodeInstance_nodeName,
-    nodeInstance_nodeInstanceId,
     nodeInstance_currentStatus,
+    nodeInstance_nodeInstanceId,
 
     -- * NodeInterface
     NodeInterface (..),
@@ -223,6 +235,18 @@ module Amazonka.Panorama.Types
     nodeOutputPort_name,
     nodeOutputPort_type,
     nodeOutputPort_description,
+
+    -- * NtpPayload
+    NtpPayload (..),
+    newNtpPayload,
+    ntpPayload_ntpServers,
+
+    -- * NtpStatus
+    NtpStatus (..),
+    newNtpStatus,
+    ntpStatus_ntpServerName,
+    ntpStatus_connectionStatus,
+    ntpStatus_ipAddress,
 
     -- * OTAJobConfig
     OTAJobConfig (..),
@@ -253,10 +277,10 @@ module Amazonka.Panorama.Types
     -- * PackageImportJobOutput
     PackageImportJobOutput (..),
     newPackageImportJobOutput,
+    packageImportJobOutput_outputS3Location,
     packageImportJobOutput_packageId,
     packageImportJobOutput_packageVersion,
     packageImportJobOutput_patchVersion,
-    packageImportJobOutput_outputS3Location,
 
     -- * PackageImportJobOutputConfig
     PackageImportJobOutputConfig (..),
@@ -301,29 +325,31 @@ module Amazonka.Panorama.Types
     -- * StaticIpConnectionInfo
     StaticIpConnectionInfo (..),
     newStaticIpConnectionInfo,
+    staticIpConnectionInfo_defaultGateway,
+    staticIpConnectionInfo_dns,
     staticIpConnectionInfo_ipAddress,
     staticIpConnectionInfo_mask,
-    staticIpConnectionInfo_dns,
-    staticIpConnectionInfo_defaultGateway,
 
     -- * StorageLocation
     StorageLocation (..),
     newStorageLocation,
-    storageLocation_bucket,
-    storageLocation_repoPrefixLocation,
-    storageLocation_generatedPrefixLocation,
     storageLocation_binaryPrefixLocation,
+    storageLocation_bucket,
+    storageLocation_generatedPrefixLocation,
     storageLocation_manifestPrefixLocation,
+    storageLocation_repoPrefixLocation,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Panorama.Types.AlternateSoftwareMetadata
 import Amazonka.Panorama.Types.ApplicationInstance
 import Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
 import Amazonka.Panorama.Types.ApplicationInstanceStatus
 import Amazonka.Panorama.Types.ConnectionType
 import Amazonka.Panorama.Types.Device
+import Amazonka.Panorama.Types.DeviceBrand
 import Amazonka.Panorama.Types.DeviceConnectionStatus
 import Amazonka.Panorama.Types.DeviceJob
 import Amazonka.Panorama.Types.DeviceJobConfig
@@ -349,6 +375,8 @@ import Amazonka.Panorama.Types.NodeInstance
 import Amazonka.Panorama.Types.NodeInstanceStatus
 import Amazonka.Panorama.Types.NodeInterface
 import Amazonka.Panorama.Types.NodeOutputPort
+import Amazonka.Panorama.Types.NtpPayload
+import Amazonka.Panorama.Types.NtpStatus
 import Amazonka.Panorama.Types.OTAJobConfig
 import Amazonka.Panorama.Types.OutPutS3Location
 import Amazonka.Panorama.Types.PackageImportJob

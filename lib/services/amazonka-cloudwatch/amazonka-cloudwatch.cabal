@@ -66,6 +66,7 @@ library
     Amazonka.CloudWatch.GetMetricWidgetImage
     Amazonka.CloudWatch.Lens
     Amazonka.CloudWatch.ListDashboards
+    Amazonka.CloudWatch.ListManagedInsightRules
     Amazonka.CloudWatch.ListMetrics
     Amazonka.CloudWatch.ListMetricStreams
     Amazonka.CloudWatch.ListTagsForResource
@@ -73,6 +74,7 @@ library
     Amazonka.CloudWatch.PutCompositeAlarm
     Amazonka.CloudWatch.PutDashboard
     Amazonka.CloudWatch.PutInsightRule
+    Amazonka.CloudWatch.PutManagedInsightRules
     Amazonka.CloudWatch.PutMetricAlarm
     Amazonka.CloudWatch.PutMetricData
     Amazonka.CloudWatch.PutMetricStream
@@ -81,11 +83,13 @@ library
     Amazonka.CloudWatch.StopMetricStreams
     Amazonka.CloudWatch.TagResource
     Amazonka.CloudWatch.Types
+    Amazonka.CloudWatch.Types.ActionsSuppressedBy
     Amazonka.CloudWatch.Types.AlarmHistoryItem
     Amazonka.CloudWatch.Types.AlarmType
     Amazonka.CloudWatch.Types.AnomalyDetector
     Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration
     Amazonka.CloudWatch.Types.AnomalyDetectorStateValue
+    Amazonka.CloudWatch.Types.AnomalyDetectorType
     Amazonka.CloudWatch.Types.ComparisonOperator
     Amazonka.CloudWatch.Types.CompositeAlarm
     Amazonka.CloudWatch.Types.DashboardEntry
@@ -99,20 +103,27 @@ library
     Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint
     Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint
     Amazonka.CloudWatch.Types.LabelOptions
+    Amazonka.CloudWatch.Types.ManagedRule
+    Amazonka.CloudWatch.Types.ManagedRuleDescription
+    Amazonka.CloudWatch.Types.ManagedRuleState
     Amazonka.CloudWatch.Types.MessageData
     Amazonka.CloudWatch.Types.Metric
     Amazonka.CloudWatch.Types.MetricAlarm
     Amazonka.CloudWatch.Types.MetricDataQuery
     Amazonka.CloudWatch.Types.MetricDataResult
     Amazonka.CloudWatch.Types.MetricDatum
+    Amazonka.CloudWatch.Types.MetricMathAnomalyDetector
     Amazonka.CloudWatch.Types.MetricStat
     Amazonka.CloudWatch.Types.MetricStreamEntry
     Amazonka.CloudWatch.Types.MetricStreamFilter
     Amazonka.CloudWatch.Types.MetricStreamOutputFormat
+    Amazonka.CloudWatch.Types.MetricStreamStatisticsConfiguration
+    Amazonka.CloudWatch.Types.MetricStreamStatisticsMetric
     Amazonka.CloudWatch.Types.PartialFailure
     Amazonka.CloudWatch.Types.Range
     Amazonka.CloudWatch.Types.RecentlyActive
     Amazonka.CloudWatch.Types.ScanBy
+    Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector
     Amazonka.CloudWatch.Types.StandardUnit
     Amazonka.CloudWatch.Types.StateValue
     Amazonka.CloudWatch.Types.Statistic

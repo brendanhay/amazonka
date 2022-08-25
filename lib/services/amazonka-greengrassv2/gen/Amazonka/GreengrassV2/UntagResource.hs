@@ -115,15 +115,7 @@ instance Prelude.NFData UntagResource where
       `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagResource where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagResource where
   toPath UntagResource' {..} =

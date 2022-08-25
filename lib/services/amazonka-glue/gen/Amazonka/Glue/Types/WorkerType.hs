@@ -20,6 +20,7 @@
 module Amazonka.Glue.Types.WorkerType
   ( WorkerType
       ( ..,
+        WorkerType_G_025X,
         WorkerType_G_1X,
         WorkerType_G_2X,
         WorkerType_Standard
@@ -58,6 +59,9 @@ newtype WorkerType = WorkerType'
       Core.ToXML
     )
 
+pattern WorkerType_G_025X :: WorkerType
+pattern WorkerType_G_025X = WorkerType' "G.025X"
+
 pattern WorkerType_G_1X :: WorkerType
 pattern WorkerType_G_1X = WorkerType' "G.1X"
 
@@ -68,6 +72,7 @@ pattern WorkerType_Standard :: WorkerType
 pattern WorkerType_Standard = WorkerType' "Standard"
 
 {-# COMPLETE
+  WorkerType_G_025X,
   WorkerType_G_1X,
   WorkerType_G_2X,
   WorkerType_Standard,

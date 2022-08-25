@@ -64,7 +64,7 @@ data ResourceRequirement = ResourceRequirement'
     --     If you\'re trying to maximize your resource utilization by providing
     --     your jobs as much memory as possible for a particular instance type,
     --     see
-    --     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
+    --     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory management>
     --     in the /Batch User Guide/.
     --
     --     For jobs that are running on Fargate resources, then @value@ is the
@@ -113,7 +113,7 @@ data ResourceRequirement = ResourceRequirement'
     --
     --     For jobs that are running on Fargate resources, then @value@ must
     --     match one of the supported values and the @MEMORY@ values must be
-    --     one of the values supported for that VCPU value. The supported
+    --     one of the values supported for that @VCPU@ value. The supported
     --     values are 0.25, 0.5, 1, 2, and 4
     --
     --     [value = 0.25]
@@ -183,7 +183,7 @@ data ResourceRequirement = ResourceRequirement'
 --     If you\'re trying to maximize your resource utilization by providing
 --     your jobs as much memory as possible for a particular instance type,
 --     see
---     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
+--     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory management>
 --     in the /Batch User Guide/.
 --
 --     For jobs that are running on Fargate resources, then @value@ is the
@@ -232,7 +232,7 @@ data ResourceRequirement = ResourceRequirement'
 --
 --     For jobs that are running on Fargate resources, then @value@ must
 --     match one of the supported values and the @MEMORY@ values must be
---     one of the values supported for that VCPU value. The supported
+--     one of the values supported for that @VCPU@ value. The supported
 --     values are 0.25, 0.5, 1, 2, and 4
 --
 --     [value = 0.25]
@@ -302,7 +302,7 @@ newResourceRequirement pValue_ pType_ =
 --     If you\'re trying to maximize your resource utilization by providing
 --     your jobs as much memory as possible for a particular instance type,
 --     see
---     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
+--     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory management>
 --     in the /Batch User Guide/.
 --
 --     For jobs that are running on Fargate resources, then @value@ is the
@@ -351,7 +351,7 @@ newResourceRequirement pValue_ pType_ =
 --
 --     For jobs that are running on Fargate resources, then @value@ must
 --     match one of the supported values and the @MEMORY@ values must be
---     one of the values supported for that VCPU value. The supported
+--     one of the values supported for that @VCPU@ value. The supported
 --     values are 0.25, 0.5, 1, 2, and 4
 --
 --     [value = 0.25]

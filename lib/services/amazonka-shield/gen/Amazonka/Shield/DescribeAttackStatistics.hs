@@ -121,6 +121,7 @@ instance Core.ToQuery DescribeAttackStatistics where
 data DescribeAttackStatisticsResponse = DescribeAttackStatisticsResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The time range of the attack.
     timeRange :: TimeRange,
     -- | The data that describes the attacks detected during the time period.
     dataItems :: [AttackStatisticsDataItem]
@@ -137,7 +138,7 @@ data DescribeAttackStatisticsResponse = DescribeAttackStatisticsResponse'
 --
 -- 'httpStatus', 'describeAttackStatisticsResponse_httpStatus' - The response's http status code.
 --
--- 'timeRange', 'describeAttackStatisticsResponse_timeRange' - Undocumented member.
+-- 'timeRange', 'describeAttackStatisticsResponse_timeRange' - The time range of the attack.
 --
 -- 'dataItems', 'describeAttackStatisticsResponse_dataItems' - The data that describes the attacks detected during the time period.
 newDescribeAttackStatisticsResponse ::
@@ -160,7 +161,7 @@ newDescribeAttackStatisticsResponse
 describeAttackStatisticsResponse_httpStatus :: Lens.Lens' DescribeAttackStatisticsResponse Prelude.Int
 describeAttackStatisticsResponse_httpStatus = Lens.lens (\DescribeAttackStatisticsResponse' {httpStatus} -> httpStatus) (\s@DescribeAttackStatisticsResponse' {} a -> s {httpStatus = a} :: DescribeAttackStatisticsResponse)
 
--- | Undocumented member.
+-- | The time range of the attack.
 describeAttackStatisticsResponse_timeRange :: Lens.Lens' DescribeAttackStatisticsResponse TimeRange
 describeAttackStatisticsResponse_timeRange = Lens.lens (\DescribeAttackStatisticsResponse' {timeRange} -> timeRange) (\s@DescribeAttackStatisticsResponse' {} a -> s {timeRange = a} :: DescribeAttackStatisticsResponse)
 

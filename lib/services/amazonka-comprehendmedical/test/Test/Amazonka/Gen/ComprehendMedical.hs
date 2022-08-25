@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestDescribeRxNormInferenceJob $
 --             newDescribeRxNormInferenceJob
 --
+--         , requestDescribeSNOMEDCTInferenceJob $
+--             newDescribeSNOMEDCTInferenceJob
+--
 --         , requestDetectEntitiesV2 $
 --             newDetectEntitiesV2
 --
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , requestInferRxNorm $
 --             newInferRxNorm
+--
+--         , requestInferSNOMEDCT $
+--             newInferSNOMEDCT
 --
 --         , requestListEntitiesDetectionV2Jobs $
 --             newListEntitiesDetectionV2Jobs
@@ -63,6 +69,9 @@ import Test.Tasty
 --         , requestListRxNormInferenceJobs $
 --             newListRxNormInferenceJobs
 --
+--         , requestListSNOMEDCTInferenceJobs $
+--             newListSNOMEDCTInferenceJobs
+--
 --         , requestStartEntitiesDetectionV2Job $
 --             newStartEntitiesDetectionV2Job
 --
@@ -75,6 +84,9 @@ import Test.Tasty
 --         , requestStartRxNormInferenceJob $
 --             newStartRxNormInferenceJob
 --
+--         , requestStartSNOMEDCTInferenceJob $
+--             newStartSNOMEDCTInferenceJob
+--
 --         , requestStopEntitiesDetectionV2Job $
 --             newStopEntitiesDetectionV2Job
 --
@@ -86,6 +98,9 @@ import Test.Tasty
 --
 --         , requestStopRxNormInferenceJob $
 --             newStopRxNormInferenceJob
+--
+--         , requestStopSNOMEDCTInferenceJob $
+--             newStopSNOMEDCTInferenceJob
 --
 --           ]
 
@@ -102,6 +117,9 @@ import Test.Tasty
 --         , responseDescribeRxNormInferenceJob $
 --             newDescribeRxNormInferenceJobResponse
 --
+--         , responseDescribeSNOMEDCTInferenceJob $
+--             newDescribeSNOMEDCTInferenceJobResponse
+--
 --         , responseDetectEntitiesV2 $
 --             newDetectEntitiesV2Response
 --
@@ -113,6 +131,9 @@ import Test.Tasty
 --
 --         , responseInferRxNorm $
 --             newInferRxNormResponse
+--
+--         , responseInferSNOMEDCT $
+--             newInferSNOMEDCTResponse
 --
 --         , responseListEntitiesDetectionV2Jobs $
 --             newListEntitiesDetectionV2JobsResponse
@@ -126,6 +147,9 @@ import Test.Tasty
 --         , responseListRxNormInferenceJobs $
 --             newListRxNormInferenceJobsResponse
 --
+--         , responseListSNOMEDCTInferenceJobs $
+--             newListSNOMEDCTInferenceJobsResponse
+--
 --         , responseStartEntitiesDetectionV2Job $
 --             newStartEntitiesDetectionV2JobResponse
 --
@@ -138,6 +162,9 @@ import Test.Tasty
 --         , responseStartRxNormInferenceJob $
 --             newStartRxNormInferenceJobResponse
 --
+--         , responseStartSNOMEDCTInferenceJob $
+--             newStartSNOMEDCTInferenceJobResponse
+--
 --         , responseStopEntitiesDetectionV2Job $
 --             newStopEntitiesDetectionV2JobResponse
 --
@@ -149,6 +176,9 @@ import Test.Tasty
 --
 --         , responseStopRxNormInferenceJob $
 --             newStopRxNormInferenceJobResponse
+--
+--         , responseStopSNOMEDCTInferenceJob $
+--             newStopSNOMEDCTInferenceJobResponse
 --
 --           ]
 --     ]
@@ -179,6 +209,12 @@ requestDescribeRxNormInferenceJob =
     "DescribeRxNormInferenceJob"
     "fixture/DescribeRxNormInferenceJob.yaml"
 
+requestDescribeSNOMEDCTInferenceJob :: DescribeSNOMEDCTInferenceJob -> TestTree
+requestDescribeSNOMEDCTInferenceJob =
+  req
+    "DescribeSNOMEDCTInferenceJob"
+    "fixture/DescribeSNOMEDCTInferenceJob.yaml"
+
 requestDetectEntitiesV2 :: DetectEntitiesV2 -> TestTree
 requestDetectEntitiesV2 =
   req
@@ -202,6 +238,12 @@ requestInferRxNorm =
   req
     "InferRxNorm"
     "fixture/InferRxNorm.yaml"
+
+requestInferSNOMEDCT :: InferSNOMEDCT -> TestTree
+requestInferSNOMEDCT =
+  req
+    "InferSNOMEDCT"
+    "fixture/InferSNOMEDCT.yaml"
 
 requestListEntitiesDetectionV2Jobs :: ListEntitiesDetectionV2Jobs -> TestTree
 requestListEntitiesDetectionV2Jobs =
@@ -227,6 +269,12 @@ requestListRxNormInferenceJobs =
     "ListRxNormInferenceJobs"
     "fixture/ListRxNormInferenceJobs.yaml"
 
+requestListSNOMEDCTInferenceJobs :: ListSNOMEDCTInferenceJobs -> TestTree
+requestListSNOMEDCTInferenceJobs =
+  req
+    "ListSNOMEDCTInferenceJobs"
+    "fixture/ListSNOMEDCTInferenceJobs.yaml"
+
 requestStartEntitiesDetectionV2Job :: StartEntitiesDetectionV2Job -> TestTree
 requestStartEntitiesDetectionV2Job =
   req
@@ -251,6 +299,12 @@ requestStartRxNormInferenceJob =
     "StartRxNormInferenceJob"
     "fixture/StartRxNormInferenceJob.yaml"
 
+requestStartSNOMEDCTInferenceJob :: StartSNOMEDCTInferenceJob -> TestTree
+requestStartSNOMEDCTInferenceJob =
+  req
+    "StartSNOMEDCTInferenceJob"
+    "fixture/StartSNOMEDCTInferenceJob.yaml"
+
 requestStopEntitiesDetectionV2Job :: StopEntitiesDetectionV2Job -> TestTree
 requestStopEntitiesDetectionV2Job =
   req
@@ -274,6 +328,12 @@ requestStopRxNormInferenceJob =
   req
     "StopRxNormInferenceJob"
     "fixture/StopRxNormInferenceJob.yaml"
+
+requestStopSNOMEDCTInferenceJob :: StopSNOMEDCTInferenceJob -> TestTree
+requestStopSNOMEDCTInferenceJob =
+  req
+    "StopSNOMEDCTInferenceJob"
+    "fixture/StopSNOMEDCTInferenceJob.yaml"
 
 -- Responses
 
@@ -309,6 +369,14 @@ responseDescribeRxNormInferenceJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRxNormInferenceJob)
 
+responseDescribeSNOMEDCTInferenceJob :: DescribeSNOMEDCTInferenceJobResponse -> TestTree
+responseDescribeSNOMEDCTInferenceJob =
+  res
+    "DescribeSNOMEDCTInferenceJobResponse"
+    "fixture/DescribeSNOMEDCTInferenceJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSNOMEDCTInferenceJob)
+
 responseDetectEntitiesV2 :: DetectEntitiesV2Response -> TestTree
 responseDetectEntitiesV2 =
   res
@@ -340,6 +408,14 @@ responseInferRxNorm =
     "fixture/InferRxNormResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy InferRxNorm)
+
+responseInferSNOMEDCT :: InferSNOMEDCTResponse -> TestTree
+responseInferSNOMEDCT =
+  res
+    "InferSNOMEDCTResponse"
+    "fixture/InferSNOMEDCTResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InferSNOMEDCT)
 
 responseListEntitiesDetectionV2Jobs :: ListEntitiesDetectionV2JobsResponse -> TestTree
 responseListEntitiesDetectionV2Jobs =
@@ -373,6 +449,14 @@ responseListRxNormInferenceJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRxNormInferenceJobs)
 
+responseListSNOMEDCTInferenceJobs :: ListSNOMEDCTInferenceJobsResponse -> TestTree
+responseListSNOMEDCTInferenceJobs =
+  res
+    "ListSNOMEDCTInferenceJobsResponse"
+    "fixture/ListSNOMEDCTInferenceJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSNOMEDCTInferenceJobs)
+
 responseStartEntitiesDetectionV2Job :: StartEntitiesDetectionV2JobResponse -> TestTree
 responseStartEntitiesDetectionV2Job =
   res
@@ -405,6 +489,14 @@ responseStartRxNormInferenceJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartRxNormInferenceJob)
 
+responseStartSNOMEDCTInferenceJob :: StartSNOMEDCTInferenceJobResponse -> TestTree
+responseStartSNOMEDCTInferenceJob =
+  res
+    "StartSNOMEDCTInferenceJobResponse"
+    "fixture/StartSNOMEDCTInferenceJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSNOMEDCTInferenceJob)
+
 responseStopEntitiesDetectionV2Job :: StopEntitiesDetectionV2JobResponse -> TestTree
 responseStopEntitiesDetectionV2Job =
   res
@@ -436,3 +528,11 @@ responseStopRxNormInferenceJob =
     "fixture/StopRxNormInferenceJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopRxNormInferenceJob)
+
+responseStopSNOMEDCTInferenceJob :: StopSNOMEDCTInferenceJobResponse -> TestTree
+responseStopSNOMEDCTInferenceJob =
+  res
+    "StopSNOMEDCTInferenceJobResponse"
+    "fixture/StopSNOMEDCTInferenceJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopSNOMEDCTInferenceJob)

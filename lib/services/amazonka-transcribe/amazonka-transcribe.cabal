@@ -94,6 +94,8 @@ library
     Amazonka.Transcribe.Types.InterruptionFilter
     Amazonka.Transcribe.Types.JobExecutionSettings
     Amazonka.Transcribe.Types.LanguageCode
+    Amazonka.Transcribe.Types.LanguageCodeItem
+    Amazonka.Transcribe.Types.LanguageIdSettings
     Amazonka.Transcribe.Types.LanguageModel
     Amazonka.Transcribe.Types.Media
     Amazonka.Transcribe.Types.MediaFormat
@@ -107,6 +109,7 @@ library
     Amazonka.Transcribe.Types.NonTalkTimeFilter
     Amazonka.Transcribe.Types.OutputLocationType
     Amazonka.Transcribe.Types.ParticipantRole
+    Amazonka.Transcribe.Types.PiiEntityType
     Amazonka.Transcribe.Types.RedactionOutput
     Amazonka.Transcribe.Types.RedactionType
     Amazonka.Transcribe.Types.RelativeTimeRange

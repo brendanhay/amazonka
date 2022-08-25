@@ -24,27 +24,28 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata associated with a standard or custom framework.
+-- | The metadata that\'s associated with a standard framework or a custom
+-- framework.
 --
 -- /See:/ 'newAssessmentFrameworkMetadata' smart constructor.
 data AssessmentFrameworkMetadata = AssessmentFrameworkMetadata'
-  { -- | The number of control sets associated with the specified framework.
+  { -- | The number of control sets that are associated with the framework.
     controlSetsCount :: Prelude.Maybe Prelude.Int,
-    -- | The name of the specified framework.
+    -- | The name of the framework.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The framework type, such as standard or custom.
+    -- | The framework type, such as a standard framework or a custom framework.
     type' :: Prelude.Maybe FrameworkType,
     -- | Specifies when the framework was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the framework.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the specified framework.
+    -- | The description of the framework.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The unique identified for the specified framework.
+    -- | The unique identifier for the framework.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The logo associated with the framework.
+    -- | The logo that\'s associated with the framework.
     logo :: Prelude.Maybe Prelude.Text,
-    -- | The number of controls associated with the specified framework.
+    -- | The number of controls that are associated with the framework.
     controlsCount :: Prelude.Maybe Prelude.Int,
     -- | The compliance type that the new custom framework supports, such as CIS
     -- or HIPAA.
@@ -62,23 +63,23 @@ data AssessmentFrameworkMetadata = AssessmentFrameworkMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlSetsCount', 'assessmentFrameworkMetadata_controlSetsCount' - The number of control sets associated with the specified framework.
+-- 'controlSetsCount', 'assessmentFrameworkMetadata_controlSetsCount' - The number of control sets that are associated with the framework.
 --
--- 'name', 'assessmentFrameworkMetadata_name' - The name of the specified framework.
+-- 'name', 'assessmentFrameworkMetadata_name' - The name of the framework.
 --
--- 'type'', 'assessmentFrameworkMetadata_type' - The framework type, such as standard or custom.
+-- 'type'', 'assessmentFrameworkMetadata_type' - The framework type, such as a standard framework or a custom framework.
 --
 -- 'lastUpdatedAt', 'assessmentFrameworkMetadata_lastUpdatedAt' - Specifies when the framework was most recently updated.
 --
 -- 'arn', 'assessmentFrameworkMetadata_arn' - The Amazon Resource Name (ARN) of the framework.
 --
--- 'description', 'assessmentFrameworkMetadata_description' - The description of the specified framework.
+-- 'description', 'assessmentFrameworkMetadata_description' - The description of the framework.
 --
--- 'id', 'assessmentFrameworkMetadata_id' - The unique identified for the specified framework.
+-- 'id', 'assessmentFrameworkMetadata_id' - The unique identifier for the framework.
 --
--- 'logo', 'assessmentFrameworkMetadata_logo' - The logo associated with the framework.
+-- 'logo', 'assessmentFrameworkMetadata_logo' - The logo that\'s associated with the framework.
 --
--- 'controlsCount', 'assessmentFrameworkMetadata_controlsCount' - The number of controls associated with the specified framework.
+-- 'controlsCount', 'assessmentFrameworkMetadata_controlsCount' - The number of controls that are associated with the framework.
 --
 -- 'complianceType', 'assessmentFrameworkMetadata_complianceType' - The compliance type that the new custom framework supports, such as CIS
 -- or HIPAA.
@@ -102,15 +103,15 @@ newAssessmentFrameworkMetadata =
       createdAt = Prelude.Nothing
     }
 
--- | The number of control sets associated with the specified framework.
+-- | The number of control sets that are associated with the framework.
 assessmentFrameworkMetadata_controlSetsCount :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Int)
 assessmentFrameworkMetadata_controlSetsCount = Lens.lens (\AssessmentFrameworkMetadata' {controlSetsCount} -> controlSetsCount) (\s@AssessmentFrameworkMetadata' {} a -> s {controlSetsCount = a} :: AssessmentFrameworkMetadata)
 
--- | The name of the specified framework.
+-- | The name of the framework.
 assessmentFrameworkMetadata_name :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
 assessmentFrameworkMetadata_name = Lens.lens (\AssessmentFrameworkMetadata' {name} -> name) (\s@AssessmentFrameworkMetadata' {} a -> s {name = a} :: AssessmentFrameworkMetadata)
 
--- | The framework type, such as standard or custom.
+-- | The framework type, such as a standard framework or a custom framework.
 assessmentFrameworkMetadata_type :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe FrameworkType)
 assessmentFrameworkMetadata_type = Lens.lens (\AssessmentFrameworkMetadata' {type'} -> type') (\s@AssessmentFrameworkMetadata' {} a -> s {type' = a} :: AssessmentFrameworkMetadata)
 
@@ -122,19 +123,19 @@ assessmentFrameworkMetadata_lastUpdatedAt = Lens.lens (\AssessmentFrameworkMetad
 assessmentFrameworkMetadata_arn :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
 assessmentFrameworkMetadata_arn = Lens.lens (\AssessmentFrameworkMetadata' {arn} -> arn) (\s@AssessmentFrameworkMetadata' {} a -> s {arn = a} :: AssessmentFrameworkMetadata)
 
--- | The description of the specified framework.
+-- | The description of the framework.
 assessmentFrameworkMetadata_description :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
 assessmentFrameworkMetadata_description = Lens.lens (\AssessmentFrameworkMetadata' {description} -> description) (\s@AssessmentFrameworkMetadata' {} a -> s {description = a} :: AssessmentFrameworkMetadata)
 
--- | The unique identified for the specified framework.
+-- | The unique identifier for the framework.
 assessmentFrameworkMetadata_id :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
 assessmentFrameworkMetadata_id = Lens.lens (\AssessmentFrameworkMetadata' {id} -> id) (\s@AssessmentFrameworkMetadata' {} a -> s {id = a} :: AssessmentFrameworkMetadata)
 
--- | The logo associated with the framework.
+-- | The logo that\'s associated with the framework.
 assessmentFrameworkMetadata_logo :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
 assessmentFrameworkMetadata_logo = Lens.lens (\AssessmentFrameworkMetadata' {logo} -> logo) (\s@AssessmentFrameworkMetadata' {} a -> s {logo = a} :: AssessmentFrameworkMetadata)
 
--- | The number of controls associated with the specified framework.
+-- | The number of controls that are associated with the framework.
 assessmentFrameworkMetadata_controlsCount :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Int)
 assessmentFrameworkMetadata_controlsCount = Lens.lens (\AssessmentFrameworkMetadata' {controlsCount} -> controlsCount) (\s@AssessmentFrameworkMetadata' {} a -> s {controlsCount = a} :: AssessmentFrameworkMetadata)
 

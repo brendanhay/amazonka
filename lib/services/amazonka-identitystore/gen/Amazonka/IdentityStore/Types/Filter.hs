@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A query filter used by @ListUsers@ and @ListGroup@. This filter object
+-- | A query filter used by @ListUsers@ and @ListGroups@. This filter object
 -- provides the attribute name and attribute value to search users or
 -- groups.
 --

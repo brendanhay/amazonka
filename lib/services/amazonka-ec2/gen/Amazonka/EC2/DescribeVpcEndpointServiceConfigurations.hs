@@ -67,6 +67,9 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
     -- -   @service-state@ - The state of the service (@Pending@ | @Available@
     --     | @Deleting@ | @Deleted@ | @Failed@).
     --
+    -- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
+    --     @ipv6@).
+    --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
@@ -111,6 +114,9 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
 --
 -- -   @service-state@ - The state of the service (@Pending@ | @Available@
 --     | @Deleting@ | @Deleted@ | @Failed@).
+--
+-- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
+--     @ipv6@).
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -158,6 +164,9 @@ describeVpcEndpointServiceConfigurations_nextToken = Lens.lens (\DescribeVpcEndp
 --
 -- -   @service-state@ - The state of the service (@Pending@ | @Available@
 --     | @Deleting@ | @Deleted@ | @Failed@).
+--
+-- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
+--     @ipv6@).
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as

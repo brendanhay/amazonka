@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the high-level patch state of one or more instances.
+-- Retrieves the high-level patch state of one or more managed nodes.
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.DescribeInstancePatchStates
@@ -56,9 +56,9 @@ data DescribeInstancePatchStates = DescribeInstancePatchStates'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances to return (per page).
+    -- | The maximum number of managed nodes to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the instance for which patch state information should be
+    -- | The ID of the managed node for which patch state information should be
     -- retrieved.
     instanceIds :: [Prelude.Text]
   }
@@ -75,9 +75,9 @@ data DescribeInstancePatchStates = DescribeInstancePatchStates'
 -- 'nextToken', 'describeInstancePatchStates_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
--- 'maxResults', 'describeInstancePatchStates_maxResults' - The maximum number of instances to return (per page).
+-- 'maxResults', 'describeInstancePatchStates_maxResults' - The maximum number of managed nodes to return (per page).
 --
--- 'instanceIds', 'describeInstancePatchStates_instanceIds' - The ID of the instance for which patch state information should be
+-- 'instanceIds', 'describeInstancePatchStates_instanceIds' - The ID of the managed node for which patch state information should be
 -- retrieved.
 newDescribeInstancePatchStates ::
   DescribeInstancePatchStates
@@ -94,11 +94,11 @@ newDescribeInstancePatchStates =
 describeInstancePatchStates_nextToken :: Lens.Lens' DescribeInstancePatchStates (Prelude.Maybe Prelude.Text)
 describeInstancePatchStates_nextToken = Lens.lens (\DescribeInstancePatchStates' {nextToken} -> nextToken) (\s@DescribeInstancePatchStates' {} a -> s {nextToken = a} :: DescribeInstancePatchStates)
 
--- | The maximum number of instances to return (per page).
+-- | The maximum number of managed nodes to return (per page).
 describeInstancePatchStates_maxResults :: Lens.Lens' DescribeInstancePatchStates (Prelude.Maybe Prelude.Natural)
 describeInstancePatchStates_maxResults = Lens.lens (\DescribeInstancePatchStates' {maxResults} -> maxResults) (\s@DescribeInstancePatchStates' {} a -> s {maxResults = a} :: DescribeInstancePatchStates)
 
--- | The ID of the instance for which patch state information should be
+-- | The ID of the managed node for which patch state information should be
 -- retrieved.
 describeInstancePatchStates_instanceIds :: Lens.Lens' DescribeInstancePatchStates [Prelude.Text]
 describeInstancePatchStates_instanceIds = Lens.lens (\DescribeInstancePatchStates' {instanceIds} -> instanceIds) (\s@DescribeInstancePatchStates' {} a -> s {instanceIds = a} :: DescribeInstancePatchStates) Prelude.. Lens.coerced
@@ -189,7 +189,7 @@ data DescribeInstancePatchStatesResponse = DescribeInstancePatchStatesResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The high-level patch state for the requested instances.
+    -- | The high-level patch state for the requested managed nodes.
     instancePatchStates :: Prelude.Maybe [InstancePatchState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -207,7 +207,7 @@ data DescribeInstancePatchStatesResponse = DescribeInstancePatchStatesResponse'
 -- 'nextToken', 'describeInstancePatchStatesResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 --
--- 'instancePatchStates', 'describeInstancePatchStatesResponse_instancePatchStates' - The high-level patch state for the requested instances.
+-- 'instancePatchStates', 'describeInstancePatchStatesResponse_instancePatchStates' - The high-level patch state for the requested managed nodes.
 --
 -- 'httpStatus', 'describeInstancePatchStatesResponse_httpStatus' - The response's http status code.
 newDescribeInstancePatchStatesResponse ::
@@ -227,7 +227,7 @@ newDescribeInstancePatchStatesResponse pHttpStatus_ =
 describeInstancePatchStatesResponse_nextToken :: Lens.Lens' DescribeInstancePatchStatesResponse (Prelude.Maybe Prelude.Text)
 describeInstancePatchStatesResponse_nextToken = Lens.lens (\DescribeInstancePatchStatesResponse' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesResponse' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesResponse)
 
--- | The high-level patch state for the requested instances.
+-- | The high-level patch state for the requested managed nodes.
 describeInstancePatchStatesResponse_instancePatchStates :: Lens.Lens' DescribeInstancePatchStatesResponse (Prelude.Maybe [InstancePatchState])
 describeInstancePatchStatesResponse_instancePatchStates = Lens.lens (\DescribeInstancePatchStatesResponse' {instancePatchStates} -> instancePatchStates) (\s@DescribeInstancePatchStatesResponse' {} a -> s {instancePatchStates = a} :: DescribeInstancePatchStatesResponse) Prelude.. Lens.mapping Lens.coerced
 

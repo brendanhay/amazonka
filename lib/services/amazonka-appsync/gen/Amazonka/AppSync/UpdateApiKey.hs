@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an API key. The key can be updated while it is not deleted.
+-- Updates an API key. You can update the key as long as it\'s not deleted.
 module Amazonka.AppSync.UpdateApiKey
   ( -- * Creating a Request
     UpdateApiKey (..),
@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 data UpdateApiKey = UpdateApiKey'
   { -- | A description of the purpose of the API key.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The time from update time after which the API key expires. The date is
-    -- represented as seconds since the epoch. For more information, see .
+    -- | From the update time, the time after which the API key expires. The date
+    -- is represented as seconds since the epoch. For more information, see .
     expires :: Prelude.Maybe Prelude.Integer,
     -- | The ID for the GraphQL API.
     apiId :: Prelude.Text,
@@ -73,8 +73,8 @@ data UpdateApiKey = UpdateApiKey'
 --
 -- 'description', 'updateApiKey_description' - A description of the purpose of the API key.
 --
--- 'expires', 'updateApiKey_expires' - The time from update time after which the API key expires. The date is
--- represented as seconds since the epoch. For more information, see .
+-- 'expires', 'updateApiKey_expires' - From the update time, the time after which the API key expires. The date
+-- is represented as seconds since the epoch. For more information, see .
 --
 -- 'apiId', 'updateApiKey_apiId' - The ID for the GraphQL API.
 --
@@ -97,8 +97,8 @@ newUpdateApiKey pApiId_ pId_ =
 updateApiKey_description :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Text)
 updateApiKey_description = Lens.lens (\UpdateApiKey' {description} -> description) (\s@UpdateApiKey' {} a -> s {description = a} :: UpdateApiKey)
 
--- | The time from update time after which the API key expires. The date is
--- represented as seconds since the epoch. For more information, see .
+-- | From the update time, the time after which the API key expires. The date
+-- is represented as seconds since the epoch. For more information, see .
 updateApiKey_expires :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Integer)
 updateApiKey_expires = Lens.lens (\UpdateApiKey' {expires} -> expires) (\s@UpdateApiKey' {} a -> s {expires = a} :: UpdateApiKey)
 

@@ -50,6 +50,9 @@ module Amazonka.Transcribe.Types
     -- * ParticipantRole
     ParticipantRole (..),
 
+    -- * PiiEntityType
+    PiiEntityType (..),
+
     -- * RedactionOutput
     RedactionOutput (..),
 
@@ -114,6 +117,7 @@ module Amazonka.Transcribe.Types
     callAnalyticsJobSettings_vocabularyName,
     callAnalyticsJobSettings_languageModelName,
     callAnalyticsJobSettings_contentRedaction,
+    callAnalyticsJobSettings_languageIdSettings,
     callAnalyticsJobSettings_vocabularyFilterName,
     callAnalyticsJobSettings_languageOptions,
 
@@ -145,6 +149,7 @@ module Amazonka.Transcribe.Types
     -- * ContentRedaction
     ContentRedaction (..),
     newContentRedaction,
+    contentRedaction_piiEntityTypes,
     contentRedaction_redactionType,
     contentRedaction_redactionOutput,
 
@@ -169,6 +174,19 @@ module Amazonka.Transcribe.Types
     newJobExecutionSettings,
     jobExecutionSettings_allowDeferredExecution,
     jobExecutionSettings_dataAccessRoleArn,
+
+    -- * LanguageCodeItem
+    LanguageCodeItem (..),
+    newLanguageCodeItem,
+    languageCodeItem_languageCode,
+    languageCodeItem_durationInSeconds,
+
+    -- * LanguageIdSettings
+    LanguageIdSettings (..),
+    newLanguageIdSettings,
+    languageIdSettings_vocabularyName,
+    languageIdSettings_languageModelName,
+    languageIdSettings_vocabularyFilterName,
 
     -- * LanguageModel
     LanguageModel (..),
@@ -292,11 +310,13 @@ module Amazonka.Transcribe.Types
     -- * Subtitles
     Subtitles (..),
     newSubtitles,
+    subtitles_outputStartIndex,
     subtitles_formats,
 
     -- * SubtitlesOutput
     SubtitlesOutput (..),
     newSubtitlesOutput,
+    subtitlesOutput_outputStartIndex,
     subtitlesOutput_formats,
     subtitlesOutput_subtitleFileUris,
 
@@ -327,12 +347,14 @@ module Amazonka.Transcribe.Types
     newTranscriptionJob,
     transcriptionJob_tags,
     transcriptionJob_transcript,
+    transcriptionJob_identifyMultipleLanguages,
     transcriptionJob_mediaFormat,
     transcriptionJob_identifyLanguage,
     transcriptionJob_contentRedaction,
     transcriptionJob_transcriptionJobName,
     transcriptionJob_completionTime,
     transcriptionJob_subtitles,
+    transcriptionJob_languageIdSettings,
     transcriptionJob_settings,
     transcriptionJob_mediaSampleRateHertz,
     transcriptionJob_languageCode,
@@ -344,11 +366,13 @@ module Amazonka.Transcribe.Types
     transcriptionJob_startTime,
     transcriptionJob_failureReason,
     transcriptionJob_languageOptions,
+    transcriptionJob_languageCodes,
     transcriptionJob_media,
 
     -- * TranscriptionJobSummary
     TranscriptionJobSummary (..),
     newTranscriptionJobSummary,
+    transcriptionJobSummary_identifyMultipleLanguages,
     transcriptionJobSummary_identifyLanguage,
     transcriptionJobSummary_contentRedaction,
     transcriptionJobSummary_transcriptionJobName,
@@ -361,6 +385,7 @@ module Amazonka.Transcribe.Types
     transcriptionJobSummary_identifiedLanguageScore,
     transcriptionJobSummary_startTime,
     transcriptionJobSummary_failureReason,
+    transcriptionJobSummary_languageCodes,
 
     -- * VocabularyFilterInfo
     VocabularyFilterInfo (..),
@@ -397,6 +422,8 @@ import Amazonka.Transcribe.Types.InputDataConfig
 import Amazonka.Transcribe.Types.InterruptionFilter
 import Amazonka.Transcribe.Types.JobExecutionSettings
 import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.LanguageCodeItem
+import Amazonka.Transcribe.Types.LanguageIdSettings
 import Amazonka.Transcribe.Types.LanguageModel
 import Amazonka.Transcribe.Types.Media
 import Amazonka.Transcribe.Types.MediaFormat
@@ -410,6 +437,7 @@ import Amazonka.Transcribe.Types.ModelStatus
 import Amazonka.Transcribe.Types.NonTalkTimeFilter
 import Amazonka.Transcribe.Types.OutputLocationType
 import Amazonka.Transcribe.Types.ParticipantRole
+import Amazonka.Transcribe.Types.PiiEntityType
 import Amazonka.Transcribe.Types.RedactionOutput
 import Amazonka.Transcribe.Types.RedactionType
 import Amazonka.Transcribe.Types.RelativeTimeRange
@@ -505,42 +533,43 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | We can\'t find the requested resource. Check the name and try your
--- request again.
+-- | We can\'t find the requested resource. Check that the specified name is
+-- correct and try your request again.
 _NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
 
--- | Either you have sent too many requests or your input file is too long.
--- Wait before you resend your request, or use a smaller file and resend
--- the request.
+-- | You\'ve either sent too many requests or your input file is too long.
+-- Wait before retrying your request, or use a smaller file and try your
+-- request again.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
--- | There is already a resource with that name.
+-- | A resource already exists with this name. Resource names must be unique
+-- within an Amazon Web Services account.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
--- | Your request didn\'t pass one or more validation tests. For example, if
--- the entity that you\'re trying to delete doesn\'t exist or if it is in a
--- non-terminal state (for example, it\'s \"in progress\"). See the
--- exception @Message@ field for more information.
+-- | Your request didn\'t pass one or more validation tests. This can occur
+-- when the entity you\'re trying to delete doesn\'t exist or if it\'s in a
+-- non-terminal state (such as @IN PROGRESS@). See the exception message
+-- field for more information.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
     "BadRequestException"
 
--- | There was an internal error. Check the error message and try your
--- request again.
+-- | There was an internal error. Check the error message, correct the issue,
+-- and try your request again.
 _InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError

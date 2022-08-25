@@ -52,6 +52,7 @@ library
     Amazonka.Location.BatchPutGeofence
     Amazonka.Location.BatchUpdateDevicePosition
     Amazonka.Location.CalculateRoute
+    Amazonka.Location.CalculateRouteMatrix
     Amazonka.Location.CreateGeofenceCollection
     Amazonka.Location.CreateMap
     Amazonka.Location.CreatePlaceIndex
@@ -87,6 +88,7 @@ library
     Amazonka.Location.ListTrackers
     Amazonka.Location.PutGeofence
     Amazonka.Location.SearchPlaceIndexForPosition
+    Amazonka.Location.SearchPlaceIndexForSuggestions
     Amazonka.Location.SearchPlaceIndexForText
     Amazonka.Location.TagResource
     Amazonka.Location.Types
@@ -101,8 +103,10 @@ library
     Amazonka.Location.Types.BatchPutGeofenceSuccess
     Amazonka.Location.Types.BatchUpdateDevicePositionError
     Amazonka.Location.Types.CalculateRouteCarModeOptions
+    Amazonka.Location.Types.CalculateRouteMatrixSummary
     Amazonka.Location.Types.CalculateRouteSummary
     Amazonka.Location.Types.CalculateRouteTruckModeOptions
+    Amazonka.Location.Types.Circle
     Amazonka.Location.Types.DataSourceConfiguration
     Amazonka.Location.Types.DevicePosition
     Amazonka.Location.Types.DevicePositionUpdate
@@ -122,13 +126,20 @@ library
     Amazonka.Location.Types.MapConfiguration
     Amazonka.Location.Types.Place
     Amazonka.Location.Types.PlaceGeometry
+    Amazonka.Location.Types.PositionalAccuracy
     Amazonka.Location.Types.PositionFiltering
     Amazonka.Location.Types.PricingPlan
+    Amazonka.Location.Types.RouteMatrixEntry
+    Amazonka.Location.Types.RouteMatrixEntryError
+    Amazonka.Location.Types.RouteMatrixErrorCode
     Amazonka.Location.Types.SearchForPositionResult
+    Amazonka.Location.Types.SearchForSuggestionsResult
     Amazonka.Location.Types.SearchForTextResult
     Amazonka.Location.Types.SearchPlaceIndexForPositionSummary
+    Amazonka.Location.Types.SearchPlaceIndexForSuggestionsSummary
     Amazonka.Location.Types.SearchPlaceIndexForTextSummary
     Amazonka.Location.Types.Step
+    Amazonka.Location.Types.TimeZone
     Amazonka.Location.Types.TravelMode
     Amazonka.Location.Types.TruckDimensions
     Amazonka.Location.Types.TruckWeight

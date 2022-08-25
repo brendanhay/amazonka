@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of orderable DB instance options for the specified
--- engine.
+-- Returns a list of orderable DB instance options for the specified DB
+-- engine, DB engine version, and DB instance class.
 --
 -- This operation returns paginated results.
 module Amazonka.RDS.DescribeOrderableDBInstanceOptions
@@ -68,9 +68,13 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     -- | An optional pagination token provided by a previous
     -- DescribeOrderableDBInstanceOptions request. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@ .
+    -- the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to show only VPC or non-VPC offerings.
+    -- RDS Custom supports only VPC offerings.
+    --
+    -- RDS Custom supports only VPC offerings. If you describe non-VPC
+    -- offerings for RDS Custom, the output shows VPC offerings.
     vpc :: Prelude.Maybe Prelude.Bool,
     -- | This parameter isn\'t currently supported.
     filters :: Prelude.Maybe [Filter],
@@ -80,6 +84,8 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- Omit this parameter to show the available offerings in the specified
     -- Amazon Web Services Region.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -88,13 +94,15 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- Default: 100
     --
-    -- Constraints: Minimum 20, maximum 100.
+    -- Constraints: Minimum 20, maximum 10000.
     maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The engine version filter value. Specify this parameter to show only the
     -- available offerings matching the specified engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The license model filter value. Specify this parameter to show only the
     -- available offerings matching the specified license model.
+    --
+    -- RDS Custom supports only the BYOL licensing model.
     licenseModel :: Prelude.Maybe Prelude.Text,
     -- | The name of the engine to retrieve DB instance options for.
     --
@@ -102,7 +110,8 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
     --
-    -- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+    --     Aurora)
     --
     -- -   @aurora-postgresql@
     --
@@ -145,9 +154,13 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- 'marker', 'describeOrderableDBInstanceOptions_marker' - An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
+-- the value specified by @MaxRecords@.
 --
 -- 'vpc', 'describeOrderableDBInstanceOptions_vpc' - A value that indicates whether to show only VPC or non-VPC offerings.
+-- RDS Custom supports only VPC offerings.
+--
+-- RDS Custom supports only VPC offerings. If you describe non-VPC
+-- offerings for RDS Custom, the output shows VPC offerings.
 --
 -- 'filters', 'describeOrderableDBInstanceOptions_filters' - This parameter isn\'t currently supported.
 --
@@ -158,6 +171,8 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- Omit this parameter to show the available offerings in the specified
 -- Amazon Web Services Region.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'maxRecords', 'describeOrderableDBInstanceOptions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -165,7 +180,7 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 --
 -- Default: 100
 --
--- Constraints: Minimum 20, maximum 100.
+-- Constraints: Minimum 20, maximum 10000.
 --
 -- 'engineVersion', 'describeOrderableDBInstanceOptions_engineVersion' - The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
@@ -173,13 +188,16 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- 'licenseModel', 'describeOrderableDBInstanceOptions_licenseModel' - The license model filter value. Specify this parameter to show only the
 -- available offerings matching the specified license model.
 --
+-- RDS Custom supports only the BYOL licensing model.
+--
 -- 'engine', 'describeOrderableDBInstanceOptions_engine' - The name of the engine to retrieve DB instance options for.
 --
 -- Valid Values:
 --
 -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
 --
--- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
 --
 -- -   @aurora-postgresql@
 --
@@ -230,11 +248,15 @@ describeOrderableDBInstanceOptions_dbInstanceClass = Lens.lens (\DescribeOrderab
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
+-- the value specified by @MaxRecords@.
 describeOrderableDBInstanceOptions_marker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInstanceOptions' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | A value that indicates whether to show only VPC or non-VPC offerings.
+-- RDS Custom supports only VPC offerings.
+--
+-- RDS Custom supports only VPC offerings. If you describe non-VPC
+-- offerings for RDS Custom, the output shows VPC offerings.
 describeOrderableDBInstanceOptions_vpc :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Bool)
 describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstanceOptions' {vpc} -> vpc) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
 
@@ -248,6 +270,8 @@ describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInst
 --
 -- Omit this parameter to show the available offerings in the specified
 -- Amazon Web Services Region.
+--
+-- This setting doesn\'t apply to RDS Custom.
 describeOrderableDBInstanceOptions_availabilityZoneGroup :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_availabilityZoneGroup = Lens.lens (\DescribeOrderableDBInstanceOptions' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {availabilityZoneGroup = a} :: DescribeOrderableDBInstanceOptions)
 
@@ -258,7 +282,7 @@ describeOrderableDBInstanceOptions_availabilityZoneGroup = Lens.lens (\DescribeO
 --
 -- Default: 100
 --
--- Constraints: Minimum 20, maximum 100.
+-- Constraints: Minimum 20, maximum 10000.
 describeOrderableDBInstanceOptions_maxRecords :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Int)
 describeOrderableDBInstanceOptions_maxRecords = Lens.lens (\DescribeOrderableDBInstanceOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {maxRecords = a} :: DescribeOrderableDBInstanceOptions)
 
@@ -269,6 +293,8 @@ describeOrderableDBInstanceOptions_engineVersion = Lens.lens (\DescribeOrderable
 
 -- | The license model filter value. Specify this parameter to show only the
 -- available offerings matching the specified license model.
+--
+-- RDS Custom supports only the BYOL licensing model.
 describeOrderableDBInstanceOptions_licenseModel :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_licenseModel = Lens.lens (\DescribeOrderableDBInstanceOptions' {licenseModel} -> licenseModel) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {licenseModel = a} :: DescribeOrderableDBInstanceOptions)
 
@@ -278,7 +304,8 @@ describeOrderableDBInstanceOptions_licenseModel = Lens.lens (\DescribeOrderableD
 --
 -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
 --
--- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
 --
 -- -   @aurora-postgresql@
 --
@@ -431,7 +458,7 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
   { -- | An optional pagination token provided by a previous
     -- OrderableDBInstanceOptions request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@ .
+    -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | An @OrderableDBInstanceOption@ structure containing information about
     -- orderable options for the DB instance.
@@ -452,7 +479,7 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 -- 'marker', 'describeOrderableDBInstanceOptionsResponse_marker' - An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@ .
+-- specified by @MaxRecords@.
 --
 -- 'orderableDBInstanceOptions', 'describeOrderableDBInstanceOptionsResponse_orderableDBInstanceOptions' - An @OrderableDBInstanceOption@ structure containing information about
 -- orderable options for the DB instance.
@@ -475,7 +502,7 @@ newDescribeOrderableDBInstanceOptionsResponse
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@ .
+-- specified by @MaxRecords@.
 describeOrderableDBInstanceOptionsResponse_marker :: Lens.Lens' DescribeOrderableDBInstanceOptionsResponse (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptionsResponse_marker = Lens.lens (\DescribeOrderableDBInstanceOptionsResponse' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptionsResponse' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptionsResponse)
 

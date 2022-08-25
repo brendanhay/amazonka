@@ -67,6 +67,12 @@ module Amazonka.Route53Domains
     CheckDomainTransferabilityResponse (CheckDomainTransferabilityResponse'),
     newCheckDomainTransferabilityResponse,
 
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
+
     -- ** DeleteTagsForDomain
     DeleteTagsForDomain (DeleteTagsForDomain'),
     newDeleteTagsForDomain,
@@ -132,6 +138,12 @@ module Amazonka.Route53Domains
     newListOperations,
     ListOperationsResponse (ListOperationsResponse'),
     newListOperationsResponse,
+
+    -- ** ListPrices (Paginated)
+    ListPrices (ListPrices'),
+    newListPrices,
+    ListPricesResponse (ListPricesResponse'),
+    newListPricesResponse,
 
     -- ** ListTagsForDomain
     ListTagsForDomain (ListTagsForDomain'),
@@ -225,14 +237,23 @@ module Amazonka.Route53Domains
     -- ** ExtraParamName
     ExtraParamName (..),
 
+    -- ** ListDomainsAttributeName
+    ListDomainsAttributeName (..),
+
     -- ** OperationStatus
     OperationStatus (..),
 
     -- ** OperationType
     OperationType (..),
 
+    -- ** Operator
+    Operator (..),
+
     -- ** ReachabilityStatus
     ReachabilityStatus (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** Transferable
     Transferable (..),
@@ -244,6 +265,10 @@ module Amazonka.Route53Domains
     -- ** ContactDetail
     ContactDetail (ContactDetail'),
     newContactDetail,
+
+    -- ** DomainPrice
+    DomainPrice (DomainPrice'),
+    newDomainPrice,
 
     -- ** DomainSuggestion
     DomainSuggestion (DomainSuggestion'),
@@ -261,6 +286,10 @@ module Amazonka.Route53Domains
     ExtraParam (ExtraParam'),
     newExtraParam,
 
+    -- ** FilterCondition
+    FilterCondition (FilterCondition'),
+    newFilterCondition,
+
     -- ** Nameserver
     Nameserver (Nameserver'),
     newNameserver,
@@ -268,6 +297,14 @@ module Amazonka.Route53Domains
     -- ** OperationSummary
     OperationSummary (OperationSummary'),
     newOperationSummary,
+
+    -- ** PriceWithCurrency
+    PriceWithCurrency (PriceWithCurrency'),
+    newPriceWithCurrency,
+
+    -- ** SortCondition
+    SortCondition (SortCondition'),
+    newSortCondition,
 
     -- ** Tag
     Tag (Tag'),
@@ -279,6 +316,7 @@ import Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
 import Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
 import Amazonka.Route53Domains.CheckDomainAvailability
 import Amazonka.Route53Domains.CheckDomainTransferability
+import Amazonka.Route53Domains.DeleteDomain
 import Amazonka.Route53Domains.DeleteTagsForDomain
 import Amazonka.Route53Domains.DisableDomainAutoRenew
 import Amazonka.Route53Domains.DisableDomainTransferLock
@@ -291,6 +329,7 @@ import Amazonka.Route53Domains.GetOperationDetail
 import Amazonka.Route53Domains.Lens
 import Amazonka.Route53Domains.ListDomains
 import Amazonka.Route53Domains.ListOperations
+import Amazonka.Route53Domains.ListPrices
 import Amazonka.Route53Domains.ListTagsForDomain
 import Amazonka.Route53Domains.RegisterDomain
 import Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount

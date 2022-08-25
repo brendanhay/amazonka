@@ -51,14 +51,14 @@
 --
 -- -   Scale down below half your current shard count for a stream
 --
--- -   Scale up to more than 500 shards in a stream
+-- -   Scale up to more than 10000 shards in a stream
 --
--- -   Scale a stream with more than 500 shards down unless the result is
---     less than 500 shards
+-- -   Scale a stream with more than 10000 shards down unless the result is
+--     less than 10000 shards
 --
 -- -   Scale up to more than the shard limit for your account
 --
--- For the default limits for an AWS account, see
+-- For the default limits for an Amazon Web Services account, see
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
 -- in the /Amazon Kinesis Data Streams Developer Guide/. To request an
 -- increase in the call rate limit, the shard limit for this API, or your
@@ -105,12 +105,12 @@ data UpdateShardCount = UpdateShardCount'
     --
     -- -   Set this value below half your current shard count for a stream.
     --
-    -- -   Set this value to more than 500 shards in a stream (the default
-    --     limit for shard count per stream is 500 per account per region),
+    -- -   Set this value to more than 10000 shards in a stream (the default
+    --     limit for shard count per stream is 10000 per account per region),
     --     unless you request a limit increase.
     --
-    -- -   Scale a stream with more than 500 shards down unless you set this
-    --     value to less than 500 shards.
+    -- -   Scale a stream with more than 10000 shards down unless you set this
+    --     value to less than 10000 shards.
     targetShardCount :: Prelude.Natural,
     -- | The scaling type. Uniform scaling creates shards of equal size.
     scalingType :: ScalingType
@@ -135,12 +135,12 @@ data UpdateShardCount = UpdateShardCount'
 --
 -- -   Set this value below half your current shard count for a stream.
 --
--- -   Set this value to more than 500 shards in a stream (the default
---     limit for shard count per stream is 500 per account per region),
+-- -   Set this value to more than 10000 shards in a stream (the default
+--     limit for shard count per stream is 10000 per account per region),
 --     unless you request a limit increase.
 --
--- -   Scale a stream with more than 500 shards down unless you set this
---     value to less than 500 shards.
+-- -   Scale a stream with more than 10000 shards down unless you set this
+--     value to less than 10000 shards.
 --
 -- 'scalingType', 'updateShardCount_scalingType' - The scaling type. Uniform scaling creates shards of equal size.
 newUpdateShardCount ::
@@ -173,12 +173,12 @@ updateShardCount_streamName = Lens.lens (\UpdateShardCount' {streamName} -> stre
 --
 -- -   Set this value below half your current shard count for a stream.
 --
--- -   Set this value to more than 500 shards in a stream (the default
---     limit for shard count per stream is 500 per account per region),
+-- -   Set this value to more than 10000 shards in a stream (the default
+--     limit for shard count per stream is 10000 per account per region),
 --     unless you request a limit increase.
 --
--- -   Scale a stream with more than 500 shards down unless you set this
---     value to less than 500 shards.
+-- -   Scale a stream with more than 10000 shards down unless you set this
+--     value to less than 10000 shards.
 updateShardCount_targetShardCount :: Lens.Lens' UpdateShardCount Prelude.Natural
 updateShardCount_targetShardCount = Lens.lens (\UpdateShardCount' {targetShardCount} -> targetShardCount) (\s@UpdateShardCount' {} a -> s {targetShardCount = a} :: UpdateShardCount)
 

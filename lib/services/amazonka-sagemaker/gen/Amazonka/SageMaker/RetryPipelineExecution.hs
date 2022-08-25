@@ -27,6 +27,7 @@ module Amazonka.SageMaker.RetryPipelineExecution
     newRetryPipelineExecution,
 
     -- * Request Lenses
+    retryPipelineExecution_parallelismConfiguration,
     retryPipelineExecution_pipelineExecutionArn,
     retryPipelineExecution_clientRequestToken,
 
@@ -49,7 +50,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newRetryPipelineExecution' smart constructor.
 data RetryPipelineExecution = RetryPipelineExecution'
-  { -- | The Amazon Resource Name (ARN) of the pipeline execution.
+  { -- | This configuration, if specified, overrides the parallelism
+    -- configuration of the parent pipeline.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
+    -- | The Amazon Resource Name (ARN) of the pipeline execution.
     pipelineExecutionArn :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
@@ -66,6 +70,9 @@ data RetryPipelineExecution = RetryPipelineExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parallelismConfiguration', 'retryPipelineExecution_parallelismConfiguration' - This configuration, if specified, overrides the parallelism
+-- configuration of the parent pipeline.
+--
 -- 'pipelineExecutionArn', 'retryPipelineExecution_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.
 --
 -- 'clientRequestToken', 'retryPipelineExecution_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
@@ -81,10 +88,16 @@ newRetryPipelineExecution
   pPipelineExecutionArn_
   pClientRequestToken_ =
     RetryPipelineExecution'
-      { pipelineExecutionArn =
-          pPipelineExecutionArn_,
+      { parallelismConfiguration =
+          Prelude.Nothing,
+        pipelineExecutionArn = pPipelineExecutionArn_,
         clientRequestToken = pClientRequestToken_
       }
+
+-- | This configuration, if specified, overrides the parallelism
+-- configuration of the parent pipeline.
+retryPipelineExecution_parallelismConfiguration :: Lens.Lens' RetryPipelineExecution (Prelude.Maybe ParallelismConfiguration)
+retryPipelineExecution_parallelismConfiguration = Lens.lens (\RetryPipelineExecution' {parallelismConfiguration} -> parallelismConfiguration) (\s@RetryPipelineExecution' {} a -> s {parallelismConfiguration = a} :: RetryPipelineExecution)
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
 retryPipelineExecution_pipelineExecutionArn :: Lens.Lens' RetryPipelineExecution Prelude.Text
@@ -111,12 +124,15 @@ instance Core.AWSRequest RetryPipelineExecution where
 
 instance Prelude.Hashable RetryPipelineExecution where
   hashWithSalt _salt RetryPipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` pipelineExecutionArn
+    _salt
+      `Prelude.hashWithSalt` parallelismConfiguration
+      `Prelude.hashWithSalt` pipelineExecutionArn
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData RetryPipelineExecution where
   rnf RetryPipelineExecution' {..} =
-    Prelude.rnf pipelineExecutionArn
+    Prelude.rnf parallelismConfiguration
+      `Prelude.seq` Prelude.rnf pipelineExecutionArn
       `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders RetryPipelineExecution where
@@ -138,7 +154,9 @@ instance Core.ToJSON RetryPipelineExecution where
   toJSON RetryPipelineExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("ParallelismConfiguration" Core..=)
+              Prelude.<$> parallelismConfiguration,
+            Prelude.Just
               ( "PipelineExecutionArn"
                   Core..= pipelineExecutionArn
               ),

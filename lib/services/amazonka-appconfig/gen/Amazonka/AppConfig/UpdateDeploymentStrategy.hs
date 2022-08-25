@@ -59,8 +59,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDeploymentStrategy' smart constructor.
 data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
-  { -- | The algorithm used to define how percentage grows over time. AWS
-    -- AppConfig supports the following growth types:
+  { -- | The algorithm used to define how percentage grows over time. AppConfig
+    -- supports the following growth types:
     --
     -- __Linear__: For this type, AppConfig processes the deployment by
     -- increments of the growth factor evenly distributed over the deployment
@@ -91,9 +91,9 @@ data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
     deploymentDurationInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | A description of the deployment strategy.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time AppConfig monitors for alarms before considering the
-    -- deployment to be complete and no longer eligible for automatic roll
-    -- back.
+    -- | The amount of time that AppConfig monitors for alarms before considering
+    -- the deployment to be complete and no longer eligible for automatic
+    -- rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The percentage of targets to receive a deployed configuration during
     -- each interval.
@@ -111,8 +111,8 @@ data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'growthType', 'updateDeploymentStrategy_growthType' - The algorithm used to define how percentage grows over time. AWS
--- AppConfig supports the following growth types:
+-- 'growthType', 'updateDeploymentStrategy_growthType' - The algorithm used to define how percentage grows over time. AppConfig
+-- supports the following growth types:
 --
 -- __Linear__: For this type, AppConfig processes the deployment by
 -- increments of the growth factor evenly distributed over the deployment
@@ -143,9 +143,9 @@ data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
 --
 -- 'description', 'updateDeploymentStrategy_description' - A description of the deployment strategy.
 --
--- 'finalBakeTimeInMinutes', 'updateDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time AppConfig monitors for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- 'finalBakeTimeInMinutes', 'updateDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time that AppConfig monitors for alarms before considering
+-- the deployment to be complete and no longer eligible for automatic
+-- rollback.
 --
 -- 'growthFactor', 'updateDeploymentStrategy_growthFactor' - The percentage of targets to receive a deployed configuration during
 -- each interval.
@@ -166,8 +166,8 @@ newUpdateDeploymentStrategy pDeploymentStrategyId_ =
       deploymentStrategyId = pDeploymentStrategyId_
     }
 
--- | The algorithm used to define how percentage grows over time. AWS
--- AppConfig supports the following growth types:
+-- | The algorithm used to define how percentage grows over time. AppConfig
+-- supports the following growth types:
 --
 -- __Linear__: For this type, AppConfig processes the deployment by
 -- increments of the growth factor evenly distributed over the deployment
@@ -204,9 +204,9 @@ updateDeploymentStrategy_deploymentDurationInMinutes = Lens.lens (\UpdateDeploym
 updateDeploymentStrategy_description :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Text)
 updateDeploymentStrategy_description = Lens.lens (\UpdateDeploymentStrategy' {description} -> description) (\s@UpdateDeploymentStrategy' {} a -> s {description = a} :: UpdateDeploymentStrategy)
 
--- | The amount of time AppConfig monitors for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- | The amount of time that AppConfig monitors for alarms before considering
+-- the deployment to be complete and no longer eligible for automatic
+-- rollback.
 updateDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
 updateDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\UpdateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@UpdateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: UpdateDeploymentStrategy)
 

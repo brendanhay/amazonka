@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CreditSpecificationRequest
 import Amazonka.EC2.Types.ElasticGpuSpecification
+import Amazonka.EC2.Types.InstanceRequirementsRequest
 import Amazonka.EC2.Types.InstanceType
 import Amazonka.EC2.Types.LaunchTemplateBlockDeviceMappingRequest
 import Amazonka.EC2.Types.LaunchTemplateCapacityReservationSpecificationRequest
@@ -31,11 +32,13 @@ import Amazonka.EC2.Types.LaunchTemplateElasticInferenceAccelerator
 import Amazonka.EC2.Types.LaunchTemplateEnclaveOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateHibernationOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateIamInstanceProfileSpecificationRequest
+import Amazonka.EC2.Types.LaunchTemplateInstanceMaintenanceOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateInstanceMarketOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
 import Amazonka.EC2.Types.LaunchTemplateLicenseConfigurationRequest
 import Amazonka.EC2.Types.LaunchTemplatePlacementRequest
+import Amazonka.EC2.Types.LaunchTemplatePrivateDnsNameOptionsRequest
 import Amazonka.EC2.Types.LaunchTemplateTagSpecificationRequest
 import Amazonka.EC2.Types.LaunchTemplatesMonitoringRequest
 import Amazonka.EC2.Types.ShutdownBehavior
@@ -43,6 +46,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information to include in the launch template.
+--
+-- You must specify at least one parameter for the launch template data.
 --
 -- /See:/ 'newRequestLaunchTemplateData' smart constructor.
 data RequestLaunchTemplateData = RequestLaunchTemplateData'
@@ -54,7 +59,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether an instance is enabled for hibernation. This parameter
     -- is valid only if the instance meets the
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html hibernation prerequisites>.
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -68,10 +73,10 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- | The user data to make available to the instance. You must provide
     -- base64-encoded text. User data is limited to 16 KB. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Run commands on your Linux instance at launch>
     -- (Linux) or
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
-    -- (Windows).
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html Work with instance user data>
+    -- (Windows) in the /Amazon Elastic Compute Cloud User Guide/.
     --
     -- If you are creating the launch template for use with Batch, the user
     -- data must be provided in the
@@ -80,8 +85,15 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Amazon EC2 user data in launch templates>
     -- in the /Batch User Guide/.
     userData :: Prelude.Maybe Prelude.Text,
-    -- | The credit option for CPU usage of the instance. Valid for T2, T3, or
-    -- T3a instances only.
+    -- | The attributes for the instance types. When you specify instance
+    -- attributes, Amazon EC2 will identify instance types with these
+    -- attributes.
+    --
+    -- If you specify @InstanceRequirements@, you can\'t specify
+    -- @InstanceTypes@.
+    instanceRequirements :: Prelude.Maybe InstanceRequirementsRequest,
+    -- | The credit option for CPU usage of the instance. Valid only for T
+    -- instances.
     creditSpecification :: Prelude.Maybe CreditSpecificationRequest,
     -- | The block device mapping.
     blockDeviceMappings :: Prelude.Maybe [LaunchTemplateBlockDeviceMappingRequest],
@@ -106,12 +118,15 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- has matching attributes (instance type, platform, Availability Zone).
     capacityReservationSpecification :: Prelude.Maybe LaunchTemplateCapacityReservationSpecificationRequest,
     -- | The instance type. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
+    --
+    -- If you specify @InstanceTypes@, you can\'t specify
+    -- @InstanceRequirements@.
     instanceType :: Prelude.Maybe InstanceType,
-    -- | [EC2-Classic, default VPC] One or more security group names. For a
-    -- nondefault VPC, you must use security group IDs instead. You cannot
-    -- specify both a security group ID and security name in the same request.
+    -- | One or more security group names. For a nondefault VPC, you must use
+    -- security group IDs instead. You cannot specify both a security group ID
+    -- and security name in the same request.
     securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | An elastic GPU to associate with the instance.
     elasticGpuSpecifications :: Prelude.Maybe [ElasticGpuSpecification],
@@ -119,9 +134,14 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     --
     -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User provided kernels>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     ramDiskId :: Prelude.Maybe Prelude.Text,
+    -- | The maintenance options for the instance.
+    maintenanceOptions :: Prelude.Maybe LaunchTemplateInstanceMaintenanceOptionsRequest,
+    -- | The options for the instance hostname. The default values are inherited
+    -- from the subnet.
+    privateDnsNameOptions :: Prelude.Maybe LaunchTemplatePrivateDnsNameOptionsRequest,
     -- | The name of the key pair. You can create a key pair using
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
     -- or
@@ -137,7 +157,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     --
     -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User provided kernels>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     kernelId :: Prelude.Maybe Prelude.Text,
     -- | If you set this parameter to @true@, you can\'t terminate the instance
@@ -148,16 +168,36 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- @terminate@, you can terminate the instance by running the shutdown
     -- command from the instance.
     disableApiTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The tags to apply to the resources during launch. You can only tag
-    -- instances and volumes on launch. The specified tags are applied to all
-    -- instances or volumes that are created during launch. To tag a resource
-    -- after it has been created, see
+    -- | The tags to apply to the resources that are created during instance
+    -- launch.
+    --
+    -- You can specify tags for the following resources only:
+    --
+    -- -   Instances
+    --
+    -- -   Volumes
+    --
+    -- -   Elastic graphics
+    --
+    -- -   Spot Instance requests
+    --
+    -- -   Network interfaces
+    --
+    -- To tag a resource after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+    --
+    -- To tag the launch template itself, you must use the
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html TagSpecification>
+    -- parameter.
     tagSpecifications :: Prelude.Maybe [LaunchTemplateTagSpecificationRequest],
     -- | The CPU options for the instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     cpuOptions :: Prelude.Maybe LaunchTemplateCpuOptionsRequest,
+    -- | Indicates whether to enable the instance for stop protection. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+    disableApiStop :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the AMI.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | One or more network interfaces. If you specify a network interface, you
@@ -177,7 +217,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     metadataOptions :: Prelude.Maybe LaunchTemplateInstanceMetadataOptionsRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestLaunchTemplateData' with all optional fields omitted.
@@ -195,7 +235,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- 'hibernationOptions', 'requestLaunchTemplateData_hibernationOptions' - Indicates whether an instance is enabled for hibernation. This parameter
 -- is valid only if the instance meets the
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html hibernation prerequisites>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -209,10 +249,10 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 -- 'userData', 'requestLaunchTemplateData_userData' - The user data to make available to the instance. You must provide
 -- base64-encoded text. User data is limited to 16 KB. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Run commands on your Linux instance at launch>
 -- (Linux) or
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
--- (Windows).
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html Work with instance user data>
+-- (Windows) in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- If you are creating the launch template for use with Batch, the user
 -- data must be provided in the
@@ -221,8 +261,15 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 -- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Amazon EC2 user data in launch templates>
 -- in the /Batch User Guide/.
 --
--- 'creditSpecification', 'requestLaunchTemplateData_creditSpecification' - The credit option for CPU usage of the instance. Valid for T2, T3, or
--- T3a instances only.
+-- 'instanceRequirements', 'requestLaunchTemplateData_instanceRequirements' - The attributes for the instance types. When you specify instance
+-- attributes, Amazon EC2 will identify instance types with these
+-- attributes.
+--
+-- If you specify @InstanceRequirements@, you can\'t specify
+-- @InstanceTypes@.
+--
+-- 'creditSpecification', 'requestLaunchTemplateData_creditSpecification' - The credit option for CPU usage of the instance. Valid only for T
+-- instances.
 --
 -- 'blockDeviceMappings', 'requestLaunchTemplateData_blockDeviceMappings' - The block device mapping.
 --
@@ -247,12 +294,15 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 -- has matching attributes (instance type, platform, Availability Zone).
 --
 -- 'instanceType', 'requestLaunchTemplateData_instanceType' - The instance type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'securityGroups', 'requestLaunchTemplateData_securityGroups' - [EC2-Classic, default VPC] One or more security group names. For a
--- nondefault VPC, you must use security group IDs instead. You cannot
--- specify both a security group ID and security name in the same request.
+-- If you specify @InstanceTypes@, you can\'t specify
+-- @InstanceRequirements@.
+--
+-- 'securityGroups', 'requestLaunchTemplateData_securityGroups' - One or more security group names. For a nondefault VPC, you must use
+-- security group IDs instead. You cannot specify both a security group ID
+-- and security name in the same request.
 --
 -- 'elasticGpuSpecifications', 'requestLaunchTemplateData_elasticGpuSpecifications' - An elastic GPU to associate with the instance.
 --
@@ -260,8 +310,13 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
 -- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User provided kernels>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- 'maintenanceOptions', 'requestLaunchTemplateData_maintenanceOptions' - The maintenance options for the instance.
+--
+-- 'privateDnsNameOptions', 'requestLaunchTemplateData_privateDnsNameOptions' - The options for the instance hostname. The default values are inherited
+-- from the subnet.
 --
 -- 'keyName', 'requestLaunchTemplateData_keyName' - The name of the key pair. You can create a key pair using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
@@ -278,7 +333,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
 -- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User provided kernels>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'disableApiTermination', 'requestLaunchTemplateData_disableApiTermination' - If you set this parameter to @true@, you can\'t terminate the instance
@@ -289,15 +344,35 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 -- @terminate@, you can terminate the instance by running the shutdown
 -- command from the instance.
 --
--- 'tagSpecifications', 'requestLaunchTemplateData_tagSpecifications' - The tags to apply to the resources during launch. You can only tag
--- instances and volumes on launch. The specified tags are applied to all
--- instances or volumes that are created during launch. To tag a resource
--- after it has been created, see
+-- 'tagSpecifications', 'requestLaunchTemplateData_tagSpecifications' - The tags to apply to the resources that are created during instance
+-- launch.
+--
+-- You can specify tags for the following resources only:
+--
+-- -   Instances
+--
+-- -   Volumes
+--
+-- -   Elastic graphics
+--
+-- -   Spot Instance requests
+--
+-- -   Network interfaces
+--
+-- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+--
+-- To tag the launch template itself, you must use the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html TagSpecification>
+-- parameter.
 --
 -- 'cpuOptions', 'requestLaunchTemplateData_cpuOptions' - The CPU options for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- 'disableApiStop', 'requestLaunchTemplateData_disableApiStop' - Indicates whether to enable the instance for stop protection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
 --
 -- 'imageId', 'requestLaunchTemplateData_imageId' - The ID of the AMI.
 --
@@ -327,6 +402,7 @@ newRequestLaunchTemplateData =
       elasticInferenceAccelerators = Prelude.Nothing,
       placement = Prelude.Nothing,
       userData = Prelude.Nothing,
+      instanceRequirements = Prelude.Nothing,
       creditSpecification = Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
@@ -340,12 +416,15 @@ newRequestLaunchTemplateData =
       securityGroups = Prelude.Nothing,
       elasticGpuSpecifications = Prelude.Nothing,
       ramDiskId = Prelude.Nothing,
+      maintenanceOptions = Prelude.Nothing,
+      privateDnsNameOptions = Prelude.Nothing,
       keyName = Prelude.Nothing,
       licenseSpecifications = Prelude.Nothing,
       kernelId = Prelude.Nothing,
       disableApiTermination = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       cpuOptions = Prelude.Nothing,
+      disableApiStop = Prelude.Nothing,
       imageId = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
       enclaveOptions = Prelude.Nothing,
@@ -362,7 +441,7 @@ requestLaunchTemplateData_ebsOptimized = Lens.lens (\RequestLaunchTemplateData' 
 
 -- | Indicates whether an instance is enabled for hibernation. This parameter
 -- is valid only if the instance meets the
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html hibernation prerequisites>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -384,10 +463,10 @@ requestLaunchTemplateData_placement = Lens.lens (\RequestLaunchTemplateData' {pl
 -- | The user data to make available to the instance. You must provide
 -- base64-encoded text. User data is limited to 16 KB. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Run commands on your Linux instance at launch>
 -- (Linux) or
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
--- (Windows).
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html Work with instance user data>
+-- (Windows) in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- If you are creating the launch template for use with Batch, the user
 -- data must be provided in the
@@ -398,8 +477,17 @@ requestLaunchTemplateData_placement = Lens.lens (\RequestLaunchTemplateData' {pl
 requestLaunchTemplateData_userData :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Text)
 requestLaunchTemplateData_userData = Lens.lens (\RequestLaunchTemplateData' {userData} -> userData) (\s@RequestLaunchTemplateData' {} a -> s {userData = a} :: RequestLaunchTemplateData)
 
--- | The credit option for CPU usage of the instance. Valid for T2, T3, or
--- T3a instances only.
+-- | The attributes for the instance types. When you specify instance
+-- attributes, Amazon EC2 will identify instance types with these
+-- attributes.
+--
+-- If you specify @InstanceRequirements@, you can\'t specify
+-- @InstanceTypes@.
+requestLaunchTemplateData_instanceRequirements :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe InstanceRequirementsRequest)
+requestLaunchTemplateData_instanceRequirements = Lens.lens (\RequestLaunchTemplateData' {instanceRequirements} -> instanceRequirements) (\s@RequestLaunchTemplateData' {} a -> s {instanceRequirements = a} :: RequestLaunchTemplateData)
+
+-- | The credit option for CPU usage of the instance. Valid only for T
+-- instances.
 requestLaunchTemplateData_creditSpecification :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe CreditSpecificationRequest)
 requestLaunchTemplateData_creditSpecification = Lens.lens (\RequestLaunchTemplateData' {creditSpecification} -> creditSpecification) (\s@RequestLaunchTemplateData' {} a -> s {creditSpecification = a} :: RequestLaunchTemplateData)
 
@@ -438,14 +526,17 @@ requestLaunchTemplateData_capacityReservationSpecification :: Lens.Lens' Request
 requestLaunchTemplateData_capacityReservationSpecification = Lens.lens (\RequestLaunchTemplateData' {capacityReservationSpecification} -> capacityReservationSpecification) (\s@RequestLaunchTemplateData' {} a -> s {capacityReservationSpecification = a} :: RequestLaunchTemplateData)
 
 -- | The instance type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- If you specify @InstanceTypes@, you can\'t specify
+-- @InstanceRequirements@.
 requestLaunchTemplateData_instanceType :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe InstanceType)
 requestLaunchTemplateData_instanceType = Lens.lens (\RequestLaunchTemplateData' {instanceType} -> instanceType) (\s@RequestLaunchTemplateData' {} a -> s {instanceType = a} :: RequestLaunchTemplateData)
 
--- | [EC2-Classic, default VPC] One or more security group names. For a
--- nondefault VPC, you must use security group IDs instead. You cannot
--- specify both a security group ID and security name in the same request.
+-- | One or more security group names. For a nondefault VPC, you must use
+-- security group IDs instead. You cannot specify both a security group ID
+-- and security name in the same request.
 requestLaunchTemplateData_securityGroups :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe [Prelude.Text])
 requestLaunchTemplateData_securityGroups = Lens.lens (\RequestLaunchTemplateData' {securityGroups} -> securityGroups) (\s@RequestLaunchTemplateData' {} a -> s {securityGroups = a} :: RequestLaunchTemplateData) Prelude.. Lens.mapping Lens.coerced
 
@@ -457,10 +548,19 @@ requestLaunchTemplateData_elasticGpuSpecifications = Lens.lens (\RequestLaunchTe
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
 -- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User provided kernels>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 requestLaunchTemplateData_ramDiskId :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Text)
 requestLaunchTemplateData_ramDiskId = Lens.lens (\RequestLaunchTemplateData' {ramDiskId} -> ramDiskId) (\s@RequestLaunchTemplateData' {} a -> s {ramDiskId = a} :: RequestLaunchTemplateData)
+
+-- | The maintenance options for the instance.
+requestLaunchTemplateData_maintenanceOptions :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe LaunchTemplateInstanceMaintenanceOptionsRequest)
+requestLaunchTemplateData_maintenanceOptions = Lens.lens (\RequestLaunchTemplateData' {maintenanceOptions} -> maintenanceOptions) (\s@RequestLaunchTemplateData' {} a -> s {maintenanceOptions = a} :: RequestLaunchTemplateData)
+
+-- | The options for the instance hostname. The default values are inherited
+-- from the subnet.
+requestLaunchTemplateData_privateDnsNameOptions :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe LaunchTemplatePrivateDnsNameOptionsRequest)
+requestLaunchTemplateData_privateDnsNameOptions = Lens.lens (\RequestLaunchTemplateData' {privateDnsNameOptions} -> privateDnsNameOptions) (\s@RequestLaunchTemplateData' {} a -> s {privateDnsNameOptions = a} :: RequestLaunchTemplateData)
 
 -- | The name of the key pair. You can create a key pair using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
@@ -481,7 +581,7 @@ requestLaunchTemplateData_licenseSpecifications = Lens.lens (\RequestLaunchTempl
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
 -- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User provided kernels>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 requestLaunchTemplateData_kernelId :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Text)
 requestLaunchTemplateData_kernelId = Lens.lens (\RequestLaunchTemplateData' {kernelId} -> kernelId) (\s@RequestLaunchTemplateData' {} a -> s {kernelId = a} :: RequestLaunchTemplateData)
@@ -496,11 +596,27 @@ requestLaunchTemplateData_kernelId = Lens.lens (\RequestLaunchTemplateData' {ker
 requestLaunchTemplateData_disableApiTermination :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Bool)
 requestLaunchTemplateData_disableApiTermination = Lens.lens (\RequestLaunchTemplateData' {disableApiTermination} -> disableApiTermination) (\s@RequestLaunchTemplateData' {} a -> s {disableApiTermination = a} :: RequestLaunchTemplateData)
 
--- | The tags to apply to the resources during launch. You can only tag
--- instances and volumes on launch. The specified tags are applied to all
--- instances or volumes that are created during launch. To tag a resource
--- after it has been created, see
+-- | The tags to apply to the resources that are created during instance
+-- launch.
+--
+-- You can specify tags for the following resources only:
+--
+-- -   Instances
+--
+-- -   Volumes
+--
+-- -   Elastic graphics
+--
+-- -   Spot Instance requests
+--
+-- -   Network interfaces
+--
+-- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+--
+-- To tag the launch template itself, you must use the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html TagSpecification>
+-- parameter.
 requestLaunchTemplateData_tagSpecifications :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe [LaunchTemplateTagSpecificationRequest])
 requestLaunchTemplateData_tagSpecifications = Lens.lens (\RequestLaunchTemplateData' {tagSpecifications} -> tagSpecifications) (\s@RequestLaunchTemplateData' {} a -> s {tagSpecifications = a} :: RequestLaunchTemplateData) Prelude.. Lens.mapping Lens.coerced
 
@@ -509,6 +625,12 @@ requestLaunchTemplateData_tagSpecifications = Lens.lens (\RequestLaunchTemplateD
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 requestLaunchTemplateData_cpuOptions :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe LaunchTemplateCpuOptionsRequest)
 requestLaunchTemplateData_cpuOptions = Lens.lens (\RequestLaunchTemplateData' {cpuOptions} -> cpuOptions) (\s@RequestLaunchTemplateData' {} a -> s {cpuOptions = a} :: RequestLaunchTemplateData)
+
+-- | Indicates whether to enable the instance for stop protection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+requestLaunchTemplateData_disableApiStop :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Bool)
+requestLaunchTemplateData_disableApiStop = Lens.lens (\RequestLaunchTemplateData' {disableApiStop} -> disableApiStop) (\s@RequestLaunchTemplateData' {} a -> s {disableApiStop = a} :: RequestLaunchTemplateData)
 
 -- | The ID of the AMI.
 requestLaunchTemplateData_imageId :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Text)
@@ -544,6 +666,7 @@ instance Prelude.Hashable RequestLaunchTemplateData where
       `Prelude.hashWithSalt` elasticInferenceAccelerators
       `Prelude.hashWithSalt` placement
       `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` instanceRequirements
       `Prelude.hashWithSalt` creditSpecification
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` securityGroupIds
@@ -555,12 +678,15 @@ instance Prelude.Hashable RequestLaunchTemplateData where
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` elasticGpuSpecifications
       `Prelude.hashWithSalt` ramDiskId
+      `Prelude.hashWithSalt` maintenanceOptions
+      `Prelude.hashWithSalt` privateDnsNameOptions
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` licenseSpecifications
       `Prelude.hashWithSalt` kernelId
       `Prelude.hashWithSalt` disableApiTermination
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` cpuOptions
+      `Prelude.hashWithSalt` disableApiStop
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` networkInterfaces
       `Prelude.hashWithSalt` enclaveOptions
@@ -574,17 +700,22 @@ instance Prelude.NFData RequestLaunchTemplateData where
       `Prelude.seq` Prelude.rnf elasticInferenceAccelerators
       `Prelude.seq` Prelude.rnf placement
       `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf instanceRequirements
       `Prelude.seq` Prelude.rnf creditSpecification
       `Prelude.seq` Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
       `Prelude.seq` Prelude.rnf monitoring
       `Prelude.seq` Prelude.rnf instanceMarketOptions
-      `Prelude.seq` Prelude.rnf capacityReservationSpecification
+      `Prelude.seq` Prelude.rnf
+        capacityReservationSpecification
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf elasticGpuSpecifications
       `Prelude.seq` Prelude.rnf ramDiskId
+      `Prelude.seq` Prelude.rnf maintenanceOptions
+      `Prelude.seq` Prelude.rnf
+        privateDnsNameOptions
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf
         licenseSpecifications
@@ -593,8 +724,12 @@ instance Prelude.NFData RequestLaunchTemplateData where
         disableApiTermination
       `Prelude.seq` Prelude.rnf
         tagSpecifications
-      `Prelude.seq` Prelude.rnf cpuOptions
-      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf
+        cpuOptions
+      `Prelude.seq` Prelude.rnf
+        disableApiStop
+      `Prelude.seq` Prelude.rnf
+        imageId
       `Prelude.seq` Prelude.rnf
         networkInterfaces
       `Prelude.seq` Prelude.rnf
@@ -614,6 +749,7 @@ instance Core.ToQuery RequestLaunchTemplateData where
           ),
         "Placement" Core.=: placement,
         "UserData" Core.=: userData,
+        "InstanceRequirements" Core.=: instanceRequirements,
         "CreditSpecification" Core.=: creditSpecification,
         Core.toQuery
           ( Core.toQueryList "BlockDeviceMapping"
@@ -640,6 +776,9 @@ instance Core.ToQuery RequestLaunchTemplateData where
               Prelude.<$> elasticGpuSpecifications
           ),
         "RamDiskId" Core.=: ramDiskId,
+        "MaintenanceOptions" Core.=: maintenanceOptions,
+        "PrivateDnsNameOptions"
+          Core.=: privateDnsNameOptions,
         "KeyName" Core.=: keyName,
         Core.toQuery
           ( Core.toQueryList "LicenseSpecification"
@@ -653,6 +792,7 @@ instance Core.ToQuery RequestLaunchTemplateData where
               Prelude.<$> tagSpecifications
           ),
         "CpuOptions" Core.=: cpuOptions,
+        "DisableApiStop" Core.=: disableApiStop,
         "ImageId" Core.=: imageId,
         Core.toQuery
           ( Core.toQueryList "NetworkInterface"

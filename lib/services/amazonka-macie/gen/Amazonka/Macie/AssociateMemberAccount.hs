@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a specified AWS account with Amazon Macie Classic as a member
--- account.
+-- (Discontinued) Associates a specified Amazon Web Services account with
+-- Amazon Macie Classic as a member account.
 module Amazonka.Macie.AssociateMemberAccount
   ( -- * Creating a Request
     AssociateMemberAccount (..),
@@ -45,8 +45,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateMemberAccount' smart constructor.
 data AssociateMemberAccount = AssociateMemberAccount'
-  { -- | The ID of the AWS account that you want to associate with Amazon Macie
-    -- Classic as a member account.
+  { -- | (Discontinued) The ID of the Amazon Web Services account that you want
+    -- to associate with Amazon Macie Classic as a member account.
     memberAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,8 +59,8 @@ data AssociateMemberAccount = AssociateMemberAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberAccountId', 'associateMemberAccount_memberAccountId' - The ID of the AWS account that you want to associate with Amazon Macie
--- Classic as a member account.
+-- 'memberAccountId', 'associateMemberAccount_memberAccountId' - (Discontinued) The ID of the Amazon Web Services account that you want
+-- to associate with Amazon Macie Classic as a member account.
 newAssociateMemberAccount ::
   -- | 'memberAccountId'
   Prelude.Text ->
@@ -71,8 +71,8 @@ newAssociateMemberAccount pMemberAccountId_ =
         pMemberAccountId_
     }
 
--- | The ID of the AWS account that you want to associate with Amazon Macie
--- Classic as a member account.
+-- | (Discontinued) The ID of the Amazon Web Services account that you want
+-- to associate with Amazon Macie Classic as a member account.
 associateMemberAccount_memberAccountId :: Lens.Lens' AssociateMemberAccount Prelude.Text
 associateMemberAccount_memberAccountId = Lens.lens (\AssociateMemberAccount' {memberAccountId} -> memberAccountId) (\s@AssociateMemberAccount' {} a -> s {memberAccountId = a} :: AssociateMemberAccount)
 

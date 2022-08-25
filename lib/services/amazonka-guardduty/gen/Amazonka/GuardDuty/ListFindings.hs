@@ -139,8 +139,6 @@ data ListFindings = ListFindings'
     --
     -- -   service.action.networkConnectionAction.protocol
     --
-    -- -   service.action.networkConnectionAction.remoteIpDetails.city.cityName
-    --
     -- -   service.action.networkConnectionAction.remoteIpDetails.country.countryName
     --
     -- -   service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
@@ -270,8 +268,6 @@ data ListFindings = ListFindings'
 -- -   service.action.networkConnectionAction.localPortDetails.port
 --
 -- -   service.action.networkConnectionAction.protocol
---
--- -   service.action.networkConnectionAction.remoteIpDetails.city.cityName
 --
 -- -   service.action.networkConnectionAction.remoteIpDetails.country.countryName
 --
@@ -407,8 +403,6 @@ listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s
 -- -   service.action.networkConnectionAction.localPortDetails.port
 --
 -- -   service.action.networkConnectionAction.protocol
---
--- -   service.action.networkConnectionAction.remoteIpDetails.city.cityName
 --
 -- -   service.action.networkConnectionAction.remoteIpDetails.country.countryName
 --

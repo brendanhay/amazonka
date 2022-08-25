@@ -20,13 +20,30 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an analytics category. Amazon Transcribe applies the conditions
--- specified by your analytics categories to your call analytics jobs. For
--- each analytics category, you specify one or more rules. For example, you
--- can specify a rule that the customer sentiment was neutral or negative
--- within that category. If you start a call analytics job, Amazon
--- Transcribe applies the category to the analytics job that you\'ve
--- specified.
+-- Creates a new Call Analytics category.
+--
+-- All categories are automatically applied to your Call Analytics jobs.
+-- Note that in order to apply your categories to your jobs, you must
+-- create them before submitting your job request, as categories cannot be
+-- applied retroactively.
+--
+-- Call Analytics categories are composed of rules. For each category, you
+-- must create between 1 and 20 rules. Rules can include these parameters:
+-- , , , and .
+--
+-- To update an existing category, see .
+--
+-- To learn more about:
+--
+-- -   Call Analytics categories, see
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html Creating categories>
+--
+-- -   Using rules, see
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
+--     and refer to the data type
+--
+-- -   Call Analytics, see
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html Analyzing call center audio with Call Analytics>
 module Amazonka.Transcribe.CreateCallAnalyticsCategory
   ( -- * Creating a Request
     CreateCallAnalyticsCategory (..),
@@ -55,12 +72,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateCallAnalyticsCategory' smart constructor.
 data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
-  { -- | The name that you choose for your category when you create it.
+  { -- | A unique name, chosen by you, for your Call Analytics category. It\'s
+    -- helpful to use a detailed naming system that will make sense to you in
+    -- the future. For example, it\'s better to use
+    -- @sentiment-positive-last30seconds@ for a category over a generic name
+    -- like @test-category@.
+    --
+    -- Category names are case sensitive.
     categoryName :: Prelude.Text,
-    -- | To create a category, you must specify between 1 and 20 rules. For each
-    -- rule, you specify a filter to be applied to the attributes of the call.
-    -- For example, you can specify a sentiment filter to detect if the
-    -- customer\'s sentiment was negative or neutral.
+    -- | Rules define a Call Analytics category. When creating a new Call
+    -- Analytics category, you must create between 1 and 20 rules for that
+    -- category. For each rule, you specify a filter you want applied to the
+    -- attributes of a call. For example, you can choose a sentiment filter
+    -- that detects if a customer\'s sentiment was positive during the last 30
+    -- seconds of the call.
     rules :: Prelude.NonEmpty Rule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,12 +98,20 @@ data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'categoryName', 'createCallAnalyticsCategory_categoryName' - The name that you choose for your category when you create it.
+-- 'categoryName', 'createCallAnalyticsCategory_categoryName' - A unique name, chosen by you, for your Call Analytics category. It\'s
+-- helpful to use a detailed naming system that will make sense to you in
+-- the future. For example, it\'s better to use
+-- @sentiment-positive-last30seconds@ for a category over a generic name
+-- like @test-category@.
 --
--- 'rules', 'createCallAnalyticsCategory_rules' - To create a category, you must specify between 1 and 20 rules. For each
--- rule, you specify a filter to be applied to the attributes of the call.
--- For example, you can specify a sentiment filter to detect if the
--- customer\'s sentiment was negative or neutral.
+-- Category names are case sensitive.
+--
+-- 'rules', 'createCallAnalyticsCategory_rules' - Rules define a Call Analytics category. When creating a new Call
+-- Analytics category, you must create between 1 and 20 rules for that
+-- category. For each rule, you specify a filter you want applied to the
+-- attributes of a call. For example, you can choose a sentiment filter
+-- that detects if a customer\'s sentiment was positive during the last 30
+-- seconds of the call.
 newCreateCallAnalyticsCategory ::
   -- | 'categoryName'
   Prelude.Text ->
@@ -92,14 +125,22 @@ newCreateCallAnalyticsCategory pCategoryName_ pRules_ =
       rules = Lens.coerced Lens.# pRules_
     }
 
--- | The name that you choose for your category when you create it.
+-- | A unique name, chosen by you, for your Call Analytics category. It\'s
+-- helpful to use a detailed naming system that will make sense to you in
+-- the future. For example, it\'s better to use
+-- @sentiment-positive-last30seconds@ for a category over a generic name
+-- like @test-category@.
+--
+-- Category names are case sensitive.
 createCallAnalyticsCategory_categoryName :: Lens.Lens' CreateCallAnalyticsCategory Prelude.Text
 createCallAnalyticsCategory_categoryName = Lens.lens (\CreateCallAnalyticsCategory' {categoryName} -> categoryName) (\s@CreateCallAnalyticsCategory' {} a -> s {categoryName = a} :: CreateCallAnalyticsCategory)
 
--- | To create a category, you must specify between 1 and 20 rules. For each
--- rule, you specify a filter to be applied to the attributes of the call.
--- For example, you can specify a sentiment filter to detect if the
--- customer\'s sentiment was negative or neutral.
+-- | Rules define a Call Analytics category. When creating a new Call
+-- Analytics category, you must create between 1 and 20 rules for that
+-- category. For each rule, you specify a filter you want applied to the
+-- attributes of a call. For example, you can choose a sentiment filter
+-- that detects if a customer\'s sentiment was positive during the last 30
+-- seconds of the call.
 createCallAnalyticsCategory_rules :: Lens.Lens' CreateCallAnalyticsCategory (Prelude.NonEmpty Rule)
 createCallAnalyticsCategory_rules = Lens.lens (\CreateCallAnalyticsCategory' {rules} -> rules) (\s@CreateCallAnalyticsCategory' {} a -> s {rules = a} :: CreateCallAnalyticsCategory) Prelude.. Lens.coerced
 
@@ -158,7 +199,8 @@ instance Core.ToQuery CreateCallAnalyticsCategory where
 
 -- | /See:/ 'newCreateCallAnalyticsCategoryResponse' smart constructor.
 data CreateCallAnalyticsCategoryResponse = CreateCallAnalyticsCategoryResponse'
-  { -- | The rules and associated metadata used to create a category.
+  { -- | Provides you with the properties of your new category, including its
+    -- associated rules.
     categoryProperties :: Prelude.Maybe CategoryProperties,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,7 +215,8 @@ data CreateCallAnalyticsCategoryResponse = CreateCallAnalyticsCategoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'categoryProperties', 'createCallAnalyticsCategoryResponse_categoryProperties' - The rules and associated metadata used to create a category.
+-- 'categoryProperties', 'createCallAnalyticsCategoryResponse_categoryProperties' - Provides you with the properties of your new category, including its
+-- associated rules.
 --
 -- 'httpStatus', 'createCallAnalyticsCategoryResponse_httpStatus' - The response's http status code.
 newCreateCallAnalyticsCategoryResponse ::
@@ -187,7 +230,8 @@ newCreateCallAnalyticsCategoryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The rules and associated metadata used to create a category.
+-- | Provides you with the properties of your new category, including its
+-- associated rules.
 createCallAnalyticsCategoryResponse_categoryProperties :: Lens.Lens' CreateCallAnalyticsCategoryResponse (Prelude.Maybe CategoryProperties)
 createCallAnalyticsCategoryResponse_categoryProperties = Lens.lens (\CreateCallAnalyticsCategoryResponse' {categoryProperties} -> categoryProperties) (\s@CreateCallAnalyticsCategoryResponse' {} a -> s {categoryProperties = a} :: CreateCallAnalyticsCategoryResponse)
 

@@ -51,18 +51,29 @@ import Amazonka.Shield.Types
 
 -- | /See:/ 'newListResourcesInProtectionGroup' smart constructor.
 data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
-  { -- | The next token value from a previous call to
-    -- @ListResourcesInProtectionGroup@. Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of resource ARN objects to return. If you leave this
-    -- blank, Shield Advanced returns the first 20 results.
+  { -- | When you request a list of objects from Shield Advanced, if the response
+    -- does not include all of the remaining available objects, Shield Advanced
+    -- includes a @NextToken@ value in the response. You can retrieve the next
+    -- batch of objects by requesting the list again and providing the token
+    -- that was returned by the prior call in your request.
     --
-    -- This is a maximum value. Shield Advanced might return the results in
-    -- smaller batches. That is, the number of objects returned could be less
-    -- than @MaxResults@, even if there are still more objects yet to return.
-    -- If there are more objects to return, Shield Advanced returns a value in
-    -- @NextToken@ that you can use in your next request, to get the next batch
-    -- of objects.
+    -- You can indicate the maximum number of objects that you want Shield
+    -- Advanced to return for a single call with the @MaxResults@ setting.
+    -- Shield Advanced will not return more than @MaxResults@ objects, but may
+    -- return fewer, even if more objects are still available.
+    --
+    -- Whenever more objects remain that Shield Advanced has not yet returned
+    -- to you, the response will include a @NextToken@ value.
+    --
+    -- On your first call to a list operation, leave this setting empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The greatest number of objects that you want Shield Advanced to return
+    -- to the list request. Shield Advanced might return fewer objects than you
+    -- indicate in this setting, even if more objects are available. If there
+    -- are more objects remaining, Shield Advanced will always also return a
+    -- @NextToken@ value in the response.
+    --
+    -- The default setting is 20.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
@@ -79,18 +90,29 @@ data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourcesInProtectionGroup_nextToken' - The next token value from a previous call to
--- @ListResourcesInProtectionGroup@. Pass null if this is the first call.
+-- 'nextToken', 'listResourcesInProtectionGroup_nextToken' - When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
 --
--- 'maxResults', 'listResourcesInProtectionGroup_maxResults' - The maximum number of resource ARN objects to return. If you leave this
--- blank, Shield Advanced returns the first 20 results.
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
 --
--- This is a maximum value. Shield Advanced might return the results in
--- smaller batches. That is, the number of objects returned could be less
--- than @MaxResults@, even if there are still more objects yet to return.
--- If there are more objects to return, Shield Advanced returns a value in
--- @NextToken@ that you can use in your next request, to get the next batch
--- of objects.
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
+--
+-- On your first call to a list operation, leave this setting empty.
+--
+-- 'maxResults', 'listResourcesInProtectionGroup_maxResults' - The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
+--
+-- The default setting is 20.
 --
 -- 'protectionGroupId', 'listResourcesInProtectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
@@ -107,20 +129,31 @@ newListResourcesInProtectionGroup pProtectionGroupId_ =
       protectionGroupId = pProtectionGroupId_
     }
 
--- | The next token value from a previous call to
--- @ListResourcesInProtectionGroup@. Pass null if this is the first call.
+-- | When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
+--
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
+--
+-- On your first call to a list operation, leave this setting empty.
 listResourcesInProtectionGroup_nextToken :: Lens.Lens' ListResourcesInProtectionGroup (Prelude.Maybe Prelude.Text)
 listResourcesInProtectionGroup_nextToken = Lens.lens (\ListResourcesInProtectionGroup' {nextToken} -> nextToken) (\s@ListResourcesInProtectionGroup' {} a -> s {nextToken = a} :: ListResourcesInProtectionGroup)
 
--- | The maximum number of resource ARN objects to return. If you leave this
--- blank, Shield Advanced returns the first 20 results.
+-- | The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
 --
--- This is a maximum value. Shield Advanced might return the results in
--- smaller batches. That is, the number of objects returned could be less
--- than @MaxResults@, even if there are still more objects yet to return.
--- If there are more objects to return, Shield Advanced returns a value in
--- @NextToken@ that you can use in your next request, to get the next batch
--- of objects.
+-- The default setting is 20.
 listResourcesInProtectionGroup_maxResults :: Lens.Lens' ListResourcesInProtectionGroup (Prelude.Maybe Prelude.Natural)
 listResourcesInProtectionGroup_maxResults = Lens.lens (\ListResourcesInProtectionGroup' {maxResults} -> maxResults) (\s@ListResourcesInProtectionGroup' {} a -> s {maxResults = a} :: ListResourcesInProtectionGroup)
 
@@ -204,10 +237,19 @@ instance Core.ToQuery ListResourcesInProtectionGroup where
 
 -- | /See:/ 'newListResourcesInProtectionGroupResponse' smart constructor.
 data ListResourcesInProtectionGroupResponse = ListResourcesInProtectionGroupResponse'
-  { -- | If you specify a value for @MaxResults@ and you have more resources in
-    -- the protection group than the value of MaxResults, Shield Advanced
-    -- returns this token that you can use in your next request, to get the
-    -- next batch of objects.
+  { -- | When you request a list of objects from Shield Advanced, if the response
+    -- does not include all of the remaining available objects, Shield Advanced
+    -- includes a @NextToken@ value in the response. You can retrieve the next
+    -- batch of objects by requesting the list again and providing the token
+    -- that was returned by the prior call in your request.
+    --
+    -- You can indicate the maximum number of objects that you want Shield
+    -- Advanced to return for a single call with the @MaxResults@ setting.
+    -- Shield Advanced will not return more than @MaxResults@ objects, but may
+    -- return fewer, even if more objects are still available.
+    --
+    -- Whenever more objects remain that Shield Advanced has not yet returned
+    -- to you, the response will include a @NextToken@ value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -225,10 +267,19 @@ data ListResourcesInProtectionGroupResponse = ListResourcesInProtectionGroupResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourcesInProtectionGroupResponse_nextToken' - If you specify a value for @MaxResults@ and you have more resources in
--- the protection group than the value of MaxResults, Shield Advanced
--- returns this token that you can use in your next request, to get the
--- next batch of objects.
+-- 'nextToken', 'listResourcesInProtectionGroupResponse_nextToken' - When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
+--
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
 --
 -- 'httpStatus', 'listResourcesInProtectionGroupResponse_httpStatus' - The response's http status code.
 --
@@ -247,10 +298,19 @@ newListResourcesInProtectionGroupResponse
         resourceArns = Prelude.mempty
       }
 
--- | If you specify a value for @MaxResults@ and you have more resources in
--- the protection group than the value of MaxResults, Shield Advanced
--- returns this token that you can use in your next request, to get the
--- next batch of objects.
+-- | When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
+--
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
 listResourcesInProtectionGroupResponse_nextToken :: Lens.Lens' ListResourcesInProtectionGroupResponse (Prelude.Maybe Prelude.Text)
 listResourcesInProtectionGroupResponse_nextToken = Lens.lens (\ListResourcesInProtectionGroupResponse' {nextToken} -> nextToken) (\s@ListResourcesInProtectionGroupResponse' {} a -> s {nextToken = a} :: ListResourcesInProtectionGroupResponse)
 

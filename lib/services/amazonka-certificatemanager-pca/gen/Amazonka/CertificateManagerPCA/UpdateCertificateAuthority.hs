@@ -29,7 +29,7 @@
 -- bucket that you specify. If the IAM principal making the call does not
 -- have permission to write to the bucket, then an exception is thrown. For
 -- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html Configure Access to ACM Private CA>.
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 module Amazonka.CertificateManagerPCA.UpdateCertificateAuthority
   ( -- * Creating a Request
     UpdateCertificateAuthority (..),

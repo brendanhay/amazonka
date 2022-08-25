@@ -61,10 +61,12 @@ data SearchProfiles = SearchProfiles'
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | A searchable identifier of a customer profile. The predefined keys you
-    -- can use to search include: _account, _profileId, _fullName, _phone,
-    -- _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,
-    -- _salesforceContactId, _zendeskUserId, _zendeskExternalId,
-    -- _serviceNowSystemId.
+    -- can use to search include: _account, _profileId, _assetId, _caseId,
+    -- _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+    -- _salesforceAccountId, _salesforceContactId, _salesforceAssetId,
+    -- _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+    -- _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId,
+    -- _shopifyCustomerId, _shopifyOrderId.
     keyName :: Prelude.Text,
     -- | A list of key values.
     values :: [Prelude.Text]
@@ -86,10 +88,12 @@ data SearchProfiles = SearchProfiles'
 -- 'domainName', 'searchProfiles_domainName' - The unique name of the domain.
 --
 -- 'keyName', 'searchProfiles_keyName' - A searchable identifier of a customer profile. The predefined keys you
--- can use to search include: _account, _profileId, _fullName, _phone,
--- _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,
--- _salesforceContactId, _zendeskUserId, _zendeskExternalId,
--- _serviceNowSystemId.
+-- can use to search include: _account, _profileId, _assetId, _caseId,
+-- _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+-- _salesforceAccountId, _salesforceContactId, _salesforceAssetId,
+-- _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+-- _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId,
+-- _shopifyCustomerId, _shopifyOrderId.
 --
 -- 'values', 'searchProfiles_values' - A list of key values.
 newSearchProfiles ::
@@ -120,10 +124,12 @@ searchProfiles_domainName :: Lens.Lens' SearchProfiles Prelude.Text
 searchProfiles_domainName = Lens.lens (\SearchProfiles' {domainName} -> domainName) (\s@SearchProfiles' {} a -> s {domainName = a} :: SearchProfiles)
 
 -- | A searchable identifier of a customer profile. The predefined keys you
--- can use to search include: _account, _profileId, _fullName, _phone,
--- _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,
--- _salesforceContactId, _zendeskUserId, _zendeskExternalId,
--- _serviceNowSystemId.
+-- can use to search include: _account, _profileId, _assetId, _caseId,
+-- _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+-- _salesforceAccountId, _salesforceContactId, _salesforceAssetId,
+-- _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+-- _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId,
+-- _shopifyCustomerId, _shopifyOrderId.
 searchProfiles_keyName :: Lens.Lens' SearchProfiles Prelude.Text
 searchProfiles_keyName = Lens.lens (\SearchProfiles' {keyName} -> keyName) (\s@SearchProfiles' {} a -> s {keyName = a} :: SearchProfiles)
 

@@ -189,7 +189,7 @@ data DescribeRuleGroupResponse = DescribeRuleGroupResponse'
     -- RuleGroupResponse, define the rule group. You can retrieve all objects
     -- for a rule group by calling DescribeRuleGroup.
     --
-    -- AWS Network Firewall uses a rule group to inspect and control network
+    -- Network Firewall uses a rule group to inspect and control network
     -- traffic. You define stateless rule groups to inspect individual packets
     -- and you define stateful rule groups to inspect packets in the context of
     -- their traffic flow.
@@ -232,7 +232,7 @@ data DescribeRuleGroupResponse = DescribeRuleGroupResponse'
 -- RuleGroupResponse, define the rule group. You can retrieve all objects
 -- for a rule group by calling DescribeRuleGroup.
 --
--- AWS Network Firewall uses a rule group to inspect and control network
+-- Network Firewall uses a rule group to inspect and control network
 -- traffic. You define stateless rule groups to inspect individual packets
 -- and you define stateful rule groups to inspect packets in the context of
 -- their traffic flow.
@@ -283,7 +283,7 @@ newDescribeRuleGroupResponse
 -- RuleGroupResponse, define the rule group. You can retrieve all objects
 -- for a rule group by calling DescribeRuleGroup.
 --
--- AWS Network Firewall uses a rule group to inspect and control network
+-- Network Firewall uses a rule group to inspect and control network
 -- traffic. You define stateless rule groups to inspect individual packets
 -- and you define stateful rule groups to inspect packets in the context of
 -- their traffic flow.

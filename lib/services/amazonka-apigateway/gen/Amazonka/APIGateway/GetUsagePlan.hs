@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetUsagePlan' smart constructor.
 data GetUsagePlan = GetUsagePlan'
-  { -- | [Required] The identifier of the UsagePlan resource to be retrieved.
+  { -- | The identifier of the UsagePlan resource to be retrieved.
     usagePlanId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +69,7 @@ data GetUsagePlan = GetUsagePlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usagePlanId', 'getUsagePlan_usagePlanId' - [Required] The identifier of the UsagePlan resource to be retrieved.
+-- 'usagePlanId', 'getUsagePlan_usagePlanId' - The identifier of the UsagePlan resource to be retrieved.
 newGetUsagePlan ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -77,7 +77,7 @@ newGetUsagePlan ::
 newGetUsagePlan pUsagePlanId_ =
   GetUsagePlan' {usagePlanId = pUsagePlanId_}
 
--- | [Required] The identifier of the UsagePlan resource to be retrieved.
+-- | The identifier of the UsagePlan resource to be retrieved.
 getUsagePlan_usagePlanId :: Lens.Lens' GetUsagePlan Prelude.Text
 getUsagePlan_usagePlanId = Lens.lens (\GetUsagePlan' {usagePlanId} -> usagePlanId) (\s@GetUsagePlan' {} a -> s {usagePlanId = a} :: GetUsagePlan)
 

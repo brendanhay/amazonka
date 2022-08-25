@@ -49,9 +49,10 @@
 -- require detaching and reattaching the volume or stopping and restarting
 -- the instance.
 --
--- If you reach the maximum volume modification rate per volume limit, you
--- must wait at least six hours before applying further modifications to
--- the affected EBS volume.
+-- After modifying a volume, you must wait at least six hours and ensure
+-- that the volume is in the @in-use@ or @available@ state before you can
+-- modify the same volume. This is sometimes referred to as a cooldown
+-- period.
 module Amazonka.EC2.ModifyVolume
   ( -- * Creating a Request
     ModifyVolume (..),

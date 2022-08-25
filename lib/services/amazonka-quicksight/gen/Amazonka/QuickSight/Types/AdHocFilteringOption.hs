@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardBehavior
 
--- | Ad hoc (one-time) filtering option.
+-- | An ad hoc (one-time) filtering option.
 --
 -- /See:/ 'newAdHocFilteringOption' smart constructor.
 data AdHocFilteringOption = AdHocFilteringOption'

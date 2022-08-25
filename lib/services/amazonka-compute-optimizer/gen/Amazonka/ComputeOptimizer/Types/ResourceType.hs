@@ -23,7 +23,8 @@ module Amazonka.ComputeOptimizer.Types.ResourceType
         ResourceType_AutoScalingGroup,
         ResourceType_EbsVolume,
         ResourceType_Ec2Instance,
-        ResourceType_LambdaFunction
+        ResourceType_LambdaFunction,
+        ResourceType_NotApplicable
       ),
   )
 where
@@ -71,10 +72,14 @@ pattern ResourceType_Ec2Instance = ResourceType' "Ec2Instance"
 pattern ResourceType_LambdaFunction :: ResourceType
 pattern ResourceType_LambdaFunction = ResourceType' "LambdaFunction"
 
+pattern ResourceType_NotApplicable :: ResourceType
+pattern ResourceType_NotApplicable = ResourceType' "NotApplicable"
+
 {-# COMPLETE
   ResourceType_AutoScalingGroup,
   ResourceType_EbsVolume,
   ResourceType_Ec2Instance,
   ResourceType_LambdaFunction,
+  ResourceType_NotApplicable,
   ResourceType'
   #-}

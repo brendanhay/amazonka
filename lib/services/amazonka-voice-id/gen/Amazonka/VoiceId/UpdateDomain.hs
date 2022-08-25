@@ -59,7 +59,7 @@ data UpdateDomain = UpdateDomain'
     domainId :: Prelude.Text,
     -- | The name of the domain.
     name :: Core.Sensitive Prelude.Text,
-    -- | The configuration, containing the KMS Key Identifier, to be used by
+    -- | The configuration, containing the KMS key identifier, to be used by
     -- Voice ID for the server-side encryption of your data. Note that all the
     -- existing data in the domain are still encrypted using the existing key,
     -- only the data added to domain after updating the key is encrypted using
@@ -82,7 +82,7 @@ data UpdateDomain = UpdateDomain'
 --
 -- 'name', 'updateDomain_name' - The name of the domain.
 --
--- 'serverSideEncryptionConfiguration', 'updateDomain_serverSideEncryptionConfiguration' - The configuration, containing the KMS Key Identifier, to be used by
+-- 'serverSideEncryptionConfiguration', 'updateDomain_serverSideEncryptionConfiguration' - The configuration, containing the KMS key identifier, to be used by
 -- Voice ID for the server-side encryption of your data. Note that all the
 -- existing data in the domain are still encrypted using the existing key,
 -- only the data added to domain after updating the key is encrypted using
@@ -119,7 +119,7 @@ updateDomain_domainId = Lens.lens (\UpdateDomain' {domainId} -> domainId) (\s@Up
 updateDomain_name :: Lens.Lens' UpdateDomain Prelude.Text
 updateDomain_name = Lens.lens (\UpdateDomain' {name} -> name) (\s@UpdateDomain' {} a -> s {name = a} :: UpdateDomain) Prelude.. Core._Sensitive
 
--- | The configuration, containing the KMS Key Identifier, to be used by
+-- | The configuration, containing the KMS key identifier, to be used by
 -- Voice ID for the server-side encryption of your data. Note that all the
 -- existing data in the domain are still encrypted using the existing key,
 -- only the data added to domain after updating the key is encrypted using

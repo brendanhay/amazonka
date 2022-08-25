@@ -55,7 +55,7 @@ data CreateSite = CreateSite'
     tags :: Prelude.Maybe [Tag],
     -- | A description of your site.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The site location. This information is used for visualization in the
     -- Network Manager console. If you specify the address, the latitude and
@@ -84,7 +84,7 @@ data CreateSite = CreateSite'
 --
 -- 'description', 'createSite_description' - A description of your site.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'location', 'createSite_location' - The site location. This information is used for visualization in the
 -- Network Manager console. If you specify the address, the latitude and
@@ -115,7 +115,7 @@ createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -
 
 -- | A description of your site.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 createSite_description :: Lens.Lens' CreateSite (Prelude.Maybe Prelude.Text)
 createSite_description = Lens.lens (\CreateSite' {description} -> description) (\s@CreateSite' {} a -> s {description = a} :: CreateSite)
 

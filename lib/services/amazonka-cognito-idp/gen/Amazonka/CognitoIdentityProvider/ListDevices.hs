@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the devices.
+-- Lists the sign-in devices that Amazon Cognito has registered to the
+-- current user.
 module Amazonka.CognitoIdentityProvider.ListDevices
   ( -- * Creating a Request
     ListDevices (..),
@@ -57,7 +58,8 @@ data ListDevices = ListDevices'
     paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The limit of the device request.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The access tokens for the request to list devices.
+    -- | A valid access token that Amazon Cognito issued to the user whose list
+    -- of devices you want to view.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -74,7 +76,8 @@ data ListDevices = ListDevices'
 --
 -- 'limit', 'listDevices_limit' - The limit of the device request.
 --
--- 'accessToken', 'listDevices_accessToken' - The access tokens for the request to list devices.
+-- 'accessToken', 'listDevices_accessToken' - A valid access token that Amazon Cognito issued to the user whose list
+-- of devices you want to view.
 newListDevices ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -94,7 +97,8 @@ listDevices_paginationToken = Lens.lens (\ListDevices' {paginationToken} -> pagi
 listDevices_limit :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Natural)
 listDevices_limit = Lens.lens (\ListDevices' {limit} -> limit) (\s@ListDevices' {} a -> s {limit = a} :: ListDevices)
 
--- | The access tokens for the request to list devices.
+-- | A valid access token that Amazon Cognito issued to the user whose list
+-- of devices you want to view.
 listDevices_accessToken :: Lens.Lens' ListDevices Prelude.Text
 listDevices_accessToken = Lens.lens (\ListDevices' {accessToken} -> accessToken) (\s@ListDevices' {} a -> s {accessToken = a} :: ListDevices) Prelude.. Core._Sensitive
 

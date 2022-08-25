@@ -77,6 +77,10 @@ data UpdateDocument = UpdateDocument'
     -- Manager supports updating only the latest version of the document. You
     -- can specify the version number of the latest version or use the
     -- @$LATEST@ variable.
+    --
+    -- If you change a document version for a State Manager association,
+    -- Systems Manager immediately runs the association unless you previously
+    -- specifed the @apply-only-at-cron-interval@ parameter.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A valid JSON or YAML string.
     content :: Prelude.Text,
@@ -115,6 +119,10 @@ data UpdateDocument = UpdateDocument'
 -- Manager supports updating only the latest version of the document. You
 -- can specify the version number of the latest version or use the
 -- @$LATEST@ variable.
+--
+-- If you change a document version for a State Manager association,
+-- Systems Manager immediately runs the association unless you previously
+-- specifed the @apply-only-at-cron-interval@ parameter.
 --
 -- 'content', 'updateDocument_content' - A valid JSON or YAML string.
 --
@@ -169,6 +177,10 @@ updateDocument_documentFormat = Lens.lens (\UpdateDocument' {documentFormat} -> 
 -- Manager supports updating only the latest version of the document. You
 -- can specify the version number of the latest version or use the
 -- @$LATEST@ variable.
+--
+-- If you change a document version for a State Manager association,
+-- Systems Manager immediately runs the association unless you previously
+-- specifed the @apply-only-at-cron-interval@ parameter.
 updateDocument_documentVersion :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_documentVersion = Lens.lens (\UpdateDocument' {documentVersion} -> documentVersion) (\s@UpdateDocument' {} a -> s {documentVersion = a} :: UpdateDocument)
 

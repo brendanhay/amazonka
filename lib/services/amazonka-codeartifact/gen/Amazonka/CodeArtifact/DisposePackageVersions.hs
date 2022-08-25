@@ -70,30 +70,22 @@ import qualified Amazonka.Response as Response
 data DisposePackageVersions = DisposePackageVersions'
   { -- | The revisions of the package versions you want to dispose.
     versionRevisions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The expected status of the package version to dispose. Valid values are:
-    --
-    -- -   @Published@
-    --
-    -- -   @Unfinished@
-    --
-    -- -   @Unlisted@
-    --
-    -- -   @Archived@
-    --
-    -- -   @Disposed@
+    -- | The expected status of the package version to dispose.
     expectedStatus :: Prelude.Maybe PackageVersionStatus,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package versions to be disposed. The package
+    -- version component that specifies its namespace depends on its type. For
+    -- example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository you want to dispose.
     domain :: Prelude.Text,
@@ -101,13 +93,7 @@ data DisposePackageVersions = DisposePackageVersions'
     -- to dispose.
     repository :: Prelude.Text,
     -- | A format that specifies the type of package versions you want to
-    -- dispose. The valid values are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- dispose.
     format :: PackageFormat,
     -- | The name of the package with the versions you want to dispose.
     package :: Prelude.Text,
@@ -126,30 +112,22 @@ data DisposePackageVersions = DisposePackageVersions'
 --
 -- 'versionRevisions', 'disposePackageVersions_versionRevisions' - The revisions of the package versions you want to dispose.
 --
--- 'expectedStatus', 'disposePackageVersions_expectedStatus' - The expected status of the package version to dispose. Valid values are:
+-- 'expectedStatus', 'disposePackageVersions_expectedStatus' - The expected status of the package version to dispose.
 --
--- -   @Published@
+-- 'domainOwner', 'disposePackageVersions_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- -   @Unfinished@
+-- 'namespace', 'disposePackageVersions_namespace' - The namespace of the package versions to be disposed. The package
+-- version component that specifies its namespace depends on its type. For
+-- example:
 --
--- -   @Unlisted@
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   @Archived@
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   @Disposed@
---
--- 'domainOwner', 'disposePackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
---
--- 'namespace', 'disposePackageVersions_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
---
--- -   The namespace of a Maven package is its @groupId@.
---
--- -   The namespace of an npm package is its @scope@.
---
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'domain', 'disposePackageVersions_domain' - The name of the domain that contains the repository you want to dispose.
 --
@@ -157,13 +135,7 @@ data DisposePackageVersions = DisposePackageVersions'
 -- to dispose.
 --
 -- 'format', 'disposePackageVersions_format' - A format that specifies the type of package versions you want to
--- dispose. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- dispose.
 --
 -- 'package', 'disposePackageVersions_package' - The name of the package with the versions you want to dispose.
 --
@@ -200,34 +172,26 @@ newDisposePackageVersions
 disposePackageVersions_versionRevisions :: Lens.Lens' DisposePackageVersions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 disposePackageVersions_versionRevisions = Lens.lens (\DisposePackageVersions' {versionRevisions} -> versionRevisions) (\s@DisposePackageVersions' {} a -> s {versionRevisions = a} :: DisposePackageVersions) Prelude.. Lens.mapping Lens.coerced
 
--- | The expected status of the package version to dispose. Valid values are:
---
--- -   @Published@
---
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
+-- | The expected status of the package version to dispose.
 disposePackageVersions_expectedStatus :: Lens.Lens' DisposePackageVersions (Prelude.Maybe PackageVersionStatus)
 disposePackageVersions_expectedStatus = Lens.lens (\DisposePackageVersions' {expectedStatus} -> expectedStatus) (\s@DisposePackageVersions' {} a -> s {expectedStatus = a} :: DisposePackageVersions)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 disposePackageVersions_domainOwner :: Lens.Lens' DisposePackageVersions (Prelude.Maybe Prelude.Text)
 disposePackageVersions_domainOwner = Lens.lens (\DisposePackageVersions' {domainOwner} -> domainOwner) (\s@DisposePackageVersions' {} a -> s {domainOwner = a} :: DisposePackageVersions)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package versions to be disposed. The package
+-- version component that specifies its namespace depends on its type. For
+-- example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 disposePackageVersions_namespace :: Lens.Lens' DisposePackageVersions (Prelude.Maybe Prelude.Text)
 disposePackageVersions_namespace = Lens.lens (\DisposePackageVersions' {namespace} -> namespace) (\s@DisposePackageVersions' {} a -> s {namespace = a} :: DisposePackageVersions)
 
@@ -241,13 +205,7 @@ disposePackageVersions_repository :: Lens.Lens' DisposePackageVersions Prelude.T
 disposePackageVersions_repository = Lens.lens (\DisposePackageVersions' {repository} -> repository) (\s@DisposePackageVersions' {} a -> s {repository = a} :: DisposePackageVersions)
 
 -- | A format that specifies the type of package versions you want to
--- dispose. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- dispose.
 disposePackageVersions_format :: Lens.Lens' DisposePackageVersions PackageFormat
 disposePackageVersions_format = Lens.lens (\DisposePackageVersions' {format} -> format) (\s@DisposePackageVersions' {} a -> s {format = a} :: DisposePackageVersions)
 

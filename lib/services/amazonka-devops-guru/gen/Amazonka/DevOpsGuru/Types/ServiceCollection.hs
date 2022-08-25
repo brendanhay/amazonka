@@ -24,11 +24,12 @@ import Amazonka.DevOpsGuru.Types.ServiceName
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A collection of the names of AWS services.
+-- | A collection of the names of Amazon Web Services services.
 --
 -- /See:/ 'newServiceCollection' smart constructor.
 data ServiceCollection = ServiceCollection'
-  { -- | An array of strings that each specifies the name of an AWS service.
+  { -- | An array of strings that each specifies the name of an Amazon Web
+    -- Services service.
     serviceNames :: Prelude.Maybe [ServiceName]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,13 +42,15 @@ data ServiceCollection = ServiceCollection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceNames', 'serviceCollection_serviceNames' - An array of strings that each specifies the name of an AWS service.
+-- 'serviceNames', 'serviceCollection_serviceNames' - An array of strings that each specifies the name of an Amazon Web
+-- Services service.
 newServiceCollection ::
   ServiceCollection
 newServiceCollection =
   ServiceCollection' {serviceNames = Prelude.Nothing}
 
--- | An array of strings that each specifies the name of an AWS service.
+-- | An array of strings that each specifies the name of an Amazon Web
+-- Services service.
 serviceCollection_serviceNames :: Lens.Lens' ServiceCollection (Prelude.Maybe [ServiceName])
 serviceCollection_serviceNames = Lens.lens (\ServiceCollection' {serviceNames} -> serviceNames) (\s@ServiceCollection' {} a -> s {serviceNames = a} :: ServiceCollection) Prelude.. Lens.mapping Lens.coerced
 

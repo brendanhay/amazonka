@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data LogDeliveryConfiguration = LogDeliveryConfiguration'
   { -- | Returns an error message for the log delivery configuration.
     message :: Prelude.Maybe Prelude.Text,
-    -- | Refers to <https://redis.io/commands/slowlog slow-log>.
+    -- | Refers to <https://redis.io/commands/slowlog slow-log> or engine-log.
     logType :: Prelude.Maybe LogType,
     -- | Returns the destination type, either @cloudwatch-logs@ or
     -- @kinesis-firehose@.
@@ -60,7 +60,7 @@ data LogDeliveryConfiguration = LogDeliveryConfiguration'
 --
 -- 'message', 'logDeliveryConfiguration_message' - Returns an error message for the log delivery configuration.
 --
--- 'logType', 'logDeliveryConfiguration_logType' - Refers to <https://redis.io/commands/slowlog slow-log>.
+-- 'logType', 'logDeliveryConfiguration_logType' - Refers to <https://redis.io/commands/slowlog slow-log> or engine-log.
 --
 -- 'destinationType', 'logDeliveryConfiguration_destinationType' - Returns the destination type, either @cloudwatch-logs@ or
 -- @kinesis-firehose@.
@@ -89,7 +89,7 @@ newLogDeliveryConfiguration =
 logDeliveryConfiguration_message :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe Prelude.Text)
 logDeliveryConfiguration_message = Lens.lens (\LogDeliveryConfiguration' {message} -> message) (\s@LogDeliveryConfiguration' {} a -> s {message = a} :: LogDeliveryConfiguration)
 
--- | Refers to <https://redis.io/commands/slowlog slow-log>.
+-- | Refers to <https://redis.io/commands/slowlog slow-log> or engine-log.
 logDeliveryConfiguration_logType :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe LogType)
 logDeliveryConfiguration_logType = Lens.lens (\LogDeliveryConfiguration' {logType} -> logType) (\s@LogDeliveryConfiguration' {} a -> s {logType = a} :: LogDeliveryConfiguration)
 

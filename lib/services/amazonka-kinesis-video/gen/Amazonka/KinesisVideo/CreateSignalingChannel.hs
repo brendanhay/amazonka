@@ -63,7 +63,8 @@ data CreateSignalingChannel = CreateSignalingChannel'
     -- @SINGLE_MASTER@ is the only supported channel type.
     channelType :: Prelude.Maybe ChannelType,
     -- | A name for the signaling channel that you are creating. It must be
-    -- unique for each AWS account and AWS Region.
+    -- unique for each Amazon Web Services account and Amazon Web Services
+    -- Region.
     channelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,7 +87,8 @@ data CreateSignalingChannel = CreateSignalingChannel'
 -- @SINGLE_MASTER@ is the only supported channel type.
 --
 -- 'channelName', 'createSignalingChannel_channelName' - A name for the signaling channel that you are creating. It must be
--- unique for each AWS account and AWS Region.
+-- unique for each Amazon Web Services account and Amazon Web Services
+-- Region.
 newCreateSignalingChannel ::
   -- | 'channelName'
   Prelude.Text ->
@@ -115,7 +117,8 @@ createSignalingChannel_channelType :: Lens.Lens' CreateSignalingChannel (Prelude
 createSignalingChannel_channelType = Lens.lens (\CreateSignalingChannel' {channelType} -> channelType) (\s@CreateSignalingChannel' {} a -> s {channelType = a} :: CreateSignalingChannel)
 
 -- | A name for the signaling channel that you are creating. It must be
--- unique for each AWS account and AWS Region.
+-- unique for each Amazon Web Services account and Amazon Web Services
+-- Region.
 createSignalingChannel_channelName :: Lens.Lens' CreateSignalingChannel Prelude.Text
 createSignalingChannel_channelName = Lens.lens (\CreateSignalingChannel' {channelName} -> channelName) (\s@CreateSignalingChannel' {} a -> s {channelName = a} :: CreateSignalingChannel)
 

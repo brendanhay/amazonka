@@ -20,16 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of recommended items. The required input depends on the
--- recipe type used to create the solution backing the campaign, as
--- follows:
+-- Returns a list of recommended items. For campaigns, the campaign\'s
+-- Amazon Resource Name (ARN) is required and the required user and item
+-- input depends on the recipe type used to create the solution backing the
+-- campaign as follows:
+--
+-- -   USER_PERSONALIZATION - @userId@ required, @itemId@ not used
 --
 -- -   RELATED_ITEMS - @itemId@ required, @userId@ not used
 --
--- -   USER_PERSONALIZATION - @itemId@ optional, @userId@ required
---
 -- Campaigns that are backed by a solution created using a recipe of type
 -- PERSONALIZED_RANKING use the API.
+--
+-- For recommenders, the recommender\'s ARN is required and the required
+-- item and user input depends on the use case (domain-based recipe)
+-- backing the recommender. For information on use case requirements see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html Choosing recommender use cases>.
 module Amazonka.PersonalizeRuntime.GetRecommendations
   ( -- * Creating a Request
     GetRecommendations (..),
@@ -37,11 +43,13 @@ module Amazonka.PersonalizeRuntime.GetRecommendations
 
     -- * Request Lenses
     getRecommendations_filterArn,
+    getRecommendations_recommenderArn,
     getRecommendations_numResults,
     getRecommendations_context,
     getRecommendations_userId,
     getRecommendations_itemId,
     getRecommendations_filterValues,
+    getRecommendations_promotions,
     getRecommendations_campaignArn,
 
     -- * Destructuring the Response
@@ -70,6 +78,10 @@ data GetRecommendations = GetRecommendations'
     --
     -- When using this parameter, be sure the filter resource is @ACTIVE@.
     filterArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the recommender to use to get
+    -- recommendations. Provide a recommender ARN if you created a Domain
+    -- dataset group with a recommender for a domain use case.
+    recommenderArn :: Prelude.Maybe Prelude.Text,
     -- | The number of results to return. The default is 25. The maximum is 500.
     numResults :: Prelude.Maybe Prelude.Natural,
     -- | The contextual metadata to use when getting recommendations. Contextual
@@ -98,11 +110,15 @@ data GetRecommendations = GetRecommendations'
     -- recommendations.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
     filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    -- | The promotions to apply to the recommendation request. A promotion
+    -- defines additional business rules that apply to a configurable subset of
+    -- recommended items.
+    promotions :: Prelude.Maybe [Promotion],
     -- | The Amazon Resource Name (ARN) of the campaign to use for getting
     -- recommendations.
-    campaignArn :: Prelude.Text
+    campaignArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -119,6 +135,10 @@ data GetRecommendations = GetRecommendations'
 -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
 --
 -- When using this parameter, be sure the filter resource is @ACTIVE@.
+--
+-- 'recommenderArn', 'getRecommendations_recommenderArn' - The Amazon Resource Name (ARN) of the recommender to use to get
+-- recommendations. Provide a recommender ARN if you created a Domain
+-- dataset group with a recommender for a domain use case.
 --
 -- 'numResults', 'getRecommendations_numResults' - The number of results to return. The default is 25. The maximum is 500.
 --
@@ -148,23 +168,27 @@ data GetRecommendations = GetRecommendations'
 -- recommendations.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
+--
+-- 'promotions', 'getRecommendations_promotions' - The promotions to apply to the recommendation request. A promotion
+-- defines additional business rules that apply to a configurable subset of
+-- recommended items.
 --
 -- 'campaignArn', 'getRecommendations_campaignArn' - The Amazon Resource Name (ARN) of the campaign to use for getting
 -- recommendations.
 newGetRecommendations ::
-  -- | 'campaignArn'
-  Prelude.Text ->
   GetRecommendations
-newGetRecommendations pCampaignArn_ =
+newGetRecommendations =
   GetRecommendations'
     { filterArn = Prelude.Nothing,
+      recommenderArn = Prelude.Nothing,
       numResults = Prelude.Nothing,
       context = Prelude.Nothing,
       userId = Prelude.Nothing,
       itemId = Prelude.Nothing,
       filterValues = Prelude.Nothing,
-      campaignArn = pCampaignArn_
+      promotions = Prelude.Nothing,
+      campaignArn = Prelude.Nothing
     }
 
 -- | The ARN of the filter to apply to the returned recommendations. For more
@@ -174,6 +198,12 @@ newGetRecommendations pCampaignArn_ =
 -- When using this parameter, be sure the filter resource is @ACTIVE@.
 getRecommendations_filterArn :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
 getRecommendations_filterArn = Lens.lens (\GetRecommendations' {filterArn} -> filterArn) (\s@GetRecommendations' {} a -> s {filterArn = a} :: GetRecommendations)
+
+-- | The Amazon Resource Name (ARN) of the recommender to use to get
+-- recommendations. Provide a recommender ARN if you created a Domain
+-- dataset group with a recommender for a domain use case.
+getRecommendations_recommenderArn :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
+getRecommendations_recommenderArn = Lens.lens (\GetRecommendations' {recommenderArn} -> recommenderArn) (\s@GetRecommendations' {} a -> s {recommenderArn = a} :: GetRecommendations)
 
 -- | The number of results to return. The default is 25. The maximum is 500.
 getRecommendations_numResults :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Natural)
@@ -211,13 +241,19 @@ getRecommendations_itemId = Lens.lens (\GetRecommendations' {itemId} -> itemId) 
 -- recommendations.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
 getRecommendations_filterValues :: Lens.Lens' GetRecommendations (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getRecommendations_filterValues = Lens.lens (\GetRecommendations' {filterValues} -> filterValues) (\s@GetRecommendations' {} a -> s {filterValues = a} :: GetRecommendations) Prelude.. Lens.mapping Lens.coerced
 
+-- | The promotions to apply to the recommendation request. A promotion
+-- defines additional business rules that apply to a configurable subset of
+-- recommended items.
+getRecommendations_promotions :: Lens.Lens' GetRecommendations (Prelude.Maybe [Promotion])
+getRecommendations_promotions = Lens.lens (\GetRecommendations' {promotions} -> promotions) (\s@GetRecommendations' {} a -> s {promotions = a} :: GetRecommendations) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Resource Name (ARN) of the campaign to use for getting
 -- recommendations.
-getRecommendations_campaignArn :: Lens.Lens' GetRecommendations Prelude.Text
+getRecommendations_campaignArn :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
 getRecommendations_campaignArn = Lens.lens (\GetRecommendations' {campaignArn} -> campaignArn) (\s@GetRecommendations' {} a -> s {campaignArn = a} :: GetRecommendations)
 
 instance Core.AWSRequest GetRecommendations where
@@ -237,21 +273,25 @@ instance Core.AWSRequest GetRecommendations where
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =
     _salt `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` recommenderArn
       `Prelude.hashWithSalt` numResults
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` itemId
       `Prelude.hashWithSalt` filterValues
+      `Prelude.hashWithSalt` promotions
       `Prelude.hashWithSalt` campaignArn
 
 instance Prelude.NFData GetRecommendations where
   rnf GetRecommendations' {..} =
     Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf recommenderArn
       `Prelude.seq` Prelude.rnf numResults
       `Prelude.seq` Prelude.rnf context
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf itemId
       `Prelude.seq` Prelude.rnf filterValues
+      `Prelude.seq` Prelude.rnf promotions
       `Prelude.seq` Prelude.rnf campaignArn
 
 instance Core.ToHeaders GetRecommendations where
@@ -270,12 +310,15 @@ instance Core.ToJSON GetRecommendations where
     Core.object
       ( Prelude.catMaybes
           [ ("filterArn" Core..=) Prelude.<$> filterArn,
+            ("recommenderArn" Core..=)
+              Prelude.<$> recommenderArn,
             ("numResults" Core..=) Prelude.<$> numResults,
             ("context" Core..=) Prelude.<$> context,
             ("userId" Core..=) Prelude.<$> userId,
             ("itemId" Core..=) Prelude.<$> itemId,
             ("filterValues" Core..=) Prelude.<$> filterValues,
-            Prelude.Just ("campaignArn" Core..= campaignArn)
+            ("promotions" Core..=) Prelude.<$> promotions,
+            ("campaignArn" Core..=) Prelude.<$> campaignArn
           ]
       )
 
@@ -289,8 +332,8 @@ instance Core.ToQuery GetRecommendations where
 data GetRecommendationsResponse = GetRecommendationsResponse'
   { -- | The ID of the recommendation.
     recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | A list of recommendations sorted in ascending order by prediction score.
-    -- There can be a maximum of 500 items in the list.
+    -- | A list of recommendations sorted in descending order by prediction
+    -- score. There can be a maximum of 500 items in the list.
     itemList :: Prelude.Maybe [PredictedItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -307,8 +350,8 @@ data GetRecommendationsResponse = GetRecommendationsResponse'
 --
 -- 'recommendationId', 'getRecommendationsResponse_recommendationId' - The ID of the recommendation.
 --
--- 'itemList', 'getRecommendationsResponse_itemList' - A list of recommendations sorted in ascending order by prediction score.
--- There can be a maximum of 500 items in the list.
+-- 'itemList', 'getRecommendationsResponse_itemList' - A list of recommendations sorted in descending order by prediction
+-- score. There can be a maximum of 500 items in the list.
 --
 -- 'httpStatus', 'getRecommendationsResponse_httpStatus' - The response's http status code.
 newGetRecommendationsResponse ::
@@ -327,8 +370,8 @@ newGetRecommendationsResponse pHttpStatus_ =
 getRecommendationsResponse_recommendationId :: Lens.Lens' GetRecommendationsResponse (Prelude.Maybe Prelude.Text)
 getRecommendationsResponse_recommendationId = Lens.lens (\GetRecommendationsResponse' {recommendationId} -> recommendationId) (\s@GetRecommendationsResponse' {} a -> s {recommendationId = a} :: GetRecommendationsResponse)
 
--- | A list of recommendations sorted in ascending order by prediction score.
--- There can be a maximum of 500 items in the list.
+-- | A list of recommendations sorted in descending order by prediction
+-- score. There can be a maximum of 500 items in the list.
 getRecommendationsResponse_itemList :: Lens.Lens' GetRecommendationsResponse (Prelude.Maybe [PredictedItem])
 getRecommendationsResponse_itemList = Lens.lens (\GetRecommendationsResponse' {itemList} -> itemList) (\s@GetRecommendationsResponse' {} a -> s {itemList = a} :: GetRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 

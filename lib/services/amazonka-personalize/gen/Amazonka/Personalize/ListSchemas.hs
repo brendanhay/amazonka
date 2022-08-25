@@ -22,7 +22,8 @@
 --
 -- Returns the list of schemas associated with the account. The response
 -- provides the properties for each schema, including the Amazon Resource
--- Name (ARN). For more information on schemas, see CreateSchema.
+-- Name (ARN). For more information on schemas, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html CreateSchema>.
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListSchemas

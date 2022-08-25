@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from a resource in AWS CodeArtifact.
+-- Removes tags from a resource in CodeArtifact.
 module Amazonka.CodeArtifact.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

@@ -74,7 +74,7 @@ data UpdateFleetMetric = UpdateFleetMetric'
     expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | Used to support unit transformation such as milliseconds to seconds. The
     -- unit must be supported by
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
     unit :: Prelude.Maybe FleetMetricUnit,
     -- | The name of the fleet metric to update.
     metricName :: Prelude.Text,
@@ -108,7 +108,7 @@ data UpdateFleetMetric = UpdateFleetMetric'
 --
 -- 'unit', 'updateFleetMetric_unit' - Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
 --
 -- 'metricName', 'updateFleetMetric_metricName' - The name of the fleet metric to update.
 --
@@ -165,7 +165,7 @@ updateFleetMetric_expectedVersion = Lens.lens (\UpdateFleetMetric' {expectedVers
 
 -- | Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
 updateFleetMetric_unit :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe FleetMetricUnit)
 updateFleetMetric_unit = Lens.lens (\UpdateFleetMetric' {unit} -> unit) (\s@UpdateFleetMetric' {} a -> s {unit = a} :: UpdateFleetMetric)
 

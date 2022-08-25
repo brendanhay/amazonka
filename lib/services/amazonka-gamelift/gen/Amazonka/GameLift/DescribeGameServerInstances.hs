@@ -91,10 +91,10 @@ data DescribeGameServerInstances = DescribeGameServerInstances'
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The EC2 instance IDs that you want to retrieve status on. EC2 instance
-    -- IDs use a 17-character format, for example: @i-1234567890abcdef0@. To
-    -- retrieve all instances in the game server group, leave this parameter
-    -- empty.
+    -- | The Amazon EC2 instance IDs that you want to retrieve status on. Amazon
+    -- EC2 instance IDs use a 17-character format, for example:
+    -- @i-1234567890abcdef0@. To retrieve all instances in the game server
+    -- group, leave this parameter empty.
     instanceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
@@ -117,10 +117,10 @@ data DescribeGameServerInstances = DescribeGameServerInstances'
 -- 'limit', 'describeGameServerInstances_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
--- 'instanceIds', 'describeGameServerInstances_instanceIds' - The EC2 instance IDs that you want to retrieve status on. EC2 instance
--- IDs use a 17-character format, for example: @i-1234567890abcdef0@. To
--- retrieve all instances in the game server group, leave this parameter
--- empty.
+-- 'instanceIds', 'describeGameServerInstances_instanceIds' - The Amazon EC2 instance IDs that you want to retrieve status on. Amazon
+-- EC2 instance IDs use a 17-character format, for example:
+-- @i-1234567890abcdef0@. To retrieve all instances in the game server
+-- group, leave this parameter empty.
 --
 -- 'gameServerGroupName', 'describeGameServerInstances_gameServerGroupName' - A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
@@ -148,10 +148,10 @@ describeGameServerInstances_nextToken = Lens.lens (\DescribeGameServerInstances'
 describeGameServerInstances_limit :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe Prelude.Natural)
 describeGameServerInstances_limit = Lens.lens (\DescribeGameServerInstances' {limit} -> limit) (\s@DescribeGameServerInstances' {} a -> s {limit = a} :: DescribeGameServerInstances)
 
--- | The EC2 instance IDs that you want to retrieve status on. EC2 instance
--- IDs use a 17-character format, for example: @i-1234567890abcdef0@. To
--- retrieve all instances in the game server group, leave this parameter
--- empty.
+-- | The Amazon EC2 instance IDs that you want to retrieve status on. Amazon
+-- EC2 instance IDs use a 17-character format, for example:
+-- @i-1234567890abcdef0@. To retrieve all instances in the game server
+-- group, leave this parameter empty.
 describeGameServerInstances_instanceIds :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeGameServerInstances_instanceIds = Lens.lens (\DescribeGameServerInstances' {instanceIds} -> instanceIds) (\s@DescribeGameServerInstances' {} a -> s {instanceIds = a} :: DescribeGameServerInstances) Prelude.. Lens.mapping Lens.coerced
 

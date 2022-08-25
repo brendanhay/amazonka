@@ -78,8 +78,9 @@ data UpdateDataCatalog = UpdateDataCatalog'
     --         @function=lambda_arn @
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog to update. The catalog name must be unique
-    -- for the Amazon Web Services account and can use a maximum of 128
-    -- alphanumeric, underscore, at sign, or hyphen characters.
+    -- for the Amazon Web Services account and can use a maximum of 127
+    -- alphanumeric, underscore, at sign, or hyphen characters. The remainder
+    -- of the length constraint of 256 is reserved for use by Athena.
     name :: Prelude.Text,
     -- | Specifies the type of data catalog to update. Specify @LAMBDA@ for a
     -- federated catalog, @HIVE@ for an external hive metastore, or @GLUE@ for
@@ -124,8 +125,9 @@ data UpdateDataCatalog = UpdateDataCatalog'
 --         @function=lambda_arn @
 --
 -- 'name', 'updateDataCatalog_name' - The name of the data catalog to update. The catalog name must be unique
--- for the Amazon Web Services account and can use a maximum of 128
--- alphanumeric, underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 127
+-- alphanumeric, underscore, at sign, or hyphen characters. The remainder
+-- of the length constraint of 256 is reserved for use by Athena.
 --
 -- 'type'', 'updateDataCatalog_type' - Specifies the type of data catalog to update. Specify @LAMBDA@ for a
 -- federated catalog, @HIVE@ for an external hive metastore, or @GLUE@ for
@@ -176,8 +178,9 @@ updateDataCatalog_parameters :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe (Pre
 updateDataCatalog_parameters = Lens.lens (\UpdateDataCatalog' {parameters} -> parameters) (\s@UpdateDataCatalog' {} a -> s {parameters = a} :: UpdateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the data catalog to update. The catalog name must be unique
--- for the Amazon Web Services account and can use a maximum of 128
--- alphanumeric, underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 127
+-- alphanumeric, underscore, at sign, or hyphen characters. The remainder
+-- of the length constraint of 256 is reserved for use by Athena.
 updateDataCatalog_name :: Lens.Lens' UpdateDataCatalog Prelude.Text
 updateDataCatalog_name = Lens.lens (\UpdateDataCatalog' {name} -> name) (\s@UpdateDataCatalog' {} a -> s {name = a} :: UpdateDataCatalog)
 

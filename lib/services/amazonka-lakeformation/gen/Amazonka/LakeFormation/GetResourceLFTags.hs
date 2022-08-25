@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the tags applied to a resource.
+-- Returns the LF-tags applied to a resource.
 module Amazonka.LakeFormation.GetResourceLFTags
   ( -- * Creating a Request
     GetResourceLFTags (..),
@@ -55,11 +55,12 @@ data GetResourceLFTags = GetResourceLFTags'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to show the assigned tags.
+    -- | Indicates whether to show the assigned LF-tags.
     showAssignedLFTags :: Prelude.Maybe Prelude.Bool,
-    -- | The resource for which you want to return tags.
+    -- | The database, table, or column resource for which you want to return
+    -- LF-tags.
     resource :: Resource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,11 +76,12 @@ data GetResourceLFTags = GetResourceLFTags'
 -- 'catalogId', 'getResourceLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'showAssignedLFTags', 'getResourceLFTags_showAssignedLFTags' - Indicates whether to show the assigned tags.
+-- 'showAssignedLFTags', 'getResourceLFTags_showAssignedLFTags' - Indicates whether to show the assigned LF-tags.
 --
--- 'resource', 'getResourceLFTags_resource' - The resource for which you want to return tags.
+-- 'resource', 'getResourceLFTags_resource' - The database, table, or column resource for which you want to return
+-- LF-tags.
 newGetResourceLFTags ::
   -- | 'resource'
   Resource ->
@@ -94,15 +96,16 @@ newGetResourceLFTags pResource_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 getResourceLFTags_catalogId :: Lens.Lens' GetResourceLFTags (Prelude.Maybe Prelude.Text)
 getResourceLFTags_catalogId = Lens.lens (\GetResourceLFTags' {catalogId} -> catalogId) (\s@GetResourceLFTags' {} a -> s {catalogId = a} :: GetResourceLFTags)
 
--- | Indicates whether to show the assigned tags.
+-- | Indicates whether to show the assigned LF-tags.
 getResourceLFTags_showAssignedLFTags :: Lens.Lens' GetResourceLFTags (Prelude.Maybe Prelude.Bool)
 getResourceLFTags_showAssignedLFTags = Lens.lens (\GetResourceLFTags' {showAssignedLFTags} -> showAssignedLFTags) (\s@GetResourceLFTags' {} a -> s {showAssignedLFTags = a} :: GetResourceLFTags)
 
--- | The resource for which you want to return tags.
+-- | The database, table, or column resource for which you want to return
+-- LF-tags.
 getResourceLFTags_resource :: Lens.Lens' GetResourceLFTags Resource
 getResourceLFTags_resource = Lens.lens (\GetResourceLFTags' {resource} -> resource) (\s@GetResourceLFTags' {} a -> s {resource = a} :: GetResourceLFTags)
 
@@ -139,11 +142,7 @@ instance Core.ToHeaders GetResourceLFTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.GetResourceLFTags" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -162,18 +161,18 @@ instance Core.ToJSON GetResourceLFTags where
       )
 
 instance Core.ToPath GetResourceLFTags where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/GetResourceLFTags"
 
 instance Core.ToQuery GetResourceLFTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceLFTagsResponse' smart constructor.
 data GetResourceLFTagsResponse = GetResourceLFTagsResponse'
-  { -- | A list of tags applied to a table resource.
+  { -- | A list of LF-tags applied to a table resource.
     lFTagsOnTable :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
-    -- | A list of tags applied to a database resource.
+    -- | A list of LF-tags applied to a database resource.
     lFTagOnDatabase :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
-    -- | A list of tags applied to a column resource.
+    -- | A list of LF-tags applied to a column resource.
     lFTagsOnColumns :: Prelude.Maybe [ColumnLFTag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,11 +187,11 @@ data GetResourceLFTagsResponse = GetResourceLFTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lFTagsOnTable', 'getResourceLFTagsResponse_lFTagsOnTable' - A list of tags applied to a table resource.
+-- 'lFTagsOnTable', 'getResourceLFTagsResponse_lFTagsOnTable' - A list of LF-tags applied to a table resource.
 --
--- 'lFTagOnDatabase', 'getResourceLFTagsResponse_lFTagOnDatabase' - A list of tags applied to a database resource.
+-- 'lFTagOnDatabase', 'getResourceLFTagsResponse_lFTagOnDatabase' - A list of LF-tags applied to a database resource.
 --
--- 'lFTagsOnColumns', 'getResourceLFTagsResponse_lFTagsOnColumns' - A list of tags applied to a column resource.
+-- 'lFTagsOnColumns', 'getResourceLFTagsResponse_lFTagsOnColumns' - A list of LF-tags applied to a column resource.
 --
 -- 'httpStatus', 'getResourceLFTagsResponse_httpStatus' - The response's http status code.
 newGetResourceLFTagsResponse ::
@@ -208,15 +207,15 @@ newGetResourceLFTagsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of tags applied to a table resource.
+-- | A list of LF-tags applied to a table resource.
 getResourceLFTagsResponse_lFTagsOnTable :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 getResourceLFTagsResponse_lFTagsOnTable = Lens.lens (\GetResourceLFTagsResponse' {lFTagsOnTable} -> lFTagsOnTable) (\s@GetResourceLFTagsResponse' {} a -> s {lFTagsOnTable = a} :: GetResourceLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of tags applied to a database resource.
+-- | A list of LF-tags applied to a database resource.
 getResourceLFTagsResponse_lFTagOnDatabase :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 getResourceLFTagsResponse_lFTagOnDatabase = Lens.lens (\GetResourceLFTagsResponse' {lFTagOnDatabase} -> lFTagOnDatabase) (\s@GetResourceLFTagsResponse' {} a -> s {lFTagOnDatabase = a} :: GetResourceLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of tags applied to a column resource.
+-- | A list of LF-tags applied to a column resource.
 getResourceLFTagsResponse_lFTagsOnColumns :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe [ColumnLFTag])
 getResourceLFTagsResponse_lFTagsOnColumns = Lens.lens (\GetResourceLFTagsResponse' {lFTagsOnColumns} -> lFTagsOnColumns) (\s@GetResourceLFTagsResponse' {} a -> s {lFTagsOnColumns = a} :: GetResourceLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 

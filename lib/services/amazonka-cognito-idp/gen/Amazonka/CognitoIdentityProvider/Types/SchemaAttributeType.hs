@@ -35,7 +35,7 @@ data SchemaAttributeType = SchemaAttributeType'
     -- | A schema attribute of the name type.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether a user pool attribute is required. If the attribute is
-    -- required and the user does not provide a value, registration or sign-in
+    -- required and the user doesn\'t provide a value, registration or sign-in
     -- will fail.
     required :: Prelude.Maybe Prelude.Bool,
     -- | The attribute data type.
@@ -44,24 +44,23 @@ data SchemaAttributeType = SchemaAttributeType'
     stringAttributeConstraints :: Prelude.Maybe StringAttributeConstraintsType,
     -- | Specifies whether the value of the attribute can be changed.
     --
-    -- For any user pool attribute that\'s mapped to an identity provider
-    -- attribute, you must set this parameter to @true@. Amazon Cognito updates
-    -- mapped attributes when users sign in to your application through an
-    -- identity provider. If an attribute is immutable, Amazon Cognito throws
-    -- an error when it attempts to update the attribute. For more information,
-    -- see
+    -- For any user pool attribute that is mapped to an IdP attribute, you must
+    -- set this parameter to @true@. Amazon Cognito updates mapped attributes
+    -- when users sign in to your application through an IdP. If an attribute
+    -- is immutable, Amazon Cognito throws an error when it attempts to update
+    -- the attribute. For more information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool>.
     mutable :: Prelude.Maybe Prelude.Bool,
-    -- | We recommend that you use
+    -- | You should use
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes WriteAttributes>
     -- in the user pool client to control how attributes can be mutated for new
     -- use cases instead of using @DeveloperOnlyAttribute@.
     --
     -- Specifies whether the attribute type is developer only. This attribute
-    -- can only be modified by an administrator. Users will not be able to
-    -- modify this attribute using their access token. For example,
+    -- can only be modified by an administrator. Users won\'t be able to modify
+    -- this attribute using their access token. For example,
     -- @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes
-    -- but cannot be updated using UpdateUserAttributes.
+    -- but can\'t be updated using UpdateUserAttributes.
     developerOnlyAttribute :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +78,7 @@ data SchemaAttributeType = SchemaAttributeType'
 -- 'name', 'schemaAttributeType_name' - A schema attribute of the name type.
 --
 -- 'required', 'schemaAttributeType_required' - Specifies whether a user pool attribute is required. If the attribute is
--- required and the user does not provide a value, registration or sign-in
+-- required and the user doesn\'t provide a value, registration or sign-in
 -- will fail.
 --
 -- 'attributeDataType', 'schemaAttributeType_attributeDataType' - The attribute data type.
@@ -88,24 +87,23 @@ data SchemaAttributeType = SchemaAttributeType'
 --
 -- 'mutable', 'schemaAttributeType_mutable' - Specifies whether the value of the attribute can be changed.
 --
--- For any user pool attribute that\'s mapped to an identity provider
--- attribute, you must set this parameter to @true@. Amazon Cognito updates
--- mapped attributes when users sign in to your application through an
--- identity provider. If an attribute is immutable, Amazon Cognito throws
--- an error when it attempts to update the attribute. For more information,
--- see
+-- For any user pool attribute that is mapped to an IdP attribute, you must
+-- set this parameter to @true@. Amazon Cognito updates mapped attributes
+-- when users sign in to your application through an IdP. If an attribute
+-- is immutable, Amazon Cognito throws an error when it attempts to update
+-- the attribute. For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool>.
 --
--- 'developerOnlyAttribute', 'schemaAttributeType_developerOnlyAttribute' - We recommend that you use
+-- 'developerOnlyAttribute', 'schemaAttributeType_developerOnlyAttribute' - You should use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes WriteAttributes>
 -- in the user pool client to control how attributes can be mutated for new
 -- use cases instead of using @DeveloperOnlyAttribute@.
 --
 -- Specifies whether the attribute type is developer only. This attribute
--- can only be modified by an administrator. Users will not be able to
--- modify this attribute using their access token. For example,
+-- can only be modified by an administrator. Users won\'t be able to modify
+-- this attribute using their access token. For example,
 -- @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes
--- but cannot be updated using UpdateUserAttributes.
+-- but can\'t be updated using UpdateUserAttributes.
 newSchemaAttributeType ::
   SchemaAttributeType
 newSchemaAttributeType =
@@ -129,7 +127,7 @@ schemaAttributeType_name :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelud
 schemaAttributeType_name = Lens.lens (\SchemaAttributeType' {name} -> name) (\s@SchemaAttributeType' {} a -> s {name = a} :: SchemaAttributeType)
 
 -- | Specifies whether a user pool attribute is required. If the attribute is
--- required and the user does not provide a value, registration or sign-in
+-- required and the user doesn\'t provide a value, registration or sign-in
 -- will fail.
 schemaAttributeType_required :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Bool)
 schemaAttributeType_required = Lens.lens (\SchemaAttributeType' {required} -> required) (\s@SchemaAttributeType' {} a -> s {required = a} :: SchemaAttributeType)
@@ -144,26 +142,25 @@ schemaAttributeType_stringAttributeConstraints = Lens.lens (\SchemaAttributeType
 
 -- | Specifies whether the value of the attribute can be changed.
 --
--- For any user pool attribute that\'s mapped to an identity provider
--- attribute, you must set this parameter to @true@. Amazon Cognito updates
--- mapped attributes when users sign in to your application through an
--- identity provider. If an attribute is immutable, Amazon Cognito throws
--- an error when it attempts to update the attribute. For more information,
--- see
+-- For any user pool attribute that is mapped to an IdP attribute, you must
+-- set this parameter to @true@. Amazon Cognito updates mapped attributes
+-- when users sign in to your application through an IdP. If an attribute
+-- is immutable, Amazon Cognito throws an error when it attempts to update
+-- the attribute. For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool>.
 schemaAttributeType_mutable :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Bool)
 schemaAttributeType_mutable = Lens.lens (\SchemaAttributeType' {mutable} -> mutable) (\s@SchemaAttributeType' {} a -> s {mutable = a} :: SchemaAttributeType)
 
--- | We recommend that you use
+-- | You should use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes WriteAttributes>
 -- in the user pool client to control how attributes can be mutated for new
 -- use cases instead of using @DeveloperOnlyAttribute@.
 --
 -- Specifies whether the attribute type is developer only. This attribute
--- can only be modified by an administrator. Users will not be able to
--- modify this attribute using their access token. For example,
+-- can only be modified by an administrator. Users won\'t be able to modify
+-- this attribute using their access token. For example,
 -- @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes
--- but cannot be updated using UpdateUserAttributes.
+-- but can\'t be updated using UpdateUserAttributes.
 schemaAttributeType_developerOnlyAttribute :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Bool)
 schemaAttributeType_developerOnlyAttribute = Lens.lens (\SchemaAttributeType' {developerOnlyAttribute} -> developerOnlyAttribute) (\s@SchemaAttributeType' {} a -> s {developerOnlyAttribute = a} :: SchemaAttributeType)
 

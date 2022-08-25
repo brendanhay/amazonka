@@ -156,11 +156,17 @@ import Test.Tasty
 --         , requestPurchaseOffering $
 --             newPurchaseOffering'
 --
+--         , requestRebootInputDevice $
+--             newRebootInputDevice'
+--
 --         , requestRejectInputDeviceTransfer $
 --             newRejectInputDeviceTransfer
 --
 --         , requestStartChannel $
 --             newStartChannel
+--
+--         , requestStartInputDeviceMaintenanceWindow $
+--             newStartInputDeviceMaintenanceWindow
 --
 --         , requestStartMultiplex $
 --             newStartMultiplex
@@ -330,11 +336,17 @@ import Test.Tasty
 --         , responsePurchaseOffering $
 --             newPurchaseOfferingResponse
 --
+--         , responseRebootInputDevice $
+--             newRebootInputDeviceResponse
+--
 --         , responseRejectInputDeviceTransfer $
 --             newRejectInputDeviceTransferResponse
 --
 --         , responseStartChannel $
 --             newStartChannelResponse
+--
+--         , responseStartInputDeviceMaintenanceWindow $
+--             newStartInputDeviceMaintenanceWindowResponse
 --
 --         , responseStartMultiplex $
 --             newStartMultiplexResponse
@@ -635,6 +647,12 @@ requestPurchaseOffering =
     "PurchaseOffering"
     "fixture/PurchaseOffering.yaml"
 
+requestRebootInputDevice :: RebootInputDevice' -> TestTree
+requestRebootInputDevice =
+  req
+    "RebootInputDevice"
+    "fixture/RebootInputDevice.yaml"
+
 requestRejectInputDeviceTransfer :: RejectInputDeviceTransfer -> TestTree
 requestRejectInputDeviceTransfer =
   req
@@ -646,6 +664,12 @@ requestStartChannel =
   req
     "StartChannel"
     "fixture/StartChannel.yaml"
+
+requestStartInputDeviceMaintenanceWindow :: StartInputDeviceMaintenanceWindow -> TestTree
+requestStartInputDeviceMaintenanceWindow =
+  req
+    "StartInputDeviceMaintenanceWindow"
+    "fixture/StartInputDeviceMaintenanceWindow.yaml"
 
 requestStartMultiplex :: StartMultiplex -> TestTree
 requestStartMultiplex =
@@ -1057,6 +1081,14 @@ responsePurchaseOffering =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PurchaseOffering')
 
+responseRebootInputDevice :: RebootInputDeviceResponse -> TestTree
+responseRebootInputDevice =
+  res
+    "RebootInputDeviceResponse"
+    "fixture/RebootInputDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RebootInputDevice')
+
 responseRejectInputDeviceTransfer :: RejectInputDeviceTransferResponse -> TestTree
 responseRejectInputDeviceTransfer =
   res
@@ -1072,6 +1104,14 @@ responseStartChannel =
     "fixture/StartChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartChannel)
+
+responseStartInputDeviceMaintenanceWindow :: StartInputDeviceMaintenanceWindowResponse -> TestTree
+responseStartInputDeviceMaintenanceWindow =
+  res
+    "StartInputDeviceMaintenanceWindowResponse"
+    "fixture/StartInputDeviceMaintenanceWindowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartInputDeviceMaintenanceWindow)
 
 responseStartMultiplex :: StartMultiplexResponse -> TestTree
 responseStartMultiplex =

@@ -374,6 +374,11 @@ module Amazonka.Config.Lens
     getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList,
     getConformancePackComplianceSummaryResponse_httpStatus,
 
+    -- ** GetCustomRulePolicy
+    getCustomRulePolicy_configRuleName,
+    getCustomRulePolicyResponse_policyText,
+    getCustomRulePolicyResponse_httpStatus,
+
     -- ** GetDiscoveredResourceCounts
     getDiscoveredResourceCounts_nextToken,
     getDiscoveredResourceCounts_resourceTypes,
@@ -401,6 +406,11 @@ module Amazonka.Config.Lens
     getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses,
     getOrganizationConformancePackDetailedStatusResponse_httpStatus,
 
+    -- ** GetOrganizationCustomRulePolicy
+    getOrganizationCustomRulePolicy_organizationConfigRuleName,
+    getOrganizationCustomRulePolicyResponse_policyText,
+    getOrganizationCustomRulePolicyResponse_httpStatus,
+
     -- ** GetResourceConfigHistory
     getResourceConfigHistory_nextToken,
     getResourceConfigHistory_earlierTime,
@@ -427,6 +437,16 @@ module Amazonka.Config.Lens
     listAggregateDiscoveredResourcesResponse_resourceIdentifiers,
     listAggregateDiscoveredResourcesResponse_nextToken,
     listAggregateDiscoveredResourcesResponse_httpStatus,
+
+    -- ** ListConformancePackComplianceScores
+    listConformancePackComplianceScores_sortOrder,
+    listConformancePackComplianceScores_nextToken,
+    listConformancePackComplianceScores_filters,
+    listConformancePackComplianceScores_sortBy,
+    listConformancePackComplianceScores_limit,
+    listConformancePackComplianceScoresResponse_nextToken,
+    listConformancePackComplianceScoresResponse_httpStatus,
+    listConformancePackComplianceScoresResponse_conformancePackComplianceScores,
 
     -- ** ListDiscoveredResources
     listDiscoveredResources_nextToken,
@@ -502,6 +522,7 @@ module Amazonka.Config.Lens
     putExternalEvaluationResponse_httpStatus,
 
     -- ** PutOrganizationConfigRule
+    putOrganizationConfigRule_organizationCustomPolicyRuleMetadata,
     putOrganizationConfigRule_excludedAccounts,
     putOrganizationConfigRule_organizationManagedRuleMetadata,
     putOrganizationConfigRule_organizationCustomRuleMetadata,
@@ -748,6 +769,8 @@ module Amazonka.Config.Lens
     configRuleComplianceSummaryFilters_awsRegion,
 
     -- ** ConfigRuleEvaluationStatus
+    configRuleEvaluationStatus_lastDebugLogDeliveryStatus,
+    configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason,
     configRuleEvaluationStatus_firstEvaluationStarted,
     configRuleEvaluationStatus_lastErrorCode,
     configRuleEvaluationStatus_lastSuccessfulEvaluationTime,
@@ -758,6 +781,7 @@ module Amazonka.Config.Lens
     configRuleEvaluationStatus_firstActivatedTime,
     configRuleEvaluationStatus_configRuleId,
     configRuleEvaluationStatus_configRuleName,
+    configRuleEvaluationStatus_lastDebugLogDeliveryTime,
     configRuleEvaluationStatus_lastSuccessfulInvocationTime,
     configRuleEvaluationStatus_lastErrorMessage,
 
@@ -818,6 +842,14 @@ module Amazonka.Config.Lens
     conformancePackComplianceFilters_configRuleNames,
     conformancePackComplianceFilters_complianceType,
 
+    -- ** ConformancePackComplianceScore
+    conformancePackComplianceScore_score,
+    conformancePackComplianceScore_conformancePackName,
+    conformancePackComplianceScore_lastUpdatedTime,
+
+    -- ** ConformancePackComplianceScoresFilters
+    conformancePackComplianceScoresFilters_conformancePackNames,
+
     -- ** ConformancePackComplianceSummary
     conformancePackComplianceSummary_conformancePackName,
     conformancePackComplianceSummary_conformancePackComplianceStatus,
@@ -863,6 +895,11 @@ module Amazonka.Config.Lens
     conformancePackStatusDetail_conformancePackState,
     conformancePackStatusDetail_stackArn,
     conformancePackStatusDetail_lastUpdateRequestedTime,
+
+    -- ** CustomPolicyDetails
+    customPolicyDetails_enableDebugLogDelivery,
+    customPolicyDetails_policyRuntime,
+    customPolicyDetails_policyText,
 
     -- ** DeliveryChannel
     deliveryChannel_s3KeyPrefix,
@@ -945,6 +982,7 @@ module Amazonka.Config.Lens
     organizationAggregationSource_roleArn,
 
     -- ** OrganizationConfigRule
+    organizationConfigRule_organizationCustomPolicyRuleMetadata,
     organizationConfigRule_excludedAccounts,
     organizationConfigRule_lastUpdateTime,
     organizationConfigRule_organizationManagedRuleMetadata,
@@ -982,6 +1020,31 @@ module Amazonka.Config.Lens
     organizationConformancePackStatus_lastUpdateTime,
     organizationConformancePackStatus_organizationConformancePackName,
     organizationConformancePackStatus_status,
+
+    -- ** OrganizationCustomPolicyRuleMetadata
+    organizationCustomPolicyRuleMetadata_maximumExecutionFrequency,
+    organizationCustomPolicyRuleMetadata_resourceTypesScope,
+    organizationCustomPolicyRuleMetadata_inputParameters,
+    organizationCustomPolicyRuleMetadata_tagValueScope,
+    organizationCustomPolicyRuleMetadata_resourceIdScope,
+    organizationCustomPolicyRuleMetadata_debugLogDeliveryAccounts,
+    organizationCustomPolicyRuleMetadata_description,
+    organizationCustomPolicyRuleMetadata_organizationConfigRuleTriggerTypes,
+    organizationCustomPolicyRuleMetadata_tagKeyScope,
+    organizationCustomPolicyRuleMetadata_policyRuntime,
+    organizationCustomPolicyRuleMetadata_policyText,
+
+    -- ** OrganizationCustomPolicyRuleMetadataNoPolicy
+    organizationCustomPolicyRuleMetadataNoPolicy_maximumExecutionFrequency,
+    organizationCustomPolicyRuleMetadataNoPolicy_resourceTypesScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_inputParameters,
+    organizationCustomPolicyRuleMetadataNoPolicy_tagValueScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_resourceIdScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_debugLogDeliveryAccounts,
+    organizationCustomPolicyRuleMetadataNoPolicy_description,
+    organizationCustomPolicyRuleMetadataNoPolicy_organizationConfigRuleTriggerTypes,
+    organizationCustomPolicyRuleMetadataNoPolicy_policyRuntime,
+    organizationCustomPolicyRuleMetadataNoPolicy_tagKeyScope,
 
     -- ** OrganizationCustomRuleMetadata
     organizationCustomRuleMetadata_maximumExecutionFrequency,
@@ -1108,9 +1171,10 @@ module Amazonka.Config.Lens
     scope_complianceResourceTypes,
 
     -- ** Source
+    source_customPolicyDetails,
     source_sourceDetails,
-    source_owner,
     source_sourceIdentifier,
+    source_owner,
 
     -- ** SourceDetail
     sourceDetail_maximumExecutionFrequency,
@@ -1201,12 +1265,15 @@ import Amazonka.Config.GetComplianceSummaryByConfigRule
 import Amazonka.Config.GetComplianceSummaryByResourceType
 import Amazonka.Config.GetConformancePackComplianceDetails
 import Amazonka.Config.GetConformancePackComplianceSummary
+import Amazonka.Config.GetCustomRulePolicy
 import Amazonka.Config.GetDiscoveredResourceCounts
 import Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
 import Amazonka.Config.GetOrganizationConformancePackDetailedStatus
+import Amazonka.Config.GetOrganizationCustomRulePolicy
 import Amazonka.Config.GetResourceConfigHistory
 import Amazonka.Config.GetStoredQuery
 import Amazonka.Config.ListAggregateDiscoveredResources
+import Amazonka.Config.ListConformancePackComplianceScores
 import Amazonka.Config.ListDiscoveredResources
 import Amazonka.Config.ListStoredQueries
 import Amazonka.Config.ListTagsForResource
@@ -1264,6 +1331,8 @@ import Amazonka.Config.Types.ConfigurationItem
 import Amazonka.Config.Types.ConfigurationRecorder
 import Amazonka.Config.Types.ConfigurationRecorderStatus
 import Amazonka.Config.Types.ConformancePackComplianceFilters
+import Amazonka.Config.Types.ConformancePackComplianceScore
+import Amazonka.Config.Types.ConformancePackComplianceScoresFilters
 import Amazonka.Config.Types.ConformancePackComplianceSummary
 import Amazonka.Config.Types.ConformancePackDetail
 import Amazonka.Config.Types.ConformancePackEvaluationFilters
@@ -1271,6 +1340,7 @@ import Amazonka.Config.Types.ConformancePackEvaluationResult
 import Amazonka.Config.Types.ConformancePackInputParameter
 import Amazonka.Config.Types.ConformancePackRuleCompliance
 import Amazonka.Config.Types.ConformancePackStatusDetail
+import Amazonka.Config.Types.CustomPolicyDetails
 import Amazonka.Config.Types.DeliveryChannel
 import Amazonka.Config.Types.DeliveryChannelStatus
 import Amazonka.Config.Types.Evaluation
@@ -1291,6 +1361,8 @@ import Amazonka.Config.Types.OrganizationConfigRuleStatus
 import Amazonka.Config.Types.OrganizationConformancePack
 import Amazonka.Config.Types.OrganizationConformancePackDetailedStatus
 import Amazonka.Config.Types.OrganizationConformancePackStatus
+import Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadata
+import Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadataNoPolicy
 import Amazonka.Config.Types.OrganizationCustomRuleMetadata
 import Amazonka.Config.Types.OrganizationManagedRuleMetadata
 import Amazonka.Config.Types.OrganizationResourceDetailedStatusFilters

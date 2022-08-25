@@ -37,12 +37,15 @@ data BackupRuleInput = BackupRuleInput'
     -- automatically according to the lifecycle that you define.
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
-    -- a minimum of 90 days. Therefore, the “expire after days” setting must be
-    -- 90 days greater than the “transition to cold after days” setting. The
+    -- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+    -- greater than the “transition to cold after days” setting. The
     -- “transition to cold after days” setting cannot be changed after a backup
     -- has been transitioned to cold.
     --
-    -- Only Amazon EFS file system backups can be transitioned to cold storage.
+    -- Resource types that are able to be transitioned to cold storage are
+    -- listed in the \"Lifecycle to cold storage\" section of the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+    -- table. Backup ignores this expression for other resource types.
     lifecycle :: Prelude.Maybe Lifecycle,
     -- | An array of @CopyAction@ objects, which contains the details of the copy
     -- operation.
@@ -60,7 +63,8 @@ data BackupRuleInput = BackupRuleInput'
     -- | To help organize your resources, you can assign your own metadata to the
     -- resources that you create. Each tag is a key-value pair.
     recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | An optional display name for a backup rule.
+    -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
+    -- \'-_.\' characters.
     ruleName :: Prelude.Text,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
@@ -86,12 +90,15 @@ data BackupRuleInput = BackupRuleInput'
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 --
 -- 'copyActions', 'backupRuleInput_copyActions' - An array of @CopyAction@ objects, which contains the details of the copy
 -- operation.
@@ -109,7 +116,8 @@ data BackupRuleInput = BackupRuleInput'
 -- 'recoveryPointTags', 'backupRuleInput_recoveryPointTags' - To help organize your resources, you can assign your own metadata to the
 -- resources that you create. Each tag is a key-value pair.
 --
--- 'ruleName', 'backupRuleInput_ruleName' - An optional display name for a backup rule.
+-- 'ruleName', 'backupRuleInput_ruleName' - A display name for a backup rule. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 --
 -- 'targetBackupVaultName', 'backupRuleInput_targetBackupVaultName' - The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -145,12 +153,15 @@ backupRuleInput_startWindowMinutes = Lens.lens (\BackupRuleInput' {startWindowMi
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 backupRuleInput_lifecycle :: Lens.Lens' BackupRuleInput (Prelude.Maybe Lifecycle)
 backupRuleInput_lifecycle = Lens.lens (\BackupRuleInput' {lifecycle} -> lifecycle) (\s@BackupRuleInput' {} a -> s {lifecycle = a} :: BackupRuleInput)
 
@@ -180,7 +191,8 @@ backupRuleInput_completionWindowMinutes = Lens.lens (\BackupRuleInput' {completi
 backupRuleInput_recoveryPointTags :: Lens.Lens' BackupRuleInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 backupRuleInput_recoveryPointTags = Lens.lens (\BackupRuleInput' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRuleInput' {} a -> s {recoveryPointTags = a} :: BackupRuleInput) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | An optional display name for a backup rule.
+-- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 backupRuleInput_ruleName :: Lens.Lens' BackupRuleInput Prelude.Text
 backupRuleInput_ruleName = Lens.lens (\BackupRuleInput' {ruleName} -> ruleName) (\s@BackupRuleInput' {} a -> s {ruleName = a} :: BackupRuleInput)
 

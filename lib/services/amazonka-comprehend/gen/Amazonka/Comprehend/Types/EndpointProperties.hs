@@ -24,7 +24,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies information about the specified endpoint.
+-- | Specifies information about the specified endpoint. For information
+-- about endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 --
 -- /See:/ 'newEndpointProperties' smart constructor.
 data EndpointProperties = EndpointProperties'

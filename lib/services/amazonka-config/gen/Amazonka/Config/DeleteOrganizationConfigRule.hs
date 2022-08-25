@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified organization config rule and all of its evaluation
+-- Deletes the specified organization Config rule and all of its evaluation
 -- results from all member accounts in that organization.
 --
 -- Only a master account and a delegated administrator account can delete
--- an organization config rule. When calling this API with a delegated
+-- an organization Config rule. When calling this API with a delegated
 -- administrator, you must ensure Organizations
 -- @ListDelegatedAdministrator@ permissions are added.
 --
@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteOrganizationConfigRule' smart constructor.
 data DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
-  { -- | The name of organization config rule that you want to delete.
+  { -- | The name of organization Config rule that you want to delete.
     organizationConfigRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationConfigRuleName', 'deleteOrganizationConfigRule_organizationConfigRuleName' - The name of organization config rule that you want to delete.
+-- 'organizationConfigRuleName', 'deleteOrganizationConfigRule_organizationConfigRuleName' - The name of organization Config rule that you want to delete.
 newDeleteOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
   Prelude.Text ->
@@ -78,7 +78,7 @@ newDeleteOrganizationConfigRule
           pOrganizationConfigRuleName_
       }
 
--- | The name of organization config rule that you want to delete.
+-- | The name of organization Config rule that you want to delete.
 deleteOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Prelude.Text
 deleteOrganizationConfigRule_organizationConfigRuleName = Lens.lens (\DeleteOrganizationConfigRule' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@DeleteOrganizationConfigRule' {} a -> s {organizationConfigRuleName = a} :: DeleteOrganizationConfigRule)
 

@@ -44,6 +44,7 @@ module Amazonka.DMS.Lens
     createEndpoint_docDbSettings,
     createEndpoint_databaseName,
     createEndpoint_username,
+    createEndpoint_gcpMySQLSettings,
     createEndpoint_serviceAccessRoleArn,
     createEndpoint_extraConnectionAttributes,
     createEndpoint_neptuneSettings,
@@ -78,6 +79,18 @@ module Amazonka.DMS.Lens
     createEventSubscription_snsTopicArn,
     createEventSubscriptionResponse_eventSubscription,
     createEventSubscriptionResponse_httpStatus,
+
+    -- ** CreateFleetAdvisorCollector
+    createFleetAdvisorCollector_description,
+    createFleetAdvisorCollector_collectorName,
+    createFleetAdvisorCollector_serviceAccessRoleArn,
+    createFleetAdvisorCollector_s3BucketName,
+    createFleetAdvisorCollectorResponse_collectorName,
+    createFleetAdvisorCollectorResponse_s3BucketName,
+    createFleetAdvisorCollectorResponse_serviceAccessRoleArn,
+    createFleetAdvisorCollectorResponse_description,
+    createFleetAdvisorCollectorResponse_collectorReferencedId,
+    createFleetAdvisorCollectorResponse_httpStatus,
 
     -- ** CreateReplicationInstance
     createReplicationInstance_tags,
@@ -143,6 +156,14 @@ module Amazonka.DMS.Lens
     deleteEventSubscription_subscriptionName,
     deleteEventSubscriptionResponse_eventSubscription,
     deleteEventSubscriptionResponse_httpStatus,
+
+    -- ** DeleteFleetAdvisorCollector
+    deleteFleetAdvisorCollector_collectorReferencedId,
+
+    -- ** DeleteFleetAdvisorDatabases
+    deleteFleetAdvisorDatabases_databaseIds,
+    deleteFleetAdvisorDatabasesResponse_databaseIds,
+    deleteFleetAdvisorDatabasesResponse_httpStatus,
 
     -- ** DeleteReplicationInstance
     deleteReplicationInstance_replicationInstanceArn,
@@ -248,6 +269,45 @@ module Amazonka.DMS.Lens
     describeEventsResponse_marker,
     describeEventsResponse_events,
     describeEventsResponse_httpStatus,
+
+    -- ** DescribeFleetAdvisorCollectors
+    describeFleetAdvisorCollectors_nextToken,
+    describeFleetAdvisorCollectors_filters,
+    describeFleetAdvisorCollectors_maxRecords,
+    describeFleetAdvisorCollectorsResponse_nextToken,
+    describeFleetAdvisorCollectorsResponse_collectors,
+    describeFleetAdvisorCollectorsResponse_httpStatus,
+
+    -- ** DescribeFleetAdvisorDatabases
+    describeFleetAdvisorDatabases_nextToken,
+    describeFleetAdvisorDatabases_filters,
+    describeFleetAdvisorDatabases_maxRecords,
+    describeFleetAdvisorDatabasesResponse_nextToken,
+    describeFleetAdvisorDatabasesResponse_databases,
+    describeFleetAdvisorDatabasesResponse_httpStatus,
+
+    -- ** DescribeFleetAdvisorLsaAnalysis
+    describeFleetAdvisorLsaAnalysis_nextToken,
+    describeFleetAdvisorLsaAnalysis_maxRecords,
+    describeFleetAdvisorLsaAnalysisResponse_nextToken,
+    describeFleetAdvisorLsaAnalysisResponse_analysis,
+    describeFleetAdvisorLsaAnalysisResponse_httpStatus,
+
+    -- ** DescribeFleetAdvisorSchemaObjectSummary
+    describeFleetAdvisorSchemaObjectSummary_nextToken,
+    describeFleetAdvisorSchemaObjectSummary_filters,
+    describeFleetAdvisorSchemaObjectSummary_maxRecords,
+    describeFleetAdvisorSchemaObjectSummaryResponse_nextToken,
+    describeFleetAdvisorSchemaObjectSummaryResponse_fleetAdvisorSchemaObjects,
+    describeFleetAdvisorSchemaObjectSummaryResponse_httpStatus,
+
+    -- ** DescribeFleetAdvisorSchemas
+    describeFleetAdvisorSchemas_nextToken,
+    describeFleetAdvisorSchemas_filters,
+    describeFleetAdvisorSchemas_maxRecords,
+    describeFleetAdvisorSchemasResponse_nextToken,
+    describeFleetAdvisorSchemasResponse_fleetAdvisorSchemas,
+    describeFleetAdvisorSchemasResponse_httpStatus,
 
     -- ** DescribeOrderableReplicationInstances
     describeOrderableReplicationInstances_marker,
@@ -376,6 +436,7 @@ module Amazonka.DMS.Lens
     modifyEndpoint_exactSettings,
     modifyEndpoint_databaseName,
     modifyEndpoint_username,
+    modifyEndpoint_gcpMySQLSettings,
     modifyEndpoint_serviceAccessRoleArn,
     modifyEndpoint_extraConnectionAttributes,
     modifyEndpoint_neptuneSettings,
@@ -472,6 +533,11 @@ module Amazonka.DMS.Lens
     removeTagsFromResource_tagKeys,
     removeTagsFromResourceResponse_httpStatus,
 
+    -- ** RunFleetAdvisorLsaAnalysis
+    runFleetAdvisorLsaAnalysisResponse_lsaAnalysisId,
+    runFleetAdvisorLsaAnalysisResponse_status,
+    runFleetAdvisorLsaAnalysisResponse_httpStatus,
+
     -- ** StartReplicationTask
     startReplicationTask_cdcStartTime,
     startReplicationTask_cdcStartPosition,
@@ -510,6 +576,11 @@ module Amazonka.DMS.Lens
     testConnectionResponse_connection,
     testConnectionResponse_httpStatus,
 
+    -- ** UpdateSubscriptionsToEventBridge
+    updateSubscriptionsToEventBridge_forceMove,
+    updateSubscriptionsToEventBridgeResponse_result,
+    updateSubscriptionsToEventBridgeResponse_httpStatus,
+
     -- * Types
 
     -- ** AccountQuota
@@ -532,6 +603,31 @@ module Amazonka.DMS.Lens
     certificate_signingAlgorithm,
     certificate_validFromDate,
 
+    -- ** CollectorHealthCheck
+    collectorHealthCheck_collectorStatus,
+    collectorHealthCheck_localCollectorS3Access,
+    collectorHealthCheck_webCollectorGrantedRoleBasedAccess,
+    collectorHealthCheck_webCollectorS3Access,
+
+    -- ** CollectorResponse
+    collectorResponse_collectorName,
+    collectorResponse_s3BucketName,
+    collectorResponse_versionStatus,
+    collectorResponse_serviceAccessRoleArn,
+    collectorResponse_inventoryData,
+    collectorResponse_description,
+    collectorResponse_lastDataReceived,
+    collectorResponse_collectorHealthCheck,
+    collectorResponse_collectorReferencedId,
+    collectorResponse_registeredDate,
+    collectorResponse_createdDate,
+    collectorResponse_modifiedDate,
+    collectorResponse_collectorVersion,
+
+    -- ** CollectorShortInfoResponse
+    collectorShortInfoResponse_collectorName,
+    collectorShortInfoResponse_collectorReferencedId,
+
     -- ** Connection
     connection_replicationInstanceIdentifier,
     connection_replicationInstanceArn,
@@ -539,6 +635,30 @@ module Amazonka.DMS.Lens
     connection_endpointIdentifier,
     connection_status,
     connection_endpointArn,
+
+    -- ** DatabaseInstanceSoftwareDetailsResponse
+    databaseInstanceSoftwareDetailsResponse_engineEdition,
+    databaseInstanceSoftwareDetailsResponse_servicePack,
+    databaseInstanceSoftwareDetailsResponse_engine,
+    databaseInstanceSoftwareDetailsResponse_tooltip,
+    databaseInstanceSoftwareDetailsResponse_supportLevel,
+    databaseInstanceSoftwareDetailsResponse_engineVersion,
+    databaseInstanceSoftwareDetailsResponse_osArchitecture,
+
+    -- ** DatabaseResponse
+    databaseResponse_numberOfSchemas,
+    databaseResponse_databaseName,
+    databaseResponse_databaseId,
+    databaseResponse_server,
+    databaseResponse_collectors,
+    databaseResponse_ipAddress,
+    databaseResponse_softwareDetails,
+
+    -- ** DatabaseShortInfoResponse
+    databaseShortInfoResponse_databaseEngine,
+    databaseShortInfoResponse_databaseName,
+    databaseShortInfoResponse_databaseId,
+    databaseShortInfoResponse_databaseIpAddress,
 
     -- ** DmsTransferSettings
     dmsTransferSettings_serviceAccessRoleArn,
@@ -563,6 +683,7 @@ module Amazonka.DMS.Lens
     -- ** ElasticsearchSettings
     elasticsearchSettings_errorRetryDuration,
     elasticsearchSettings_fullLoadErrorPercentage,
+    elasticsearchSettings_useNewMappingType,
     elasticsearchSettings_serviceAccessRoleArn,
     elasticsearchSettings_endpointUri,
 
@@ -580,6 +701,7 @@ module Amazonka.DMS.Lens
     endpoint_docDbSettings,
     endpoint_databaseName,
     endpoint_username,
+    endpoint_gcpMySQLSettings,
     endpoint_serviceAccessRoleArn,
     endpoint_extraConnectionAttributes,
     endpoint_neptuneSettings,
@@ -639,6 +761,33 @@ module Amazonka.DMS.Lens
     filter_name,
     filter_values,
 
+    -- ** FleetAdvisorLsaAnalysisResponse
+    fleetAdvisorLsaAnalysisResponse_lsaAnalysisId,
+    fleetAdvisorLsaAnalysisResponse_status,
+
+    -- ** FleetAdvisorSchemaObjectResponse
+    fleetAdvisorSchemaObjectResponse_codeLineCount,
+    fleetAdvisorSchemaObjectResponse_numberOfObjects,
+    fleetAdvisorSchemaObjectResponse_schemaId,
+    fleetAdvisorSchemaObjectResponse_objectType,
+    fleetAdvisorSchemaObjectResponse_codeSize,
+
+    -- ** GcpMySQLSettings
+    gcpMySQLSettings_port,
+    gcpMySQLSettings_maxFileSize,
+    gcpMySQLSettings_targetDbType,
+    gcpMySQLSettings_secretsManagerAccessRoleArn,
+    gcpMySQLSettings_password,
+    gcpMySQLSettings_serverName,
+    gcpMySQLSettings_databaseName,
+    gcpMySQLSettings_username,
+    gcpMySQLSettings_parallelLoadThreads,
+    gcpMySQLSettings_afterConnectScript,
+    gcpMySQLSettings_eventsPollInterval,
+    gcpMySQLSettings_cleanSourceMetadataOnMismatch,
+    gcpMySQLSettings_secretsManagerSecretId,
+    gcpMySQLSettings_serverTimezone,
+
     -- ** IBMDb2Settings
     iBMDb2Settings_port,
     iBMDb2Settings_secretsManagerAccessRoleArn,
@@ -650,6 +799,10 @@ module Amazonka.DMS.Lens
     iBMDb2Settings_maxKBytesPerRead,
     iBMDb2Settings_secretsManagerSecretId,
     iBMDb2Settings_currentLsn,
+
+    -- ** InventoryData
+    inventoryData_numberOfSchemas,
+    inventoryData_numberOfDatabases,
 
     -- ** KafkaSettings
     kafkaSettings_broker,
@@ -686,6 +839,7 @@ module Amazonka.DMS.Lens
     -- ** MicrosoftSQLServerSettings
     microsoftSQLServerSettings_port,
     microsoftSQLServerSettings_controlTablesFileGroup,
+    microsoftSQLServerSettings_trimSpaceInChar,
     microsoftSQLServerSettings_secretsManagerAccessRoleArn,
     microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_serverName,
@@ -749,6 +903,7 @@ module Amazonka.DMS.Lens
     oracleSettings_archivedLogDestId,
     oracleSettings_secretsManagerOracleAsmAccessRoleArn,
     oracleSettings_charLengthSemantics,
+    oracleSettings_trimSpaceInChar,
     oracleSettings_readAheadBlocks,
     oracleSettings_secretsManagerAccessRoleArn,
     oracleSettings_standbyDelayTime,
@@ -805,6 +960,7 @@ module Amazonka.DMS.Lens
     postgreSQLSettings_port,
     postgreSQLSettings_maxFileSize,
     postgreSQLSettings_slotName,
+    postgreSQLSettings_trimSpaceInChar,
     postgreSQLSettings_secretsManagerAccessRoleArn,
     postgreSQLSettings_executeTimeout,
     postgreSQLSettings_password,
@@ -999,11 +1155,15 @@ module Amazonka.DMS.Lens
     s3Settings_dataPageSize,
     s3Settings_csvNullValue,
     s3Settings_datePartitionEnabled,
+    s3Settings_useTaskStartTimeForFullLoadTimestamp,
+    s3Settings_expectedBucketOwner,
     s3Settings_preserveTransactions,
     s3Settings_serviceAccessRoleArn,
     s3Settings_cdcInsertsOnly,
+    s3Settings_addTrailingPaddingCharacter,
     s3Settings_cdcMaxBatchInterval,
     s3Settings_cdcInsertsAndUpdates,
+    s3Settings_datePartitionTimezone,
     s3Settings_compressionType,
     s3Settings_bucketName,
     s3Settings_enableStatistics,
@@ -1021,6 +1181,29 @@ module Amazonka.DMS.Lens
     s3Settings_encryptionMode,
     s3Settings_csvRowDelimiter,
     s3Settings_encodingType,
+
+    -- ** SchemaResponse
+    schemaResponse_databaseInstance,
+    schemaResponse_similarity,
+    schemaResponse_originalSchema,
+    schemaResponse_codeLineCount,
+    schemaResponse_schemaName,
+    schemaResponse_server,
+    schemaResponse_complexity,
+    schemaResponse_schemaId,
+    schemaResponse_codeSize,
+
+    -- ** SchemaShortInfoResponse
+    schemaShortInfoResponse_databaseName,
+    schemaShortInfoResponse_schemaName,
+    schemaShortInfoResponse_databaseId,
+    schemaShortInfoResponse_databaseIpAddress,
+    schemaShortInfoResponse_schemaId,
+
+    -- ** ServerShortInfoResponse
+    serverShortInfoResponse_serverName,
+    serverShortInfoResponse_serverId,
+    serverShortInfoResponse_ipAddress,
 
     -- ** Subnet
     subnet_subnetIdentifier,
@@ -1084,6 +1267,7 @@ import Amazonka.DMS.ApplyPendingMaintenanceAction
 import Amazonka.DMS.CancelReplicationTaskAssessmentRun
 import Amazonka.DMS.CreateEndpoint
 import Amazonka.DMS.CreateEventSubscription
+import Amazonka.DMS.CreateFleetAdvisorCollector
 import Amazonka.DMS.CreateReplicationInstance
 import Amazonka.DMS.CreateReplicationSubnetGroup
 import Amazonka.DMS.CreateReplicationTask
@@ -1091,6 +1275,8 @@ import Amazonka.DMS.DeleteCertificate
 import Amazonka.DMS.DeleteConnection
 import Amazonka.DMS.DeleteEndpoint
 import Amazonka.DMS.DeleteEventSubscription
+import Amazonka.DMS.DeleteFleetAdvisorCollector
+import Amazonka.DMS.DeleteFleetAdvisorDatabases
 import Amazonka.DMS.DeleteReplicationInstance
 import Amazonka.DMS.DeleteReplicationSubnetGroup
 import Amazonka.DMS.DeleteReplicationTask
@@ -1105,6 +1291,11 @@ import Amazonka.DMS.DescribeEndpoints
 import Amazonka.DMS.DescribeEventCategories
 import Amazonka.DMS.DescribeEventSubscriptions
 import Amazonka.DMS.DescribeEvents
+import Amazonka.DMS.DescribeFleetAdvisorCollectors
+import Amazonka.DMS.DescribeFleetAdvisorDatabases
+import Amazonka.DMS.DescribeFleetAdvisorLsaAnalysis
+import Amazonka.DMS.DescribeFleetAdvisorSchemaObjectSummary
+import Amazonka.DMS.DescribeFleetAdvisorSchemas
 import Amazonka.DMS.DescribeOrderableReplicationInstances
 import Amazonka.DMS.DescribePendingMaintenanceActions
 import Amazonka.DMS.DescribeRefreshSchemasStatus
@@ -1129,6 +1320,7 @@ import Amazonka.DMS.RebootReplicationInstance
 import Amazonka.DMS.RefreshSchemas
 import Amazonka.DMS.ReloadTables
 import Amazonka.DMS.RemoveTagsFromResource
+import Amazonka.DMS.RunFleetAdvisorLsaAnalysis
 import Amazonka.DMS.StartReplicationTask
 import Amazonka.DMS.StartReplicationTaskAssessment
 import Amazonka.DMS.StartReplicationTaskAssessmentRun
@@ -1137,7 +1329,13 @@ import Amazonka.DMS.TestConnection
 import Amazonka.DMS.Types.AccountQuota
 import Amazonka.DMS.Types.AvailabilityZone
 import Amazonka.DMS.Types.Certificate
+import Amazonka.DMS.Types.CollectorHealthCheck
+import Amazonka.DMS.Types.CollectorResponse
+import Amazonka.DMS.Types.CollectorShortInfoResponse
 import Amazonka.DMS.Types.Connection
+import Amazonka.DMS.Types.DatabaseInstanceSoftwareDetailsResponse
+import Amazonka.DMS.Types.DatabaseResponse
+import Amazonka.DMS.Types.DatabaseShortInfoResponse
 import Amazonka.DMS.Types.DmsTransferSettings
 import Amazonka.DMS.Types.DocDbSettings
 import Amazonka.DMS.Types.DynamoDbSettings
@@ -1148,7 +1346,11 @@ import Amazonka.DMS.Types.Event
 import Amazonka.DMS.Types.EventCategoryGroup
 import Amazonka.DMS.Types.EventSubscription
 import Amazonka.DMS.Types.Filter
+import Amazonka.DMS.Types.FleetAdvisorLsaAnalysisResponse
+import Amazonka.DMS.Types.FleetAdvisorSchemaObjectResponse
+import Amazonka.DMS.Types.GcpMySQLSettings
 import Amazonka.DMS.Types.IBMDb2Settings
+import Amazonka.DMS.Types.InventoryData
 import Amazonka.DMS.Types.KafkaSettings
 import Amazonka.DMS.Types.KinesisSettings
 import Amazonka.DMS.Types.MicrosoftSQLServerSettings
@@ -1174,6 +1376,9 @@ import Amazonka.DMS.Types.ReplicationTaskIndividualAssessment
 import Amazonka.DMS.Types.ReplicationTaskStats
 import Amazonka.DMS.Types.ResourcePendingMaintenanceActions
 import Amazonka.DMS.Types.S3Settings
+import Amazonka.DMS.Types.SchemaResponse
+import Amazonka.DMS.Types.SchemaShortInfoResponse
+import Amazonka.DMS.Types.ServerShortInfoResponse
 import Amazonka.DMS.Types.Subnet
 import Amazonka.DMS.Types.SupportedEndpointType
 import Amazonka.DMS.Types.SybaseSettings
@@ -1181,3 +1386,4 @@ import Amazonka.DMS.Types.TableStatistics
 import Amazonka.DMS.Types.TableToReload
 import Amazonka.DMS.Types.Tag
 import Amazonka.DMS.Types.VpcSecurityGroupMembership
+import Amazonka.DMS.UpdateSubscriptionsToEventBridge

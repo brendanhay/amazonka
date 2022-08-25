@@ -22,6 +22,7 @@ module Amazonka.MediaConvert.Types.AudioSelector where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaConvert.Types.AudioDefaultSelection
+import Amazonka.MediaConvert.Types.AudioDurationCorrection
 import Amazonka.MediaConvert.Types.AudioSelectorType
 import Amazonka.MediaConvert.Types.HlsRenditionGroupSettings
 import Amazonka.MediaConvert.Types.LanguageCode
@@ -36,6 +37,22 @@ import qualified Amazonka.Prelude as Prelude
 data AudioSelector = AudioSelector'
   { -- | Specifies audio data from an external file source.
     externalAudioFileInput :: Prelude.Maybe Prelude.Text,
+    -- | Apply audio timing corrections to help synchronize audio and video in
+    -- your output. To apply timing corrections, your input must meet the
+    -- following requirements: * Container: MP4, or MOV, with an accurate
+    -- time-to-sample (STTS) table. * Audio track: AAC. Choose from the
+    -- following audio timing correction settings: * Disabled (Default): Apply
+    -- no correction. * Auto: Recommended for most inputs. MediaConvert
+    -- analyzes the audio timing in your input and determines which correction
+    -- setting to use, if needed. * Track: Adjust the duration of each audio
+    -- frame by a constant amount to align the audio track length with STTS
+    -- duration. Track-level correction does not affect pitch, and is
+    -- recommended for tonal audio content such as music. * Frame: Adjust the
+    -- duration of each audio frame by a variable amount to align audio frames
+    -- with STTS timestamps. No corrections are made to already-aligned frames.
+    -- Frame-level correction may affect the pitch of corrected frames, and is
+    -- recommended for atonal audio content such as speech or percussion.
+    audioDurationCorrection :: Prelude.Maybe AudioDurationCorrection,
     -- | Selects a specific PID from within an audio source (e.g. 257 selects PID
     -- 0x101).
     pids :: Prelude.Maybe [Prelude.Natural],
@@ -99,6 +116,22 @@ data AudioSelector = AudioSelector'
 --
 -- 'externalAudioFileInput', 'audioSelector_externalAudioFileInput' - Specifies audio data from an external file source.
 --
+-- 'audioDurationCorrection', 'audioSelector_audioDurationCorrection' - Apply audio timing corrections to help synchronize audio and video in
+-- your output. To apply timing corrections, your input must meet the
+-- following requirements: * Container: MP4, or MOV, with an accurate
+-- time-to-sample (STTS) table. * Audio track: AAC. Choose from the
+-- following audio timing correction settings: * Disabled (Default): Apply
+-- no correction. * Auto: Recommended for most inputs. MediaConvert
+-- analyzes the audio timing in your input and determines which correction
+-- setting to use, if needed. * Track: Adjust the duration of each audio
+-- frame by a constant amount to align the audio track length with STTS
+-- duration. Track-level correction does not affect pitch, and is
+-- recommended for tonal audio content such as music. * Frame: Adjust the
+-- duration of each audio frame by a variable amount to align audio frames
+-- with STTS timestamps. No corrections are made to already-aligned frames.
+-- Frame-level correction may affect the pitch of corrected frames, and is
+-- recommended for atonal audio content such as speech or percussion.
+--
 -- 'pids', 'audioSelector_pids' - Selects a specific PID from within an audio source (e.g. 257 selects PID
 -- 0x101).
 --
@@ -154,6 +187,7 @@ newAudioSelector =
   AudioSelector'
     { externalAudioFileInput =
         Prelude.Nothing,
+      audioDurationCorrection = Prelude.Nothing,
       pids = Prelude.Nothing,
       hlsRenditionGroupSettings = Prelude.Nothing,
       customLanguageCode = Prelude.Nothing,
@@ -169,6 +203,24 @@ newAudioSelector =
 -- | Specifies audio data from an external file source.
 audioSelector_externalAudioFileInput :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Text)
 audioSelector_externalAudioFileInput = Lens.lens (\AudioSelector' {externalAudioFileInput} -> externalAudioFileInput) (\s@AudioSelector' {} a -> s {externalAudioFileInput = a} :: AudioSelector)
+
+-- | Apply audio timing corrections to help synchronize audio and video in
+-- your output. To apply timing corrections, your input must meet the
+-- following requirements: * Container: MP4, or MOV, with an accurate
+-- time-to-sample (STTS) table. * Audio track: AAC. Choose from the
+-- following audio timing correction settings: * Disabled (Default): Apply
+-- no correction. * Auto: Recommended for most inputs. MediaConvert
+-- analyzes the audio timing in your input and determines which correction
+-- setting to use, if needed. * Track: Adjust the duration of each audio
+-- frame by a constant amount to align the audio track length with STTS
+-- duration. Track-level correction does not affect pitch, and is
+-- recommended for tonal audio content such as music. * Frame: Adjust the
+-- duration of each audio frame by a variable amount to align audio frames
+-- with STTS timestamps. No corrections are made to already-aligned frames.
+-- Frame-level correction may affect the pitch of corrected frames, and is
+-- recommended for atonal audio content such as speech or percussion.
+audioSelector_audioDurationCorrection :: Lens.Lens' AudioSelector (Prelude.Maybe AudioDurationCorrection)
+audioSelector_audioDurationCorrection = Lens.lens (\AudioSelector' {audioDurationCorrection} -> audioDurationCorrection) (\s@AudioSelector' {} a -> s {audioDurationCorrection = a} :: AudioSelector)
 
 -- | Selects a specific PID from within an audio source (e.g. 257 selects PID
 -- 0x101).
@@ -247,6 +299,7 @@ instance Core.FromJSON AudioSelector where
       ( \x ->
           AudioSelector'
             Prelude.<$> (x Core..:? "externalAudioFileInput")
+            Prelude.<*> (x Core..:? "audioDurationCorrection")
             Prelude.<*> (x Core..:? "pids" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "hlsRenditionGroupSettings")
             Prelude.<*> (x Core..:? "customLanguageCode")
@@ -262,6 +315,7 @@ instance Core.FromJSON AudioSelector where
 instance Prelude.Hashable AudioSelector where
   hashWithSalt _salt AudioSelector' {..} =
     _salt `Prelude.hashWithSalt` externalAudioFileInput
+      `Prelude.hashWithSalt` audioDurationCorrection
       `Prelude.hashWithSalt` pids
       `Prelude.hashWithSalt` hlsRenditionGroupSettings
       `Prelude.hashWithSalt` customLanguageCode
@@ -276,6 +330,7 @@ instance Prelude.Hashable AudioSelector where
 instance Prelude.NFData AudioSelector where
   rnf AudioSelector' {..} =
     Prelude.rnf externalAudioFileInput
+      `Prelude.seq` Prelude.rnf audioDurationCorrection
       `Prelude.seq` Prelude.rnf pids
       `Prelude.seq` Prelude.rnf hlsRenditionGroupSettings
       `Prelude.seq` Prelude.rnf customLanguageCode
@@ -293,6 +348,8 @@ instance Core.ToJSON AudioSelector where
       ( Prelude.catMaybes
           [ ("externalAudioFileInput" Core..=)
               Prelude.<$> externalAudioFileInput,
+            ("audioDurationCorrection" Core..=)
+              Prelude.<$> audioDurationCorrection,
             ("pids" Core..=) Prelude.<$> pids,
             ("hlsRenditionGroupSettings" Core..=)
               Prelude.<$> hlsRenditionGroupSettings,

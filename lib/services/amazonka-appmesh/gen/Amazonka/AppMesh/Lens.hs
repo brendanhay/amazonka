@@ -337,6 +337,7 @@ module Amazonka.AppMesh.Lens
     awsCloudMapInstanceAttribute_value,
 
     -- ** AwsCloudMapServiceDiscovery
+    awsCloudMapServiceDiscovery_ipPreference,
     awsCloudMapServiceDiscovery_attributes,
     awsCloudMapServiceDiscovery_namespaceName,
     awsCloudMapServiceDiscovery_serviceName,
@@ -362,6 +363,7 @@ module Amazonka.AppMesh.Lens
 
     -- ** DnsServiceDiscovery
     dnsServiceDiscovery_responseType,
+    dnsServiceDiscovery_ipPreference,
     dnsServiceDiscovery_hostname,
 
     -- ** Duration
@@ -372,6 +374,7 @@ module Amazonka.AppMesh.Lens
     egressFilter_type,
 
     -- ** FileAccessLog
+    fileAccessLog_format,
     fileAccessLog_path,
 
     -- ** GatewayRouteData
@@ -410,6 +413,7 @@ module Amazonka.AppMesh.Lens
     gatewayRouteStatus_status,
 
     -- ** GatewayRouteTarget
+    gatewayRouteTarget_port,
     gatewayRouteTarget_virtualService,
 
     -- ** GatewayRouteVirtualService
@@ -424,6 +428,7 @@ module Amazonka.AppMesh.Lens
     grpcGatewayRouteAction_target,
 
     -- ** GrpcGatewayRouteMatch
+    grpcGatewayRouteMatch_port,
     grpcGatewayRouteMatch_metadata,
     grpcGatewayRouteMatch_hostname,
     grpcGatewayRouteMatch_serviceName,
@@ -460,6 +465,7 @@ module Amazonka.AppMesh.Lens
     grpcRouteAction_weightedTargets,
 
     -- ** GrpcRouteMatch
+    grpcRouteMatch_port,
     grpcRouteMatch_methodName,
     grpcRouteMatch_metadata,
     grpcRouteMatch_serviceName,
@@ -510,6 +516,7 @@ module Amazonka.AppMesh.Lens
     httpGatewayRouteHeader_name,
 
     -- ** HttpGatewayRouteMatch
+    httpGatewayRouteMatch_port,
     httpGatewayRouteMatch_headers,
     httpGatewayRouteMatch_method,
     httpGatewayRouteMatch_path,
@@ -558,6 +565,7 @@ module Amazonka.AppMesh.Lens
     httpRouteHeader_name,
 
     -- ** HttpRouteMatch
+    httpRouteMatch_port,
     httpRouteMatch_scheme,
     httpRouteMatch_headers,
     httpRouteMatch_method,
@@ -568,6 +576,10 @@ module Amazonka.AppMesh.Lens
     -- ** HttpTimeout
     httpTimeout_perRequest,
     httpTimeout_idle,
+
+    -- ** JsonFormatRef
+    jsonFormatRef_key,
+    jsonFormatRef_value,
 
     -- ** Listener
     listener_timeout,
@@ -614,6 +626,10 @@ module Amazonka.AppMesh.Lens
     -- ** Logging
     logging_accessLog,
 
+    -- ** LoggingFormat
+    loggingFormat_json,
+    loggingFormat_text,
+
     -- ** MatchRange
     matchRange_end,
     matchRange_start,
@@ -633,8 +649,12 @@ module Amazonka.AppMesh.Lens
     meshRef_resourceOwner,
     meshRef_version,
 
+    -- ** MeshServiceDiscovery
+    meshServiceDiscovery_ipPreference,
+
     -- ** MeshSpec
     meshSpec_egressFilter,
+    meshSpec_serviceDiscovery,
 
     -- ** MeshStatus
     meshStatus_status,
@@ -706,10 +726,14 @@ module Amazonka.AppMesh.Lens
 
     -- ** TcpRoute
     tcpRoute_timeout,
+    tcpRoute_match,
     tcpRoute_action,
 
     -- ** TcpRouteAction
     tcpRouteAction_weightedTargets,
+
+    -- ** TcpRouteMatch
+    tcpRouteMatch_port,
 
     -- ** TcpTimeout
     tcpTimeout_idle,
@@ -764,6 +788,7 @@ module Amazonka.AppMesh.Lens
     virtualGatewayData_virtualGatewayName,
 
     -- ** VirtualGatewayFileAccessLog
+    virtualGatewayFileAccessLog_format,
     virtualGatewayFileAccessLog_path,
 
     -- ** VirtualGatewayGrpcConnectionPool
@@ -972,6 +997,7 @@ module Amazonka.AppMesh.Lens
     virtualServiceStatus_status,
 
     -- ** WeightedTarget
+    weightedTarget_port,
     weightedTarget_virtualNode,
     weightedTarget_weight,
   )
@@ -1057,6 +1083,7 @@ import Amazonka.AppMesh.Types.HttpRouteAction
 import Amazonka.AppMesh.Types.HttpRouteHeader
 import Amazonka.AppMesh.Types.HttpRouteMatch
 import Amazonka.AppMesh.Types.HttpTimeout
+import Amazonka.AppMesh.Types.JsonFormatRef
 import Amazonka.AppMesh.Types.Listener
 import Amazonka.AppMesh.Types.ListenerTimeout
 import Amazonka.AppMesh.Types.ListenerTls
@@ -1067,9 +1094,11 @@ import Amazonka.AppMesh.Types.ListenerTlsSdsCertificate
 import Amazonka.AppMesh.Types.ListenerTlsValidationContext
 import Amazonka.AppMesh.Types.ListenerTlsValidationContextTrust
 import Amazonka.AppMesh.Types.Logging
+import Amazonka.AppMesh.Types.LoggingFormat
 import Amazonka.AppMesh.Types.MatchRange
 import Amazonka.AppMesh.Types.MeshData
 import Amazonka.AppMesh.Types.MeshRef
+import Amazonka.AppMesh.Types.MeshServiceDiscovery
 import Amazonka.AppMesh.Types.MeshSpec
 import Amazonka.AppMesh.Types.MeshStatus
 import Amazonka.AppMesh.Types.OutlierDetection
@@ -1086,6 +1115,7 @@ import Amazonka.AppMesh.Types.SubjectAlternativeNames
 import Amazonka.AppMesh.Types.TagRef
 import Amazonka.AppMesh.Types.TcpRoute
 import Amazonka.AppMesh.Types.TcpRouteAction
+import Amazonka.AppMesh.Types.TcpRouteMatch
 import Amazonka.AppMesh.Types.TcpTimeout
 import Amazonka.AppMesh.Types.TlsValidationContext
 import Amazonka.AppMesh.Types.TlsValidationContextAcmTrust

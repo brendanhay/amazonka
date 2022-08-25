@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An application in AppConfig is a logical unit of code that provides
--- capabilities for your customers. For example, an application can be a
--- microservice that runs on Amazon EC2 instances, a mobile application
--- installed by your users, a serverless application using Amazon API
--- Gateway and AWS Lambda, or any system you run on behalf of others.
+-- Creates an application. In AppConfig, an application is simply an
+-- organizational construct like a folder. This organizational construct
+-- has a relationship with some unit of executable code. For example, you
+-- could create an application called MyMobileApp to organize and manage
+-- configuration data for a mobile application installed by your users.
 module Amazonka.AppConfig.CreateApplication
   ( -- * Creating a Request
     CreateApplication (..),

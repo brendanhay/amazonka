@@ -22,9 +22,9 @@
 --
 -- Creates a domain. CodeArtifact /domains/ make it easier to manage
 -- multiple repositories across an organization. You can use a domain to
--- apply permissions across many repositories owned by different AWS
--- accounts. An asset is stored only once in a domain, even if it\'s in
--- multiple repositories.
+-- apply permissions across many repositories owned by different Amazon Web
+-- Services accounts. An asset is stored only once in a domain, even if
+-- it\'s in multiple repositories.
 --
 -- Although you can have multiple domains, we recommend a single production
 -- domain that contains all published artifacts so that your development
@@ -68,19 +68,20 @@ data CreateDomain = CreateDomain'
     -- @kms:CreateGrant@ permissions on the encryption key that is used. For
     -- more information, see
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax DescribeKey>
-    -- in the /AWS Key Management Service API Reference/ and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html AWS KMS API Permissions Reference>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- in the /Key Management Service API Reference/ and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html Key Management Service API Permissions Reference>
+    -- in the /Key Management Service Developer Guide/.
     --
     -- CodeArtifact supports only symmetric CMKs. Do not associate an
     -- asymmetric CMK with your domain. For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- in the /Key Management Service Developer Guide/.
     encryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | The name of the domain to create. All domain names in an AWS Region that
-    -- are in the same AWS account must be unique. The domain name is used as
-    -- the prefix in DNS hostnames. Do not use sensitive information in a
-    -- domain name because it is publicly discoverable.
+    -- | The name of the domain to create. All domain names in an Amazon Web
+    -- Services Region that are in the same Amazon Web Services account must be
+    -- unique. The domain name is used as the prefix in DNS hostnames. Do not
+    -- use sensitive information in a domain name because it is publicly
+    -- discoverable.
     domain :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,19 +103,20 @@ data CreateDomain = CreateDomain'
 -- @kms:CreateGrant@ permissions on the encryption key that is used. For
 -- more information, see
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax DescribeKey>
--- in the /AWS Key Management Service API Reference/ and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html AWS KMS API Permissions Reference>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service API Reference/ and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html Key Management Service API Permissions Reference>
+-- in the /Key Management Service Developer Guide/.
 --
 -- CodeArtifact supports only symmetric CMKs. Do not associate an
 -- asymmetric CMK with your domain. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
--- 'domain', 'createDomain_domain' - The name of the domain to create. All domain names in an AWS Region that
--- are in the same AWS account must be unique. The domain name is used as
--- the prefix in DNS hostnames. Do not use sensitive information in a
--- domain name because it is publicly discoverable.
+-- 'domain', 'createDomain_domain' - The name of the domain to create. All domain names in an Amazon Web
+-- Services Region that are in the same Amazon Web Services account must be
+-- unique. The domain name is used as the prefix in DNS hostnames. Do not
+-- use sensitive information in a domain name because it is publicly
+-- discoverable.
 newCreateDomain ::
   -- | 'domain'
   Prelude.Text ->
@@ -137,21 +139,22 @@ createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' 
 -- @kms:CreateGrant@ permissions on the encryption key that is used. For
 -- more information, see
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax DescribeKey>
--- in the /AWS Key Management Service API Reference/ and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html AWS KMS API Permissions Reference>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service API Reference/ and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html Key Management Service API Permissions Reference>
+-- in the /Key Management Service Developer Guide/.
 --
 -- CodeArtifact supports only symmetric CMKs. Do not associate an
 -- asymmetric CMK with your domain. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 createDomain_encryptionKey :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_encryptionKey = Lens.lens (\CreateDomain' {encryptionKey} -> encryptionKey) (\s@CreateDomain' {} a -> s {encryptionKey = a} :: CreateDomain)
 
--- | The name of the domain to create. All domain names in an AWS Region that
--- are in the same AWS account must be unique. The domain name is used as
--- the prefix in DNS hostnames. Do not use sensitive information in a
--- domain name because it is publicly discoverable.
+-- | The name of the domain to create. All domain names in an Amazon Web
+-- Services Region that are in the same Amazon Web Services account must be
+-- unique. The domain name is used as the prefix in DNS hostnames. Do not
+-- use sensitive information in a domain name because it is publicly
+-- discoverable.
 createDomain_domain :: Lens.Lens' CreateDomain Prelude.Text
 createDomain_domain = Lens.lens (\CreateDomain' {domain} -> domain) (\s@CreateDomain' {} a -> s {domain = a} :: CreateDomain)
 

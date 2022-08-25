@@ -247,9 +247,9 @@ instance Core.ToQuery ListEndpointConfigs where
 
 -- | /See:/ 'newListEndpointConfigsResponse' smart constructor.
 data ListEndpointConfigsResponse = ListEndpointConfigsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of endpoint configurations, use it in the
-    -- subsequent request
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of endpoint configurations, use it in the subsequent
+    -- request
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -266,9 +266,9 @@ data ListEndpointConfigsResponse = ListEndpointConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEndpointConfigsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of endpoint configurations, use it in the
--- subsequent request
+-- 'nextToken', 'listEndpointConfigsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of endpoint configurations, use it in the subsequent
+-- request
 --
 -- 'httpStatus', 'listEndpointConfigsResponse_httpStatus' - The response's http status code.
 --
@@ -285,9 +285,9 @@ newListEndpointConfigsResponse pHttpStatus_ =
       endpointConfigs = Prelude.mempty
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of endpoint configurations, use it in the
--- subsequent request
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of endpoint configurations, use it in the subsequent
+-- request
 listEndpointConfigsResponse_nextToken :: Lens.Lens' ListEndpointConfigsResponse (Prelude.Maybe Prelude.Text)
 listEndpointConfigsResponse_nextToken = Lens.lens (\ListEndpointConfigsResponse' {nextToken} -> nextToken) (\s@ListEndpointConfigsResponse' {} a -> s {nextToken = a} :: ListEndpointConfigsResponse)
 

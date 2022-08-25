@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Panorama.Types.DeviceBrand
 import Amazonka.Panorama.Types.DeviceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,7 +40,9 @@ data Device = Device'
     -- | The device\'s ID.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | When the device was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    -- | The device\'s maker.
+    brand :: Prelude.Maybe DeviceBrand
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +65,8 @@ data Device = Device'
 -- 'deviceId', 'device_deviceId' - The device\'s ID.
 --
 -- 'lastUpdatedTime', 'device_lastUpdatedTime' - When the device was updated.
+--
+-- 'brand', 'device_brand' - The device\'s maker.
 newDevice ::
   Device
 newDevice =
@@ -71,7 +76,8 @@ newDevice =
       leaseExpirationTime = Prelude.Nothing,
       provisioningStatus = Prelude.Nothing,
       deviceId = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      brand = Prelude.Nothing
     }
 
 -- | The device\'s name.
@@ -98,6 +104,10 @@ device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -
 device_lastUpdatedTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
 device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Core._Time
 
+-- | The device\'s maker.
+device_brand :: Lens.Lens' Device (Prelude.Maybe DeviceBrand)
+device_brand = Lens.lens (\Device' {brand} -> brand) (\s@Device' {} a -> s {brand = a} :: Device)
+
 instance Core.FromJSON Device where
   parseJSON =
     Core.withObject
@@ -110,6 +120,7 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..:? "ProvisioningStatus")
             Prelude.<*> (x Core..:? "DeviceId")
             Prelude.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<*> (x Core..:? "Brand")
       )
 
 instance Prelude.Hashable Device where
@@ -120,6 +131,7 @@ instance Prelude.Hashable Device where
       `Prelude.hashWithSalt` provisioningStatus
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` brand
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
@@ -129,3 +141,4 @@ instance Prelude.NFData Device where
       `Prelude.seq` Prelude.rnf provisioningStatus
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf brand

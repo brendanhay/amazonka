@@ -20,17 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a custom terminology, depending on whether or not one
+-- Creates or updates a custom terminology, depending on whether one
 -- already exists for the given terminology name. Importing a terminology
 -- with the same name as an existing one will merge the terminologies based
--- on the chosen merge strategy. Currently, the only supported merge
--- strategy is OVERWRITE, and so the imported terminology will overwrite an
--- existing terminology of the same name.
+-- on the chosen merge strategy. The only supported merge strategy is
+-- OVERWRITE, where the imported terminology overwrites the existing
+-- terminology of the same name.
 --
 -- If you import a terminology that overwrites an existing one, the new
--- terminology take up to 10 minutes to fully propagate and be available
--- for use in a translation due to cache policies with the DataPlane
--- service that performs the translations.
+-- terminology takes up to 10 minutes to fully propagate. After that,
+-- translations have access to the new terminology.
 module Amazonka.Translate.ImportTerminology
   ( -- * Creating a Request
     ImportTerminology (..),
@@ -48,6 +47,7 @@ module Amazonka.Translate.ImportTerminology
     newImportTerminologyResponse,
 
     -- * Response Lenses
+    importTerminologyResponse_auxiliaryDataLocation,
     importTerminologyResponse_terminologyProperties,
     importTerminologyResponse_httpStatus,
   )
@@ -150,7 +150,8 @@ instance Core.AWSRequest ImportTerminology where
     Response.receiveJSON
       ( \s h x ->
           ImportTerminologyResponse'
-            Prelude.<$> (x Core..?> "TerminologyProperties")
+            Prelude.<$> (x Core..?> "AuxiliaryDataLocation")
+            Prelude.<*> (x Core..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,7 +207,12 @@ instance Core.ToQuery ImportTerminology where
 
 -- | /See:/ 'newImportTerminologyResponse' smart constructor.
 data ImportTerminologyResponse = ImportTerminologyResponse'
-  { -- | The properties of the custom terminology being imported.
+  { -- | The Amazon S3 location of a file that provides any errors or warnings
+    -- that were produced by your input file. This file was created when Amazon
+    -- Translate attempted to create a terminology resource. The location is
+    -- returned as a presigned URL to that has a 30 minute expiration.
+    auxiliaryDataLocation :: Prelude.Maybe TerminologyDataLocation,
+    -- | The properties of the custom terminology being imported.
     terminologyProperties :: Prelude.Maybe TerminologyProperties,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -221,6 +227,11 @@ data ImportTerminologyResponse = ImportTerminologyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'auxiliaryDataLocation', 'importTerminologyResponse_auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
+-- that were produced by your input file. This file was created when Amazon
+-- Translate attempted to create a terminology resource. The location is
+-- returned as a presigned URL to that has a 30 minute expiration.
+--
 -- 'terminologyProperties', 'importTerminologyResponse_terminologyProperties' - The properties of the custom terminology being imported.
 --
 -- 'httpStatus', 'importTerminologyResponse_httpStatus' - The response's http status code.
@@ -230,10 +241,18 @@ newImportTerminologyResponse ::
   ImportTerminologyResponse
 newImportTerminologyResponse pHttpStatus_ =
   ImportTerminologyResponse'
-    { terminologyProperties =
+    { auxiliaryDataLocation =
         Prelude.Nothing,
+      terminologyProperties = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon S3 location of a file that provides any errors or warnings
+-- that were produced by your input file. This file was created when Amazon
+-- Translate attempted to create a terminology resource. The location is
+-- returned as a presigned URL to that has a 30 minute expiration.
+importTerminologyResponse_auxiliaryDataLocation :: Lens.Lens' ImportTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
+importTerminologyResponse_auxiliaryDataLocation = Lens.lens (\ImportTerminologyResponse' {auxiliaryDataLocation} -> auxiliaryDataLocation) (\s@ImportTerminologyResponse' {} a -> s {auxiliaryDataLocation = a} :: ImportTerminologyResponse)
 
 -- | The properties of the custom terminology being imported.
 importTerminologyResponse_terminologyProperties :: Lens.Lens' ImportTerminologyResponse (Prelude.Maybe TerminologyProperties)
@@ -245,5 +264,6 @@ importTerminologyResponse_httpStatus = Lens.lens (\ImportTerminologyResponse' {h
 
 instance Prelude.NFData ImportTerminologyResponse where
   rnf ImportTerminologyResponse' {..} =
-    Prelude.rnf terminologyProperties
+    Prelude.rnf auxiliaryDataLocation
+      `Prelude.seq` Prelude.rnf terminologyProperties
       `Prelude.seq` Prelude.rnf httpStatus

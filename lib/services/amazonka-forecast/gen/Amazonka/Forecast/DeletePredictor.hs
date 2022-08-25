@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a predictor created using the CreatePredictor operation. You can
--- delete only predictor that have a status of @ACTIVE@ or @CREATE_FAILED@.
--- To get the status, use the DescribePredictor operation.
+-- Deletes a predictor created using the DescribePredictor or
+-- CreatePredictor operations. You can delete only predictor that have a
+-- status of @ACTIVE@ or @CREATE_FAILED@. To get the status, use the
+-- DescribePredictor operation.
 module Amazonka.Forecast.DeletePredictor
   ( -- * Creating a Request
     DeletePredictor (..),

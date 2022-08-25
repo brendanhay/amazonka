@@ -59,8 +59,8 @@ data ContactDetail = ContactDetail'
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>
     --     in the /Amazon Route 53 Developer Guide/
     --
-    -- -   For .es domains, if you specify @PERSON@, you must specify
-    --     @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@.
+    -- -   For .es domains, the value of @ContactType@ must be @PERSON@ for all
+    --     three contacts.
     contactType :: Prelude.Maybe ContactType,
     -- | Last name of contact.
     lastName :: Prelude.Maybe Prelude.Text,
@@ -120,8 +120,8 @@ data ContactDetail = ContactDetail'
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>
 --     in the /Amazon Route 53 Developer Guide/
 --
--- -   For .es domains, if you specify @PERSON@, you must specify
---     @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@.
+-- -   For .es domains, the value of @ContactType@ must be @PERSON@ for all
+--     three contacts.
 --
 -- 'lastName', 'contactDetail_lastName' - Last name of contact.
 --
@@ -205,8 +205,8 @@ contactDetail_state = Lens.lens (\ContactDetail' {state} -> state) (\s@ContactDe
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>
 --     in the /Amazon Route 53 Developer Guide/
 --
--- -   For .es domains, if you specify @PERSON@, you must specify
---     @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@.
+-- -   For .es domains, the value of @ContactType@ must be @PERSON@ for all
+--     three contacts.
 contactDetail_contactType :: Lens.Lens' ContactDetail (Prelude.Maybe ContactType)
 contactDetail_contactType = Lens.lens (\ContactDetail' {contactType} -> contactType) (\s@ContactDetail' {} a -> s {contactType = a} :: ContactDetail)
 

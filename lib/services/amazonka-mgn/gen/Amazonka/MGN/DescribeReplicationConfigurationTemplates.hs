@@ -31,8 +31,8 @@ module Amazonka.MGN.DescribeReplicationConfigurationTemplates
 
     -- * Request Lenses
     describeReplicationConfigurationTemplates_nextToken,
-    describeReplicationConfigurationTemplates_maxResults,
     describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs,
+    describeReplicationConfigurationTemplates_maxResults,
 
     -- * Destructuring the Response
     DescribeReplicationConfigurationTemplatesResponse (..),
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 data DescribeReplicationConfigurationTemplates = DescribeReplicationConfigurationTemplates'
   { -- | Request to describe Replication Configuration template by next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Request to describe Replication Configuration template by max results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Request to describe Replication Configuration template by template IDs.
-    replicationConfigurationTemplateIDs :: [Prelude.Text]
+    replicationConfigurationTemplateIDs :: Prelude.Maybe [Prelude.Text],
+    -- | Request to describe Replication Configuration template by max results.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,31 +73,31 @@ data DescribeReplicationConfigurationTemplates = DescribeReplicationConfiguratio
 --
 -- 'nextToken', 'describeReplicationConfigurationTemplates_nextToken' - Request to describe Replication Configuration template by next token.
 --
--- 'maxResults', 'describeReplicationConfigurationTemplates_maxResults' - Request to describe Replication Configuration template by max results.
---
 -- 'replicationConfigurationTemplateIDs', 'describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs' - Request to describe Replication Configuration template by template IDs.
+--
+-- 'maxResults', 'describeReplicationConfigurationTemplates_maxResults' - Request to describe Replication Configuration template by max results.
 newDescribeReplicationConfigurationTemplates ::
   DescribeReplicationConfigurationTemplates
 newDescribeReplicationConfigurationTemplates =
   DescribeReplicationConfigurationTemplates'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       replicationConfigurationTemplateIDs =
-        Prelude.mempty
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Request to describe Replication Configuration template by next token.
 describeReplicationConfigurationTemplates_nextToken :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Text)
 describeReplicationConfigurationTemplates_nextToken = Lens.lens (\DescribeReplicationConfigurationTemplates' {nextToken} -> nextToken) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {nextToken = a} :: DescribeReplicationConfigurationTemplates)
 
+-- | Request to describe Replication Configuration template by template IDs.
+describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe [Prelude.Text])
+describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs = Lens.lens (\DescribeReplicationConfigurationTemplates' {replicationConfigurationTemplateIDs} -> replicationConfigurationTemplateIDs) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {replicationConfigurationTemplateIDs = a} :: DescribeReplicationConfigurationTemplates) Prelude.. Lens.mapping Lens.coerced
+
 -- | Request to describe Replication Configuration template by max results.
 describeReplicationConfigurationTemplates_maxResults :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Natural)
 describeReplicationConfigurationTemplates_maxResults = Lens.lens (\DescribeReplicationConfigurationTemplates' {maxResults} -> maxResults) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {maxResults = a} :: DescribeReplicationConfigurationTemplates)
-
--- | Request to describe Replication Configuration template by template IDs.
-describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs :: Lens.Lens' DescribeReplicationConfigurationTemplates [Prelude.Text]
-describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs = Lens.lens (\DescribeReplicationConfigurationTemplates' {replicationConfigurationTemplateIDs} -> replicationConfigurationTemplateIDs) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {replicationConfigurationTemplateIDs = a} :: DescribeReplicationConfigurationTemplates) Prelude.. Lens.coerced
 
 instance
   Core.AWSPager
@@ -150,8 +150,8 @@ instance
     _salt
     DescribeReplicationConfigurationTemplates' {..} =
       _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` replicationConfigurationTemplateIDs
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
@@ -159,8 +159,8 @@ instance
   where
   rnf DescribeReplicationConfigurationTemplates' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf replicationConfigurationTemplateIDs
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -184,11 +184,9 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ( "replicationConfigurationTemplateIDs"
-                  Core..= replicationConfigurationTemplateIDs
-              )
+            ("replicationConfigurationTemplateIDs" Core..=)
+              Prelude.<$> replicationConfigurationTemplateIDs,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

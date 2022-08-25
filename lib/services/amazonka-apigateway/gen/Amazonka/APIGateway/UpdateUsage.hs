@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The Id of the usage plan associated with the usage data.
+    -- | The Id of the usage plan associated with the usage data.
     usagePlanId :: Prelude.Text,
-    -- | [Required] The identifier of the API key associated with the usage plan
-    -- in which a temporary extension is granted to the remaining quota.
+    -- | The identifier of the API key associated with the usage plan in which a
+    -- temporary extension is granted to the remaining quota.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,13 +76,13 @@ data UpdateUsage = UpdateUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateUsage_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateUsage_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'usagePlanId', 'updateUsage_usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
+-- 'usagePlanId', 'updateUsage_usagePlanId' - The Id of the usage plan associated with the usage data.
 --
--- 'keyId', 'updateUsage_keyId' - [Required] The identifier of the API key associated with the usage plan
--- in which a temporary extension is granted to the remaining quota.
+-- 'keyId', 'updateUsage_keyId' - The identifier of the API key associated with the usage plan in which a
+-- temporary extension is granted to the remaining quota.
 newUpdateUsage ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -96,17 +96,17 @@ newUpdateUsage pUsagePlanId_ pKeyId_ =
       keyId = pKeyId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateUsage_patchOperations :: Lens.Lens' UpdateUsage (Prelude.Maybe [PatchOperation])
 updateUsage_patchOperations = Lens.lens (\UpdateUsage' {patchOperations} -> patchOperations) (\s@UpdateUsage' {} a -> s {patchOperations = a} :: UpdateUsage) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The Id of the usage plan associated with the usage data.
+-- | The Id of the usage plan associated with the usage data.
 updateUsage_usagePlanId :: Lens.Lens' UpdateUsage Prelude.Text
 updateUsage_usagePlanId = Lens.lens (\UpdateUsage' {usagePlanId} -> usagePlanId) (\s@UpdateUsage' {} a -> s {usagePlanId = a} :: UpdateUsage)
 
--- | [Required] The identifier of the API key associated with the usage plan
--- in which a temporary extension is granted to the remaining quota.
+-- | The identifier of the API key associated with the usage plan in which a
+-- temporary extension is granted to the remaining quota.
 updateUsage_keyId :: Lens.Lens' UpdateUsage Prelude.Text
 updateUsage_keyId = Lens.lens (\UpdateUsage' {keyId} -> keyId) (\s@UpdateUsage' {} a -> s {keyId = a} :: UpdateUsage)
 

@@ -20,8 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the client- and server-side session that is associated with the
--- user.
+-- Removes the locally stored SSO tokens from the client-side cache and
+-- sends an API call to the Amazon Web Services SSO service to invalidate
+-- the corresponding server-side Amazon Web Services SSO sign in session.
+--
+-- If a user uses Amazon Web Services SSO to access the AWS CLI, the user’s
+-- Amazon Web Services SSO sign in session is used to obtain an IAM
+-- session, as specified in the corresponding Amazon Web Services SSO
+-- permission set. More specifically, Amazon Web Services SSO assumes an
+-- IAM role in the target account on behalf of the user, and the
+-- corresponding temporary Amazon Web Services credentials are returned to
+-- the client.
+--
+-- After user logout, any existing IAM role sessions that were created by
+-- using Amazon Web Services SSO permission sets continue based on the
+-- duration configured in the permission set. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html User authentications>
+-- in the /Amazon Web Services SSO User Guide/.
 module Amazonka.SSO.Logout
   ( -- * Creating a Request
     Logout (..),
@@ -48,7 +63,7 @@ data Logout = Logout'
   { -- | The token issued by the @CreateToken@ API call. For more information,
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
-    -- in the /AWS SSO OIDC API Reference Guide/.
+    -- in the /Amazon Web Services SSO OIDC API Reference Guide/.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -64,7 +79,7 @@ data Logout = Logout'
 -- 'accessToken', 'logout_accessToken' - The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /AWS SSO OIDC API Reference Guide/.
+-- in the /Amazon Web Services SSO OIDC API Reference Guide/.
 newLogout ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -78,7 +93,7 @@ newLogout pAccessToken_ =
 -- | The token issued by the @CreateToken@ API call. For more information,
 -- see
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
--- in the /AWS SSO OIDC API Reference Guide/.
+-- in the /Amazon Web Services SSO OIDC API Reference Guide/.
 logout_accessToken :: Lens.Lens' Logout Prelude.Text
 logout_accessToken = Lens.lens (\Logout' {accessToken} -> accessToken) (\s@Logout' {} a -> s {accessToken = a} :: Logout) Prelude.. Core._Sensitive
 

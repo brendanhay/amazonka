@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a deployment strategy. Deleting a deployment strategy does not
+-- Deletes a deployment strategy. Deleting a deployment strategy does not
 -- delete a configuration from a host.
 module Amazonka.AppConfig.DeleteDeploymentStrategy
   ( -- * Creating a Request

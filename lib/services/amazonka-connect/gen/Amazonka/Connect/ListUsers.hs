@@ -58,7 +58,8 @@ data ListUsers = ListUsers'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -78,7 +79,8 @@ data ListUsers = ListUsers'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
 -- 'instanceId', 'listUsers_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -99,7 +101,8 @@ newListUsers pInstanceId_ =
 listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
 listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListUsers' {} a -> s {nextToken = a} :: ListUsers)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 

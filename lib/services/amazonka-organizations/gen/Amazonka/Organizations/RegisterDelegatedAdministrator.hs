@@ -21,15 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the specified member account to administer the Organizations
--- features of the specified AWS service. It grants read-only access to AWS
--- Organizations service data. The account still requires IAM permissions
--- to access and administer the AWS service.
+-- features of the specified Amazon Web Services service. It grants
+-- read-only access to Organizations service data. The account still
+-- requires IAM permissions to access and administer the Amazon Web
+-- Services service.
 --
--- You can run this action only for AWS services that support this feature.
--- For a current list of services that support it, see the column /Supports
--- Delegated Administrator/ in the table at
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html AWS Services that you can use with AWS Organizations>
--- in the /AWS Organizations User Guide./
+-- You can run this action only for Amazon Web Services services that
+-- support this feature. For a current list of services that support it,
+-- see the column /Supports Delegated Administrator/ in the table at
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html Amazon Web Services Services that you can use with Organizations>
+-- in the /Organizations User Guide./
 --
 -- This operation can be called only from the organization\'s management
 -- account.
@@ -60,8 +61,8 @@ data RegisterDelegatedAdministrator = RegisterDelegatedAdministrator'
   { -- | The account ID number of the member account in the organization to
     -- register as a delegated administrator.
     accountId :: Prelude.Text,
-    -- | The service principal of the AWS service for which you want to make the
-    -- member account a delegated administrator.
+    -- | The service principal of the Amazon Web Services service for which you
+    -- want to make the member account a delegated administrator.
     servicePrincipal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,8 +78,8 @@ data RegisterDelegatedAdministrator = RegisterDelegatedAdministrator'
 -- 'accountId', 'registerDelegatedAdministrator_accountId' - The account ID number of the member account in the organization to
 -- register as a delegated administrator.
 --
--- 'servicePrincipal', 'registerDelegatedAdministrator_servicePrincipal' - The service principal of the AWS service for which you want to make the
--- member account a delegated administrator.
+-- 'servicePrincipal', 'registerDelegatedAdministrator_servicePrincipal' - The service principal of the Amazon Web Services service for which you
+-- want to make the member account a delegated administrator.
 newRegisterDelegatedAdministrator ::
   -- | 'accountId'
   Prelude.Text ->
@@ -99,8 +100,8 @@ newRegisterDelegatedAdministrator
 registerDelegatedAdministrator_accountId :: Lens.Lens' RegisterDelegatedAdministrator Prelude.Text
 registerDelegatedAdministrator_accountId = Lens.lens (\RegisterDelegatedAdministrator' {accountId} -> accountId) (\s@RegisterDelegatedAdministrator' {} a -> s {accountId = a} :: RegisterDelegatedAdministrator)
 
--- | The service principal of the AWS service for which you want to make the
--- member account a delegated administrator.
+-- | The service principal of the Amazon Web Services service for which you
+-- want to make the member account a delegated administrator.
 registerDelegatedAdministrator_servicePrincipal :: Lens.Lens' RegisterDelegatedAdministrator Prelude.Text
 registerDelegatedAdministrator_servicePrincipal = Lens.lens (\RegisterDelegatedAdministrator' {servicePrincipal} -> servicePrincipal) (\s@RegisterDelegatedAdministrator' {} a -> s {servicePrincipal = a} :: RegisterDelegatedAdministrator)
 

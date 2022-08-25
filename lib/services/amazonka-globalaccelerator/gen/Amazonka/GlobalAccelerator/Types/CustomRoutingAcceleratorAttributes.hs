@@ -32,13 +32,13 @@ data CustomRoutingAcceleratorAttributes = CustomRoutingAcceleratorAttributes'
     -- specified.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow Logs>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow logs>
+    -- in the /Global Accelerator Developer Guide/.
     flowLogsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Amazon S3 bucket for the flow logs. Attribute is
     -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
-    -- a bucket policy that grants AWS Global Accelerator permission to write
-    -- to the bucket.
+    -- a bucket policy that grants Global Accelerator permission to write to
+    -- the bucket.
     flowLogsS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the location in the Amazon S3 bucket for the flow logs.
     -- Attribute is required if @FlowLogsEnabled@ is @true@.
@@ -66,13 +66,13 @@ data CustomRoutingAcceleratorAttributes = CustomRoutingAcceleratorAttributes'
 -- specified.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow Logs>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow logs>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'flowLogsS3Bucket', 'customRoutingAcceleratorAttributes_flowLogsS3Bucket' - The name of the Amazon S3 bucket for the flow logs. Attribute is
 -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
--- a bucket policy that grants AWS Global Accelerator permission to write
--- to the bucket.
+-- a bucket policy that grants Global Accelerator permission to write to
+-- the bucket.
 --
 -- 'flowLogsS3Prefix', 'customRoutingAcceleratorAttributes_flowLogsS3Prefix' - The prefix for the location in the Amazon S3 bucket for the flow logs.
 -- Attribute is required if @FlowLogsEnabled@ is @true@.
@@ -98,15 +98,15 @@ newCustomRoutingAcceleratorAttributes =
 -- specified.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow Logs>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html Flow logs>
+-- in the /Global Accelerator Developer Guide/.
 customRoutingAcceleratorAttributes_flowLogsEnabled :: Lens.Lens' CustomRoutingAcceleratorAttributes (Prelude.Maybe Prelude.Bool)
 customRoutingAcceleratorAttributes_flowLogsEnabled = Lens.lens (\CustomRoutingAcceleratorAttributes' {flowLogsEnabled} -> flowLogsEnabled) (\s@CustomRoutingAcceleratorAttributes' {} a -> s {flowLogsEnabled = a} :: CustomRoutingAcceleratorAttributes)
 
 -- | The name of the Amazon S3 bucket for the flow logs. Attribute is
 -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
--- a bucket policy that grants AWS Global Accelerator permission to write
--- to the bucket.
+-- a bucket policy that grants Global Accelerator permission to write to
+-- the bucket.
 customRoutingAcceleratorAttributes_flowLogsS3Bucket :: Lens.Lens' CustomRoutingAcceleratorAttributes (Prelude.Maybe Prelude.Text)
 customRoutingAcceleratorAttributes_flowLogsS3Bucket = Lens.lens (\CustomRoutingAcceleratorAttributes' {flowLogsS3Bucket} -> flowLogsS3Bucket) (\s@CustomRoutingAcceleratorAttributes' {} a -> s {flowLogsS3Bucket = a} :: CustomRoutingAcceleratorAttributes)
 

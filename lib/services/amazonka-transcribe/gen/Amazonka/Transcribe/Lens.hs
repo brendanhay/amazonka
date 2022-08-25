@@ -230,12 +230,12 @@ module Amazonka.Transcribe.Lens
 
     -- ** StartCallAnalyticsJob
     startCallAnalyticsJob_outputLocation,
+    startCallAnalyticsJob_dataAccessRoleArn,
     startCallAnalyticsJob_settings,
     startCallAnalyticsJob_outputEncryptionKMSKeyId,
     startCallAnalyticsJob_channelDefinitions,
     startCallAnalyticsJob_callAnalyticsJobName,
     startCallAnalyticsJob_media,
-    startCallAnalyticsJob_dataAccessRoleArn,
     startCallAnalyticsJobResponse_callAnalyticsJob,
     startCallAnalyticsJobResponse_httpStatus,
 
@@ -260,11 +260,13 @@ module Amazonka.Transcribe.Lens
     -- ** StartTranscriptionJob
     startTranscriptionJob_tags,
     startTranscriptionJob_kmsEncryptionContext,
+    startTranscriptionJob_identifyMultipleLanguages,
     startTranscriptionJob_mediaFormat,
     startTranscriptionJob_identifyLanguage,
     startTranscriptionJob_contentRedaction,
     startTranscriptionJob_outputKey,
     startTranscriptionJob_subtitles,
+    startTranscriptionJob_languageIdSettings,
     startTranscriptionJob_settings,
     startTranscriptionJob_mediaSampleRateHertz,
     startTranscriptionJob_outputBucketName,
@@ -295,9 +297,9 @@ module Amazonka.Transcribe.Lens
     updateCallAnalyticsCategoryResponse_httpStatus,
 
     -- ** UpdateMedicalVocabulary
-    updateMedicalVocabulary_vocabularyFileUri,
     updateMedicalVocabulary_vocabularyName,
     updateMedicalVocabulary_languageCode,
+    updateMedicalVocabulary_vocabularyFileUri,
     updateMedicalVocabularyResponse_vocabularyName,
     updateMedicalVocabularyResponse_vocabularyState,
     updateMedicalVocabularyResponse_lastModifiedTime,
@@ -354,6 +356,7 @@ module Amazonka.Transcribe.Lens
     callAnalyticsJobSettings_vocabularyName,
     callAnalyticsJobSettings_languageModelName,
     callAnalyticsJobSettings_contentRedaction,
+    callAnalyticsJobSettings_languageIdSettings,
     callAnalyticsJobSettings_vocabularyFilterName,
     callAnalyticsJobSettings_languageOptions,
 
@@ -377,6 +380,7 @@ module Amazonka.Transcribe.Lens
     channelDefinition_channelId,
 
     -- ** ContentRedaction
+    contentRedaction_piiEntityTypes,
     contentRedaction_redactionType,
     contentRedaction_redactionOutput,
 
@@ -395,6 +399,15 @@ module Amazonka.Transcribe.Lens
     -- ** JobExecutionSettings
     jobExecutionSettings_allowDeferredExecution,
     jobExecutionSettings_dataAccessRoleArn,
+
+    -- ** LanguageCodeItem
+    languageCodeItem_languageCode,
+    languageCodeItem_durationInSeconds,
+
+    -- ** LanguageIdSettings
+    languageIdSettings_vocabularyName,
+    languageIdSettings_languageModelName,
+    languageIdSettings_vocabularyFilterName,
 
     -- ** LanguageModel
     languageModel_modelStatus,
@@ -492,9 +505,11 @@ module Amazonka.Transcribe.Lens
     settings_showAlternatives,
 
     -- ** Subtitles
+    subtitles_outputStartIndex,
     subtitles_formats,
 
     -- ** SubtitlesOutput
+    subtitlesOutput_outputStartIndex,
     subtitlesOutput_formats,
     subtitlesOutput_subtitleFileUris,
 
@@ -517,12 +532,14 @@ module Amazonka.Transcribe.Lens
     -- ** TranscriptionJob
     transcriptionJob_tags,
     transcriptionJob_transcript,
+    transcriptionJob_identifyMultipleLanguages,
     transcriptionJob_mediaFormat,
     transcriptionJob_identifyLanguage,
     transcriptionJob_contentRedaction,
     transcriptionJob_transcriptionJobName,
     transcriptionJob_completionTime,
     transcriptionJob_subtitles,
+    transcriptionJob_languageIdSettings,
     transcriptionJob_settings,
     transcriptionJob_mediaSampleRateHertz,
     transcriptionJob_languageCode,
@@ -534,9 +551,11 @@ module Amazonka.Transcribe.Lens
     transcriptionJob_startTime,
     transcriptionJob_failureReason,
     transcriptionJob_languageOptions,
+    transcriptionJob_languageCodes,
     transcriptionJob_media,
 
     -- ** TranscriptionJobSummary
+    transcriptionJobSummary_identifyMultipleLanguages,
     transcriptionJobSummary_identifyLanguage,
     transcriptionJobSummary_contentRedaction,
     transcriptionJobSummary_transcriptionJobName,
@@ -549,6 +568,7 @@ module Amazonka.Transcribe.Lens
     transcriptionJobSummary_identifiedLanguageScore,
     transcriptionJobSummary_startTime,
     transcriptionJobSummary_failureReason,
+    transcriptionJobSummary_languageCodes,
 
     -- ** VocabularyFilterInfo
     vocabularyFilterInfo_lastModifiedTime,
@@ -607,6 +627,8 @@ import Amazonka.Transcribe.Types.ContentRedaction
 import Amazonka.Transcribe.Types.InputDataConfig
 import Amazonka.Transcribe.Types.InterruptionFilter
 import Amazonka.Transcribe.Types.JobExecutionSettings
+import Amazonka.Transcribe.Types.LanguageCodeItem
+import Amazonka.Transcribe.Types.LanguageIdSettings
 import Amazonka.Transcribe.Types.LanguageModel
 import Amazonka.Transcribe.Types.Media
 import Amazonka.Transcribe.Types.MedicalTranscript

@@ -46,6 +46,7 @@ module Amazonka.RDSData.Lens
     executeStatement_resultSetOptions,
     executeStatement_includeResultMetadata,
     executeStatement_transactionId,
+    executeStatement_formatRecordsAs,
     executeStatement_schema,
     executeStatement_parameters,
     executeStatement_resourceArn,
@@ -54,6 +55,7 @@ module Amazonka.RDSData.Lens
     executeStatementResponse_records,
     executeStatementResponse_columnMetadata,
     executeStatementResponse_numberOfRecordsUpdated,
+    executeStatementResponse_formattedRecords,
     executeStatementResponse_generatedFields,
     executeStatementResponse_httpStatus,
 
@@ -100,6 +102,7 @@ module Amazonka.RDSData.Lens
 
     -- ** ResultSetOptions
     resultSetOptions_decimalReturnType,
+    resultSetOptions_longReturnType,
 
     -- ** SqlParameter
     sqlParameter_name,

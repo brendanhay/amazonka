@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For more information about these account limits, and other
 -- CloudFormation limits, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation Limits>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation quotas>
 -- in the /CloudFormation User Guide/.
 --
 -- /See:/ 'newAccountLimit' smart constructor.
@@ -44,7 +44,7 @@ data AccountLimit = AccountLimit'
     --
     -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
     name :: Prelude.Maybe Prelude.Text,
-    -- | The value that is associated with the account limit name.
+    -- | The value that\'s associated with the account limit name.
     value :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data AccountLimit = AccountLimit'
 --
 -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
 --
--- 'value', 'accountLimit_value' - The value that is associated with the account limit name.
+-- 'value', 'accountLimit_value' - The value that\'s associated with the account limit name.
 newAccountLimit ::
   AccountLimit
 newAccountLimit =
@@ -76,7 +76,7 @@ newAccountLimit =
 accountLimit_name :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Text)
 accountLimit_name = Lens.lens (\AccountLimit' {name} -> name) (\s@AccountLimit' {} a -> s {name = a} :: AccountLimit)
 
--- | The value that is associated with the account limit name.
+-- | The value that\'s associated with the account limit name.
 accountLimit_value :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
 accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
 

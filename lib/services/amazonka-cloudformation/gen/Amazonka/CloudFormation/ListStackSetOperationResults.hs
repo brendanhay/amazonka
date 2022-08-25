@@ -55,7 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStackSetOperationResults' smart constructor.
 data ListStackSetOperationResults = ListStackSetOperationResults'
-  { -- | If the previous request didn\'t return all of the remaining results, the
+  { -- | If the previous request didn\'t return all the remaining results, the
     -- response object\'s @NextToken@ parameter value is set to a token. To
     -- retrieve the next set of results, call @ListStackSetOperationResults@
     -- again and assign that token to the request object\'s @NextToken@
@@ -100,7 +100,7 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStackSetOperationResults_nextToken' - If the previous request didn\'t return all of the remaining results, the
+-- 'nextToken', 'listStackSetOperationResults_nextToken' - If the previous request didn\'t return all the remaining results, the
 -- response object\'s @NextToken@ parameter value is set to a token. To
 -- retrieve the next set of results, call @ListStackSetOperationResults@
 -- again and assign that token to the request object\'s @NextToken@
@@ -151,7 +151,7 @@ newListStackSetOperationResults
         operationId = pOperationId_
       }
 
--- | If the previous request didn\'t return all of the remaining results, the
+-- | If the previous request didn\'t return all the remaining results, the
 -- response object\'s @NextToken@ parameter value is set to a token. To
 -- retrieve the next set of results, call @ListStackSetOperationResults@
 -- again and assign that token to the request object\'s @NextToken@
@@ -285,7 +285,7 @@ data ListStackSetOperationResultsResponse = ListStackSetOperationResultsResponse
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @StackSetOperationResultSummary@ structures that contain
     -- information about the specified operation results, for accounts and
-    -- Regions that are included in the operation.
+    -- Amazon Web Services Regions that are included in the operation.
     summaries :: Prelude.Maybe [StackSetOperationResultSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -308,7 +308,7 @@ data ListStackSetOperationResultsResponse = ListStackSetOperationResultsResponse
 --
 -- 'summaries', 'listStackSetOperationResultsResponse_summaries' - A list of @StackSetOperationResultSummary@ structures that contain
 -- information about the specified operation results, for accounts and
--- Regions that are included in the operation.
+-- Amazon Web Services Regions that are included in the operation.
 --
 -- 'httpStatus', 'listStackSetOperationResultsResponse_httpStatus' - The response's http status code.
 newListStackSetOperationResultsResponse ::
@@ -333,7 +333,7 @@ listStackSetOperationResultsResponse_nextToken = Lens.lens (\ListStackSetOperati
 
 -- | A list of @StackSetOperationResultSummary@ structures that contain
 -- information about the specified operation results, for accounts and
--- Regions that are included in the operation.
+-- Amazon Web Services Regions that are included in the operation.
 listStackSetOperationResultsResponse_summaries :: Lens.Lens' ListStackSetOperationResultsResponse (Prelude.Maybe [StackSetOperationResultSummary])
 listStackSetOperationResultsResponse_summaries = Lens.lens (\ListStackSetOperationResultsResponse' {summaries} -> summaries) (\s@ListStackSetOperationResultsResponse' {} a -> s {summaries = a} :: ListStackSetOperationResultsResponse) Prelude.. Lens.mapping Lens.coerced
 

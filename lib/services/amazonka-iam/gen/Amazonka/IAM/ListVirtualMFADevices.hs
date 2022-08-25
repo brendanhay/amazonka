@@ -28,8 +28,7 @@
 -- IAM resource-listing operations return a subset of the available
 -- attributes for the resource. For example, this operation does not return
 -- tags, even though they are an attribute of the returned object. To view
--- all of the information for a virtual MFA device, see
--- ListVirtualMFADevices.
+-- tag information for a virtual MFA device, see ListMFADeviceTags.
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.

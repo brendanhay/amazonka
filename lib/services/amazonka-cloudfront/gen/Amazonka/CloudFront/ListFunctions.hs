@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of all CloudFront functions in your account.
+-- Gets a list of all CloudFront functions in your Amazon Web Services
+-- account.
 --
 -- You can optionally apply a filter to return only the functions that are
 -- in the specified stage, either @DEVELOPMENT@ or @LIVE@.

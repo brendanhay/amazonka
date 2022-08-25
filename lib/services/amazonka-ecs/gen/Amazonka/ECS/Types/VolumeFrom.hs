@@ -32,8 +32,8 @@ data VolumeFrom = VolumeFrom'
     -- volume. If this value is @false@, then the container can write to the
     -- volume. The default value is @false@.
     readOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The name of another container within the same task definition from which
-    -- to mount volumes.
+    -- | The name of another container within the same task definition to mount
+    -- volumes from.
     sourceContainer :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,8 +50,8 @@ data VolumeFrom = VolumeFrom'
 -- volume. If this value is @false@, then the container can write to the
 -- volume. The default value is @false@.
 --
--- 'sourceContainer', 'volumeFrom_sourceContainer' - The name of another container within the same task definition from which
--- to mount volumes.
+-- 'sourceContainer', 'volumeFrom_sourceContainer' - The name of another container within the same task definition to mount
+-- volumes from.
 newVolumeFrom ::
   VolumeFrom
 newVolumeFrom =
@@ -66,8 +66,8 @@ newVolumeFrom =
 volumeFrom_readOnly :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Bool)
 volumeFrom_readOnly = Lens.lens (\VolumeFrom' {readOnly} -> readOnly) (\s@VolumeFrom' {} a -> s {readOnly = a} :: VolumeFrom)
 
--- | The name of another container within the same task definition from which
--- to mount volumes.
+-- | The name of another container within the same task definition to mount
+-- volumes from.
 volumeFrom_sourceContainer :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Text)
 volumeFrom_sourceContainer = Lens.lens (\VolumeFrom' {sourceContainer} -> sourceContainer) (\s@VolumeFrom' {} a -> s {sourceContainer = a} :: VolumeFrom)
 

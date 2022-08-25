@@ -25,16 +25,16 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @controlSet@ entity that represents a collection of controls in Audit
--- Manager. This does not contain the control set ID.
+-- Manager. This doesn\'t contain the control set ID.
 --
 -- /See:/ 'newUpdateAssessmentFrameworkControlSet' smart constructor.
 data UpdateAssessmentFrameworkControlSet = UpdateAssessmentFrameworkControlSet'
   { -- | The unique identifier for the control set.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The list of controls contained within the control set.
-    controls :: Prelude.Maybe (Prelude.NonEmpty CreateAssessmentFrameworkControl),
     -- | The name of the control set.
-    name :: Prelude.Text
+    name :: Prelude.Text,
+    -- | The list of controls that are contained within the control set.
+    controls :: Prelude.NonEmpty CreateAssessmentFrameworkControl
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,32 +48,37 @@ data UpdateAssessmentFrameworkControlSet = UpdateAssessmentFrameworkControlSet'
 --
 -- 'id', 'updateAssessmentFrameworkControlSet_id' - The unique identifier for the control set.
 --
--- 'controls', 'updateAssessmentFrameworkControlSet_controls' - The list of controls contained within the control set.
---
 -- 'name', 'updateAssessmentFrameworkControlSet_name' - The name of the control set.
+--
+-- 'controls', 'updateAssessmentFrameworkControlSet_controls' - The list of controls that are contained within the control set.
 newUpdateAssessmentFrameworkControlSet ::
   -- | 'name'
   Prelude.Text ->
+  -- | 'controls'
+  Prelude.NonEmpty CreateAssessmentFrameworkControl ->
   UpdateAssessmentFrameworkControlSet
-newUpdateAssessmentFrameworkControlSet pName_ =
-  UpdateAssessmentFrameworkControlSet'
-    { id =
-        Prelude.Nothing,
-      controls = Prelude.Nothing,
-      name = pName_
-    }
+newUpdateAssessmentFrameworkControlSet
+  pName_
+  pControls_ =
+    UpdateAssessmentFrameworkControlSet'
+      { id =
+          Prelude.Nothing,
+        name = pName_,
+        controls =
+          Lens.coerced Lens.# pControls_
+      }
 
 -- | The unique identifier for the control set.
 updateAssessmentFrameworkControlSet_id :: Lens.Lens' UpdateAssessmentFrameworkControlSet (Prelude.Maybe Prelude.Text)
 updateAssessmentFrameworkControlSet_id = Lens.lens (\UpdateAssessmentFrameworkControlSet' {id} -> id) (\s@UpdateAssessmentFrameworkControlSet' {} a -> s {id = a} :: UpdateAssessmentFrameworkControlSet)
 
--- | The list of controls contained within the control set.
-updateAssessmentFrameworkControlSet_controls :: Lens.Lens' UpdateAssessmentFrameworkControlSet (Prelude.Maybe (Prelude.NonEmpty CreateAssessmentFrameworkControl))
-updateAssessmentFrameworkControlSet_controls = Lens.lens (\UpdateAssessmentFrameworkControlSet' {controls} -> controls) (\s@UpdateAssessmentFrameworkControlSet' {} a -> s {controls = a} :: UpdateAssessmentFrameworkControlSet) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the control set.
 updateAssessmentFrameworkControlSet_name :: Lens.Lens' UpdateAssessmentFrameworkControlSet Prelude.Text
 updateAssessmentFrameworkControlSet_name = Lens.lens (\UpdateAssessmentFrameworkControlSet' {name} -> name) (\s@UpdateAssessmentFrameworkControlSet' {} a -> s {name = a} :: UpdateAssessmentFrameworkControlSet)
+
+-- | The list of controls that are contained within the control set.
+updateAssessmentFrameworkControlSet_controls :: Lens.Lens' UpdateAssessmentFrameworkControlSet (Prelude.NonEmpty CreateAssessmentFrameworkControl)
+updateAssessmentFrameworkControlSet_controls = Lens.lens (\UpdateAssessmentFrameworkControlSet' {controls} -> controls) (\s@UpdateAssessmentFrameworkControlSet' {} a -> s {controls = a} :: UpdateAssessmentFrameworkControlSet) Prelude.. Lens.coerced
 
 instance
   Prelude.Hashable
@@ -83,8 +88,8 @@ instance
     _salt
     UpdateAssessmentFrameworkControlSet' {..} =
       _salt `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` controls
         `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` controls
 
 instance
   Prelude.NFData
@@ -92,8 +97,8 @@ instance
   where
   rnf UpdateAssessmentFrameworkControlSet' {..} =
     Prelude.rnf id
-      `Prelude.seq` Prelude.rnf controls
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf controls
 
 instance
   Core.ToJSON
@@ -103,7 +108,7 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("id" Core..=) Prelude.<$> id,
-            ("controls" Core..=) Prelude.<$> controls,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("controls" Core..= controls)
           ]
       )

@@ -94,7 +94,7 @@ data GameServer = GameServer'
     utilizationStatus :: Prelude.Maybe GameServerUtilizationStatus,
     -- | A custom string that uniquely identifies the game server. Game server
     -- IDs are developer-defined and are unique across all game server groups
-    -- in an AWS account.
+    -- in an Amazon Web Services account.
     gameServerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -158,7 +158,7 @@ data GameServer = GameServer'
 --
 -- 'gameServerId', 'gameServer_gameServerId' - A custom string that uniquely identifies the game server. Game server
 -- IDs are developer-defined and are unique across all game server groups
--- in an AWS account.
+-- in an Amazon Web Services account.
 newGameServer ::
   GameServer
 newGameServer =
@@ -247,7 +247,7 @@ gameServer_utilizationStatus = Lens.lens (\GameServer' {utilizationStatus} -> ut
 
 -- | A custom string that uniquely identifies the game server. Game server
 -- IDs are developer-defined and are unique across all game server groups
--- in an AWS account.
+-- in an Amazon Web Services account.
 gameServer_gameServerId :: Lens.Lens' GameServer (Prelude.Maybe Prelude.Text)
 gameServer_gameServerId = Lens.lens (\GameServer' {gameServerId} -> gameServerId) (\s@GameServer' {} a -> s {gameServerId = a} :: GameServer)
 

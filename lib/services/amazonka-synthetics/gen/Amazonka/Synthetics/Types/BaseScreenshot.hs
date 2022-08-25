@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data BaseScreenshot = BaseScreenshot'
   { -- | Coordinates that define the part of a screen to ignore during screenshot
     -- comparisons. To obtain the coordinates to use here, use the CloudWatch
-    -- Logs console to draw the boundaries on the screen. For more information,
-    -- see {LINK}
+    -- console to draw the boundaries on the screen. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/synthetics_canaries_deletion.html Editing or deleting a canary>
     ignoreCoordinates :: Prelude.Maybe [Prelude.Text],
     -- | The name of the screenshot. This is generated the first time the canary
     -- is run after the @UpdateCanary@ operation that specified for this canary
@@ -50,8 +50,8 @@ data BaseScreenshot = BaseScreenshot'
 --
 -- 'ignoreCoordinates', 'baseScreenshot_ignoreCoordinates' - Coordinates that define the part of a screen to ignore during screenshot
 -- comparisons. To obtain the coordinates to use here, use the CloudWatch
--- Logs console to draw the boundaries on the screen. For more information,
--- see {LINK}
+-- console to draw the boundaries on the screen. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/synthetics_canaries_deletion.html Editing or deleting a canary>
 --
 -- 'screenshotName', 'baseScreenshot_screenshotName' - The name of the screenshot. This is generated the first time the canary
 -- is run after the @UpdateCanary@ operation that specified for this canary
@@ -69,8 +69,8 @@ newBaseScreenshot pScreenshotName_ =
 
 -- | Coordinates that define the part of a screen to ignore during screenshot
 -- comparisons. To obtain the coordinates to use here, use the CloudWatch
--- Logs console to draw the boundaries on the screen. For more information,
--- see {LINK}
+-- console to draw the boundaries on the screen. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/synthetics_canaries_deletion.html Editing or deleting a canary>
 baseScreenshot_ignoreCoordinates :: Lens.Lens' BaseScreenshot (Prelude.Maybe [Prelude.Text])
 baseScreenshot_ignoreCoordinates = Lens.lens (\BaseScreenshot' {ignoreCoordinates} -> ignoreCoordinates) (\s@BaseScreenshot' {} a -> s {ignoreCoordinates = a} :: BaseScreenshot) Prelude.. Lens.mapping Lens.coerced
 

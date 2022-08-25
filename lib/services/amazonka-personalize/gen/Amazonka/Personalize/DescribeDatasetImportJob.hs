@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the dataset import job created by CreateDatasetImportJob,
+-- Describes the dataset import job created by
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>,
 -- including the import job status.
 module Amazonka.Personalize.DescribeDatasetImportJob
   ( -- * Creating a Request

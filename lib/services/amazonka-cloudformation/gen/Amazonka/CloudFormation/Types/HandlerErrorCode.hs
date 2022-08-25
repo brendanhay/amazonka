@@ -23,18 +23,21 @@ module Amazonka.CloudFormation.Types.HandlerErrorCode
         HandlerErrorCode_AccessDenied,
         HandlerErrorCode_AlreadyExists,
         HandlerErrorCode_GeneralServiceException,
+        HandlerErrorCode_HandlerInternalFailure,
         HandlerErrorCode_InternalFailure,
         HandlerErrorCode_InvalidCredentials,
         HandlerErrorCode_InvalidRequest,
         HandlerErrorCode_InvalidTypeConfiguration,
         HandlerErrorCode_NetworkFailure,
+        HandlerErrorCode_NonCompliant,
         HandlerErrorCode_NotFound,
         HandlerErrorCode_NotStabilized,
         HandlerErrorCode_NotUpdatable,
         HandlerErrorCode_ResourceConflict,
         HandlerErrorCode_ServiceInternalError,
         HandlerErrorCode_ServiceLimitExceeded,
-        HandlerErrorCode_Throttling
+        HandlerErrorCode_Throttling,
+        HandlerErrorCode_Unknown
       ),
   )
 where
@@ -79,6 +82,9 @@ pattern HandlerErrorCode_AlreadyExists = HandlerErrorCode' "AlreadyExists"
 pattern HandlerErrorCode_GeneralServiceException :: HandlerErrorCode
 pattern HandlerErrorCode_GeneralServiceException = HandlerErrorCode' "GeneralServiceException"
 
+pattern HandlerErrorCode_HandlerInternalFailure :: HandlerErrorCode
+pattern HandlerErrorCode_HandlerInternalFailure = HandlerErrorCode' "HandlerInternalFailure"
+
 pattern HandlerErrorCode_InternalFailure :: HandlerErrorCode
 pattern HandlerErrorCode_InternalFailure = HandlerErrorCode' "InternalFailure"
 
@@ -93,6 +99,9 @@ pattern HandlerErrorCode_InvalidTypeConfiguration = HandlerErrorCode' "InvalidTy
 
 pattern HandlerErrorCode_NetworkFailure :: HandlerErrorCode
 pattern HandlerErrorCode_NetworkFailure = HandlerErrorCode' "NetworkFailure"
+
+pattern HandlerErrorCode_NonCompliant :: HandlerErrorCode
+pattern HandlerErrorCode_NonCompliant = HandlerErrorCode' "NonCompliant"
 
 pattern HandlerErrorCode_NotFound :: HandlerErrorCode
 pattern HandlerErrorCode_NotFound = HandlerErrorCode' "NotFound"
@@ -115,15 +124,20 @@ pattern HandlerErrorCode_ServiceLimitExceeded = HandlerErrorCode' "ServiceLimitE
 pattern HandlerErrorCode_Throttling :: HandlerErrorCode
 pattern HandlerErrorCode_Throttling = HandlerErrorCode' "Throttling"
 
+pattern HandlerErrorCode_Unknown :: HandlerErrorCode
+pattern HandlerErrorCode_Unknown = HandlerErrorCode' "Unknown"
+
 {-# COMPLETE
   HandlerErrorCode_AccessDenied,
   HandlerErrorCode_AlreadyExists,
   HandlerErrorCode_GeneralServiceException,
+  HandlerErrorCode_HandlerInternalFailure,
   HandlerErrorCode_InternalFailure,
   HandlerErrorCode_InvalidCredentials,
   HandlerErrorCode_InvalidRequest,
   HandlerErrorCode_InvalidTypeConfiguration,
   HandlerErrorCode_NetworkFailure,
+  HandlerErrorCode_NonCompliant,
   HandlerErrorCode_NotFound,
   HandlerErrorCode_NotStabilized,
   HandlerErrorCode_NotUpdatable,
@@ -131,5 +145,6 @@ pattern HandlerErrorCode_Throttling = HandlerErrorCode' "Throttling"
   HandlerErrorCode_ServiceInternalError,
   HandlerErrorCode_ServiceLimitExceeded,
   HandlerErrorCode_Throttling,
+  HandlerErrorCode_Unknown,
   HandlerErrorCode'
   #-}

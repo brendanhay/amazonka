@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Simple Storage Service (Amazon S3) bucket to
--- write instance-level logs to.
+-- write managed node-level logs to.
 --
 -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
 -- Service (Amazon S3) bucket to contain logs, instead use the

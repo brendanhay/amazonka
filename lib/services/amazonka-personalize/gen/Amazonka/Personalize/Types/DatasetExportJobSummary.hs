@@ -24,7 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a dataset export job. For a
--- complete listing, call the DescribeDatasetExportJob API.
+-- complete listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html DescribeDatasetExportJob>
+-- API.
 --
 -- /See:/ 'newDatasetExportJobSummary' smart constructor.
 data DatasetExportJobSummary = DatasetExportJobSummary'

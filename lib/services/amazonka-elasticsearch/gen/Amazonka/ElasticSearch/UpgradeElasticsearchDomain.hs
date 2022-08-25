@@ -37,6 +37,7 @@ module Amazonka.ElasticSearch.UpgradeElasticsearchDomain
     newUpgradeElasticsearchDomainResponse,
 
     -- * Response Lenses
+    upgradeElasticsearchDomainResponse_changeProgressDetails,
     upgradeElasticsearchDomainResponse_domainName,
     upgradeElasticsearchDomainResponse_targetVersion,
     upgradeElasticsearchDomainResponse_performCheckOnly,
@@ -117,7 +118,8 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
     Response.receiveJSON
       ( \s h x ->
           UpgradeElasticsearchDomainResponse'
-            Prelude.<$> (x Core..?> "DomainName")
+            Prelude.<$> (x Core..?> "ChangeProgressDetails")
+            Prelude.<*> (x Core..?> "DomainName")
             Prelude.<*> (x Core..?> "TargetVersion")
             Prelude.<*> (x Core..?> "PerformCheckOnly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,7 +163,8 @@ instance Core.ToQuery UpgradeElasticsearchDomain where
 --
 -- /See:/ 'newUpgradeElasticsearchDomainResponse' smart constructor.
 data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
-  { domainName :: Prelude.Maybe Prelude.Text,
+  { changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | The version of Elasticsearch that you intend to upgrade the domain to.
     targetVersion :: Prelude.Maybe Prelude.Text,
     -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
@@ -180,6 +183,8 @@ data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'changeProgressDetails', 'upgradeElasticsearchDomainResponse_changeProgressDetails' - Undocumented member.
+--
 -- 'domainName', 'upgradeElasticsearchDomainResponse_domainName' - Undocumented member.
 --
 -- 'targetVersion', 'upgradeElasticsearchDomainResponse_targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
@@ -194,12 +199,17 @@ newUpgradeElasticsearchDomainResponse ::
   UpgradeElasticsearchDomainResponse
 newUpgradeElasticsearchDomainResponse pHttpStatus_ =
   UpgradeElasticsearchDomainResponse'
-    { domainName =
+    { changeProgressDetails =
         Prelude.Nothing,
+      domainName = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
       performCheckOnly = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+upgradeElasticsearchDomainResponse_changeProgressDetails :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe ChangeProgressDetails)
+upgradeElasticsearchDomainResponse_changeProgressDetails = Lens.lens (\UpgradeElasticsearchDomainResponse' {changeProgressDetails} -> changeProgressDetails) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {changeProgressDetails = a} :: UpgradeElasticsearchDomainResponse)
 
 -- | Undocumented member.
 upgradeElasticsearchDomainResponse_domainName :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Text)
@@ -223,7 +233,8 @@ instance
     UpgradeElasticsearchDomainResponse
   where
   rnf UpgradeElasticsearchDomainResponse' {..} =
-    Prelude.rnf domainName
+    Prelude.rnf changeProgressDetails
+      `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf targetVersion
       `Prelude.seq` Prelude.rnf performCheckOnly
       `Prelude.seq` Prelude.rnf httpStatus

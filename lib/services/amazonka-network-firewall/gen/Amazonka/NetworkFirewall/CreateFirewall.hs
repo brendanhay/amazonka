@@ -20,13 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Network Firewall Firewall and accompanying FirewallStatus
--- for a VPC.
+-- Creates an Network Firewall Firewall and accompanying FirewallStatus for
+-- a VPC.
 --
--- The firewall defines the configuration settings for an AWS Network
--- Firewall firewall. The settings that you can define at creation include
--- the firewall policy, the subnets in your VPC to use for the firewall
--- endpoints, and any tags that are attached to the firewall AWS resource.
+-- The firewall defines the configuration settings for an Network Firewall
+-- firewall. The settings that you can define at creation include the
+-- firewall policy, the subnets in your VPC to use for the firewall
+-- endpoints, and any tags that are attached to the firewall Amazon Web
+-- Services resource.
 --
 -- After you create a firewall, you can provide additional settings, like
 -- the logging configuration.
@@ -35,8 +36,9 @@
 -- to the settings themselves, for example UpdateLoggingConfiguration,
 -- AssociateSubnets, and UpdateFirewallDeleteProtection.
 --
--- To manage a firewall\'s tags, use the standard AWS resource tagging
--- operations, ListTagsForResource, TagResource, and UntagResource.
+-- To manage a firewall\'s tags, use the standard Amazon Web Services
+-- resource tagging operations, ListTagsForResource, TagResource, and
+-- UntagResource.
 --
 -- To retrieve information about firewalls, use ListFirewalls and
 -- DescribeFirewall.
@@ -51,6 +53,7 @@ module Amazonka.NetworkFirewall.CreateFirewall
     createFirewall_subnetChangeProtection,
     createFirewall_description,
     createFirewall_firewallPolicyChangeProtection,
+    createFirewall_encryptionConfiguration,
     createFirewall_firewallName,
     createFirewall_firewallPolicyArn,
     createFirewall_vpcId,
@@ -98,6 +101,9 @@ data CreateFirewall = CreateFirewall'
     -- use. When you create a firewall, the operation initializes this setting
     -- to @TRUE@.
     firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
+    -- | A complex type that contains settings for encryption of your firewall
+    -- resources.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     firewallName :: Prelude.Text,
@@ -146,6 +152,9 @@ data CreateFirewall = CreateFirewall'
 -- use. When you create a firewall, the operation initializes this setting
 -- to @TRUE@.
 --
+-- 'encryptionConfiguration', 'createFirewall_encryptionConfiguration' - A complex type that contains settings for encryption of your firewall
+-- resources.
+--
 -- 'firewallName', 'createFirewall_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 --
@@ -178,6 +187,7 @@ newCreateFirewall
         subnetChangeProtection = Prelude.Nothing,
         description = Prelude.Nothing,
         firewallPolicyChangeProtection = Prelude.Nothing,
+        encryptionConfiguration = Prelude.Nothing,
         firewallName = pFirewallName_,
         firewallPolicyArn = pFirewallPolicyArn_,
         vpcId = pVpcId_,
@@ -215,6 +225,11 @@ createFirewall_description = Lens.lens (\CreateFirewall' {description} -> descri
 -- to @TRUE@.
 createFirewall_firewallPolicyChangeProtection :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Bool)
 createFirewall_firewallPolicyChangeProtection = Lens.lens (\CreateFirewall' {firewallPolicyChangeProtection} -> firewallPolicyChangeProtection) (\s@CreateFirewall' {} a -> s {firewallPolicyChangeProtection = a} :: CreateFirewall)
+
+-- | A complex type that contains settings for encryption of your firewall
+-- resources.
+createFirewall_encryptionConfiguration :: Lens.Lens' CreateFirewall (Prelude.Maybe EncryptionConfiguration)
+createFirewall_encryptionConfiguration = Lens.lens (\CreateFirewall' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateFirewall' {} a -> s {encryptionConfiguration = a} :: CreateFirewall)
 
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
@@ -260,6 +275,7 @@ instance Prelude.Hashable CreateFirewall where
       `Prelude.hashWithSalt` subnetChangeProtection
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firewallPolicyChangeProtection
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` vpcId
@@ -272,6 +288,7 @@ instance Prelude.NFData CreateFirewall where
       `Prelude.seq` Prelude.rnf subnetChangeProtection
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf firewallPolicyArn
       `Prelude.seq` Prelude.rnf vpcId
@@ -304,6 +321,8 @@ instance Core.ToJSON CreateFirewall where
             ("Description" Core..=) Prelude.<$> description,
             ("FirewallPolicyChangeProtection" Core..=)
               Prelude.<$> firewallPolicyChangeProtection,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration,
             Prelude.Just ("FirewallName" Core..= firewallName),
             Prelude.Just
               ("FirewallPolicyArn" Core..= firewallPolicyArn),

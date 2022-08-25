@@ -166,6 +166,10 @@ module Amazonka.EMRContainers
     -- ** VirtualClusterState
     VirtualClusterState (..),
 
+    -- ** Certificate
+    Certificate (Certificate'),
+    newCertificate,
+
     -- ** CloudWatchMonitoringConfiguration
     CloudWatchMonitoringConfiguration (CloudWatchMonitoringConfiguration'),
     newCloudWatchMonitoringConfiguration,

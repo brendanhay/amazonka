@@ -24,7 +24,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The description of details of the event.
+-- | The description of the details for the event.
 --
 -- /See:/ 'newActionHistoryDetails' smart constructor.
 data ActionHistoryDetails = ActionHistoryDetails'

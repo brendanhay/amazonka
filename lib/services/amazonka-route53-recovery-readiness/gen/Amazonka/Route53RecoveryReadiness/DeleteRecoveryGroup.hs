@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing Recovery Group.
+-- Deletes a recovery group.
 module Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup
   ( -- * Creating a Request
     DeleteRecoveryGroup (..),
@@ -44,7 +44,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newDeleteRecoveryGroup' smart constructor.
 data DeleteRecoveryGroup = DeleteRecoveryGroup'
-  { -- | The RecoveryGroup to delete
+  { -- | The name of a recovery group.
     recoveryGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +57,7 @@ data DeleteRecoveryGroup = DeleteRecoveryGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recoveryGroupName', 'deleteRecoveryGroup_recoveryGroupName' - The RecoveryGroup to delete
+-- 'recoveryGroupName', 'deleteRecoveryGroup_recoveryGroupName' - The name of a recovery group.
 newDeleteRecoveryGroup ::
   -- | 'recoveryGroupName'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newDeleteRecoveryGroup pRecoveryGroupName_ =
         pRecoveryGroupName_
     }
 
--- | The RecoveryGroup to delete
+-- | The name of a recovery group.
 deleteRecoveryGroup_recoveryGroupName :: Lens.Lens' DeleteRecoveryGroup Prelude.Text
 deleteRecoveryGroup_recoveryGroupName = Lens.lens (\DeleteRecoveryGroup' {recoveryGroupName} -> recoveryGroupName) (\s@DeleteRecoveryGroup' {} a -> s {recoveryGroupName = a} :: DeleteRecoveryGroup)
 

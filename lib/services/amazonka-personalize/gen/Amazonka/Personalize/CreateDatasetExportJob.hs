@@ -33,9 +33,10 @@
 --
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 --
--- To get the status of the export job, call DescribeDatasetExportJob, and
--- specify the Amazon Resource Name (ARN) of the dataset export job. The
--- dataset export is complete when the status shows as ACTIVE. If the
+-- To get the status of the export job, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html DescribeDatasetExportJob>,
+-- and specify the Amazon Resource Name (ARN) of the dataset export job.
+-- The dataset export is complete when the status shows as ACTIVE. If the
 -- status shows as CREATE FAILED, the response includes a @failureReason@
 -- key, which describes why the job failed.
 module Amazonka.Personalize.CreateDatasetExportJob
@@ -44,6 +45,7 @@ module Amazonka.Personalize.CreateDatasetExportJob
     newCreateDatasetExportJob,
 
     -- * Request Lenses
+    createDatasetExportJob_tags,
     createDatasetExportJob_ingestionMode,
     createDatasetExportJob_jobName,
     createDatasetExportJob_datasetArn,
@@ -69,7 +71,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetExportJob' smart constructor.
 data CreateDatasetExportJob = CreateDatasetExportJob'
-  { -- | The data to export, based on how you imported the data. You can choose
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the dataset export job.
+    tags :: Prelude.Maybe [Tag],
+    -- | The data to export, based on how you imported the data. You can choose
     -- to export only @BULK@ data that you imported using a dataset import job,
     -- only @PUT@ data that you imported incrementally (using the console,
     -- PutEvents, PutUsers and PutItems operations), or @ALL@ for both types.
@@ -95,6 +101,10 @@ data CreateDatasetExportJob = CreateDatasetExportJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createDatasetExportJob_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset export job.
 --
 -- 'ingestionMode', 'createDatasetExportJob_ingestionMode' - The data to export, based on how you imported the data. You can choose
 -- to export only @BULK@ data that you imported using a dataset import job,
@@ -127,13 +137,19 @@ newCreateDatasetExportJob
   pRoleArn_
   pJobOutput_ =
     CreateDatasetExportJob'
-      { ingestionMode =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        ingestionMode = Prelude.Nothing,
         jobName = pJobName_,
         datasetArn = pDatasetArn_,
         roleArn = pRoleArn_,
         jobOutput = pJobOutput_
       }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset export job.
+createDatasetExportJob_tags :: Lens.Lens' CreateDatasetExportJob (Prelude.Maybe [Tag])
+createDatasetExportJob_tags = Lens.lens (\CreateDatasetExportJob' {tags} -> tags) (\s@CreateDatasetExportJob' {} a -> s {tags = a} :: CreateDatasetExportJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data to export, based on how you imported the data. You can choose
 -- to export only @BULK@ data that you imported using a dataset import job,
@@ -176,7 +192,8 @@ instance Core.AWSRequest CreateDatasetExportJob where
 
 instance Prelude.Hashable CreateDatasetExportJob where
   hashWithSalt _salt CreateDatasetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` ingestionMode
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ingestionMode
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` roleArn
@@ -184,7 +201,8 @@ instance Prelude.Hashable CreateDatasetExportJob where
 
 instance Prelude.NFData CreateDatasetExportJob where
   rnf CreateDatasetExportJob' {..} =
-    Prelude.rnf ingestionMode
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingestionMode
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf roleArn
@@ -209,7 +227,8 @@ instance Core.ToJSON CreateDatasetExportJob where
   toJSON CreateDatasetExportJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ingestionMode" Core..=) Prelude.<$> ingestionMode,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("ingestionMode" Core..=) Prelude.<$> ingestionMode,
             Prelude.Just ("jobName" Core..= jobName),
             Prelude.Just ("datasetArn" Core..= datasetArn),
             Prelude.Just ("roleArn" Core..= roleArn),

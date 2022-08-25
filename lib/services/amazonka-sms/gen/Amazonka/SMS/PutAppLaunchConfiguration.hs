@@ -51,8 +51,8 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newPutAppLaunchConfiguration' smart constructor.
 data PutAppLaunchConfiguration = PutAppLaunchConfiguration'
-  { -- | The name of service role in the customer\'s account that AWS
-    -- CloudFormation uses to launch the application.
+  { -- | The name of service role in the customer\'s account that CloudFormation
+    -- uses to launch the application.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | Information about the launch configurations for server groups in the
     -- application.
@@ -73,8 +73,8 @@ data PutAppLaunchConfiguration = PutAppLaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'putAppLaunchConfiguration_roleName' - The name of service role in the customer\'s account that AWS
--- CloudFormation uses to launch the application.
+-- 'roleName', 'putAppLaunchConfiguration_roleName' - The name of service role in the customer\'s account that CloudFormation
+-- uses to launch the application.
 --
 -- 'serverGroupLaunchConfigurations', 'putAppLaunchConfiguration_serverGroupLaunchConfigurations' - Information about the launch configurations for server groups in the
 -- application.
@@ -95,8 +95,8 @@ newPutAppLaunchConfiguration =
       appId = Prelude.Nothing
     }
 
--- | The name of service role in the customer\'s account that AWS
--- CloudFormation uses to launch the application.
+-- | The name of service role in the customer\'s account that CloudFormation
+-- uses to launch the application.
 putAppLaunchConfiguration_roleName :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Text)
 putAppLaunchConfiguration_roleName = Lens.lens (\PutAppLaunchConfiguration' {roleName} -> roleName) (\s@PutAppLaunchConfiguration' {} a -> s {roleName = a} :: PutAppLaunchConfiguration)
 

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the patches on the specified instance and
--- their state relative to the patch baseline being used for the instance.
+-- Retrieves information about the patches on the specified managed node
+-- and their state relative to the patch baseline being used for the node.
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.DescribeInstancePatches
@@ -81,7 +81,7 @@ data DescribeInstancePatches = DescribeInstancePatches'
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
     -- | The maximum number of patches to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the instance whose patch state information should be
+    -- | The ID of the managed node whose patch state information should be
     -- retrieved.
     instanceId :: Prelude.Text
   }
@@ -121,7 +121,7 @@ data DescribeInstancePatches = DescribeInstancePatches'
 --
 -- 'maxResults', 'describeInstancePatches_maxResults' - The maximum number of patches to return (per page).
 --
--- 'instanceId', 'describeInstancePatches_instanceId' - The ID of the instance whose patch state information should be
+-- 'instanceId', 'describeInstancePatches_instanceId' - The ID of the managed node whose patch state information should be
 -- retrieved.
 newDescribeInstancePatches ::
   -- | 'instanceId'
@@ -168,7 +168,7 @@ describeInstancePatches_filters = Lens.lens (\DescribeInstancePatches' {filters}
 describeInstancePatches_maxResults :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Natural)
 describeInstancePatches_maxResults = Lens.lens (\DescribeInstancePatches' {maxResults} -> maxResults) (\s@DescribeInstancePatches' {} a -> s {maxResults = a} :: DescribeInstancePatches)
 
--- | The ID of the instance whose patch state information should be
+-- | The ID of the managed node whose patch state information should be
 -- retrieved.
 describeInstancePatches_instanceId :: Lens.Lens' DescribeInstancePatches Prelude.Text
 describeInstancePatches_instanceId = Lens.lens (\DescribeInstancePatches' {instanceId} -> instanceId) (\s@DescribeInstancePatches' {} a -> s {instanceId = a} :: DescribeInstancePatches)

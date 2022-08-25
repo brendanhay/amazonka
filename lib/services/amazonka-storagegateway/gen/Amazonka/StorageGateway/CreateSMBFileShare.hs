@@ -189,8 +189,7 @@ data CreateSMBFileShare = CreateSMBFileShare'
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The default storage class for objects put into an Amazon S3 bucket by
-    -- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
-    -- Optional.
+    -- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
     -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
@@ -377,8 +376,7 @@ data CreateSMBFileShare = CreateSMBFileShare'
 -- Valid Values: @true@ | @false@
 --
 -- 'defaultStorageClass', 'createSMBFileShare_defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by
--- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
--- Optional.
+-- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
@@ -627,8 +625,7 @@ createSMBFileShare_kmsEncrypted :: Lens.Lens' CreateSMBFileShare (Prelude.Maybe 
 createSMBFileShare_kmsEncrypted = Lens.lens (\CreateSMBFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@CreateSMBFileShare' {} a -> s {kmsEncrypted = a} :: CreateSMBFileShare)
 
 -- | The default storage class for objects put into an Amazon S3 bucket by
--- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
--- Optional.
+-- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@

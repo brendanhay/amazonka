@@ -27,13 +27,13 @@ import Amazonka.ECS.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The details of a capacity provider.
+-- | The details for a capacity provider.
 --
 -- /See:/ 'newCapacityProvider' smart constructor.
 data CapacityProvider = CapacityProvider'
   { -- | The metadata that you apply to the capacity provider to help you
     -- categorize and organize it. Each tag consists of a key and an optional
-    -- value, both of which you define.
+    -- value. You define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -68,22 +68,22 @@ data CapacityProvider = CapacityProvider'
     -- status for the capacity provider.
     updateStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The update status of the capacity provider. The following are the
-    -- possible states that will be returned.
+    -- possible states that is returned.
     --
     -- [DELETE_IN_PROGRESS]
     --     The capacity provider is in the process of being deleted.
     --
     -- [DELETE_COMPLETE]
-    --     The capacity provider has been successfully deleted and will have an
-    --     @INACTIVE@ status.
+    --     The capacity provider was successfully deleted and has an @INACTIVE@
+    --     status.
     --
     -- [DELETE_FAILED]
-    --     The capacity provider was unable to be deleted. The update status
-    --     reason will provide further details about why the delete failed.
+    --     The capacity provider can\'t be deleted. The update status reason
+    --     provides further details about why the delete failed.
     updateStatus :: Prelude.Maybe CapacityProviderUpdateStatus,
     -- | The current status of the capacity provider. Only capacity providers in
     -- an @ACTIVE@ state can be used in a cluster. When a capacity provider is
-    -- successfully deleted, it will have an @INACTIVE@ status.
+    -- successfully deleted, it has an @INACTIVE@ status.
     status :: Prelude.Maybe CapacityProviderStatus,
     -- | The Auto Scaling group settings for the capacity provider.
     autoScalingGroupProvider :: Prelude.Maybe AutoScalingGroupProvider
@@ -100,7 +100,7 @@ data CapacityProvider = CapacityProvider'
 --
 -- 'tags', 'capacityProvider_tags' - The metadata that you apply to the capacity provider to help you
 -- categorize and organize it. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -135,22 +135,22 @@ data CapacityProvider = CapacityProvider'
 -- status for the capacity provider.
 --
 -- 'updateStatus', 'capacityProvider_updateStatus' - The update status of the capacity provider. The following are the
--- possible states that will be returned.
+-- possible states that is returned.
 --
 -- [DELETE_IN_PROGRESS]
 --     The capacity provider is in the process of being deleted.
 --
 -- [DELETE_COMPLETE]
---     The capacity provider has been successfully deleted and will have an
---     @INACTIVE@ status.
+--     The capacity provider was successfully deleted and has an @INACTIVE@
+--     status.
 --
 -- [DELETE_FAILED]
---     The capacity provider was unable to be deleted. The update status
---     reason will provide further details about why the delete failed.
+--     The capacity provider can\'t be deleted. The update status reason
+--     provides further details about why the delete failed.
 --
 -- 'status', 'capacityProvider_status' - The current status of the capacity provider. Only capacity providers in
 -- an @ACTIVE@ state can be used in a cluster. When a capacity provider is
--- successfully deleted, it will have an @INACTIVE@ status.
+-- successfully deleted, it has an @INACTIVE@ status.
 --
 -- 'autoScalingGroupProvider', 'capacityProvider_autoScalingGroupProvider' - The Auto Scaling group settings for the capacity provider.
 newCapacityProvider ::
@@ -168,7 +168,7 @@ newCapacityProvider =
 
 -- | The metadata that you apply to the capacity provider to help you
 -- categorize and organize it. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -211,24 +211,24 @@ capacityProvider_updateStatusReason :: Lens.Lens' CapacityProvider (Prelude.Mayb
 capacityProvider_updateStatusReason = Lens.lens (\CapacityProvider' {updateStatusReason} -> updateStatusReason) (\s@CapacityProvider' {} a -> s {updateStatusReason = a} :: CapacityProvider)
 
 -- | The update status of the capacity provider. The following are the
--- possible states that will be returned.
+-- possible states that is returned.
 --
 -- [DELETE_IN_PROGRESS]
 --     The capacity provider is in the process of being deleted.
 --
 -- [DELETE_COMPLETE]
---     The capacity provider has been successfully deleted and will have an
---     @INACTIVE@ status.
+--     The capacity provider was successfully deleted and has an @INACTIVE@
+--     status.
 --
 -- [DELETE_FAILED]
---     The capacity provider was unable to be deleted. The update status
---     reason will provide further details about why the delete failed.
+--     The capacity provider can\'t be deleted. The update status reason
+--     provides further details about why the delete failed.
 capacityProvider_updateStatus :: Lens.Lens' CapacityProvider (Prelude.Maybe CapacityProviderUpdateStatus)
 capacityProvider_updateStatus = Lens.lens (\CapacityProvider' {updateStatus} -> updateStatus) (\s@CapacityProvider' {} a -> s {updateStatus = a} :: CapacityProvider)
 
 -- | The current status of the capacity provider. Only capacity providers in
 -- an @ACTIVE@ state can be used in a cluster. When a capacity provider is
--- successfully deleted, it will have an @INACTIVE@ status.
+-- successfully deleted, it has an @INACTIVE@ status.
 capacityProvider_status :: Lens.Lens' CapacityProvider (Prelude.Maybe CapacityProviderStatus)
 capacityProvider_status = Lens.lens (\CapacityProvider' {status} -> status) (\s@CapacityProvider' {} a -> s {status = a} :: CapacityProvider)
 

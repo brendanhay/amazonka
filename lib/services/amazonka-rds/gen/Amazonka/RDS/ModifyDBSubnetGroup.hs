@@ -61,7 +61,7 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
     -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
     -- be default.
     --
-    -- Example: @mySubnetgroup@
+    -- Example: @mydbsubnetgroup@
     dbSubnetGroupName :: Prelude.Text,
     -- | The EC2 subnet IDs for the DB subnet group.
     subnetIds :: [Prelude.Text]
@@ -84,7 +84,7 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
 -- be default.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
 --
 -- 'subnetIds', 'modifyDBSubnetGroup_subnetIds' - The EC2 subnet IDs for the DB subnet group.
 newModifyDBSubnetGroup ::
@@ -109,7 +109,7 @@ modifyDBSubnetGroup_dbSubnetGroupDescription = Lens.lens (\ModifyDBSubnetGroup' 
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
 -- be default.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
 modifyDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' ModifyDBSubnetGroup Prelude.Text
 modifyDBSubnetGroup_dbSubnetGroupName = Lens.lens (\ModifyDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@ModifyDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: ModifyDBSubnetGroup)
 

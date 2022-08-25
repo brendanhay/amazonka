@@ -52,6 +52,9 @@ module Amazonka.AppMesh.Types
     -- * HttpScheme
     HttpScheme (..),
 
+    -- * IpPreference
+    IpPreference (..),
+
     -- * ListenerTlsMode
     ListenerTlsMode (..),
 
@@ -99,6 +102,7 @@ module Amazonka.AppMesh.Types
     -- * AwsCloudMapServiceDiscovery
     AwsCloudMapServiceDiscovery (..),
     newAwsCloudMapServiceDiscovery,
+    awsCloudMapServiceDiscovery_ipPreference,
     awsCloudMapServiceDiscovery_attributes,
     awsCloudMapServiceDiscovery_namespaceName,
     awsCloudMapServiceDiscovery_serviceName,
@@ -136,6 +140,7 @@ module Amazonka.AppMesh.Types
     DnsServiceDiscovery (..),
     newDnsServiceDiscovery,
     dnsServiceDiscovery_responseType,
+    dnsServiceDiscovery_ipPreference,
     dnsServiceDiscovery_hostname,
 
     -- * Duration
@@ -152,6 +157,7 @@ module Amazonka.AppMesh.Types
     -- * FileAccessLog
     FileAccessLog (..),
     newFileAccessLog,
+    fileAccessLog_format,
     fileAccessLog_path,
 
     -- * GatewayRouteData
@@ -204,6 +210,7 @@ module Amazonka.AppMesh.Types
     -- * GatewayRouteTarget
     GatewayRouteTarget (..),
     newGatewayRouteTarget,
+    gatewayRouteTarget_port,
     gatewayRouteTarget_virtualService,
 
     -- * GatewayRouteVirtualService
@@ -226,6 +233,7 @@ module Amazonka.AppMesh.Types
     -- * GrpcGatewayRouteMatch
     GrpcGatewayRouteMatch (..),
     newGrpcGatewayRouteMatch,
+    grpcGatewayRouteMatch_port,
     grpcGatewayRouteMatch_metadata,
     grpcGatewayRouteMatch_hostname,
     grpcGatewayRouteMatch_serviceName,
@@ -276,6 +284,7 @@ module Amazonka.AppMesh.Types
     -- * GrpcRouteMatch
     GrpcRouteMatch (..),
     newGrpcRouteMatch,
+    grpcRouteMatch_port,
     grpcRouteMatch_methodName,
     grpcRouteMatch_metadata,
     grpcRouteMatch_serviceName,
@@ -344,6 +353,7 @@ module Amazonka.AppMesh.Types
     -- * HttpGatewayRouteMatch
     HttpGatewayRouteMatch (..),
     newHttpGatewayRouteMatch,
+    httpGatewayRouteMatch_port,
     httpGatewayRouteMatch_headers,
     httpGatewayRouteMatch_method,
     httpGatewayRouteMatch_path,
@@ -412,6 +422,7 @@ module Amazonka.AppMesh.Types
     -- * HttpRouteMatch
     HttpRouteMatch (..),
     newHttpRouteMatch,
+    httpRouteMatch_port,
     httpRouteMatch_scheme,
     httpRouteMatch_headers,
     httpRouteMatch_method,
@@ -424,6 +435,12 @@ module Amazonka.AppMesh.Types
     newHttpTimeout,
     httpTimeout_perRequest,
     httpTimeout_idle,
+
+    -- * JsonFormatRef
+    JsonFormatRef (..),
+    newJsonFormatRef,
+    jsonFormatRef_key,
+    jsonFormatRef_value,
 
     -- * Listener
     Listener (..),
@@ -490,6 +507,12 @@ module Amazonka.AppMesh.Types
     newLogging,
     logging_accessLog,
 
+    -- * LoggingFormat
+    LoggingFormat (..),
+    newLoggingFormat,
+    loggingFormat_json,
+    loggingFormat_text,
+
     -- * MatchRange
     MatchRange (..),
     newMatchRange,
@@ -515,10 +538,16 @@ module Amazonka.AppMesh.Types
     meshRef_resourceOwner,
     meshRef_version,
 
+    -- * MeshServiceDiscovery
+    MeshServiceDiscovery (..),
+    newMeshServiceDiscovery,
+    meshServiceDiscovery_ipPreference,
+
     -- * MeshSpec
     MeshSpec (..),
     newMeshSpec,
     meshSpec_egressFilter,
+    meshSpec_serviceDiscovery,
 
     -- * MeshStatus
     MeshStatus (..),
@@ -618,12 +647,18 @@ module Amazonka.AppMesh.Types
     TcpRoute (..),
     newTcpRoute,
     tcpRoute_timeout,
+    tcpRoute_match,
     tcpRoute_action,
 
     -- * TcpRouteAction
     TcpRouteAction (..),
     newTcpRouteAction,
     tcpRouteAction_weightedTargets,
+
+    -- * TcpRouteMatch
+    TcpRouteMatch (..),
+    newTcpRouteMatch,
+    tcpRouteMatch_port,
 
     -- * TcpTimeout
     TcpTimeout (..),
@@ -706,6 +741,7 @@ module Amazonka.AppMesh.Types
     -- * VirtualGatewayFileAccessLog
     VirtualGatewayFileAccessLog (..),
     newVirtualGatewayFileAccessLog,
+    virtualGatewayFileAccessLog_format,
     virtualGatewayFileAccessLog_path,
 
     -- * VirtualGatewayGrpcConnectionPool
@@ -1004,6 +1040,7 @@ module Amazonka.AppMesh.Types
     -- * WeightedTarget
     WeightedTarget (..),
     newWeightedTarget,
+    weightedTarget_port,
     weightedTarget_virtualNode,
     weightedTarget_weight,
   )
@@ -1067,6 +1104,8 @@ import Amazonka.AppMesh.Types.HttpRouteHeader
 import Amazonka.AppMesh.Types.HttpRouteMatch
 import Amazonka.AppMesh.Types.HttpScheme
 import Amazonka.AppMesh.Types.HttpTimeout
+import Amazonka.AppMesh.Types.IpPreference
+import Amazonka.AppMesh.Types.JsonFormatRef
 import Amazonka.AppMesh.Types.Listener
 import Amazonka.AppMesh.Types.ListenerTimeout
 import Amazonka.AppMesh.Types.ListenerTls
@@ -1078,9 +1117,11 @@ import Amazonka.AppMesh.Types.ListenerTlsSdsCertificate
 import Amazonka.AppMesh.Types.ListenerTlsValidationContext
 import Amazonka.AppMesh.Types.ListenerTlsValidationContextTrust
 import Amazonka.AppMesh.Types.Logging
+import Amazonka.AppMesh.Types.LoggingFormat
 import Amazonka.AppMesh.Types.MatchRange
 import Amazonka.AppMesh.Types.MeshData
 import Amazonka.AppMesh.Types.MeshRef
+import Amazonka.AppMesh.Types.MeshServiceDiscovery
 import Amazonka.AppMesh.Types.MeshSpec
 import Amazonka.AppMesh.Types.MeshStatus
 import Amazonka.AppMesh.Types.MeshStatusCode
@@ -1101,6 +1142,7 @@ import Amazonka.AppMesh.Types.TagRef
 import Amazonka.AppMesh.Types.TcpRetryPolicyEvent
 import Amazonka.AppMesh.Types.TcpRoute
 import Amazonka.AppMesh.Types.TcpRouteAction
+import Amazonka.AppMesh.Types.TcpRouteMatch
 import Amazonka.AppMesh.Types.TcpTimeout
 import Amazonka.AppMesh.Types.TlsValidationContext
 import Amazonka.AppMesh.Types.TlsValidationContextAcmTrust
@@ -1290,7 +1332,7 @@ _ResourceInUseException =
 -- | You have exceeded a service limit for your account. For more
 -- information, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html Service Limits>
--- in the /AWS App Mesh User Guide/.
+-- in the /App Mesh User Guide/.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newIcmpTypeCode' smart constructor.
 data IcmpTypeCode = IcmpTypeCode'
   { -- | The ICMP type for which to deny or allow access. To deny or allow all
-    -- types, use the value -1.
+    -- types, use the value @-1@.
     type' :: Prelude.Maybe Prelude.Int,
     -- | The ICMP code for which to deny or allow access. To deny or allow all
-    -- codes, use the value -1.
+    -- codes, use the value @-1@.
     code :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,10 +45,10 @@ data IcmpTypeCode = IcmpTypeCode'
 -- for backwards compatibility:
 --
 -- 'type'', 'icmpTypeCode_type' - The ICMP type for which to deny or allow access. To deny or allow all
--- types, use the value -1.
+-- types, use the value @-1@.
 --
 -- 'code', 'icmpTypeCode_code' - The ICMP code for which to deny or allow access. To deny or allow all
--- codes, use the value -1.
+-- codes, use the value @-1@.
 newIcmpTypeCode ::
   IcmpTypeCode
 newIcmpTypeCode =
@@ -58,12 +58,12 @@ newIcmpTypeCode =
     }
 
 -- | The ICMP type for which to deny or allow access. To deny or allow all
--- types, use the value -1.
+-- types, use the value @-1@.
 icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode' {} a -> s {type' = a} :: IcmpTypeCode)
 
 -- | The ICMP code for which to deny or allow access. To deny or allow all
--- codes, use the value -1.
+-- codes, use the value @-1@.
 icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 

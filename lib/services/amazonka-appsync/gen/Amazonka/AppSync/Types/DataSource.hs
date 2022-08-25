@@ -36,12 +36,11 @@ import qualified Amazonka.Prelude as Prelude
 data DataSource = DataSource'
   { -- | The name of the data source.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The data source ARN.
+    -- | The data source Amazon Resource Name (ARN).
     dataSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The type of the data source.
     --
-    -- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda
-    --     function.
+    -- -   __AWS_LAMBDA__: The data source is an Lambda function.
     --
     -- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.
     --
@@ -51,10 +50,10 @@ data DataSource = DataSource'
     -- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon
     --     OpenSearch Service domain.
     --
-    -- -   __NONE__: There is no data source. This type is used when you wish
-    --     to invoke a GraphQL operation without connecting to a data source,
-    --     such as performing data transformation with resolvers or triggering
-    --     a subscription to be invoked from a mutation.
+    -- -   __NONE__: There is no data source. Use this type when you want to
+    --     invoke a GraphQL operation without connecting to a data source, such
+    --     as when you\'re performing data transformation with resolvers or
+    --     invoking a subscription from a mutation.
     --
     -- -   __HTTP__: The data source is an HTTP endpoint.
     --
@@ -62,8 +61,9 @@ data DataSource = DataSource'
     type' :: Prelude.Maybe DataSourceType,
     -- | Relational database settings.
     relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
-    -- | The Identity and Access Management service role ARN for the data source.
-    -- The system assumes this role when accessing the data source.
+    -- | The Identity and Access Management (IAM) service role Amazon Resource
+    -- Name (ARN) for the data source. The system assumes this role when
+    -- accessing the data source.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Amazon OpenSearch Service settings.
     openSearchServiceConfig :: Prelude.Maybe OpenSearchServiceDataSourceConfig,
@@ -71,9 +71,9 @@ data DataSource = DataSource'
     description :: Prelude.Maybe Prelude.Text,
     -- | Amazon OpenSearch Service settings.
     elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
-    -- | Amazon Web Services Lambda settings.
+    -- | Lambda settings.
     lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
-    -- | Amazon DynamoDB settings.
+    -- | DynamoDB settings.
     dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
     -- | HTTP endpoint settings.
     httpConfig :: Prelude.Maybe HttpDataSourceConfig
@@ -90,12 +90,11 @@ data DataSource = DataSource'
 --
 -- 'name', 'dataSource_name' - The name of the data source.
 --
--- 'dataSourceArn', 'dataSource_dataSourceArn' - The data source ARN.
+-- 'dataSourceArn', 'dataSource_dataSourceArn' - The data source Amazon Resource Name (ARN).
 --
 -- 'type'', 'dataSource_type' - The type of the data source.
 --
--- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda
---     function.
+-- -   __AWS_LAMBDA__: The data source is an Lambda function.
 --
 -- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.
 --
@@ -105,10 +104,10 @@ data DataSource = DataSource'
 -- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon
 --     OpenSearch Service domain.
 --
--- -   __NONE__: There is no data source. This type is used when you wish
---     to invoke a GraphQL operation without connecting to a data source,
---     such as performing data transformation with resolvers or triggering
---     a subscription to be invoked from a mutation.
+-- -   __NONE__: There is no data source. Use this type when you want to
+--     invoke a GraphQL operation without connecting to a data source, such
+--     as when you\'re performing data transformation with resolvers or
+--     invoking a subscription from a mutation.
 --
 -- -   __HTTP__: The data source is an HTTP endpoint.
 --
@@ -116,8 +115,9 @@ data DataSource = DataSource'
 --
 -- 'relationalDatabaseConfig', 'dataSource_relationalDatabaseConfig' - Relational database settings.
 --
--- 'serviceRoleArn', 'dataSource_serviceRoleArn' - The Identity and Access Management service role ARN for the data source.
--- The system assumes this role when accessing the data source.
+-- 'serviceRoleArn', 'dataSource_serviceRoleArn' - The Identity and Access Management (IAM) service role Amazon Resource
+-- Name (ARN) for the data source. The system assumes this role when
+-- accessing the data source.
 --
 -- 'openSearchServiceConfig', 'dataSource_openSearchServiceConfig' - Amazon OpenSearch Service settings.
 --
@@ -125,9 +125,9 @@ data DataSource = DataSource'
 --
 -- 'elasticsearchConfig', 'dataSource_elasticsearchConfig' - Amazon OpenSearch Service settings.
 --
--- 'lambdaConfig', 'dataSource_lambdaConfig' - Amazon Web Services Lambda settings.
+-- 'lambdaConfig', 'dataSource_lambdaConfig' - Lambda settings.
 --
--- 'dynamodbConfig', 'dataSource_dynamodbConfig' - Amazon DynamoDB settings.
+-- 'dynamodbConfig', 'dataSource_dynamodbConfig' - DynamoDB settings.
 --
 -- 'httpConfig', 'dataSource_httpConfig' - HTTP endpoint settings.
 newDataSource ::
@@ -151,14 +151,13 @@ newDataSource =
 dataSource_name :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_name = Lens.lens (\DataSource' {name} -> name) (\s@DataSource' {} a -> s {name = a} :: DataSource)
 
--- | The data source ARN.
+-- | The data source Amazon Resource Name (ARN).
 dataSource_dataSourceArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_dataSourceArn = Lens.lens (\DataSource' {dataSourceArn} -> dataSourceArn) (\s@DataSource' {} a -> s {dataSourceArn = a} :: DataSource)
 
 -- | The type of the data source.
 --
--- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda
---     function.
+-- -   __AWS_LAMBDA__: The data source is an Lambda function.
 --
 -- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.
 --
@@ -168,10 +167,10 @@ dataSource_dataSourceArn = Lens.lens (\DataSource' {dataSourceArn} -> dataSource
 -- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon
 --     OpenSearch Service domain.
 --
--- -   __NONE__: There is no data source. This type is used when you wish
---     to invoke a GraphQL operation without connecting to a data source,
---     such as performing data transformation with resolvers or triggering
---     a subscription to be invoked from a mutation.
+-- -   __NONE__: There is no data source. Use this type when you want to
+--     invoke a GraphQL operation without connecting to a data source, such
+--     as when you\'re performing data transformation with resolvers or
+--     invoking a subscription from a mutation.
 --
 -- -   __HTTP__: The data source is an HTTP endpoint.
 --
@@ -183,8 +182,9 @@ dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a
 dataSource_relationalDatabaseConfig :: Lens.Lens' DataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
 dataSource_relationalDatabaseConfig = Lens.lens (\DataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@DataSource' {} a -> s {relationalDatabaseConfig = a} :: DataSource)
 
--- | The Identity and Access Management service role ARN for the data source.
--- The system assumes this role when accessing the data source.
+-- | The Identity and Access Management (IAM) service role Amazon Resource
+-- Name (ARN) for the data source. The system assumes this role when
+-- accessing the data source.
 dataSource_serviceRoleArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_serviceRoleArn = Lens.lens (\DataSource' {serviceRoleArn} -> serviceRoleArn) (\s@DataSource' {} a -> s {serviceRoleArn = a} :: DataSource)
 
@@ -200,11 +200,11 @@ dataSource_description = Lens.lens (\DataSource' {description} -> description) (
 dataSource_elasticsearchConfig :: Lens.Lens' DataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 dataSource_elasticsearchConfig = Lens.lens (\DataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@DataSource' {} a -> s {elasticsearchConfig = a} :: DataSource)
 
--- | Amazon Web Services Lambda settings.
+-- | Lambda settings.
 dataSource_lambdaConfig :: Lens.Lens' DataSource (Prelude.Maybe LambdaDataSourceConfig)
 dataSource_lambdaConfig = Lens.lens (\DataSource' {lambdaConfig} -> lambdaConfig) (\s@DataSource' {} a -> s {lambdaConfig = a} :: DataSource)
 
--- | Amazon DynamoDB settings.
+-- | DynamoDB settings.
 dataSource_dynamodbConfig :: Lens.Lens' DataSource (Prelude.Maybe DynamodbDataSourceConfig)
 dataSource_dynamodbConfig = Lens.lens (\DataSource' {dynamodbConfig} -> dynamodbConfig) (\s@DataSource' {} a -> s {dynamodbConfig = a} :: DataSource)
 

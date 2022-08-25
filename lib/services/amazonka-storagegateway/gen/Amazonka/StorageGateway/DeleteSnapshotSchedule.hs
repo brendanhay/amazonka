@@ -28,7 +28,7 @@
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html Backing up your volumes>.
 -- In the @DeleteSnapshotSchedule@ request, you identify the volume by
 -- providing its Amazon Resource Name (ARN). This operation is only
--- supported in stored and cached volume gateway types.
+-- supported for cached volume gateway types.
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, go to

@@ -24,8 +24,12 @@ import Amazonka.DLM.Types.RetentionIntervalUnitValues
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the retention rule for a lifecycle policy. You can retain
--- snapshots based on either a count or a time interval.
+-- | __[Snapshot and AMI policies only]__ Specifies a retention rule for
+-- snapshots created by snapshot policies or for AMIs created by AMI
+-- policies. You can retain snapshots based on either a count or a time
+-- interval.
+--
+-- You must specify either __Count__, or __Interval__ and __IntervalUnit__.
 --
 -- /See:/ 'newRetainRule' smart constructor.
 data RetainRule = RetainRule'

@@ -202,6 +202,7 @@ module Amazonka.MediaPackageVOD.Lens
     dashManifest_streamSelection,
     dashManifest_manifestName,
     dashManifest_manifestLayout,
+    dashManifest_scteMarkersSource,
     dashManifest_minBufferTimeSeconds,
 
     -- ** DashPackage

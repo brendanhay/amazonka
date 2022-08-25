@@ -20,24 +20,35 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a request to invite the specified AWS accounts to be member
--- accounts in the behavior graph. This operation can only be called by the
--- administrator account for a behavior graph.
+-- @CreateMembers@ is used to send invitations to accounts. For the
+-- organization behavior graph, the Detective administrator account uses
+-- @CreateMembers@ to enable organization accounts as member accounts.
+--
+-- For invited accounts, @CreateMembers@ sends a request to invite the
+-- specified Amazon Web Services accounts to be member accounts in the
+-- behavior graph. This operation can only be called by the administrator
+-- account for a behavior graph.
 --
 -- @CreateMembers@ verifies the accounts and then invites the verified
 -- accounts. The administrator can optionally specify to not send
 -- invitation emails to the member accounts. This would be used when the
 -- administrator manages their member accounts centrally.
 --
+-- For organization accounts in the organization behavior graph,
+-- @CreateMembers@ attempts to enable the accounts. The organization
+-- accounts do not receive invitations.
+--
 -- The request provides the behavior graph ARN and the list of accounts to
--- invite.
+-- invite or to enable.
 --
 -- The response separates the requested accounts into two lists:
 --
--- -   The accounts that @CreateMembers@ was able to start the verification
---     for. This list includes member accounts that are being verified,
---     that have passed verification and are to be invited, and that have
---     failed verification.
+-- -   The accounts that @CreateMembers@ was able to process. For invited
+--     accounts, includes member accounts that are being verified, that
+--     have passed verification and are to be invited, and that have failed
+--     verification. For organization accounts in the organization behavior
+--     graph, includes accounts that can be enabled and that cannot be
+--     enabled.
 --
 -- -   The accounts that @CreateMembers@ was unable to process. This list
 --     includes accounts that were already invited to be member accounts in
@@ -76,17 +87,20 @@ data CreateMembers = CreateMembers'
   { -- | Customized message text to include in the invitation email message to
     -- the invited member accounts.
     message :: Prelude.Maybe Prelude.Text,
-    -- | if set to @true@, then the member accounts do not receive email
-    -- notifications. By default, this is set to @false@, and the member
+    -- | if set to @true@, then the invited accounts do not receive email
+    -- notifications. By default, this is set to @false@, and the invited
     -- accounts receive email notifications.
+    --
+    -- Organization accounts in the organization behavior graph do not receive
+    -- email notifications.
     disableEmailNotification :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the behavior graph to invite the member accounts to
-    -- contribute their data to.
+    -- | The ARN of the behavior graph.
     graphArn :: Prelude.Text,
-    -- | The list of AWS accounts to invite to become member accounts in the
-    -- behavior graph. You can invite up to 50 accounts at a time. For each
-    -- invited account, the account list contains the account identifier and
-    -- the AWS account root user email address.
+    -- | The list of Amazon Web Services accounts to invite or to enable. You can
+    -- invite or enable up to 50 accounts at a time. For each invited account,
+    -- the account list contains the account identifier and the Amazon Web
+    -- Services account root user email address. For organization accounts in
+    -- the organization behavior graph, the email address is not required.
     accounts :: Prelude.NonEmpty Account
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,17 +116,20 @@ data CreateMembers = CreateMembers'
 -- 'message', 'createMembers_message' - Customized message text to include in the invitation email message to
 -- the invited member accounts.
 --
--- 'disableEmailNotification', 'createMembers_disableEmailNotification' - if set to @true@, then the member accounts do not receive email
--- notifications. By default, this is set to @false@, and the member
+-- 'disableEmailNotification', 'createMembers_disableEmailNotification' - if set to @true@, then the invited accounts do not receive email
+-- notifications. By default, this is set to @false@, and the invited
 -- accounts receive email notifications.
 --
--- 'graphArn', 'createMembers_graphArn' - The ARN of the behavior graph to invite the member accounts to
--- contribute their data to.
+-- Organization accounts in the organization behavior graph do not receive
+-- email notifications.
 --
--- 'accounts', 'createMembers_accounts' - The list of AWS accounts to invite to become member accounts in the
--- behavior graph. You can invite up to 50 accounts at a time. For each
--- invited account, the account list contains the account identifier and
--- the AWS account root user email address.
+-- 'graphArn', 'createMembers_graphArn' - The ARN of the behavior graph.
+--
+-- 'accounts', 'createMembers_accounts' - The list of Amazon Web Services accounts to invite or to enable. You can
+-- invite or enable up to 50 accounts at a time. For each invited account,
+-- the account list contains the account identifier and the Amazon Web
+-- Services account root user email address. For organization accounts in
+-- the organization behavior graph, the email address is not required.
 newCreateMembers ::
   -- | 'graphArn'
   Prelude.Text ->
@@ -132,21 +149,24 @@ newCreateMembers pGraphArn_ pAccounts_ =
 createMembers_message :: Lens.Lens' CreateMembers (Prelude.Maybe Prelude.Text)
 createMembers_message = Lens.lens (\CreateMembers' {message} -> message) (\s@CreateMembers' {} a -> s {message = a} :: CreateMembers)
 
--- | if set to @true@, then the member accounts do not receive email
--- notifications. By default, this is set to @false@, and the member
+-- | if set to @true@, then the invited accounts do not receive email
+-- notifications. By default, this is set to @false@, and the invited
 -- accounts receive email notifications.
+--
+-- Organization accounts in the organization behavior graph do not receive
+-- email notifications.
 createMembers_disableEmailNotification :: Lens.Lens' CreateMembers (Prelude.Maybe Prelude.Bool)
 createMembers_disableEmailNotification = Lens.lens (\CreateMembers' {disableEmailNotification} -> disableEmailNotification) (\s@CreateMembers' {} a -> s {disableEmailNotification = a} :: CreateMembers)
 
--- | The ARN of the behavior graph to invite the member accounts to
--- contribute their data to.
+-- | The ARN of the behavior graph.
 createMembers_graphArn :: Lens.Lens' CreateMembers Prelude.Text
 createMembers_graphArn = Lens.lens (\CreateMembers' {graphArn} -> graphArn) (\s@CreateMembers' {} a -> s {graphArn = a} :: CreateMembers)
 
--- | The list of AWS accounts to invite to become member accounts in the
--- behavior graph. You can invite up to 50 accounts at a time. For each
--- invited account, the account list contains the account identifier and
--- the AWS account root user email address.
+-- | The list of Amazon Web Services accounts to invite or to enable. You can
+-- invite or enable up to 50 accounts at a time. For each invited account,
+-- the account list contains the account identifier and the Amazon Web
+-- Services account root user email address. For organization accounts in
+-- the organization behavior graph, the email address is not required.
 createMembers_accounts :: Lens.Lens' CreateMembers (Prelude.NonEmpty Account)
 createMembers_accounts = Lens.lens (\CreateMembers' {accounts} -> accounts) (\s@CreateMembers' {} a -> s {accounts = a} :: CreateMembers) Prelude.. Lens.coerced
 
@@ -212,14 +232,14 @@ instance Core.ToQuery CreateMembers where
 -- | /See:/ 'newCreateMembersResponse' smart constructor.
 data CreateMembersResponse = CreateMembersResponse'
   { -- | The list of accounts for which Detective was unable to process the
-    -- invitation request. For each account, the list provides the reason why
-    -- the request could not be processed. The list includes accounts that are
-    -- already member accounts in the behavior graph.
+    -- invitation or enablement request. For each account, the list provides
+    -- the reason why the request could not be processed. The list includes
+    -- accounts that are already member accounts in the behavior graph.
     unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
-    -- | The set of member account invitation requests that Detective was able to
-    -- process. This includes accounts that are being verified, that failed
-    -- verification, and that passed verification and are being sent an
-    -- invitation.
+    -- | The set of member account invitation or enablement requests that
+    -- Detective was able to process. This includes accounts that are being
+    -- verified, that failed verification, and that passed verification and are
+    -- being sent an invitation or are being enabled.
     members :: Prelude.Maybe [MemberDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -235,14 +255,14 @@ data CreateMembersResponse = CreateMembersResponse'
 -- for backwards compatibility:
 --
 -- 'unprocessedAccounts', 'createMembersResponse_unprocessedAccounts' - The list of accounts for which Detective was unable to process the
--- invitation request. For each account, the list provides the reason why
--- the request could not be processed. The list includes accounts that are
--- already member accounts in the behavior graph.
+-- invitation or enablement request. For each account, the list provides
+-- the reason why the request could not be processed. The list includes
+-- accounts that are already member accounts in the behavior graph.
 --
--- 'members', 'createMembersResponse_members' - The set of member account invitation requests that Detective was able to
--- process. This includes accounts that are being verified, that failed
--- verification, and that passed verification and are being sent an
--- invitation.
+-- 'members', 'createMembersResponse_members' - The set of member account invitation or enablement requests that
+-- Detective was able to process. This includes accounts that are being
+-- verified, that failed verification, and that passed verification and are
+-- being sent an invitation or are being enabled.
 --
 -- 'httpStatus', 'createMembersResponse_httpStatus' - The response's http status code.
 newCreateMembersResponse ::
@@ -258,16 +278,16 @@ newCreateMembersResponse pHttpStatus_ =
     }
 
 -- | The list of accounts for which Detective was unable to process the
--- invitation request. For each account, the list provides the reason why
--- the request could not be processed. The list includes accounts that are
--- already member accounts in the behavior graph.
+-- invitation or enablement request. For each account, the list provides
+-- the reason why the request could not be processed. The list includes
+-- accounts that are already member accounts in the behavior graph.
 createMembersResponse_unprocessedAccounts :: Lens.Lens' CreateMembersResponse (Prelude.Maybe [UnprocessedAccount])
 createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The set of member account invitation requests that Detective was able to
--- process. This includes accounts that are being verified, that failed
--- verification, and that passed verification and are being sent an
--- invitation.
+-- | The set of member account invitation or enablement requests that
+-- Detective was able to process. This includes accounts that are being
+-- verified, that failed verification, and that passed verification and are
+-- being sent an invitation or are being enabled.
 createMembersResponse_members :: Lens.Lens' CreateMembersResponse (Prelude.Maybe [MemberDetail])
 createMembersResponse_members = Lens.lens (\CreateMembersResponse' {members} -> members) (\s@CreateMembersResponse' {} a -> s {members = a} :: CreateMembersResponse) Prelude.. Lens.mapping Lens.coerced
 

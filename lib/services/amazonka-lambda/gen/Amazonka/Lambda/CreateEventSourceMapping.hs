@@ -21,23 +21,24 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a mapping between an event source and an Lambda function. Lambda
--- reads items from the event source and triggers the function.
+-- reads items from the event source and invokes the function.
 --
--- For details about each event source type, see the following topics.
+-- For details about how to configure different event sources, see the
+-- following topics.
 --
--- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping Configuring a Dynamo DB stream as an event source>
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping Amazon DynamoDB Streams>
 --
--- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping Configuring a Kinesis stream as an event source>
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping Amazon Kinesis>
 --
--- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource Configuring an Amazon SQS queue as an event source>
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource Amazon SQS>
 --
--- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping Configuring an MQ broker as an event source>
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping Amazon MQ and RabbitMQ>
 --
--- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html Configuring MSK as an event source>
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html Amazon MSK>
 --
--- -   <https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html Configuring Self-Managed Apache Kafka as an event source>
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html Apache Kafka>
 --
--- The following error handling options are only available for stream
+-- The following error handling options are available only for stream
 -- sources (DynamoDB and Kinesis):
 --
 -- -   @BisectBatchOnFunctionError@ - If the function returns an error,
@@ -56,6 +57,21 @@
 --
 -- -   @ParallelizationFactor@ - Process multiple batches from each shard
 --     concurrently.
+--
+-- For information about which configuration parameters apply to each event
+-- source, see the following topics.
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params Amazon DynamoDB Streams>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params Amazon Kinesis>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params Amazon SQS>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params Amazon MQ and RabbitMQ>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms Amazon MSK>
+--
+-- -   <https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms Apache Kafka>
 module Amazonka.Lambda.CreateEventSourceMapping
   ( -- * Creating a Request
     CreateEventSourceMapping (..),
@@ -65,10 +81,13 @@ module Amazonka.Lambda.CreateEventSourceMapping
     createEventSourceMapping_maximumRecordAgeInSeconds,
     createEventSourceMapping_startingPosition,
     createEventSourceMapping_functionResponseTypes,
+    createEventSourceMapping_amazonManagedKafkaEventSourceConfig,
     createEventSourceMapping_parallelizationFactor,
     createEventSourceMapping_maximumBatchingWindowInSeconds,
     createEventSourceMapping_enabled,
+    createEventSourceMapping_filterCriteria,
     createEventSourceMapping_selfManagedEventSource,
+    createEventSourceMapping_selfManagedKafkaEventSourceConfig,
     createEventSourceMapping_destinationConfig,
     createEventSourceMapping_eventSourceArn,
     createEventSourceMapping_maximumRetryAttempts,
@@ -90,13 +109,16 @@ module Amazonka.Lambda.CreateEventSourceMapping
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -125,11 +147,14 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     maximumRecordAgeInSeconds :: Prelude.Maybe Prelude.Int,
     -- | The position in a stream from which to start reading. Required for
     -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
-    -- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+    -- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
     startingPosition :: Prelude.Maybe EventSourcePosition,
-    -- | (Streams only) A list of current response type enums applied to the
-    -- event source mapping.
+    -- | (Streams and Amazon SQS) A list of current response type enums applied
+    -- to the event source mapping.
     functionResponseTypes :: Prelude.Maybe [FunctionResponseType],
+    -- | Specific configuration settings for an Amazon Managed Streaming for
+    -- Apache Kafka (Amazon MSK) event source.
+    amazonManagedKafkaEventSourceConfig :: Prelude.Maybe AmazonManagedKafkaEventSourceConfig,
     -- | (Streams only) The number of batches to process from each shard
     -- concurrently.
     parallelizationFactor :: Prelude.Maybe Prelude.Natural,
@@ -147,8 +172,16 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     --
     -- Default: True
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Self-Managed Apache Kafka cluster to send records.
+    -- | (Streams and Amazon SQS) An object that defines the filter criteria that
+    -- determine whether Lambda should process an event. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+    filterCriteria :: Prelude.Maybe FilterCriteria,
+    -- | The self-managed Apache Kafka cluster to receive records from.
     selfManagedEventSource :: Prelude.Maybe SelfManagedEventSource,
+    -- | Specific configuration settings for a self-managed Apache Kafka event
+    -- source.
+    selfManagedKafkaEventSourceConfig :: Prelude.Maybe SelfManagedKafkaEventSourceConfig,
     -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
     -- discarded records.
     destinationConfig :: Prelude.Maybe DestinationConfig,
@@ -166,7 +199,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | (Streams only) Discard records after the specified number of retries.
     -- The default value is infinite (-1). When set to infinite (-1), failed
-    -- records will be retried until the record expires.
+    -- records are retried until the record expires.
     maximumRetryAttempts :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of records in each batch that Lambda pulls from your
     -- stream or queue and sends to your function. Lambda passes all of the
@@ -175,7 +208,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     --
     -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
     --
-    -- -   __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+    -- -   __Amazon DynamoDB Streams__ - Default 100. Max 10,000.
     --
     -- -   __Amazon Simple Queue Service__ - Default 10. For standard queues
     --     the max is 10,000. For FIFO queues the max is 10.
@@ -183,7 +216,9 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     -- -   __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max
     --     10,000.
     --
-    -- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
+    -- -   __Self-managed Apache Kafka__ - Default 100. Max 10,000.
+    --
+    -- -   __Amazon MQ (ActiveMQ and RabbitMQ)__ - Default 100. Max 10,000.
     batchSize :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Kafka topic.
     topics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -193,7 +228,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     -- and retry.
     bisectBatchOnFunctionError :: Prelude.Maybe Prelude.Bool,
     -- | (Streams only) The duration in seconds of a processing window. The range
-    -- is between 1 second up to 900 seconds.
+    -- is between 1 second and 900 seconds.
     tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
     -- start reading.
@@ -234,10 +269,13 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- 'startingPosition', 'createEventSourceMapping_startingPosition' - The position in a stream from which to start reading. Required for
 -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
--- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+-- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
 --
--- 'functionResponseTypes', 'createEventSourceMapping_functionResponseTypes' - (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- 'functionResponseTypes', 'createEventSourceMapping_functionResponseTypes' - (Streams and Amazon SQS) A list of current response type enums applied
+-- to the event source mapping.
+--
+-- 'amazonManagedKafkaEventSourceConfig', 'createEventSourceMapping_amazonManagedKafkaEventSourceConfig' - Specific configuration settings for an Amazon Managed Streaming for
+-- Apache Kafka (Amazon MSK) event source.
 --
 -- 'parallelizationFactor', 'createEventSourceMapping_parallelizationFactor' - (Streams only) The number of batches to process from each shard
 -- concurrently.
@@ -256,7 +294,15 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- Default: True
 --
--- 'selfManagedEventSource', 'createEventSourceMapping_selfManagedEventSource' - The Self-Managed Apache Kafka cluster to send records.
+-- 'filterCriteria', 'createEventSourceMapping_filterCriteria' - (Streams and Amazon SQS) An object that defines the filter criteria that
+-- determine whether Lambda should process an event. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+--
+-- 'selfManagedEventSource', 'createEventSourceMapping_selfManagedEventSource' - The self-managed Apache Kafka cluster to receive records from.
+--
+-- 'selfManagedKafkaEventSourceConfig', 'createEventSourceMapping_selfManagedKafkaEventSourceConfig' - Specific configuration settings for a self-managed Apache Kafka event
+-- source.
 --
 -- 'destinationConfig', 'createEventSourceMapping_destinationConfig' - (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
@@ -275,7 +321,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- 'maximumRetryAttempts', 'createEventSourceMapping_maximumRetryAttempts' - (Streams only) Discard records after the specified number of retries.
 -- The default value is infinite (-1). When set to infinite (-1), failed
--- records will be retried until the record expires.
+-- records are retried until the record expires.
 --
 -- 'batchSize', 'createEventSourceMapping_batchSize' - The maximum number of records in each batch that Lambda pulls from your
 -- stream or queue and sends to your function. Lambda passes all of the
@@ -284,7 +330,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
 --
--- -   __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+-- -   __Amazon DynamoDB Streams__ - Default 100. Max 10,000.
 --
 -- -   __Amazon Simple Queue Service__ - Default 10. For standard queues
 --     the max is 10,000. For FIFO queues the max is 10.
@@ -292,7 +338,9 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 -- -   __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max
 --     10,000.
 --
--- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
+-- -   __Self-managed Apache Kafka__ - Default 100. Max 10,000.
+--
+-- -   __Amazon MQ (ActiveMQ and RabbitMQ)__ - Default 100. Max 10,000.
 --
 -- 'topics', 'createEventSourceMapping_topics' - The name of the Kafka topic.
 --
@@ -302,7 +350,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 -- and retry.
 --
 -- 'tumblingWindowInSeconds', 'createEventSourceMapping_tumblingWindowInSeconds' - (Streams only) The duration in seconds of a processing window. The range
--- is between 1 second up to 900 seconds.
+-- is between 1 second and 900 seconds.
 --
 -- 'startingPositionTimestamp', 'createEventSourceMapping_startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
 -- start reading.
@@ -336,10 +384,15 @@ newCreateEventSourceMapping pFunctionName_ =
         Prelude.Nothing,
       startingPosition = Prelude.Nothing,
       functionResponseTypes = Prelude.Nothing,
+      amazonManagedKafkaEventSourceConfig =
+        Prelude.Nothing,
       parallelizationFactor = Prelude.Nothing,
       maximumBatchingWindowInSeconds = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      filterCriteria = Prelude.Nothing,
       selfManagedEventSource = Prelude.Nothing,
+      selfManagedKafkaEventSourceConfig =
+        Prelude.Nothing,
       destinationConfig = Prelude.Nothing,
       eventSourceArn = Prelude.Nothing,
       maximumRetryAttempts = Prelude.Nothing,
@@ -360,14 +413,19 @@ createEventSourceMapping_maximumRecordAgeInSeconds = Lens.lens (\CreateEventSour
 
 -- | The position in a stream from which to start reading. Required for
 -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
--- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+-- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
 createEventSourceMapping_startingPosition :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe EventSourcePosition)
 createEventSourceMapping_startingPosition = Lens.lens (\CreateEventSourceMapping' {startingPosition} -> startingPosition) (\s@CreateEventSourceMapping' {} a -> s {startingPosition = a} :: CreateEventSourceMapping)
 
--- | (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- | (Streams and Amazon SQS) A list of current response type enums applied
+-- to the event source mapping.
 createEventSourceMapping_functionResponseTypes :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe [FunctionResponseType])
 createEventSourceMapping_functionResponseTypes = Lens.lens (\CreateEventSourceMapping' {functionResponseTypes} -> functionResponseTypes) (\s@CreateEventSourceMapping' {} a -> s {functionResponseTypes = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specific configuration settings for an Amazon Managed Streaming for
+-- Apache Kafka (Amazon MSK) event source.
+createEventSourceMapping_amazonManagedKafkaEventSourceConfig :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe AmazonManagedKafkaEventSourceConfig)
+createEventSourceMapping_amazonManagedKafkaEventSourceConfig = Lens.lens (\CreateEventSourceMapping' {amazonManagedKafkaEventSourceConfig} -> amazonManagedKafkaEventSourceConfig) (\s@CreateEventSourceMapping' {} a -> s {amazonManagedKafkaEventSourceConfig = a} :: CreateEventSourceMapping)
 
 -- | (Streams only) The number of batches to process from each shard
 -- concurrently.
@@ -392,9 +450,21 @@ createEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\CreateEven
 createEventSourceMapping_enabled :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Bool)
 createEventSourceMapping_enabled = Lens.lens (\CreateEventSourceMapping' {enabled} -> enabled) (\s@CreateEventSourceMapping' {} a -> s {enabled = a} :: CreateEventSourceMapping)
 
--- | The Self-Managed Apache Kafka cluster to send records.
+-- | (Streams and Amazon SQS) An object that defines the filter criteria that
+-- determine whether Lambda should process an event. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html Lambda event filtering>.
+createEventSourceMapping_filterCriteria :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe FilterCriteria)
+createEventSourceMapping_filterCriteria = Lens.lens (\CreateEventSourceMapping' {filterCriteria} -> filterCriteria) (\s@CreateEventSourceMapping' {} a -> s {filterCriteria = a} :: CreateEventSourceMapping)
+
+-- | The self-managed Apache Kafka cluster to receive records from.
 createEventSourceMapping_selfManagedEventSource :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe SelfManagedEventSource)
 createEventSourceMapping_selfManagedEventSource = Lens.lens (\CreateEventSourceMapping' {selfManagedEventSource} -> selfManagedEventSource) (\s@CreateEventSourceMapping' {} a -> s {selfManagedEventSource = a} :: CreateEventSourceMapping)
+
+-- | Specific configuration settings for a self-managed Apache Kafka event
+-- source.
+createEventSourceMapping_selfManagedKafkaEventSourceConfig :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe SelfManagedKafkaEventSourceConfig)
+createEventSourceMapping_selfManagedKafkaEventSourceConfig = Lens.lens (\CreateEventSourceMapping' {selfManagedKafkaEventSourceConfig} -> selfManagedKafkaEventSourceConfig) (\s@CreateEventSourceMapping' {} a -> s {selfManagedKafkaEventSourceConfig = a} :: CreateEventSourceMapping)
 
 -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
@@ -417,7 +487,7 @@ createEventSourceMapping_eventSourceArn = Lens.lens (\CreateEventSourceMapping' 
 
 -- | (Streams only) Discard records after the specified number of retries.
 -- The default value is infinite (-1). When set to infinite (-1), failed
--- records will be retried until the record expires.
+-- records are retried until the record expires.
 createEventSourceMapping_maximumRetryAttempts :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Int)
 createEventSourceMapping_maximumRetryAttempts = Lens.lens (\CreateEventSourceMapping' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@CreateEventSourceMapping' {} a -> s {maximumRetryAttempts = a} :: CreateEventSourceMapping)
 
@@ -428,7 +498,7 @@ createEventSourceMapping_maximumRetryAttempts = Lens.lens (\CreateEventSourceMap
 --
 -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
 --
--- -   __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+-- -   __Amazon DynamoDB Streams__ - Default 100. Max 10,000.
 --
 -- -   __Amazon Simple Queue Service__ - Default 10. For standard queues
 --     the max is 10,000. For FIFO queues the max is 10.
@@ -436,7 +506,9 @@ createEventSourceMapping_maximumRetryAttempts = Lens.lens (\CreateEventSourceMap
 -- -   __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max
 --     10,000.
 --
--- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
+-- -   __Self-managed Apache Kafka__ - Default 100. Max 10,000.
+--
+-- -   __Amazon MQ (ActiveMQ and RabbitMQ)__ - Default 100. Max 10,000.
 createEventSourceMapping_batchSize :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 createEventSourceMapping_batchSize = Lens.lens (\CreateEventSourceMapping' {batchSize} -> batchSize) (\s@CreateEventSourceMapping' {} a -> s {batchSize = a} :: CreateEventSourceMapping)
 
@@ -454,7 +526,7 @@ createEventSourceMapping_bisectBatchOnFunctionError :: Lens.Lens' CreateEventSou
 createEventSourceMapping_bisectBatchOnFunctionError = Lens.lens (\CreateEventSourceMapping' {bisectBatchOnFunctionError} -> bisectBatchOnFunctionError) (\s@CreateEventSourceMapping' {} a -> s {bisectBatchOnFunctionError = a} :: CreateEventSourceMapping)
 
 -- | (Streams only) The duration in seconds of a processing window. The range
--- is between 1 second up to 900 seconds.
+-- is between 1 second and 900 seconds.
 createEventSourceMapping_tumblingWindowInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 createEventSourceMapping_tumblingWindowInSeconds = Lens.lens (\CreateEventSourceMapping' {tumblingWindowInSeconds} -> tumblingWindowInSeconds) (\s@CreateEventSourceMapping' {} a -> s {tumblingWindowInSeconds = a} :: CreateEventSourceMapping)
 
@@ -502,10 +574,13 @@ instance Prelude.Hashable CreateEventSourceMapping where
       `Prelude.hashWithSalt` maximumRecordAgeInSeconds
       `Prelude.hashWithSalt` startingPosition
       `Prelude.hashWithSalt` functionResponseTypes
+      `Prelude.hashWithSalt` amazonManagedKafkaEventSourceConfig
       `Prelude.hashWithSalt` parallelizationFactor
       `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` selfManagedEventSource
+      `Prelude.hashWithSalt` selfManagedKafkaEventSourceConfig
       `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` maximumRetryAttempts
@@ -523,19 +598,25 @@ instance Prelude.NFData CreateEventSourceMapping where
     Prelude.rnf maximumRecordAgeInSeconds
       `Prelude.seq` Prelude.rnf startingPosition
       `Prelude.seq` Prelude.rnf functionResponseTypes
+      `Prelude.seq` Prelude.rnf amazonManagedKafkaEventSourceConfig
       `Prelude.seq` Prelude.rnf parallelizationFactor
       `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf selfManagedEventSource
+      `Prelude.seq` Prelude.rnf selfManagedKafkaEventSourceConfig
       `Prelude.seq` Prelude.rnf destinationConfig
       `Prelude.seq` Prelude.rnf eventSourceArn
       `Prelude.seq` Prelude.rnf maximumRetryAttempts
       `Prelude.seq` Prelude.rnf batchSize
       `Prelude.seq` Prelude.rnf topics
       `Prelude.seq` Prelude.rnf queues
-      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
-      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
-      `Prelude.seq` Prelude.rnf startingPositionTimestamp
+      `Prelude.seq` Prelude.rnf
+        bisectBatchOnFunctionError
+      `Prelude.seq` Prelude.rnf
+        tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf
+        startingPositionTimestamp
       `Prelude.seq` Prelude.rnf
         sourceAccessConfigurations
       `Prelude.seq` Prelude.rnf functionName
@@ -553,13 +634,19 @@ instance Core.ToJSON CreateEventSourceMapping where
               Prelude.<$> startingPosition,
             ("FunctionResponseTypes" Core..=)
               Prelude.<$> functionResponseTypes,
+            ("AmazonManagedKafkaEventSourceConfig" Core..=)
+              Prelude.<$> amazonManagedKafkaEventSourceConfig,
             ("ParallelizationFactor" Core..=)
               Prelude.<$> parallelizationFactor,
             ("MaximumBatchingWindowInSeconds" Core..=)
               Prelude.<$> maximumBatchingWindowInSeconds,
             ("Enabled" Core..=) Prelude.<$> enabled,
+            ("FilterCriteria" Core..=)
+              Prelude.<$> filterCriteria,
             ("SelfManagedEventSource" Core..=)
               Prelude.<$> selfManagedEventSource,
+            ("SelfManagedKafkaEventSourceConfig" Core..=)
+              Prelude.<$> selfManagedKafkaEventSourceConfig,
             ("DestinationConfig" Core..=)
               Prelude.<$> destinationConfig,
             ("EventSourceArn" Core..=)

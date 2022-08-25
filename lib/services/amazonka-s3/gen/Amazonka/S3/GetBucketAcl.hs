@@ -26,6 +26,13 @@
 -- @READ_ACP@ permission is granted to the anonymous user, you can return
 -- the ACL of the bucket without using an authorization header.
 --
+-- If your bucket uses the bucket owner enforced setting for S3 Object
+-- Ownership, requests to read ACLs are still supported and return the
+-- @bucket-owner-full-control@ ACL with the owner being the account that
+-- created the bucket. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership and disabling ACLs>
+-- in the /Amazon S3 User Guide/.
+--
 -- __Related Resources__
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html ListObjects>
@@ -59,8 +66,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketAcl' smart constructor.
 data GetBucketAcl = GetBucketAcl'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the S3 bucket whose ACL is being requested.
     bucket :: BucketName
@@ -76,8 +83,8 @@ data GetBucketAcl = GetBucketAcl'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketAcl_bucket' - Specifies the S3 bucket whose ACL is being requested.
 newGetBucketAcl ::
@@ -92,8 +99,8 @@ newGetBucketAcl pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketAcl_expectedBucketOwner :: Lens.Lens' GetBucketAcl (Prelude.Maybe Prelude.Text)
 getBucketAcl_expectedBucketOwner = Lens.lens (\GetBucketAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketAcl' {} a -> s {expectedBucketOwner = a} :: GetBucketAcl)
 

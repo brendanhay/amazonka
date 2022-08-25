@@ -24,7 +24,8 @@
 -- default, gateways do not have bandwidth rate limit schedules, which
 -- means no bandwidth rate limiting is in effect. Use this to initiate or
 -- update a gateway\'s bandwidth rate limit schedule. This operation is
--- supported in the volume and tape gateway types.
+-- supported only for volume, tape and S3 file gateways. FSx file gateways
+-- do not support bandwidth rate limits.
 module Amazonka.StorageGateway.UpdateBandwidthRateLimitSchedule
   ( -- * Creating a Request
     UpdateBandwidthRateLimitSchedule (..),

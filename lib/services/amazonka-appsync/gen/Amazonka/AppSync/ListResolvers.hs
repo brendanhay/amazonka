@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListResolvers' smart constructor.
 data ListResolvers = ListResolvers'
   { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
+    -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results you want the request to return.
+    -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text,
@@ -76,10 +76,10 @@ data ListResolvers = ListResolvers'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listResolvers_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 --
--- 'maxResults', 'listResolvers_maxResults' - The maximum number of results you want the request to return.
+-- 'maxResults', 'listResolvers_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listResolvers_apiId' - The API ID.
 --
@@ -99,12 +99,12 @@ newListResolvers pApiId_ pTypeName_ =
     }
 
 -- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 listResolvers_nextToken :: Lens.Lens' ListResolvers (Prelude.Maybe Prelude.Text)
 listResolvers_nextToken = Lens.lens (\ListResolvers' {nextToken} -> nextToken) (\s@ListResolvers' {} a -> s {nextToken = a} :: ListResolvers)
 
--- | The maximum number of results you want the request to return.
+-- | The maximum number of results that you want the request to return.
 listResolvers_maxResults :: Lens.Lens' ListResolvers (Prelude.Maybe Prelude.Natural)
 listResolvers_maxResults = Lens.lens (\ListResolvers' {maxResults} -> maxResults) (\s@ListResolvers' {} a -> s {maxResults = a} :: ListResolvers)
 
@@ -193,8 +193,8 @@ instance Core.ToQuery ListResolvers where
 
 -- | /See:/ 'newListResolversResponse' smart constructor.
 data ListResolversResponse = ListResolversResponse'
-  { -- | An identifier to be passed in the next request to this operation to
-    -- return the next set of items in the list.
+  { -- | An identifier to pass in the next request to this operation to return
+    -- the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The @Resolver@ objects.
     resolvers :: Prelude.Maybe [Resolver],
@@ -211,8 +211,8 @@ data ListResolversResponse = ListResolversResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResolversResponse_nextToken' - An identifier to be passed in the next request to this operation to
--- return the next set of items in the list.
+-- 'nextToken', 'listResolversResponse_nextToken' - An identifier to pass in the next request to this operation to return
+-- the next set of items in the list.
 --
 -- 'resolvers', 'listResolversResponse_resolvers' - The @Resolver@ objects.
 --
@@ -228,8 +228,8 @@ newListResolversResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An identifier to be passed in the next request to this operation to
--- return the next set of items in the list.
+-- | An identifier to pass in the next request to this operation to return
+-- the next set of items in the list.
 listResolversResponse_nextToken :: Lens.Lens' ListResolversResponse (Prelude.Maybe Prelude.Text)
 listResolversResponse_nextToken = Lens.lens (\ListResolversResponse' {nextToken} -> nextToken) (\s@ListResolversResponse' {} a -> s {nextToken = a} :: ListResolversResponse)
 

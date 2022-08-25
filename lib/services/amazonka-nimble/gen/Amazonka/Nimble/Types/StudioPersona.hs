@@ -28,7 +28,6 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- |
 newtype StudioPersona = StudioPersona'
   { fromStudioPersona ::
       Core.Text

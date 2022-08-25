@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedAgent' smart constructor.
 data ManagedAgent = ManagedAgent'
-  { -- | The Unix timestamp for when the managed agent was last started.
+  { -- | The Unix timestamp for the time when the managed agent was last started.
     lastStartedAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the managed agent. When the execute command feature is
     -- enabled, the managed agent name is @ExecuteCommandAgent@.
@@ -48,7 +48,7 @@ data ManagedAgent = ManagedAgent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastStartedAt', 'managedAgent_lastStartedAt' - The Unix timestamp for when the managed agent was last started.
+-- 'lastStartedAt', 'managedAgent_lastStartedAt' - The Unix timestamp for the time when the managed agent was last started.
 --
 -- 'name', 'managedAgent_name' - The name of the managed agent. When the execute command feature is
 -- enabled, the managed agent name is @ExecuteCommandAgent@.
@@ -66,7 +66,7 @@ newManagedAgent =
       reason = Prelude.Nothing
     }
 
--- | The Unix timestamp for when the managed agent was last started.
+-- | The Unix timestamp for the time when the managed agent was last started.
 managedAgent_lastStartedAt :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.UTCTime)
 managedAgent_lastStartedAt = Lens.lens (\ManagedAgent' {lastStartedAt} -> lastStartedAt) (\s@ManagedAgent' {} a -> s {lastStartedAt = a} :: ManagedAgent) Prelude.. Lens.mapping Core._Time
 

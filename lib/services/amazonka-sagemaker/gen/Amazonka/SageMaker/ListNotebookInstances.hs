@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the Amazon SageMaker notebook instances in the
--- requester\'s account in an Amazon Web Services Region.
+-- Returns a list of the SageMaker notebook instances in the requester\'s
+-- account in an Amazon Web Services Region.
 --
 -- This operation returns paginated results.
 module Amazonka.SageMaker.ListNotebookInstances
@@ -379,8 +379,8 @@ instance Core.ToQuery ListNotebookInstances where
 -- | /See:/ 'newListNotebookInstancesResponse' smart constructor.
 data ListNotebookInstancesResponse = ListNotebookInstancesResponse'
   { -- | If the response to the previous @ListNotebookInstances@ request was
-    -- truncated, Amazon SageMaker returns this token. To retrieve the next set
-    -- of notebook instances, use the token in the next request.
+    -- truncated, SageMaker returns this token. To retrieve the next set of
+    -- notebook instances, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @NotebookInstanceSummary@ objects, one for each notebook
     -- instance.
@@ -399,8 +399,8 @@ data ListNotebookInstancesResponse = ListNotebookInstancesResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listNotebookInstancesResponse_nextToken' - If the response to the previous @ListNotebookInstances@ request was
--- truncated, Amazon SageMaker returns this token. To retrieve the next set
--- of notebook instances, use the token in the next request.
+-- truncated, SageMaker returns this token. To retrieve the next set of
+-- notebook instances, use the token in the next request.
 --
 -- 'notebookInstances', 'listNotebookInstancesResponse_notebookInstances' - An array of @NotebookInstanceSummary@ objects, one for each notebook
 -- instance.
@@ -419,8 +419,8 @@ newListNotebookInstancesResponse pHttpStatus_ =
     }
 
 -- | If the response to the previous @ListNotebookInstances@ request was
--- truncated, Amazon SageMaker returns this token. To retrieve the next set
--- of notebook instances, use the token in the next request.
+-- truncated, SageMaker returns this token. To retrieve the next set of
+-- notebook instances, use the token in the next request.
 listNotebookInstancesResponse_nextToken :: Lens.Lens' ListNotebookInstancesResponse (Prelude.Maybe Prelude.Text)
 listNotebookInstancesResponse_nextToken = Lens.lens (\ListNotebookInstancesResponse' {nextToken} -> nextToken) (\s@ListNotebookInstancesResponse' {} a -> s {nextToken = a} :: ListNotebookInstancesResponse)
 

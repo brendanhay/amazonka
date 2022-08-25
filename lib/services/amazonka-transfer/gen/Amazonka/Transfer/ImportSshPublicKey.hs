@@ -60,6 +60,8 @@ data ImportSshPublicKey = ImportSshPublicKey'
   { -- | A system-assigned unique identifier for a server.
     serverId :: Prelude.Text,
     -- | The public key portion of an SSH key pair.
+    --
+    -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
     sshPublicKeyBody :: Prelude.Text,
     -- | The name of the user account that is assigned to one or more servers.
     userName :: Prelude.Text
@@ -77,6 +79,8 @@ data ImportSshPublicKey = ImportSshPublicKey'
 -- 'serverId', 'importSshPublicKey_serverId' - A system-assigned unique identifier for a server.
 --
 -- 'sshPublicKeyBody', 'importSshPublicKey_sshPublicKeyBody' - The public key portion of an SSH key pair.
+--
+-- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 --
 -- 'userName', 'importSshPublicKey_userName' - The name of the user account that is assigned to one or more servers.
 newImportSshPublicKey ::
@@ -102,6 +106,8 @@ importSshPublicKey_serverId :: Lens.Lens' ImportSshPublicKey Prelude.Text
 importSshPublicKey_serverId = Lens.lens (\ImportSshPublicKey' {serverId} -> serverId) (\s@ImportSshPublicKey' {} a -> s {serverId = a} :: ImportSshPublicKey)
 
 -- | The public key portion of an SSH key pair.
+--
+-- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 importSshPublicKey_sshPublicKeyBody :: Lens.Lens' ImportSshPublicKey Prelude.Text
 importSshPublicKey_sshPublicKeyBody = Lens.lens (\ImportSshPublicKey' {sshPublicKeyBody} -> sshPublicKeyBody) (\s@ImportSshPublicKey' {} a -> s {sshPublicKeyBody = a} :: ImportSshPublicKey)
 

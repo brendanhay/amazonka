@@ -45,12 +45,15 @@ library
   exposed-modules:
     Amazonka.AMP
     Amazonka.AMP.CreateAlertManagerDefinition
+    Amazonka.AMP.CreateLoggingConfiguration
     Amazonka.AMP.CreateRuleGroupsNamespace
     Amazonka.AMP.CreateWorkspace
     Amazonka.AMP.DeleteAlertManagerDefinition
+    Amazonka.AMP.DeleteLoggingConfiguration
     Amazonka.AMP.DeleteRuleGroupsNamespace
     Amazonka.AMP.DeleteWorkspace
     Amazonka.AMP.DescribeAlertManagerDefinition
+    Amazonka.AMP.DescribeLoggingConfiguration
     Amazonka.AMP.DescribeRuleGroupsNamespace
     Amazonka.AMP.DescribeWorkspace
     Amazonka.AMP.Lens
@@ -64,6 +67,9 @@ library
     Amazonka.AMP.Types.AlertManagerDefinitionDescription
     Amazonka.AMP.Types.AlertManagerDefinitionStatus
     Amazonka.AMP.Types.AlertManagerDefinitionStatusCode
+    Amazonka.AMP.Types.LoggingConfigurationMetadata
+    Amazonka.AMP.Types.LoggingConfigurationStatus
+    Amazonka.AMP.Types.LoggingConfigurationStatusCode
     Amazonka.AMP.Types.RuleGroupsNamespaceDescription
     Amazonka.AMP.Types.RuleGroupsNamespaceStatus
     Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode
@@ -73,6 +79,7 @@ library
     Amazonka.AMP.Types.WorkspaceStatusCode
     Amazonka.AMP.Types.WorkspaceSummary
     Amazonka.AMP.UntagResource
+    Amazonka.AMP.UpdateLoggingConfiguration
     Amazonka.AMP.UpdateWorkspaceAlias
     Amazonka.AMP.Waiters
 

@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes specified tags from a specified Amazon Transcribe resource.
+-- Removes the specified tags from the specified Amazon Transcribe
+-- resource.
+--
+-- If you include @UntagResource@ in your request, you must also include
+-- @ResourceArn@ and @TagKeys@.
 module Amazonka.Transcribe.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -49,9 +53,17 @@ import Amazonka.Transcribe.Types
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
-    -- want to remove tags from.
+    -- want to remove tags from. ARNs have the format
+    -- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+    --
+    -- For example,
+    -- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+    --
+    -- Valid values for @resource-type@ are: @transcription-job@,
+    -- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+    -- @vocabulary-filter@, and @language-model@.
     resourceArn :: Prelude.Text,
-    -- | A list of tag keys you want to remove from a specified Amazon Transcribe
+    -- | Removes the specified tag keys from the specified Amazon Transcribe
     -- resource.
     tagKeys :: Prelude.NonEmpty Prelude.Text
   }
@@ -66,9 +78,17 @@ data UntagResource = UntagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
--- want to remove tags from.
+-- want to remove tags from. ARNs have the format
+-- @arn:partition:service:region:account-id:resource-type\/resource-id@.
 --
--- 'tagKeys', 'untagResource_tagKeys' - A list of tag keys you want to remove from a specified Amazon Transcribe
+-- For example,
+-- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+--
+-- Valid values for @resource-type@ are: @transcription-job@,
+-- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+-- @vocabulary-filter@, and @language-model@.
+--
+-- 'tagKeys', 'untagResource_tagKeys' - Removes the specified tag keys from the specified Amazon Transcribe
 -- resource.
 newUntagResource ::
   -- | 'resourceArn'
@@ -83,11 +103,19 @@ newUntagResource pResourceArn_ pTagKeys_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Transcribe resource you
--- want to remove tags from.
+-- want to remove tags from. ARNs have the format
+-- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+--
+-- For example,
+-- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+--
+-- Valid values for @resource-type@ are: @transcription-job@,
+-- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+-- @vocabulary-filter@, and @language-model@.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | A list of tag keys you want to remove from a specified Amazon Transcribe
+-- | Removes the specified tag keys from the specified Amazon Transcribe
 -- resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced

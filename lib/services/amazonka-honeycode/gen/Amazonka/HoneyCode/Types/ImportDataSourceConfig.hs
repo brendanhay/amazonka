@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data ImportDataSourceConfig = ImportDataSourceConfig'
   { -- | The URL from which source data will be downloaded for the import
     -- request.
-    dataSourceUrl :: Prelude.Maybe Prelude.Text
+    dataSourceUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportDataSourceConfig' with all optional fields omitted.
@@ -55,7 +55,7 @@ newImportDataSourceConfig =
 -- | The URL from which source data will be downloaded for the import
 -- request.
 importDataSourceConfig_dataSourceUrl :: Lens.Lens' ImportDataSourceConfig (Prelude.Maybe Prelude.Text)
-importDataSourceConfig_dataSourceUrl = Lens.lens (\ImportDataSourceConfig' {dataSourceUrl} -> dataSourceUrl) (\s@ImportDataSourceConfig' {} a -> s {dataSourceUrl = a} :: ImportDataSourceConfig)
+importDataSourceConfig_dataSourceUrl = Lens.lens (\ImportDataSourceConfig' {dataSourceUrl} -> dataSourceUrl) (\s@ImportDataSourceConfig' {} a -> s {dataSourceUrl = a} :: ImportDataSourceConfig) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON ImportDataSourceConfig where
   parseJSON =

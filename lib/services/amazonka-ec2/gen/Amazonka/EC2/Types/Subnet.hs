@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Subnet where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.PrivateDnsNameOptionsOnLaunch
 import Amazonka.EC2.Types.SubnetIpv6CidrBlockAssociation
 import Amazonka.EC2.Types.SubnetState
 import Amazonka.EC2.Types.Tag
@@ -40,6 +41,12 @@ data Subnet = Subnet'
     -- | Indicates whether instances launched in this subnet receive a public
     -- IPv4 address.
     mapPublicIpOnLaunch :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether this is an IPv6 only subnet.
+    ipv6Native :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the device position for local network interfaces in this
+    -- subnet. For example, @1@ indicates local network interfaces in this
+    -- subnet are the secondary network interface (eth1).
+    enableLniAtDeviceIndex :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether this is the default subnet for the Availability Zone.
     defaultForAz :: Prelude.Maybe Prelude.Bool,
     -- | The customer-owned IPv4 address pool associated with the subnet.
@@ -50,11 +57,18 @@ data Subnet = Subnet'
     mapCustomerOwnedIpOnLaunch :: Prelude.Maybe Prelude.Bool,
     -- | Information about the IPv6 CIDR blocks associated with the subnet.
     ipv6CidrBlockAssociationSet :: Prelude.Maybe [SubnetIpv6CidrBlockAssociation],
+    -- | The type of hostnames to assign to instances in the subnet at launch. An
+    -- instance hostname is based on the IPv4 address or ID of the instance.
+    privateDnsNameOptionsOnLaunch :: Prelude.Maybe PrivateDnsNameOptionsOnLaunch,
     -- | The Amazon Resource Name (ARN) of the subnet.
     subnetArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a network interface created in this subnet (including
     -- a network interface created by RunInstances) receives an IPv6 address.
     assignIpv6AddressOnCreation :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether DNS queries made to the Amazon-provided DNS Resolver
+    -- in this subnet should return synthetic IPv6 addresses for IPv4-only
+    -- destinations.
+    enableDns64 :: Prelude.Maybe Prelude.Bool,
     -- | The AZ ID of the subnet.
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone of the subnet.
@@ -90,6 +104,12 @@ data Subnet = Subnet'
 -- 'mapPublicIpOnLaunch', 'subnet_mapPublicIpOnLaunch' - Indicates whether instances launched in this subnet receive a public
 -- IPv4 address.
 --
+-- 'ipv6Native', 'subnet_ipv6Native' - Indicates whether this is an IPv6 only subnet.
+--
+-- 'enableLniAtDeviceIndex', 'subnet_enableLniAtDeviceIndex' - Indicates the device position for local network interfaces in this
+-- subnet. For example, @1@ indicates local network interfaces in this
+-- subnet are the secondary network interface (eth1).
+--
 -- 'defaultForAz', 'subnet_defaultForAz' - Indicates whether this is the default subnet for the Availability Zone.
 --
 -- 'customerOwnedIpv4Pool', 'subnet_customerOwnedIpv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
@@ -100,10 +120,17 @@ data Subnet = Subnet'
 --
 -- 'ipv6CidrBlockAssociationSet', 'subnet_ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the subnet.
 --
+-- 'privateDnsNameOptionsOnLaunch', 'subnet_privateDnsNameOptionsOnLaunch' - The type of hostnames to assign to instances in the subnet at launch. An
+-- instance hostname is based on the IPv4 address or ID of the instance.
+--
 -- 'subnetArn', 'subnet_subnetArn' - The Amazon Resource Name (ARN) of the subnet.
 --
 -- 'assignIpv6AddressOnCreation', 'subnet_assignIpv6AddressOnCreation' - Indicates whether a network interface created in this subnet (including
 -- a network interface created by RunInstances) receives an IPv6 address.
+--
+-- 'enableDns64', 'subnet_enableDns64' - Indicates whether DNS queries made to the Amazon-provided DNS Resolver
+-- in this subnet should return synthetic IPv6 addresses for IPv4-only
+-- destinations.
 --
 -- 'availabilityZoneId', 'subnet_availabilityZoneId' - The AZ ID of the subnet.
 --
@@ -145,12 +172,16 @@ newSubnet
         outpostArn = Prelude.Nothing,
         ownerId = Prelude.Nothing,
         mapPublicIpOnLaunch = Prelude.Nothing,
+        ipv6Native = Prelude.Nothing,
+        enableLniAtDeviceIndex = Prelude.Nothing,
         defaultForAz = Prelude.Nothing,
         customerOwnedIpv4Pool = Prelude.Nothing,
         mapCustomerOwnedIpOnLaunch = Prelude.Nothing,
         ipv6CidrBlockAssociationSet = Prelude.Nothing,
+        privateDnsNameOptionsOnLaunch = Prelude.Nothing,
         subnetArn = Prelude.Nothing,
         assignIpv6AddressOnCreation = Prelude.Nothing,
+        enableDns64 = Prelude.Nothing,
         availabilityZoneId = Prelude.Nothing,
         availabilityZone = pAvailabilityZone_,
         availableIpAddressCount = pAvailableIpAddressCount_,
@@ -177,6 +208,16 @@ subnet_ownerId = Lens.lens (\Subnet' {ownerId} -> ownerId) (\s@Subnet' {} a -> s
 subnet_mapPublicIpOnLaunch :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Bool)
 subnet_mapPublicIpOnLaunch = Lens.lens (\Subnet' {mapPublicIpOnLaunch} -> mapPublicIpOnLaunch) (\s@Subnet' {} a -> s {mapPublicIpOnLaunch = a} :: Subnet)
 
+-- | Indicates whether this is an IPv6 only subnet.
+subnet_ipv6Native :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Bool)
+subnet_ipv6Native = Lens.lens (\Subnet' {ipv6Native} -> ipv6Native) (\s@Subnet' {} a -> s {ipv6Native = a} :: Subnet)
+
+-- | Indicates the device position for local network interfaces in this
+-- subnet. For example, @1@ indicates local network interfaces in this
+-- subnet are the secondary network interface (eth1).
+subnet_enableLniAtDeviceIndex :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Int)
+subnet_enableLniAtDeviceIndex = Lens.lens (\Subnet' {enableLniAtDeviceIndex} -> enableLniAtDeviceIndex) (\s@Subnet' {} a -> s {enableLniAtDeviceIndex = a} :: Subnet)
+
 -- | Indicates whether this is the default subnet for the Availability Zone.
 subnet_defaultForAz :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Bool)
 subnet_defaultForAz = Lens.lens (\Subnet' {defaultForAz} -> defaultForAz) (\s@Subnet' {} a -> s {defaultForAz = a} :: Subnet)
@@ -195,6 +236,11 @@ subnet_mapCustomerOwnedIpOnLaunch = Lens.lens (\Subnet' {mapCustomerOwnedIpOnLau
 subnet_ipv6CidrBlockAssociationSet :: Lens.Lens' Subnet (Prelude.Maybe [SubnetIpv6CidrBlockAssociation])
 subnet_ipv6CidrBlockAssociationSet = Lens.lens (\Subnet' {ipv6CidrBlockAssociationSet} -> ipv6CidrBlockAssociationSet) (\s@Subnet' {} a -> s {ipv6CidrBlockAssociationSet = a} :: Subnet) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of hostnames to assign to instances in the subnet at launch. An
+-- instance hostname is based on the IPv4 address or ID of the instance.
+subnet_privateDnsNameOptionsOnLaunch :: Lens.Lens' Subnet (Prelude.Maybe PrivateDnsNameOptionsOnLaunch)
+subnet_privateDnsNameOptionsOnLaunch = Lens.lens (\Subnet' {privateDnsNameOptionsOnLaunch} -> privateDnsNameOptionsOnLaunch) (\s@Subnet' {} a -> s {privateDnsNameOptionsOnLaunch = a} :: Subnet)
+
 -- | The Amazon Resource Name (ARN) of the subnet.
 subnet_subnetArn :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetArn = Lens.lens (\Subnet' {subnetArn} -> subnetArn) (\s@Subnet' {} a -> s {subnetArn = a} :: Subnet)
@@ -203,6 +249,12 @@ subnet_subnetArn = Lens.lens (\Subnet' {subnetArn} -> subnetArn) (\s@Subnet' {} 
 -- a network interface created by RunInstances) receives an IPv6 address.
 subnet_assignIpv6AddressOnCreation :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Bool)
 subnet_assignIpv6AddressOnCreation = Lens.lens (\Subnet' {assignIpv6AddressOnCreation} -> assignIpv6AddressOnCreation) (\s@Subnet' {} a -> s {assignIpv6AddressOnCreation = a} :: Subnet)
+
+-- | Indicates whether DNS queries made to the Amazon-provided DNS Resolver
+-- in this subnet should return synthetic IPv6 addresses for IPv4-only
+-- destinations.
+subnet_enableDns64 :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Bool)
+subnet_enableDns64 = Lens.lens (\Subnet' {enableDns64} -> enableDns64) (\s@Subnet' {} a -> s {enableDns64 = a} :: Subnet)
 
 -- | The AZ ID of the subnet.
 subnet_availabilityZoneId :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
@@ -242,6 +294,8 @@ instance Core.FromXML Subnet where
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "mapPublicIpOnLaunch")
+      Prelude.<*> (x Core..@? "ipv6Native")
+      Prelude.<*> (x Core..@? "enableLniAtDeviceIndex")
       Prelude.<*> (x Core..@? "defaultForAz")
       Prelude.<*> (x Core..@? "customerOwnedIpv4Pool")
       Prelude.<*> (x Core..@? "mapCustomerOwnedIpOnLaunch")
@@ -249,8 +303,10 @@ instance Core.FromXML Subnet where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "privateDnsNameOptionsOnLaunch")
       Prelude.<*> (x Core..@? "subnetArn")
       Prelude.<*> (x Core..@? "assignIpv6AddressOnCreation")
+      Prelude.<*> (x Core..@? "enableDns64")
       Prelude.<*> (x Core..@? "availabilityZoneId")
       Prelude.<*> (x Core..@ "availabilityZone")
       Prelude.<*> (x Core..@ "availableIpAddressCount")
@@ -265,12 +321,16 @@ instance Prelude.Hashable Subnet where
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` mapPublicIpOnLaunch
+      `Prelude.hashWithSalt` ipv6Native
+      `Prelude.hashWithSalt` enableLniAtDeviceIndex
       `Prelude.hashWithSalt` defaultForAz
       `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` mapCustomerOwnedIpOnLaunch
       `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
+      `Prelude.hashWithSalt` privateDnsNameOptionsOnLaunch
       `Prelude.hashWithSalt` subnetArn
       `Prelude.hashWithSalt` assignIpv6AddressOnCreation
+      `Prelude.hashWithSalt` enableDns64
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availableIpAddressCount
@@ -285,12 +345,16 @@ instance Prelude.NFData Subnet where
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
+      `Prelude.seq` Prelude.rnf ipv6Native
+      `Prelude.seq` Prelude.rnf enableLniAtDeviceIndex
       `Prelude.seq` Prelude.rnf defaultForAz
       `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
       `Prelude.seq` Prelude.rnf mapCustomerOwnedIpOnLaunch
       `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
+      `Prelude.seq` Prelude.rnf privateDnsNameOptionsOnLaunch
       `Prelude.seq` Prelude.rnf subnetArn
       `Prelude.seq` Prelude.rnf assignIpv6AddressOnCreation
+      `Prelude.seq` Prelude.rnf enableDns64
       `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf availableIpAddressCount

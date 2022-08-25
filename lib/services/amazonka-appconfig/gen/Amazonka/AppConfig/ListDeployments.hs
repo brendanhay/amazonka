@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the deployments for an environment.
+-- Lists the deployments for an environment in descending deployment number
+-- order.
 module Amazonka.AppConfig.ListDeployments
   ( -- * Creating a Request
     ListDeployments (..),
@@ -52,12 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
+  { -- | The token returned by a prior call to this operation indicating the next
+    -- set of results to be returned. If not specified, the operation will
+    -- return the first set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
+    -- | The maximum number of items that may be returned for this call. If there
+    -- are items that have not yet been returned, the response will include a
+    -- non-null @NextToken@ that you can provide in a subsequent call to get
+    -- the next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The application ID.
     applicationId :: Prelude.Text,
@@ -74,12 +77,14 @@ data ListDeployments = ListDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeployments_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
+-- 'nextToken', 'listDeployments_nextToken' - The token returned by a prior call to this operation indicating the next
+-- set of results to be returned. If not specified, the operation will
+-- return the first set of results.
 --
--- 'maxResults', 'listDeployments_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- 'maxResults', 'listDeployments_maxResults' - The maximum number of items that may be returned for this call. If there
+-- are items that have not yet been returned, the response will include a
+-- non-null @NextToken@ that you can provide in a subsequent call to get
+-- the next set of results.
 --
 -- 'applicationId', 'listDeployments_applicationId' - The application ID.
 --
@@ -98,14 +103,16 @@ newListDeployments pApplicationId_ pEnvironmentId_ =
       environmentId = pEnvironmentId_
     }
 
--- | A token to start the list. Use this token to get the next set of
--- results.
+-- | The token returned by a prior call to this operation indicating the next
+-- set of results to be returned. If not specified, the operation will
+-- return the first set of results.
 listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
 listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
 
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items that may be returned for this call. If there
+-- are items that have not yet been returned, the response will include a
+-- non-null @NextToken@ that you can provide in a subsequent call to get
+-- the next set of results.
 listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Natural)
 listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 

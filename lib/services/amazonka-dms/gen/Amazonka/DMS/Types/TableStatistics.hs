@@ -39,8 +39,7 @@ data TableStatistics = TableStatistics'
     -- | The state of the tables described.
     --
     -- Valid states: Table does not exist | Before load | Full load | Table
-    -- completed | Table cancelled | Table error | Table all | Table updates |
-    -- Table is being reloaded
+    -- completed | Table cancelled | Table error | Table is being reloaded
     tableState :: Prelude.Maybe Prelude.Text,
     -- | The time when the full load operation completed.
     fullLoadEndTime :: Prelude.Maybe Core.POSIX,
@@ -130,8 +129,7 @@ data TableStatistics = TableStatistics'
 -- 'tableState', 'tableStatistics_tableState' - The state of the tables described.
 --
 -- Valid states: Table does not exist | Before load | Full load | Table
--- completed | Table cancelled | Table error | Table all | Table updates |
--- Table is being reloaded
+-- completed | Table cancelled | Table error | Table is being reloaded
 --
 -- 'fullLoadEndTime', 'tableStatistics_fullLoadEndTime' - The time when the full load operation completed.
 --
@@ -240,8 +238,7 @@ tableStatistics_fullLoadCondtnlChkFailedRows = Lens.lens (\TableStatistics' {ful
 -- | The state of the tables described.
 --
 -- Valid states: Table does not exist | Before load | Full load | Table
--- completed | Table cancelled | Table error | Table all | Table updates |
--- Table is being reloaded
+-- completed | Table cancelled | Table error | Table is being reloaded
 tableStatistics_tableState :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Text)
 tableStatistics_tableState = Lens.lens (\TableStatistics' {tableState} -> tableState) (\s@TableStatistics' {} a -> s {tableState = a} :: TableStatistics)
 

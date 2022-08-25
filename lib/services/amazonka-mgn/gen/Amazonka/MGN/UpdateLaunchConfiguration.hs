@@ -31,6 +31,8 @@ module Amazonka.MGN.UpdateLaunchConfiguration
     updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
     updateLaunchConfiguration_copyTags,
     updateLaunchConfiguration_launchDisposition,
+    updateLaunchConfiguration_postLaunchActions,
+    updateLaunchConfiguration_bootMode,
     updateLaunchConfiguration_licensing,
     updateLaunchConfiguration_copyPrivateIp,
     updateLaunchConfiguration_sourceServerID,
@@ -44,7 +46,9 @@ module Amazonka.MGN.UpdateLaunchConfiguration
     launchConfiguration_targetInstanceTypeRightSizingMethod,
     launchConfiguration_copyTags,
     launchConfiguration_launchDisposition,
+    launchConfiguration_postLaunchActions,
     launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_bootMode,
     launchConfiguration_sourceServerID,
     launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
@@ -68,6 +72,9 @@ data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
     copyTags :: Prelude.Maybe Prelude.Bool,
     -- | Update Launch configuration launch disposition request.
     launchDisposition :: Prelude.Maybe LaunchDisposition,
+    postLaunchActions :: Prelude.Maybe PostLaunchActions,
+    -- | Update Launch configuration boot mode request.
+    bootMode :: Prelude.Maybe BootMode,
     -- | Update Launch configuration licensing request.
     licensing :: Prelude.Maybe Licensing,
     -- | Update Launch configuration copy Private IP request.
@@ -93,6 +100,10 @@ data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
 --
 -- 'launchDisposition', 'updateLaunchConfiguration_launchDisposition' - Update Launch configuration launch disposition request.
 --
+-- 'postLaunchActions', 'updateLaunchConfiguration_postLaunchActions' - Undocumented member.
+--
+-- 'bootMode', 'updateLaunchConfiguration_bootMode' - Update Launch configuration boot mode request.
+--
 -- 'licensing', 'updateLaunchConfiguration_licensing' - Update Launch configuration licensing request.
 --
 -- 'copyPrivateIp', 'updateLaunchConfiguration_copyPrivateIp' - Update Launch configuration copy Private IP request.
@@ -109,6 +120,8 @@ newUpdateLaunchConfiguration pSourceServerID_ =
         Prelude.Nothing,
       copyTags = Prelude.Nothing,
       launchDisposition = Prelude.Nothing,
+      postLaunchActions = Prelude.Nothing,
+      bootMode = Prelude.Nothing,
       licensing = Prelude.Nothing,
       copyPrivateIp = Prelude.Nothing,
       sourceServerID = pSourceServerID_
@@ -129,6 +142,14 @@ updateLaunchConfiguration_copyTags = Lens.lens (\UpdateLaunchConfiguration' {cop
 -- | Update Launch configuration launch disposition request.
 updateLaunchConfiguration_launchDisposition :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe LaunchDisposition)
 updateLaunchConfiguration_launchDisposition = Lens.lens (\UpdateLaunchConfiguration' {launchDisposition} -> launchDisposition) (\s@UpdateLaunchConfiguration' {} a -> s {launchDisposition = a} :: UpdateLaunchConfiguration)
+
+-- | Undocumented member.
+updateLaunchConfiguration_postLaunchActions :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe PostLaunchActions)
+updateLaunchConfiguration_postLaunchActions = Lens.lens (\UpdateLaunchConfiguration' {postLaunchActions} -> postLaunchActions) (\s@UpdateLaunchConfiguration' {} a -> s {postLaunchActions = a} :: UpdateLaunchConfiguration)
+
+-- | Update Launch configuration boot mode request.
+updateLaunchConfiguration_bootMode :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe BootMode)
+updateLaunchConfiguration_bootMode = Lens.lens (\UpdateLaunchConfiguration' {bootMode} -> bootMode) (\s@UpdateLaunchConfiguration' {} a -> s {bootMode = a} :: UpdateLaunchConfiguration)
 
 -- | Update Launch configuration licensing request.
 updateLaunchConfiguration_licensing :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Licensing)
@@ -157,6 +178,8 @@ instance Prelude.Hashable UpdateLaunchConfiguration where
       `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` launchDisposition
+      `Prelude.hashWithSalt` postLaunchActions
+      `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` licensing
       `Prelude.hashWithSalt` copyPrivateIp
       `Prelude.hashWithSalt` sourceServerID
@@ -167,6 +190,8 @@ instance Prelude.NFData UpdateLaunchConfiguration where
       `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
       `Prelude.seq` Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf launchDisposition
+      `Prelude.seq` Prelude.rnf postLaunchActions
+      `Prelude.seq` Prelude.rnf bootMode
       `Prelude.seq` Prelude.rnf licensing
       `Prelude.seq` Prelude.rnf copyPrivateIp
       `Prelude.seq` Prelude.rnf sourceServerID
@@ -192,6 +217,9 @@ instance Core.ToJSON UpdateLaunchConfiguration where
             ("copyTags" Core..=) Prelude.<$> copyTags,
             ("launchDisposition" Core..=)
               Prelude.<$> launchDisposition,
+            ("postLaunchActions" Core..=)
+              Prelude.<$> postLaunchActions,
+            ("bootMode" Core..=) Prelude.<$> bootMode,
             ("licensing" Core..=) Prelude.<$> licensing,
             ("copyPrivateIp" Core..=) Prelude.<$> copyPrivateIp,
             Prelude.Just

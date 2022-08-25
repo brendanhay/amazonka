@@ -33,8 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- __Related actions__
 --
--- CreateGameSessionQueue | DescribeGameSessionQueues |
--- UpdateGameSessionQueue
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html CreateGameSessionQueue>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html DescribeGameSessionQueues>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html UpdateGameSessionQueue>
 --
 -- /See:/ 'newGameSessionQueue' smart constructor.
 data GameSessionQueue = GameSessionQueue'
@@ -75,9 +78,9 @@ data GameSessionQueue = GameSessionQueue'
     -- placement preference.
     destinations :: Prelude.Maybe [GameSessionQueueDestination],
     -- | A list of locations where a queue is allowed to place new game sessions.
-    -- Locations are specified in the form of AWS Region codes, such as
-    -- @us-west-2@. If this parameter is not set, game sessions can be placed
-    -- in any queue location.
+    -- Locations are specified in the form of Amazon Web Services Region codes,
+    -- such as @us-west-2@. If this parameter is not set, game sessions can be
+    -- placed in any queue location.
     filterConfiguration :: Prelude.Maybe FilterConfiguration,
     -- | Information that is added to all events that are related to this game
     -- session queue.
@@ -130,9 +133,9 @@ data GameSessionQueue = GameSessionQueue'
 -- placement preference.
 --
 -- 'filterConfiguration', 'gameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.
--- Locations are specified in the form of AWS Region codes, such as
--- @us-west-2@. If this parameter is not set, game sessions can be placed
--- in any queue location.
+-- Locations are specified in the form of Amazon Web Services Region codes,
+-- such as @us-west-2@. If this parameter is not set, game sessions can be
+-- placed in any queue location.
 --
 -- 'customEventData', 'gameSessionQueue_customEventData' - Information that is added to all events that are related to this game
 -- session queue.
@@ -203,9 +206,9 @@ gameSessionQueue_destinations :: Lens.Lens' GameSessionQueue (Prelude.Maybe [Gam
 gameSessionQueue_destinations = Lens.lens (\GameSessionQueue' {destinations} -> destinations) (\s@GameSessionQueue' {} a -> s {destinations = a} :: GameSessionQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of locations where a queue is allowed to place new game sessions.
--- Locations are specified in the form of AWS Region codes, such as
--- @us-west-2@. If this parameter is not set, game sessions can be placed
--- in any queue location.
+-- Locations are specified in the form of Amazon Web Services Region codes,
+-- such as @us-west-2@. If this parameter is not set, game sessions can be
+-- placed in any queue location.
 gameSessionQueue_filterConfiguration :: Lens.Lens' GameSessionQueue (Prelude.Maybe FilterConfiguration)
 gameSessionQueue_filterConfiguration = Lens.lens (\GameSessionQueue' {filterConfiguration} -> filterConfiguration) (\s@GameSessionQueue' {} a -> s {filterConfiguration = a} :: GameSessionQueue)
 

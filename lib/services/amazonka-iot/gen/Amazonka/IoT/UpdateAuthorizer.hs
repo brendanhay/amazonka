@@ -35,6 +35,7 @@ module Amazonka.IoT.UpdateAuthorizer
     updateAuthorizer_status,
     updateAuthorizer_authorizerFunctionArn,
     updateAuthorizer_tokenSigningPublicKeys,
+    updateAuthorizer_enableCachingForHttp,
     updateAuthorizer_authorizerName,
 
     -- * Destructuring the Response
@@ -65,6 +66,10 @@ data UpdateAuthorizer = UpdateAuthorizer'
     authorizerFunctionArn :: Prelude.Maybe Prelude.Text,
     -- | The public keys used to verify the token signature.
     tokenSigningPublicKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | When @true@, the result from the authorizer’s Lambda function is cached
+    -- for the time specified in @refreshAfterInSeconds@. The cached result is
+    -- used while the device reuses the same HTTP connection.
+    enableCachingForHttp :: Prelude.Maybe Prelude.Bool,
     -- | The authorizer name.
     authorizerName :: Prelude.Text
   }
@@ -86,6 +91,10 @@ data UpdateAuthorizer = UpdateAuthorizer'
 --
 -- 'tokenSigningPublicKeys', 'updateAuthorizer_tokenSigningPublicKeys' - The public keys used to verify the token signature.
 --
+-- 'enableCachingForHttp', 'updateAuthorizer_enableCachingForHttp' - When @true@, the result from the authorizer’s Lambda function is cached
+-- for the time specified in @refreshAfterInSeconds@. The cached result is
+-- used while the device reuses the same HTTP connection.
+--
 -- 'authorizerName', 'updateAuthorizer_authorizerName' - The authorizer name.
 newUpdateAuthorizer ::
   -- | 'authorizerName'
@@ -97,6 +106,7 @@ newUpdateAuthorizer pAuthorizerName_ =
       status = Prelude.Nothing,
       authorizerFunctionArn = Prelude.Nothing,
       tokenSigningPublicKeys = Prelude.Nothing,
+      enableCachingForHttp = Prelude.Nothing,
       authorizerName = pAuthorizerName_
     }
 
@@ -115,6 +125,12 @@ updateAuthorizer_authorizerFunctionArn = Lens.lens (\UpdateAuthorizer' {authoriz
 -- | The public keys used to verify the token signature.
 updateAuthorizer_tokenSigningPublicKeys :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateAuthorizer_tokenSigningPublicKeys = Lens.lens (\UpdateAuthorizer' {tokenSigningPublicKeys} -> tokenSigningPublicKeys) (\s@UpdateAuthorizer' {} a -> s {tokenSigningPublicKeys = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Lens.coerced
+
+-- | When @true@, the result from the authorizer’s Lambda function is cached
+-- for the time specified in @refreshAfterInSeconds@. The cached result is
+-- used while the device reuses the same HTTP connection.
+updateAuthorizer_enableCachingForHttp :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe Prelude.Bool)
+updateAuthorizer_enableCachingForHttp = Lens.lens (\UpdateAuthorizer' {enableCachingForHttp} -> enableCachingForHttp) (\s@UpdateAuthorizer' {} a -> s {enableCachingForHttp = a} :: UpdateAuthorizer)
 
 -- | The authorizer name.
 updateAuthorizer_authorizerName :: Lens.Lens' UpdateAuthorizer Prelude.Text
@@ -140,6 +156,7 @@ instance Prelude.Hashable UpdateAuthorizer where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` authorizerFunctionArn
       `Prelude.hashWithSalt` tokenSigningPublicKeys
+      `Prelude.hashWithSalt` enableCachingForHttp
       `Prelude.hashWithSalt` authorizerName
 
 instance Prelude.NFData UpdateAuthorizer where
@@ -148,6 +165,7 @@ instance Prelude.NFData UpdateAuthorizer where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf authorizerFunctionArn
       `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
+      `Prelude.seq` Prelude.rnf enableCachingForHttp
       `Prelude.seq` Prelude.rnf authorizerName
 
 instance Core.ToHeaders UpdateAuthorizer where
@@ -162,7 +180,9 @@ instance Core.ToJSON UpdateAuthorizer where
             ("authorizerFunctionArn" Core..=)
               Prelude.<$> authorizerFunctionArn,
             ("tokenSigningPublicKeys" Core..=)
-              Prelude.<$> tokenSigningPublicKeys
+              Prelude.<$> tokenSigningPublicKeys,
+            ("enableCachingForHttp" Core..=)
+              Prelude.<$> enableCachingForHttp
           ]
       )
 

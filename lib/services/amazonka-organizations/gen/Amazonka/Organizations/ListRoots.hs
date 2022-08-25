@@ -30,7 +30,7 @@
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 --
 -- Policy types can be enabled and disabled in roots. This is distinct from
 -- whether they\'re available in the organization. When you enable all

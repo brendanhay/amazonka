@@ -52,7 +52,7 @@ data TrainingJob = TrainingJob'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | The S3 path where model artifacts that you configured when creating the
-    -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+    -- job are stored. SageMaker creates subfolders for model artifacts.
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | When true, enables managed spot training using Amazon EC2 Spot instances
     -- to run training jobs instead of on-demand instances. For more
@@ -107,8 +107,8 @@ data TrainingJob = TrainingJob'
     -- detailed information about the secondary status of the training job, see
     -- @StatusMessage@ under SecondaryStatusTransition.
     --
-    -- Amazon SageMaker provides primary statuses and secondary statuses that
-    -- apply to each of them:
+    -- SageMaker provides primary statuses and secondary statuses that apply to
+    -- each of them:
     --
     -- [InProgress]
     --     -   @Starting@ - Starting the training job.
@@ -182,12 +182,12 @@ data TrainingJob = TrainingJob'
     modelArtifacts :: Prelude.Maybe ModelArtifacts,
     -- | Specifies a limit to how long a model training job can run. It also
     -- specifies how long a managed Spot training job has to complete. When the
-    -- job reaches the time limit, Amazon SageMaker ends the training job. Use
-    -- this API to cap model training costs.
+    -- job reaches the time limit, SageMaker ends the training job. Use this
+    -- API to cap model training costs.
     --
-    -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
-    -- signal, which delays job termination for 120 seconds. Algorithms can use
-    -- this 120-second window to save the model artifacts, so the results of
+    -- To stop a job, SageMaker sends the algorithm the @SIGTERM@ signal, which
+    -- delays job termination for 120 seconds. Algorithms can use this
+    -- 120-second window to save the model artifacts, so the results of
     -- training are not lost.
     stoppingCondition :: Prelude.Maybe StoppingCondition,
     -- | Information about the algorithm used for training, and algorithm
@@ -216,7 +216,7 @@ data TrainingJob = TrainingJob'
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
-    -- this is the time when Amazon SageMaker detects a job failure.
+    -- this is the time when SageMaker detects a job failure.
     trainingEndTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -235,7 +235,7 @@ data TrainingJob = TrainingJob'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'outputDataConfig', 'trainingJob_outputDataConfig' - The S3 path where model artifacts that you configured when creating the
--- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+-- job are stored. SageMaker creates subfolders for model artifacts.
 --
 -- 'enableManagedSpotTraining', 'trainingJob_enableManagedSpotTraining' - When true, enables managed spot training using Amazon EC2 Spot instances
 -- to run training jobs instead of on-demand instances. For more
@@ -293,8 +293,8 @@ data TrainingJob = TrainingJob'
 -- detailed information about the secondary status of the training job, see
 -- @StatusMessage@ under SecondaryStatusTransition.
 --
--- Amazon SageMaker provides primary statuses and secondary statuses that
--- apply to each of them:
+-- SageMaker provides primary statuses and secondary statuses that apply to
+-- each of them:
 --
 -- [InProgress]
 --     -   @Starting@ - Starting the training job.
@@ -368,12 +368,12 @@ data TrainingJob = TrainingJob'
 --
 -- 'stoppingCondition', 'trainingJob_stoppingCondition' - Specifies a limit to how long a model training job can run. It also
 -- specifies how long a managed Spot training job has to complete. When the
--- job reaches the time limit, Amazon SageMaker ends the training job. Use
--- this API to cap model training costs.
+-- job reaches the time limit, SageMaker ends the training job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
--- signal, which delays job termination for 120 seconds. Algorithms can use
--- this 120-second window to save the model artifacts, so the results of
+-- To stop a job, SageMaker sends the algorithm the @SIGTERM@ signal, which
+-- delays job termination for 120 seconds. Algorithms can use this
+-- 120-second window to save the model artifacts, so the results of
 -- training are not lost.
 --
 -- 'algorithmSpecification', 'trainingJob_algorithmSpecification' - Information about the algorithm used for training, and algorithm
@@ -403,7 +403,7 @@ data TrainingJob = TrainingJob'
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
--- this is the time when Amazon SageMaker detects a job failure.
+-- this is the time when SageMaker detects a job failure.
 newTrainingJob ::
   TrainingJob
 newTrainingJob =
@@ -456,7 +456,7 @@ trainingJob_tags :: Lens.Lens' TrainingJob (Prelude.Maybe [Tag])
 trainingJob_tags = Lens.lens (\TrainingJob' {tags} -> tags) (\s@TrainingJob' {} a -> s {tags = a} :: TrainingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The S3 path where model artifacts that you configured when creating the
--- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+-- job are stored. SageMaker creates subfolders for model artifacts.
 trainingJob_outputDataConfig :: Lens.Lens' TrainingJob (Prelude.Maybe OutputDataConfig)
 trainingJob_outputDataConfig = Lens.lens (\TrainingJob' {outputDataConfig} -> outputDataConfig) (\s@TrainingJob' {} a -> s {outputDataConfig = a} :: TrainingJob)
 
@@ -550,8 +550,8 @@ trainingJob_lastModifiedTime = Lens.lens (\TrainingJob' {lastModifiedTime} -> la
 -- detailed information about the secondary status of the training job, see
 -- @StatusMessage@ under SecondaryStatusTransition.
 --
--- Amazon SageMaker provides primary statuses and secondary statuses that
--- apply to each of them:
+-- SageMaker provides primary statuses and secondary statuses that apply to
+-- each of them:
 --
 -- [InProgress]
 --     -   @Starting@ - Starting the training job.
@@ -635,12 +635,12 @@ trainingJob_modelArtifacts = Lens.lens (\TrainingJob' {modelArtifacts} -> modelA
 
 -- | Specifies a limit to how long a model training job can run. It also
 -- specifies how long a managed Spot training job has to complete. When the
--- job reaches the time limit, Amazon SageMaker ends the training job. Use
--- this API to cap model training costs.
+-- job reaches the time limit, SageMaker ends the training job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
--- signal, which delays job termination for 120 seconds. Algorithms can use
--- this 120-second window to save the model artifacts, so the results of
+-- To stop a job, SageMaker sends the algorithm the @SIGTERM@ signal, which
+-- delays job termination for 120 seconds. Algorithms can use this
+-- 120-second window to save the model artifacts, so the results of
 -- training are not lost.
 trainingJob_stoppingCondition :: Lens.Lens' TrainingJob (Prelude.Maybe StoppingCondition)
 trainingJob_stoppingCondition = Lens.lens (\TrainingJob' {stoppingCondition} -> stoppingCondition) (\s@TrainingJob' {} a -> s {stoppingCondition = a} :: TrainingJob)
@@ -694,7 +694,7 @@ trainingJob_failureReason = Lens.lens (\TrainingJob' {failureReason} -> failureR
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
--- this is the time when Amazon SageMaker detects a job failure.
+-- this is the time when SageMaker detects a job failure.
 trainingJob_trainingEndTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
 trainingJob_trainingEndTime = Lens.lens (\TrainingJob' {trainingEndTime} -> trainingEndTime) (\s@TrainingJob' {} a -> s {trainingEndTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
 

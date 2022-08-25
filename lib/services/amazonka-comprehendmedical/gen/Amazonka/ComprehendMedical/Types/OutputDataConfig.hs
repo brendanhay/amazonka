@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputDataConfig' smart constructor.
 data OutputDataConfig = OutputDataConfig'
-  { -- | The path to the output data files in the S3 bucket. Amazon Comprehend
-    -- Medical creates an output directory using the job ID so that the output
-    -- from one job does not overwrite the output of another.
+  { -- | The path to the output data files in the S3 bucket. Comprehend Medical;
+    -- creates an output directory using the job ID so that the output from one
+    -- job does not overwrite the output of another.
     s3Key :: Prelude.Maybe Prelude.Text,
     -- | When you use the @OutputDataConfig@ object with asynchronous operations,
     -- you specify the Amazon S3 location where you want to write the output
@@ -48,9 +48,9 @@ data OutputDataConfig = OutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Key', 'outputDataConfig_s3Key' - The path to the output data files in the S3 bucket. Amazon Comprehend
--- Medical creates an output directory using the job ID so that the output
--- from one job does not overwrite the output of another.
+-- 's3Key', 'outputDataConfig_s3Key' - The path to the output data files in the S3 bucket. Comprehend Medical;
+-- creates an output directory using the job ID so that the output from one
+-- job does not overwrite the output of another.
 --
 -- 's3Bucket', 'outputDataConfig_s3Bucket' - When you use the @OutputDataConfig@ object with asynchronous operations,
 -- you specify the Amazon S3 location where you want to write the output
@@ -67,9 +67,9 @@ newOutputDataConfig pS3Bucket_ =
       s3Bucket = pS3Bucket_
     }
 
--- | The path to the output data files in the S3 bucket. Amazon Comprehend
--- Medical creates an output directory using the job ID so that the output
--- from one job does not overwrite the output of another.
+-- | The path to the output data files in the S3 bucket. Comprehend Medical;
+-- creates an output directory using the job ID so that the output from one
+-- job does not overwrite the output of another.
 outputDataConfig_s3Key :: Lens.Lens' OutputDataConfig (Prelude.Maybe Prelude.Text)
 outputDataConfig_s3Key = Lens.lens (\OutputDataConfig' {s3Key} -> s3Key) (\s@OutputDataConfig' {} a -> s {s3Key = a} :: OutputDataConfig)
 

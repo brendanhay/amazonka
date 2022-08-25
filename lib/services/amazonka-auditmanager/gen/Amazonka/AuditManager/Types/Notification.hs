@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The notification used to inform a user of an update in Audit Manager.
--- For example, this includes the notification that is sent when a control
--- set is delegated for review.
+-- | The notification that informs a user of an update in Audit Manager. For
+-- example, this includes the notification that\'s sent when a control set
+-- is delegated for review.
 --
 -- /See:/ 'newNotification' smart constructor.
 data Notification = Notification'
-  { -- | The identifier for the specified assessment.
+  { -- | The identifier for the assessment.
     assessmentId :: Prelude.Maybe Prelude.Text,
     -- | The name of the related assessment.
     assessmentName :: Prelude.Maybe Prelude.Text,
@@ -41,7 +41,7 @@ data Notification = Notification'
     source :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the control set that the notification is about.
     controlSetName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified control set.
+    -- | The identifier for the control set.
     controlSetId :: Prelude.Maybe Prelude.Text,
     -- | The time when the notification was sent.
     eventTime :: Prelude.Maybe Core.POSIX
@@ -56,7 +56,7 @@ data Notification = Notification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'notification_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'notification_assessmentId' - The identifier for the assessment.
 --
 -- 'assessmentName', 'notification_assessmentName' - The name of the related assessment.
 --
@@ -68,7 +68,7 @@ data Notification = Notification'
 --
 -- 'controlSetName', 'notification_controlSetName' - Specifies the name of the control set that the notification is about.
 --
--- 'controlSetId', 'notification_controlSetId' - The identifier for the specified control set.
+-- 'controlSetId', 'notification_controlSetId' - The identifier for the control set.
 --
 -- 'eventTime', 'notification_eventTime' - The time when the notification was sent.
 newNotification ::
@@ -85,7 +85,7 @@ newNotification =
       eventTime = Prelude.Nothing
     }
 
--- | The identifier for the specified assessment.
+-- | The identifier for the assessment.
 notification_assessmentId :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_assessmentId = Lens.lens (\Notification' {assessmentId} -> assessmentId) (\s@Notification' {} a -> s {assessmentId = a} :: Notification)
 
@@ -109,7 +109,7 @@ notification_source = Lens.lens (\Notification' {source} -> source) (\s@Notifica
 notification_controlSetName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_controlSetName = Lens.lens (\Notification' {controlSetName} -> controlSetName) (\s@Notification' {} a -> s {controlSetName = a} :: Notification)
 
--- | The identifier for the specified control set.
+-- | The identifier for the control set.
 notification_controlSetId :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_controlSetId = Lens.lens (\Notification' {controlSetId} -> controlSetId) (\s@Notification' {} a -> s {controlSetId = a} :: Notification)
 

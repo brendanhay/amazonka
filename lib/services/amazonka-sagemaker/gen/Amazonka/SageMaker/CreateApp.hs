@@ -62,6 +62,13 @@ data CreateApp = CreateApp'
     tags :: Prelude.Maybe [Tag],
     -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
     -- image created on the instance.
+    --
+    -- The value of @InstanceType@ passed as part of the @ResourceSpec@ in the
+    -- @CreateApp@ call overrides the value passed as part of the
+    -- @ResourceSpec@ configured for the user profile or the domain. If
+    -- @InstanceType@ is not specified in any of those three @ResourceSpec@
+    -- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
+    -- request validation error.
     resourceSpec :: Prelude.Maybe ResourceSpec,
     -- | The domain ID.
     domainId :: Prelude.Text,
@@ -88,6 +95,13 @@ data CreateApp = CreateApp'
 --
 -- 'resourceSpec', 'createApp_resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
+--
+-- The value of @InstanceType@ passed as part of the @ResourceSpec@ in the
+-- @CreateApp@ call overrides the value passed as part of the
+-- @ResourceSpec@ configured for the user profile or the domain. If
+-- @InstanceType@ is not specified in any of those three @ResourceSpec@
+-- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
+-- request validation error.
 --
 -- 'domainId', 'createApp_domainId' - The domain ID.
 --
@@ -128,6 +142,13 @@ createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s
 
 -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
+--
+-- The value of @InstanceType@ passed as part of the @ResourceSpec@ in the
+-- @CreateApp@ call overrides the value passed as part of the
+-- @ResourceSpec@ configured for the user profile or the domain. If
+-- @InstanceType@ is not specified in any of those three @ResourceSpec@
+-- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
+-- request validation error.
 createApp_resourceSpec :: Lens.Lens' CreateApp (Prelude.Maybe ResourceSpec)
 createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) (\s@CreateApp' {} a -> s {resourceSpec = a} :: CreateApp)
 

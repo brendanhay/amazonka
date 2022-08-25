@@ -24,8 +24,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The location in which Audit Manager saves assessment reports for the
--- given assessment.
+-- | The location where Audit Manager saves assessment reports for the given
+-- assessment.
 --
 -- /See:/ 'newAssessmentReportsDestination' smart constructor.
 data AssessmentReportsDestination = AssessmentReportsDestination'

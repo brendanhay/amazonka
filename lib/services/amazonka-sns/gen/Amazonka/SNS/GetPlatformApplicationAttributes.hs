@@ -148,6 +148,15 @@ instance
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
   { -- | Attributes include the following:
     --
+    -- -   @AppleCertificateExpiryDate@ – The expiry date of the SSL
+    --     certificate used to configure certificate-based authentication.
+    --
+    -- -   @ApplePlatformTeamID@ – The Apple developer account ID used to
+    --     configure token-based authentication.
+    --
+    -- -   @ApplePlatformBundleID@ – The app identifier used to configure
+    --     token-based authentication.
+    --
     -- -   @EventEndpointCreated@ – Topic ARN to which EndpointCreated event
     --     notifications should be sent.
     --
@@ -176,6 +185,15 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 --
 -- 'attributes', 'getPlatformApplicationAttributesResponse_attributes' - Attributes include the following:
 --
+-- -   @AppleCertificateExpiryDate@ – The expiry date of the SSL
+--     certificate used to configure certificate-based authentication.
+--
+-- -   @ApplePlatformTeamID@ – The Apple developer account ID used to
+--     configure token-based authentication.
+--
+-- -   @ApplePlatformBundleID@ – The app identifier used to configure
+--     token-based authentication.
+--
 -- -   @EventEndpointCreated@ – Topic ARN to which EndpointCreated event
 --     notifications should be sent.
 --
@@ -203,6 +221,15 @@ newGetPlatformApplicationAttributesResponse
       }
 
 -- | Attributes include the following:
+--
+-- -   @AppleCertificateExpiryDate@ – The expiry date of the SSL
+--     certificate used to configure certificate-based authentication.
+--
+-- -   @ApplePlatformTeamID@ – The Apple developer account ID used to
+--     configure token-based authentication.
+--
+-- -   @ApplePlatformBundleID@ – The app identifier used to configure
+--     token-based authentication.
 --
 -- -   @EventEndpointCreated@ – Topic ARN to which EndpointCreated event
 --     notifications should be sent.

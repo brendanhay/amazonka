@@ -73,8 +73,10 @@ module Amazonka.SageMaker.CreateDomain
 
     -- * Request Lenses
     createDomain_tags,
+    createDomain_domainSettings,
     createDomain_kmsKeyId,
     createDomain_homeEfsFileSystemKmsKeyId,
+    createDomain_appSecurityGroupManagement,
     createDomain_appNetworkAccessType,
     createDomain_domainName,
     createDomain_authMode,
@@ -109,12 +111,20 @@ data CreateDomain = CreateDomain'
     -- Tags that you specify for the Domain are also added to all Apps that the
     -- Domain launches.
     tags :: Prelude.Maybe [Tag],
+    -- | A collection of @Domain@ settings.
+    domainSettings :: Prelude.Maybe DomainSettings,
     -- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume
     -- attached to the domain with an Amazon Web Services managed key by
     -- default. For more control, specify a customer managed key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | This member is deprecated and replaced with @KmsKeyId@.
+    -- | Use @KmsKeyId@.
     homeEfsFileSystemKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The entity that creates and manages the required security groups for
+    -- inter-app communication in @VPCOnly@ mode. Required when
+    -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+    -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+    -- is provided.
+    appSecurityGroupManagement :: Prelude.Maybe AppSecurityGroupManagement,
     -- | Specifies the VPC used for non-EFS traffic. The default value is
     -- @PublicInternetOnly@.
     --
@@ -159,11 +169,19 @@ data CreateDomain = CreateDomain'
 -- Tags that you specify for the Domain are also added to all Apps that the
 -- Domain launches.
 --
+-- 'domainSettings', 'createDomain_domainSettings' - A collection of @Domain@ settings.
+--
 -- 'kmsKeyId', 'createDomain_kmsKeyId' - SageMaker uses Amazon Web Services KMS to encrypt the EFS volume
 -- attached to the domain with an Amazon Web Services managed key by
 -- default. For more control, specify a customer managed key.
 --
--- 'homeEfsFileSystemKmsKeyId', 'createDomain_homeEfsFileSystemKmsKeyId' - This member is deprecated and replaced with @KmsKeyId@.
+-- 'homeEfsFileSystemKmsKeyId', 'createDomain_homeEfsFileSystemKmsKeyId' - Use @KmsKeyId@.
+--
+-- 'appSecurityGroupManagement', 'createDomain_appSecurityGroupManagement' - The entity that creates and manages the required security groups for
+-- inter-app communication in @VPCOnly@ mode. Required when
+-- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+-- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+-- is provided.
 --
 -- 'appNetworkAccessType', 'createDomain_appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is
 -- @PublicInternetOnly@.
@@ -210,8 +228,10 @@ newCreateDomain
   pVpcId_ =
     CreateDomain'
       { tags = Prelude.Nothing,
+        domainSettings = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         homeEfsFileSystemKmsKeyId = Prelude.Nothing,
+        appSecurityGroupManagement = Prelude.Nothing,
         appNetworkAccessType = Prelude.Nothing,
         domainName = pDomainName_,
         authMode = pAuthMode_,
@@ -229,15 +249,27 @@ newCreateDomain
 createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
 createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
+-- | A collection of @Domain@ settings.
+createDomain_domainSettings :: Lens.Lens' CreateDomain (Prelude.Maybe DomainSettings)
+createDomain_domainSettings = Lens.lens (\CreateDomain' {domainSettings} -> domainSettings) (\s@CreateDomain' {} a -> s {domainSettings = a} :: CreateDomain)
+
 -- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume
 -- attached to the domain with an Amazon Web Services managed key by
 -- default. For more control, specify a customer managed key.
 createDomain_kmsKeyId :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_kmsKeyId = Lens.lens (\CreateDomain' {kmsKeyId} -> kmsKeyId) (\s@CreateDomain' {} a -> s {kmsKeyId = a} :: CreateDomain)
 
--- | This member is deprecated and replaced with @KmsKeyId@.
+-- | Use @KmsKeyId@.
 createDomain_homeEfsFileSystemKmsKeyId :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_homeEfsFileSystemKmsKeyId = Lens.lens (\CreateDomain' {homeEfsFileSystemKmsKeyId} -> homeEfsFileSystemKmsKeyId) (\s@CreateDomain' {} a -> s {homeEfsFileSystemKmsKeyId = a} :: CreateDomain)
+
+-- | The entity that creates and manages the required security groups for
+-- inter-app communication in @VPCOnly@ mode. Required when
+-- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+-- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+-- is provided.
+createDomain_appSecurityGroupManagement :: Lens.Lens' CreateDomain (Prelude.Maybe AppSecurityGroupManagement)
+createDomain_appSecurityGroupManagement = Lens.lens (\CreateDomain' {appSecurityGroupManagement} -> appSecurityGroupManagement) (\s@CreateDomain' {} a -> s {appSecurityGroupManagement = a} :: CreateDomain)
 
 -- | Specifies the VPC used for non-EFS traffic. The default value is
 -- @PublicInternetOnly@.
@@ -292,8 +324,10 @@ instance Core.AWSRequest CreateDomain where
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainSettings
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` homeEfsFileSystemKmsKeyId
+      `Prelude.hashWithSalt` appSecurityGroupManagement
       `Prelude.hashWithSalt` appNetworkAccessType
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` authMode
@@ -304,8 +338,10 @@ instance Prelude.Hashable CreateDomain where
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainSettings
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf homeEfsFileSystemKmsKeyId
+      `Prelude.seq` Prelude.rnf appSecurityGroupManagement
       `Prelude.seq` Prelude.rnf appNetworkAccessType
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf authMode
@@ -331,9 +367,13 @@ instance Core.ToJSON CreateDomain where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DomainSettings" Core..=)
+              Prelude.<$> domainSettings,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("HomeEfsFileSystemKmsKeyId" Core..=)
               Prelude.<$> homeEfsFileSystemKmsKeyId,
+            ("AppSecurityGroupManagement" Core..=)
+              Prelude.<$> appSecurityGroupManagement,
             ("AppNetworkAccessType" Core..=)
               Prelude.<$> appNetworkAccessType,
             Prelude.Just ("DomainName" Core..= domainName),

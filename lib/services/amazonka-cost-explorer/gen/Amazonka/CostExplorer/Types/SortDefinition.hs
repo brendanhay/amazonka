@@ -24,7 +24,7 @@ import Amazonka.CostExplorer.Types.SortOrder
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The details of how to sort the data.
+-- | The details for how to sort the data.
 --
 -- /See:/ 'newSortDefinition' smart constructor.
 data SortDefinition = SortDefinition'

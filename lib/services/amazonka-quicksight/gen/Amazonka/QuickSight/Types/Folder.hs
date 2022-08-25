@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.FolderType
 
--- | A folder.
+-- | A folder in Amazon QuickSight.
 --
 -- /See:/ 'newFolder' smart constructor.
 data Folder = Folder'
@@ -32,15 +32,15 @@ data Folder = Folder'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was created.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The folder Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) for the folder.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the folder.
+    -- | The type of folder it is.
     folderType :: Prelude.Maybe FolderType,
-    -- | An array of ancestor folder ARN strings.
+    -- | An array of ancestor ARN strings for the folder.
     folderPath :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,15 +57,15 @@ data Folder = Folder'
 --
 -- 'createdTime', 'folder_createdTime' - The time that the folder was created.
 --
--- 'arn', 'folder_arn' - The folder Amazon Resource Name (ARN).
+-- 'arn', 'folder_arn' - The Amazon Resource Name (ARN) for the folder.
 --
 -- 'lastUpdatedTime', 'folder_lastUpdatedTime' - The time that the folder was last updated.
 --
--- 'folderId', 'folder_folderId' - The folder ID.
+-- 'folderId', 'folder_folderId' - The ID of the folder.
 --
--- 'folderType', 'folder_folderType' - The type of the folder.
+-- 'folderType', 'folder_folderType' - The type of folder it is.
 --
--- 'folderPath', 'folder_folderPath' - An array of ancestor folder ARN strings.
+-- 'folderPath', 'folder_folderPath' - An array of ancestor ARN strings for the folder.
 newFolder ::
   Folder
 newFolder =
@@ -87,7 +87,7 @@ folder_name = Lens.lens (\Folder' {name} -> name) (\s@Folder' {} a -> s {name = 
 folder_createdTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
 folder_createdTime = Lens.lens (\Folder' {createdTime} -> createdTime) (\s@Folder' {} a -> s {createdTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
 
--- | The folder Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) for the folder.
 folder_arn :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_arn = Lens.lens (\Folder' {arn} -> arn) (\s@Folder' {} a -> s {arn = a} :: Folder)
 
@@ -95,15 +95,15 @@ folder_arn = Lens.lens (\Folder' {arn} -> arn) (\s@Folder' {} a -> s {arn = a} :
 folder_lastUpdatedTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
 folder_lastUpdatedTime = Lens.lens (\Folder' {lastUpdatedTime} -> lastUpdatedTime) (\s@Folder' {} a -> s {lastUpdatedTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
 
--- | The folder ID.
+-- | The ID of the folder.
 folder_folderId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_folderId = Lens.lens (\Folder' {folderId} -> folderId) (\s@Folder' {} a -> s {folderId = a} :: Folder)
 
--- | The type of the folder.
+-- | The type of folder it is.
 folder_folderType :: Lens.Lens' Folder (Prelude.Maybe FolderType)
 folder_folderType = Lens.lens (\Folder' {folderType} -> folderType) (\s@Folder' {} a -> s {folderType = a} :: Folder)
 
--- | An array of ancestor folder ARN strings.
+-- | An array of ancestor ARN strings for the folder.
 folder_folderPath :: Lens.Lens' Folder (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 folder_folderPath = Lens.lens (\Folder' {folderPath} -> folderPath) (\s@Folder' {} a -> s {folderPath = a} :: Folder) Prelude.. Lens.mapping Lens.coerced
 

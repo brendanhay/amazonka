@@ -72,9 +72,10 @@ data CreateFolder = CreateFolder'
     -- @ParentFolderArn@ can be null. An empty @parentFolderArn@ creates a
     -- root-level folder.
     parentFolderArn :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Account ID.
+    -- | The ID for the Amazon Web Services account where you want to create the
+    -- folder.
     awsAccountId :: Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,9 +104,10 @@ data CreateFolder = CreateFolder'
 -- @ParentFolderArn@ can be null. An empty @parentFolderArn@ creates a
 -- root-level folder.
 --
--- 'awsAccountId', 'createFolder_awsAccountId' - The AWS Account ID.
+-- 'awsAccountId', 'createFolder_awsAccountId' - The ID for the Amazon Web Services account where you want to create the
+-- folder.
 --
--- 'folderId', 'createFolder_folderId' - The folder ID.
+-- 'folderId', 'createFolder_folderId' - The ID of the folder.
 newCreateFolder ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -149,11 +151,12 @@ createFolder_folderType = Lens.lens (\CreateFolder' {folderType} -> folderType) 
 createFolder_parentFolderArn :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
 createFolder_parentFolderArn = Lens.lens (\CreateFolder' {parentFolderArn} -> parentFolderArn) (\s@CreateFolder' {} a -> s {parentFolderArn = a} :: CreateFolder)
 
--- | The AWS Account ID.
+-- | The ID for the Amazon Web Services account where you want to create the
+-- folder.
 createFolder_awsAccountId :: Lens.Lens' CreateFolder Prelude.Text
 createFolder_awsAccountId = Lens.lens (\CreateFolder' {awsAccountId} -> awsAccountId) (\s@CreateFolder' {} a -> s {awsAccountId = a} :: CreateFolder)
 
--- | The folder ID.
+-- | The ID of the folder.
 createFolder_folderId :: Lens.Lens' CreateFolder Prelude.Text
 createFolder_folderId = Lens.lens (\CreateFolder' {folderId} -> folderId) (\s@CreateFolder' {} a -> s {folderId = a} :: CreateFolder)
 
@@ -234,8 +237,7 @@ data CreateFolderResponse = CreateFolderResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The folder ID for the newly created folder.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the newly created folder. If succeeded, the status is
-    -- @SC_OK (200)@.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -254,8 +256,7 @@ data CreateFolderResponse = CreateFolderResponse'
 --
 -- 'folderId', 'createFolderResponse_folderId' - The folder ID for the newly created folder.
 --
--- 'status', 'createFolderResponse_status' - The status of the newly created folder. If succeeded, the status is
--- @SC_OK (200)@.
+-- 'status', 'createFolderResponse_status' - The HTTP status of the request.
 newCreateFolderResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -280,8 +281,7 @@ createFolderResponse_arn = Lens.lens (\CreateFolderResponse' {arn} -> arn) (\s@C
 createFolderResponse_folderId :: Lens.Lens' CreateFolderResponse (Prelude.Maybe Prelude.Text)
 createFolderResponse_folderId = Lens.lens (\CreateFolderResponse' {folderId} -> folderId) (\s@CreateFolderResponse' {} a -> s {folderId = a} :: CreateFolderResponse)
 
--- | The status of the newly created folder. If succeeded, the status is
--- @SC_OK (200)@.
+-- | The HTTP status of the request.
 createFolderResponse_status :: Lens.Lens' CreateFolderResponse Prelude.Int
 createFolderResponse_status = Lens.lens (\CreateFolderResponse' {status} -> status) (\s@CreateFolderResponse' {} a -> s {status = a} :: CreateFolderResponse)
 

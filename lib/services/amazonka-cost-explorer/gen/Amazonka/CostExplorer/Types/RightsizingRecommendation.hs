@@ -32,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRightsizingRecommendation' smart constructor.
 data RightsizingRecommendation = RightsizingRecommendation'
-  { -- | The list of possible reasons why the recommendation is generated such as
-    -- under or over utilization of specific metrics (for example, CPU, Memory,
-    -- Network).
+  { -- | The list of possible reasons why the recommendation is generated, such
+    -- as under- or over-utilization of specific metrics (for example, CPU,
+    -- Memory, Network).
     findingReasonCodes :: Prelude.Maybe [FindingReasonCode],
     -- | The details for termination recommendations.
     terminateRecommendationDetail :: Prelude.Maybe TerminateRecommendationDetail,
@@ -57,9 +57,9 @@ data RightsizingRecommendation = RightsizingRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingReasonCodes', 'rightsizingRecommendation_findingReasonCodes' - The list of possible reasons why the recommendation is generated such as
--- under or over utilization of specific metrics (for example, CPU, Memory,
--- Network).
+-- 'findingReasonCodes', 'rightsizingRecommendation_findingReasonCodes' - The list of possible reasons why the recommendation is generated, such
+-- as under- or over-utilization of specific metrics (for example, CPU,
+-- Memory, Network).
 --
 -- 'terminateRecommendationDetail', 'rightsizingRecommendation_terminateRecommendationDetail' - The details for termination recommendations.
 --
@@ -83,9 +83,9 @@ newRightsizingRecommendation =
       rightsizingType = Prelude.Nothing
     }
 
--- | The list of possible reasons why the recommendation is generated such as
--- under or over utilization of specific metrics (for example, CPU, Memory,
--- Network).
+-- | The list of possible reasons why the recommendation is generated, such
+-- as under- or over-utilization of specific metrics (for example, CPU,
+-- Memory, Network).
 rightsizingRecommendation_findingReasonCodes :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe [FindingReasonCode])
 rightsizingRecommendation_findingReasonCodes = Lens.lens (\RightsizingRecommendation' {findingReasonCodes} -> findingReasonCodes) (\s@RightsizingRecommendation' {} a -> s {findingReasonCodes = a} :: RightsizingRecommendation) Prelude.. Lens.mapping Lens.coerced
 

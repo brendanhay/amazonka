@@ -88,16 +88,16 @@ import qualified Amazonka.Response as Response
 data DeleteGameServerGroup = DeleteGameServerGroup'
   { -- | The type of delete to perform. Options include the following:
     --
-    -- -   @SAFE_DELETE@ – (default) Terminates the game server group and EC2
-    --     Auto Scaling group only when it has no game servers that are in
-    --     @UTILIZED@ status.
+    -- -   @SAFE_DELETE@ – (default) Terminates the game server group and
+    --     Amazon EC2 Auto Scaling group only when it has no game servers that
+    --     are in @UTILIZED@ status.
     --
     -- -   @FORCE_DELETE@ – Terminates the game server group, including all
     --     active game servers regardless of their utilization status, and the
-    --     EC2 Auto Scaling group.
+    --     Amazon EC2 Auto Scaling group.
     --
     -- -   @RETAIN@ – Does a safe delete of the game server group but retains
-    --     the EC2 Auto Scaling group as is.
+    --     the Amazon EC2 Auto Scaling group as is.
     deleteOption :: Prelude.Maybe GameServerGroupDeleteOption,
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
@@ -115,16 +115,16 @@ data DeleteGameServerGroup = DeleteGameServerGroup'
 --
 -- 'deleteOption', 'deleteGameServerGroup_deleteOption' - The type of delete to perform. Options include the following:
 --
--- -   @SAFE_DELETE@ – (default) Terminates the game server group and EC2
---     Auto Scaling group only when it has no game servers that are in
---     @UTILIZED@ status.
+-- -   @SAFE_DELETE@ – (default) Terminates the game server group and
+--     Amazon EC2 Auto Scaling group only when it has no game servers that
+--     are in @UTILIZED@ status.
 --
 -- -   @FORCE_DELETE@ – Terminates the game server group, including all
 --     active game servers regardless of their utilization status, and the
---     EC2 Auto Scaling group.
+--     Amazon EC2 Auto Scaling group.
 --
 -- -   @RETAIN@ – Does a safe delete of the game server group but retains
---     the EC2 Auto Scaling group as is.
+--     the Amazon EC2 Auto Scaling group as is.
 --
 -- 'gameServerGroupName', 'deleteGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
@@ -141,16 +141,16 @@ newDeleteGameServerGroup pGameServerGroupName_ =
 
 -- | The type of delete to perform. Options include the following:
 --
--- -   @SAFE_DELETE@ – (default) Terminates the game server group and EC2
---     Auto Scaling group only when it has no game servers that are in
---     @UTILIZED@ status.
+-- -   @SAFE_DELETE@ – (default) Terminates the game server group and
+--     Amazon EC2 Auto Scaling group only when it has no game servers that
+--     are in @UTILIZED@ status.
 --
 -- -   @FORCE_DELETE@ – Terminates the game server group, including all
 --     active game servers regardless of their utilization status, and the
---     EC2 Auto Scaling group.
+--     Amazon EC2 Auto Scaling group.
 --
 -- -   @RETAIN@ – Does a safe delete of the game server group but retains
---     the EC2 Auto Scaling group as is.
+--     the Amazon EC2 Auto Scaling group as is.
 deleteGameServerGroup_deleteOption :: Lens.Lens' DeleteGameServerGroup (Prelude.Maybe GameServerGroupDeleteOption)
 deleteGameServerGroup_deleteOption = Lens.lens (\DeleteGameServerGroup' {deleteOption} -> deleteOption) (\s@DeleteGameServerGroup' {} a -> s {deleteOption = a} :: DeleteGameServerGroup)
 

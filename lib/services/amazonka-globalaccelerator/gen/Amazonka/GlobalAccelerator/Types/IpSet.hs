@@ -20,6 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.IpSet where
 
 import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types.IpAddressFamily
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -27,8 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpSet' smart constructor.
 data IpSet = IpSet'
-  { -- | The types of IP addresses included in this IP set.
+  { -- | IpFamily is deprecated and has been replaced by IpAddressFamily.
     ipFamily :: Prelude.Maybe Prelude.Text,
+    -- | The types of IP addresses included in this IP set.
+    ipAddressFamily :: Prelude.Maybe IpAddressFamily,
     -- | The array of IP addresses in the IP address set. An IP address set can
     -- have a maximum of two IP addresses.
     ipAddresses :: Prelude.Maybe [Prelude.Text]
@@ -43,7 +46,9 @@ data IpSet = IpSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipFamily', 'ipSet_ipFamily' - The types of IP addresses included in this IP set.
+-- 'ipFamily', 'ipSet_ipFamily' - IpFamily is deprecated and has been replaced by IpAddressFamily.
+--
+-- 'ipAddressFamily', 'ipSet_ipAddressFamily' - The types of IP addresses included in this IP set.
 --
 -- 'ipAddresses', 'ipSet_ipAddresses' - The array of IP addresses in the IP address set. An IP address set can
 -- have a maximum of two IP addresses.
@@ -52,12 +57,17 @@ newIpSet ::
 newIpSet =
   IpSet'
     { ipFamily = Prelude.Nothing,
+      ipAddressFamily = Prelude.Nothing,
       ipAddresses = Prelude.Nothing
     }
 
--- | The types of IP addresses included in this IP set.
+-- | IpFamily is deprecated and has been replaced by IpAddressFamily.
 ipSet_ipFamily :: Lens.Lens' IpSet (Prelude.Maybe Prelude.Text)
 ipSet_ipFamily = Lens.lens (\IpSet' {ipFamily} -> ipFamily) (\s@IpSet' {} a -> s {ipFamily = a} :: IpSet)
+
+-- | The types of IP addresses included in this IP set.
+ipSet_ipAddressFamily :: Lens.Lens' IpSet (Prelude.Maybe IpAddressFamily)
+ipSet_ipAddressFamily = Lens.lens (\IpSet' {ipAddressFamily} -> ipAddressFamily) (\s@IpSet' {} a -> s {ipAddressFamily = a} :: IpSet)
 
 -- | The array of IP addresses in the IP address set. An IP address set can
 -- have a maximum of two IP addresses.
@@ -71,15 +81,18 @@ instance Core.FromJSON IpSet where
       ( \x ->
           IpSet'
             Prelude.<$> (x Core..:? "IpFamily")
+            Prelude.<*> (x Core..:? "IpAddressFamily")
             Prelude.<*> (x Core..:? "IpAddresses" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IpSet where
   hashWithSalt _salt IpSet' {..} =
     _salt `Prelude.hashWithSalt` ipFamily
+      `Prelude.hashWithSalt` ipAddressFamily
       `Prelude.hashWithSalt` ipAddresses
 
 instance Prelude.NFData IpSet where
   rnf IpSet' {..} =
     Prelude.rnf ipFamily
+      `Prelude.seq` Prelude.rnf ipAddressFamily
       `Prelude.seq` Prelude.rnf ipAddresses

@@ -21,9 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters the specified AMI. After you deregister an AMI, it can\'t be
--- used to launch new instances; however, it doesn\'t affect any instances
--- that you\'ve already launched from the AMI. You\'ll continue to incur
--- usage costs for those instances until you terminate them.
+-- used to launch new instances.
+--
+-- If you deregister an AMI that matches a Recycle Bin retention rule, the
+-- AMI is retained in the Recycle Bin for the specified retention period.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html Recycle Bin>
+-- in the Amazon Elastic Compute Cloud User Guide.
+--
+-- When you deregister an AMI, it doesn\'t affect any instances that
+-- you\'ve already launched from the AMI. You\'ll continue to incur usage
+-- costs for those instances until you terminate them.
 --
 -- When you deregister an Amazon EBS-backed AMI, it doesn\'t affect the
 -- snapshot that was created for the root volume of the instance during the

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the in-scope Amazon Web Services services for the
--- specified assessment.
+-- Returns a list of the in-scope Amazon Web Services for the specified
+-- assessment.
 module Amazonka.AuditManager.GetServicesInScope
   ( -- * Creating a Request
     GetServicesInScope (..),
@@ -99,7 +99,7 @@ instance Core.ToQuery GetServicesInScope where
 
 -- | /See:/ 'newGetServicesInScopeResponse' smart constructor.
 data GetServicesInScopeResponse = GetServicesInScopeResponse'
-  { -- | The metadata associated with the Amazon Web Service.
+  { -- | The metadata that\'s associated with the Amazon Web Service.
     serviceMetadata :: Prelude.Maybe [ServiceMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -114,7 +114,7 @@ data GetServicesInScopeResponse = GetServicesInScopeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceMetadata', 'getServicesInScopeResponse_serviceMetadata' - The metadata associated with the Amazon Web Service.
+-- 'serviceMetadata', 'getServicesInScopeResponse_serviceMetadata' - The metadata that\'s associated with the Amazon Web Service.
 --
 -- 'httpStatus', 'getServicesInScopeResponse_httpStatus' - The response's http status code.
 newGetServicesInScopeResponse ::
@@ -128,7 +128,7 @@ newGetServicesInScopeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The metadata associated with the Amazon Web Service.
+-- | The metadata that\'s associated with the Amazon Web Service.
 getServicesInScopeResponse_serviceMetadata :: Lens.Lens' GetServicesInScopeResponse (Prelude.Maybe [ServiceMetadata])
 getServicesInScopeResponse_serviceMetadata = Lens.lens (\GetServicesInScopeResponse' {serviceMetadata} -> serviceMetadata) (\s@GetServicesInScopeResponse' {} a -> s {serviceMetadata = a} :: GetServicesInScopeResponse) Prelude.. Lens.mapping Lens.coerced
 

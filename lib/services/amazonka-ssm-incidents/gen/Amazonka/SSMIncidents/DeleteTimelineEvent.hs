@@ -51,8 +51,8 @@ data DeleteTimelineEvent = DeleteTimelineEvent'
   { -- | The ID of the event you are updating. You can find this by using
     -- @ListTimelineEvents@.
     eventId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident that the event is part
-    -- of.
+    -- | The Amazon Resource Name (ARN) of the incident that includes the
+    -- timeline event.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,8 +68,8 @@ data DeleteTimelineEvent = DeleteTimelineEvent'
 -- 'eventId', 'deleteTimelineEvent_eventId' - The ID of the event you are updating. You can find this by using
 -- @ListTimelineEvents@.
 --
--- 'incidentRecordArn', 'deleteTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that the event is part
--- of.
+-- 'incidentRecordArn', 'deleteTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 newDeleteTimelineEvent ::
   -- | 'eventId'
   Prelude.Text ->
@@ -87,8 +87,8 @@ newDeleteTimelineEvent pEventId_ pIncidentRecordArn_ =
 deleteTimelineEvent_eventId :: Lens.Lens' DeleteTimelineEvent Prelude.Text
 deleteTimelineEvent_eventId = Lens.lens (\DeleteTimelineEvent' {eventId} -> eventId) (\s@DeleteTimelineEvent' {} a -> s {eventId = a} :: DeleteTimelineEvent)
 
--- | The Amazon Resource Name (ARN) of the incident that the event is part
--- of.
+-- | The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 deleteTimelineEvent_incidentRecordArn :: Lens.Lens' DeleteTimelineEvent Prelude.Text
 deleteTimelineEvent_incidentRecordArn = Lens.lens (\DeleteTimelineEvent' {incidentRecordArn} -> incidentRecordArn) (\s@DeleteTimelineEvent' {} a -> s {incidentRecordArn = a} :: DeleteTimelineEvent)
 

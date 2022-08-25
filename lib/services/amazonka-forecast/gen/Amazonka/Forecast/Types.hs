@@ -30,8 +30,14 @@ module Amazonka.Forecast.Types
     -- * AutoMLOverrideStrategy
     AutoMLOverrideStrategy (..),
 
+    -- * Condition
+    Condition (..),
+
     -- * DatasetType
     DatasetType (..),
+
+    -- * DayOfWeek
+    DayOfWeek (..),
 
     -- * Domain
     Domain (..),
@@ -45,11 +51,56 @@ module Amazonka.Forecast.Types
     -- * FilterConditionString
     FilterConditionString (..),
 
+    -- * Month
+    Month (..),
+
+    -- * Operation
+    Operation (..),
+
     -- * OptimizationMetric
     OptimizationMetric (..),
 
     -- * ScalingType
     ScalingType (..),
+
+    -- * State
+    State (..),
+
+    -- * TimePointGranularity
+    TimePointGranularity (..),
+
+    -- * TimeSeriesGranularity
+    TimeSeriesGranularity (..),
+
+    -- * Action
+    Action (..),
+    newAction,
+    action_attributeName,
+    action_operation,
+    action_value,
+
+    -- * AdditionalDataset
+    AdditionalDataset (..),
+    newAdditionalDataset,
+    additionalDataset_configuration,
+    additionalDataset_name,
+
+    -- * AttributeConfig
+    AttributeConfig (..),
+    newAttributeConfig,
+    attributeConfig_attributeName,
+    attributeConfig_transformations,
+
+    -- * Baseline
+    Baseline (..),
+    newBaseline,
+    baseline_predictorBaseline,
+
+    -- * BaselineMetric
+    BaselineMetric (..),
+    newBaselineMetric,
+    baselineMetric_name,
+    baselineMetric_value,
 
     -- * CategoricalParameterRange
     CategoricalParameterRange (..),
@@ -64,6 +115,13 @@ module Amazonka.Forecast.Types
     continuousParameterRange_name,
     continuousParameterRange_maxValue,
     continuousParameterRange_minValue,
+
+    -- * DataConfig
+    DataConfig (..),
+    newDataConfig,
+    dataConfig_additionalDatasets,
+    dataConfig_attributeConfigs,
+    dataConfig_datasetGroupArn,
 
     -- * DataDestination
     DataDestination (..),
@@ -131,6 +189,41 @@ module Amazonka.Forecast.Types
     evaluationResult_testWindows,
     evaluationResult_algorithmArn,
 
+    -- * ExplainabilityConfig
+    ExplainabilityConfig (..),
+    newExplainabilityConfig,
+    explainabilityConfig_timeSeriesGranularity,
+    explainabilityConfig_timePointGranularity,
+
+    -- * ExplainabilityExportSummary
+    ExplainabilityExportSummary (..),
+    newExplainabilityExportSummary,
+    explainabilityExportSummary_lastModificationTime,
+    explainabilityExportSummary_destination,
+    explainabilityExportSummary_explainabilityExportName,
+    explainabilityExportSummary_message,
+    explainabilityExportSummary_explainabilityExportArn,
+    explainabilityExportSummary_status,
+    explainabilityExportSummary_creationTime,
+
+    -- * ExplainabilityInfo
+    ExplainabilityInfo (..),
+    newExplainabilityInfo,
+    explainabilityInfo_status,
+    explainabilityInfo_explainabilityArn,
+
+    -- * ExplainabilitySummary
+    ExplainabilitySummary (..),
+    newExplainabilitySummary,
+    explainabilitySummary_lastModificationTime,
+    explainabilitySummary_message,
+    explainabilitySummary_explainabilityConfig,
+    explainabilitySummary_status,
+    explainabilitySummary_explainabilityArn,
+    explainabilitySummary_explainabilityName,
+    explainabilitySummary_creationTime,
+    explainabilitySummary_resourceArn,
+
     -- * Featurization
     Featurization (..),
     newFeaturization,
@@ -178,6 +271,7 @@ module Amazonka.Forecast.Types
     forecastSummary_forecastArn,
     forecastSummary_creationTime,
     forecastSummary_datasetGroupArn,
+    forecastSummary_createdUsingAutoPredictor,
     forecastSummary_forecastName,
 
     -- * HyperParameterTuningJobConfig
@@ -199,6 +293,12 @@ module Amazonka.Forecast.Types
     integerParameterRange_maxValue,
     integerParameterRange_minValue,
 
+    -- * MetricResult
+    MetricResult (..),
+    newMetricResult,
+    metricResult_metricValue,
+    metricResult_metricName,
+
     -- * Metrics
     Metrics (..),
     newMetrics,
@@ -206,6 +306,34 @@ module Amazonka.Forecast.Types
     metrics_weightedQuantileLosses,
     metrics_errorMetrics,
     metrics_rmse,
+
+    -- * MonitorConfig
+    MonitorConfig (..),
+    newMonitorConfig,
+    monitorConfig_monitorName,
+
+    -- * MonitorDataSource
+    MonitorDataSource (..),
+    newMonitorDataSource,
+    monitorDataSource_datasetImportJobArn,
+    monitorDataSource_predictorArn,
+    monitorDataSource_forecastArn,
+
+    -- * MonitorInfo
+    MonitorInfo (..),
+    newMonitorInfo,
+    monitorInfo_monitorArn,
+    monitorInfo_status,
+
+    -- * MonitorSummary
+    MonitorSummary (..),
+    newMonitorSummary,
+    monitorSummary_lastModificationTime,
+    monitorSummary_monitorArn,
+    monitorSummary_status,
+    monitorSummary_monitorName,
+    monitorSummary_creationTime,
+    monitorSummary_resourceArn,
 
     -- * ParameterRanges
     ParameterRanges (..),
@@ -225,6 +353,17 @@ module Amazonka.Forecast.Types
     predictorBacktestExportJobSummary_predictorBacktestExportJobArn,
     predictorBacktestExportJobSummary_creationTime,
 
+    -- * PredictorBaseline
+    PredictorBaseline (..),
+    newPredictorBaseline,
+    predictorBaseline_baselineMetrics,
+
+    -- * PredictorEvent
+    PredictorEvent (..),
+    newPredictorEvent,
+    predictorEvent_datetime,
+    predictorEvent_detail,
+
     -- * PredictorExecution
     PredictorExecution (..),
     newPredictorExecution,
@@ -236,16 +375,39 @@ module Amazonka.Forecast.Types
     newPredictorExecutionDetails,
     predictorExecutionDetails_predictorExecutions,
 
+    -- * PredictorMonitorEvaluation
+    PredictorMonitorEvaluation (..),
+    newPredictorMonitorEvaluation,
+    predictorMonitorEvaluation_evaluationTime,
+    predictorMonitorEvaluation_message,
+    predictorMonitorEvaluation_evaluationState,
+    predictorMonitorEvaluation_monitorArn,
+    predictorMonitorEvaluation_numItemsEvaluated,
+    predictorMonitorEvaluation_windowEndDatetime,
+    predictorMonitorEvaluation_monitorDataSource,
+    predictorMonitorEvaluation_windowStartDatetime,
+    predictorMonitorEvaluation_predictorEvent,
+    predictorMonitorEvaluation_metricResults,
+    predictorMonitorEvaluation_resourceArn,
+
     -- * PredictorSummary
     PredictorSummary (..),
     newPredictorSummary,
     predictorSummary_lastModificationTime,
     predictorSummary_message,
+    predictorSummary_isAutoPredictor,
     predictorSummary_predictorName,
     predictorSummary_status,
     predictorSummary_predictorArn,
     predictorSummary_creationTime,
     predictorSummary_datasetGroupArn,
+    predictorSummary_referencePredictorSummary,
+
+    -- * ReferencePredictorSummary
+    ReferencePredictorSummary (..),
+    newReferencePredictorSummary,
+    referencePredictorSummary_arn,
+    referencePredictorSummary_state,
 
     -- * S3Config
     S3Config (..),
@@ -301,11 +463,86 @@ module Amazonka.Forecast.Types
     testWindowSummary_testWindowEnd,
     testWindowSummary_testWindowStart,
 
+    -- * TimeAlignmentBoundary
+    TimeAlignmentBoundary (..),
+    newTimeAlignmentBoundary,
+    timeAlignmentBoundary_dayOfWeek,
+    timeAlignmentBoundary_month,
+    timeAlignmentBoundary_hour,
+    timeAlignmentBoundary_dayOfMonth,
+
+    -- * TimeSeriesCondition
+    TimeSeriesCondition (..),
+    newTimeSeriesCondition,
+    timeSeriesCondition_attributeName,
+    timeSeriesCondition_attributeValue,
+    timeSeriesCondition_condition,
+
+    -- * TimeSeriesIdentifiers
+    TimeSeriesIdentifiers (..),
+    newTimeSeriesIdentifiers,
+    timeSeriesIdentifiers_format,
+    timeSeriesIdentifiers_schema,
+    timeSeriesIdentifiers_dataSource,
+
+    -- * TimeSeriesReplacementsDataSource
+    TimeSeriesReplacementsDataSource (..),
+    newTimeSeriesReplacementsDataSource,
+    timeSeriesReplacementsDataSource_format,
+    timeSeriesReplacementsDataSource_timestampFormat,
+    timeSeriesReplacementsDataSource_s3Config,
+    timeSeriesReplacementsDataSource_schema,
+
+    -- * TimeSeriesSelector
+    TimeSeriesSelector (..),
+    newTimeSeriesSelector,
+    timeSeriesSelector_timeSeriesIdentifiers,
+
+    -- * TimeSeriesTransformation
+    TimeSeriesTransformation (..),
+    newTimeSeriesTransformation,
+    timeSeriesTransformation_timeSeriesConditions,
+    timeSeriesTransformation_action,
+
     -- * WeightedQuantileLoss
     WeightedQuantileLoss (..),
     newWeightedQuantileLoss,
     weightedQuantileLoss_quantile,
     weightedQuantileLoss_lossValue,
+
+    -- * WhatIfAnalysisSummary
+    WhatIfAnalysisSummary (..),
+    newWhatIfAnalysisSummary,
+    whatIfAnalysisSummary_lastModificationTime,
+    whatIfAnalysisSummary_whatIfAnalysisArn,
+    whatIfAnalysisSummary_message,
+    whatIfAnalysisSummary_whatIfAnalysisName,
+    whatIfAnalysisSummary_status,
+    whatIfAnalysisSummary_forecastArn,
+    whatIfAnalysisSummary_creationTime,
+
+    -- * WhatIfForecastExportSummary
+    WhatIfForecastExportSummary (..),
+    newWhatIfForecastExportSummary,
+    whatIfForecastExportSummary_lastModificationTime,
+    whatIfForecastExportSummary_destination,
+    whatIfForecastExportSummary_message,
+    whatIfForecastExportSummary_whatIfForecastExportName,
+    whatIfForecastExportSummary_whatIfForecastArns,
+    whatIfForecastExportSummary_whatIfForecastExportArn,
+    whatIfForecastExportSummary_status,
+    whatIfForecastExportSummary_creationTime,
+
+    -- * WhatIfForecastSummary
+    WhatIfForecastSummary (..),
+    newWhatIfForecastSummary,
+    whatIfForecastSummary_lastModificationTime,
+    whatIfForecastSummary_whatIfAnalysisArn,
+    whatIfForecastSummary_message,
+    whatIfForecastSummary_whatIfForecastName,
+    whatIfForecastSummary_whatIfForecastArn,
+    whatIfForecastSummary_status,
+    whatIfForecastSummary_creationTime,
 
     -- * WindowSummary
     WindowSummary (..),
@@ -319,22 +556,34 @@ module Amazonka.Forecast.Types
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.Action
+import Amazonka.Forecast.Types.AdditionalDataset
+import Amazonka.Forecast.Types.AttributeConfig
 import Amazonka.Forecast.Types.AttributeType
 import Amazonka.Forecast.Types.AutoMLOverrideStrategy
+import Amazonka.Forecast.Types.Baseline
+import Amazonka.Forecast.Types.BaselineMetric
 import Amazonka.Forecast.Types.CategoricalParameterRange
+import Amazonka.Forecast.Types.Condition
 import Amazonka.Forecast.Types.ContinuousParameterRange
+import Amazonka.Forecast.Types.DataConfig
 import Amazonka.Forecast.Types.DataDestination
 import Amazonka.Forecast.Types.DataSource
 import Amazonka.Forecast.Types.DatasetGroupSummary
 import Amazonka.Forecast.Types.DatasetImportJobSummary
 import Amazonka.Forecast.Types.DatasetSummary
 import Amazonka.Forecast.Types.DatasetType
+import Amazonka.Forecast.Types.DayOfWeek
 import Amazonka.Forecast.Types.Domain
 import Amazonka.Forecast.Types.EncryptionConfig
 import Amazonka.Forecast.Types.ErrorMetric
 import Amazonka.Forecast.Types.EvaluationParameters
 import Amazonka.Forecast.Types.EvaluationResult
 import Amazonka.Forecast.Types.EvaluationType
+import Amazonka.Forecast.Types.ExplainabilityConfig
+import Amazonka.Forecast.Types.ExplainabilityExportSummary
+import Amazonka.Forecast.Types.ExplainabilityInfo
+import Amazonka.Forecast.Types.ExplainabilitySummary
 import Amazonka.Forecast.Types.Featurization
 import Amazonka.Forecast.Types.FeaturizationConfig
 import Amazonka.Forecast.Types.FeaturizationMethod
@@ -346,22 +595,45 @@ import Amazonka.Forecast.Types.ForecastSummary
 import Amazonka.Forecast.Types.HyperParameterTuningJobConfig
 import Amazonka.Forecast.Types.InputDataConfig
 import Amazonka.Forecast.Types.IntegerParameterRange
+import Amazonka.Forecast.Types.MetricResult
 import Amazonka.Forecast.Types.Metrics
+import Amazonka.Forecast.Types.MonitorConfig
+import Amazonka.Forecast.Types.MonitorDataSource
+import Amazonka.Forecast.Types.MonitorInfo
+import Amazonka.Forecast.Types.MonitorSummary
+import Amazonka.Forecast.Types.Month
+import Amazonka.Forecast.Types.Operation
 import Amazonka.Forecast.Types.OptimizationMetric
 import Amazonka.Forecast.Types.ParameterRanges
 import Amazonka.Forecast.Types.PredictorBacktestExportJobSummary
+import Amazonka.Forecast.Types.PredictorBaseline
+import Amazonka.Forecast.Types.PredictorEvent
 import Amazonka.Forecast.Types.PredictorExecution
 import Amazonka.Forecast.Types.PredictorExecutionDetails
+import Amazonka.Forecast.Types.PredictorMonitorEvaluation
 import Amazonka.Forecast.Types.PredictorSummary
+import Amazonka.Forecast.Types.ReferencePredictorSummary
 import Amazonka.Forecast.Types.S3Config
 import Amazonka.Forecast.Types.ScalingType
 import Amazonka.Forecast.Types.Schema
 import Amazonka.Forecast.Types.SchemaAttribute
+import Amazonka.Forecast.Types.State
 import Amazonka.Forecast.Types.Statistics
 import Amazonka.Forecast.Types.SupplementaryFeature
 import Amazonka.Forecast.Types.Tag
 import Amazonka.Forecast.Types.TestWindowSummary
+import Amazonka.Forecast.Types.TimeAlignmentBoundary
+import Amazonka.Forecast.Types.TimePointGranularity
+import Amazonka.Forecast.Types.TimeSeriesCondition
+import Amazonka.Forecast.Types.TimeSeriesGranularity
+import Amazonka.Forecast.Types.TimeSeriesIdentifiers
+import Amazonka.Forecast.Types.TimeSeriesReplacementsDataSource
+import Amazonka.Forecast.Types.TimeSeriesSelector
+import Amazonka.Forecast.Types.TimeSeriesTransformation
 import Amazonka.Forecast.Types.WeightedQuantileLoss
+import Amazonka.Forecast.Types.WhatIfAnalysisSummary
+import Amazonka.Forecast.Types.WhatIfForecastExportSummary
+import Amazonka.Forecast.Types.WhatIfForecastSummary
 import Amazonka.Forecast.Types.WindowSummary
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

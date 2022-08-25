@@ -62,7 +62,7 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
     -- | Information about the commands to run.
     comment :: Prelude.Maybe Prelude.Text,
     -- | Configurations for sending notifications about command status changes on
-    -- a per-instance basis.
+    -- a per-managed node basis.
     notificationConfig :: Prelude.Maybe NotificationConfig,
     -- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
     documentHashType :: Prelude.Maybe DocumentHashType,
@@ -87,9 +87,9 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
     -- @--document-version \"3\"@
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the @RUN_COMMAND@ task execution.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowRunCommandParameters' with all optional fields omitted.
@@ -111,7 +111,7 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
 -- 'comment', 'maintenanceWindowRunCommandParameters_comment' - Information about the commands to run.
 --
 -- 'notificationConfig', 'maintenanceWindowRunCommandParameters_notificationConfig' - Configurations for sending notifications about command status changes on
--- a per-instance basis.
+-- a per-managed node basis.
 --
 -- 'documentHashType', 'maintenanceWindowRunCommandParameters_documentHashType' - SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
 --
@@ -175,7 +175,7 @@ maintenanceWindowRunCommandParameters_comment :: Lens.Lens' MaintenanceWindowRun
 maintenanceWindowRunCommandParameters_comment = Lens.lens (\MaintenanceWindowRunCommandParameters' {comment} -> comment) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {comment = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | Configurations for sending notifications about command status changes on
--- a per-instance basis.
+-- a per-managed node basis.
 maintenanceWindowRunCommandParameters_notificationConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe NotificationConfig)
 maintenanceWindowRunCommandParameters_notificationConfig = Lens.lens (\MaintenanceWindowRunCommandParameters' {notificationConfig} -> notificationConfig) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {notificationConfig = a} :: MaintenanceWindowRunCommandParameters)
 
@@ -213,7 +213,7 @@ maintenanceWindowRunCommandParameters_documentVersion = Lens.lens (\MaintenanceW
 
 -- | The parameters for the @RUN_COMMAND@ task execution.
 maintenanceWindowRunCommandParameters_parameters :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Prelude.. Lens.mapping Lens.coerced
+maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 instance
   Core.FromJSON

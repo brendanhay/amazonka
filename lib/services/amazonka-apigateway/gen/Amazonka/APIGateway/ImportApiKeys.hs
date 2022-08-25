@@ -58,8 +58,7 @@ data ImportApiKeys = ImportApiKeys'
     -- (@true@) or not (@false@) when error is encountered.
     failOnWarnings :: Prelude.Maybe Prelude.Bool,
     -- | The payload of the POST request to import API keys. For the payload
-    -- format, see
-    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format>.
+    -- format, see API Key File Format.
     body :: Prelude.ByteString,
     -- | A query parameter to specify the input format to imported API keys.
     -- Currently, only the @csv@ format is supported.
@@ -79,8 +78,7 @@ data ImportApiKeys = ImportApiKeys'
 -- (@true@) or not (@false@) when error is encountered.
 --
 -- 'body', 'importApiKeys_body' - The payload of the POST request to import API keys. For the payload
--- format, see
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format>.
+-- format, see API Key File Format.
 --
 -- 'format', 'importApiKeys_format' - A query parameter to specify the input format to imported API keys.
 -- Currently, only the @csv@ format is supported.
@@ -103,8 +101,7 @@ importApiKeys_failOnWarnings :: Lens.Lens' ImportApiKeys (Prelude.Maybe Prelude.
 importApiKeys_failOnWarnings = Lens.lens (\ImportApiKeys' {failOnWarnings} -> failOnWarnings) (\s@ImportApiKeys' {} a -> s {failOnWarnings = a} :: ImportApiKeys)
 
 -- | The payload of the POST request to import API keys. For the payload
--- format, see
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format>.
+-- format, see API Key File Format.
 importApiKeys_body :: Lens.Lens' ImportApiKeys Prelude.ByteString
 importApiKeys_body = Lens.lens (\ImportApiKeys' {body} -> body) (\s@ImportApiKeys' {} a -> s {body = a} :: ImportApiKeys)
 

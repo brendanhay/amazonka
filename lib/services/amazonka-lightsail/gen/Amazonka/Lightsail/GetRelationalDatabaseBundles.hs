@@ -33,6 +33,7 @@ module Amazonka.Lightsail.GetRelationalDatabaseBundles
     newGetRelationalDatabaseBundles,
 
     -- * Request Lenses
+    getRelationalDatabaseBundles_includeInactive,
     getRelationalDatabaseBundles_pageToken,
 
     -- * Destructuring the Response
@@ -55,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRelationalDatabaseBundles' smart constructor.
 data GetRelationalDatabaseBundles = GetRelationalDatabaseBundles'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | A Boolean value that indicates whether to include inactive (unavailable)
+    -- bundles in the response of your request.
+    includeInactive :: Prelude.Maybe Prelude.Bool,
+    -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetRelationalDatabaseBundles@
     -- request. If your results are paginated, the response will return a next
@@ -73,6 +77,9 @@ data GetRelationalDatabaseBundles = GetRelationalDatabaseBundles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeInactive', 'getRelationalDatabaseBundles_includeInactive' - A Boolean value that indicates whether to include inactive (unavailable)
+-- bundles in the response of your request.
+--
 -- 'pageToken', 'getRelationalDatabaseBundles_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetRelationalDatabaseBundles@
@@ -83,9 +90,15 @@ newGetRelationalDatabaseBundles ::
   GetRelationalDatabaseBundles
 newGetRelationalDatabaseBundles =
   GetRelationalDatabaseBundles'
-    { pageToken =
-        Prelude.Nothing
+    { includeInactive =
+        Prelude.Nothing,
+      pageToken = Prelude.Nothing
     }
+
+-- | A Boolean value that indicates whether to include inactive (unavailable)
+-- bundles in the response of your request.
+getRelationalDatabaseBundles_includeInactive :: Lens.Lens' GetRelationalDatabaseBundles (Prelude.Maybe Prelude.Bool)
+getRelationalDatabaseBundles_includeInactive = Lens.lens (\GetRelationalDatabaseBundles' {includeInactive} -> includeInactive) (\s@GetRelationalDatabaseBundles' {} a -> s {includeInactive = a} :: GetRelationalDatabaseBundles)
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -137,11 +150,13 @@ instance
     GetRelationalDatabaseBundles
   where
   hashWithSalt _salt GetRelationalDatabaseBundles' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` includeInactive
+      `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetRelationalDatabaseBundles where
   rnf GetRelationalDatabaseBundles' {..} =
-    Prelude.rnf pageToken
+    Prelude.rnf includeInactive
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetRelationalDatabaseBundles where
   toHeaders =
@@ -162,7 +177,10 @@ instance Core.ToJSON GetRelationalDatabaseBundles where
   toJSON GetRelationalDatabaseBundles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [ ("includeInactive" Core..=)
+              Prelude.<$> includeInactive,
+            ("pageToken" Core..=) Prelude.<$> pageToken
+          ]
       )
 
 instance Core.ToPath GetRelationalDatabaseBundles where

@@ -69,11 +69,23 @@ module Amazonka.Grafana
     CreateWorkspaceResponse (CreateWorkspaceResponse'),
     newCreateWorkspaceResponse,
 
+    -- ** CreateWorkspaceApiKey
+    CreateWorkspaceApiKey (CreateWorkspaceApiKey'),
+    newCreateWorkspaceApiKey,
+    CreateWorkspaceApiKeyResponse (CreateWorkspaceApiKeyResponse'),
+    newCreateWorkspaceApiKeyResponse,
+
     -- ** DeleteWorkspace
     DeleteWorkspace (DeleteWorkspace'),
     newDeleteWorkspace,
     DeleteWorkspaceResponse (DeleteWorkspaceResponse'),
     newDeleteWorkspaceResponse,
+
+    -- ** DeleteWorkspaceApiKey
+    DeleteWorkspaceApiKey (DeleteWorkspaceApiKey'),
+    newDeleteWorkspaceApiKey,
+    DeleteWorkspaceApiKeyResponse (DeleteWorkspaceApiKeyResponse'),
+    newDeleteWorkspaceApiKeyResponse,
 
     -- ** DescribeWorkspace
     DescribeWorkspace (DescribeWorkspace'),
@@ -99,11 +111,29 @@ module Amazonka.Grafana
     ListPermissionsResponse (ListPermissionsResponse'),
     newListPermissionsResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** ListWorkspaces (Paginated)
     ListWorkspaces (ListWorkspaces'),
     newListWorkspaces,
     ListWorkspacesResponse (ListWorkspacesResponse'),
     newListWorkspacesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdatePermissions
     UpdatePermissions (UpdatePermissions'),
@@ -218,14 +248,19 @@ where
 
 import Amazonka.Grafana.AssociateLicense
 import Amazonka.Grafana.CreateWorkspace
+import Amazonka.Grafana.CreateWorkspaceApiKey
 import Amazonka.Grafana.DeleteWorkspace
+import Amazonka.Grafana.DeleteWorkspaceApiKey
 import Amazonka.Grafana.DescribeWorkspace
 import Amazonka.Grafana.DescribeWorkspaceAuthentication
 import Amazonka.Grafana.DisassociateLicense
 import Amazonka.Grafana.Lens
 import Amazonka.Grafana.ListPermissions
+import Amazonka.Grafana.ListTagsForResource
 import Amazonka.Grafana.ListWorkspaces
+import Amazonka.Grafana.TagResource
 import Amazonka.Grafana.Types
+import Amazonka.Grafana.UntagResource
 import Amazonka.Grafana.UpdatePermissions
 import Amazonka.Grafana.UpdateWorkspace
 import Amazonka.Grafana.UpdateWorkspaceAuthentication

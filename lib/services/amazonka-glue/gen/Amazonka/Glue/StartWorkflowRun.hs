@@ -27,6 +27,7 @@ module Amazonka.Glue.StartWorkflowRun
     newStartWorkflowRun,
 
     -- * Request Lenses
+    startWorkflowRun_runProperties,
     startWorkflowRun_name,
 
     -- * Destructuring the Response
@@ -48,7 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartWorkflowRun' smart constructor.
 data StartWorkflowRun = StartWorkflowRun'
-  { -- | The name of the workflow to start.
+  { -- | The workflow run properties for the new workflow run.
+    runProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the workflow to start.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,13 +64,22 @@ data StartWorkflowRun = StartWorkflowRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'runProperties', 'startWorkflowRun_runProperties' - The workflow run properties for the new workflow run.
+--
 -- 'name', 'startWorkflowRun_name' - The name of the workflow to start.
 newStartWorkflowRun ::
   -- | 'name'
   Prelude.Text ->
   StartWorkflowRun
 newStartWorkflowRun pName_ =
-  StartWorkflowRun' {name = pName_}
+  StartWorkflowRun'
+    { runProperties = Prelude.Nothing,
+      name = pName_
+    }
+
+-- | The workflow run properties for the new workflow run.
+startWorkflowRun_runProperties :: Lens.Lens' StartWorkflowRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startWorkflowRun_runProperties = Lens.lens (\StartWorkflowRun' {runProperties} -> runProperties) (\s@StartWorkflowRun' {} a -> s {runProperties = a} :: StartWorkflowRun) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the workflow to start.
 startWorkflowRun_name :: Lens.Lens' StartWorkflowRun Prelude.Text
@@ -88,10 +100,13 @@ instance Core.AWSRequest StartWorkflowRun where
 
 instance Prelude.Hashable StartWorkflowRun where
   hashWithSalt _salt StartWorkflowRun' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` runProperties
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StartWorkflowRun where
-  rnf StartWorkflowRun' {..} = Prelude.rnf name
+  rnf StartWorkflowRun' {..} =
+    Prelude.rnf runProperties
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartWorkflowRun where
   toHeaders =
@@ -110,7 +125,9 @@ instance Core.ToJSON StartWorkflowRun where
   toJSON StartWorkflowRun' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [ ("RunProperties" Core..=) Prelude.<$> runProperties,
+            Prelude.Just ("Name" Core..= name)
+          ]
       )
 
 instance Core.ToPath StartWorkflowRun where

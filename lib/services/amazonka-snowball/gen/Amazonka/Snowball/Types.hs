@@ -242,6 +242,7 @@ module Amazonka.Snowball.Types
     OnDeviceServiceConfiguration (..),
     newOnDeviceServiceConfiguration,
     onDeviceServiceConfiguration_nFSOnDeviceService,
+    onDeviceServiceConfiguration_tGWOnDeviceService,
 
     -- * S3Resource
     S3Resource (..),
@@ -267,6 +268,12 @@ module Amazonka.Snowball.Types
     SnowconeDeviceConfiguration (..),
     newSnowconeDeviceConfiguration,
     snowconeDeviceConfiguration_wirelessConnection,
+
+    -- * TGWOnDeviceServiceConfiguration
+    TGWOnDeviceServiceConfiguration (..),
+    newTGWOnDeviceServiceConfiguration,
+    tGWOnDeviceServiceConfiguration_storageUnit,
+    tGWOnDeviceServiceConfiguration_storageLimit,
 
     -- * TargetOnDeviceService
     TargetOnDeviceService (..),
@@ -325,6 +332,7 @@ import Amazonka.Snowball.Types.SnowballCapacity
 import Amazonka.Snowball.Types.SnowballType
 import Amazonka.Snowball.Types.SnowconeDeviceConfiguration
 import Amazonka.Snowball.Types.StorageUnit
+import Amazonka.Snowball.Types.TGWOnDeviceServiceConfiguration
 import Amazonka.Snowball.Types.TargetOnDeviceService
 import Amazonka.Snowball.Types.TaxDocuments
 import Amazonka.Snowball.Types.TransferOption
@@ -410,7 +418,7 @@ _InvalidAddressException =
 
 -- | The address is either outside the serviceable area for your region, or
 -- an error occurred. Check the address with your region\'s carrier and try
--- again. If the issue persists, contact AWS Support.
+-- again. If the issue persists, contact Amazon Web Services Support.
 _UnsupportedAddressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAddressException =
   Core._MatchServiceError
@@ -459,8 +467,8 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | The provided AWS Key Management Service key lacks the permissions to
--- perform the specified CreateJob or UpdateJob action.
+-- | The provided Key Management Service key lacks the permissions to perform
+-- the specified CreateJob or UpdateJob action.
 _KMSRequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSRequestFailedException =
   Core._MatchServiceError
@@ -487,7 +495,7 @@ _ClusterLimitExceededException =
 
 -- | You get this exception if you call @CreateReturnShippingLabel@ and a
 -- valid return shipping label already exists. In this case, use
--- @DescribeReturnShippingLabel@ to get the url.
+-- @DescribeReturnShippingLabel@ to get the URL.
 _ReturnShippingLabelAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReturnShippingLabelAlreadyExistsException =
   Core._MatchServiceError

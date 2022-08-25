@@ -58,6 +58,9 @@ data UpdateRoleAlias = UpdateRoleAlias'
   { -- | The role ARN.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds the credential will be valid.
+    --
+    -- This value must be less than or equal to the maximum session duration of
+    -- the IAM role that the role alias references.
     credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The role alias to update.
     roleAlias :: Prelude.Text
@@ -76,6 +79,9 @@ data UpdateRoleAlias = UpdateRoleAlias'
 --
 -- 'credentialDurationSeconds', 'updateRoleAlias_credentialDurationSeconds' - The number of seconds the credential will be valid.
 --
+-- This value must be less than or equal to the maximum session duration of
+-- the IAM role that the role alias references.
+--
 -- 'roleAlias', 'updateRoleAlias_roleAlias' - The role alias to update.
 newUpdateRoleAlias ::
   -- | 'roleAlias'
@@ -93,6 +99,9 @@ updateRoleAlias_roleArn :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Tex
 updateRoleAlias_roleArn = Lens.lens (\UpdateRoleAlias' {roleArn} -> roleArn) (\s@UpdateRoleAlias' {} a -> s {roleArn = a} :: UpdateRoleAlias)
 
 -- | The number of seconds the credential will be valid.
+--
+-- This value must be less than or equal to the maximum session duration of
+-- the IAM role that the role alias references.
 updateRoleAlias_credentialDurationSeconds :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Natural)
 updateRoleAlias_credentialDurationSeconds = Lens.lens (\UpdateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@UpdateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: UpdateRoleAlias)
 

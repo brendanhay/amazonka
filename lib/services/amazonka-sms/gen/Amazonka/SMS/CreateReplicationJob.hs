@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a replication job. The replication job schedules periodic
--- replication runs to replicate your server to AWS. Each replication run
--- creates an Amazon Machine Image (AMI).
+-- replication runs to replicate your server to Amazon Web Services. Each
+-- replication run creates an Amazon Machine Image (AMI).
 module Amazonka.SMS.CreateReplicationJob
   ( -- * Creating a Request
     CreateReplicationJob (..),
@@ -59,7 +59,7 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newCreateReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-  { -- | The name of the IAM role to be used by the AWS SMS.
+  { -- | The name of the IAM role to be used by the Server Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | The license type to be used for the AMI created by a successful
     -- replication run.
@@ -104,7 +104,7 @@ data CreateReplicationJob = CreateReplicationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'createReplicationJob_roleName' - The name of the IAM role to be used by the AWS SMS.
+-- 'roleName', 'createReplicationJob_roleName' - The name of the IAM role to be used by the Server Migration Service.
 --
 -- 'licenseType', 'createReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
 -- replication run.
@@ -160,7 +160,7 @@ newCreateReplicationJob
           Core._Time Lens.# pSeedReplicationTime_
       }
 
--- | The name of the IAM role to be used by the AWS SMS.
+-- | The name of the IAM role to be used by the Server Migration Service.
 createReplicationJob_roleName :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
 createReplicationJob_roleName = Lens.lens (\CreateReplicationJob' {roleName} -> roleName) (\s@CreateReplicationJob' {} a -> s {roleName = a} :: CreateReplicationJob)
 

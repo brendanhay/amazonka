@@ -66,7 +66,9 @@
 --
 -- This operation requires permission for the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html lambda:InvokeFunction>
--- action.
+-- action. For details on how to set up permissions for cross-account
+-- invocations, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke Granting function access to other accounts>.
 module Amazonka.Lambda.Invoke
   ( -- * Creating a Request
     Invoke (..),
@@ -142,6 +144,10 @@ data Invoke = Invoke'
     -- function name, it is limited to 64 characters in length.
     functionName :: Prelude.Text,
     -- | The JSON that you want to provide to your Lambda function as input.
+    --
+    -- You can enter the JSON directly. For example,
+    -- @--payload \'{ \"key\": \"value\" }\'@. You can also specify a file
+    -- path. For example, @--payload file:\/\/payload.json@.
     payload :: Prelude.ByteString
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -194,6 +200,10 @@ data Invoke = Invoke'
 -- function name, it is limited to 64 characters in length.
 --
 -- 'payload', 'invoke_payload' - The JSON that you want to provide to your Lambda function as input.
+--
+-- You can enter the JSON directly. For example,
+-- @--payload \'{ \"key\": \"value\" }\'@. You can also specify a file
+-- path. For example, @--payload file:\/\/payload.json@.
 newInvoke ::
   -- | 'functionName'
   Prelude.Text ->
@@ -260,6 +270,10 @@ invoke_functionName :: Lens.Lens' Invoke Prelude.Text
 invoke_functionName = Lens.lens (\Invoke' {functionName} -> functionName) (\s@Invoke' {} a -> s {functionName = a} :: Invoke)
 
 -- | The JSON that you want to provide to your Lambda function as input.
+--
+-- You can enter the JSON directly. For example,
+-- @--payload \'{ \"key\": \"value\" }\'@. You can also specify a file
+-- path. For example, @--payload file:\/\/payload.json@.
 invoke_payload :: Lens.Lens' Invoke Prelude.ByteString
 invoke_payload = Lens.lens (\Invoke' {payload} -> payload) (\s@Invoke' {} a -> s {payload = a} :: Invoke)
 

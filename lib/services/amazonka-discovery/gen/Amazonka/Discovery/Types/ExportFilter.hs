@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportFilter' smart constructor.
 data ExportFilter = ExportFilter'
-  { -- | A single @ExportFilter@ name. Supported filters: @agentId@.
+  { -- | A single @ExportFilter@ name. Supported filters: @agentIds@.
     name :: Prelude.Text,
-    -- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found
-    -- using the
-    -- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents>
-    -- action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@.
+    -- | A single agent ID for a Discovery Agent. An agent ID can be found using
+    -- the
+    -- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html DescribeAgents>
+    -- action. Typically an ADS agent ID is in the form @o-0123456789abcdef0@.
     values :: [Prelude.Text],
     -- | Supported condition: @EQUALS@
     condition :: Prelude.Text
@@ -50,12 +50,12 @@ data ExportFilter = ExportFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'exportFilter_name' - A single @ExportFilter@ name. Supported filters: @agentId@.
+-- 'name', 'exportFilter_name' - A single @ExportFilter@ name. Supported filters: @agentIds@.
 --
--- 'values', 'exportFilter_values' - A single @agentId@ for a Discovery Agent. An @agentId@ can be found
--- using the
--- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents>
--- action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@.
+-- 'values', 'exportFilter_values' - A single agent ID for a Discovery Agent. An agent ID can be found using
+-- the
+-- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html DescribeAgents>
+-- action. Typically an ADS agent ID is in the form @o-0123456789abcdef0@.
 --
 -- 'condition', 'exportFilter_condition' - Supported condition: @EQUALS@
 newExportFilter ::
@@ -71,14 +71,14 @@ newExportFilter pName_ pCondition_ =
       condition = pCondition_
     }
 
--- | A single @ExportFilter@ name. Supported filters: @agentId@.
+-- | A single @ExportFilter@ name. Supported filters: @agentIds@.
 exportFilter_name :: Lens.Lens' ExportFilter Prelude.Text
 exportFilter_name = Lens.lens (\ExportFilter' {name} -> name) (\s@ExportFilter' {} a -> s {name = a} :: ExportFilter)
 
--- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found
--- using the
--- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents>
--- action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@.
+-- | A single agent ID for a Discovery Agent. An agent ID can be found using
+-- the
+-- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html DescribeAgents>
+-- action. Typically an ADS agent ID is in the form @o-0123456789abcdef0@.
 exportFilter_values :: Lens.Lens' ExportFilter [Prelude.Text]
 exportFilter_values = Lens.lens (\ExportFilter' {values} -> values) (\s@ExportFilter' {} a -> s {values = a} :: ExportFilter) Prelude.. Lens.coerced
 

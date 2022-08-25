@@ -20,7 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a service.
+-- Delete a service, with its instances and pipeline.
+--
+-- You can\'t delete a service if it has any service instances that have
+-- components attached to them.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
 module Amazonka.Proton.DeleteService
   ( -- * Creating a Request
     DeleteService (..),
@@ -123,7 +130,7 @@ instance Core.ToQuery DeleteService where
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
-  { -- | The service detail data that\'s returned by AWS Proton.
+  { -- | The detailed data of the service being deleted.
     service :: Prelude.Maybe Service,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -138,7 +145,7 @@ data DeleteServiceResponse = DeleteServiceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'service', 'deleteServiceResponse_service' - The service detail data that\'s returned by AWS Proton.
+-- 'service', 'deleteServiceResponse_service' - The detailed data of the service being deleted.
 --
 -- 'httpStatus', 'deleteServiceResponse_httpStatus' - The response's http status code.
 newDeleteServiceResponse ::
@@ -151,7 +158,7 @@ newDeleteServiceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The service detail data that\'s returned by AWS Proton.
+-- | The detailed data of the service being deleted.
 deleteServiceResponse_service :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Service)
 deleteServiceResponse_service = Lens.lens (\DeleteServiceResponse' {service} -> service) (\s@DeleteServiceResponse' {} a -> s {service = a} :: DeleteServiceResponse)
 

@@ -157,6 +157,7 @@ module Amazonka.DLM.Types
     -- * Parameters
     Parameters (..),
     newParameters,
+    parameters_excludeDataVolumeTags,
     parameters_excludeBootVolume,
     parameters_noReboot,
 

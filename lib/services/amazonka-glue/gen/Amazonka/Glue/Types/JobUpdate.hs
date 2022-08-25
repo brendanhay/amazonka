@@ -20,7 +20,9 @@
 module Amazonka.Glue.Types.JobUpdate where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.CodeGenConfigurationNode
 import Amazonka.Glue.Types.ConnectionsList
+import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.ExecutionProperty
 import Amazonka.Glue.Types.JobCommand
 import Amazonka.Glue.Types.NotificationProperty
@@ -44,9 +46,6 @@ data JobUpdate = JobUpdate'
     nonOverridableArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a job runs.
-    --
-    -- The maximum number of workers you can define are 299 for @G.1X@, and 149
-    -- for @G.2X@.
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
     -- | Glue version determines the versions of Apache Spark and Python that
     -- Glue supports. The Python version indicates the version supported for
@@ -60,7 +59,7 @@ data JobUpdate = JobUpdate'
     -- | Specifies the configuration properties of a job notification.
     notificationProperty :: Prelude.Maybe NotificationProperty,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
-    -- a value of Standard, G.1X, or G.2X.
+    -- a value of Standard, G.1X, G.2X, or G.025X.
     --
     -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
     --     of memory and a 50GB disk, and 2 executors per worker.
@@ -72,6 +71,11 @@ data JobUpdate = JobUpdate'
     -- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
     --     of memory, 128 GB disk), and provides 1 executor per worker. We
     --     recommend this worker type for memory-intensive jobs.
+    --
+    -- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
+    --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
+    --     recommend this worker type for low volume streaming jobs. This
+    --     worker type is only available for Glue version 3.0 streaming jobs.
     workerType :: Prelude.Maybe WorkerType,
     -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
     -- allowed for this job.
@@ -79,7 +83,7 @@ data JobUpdate = JobUpdate'
     -- | This field is deprecated. Use @MaxCapacity@ instead.
     --
     -- The number of Glue data processing units (DPUs) to allocate to this job.
-    -- You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+    -- You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a
     -- relative measure of processing power that consists of 4 vCPUs of compute
     -- capacity and 16 GB of memory. For more information, see the
     -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
@@ -90,6 +94,9 @@ data JobUpdate = JobUpdate'
     description :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of times to retry this job if it fails.
     maxRetries :: Prelude.Maybe Prelude.Int,
+    -- | The representation of a directed acyclic graph on which both the Glue
+    -- Studio visual component and Glue Studio code generation is based.
+    codeGenConfigurationNodes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
     -- | The default arguments for this job.
     --
     -- You can specify arguments here that your own job-execution script
@@ -130,16 +137,27 @@ data JobUpdate = JobUpdate'
     --
     -- -   When you specify an Apache Spark ETL job
     --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
-    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
-    --     100 DPUs. The default is 10 DPUs. This job type cannot have a
+    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
+    --     2 DPUs. The default is 10 DPUs. This job type cannot have a
     --     fractional DPU allocation.
     --
     -- For Glue version 2.0 jobs, you cannot instead specify a
     -- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
     -- @Number of workers@.
-    maxCapacity :: Prelude.Maybe Prelude.Double
+    maxCapacity :: Prelude.Maybe Prelude.Double,
+    -- | Indicates whether the job is run with a standard or flexible execution
+    -- class. The standard execution-class is ideal for time-sensitive
+    -- workloads that require fast job startup and dedicated resources.
+    --
+    -- The flexible execution class is appropriate for time-insensitive jobs
+    -- whose start and completion times may vary.
+    --
+    -- Only jobs with Glue version 3.0 and above and command type @glueetl@
+    -- will be allowed to set @ExecutionClass@ to @FLEX@. The flexible
+    -- execution class is available for Spark jobs.
+    executionClass :: Prelude.Maybe ExecutionClass
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobUpdate' with all optional fields omitted.
@@ -161,9 +179,6 @@ data JobUpdate = JobUpdate'
 -- 'numberOfWorkers', 'jobUpdate_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when
 -- a job runs.
 --
--- The maximum number of workers you can define are 299 for @G.1X@, and 149
--- for @G.2X@.
---
 -- 'glueVersion', 'jobUpdate_glueVersion' - Glue version determines the versions of Apache Spark and Python that
 -- Glue supports. The Python version indicates the version supported for
 -- jobs of type Spark.
@@ -176,7 +191,7 @@ data JobUpdate = JobUpdate'
 -- 'notificationProperty', 'jobUpdate_notificationProperty' - Specifies the configuration properties of a job notification.
 --
 -- 'workerType', 'jobUpdate_workerType' - The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, or G.2X.
+-- a value of Standard, G.1X, G.2X, or G.025X.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -189,13 +204,18 @@ data JobUpdate = JobUpdate'
 --     of memory, 128 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for memory-intensive jobs.
 --
+-- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
+--     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for low volume streaming jobs. This
+--     worker type is only available for Glue version 3.0 streaming jobs.
+--
 -- 'executionProperty', 'jobUpdate_executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs
 -- allowed for this job.
 --
 -- 'allocatedCapacity', 'jobUpdate_allocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead.
 --
 -- The number of Glue data processing units (DPUs) to allocate to this job.
--- You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+-- You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a
 -- relative measure of processing power that consists of 4 vCPUs of compute
 -- capacity and 16 GB of memory. For more information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
@@ -205,6 +225,9 @@ data JobUpdate = JobUpdate'
 -- 'description', 'jobUpdate_description' - Description of the job being defined.
 --
 -- 'maxRetries', 'jobUpdate_maxRetries' - The maximum number of times to retry this job if it fails.
+--
+-- 'codeGenConfigurationNodes', 'jobUpdate_codeGenConfigurationNodes' - The representation of a directed acyclic graph on which both the Glue
+-- Studio visual component and Glue Studio code generation is based.
 --
 -- 'defaultArguments', 'jobUpdate_defaultArguments' - The default arguments for this job.
 --
@@ -246,13 +269,24 @@ data JobUpdate = JobUpdate'
 --
 -- -   When you specify an Apache Spark ETL job
 --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
---     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
---     100 DPUs. The default is 10 DPUs. This job type cannot have a
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
+--     2 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
 --
 -- For Glue version 2.0 jobs, you cannot instead specify a
 -- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
 -- @Number of workers@.
+--
+-- 'executionClass', 'jobUpdate_executionClass' - Indicates whether the job is run with a standard or flexible execution
+-- class. The standard execution-class is ideal for time-sensitive
+-- workloads that require fast job startup and dedicated resources.
+--
+-- The flexible execution class is appropriate for time-insensitive jobs
+-- whose start and completion times may vary.
+--
+-- Only jobs with Glue version 3.0 and above and command type @glueetl@
+-- will be allowed to set @ExecutionClass@ to @FLEX@. The flexible
+-- execution class is available for Spark jobs.
 newJobUpdate ::
   JobUpdate
 newJobUpdate =
@@ -269,11 +303,13 @@ newJobUpdate =
       command = Prelude.Nothing,
       description = Prelude.Nothing,
       maxRetries = Prelude.Nothing,
+      codeGenConfigurationNodes = Prelude.Nothing,
       defaultArguments = Prelude.Nothing,
       logUri = Prelude.Nothing,
       connections = Prelude.Nothing,
       role' = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing
+      maxCapacity = Prelude.Nothing,
+      executionClass = Prelude.Nothing
     }
 
 -- | The name of the @SecurityConfiguration@ structure to be used with this
@@ -293,9 +329,6 @@ jobUpdate_nonOverridableArguments = Lens.lens (\JobUpdate' {nonOverridableArgume
 
 -- | The number of workers of a defined @workerType@ that are allocated when
 -- a job runs.
---
--- The maximum number of workers you can define are 299 for @G.1X@, and 149
--- for @G.2X@.
 jobUpdate_numberOfWorkers :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Int)
 jobUpdate_numberOfWorkers = Lens.lens (\JobUpdate' {numberOfWorkers} -> numberOfWorkers) (\s@JobUpdate' {} a -> s {numberOfWorkers = a} :: JobUpdate)
 
@@ -315,7 +348,7 @@ jobUpdate_notificationProperty :: Lens.Lens' JobUpdate (Prelude.Maybe Notificati
 jobUpdate_notificationProperty = Lens.lens (\JobUpdate' {notificationProperty} -> notificationProperty) (\s@JobUpdate' {} a -> s {notificationProperty = a} :: JobUpdate)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, or G.2X.
+-- a value of Standard, G.1X, G.2X, or G.025X.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -327,6 +360,11 @@ jobUpdate_notificationProperty = Lens.lens (\JobUpdate' {notificationProperty} -
 -- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
 --     of memory, 128 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for memory-intensive jobs.
+--
+-- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
+--     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for low volume streaming jobs. This
+--     worker type is only available for Glue version 3.0 streaming jobs.
 jobUpdate_workerType :: Lens.Lens' JobUpdate (Prelude.Maybe WorkerType)
 jobUpdate_workerType = Lens.lens (\JobUpdate' {workerType} -> workerType) (\s@JobUpdate' {} a -> s {workerType = a} :: JobUpdate)
 
@@ -338,7 +376,7 @@ jobUpdate_executionProperty = Lens.lens (\JobUpdate' {executionProperty} -> exec
 -- | This field is deprecated. Use @MaxCapacity@ instead.
 --
 -- The number of Glue data processing units (DPUs) to allocate to this job.
--- You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+-- You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a
 -- relative measure of processing power that consists of 4 vCPUs of compute
 -- capacity and 16 GB of memory. For more information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
@@ -356,6 +394,11 @@ jobUpdate_description = Lens.lens (\JobUpdate' {description} -> description) (\s
 -- | The maximum number of times to retry this job if it fails.
 jobUpdate_maxRetries :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Int)
 jobUpdate_maxRetries = Lens.lens (\JobUpdate' {maxRetries} -> maxRetries) (\s@JobUpdate' {} a -> s {maxRetries = a} :: JobUpdate)
+
+-- | The representation of a directed acyclic graph on which both the Glue
+-- Studio visual component and Glue Studio code generation is based.
+jobUpdate_codeGenConfigurationNodes :: Lens.Lens' JobUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text CodeGenConfigurationNode))
+jobUpdate_codeGenConfigurationNodes = Lens.lens (\JobUpdate' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@JobUpdate' {} a -> s {codeGenConfigurationNodes = a} :: JobUpdate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The default arguments for this job.
 --
@@ -405,8 +448,8 @@ jobUpdate_role = Lens.lens (\JobUpdate' {role'} -> role') (\s@JobUpdate' {} a ->
 --
 -- -   When you specify an Apache Spark ETL job
 --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
---     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
---     100 DPUs. The default is 10 DPUs. This job type cannot have a
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
+--     2 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
 --
 -- For Glue version 2.0 jobs, you cannot instead specify a
@@ -414,6 +457,19 @@ jobUpdate_role = Lens.lens (\JobUpdate' {role'} -> role') (\s@JobUpdate' {} a ->
 -- @Number of workers@.
 jobUpdate_maxCapacity :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Double)
 jobUpdate_maxCapacity = Lens.lens (\JobUpdate' {maxCapacity} -> maxCapacity) (\s@JobUpdate' {} a -> s {maxCapacity = a} :: JobUpdate)
+
+-- | Indicates whether the job is run with a standard or flexible execution
+-- class. The standard execution-class is ideal for time-sensitive
+-- workloads that require fast job startup and dedicated resources.
+--
+-- The flexible execution class is appropriate for time-insensitive jobs
+-- whose start and completion times may vary.
+--
+-- Only jobs with Glue version 3.0 and above and command type @glueetl@
+-- will be allowed to set @ExecutionClass@ to @FLEX@. The flexible
+-- execution class is available for Spark jobs.
+jobUpdate_executionClass :: Lens.Lens' JobUpdate (Prelude.Maybe ExecutionClass)
+jobUpdate_executionClass = Lens.lens (\JobUpdate' {executionClass} -> executionClass) (\s@JobUpdate' {} a -> s {executionClass = a} :: JobUpdate)
 
 instance Prelude.Hashable JobUpdate where
   hashWithSalt _salt JobUpdate' {..} =
@@ -429,11 +485,13 @@ instance Prelude.Hashable JobUpdate where
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` defaultArguments
       `Prelude.hashWithSalt` logUri
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` executionClass
 
 instance Prelude.NFData JobUpdate where
   rnf JobUpdate' {..} =
@@ -449,11 +507,13 @@ instance Prelude.NFData JobUpdate where
       `Prelude.seq` Prelude.rnf command
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf codeGenConfigurationNodes
       `Prelude.seq` Prelude.rnf defaultArguments
       `Prelude.seq` Prelude.rnf logUri
       `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf executionClass
 
 instance Core.ToJSON JobUpdate where
   toJSON JobUpdate' {..} =
@@ -477,11 +537,15 @@ instance Core.ToJSON JobUpdate where
             ("Command" Core..=) Prelude.<$> command,
             ("Description" Core..=) Prelude.<$> description,
             ("MaxRetries" Core..=) Prelude.<$> maxRetries,
+            ("CodeGenConfigurationNodes" Core..=)
+              Prelude.<$> codeGenConfigurationNodes,
             ("DefaultArguments" Core..=)
               Prelude.<$> defaultArguments,
             ("LogUri" Core..=) Prelude.<$> logUri,
             ("Connections" Core..=) Prelude.<$> connections,
             ("Role" Core..=) Prelude.<$> role',
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity
+            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
+            ("ExecutionClass" Core..=)
+              Prelude.<$> executionClass
           ]
       )

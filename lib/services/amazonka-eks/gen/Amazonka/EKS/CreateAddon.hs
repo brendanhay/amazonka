@@ -24,10 +24,12 @@
 --
 -- Amazon EKS add-ons help to automate the provisioning and lifecycle
 -- management of common operational software for Amazon EKS clusters.
--- Amazon EKS add-ons can only be used with Amazon EKS clusters running
--- version 1.18 with platform version @eks.3@ or later because add-ons rely
--- on the Server-side Apply Kubernetes feature, which is only available in
--- Kubernetes 1.18 and later.
+-- Amazon EKS add-ons require clusters running version 1.18 or later
+-- because Amazon EKS add-ons rely on the Server-side Apply Kubernetes
+-- feature, which is only available in Kubernetes 1.18 and later. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html Amazon EKS add-ons>
+-- in the /Amazon EKS User Guide/.
 module Amazonka.EKS.CreateAddon
   ( -- * Creating a Request
     CreateAddon (..),
@@ -62,8 +64,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateAddon' smart constructor.
 data CreateAddon = CreateAddon'
   { -- | The metadata to apply to the cluster to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value, both of
-    -- which you define.
+    -- organization. Each tag consists of a key and an optional value. You
+    -- define both.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
@@ -107,8 +109,8 @@ data CreateAddon = CreateAddon'
 -- for backwards compatibility:
 --
 -- 'tags', 'createAddon_tags' - The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -157,8 +159,8 @@ newCreateAddon pClusterName_ pAddonName_ =
     }
 
 -- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
 createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens.coerced
 

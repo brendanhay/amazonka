@@ -46,7 +46,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteApiKey' smart constructor.
 data DeleteApiKey = DeleteApiKey'
-  { -- | [Required] The identifier of the ApiKey resource to be deleted.
+  { -- | The identifier of the ApiKey resource to be deleted.
     apiKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data DeleteApiKey = DeleteApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'apiKey', 'deleteApiKey_apiKey' - [Required] The identifier of the ApiKey resource to be deleted.
+-- 'apiKey', 'deleteApiKey_apiKey' - The identifier of the ApiKey resource to be deleted.
 newDeleteApiKey ::
   -- | 'apiKey'
   Prelude.Text ->
@@ -67,7 +67,7 @@ newDeleteApiKey ::
 newDeleteApiKey pApiKey_ =
   DeleteApiKey' {apiKey = pApiKey_}
 
--- | [Required] The identifier of the ApiKey resource to be deleted.
+-- | The identifier of the ApiKey resource to be deleted.
 deleteApiKey_apiKey :: Lens.Lens' DeleteApiKey Prelude.Text
 deleteApiKey_apiKey = Lens.lens (\DeleteApiKey' {apiKey} -> apiKey) (\s@DeleteApiKey' {} a -> s {apiKey = a} :: DeleteApiKey)
 

@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified resource. Tags are
--- metadata that you can assign to your documents, managed instances,
--- maintenance windows, Parameter Store parameters, and patch baselines.
--- Tags enable you to categorize your resources in different ways, for
--- example, by purpose, owner, or environment. Each tag consists of a key
--- and an optional value, both of which you define. For example, you could
--- define a set of tags for your account\'s managed instances that helps
--- you track each instance\'s owner and stack level. For example:
+-- Adds or overwrites one or more tags for the specified resource. /Tags/
+-- are metadata that you can assign to your automations, documents, managed
+-- nodes, maintenance windows, Parameter Store parameters, and patch
+-- baselines. Tags enable you to categorize your resources in different
+-- ways, for example, by purpose, owner, or environment. Each tag consists
+-- of a key and an optional value, both of which you define. For example,
+-- you could define a set of tags for your account\'s managed nodes that
+-- helps you track each node\'s owner and stack level. For example:
 --
 -- -   @Key=Owner,Value=DbAdmin@
 --
@@ -41,7 +41,8 @@
 --
 -- -   @Key=Stack,Value=Test@
 --
--- Each resource can have a maximum of 50 tags.
+-- Most resources can have a maximum of 50 tags. Automations can have a
+-- maximum of 5 tags.
 --
 -- We recommend that you devise a set of tag keys that meets your needs for
 -- each resource type. Using a consistent set of tag keys makes it easier
@@ -84,8 +85,8 @@ data AddTagsToResource = AddTagsToResource'
   { -- | Specifies the type of resource you are tagging.
     --
     -- The @ManagedInstance@ type for this API operation is for on-premises
-    -- managed instances. You must specify the name of the managed instance in
-    -- the following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+    -- managed nodes. You must specify the name of the managed node in the
+    -- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
     resourceType :: ResourceTypeForTagging,
     -- | The resource ID you want to tag.
     --
@@ -94,6 +95,8 @@ data AddTagsToResource = AddTagsToResource'
     -- @MaintenanceWindow@: @mw-012345abcde@
     --
     -- @PatchBaseline@: @pb-012345abcde@
+    --
+    -- @Automation@: @example-c160-4567-8519-012345abcde@
     --
     -- @OpsMetadata@ object: @ResourceID@ for tagging is created from the
     -- Amazon Resource Name (ARN) for the object. Specifically, @ResourceID@ is
@@ -108,8 +111,8 @@ data AddTagsToResource = AddTagsToResource'
     -- @ManagedInstance@: @mi-012345abcde@
     --
     -- The @ManagedInstance@ type for this API operation is only for
-    -- on-premises managed instances. You must specify the name of the managed
-    -- instance in the following format: @mi-ID_number @. For example,
+    -- on-premises managed nodes. You must specify the name of the managed node
+    -- in the following format: @mi-ID_number @. For example,
     -- @mi-1a2b3c4d5e6f@.
     resourceId :: Prelude.Text,
     -- | One or more tags. The value parameter is required.
@@ -130,8 +133,8 @@ data AddTagsToResource = AddTagsToResource'
 -- 'resourceType', 'addTagsToResource_resourceType' - Specifies the type of resource you are tagging.
 --
 -- The @ManagedInstance@ type for this API operation is for on-premises
--- managed instances. You must specify the name of the managed instance in
--- the following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+-- managed nodes. You must specify the name of the managed node in the
+-- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
 --
 -- 'resourceId', 'addTagsToResource_resourceId' - The resource ID you want to tag.
 --
@@ -140,6 +143,8 @@ data AddTagsToResource = AddTagsToResource'
 -- @MaintenanceWindow@: @mw-012345abcde@
 --
 -- @PatchBaseline@: @pb-012345abcde@
+--
+-- @Automation@: @example-c160-4567-8519-012345abcde@
 --
 -- @OpsMetadata@ object: @ResourceID@ for tagging is created from the
 -- Amazon Resource Name (ARN) for the object. Specifically, @ResourceID@ is
@@ -154,8 +159,8 @@ data AddTagsToResource = AddTagsToResource'
 -- @ManagedInstance@: @mi-012345abcde@
 --
 -- The @ManagedInstance@ type for this API operation is only for
--- on-premises managed instances. You must specify the name of the managed
--- instance in the following format: @mi-ID_number @. For example,
+-- on-premises managed nodes. You must specify the name of the managed node
+-- in the following format: @mi-ID_number @. For example,
 -- @mi-1a2b3c4d5e6f@.
 --
 -- 'tags', 'addTagsToResource_tags' - One or more tags. The value parameter is required.
@@ -177,8 +182,8 @@ newAddTagsToResource pResourceType_ pResourceId_ =
 -- | Specifies the type of resource you are tagging.
 --
 -- The @ManagedInstance@ type for this API operation is for on-premises
--- managed instances. You must specify the name of the managed instance in
--- the following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+-- managed nodes. You must specify the name of the managed node in the
+-- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
 addTagsToResource_resourceType :: Lens.Lens' AddTagsToResource ResourceTypeForTagging
 addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -> resourceType) (\s@AddTagsToResource' {} a -> s {resourceType = a} :: AddTagsToResource)
 
@@ -189,6 +194,8 @@ addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -
 -- @MaintenanceWindow@: @mw-012345abcde@
 --
 -- @PatchBaseline@: @pb-012345abcde@
+--
+-- @Automation@: @example-c160-4567-8519-012345abcde@
 --
 -- @OpsMetadata@ object: @ResourceID@ for tagging is created from the
 -- Amazon Resource Name (ARN) for the object. Specifically, @ResourceID@ is
@@ -203,8 +210,8 @@ addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -
 -- @ManagedInstance@: @mi-012345abcde@
 --
 -- The @ManagedInstance@ type for this API operation is only for
--- on-premises managed instances. You must specify the name of the managed
--- instance in the following format: @mi-ID_number @. For example,
+-- on-premises managed nodes. You must specify the name of the managed node
+-- in the following format: @mi-ID_number @. For example,
 -- @mi-1a2b3c4d5e6f@.
 addTagsToResource_resourceId :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceId = Lens.lens (\AddTagsToResource' {resourceId} -> resourceId) (\s@AddTagsToResource' {} a -> s {resourceId = a} :: AddTagsToResource)

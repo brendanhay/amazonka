@@ -48,9 +48,7 @@ data Subscription = Subscription'
     -- | The length, in seconds, of the Shield Advanced subscription for the
     -- account.
     timeCommitmentInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The start time of the subscription, in Unix time in seconds. For more
-    -- information see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+    -- | The start time of the subscription, in Unix time in seconds.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
     -- notify contacts about escalations to the SRT and to initiate proactive
@@ -93,9 +91,7 @@ data Subscription = Subscription'
 -- 'timeCommitmentInSeconds', 'subscription_timeCommitmentInSeconds' - The length, in seconds, of the Shield Advanced subscription for the
 -- account.
 --
--- 'startTime', 'subscription_startTime' - The start time of the subscription, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- 'startTime', 'subscription_startTime' - The start time of the subscription, in Unix time in seconds.
 --
 -- 'proactiveEngagementStatus', 'subscription_proactiveEngagementStatus' - If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
 -- notify contacts about escalations to the SRT and to initiate proactive
@@ -152,9 +148,7 @@ subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subsc
 subscription_timeCommitmentInSeconds :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Natural)
 subscription_timeCommitmentInSeconds = Lens.lens (\Subscription' {timeCommitmentInSeconds} -> timeCommitmentInSeconds) (\s@Subscription' {} a -> s {timeCommitmentInSeconds = a} :: Subscription)
 
--- | The start time of the subscription, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- | The start time of the subscription, in Unix time in seconds.
 subscription_startTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
 subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
 

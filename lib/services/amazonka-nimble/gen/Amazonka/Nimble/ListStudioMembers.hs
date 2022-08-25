@@ -22,6 +22,8 @@
 --
 -- Get all users in a given studio membership.
 --
+-- @ListStudioMembers@ only returns admin members.
+--
 -- This operation returns paginated results.
 module Amazonka.Nimble.ListStudioMembers
   ( -- * Creating a Request
@@ -53,10 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStudioMembers' smart constructor.
 data ListStudioMembers = ListStudioMembers'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
+    -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -71,10 +72,9 @@ data ListStudioMembers = ListStudioMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStudioMembers_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listStudioMembers_nextToken' - The token to request the next page of results.
 --
--- 'maxResults', 'listStudioMembers_maxResults' - The maximum number of results to be returned per request.
+-- 'maxResults', 'listStudioMembers_maxResults' - The max number of results to return in the response.
 --
 -- 'studioId', 'listStudioMembers_studioId' - The studio ID.
 newListStudioMembers ::
@@ -88,12 +88,11 @@ newListStudioMembers pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listStudioMembers_nextToken :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Text)
 listStudioMembers_nextToken = Lens.lens (\ListStudioMembers' {nextToken} -> nextToken) (\s@ListStudioMembers' {} a -> s {nextToken = a} :: ListStudioMembers)
 
--- | The maximum number of results to be returned per request.
+-- | The max number of results to return in the response.
 listStudioMembers_maxResults :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Natural)
 listStudioMembers_maxResults = Lens.lens (\ListStudioMembers' {maxResults} -> maxResults) (\s@ListStudioMembers' {} a -> s {maxResults = a} :: ListStudioMembers)
 
@@ -180,7 +179,7 @@ data ListStudioMembersResponse = ListStudioMembersResponse'
   { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of members.
+    -- | A list of admin members.
     members :: Prelude.Maybe [StudioMembership],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -198,7 +197,7 @@ data ListStudioMembersResponse = ListStudioMembersResponse'
 -- 'nextToken', 'listStudioMembersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
--- 'members', 'listStudioMembersResponse_members' - A list of members.
+-- 'members', 'listStudioMembersResponse_members' - A list of admin members.
 --
 -- 'httpStatus', 'listStudioMembersResponse_httpStatus' - The response's http status code.
 newListStudioMembersResponse ::
@@ -218,7 +217,7 @@ newListStudioMembersResponse pHttpStatus_ =
 listStudioMembersResponse_nextToken :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe Prelude.Text)
 listStudioMembersResponse_nextToken = Lens.lens (\ListStudioMembersResponse' {nextToken} -> nextToken) (\s@ListStudioMembersResponse' {} a -> s {nextToken = a} :: ListStudioMembersResponse)
 
--- | A list of members.
+-- | A list of admin members.
 listStudioMembersResponse_members :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe [StudioMembership])
 listStudioMembersResponse_members = Lens.lens (\ListStudioMembersResponse' {members} -> members) (\s@ListStudioMembersResponse' {} a -> s {members = a} :: ListStudioMembersResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -29,10 +29,14 @@ import Amazonka.SSMIncidents.Types.NotificationTargetItem
 --
 -- /See:/ 'newIncidentTemplate' smart constructor.
 data IncidentTemplate = IncidentTemplate'
-  { -- | The summary of the incident. The summary is a brief synopsis of what
+  { -- | Tags to apply to an incident when calling the @StartIncident@ API
+    -- action.
+    incidentTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The summary of the incident. The summary is a brief synopsis of what
     -- occurred, what\'s currently happening, and context.
     summary :: Prelude.Maybe Prelude.Text,
-    -- | The SNS targets that are notified when updates are made to an incident.
+    -- | The Amazon SNS targets that are notified when updates are made to an
+    -- incident.
     notificationTargets :: Prelude.Maybe [NotificationTargetItem],
     -- | Used to stop Incident Manager from creating multiple incident records
     -- for the same incident.
@@ -52,10 +56,14 @@ data IncidentTemplate = IncidentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'incidentTags', 'incidentTemplate_incidentTags' - Tags to apply to an incident when calling the @StartIncident@ API
+-- action.
+--
 -- 'summary', 'incidentTemplate_summary' - The summary of the incident. The summary is a brief synopsis of what
 -- occurred, what\'s currently happening, and context.
 --
--- 'notificationTargets', 'incidentTemplate_notificationTargets' - The SNS targets that are notified when updates are made to an incident.
+-- 'notificationTargets', 'incidentTemplate_notificationTargets' - The Amazon SNS targets that are notified when updates are made to an
+-- incident.
 --
 -- 'dedupeString', 'incidentTemplate_dedupeString' - Used to stop Incident Manager from creating multiple incident records
 -- for the same incident.
@@ -71,19 +79,26 @@ newIncidentTemplate ::
   IncidentTemplate
 newIncidentTemplate pImpact_ pTitle_ =
   IncidentTemplate'
-    { summary = Prelude.Nothing,
+    { incidentTags = Prelude.Nothing,
+      summary = Prelude.Nothing,
       notificationTargets = Prelude.Nothing,
       dedupeString = Prelude.Nothing,
       impact = pImpact_,
       title = pTitle_
     }
 
+-- | Tags to apply to an incident when calling the @StartIncident@ API
+-- action.
+incidentTemplate_incidentTags :: Lens.Lens' IncidentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+incidentTemplate_incidentTags = Lens.lens (\IncidentTemplate' {incidentTags} -> incidentTags) (\s@IncidentTemplate' {} a -> s {incidentTags = a} :: IncidentTemplate) Prelude.. Lens.mapping Lens.coerced
+
 -- | The summary of the incident. The summary is a brief synopsis of what
 -- occurred, what\'s currently happening, and context.
 incidentTemplate_summary :: Lens.Lens' IncidentTemplate (Prelude.Maybe Prelude.Text)
 incidentTemplate_summary = Lens.lens (\IncidentTemplate' {summary} -> summary) (\s@IncidentTemplate' {} a -> s {summary = a} :: IncidentTemplate)
 
--- | The SNS targets that are notified when updates are made to an incident.
+-- | The Amazon SNS targets that are notified when updates are made to an
+-- incident.
 incidentTemplate_notificationTargets :: Lens.Lens' IncidentTemplate (Prelude.Maybe [NotificationTargetItem])
 incidentTemplate_notificationTargets = Lens.lens (\IncidentTemplate' {notificationTargets} -> notificationTargets) (\s@IncidentTemplate' {} a -> s {notificationTargets = a} :: IncidentTemplate) Prelude.. Lens.mapping Lens.coerced
 
@@ -106,7 +121,8 @@ instance Core.FromJSON IncidentTemplate where
       "IncidentTemplate"
       ( \x ->
           IncidentTemplate'
-            Prelude.<$> (x Core..:? "summary")
+            Prelude.<$> (x Core..:? "incidentTags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "summary")
             Prelude.<*> ( x Core..:? "notificationTargets"
                             Core..!= Prelude.mempty
                         )
@@ -117,7 +133,8 @@ instance Core.FromJSON IncidentTemplate where
 
 instance Prelude.Hashable IncidentTemplate where
   hashWithSalt _salt IncidentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` summary
+    _salt `Prelude.hashWithSalt` incidentTags
+      `Prelude.hashWithSalt` summary
       `Prelude.hashWithSalt` notificationTargets
       `Prelude.hashWithSalt` dedupeString
       `Prelude.hashWithSalt` impact
@@ -125,7 +142,8 @@ instance Prelude.Hashable IncidentTemplate where
 
 instance Prelude.NFData IncidentTemplate where
   rnf IncidentTemplate' {..} =
-    Prelude.rnf summary
+    Prelude.rnf incidentTags
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf notificationTargets
       `Prelude.seq` Prelude.rnf dedupeString
       `Prelude.seq` Prelude.rnf impact
@@ -135,7 +153,8 @@ instance Core.ToJSON IncidentTemplate where
   toJSON IncidentTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("summary" Core..=) Prelude.<$> summary,
+          [ ("incidentTags" Core..=) Prelude.<$> incidentTags,
+            ("summary" Core..=) Prelude.<$> summary,
             ("notificationTargets" Core..=)
               Prelude.<$> notificationTargets,
             ("dedupeString" Core..=) Prelude.<$> dedupeString,

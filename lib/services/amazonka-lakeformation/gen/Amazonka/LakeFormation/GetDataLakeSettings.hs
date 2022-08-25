@@ -52,7 +52,7 @@ data GetDataLakeSettings = GetDataLakeSettings'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data GetDataLakeSettings = GetDataLakeSettings'
 -- 'catalogId', 'getDataLakeSettings_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 newGetDataLakeSettings ::
   GetDataLakeSettings
 newGetDataLakeSettings =
@@ -77,7 +77,7 @@ newGetDataLakeSettings =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 getDataLakeSettings_catalogId :: Lens.Lens' GetDataLakeSettings (Prelude.Maybe Prelude.Text)
 getDataLakeSettings_catalogId = Lens.lens (\GetDataLakeSettings' {catalogId} -> catalogId) (\s@GetDataLakeSettings' {} a -> s {catalogId = a} :: GetDataLakeSettings)
 
@@ -105,11 +105,7 @@ instance Core.ToHeaders GetDataLakeSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.GetDataLakeSettings" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -124,15 +120,15 @@ instance Core.ToJSON GetDataLakeSettings where
       )
 
 instance Core.ToPath GetDataLakeSettings where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/GetDataLakeSettings"
 
 instance Core.ToQuery GetDataLakeSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataLakeSettingsResponse' smart constructor.
 data GetDataLakeSettingsResponse = GetDataLakeSettingsResponse'
-  { -- | A structure representing a list of AWS Lake Formation principals
-    -- designated as data lake administrators.
+  { -- | A structure representing a list of Lake Formation principals designated
+    -- as data lake administrators.
     dataLakeSettings :: Prelude.Maybe DataLakeSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -147,8 +143,8 @@ data GetDataLakeSettingsResponse = GetDataLakeSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataLakeSettings', 'getDataLakeSettingsResponse_dataLakeSettings' - A structure representing a list of AWS Lake Formation principals
--- designated as data lake administrators.
+-- 'dataLakeSettings', 'getDataLakeSettingsResponse_dataLakeSettings' - A structure representing a list of Lake Formation principals designated
+-- as data lake administrators.
 --
 -- 'httpStatus', 'getDataLakeSettingsResponse_httpStatus' - The response's http status code.
 newGetDataLakeSettingsResponse ::
@@ -162,8 +158,8 @@ newGetDataLakeSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A structure representing a list of AWS Lake Formation principals
--- designated as data lake administrators.
+-- | A structure representing a list of Lake Formation principals designated
+-- as data lake administrators.
 getDataLakeSettingsResponse_dataLakeSettings :: Lens.Lens' GetDataLakeSettingsResponse (Prelude.Maybe DataLakeSettings)
 getDataLakeSettingsResponse_dataLakeSettings = Lens.lens (\GetDataLakeSettingsResponse' {dataLakeSettings} -> dataLakeSettings) (\s@GetDataLakeSettingsResponse' {} a -> s {dataLakeSettings = a} :: GetDataLakeSettingsResponse)
 

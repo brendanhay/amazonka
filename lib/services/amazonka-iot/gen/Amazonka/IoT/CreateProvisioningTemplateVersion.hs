@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of a fleet provisioning template.
+-- Creates a new version of a provisioning template.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateProvisioningTemplateVersion>
@@ -59,9 +59,9 @@ import qualified Amazonka.Response as Response
 data CreateProvisioningTemplateVersion = CreateProvisioningTemplateVersion'
   { -- | Sets a fleet provision template version as the default version.
     setAsDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the fleet provisioning template.
+    -- | The name of the provisioning template.
     templateName :: Prelude.Text,
-    -- | The JSON formatted contents of the fleet provisioning template.
+    -- | The JSON formatted contents of the provisioning template.
     templateBody :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,9 +76,9 @@ data CreateProvisioningTemplateVersion = CreateProvisioningTemplateVersion'
 --
 -- 'setAsDefault', 'createProvisioningTemplateVersion_setAsDefault' - Sets a fleet provision template version as the default version.
 --
--- 'templateName', 'createProvisioningTemplateVersion_templateName' - The name of the fleet provisioning template.
+-- 'templateName', 'createProvisioningTemplateVersion_templateName' - The name of the provisioning template.
 --
--- 'templateBody', 'createProvisioningTemplateVersion_templateBody' - The JSON formatted contents of the fleet provisioning template.
+-- 'templateBody', 'createProvisioningTemplateVersion_templateBody' - The JSON formatted contents of the provisioning template.
 newCreateProvisioningTemplateVersion ::
   -- | 'templateName'
   Prelude.Text ->
@@ -99,11 +99,11 @@ newCreateProvisioningTemplateVersion
 createProvisioningTemplateVersion_setAsDefault :: Lens.Lens' CreateProvisioningTemplateVersion (Prelude.Maybe Prelude.Bool)
 createProvisioningTemplateVersion_setAsDefault = Lens.lens (\CreateProvisioningTemplateVersion' {setAsDefault} -> setAsDefault) (\s@CreateProvisioningTemplateVersion' {} a -> s {setAsDefault = a} :: CreateProvisioningTemplateVersion)
 
--- | The name of the fleet provisioning template.
+-- | The name of the provisioning template.
 createProvisioningTemplateVersion_templateName :: Lens.Lens' CreateProvisioningTemplateVersion Prelude.Text
 createProvisioningTemplateVersion_templateName = Lens.lens (\CreateProvisioningTemplateVersion' {templateName} -> templateName) (\s@CreateProvisioningTemplateVersion' {} a -> s {templateName = a} :: CreateProvisioningTemplateVersion)
 
--- | The JSON formatted contents of the fleet provisioning template.
+-- | The JSON formatted contents of the provisioning template.
 createProvisioningTemplateVersion_templateBody :: Lens.Lens' CreateProvisioningTemplateVersion Prelude.Text
 createProvisioningTemplateVersion_templateBody = Lens.lens (\CreateProvisioningTemplateVersion' {templateBody} -> templateBody) (\s@CreateProvisioningTemplateVersion' {} a -> s {templateBody = a} :: CreateProvisioningTemplateVersion)
 
@@ -183,14 +183,14 @@ instance
 
 -- | /See:/ 'newCreateProvisioningTemplateVersionResponse' smart constructor.
 data CreateProvisioningTemplateVersionResponse = CreateProvisioningTemplateVersionResponse'
-  { -- | True if the fleet provisioning template version is the default version,
+  { -- | True if the provisioning template version is the default version,
     -- otherwise false.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the fleet provisioning template.
+    -- | The name of the provisioning template.
     templateName :: Prelude.Maybe Prelude.Text,
     -- | The ARN that identifies the provisioning template.
     templateArn :: Prelude.Maybe Prelude.Text,
-    -- | The version of the fleet provisioning template.
+    -- | The version of the provisioning template.
     versionId :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,14 +205,14 @@ data CreateProvisioningTemplateVersionResponse = CreateProvisioningTemplateVersi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isDefaultVersion', 'createProvisioningTemplateVersionResponse_isDefaultVersion' - True if the fleet provisioning template version is the default version,
+-- 'isDefaultVersion', 'createProvisioningTemplateVersionResponse_isDefaultVersion' - True if the provisioning template version is the default version,
 -- otherwise false.
 --
--- 'templateName', 'createProvisioningTemplateVersionResponse_templateName' - The name of the fleet provisioning template.
+-- 'templateName', 'createProvisioningTemplateVersionResponse_templateName' - The name of the provisioning template.
 --
 -- 'templateArn', 'createProvisioningTemplateVersionResponse_templateArn' - The ARN that identifies the provisioning template.
 --
--- 'versionId', 'createProvisioningTemplateVersionResponse_versionId' - The version of the fleet provisioning template.
+-- 'versionId', 'createProvisioningTemplateVersionResponse_versionId' - The version of the provisioning template.
 --
 -- 'httpStatus', 'createProvisioningTemplateVersionResponse_httpStatus' - The response's http status code.
 newCreateProvisioningTemplateVersionResponse ::
@@ -230,12 +230,12 @@ newCreateProvisioningTemplateVersionResponse
         httpStatus = pHttpStatus_
       }
 
--- | True if the fleet provisioning template version is the default version,
+-- | True if the provisioning template version is the default version,
 -- otherwise false.
 createProvisioningTemplateVersionResponse_isDefaultVersion :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Bool)
 createProvisioningTemplateVersionResponse_isDefaultVersion = Lens.lens (\CreateProvisioningTemplateVersionResponse' {isDefaultVersion} -> isDefaultVersion) (\s@CreateProvisioningTemplateVersionResponse' {} a -> s {isDefaultVersion = a} :: CreateProvisioningTemplateVersionResponse)
 
--- | The name of the fleet provisioning template.
+-- | The name of the provisioning template.
 createProvisioningTemplateVersionResponse_templateName :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Text)
 createProvisioningTemplateVersionResponse_templateName = Lens.lens (\CreateProvisioningTemplateVersionResponse' {templateName} -> templateName) (\s@CreateProvisioningTemplateVersionResponse' {} a -> s {templateName = a} :: CreateProvisioningTemplateVersionResponse)
 
@@ -243,7 +243,7 @@ createProvisioningTemplateVersionResponse_templateName = Lens.lens (\CreateProvi
 createProvisioningTemplateVersionResponse_templateArn :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Text)
 createProvisioningTemplateVersionResponse_templateArn = Lens.lens (\CreateProvisioningTemplateVersionResponse' {templateArn} -> templateArn) (\s@CreateProvisioningTemplateVersionResponse' {} a -> s {templateArn = a} :: CreateProvisioningTemplateVersionResponse)
 
--- | The version of the fleet provisioning template.
+-- | The version of the provisioning template.
 createProvisioningTemplateVersionResponse_versionId :: Lens.Lens' CreateProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Int)
 createProvisioningTemplateVersionResponse_versionId = Lens.lens (\CreateProvisioningTemplateVersionResponse' {versionId} -> versionId) (\s@CreateProvisioningTemplateVersionResponse' {} a -> s {versionId = a} :: CreateProvisioningTemplateVersionResponse)
 

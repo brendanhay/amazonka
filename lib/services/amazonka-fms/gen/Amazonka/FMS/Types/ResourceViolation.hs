@@ -26,6 +26,8 @@ import Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
 import Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation
 import Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation
 import Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation
+import Amazonka.FMS.Types.FirewallSubnetIsOutOfScopeViolation
+import Amazonka.FMS.Types.FirewallSubnetMissingVPCEndpointViolation
 import Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
 import Amazonka.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
 import Amazonka.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
@@ -37,6 +39,10 @@ import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
 import Amazonka.FMS.Types.PossibleRemediationActions
+import Amazonka.FMS.Types.RouteHasOutOfScopeEndpointViolation
+import Amazonka.FMS.Types.ThirdPartyFirewallMissingExpectedRouteTableViolation
+import Amazonka.FMS.Types.ThirdPartyFirewallMissingFirewallViolation
+import Amazonka.FMS.Types.ThirdPartyFirewallMissingSubnetViolation
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -44,10 +50,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceViolation' smart constructor.
 data ResourceViolation = ResourceViolation'
-  { -- | Violation detail for a DNS Firewall policy that indicates that a rule
+  { -- | The violation details for a third-party firewall\'s subnet that\'s been
+    -- deleted.
+    thirdPartyFirewallMissingSubnetViolation :: Prelude.Maybe ThirdPartyFirewallMissingSubnetViolation,
+    -- | Violation detail for a DNS Firewall policy that indicates that a rule
     -- group that Firewall Manager tried to associate with a VPC has the same
     -- priority as a rule group that\'s already associated.
     dnsRuleGroupPriorityConflictViolation :: Prelude.Maybe DnsRuleGroupPriorityConflictViolation,
+    -- | The violation details for a third-party firewall that has the Firewall
+    -- Manager managed route table that was associated with the third-party
+    -- firewall has been deleted.
+    thirdPartyFirewallMissingExpectedRouteTableViolation :: Prelude.Maybe ThirdPartyFirewallMissingExpectedRouteTableViolation,
     -- | Expected routes are missing from Network Firewall.
     networkFirewallMissingExpectedRoutesViolation :: Prelude.Maybe NetworkFirewallMissingExpectedRoutesViolation,
     -- | There\'s an unexpected firewall route.
@@ -68,6 +81,11 @@ data ResourceViolation = ResourceViolation'
     networkFirewallInternetTrafficNotInspectedViolation :: Prelude.Maybe NetworkFirewallInternetTrafficNotInspectedViolation,
     -- | Violation detail for an EC2 instance.
     awsEc2InstanceViolation :: Prelude.Maybe AwsEc2InstanceViolation,
+    -- | The violation details for a third-party firewall\'s VPC endpoint subnet
+    -- that was deleted.
+    firewallSubnetMissingVPCEndpointViolation :: Prelude.Maybe FirewallSubnetMissingVPCEndpointViolation,
+    -- | The violation details for a third-party firewall that\'s been deleted.
+    thirdPartyFirewallMissingFirewallViolation :: Prelude.Maybe ThirdPartyFirewallMissingFirewallViolation,
     -- | A list of possible remediation action lists. Each individual possible
     -- remediation action is a list of individual remediation actions.
     possibleRemediationActions :: Prelude.Maybe PossibleRemediationActions,
@@ -84,6 +102,12 @@ data ResourceViolation = ResourceViolation'
     -- | There\'s an unexpected gateway route.
     networkFirewallUnexpectedGatewayRoutesViolation :: Prelude.Maybe NetworkFirewallUnexpectedGatewayRoutesViolation,
     networkFirewallBlackHoleRouteDetectedViolation :: Prelude.Maybe NetworkFirewallBlackHoleRouteDetectedViolation,
+    -- | Contains details about the firewall subnet that violates the policy
+    -- scope.
+    firewallSubnetIsOutOfScopeViolation :: Prelude.Maybe FirewallSubnetIsOutOfScopeViolation,
+    -- | Contains details about the route endpoint that violates the policy
+    -- scope.
+    routeHasOutOfScopeEndpointViolation :: Prelude.Maybe RouteHasOutOfScopeEndpointViolation,
     -- | The route configuration is invalid.
     networkFirewallInvalidRouteConfigurationViolation :: Prelude.Maybe NetworkFirewallInvalidRouteConfigurationViolation,
     -- | Violation detail for a network interface.
@@ -105,9 +129,16 @@ data ResourceViolation = ResourceViolation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'thirdPartyFirewallMissingSubnetViolation', 'resourceViolation_thirdPartyFirewallMissingSubnetViolation' - The violation details for a third-party firewall\'s subnet that\'s been
+-- deleted.
+--
 -- 'dnsRuleGroupPriorityConflictViolation', 'resourceViolation_dnsRuleGroupPriorityConflictViolation' - Violation detail for a DNS Firewall policy that indicates that a rule
 -- group that Firewall Manager tried to associate with a VPC has the same
 -- priority as a rule group that\'s already associated.
+--
+-- 'thirdPartyFirewallMissingExpectedRouteTableViolation', 'resourceViolation_thirdPartyFirewallMissingExpectedRouteTableViolation' - The violation details for a third-party firewall that has the Firewall
+-- Manager managed route table that was associated with the third-party
+-- firewall has been deleted.
 --
 -- 'networkFirewallMissingExpectedRoutesViolation', 'resourceViolation_networkFirewallMissingExpectedRoutesViolation' - Expected routes are missing from Network Firewall.
 --
@@ -129,6 +160,11 @@ data ResourceViolation = ResourceViolation'
 --
 -- 'awsEc2InstanceViolation', 'resourceViolation_awsEc2InstanceViolation' - Violation detail for an EC2 instance.
 --
+-- 'firewallSubnetMissingVPCEndpointViolation', 'resourceViolation_firewallSubnetMissingVPCEndpointViolation' - The violation details for a third-party firewall\'s VPC endpoint subnet
+-- that was deleted.
+--
+-- 'thirdPartyFirewallMissingFirewallViolation', 'resourceViolation_thirdPartyFirewallMissingFirewallViolation' - The violation details for a third-party firewall that\'s been deleted.
+--
 -- 'possibleRemediationActions', 'resourceViolation_possibleRemediationActions' - A list of possible remediation action lists. Each individual possible
 -- remediation action is a list of individual remediation actions.
 --
@@ -146,6 +182,12 @@ data ResourceViolation = ResourceViolation'
 --
 -- 'networkFirewallBlackHoleRouteDetectedViolation', 'resourceViolation_networkFirewallBlackHoleRouteDetectedViolation' - Undocumented member.
 --
+-- 'firewallSubnetIsOutOfScopeViolation', 'resourceViolation_firewallSubnetIsOutOfScopeViolation' - Contains details about the firewall subnet that violates the policy
+-- scope.
+--
+-- 'routeHasOutOfScopeEndpointViolation', 'resourceViolation_routeHasOutOfScopeEndpointViolation' - Contains details about the route endpoint that violates the policy
+-- scope.
+--
 -- 'networkFirewallInvalidRouteConfigurationViolation', 'resourceViolation_networkFirewallInvalidRouteConfigurationViolation' - The route configuration is invalid.
 --
 -- 'awsEc2NetworkInterfaceViolation', 'resourceViolation_awsEc2NetworkInterfaceViolation' - Violation detail for a network interface.
@@ -159,7 +201,11 @@ newResourceViolation ::
   ResourceViolation
 newResourceViolation =
   ResourceViolation'
-    { dnsRuleGroupPriorityConflictViolation =
+    { thirdPartyFirewallMissingSubnetViolation =
+        Prelude.Nothing,
+      dnsRuleGroupPriorityConflictViolation =
+        Prelude.Nothing,
+      thirdPartyFirewallMissingExpectedRouteTableViolation =
         Prelude.Nothing,
       networkFirewallMissingExpectedRoutesViolation =
         Prelude.Nothing,
@@ -172,6 +218,10 @@ newResourceViolation =
       networkFirewallInternetTrafficNotInspectedViolation =
         Prelude.Nothing,
       awsEc2InstanceViolation = Prelude.Nothing,
+      firewallSubnetMissingVPCEndpointViolation =
+        Prelude.Nothing,
+      thirdPartyFirewallMissingFirewallViolation =
+        Prelude.Nothing,
       possibleRemediationActions = Prelude.Nothing,
       networkFirewallMissingSubnetViolation =
         Prelude.Nothing,
@@ -181,6 +231,10 @@ newResourceViolation =
         Prelude.Nothing,
       networkFirewallBlackHoleRouteDetectedViolation =
         Prelude.Nothing,
+      firewallSubnetIsOutOfScopeViolation =
+        Prelude.Nothing,
+      routeHasOutOfScopeEndpointViolation =
+        Prelude.Nothing,
       networkFirewallInvalidRouteConfigurationViolation =
         Prelude.Nothing,
       awsEc2NetworkInterfaceViolation = Prelude.Nothing,
@@ -189,11 +243,22 @@ newResourceViolation =
         Prelude.Nothing
     }
 
+-- | The violation details for a third-party firewall\'s subnet that\'s been
+-- deleted.
+resourceViolation_thirdPartyFirewallMissingSubnetViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe ThirdPartyFirewallMissingSubnetViolation)
+resourceViolation_thirdPartyFirewallMissingSubnetViolation = Lens.lens (\ResourceViolation' {thirdPartyFirewallMissingSubnetViolation} -> thirdPartyFirewallMissingSubnetViolation) (\s@ResourceViolation' {} a -> s {thirdPartyFirewallMissingSubnetViolation = a} :: ResourceViolation)
+
 -- | Violation detail for a DNS Firewall policy that indicates that a rule
 -- group that Firewall Manager tried to associate with a VPC has the same
 -- priority as a rule group that\'s already associated.
 resourceViolation_dnsRuleGroupPriorityConflictViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe DnsRuleGroupPriorityConflictViolation)
 resourceViolation_dnsRuleGroupPriorityConflictViolation = Lens.lens (\ResourceViolation' {dnsRuleGroupPriorityConflictViolation} -> dnsRuleGroupPriorityConflictViolation) (\s@ResourceViolation' {} a -> s {dnsRuleGroupPriorityConflictViolation = a} :: ResourceViolation)
+
+-- | The violation details for a third-party firewall that has the Firewall
+-- Manager managed route table that was associated with the third-party
+-- firewall has been deleted.
+resourceViolation_thirdPartyFirewallMissingExpectedRouteTableViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe ThirdPartyFirewallMissingExpectedRouteTableViolation)
+resourceViolation_thirdPartyFirewallMissingExpectedRouteTableViolation = Lens.lens (\ResourceViolation' {thirdPartyFirewallMissingExpectedRouteTableViolation} -> thirdPartyFirewallMissingExpectedRouteTableViolation) (\s@ResourceViolation' {} a -> s {thirdPartyFirewallMissingExpectedRouteTableViolation = a} :: ResourceViolation)
 
 -- | Expected routes are missing from Network Firewall.
 resourceViolation_networkFirewallMissingExpectedRoutesViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallMissingExpectedRoutesViolation)
@@ -229,6 +294,15 @@ resourceViolation_networkFirewallInternetTrafficNotInspectedViolation = Lens.len
 resourceViolation_awsEc2InstanceViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe AwsEc2InstanceViolation)
 resourceViolation_awsEc2InstanceViolation = Lens.lens (\ResourceViolation' {awsEc2InstanceViolation} -> awsEc2InstanceViolation) (\s@ResourceViolation' {} a -> s {awsEc2InstanceViolation = a} :: ResourceViolation)
 
+-- | The violation details for a third-party firewall\'s VPC endpoint subnet
+-- that was deleted.
+resourceViolation_firewallSubnetMissingVPCEndpointViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe FirewallSubnetMissingVPCEndpointViolation)
+resourceViolation_firewallSubnetMissingVPCEndpointViolation = Lens.lens (\ResourceViolation' {firewallSubnetMissingVPCEndpointViolation} -> firewallSubnetMissingVPCEndpointViolation) (\s@ResourceViolation' {} a -> s {firewallSubnetMissingVPCEndpointViolation = a} :: ResourceViolation)
+
+-- | The violation details for a third-party firewall that\'s been deleted.
+resourceViolation_thirdPartyFirewallMissingFirewallViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe ThirdPartyFirewallMissingFirewallViolation)
+resourceViolation_thirdPartyFirewallMissingFirewallViolation = Lens.lens (\ResourceViolation' {thirdPartyFirewallMissingFirewallViolation} -> thirdPartyFirewallMissingFirewallViolation) (\s@ResourceViolation' {} a -> s {thirdPartyFirewallMissingFirewallViolation = a} :: ResourceViolation)
+
 -- | A list of possible remediation action lists. Each individual possible
 -- remediation action is a list of individual remediation actions.
 resourceViolation_possibleRemediationActions :: Lens.Lens' ResourceViolation (Prelude.Maybe PossibleRemediationActions)
@@ -256,6 +330,16 @@ resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation = Lens.lens (\
 resourceViolation_networkFirewallBlackHoleRouteDetectedViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallBlackHoleRouteDetectedViolation)
 resourceViolation_networkFirewallBlackHoleRouteDetectedViolation = Lens.lens (\ResourceViolation' {networkFirewallBlackHoleRouteDetectedViolation} -> networkFirewallBlackHoleRouteDetectedViolation) (\s@ResourceViolation' {} a -> s {networkFirewallBlackHoleRouteDetectedViolation = a} :: ResourceViolation)
 
+-- | Contains details about the firewall subnet that violates the policy
+-- scope.
+resourceViolation_firewallSubnetIsOutOfScopeViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe FirewallSubnetIsOutOfScopeViolation)
+resourceViolation_firewallSubnetIsOutOfScopeViolation = Lens.lens (\ResourceViolation' {firewallSubnetIsOutOfScopeViolation} -> firewallSubnetIsOutOfScopeViolation) (\s@ResourceViolation' {} a -> s {firewallSubnetIsOutOfScopeViolation = a} :: ResourceViolation)
+
+-- | Contains details about the route endpoint that violates the policy
+-- scope.
+resourceViolation_routeHasOutOfScopeEndpointViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe RouteHasOutOfScopeEndpointViolation)
+resourceViolation_routeHasOutOfScopeEndpointViolation = Lens.lens (\ResourceViolation' {routeHasOutOfScopeEndpointViolation} -> routeHasOutOfScopeEndpointViolation) (\s@ResourceViolation' {} a -> s {routeHasOutOfScopeEndpointViolation = a} :: ResourceViolation)
+
 -- | The route configuration is invalid.
 resourceViolation_networkFirewallInvalidRouteConfigurationViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallInvalidRouteConfigurationViolation)
 resourceViolation_networkFirewallInvalidRouteConfigurationViolation = Lens.lens (\ResourceViolation' {networkFirewallInvalidRouteConfigurationViolation} -> networkFirewallInvalidRouteConfigurationViolation) (\s@ResourceViolation' {} a -> s {networkFirewallInvalidRouteConfigurationViolation = a} :: ResourceViolation)
@@ -280,7 +364,13 @@ instance Core.FromJSON ResourceViolation where
       "ResourceViolation"
       ( \x ->
           ResourceViolation'
-            Prelude.<$> (x Core..:? "DnsRuleGroupPriorityConflictViolation")
+            Prelude.<$> ( x
+                            Core..:? "ThirdPartyFirewallMissingSubnetViolation"
+                        )
+            Prelude.<*> (x Core..:? "DnsRuleGroupPriorityConflictViolation")
+            Prelude.<*> ( x
+                            Core..:? "ThirdPartyFirewallMissingExpectedRouteTableViolation"
+                        )
             Prelude.<*> ( x
                             Core..:? "NetworkFirewallMissingExpectedRoutesViolation"
                         )
@@ -296,6 +386,12 @@ instance Core.FromJSON ResourceViolation where
                             Core..:? "NetworkFirewallInternetTrafficNotInspectedViolation"
                         )
             Prelude.<*> (x Core..:? "AwsEc2InstanceViolation")
+            Prelude.<*> ( x
+                            Core..:? "FirewallSubnetMissingVPCEndpointViolation"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "ThirdPartyFirewallMissingFirewallViolation"
+                        )
             Prelude.<*> (x Core..:? "PossibleRemediationActions")
             Prelude.<*> (x Core..:? "NetworkFirewallMissingSubnetViolation")
             Prelude.<*> (x Core..:? "NetworkFirewallPolicyModifiedViolation")
@@ -305,6 +401,8 @@ instance Core.FromJSON ResourceViolation where
             Prelude.<*> ( x
                             Core..:? "NetworkFirewallBlackHoleRouteDetectedViolation"
                         )
+            Prelude.<*> (x Core..:? "FirewallSubnetIsOutOfScopeViolation")
+            Prelude.<*> (x Core..:? "RouteHasOutOfScopeEndpointViolation")
             Prelude.<*> ( x
                             Core..:? "NetworkFirewallInvalidRouteConfigurationViolation"
                         )
@@ -318,7 +416,9 @@ instance Core.FromJSON ResourceViolation where
 instance Prelude.Hashable ResourceViolation where
   hashWithSalt _salt ResourceViolation' {..} =
     _salt
+      `Prelude.hashWithSalt` thirdPartyFirewallMissingSubnetViolation
       `Prelude.hashWithSalt` dnsRuleGroupPriorityConflictViolation
+      `Prelude.hashWithSalt` thirdPartyFirewallMissingExpectedRouteTableViolation
       `Prelude.hashWithSalt` networkFirewallMissingExpectedRoutesViolation
       `Prelude.hashWithSalt` networkFirewallUnexpectedFirewallRoutesViolation
       `Prelude.hashWithSalt` dnsDuplicateRuleGroupViolation
@@ -326,11 +426,15 @@ instance Prelude.Hashable ResourceViolation where
       `Prelude.hashWithSalt` networkFirewallMissingFirewallViolation
       `Prelude.hashWithSalt` networkFirewallInternetTrafficNotInspectedViolation
       `Prelude.hashWithSalt` awsEc2InstanceViolation
+      `Prelude.hashWithSalt` firewallSubnetMissingVPCEndpointViolation
+      `Prelude.hashWithSalt` thirdPartyFirewallMissingFirewallViolation
       `Prelude.hashWithSalt` possibleRemediationActions
       `Prelude.hashWithSalt` networkFirewallMissingSubnetViolation
       `Prelude.hashWithSalt` networkFirewallPolicyModifiedViolation
       `Prelude.hashWithSalt` networkFirewallUnexpectedGatewayRoutesViolation
       `Prelude.hashWithSalt` networkFirewallBlackHoleRouteDetectedViolation
+      `Prelude.hashWithSalt` firewallSubnetIsOutOfScopeViolation
+      `Prelude.hashWithSalt` routeHasOutOfScopeEndpointViolation
       `Prelude.hashWithSalt` networkFirewallInvalidRouteConfigurationViolation
       `Prelude.hashWithSalt` awsEc2NetworkInterfaceViolation
       `Prelude.hashWithSalt` awsVPCSecurityGroupViolation
@@ -338,7 +442,11 @@ instance Prelude.Hashable ResourceViolation where
 
 instance Prelude.NFData ResourceViolation where
   rnf ResourceViolation' {..} =
-    Prelude.rnf dnsRuleGroupPriorityConflictViolation
+    Prelude.rnf
+      thirdPartyFirewallMissingSubnetViolation
+      `Prelude.seq` Prelude.rnf dnsRuleGroupPriorityConflictViolation
+      `Prelude.seq` Prelude.rnf
+        thirdPartyFirewallMissingExpectedRouteTableViolation
       `Prelude.seq` Prelude.rnf
         networkFirewallMissingExpectedRoutesViolation
       `Prelude.seq` Prelude.rnf
@@ -349,14 +457,23 @@ instance Prelude.NFData ResourceViolation where
       `Prelude.seq` Prelude.rnf
         networkFirewallInternetTrafficNotInspectedViolation
       `Prelude.seq` Prelude.rnf awsEc2InstanceViolation
+      `Prelude.seq` Prelude.rnf
+        firewallSubnetMissingVPCEndpointViolation
+      `Prelude.seq` Prelude.rnf
+        thirdPartyFirewallMissingFirewallViolation
       `Prelude.seq` Prelude.rnf possibleRemediationActions
-      `Prelude.seq` Prelude.rnf networkFirewallMissingSubnetViolation
+      `Prelude.seq` Prelude.rnf
+        networkFirewallMissingSubnetViolation
       `Prelude.seq` Prelude.rnf
         networkFirewallPolicyModifiedViolation
       `Prelude.seq` Prelude.rnf
         networkFirewallUnexpectedGatewayRoutesViolation
       `Prelude.seq` Prelude.rnf
         networkFirewallBlackHoleRouteDetectedViolation
+      `Prelude.seq` Prelude.rnf
+        firewallSubnetIsOutOfScopeViolation
+      `Prelude.seq` Prelude.rnf
+        routeHasOutOfScopeEndpointViolation
       `Prelude.seq` Prelude.rnf
         networkFirewallInvalidRouteConfigurationViolation
       `Prelude.seq` Prelude.rnf

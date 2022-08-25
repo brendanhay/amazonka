@@ -118,6 +118,12 @@ module Amazonka.HoneyCode
     ListTablesResponse (ListTablesResponse'),
     newListTablesResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** QueryTableRows (Paginated)
     QueryTableRows (QueryTableRows'),
     newQueryTableRows,
@@ -130,7 +136,22 @@ module Amazonka.HoneyCode
     StartTableDataImportJobResponse (StartTableDataImportJobResponse'),
     newStartTableDataImportJobResponse,
 
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
     -- * Types
+
+    -- ** ErrorCode
+    ErrorCode (..),
 
     -- ** Format
     Format (..),
@@ -256,9 +277,12 @@ import Amazonka.HoneyCode.Lens
 import Amazonka.HoneyCode.ListTableColumns
 import Amazonka.HoneyCode.ListTableRows
 import Amazonka.HoneyCode.ListTables
+import Amazonka.HoneyCode.ListTagsForResource
 import Amazonka.HoneyCode.QueryTableRows
 import Amazonka.HoneyCode.StartTableDataImportJob
+import Amazonka.HoneyCode.TagResource
 import Amazonka.HoneyCode.Types
+import Amazonka.HoneyCode.UntagResource
 import Amazonka.HoneyCode.Waiters
 
 -- $errors

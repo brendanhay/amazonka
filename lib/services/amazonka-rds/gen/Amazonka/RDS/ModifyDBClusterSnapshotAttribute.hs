@@ -43,10 +43,8 @@
 -- To view which Amazon Web Services accounts have access to copy or
 -- restore a manual DB cluster snapshot, or whether a manual DB cluster
 -- snapshot is public or private, use the
--- DescribeDBClusterSnapshotAttributes API action. The accounts are
+-- DescribeDBClusterSnapshotAttributes API operation. The accounts are
 -- returned as values for the @restore@ attribute.
---
--- This action only applies to Aurora DB clusters.
 module Amazonka.RDS.ModifyDBClusterSnapshotAttribute
   ( -- * Creating a Request
     ModifyDBClusterSnapshotAttribute (..),
@@ -109,7 +107,7 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     -- or restore a manual DB cluster snapshot, set this value to @restore@.
     --
     -- To view the list of attributes available to modify, use the
-    -- DescribeDBClusterSnapshotAttributes API action.
+    -- DescribeDBClusterSnapshotAttributes API operation.
     attributeName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -152,7 +150,7 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- or restore a manual DB cluster snapshot, set this value to @restore@.
 --
 -- To view the list of attributes available to modify, use the
--- DescribeDBClusterSnapshotAttributes API action.
+-- DescribeDBClusterSnapshotAttributes API operation.
 newModifyDBClusterSnapshotAttribute ::
   -- | 'dbClusterSnapshotIdentifier'
   Prelude.Text ->
@@ -207,7 +205,7 @@ modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier = Lens.lens (\Modif
 -- or restore a manual DB cluster snapshot, set this value to @restore@.
 --
 -- To view the list of attributes available to modify, use the
--- DescribeDBClusterSnapshotAttributes API action.
+-- DescribeDBClusterSnapshotAttributes API operation.
 modifyDBClusterSnapshotAttribute_attributeName :: Lens.Lens' ModifyDBClusterSnapshotAttribute Prelude.Text
 modifyDBClusterSnapshotAttribute_attributeName = Lens.lens (\ModifyDBClusterSnapshotAttribute' {attributeName} -> attributeName) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {attributeName = a} :: ModifyDBClusterSnapshotAttribute)
 

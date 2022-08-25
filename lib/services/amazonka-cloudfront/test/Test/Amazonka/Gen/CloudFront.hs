@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestCreateRealtimeLogConfig $
 --             newCreateRealtimeLogConfig
 --
+--         , requestCreateResponseHeadersPolicy $
+--             newCreateResponseHeadersPolicy
+--
 --         , requestCreateStreamingDistribution $
 --             newCreateStreamingDistribution
 --
@@ -107,6 +110,9 @@ import Test.Tasty
 --
 --         , requestDeleteRealtimeLogConfig $
 --             newDeleteRealtimeLogConfig
+--
+--         , requestDeleteResponseHeadersPolicy $
+--             newDeleteResponseHeadersPolicy
 --
 --         , requestDeleteStreamingDistribution $
 --             newDeleteStreamingDistribution
@@ -174,6 +180,12 @@ import Test.Tasty
 --         , requestGetRealtimeLogConfig $
 --             newGetRealtimeLogConfig
 --
+--         , requestGetResponseHeadersPolicy $
+--             newGetResponseHeadersPolicy
+--
+--         , requestGetResponseHeadersPolicyConfig $
+--             newGetResponseHeadersPolicyConfig
+--
 --         , requestGetStreamingDistribution $
 --             newGetStreamingDistribution
 --
@@ -204,6 +216,9 @@ import Test.Tasty
 --         , requestListDistributionsByRealtimeLogConfig $
 --             newListDistributionsByRealtimeLogConfig
 --
+--         , requestListDistributionsByResponseHeadersPolicyId $
+--             newListDistributionsByResponseHeadersPolicyId
+--
 --         , requestListDistributionsByWebACLId $
 --             newListDistributionsByWebACLId
 --
@@ -230,6 +245,9 @@ import Test.Tasty
 --
 --         , requestListRealtimeLogConfigs $
 --             newListRealtimeLogConfigs
+--
+--         , requestListResponseHeadersPolicies $
+--             newListResponseHeadersPolicies
 --
 --         , requestListStreamingDistributions $
 --             newListStreamingDistributions
@@ -279,6 +297,9 @@ import Test.Tasty
 --         , requestUpdateRealtimeLogConfig $
 --             newUpdateRealtimeLogConfig
 --
+--         , requestUpdateResponseHeadersPolicy $
+--             newUpdateResponseHeadersPolicy
+--
 --         , requestUpdateStreamingDistribution $
 --             newUpdateStreamingDistribution
 --
@@ -327,6 +348,9 @@ import Test.Tasty
 --         , responseCreateRealtimeLogConfig $
 --             newCreateRealtimeLogConfigResponse
 --
+--         , responseCreateResponseHeadersPolicy $
+--             newCreateResponseHeadersPolicyResponse
+--
 --         , responseCreateStreamingDistribution $
 --             newCreateStreamingDistributionResponse
 --
@@ -365,6 +389,9 @@ import Test.Tasty
 --
 --         , responseDeleteRealtimeLogConfig $
 --             newDeleteRealtimeLogConfigResponse
+--
+--         , responseDeleteResponseHeadersPolicy $
+--             newDeleteResponseHeadersPolicyResponse
 --
 --         , responseDeleteStreamingDistribution $
 --             newDeleteStreamingDistributionResponse
@@ -432,6 +459,12 @@ import Test.Tasty
 --         , responseGetRealtimeLogConfig $
 --             newGetRealtimeLogConfigResponse
 --
+--         , responseGetResponseHeadersPolicy $
+--             newGetResponseHeadersPolicyResponse
+--
+--         , responseGetResponseHeadersPolicyConfig $
+--             newGetResponseHeadersPolicyConfigResponse
+--
 --         , responseGetStreamingDistribution $
 --             newGetStreamingDistributionResponse
 --
@@ -462,6 +495,9 @@ import Test.Tasty
 --         , responseListDistributionsByRealtimeLogConfig $
 --             newListDistributionsByRealtimeLogConfigResponse
 --
+--         , responseListDistributionsByResponseHeadersPolicyId $
+--             newListDistributionsByResponseHeadersPolicyIdResponse
+--
 --         , responseListDistributionsByWebACLId $
 --             newListDistributionsByWebACLIdResponse
 --
@@ -488,6 +524,9 @@ import Test.Tasty
 --
 --         , responseListRealtimeLogConfigs $
 --             newListRealtimeLogConfigsResponse
+--
+--         , responseListResponseHeadersPolicies $
+--             newListResponseHeadersPoliciesResponse
 --
 --         , responseListStreamingDistributions $
 --             newListStreamingDistributionsResponse
@@ -536,6 +575,9 @@ import Test.Tasty
 --
 --         , responseUpdateRealtimeLogConfig $
 --             newUpdateRealtimeLogConfigResponse
+--
+--         , responseUpdateResponseHeadersPolicy $
+--             newUpdateResponseHeadersPolicyResponse
 --
 --         , responseUpdateStreamingDistribution $
 --             newUpdateStreamingDistributionResponse
@@ -629,6 +671,12 @@ requestCreateRealtimeLogConfig =
     "CreateRealtimeLogConfig"
     "fixture/CreateRealtimeLogConfig.yaml"
 
+requestCreateResponseHeadersPolicy :: CreateResponseHeadersPolicy -> TestTree
+requestCreateResponseHeadersPolicy =
+  req
+    "CreateResponseHeadersPolicy"
+    "fixture/CreateResponseHeadersPolicy.yaml"
+
 requestCreateStreamingDistribution :: CreateStreamingDistribution -> TestTree
 requestCreateStreamingDistribution =
   req
@@ -706,6 +754,12 @@ requestDeleteRealtimeLogConfig =
   req
     "DeleteRealtimeLogConfig"
     "fixture/DeleteRealtimeLogConfig.yaml"
+
+requestDeleteResponseHeadersPolicy :: DeleteResponseHeadersPolicy -> TestTree
+requestDeleteResponseHeadersPolicy =
+  req
+    "DeleteResponseHeadersPolicy"
+    "fixture/DeleteResponseHeadersPolicy.yaml"
 
 requestDeleteStreamingDistribution :: DeleteStreamingDistribution -> TestTree
 requestDeleteStreamingDistribution =
@@ -839,6 +893,18 @@ requestGetRealtimeLogConfig =
     "GetRealtimeLogConfig"
     "fixture/GetRealtimeLogConfig.yaml"
 
+requestGetResponseHeadersPolicy :: GetResponseHeadersPolicy -> TestTree
+requestGetResponseHeadersPolicy =
+  req
+    "GetResponseHeadersPolicy"
+    "fixture/GetResponseHeadersPolicy.yaml"
+
+requestGetResponseHeadersPolicyConfig :: GetResponseHeadersPolicyConfig -> TestTree
+requestGetResponseHeadersPolicyConfig =
+  req
+    "GetResponseHeadersPolicyConfig"
+    "fixture/GetResponseHeadersPolicyConfig.yaml"
+
 requestGetStreamingDistribution :: GetStreamingDistribution -> TestTree
 requestGetStreamingDistribution =
   req
@@ -899,6 +965,12 @@ requestListDistributionsByRealtimeLogConfig =
     "ListDistributionsByRealtimeLogConfig"
     "fixture/ListDistributionsByRealtimeLogConfig.yaml"
 
+requestListDistributionsByResponseHeadersPolicyId :: ListDistributionsByResponseHeadersPolicyId -> TestTree
+requestListDistributionsByResponseHeadersPolicyId =
+  req
+    "ListDistributionsByResponseHeadersPolicyId"
+    "fixture/ListDistributionsByResponseHeadersPolicyId.yaml"
+
 requestListDistributionsByWebACLId :: ListDistributionsByWebACLId -> TestTree
 requestListDistributionsByWebACLId =
   req
@@ -952,6 +1024,12 @@ requestListRealtimeLogConfigs =
   req
     "ListRealtimeLogConfigs"
     "fixture/ListRealtimeLogConfigs.yaml"
+
+requestListResponseHeadersPolicies :: ListResponseHeadersPolicies -> TestTree
+requestListResponseHeadersPolicies =
+  req
+    "ListResponseHeadersPolicies"
+    "fixture/ListResponseHeadersPolicies.yaml"
 
 requestListStreamingDistributions :: ListStreamingDistributions -> TestTree
 requestListStreamingDistributions =
@@ -1048,6 +1126,12 @@ requestUpdateRealtimeLogConfig =
   req
     "UpdateRealtimeLogConfig"
     "fixture/UpdateRealtimeLogConfig.yaml"
+
+requestUpdateResponseHeadersPolicy :: UpdateResponseHeadersPolicy -> TestTree
+requestUpdateResponseHeadersPolicy =
+  req
+    "UpdateResponseHeadersPolicy"
+    "fixture/UpdateResponseHeadersPolicy.yaml"
 
 requestUpdateStreamingDistribution :: UpdateStreamingDistribution -> TestTree
 requestUpdateStreamingDistribution =
@@ -1169,6 +1253,14 @@ responseCreateRealtimeLogConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRealtimeLogConfig)
 
+responseCreateResponseHeadersPolicy :: CreateResponseHeadersPolicyResponse -> TestTree
+responseCreateResponseHeadersPolicy =
+  res
+    "CreateResponseHeadersPolicyResponse"
+    "fixture/CreateResponseHeadersPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateResponseHeadersPolicy)
+
 responseCreateStreamingDistribution :: CreateStreamingDistributionResponse -> TestTree
 responseCreateStreamingDistribution =
   res
@@ -1272,6 +1364,14 @@ responseDeleteRealtimeLogConfig =
     "fixture/DeleteRealtimeLogConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteRealtimeLogConfig)
+
+responseDeleteResponseHeadersPolicy :: DeleteResponseHeadersPolicyResponse -> TestTree
+responseDeleteResponseHeadersPolicy =
+  res
+    "DeleteResponseHeadersPolicyResponse"
+    "fixture/DeleteResponseHeadersPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResponseHeadersPolicy)
 
 responseDeleteStreamingDistribution :: DeleteStreamingDistributionResponse -> TestTree
 responseDeleteStreamingDistribution =
@@ -1449,6 +1549,22 @@ responseGetRealtimeLogConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRealtimeLogConfig)
 
+responseGetResponseHeadersPolicy :: GetResponseHeadersPolicyResponse -> TestTree
+responseGetResponseHeadersPolicy =
+  res
+    "GetResponseHeadersPolicyResponse"
+    "fixture/GetResponseHeadersPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResponseHeadersPolicy)
+
+responseGetResponseHeadersPolicyConfig :: GetResponseHeadersPolicyConfigResponse -> TestTree
+responseGetResponseHeadersPolicyConfig =
+  res
+    "GetResponseHeadersPolicyConfigResponse"
+    "fixture/GetResponseHeadersPolicyConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResponseHeadersPolicyConfig)
+
 responseGetStreamingDistribution :: GetStreamingDistributionResponse -> TestTree
 responseGetStreamingDistribution =
   res
@@ -1529,6 +1645,14 @@ responseListDistributionsByRealtimeLogConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDistributionsByRealtimeLogConfig)
 
+responseListDistributionsByResponseHeadersPolicyId :: ListDistributionsByResponseHeadersPolicyIdResponse -> TestTree
+responseListDistributionsByResponseHeadersPolicyId =
+  res
+    "ListDistributionsByResponseHeadersPolicyIdResponse"
+    "fixture/ListDistributionsByResponseHeadersPolicyIdResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionsByResponseHeadersPolicyId)
+
 responseListDistributionsByWebACLId :: ListDistributionsByWebACLIdResponse -> TestTree
 responseListDistributionsByWebACLId =
   res
@@ -1600,6 +1724,14 @@ responseListRealtimeLogConfigs =
     "fixture/ListRealtimeLogConfigsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRealtimeLogConfigs)
+
+responseListResponseHeadersPolicies :: ListResponseHeadersPoliciesResponse -> TestTree
+responseListResponseHeadersPolicies =
+  res
+    "ListResponseHeadersPoliciesResponse"
+    "fixture/ListResponseHeadersPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResponseHeadersPolicies)
 
 responseListStreamingDistributions :: ListStreamingDistributionsResponse -> TestTree
 responseListStreamingDistributions =
@@ -1728,6 +1860,14 @@ responseUpdateRealtimeLogConfig =
     "fixture/UpdateRealtimeLogConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateRealtimeLogConfig)
+
+responseUpdateResponseHeadersPolicy :: UpdateResponseHeadersPolicyResponse -> TestTree
+responseUpdateResponseHeadersPolicy =
+  res
+    "UpdateResponseHeadersPolicyResponse"
+    "fixture/UpdateResponseHeadersPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResponseHeadersPolicy)
 
 responseUpdateStreamingDistribution :: UpdateStreamingDistributionResponse -> TestTree
 responseUpdateStreamingDistribution =

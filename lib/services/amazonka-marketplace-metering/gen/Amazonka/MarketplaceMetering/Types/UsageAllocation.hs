@@ -26,8 +26,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Usage allocations allow you to split usage into buckets by tags.
 --
--- Each UsageAllocation indicates the usage quantity for a specific set of
--- tags.
+-- Each @UsageAllocation@ indicates the usage quantity for a specific set
+-- of tags.
 --
 -- /See:/ 'newUsageAllocation' smart constructor.
 data UsageAllocation = UsageAllocation'

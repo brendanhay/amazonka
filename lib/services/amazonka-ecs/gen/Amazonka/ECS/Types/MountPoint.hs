@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details on a volume mount point that is used in a container definition.
+-- | Details for a volume mount point that\'s used in a container definition.
 --
 -- /See:/ 'newMountPoint' smart constructor.
 data MountPoint = MountPoint'

@@ -21,6 +21,9 @@ module Amazonka.Outposts.Types.LineItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Outposts.Types.LineItemAssetInformation
+import Amazonka.Outposts.Types.LineItemStatus
+import Amazonka.Outposts.Types.ShipmentInformation
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a line item.
@@ -29,10 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 data LineItem = LineItem'
   { -- | The quantity of the line item.
     quantity :: Prelude.Maybe Prelude.Natural,
+    -- | Information about assets.
+    assetInformationList :: Prelude.Maybe [LineItemAssetInformation],
     -- | The status of the line item.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Prelude.Maybe LineItemStatus,
     -- | The ID of the catalog item.
     catalogItemId :: Prelude.Maybe Prelude.Text,
+    -- | Information about a line item shipment.
+    shipmentInformation :: Prelude.Maybe ShipmentInformation,
     -- | The ID of the line item.
     lineItemId :: Prelude.Maybe Prelude.Text
   }
@@ -48,9 +55,13 @@ data LineItem = LineItem'
 --
 -- 'quantity', 'lineItem_quantity' - The quantity of the line item.
 --
+-- 'assetInformationList', 'lineItem_assetInformationList' - Information about assets.
+--
 -- 'status', 'lineItem_status' - The status of the line item.
 --
 -- 'catalogItemId', 'lineItem_catalogItemId' - The ID of the catalog item.
+--
+-- 'shipmentInformation', 'lineItem_shipmentInformation' - Information about a line item shipment.
 --
 -- 'lineItemId', 'lineItem_lineItemId' - The ID of the line item.
 newLineItem ::
@@ -58,8 +69,10 @@ newLineItem ::
 newLineItem =
   LineItem'
     { quantity = Prelude.Nothing,
+      assetInformationList = Prelude.Nothing,
       status = Prelude.Nothing,
       catalogItemId = Prelude.Nothing,
+      shipmentInformation = Prelude.Nothing,
       lineItemId = Prelude.Nothing
     }
 
@@ -67,13 +80,21 @@ newLineItem =
 lineItem_quantity :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Natural)
 lineItem_quantity = Lens.lens (\LineItem' {quantity} -> quantity) (\s@LineItem' {} a -> s {quantity = a} :: LineItem)
 
+-- | Information about assets.
+lineItem_assetInformationList :: Lens.Lens' LineItem (Prelude.Maybe [LineItemAssetInformation])
+lineItem_assetInformationList = Lens.lens (\LineItem' {assetInformationList} -> assetInformationList) (\s@LineItem' {} a -> s {assetInformationList = a} :: LineItem) Prelude.. Lens.mapping Lens.coerced
+
 -- | The status of the line item.
-lineItem_status :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
+lineItem_status :: Lens.Lens' LineItem (Prelude.Maybe LineItemStatus)
 lineItem_status = Lens.lens (\LineItem' {status} -> status) (\s@LineItem' {} a -> s {status = a} :: LineItem)
 
 -- | The ID of the catalog item.
 lineItem_catalogItemId :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
 lineItem_catalogItemId = Lens.lens (\LineItem' {catalogItemId} -> catalogItemId) (\s@LineItem' {} a -> s {catalogItemId = a} :: LineItem)
+
+-- | Information about a line item shipment.
+lineItem_shipmentInformation :: Lens.Lens' LineItem (Prelude.Maybe ShipmentInformation)
+lineItem_shipmentInformation = Lens.lens (\LineItem' {shipmentInformation} -> shipmentInformation) (\s@LineItem' {} a -> s {shipmentInformation = a} :: LineItem)
 
 -- | The ID of the line item.
 lineItem_lineItemId :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
@@ -86,21 +107,29 @@ instance Core.FromJSON LineItem where
       ( \x ->
           LineItem'
             Prelude.<$> (x Core..:? "Quantity")
+            Prelude.<*> ( x Core..:? "AssetInformationList"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CatalogItemId")
+            Prelude.<*> (x Core..:? "ShipmentInformation")
             Prelude.<*> (x Core..:? "LineItemId")
       )
 
 instance Prelude.Hashable LineItem where
   hashWithSalt _salt LineItem' {..} =
     _salt `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` assetInformationList
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` catalogItemId
+      `Prelude.hashWithSalt` shipmentInformation
       `Prelude.hashWithSalt` lineItemId
 
 instance Prelude.NFData LineItem where
   rnf LineItem' {..} =
     Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf assetInformationList
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf catalogItemId
+      `Prelude.seq` Prelude.rnf shipmentInformation
       `Prelude.seq` Prelude.rnf lineItemId

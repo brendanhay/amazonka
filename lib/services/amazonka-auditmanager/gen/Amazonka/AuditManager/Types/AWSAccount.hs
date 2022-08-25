@@ -23,16 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The wrapper of Amazon Web Services account details, such as account ID,
--- email address, and so on.
+-- | The wrapper of Amazon Web Services account details, such as account ID
+-- or email address.
 --
 -- /See:/ 'newAWSAccount' smart constructor.
 data AWSAccount = AWSAccount'
-  { -- | The name of the specified Amazon Web Services account.
+  { -- | The name of the Amazon Web Services account.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified Amazon Web Services account.
+    -- | The identifier for the Amazon Web Services account.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The email address associated with the specified Amazon Web Services
+    -- | The email address that\'s associated with the Amazon Web Services
     -- account.
     emailAddress :: Prelude.Maybe Prelude.Text
   }
@@ -46,11 +46,11 @@ data AWSAccount = AWSAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'aWSAccount_name' - The name of the specified Amazon Web Services account.
+-- 'name', 'aWSAccount_name' - The name of the Amazon Web Services account.
 --
--- 'id', 'aWSAccount_id' - The identifier for the specified Amazon Web Services account.
+-- 'id', 'aWSAccount_id' - The identifier for the Amazon Web Services account.
 --
--- 'emailAddress', 'aWSAccount_emailAddress' - The email address associated with the specified Amazon Web Services
+-- 'emailAddress', 'aWSAccount_emailAddress' - The email address that\'s associated with the Amazon Web Services
 -- account.
 newAWSAccount ::
   AWSAccount
@@ -61,15 +61,15 @@ newAWSAccount =
       emailAddress = Prelude.Nothing
     }
 
--- | The name of the specified Amazon Web Services account.
+-- | The name of the Amazon Web Services account.
 aWSAccount_name :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_name = Lens.lens (\AWSAccount' {name} -> name) (\s@AWSAccount' {} a -> s {name = a} :: AWSAccount)
 
--- | The identifier for the specified Amazon Web Services account.
+-- | The identifier for the Amazon Web Services account.
 aWSAccount_id :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_id = Lens.lens (\AWSAccount' {id} -> id) (\s@AWSAccount' {} a -> s {id = a} :: AWSAccount)
 
--- | The email address associated with the specified Amazon Web Services
+-- | The email address that\'s associated with the Amazon Web Services
 -- account.
 aWSAccount_emailAddress :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_emailAddress = Lens.lens (\AWSAccount' {emailAddress} -> emailAddress) (\s@AWSAccount' {} a -> s {emailAddress = a} :: AWSAccount)

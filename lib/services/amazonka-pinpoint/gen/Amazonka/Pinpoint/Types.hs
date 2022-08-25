@@ -44,6 +44,9 @@ module Amazonka.Pinpoint.Types
     -- * ChannelType
     ChannelType (..),
 
+    -- * DayOfWeek
+    DayOfWeek (..),
+
     -- * DefinitionFormat
     DefinitionFormat (..),
 
@@ -362,6 +365,7 @@ module Amazonka.Pinpoint.Types
     ApplicationResponse (..),
     newApplicationResponse,
     applicationResponse_tags,
+    applicationResponse_creationDate,
     applicationResponse_id,
     applicationResponse_arn,
     applicationResponse_name,
@@ -560,6 +564,22 @@ module Amazonka.Pinpoint.Types
     ChannelsResponse (..),
     newChannelsResponse,
     channelsResponse_channels,
+
+    -- * ClosedDays
+    ClosedDays (..),
+    newClosedDays,
+    closedDays_sms,
+    closedDays_email,
+    closedDays_voice,
+    closedDays_push,
+    closedDays_custom,
+
+    -- * ClosedDaysRule
+    ClosedDaysRule (..),
+    newClosedDaysRule,
+    closedDaysRule_name,
+    closedDaysRule_startDateTime,
+    closedDaysRule_endDateTime,
 
     -- * Condition
     Condition (..),
@@ -1242,8 +1262,11 @@ module Amazonka.Pinpoint.Types
     journeyResponse_creationDate,
     journeyResponse_refreshFrequency,
     journeyResponse_localTime,
+    journeyResponse_openHours,
     journeyResponse_quietTime,
+    journeyResponse_sendingSchedule,
     journeyResponse_waitForQuietTime,
+    journeyResponse_closedDays,
     journeyResponse_journeyChannelSettings,
     journeyResponse_name,
     journeyResponse_id,
@@ -1386,6 +1409,21 @@ module Amazonka.Pinpoint.Types
     numberValidateResponse_city,
     numberValidateResponse_countryCodeNumeric,
     numberValidateResponse_countryCodeIso2,
+
+    -- * OpenHours
+    OpenHours (..),
+    newOpenHours,
+    openHours_sms,
+    openHours_email,
+    openHours_voice,
+    openHours_push,
+    openHours_custom,
+
+    -- * OpenHoursRule
+    OpenHoursRule (..),
+    newOpenHoursRule,
+    openHoursRule_endTime,
+    openHoursRule_startTime,
 
     -- * OverrideButtonConfiguration
     OverrideButtonConfiguration (..),
@@ -1674,6 +1712,21 @@ module Amazonka.Pinpoint.Types
     segmentsResponse_nextToken,
     segmentsResponse_item,
 
+    -- * SendOTPMessageRequestParameters
+    SendOTPMessageRequestParameters (..),
+    newSendOTPMessageRequestParameters,
+    sendOTPMessageRequestParameters_entityId,
+    sendOTPMessageRequestParameters_templateId,
+    sendOTPMessageRequestParameters_allowedAttempts,
+    sendOTPMessageRequestParameters_codeLength,
+    sendOTPMessageRequestParameters_validityPeriod,
+    sendOTPMessageRequestParameters_language,
+    sendOTPMessageRequestParameters_brandName,
+    sendOTPMessageRequestParameters_referenceId,
+    sendOTPMessageRequestParameters_channel,
+    sendOTPMessageRequestParameters_destinationIdentity,
+    sendOTPMessageRequestParameters_originationIdentity,
+
     -- * SendUsersMessageRequest
     SendUsersMessageRequest (..),
     newSendUsersMessageRequest,
@@ -1831,6 +1884,18 @@ module Amazonka.Pinpoint.Types
     updateRecommenderConfiguration_recommendationProviderUri,
     updateRecommenderConfiguration_recommendationProviderRoleArn,
 
+    -- * VerificationResponse
+    VerificationResponse (..),
+    newVerificationResponse,
+    verificationResponse_valid,
+
+    -- * VerifyOTPMessageRequestParameters
+    VerifyOTPMessageRequestParameters (..),
+    newVerifyOTPMessageRequestParameters,
+    verifyOTPMessageRequestParameters_referenceId,
+    verifyOTPMessageRequestParameters_otp,
+    verifyOTPMessageRequestParameters_destinationIdentity,
+
     -- * VoiceChannelRequest
     VoiceChannelRequest (..),
     newVoiceChannelRequest,
@@ -1947,8 +2012,12 @@ module Amazonka.Pinpoint.Types
     writeJourneyRequest_creationDate,
     writeJourneyRequest_refreshFrequency,
     writeJourneyRequest_localTime,
+    writeJourneyRequest_openHours,
     writeJourneyRequest_quietTime,
+    writeJourneyRequest_sendingSchedule,
     writeJourneyRequest_waitForQuietTime,
+    writeJourneyRequest_closedDays,
+    writeJourneyRequest_journeyChannelSettings,
     writeJourneyRequest_name,
 
     -- * WriteSegmentRequest
@@ -2021,6 +2090,8 @@ import Amazonka.Pinpoint.Types.CampaignsResponse
 import Amazonka.Pinpoint.Types.ChannelResponse
 import Amazonka.Pinpoint.Types.ChannelType
 import Amazonka.Pinpoint.Types.ChannelsResponse
+import Amazonka.Pinpoint.Types.ClosedDays
+import Amazonka.Pinpoint.Types.ClosedDaysRule
 import Amazonka.Pinpoint.Types.Condition
 import Amazonka.Pinpoint.Types.ConditionalSplitActivity
 import Amazonka.Pinpoint.Types.ContactCenterActivity
@@ -2029,6 +2100,7 @@ import Amazonka.Pinpoint.Types.CreateRecommenderConfiguration
 import Amazonka.Pinpoint.Types.CreateTemplateMessageBody
 import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
 import Amazonka.Pinpoint.Types.CustomMessageActivity
+import Amazonka.Pinpoint.Types.DayOfWeek
 import Amazonka.Pinpoint.Types.DefaultButtonConfiguration
 import Amazonka.Pinpoint.Types.DefaultMessage
 import Amazonka.Pinpoint.Types.DefaultPushNotificationMessage
@@ -2123,6 +2195,8 @@ import Amazonka.Pinpoint.Types.MultiConditionalBranch
 import Amazonka.Pinpoint.Types.MultiConditionalSplitActivity
 import Amazonka.Pinpoint.Types.NumberValidateRequest
 import Amazonka.Pinpoint.Types.NumberValidateResponse
+import Amazonka.Pinpoint.Types.OpenHours
+import Amazonka.Pinpoint.Types.OpenHoursRule
 import Amazonka.Pinpoint.Types.Operator
 import Amazonka.Pinpoint.Types.OverrideButtonConfiguration
 import Amazonka.Pinpoint.Types.PublicEndpoint
@@ -2157,6 +2231,7 @@ import Amazonka.Pinpoint.Types.SegmentReference
 import Amazonka.Pinpoint.Types.SegmentResponse
 import Amazonka.Pinpoint.Types.SegmentType
 import Amazonka.Pinpoint.Types.SegmentsResponse
+import Amazonka.Pinpoint.Types.SendOTPMessageRequestParameters
 import Amazonka.Pinpoint.Types.SendUsersMessageRequest
 import Amazonka.Pinpoint.Types.SendUsersMessageResponse
 import Amazonka.Pinpoint.Types.Session
@@ -2181,6 +2256,8 @@ import Amazonka.Pinpoint.Types.TreatmentResource
 import Amazonka.Pinpoint.Types.Type
 import Amazonka.Pinpoint.Types.UpdateAttributesRequest
 import Amazonka.Pinpoint.Types.UpdateRecommenderConfiguration
+import Amazonka.Pinpoint.Types.VerificationResponse
+import Amazonka.Pinpoint.Types.VerifyOTPMessageRequestParameters
 import Amazonka.Pinpoint.Types.VoiceChannelRequest
 import Amazonka.Pinpoint.Types.VoiceChannelResponse
 import Amazonka.Pinpoint.Types.VoiceMessage

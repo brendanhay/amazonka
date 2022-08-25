@@ -45,12 +45,17 @@ library
   exposed-modules:
     Amazonka.IoTSiteWise
     Amazonka.IoTSiteWise.AssociateAssets
+    Amazonka.IoTSiteWise.AssociateTimeSeriesToAssetProperty
     Amazonka.IoTSiteWise.BatchAssociateProjectAssets
     Amazonka.IoTSiteWise.BatchDisassociateProjectAssets
+    Amazonka.IoTSiteWise.BatchGetAssetPropertyAggregates
+    Amazonka.IoTSiteWise.BatchGetAssetPropertyValue
+    Amazonka.IoTSiteWise.BatchGetAssetPropertyValueHistory
     Amazonka.IoTSiteWise.BatchPutAssetPropertyValue
     Amazonka.IoTSiteWise.CreateAccessPolicy
     Amazonka.IoTSiteWise.CreateAsset
     Amazonka.IoTSiteWise.CreateAssetModel
+    Amazonka.IoTSiteWise.CreateBulkImportJob
     Amazonka.IoTSiteWise.CreateDashboard
     Amazonka.IoTSiteWise.CreateGateway
     Amazonka.IoTSiteWise.CreatePortal
@@ -62,10 +67,12 @@ library
     Amazonka.IoTSiteWise.DeleteGateway
     Amazonka.IoTSiteWise.DeletePortal
     Amazonka.IoTSiteWise.DeleteProject
+    Amazonka.IoTSiteWise.DeleteTimeSeries
     Amazonka.IoTSiteWise.DescribeAccessPolicy
     Amazonka.IoTSiteWise.DescribeAsset
     Amazonka.IoTSiteWise.DescribeAssetModel
     Amazonka.IoTSiteWise.DescribeAssetProperty
+    Amazonka.IoTSiteWise.DescribeBulkImportJob
     Amazonka.IoTSiteWise.DescribeDashboard
     Amazonka.IoTSiteWise.DescribeDefaultEncryptionConfiguration
     Amazonka.IoTSiteWise.DescribeGateway
@@ -74,7 +81,9 @@ library
     Amazonka.IoTSiteWise.DescribePortal
     Amazonka.IoTSiteWise.DescribeProject
     Amazonka.IoTSiteWise.DescribeStorageConfiguration
+    Amazonka.IoTSiteWise.DescribeTimeSeries
     Amazonka.IoTSiteWise.DisassociateAssets
+    Amazonka.IoTSiteWise.DisassociateTimeSeriesFromAssetProperty
     Amazonka.IoTSiteWise.GetAssetPropertyAggregates
     Amazonka.IoTSiteWise.GetAssetPropertyValue
     Amazonka.IoTSiteWise.GetAssetPropertyValueHistory
@@ -85,12 +94,14 @@ library
     Amazonka.IoTSiteWise.ListAssetRelationships
     Amazonka.IoTSiteWise.ListAssets
     Amazonka.IoTSiteWise.ListAssociatedAssets
+    Amazonka.IoTSiteWise.ListBulkImportJobs
     Amazonka.IoTSiteWise.ListDashboards
     Amazonka.IoTSiteWise.ListGateways
     Amazonka.IoTSiteWise.ListPortals
     Amazonka.IoTSiteWise.ListProjectAssets
     Amazonka.IoTSiteWise.ListProjects
     Amazonka.IoTSiteWise.ListTagsForResource
+    Amazonka.IoTSiteWise.ListTimeSeries
     Amazonka.IoTSiteWise.PutDefaultEncryptionConfiguration
     Amazonka.IoTSiteWise.PutLoggingOptions
     Amazonka.IoTSiteWise.PutStorageConfiguration
@@ -125,23 +136,48 @@ library
     Amazonka.IoTSiteWise.Types.AssociatedAssetsSummary
     Amazonka.IoTSiteWise.Types.Attribute
     Amazonka.IoTSiteWise.Types.AuthMode
+    Amazonka.IoTSiteWise.Types.BatchEntryCompletionStatus
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorCode
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorInfo
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesSkippedEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesSuccessEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorCode
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorInfo
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorCode
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryErrorInfo
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistorySkippedEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistorySuccessEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSkippedEntry
+    Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueSuccessEntry
     Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyError
     Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry
     Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyValueErrorCode
     Amazonka.IoTSiteWise.Types.CapabilitySyncStatus
+    Amazonka.IoTSiteWise.Types.ColumnName
     Amazonka.IoTSiteWise.Types.CompositeModelProperty
     Amazonka.IoTSiteWise.Types.ComputeLocation
     Amazonka.IoTSiteWise.Types.ConfigurationErrorDetails
     Amazonka.IoTSiteWise.Types.ConfigurationState
     Amazonka.IoTSiteWise.Types.ConfigurationStatus
+    Amazonka.IoTSiteWise.Types.Csv
     Amazonka.IoTSiteWise.Types.CustomerManagedS3Storage
     Amazonka.IoTSiteWise.Types.DashboardSummary
     Amazonka.IoTSiteWise.Types.DetailedError
     Amazonka.IoTSiteWise.Types.DetailedErrorCode
+    Amazonka.IoTSiteWise.Types.DisassociatedDataStorageState
     Amazonka.IoTSiteWise.Types.EncryptionType
     Amazonka.IoTSiteWise.Types.ErrorCode
     Amazonka.IoTSiteWise.Types.ErrorDetails
+    Amazonka.IoTSiteWise.Types.ErrorReportLocation
     Amazonka.IoTSiteWise.Types.ExpressionVariable
+    Amazonka.IoTSiteWise.Types.File
+    Amazonka.IoTSiteWise.Types.FileFormat
     Amazonka.IoTSiteWise.Types.ForwardingConfig
     Amazonka.IoTSiteWise.Types.ForwardingConfigState
     Amazonka.IoTSiteWise.Types.GatewayCapabilitySummary
@@ -159,7 +195,12 @@ library
     Amazonka.IoTSiteWise.Types.ImageFileType
     Amazonka.IoTSiteWise.Types.ImageLocation
     Amazonka.IoTSiteWise.Types.InterpolatedAssetPropertyValue
+    Amazonka.IoTSiteWise.Types.JobConfiguration
+    Amazonka.IoTSiteWise.Types.JobStatus
+    Amazonka.IoTSiteWise.Types.JobSummary
     Amazonka.IoTSiteWise.Types.ListAssetsFilter
+    Amazonka.IoTSiteWise.Types.ListBulkImportJobsFilter
+    Amazonka.IoTSiteWise.Types.ListTimeSeriesType
     Amazonka.IoTSiteWise.Types.LoggingLevel
     Amazonka.IoTSiteWise.Types.LoggingOptions
     Amazonka.IoTSiteWise.Types.Measurement
@@ -186,9 +227,11 @@ library
     Amazonka.IoTSiteWise.Types.Quality
     Amazonka.IoTSiteWise.Types.Resource
     Amazonka.IoTSiteWise.Types.ResourceType
+    Amazonka.IoTSiteWise.Types.RetentionPeriod
     Amazonka.IoTSiteWise.Types.StorageType
     Amazonka.IoTSiteWise.Types.TimeInNanos
     Amazonka.IoTSiteWise.Types.TimeOrdering
+    Amazonka.IoTSiteWise.Types.TimeSeriesSummary
     Amazonka.IoTSiteWise.Types.Transform
     Amazonka.IoTSiteWise.Types.TransformProcessingConfig
     Amazonka.IoTSiteWise.Types.TraversalDirection

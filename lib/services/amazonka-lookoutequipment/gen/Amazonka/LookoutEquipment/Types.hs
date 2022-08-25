@@ -43,8 +43,26 @@ module Amazonka.LookoutEquipment.Types
     -- * ModelStatus
     ModelStatus (..),
 
+    -- * Monotonicity
+    Monotonicity (..),
+
+    -- * StatisticalIssueStatus
+    StatisticalIssueStatus (..),
+
     -- * TargetSamplingRate
     TargetSamplingRate (..),
+
+    -- * CategoricalValues
+    CategoricalValues (..),
+    newCategoricalValues,
+    categoricalValues_numberOfCategory,
+    categoricalValues_status,
+
+    -- * CountPercent
+    CountPercent (..),
+    newCountPercent,
+    countPercent_count,
+    countPercent_percentage,
 
     -- * DataIngestionJobSummary
     DataIngestionJobSummary (..),
@@ -60,6 +78,15 @@ module Amazonka.LookoutEquipment.Types
     newDataPreProcessingConfiguration,
     dataPreProcessingConfiguration_targetSamplingRate,
 
+    -- * DataQualitySummary
+    DataQualitySummary (..),
+    newDataQualitySummary,
+    dataQualitySummary_insufficientSensorData,
+    dataQualitySummary_missingSensorData,
+    dataQualitySummary_invalidSensorData,
+    dataQualitySummary_unsupportedTimestamps,
+    dataQualitySummary_duplicateTimestamps,
+
     -- * DatasetSchema
     DatasetSchema (..),
     newDatasetSchema,
@@ -72,6 +99,21 @@ module Amazonka.LookoutEquipment.Types
     datasetSummary_status,
     datasetSummary_datasetArn,
     datasetSummary_createdAt,
+
+    -- * DuplicateTimestamps
+    DuplicateTimestamps (..),
+    newDuplicateTimestamps,
+    duplicateTimestamps_totalNumberOfDuplicateTimestamps,
+
+    -- * InferenceEventSummary
+    InferenceEventSummary (..),
+    newInferenceEventSummary,
+    inferenceEventSummary_inferenceSchedulerName,
+    inferenceEventSummary_eventEndTime,
+    inferenceEventSummary_eventDurationInSeconds,
+    inferenceEventSummary_diagnostics,
+    inferenceEventSummary_inferenceSchedulerArn,
+    inferenceEventSummary_eventStartTime,
 
     -- * InferenceExecutionSummary
     InferenceExecutionSummary (..),
@@ -131,6 +173,13 @@ module Amazonka.LookoutEquipment.Types
     inferenceSchedulerSummary_dataUploadFrequency,
     inferenceSchedulerSummary_inferenceSchedulerArn,
 
+    -- * IngestedFilesSummary
+    IngestedFilesSummary (..),
+    newIngestedFilesSummary,
+    ingestedFilesSummary_discardedFiles,
+    ingestedFilesSummary_totalNumberOfFiles,
+    ingestedFilesSummary_ingestedNumberOfFiles,
+
     -- * IngestionInputConfiguration
     IngestionInputConfiguration (..),
     newIngestionInputConfiguration,
@@ -139,8 +188,21 @@ module Amazonka.LookoutEquipment.Types
     -- * IngestionS3InputConfiguration
     IngestionS3InputConfiguration (..),
     newIngestionS3InputConfiguration,
+    ingestionS3InputConfiguration_keyPattern,
     ingestionS3InputConfiguration_prefix,
     ingestionS3InputConfiguration_bucket,
+
+    -- * InsufficientSensorData
+    InsufficientSensorData (..),
+    newInsufficientSensorData,
+    insufficientSensorData_missingCompleteSensorData,
+    insufficientSensorData_sensorsWithShortDateRange,
+
+    -- * InvalidSensorData
+    InvalidSensorData (..),
+    newInvalidSensorData,
+    invalidSensorData_affectedSensorCount,
+    invalidSensorData_totalNumberOfInvalidValues,
 
     -- * LabelsInputConfiguration
     LabelsInputConfiguration (..),
@@ -153,6 +215,24 @@ module Amazonka.LookoutEquipment.Types
     labelsS3InputConfiguration_prefix,
     labelsS3InputConfiguration_bucket,
 
+    -- * LargeTimestampGaps
+    LargeTimestampGaps (..),
+    newLargeTimestampGaps,
+    largeTimestampGaps_maxTimestampGapInDays,
+    largeTimestampGaps_numberOfLargeTimestampGaps,
+    largeTimestampGaps_status,
+
+    -- * MissingCompleteSensorData
+    MissingCompleteSensorData (..),
+    newMissingCompleteSensorData,
+    missingCompleteSensorData_affectedSensorCount,
+
+    -- * MissingSensorData
+    MissingSensorData (..),
+    newMissingSensorData,
+    missingSensorData_affectedSensorCount,
+    missingSensorData_totalNumberOfMissingValues,
+
     -- * ModelSummary
     ModelSummary (..),
     newModelSummary,
@@ -163,28 +243,71 @@ module Amazonka.LookoutEquipment.Types
     modelSummary_modelName,
     modelSummary_createdAt,
 
+    -- * MonotonicValues
+    MonotonicValues (..),
+    newMonotonicValues,
+    monotonicValues_monotonicity,
+    monotonicValues_status,
+
+    -- * MultipleOperatingModes
+    MultipleOperatingModes (..),
+    newMultipleOperatingModes,
+    multipleOperatingModes_status,
+
     -- * S3Object
     S3Object (..),
     newS3Object,
     s3Object_bucket,
     s3Object_key,
 
+    -- * SensorStatisticsSummary
+    SensorStatisticsSummary (..),
+    newSensorStatisticsSummary,
+    sensorStatisticsSummary_dataStartTime,
+    sensorStatisticsSummary_multipleOperatingModes,
+    sensorStatisticsSummary_categoricalValues,
+    sensorStatisticsSummary_dataExists,
+    sensorStatisticsSummary_invalidValues,
+    sensorStatisticsSummary_missingValues,
+    sensorStatisticsSummary_dataEndTime,
+    sensorStatisticsSummary_componentName,
+    sensorStatisticsSummary_duplicateTimestamps,
+    sensorStatisticsSummary_largeTimestampGaps,
+    sensorStatisticsSummary_monotonicValues,
+    sensorStatisticsSummary_invalidDateEntries,
+    sensorStatisticsSummary_sensorName,
+
+    -- * SensorsWithShortDateRange
+    SensorsWithShortDateRange (..),
+    newSensorsWithShortDateRange,
+    sensorsWithShortDateRange_affectedSensorCount,
+
     -- * Tag
     Tag (..),
     newTag,
     tag_key,
     tag_value,
+
+    -- * UnsupportedTimestamps
+    UnsupportedTimestamps (..),
+    newUnsupportedTimestamps,
+    unsupportedTimestamps_totalNumberOfUnsupportedTimestamps,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types.CategoricalValues
+import Amazonka.LookoutEquipment.Types.CountPercent
 import Amazonka.LookoutEquipment.Types.DataIngestionJobSummary
 import Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration
+import Amazonka.LookoutEquipment.Types.DataQualitySummary
 import Amazonka.LookoutEquipment.Types.DataUploadFrequency
 import Amazonka.LookoutEquipment.Types.DatasetSchema
 import Amazonka.LookoutEquipment.Types.DatasetStatus
 import Amazonka.LookoutEquipment.Types.DatasetSummary
+import Amazonka.LookoutEquipment.Types.DuplicateTimestamps
+import Amazonka.LookoutEquipment.Types.InferenceEventSummary
 import Amazonka.LookoutEquipment.Types.InferenceExecutionStatus
 import Amazonka.LookoutEquipment.Types.InferenceExecutionSummary
 import Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
@@ -194,16 +317,29 @@ import Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration
 import Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration
 import Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus
 import Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary
+import Amazonka.LookoutEquipment.Types.IngestedFilesSummary
 import Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
 import Amazonka.LookoutEquipment.Types.IngestionJobStatus
 import Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.InsufficientSensorData
+import Amazonka.LookoutEquipment.Types.InvalidSensorData
 import Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
 import Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.LargeTimestampGaps
+import Amazonka.LookoutEquipment.Types.MissingCompleteSensorData
+import Amazonka.LookoutEquipment.Types.MissingSensorData
 import Amazonka.LookoutEquipment.Types.ModelStatus
 import Amazonka.LookoutEquipment.Types.ModelSummary
+import Amazonka.LookoutEquipment.Types.MonotonicValues
+import Amazonka.LookoutEquipment.Types.Monotonicity
+import Amazonka.LookoutEquipment.Types.MultipleOperatingModes
 import Amazonka.LookoutEquipment.Types.S3Object
+import Amazonka.LookoutEquipment.Types.SensorStatisticsSummary
+import Amazonka.LookoutEquipment.Types.SensorsWithShortDateRange
+import Amazonka.LookoutEquipment.Types.StatisticalIssueStatus
 import Amazonka.LookoutEquipment.Types.Tag
 import Amazonka.LookoutEquipment.Types.TargetSamplingRate
+import Amazonka.LookoutEquipment.Types.UnsupportedTimestamps
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 

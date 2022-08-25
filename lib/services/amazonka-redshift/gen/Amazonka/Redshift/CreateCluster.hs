@@ -45,6 +45,7 @@ module Amazonka.Redshift.CreateCluster
     createCluster_snapshotScheduleIdentifier,
     createCluster_aquaConfigurationStatus,
     createCluster_clusterVersion,
+    createCluster_loadSampleData,
     createCluster_maintenanceTrackName,
     createCluster_iamRoles,
     createCluster_hsmClientCertificateIdentifier,
@@ -55,6 +56,7 @@ module Amazonka.Redshift.CreateCluster
     createCluster_numberOfNodes,
     createCluster_kmsKeyId,
     createCluster_availabilityZoneRelocation,
+    createCluster_defaultIamRoleArn,
     createCluster_enhancedVpcRouting,
     createCluster_preferredMaintenanceWindow,
     createCluster_clusterType,
@@ -105,7 +107,9 @@ data CreateCluster = CreateCluster'
     --
     -- Default: The default VPC security group is associated with the cluster.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The Elastic IP (EIP) address for the cluster.
+    -- | The Elastic IP (EIP) address for the cluster. You don\'t have to specify
+    -- the EIP for a publicly accessible cluster with
+    -- AvailabilityZoneRelocation turned on.
     --
     -- Constraints: The cluster must be provisioned in EC2-VPC and
     -- publicly-accessible through an Internet gateway. For more information
@@ -158,16 +162,21 @@ data CreateCluster = CreateCluster'
     --
     -- Example: @1.0@
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | A flag that specifies whether to load sample data once the cluster is
+    -- created.
+    loadSampleData :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter for the name of the maintenance track for the
     -- cluster. If you don\'t provide a maintenance track name, the cluster is
     -- assigned to the @current@ track.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text,
     -- | A list of Identity and Access Management (IAM) roles that can be used by
     -- the cluster to access other Amazon Web Services services. You must
-    -- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
-    -- supply up to 10 IAM roles in a single request.
+    -- supply the IAM roles in their Amazon Resource Name (ARN) format.
     --
-    -- A cluster can have up to 10 IAM roles associated with it at any time.
+    -- The maximum number of IAM roles that you can associate is subject to a
+    -- quota. For more information, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Quotas and limits>
+    -- in the /Amazon Redshift Cluster Management Guide/.
     iamRoles :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the name of the HSM client certificate the Amazon Redshift
     -- cluster uses to retrieve the data encryption keys stored in an HSM.
@@ -226,6 +235,9 @@ data CreateCluster = CreateCluster'
     -- | The option to enable relocation for an Amazon Redshift cluster between
     -- Availability Zones after the cluster is created.
     availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) for the IAM role that was set as default
+    -- for the cluster when the cluster was created.
+    defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | An option that specifies whether to create the cluster with enhanced VPC
     -- routing enabled. To create a cluster that uses enhanced VPC routing, the
     -- cluster must be in a VPC. For more information, see
@@ -358,8 +370,8 @@ data CreateCluster = CreateCluster'
     --
     -- -   Must contain one number.
     --
-    -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
-    --     \' (single quote), \" (double quote), \\, \/, \@, or space.
+    -- -   Can be any printable ASCII character (ASCII code 33-126) except @\'@
+    --     (single quote), @\"@ (double quote), @\\@, @\/@, or @\@@.
     masterUserPassword :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -389,7 +401,9 @@ data CreateCluster = CreateCluster'
 --
 -- Default: The default VPC security group is associated with the cluster.
 --
--- 'elasticIp', 'createCluster_elasticIp' - The Elastic IP (EIP) address for the cluster.
+-- 'elasticIp', 'createCluster_elasticIp' - The Elastic IP (EIP) address for the cluster. You don\'t have to specify
+-- the EIP for a publicly accessible cluster with
+-- AvailabilityZoneRelocation turned on.
 --
 -- Constraints: The cluster must be provisioned in EC2-VPC and
 -- publicly-accessible through an Internet gateway. For more information
@@ -442,16 +456,21 @@ data CreateCluster = CreateCluster'
 --
 -- Example: @1.0@
 --
+-- 'loadSampleData', 'createCluster_loadSampleData' - A flag that specifies whether to load sample data once the cluster is
+-- created.
+--
 -- 'maintenanceTrackName', 'createCluster_maintenanceTrackName' - An optional parameter for the name of the maintenance track for the
 -- cluster. If you don\'t provide a maintenance track name, the cluster is
 -- assigned to the @current@ track.
 --
 -- 'iamRoles', 'createCluster_iamRoles' - A list of Identity and Access Management (IAM) roles that can be used by
 -- the cluster to access other Amazon Web Services services. You must
--- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
--- supply up to 10 IAM roles in a single request.
+-- supply the IAM roles in their Amazon Resource Name (ARN) format.
 --
--- A cluster can have up to 10 IAM roles associated with it at any time.
+-- The maximum number of IAM roles that you can associate is subject to a
+-- quota. For more information, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Quotas and limits>
+-- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- 'hsmClientCertificateIdentifier', 'createCluster_hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
@@ -509,6 +528,9 @@ data CreateCluster = CreateCluster'
 --
 -- 'availabilityZoneRelocation', 'createCluster_availabilityZoneRelocation' - The option to enable relocation for an Amazon Redshift cluster between
 -- Availability Zones after the cluster is created.
+--
+-- 'defaultIamRoleArn', 'createCluster_defaultIamRoleArn' - The Amazon Resource Name (ARN) for the IAM role that was set as default
+-- for the cluster when the cluster was created.
 --
 -- 'enhancedVpcRouting', 'createCluster_enhancedVpcRouting' - An option that specifies whether to create the cluster with enhanced VPC
 -- routing enabled. To create a cluster that uses enhanced VPC routing, the
@@ -642,8 +664,8 @@ data CreateCluster = CreateCluster'
 --
 -- -   Must contain one number.
 --
--- -   Can be any printable ASCII character (ASCII code 33 to 126) except
---     \' (single quote), \" (double quote), \\, \/, \@, or space.
+-- -   Can be any printable ASCII character (ASCII code 33-126) except @\'@
+--     (single quote), @\"@ (double quote), @\\@, @\/@, or @\@@.
 newCreateCluster ::
   -- | 'clusterIdentifier'
   Prelude.Text ->
@@ -671,6 +693,7 @@ newCreateCluster
         snapshotScheduleIdentifier = Prelude.Nothing,
         aquaConfigurationStatus = Prelude.Nothing,
         clusterVersion = Prelude.Nothing,
+        loadSampleData = Prelude.Nothing,
         maintenanceTrackName = Prelude.Nothing,
         iamRoles = Prelude.Nothing,
         hsmClientCertificateIdentifier = Prelude.Nothing,
@@ -681,6 +704,7 @@ newCreateCluster
         numberOfNodes = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         availabilityZoneRelocation = Prelude.Nothing,
+        defaultIamRoleArn = Prelude.Nothing,
         enhancedVpcRouting = Prelude.Nothing,
         preferredMaintenanceWindow = Prelude.Nothing,
         clusterType = Prelude.Nothing,
@@ -717,7 +741,9 @@ createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluste
 createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
 createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The Elastic IP (EIP) address for the cluster.
+-- | The Elastic IP (EIP) address for the cluster. You don\'t have to specify
+-- the EIP for a publicly accessible cluster with
+-- AvailabilityZoneRelocation turned on.
 --
 -- Constraints: The cluster must be provisioned in EC2-VPC and
 -- publicly-accessible through an Internet gateway. For more information
@@ -786,6 +812,11 @@ createCluster_aquaConfigurationStatus = Lens.lens (\CreateCluster' {aquaConfigur
 createCluster_clusterVersion :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterVersion = Lens.lens (\CreateCluster' {clusterVersion} -> clusterVersion) (\s@CreateCluster' {} a -> s {clusterVersion = a} :: CreateCluster)
 
+-- | A flag that specifies whether to load sample data once the cluster is
+-- created.
+createCluster_loadSampleData :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_loadSampleData = Lens.lens (\CreateCluster' {loadSampleData} -> loadSampleData) (\s@CreateCluster' {} a -> s {loadSampleData = a} :: CreateCluster)
+
 -- | An optional parameter for the name of the maintenance track for the
 -- cluster. If you don\'t provide a maintenance track name, the cluster is
 -- assigned to the @current@ track.
@@ -794,10 +825,12 @@ createCluster_maintenanceTrackName = Lens.lens (\CreateCluster' {maintenanceTrac
 
 -- | A list of Identity and Access Management (IAM) roles that can be used by
 -- the cluster to access other Amazon Web Services services. You must
--- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
--- supply up to 10 IAM roles in a single request.
+-- supply the IAM roles in their Amazon Resource Name (ARN) format.
 --
--- A cluster can have up to 10 IAM roles associated with it at any time.
+-- The maximum number of IAM roles that you can associate is subject to a
+-- quota. For more information, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Quotas and limits>
+-- in the /Amazon Redshift Cluster Management Guide/.
 createCluster_iamRoles :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
 createCluster_iamRoles = Lens.lens (\CreateCluster' {iamRoles} -> iamRoles) (\s@CreateCluster' {} a -> s {iamRoles = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
@@ -873,6 +906,11 @@ createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@
 -- Availability Zones after the cluster is created.
 createCluster_availabilityZoneRelocation :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_availabilityZoneRelocation = Lens.lens (\CreateCluster' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@CreateCluster' {} a -> s {availabilityZoneRelocation = a} :: CreateCluster)
+
+-- | The Amazon Resource Name (ARN) for the IAM role that was set as default
+-- for the cluster when the cluster was created.
+createCluster_defaultIamRoleArn :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_defaultIamRoleArn = Lens.lens (\CreateCluster' {defaultIamRoleArn} -> defaultIamRoleArn) (\s@CreateCluster' {} a -> s {defaultIamRoleArn = a} :: CreateCluster)
 
 -- | An option that specifies whether to create the cluster with enhanced VPC
 -- routing enabled. To create a cluster that uses enhanced VPC routing, the
@@ -1026,8 +1064,8 @@ createCluster_masterUsername = Lens.lens (\CreateCluster' {masterUsername} -> ma
 --
 -- -   Must contain one number.
 --
--- -   Can be any printable ASCII character (ASCII code 33 to 126) except
---     \' (single quote), \" (double quote), \\, \/, \@, or space.
+-- -   Can be any printable ASCII character (ASCII code 33-126) except @\'@
+--     (single quote), @\"@ (double quote), @\\@, @\/@, or @\@@.
 createCluster_masterUserPassword :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_masterUserPassword = Lens.lens (\CreateCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateCluster' {} a -> s {masterUserPassword = a} :: CreateCluster)
 
@@ -1058,6 +1096,7 @@ instance Prelude.Hashable CreateCluster where
       `Prelude.hashWithSalt` snapshotScheduleIdentifier
       `Prelude.hashWithSalt` aquaConfigurationStatus
       `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` loadSampleData
       `Prelude.hashWithSalt` maintenanceTrackName
       `Prelude.hashWithSalt` iamRoles
       `Prelude.hashWithSalt` hsmClientCertificateIdentifier
@@ -1068,6 +1107,7 @@ instance Prelude.Hashable CreateCluster where
       `Prelude.hashWithSalt` numberOfNodes
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` availabilityZoneRelocation
+      `Prelude.hashWithSalt` defaultIamRoleArn
       `Prelude.hashWithSalt` enhancedVpcRouting
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` clusterType
@@ -1093,9 +1133,11 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf snapshotScheduleIdentifier
       `Prelude.seq` Prelude.rnf aquaConfigurationStatus
       `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf loadSampleData
       `Prelude.seq` Prelude.rnf maintenanceTrackName
       `Prelude.seq` Prelude.rnf iamRoles
-      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf
+        hsmClientCertificateIdentifier
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf publiclyAccessible
       `Prelude.seq` Prelude.rnf
@@ -1105,6 +1147,8 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf
         availabilityZoneRelocation
+      `Prelude.seq` Prelude.rnf
+        defaultIamRoleArn
       `Prelude.seq` Prelude.rnf
         enhancedVpcRouting
       `Prelude.seq` Prelude.rnf
@@ -1162,6 +1206,7 @@ instance Core.ToQuery CreateCluster where
         "AquaConfigurationStatus"
           Core.=: aquaConfigurationStatus,
         "ClusterVersion" Core.=: clusterVersion,
+        "LoadSampleData" Core.=: loadSampleData,
         "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "IamRoles"
           Core.=: Core.toQuery
@@ -1177,6 +1222,7 @@ instance Core.ToQuery CreateCluster where
         "KmsKeyId" Core.=: kmsKeyId,
         "AvailabilityZoneRelocation"
           Core.=: availabilityZoneRelocation,
+        "DefaultIamRoleArn" Core.=: defaultIamRoleArn,
         "EnhancedVpcRouting" Core.=: enhancedVpcRouting,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,

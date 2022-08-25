@@ -43,6 +43,7 @@ module Amazonka.SageMaker.DescribeDevice
     describeDeviceResponse_description,
     describeDeviceResponse_latestHeartbeat,
     describeDeviceResponse_deviceArn,
+    describeDeviceResponse_agentVersion,
     describeDeviceResponse_httpStatus,
     describeDeviceResponse_deviceName,
     describeDeviceResponse_deviceFleetName,
@@ -122,6 +123,7 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "LatestHeartbeat")
             Prelude.<*> (x Core..?> "DeviceArn")
+            Prelude.<*> (x Core..?> "AgentVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DeviceName")
             Prelude.<*> (x Core..:> "DeviceFleetName")
@@ -188,6 +190,8 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     latestHeartbeat :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the device.
     deviceArn :: Prelude.Maybe Prelude.Text,
+    -- | Edge Manager agent version.
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique identifier of the device.
@@ -223,6 +227,8 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 --
 -- 'deviceArn', 'describeDeviceResponse_deviceArn' - The Amazon Resource Name (ARN) of the device.
 --
+-- 'agentVersion', 'describeDeviceResponse_agentVersion' - Edge Manager agent version.
+--
 -- 'httpStatus', 'describeDeviceResponse_httpStatus' - The response's http status code.
 --
 -- 'deviceName', 'describeDeviceResponse_deviceName' - The unique identifier of the device.
@@ -254,6 +260,7 @@ newDescribeDeviceResponse
         description = Prelude.Nothing,
         latestHeartbeat = Prelude.Nothing,
         deviceArn = Prelude.Nothing,
+        agentVersion = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         deviceName = pDeviceName_,
         deviceFleetName = pDeviceFleetName_,
@@ -291,6 +298,10 @@ describeDeviceResponse_latestHeartbeat = Lens.lens (\DescribeDeviceResponse' {la
 describeDeviceResponse_deviceArn :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_deviceArn = Lens.lens (\DescribeDeviceResponse' {deviceArn} -> deviceArn) (\s@DescribeDeviceResponse' {} a -> s {deviceArn = a} :: DescribeDeviceResponse)
 
+-- | Edge Manager agent version.
+describeDeviceResponse_agentVersion :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_agentVersion = Lens.lens (\DescribeDeviceResponse' {agentVersion} -> agentVersion) (\s@DescribeDeviceResponse' {} a -> s {agentVersion = a} :: DescribeDeviceResponse)
+
 -- | The response's http status code.
 describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Prelude.Int
 describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceResponse' {} a -> s {httpStatus = a} :: DescribeDeviceResponse)
@@ -316,6 +327,7 @@ instance Prelude.NFData DescribeDeviceResponse where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf latestHeartbeat
       `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceFleetName

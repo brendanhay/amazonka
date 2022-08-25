@@ -37,14 +37,15 @@ data VirtualGatewayRef = VirtualGatewayRef'
     lastUpdatedAt :: Core.POSIX,
     -- | The name of the service mesh that the resource resides in.
     meshName :: Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Text,
-    -- | The AWS IAM account ID of the resource owner. If the account ID is not
-    -- your own, then it\'s the ID of the mesh owner or of another account that
-    -- the mesh is shared with. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the resource owner. If the
+    -- account ID is not your own, then it\'s the ID of the mesh owner or of
+    -- another account that the mesh is shared with. For more information about
+    -- mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     resourceOwner :: Prelude.Text,
     -- | The version of the resource. Resources are created at version 1, and
@@ -72,14 +73,15 @@ data VirtualGatewayRef = VirtualGatewayRef'
 --
 -- 'meshName', 'virtualGatewayRef_meshName' - The name of the service mesh that the resource resides in.
 --
--- 'meshOwner', 'virtualGatewayRef_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'virtualGatewayRef_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
--- 'resourceOwner', 'virtualGatewayRef_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- 'resourceOwner', 'virtualGatewayRef_resourceOwner' - The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'version', 'virtualGatewayRef_version' - The version of the resource. Resources are created at version 1, and
@@ -141,16 +143,17 @@ virtualGatewayRef_lastUpdatedAt = Lens.lens (\VirtualGatewayRef' {lastUpdatedAt}
 virtualGatewayRef_meshName :: Lens.Lens' VirtualGatewayRef Prelude.Text
 virtualGatewayRef_meshName = Lens.lens (\VirtualGatewayRef' {meshName} -> meshName) (\s@VirtualGatewayRef' {} a -> s {meshName = a} :: VirtualGatewayRef)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 virtualGatewayRef_meshOwner :: Lens.Lens' VirtualGatewayRef Prelude.Text
 virtualGatewayRef_meshOwner = Lens.lens (\VirtualGatewayRef' {meshOwner} -> meshOwner) (\s@VirtualGatewayRef' {} a -> s {meshOwner = a} :: VirtualGatewayRef)
 
--- | The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 virtualGatewayRef_resourceOwner :: Lens.Lens' VirtualGatewayRef Prelude.Text
 virtualGatewayRef_resourceOwner = Lens.lens (\VirtualGatewayRef' {resourceOwner} -> resourceOwner) (\s@VirtualGatewayRef' {} a -> s {resourceOwner = a} :: VirtualGatewayRef)

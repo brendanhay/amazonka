@@ -30,8 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
 -- in the /Amazon ECS User Guide for Fargate/.
 --
--- This parameter is only supported for tasks hosted on Fargate using
--- platform version @1.4.0@ or later.
+-- This parameter is only supported for tasks hosted on Fargate using Linux
+-- platform version @1.4.0@ or later. This parameter is not supported for
+-- Windows containers on Fargate.
 --
 -- /See:/ 'newEphemeralStorage' smart constructor.
 data EphemeralStorage = EphemeralStorage'

@@ -54,9 +54,10 @@ data DeleteAttributes = DeleteAttributes'
     -- cluster, the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | The attributes to delete from your resource. You can specify up to 10
-    -- attributes per request. For custom attributes, specify the attribute
-    -- name and target ID, but do not specify the value. If you specify the
-    -- target ID using the short form, you must also specify the target type.
+    -- attributes for each request. For custom attributes, specify the
+    -- attribute name and target ID, but don\'t specify the value. If you
+    -- specify the target ID using the short form, you must also specify the
+    -- target type.
     attributes :: [Attribute]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,9 +75,10 @@ data DeleteAttributes = DeleteAttributes'
 -- cluster, the default cluster is assumed.
 --
 -- 'attributes', 'deleteAttributes_attributes' - The attributes to delete from your resource. You can specify up to 10
--- attributes per request. For custom attributes, specify the attribute
--- name and target ID, but do not specify the value. If you specify the
--- target ID using the short form, you must also specify the target type.
+-- attributes for each request. For custom attributes, specify the
+-- attribute name and target ID, but don\'t specify the value. If you
+-- specify the target ID using the short form, you must also specify the
+-- target type.
 newDeleteAttributes ::
   DeleteAttributes
 newDeleteAttributes =
@@ -92,9 +94,10 @@ deleteAttributes_cluster :: Lens.Lens' DeleteAttributes (Prelude.Maybe Prelude.T
 deleteAttributes_cluster = Lens.lens (\DeleteAttributes' {cluster} -> cluster) (\s@DeleteAttributes' {} a -> s {cluster = a} :: DeleteAttributes)
 
 -- | The attributes to delete from your resource. You can specify up to 10
--- attributes per request. For custom attributes, specify the attribute
--- name and target ID, but do not specify the value. If you specify the
--- target ID using the short form, you must also specify the target type.
+-- attributes for each request. For custom attributes, specify the
+-- attribute name and target ID, but don\'t specify the value. If you
+-- specify the target ID using the short form, you must also specify the
+-- target type.
 deleteAttributes_attributes :: Lens.Lens' DeleteAttributes [Attribute]
 deleteAttributes_attributes = Lens.lens (\DeleteAttributes' {attributes} -> attributes) (\s@DeleteAttributes' {} a -> s {attributes = a} :: DeleteAttributes) Prelude.. Lens.coerced
 

@@ -116,8 +116,8 @@ data UpdateConstraint = UpdateConstraint'
     --     You also cannot have more than one @STACKSET@ constraint on a
     --     product and portfolio.
     --
-    --     Products with a @STACKSET@ constraint will launch an AWS
-    --     CloudFormation stack set.
+    --     Products with a @STACKSET@ constraint will launch an CloudFormation
+    --     stack set.
     --
     -- [TEMPLATE]
     --     Specify the @Rules@ property. For more information, see
@@ -199,8 +199,8 @@ data UpdateConstraint = UpdateConstraint'
 --     You also cannot have more than one @STACKSET@ constraint on a
 --     product and portfolio.
 --
---     Products with a @STACKSET@ constraint will launch an AWS
---     CloudFormation stack set.
+--     Products with a @STACKSET@ constraint will launch an CloudFormation
+--     stack set.
 --
 -- [TEMPLATE]
 --     Specify the @Rules@ property. For more information, see
@@ -286,8 +286,8 @@ updateConstraint_acceptLanguage = Lens.lens (\UpdateConstraint' {acceptLanguage}
 --     You also cannot have more than one @STACKSET@ constraint on a
 --     product and portfolio.
 --
---     Products with a @STACKSET@ constraint will launch an AWS
---     CloudFormation stack set.
+--     Products with a @STACKSET@ constraint will launch an CloudFormation
+--     stack set.
 --
 -- [TEMPLATE]
 --     Specify the @Rules@ property. For more information, see

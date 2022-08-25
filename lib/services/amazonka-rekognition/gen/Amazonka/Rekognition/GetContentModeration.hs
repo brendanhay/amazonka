@@ -57,7 +57,7 @@
 -- and populate the @NextToken@ request parameter with the value of
 -- @NextToken@ returned from the previous call to @GetContentModeration@.
 --
--- For more information, see Content moderation in the Amazon Rekognition
+-- For more information, see moderating content in the Amazon Rekognition
 -- Developer Guide.
 module Amazonka.Rekognition.GetContentModeration
   ( -- * Creating a Request

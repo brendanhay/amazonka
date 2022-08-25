@@ -33,11 +33,17 @@ import Test.Tasty
 --         , requestAssociateVPCWithHostedZone $
 --             newAssociateVPCWithHostedZone
 --
+--         , requestChangeCidrCollection $
+--             newChangeCidrCollection
+--
 --         , requestChangeResourceRecordSets $
 --             newChangeResourceRecordSets
 --
 --         , requestChangeTagsForResource $
 --             newChangeTagsForResource
+--
+--         , requestCreateCidrCollection $
+--             newCreateCidrCollection
 --
 --         , requestCreateHealthCheck $
 --             newCreateHealthCheck
@@ -68,6 +74,9 @@ import Test.Tasty
 --
 --         , requestDeactivateKeySigningKey $
 --             newDeactivateKeySigningKey
+--
+--         , requestDeleteCidrCollection $
+--             newDeleteCidrCollection
 --
 --         , requestDeleteHealthCheck $
 --             newDeleteHealthCheck
@@ -156,6 +165,15 @@ import Test.Tasty
 --         , requestGetTrafficPolicyInstanceCount $
 --             newGetTrafficPolicyInstanceCount
 --
+--         , requestListCidrBlocks $
+--             newListCidrBlocks
+--
+--         , requestListCidrCollections $
+--             newListCidrCollections
+--
+--         , requestListCidrLocations $
+--             newListCidrLocations
+--
 --         , requestListGeoLocations $
 --             newListGeoLocations
 --
@@ -228,11 +246,17 @@ import Test.Tasty
 --         , responseAssociateVPCWithHostedZone $
 --             newAssociateVPCWithHostedZoneResponse
 --
+--         , responseChangeCidrCollection $
+--             newChangeCidrCollectionResponse
+--
 --         , responseChangeResourceRecordSets $
 --             newChangeResourceRecordSetsResponse
 --
 --         , responseChangeTagsForResource $
 --             newChangeTagsForResourceResponse
+--
+--         , responseCreateCidrCollection $
+--             newCreateCidrCollectionResponse
 --
 --         , responseCreateHealthCheck $
 --             newCreateHealthCheckResponse
@@ -263,6 +287,9 @@ import Test.Tasty
 --
 --         , responseDeactivateKeySigningKey $
 --             newDeactivateKeySigningKeyResponse
+--
+--         , responseDeleteCidrCollection $
+--             newDeleteCidrCollectionResponse
 --
 --         , responseDeleteHealthCheck $
 --             newDeleteHealthCheckResponse
@@ -351,6 +378,15 @@ import Test.Tasty
 --         , responseGetTrafficPolicyInstanceCount $
 --             newGetTrafficPolicyInstanceCountResponse
 --
+--         , responseListCidrBlocks $
+--             newListCidrBlocksResponse
+--
+--         , responseListCidrCollections $
+--             newListCidrCollectionsResponse
+--
+--         , responseListCidrLocations $
+--             newListCidrLocationsResponse
+--
 --         , responseListGeoLocations $
 --             newListGeoLocationsResponse
 --
@@ -431,6 +467,12 @@ requestAssociateVPCWithHostedZone =
     "AssociateVPCWithHostedZone"
     "fixture/AssociateVPCWithHostedZone.yaml"
 
+requestChangeCidrCollection :: ChangeCidrCollection -> TestTree
+requestChangeCidrCollection =
+  req
+    "ChangeCidrCollection"
+    "fixture/ChangeCidrCollection.yaml"
+
 requestChangeResourceRecordSets :: ChangeResourceRecordSets -> TestTree
 requestChangeResourceRecordSets =
   req
@@ -442,6 +484,12 @@ requestChangeTagsForResource =
   req
     "ChangeTagsForResource"
     "fixture/ChangeTagsForResource.yaml"
+
+requestCreateCidrCollection :: CreateCidrCollection -> TestTree
+requestCreateCidrCollection =
+  req
+    "CreateCidrCollection"
+    "fixture/CreateCidrCollection.yaml"
 
 requestCreateHealthCheck :: CreateHealthCheck -> TestTree
 requestCreateHealthCheck =
@@ -502,6 +550,12 @@ requestDeactivateKeySigningKey =
   req
     "DeactivateKeySigningKey"
     "fixture/DeactivateKeySigningKey.yaml"
+
+requestDeleteCidrCollection :: DeleteCidrCollection -> TestTree
+requestDeleteCidrCollection =
+  req
+    "DeleteCidrCollection"
+    "fixture/DeleteCidrCollection.yaml"
 
 requestDeleteHealthCheck :: DeleteHealthCheck -> TestTree
 requestDeleteHealthCheck =
@@ -677,6 +731,24 @@ requestGetTrafficPolicyInstanceCount =
     "GetTrafficPolicyInstanceCount"
     "fixture/GetTrafficPolicyInstanceCount.yaml"
 
+requestListCidrBlocks :: ListCidrBlocks -> TestTree
+requestListCidrBlocks =
+  req
+    "ListCidrBlocks"
+    "fixture/ListCidrBlocks.yaml"
+
+requestListCidrCollections :: ListCidrCollections -> TestTree
+requestListCidrCollections =
+  req
+    "ListCidrCollections"
+    "fixture/ListCidrCollections.yaml"
+
+requestListCidrLocations :: ListCidrLocations -> TestTree
+requestListCidrLocations =
+  req
+    "ListCidrLocations"
+    "fixture/ListCidrLocations.yaml"
+
 requestListGeoLocations :: ListGeoLocations -> TestTree
 requestListGeoLocations =
   req
@@ -821,6 +893,14 @@ responseAssociateVPCWithHostedZone =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateVPCWithHostedZone)
 
+responseChangeCidrCollection :: ChangeCidrCollectionResponse -> TestTree
+responseChangeCidrCollection =
+  res
+    "ChangeCidrCollectionResponse"
+    "fixture/ChangeCidrCollectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ChangeCidrCollection)
+
 responseChangeResourceRecordSets :: ChangeResourceRecordSetsResponse -> TestTree
 responseChangeResourceRecordSets =
   res
@@ -836,6 +916,14 @@ responseChangeTagsForResource =
     "fixture/ChangeTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ChangeTagsForResource)
+
+responseCreateCidrCollection :: CreateCidrCollectionResponse -> TestTree
+responseCreateCidrCollection =
+  res
+    "CreateCidrCollectionResponse"
+    "fixture/CreateCidrCollectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCidrCollection)
 
 responseCreateHealthCheck :: CreateHealthCheckResponse -> TestTree
 responseCreateHealthCheck =
@@ -916,6 +1004,14 @@ responseDeactivateKeySigningKey =
     "fixture/DeactivateKeySigningKeyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeactivateKeySigningKey)
+
+responseDeleteCidrCollection :: DeleteCidrCollectionResponse -> TestTree
+responseDeleteCidrCollection =
+  res
+    "DeleteCidrCollectionResponse"
+    "fixture/DeleteCidrCollectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCidrCollection)
 
 responseDeleteHealthCheck :: DeleteHealthCheckResponse -> TestTree
 responseDeleteHealthCheck =
@@ -1148,6 +1244,30 @@ responseGetTrafficPolicyInstanceCount =
     "fixture/GetTrafficPolicyInstanceCountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTrafficPolicyInstanceCount)
+
+responseListCidrBlocks :: ListCidrBlocksResponse -> TestTree
+responseListCidrBlocks =
+  res
+    "ListCidrBlocksResponse"
+    "fixture/ListCidrBlocksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCidrBlocks)
+
+responseListCidrCollections :: ListCidrCollectionsResponse -> TestTree
+responseListCidrCollections =
+  res
+    "ListCidrCollectionsResponse"
+    "fixture/ListCidrCollectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCidrCollections)
+
+responseListCidrLocations :: ListCidrLocationsResponse -> TestTree
+responseListCidrLocations =
+  res
+    "ListCidrLocationsResponse"
+    "fixture/ListCidrLocationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCidrLocations)
 
 responseListGeoLocations :: ListGeoLocationsResponse -> TestTree
 responseListGeoLocations =

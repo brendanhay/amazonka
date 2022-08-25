@@ -36,7 +36,8 @@ data GatingRuleUpdate = GatingRuleUpdate'
     -- \"flapping\" of state. The wait period is 5000 ms by default, but you
     -- can choose a custom value.
     waitPeriodMs :: Prelude.Int,
-    -- | The name for the gating rule.
+    -- | The name for the gating rule. You can use any non-white space character
+    -- in the name.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,7 +57,8 @@ data GatingRuleUpdate = GatingRuleUpdate'
 -- \"flapping\" of state. The wait period is 5000 ms by default, but you
 -- can choose a custom value.
 --
--- 'name', 'gatingRuleUpdate_name' - The name for the gating rule.
+-- 'name', 'gatingRuleUpdate_name' - The name for the gating rule. You can use any non-white space character
+-- in the name.
 newGatingRuleUpdate ::
   -- | 'safetyRuleArn'
   Prelude.Text ->
@@ -86,7 +88,8 @@ gatingRuleUpdate_safetyRuleArn = Lens.lens (\GatingRuleUpdate' {safetyRuleArn} -
 gatingRuleUpdate_waitPeriodMs :: Lens.Lens' GatingRuleUpdate Prelude.Int
 gatingRuleUpdate_waitPeriodMs = Lens.lens (\GatingRuleUpdate' {waitPeriodMs} -> waitPeriodMs) (\s@GatingRuleUpdate' {} a -> s {waitPeriodMs = a} :: GatingRuleUpdate)
 
--- | The name for the gating rule.
+-- | The name for the gating rule. You can use any non-white space character
+-- in the name.
 gatingRuleUpdate_name :: Lens.Lens' GatingRuleUpdate Prelude.Text
 gatingRuleUpdate_name = Lens.lens (\GatingRuleUpdate' {name} -> name) (\s@GatingRuleUpdate' {} a -> s {name = a} :: GatingRuleUpdate)
 

@@ -20,6 +20,7 @@
 module Amazonka.NetworkFirewall.Types.ConfigurationSyncState
   ( ConfigurationSyncState
       ( ..,
+        ConfigurationSyncState_CAPACITY_CONSTRAINED,
         ConfigurationSyncState_IN_SYNC,
         ConfigurationSyncState_PENDING
       ),
@@ -57,6 +58,9 @@ newtype ConfigurationSyncState = ConfigurationSyncState'
       Core.ToXML
     )
 
+pattern ConfigurationSyncState_CAPACITY_CONSTRAINED :: ConfigurationSyncState
+pattern ConfigurationSyncState_CAPACITY_CONSTRAINED = ConfigurationSyncState' "CAPACITY_CONSTRAINED"
+
 pattern ConfigurationSyncState_IN_SYNC :: ConfigurationSyncState
 pattern ConfigurationSyncState_IN_SYNC = ConfigurationSyncState' "IN_SYNC"
 
@@ -64,6 +68,7 @@ pattern ConfigurationSyncState_PENDING :: ConfigurationSyncState
 pattern ConfigurationSyncState_PENDING = ConfigurationSyncState' "PENDING"
 
 {-# COMPLETE
+  ConfigurationSyncState_CAPACITY_CONSTRAINED,
   ConfigurationSyncState_IN_SYNC,
   ConfigurationSyncState_PENDING,
   ConfigurationSyncState'

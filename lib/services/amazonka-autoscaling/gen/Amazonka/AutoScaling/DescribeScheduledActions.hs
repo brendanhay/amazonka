@@ -64,7 +64,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The latest scheduled start time to return. If scheduled action names are
-    -- provided, this parameter is ignored.
+    -- provided, this property is ignored.
     endTime :: Prelude.Maybe Core.ISO8601,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
@@ -72,9 +72,9 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The earliest scheduled start time to return. If scheduled action names
-    -- are provided, this parameter is ignored.
+    -- are provided, this property is ignored.
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | The names of one or more scheduled actions. If you omit this parameter,
+    -- | The names of one or more scheduled actions. If you omit this property,
     -- all scheduled actions are described. If you specify an unknown scheduled
     -- action, it is ignored with no error.
     --
@@ -95,7 +95,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- from a previous call.)
 --
 -- 'endTime', 'describeScheduledActions_endTime' - The latest scheduled start time to return. If scheduled action names are
--- provided, this parameter is ignored.
+-- provided, this property is ignored.
 --
 -- 'maxRecords', 'describeScheduledActions_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -103,9 +103,9 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- 'autoScalingGroupName', 'describeScheduledActions_autoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- 'startTime', 'describeScheduledActions_startTime' - The earliest scheduled start time to return. If scheduled action names
--- are provided, this parameter is ignored.
+-- are provided, this property is ignored.
 --
--- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of one or more scheduled actions. If you omit this parameter,
+-- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of one or more scheduled actions. If you omit this property,
 -- all scheduled actions are described. If you specify an unknown scheduled
 -- action, it is ignored with no error.
 --
@@ -129,7 +129,7 @@ describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Prelu
 describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {nextToken} -> nextToken) (\s@DescribeScheduledActions' {} a -> s {nextToken = a} :: DescribeScheduledActions)
 
 -- | The latest scheduled start time to return. If scheduled action names are
--- provided, this parameter is ignored.
+-- provided, this property is ignored.
 describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
 describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
 
@@ -143,11 +143,11 @@ describeScheduledActions_autoScalingGroupName :: Lens.Lens' DescribeScheduledAct
 describeScheduledActions_autoScalingGroupName = Lens.lens (\DescribeScheduledActions' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScheduledActions' {} a -> s {autoScalingGroupName = a} :: DescribeScheduledActions)
 
 -- | The earliest scheduled start time to return. If scheduled action names
--- are provided, this parameter is ignored.
+-- are provided, this property is ignored.
 describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
 describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
 
--- | The names of one or more scheduled actions. If you omit this parameter,
+-- | The names of one or more scheduled actions. If you omit this property,
 -- all scheduled actions are described. If you specify an unknown scheduled
 -- action, it is ignored with no error.
 --

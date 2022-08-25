@@ -27,6 +27,7 @@ module Amazonka.QuickSight.Types.DataSourceType
         DataSourceType_AURORA,
         DataSourceType_AURORA_POSTGRESQL,
         DataSourceType_AWS_IOT_ANALYTICS,
+        DataSourceType_EXASOL,
         DataSourceType_GITHUB,
         DataSourceType_JIRA,
         DataSourceType_MARIADB,
@@ -100,6 +101,9 @@ pattern DataSourceType_AURORA_POSTGRESQL = DataSourceType' "AURORA_POSTGRESQL"
 pattern DataSourceType_AWS_IOT_ANALYTICS :: DataSourceType
 pattern DataSourceType_AWS_IOT_ANALYTICS = DataSourceType' "AWS_IOT_ANALYTICS"
 
+pattern DataSourceType_EXASOL :: DataSourceType
+pattern DataSourceType_EXASOL = DataSourceType' "EXASOL"
+
 pattern DataSourceType_GITHUB :: DataSourceType
 pattern DataSourceType_GITHUB = DataSourceType' "GITHUB"
 
@@ -159,6 +163,7 @@ pattern DataSourceType_TWITTER = DataSourceType' "TWITTER"
   DataSourceType_AURORA,
   DataSourceType_AURORA_POSTGRESQL,
   DataSourceType_AWS_IOT_ANALYTICS,
+  DataSourceType_EXASOL,
   DataSourceType_GITHUB,
   DataSourceType_JIRA,
   DataSourceType_MARIADB,

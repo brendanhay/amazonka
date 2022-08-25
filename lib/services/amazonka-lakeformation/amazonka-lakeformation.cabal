@@ -45,28 +45,51 @@ library
   exposed-modules:
     Amazonka.LakeFormation
     Amazonka.LakeFormation.AddLFTagsToResource
+    Amazonka.LakeFormation.AssumeDecoratedRoleWithSAML
     Amazonka.LakeFormation.BatchGrantPermissions
     Amazonka.LakeFormation.BatchRevokePermissions
+    Amazonka.LakeFormation.CancelTransaction
+    Amazonka.LakeFormation.CommitTransaction
+    Amazonka.LakeFormation.CreateDataCellsFilter
     Amazonka.LakeFormation.CreateLFTag
+    Amazonka.LakeFormation.DeleteDataCellsFilter
     Amazonka.LakeFormation.DeleteLFTag
+    Amazonka.LakeFormation.DeleteObjectsOnCancel
     Amazonka.LakeFormation.DeregisterResource
     Amazonka.LakeFormation.DescribeResource
+    Amazonka.LakeFormation.DescribeTransaction
+    Amazonka.LakeFormation.ExtendTransaction
     Amazonka.LakeFormation.GetDataLakeSettings
     Amazonka.LakeFormation.GetEffectivePermissionsForPath
     Amazonka.LakeFormation.GetLFTag
+    Amazonka.LakeFormation.GetQueryState
+    Amazonka.LakeFormation.GetQueryStatistics
     Amazonka.LakeFormation.GetResourceLFTags
+    Amazonka.LakeFormation.GetTableObjects
+    Amazonka.LakeFormation.GetTemporaryGluePartitionCredentials
+    Amazonka.LakeFormation.GetTemporaryGlueTableCredentials
+    Amazonka.LakeFormation.GetWorkUnitResults
+    Amazonka.LakeFormation.GetWorkUnits
     Amazonka.LakeFormation.GrantPermissions
     Amazonka.LakeFormation.Lens
+    Amazonka.LakeFormation.ListDataCellsFilter
     Amazonka.LakeFormation.ListLFTags
     Amazonka.LakeFormation.ListPermissions
     Amazonka.LakeFormation.ListResources
+    Amazonka.LakeFormation.ListTableStorageOptimizers
+    Amazonka.LakeFormation.ListTransactions
     Amazonka.LakeFormation.PutDataLakeSettings
     Amazonka.LakeFormation.RegisterResource
     Amazonka.LakeFormation.RemoveLFTagsFromResource
     Amazonka.LakeFormation.RevokePermissions
     Amazonka.LakeFormation.SearchDatabasesByLFTags
     Amazonka.LakeFormation.SearchTablesByLFTags
+    Amazonka.LakeFormation.StartQueryPlanning
+    Amazonka.LakeFormation.StartTransaction
     Amazonka.LakeFormation.Types
+    Amazonka.LakeFormation.Types.AddObjectInput
+    Amazonka.LakeFormation.Types.AllRowsWildcard
+    Amazonka.LakeFormation.Types.AuditContext
     Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry
     Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
     Amazonka.LakeFormation.Types.CatalogResource
@@ -74,12 +97,16 @@ library
     Amazonka.LakeFormation.Types.ColumnWildcard
     Amazonka.LakeFormation.Types.ComparisonOperator
     Amazonka.LakeFormation.Types.DatabaseResource
+    Amazonka.LakeFormation.Types.DataCellsFilter
+    Amazonka.LakeFormation.Types.DataCellsFilterResource
     Amazonka.LakeFormation.Types.DataLakePrincipal
     Amazonka.LakeFormation.Types.DataLakeResourceType
     Amazonka.LakeFormation.Types.DataLakeSettings
     Amazonka.LakeFormation.Types.DataLocationResource
+    Amazonka.LakeFormation.Types.DeleteObjectInput
     Amazonka.LakeFormation.Types.DetailsMap
     Amazonka.LakeFormation.Types.ErrorDetail
+    Amazonka.LakeFormation.Types.ExecutionStatistics
     Amazonka.LakeFormation.Types.FieldNameString
     Amazonka.LakeFormation.Types.FilterCondition
     Amazonka.LakeFormation.Types.LFTag
@@ -87,20 +114,39 @@ library
     Amazonka.LakeFormation.Types.LFTagKeyResource
     Amazonka.LakeFormation.Types.LFTagPair
     Amazonka.LakeFormation.Types.LFTagPolicyResource
+    Amazonka.LakeFormation.Types.OptimizerType
+    Amazonka.LakeFormation.Types.PartitionObjects
+    Amazonka.LakeFormation.Types.PartitionValueList
     Amazonka.LakeFormation.Types.Permission
+    Amazonka.LakeFormation.Types.PermissionType
+    Amazonka.LakeFormation.Types.PlanningStatistics
     Amazonka.LakeFormation.Types.PrincipalPermissions
     Amazonka.LakeFormation.Types.PrincipalResourcePermissions
+    Amazonka.LakeFormation.Types.QueryPlanningContext
+    Amazonka.LakeFormation.Types.QueryStateString
     Amazonka.LakeFormation.Types.Resource
     Amazonka.LakeFormation.Types.ResourceInfo
     Amazonka.LakeFormation.Types.ResourceShareType
     Amazonka.LakeFormation.Types.ResourceType
+    Amazonka.LakeFormation.Types.RowFilter
+    Amazonka.LakeFormation.Types.StorageOptimizer
+    Amazonka.LakeFormation.Types.TableObject
     Amazonka.LakeFormation.Types.TableResource
     Amazonka.LakeFormation.Types.TableWildcard
     Amazonka.LakeFormation.Types.TableWithColumnsResource
     Amazonka.LakeFormation.Types.TaggedDatabase
     Amazonka.LakeFormation.Types.TaggedTable
+    Amazonka.LakeFormation.Types.TransactionDescription
+    Amazonka.LakeFormation.Types.TransactionStatus
+    Amazonka.LakeFormation.Types.TransactionStatusFilter
+    Amazonka.LakeFormation.Types.TransactionType
+    Amazonka.LakeFormation.Types.VirtualObject
+    Amazonka.LakeFormation.Types.WorkUnitRange
+    Amazonka.LakeFormation.Types.WriteOperation
     Amazonka.LakeFormation.UpdateLFTag
     Amazonka.LakeFormation.UpdateResource
+    Amazonka.LakeFormation.UpdateTableObjects
+    Amazonka.LakeFormation.UpdateTableStorageOptimizer
     Amazonka.LakeFormation.Waiters
 
   build-depends:

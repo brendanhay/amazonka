@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a Recovery Group.
+-- Displays a summary of information about a recovery group\'s readiness
+-- status. Includes the readiness checks for resources in the recovery
+-- group and the readiness status of each one.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
@@ -54,11 +56,11 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetRecoveryGroupReadinessSummary' smart constructor.
 data GetRecoveryGroupReadinessSummary = GetRecoveryGroupReadinessSummary'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the RecoveryGroup
+    -- | The name of a recovery group.
     recoveryGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,11 +73,11 @@ data GetRecoveryGroupReadinessSummary = GetRecoveryGroupReadinessSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getRecoveryGroupReadinessSummary_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'nextToken', 'getRecoveryGroupReadinessSummary_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'getRecoveryGroupReadinessSummary_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'getRecoveryGroupReadinessSummary_maxResults' - The number of objects that you want to return with this call.
 --
--- 'recoveryGroupName', 'getRecoveryGroupReadinessSummary_recoveryGroupName' - The name of the RecoveryGroup
+-- 'recoveryGroupName', 'getRecoveryGroupReadinessSummary_recoveryGroupName' - The name of a recovery group.
 newGetRecoveryGroupReadinessSummary ::
   -- | 'recoveryGroupName'
   Prelude.Text ->
@@ -89,15 +91,15 @@ newGetRecoveryGroupReadinessSummary
         recoveryGroupName = pRecoveryGroupName_
       }
 
--- | A token used to resume pagination from the end of a previous request.
+-- | The token that identifies which batch of results you want to see.
 getRecoveryGroupReadinessSummary_nextToken :: Lens.Lens' GetRecoveryGroupReadinessSummary (Prelude.Maybe Prelude.Text)
 getRecoveryGroupReadinessSummary_nextToken = Lens.lens (\GetRecoveryGroupReadinessSummary' {nextToken} -> nextToken) (\s@GetRecoveryGroupReadinessSummary' {} a -> s {nextToken = a} :: GetRecoveryGroupReadinessSummary)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 getRecoveryGroupReadinessSummary_maxResults :: Lens.Lens' GetRecoveryGroupReadinessSummary (Prelude.Maybe Prelude.Natural)
 getRecoveryGroupReadinessSummary_maxResults = Lens.lens (\GetRecoveryGroupReadinessSummary' {maxResults} -> maxResults) (\s@GetRecoveryGroupReadinessSummary' {} a -> s {maxResults = a} :: GetRecoveryGroupReadinessSummary)
 
--- | The name of the RecoveryGroup
+-- | The name of a recovery group.
 getRecoveryGroupReadinessSummary_recoveryGroupName :: Lens.Lens' GetRecoveryGroupReadinessSummary Prelude.Text
 getRecoveryGroupReadinessSummary_recoveryGroupName = Lens.lens (\GetRecoveryGroupReadinessSummary' {recoveryGroupName} -> recoveryGroupName) (\s@GetRecoveryGroupReadinessSummary' {} a -> s {recoveryGroupName = a} :: GetRecoveryGroupReadinessSummary)
 
@@ -199,12 +201,11 @@ instance
 
 -- | /See:/ 'newGetRecoveryGroupReadinessSummaryResponse' smart constructor.
 data GetRecoveryGroupReadinessSummaryResponse = GetRecoveryGroupReadinessSummaryResponse'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The readiness at RecoveryGroup level.
+    -- | The readiness status at a recovery group level.
     readiness :: Prelude.Maybe Readiness,
-    -- | Summaries for the ReadinessChecks making up the RecoveryGroup
+    -- | Summaries of the readiness checks for the recovery group.
     readinessChecks :: Prelude.Maybe [ReadinessCheckSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -219,12 +220,11 @@ data GetRecoveryGroupReadinessSummaryResponse = GetRecoveryGroupReadinessSummary
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getRecoveryGroupReadinessSummaryResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'getRecoveryGroupReadinessSummaryResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'readiness', 'getRecoveryGroupReadinessSummaryResponse_readiness' - The readiness at RecoveryGroup level.
+-- 'readiness', 'getRecoveryGroupReadinessSummaryResponse_readiness' - The readiness status at a recovery group level.
 --
--- 'readinessChecks', 'getRecoveryGroupReadinessSummaryResponse_readinessChecks' - Summaries for the ReadinessChecks making up the RecoveryGroup
+-- 'readinessChecks', 'getRecoveryGroupReadinessSummaryResponse_readinessChecks' - Summaries of the readiness checks for the recovery group.
 --
 -- 'httpStatus', 'getRecoveryGroupReadinessSummaryResponse_httpStatus' - The response's http status code.
 newGetRecoveryGroupReadinessSummaryResponse ::
@@ -241,16 +241,15 @@ newGetRecoveryGroupReadinessSummaryResponse
         httpStatus = pHttpStatus_
       }
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 getRecoveryGroupReadinessSummaryResponse_nextToken :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe Prelude.Text)
 getRecoveryGroupReadinessSummaryResponse_nextToken = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {nextToken} -> nextToken) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {nextToken = a} :: GetRecoveryGroupReadinessSummaryResponse)
 
--- | The readiness at RecoveryGroup level.
+-- | The readiness status at a recovery group level.
 getRecoveryGroupReadinessSummaryResponse_readiness :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe Readiness)
 getRecoveryGroupReadinessSummaryResponse_readiness = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {readiness} -> readiness) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {readiness = a} :: GetRecoveryGroupReadinessSummaryResponse)
 
--- | Summaries for the ReadinessChecks making up the RecoveryGroup
+-- | Summaries of the readiness checks for the recovery group.
 getRecoveryGroupReadinessSummaryResponse_readinessChecks :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe [ReadinessCheckSummary])
 getRecoveryGroupReadinessSummaryResponse_readinessChecks = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {readinessChecks} -> readinessChecks) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {readinessChecks = a} :: GetRecoveryGroupReadinessSummaryResponse) Prelude.. Lens.mapping Lens.coerced
 

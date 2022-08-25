@@ -20,27 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new changeset in a FinSpace dataset.
+-- Creates a new Changeset in a FinSpace Dataset.
 module Amazonka.FinSpaceData.CreateChangeset
   ( -- * Creating a Request
     CreateChangeset (..),
     newCreateChangeset,
 
     -- * Request Lenses
-    createChangeset_tags,
-    createChangeset_formatParams,
-    createChangeset_formatType,
+    createChangeset_clientToken,
     createChangeset_datasetId,
     createChangeset_changeType,
-    createChangeset_sourceType,
     createChangeset_sourceParams,
+    createChangeset_formatParams,
 
     -- * Destructuring the Response
     CreateChangesetResponse (..),
     newCreateChangesetResponse,
 
     -- * Response Lenses
-    createChangesetResponse_changeset,
+    createChangesetResponse_changesetId,
+    createChangesetResponse_datasetId,
     createChangesetResponse_httpStatus,
   )
 where
@@ -52,33 +51,68 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newCreateChangeset' smart constructor.
+-- | The request for a CreateChangeset operation.
+--
+-- /See:/ 'newCreateChangeset' smart constructor.
 data CreateChangeset = CreateChangeset'
-  { -- | Metadata tags to apply to this changeset.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Options that define the structure of the source file(s).
-    formatParams :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Format type of the input files being loaded into the changeset.
-    formatType :: Prelude.Maybe FormatType,
-    -- | The unique identifier for the FinSpace dataset in which the changeset
-    -- will be created.
+  { -- | A token that ensures idempotency. This token expires in 10 minutes.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the FinSpace Dataset where the Changeset will
+    -- be created.
     datasetId :: Prelude.Text,
-    -- | Option to indicate how a changeset will be applied to a dataset.
+    -- | The option to indicate how a Changeset will be applied to a Dataset.
     --
-    -- -   @REPLACE@ - Changeset will be considered as a replacement to all
-    --     prior loaded changesets.
+    -- -   @REPLACE@ – Changeset will be considered as a replacement to all
+    --     prior loaded Changesets.
     --
-    -- -   @APPEND@ - Changeset will be considered as an addition to the end of
-    --     all prior loaded changesets.
+    -- -   @APPEND@ – Changeset will be considered as an addition to the end of
+    --     all prior loaded Changesets.
+    --
+    -- -   @MODIFY@ – Changeset is considered as a replacement to a specific
+    --     prior ingested Changeset.
     changeType :: ChangeType,
-    -- | Type of the data source from which the files to create the changeset
-    -- will be sourced.
+    -- | Options that define the location of the data being ingested
+    -- (@s3SourcePath@) and the source of the changeset (@sourceType@).
     --
-    -- -   @S3@ - Amazon S3.
-    sourceType :: SourceType,
-    -- | Source path from which the files to create the changeset will be
-    -- sourced.
-    sourceParams :: Prelude.HashMap Prelude.Text Prelude.Text
+    -- Both @s3SourcePath@ and @sourceType@ are required attributes.
+    --
+    -- Here is an example of how you could specify the @sourceParams@:
+    --
+    -- @ \"sourceParams\": { \"s3SourcePath\": \"s3:\/\/finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d\/scratch\/wr5hh8pwkpqqkxa4sxrmcw\/ingestion\/equity.csv\", \"sourceType\": \"S3\" } @
+    --
+    -- The S3 path that you specify must allow the FinSpace role access. To do
+    -- that, you first need to configure the IAM policy on S3 bucket. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets Loading data from an Amazon S3 Bucket using the FinSpace API>
+    -- section.
+    sourceParams :: Prelude.HashMap Prelude.Text Prelude.Text,
+    -- | Options that define the structure of the source file(s) including the
+    -- format type (@formatType@), header row (@withHeader@), data separation
+    -- character (@separator@) and the type of compression (@compression@).
+    --
+    -- @formatType@ is a required attribute and can have the following values:
+    --
+    -- -   @PARQUET@ – Parquet source file format.
+    --
+    -- -   @CSV@ – CSV source file format.
+    --
+    -- -   @JSON@ – JSON source file format.
+    --
+    -- -   @XML@ – XML source file format.
+    --
+    -- Here is an example of how you could specify the @formatParams@:
+    --
+    -- @ \"formatParams\": { \"formatType\": \"CSV\", \"withHeader\": \"true\", \"separator\": \",\", \"compression\":\"None\" } @
+    --
+    -- Note that if you only provide @formatType@ as @CSV@, the rest of the
+    -- attributes will automatically default to CSV values as following:
+    --
+    -- @ { \"withHeader\": \"true\", \"separator\": \",\" } @
+    --
+    -- For more information about supported file formats, see
+    -- <https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html Supported Data Types and File Formats>
+    -- in the FinSpace User Guide.
+    formatParams :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,90 +124,145 @@ data CreateChangeset = CreateChangeset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createChangeset_tags' - Metadata tags to apply to this changeset.
+-- 'clientToken', 'createChangeset_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
 --
--- 'formatParams', 'createChangeset_formatParams' - Options that define the structure of the source file(s).
+-- 'datasetId', 'createChangeset_datasetId' - The unique identifier for the FinSpace Dataset where the Changeset will
+-- be created.
 --
--- 'formatType', 'createChangeset_formatType' - Format type of the input files being loaded into the changeset.
+-- 'changeType', 'createChangeset_changeType' - The option to indicate how a Changeset will be applied to a Dataset.
 --
--- 'datasetId', 'createChangeset_datasetId' - The unique identifier for the FinSpace dataset in which the changeset
--- will be created.
+-- -   @REPLACE@ – Changeset will be considered as a replacement to all
+--     prior loaded Changesets.
 --
--- 'changeType', 'createChangeset_changeType' - Option to indicate how a changeset will be applied to a dataset.
+-- -   @APPEND@ – Changeset will be considered as an addition to the end of
+--     all prior loaded Changesets.
 --
--- -   @REPLACE@ - Changeset will be considered as a replacement to all
---     prior loaded changesets.
+-- -   @MODIFY@ – Changeset is considered as a replacement to a specific
+--     prior ingested Changeset.
 --
--- -   @APPEND@ - Changeset will be considered as an addition to the end of
---     all prior loaded changesets.
+-- 'sourceParams', 'createChangeset_sourceParams' - Options that define the location of the data being ingested
+-- (@s3SourcePath@) and the source of the changeset (@sourceType@).
 --
--- 'sourceType', 'createChangeset_sourceType' - Type of the data source from which the files to create the changeset
--- will be sourced.
+-- Both @s3SourcePath@ and @sourceType@ are required attributes.
 --
--- -   @S3@ - Amazon S3.
+-- Here is an example of how you could specify the @sourceParams@:
 --
--- 'sourceParams', 'createChangeset_sourceParams' - Source path from which the files to create the changeset will be
--- sourced.
+-- @ \"sourceParams\": { \"s3SourcePath\": \"s3:\/\/finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d\/scratch\/wr5hh8pwkpqqkxa4sxrmcw\/ingestion\/equity.csv\", \"sourceType\": \"S3\" } @
+--
+-- The S3 path that you specify must allow the FinSpace role access. To do
+-- that, you first need to configure the IAM policy on S3 bucket. For more
+-- information, see
+-- <https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets Loading data from an Amazon S3 Bucket using the FinSpace API>
+-- section.
+--
+-- 'formatParams', 'createChangeset_formatParams' - Options that define the structure of the source file(s) including the
+-- format type (@formatType@), header row (@withHeader@), data separation
+-- character (@separator@) and the type of compression (@compression@).
+--
+-- @formatType@ is a required attribute and can have the following values:
+--
+-- -   @PARQUET@ – Parquet source file format.
+--
+-- -   @CSV@ – CSV source file format.
+--
+-- -   @JSON@ – JSON source file format.
+--
+-- -   @XML@ – XML source file format.
+--
+-- Here is an example of how you could specify the @formatParams@:
+--
+-- @ \"formatParams\": { \"formatType\": \"CSV\", \"withHeader\": \"true\", \"separator\": \",\", \"compression\":\"None\" } @
+--
+-- Note that if you only provide @formatType@ as @CSV@, the rest of the
+-- attributes will automatically default to CSV values as following:
+--
+-- @ { \"withHeader\": \"true\", \"separator\": \",\" } @
+--
+-- For more information about supported file formats, see
+-- <https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html Supported Data Types and File Formats>
+-- in the FinSpace User Guide.
 newCreateChangeset ::
   -- | 'datasetId'
   Prelude.Text ->
   -- | 'changeType'
   ChangeType ->
-  -- | 'sourceType'
-  SourceType ->
   CreateChangeset
-newCreateChangeset
-  pDatasetId_
-  pChangeType_
-  pSourceType_ =
-    CreateChangeset'
-      { tags = Prelude.Nothing,
-        formatParams = Prelude.Nothing,
-        formatType = Prelude.Nothing,
-        datasetId = pDatasetId_,
-        changeType = pChangeType_,
-        sourceType = pSourceType_,
-        sourceParams = Prelude.mempty
-      }
+newCreateChangeset pDatasetId_ pChangeType_ =
+  CreateChangeset'
+    { clientToken = Prelude.Nothing,
+      datasetId = pDatasetId_,
+      changeType = pChangeType_,
+      sourceParams = Prelude.mempty,
+      formatParams = Prelude.mempty
+    }
 
--- | Metadata tags to apply to this changeset.
-createChangeset_tags :: Lens.Lens' CreateChangeset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createChangeset_tags = Lens.lens (\CreateChangeset' {tags} -> tags) (\s@CreateChangeset' {} a -> s {tags = a} :: CreateChangeset) Prelude.. Lens.mapping Lens.coerced
+-- | A token that ensures idempotency. This token expires in 10 minutes.
+createChangeset_clientToken :: Lens.Lens' CreateChangeset (Prelude.Maybe Prelude.Text)
+createChangeset_clientToken = Lens.lens (\CreateChangeset' {clientToken} -> clientToken) (\s@CreateChangeset' {} a -> s {clientToken = a} :: CreateChangeset)
 
--- | Options that define the structure of the source file(s).
-createChangeset_formatParams :: Lens.Lens' CreateChangeset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createChangeset_formatParams = Lens.lens (\CreateChangeset' {formatParams} -> formatParams) (\s@CreateChangeset' {} a -> s {formatParams = a} :: CreateChangeset) Prelude.. Lens.mapping Lens.coerced
-
--- | Format type of the input files being loaded into the changeset.
-createChangeset_formatType :: Lens.Lens' CreateChangeset (Prelude.Maybe FormatType)
-createChangeset_formatType = Lens.lens (\CreateChangeset' {formatType} -> formatType) (\s@CreateChangeset' {} a -> s {formatType = a} :: CreateChangeset)
-
--- | The unique identifier for the FinSpace dataset in which the changeset
--- will be created.
+-- | The unique identifier for the FinSpace Dataset where the Changeset will
+-- be created.
 createChangeset_datasetId :: Lens.Lens' CreateChangeset Prelude.Text
 createChangeset_datasetId = Lens.lens (\CreateChangeset' {datasetId} -> datasetId) (\s@CreateChangeset' {} a -> s {datasetId = a} :: CreateChangeset)
 
--- | Option to indicate how a changeset will be applied to a dataset.
+-- | The option to indicate how a Changeset will be applied to a Dataset.
 --
--- -   @REPLACE@ - Changeset will be considered as a replacement to all
---     prior loaded changesets.
+-- -   @REPLACE@ – Changeset will be considered as a replacement to all
+--     prior loaded Changesets.
 --
--- -   @APPEND@ - Changeset will be considered as an addition to the end of
---     all prior loaded changesets.
+-- -   @APPEND@ – Changeset will be considered as an addition to the end of
+--     all prior loaded Changesets.
+--
+-- -   @MODIFY@ – Changeset is considered as a replacement to a specific
+--     prior ingested Changeset.
 createChangeset_changeType :: Lens.Lens' CreateChangeset ChangeType
 createChangeset_changeType = Lens.lens (\CreateChangeset' {changeType} -> changeType) (\s@CreateChangeset' {} a -> s {changeType = a} :: CreateChangeset)
 
--- | Type of the data source from which the files to create the changeset
--- will be sourced.
+-- | Options that define the location of the data being ingested
+-- (@s3SourcePath@) and the source of the changeset (@sourceType@).
 --
--- -   @S3@ - Amazon S3.
-createChangeset_sourceType :: Lens.Lens' CreateChangeset SourceType
-createChangeset_sourceType = Lens.lens (\CreateChangeset' {sourceType} -> sourceType) (\s@CreateChangeset' {} a -> s {sourceType = a} :: CreateChangeset)
-
--- | Source path from which the files to create the changeset will be
--- sourced.
+-- Both @s3SourcePath@ and @sourceType@ are required attributes.
+--
+-- Here is an example of how you could specify the @sourceParams@:
+--
+-- @ \"sourceParams\": { \"s3SourcePath\": \"s3:\/\/finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d\/scratch\/wr5hh8pwkpqqkxa4sxrmcw\/ingestion\/equity.csv\", \"sourceType\": \"S3\" } @
+--
+-- The S3 path that you specify must allow the FinSpace role access. To do
+-- that, you first need to configure the IAM policy on S3 bucket. For more
+-- information, see
+-- <https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets Loading data from an Amazon S3 Bucket using the FinSpace API>
+-- section.
 createChangeset_sourceParams :: Lens.Lens' CreateChangeset (Prelude.HashMap Prelude.Text Prelude.Text)
 createChangeset_sourceParams = Lens.lens (\CreateChangeset' {sourceParams} -> sourceParams) (\s@CreateChangeset' {} a -> s {sourceParams = a} :: CreateChangeset) Prelude.. Lens.coerced
+
+-- | Options that define the structure of the source file(s) including the
+-- format type (@formatType@), header row (@withHeader@), data separation
+-- character (@separator@) and the type of compression (@compression@).
+--
+-- @formatType@ is a required attribute and can have the following values:
+--
+-- -   @PARQUET@ – Parquet source file format.
+--
+-- -   @CSV@ – CSV source file format.
+--
+-- -   @JSON@ – JSON source file format.
+--
+-- -   @XML@ – XML source file format.
+--
+-- Here is an example of how you could specify the @formatParams@:
+--
+-- @ \"formatParams\": { \"formatType\": \"CSV\", \"withHeader\": \"true\", \"separator\": \",\", \"compression\":\"None\" } @
+--
+-- Note that if you only provide @formatType@ as @CSV@, the rest of the
+-- attributes will automatically default to CSV values as following:
+--
+-- @ { \"withHeader\": \"true\", \"separator\": \",\" } @
+--
+-- For more information about supported file formats, see
+-- <https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html Supported Data Types and File Formats>
+-- in the FinSpace User Guide.
+createChangeset_formatParams :: Lens.Lens' CreateChangeset (Prelude.HashMap Prelude.Text Prelude.Text)
+createChangeset_formatParams = Lens.lens (\CreateChangeset' {formatParams} -> formatParams) (\s@CreateChangeset' {} a -> s {formatParams = a} :: CreateChangeset) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateChangeset where
   type
@@ -184,29 +273,26 @@ instance Core.AWSRequest CreateChangeset where
     Response.receiveJSON
       ( \s h x ->
           CreateChangesetResponse'
-            Prelude.<$> (x Core..?> "changeset")
+            Prelude.<$> (x Core..?> "changesetId")
+            Prelude.<*> (x Core..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateChangeset where
   hashWithSalt _salt CreateChangeset' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` formatParams
-      `Prelude.hashWithSalt` formatType
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datasetId
       `Prelude.hashWithSalt` changeType
-      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceParams
+      `Prelude.hashWithSalt` formatParams
 
 instance Prelude.NFData CreateChangeset where
   rnf CreateChangeset' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf formatParams
-      `Prelude.seq` Prelude.rnf formatType
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceParams
+      `Prelude.seq` Prelude.rnf formatParams
 
 instance Core.ToHeaders CreateChangeset where
   toHeaders =
@@ -223,27 +309,30 @@ instance Core.ToJSON CreateChangeset where
   toJSON CreateChangeset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("formatParams" Core..=) Prelude.<$> formatParams,
-            ("formatType" Core..=) Prelude.<$> formatType,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("changeType" Core..= changeType),
-            Prelude.Just ("sourceType" Core..= sourceType),
-            Prelude.Just ("sourceParams" Core..= sourceParams)
+            Prelude.Just ("sourceParams" Core..= sourceParams),
+            Prelude.Just ("formatParams" Core..= formatParams)
           ]
       )
 
 instance Core.ToPath CreateChangeset where
   toPath CreateChangeset' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetId, "/changesets"]
+      ["/datasets/", Core.toBS datasetId, "/changesetsv2"]
 
 instance Core.ToQuery CreateChangeset where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newCreateChangesetResponse' smart constructor.
+-- | The response from a CreateChangeset operation.
+--
+-- /See:/ 'newCreateChangesetResponse' smart constructor.
 data CreateChangesetResponse = CreateChangesetResponse'
-  { -- | Returns the changeset details.
-    changeset :: Prelude.Maybe ChangesetInfo,
+  { -- | The unique identifier of the Changeset that is created.
+    changesetId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the FinSpace Dataset where the Changeset is
+    -- created.
+    datasetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,7 +346,10 @@ data CreateChangesetResponse = CreateChangesetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changeset', 'createChangesetResponse_changeset' - Returns the changeset details.
+-- 'changesetId', 'createChangesetResponse_changesetId' - The unique identifier of the Changeset that is created.
+--
+-- 'datasetId', 'createChangesetResponse_datasetId' - The unique identifier for the FinSpace Dataset where the Changeset is
+-- created.
 --
 -- 'httpStatus', 'createChangesetResponse_httpStatus' - The response's http status code.
 newCreateChangesetResponse ::
@@ -266,14 +358,20 @@ newCreateChangesetResponse ::
   CreateChangesetResponse
 newCreateChangesetResponse pHttpStatus_ =
   CreateChangesetResponse'
-    { changeset =
+    { changesetId =
         Prelude.Nothing,
+      datasetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Returns the changeset details.
-createChangesetResponse_changeset :: Lens.Lens' CreateChangesetResponse (Prelude.Maybe ChangesetInfo)
-createChangesetResponse_changeset = Lens.lens (\CreateChangesetResponse' {changeset} -> changeset) (\s@CreateChangesetResponse' {} a -> s {changeset = a} :: CreateChangesetResponse)
+-- | The unique identifier of the Changeset that is created.
+createChangesetResponse_changesetId :: Lens.Lens' CreateChangesetResponse (Prelude.Maybe Prelude.Text)
+createChangesetResponse_changesetId = Lens.lens (\CreateChangesetResponse' {changesetId} -> changesetId) (\s@CreateChangesetResponse' {} a -> s {changesetId = a} :: CreateChangesetResponse)
+
+-- | The unique identifier for the FinSpace Dataset where the Changeset is
+-- created.
+createChangesetResponse_datasetId :: Lens.Lens' CreateChangesetResponse (Prelude.Maybe Prelude.Text)
+createChangesetResponse_datasetId = Lens.lens (\CreateChangesetResponse' {datasetId} -> datasetId) (\s@CreateChangesetResponse' {} a -> s {datasetId = a} :: CreateChangesetResponse)
 
 -- | The response's http status code.
 createChangesetResponse_httpStatus :: Lens.Lens' CreateChangesetResponse Prelude.Int
@@ -281,5 +379,6 @@ createChangesetResponse_httpStatus = Lens.lens (\CreateChangesetResponse' {httpS
 
 instance Prelude.NFData CreateChangesetResponse where
   rnf CreateChangesetResponse' {..} =
-    Prelude.rnf changeset
+    Prelude.rnf changesetId
+      `Prelude.seq` Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf httpStatus

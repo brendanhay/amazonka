@@ -125,6 +125,7 @@ module Amazonka.MediaPackage.Types
     dashPackage_segmentTemplateFormat,
     dashPackage_streamSelection,
     dashPackage_suggestedPresentationDelaySeconds,
+    dashPackage_includeIframeOnlyStream,
     dashPackage_manifestWindowSeconds,
     dashPackage_minUpdatePeriodSeconds,
     dashPackage_adTriggers,

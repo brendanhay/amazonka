@@ -24,7 +24,7 @@ import Amazonka.CostExplorer.Types.TargetInstance
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details on the modification recommendation.
+-- | Details for the modification recommendation.
 --
 -- /See:/ 'newModifyRecommendationDetail' smart constructor.
 data ModifyRecommendationDetail = ModifyRecommendationDetail'

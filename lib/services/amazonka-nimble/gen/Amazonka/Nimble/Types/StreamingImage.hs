@@ -26,7 +26,18 @@ import Amazonka.Nimble.Types.StreamingImageState
 import Amazonka.Nimble.Types.StreamingImageStatusCode
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | Represents a streaming image resource.
+--
+-- Streaming images are used by studio users to select which operating
+-- system and software they want to use in a Nimble Studio streaming
+-- session.
+--
+-- Amazon provides a number of streaming images that include popular
+-- 3rd-party software.
+--
+-- You can create your own streaming images using an Amazon Elastic Compute
+-- Cloud (Amazon EC2) machine image that you create for this purpose. You
+-- can also include software that your users require.
 --
 -- /See:/ 'newStreamingImage' smart constructor.
 data StreamingImage = StreamingImage'
@@ -36,7 +47,7 @@ data StreamingImage = StreamingImage'
     -- | The ID of the streaming image.
     streamingImageId :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for a streaming image resource.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of an EC2 machine image with which to create the streaming image.
     ec2ImageId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
@@ -48,7 +59,7 @@ data StreamingImage = StreamingImage'
     -- Nimble Studio.
     owner :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the streaming image.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The platform of the streaming image, either WINDOWS or LINUX.
     platform :: Prelude.Maybe Prelude.Text,
     -- | The list of EULAs that must be accepted before a Streaming Session can
@@ -61,7 +72,7 @@ data StreamingImage = StreamingImage'
     -- | The status message for the streaming image.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamingImage' with all optional fields omitted.
@@ -130,7 +141,7 @@ streamingImage_streamingImageId = Lens.lens (\StreamingImage' {streamingImageId}
 
 -- | A friendly name for a streaming image resource.
 streamingImage_name :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
-streamingImage_name = Lens.lens (\StreamingImage' {name} -> name) (\s@StreamingImage' {} a -> s {name = a} :: StreamingImage)
+streamingImage_name = Lens.lens (\StreamingImage' {name} -> name) (\s@StreamingImage' {} a -> s {name = a} :: StreamingImage) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of an EC2 machine image with which to create the streaming image.
 streamingImage_ec2ImageId :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
@@ -152,7 +163,7 @@ streamingImage_owner = Lens.lens (\StreamingImage' {owner} -> owner) (\s@Streami
 
 -- | A human-readable description of the streaming image.
 streamingImage_description :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
-streamingImage_description = Lens.lens (\StreamingImage' {description} -> description) (\s@StreamingImage' {} a -> s {description = a} :: StreamingImage)
+streamingImage_description = Lens.lens (\StreamingImage' {description} -> description) (\s@StreamingImage' {} a -> s {description = a} :: StreamingImage) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The platform of the streaming image, either WINDOWS or LINUX.
 streamingImage_platform :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)

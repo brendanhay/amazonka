@@ -29,6 +29,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
+-- | The type of verification message to send.
 newtype DeliveryMethod = DeliveryMethod'
   { fromDeliveryMethod ::
       Core.Text

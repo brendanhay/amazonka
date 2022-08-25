@@ -50,9 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNotifications' smart constructor.
 data ListNotifications = ListNotifications'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results per page, or per API request
+    -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -66,9 +66,9 @@ data ListNotifications = ListNotifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNotifications_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'listNotifications_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'maxResults', 'listNotifications_maxResults' - Represents the maximum number of results per page, or per API request
+-- 'maxResults', 'listNotifications_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
 newListNotifications ::
   ListNotifications
@@ -78,11 +78,11 @@ newListNotifications =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 listNotifications_nextToken :: Lens.Lens' ListNotifications (Prelude.Maybe Prelude.Text)
 listNotifications_nextToken = Lens.lens (\ListNotifications' {nextToken} -> nextToken) (\s@ListNotifications' {} a -> s {nextToken = a} :: ListNotifications)
 
--- | Represents the maximum number of results per page, or per API request
+-- | Represents the maximum number of results on a page or for an API request
 -- call.
 listNotifications_maxResults :: Lens.Lens' ListNotifications (Prelude.Maybe Prelude.Natural)
 listNotifications_maxResults = Lens.lens (\ListNotifications' {maxResults} -> maxResults) (\s@ListNotifications' {} a -> s {maxResults = a} :: ListNotifications)
@@ -136,7 +136,7 @@ instance Core.ToQuery ListNotifications where
 data ListNotificationsResponse = ListNotificationsResponse'
   { -- | The returned list of notifications.
     notifications :: Prelude.Maybe [Notification],
-    -- | The pagination token used to fetch the next set of results.
+    -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -153,7 +153,7 @@ data ListNotificationsResponse = ListNotificationsResponse'
 --
 -- 'notifications', 'listNotificationsResponse_notifications' - The returned list of notifications.
 --
--- 'nextToken', 'listNotificationsResponse_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'listNotificationsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listNotificationsResponse_httpStatus' - The response's http status code.
 newListNotificationsResponse ::
@@ -172,7 +172,7 @@ newListNotificationsResponse pHttpStatus_ =
 listNotificationsResponse_notifications :: Lens.Lens' ListNotificationsResponse (Prelude.Maybe [Notification])
 listNotificationsResponse_notifications = Lens.lens (\ListNotificationsResponse' {notifications} -> notifications) (\s@ListNotificationsResponse' {} a -> s {notifications = a} :: ListNotificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 listNotificationsResponse_nextToken :: Lens.Lens' ListNotificationsResponse (Prelude.Maybe Prelude.Text)
 listNotificationsResponse_nextToken = Lens.lens (\ListNotificationsResponse' {nextToken} -> nextToken) (\s@ListNotificationsResponse' {} a -> s {nextToken = a} :: ListNotificationsResponse)
 

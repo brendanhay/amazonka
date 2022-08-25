@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get detail data for an environment template.
+-- Get detailed data for an environment template.
 module Amazonka.Proton.GetEnvironmentTemplate
   ( -- * Creating a Request
     GetEnvironmentTemplate (..),
@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEnvironmentTemplate' smart constructor.
 data GetEnvironmentTemplate = GetEnvironmentTemplate'
-  { -- | The name of the environment template that you want to get the detail
+  { -- | The name of the environment template that you want to get the detailed
     -- data for.
     name :: Prelude.Text
   }
@@ -62,7 +62,7 @@ data GetEnvironmentTemplate = GetEnvironmentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getEnvironmentTemplate_name' - The name of the environment template that you want to get the detail
+-- 'name', 'getEnvironmentTemplate_name' - The name of the environment template that you want to get the detailed
 -- data for.
 newGetEnvironmentTemplate ::
   -- | 'name'
@@ -71,7 +71,7 @@ newGetEnvironmentTemplate ::
 newGetEnvironmentTemplate pName_ =
   GetEnvironmentTemplate' {name = pName_}
 
--- | The name of the environment template that you want to get the detail
+-- | The name of the environment template that you want to get the detailed
 -- data for.
 getEnvironmentTemplate_name :: Lens.Lens' GetEnvironmentTemplate Prelude.Text
 getEnvironmentTemplate_name = Lens.lens (\GetEnvironmentTemplate' {name} -> name) (\s@GetEnvironmentTemplate' {} a -> s {name = a} :: GetEnvironmentTemplate)
@@ -128,7 +128,7 @@ instance Core.ToQuery GetEnvironmentTemplate where
 data GetEnvironmentTemplateResponse = GetEnvironmentTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment template detail data that\'s returned by AWS Proton.
+    -- | The detailed data of the requested environment template.
     environmentTemplate :: EnvironmentTemplate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -143,7 +143,7 @@ data GetEnvironmentTemplateResponse = GetEnvironmentTemplateResponse'
 --
 -- 'httpStatus', 'getEnvironmentTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'environmentTemplate', 'getEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by AWS Proton.
+-- 'environmentTemplate', 'getEnvironmentTemplateResponse_environmentTemplate' - The detailed data of the requested environment template.
 newGetEnvironmentTemplateResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -163,7 +163,7 @@ newGetEnvironmentTemplateResponse
 getEnvironmentTemplateResponse_httpStatus :: Lens.Lens' GetEnvironmentTemplateResponse Prelude.Int
 getEnvironmentTemplateResponse_httpStatus = Lens.lens (\GetEnvironmentTemplateResponse' {httpStatus} -> httpStatus) (\s@GetEnvironmentTemplateResponse' {} a -> s {httpStatus = a} :: GetEnvironmentTemplateResponse)
 
--- | The environment template detail data that\'s returned by AWS Proton.
+-- | The detailed data of the requested environment template.
 getEnvironmentTemplateResponse_environmentTemplate :: Lens.Lens' GetEnvironmentTemplateResponse EnvironmentTemplate
 getEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\GetEnvironmentTemplateResponse' {environmentTemplate} -> environmentTemplate) (\s@GetEnvironmentTemplateResponse' {} a -> s {environmentTemplate = a} :: GetEnvironmentTemplateResponse)
 

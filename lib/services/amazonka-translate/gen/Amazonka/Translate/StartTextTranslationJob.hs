@@ -39,6 +39,7 @@ module Amazonka.Translate.StartTextTranslationJob
     -- * Request Lenses
     startTextTranslationJob_jobName,
     startTextTranslationJob_terminologyNames,
+    startTextTranslationJob_settings,
     startTextTranslationJob_parallelDataNames,
     startTextTranslationJob_inputDataConfig,
     startTextTranslationJob_outputDataConfig,
@@ -69,21 +70,45 @@ import Amazonka.Translate.Types
 data StartTextTranslationJob = StartTextTranslationJob'
   { -- | The name of the batch translation job to be performed.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the terminology to use in the batch translation job. For a
-    -- list of available terminologies, use the ListTerminologies operation.
+    -- | The name of a custom terminology resource to add to the translation job.
+    -- This resource lists examples source terms and the desired translation
+    -- for each term.
+    --
+    -- This parameter accepts only one custom terminology resource.
+    --
+    -- For a list of available custom terminology resources, use the
+    -- ListTerminologies operation.
+    --
+    -- For more information, see how-custom-terminology.
     terminologyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The names of the parallel data resources to use in the batch translation
-    -- job. For a list of available parallel data resources, use the
+    -- | Settings to configure your translation output, including the option to
+    -- mask profane words and phrases. @StartTextTranslationJob@ does not
+    -- support the formality setting.
+    settings :: Prelude.Maybe TranslationSettings,
+    -- | The name of a parallel data resource to add to the translation job. This
+    -- resource consists of examples that show how you want segments of text to
+    -- be translated. When you add parallel data to a translation job, you
+    -- create an /Active Custom Translation/ job.
+    --
+    -- This parameter accepts only one parallel data resource.
+    --
+    -- Active Custom Translation jobs are priced at a higher rate than other
+    -- jobs that don\'t use parallel data. For more information, see
+    -- <http://aws.amazon.com/translate/pricing/ Amazon Translate pricing>.
+    --
+    -- For a list of available parallel data resources, use the
     -- ListParallelData operation.
+    --
+    -- For more information, see customizing-translations-parallel-data.
     parallelDataNames :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the format and S3 location of the input documents for the
+    -- | Specifies the format and location of the input documents for the
     -- translation job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies the S3 folder to which your job output will be saved.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management
     -- (IAM) role that grants Amazon Translate read access to your input data.
-    -- For more nformation, see identity-and-access-management.
+    -- For more information, see identity-and-access-management.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language code of the input language. For a list of language codes,
     -- see what-is-languages.
@@ -93,8 +118,8 @@ data StartTextTranslationJob = StartTextTranslationJob'
     sourceLanguageCode :: Prelude.Text,
     -- | The language code of the output language.
     targetLanguageCodes :: Prelude.NonEmpty Prelude.Text,
-    -- | A unique identifier for the request. This token is auto-generated when
-    -- using the Amazon Translate SDK.
+    -- | A unique identifier for the request. This token is generated for you
+    -- when using the Amazon Translate SDK.
     clientToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,21 +134,45 @@ data StartTextTranslationJob = StartTextTranslationJob'
 --
 -- 'jobName', 'startTextTranslationJob_jobName' - The name of the batch translation job to be performed.
 --
--- 'terminologyNames', 'startTextTranslationJob_terminologyNames' - The name of the terminology to use in the batch translation job. For a
--- list of available terminologies, use the ListTerminologies operation.
+-- 'terminologyNames', 'startTextTranslationJob_terminologyNames' - The name of a custom terminology resource to add to the translation job.
+-- This resource lists examples source terms and the desired translation
+-- for each term.
 --
--- 'parallelDataNames', 'startTextTranslationJob_parallelDataNames' - The names of the parallel data resources to use in the batch translation
--- job. For a list of available parallel data resources, use the
+-- This parameter accepts only one custom terminology resource.
+--
+-- For a list of available custom terminology resources, use the
+-- ListTerminologies operation.
+--
+-- For more information, see how-custom-terminology.
+--
+-- 'settings', 'startTextTranslationJob_settings' - Settings to configure your translation output, including the option to
+-- mask profane words and phrases. @StartTextTranslationJob@ does not
+-- support the formality setting.
+--
+-- 'parallelDataNames', 'startTextTranslationJob_parallelDataNames' - The name of a parallel data resource to add to the translation job. This
+-- resource consists of examples that show how you want segments of text to
+-- be translated. When you add parallel data to a translation job, you
+-- create an /Active Custom Translation/ job.
+--
+-- This parameter accepts only one parallel data resource.
+--
+-- Active Custom Translation jobs are priced at a higher rate than other
+-- jobs that don\'t use parallel data. For more information, see
+-- <http://aws.amazon.com/translate/pricing/ Amazon Translate pricing>.
+--
+-- For a list of available parallel data resources, use the
 -- ListParallelData operation.
 --
--- 'inputDataConfig', 'startTextTranslationJob_inputDataConfig' - Specifies the format and S3 location of the input documents for the
+-- For more information, see customizing-translations-parallel-data.
+--
+-- 'inputDataConfig', 'startTextTranslationJob_inputDataConfig' - Specifies the format and location of the input documents for the
 -- translation job.
 --
 -- 'outputDataConfig', 'startTextTranslationJob_outputDataConfig' - Specifies the S3 folder to which your job output will be saved.
 --
 -- 'dataAccessRoleArn', 'startTextTranslationJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management
 -- (IAM) role that grants Amazon Translate read access to your input data.
--- For more nformation, see identity-and-access-management.
+-- For more information, see identity-and-access-management.
 --
 -- 'sourceLanguageCode', 'startTextTranslationJob_sourceLanguageCode' - The language code of the input language. For a list of language codes,
 -- see what-is-languages.
@@ -133,8 +182,8 @@ data StartTextTranslationJob = StartTextTranslationJob'
 --
 -- 'targetLanguageCodes', 'startTextTranslationJob_targetLanguageCodes' - The language code of the output language.
 --
--- 'clientToken', 'startTextTranslationJob_clientToken' - A unique identifier for the request. This token is auto-generated when
--- using the Amazon Translate SDK.
+-- 'clientToken', 'startTextTranslationJob_clientToken' - A unique identifier for the request. This token is generated for you
+-- when using the Amazon Translate SDK.
 newStartTextTranslationJob ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -159,6 +208,7 @@ newStartTextTranslationJob
     StartTextTranslationJob'
       { jobName = Prelude.Nothing,
         terminologyNames = Prelude.Nothing,
+        settings = Prelude.Nothing,
         parallelDataNames = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
@@ -173,18 +223,44 @@ newStartTextTranslationJob
 startTextTranslationJob_jobName :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe Prelude.Text)
 startTextTranslationJob_jobName = Lens.lens (\StartTextTranslationJob' {jobName} -> jobName) (\s@StartTextTranslationJob' {} a -> s {jobName = a} :: StartTextTranslationJob)
 
--- | The name of the terminology to use in the batch translation job. For a
--- list of available terminologies, use the ListTerminologies operation.
+-- | The name of a custom terminology resource to add to the translation job.
+-- This resource lists examples source terms and the desired translation
+-- for each term.
+--
+-- This parameter accepts only one custom terminology resource.
+--
+-- For a list of available custom terminology resources, use the
+-- ListTerminologies operation.
+--
+-- For more information, see how-custom-terminology.
 startTextTranslationJob_terminologyNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
 startTextTranslationJob_terminologyNames = Lens.lens (\StartTextTranslationJob' {terminologyNames} -> terminologyNames) (\s@StartTextTranslationJob' {} a -> s {terminologyNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The names of the parallel data resources to use in the batch translation
--- job. For a list of available parallel data resources, use the
+-- | Settings to configure your translation output, including the option to
+-- mask profane words and phrases. @StartTextTranslationJob@ does not
+-- support the formality setting.
+startTextTranslationJob_settings :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe TranslationSettings)
+startTextTranslationJob_settings = Lens.lens (\StartTextTranslationJob' {settings} -> settings) (\s@StartTextTranslationJob' {} a -> s {settings = a} :: StartTextTranslationJob)
+
+-- | The name of a parallel data resource to add to the translation job. This
+-- resource consists of examples that show how you want segments of text to
+-- be translated. When you add parallel data to a translation job, you
+-- create an /Active Custom Translation/ job.
+--
+-- This parameter accepts only one parallel data resource.
+--
+-- Active Custom Translation jobs are priced at a higher rate than other
+-- jobs that don\'t use parallel data. For more information, see
+-- <http://aws.amazon.com/translate/pricing/ Amazon Translate pricing>.
+--
+-- For a list of available parallel data resources, use the
 -- ListParallelData operation.
+--
+-- For more information, see customizing-translations-parallel-data.
 startTextTranslationJob_parallelDataNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
 startTextTranslationJob_parallelDataNames = Lens.lens (\StartTextTranslationJob' {parallelDataNames} -> parallelDataNames) (\s@StartTextTranslationJob' {} a -> s {parallelDataNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the format and S3 location of the input documents for the
+-- | Specifies the format and location of the input documents for the
 -- translation job.
 startTextTranslationJob_inputDataConfig :: Lens.Lens' StartTextTranslationJob InputDataConfig
 startTextTranslationJob_inputDataConfig = Lens.lens (\StartTextTranslationJob' {inputDataConfig} -> inputDataConfig) (\s@StartTextTranslationJob' {} a -> s {inputDataConfig = a} :: StartTextTranslationJob)
@@ -195,7 +271,7 @@ startTextTranslationJob_outputDataConfig = Lens.lens (\StartTextTranslationJob' 
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management
 -- (IAM) role that grants Amazon Translate read access to your input data.
--- For more nformation, see identity-and-access-management.
+-- For more information, see identity-and-access-management.
 startTextTranslationJob_dataAccessRoleArn :: Lens.Lens' StartTextTranslationJob Prelude.Text
 startTextTranslationJob_dataAccessRoleArn = Lens.lens (\StartTextTranslationJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTextTranslationJob' {} a -> s {dataAccessRoleArn = a} :: StartTextTranslationJob)
 
@@ -211,8 +287,8 @@ startTextTranslationJob_sourceLanguageCode = Lens.lens (\StartTextTranslationJob
 startTextTranslationJob_targetLanguageCodes :: Lens.Lens' StartTextTranslationJob (Prelude.NonEmpty Prelude.Text)
 startTextTranslationJob_targetLanguageCodes = Lens.lens (\StartTextTranslationJob' {targetLanguageCodes} -> targetLanguageCodes) (\s@StartTextTranslationJob' {} a -> s {targetLanguageCodes = a} :: StartTextTranslationJob) Prelude.. Lens.coerced
 
--- | A unique identifier for the request. This token is auto-generated when
--- using the Amazon Translate SDK.
+-- | A unique identifier for the request. This token is generated for you
+-- when using the Amazon Translate SDK.
 startTextTranslationJob_clientToken :: Lens.Lens' StartTextTranslationJob Prelude.Text
 startTextTranslationJob_clientToken = Lens.lens (\StartTextTranslationJob' {clientToken} -> clientToken) (\s@StartTextTranslationJob' {} a -> s {clientToken = a} :: StartTextTranslationJob)
 
@@ -234,6 +310,7 @@ instance Prelude.Hashable StartTextTranslationJob where
   hashWithSalt _salt StartTextTranslationJob' {..} =
     _salt `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` terminologyNames
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` parallelDataNames
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
@@ -246,6 +323,7 @@ instance Prelude.NFData StartTextTranslationJob where
   rnf StartTextTranslationJob' {..} =
     Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf terminologyNames
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf parallelDataNames
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
@@ -276,6 +354,7 @@ instance Core.ToJSON StartTextTranslationJob where
           [ ("JobName" Core..=) Prelude.<$> jobName,
             ("TerminologyNames" Core..=)
               Prelude.<$> terminologyNames,
+            ("Settings" Core..=) Prelude.<$> settings,
             ("ParallelDataNames" Core..=)
               Prelude.<$> parallelDataNames,
             Prelude.Just

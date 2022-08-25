@@ -37,6 +37,7 @@ module Amazonka.Athena.StartQueryExecution
     startQueryExecution_workGroup,
     startQueryExecution_resultConfiguration,
     startQueryExecution_queryExecutionContext,
+    startQueryExecution_executionParameters,
     startQueryExecution_queryString,
 
     -- * Destructuring the Response
@@ -82,6 +83,10 @@ data StartQueryExecution = StartQueryExecution'
     resultConfiguration :: Prelude.Maybe ResultConfiguration,
     -- | The database within which the query executes.
     queryExecutionContext :: Prelude.Maybe QueryExecutionContext,
+    -- | A list of values for the parameters in a query. The values are applied
+    -- sequentially to the parameters in the query in the order in which the
+    -- parameters occur.
+    executionParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The SQL query statements to be executed.
     queryString :: Prelude.Text
   }
@@ -119,6 +124,10 @@ data StartQueryExecution = StartQueryExecution'
 --
 -- 'queryExecutionContext', 'startQueryExecution_queryExecutionContext' - The database within which the query executes.
 --
+-- 'executionParameters', 'startQueryExecution_executionParameters' - A list of values for the parameters in a query. The values are applied
+-- sequentially to the parameters in the query in the order in which the
+-- parameters occur.
+--
 -- 'queryString', 'startQueryExecution_queryString' - The SQL query statements to be executed.
 newStartQueryExecution ::
   -- | 'queryString'
@@ -131,6 +140,7 @@ newStartQueryExecution pQueryString_ =
       workGroup = Prelude.Nothing,
       resultConfiguration = Prelude.Nothing,
       queryExecutionContext = Prelude.Nothing,
+      executionParameters = Prelude.Nothing,
       queryString = pQueryString_
     }
 
@@ -166,6 +176,12 @@ startQueryExecution_resultConfiguration = Lens.lens (\StartQueryExecution' {resu
 startQueryExecution_queryExecutionContext :: Lens.Lens' StartQueryExecution (Prelude.Maybe QueryExecutionContext)
 startQueryExecution_queryExecutionContext = Lens.lens (\StartQueryExecution' {queryExecutionContext} -> queryExecutionContext) (\s@StartQueryExecution' {} a -> s {queryExecutionContext = a} :: StartQueryExecution)
 
+-- | A list of values for the parameters in a query. The values are applied
+-- sequentially to the parameters in the query in the order in which the
+-- parameters occur.
+startQueryExecution_executionParameters :: Lens.Lens' StartQueryExecution (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+startQueryExecution_executionParameters = Lens.lens (\StartQueryExecution' {executionParameters} -> executionParameters) (\s@StartQueryExecution' {} a -> s {executionParameters = a} :: StartQueryExecution) Prelude.. Lens.mapping Lens.coerced
+
 -- | The SQL query statements to be executed.
 startQueryExecution_queryString :: Lens.Lens' StartQueryExecution Prelude.Text
 startQueryExecution_queryString = Lens.lens (\StartQueryExecution' {queryString} -> queryString) (\s@StartQueryExecution' {} a -> s {queryString = a} :: StartQueryExecution)
@@ -189,6 +205,7 @@ instance Prelude.Hashable StartQueryExecution where
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` resultConfiguration
       `Prelude.hashWithSalt` queryExecutionContext
+      `Prelude.hashWithSalt` executionParameters
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData StartQueryExecution where
@@ -197,6 +214,7 @@ instance Prelude.NFData StartQueryExecution where
       `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf resultConfiguration
       `Prelude.seq` Prelude.rnf queryExecutionContext
+      `Prelude.seq` Prelude.rnf executionParameters
       `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders StartQueryExecution where
@@ -225,6 +243,8 @@ instance Core.ToJSON StartQueryExecution where
               Prelude.<$> resultConfiguration,
             ("QueryExecutionContext" Core..=)
               Prelude.<$> queryExecutionContext,
+            ("ExecutionParameters" Core..=)
+              Prelude.<$> executionParameters,
             Prelude.Just ("QueryString" Core..= queryString)
           ]
       )

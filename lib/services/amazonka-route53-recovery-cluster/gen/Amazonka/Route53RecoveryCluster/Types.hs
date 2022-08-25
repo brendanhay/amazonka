@@ -23,10 +23,20 @@ module Amazonka.Route53RecoveryCluster.Types
     _EndpointTemporarilyUnavailableException,
     _ConflictException,
     _ThrottlingException,
+    _ServiceLimitExceededException,
     _ValidationException,
 
     -- * RoutingControlState
     RoutingControlState (..),
+
+    -- * RoutingControl
+    RoutingControl (..),
+    newRoutingControl,
+    routingControl_controlPanelArn,
+    routingControl_routingControlState,
+    routingControl_controlPanelName,
+    routingControl_routingControlArn,
+    routingControl_routingControlName,
 
     -- * UpdateRoutingControlStateEntry
     UpdateRoutingControlStateEntry (..),
@@ -39,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryCluster.Types.RoutingControl
 import Amazonka.Route53RecoveryCluster.Types.RoutingControlState
 import Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
 import qualified Amazonka.Sign.V4 as Sign
@@ -117,8 +128,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | You don\'t have sufficient permissions to query the routing control
--- state.
+-- | You don\'t have sufficient permissions to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
@@ -132,7 +142,8 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
--- | The request references a routing control that was not found.
+-- | The request references a routing control or control panel that was not
+-- found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -159,6 +170,14 @@ _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
+
+-- | The request can\'t update that many routing control states at the same
+-- time. Try again with fewer routing control states.
+_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceLimitExceededException"
 
 -- | There was a validation error on the request.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

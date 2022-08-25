@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an Amazon QuickSight user, whose identity is associated with the
--- AWS Identity and Access Management (IAM) identity or role specified in
--- the request.
+-- Identity and Access Management (IAM) identity or role specified in the
+-- request.
 module Amazonka.QuickSight.RegisterUser
   ( -- * Creating a Request
     RegisterUser (..),
@@ -63,7 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterUser' smart constructor.
 data RegisterUser = RegisterUser'
-  { -- | The ARN of the IAMuser or role that you are registering with Amazon
+  { -- | The ARN of the IAM user or role that you are registering with Amazon
     -- QuickSight.
     iamArn :: Prelude.Maybe Prelude.Text,
     -- | The type of supported external login provider that provides identity to
@@ -113,7 +113,7 @@ data RegisterUser = RegisterUser'
     -- the @RegisterUser@ API operation to assign the named set of permissions
     -- to a Amazon QuickSight user.
     --
-    -- Amazon QuickSight custom permissions are applied through IAMpolicies.
+    -- Amazon QuickSight custom permissions are applied through IAM policies.
     -- Therefore, they override the permissions typically granted by assigning
     -- Amazon QuickSight users to one of the default security cohorts in Amazon
     -- QuickSight (admin, author, reader).
@@ -122,18 +122,18 @@ data RegisterUser = RegisterUser'
     -- subscriptions.
     customPermissionsName :: Prelude.Maybe Prelude.Text,
     -- | You need to use this parameter only when you register one or more users
-    -- using an assumed IAMrole. You don\'t need to provide the session name
-    -- for other scenarios, for example when you are registering an IAMuser or
+    -- using an assumed IAM role. You don\'t need to provide the session name
+    -- for other scenarios, for example when you are registering an IAM user or
     -- an Amazon QuickSight user. You can register multiple users using the
-    -- same IAMrole if each user has a different session name. For more
-    -- information on assuming IAMroles, see
+    -- same IAM role if each user has a different session name. For more
+    -- information on assuming IAM roles, see
     -- <https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html assume-role>
-    -- in the /AWS CLI Reference./
+    -- in the /CLI Reference./
     sessionName :: Prelude.Maybe Prelude.Text,
     -- | Amazon QuickSight supports several ways of managing the identity of
     -- users. This parameter accepts two values:
     --
-    -- -   @IAM@: A user whose identity maps to an existing IAMuser or role.
+    -- -   @IAM@: A user whose identity maps to an existing IAM user or role.
     --
     -- -   @QUICKSIGHT@: A user whose identity is owned and managed internally
     --     by Amazon QuickSight.
@@ -172,7 +172,7 @@ data RegisterUser = RegisterUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamArn', 'registerUser_iamArn' - The ARN of the IAMuser or role that you are registering with Amazon
+-- 'iamArn', 'registerUser_iamArn' - The ARN of the IAM user or role that you are registering with Amazon
 -- QuickSight.
 --
 -- 'externalLoginFederationProviderType', 'registerUser_externalLoginFederationProviderType' - The type of supported external login provider that provides identity to
@@ -222,7 +222,7 @@ data RegisterUser = RegisterUser'
 -- the @RegisterUser@ API operation to assign the named set of permissions
 -- to a Amazon QuickSight user.
 --
--- Amazon QuickSight custom permissions are applied through IAMpolicies.
+-- Amazon QuickSight custom permissions are applied through IAM policies.
 -- Therefore, they override the permissions typically granted by assigning
 -- Amazon QuickSight users to one of the default security cohorts in Amazon
 -- QuickSight (admin, author, reader).
@@ -231,18 +231,18 @@ data RegisterUser = RegisterUser'
 -- subscriptions.
 --
 -- 'sessionName', 'registerUser_sessionName' - You need to use this parameter only when you register one or more users
--- using an assumed IAMrole. You don\'t need to provide the session name
--- for other scenarios, for example when you are registering an IAMuser or
+-- using an assumed IAM role. You don\'t need to provide the session name
+-- for other scenarios, for example when you are registering an IAM user or
 -- an Amazon QuickSight user. You can register multiple users using the
--- same IAMrole if each user has a different session name. For more
--- information on assuming IAMroles, see
+-- same IAM role if each user has a different session name. For more
+-- information on assuming IAM roles, see
 -- <https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html assume-role>
--- in the /AWS CLI Reference./
+-- in the /CLI Reference./
 --
 -- 'identityType', 'registerUser_identityType' - Amazon QuickSight supports several ways of managing the identity of
 -- users. This parameter accepts two values:
 --
--- -   @IAM@: A user whose identity maps to an existing IAMuser or role.
+-- -   @IAM@: A user whose identity maps to an existing IAM user or role.
 --
 -- -   @QUICKSIGHT@: A user whose identity is owned and managed internally
 --     by Amazon QuickSight.
@@ -303,7 +303,7 @@ newRegisterUser
         namespace = pNamespace_
       }
 
--- | The ARN of the IAMuser or role that you are registering with Amazon
+-- | The ARN of the IAM user or role that you are registering with Amazon
 -- QuickSight.
 registerUser_iamArn :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
 registerUser_iamArn = Lens.lens (\RegisterUser' {iamArn} -> iamArn) (\s@RegisterUser' {} a -> s {iamArn = a} :: RegisterUser)
@@ -363,7 +363,7 @@ registerUser_externalLoginId = Lens.lens (\RegisterUser' {externalLoginId} -> ex
 -- the @RegisterUser@ API operation to assign the named set of permissions
 -- to a Amazon QuickSight user.
 --
--- Amazon QuickSight custom permissions are applied through IAMpolicies.
+-- Amazon QuickSight custom permissions are applied through IAM policies.
 -- Therefore, they override the permissions typically granted by assigning
 -- Amazon QuickSight users to one of the default security cohorts in Amazon
 -- QuickSight (admin, author, reader).
@@ -374,20 +374,20 @@ registerUser_customPermissionsName :: Lens.Lens' RegisterUser (Prelude.Maybe Pre
 registerUser_customPermissionsName = Lens.lens (\RegisterUser' {customPermissionsName} -> customPermissionsName) (\s@RegisterUser' {} a -> s {customPermissionsName = a} :: RegisterUser)
 
 -- | You need to use this parameter only when you register one or more users
--- using an assumed IAMrole. You don\'t need to provide the session name
--- for other scenarios, for example when you are registering an IAMuser or
+-- using an assumed IAM role. You don\'t need to provide the session name
+-- for other scenarios, for example when you are registering an IAM user or
 -- an Amazon QuickSight user. You can register multiple users using the
--- same IAMrole if each user has a different session name. For more
--- information on assuming IAMroles, see
+-- same IAM role if each user has a different session name. For more
+-- information on assuming IAM roles, see
 -- <https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html assume-role>
--- in the /AWS CLI Reference./
+-- in the /CLI Reference./
 registerUser_sessionName :: Lens.Lens' RegisterUser (Prelude.Maybe Prelude.Text)
 registerUser_sessionName = Lens.lens (\RegisterUser' {sessionName} -> sessionName) (\s@RegisterUser' {} a -> s {sessionName = a} :: RegisterUser)
 
 -- | Amazon QuickSight supports several ways of managing the identity of
 -- users. This parameter accepts two values:
 --
--- -   @IAM@: A user whose identity maps to an existing IAMuser or role.
+-- -   @IAM@: A user whose identity maps to an existing IAM user or role.
 --
 -- -   @QUICKSIGHT@: A user whose identity is owned and managed internally
 --     by Amazon QuickSight.

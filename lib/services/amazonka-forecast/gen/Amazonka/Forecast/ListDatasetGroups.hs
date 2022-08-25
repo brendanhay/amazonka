@@ -20,11 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of dataset groups created using the CreateDatasetGroup
+-- Returns a list of dataset groups created using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
 -- operation. For each dataset group, this operation returns a summary of
 -- its properties, including its Amazon Resource Name (ARN). You can
 -- retrieve the complete set of properties by using the dataset group ARN
--- with the DescribeDatasetGroup operation.
+-- with the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html DescribeDatasetGroup>
+-- operation.
 --
 -- This operation returns paginated results.
 module Amazonka.Forecast.ListDatasetGroups

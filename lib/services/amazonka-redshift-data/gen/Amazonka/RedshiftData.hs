@@ -15,7 +15,8 @@
 -- Redshift tables. You can run SQL statements, which are committed if the
 -- statement succeeds.
 --
--- For more information about the Amazon Redshift Data API, see
+-- For more information about the Amazon Redshift Data API and CLI usage
+-- examples, see
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
 -- in the /Amazon Redshift Cluster Management Guide/.
 module Amazonka.RedshiftData
@@ -24,6 +25,9 @@ module Amazonka.RedshiftData
 
     -- * Errors
     -- $errors
+
+    -- ** DatabaseConnectionException
+    _DatabaseConnectionException,
 
     -- ** ExecuteStatementException
     _ExecuteStatementException,

@@ -21,7 +21,9 @@ module Amazonka.Rekognition.Types.KnownGenderType
   ( KnownGenderType
       ( ..,
         KnownGenderType_Female,
-        KnownGenderType_Male
+        KnownGenderType_Male,
+        KnownGenderType_Nonbinary,
+        KnownGenderType_Unlisted
       ),
   )
 where
@@ -64,8 +66,16 @@ pattern KnownGenderType_Female = KnownGenderType' "Female"
 pattern KnownGenderType_Male :: KnownGenderType
 pattern KnownGenderType_Male = KnownGenderType' "Male"
 
+pattern KnownGenderType_Nonbinary :: KnownGenderType
+pattern KnownGenderType_Nonbinary = KnownGenderType' "Nonbinary"
+
+pattern KnownGenderType_Unlisted :: KnownGenderType
+pattern KnownGenderType_Unlisted = KnownGenderType' "Unlisted"
+
 {-# COMPLETE
   KnownGenderType_Female,
   KnownGenderType_Male,
+  KnownGenderType_Nonbinary,
+  KnownGenderType_Unlisted,
   KnownGenderType'
   #-}

@@ -23,12 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The AWS Lake Formation principal. Supported principals are IAM users or
--- IAM roles.
+-- | The Lake Formation principal. Supported principals are IAM users or IAM
+-- roles.
 --
 -- /See:/ 'newDataLakePrincipal' smart constructor.
 data DataLakePrincipal = DataLakePrincipal'
-  { -- | An identifier for the AWS Lake Formation principal.
+  { -- | An identifier for the Lake Formation principal.
     dataLakePrincipalIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data DataLakePrincipal = DataLakePrincipal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataLakePrincipalIdentifier', 'dataLakePrincipal_dataLakePrincipalIdentifier' - An identifier for the AWS Lake Formation principal.
+-- 'dataLakePrincipalIdentifier', 'dataLakePrincipal_dataLakePrincipalIdentifier' - An identifier for the Lake Formation principal.
 newDataLakePrincipal ::
   DataLakePrincipal
 newDataLakePrincipal =
@@ -50,7 +50,7 @@ newDataLakePrincipal =
         Prelude.Nothing
     }
 
--- | An identifier for the AWS Lake Formation principal.
+-- | An identifier for the Lake Formation principal.
 dataLakePrincipal_dataLakePrincipalIdentifier :: Lens.Lens' DataLakePrincipal (Prelude.Maybe Prelude.Text)
 dataLakePrincipal_dataLakePrincipalIdentifier = Lens.lens (\DataLakePrincipal' {dataLakePrincipalIdentifier} -> dataLakePrincipalIdentifier) (\s@DataLakePrincipal' {} a -> s {dataLakePrincipalIdentifier = a} :: DataLakePrincipal)
 

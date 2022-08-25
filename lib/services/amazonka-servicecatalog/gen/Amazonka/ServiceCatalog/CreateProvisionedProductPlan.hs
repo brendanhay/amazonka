@@ -20,13 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a plan. A plan includes the list of resources to be created
--- (when provisioning a new product) or modified (when updating a
--- provisioned product) when the plan is executed.
+-- Creates a plan.
 --
--- You can create one plan per provisioned product. To create a plan for an
--- existing provisioned product, the product status must be AVAILBLE or
--- TAINTED.
+-- A plan includes the list of resources to be created (when provisioning a
+-- new product) or modified (when updating a provisioned product) when the
+-- plan is executed.
+--
+-- You can create one plan for each provisioned product. To create a plan
+-- for an existing provisioned product, the product status must be
+-- AVAILABLE or TAINTED.
 --
 -- To view the resource changes in the change set, use
 -- DescribeProvisionedProductPlan. To create or modify the provisioned
@@ -103,8 +105,8 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
     -- | The product identifier.
     productId :: Prelude.Text,
     -- | A user-friendly name for the provisioned product. This value must be
-    -- unique for the AWS account and cannot be updated after the product is
-    -- provisioned.
+    -- unique for the Amazon Web Services account and cannot be updated after
+    -- the product is provisioned.
     provisionedProductName :: Prelude.Text,
     -- | The identifier of the provisioning artifact.
     provisioningArtifactId :: Prelude.Text,
@@ -154,8 +156,8 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
 -- 'productId', 'createProvisionedProductPlan_productId' - The product identifier.
 --
 -- 'provisionedProductName', 'createProvisionedProductPlan_provisionedProductName' - A user-friendly name for the provisioned product. This value must be
--- unique for the AWS account and cannot be updated after the product is
--- provisioned.
+-- unique for the Amazon Web Services account and cannot be updated after
+-- the product is provisioned.
 --
 -- 'provisioningArtifactId', 'createProvisionedProductPlan_provisioningArtifactId' - The identifier of the provisioning artifact.
 --
@@ -247,8 +249,8 @@ createProvisionedProductPlan_productId :: Lens.Lens' CreateProvisionedProductPla
 createProvisionedProductPlan_productId = Lens.lens (\CreateProvisionedProductPlan' {productId} -> productId) (\s@CreateProvisionedProductPlan' {} a -> s {productId = a} :: CreateProvisionedProductPlan)
 
 -- | A user-friendly name for the provisioned product. This value must be
--- unique for the AWS account and cannot be updated after the product is
--- provisioned.
+-- unique for the Amazon Web Services account and cannot be updated after
+-- the product is provisioned.
 createProvisionedProductPlan_provisionedProductName :: Lens.Lens' CreateProvisionedProductPlan Prelude.Text
 createProvisionedProductPlan_provisionedProductName = Lens.lens (\CreateProvisionedProductPlan' {provisionedProductName} -> provisionedProductName) (\s@CreateProvisionedProductPlan' {} a -> s {provisionedProductName = a} :: CreateProvisionedProductPlan)
 

@@ -20,19 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Amazon Aurora DB cluster.
+-- Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.
 --
--- You can use the @ReplicationSourceIdentifier@ parameter to create the DB
--- cluster as a read replica of another DB cluster or Amazon RDS MySQL or
--- PostgreSQL DB instance. For cross-region replication where the DB
--- cluster identified by @ReplicationSourceIdentifier@ is encrypted, you
--- must also specify the @PreSignedUrl@ parameter.
+-- You can use the @ReplicationSourceIdentifier@ parameter to create an
+-- Amazon Aurora DB cluster as a read replica of another DB cluster or
+-- Amazon RDS MySQL or PostgreSQL DB instance.
 --
 -- For more information on Amazon Aurora, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
--- in the /Amazon Aurora User Guide./
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora DB clusters.
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.CreateDBCluster
   ( -- * Creating a Request
     CreateDBCluster (..),
@@ -41,7 +41,9 @@ module Amazonka.RDS.CreateDBCluster
     -- * Request Lenses
     createDBCluster_tags,
     createDBCluster_port,
+    createDBCluster_serverlessV2ScalingConfiguration,
     createDBCluster_enableGlobalWriteForwarding,
+    createDBCluster_performanceInsightsRetentionPeriod,
     createDBCluster_vpcSecurityGroupIds,
     createDBCluster_preferredBackupWindow,
     createDBCluster_backupRetentionPeriod,
@@ -50,27 +52,38 @@ module Amazonka.RDS.CreateDBCluster
     createDBCluster_copyTagsToSnapshot,
     createDBCluster_domainIAMRoleName,
     createDBCluster_dbSubnetGroupName,
+    createDBCluster_autoMinorVersionUpgrade,
+    createDBCluster_dbClusterInstanceClass,
     createDBCluster_databaseName,
     createDBCluster_domain,
     createDBCluster_optionGroupName,
     createDBCluster_availabilityZones,
+    createDBCluster_performanceInsightsKMSKeyId,
     createDBCluster_enableIAMDatabaseAuthentication,
+    createDBCluster_monitoringInterval,
     createDBCluster_masterUserPassword,
+    createDBCluster_publiclyAccessible,
+    createDBCluster_storageType,
     createDBCluster_enableCloudwatchLogsExports,
     createDBCluster_enableHttpEndpoint,
     createDBCluster_backtrackWindow,
+    createDBCluster_enablePerformanceInsights,
     createDBCluster_replicationSourceIdentifier,
     createDBCluster_scalingConfiguration,
+    createDBCluster_monitoringRoleArn,
     createDBCluster_engineMode,
     createDBCluster_storageEncrypted,
     createDBCluster_kmsKeyId,
     createDBCluster_globalClusterIdentifier,
+    createDBCluster_allocatedStorage,
     createDBCluster_deletionProtection,
     createDBCluster_preferredMaintenanceWindow,
     createDBCluster_destinationRegion,
     createDBCluster_dbClusterParameterGroupName,
+    createDBCluster_iops,
     createDBCluster_preSignedUrl,
     createDBCluster_engineVersion,
+    createDBCluster_networkType,
     createDBCluster_dbClusterIdentifier,
     createDBCluster_engine,
 
@@ -96,13 +109,27 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
   { -- | Tags to assign to the DB cluster.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     tags :: Prelude.Maybe [Tag],
     -- | The port number on which the instances in the DB cluster accept
     -- connections.
     --
-    -- Default: @3306@ if engine is set as aurora or @5432@ if set to
-    -- aurora-postgresql.
+    -- __RDS for MySQL and Aurora MySQL__
+    --
+    -- Default: @3306@
+    --
+    -- Valid values: @1150-65535@
+    --
+    -- __RDS for PostgreSQL and Aurora PostgreSQL__
+    --
+    -- Default: @5432@
+    --
+    -- Valid values: @1150-65535@
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     port :: Prelude.Maybe Prelude.Int,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
     -- | A value that indicates whether to enable this DB cluster to forward
     -- write operations to the primary cluster of an Aurora global database
     -- (GlobalCluster). By default, write operations are not allowed on Aurora
@@ -115,8 +142,36 @@ data CreateDBCluster = CreateDBCluster'
     -- of an Aurora global database, this value is used immediately if the
     -- primary is demoted by the FailoverGlobalCluster API operation, but it
     -- does nothing until then.
+    --
+    -- Valid for: Aurora DB clusters only
     enableGlobalWriteForwarding :: Prelude.Maybe Prelude.Bool,
+    -- | The number of days to retain Performance Insights data. The default is 7
+    -- days. The following values are valid:
+    --
+    -- -   7
+    --
+    -- -   /month/ * 31, where /month/ is a number of months from 1-23
+    --
+    -- -   731
+    --
+    -- For example, the following values are valid:
+    --
+    -- -   93 (3 months * 31)
+    --
+    -- -   341 (11 months * 31)
+    --
+    -- -   589 (19 months * 31)
+    --
+    -- -   731
+    --
+    -- If you specify a retention period such as 94, which isn\'t a valid
+    -- value, RDS issues an error.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A list of EC2 VPC security groups to associate with this DB cluster.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled using the @BackupRetentionPeriod@
@@ -126,7 +181,7 @@ data CreateDBCluster = CreateDBCluster'
     -- block of time for each Amazon Web Services Region. To view the time
     -- blocks available, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
-    -- in the /Amazon Aurora User Guide./
+    -- in the /Amazon Aurora User Guide/.
     --
     -- Constraints:
     --
@@ -137,6 +192,8 @@ data CreateDBCluster = CreateDBCluster'
     -- -   Must not conflict with the preferred maintenance window.
     --
     -- -   Must be at least 30 minutes.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The number of days for which automated backups are retained.
     --
@@ -145,9 +202,13 @@ data CreateDBCluster = CreateDBCluster'
     -- Constraints:
     --
     -- -   Must be a value from 1 to 35
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates that the DB cluster should be associated with the
     -- specified CharacterSet.
+    --
+    -- Valid for: Aurora DB clusters only
     characterSetName :: Prelude.Maybe Prelude.Text,
     -- | The name of the master user for the DB cluster.
     --
@@ -158,63 +219,183 @@ data CreateDBCluster = CreateDBCluster'
     -- -   First character must be a letter.
     --
     -- -   Can\'t be a reserved word for the chosen database engine.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     masterUsername :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the DB cluster to
     -- snapshots of the DB cluster. The default is not to copy them.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
+    --
+    -- Valid for: Aurora DB clusters only
     domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | A DB subnet group to associate with this DB cluster.
+    --
+    -- This setting is required to create a Multi-AZ DB cluster.
     --
     -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
     -- be default.
     --
-    -- Example: @mySubnetgroup@
+    -- Example: @mydbsubnetgroup@
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether minor engine upgrades are applied
+    -- automatically to the DB cluster during the maintenance window. By
+    -- default, minor engine upgrades are applied automatically.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The compute and memory capacity of each DB instance in the Multi-AZ DB
+    -- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+    -- available in all Amazon Web Services Regions, or for all database
+    -- engines.
+    --
+    -- For the full list of DB instance classes and availability for your
+    -- engine, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance class>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- This setting is required to create a Multi-AZ DB cluster.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    dbClusterInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The name for your database of up to 64 alphanumeric characters. If you
     -- do not provide a name, Amazon RDS doesn\'t create a database in the DB
     -- cluster you are creating.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | The Active Directory directory ID to create the DB cluster in.
     --
     -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
-    -- Authentication to authenticate users that connect to the DB cluster. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+    -- authentication to authenticate users that connect to the DB cluster.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos authentication>
     -- in the /Amazon Aurora User Guide/.
+    --
+    -- Valid for: Aurora DB clusters only
     domain :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates that the DB cluster should be associated with the
     -- specified option group.
     --
-    -- Permanent options can\'t be removed from an option group. The option
-    -- group can\'t be removed from a DB cluster once it is associated with a
-    -- DB cluster.
+    -- DB clusters are associated with a default option group that can\'t be
+    -- modified.
     optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Availability Zones (AZs) where instances in the DB cluster can
-    -- be created. For information on Amazon Web Services Regions and
-    -- Availability Zones, see
+    -- | A list of Availability Zones (AZs) where DB instances in the DB cluster
+    -- can be created.
+    --
+    -- For information on Amazon Web Services Regions and Availability Zones,
+    -- see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html Choosing the Regions and Availability Zones>
     -- in the /Amazon Aurora User Guide/.
+    --
+    -- Valid for: Aurora DB clusters only
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Web Services KMS key identifier for encryption of Performance
+    -- Insights data.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key.
+    --
+    -- If you don\'t specify a value for @PerformanceInsightsKMSKeyId@, then
+    -- Amazon RDS uses your default KMS key. There is a default KMS key for
+    -- your Amazon Web Services account. Your Amazon Web Services account has a
+    -- different default KMS key for each Amazon Web Services Region.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts. By
-    -- default, mapping is disabled.
+    -- default, mapping isn\'t enabled.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
-    -- in the /Amazon Aurora User Guide./
+    -- in the /Amazon Aurora User Guide/.
+    --
+    -- Valid for: Aurora DB clusters only
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    -- | The interval, in seconds, between points when Enhanced Monitoring
+    -- metrics are collected for the DB cluster. To turn off collecting
+    -- Enhanced Monitoring metrics, specify 0. The default is 0.
+    --
+    -- If @MonitoringRoleArn@ is specified, also set @MonitoringInterval@ to a
+    -- value other than 0.
+    --
+    -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    monitoringInterval :: Prelude.Maybe Prelude.Int,
     -- | The password for the master database user. This password can contain any
     -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
     -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB cluster is publicly accessible.
+    --
+    -- When the DB cluster is publicly accessible, its Domain Name System (DNS)
+    -- endpoint resolves to the private IP address from within the DB
+    -- cluster\'s virtual private cloud (VPC). It resolves to the public IP
+    -- address from outside of the DB cluster\'s VPC. Access to the DB cluster
+    -- is ultimately controlled by the security group it uses. That public
+    -- access isn\'t permitted if the security group assigned to the DB cluster
+    -- doesn\'t permit it.
+    --
+    -- When the DB cluster isn\'t publicly accessible, it is an internal DB
+    -- cluster with a DNS name that resolves to a private IP address.
+    --
+    -- Default: The default behavior varies depending on whether
+    -- @DBSubnetGroupName@ is specified.
+    --
+    -- If @DBSubnetGroupName@ isn\'t specified, and @PubliclyAccessible@ isn\'t
+    -- specified, the following applies:
+    --
+    -- -   If the default VPC in the target Region doesn’t have an internet
+    --     gateway attached to it, the DB cluster is private.
+    --
+    -- -   If the default VPC in the target Region has an internet gateway
+    --     attached to it, the DB cluster is public.
+    --
+    -- If @DBSubnetGroupName@ is specified, and @PubliclyAccessible@ isn\'t
+    -- specified, the following applies:
+    --
+    -- -   If the subnets are part of a VPC that doesn’t have an internet
+    --     gateway attached to it, the DB cluster is private.
+    --
+    -- -   If the subnets are part of a VPC that has an internet gateway
+    --     attached to it, the DB cluster is public.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the storage type to be associated with the DB cluster.
+    --
+    -- This setting is required to create a Multi-AZ DB cluster.
+    --
+    -- Valid values: @io1@
+    --
+    -- When specified, a value for the @Iops@ parameter is required.
+    --
+    -- Default: @io1@
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    storageType :: Prelude.Maybe Prelude.Text,
     -- | The list of log types that need to be enabled for exporting to
     -- CloudWatch Logs. The values in the list depend on the DB engine being
-    -- used. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
-    -- in the /Amazon Aurora User Guide/.
+    -- used.
+    --
+    -- __RDS for MySQL__
+    --
+    -- Possible values are @error@, @general@, and @slowquery@.
+    --
+    -- __RDS for PostgreSQL__
+    --
+    -- Possible values are @postgresql@ and @upgrade@.
     --
     -- __Aurora MySQL__
     --
@@ -223,23 +404,34 @@ data CreateDBCluster = CreateDBCluster'
     -- __Aurora PostgreSQL__
     --
     -- Possible value is @postgresql@.
+    --
+    -- For more information about exporting CloudWatch Logs for Amazon RDS, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- For more information about exporting CloudWatch Logs for Amazon Aurora,
+    -- see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+    -- in the /Amazon Aurora User Guide/.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether to enable the HTTP endpoint for an Aurora
-    -- Serverless DB cluster. By default, the HTTP endpoint is disabled.
+    -- Serverless v1 DB cluster. By default, the HTTP endpoint is disabled.
     --
     -- When enabled, the HTTP endpoint provides a connectionless web service
-    -- API for running SQL queries on the Aurora Serverless DB cluster. You can
-    -- also query your database from inside the RDS console with the query
+    -- API for running SQL queries on the Aurora Serverless v1 DB cluster. You
+    -- can also query your database from inside the RDS console with the query
     -- editor.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless v1>
     -- in the /Amazon Aurora User Guide/.
+    --
+    -- Valid for: Aurora DB clusters only
     enableHttpEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The target backtrack window, in seconds. To disable backtracking, set
     -- this value to 0.
-    --
-    -- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
     --
     -- Default: 0
     --
@@ -247,13 +439,40 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- -   If specified, this value must be set to a number from 0 to 259,200
     --     (72 hours).
+    --
+    -- Valid for: Aurora MySQL DB clusters only
     backtrackWindow :: Prelude.Maybe Prelude.Integer,
+    -- | A value that indicates whether to turn on Performance Insights for the
+    -- DB cluster.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the source DB instance or DB cluster
     -- if this DB cluster is created as a read replica.
+    --
+    -- Valid for: Aurora DB clusters only
     replicationSourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | For DB clusters in @serverless@ DB engine mode, the scaling properties
     -- of the DB cluster.
+    --
+    -- Valid for: Aurora DB clusters only
     scalingConfiguration :: Prelude.Maybe ScalingConfiguration,
+    -- | The Amazon Resource Name (ARN) for the IAM role that permits RDS to send
+    -- Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is
+    -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
+    -- monitoring role, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling Setting up and enabling Enhanced Monitoring>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- If @MonitoringInterval@ is set to a value other than 0, supply a
+    -- @MonitoringRoleArn@ value.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    monitoringRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The DB engine mode of the DB cluster, either @provisioned@,
     -- @serverless@, @parallelquery@, @global@, or @multimaster@.
     --
@@ -267,6 +486,9 @@ data CreateDBCluster = CreateDBCluster'
     -- The @multimaster@ engine mode only applies for DB clusters created with
     -- Aurora MySQL version 5.6.10a.
     --
+    -- The @serverless@ engine mode only applies for Aurora Serverless v1 DB
+    -- clusters.
+    --
     -- For Aurora PostgreSQL, the @global@ engine mode isn\'t required, and
     -- both the @parallelquery@ and the @multimaster@ engine modes currently
     -- aren\'t supported.
@@ -275,49 +497,67 @@ data CreateDBCluster = CreateDBCluster'
     -- information, see the following sections in the /Amazon Aurora User
     -- Guide/:
     --
-    -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations Limitations of Aurora Serverless>
+    -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations Limitations of Aurora Serverless v1>
+    --
+    -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html Requirements for Aurora Serverless v2>
     --
     -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations Limitations of Parallel Query>
     --
     -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations Limitations of Aurora Global Databases>
     --
     -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations Limitations of Multi-Master Clusters>
+    --
+    -- Valid for: Aurora DB clusters only
     engineMode :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB cluster is encrypted.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
-    -- the key ARN or alias ARN.
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
     --
-    -- When a CMK isn\'t specified in @KmsKeyId@:
+    -- When a KMS key isn\'t specified in @KmsKeyId@:
     --
     -- -   If @ReplicationSourceIdentifier@ identifies an encrypted source,
-    --     then Amazon RDS will use the CMK used to encrypt the source.
-    --     Otherwise, Amazon RDS will use your default CMK.
+    --     then Amazon RDS will use the KMS key used to encrypt the source.
+    --     Otherwise, Amazon RDS will use your default KMS key.
     --
     -- -   If the @StorageEncrypted@ parameter is enabled and
     --     @ReplicationSourceIdentifier@ isn\'t specified, then Amazon RDS will
-    --     use your default CMK.
+    --     use your default KMS key.
     --
-    -- There is a default CMK for your Amazon Web Services account. Your Amazon
-    -- Web Services account has a different default CMK for each Amazon Web
-    -- Services Region.
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
     --
     -- If you create a read replica of an encrypted DB cluster in another
-    -- Amazon Web Services Region, you must set @KmsKeyId@ to a Amazon Web
-    -- Services KMS key identifier that is valid in the destination Amazon Web
-    -- Services Region. This CMK is used to encrypt the read replica in that
-    -- Amazon Web Services Region.
+    -- Amazon Web Services Region, you must set @KmsKeyId@ to a KMS key
+    -- identifier that is valid in the destination Amazon Web Services Region.
+    -- This KMS key is used to encrypt the read replica in that Amazon Web
+    -- Services Region.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The global cluster ID of an Aurora cluster that becomes the primary
     -- cluster in the new global database cluster.
+    --
+    -- Valid for: Aurora DB clusters only
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The amount of storage in gibibytes (GiB) to allocate to each DB instance
+    -- in the Multi-AZ DB cluster.
+    --
+    -- This setting is required to create a Multi-AZ DB cluster.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled.
+    -- enabled. By default, deletion protection isn\'t enabled.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The weekly time range during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
@@ -328,11 +568,13 @@ data CreateDBCluster = CreateDBCluster'
     -- block of time for each Amazon Web Services Region, occurring on a random
     -- day of the week. To see the time blocks available, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
-    -- in the /Amazon Aurora User Guide./
+    -- in the /Amazon Aurora User Guide/.
     --
     -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
     --
     -- Constraints: Minimum 30-minute window.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
     -- cross-region @CreateDBCluster@ request. To replicate from region @SRC@
@@ -348,25 +590,42 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- -   If supplied, must match the name of an existing DB cluster parameter
     --     group.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A URL that contains a Signature Version 4 signed request for the
-    -- @CreateDBCluster@ action to be called in the source Amazon Web Services
-    -- Region where the DB cluster is replicated from. You only need to specify
-    -- @PreSignedUrl@ when you are performing cross-region replication from an
-    -- encrypted DB cluster.
+    -- | The amount of Provisioned IOPS (input\/output operations per second) to
+    -- be initially allocated for each DB instance in the Multi-AZ DB cluster.
     --
-    -- The pre-signed URL must be a valid request for the @CreateDBCluster@ API
-    -- action that can be executed in the source Amazon Web Services Region
-    -- that contains the encrypted DB cluster to be copied.
+    -- For information about valid @Iops@ values, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+    -- in the /Amazon RDS User Guide/.
     --
-    -- The pre-signed URL request must contain the following parameter values:
+    -- This setting is required to create a Multi-AZ DB cluster.
     --
-    -- -   @KmsKeyId@ - The Amazon Web Services KMS key identifier for the key
-    --     to use to encrypt the copy of the DB cluster in the destination
-    --     Amazon Web Services Region. This should refer to the same Amazon Web
-    --     Services KMS CMK for both the @CreateDBCluster@ action that is
-    --     called in the destination Amazon Web Services Region, and the action
-    --     contained in the pre-signed URL.
+    -- Constraints: Must be a multiple between .5 and 50 of the storage amount
+    -- for the DB cluster.
+    --
+    -- Valid for: Multi-AZ DB clusters only
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | When you are replicating a DB cluster from one Amazon Web Services
+    -- GovCloud (US) Region to another, an URL that contains a Signature
+    -- Version 4 signed request for the @CreateDBCluster@ operation to be
+    -- called in the source Amazon Web Services Region where the DB cluster is
+    -- replicated from. Specify @PreSignedUrl@ only when you are performing
+    -- cross-Region replication from an encrypted DB cluster.
+    --
+    -- The presigned URL must be a valid request for the @CreateDBCluster@ API
+    -- operation that can run in the source Amazon Web Services Region that
+    -- contains the encrypted DB cluster to copy.
+    --
+    -- The presigned URL request must contain the following parameter values:
+    --
+    -- -   @KmsKeyId@ - The KMS key identifier for the KMS key to use to
+    --     encrypt the copy of the DB cluster in the destination Amazon Web
+    --     Services Region. This should refer to the same KMS key for both the
+    --     @CreateDBCluster@ operation that is called in the destination Amazon
+    --     Web Services Region, and the operation contained in the presigned
+    --     URL.
     --
     -- -   @DestinationRegion@ - The name of the Amazon Web Services Region
     --     that Aurora read replica will be created in.
@@ -387,35 +646,82 @@ data CreateDBCluster = CreateDBCluster'
     -- If you are using an Amazon Web Services SDK tool or the CLI, you can
     -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
     -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
-    -- autogenerates a pre-signed URL that is a valid request for the operation
-    -- that can be executed in the source Amazon Web Services Region.
+    -- autogenerates a presigned URL that is a valid request for the operation
+    -- that can run in the source Amazon Web Services Region.
+    --
+    -- Valid for: Aurora DB clusters only
     preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The version number of the database engine to use.
     --
-    -- To list all of the available engine versions for @aurora@ (for MySQL
-    -- 5.6-compatible Aurora), use the following command:
+    -- To list all of the available engine versions for MySQL 5.6-compatible
+    -- Aurora, use the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
     --
-    -- To list all of the available engine versions for @aurora-mysql@ (for
-    -- MySQL 5.7-compatible Aurora), use the following command:
+    -- To list all of the available engine versions for MySQL 5.7-compatible
+    -- and MySQL 8.0-compatible Aurora, use the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
     --
-    -- To list all of the available engine versions for @aurora-postgresql@,
-    -- use the following command:
+    -- To list all of the available engine versions for Aurora PostgreSQL, use
+    -- the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
     --
+    -- To list all of the available engine versions for RDS for MySQL, use the
+    -- following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine mysql --query \"DBEngineVersions[].EngineVersion\"@
+    --
+    -- To list all of the available engine versions for RDS for PostgreSQL, use
+    -- the following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine postgres --query \"DBEngineVersions[].EngineVersion\"@
+    --
     -- __Aurora MySQL__
     --
-    -- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
-    -- @5.7.mysql_aurora.2.04.5@
+    -- For information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html MySQL on Amazon RDS Versions>
+    -- in the /Amazon Aurora User Guide/.
     --
     -- __Aurora PostgreSQL__
     --
-    -- Example: @9.6.3@, @10.7@
+    -- For information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html Amazon Aurora PostgreSQL releases and engine versions>
+    -- in the /Amazon Aurora User Guide/.
+    --
+    -- __MySQL__
+    --
+    -- For information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt MySQL on Amazon RDS Versions>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- __PostgreSQL__
+    --
+    -- For information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts Amazon RDS for PostgreSQL versions and extensions>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The network type of the DB cluster.
+    --
+    -- Valid values:
+    --
+    -- -   @IPV4@
+    --
+    -- -   @DUAL@
+    --
+    -- The network type is determined by the @DBSubnetGroup@ specified for the
+    -- DB cluster. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+    -- IPv4 and the IPv6 protocols (@DUAL@).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Valid for: Aurora DB clusters only
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier. This parameter is stored as a lowercase
     -- string.
     --
@@ -428,11 +734,25 @@ data CreateDBCluster = CreateDBCluster'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @my-cluster1@
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     dbClusterIdentifier :: Prelude.Text,
     -- | The name of the database engine to be used for this DB cluster.
     --
-    -- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora), @aurora-mysql@
-    -- (for MySQL 5.7-compatible Aurora), and @aurora-postgresql@
+    -- Valid Values:
+    --
+    -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+    --
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+    --     Aurora)
+    --
+    -- -   @aurora-postgresql@
+    --
+    -- -   @mysql@
+    --
+    -- -   @postgres@
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     engine :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -447,11 +767,26 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- 'tags', 'createDBCluster_tags' - Tags to assign to the DB cluster.
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'port', 'createDBCluster_port' - The port number on which the instances in the DB cluster accept
 -- connections.
 --
--- Default: @3306@ if engine is set as aurora or @5432@ if set to
--- aurora-postgresql.
+-- __RDS for MySQL and Aurora MySQL__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- __RDS for PostgreSQL and Aurora PostgreSQL__
+--
+-- Default: @5432@
+--
+-- Valid values: @1150-65535@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
+-- 'serverlessV2ScalingConfiguration', 'createDBCluster_serverlessV2ScalingConfiguration' - Undocumented member.
 --
 -- 'enableGlobalWriteForwarding', 'createDBCluster_enableGlobalWriteForwarding' - A value that indicates whether to enable this DB cluster to forward
 -- write operations to the primary cluster of an Aurora global database
@@ -466,7 +801,35 @@ data CreateDBCluster = CreateDBCluster'
 -- primary is demoted by the FailoverGlobalCluster API operation, but it
 -- does nothing until then.
 --
+-- Valid for: Aurora DB clusters only
+--
+-- 'performanceInsightsRetentionPeriod', 'createDBCluster_performanceInsightsRetentionPeriod' - The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
+--
+-- If you specify a retention period such as 94, which isn\'t a valid
+-- value, RDS issues an error.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
 -- 'vpcSecurityGroupIds', 'createDBCluster_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB cluster.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'preferredBackupWindow', 'createDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if
 -- automated backups are enabled using the @BackupRetentionPeriod@
@@ -476,7 +839,7 @@ data CreateDBCluster = CreateDBCluster'
 -- block of time for each Amazon Web Services Region. To view the time
 -- blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
 -- Constraints:
 --
@@ -488,6 +851,8 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- -   Must be at least 30 minutes.
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'backupRetentionPeriod', 'createDBCluster_backupRetentionPeriod' - The number of days for which automated backups are retained.
 --
 -- Default: 1
@@ -496,8 +861,12 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- -   Must be a value from 1 to 35
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'characterSetName', 'createDBCluster_characterSetName' - A value that indicates that the DB cluster should be associated with the
 -- specified CharacterSet.
+--
+-- Valid for: Aurora DB clusters only
 --
 -- 'masterUsername', 'createDBCluster_masterUsername' - The name of the master user for the DB cluster.
 --
@@ -509,62 +878,182 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- -   Can\'t be a reserved word for the chosen database engine.
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'copyTagsToSnapshot', 'createDBCluster_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the DB cluster to
 -- snapshots of the DB cluster. The default is not to copy them.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'domainIAMRoleName', 'createDBCluster_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
 --
+-- Valid for: Aurora DB clusters only
+--
 -- 'dbSubnetGroupName', 'createDBCluster_dbSubnetGroupName' - A DB subnet group to associate with this DB cluster.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
 --
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
 -- be default.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
+-- 'autoMinorVersionUpgrade', 'createDBCluster_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
+-- automatically to the DB cluster during the maintenance window. By
+-- default, minor engine upgrades are applied automatically.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
+-- 'dbClusterInstanceClass', 'createDBCluster_dbClusterInstanceClass' - The compute and memory capacity of each DB instance in the Multi-AZ DB
+-- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- available in all Amazon Web Services Regions, or for all database
+-- engines.
+--
+-- For the full list of DB instance classes and availability for your
+-- engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance class>
+-- in the /Amazon RDS User Guide/.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Valid for: Multi-AZ DB clusters only
 --
 -- 'databaseName', 'createDBCluster_databaseName' - The name for your database of up to 64 alphanumeric characters. If you
 -- do not provide a name, Amazon RDS doesn\'t create a database in the DB
 -- cluster you are creating.
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'domain', 'createDBCluster_domain' - The Active Directory directory ID to create the DB cluster in.
 --
 -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
--- Authentication to authenticate users that connect to the DB cluster. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+-- authentication to authenticate users that connect to the DB cluster.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos authentication>
 -- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
 --
 -- 'optionGroupName', 'createDBCluster_optionGroupName' - A value that indicates that the DB cluster should be associated with the
 -- specified option group.
 --
--- Permanent options can\'t be removed from an option group. The option
--- group can\'t be removed from a DB cluster once it is associated with a
--- DB cluster.
+-- DB clusters are associated with a default option group that can\'t be
+-- modified.
 --
--- 'availabilityZones', 'createDBCluster_availabilityZones' - A list of Availability Zones (AZs) where instances in the DB cluster can
--- be created. For information on Amazon Web Services Regions and
--- Availability Zones, see
+-- 'availabilityZones', 'createDBCluster_availabilityZones' - A list of Availability Zones (AZs) where DB instances in the DB cluster
+-- can be created.
+--
+-- For information on Amazon Web Services Regions and Availability Zones,
+-- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html Choosing the Regions and Availability Zones>
 -- in the /Amazon Aurora User Guide/.
 --
+-- Valid for: Aurora DB clusters only
+--
+-- 'performanceInsightsKMSKeyId', 'createDBCluster_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key.
+--
+-- If you don\'t specify a value for @PerformanceInsightsKMSKeyId@, then
+-- Amazon RDS uses your default KMS key. There is a default KMS key for
+-- your Amazon Web Services account. Your Amazon Web Services account has a
+-- different default KMS key for each Amazon Web Services Region.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
 -- 'enableIAMDatabaseAuthentication', 'createDBCluster_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
--- default, mapping is disabled.
+-- default, mapping isn\'t enabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
+--
+-- 'monitoringInterval', 'createDBCluster_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB cluster. To turn off collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 0.
+--
+-- If @MonitoringRoleArn@ is specified, also set @MonitoringInterval@ to a
+-- value other than 0.
+--
+-- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+--
+-- Valid for: Multi-AZ DB clusters only
 --
 -- 'masterUserPassword', 'createDBCluster_masterUserPassword' - The password for the master database user. This password can contain any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
+-- 'publiclyAccessible', 'createDBCluster_publiclyAccessible' - A value that indicates whether the DB cluster is publicly accessible.
+--
+-- When the DB cluster is publicly accessible, its Domain Name System (DNS)
+-- endpoint resolves to the private IP address from within the DB
+-- cluster\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB cluster\'s VPC. Access to the DB cluster
+-- is ultimately controlled by the security group it uses. That public
+-- access isn\'t permitted if the security group assigned to the DB cluster
+-- doesn\'t permit it.
+--
+-- When the DB cluster isn\'t publicly accessible, it is an internal DB
+-- cluster with a DNS name that resolves to a private IP address.
+--
+-- Default: The default behavior varies depending on whether
+-- @DBSubnetGroupName@ is specified.
+--
+-- If @DBSubnetGroupName@ isn\'t specified, and @PubliclyAccessible@ isn\'t
+-- specified, the following applies:
+--
+-- -   If the default VPC in the target Region doesn’t have an internet
+--     gateway attached to it, the DB cluster is private.
+--
+-- -   If the default VPC in the target Region has an internet gateway
+--     attached to it, the DB cluster is public.
+--
+-- If @DBSubnetGroupName@ is specified, and @PubliclyAccessible@ isn\'t
+-- specified, the following applies:
+--
+-- -   If the subnets are part of a VPC that doesn’t have an internet
+--     gateway attached to it, the DB cluster is private.
+--
+-- -   If the subnets are part of a VPC that has an internet gateway
+--     attached to it, the DB cluster is public.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
+-- 'storageType', 'createDBCluster_storageType' - Specifies the storage type to be associated with the DB cluster.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Valid values: @io1@
+--
+-- When specified, a value for the @Iops@ parameter is required.
+--
+-- Default: @io1@
+--
+-- Valid for: Multi-AZ DB clusters only
+--
 -- 'enableCloudwatchLogsExports', 'createDBCluster_enableCloudwatchLogsExports' - The list of log types that need to be enabled for exporting to
 -- CloudWatch Logs. The values in the list depend on the DB engine being
--- used. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
--- in the /Amazon Aurora User Guide/.
+-- used.
+--
+-- __RDS for MySQL__
+--
+-- Possible values are @error@, @general@, and @slowquery@.
+--
+-- __RDS for PostgreSQL__
+--
+-- Possible values are @postgresql@ and @upgrade@.
 --
 -- __Aurora MySQL__
 --
@@ -574,22 +1063,33 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Possible value is @postgresql@.
 --
+-- For more information about exporting CloudWatch Logs for Amazon RDS, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+-- in the /Amazon RDS User Guide/.
+--
+-- For more information about exporting CloudWatch Logs for Amazon Aurora,
+-- see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+-- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'enableHttpEndpoint', 'createDBCluster_enableHttpEndpoint' - A value that indicates whether to enable the HTTP endpoint for an Aurora
--- Serverless DB cluster. By default, the HTTP endpoint is disabled.
+-- Serverless v1 DB cluster. By default, the HTTP endpoint is disabled.
 --
 -- When enabled, the HTTP endpoint provides a connectionless web service
--- API for running SQL queries on the Aurora Serverless DB cluster. You can
--- also query your database from inside the RDS console with the query
+-- API for running SQL queries on the Aurora Serverless v1 DB cluster. You
+-- can also query your database from inside the RDS console with the query
 -- editor.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
 --
 -- 'backtrackWindow', 'createDBCluster_backtrackWindow' - The target backtrack window, in seconds. To disable backtracking, set
 -- this value to 0.
---
--- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
 --
 -- Default: 0
 --
@@ -598,11 +1098,38 @@ data CreateDBCluster = CreateDBCluster'
 -- -   If specified, this value must be set to a number from 0 to 259,200
 --     (72 hours).
 --
+-- Valid for: Aurora MySQL DB clusters only
+--
+-- 'enablePerformanceInsights', 'createDBCluster_enablePerformanceInsights' - A value that indicates whether to turn on Performance Insights for the
+-- DB cluster.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+-- in the /Amazon RDS User Guide/.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
 -- 'replicationSourceIdentifier', 'createDBCluster_replicationSourceIdentifier' - The Amazon Resource Name (ARN) of the source DB instance or DB cluster
 -- if this DB cluster is created as a read replica.
 --
+-- Valid for: Aurora DB clusters only
+--
 -- 'scalingConfiguration', 'createDBCluster_scalingConfiguration' - For DB clusters in @serverless@ DB engine mode, the scaling properties
 -- of the DB cluster.
+--
+-- Valid for: Aurora DB clusters only
+--
+-- 'monitoringRoleArn', 'createDBCluster_monitoringRoleArn' - The Amazon Resource Name (ARN) for the IAM role that permits RDS to send
+-- Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is
+-- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
+-- monitoring role, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling Setting up and enabling Enhanced Monitoring>
+-- in the /Amazon RDS User Guide/.
+--
+-- If @MonitoringInterval@ is set to a value other than 0, supply a
+-- @MonitoringRoleArn@ value.
+--
+-- Valid for: Multi-AZ DB clusters only
 --
 -- 'engineMode', 'createDBCluster_engineMode' - The DB engine mode of the DB cluster, either @provisioned@,
 -- @serverless@, @parallelquery@, @global@, or @multimaster@.
@@ -617,6 +1144,9 @@ data CreateDBCluster = CreateDBCluster'
 -- The @multimaster@ engine mode only applies for DB clusters created with
 -- Aurora MySQL version 5.6.10a.
 --
+-- The @serverless@ engine mode only applies for Aurora Serverless v1 DB
+-- clusters.
+--
 -- For Aurora PostgreSQL, the @global@ engine mode isn\'t required, and
 -- both the @parallelquery@ and the @multimaster@ engine modes currently
 -- aren\'t supported.
@@ -625,7 +1155,9 @@ data CreateDBCluster = CreateDBCluster'
 -- information, see the following sections in the /Amazon Aurora User
 -- Guide/:
 --
--- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations Limitations of Aurora Serverless>
+-- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations Limitations of Aurora Serverless v1>
+--
+-- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html Requirements for Aurora Serverless v2>
 --
 -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations Limitations of Parallel Query>
 --
@@ -633,41 +1165,57 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations Limitations of Multi-Master Clusters>
 --
+-- Valid for: Aurora DB clusters only
+--
 -- 'storageEncrypted', 'createDBCluster_storageEncrypted' - A value that indicates whether the DB cluster is encrypted.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'kmsKeyId', 'createDBCluster_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB cluster.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK). To use a CMK in a different Amazon Web Services account, specify
--- the key ARN or alias ARN.
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
 --
--- When a CMK isn\'t specified in @KmsKeyId@:
+-- When a KMS key isn\'t specified in @KmsKeyId@:
 --
 -- -   If @ReplicationSourceIdentifier@ identifies an encrypted source,
---     then Amazon RDS will use the CMK used to encrypt the source.
---     Otherwise, Amazon RDS will use your default CMK.
+--     then Amazon RDS will use the KMS key used to encrypt the source.
+--     Otherwise, Amazon RDS will use your default KMS key.
 --
 -- -   If the @StorageEncrypted@ parameter is enabled and
 --     @ReplicationSourceIdentifier@ isn\'t specified, then Amazon RDS will
---     use your default CMK.
+--     use your default KMS key.
 --
--- There is a default CMK for your Amazon Web Services account. Your Amazon
--- Web Services account has a different default CMK for each Amazon Web
--- Services Region.
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- If you create a read replica of an encrypted DB cluster in another
--- Amazon Web Services Region, you must set @KmsKeyId@ to a Amazon Web
--- Services KMS key identifier that is valid in the destination Amazon Web
--- Services Region. This CMK is used to encrypt the read replica in that
--- Amazon Web Services Region.
+-- Amazon Web Services Region, you must set @KmsKeyId@ to a KMS key
+-- identifier that is valid in the destination Amazon Web Services Region.
+-- This KMS key is used to encrypt the read replica in that Amazon Web
+-- Services Region.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'globalClusterIdentifier', 'createDBCluster_globalClusterIdentifier' - The global cluster ID of an Aurora cluster that becomes the primary
 -- cluster in the new global database cluster.
 --
+-- Valid for: Aurora DB clusters only
+--
+-- 'allocatedStorage', 'createDBCluster_allocatedStorage' - The amount of storage in gibibytes (GiB) to allocate to each DB instance
+-- in the Multi-AZ DB cluster.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
 -- 'deletionProtection', 'createDBCluster_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled.
+-- enabled. By default, deletion protection isn\'t enabled.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'preferredMaintenanceWindow', 'createDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -678,11 +1226,13 @@ data CreateDBCluster = CreateDBCluster'
 -- block of time for each Amazon Web Services Region, occurring on a random
 -- day of the week. To see the time blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 --
 -- Constraints: Minimum 30-minute window.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'destinationRegion', 'createDBCluster_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
 -- cross-region @CreateDBCluster@ request. To replicate from region @SRC@
@@ -699,24 +1249,41 @@ data CreateDBCluster = CreateDBCluster'
 -- -   If supplied, must match the name of an existing DB cluster parameter
 --     group.
 --
--- 'preSignedUrl', 'createDBCluster_preSignedUrl' - A URL that contains a Signature Version 4 signed request for the
--- @CreateDBCluster@ action to be called in the source Amazon Web Services
--- Region where the DB cluster is replicated from. You only need to specify
--- @PreSignedUrl@ when you are performing cross-region replication from an
--- encrypted DB cluster.
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
--- The pre-signed URL must be a valid request for the @CreateDBCluster@ API
--- action that can be executed in the source Amazon Web Services Region
--- that contains the encrypted DB cluster to be copied.
+-- 'iops', 'createDBCluster_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
+-- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- The pre-signed URL request must contain the following parameter values:
+-- For information about valid @Iops@ values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+-- in the /Amazon RDS User Guide/.
 --
--- -   @KmsKeyId@ - The Amazon Web Services KMS key identifier for the key
---     to use to encrypt the copy of the DB cluster in the destination
---     Amazon Web Services Region. This should refer to the same Amazon Web
---     Services KMS CMK for both the @CreateDBCluster@ action that is
---     called in the destination Amazon Web Services Region, and the action
---     contained in the pre-signed URL.
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Constraints: Must be a multiple between .5 and 50 of the storage amount
+-- for the DB cluster.
+--
+-- Valid for: Multi-AZ DB clusters only
+--
+-- 'preSignedUrl', 'createDBCluster_preSignedUrl' - When you are replicating a DB cluster from one Amazon Web Services
+-- GovCloud (US) Region to another, an URL that contains a Signature
+-- Version 4 signed request for the @CreateDBCluster@ operation to be
+-- called in the source Amazon Web Services Region where the DB cluster is
+-- replicated from. Specify @PreSignedUrl@ only when you are performing
+-- cross-Region replication from an encrypted DB cluster.
+--
+-- The presigned URL must be a valid request for the @CreateDBCluster@ API
+-- operation that can run in the source Amazon Web Services Region that
+-- contains the encrypted DB cluster to copy.
+--
+-- The presigned URL request must contain the following parameter values:
+--
+-- -   @KmsKeyId@ - The KMS key identifier for the KMS key to use to
+--     encrypt the copy of the DB cluster in the destination Amazon Web
+--     Services Region. This should refer to the same KMS key for both the
+--     @CreateDBCluster@ operation that is called in the destination Amazon
+--     Web Services Region, and the operation contained in the presigned
+--     URL.
 --
 -- -   @DestinationRegion@ - The name of the Amazon Web Services Region
 --     that Aurora read replica will be created in.
@@ -737,34 +1304,81 @@ data CreateDBCluster = CreateDBCluster'
 -- If you are using an Amazon Web Services SDK tool or the CLI, you can
 -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
 -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
--- autogenerates a pre-signed URL that is a valid request for the operation
--- that can be executed in the source Amazon Web Services Region.
+-- autogenerates a presigned URL that is a valid request for the operation
+-- that can run in the source Amazon Web Services Region.
+--
+-- Valid for: Aurora DB clusters only
 --
 -- 'engineVersion', 'createDBCluster_engineVersion' - The version number of the database engine to use.
 --
--- To list all of the available engine versions for @aurora@ (for MySQL
--- 5.6-compatible Aurora), use the following command:
+-- To list all of the available engine versions for MySQL 5.6-compatible
+-- Aurora, use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
 --
--- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible Aurora), use the following command:
+-- To list all of the available engine versions for MySQL 5.7-compatible
+-- and MySQL 8.0-compatible Aurora, use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
 --
--- To list all of the available engine versions for @aurora-postgresql@,
--- use the following command:
+-- To list all of the available engine versions for Aurora PostgreSQL, use
+-- the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
 --
+-- To list all of the available engine versions for RDS for MySQL, use the
+-- following command:
+--
+-- @aws rds describe-db-engine-versions --engine mysql --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- To list all of the available engine versions for RDS for PostgreSQL, use
+-- the following command:
+--
+-- @aws rds describe-db-engine-versions --engine postgres --query \"DBEngineVersions[].EngineVersion\"@
+--
 -- __Aurora MySQL__
 --
--- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
--- @5.7.mysql_aurora.2.04.5@
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html MySQL on Amazon RDS Versions>
+-- in the /Amazon Aurora User Guide/.
 --
 -- __Aurora PostgreSQL__
 --
--- Example: @9.6.3@, @10.7@
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html Amazon Aurora PostgreSQL releases and engine versions>
+-- in the /Amazon Aurora User Guide/.
+--
+-- __MySQL__
+--
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt MySQL on Amazon RDS Versions>
+-- in the /Amazon RDS User Guide/.
+--
+-- __PostgreSQL__
+--
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts Amazon RDS for PostgreSQL versions and extensions>
+-- in the /Amazon RDS User Guide/.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
+-- 'networkType', 'createDBCluster_networkType' - The network type of the DB cluster.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB cluster. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid for: Aurora DB clusters only
 --
 -- 'dbClusterIdentifier', 'createDBCluster_dbClusterIdentifier' - The DB cluster identifier. This parameter is stored as a lowercase
 -- string.
@@ -779,10 +1393,24 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Example: @my-cluster1@
 --
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'engine', 'createDBCluster_engine' - The name of the database engine to be used for this DB cluster.
 --
--- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora), @aurora-mysql@
--- (for MySQL 5.7-compatible Aurora), and @aurora-postgresql@
+-- Valid Values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
+--
+-- -   @aurora-postgresql@
+--
+-- -   @mysql@
+--
+-- -   @postgres@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 newCreateDBCluster ::
   -- | 'dbClusterIdentifier'
   Prelude.Text ->
@@ -793,7 +1421,9 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
   CreateDBCluster'
     { tags = Prelude.Nothing,
       port = Prelude.Nothing,
+      serverlessV2ScalingConfiguration = Prelude.Nothing,
       enableGlobalWriteForwarding = Prelude.Nothing,
+      performanceInsightsRetentionPeriod = Prelude.Nothing,
       vpcSecurityGroupIds = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
@@ -802,42 +1432,70 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
       copyTagsToSnapshot = Prelude.Nothing,
       domainIAMRoleName = Prelude.Nothing,
       dbSubnetGroupName = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      dbClusterInstanceClass = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       domain = Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
+      performanceInsightsKMSKeyId = Prelude.Nothing,
       enableIAMDatabaseAuthentication = Prelude.Nothing,
+      monitoringInterval = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      storageType = Prelude.Nothing,
       enableCloudwatchLogsExports = Prelude.Nothing,
       enableHttpEndpoint = Prelude.Nothing,
       backtrackWindow = Prelude.Nothing,
+      enablePerformanceInsights = Prelude.Nothing,
       replicationSourceIdentifier = Prelude.Nothing,
       scalingConfiguration = Prelude.Nothing,
+      monitoringRoleArn = Prelude.Nothing,
       engineMode = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       globalClusterIdentifier = Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing,
       deletionProtection = Prelude.Nothing,
       preferredMaintenanceWindow = Prelude.Nothing,
       destinationRegion = Prelude.Nothing,
       dbClusterParameterGroupName = Prelude.Nothing,
+      iops = Prelude.Nothing,
       preSignedUrl = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      networkType = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_,
       engine = pEngine_
     }
 
 -- | Tags to assign to the DB cluster.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_tags :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Tag])
 createDBCluster_tags = Lens.lens (\CreateDBCluster' {tags} -> tags) (\s@CreateDBCluster' {} a -> s {tags = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The port number on which the instances in the DB cluster accept
 -- connections.
 --
--- Default: @3306@ if engine is set as aurora or @5432@ if set to
--- aurora-postgresql.
+-- __RDS for MySQL and Aurora MySQL__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- __RDS for PostgreSQL and Aurora PostgreSQL__
+--
+-- Default: @5432@
+--
+-- Valid values: @1150-65535@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_port :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
 createDBCluster_port = Lens.lens (\CreateDBCluster' {port} -> port) (\s@CreateDBCluster' {} a -> s {port = a} :: CreateDBCluster)
+
+-- | Undocumented member.
+createDBCluster_serverlessV2ScalingConfiguration :: Lens.Lens' CreateDBCluster (Prelude.Maybe ServerlessV2ScalingConfiguration)
+createDBCluster_serverlessV2ScalingConfiguration = Lens.lens (\CreateDBCluster' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@CreateDBCluster' {} a -> s {serverlessV2ScalingConfiguration = a} :: CreateDBCluster)
 
 -- | A value that indicates whether to enable this DB cluster to forward
 -- write operations to the primary cluster of an Aurora global database
@@ -851,10 +1509,40 @@ createDBCluster_port = Lens.lens (\CreateDBCluster' {port} -> port) (\s@CreateDB
 -- of an Aurora global database, this value is used immediately if the
 -- primary is demoted by the FailoverGlobalCluster API operation, but it
 -- does nothing until then.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_enableGlobalWriteForwarding :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
 createDBCluster_enableGlobalWriteForwarding = Lens.lens (\CreateDBCluster' {enableGlobalWriteForwarding} -> enableGlobalWriteForwarding) (\s@CreateDBCluster' {} a -> s {enableGlobalWriteForwarding = a} :: CreateDBCluster)
 
+-- | The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
+--
+-- If you specify a retention period such as 94, which isn\'t a valid
+-- value, RDS issues an error.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_performanceInsightsRetentionPeriod :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
+createDBCluster_performanceInsightsRetentionPeriod = Lens.lens (\CreateDBCluster' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@CreateDBCluster' {} a -> s {performanceInsightsRetentionPeriod = a} :: CreateDBCluster)
+
 -- | A list of EC2 VPC security groups to associate with this DB cluster.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_vpcSecurityGroupIds :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
 createDBCluster_vpcSecurityGroupIds = Lens.lens (\CreateDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
@@ -866,7 +1554,7 @@ createDBCluster_vpcSecurityGroupIds = Lens.lens (\CreateDBCluster' {vpcSecurityG
 -- block of time for each Amazon Web Services Region. To view the time
 -- blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
 -- Constraints:
 --
@@ -877,6 +1565,8 @@ createDBCluster_vpcSecurityGroupIds = Lens.lens (\CreateDBCluster' {vpcSecurityG
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_preferredBackupWindow :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_preferredBackupWindow = Lens.lens (\CreateDBCluster' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateDBCluster' {} a -> s {preferredBackupWindow = a} :: CreateDBCluster)
 
@@ -887,11 +1577,15 @@ createDBCluster_preferredBackupWindow = Lens.lens (\CreateDBCluster' {preferredB
 -- Constraints:
 --
 -- -   Must be a value from 1 to 35
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_backupRetentionPeriod :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
 createDBCluster_backupRetentionPeriod = Lens.lens (\CreateDBCluster' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@CreateDBCluster' {} a -> s {backupRetentionPeriod = a} :: CreateDBCluster)
 
 -- | A value that indicates that the DB cluster should be associated with the
 -- specified CharacterSet.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_characterSetName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_characterSetName = Lens.lens (\CreateDBCluster' {characterSetName} -> characterSetName) (\s@CreateDBCluster' {} a -> s {characterSetName = a} :: CreateDBCluster)
 
@@ -904,83 +1598,215 @@ createDBCluster_characterSetName = Lens.lens (\CreateDBCluster' {characterSetNam
 -- -   First character must be a letter.
 --
 -- -   Can\'t be a reserved word for the chosen database engine.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_masterUsername :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_masterUsername = Lens.lens (\CreateDBCluster' {masterUsername} -> masterUsername) (\s@CreateDBCluster' {} a -> s {masterUsername = a} :: CreateDBCluster)
 
 -- | A value that indicates whether to copy all tags from the DB cluster to
 -- snapshots of the DB cluster. The default is not to copy them.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_copyTagsToSnapshot :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
 createDBCluster_copyTagsToSnapshot = Lens.lens (\CreateDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@CreateDBCluster' {} a -> s {copyTagsToSnapshot = a} :: CreateDBCluster)
 
 -- | Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_domainIAMRoleName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_domainIAMRoleName = Lens.lens (\CreateDBCluster' {domainIAMRoleName} -> domainIAMRoleName) (\s@CreateDBCluster' {} a -> s {domainIAMRoleName = a} :: CreateDBCluster)
 
 -- | A DB subnet group to associate with this DB cluster.
 --
+-- This setting is required to create a Multi-AZ DB cluster.
+--
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not
 -- be default.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_dbSubnetGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_dbSubnetGroupName = Lens.lens (\CreateDBCluster' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@CreateDBCluster' {} a -> s {dbSubnetGroupName = a} :: CreateDBCluster)
+
+-- | A value that indicates whether minor engine upgrades are applied
+-- automatically to the DB cluster during the maintenance window. By
+-- default, minor engine upgrades are applied automatically.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
+createDBCluster_autoMinorVersionUpgrade = Lens.lens (\CreateDBCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBCluster)
+
+-- | The compute and memory capacity of each DB instance in the Multi-AZ DB
+-- cluster, for example db.m6g.xlarge. Not all DB instance classes are
+-- available in all Amazon Web Services Regions, or for all database
+-- engines.
+--
+-- For the full list of DB instance classes and availability for your
+-- engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance class>
+-- in the /Amazon RDS User Guide/.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_dbClusterInstanceClass :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_dbClusterInstanceClass = Lens.lens (\CreateDBCluster' {dbClusterInstanceClass} -> dbClusterInstanceClass) (\s@CreateDBCluster' {} a -> s {dbClusterInstanceClass = a} :: CreateDBCluster)
 
 -- | The name for your database of up to 64 alphanumeric characters. If you
 -- do not provide a name, Amazon RDS doesn\'t create a database in the DB
 -- cluster you are creating.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_databaseName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_databaseName = Lens.lens (\CreateDBCluster' {databaseName} -> databaseName) (\s@CreateDBCluster' {} a -> s {databaseName = a} :: CreateDBCluster)
 
 -- | The Active Directory directory ID to create the DB cluster in.
 --
 -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
--- Authentication to authenticate users that connect to the DB cluster. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+-- authentication to authenticate users that connect to the DB cluster.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos authentication>
 -- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_domain :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_domain = Lens.lens (\CreateDBCluster' {domain} -> domain) (\s@CreateDBCluster' {} a -> s {domain = a} :: CreateDBCluster)
 
 -- | A value that indicates that the DB cluster should be associated with the
 -- specified option group.
 --
--- Permanent options can\'t be removed from an option group. The option
--- group can\'t be removed from a DB cluster once it is associated with a
--- DB cluster.
+-- DB clusters are associated with a default option group that can\'t be
+-- modified.
 createDBCluster_optionGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_optionGroupName = Lens.lens (\CreateDBCluster' {optionGroupName} -> optionGroupName) (\s@CreateDBCluster' {} a -> s {optionGroupName = a} :: CreateDBCluster)
 
--- | A list of Availability Zones (AZs) where instances in the DB cluster can
--- be created. For information on Amazon Web Services Regions and
--- Availability Zones, see
+-- | A list of Availability Zones (AZs) where DB instances in the DB cluster
+-- can be created.
+--
+-- For information on Amazon Web Services Regions and Availability Zones,
+-- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html Choosing the Regions and Availability Zones>
 -- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_availabilityZones :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
 createDBCluster_availabilityZones = Lens.lens (\CreateDBCluster' {availabilityZones} -> availabilityZones) (\s@CreateDBCluster' {} a -> s {availabilityZones = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key.
+--
+-- If you don\'t specify a value for @PerformanceInsightsKMSKeyId@, then
+-- Amazon RDS uses your default KMS key. There is a default KMS key for
+-- your Amazon Web Services account. Your Amazon Web Services account has a
+-- different default KMS key for each Amazon Web Services Region.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_performanceInsightsKMSKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_performanceInsightsKMSKeyId = Lens.lens (\CreateDBCluster' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@CreateDBCluster' {} a -> s {performanceInsightsKMSKeyId = a} :: CreateDBCluster)
+
 -- | A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
--- default, mapping is disabled.
+-- default, mapping isn\'t enabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_enableIAMDatabaseAuthentication :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
 createDBCluster_enableIAMDatabaseAuthentication = Lens.lens (\CreateDBCluster' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@CreateDBCluster' {} a -> s {enableIAMDatabaseAuthentication = a} :: CreateDBCluster)
+
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB cluster. To turn off collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 0.
+--
+-- If @MonitoringRoleArn@ is specified, also set @MonitoringInterval@ to a
+-- value other than 0.
+--
+-- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_monitoringInterval :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
+createDBCluster_monitoringInterval = Lens.lens (\CreateDBCluster' {monitoringInterval} -> monitoringInterval) (\s@CreateDBCluster' {} a -> s {monitoringInterval = a} :: CreateDBCluster)
 
 -- | The password for the master database user. This password can contain any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_masterUserPassword :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_masterUserPassword = Lens.lens (\CreateDBCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateDBCluster' {} a -> s {masterUserPassword = a} :: CreateDBCluster)
 
+-- | A value that indicates whether the DB cluster is publicly accessible.
+--
+-- When the DB cluster is publicly accessible, its Domain Name System (DNS)
+-- endpoint resolves to the private IP address from within the DB
+-- cluster\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB cluster\'s VPC. Access to the DB cluster
+-- is ultimately controlled by the security group it uses. That public
+-- access isn\'t permitted if the security group assigned to the DB cluster
+-- doesn\'t permit it.
+--
+-- When the DB cluster isn\'t publicly accessible, it is an internal DB
+-- cluster with a DNS name that resolves to a private IP address.
+--
+-- Default: The default behavior varies depending on whether
+-- @DBSubnetGroupName@ is specified.
+--
+-- If @DBSubnetGroupName@ isn\'t specified, and @PubliclyAccessible@ isn\'t
+-- specified, the following applies:
+--
+-- -   If the default VPC in the target Region doesn’t have an internet
+--     gateway attached to it, the DB cluster is private.
+--
+-- -   If the default VPC in the target Region has an internet gateway
+--     attached to it, the DB cluster is public.
+--
+-- If @DBSubnetGroupName@ is specified, and @PubliclyAccessible@ isn\'t
+-- specified, the following applies:
+--
+-- -   If the subnets are part of a VPC that doesn’t have an internet
+--     gateway attached to it, the DB cluster is private.
+--
+-- -   If the subnets are part of a VPC that has an internet gateway
+--     attached to it, the DB cluster is public.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_publiclyAccessible :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
+createDBCluster_publiclyAccessible = Lens.lens (\CreateDBCluster' {publiclyAccessible} -> publiclyAccessible) (\s@CreateDBCluster' {} a -> s {publiclyAccessible = a} :: CreateDBCluster)
+
+-- | Specifies the storage type to be associated with the DB cluster.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Valid values: @io1@
+--
+-- When specified, a value for the @Iops@ parameter is required.
+--
+-- Default: @io1@
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_storageType :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_storageType = Lens.lens (\CreateDBCluster' {storageType} -> storageType) (\s@CreateDBCluster' {} a -> s {storageType = a} :: CreateDBCluster)
+
 -- | The list of log types that need to be enabled for exporting to
 -- CloudWatch Logs. The values in the list depend on the DB engine being
--- used. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
--- in the /Amazon Aurora User Guide/.
+-- used.
+--
+-- __RDS for MySQL__
+--
+-- Possible values are @error@, @general@, and @slowquery@.
+--
+-- __RDS for PostgreSQL__
+--
+-- Possible values are @postgresql@ and @upgrade@.
 --
 -- __Aurora MySQL__
 --
@@ -989,27 +1815,38 @@ createDBCluster_masterUserPassword = Lens.lens (\CreateDBCluster' {masterUserPas
 -- __Aurora PostgreSQL__
 --
 -- Possible value is @postgresql@.
+--
+-- For more information about exporting CloudWatch Logs for Amazon RDS, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+-- in the /Amazon RDS User Guide/.
+--
+-- For more information about exporting CloudWatch Logs for Amazon Aurora,
+-- see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+-- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_enableCloudwatchLogsExports :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
 createDBCluster_enableCloudwatchLogsExports = Lens.lens (\CreateDBCluster' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBCluster' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates whether to enable the HTTP endpoint for an Aurora
--- Serverless DB cluster. By default, the HTTP endpoint is disabled.
+-- Serverless v1 DB cluster. By default, the HTTP endpoint is disabled.
 --
 -- When enabled, the HTTP endpoint provides a connectionless web service
--- API for running SQL queries on the Aurora Serverless DB cluster. You can
--- also query your database from inside the RDS console with the query
+-- API for running SQL queries on the Aurora Serverless v1 DB cluster. You
+-- can also query your database from inside the RDS console with the query
 -- editor.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_enableHttpEndpoint :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
 createDBCluster_enableHttpEndpoint = Lens.lens (\CreateDBCluster' {enableHttpEndpoint} -> enableHttpEndpoint) (\s@CreateDBCluster' {} a -> s {enableHttpEndpoint = a} :: CreateDBCluster)
 
 -- | The target backtrack window, in seconds. To disable backtracking, set
 -- this value to 0.
---
--- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
 --
 -- Default: 0
 --
@@ -1017,18 +1854,49 @@ createDBCluster_enableHttpEndpoint = Lens.lens (\CreateDBCluster' {enableHttpEnd
 --
 -- -   If specified, this value must be set to a number from 0 to 259,200
 --     (72 hours).
+--
+-- Valid for: Aurora MySQL DB clusters only
 createDBCluster_backtrackWindow :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Integer)
 createDBCluster_backtrackWindow = Lens.lens (\CreateDBCluster' {backtrackWindow} -> backtrackWindow) (\s@CreateDBCluster' {} a -> s {backtrackWindow = a} :: CreateDBCluster)
 
+-- | A value that indicates whether to turn on Performance Insights for the
+-- DB cluster.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+-- in the /Amazon RDS User Guide/.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_enablePerformanceInsights :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
+createDBCluster_enablePerformanceInsights = Lens.lens (\CreateDBCluster' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@CreateDBCluster' {} a -> s {enablePerformanceInsights = a} :: CreateDBCluster)
+
 -- | The Amazon Resource Name (ARN) of the source DB instance or DB cluster
 -- if this DB cluster is created as a read replica.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_replicationSourceIdentifier :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_replicationSourceIdentifier = Lens.lens (\CreateDBCluster' {replicationSourceIdentifier} -> replicationSourceIdentifier) (\s@CreateDBCluster' {} a -> s {replicationSourceIdentifier = a} :: CreateDBCluster)
 
 -- | For DB clusters in @serverless@ DB engine mode, the scaling properties
 -- of the DB cluster.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_scalingConfiguration :: Lens.Lens' CreateDBCluster (Prelude.Maybe ScalingConfiguration)
 createDBCluster_scalingConfiguration = Lens.lens (\CreateDBCluster' {scalingConfiguration} -> scalingConfiguration) (\s@CreateDBCluster' {} a -> s {scalingConfiguration = a} :: CreateDBCluster)
+
+-- | The Amazon Resource Name (ARN) for the IAM role that permits RDS to send
+-- Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is
+-- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
+-- monitoring role, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling Setting up and enabling Enhanced Monitoring>
+-- in the /Amazon RDS User Guide/.
+--
+-- If @MonitoringInterval@ is set to a value other than 0, supply a
+-- @MonitoringRoleArn@ value.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_monitoringRoleArn :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_monitoringRoleArn = Lens.lens (\CreateDBCluster' {monitoringRoleArn} -> monitoringRoleArn) (\s@CreateDBCluster' {} a -> s {monitoringRoleArn = a} :: CreateDBCluster)
 
 -- | The DB engine mode of the DB cluster, either @provisioned@,
 -- @serverless@, @parallelquery@, @global@, or @multimaster@.
@@ -1043,6 +1911,9 @@ createDBCluster_scalingConfiguration = Lens.lens (\CreateDBCluster' {scalingConf
 -- The @multimaster@ engine mode only applies for DB clusters created with
 -- Aurora MySQL version 5.6.10a.
 --
+-- The @serverless@ engine mode only applies for Aurora Serverless v1 DB
+-- clusters.
+--
 -- For Aurora PostgreSQL, the @global@ engine mode isn\'t required, and
 -- both the @parallelquery@ and the @multimaster@ engine modes currently
 -- aren\'t supported.
@@ -1051,57 +1922,77 @@ createDBCluster_scalingConfiguration = Lens.lens (\CreateDBCluster' {scalingConf
 -- information, see the following sections in the /Amazon Aurora User
 -- Guide/:
 --
--- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations Limitations of Aurora Serverless>
+-- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations Limitations of Aurora Serverless v1>
+--
+-- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html Requirements for Aurora Serverless v2>
 --
 -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations Limitations of Parallel Query>
 --
 -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations Limitations of Aurora Global Databases>
 --
 -- -   <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations Limitations of Multi-Master Clusters>
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_engineMode :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_engineMode = Lens.lens (\CreateDBCluster' {engineMode} -> engineMode) (\s@CreateDBCluster' {} a -> s {engineMode = a} :: CreateDBCluster)
 
 -- | A value that indicates whether the DB cluster is encrypted.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_storageEncrypted :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
 createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateDBCluster' {} a -> s {storageEncrypted = a} :: CreateDBCluster)
 
 -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK). To use a CMK in a different Amazon Web Services account, specify
--- the key ARN or alias ARN.
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
 --
--- When a CMK isn\'t specified in @KmsKeyId@:
+-- When a KMS key isn\'t specified in @KmsKeyId@:
 --
 -- -   If @ReplicationSourceIdentifier@ identifies an encrypted source,
---     then Amazon RDS will use the CMK used to encrypt the source.
---     Otherwise, Amazon RDS will use your default CMK.
+--     then Amazon RDS will use the KMS key used to encrypt the source.
+--     Otherwise, Amazon RDS will use your default KMS key.
 --
 -- -   If the @StorageEncrypted@ parameter is enabled and
 --     @ReplicationSourceIdentifier@ isn\'t specified, then Amazon RDS will
---     use your default CMK.
+--     use your default KMS key.
 --
--- There is a default CMK for your Amazon Web Services account. Your Amazon
--- Web Services account has a different default CMK for each Amazon Web
--- Services Region.
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- If you create a read replica of an encrypted DB cluster in another
--- Amazon Web Services Region, you must set @KmsKeyId@ to a Amazon Web
--- Services KMS key identifier that is valid in the destination Amazon Web
--- Services Region. This CMK is used to encrypt the read replica in that
--- Amazon Web Services Region.
+-- Amazon Web Services Region, you must set @KmsKeyId@ to a KMS key
+-- identifier that is valid in the destination Amazon Web Services Region.
+-- This KMS key is used to encrypt the read replica in that Amazon Web
+-- Services Region.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_kmsKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_kmsKeyId = Lens.lens (\CreateDBCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateDBCluster' {} a -> s {kmsKeyId = a} :: CreateDBCluster)
 
 -- | The global cluster ID of an Aurora cluster that becomes the primary
 -- cluster in the new global database cluster.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_globalClusterIdentifier :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_globalClusterIdentifier = Lens.lens (\CreateDBCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateDBCluster' {} a -> s {globalClusterIdentifier = a} :: CreateDBCluster)
 
+-- | The amount of storage in gibibytes (GiB) to allocate to each DB instance
+-- in the Multi-AZ DB cluster.
+--
+-- This setting is required to create a Multi-AZ DB cluster.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_allocatedStorage :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
+createDBCluster_allocatedStorage = Lens.lens (\CreateDBCluster' {allocatedStorage} -> allocatedStorage) (\s@CreateDBCluster' {} a -> s {allocatedStorage = a} :: CreateDBCluster)
+
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled.
+-- enabled. By default, deletion protection isn\'t enabled.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_deletionProtection :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
 createDBCluster_deletionProtection = Lens.lens (\CreateDBCluster' {deletionProtection} -> deletionProtection) (\s@CreateDBCluster' {} a -> s {deletionProtection = a} :: CreateDBCluster)
 
@@ -1114,11 +2005,13 @@ createDBCluster_deletionProtection = Lens.lens (\CreateDBCluster' {deletionProte
 -- block of time for each Amazon Web Services Region, occurring on a random
 -- day of the week. To see the time blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 --
 -- Constraints: Minimum 30-minute window.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_preferredMaintenanceWindow :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_preferredMaintenanceWindow = Lens.lens (\CreateDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateDBCluster)
 
@@ -1138,27 +2031,46 @@ createDBCluster_destinationRegion = Lens.lens (\CreateDBCluster' {destinationReg
 --
 -- -   If supplied, must match the name of an existing DB cluster parameter
 --     group.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_dbClusterParameterGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_dbClusterParameterGroupName = Lens.lens (\CreateDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@CreateDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: CreateDBCluster)
 
--- | A URL that contains a Signature Version 4 signed request for the
--- @CreateDBCluster@ action to be called in the source Amazon Web Services
--- Region where the DB cluster is replicated from. You only need to specify
--- @PreSignedUrl@ when you are performing cross-region replication from an
--- encrypted DB cluster.
+-- | The amount of Provisioned IOPS (input\/output operations per second) to
+-- be initially allocated for each DB instance in the Multi-AZ DB cluster.
 --
--- The pre-signed URL must be a valid request for the @CreateDBCluster@ API
--- action that can be executed in the source Amazon Web Services Region
--- that contains the encrypted DB cluster to be copied.
+-- For information about valid @Iops@ values, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS storage to improve performance>
+-- in the /Amazon RDS User Guide/.
 --
--- The pre-signed URL request must contain the following parameter values:
+-- This setting is required to create a Multi-AZ DB cluster.
 --
--- -   @KmsKeyId@ - The Amazon Web Services KMS key identifier for the key
---     to use to encrypt the copy of the DB cluster in the destination
---     Amazon Web Services Region. This should refer to the same Amazon Web
---     Services KMS CMK for both the @CreateDBCluster@ action that is
---     called in the destination Amazon Web Services Region, and the action
---     contained in the pre-signed URL.
+-- Constraints: Must be a multiple between .5 and 50 of the storage amount
+-- for the DB cluster.
+--
+-- Valid for: Multi-AZ DB clusters only
+createDBCluster_iops :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
+createDBCluster_iops = Lens.lens (\CreateDBCluster' {iops} -> iops) (\s@CreateDBCluster' {} a -> s {iops = a} :: CreateDBCluster)
+
+-- | When you are replicating a DB cluster from one Amazon Web Services
+-- GovCloud (US) Region to another, an URL that contains a Signature
+-- Version 4 signed request for the @CreateDBCluster@ operation to be
+-- called in the source Amazon Web Services Region where the DB cluster is
+-- replicated from. Specify @PreSignedUrl@ only when you are performing
+-- cross-Region replication from an encrypted DB cluster.
+--
+-- The presigned URL must be a valid request for the @CreateDBCluster@ API
+-- operation that can run in the source Amazon Web Services Region that
+-- contains the encrypted DB cluster to copy.
+--
+-- The presigned URL request must contain the following parameter values:
+--
+-- -   @KmsKeyId@ - The KMS key identifier for the KMS key to use to
+--     encrypt the copy of the DB cluster in the destination Amazon Web
+--     Services Region. This should refer to the same KMS key for both the
+--     @CreateDBCluster@ operation that is called in the destination Amazon
+--     Web Services Region, and the operation contained in the presigned
+--     URL.
 --
 -- -   @DestinationRegion@ - The name of the Amazon Web Services Region
 --     that Aurora read replica will be created in.
@@ -1179,38 +2091,87 @@ createDBCluster_dbClusterParameterGroupName = Lens.lens (\CreateDBCluster' {dbCl
 -- If you are using an Amazon Web Services SDK tool or the CLI, you can
 -- specify @SourceRegion@ (or @--source-region@ for the CLI) instead of
 -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
--- autogenerates a pre-signed URL that is a valid request for the operation
--- that can be executed in the source Amazon Web Services Region.
+-- autogenerates a presigned URL that is a valid request for the operation
+-- that can run in the source Amazon Web Services Region.
+--
+-- Valid for: Aurora DB clusters only
 createDBCluster_preSignedUrl :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_preSignedUrl = Lens.lens (\CreateDBCluster' {preSignedUrl} -> preSignedUrl) (\s@CreateDBCluster' {} a -> s {preSignedUrl = a} :: CreateDBCluster)
 
 -- | The version number of the database engine to use.
 --
--- To list all of the available engine versions for @aurora@ (for MySQL
--- 5.6-compatible Aurora), use the following command:
+-- To list all of the available engine versions for MySQL 5.6-compatible
+-- Aurora, use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
 --
--- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible Aurora), use the following command:
+-- To list all of the available engine versions for MySQL 5.7-compatible
+-- and MySQL 8.0-compatible Aurora, use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
 --
--- To list all of the available engine versions for @aurora-postgresql@,
--- use the following command:
+-- To list all of the available engine versions for Aurora PostgreSQL, use
+-- the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
 --
+-- To list all of the available engine versions for RDS for MySQL, use the
+-- following command:
+--
+-- @aws rds describe-db-engine-versions --engine mysql --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- To list all of the available engine versions for RDS for PostgreSQL, use
+-- the following command:
+--
+-- @aws rds describe-db-engine-versions --engine postgres --query \"DBEngineVersions[].EngineVersion\"@
+--
 -- __Aurora MySQL__
 --
--- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
--- @5.7.mysql_aurora.2.04.5@
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html MySQL on Amazon RDS Versions>
+-- in the /Amazon Aurora User Guide/.
 --
 -- __Aurora PostgreSQL__
 --
--- Example: @9.6.3@, @10.7@
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html Amazon Aurora PostgreSQL releases and engine versions>
+-- in the /Amazon Aurora User Guide/.
+--
+-- __MySQL__
+--
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt MySQL on Amazon RDS Versions>
+-- in the /Amazon RDS User Guide/.
+--
+-- __PostgreSQL__
+--
+-- For information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts Amazon RDS for PostgreSQL versions and extensions>
+-- in the /Amazon RDS User Guide/.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_engineVersion :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_engineVersion = Lens.lens (\CreateDBCluster' {engineVersion} -> engineVersion) (\s@CreateDBCluster' {} a -> s {engineVersion = a} :: CreateDBCluster)
+
+-- | The network type of the DB cluster.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB cluster. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid for: Aurora DB clusters only
+createDBCluster_networkType :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_networkType = Lens.lens (\CreateDBCluster' {networkType} -> networkType) (\s@CreateDBCluster' {} a -> s {networkType = a} :: CreateDBCluster)
 
 -- | The DB cluster identifier. This parameter is stored as a lowercase
 -- string.
@@ -1224,13 +2185,27 @@ createDBCluster_engineVersion = Lens.lens (\CreateDBCluster' {engineVersion} -> 
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @my-cluster1@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_dbClusterIdentifier :: Lens.Lens' CreateDBCluster Prelude.Text
 createDBCluster_dbClusterIdentifier = Lens.lens (\CreateDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@CreateDBCluster' {} a -> s {dbClusterIdentifier = a} :: CreateDBCluster)
 
 -- | The name of the database engine to be used for this DB cluster.
 --
--- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora), @aurora-mysql@
--- (for MySQL 5.7-compatible Aurora), and @aurora-postgresql@
+-- Valid Values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
+--
+-- -   @aurora-postgresql@
+--
+-- -   @mysql@
+--
+-- -   @postgres@
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_engine :: Lens.Lens' CreateDBCluster Prelude.Text
 createDBCluster_engine = Lens.lens (\CreateDBCluster' {engine} -> engine) (\s@CreateDBCluster' {} a -> s {engine = a} :: CreateDBCluster)
 
@@ -1252,7 +2227,9 @@ instance Prelude.Hashable CreateDBCluster where
   hashWithSalt _salt CreateDBCluster' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` enableGlobalWriteForwarding
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
@@ -1261,27 +2238,38 @@ instance Prelude.Hashable CreateDBCluster where
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` domainIAMRoleName
       `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` dbClusterInstanceClass
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
       `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` monitoringInterval
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` enableCloudwatchLogsExports
       `Prelude.hashWithSalt` enableHttpEndpoint
       `Prelude.hashWithSalt` backtrackWindow
+      `Prelude.hashWithSalt` enablePerformanceInsights
       `Prelude.hashWithSalt` replicationSourceIdentifier
       `Prelude.hashWithSalt` scalingConfiguration
+      `Prelude.hashWithSalt` monitoringRoleArn
       `Prelude.hashWithSalt` engineMode
       `Prelude.hashWithSalt` storageEncrypted
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` preSignedUrl
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` engine
 
@@ -1289,7 +2277,9 @@ instance Prelude.NFData CreateDBCluster where
   rnf CreateDBCluster' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf enableGlobalWriteForwarding
+      `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
@@ -1298,27 +2288,48 @@ instance Prelude.NFData CreateDBCluster where
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf domainIAMRoleName
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf dbClusterInstanceClass
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf
+        performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
-      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        monitoringInterval
+      `Prelude.seq` Prelude.rnf
+        masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        publiclyAccessible
+      `Prelude.seq` Prelude.rnf
+        storageType
       `Prelude.seq` Prelude.rnf
         enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf enableHttpEndpoint
-      `Prelude.seq` Prelude.rnf backtrackWindow
+      `Prelude.seq` Prelude.rnf
+        enableHttpEndpoint
+      `Prelude.seq` Prelude.rnf
+        backtrackWindow
+      `Prelude.seq` Prelude.rnf
+        enablePerformanceInsights
       `Prelude.seq` Prelude.rnf
         replicationSourceIdentifier
       `Prelude.seq` Prelude.rnf
         scalingConfiguration
-      `Prelude.seq` Prelude.rnf engineMode
+      `Prelude.seq` Prelude.rnf
+        monitoringRoleArn
+      `Prelude.seq` Prelude.rnf
+        engineMode
       `Prelude.seq` Prelude.rnf
         storageEncrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        kmsKeyId
       `Prelude.seq` Prelude.rnf
         globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        allocatedStorage
       `Prelude.seq` Prelude.rnf
         deletionProtection
       `Prelude.seq` Prelude.rnf
@@ -1328,9 +2339,13 @@ instance Prelude.NFData CreateDBCluster where
       `Prelude.seq` Prelude.rnf
         dbClusterParameterGroupName
       `Prelude.seq` Prelude.rnf
+        iops
+      `Prelude.seq` Prelude.rnf
         preSignedUrl
       `Prelude.seq` Prelude.rnf
         engineVersion
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         dbClusterIdentifier
       `Prelude.seq` Prelude.rnf
@@ -1353,8 +2368,12 @@ instance Core.ToQuery CreateDBCluster where
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
         "Port" Core.=: port,
+        "ServerlessV2ScalingConfiguration"
+          Core.=: serverlessV2ScalingConfiguration,
         "EnableGlobalWriteForwarding"
           Core.=: enableGlobalWriteForwarding,
+        "PerformanceInsightsRetentionPeriod"
+          Core.=: performanceInsightsRetentionPeriod,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
@@ -1369,6 +2388,10 @@ instance Core.ToQuery CreateDBCluster where
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
+        "DBClusterInstanceClass"
+          Core.=: dbClusterInstanceClass,
         "DatabaseName" Core.=: databaseName,
         "Domain" Core.=: domain,
         "OptionGroupName" Core.=: optionGroupName,
@@ -1377,9 +2400,14 @@ instance Core.ToQuery CreateDBCluster where
             ( Core.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
+        "PerformanceInsightsKMSKeyId"
+          Core.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
+        "MonitoringInterval" Core.=: monitoringInterval,
         "MasterUserPassword" Core.=: masterUserPassword,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
+        "StorageType" Core.=: storageType,
         "EnableCloudwatchLogsExports"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
@@ -1387,22 +2415,28 @@ instance Core.ToQuery CreateDBCluster where
             ),
         "EnableHttpEndpoint" Core.=: enableHttpEndpoint,
         "BacktrackWindow" Core.=: backtrackWindow,
+        "EnablePerformanceInsights"
+          Core.=: enablePerformanceInsights,
         "ReplicationSourceIdentifier"
           Core.=: replicationSourceIdentifier,
         "ScalingConfiguration" Core.=: scalingConfiguration,
+        "MonitoringRoleArn" Core.=: monitoringRoleArn,
         "EngineMode" Core.=: engineMode,
         "StorageEncrypted" Core.=: storageEncrypted,
         "KmsKeyId" Core.=: kmsKeyId,
         "GlobalClusterIdentifier"
           Core.=: globalClusterIdentifier,
+        "AllocatedStorage" Core.=: allocatedStorage,
         "DeletionProtection" Core.=: deletionProtection,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
         "DestinationRegion" Core.=: destinationRegion,
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName,
+        "Iops" Core.=: iops,
         "PreSignedUrl" Core.=: preSignedUrl,
         "EngineVersion" Core.=: engineVersion,
+        "NetworkType" Core.=: networkType,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "Engine" Core.=: engine
       ]

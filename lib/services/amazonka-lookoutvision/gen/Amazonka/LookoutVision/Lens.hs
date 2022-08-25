@@ -69,6 +69,12 @@ module Amazonka.LookoutVision.Lens
     describeModelResponse_modelDescription,
     describeModelResponse_httpStatus,
 
+    -- ** DescribeModelPackagingJob
+    describeModelPackagingJob_projectName,
+    describeModelPackagingJob_jobName,
+    describeModelPackagingJobResponse_modelPackagingDescription,
+    describeModelPackagingJobResponse_httpStatus,
+
     -- ** DescribeProject
     describeProject_projectName,
     describeProjectResponse_projectDescription,
@@ -96,6 +102,14 @@ module Amazonka.LookoutVision.Lens
     listDatasetEntriesResponse_datasetEntries,
     listDatasetEntriesResponse_httpStatus,
 
+    -- ** ListModelPackagingJobs
+    listModelPackagingJobs_nextToken,
+    listModelPackagingJobs_maxResults,
+    listModelPackagingJobs_projectName,
+    listModelPackagingJobsResponse_nextToken,
+    listModelPackagingJobsResponse_modelPackagingJobs,
+    listModelPackagingJobsResponse_httpStatus,
+
     -- ** ListModels
     listModels_nextToken,
     listModels_maxResults,
@@ -118,11 +132,22 @@ module Amazonka.LookoutVision.Lens
 
     -- ** StartModel
     startModel_clientToken,
+    startModel_maxInferenceUnits,
     startModel_projectName,
     startModel_modelVersion,
     startModel_minInferenceUnits,
     startModelResponse_status,
     startModelResponse_httpStatus,
+
+    -- ** StartModelPackagingJob
+    startModelPackagingJob_clientToken,
+    startModelPackagingJob_jobName,
+    startModelPackagingJob_description,
+    startModelPackagingJob_projectName,
+    startModelPackagingJob_modelVersion,
+    startModelPackagingJob_configuration,
+    startModelPackagingJobResponse_jobName,
+    startModelPackagingJobResponse_httpStatus,
 
     -- ** StopModel
     stopModel_clientToken,
@@ -150,6 +175,10 @@ module Amazonka.LookoutVision.Lens
     updateDatasetEntriesResponse_httpStatus,
 
     -- * Types
+
+    -- ** Anomaly
+    anomaly_name,
+    anomaly_pixelAnomaly,
 
     -- ** DatasetDescription
     datasetDescription_lastUpdatedTimestamp,
@@ -179,9 +208,26 @@ module Amazonka.LookoutVision.Lens
     datasetSource_groundTruthManifest,
 
     -- ** DetectAnomalyResult
+    detectAnomalyResult_anomalies,
     detectAnomalyResult_confidence,
     detectAnomalyResult_source,
     detectAnomalyResult_isAnomalous,
+    detectAnomalyResult_anomalyMask,
+
+    -- ** GreengrassConfiguration
+    greengrassConfiguration_componentDescription,
+    greengrassConfiguration_tags,
+    greengrassConfiguration_componentVersion,
+    greengrassConfiguration_targetDevice,
+    greengrassConfiguration_targetPlatform,
+    greengrassConfiguration_compilerOptions,
+    greengrassConfiguration_s3OutputLocation,
+    greengrassConfiguration_componentName,
+
+    -- ** GreengrassOutputDetails
+    greengrassOutputDetails_componentVersion,
+    greengrassOutputDetails_componentName,
+    greengrassOutputDetails_componentVersionArn,
 
     -- ** ImageSource
     imageSource_type,
@@ -193,6 +239,7 @@ module Amazonka.LookoutVision.Lens
 
     -- ** ModelDescription
     modelDescription_evaluationManifest,
+    modelDescription_minInferenceUnits,
     modelDescription_modelVersion,
     modelDescription_evaluationEndTimestamp,
     modelDescription_status,
@@ -202,6 +249,7 @@ module Amazonka.LookoutVision.Lens
     modelDescription_modelArn,
     modelDescription_evaluationResult,
     modelDescription_kmsKeyId,
+    modelDescription_maxInferenceUnits,
     modelDescription_statusMessage,
     modelDescription_outputConfig,
 
@@ -214,6 +262,36 @@ module Amazonka.LookoutVision.Lens
     modelMetadata_modelArn,
     modelMetadata_statusMessage,
 
+    -- ** ModelPackagingConfiguration
+    modelPackagingConfiguration_greengrass,
+
+    -- ** ModelPackagingDescription
+    modelPackagingDescription_lastUpdatedTimestamp,
+    modelPackagingDescription_jobName,
+    modelPackagingDescription_modelPackagingOutputDetails,
+    modelPackagingDescription_modelVersion,
+    modelPackagingDescription_status,
+    modelPackagingDescription_creationTimestamp,
+    modelPackagingDescription_modelPackagingJobDescription,
+    modelPackagingDescription_modelPackagingMethod,
+    modelPackagingDescription_projectName,
+    modelPackagingDescription_statusMessage,
+    modelPackagingDescription_modelPackagingConfiguration,
+
+    -- ** ModelPackagingJobMetadata
+    modelPackagingJobMetadata_lastUpdatedTimestamp,
+    modelPackagingJobMetadata_jobName,
+    modelPackagingJobMetadata_modelVersion,
+    modelPackagingJobMetadata_status,
+    modelPackagingJobMetadata_creationTimestamp,
+    modelPackagingJobMetadata_modelPackagingJobDescription,
+    modelPackagingJobMetadata_modelPackagingMethod,
+    modelPackagingJobMetadata_projectName,
+    modelPackagingJobMetadata_statusMessage,
+
+    -- ** ModelPackagingOutputDetails
+    modelPackagingOutputDetails_greengrass,
+
     -- ** ModelPerformance
     modelPerformance_f1Score,
     modelPerformance_recall,
@@ -225,6 +303,10 @@ module Amazonka.LookoutVision.Lens
     -- ** OutputS3Object
     outputS3Object_bucket,
     outputS3Object_key,
+
+    -- ** PixelAnomaly
+    pixelAnomaly_color,
+    pixelAnomaly_totalPercentageArea,
 
     -- ** ProjectDescription
     projectDescription_datasets,
@@ -244,6 +326,11 @@ module Amazonka.LookoutVision.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** TargetPlatform
+    targetPlatform_accelerator,
+    targetPlatform_os,
+    targetPlatform_arch,
   )
 where
 
@@ -255,31 +342,43 @@ import Amazonka.LookoutVision.DeleteModel
 import Amazonka.LookoutVision.DeleteProject
 import Amazonka.LookoutVision.DescribeDataset
 import Amazonka.LookoutVision.DescribeModel
+import Amazonka.LookoutVision.DescribeModelPackagingJob
 import Amazonka.LookoutVision.DescribeProject
 import Amazonka.LookoutVision.DetectAnomalies
 import Amazonka.LookoutVision.ListDatasetEntries
+import Amazonka.LookoutVision.ListModelPackagingJobs
 import Amazonka.LookoutVision.ListModels
 import Amazonka.LookoutVision.ListProjects
 import Amazonka.LookoutVision.ListTagsForResource
 import Amazonka.LookoutVision.StartModel
+import Amazonka.LookoutVision.StartModelPackagingJob
 import Amazonka.LookoutVision.StopModel
 import Amazonka.LookoutVision.TagResource
+import Amazonka.LookoutVision.Types.Anomaly
 import Amazonka.LookoutVision.Types.DatasetDescription
 import Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
 import Amazonka.LookoutVision.Types.DatasetImageStats
 import Amazonka.LookoutVision.Types.DatasetMetadata
 import Amazonka.LookoutVision.Types.DatasetSource
 import Amazonka.LookoutVision.Types.DetectAnomalyResult
+import Amazonka.LookoutVision.Types.GreengrassConfiguration
+import Amazonka.LookoutVision.Types.GreengrassOutputDetails
 import Amazonka.LookoutVision.Types.ImageSource
 import Amazonka.LookoutVision.Types.InputS3Object
 import Amazonka.LookoutVision.Types.ModelDescription
 import Amazonka.LookoutVision.Types.ModelMetadata
+import Amazonka.LookoutVision.Types.ModelPackagingConfiguration
+import Amazonka.LookoutVision.Types.ModelPackagingDescription
+import Amazonka.LookoutVision.Types.ModelPackagingJobMetadata
+import Amazonka.LookoutVision.Types.ModelPackagingOutputDetails
 import Amazonka.LookoutVision.Types.ModelPerformance
 import Amazonka.LookoutVision.Types.OutputConfig
 import Amazonka.LookoutVision.Types.OutputS3Object
+import Amazonka.LookoutVision.Types.PixelAnomaly
 import Amazonka.LookoutVision.Types.ProjectDescription
 import Amazonka.LookoutVision.Types.ProjectMetadata
 import Amazonka.LookoutVision.Types.S3Location
 import Amazonka.LookoutVision.Types.Tag
+import Amazonka.LookoutVision.Types.TargetPlatform
 import Amazonka.LookoutVision.UntagResource
 import Amazonka.LookoutVision.UpdateDatasetEntries

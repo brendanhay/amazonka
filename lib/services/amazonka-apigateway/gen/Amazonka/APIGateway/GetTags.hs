@@ -58,7 +58,7 @@ data GetTags = GetTags'
     -- | (Not currently supported) The current pagination position in the paged
     -- result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The ARN of a resource that can be tagged.
+    -- | The ARN of a resource that can be tagged.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +77,7 @@ data GetTags = GetTags'
 -- 'position', 'getTags_position' - (Not currently supported) The current pagination position in the paged
 -- result set.
 --
--- 'resourceArn', 'getTags_resourceArn' - [Required] The ARN of a resource that can be tagged.
+-- 'resourceArn', 'getTags_resourceArn' - The ARN of a resource that can be tagged.
 newGetTags ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -99,7 +99,7 @@ getTags_limit = Lens.lens (\GetTags' {limit} -> limit) (\s@GetTags' {} a -> s {l
 getTags_position :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
 getTags_position = Lens.lens (\GetTags' {position} -> position) (\s@GetTags' {} a -> s {position = a} :: GetTags)
 
--- | [Required] The ARN of a resource that can be tagged.
+-- | The ARN of a resource that can be tagged.
 getTags_resourceArn :: Lens.Lens' GetTags Prelude.Text
 getTags_resourceArn = Lens.lens (\GetTags' {resourceArn} -> resourceArn) (\s@GetTags' {} a -> s {resourceArn = a} :: GetTags)
 

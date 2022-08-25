@@ -35,8 +35,6 @@
 -- restore a manual DB cluster snapshot, or to make the manual DB cluster
 -- snapshot public or private, use the @ModifyDBClusterSnapshotAttribute@
 -- API action.
---
--- This action only applies to Aurora DB clusters.
 module Amazonka.RDS.DescribeDBClusterSnapshotAttributes
   ( -- * Creating a Request
     DescribeDBClusterSnapshotAttributes (..),

@@ -20,12 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an Identity and Access Management (IAM) role from an Amazon
--- Aurora DB cluster. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html Authorizing Amazon Aurora MySQL to Access Other Amazon Web Services Services on Your Behalf>
--- in the /Amazon Aurora User Guide/.
---
--- This action only applies to Aurora DB clusters.
+-- Associates an Identity and Access Management (IAM) role with a DB
+-- cluster.
 module Amazonka.RDS.AddRoleToDBCluster
   ( -- * Creating a Request
     AddRoleToDBCluster (..),
@@ -52,13 +48,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newAddRoleToDBCluster' smart constructor.
 data AddRoleToDBCluster = AddRoleToDBCluster'
   { -- | The name of the feature for the DB cluster that the IAM role is to be
-    -- associated with. For the list of supported feature names, see
+    -- associated with. For information about supported feature names, see
     -- DBEngineVersion.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to associate the IAM role with.
     dbClusterIdentifier :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to associate with the
-    -- Aurora DB cluster, for example,
+    -- Aurora DB cluster, for example
     -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
     roleArn :: Prelude.Text
   }
@@ -73,13 +69,13 @@ data AddRoleToDBCluster = AddRoleToDBCluster'
 -- for backwards compatibility:
 --
 -- 'featureName', 'addRoleToDBCluster_featureName' - The name of the feature for the DB cluster that the IAM role is to be
--- associated with. For the list of supported feature names, see
+-- associated with. For information about supported feature names, see
 -- DBEngineVersion.
 --
 -- 'dbClusterIdentifier', 'addRoleToDBCluster_dbClusterIdentifier' - The name of the DB cluster to associate the IAM role with.
 --
 -- 'roleArn', 'addRoleToDBCluster_roleArn' - The Amazon Resource Name (ARN) of the IAM role to associate with the
--- Aurora DB cluster, for example,
+-- Aurora DB cluster, for example
 -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
 newAddRoleToDBCluster ::
   -- | 'dbClusterIdentifier'
@@ -95,7 +91,7 @@ newAddRoleToDBCluster pDBClusterIdentifier_ pRoleArn_ =
     }
 
 -- | The name of the feature for the DB cluster that the IAM role is to be
--- associated with. For the list of supported feature names, see
+-- associated with. For information about supported feature names, see
 -- DBEngineVersion.
 addRoleToDBCluster_featureName :: Lens.Lens' AddRoleToDBCluster (Prelude.Maybe Prelude.Text)
 addRoleToDBCluster_featureName = Lens.lens (\AddRoleToDBCluster' {featureName} -> featureName) (\s@AddRoleToDBCluster' {} a -> s {featureName = a} :: AddRoleToDBCluster)
@@ -105,7 +101,7 @@ addRoleToDBCluster_dbClusterIdentifier :: Lens.Lens' AddRoleToDBCluster Prelude.
 addRoleToDBCluster_dbClusterIdentifier = Lens.lens (\AddRoleToDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@AddRoleToDBCluster' {} a -> s {dbClusterIdentifier = a} :: AddRoleToDBCluster)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to associate with the
--- Aurora DB cluster, for example,
+-- Aurora DB cluster, for example
 -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
 addRoleToDBCluster_roleArn :: Lens.Lens' AddRoleToDBCluster Prelude.Text
 addRoleToDBCluster_roleArn = Lens.lens (\AddRoleToDBCluster' {roleArn} -> roleArn) (\s@AddRoleToDBCluster' {} a -> s {roleArn = a} :: AddRoleToDBCluster)

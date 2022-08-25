@@ -19,8 +19,9 @@ module Amazonka.Kinesis.Lens
     addTagsToStream_tags,
 
     -- ** CreateStream
-    createStream_streamName,
     createStream_shardCount,
+    createStream_streamModeDetails,
+    createStream_streamName,
 
     -- ** DecreaseStreamRetentionPeriod
     decreaseStreamRetentionPeriod_streamName,
@@ -39,6 +40,8 @@ module Amazonka.Kinesis.Lens
     describeLimitsResponse_httpStatus,
     describeLimitsResponse_shardLimit,
     describeLimitsResponse_openShardCount,
+    describeLimitsResponse_onDemandStreamCount,
+    describeLimitsResponse_onDemandStreamCountLimit,
 
     -- ** DescribeStream
     describeStream_exclusiveStartShardId,
@@ -195,6 +198,10 @@ module Amazonka.Kinesis.Lens
     updateShardCountResponse_streamName,
     updateShardCountResponse_httpStatus,
 
+    -- ** UpdateStreamMode
+    updateStreamMode_streamARN,
+    updateStreamMode_streamModeDetails,
+
     -- * Types
 
     -- ** ChildShard
@@ -268,6 +275,7 @@ module Amazonka.Kinesis.Lens
 
     -- ** StreamDescription
     streamDescription_encryptionType,
+    streamDescription_streamModeDetails,
     streamDescription_keyId,
     streamDescription_streamName,
     streamDescription_streamARN,
@@ -281,6 +289,7 @@ module Amazonka.Kinesis.Lens
     -- ** StreamDescriptionSummary
     streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_encryptionType,
+    streamDescriptionSummary_streamModeDetails,
     streamDescriptionSummary_keyId,
     streamDescriptionSummary_streamName,
     streamDescriptionSummary_streamARN,
@@ -289,6 +298,9 @@ module Amazonka.Kinesis.Lens
     streamDescriptionSummary_streamCreationTimestamp,
     streamDescriptionSummary_enhancedMonitoring,
     streamDescriptionSummary_openShardCount,
+
+    -- ** StreamModeDetails
+    streamModeDetails_streamMode,
 
     -- ** SubscribeToShardEvent
     subscribeToShardEvent_childShards,
@@ -344,6 +356,8 @@ import Amazonka.Kinesis.Types.ShardFilter
 import Amazonka.Kinesis.Types.StartingPosition
 import Amazonka.Kinesis.Types.StreamDescription
 import Amazonka.Kinesis.Types.StreamDescriptionSummary
+import Amazonka.Kinesis.Types.StreamModeDetails
 import Amazonka.Kinesis.Types.SubscribeToShardEvent
 import Amazonka.Kinesis.Types.Tag
 import Amazonka.Kinesis.UpdateShardCount
+import Amazonka.Kinesis.UpdateStreamMode

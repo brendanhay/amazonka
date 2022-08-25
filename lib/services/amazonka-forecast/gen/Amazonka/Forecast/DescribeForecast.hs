@@ -57,6 +57,7 @@ module Amazonka.Forecast.DescribeForecast
     describeForecastResponse_forecastArn,
     describeForecastResponse_creationTime,
     describeForecastResponse_datasetGroupArn,
+    describeForecastResponse_timeSeriesSelector,
     describeForecastResponse_forecastName,
     describeForecastResponse_httpStatus,
   )
@@ -114,6 +115,7 @@ instance Core.AWSRequest DescribeForecast where
             Prelude.<*> (x Core..?> "ForecastArn")
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "DatasetGroupArn")
+            Prelude.<*> (x Core..?> "TimeSeriesSelector")
             Prelude.<*> (x Core..?> "ForecastName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -197,6 +199,8 @@ data DescribeForecastResponse = DescribeForecastResponse'
     -- | The ARN of the dataset group that provided the data used to train the
     -- predictor.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The time series to include in the forecast.
+    timeSeriesSelector :: Prelude.Maybe TimeSeriesSelector,
     -- | The name of the forecast.
     forecastName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -254,6 +258,8 @@ data DescribeForecastResponse = DescribeForecastResponse'
 -- 'datasetGroupArn', 'describeForecastResponse_datasetGroupArn' - The ARN of the dataset group that provided the data used to train the
 -- predictor.
 --
+-- 'timeSeriesSelector', 'describeForecastResponse_timeSeriesSelector' - The time series to include in the forecast.
+--
 -- 'forecastName', 'describeForecastResponse_forecastName' - The name of the forecast.
 --
 -- 'httpStatus', 'describeForecastResponse_httpStatus' - The response's http status code.
@@ -273,6 +279,7 @@ newDescribeForecastResponse pHttpStatus_ =
       forecastArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
+      timeSeriesSelector = Prelude.Nothing,
       forecastName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -337,6 +344,10 @@ describeForecastResponse_creationTime = Lens.lens (\DescribeForecastResponse' {c
 describeForecastResponse_datasetGroupArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
 describeForecastResponse_datasetGroupArn = Lens.lens (\DescribeForecastResponse' {datasetGroupArn} -> datasetGroupArn) (\s@DescribeForecastResponse' {} a -> s {datasetGroupArn = a} :: DescribeForecastResponse)
 
+-- | The time series to include in the forecast.
+describeForecastResponse_timeSeriesSelector :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe TimeSeriesSelector)
+describeForecastResponse_timeSeriesSelector = Lens.lens (\DescribeForecastResponse' {timeSeriesSelector} -> timeSeriesSelector) (\s@DescribeForecastResponse' {} a -> s {timeSeriesSelector = a} :: DescribeForecastResponse)
+
 -- | The name of the forecast.
 describeForecastResponse_forecastName :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
 describeForecastResponse_forecastName = Lens.lens (\DescribeForecastResponse' {forecastName} -> forecastName) (\s@DescribeForecastResponse' {} a -> s {forecastName = a} :: DescribeForecastResponse)
@@ -356,5 +367,6 @@ instance Prelude.NFData DescribeForecastResponse where
       `Prelude.seq` Prelude.rnf forecastArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf timeSeriesSelector
       `Prelude.seq` Prelude.rnf forecastName
       `Prelude.seq` Prelude.rnf httpStatus

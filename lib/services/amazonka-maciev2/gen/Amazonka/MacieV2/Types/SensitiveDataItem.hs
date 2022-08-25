@@ -37,9 +37,9 @@ data SensitiveDataItem = SensitiveDataItem'
     detections :: Prelude.Maybe [DefaultDetection],
     -- | The category of sensitive data that was detected. For example:
     -- CREDENTIALS, for credentials data such as private keys or Amazon Web
-    -- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
-    -- credit card numbers; or, PERSONAL_INFORMATION, for personal health
-    -- information, such as health insurance identification numbers, or
+    -- Services secret access keys; FINANCIAL_INFORMATION, for financial data
+    -- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
+    -- health information, such as health insurance identification numbers, or
     -- personally identifiable information, such as passport numbers.
     category :: Prelude.Maybe SensitiveDataItemCategory,
     -- | The total number of occurrences of the sensitive data that was detected.
@@ -62,9 +62,9 @@ data SensitiveDataItem = SensitiveDataItem'
 --
 -- 'category', 'sensitiveDataItem_category' - The category of sensitive data that was detected. For example:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
--- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
--- credit card numbers; or, PERSONAL_INFORMATION, for personal health
--- information, such as health insurance identification numbers, or
+-- Services secret access keys; FINANCIAL_INFORMATION, for financial data
+-- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
+-- health information, such as health insurance identification numbers, or
 -- personally identifiable information, such as passport numbers.
 --
 -- 'totalCount', 'sensitiveDataItem_totalCount' - The total number of occurrences of the sensitive data that was detected.
@@ -86,9 +86,9 @@ sensitiveDataItem_detections = Lens.lens (\SensitiveDataItem' {detections} -> de
 
 -- | The category of sensitive data that was detected. For example:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
--- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
--- credit card numbers; or, PERSONAL_INFORMATION, for personal health
--- information, such as health insurance identification numbers, or
+-- Services secret access keys; FINANCIAL_INFORMATION, for financial data
+-- such as credit card numbers; or, PERSONAL_INFORMATION, for personal
+-- health information, such as health insurance identification numbers, or
 -- personally identifiable information, such as passport numbers.
 sensitiveDataItem_category :: Lens.Lens' SensitiveDataItem (Prelude.Maybe SensitiveDataItemCategory)
 sensitiveDataItem_category = Lens.lens (\SensitiveDataItem' {category} -> category) (\s@SensitiveDataItem' {} a -> s {category = a} :: SensitiveDataItem)

@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An invocation is copy of a command sent to a specific instance. A
--- command can apply to one or more instances. A command invocation applies
--- to one instance. For example, if a user runs @SendCommand@ against three
--- instances, then a command invocation is created for each requested
--- instance ID. @ListCommandInvocations@ provide status about command
--- execution.
+-- An invocation is copy of a command sent to a specific managed node. A
+-- command can apply to one or more managed nodes. A command invocation
+-- applies to one managed node. For example, if a user runs @SendCommand@
+-- against three managed nodes, then a command invocation is created for
+-- each requested managed node ID. @ListCommandInvocations@ provide status
+-- about command execution.
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.ListCommandInvocations
@@ -72,7 +72,7 @@ data ListCommandInvocations = ListCommandInvocations'
     details :: Prelude.Maybe Prelude.Bool,
     -- | (Optional) The invocations for a specific command ID.
     commandId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The command execution details for a specific instance ID.
+    -- | (Optional) The command execution details for a specific managed node ID.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The maximum number of items to return for this call. The call
     -- also returns a token that you can specify in a subsequent call to get
@@ -100,7 +100,7 @@ data ListCommandInvocations = ListCommandInvocations'
 --
 -- 'commandId', 'listCommandInvocations_commandId' - (Optional) The invocations for a specific command ID.
 --
--- 'instanceId', 'listCommandInvocations_instanceId' - (Optional) The command execution details for a specific instance ID.
+-- 'instanceId', 'listCommandInvocations_instanceId' - (Optional) The command execution details for a specific managed node ID.
 --
 -- 'maxResults', 'listCommandInvocations_maxResults' - (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -137,7 +137,7 @@ listCommandInvocations_details = Lens.lens (\ListCommandInvocations' {details} -
 listCommandInvocations_commandId :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
 listCommandInvocations_commandId = Lens.lens (\ListCommandInvocations' {commandId} -> commandId) (\s@ListCommandInvocations' {} a -> s {commandId = a} :: ListCommandInvocations)
 
--- | (Optional) The command execution details for a specific instance ID.
+-- | (Optional) The command execution details for a specific managed node ID.
 listCommandInvocations_instanceId :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
 listCommandInvocations_instanceId = Lens.lens (\ListCommandInvocations' {instanceId} -> instanceId) (\s@ListCommandInvocations' {} a -> s {instanceId = a} :: ListCommandInvocations)
 

@@ -25,7 +25,7 @@
 -- configuration differs, or has /drifted/, from it\'s expected
 -- configuration, as defined in the stack template and any values specified
 -- as template parameters. A stack is considered to have drifted if one or
--- more of its resources have drifted. For more information on stack and
+-- more of its resources have drifted. For more information about stack and
 -- resource drift, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 --
@@ -185,7 +185,7 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     --     configuration. A stack is considered to have drifted if one or more
     --     of its resources have drifted.
     --
-    -- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+    -- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack differs
     --     from its expected template configuration.
     --
     -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
@@ -213,7 +213,7 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     --
     -- -   @DETECTION_COMPLETE@: The stack drift detection operation has
     --     successfully completed for all resources in the stack that support
-    --     drift detection. (Resources that do not currently support stack
+    --     drift detection. (Resources that don\'t currently support stack
     --     detection remain unchecked.)
     --
     --     If you specified logical resource IDs for CloudFormation to use as a
@@ -248,7 +248,7 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 --     configuration. A stack is considered to have drifted if one or more
 --     of its resources have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack differs
 --     from its expected template configuration.
 --
 -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
@@ -276,7 +276,7 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 --
 -- -   @DETECTION_COMPLETE@: The stack drift detection operation has
 --     successfully completed for all resources in the stack that support
---     drift detection. (Resources that do not currently support stack
+--     drift detection. (Resources that don\'t currently support stack
 --     detection remain unchecked.)
 --
 --     If you specified logical resource IDs for CloudFormation to use as a
@@ -334,7 +334,7 @@ newDescribeStackDriftDetectionStatusResponse
 --     configuration. A stack is considered to have drifted if one or more
 --     of its resources have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack differs
 --     from its expected template configuration.
 --
 -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
@@ -374,7 +374,7 @@ describeStackDriftDetectionStatusResponse_stackDriftDetectionId = Lens.lens (\De
 --
 -- -   @DETECTION_COMPLETE@: The stack drift detection operation has
 --     successfully completed for all resources in the stack that support
---     drift detection. (Resources that do not currently support stack
+--     drift detection. (Resources that don\'t currently support stack
 --     detection remain unchecked.)
 --
 --     If you specified logical resource IDs for CloudFormation to use as a

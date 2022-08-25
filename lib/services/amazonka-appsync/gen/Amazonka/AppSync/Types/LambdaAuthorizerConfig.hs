@@ -23,10 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A @LambdaAuthorizerConfig@ holds configuration on how to authorize
--- AppSync API access when using the @AWS_LAMBDA@ authorizer mode. Be aware
--- that an AppSync API may have only one Lambda authorizer configured at a
--- time.
+-- | A @LambdaAuthorizerConfig@ specifies how to authorize AppSync API access
+-- when using the @AWS_LAMBDA@ authorizer mode. Be aware that an AppSync
+-- API can have only one Lambda authorizer configured at a time.
 --
 -- /See:/ 'newLambdaAuthorizerConfig' smart constructor.
 data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
@@ -38,13 +37,14 @@ data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
     -- | A regular expression for validation of tokens before the Lambda function
     -- is called.
     identityValidationExpression :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Lambda function to be called for authorization. This may
-    -- be a standard Lambda ARN, a version ARN (@...\/v3@) or alias ARN.
+    -- | The Amazon Resource Name (ARN) of the Lambda function to be called for
+    -- authorization. This can be a standard Lambda ARN, a version ARN
+    -- (@...\/v3@), or an alias ARN.
     --
-    -- /Note/: This Lambda function must have the following resource-based
+    -- __Note__: This Lambda function must have the following resource-based
     -- policy assigned to it. When configuring Lambda authorizers in the
-    -- Console, this is done for you. To do so with the Amazon Web Services
-    -- CLI, run the following:
+    -- console, this is done for you. To use the Command Line Interface (CLI),
+    -- run the following:
     --
     -- @aws lambda add-permission --function-name \"arn:aws:lambda:us-east-2:111122223333:function:my-function\" --statement-id \"appsync\" --principal appsync.amazonaws.com --action lambda:InvokeFunction@
     authorizerUri :: Prelude.Text
@@ -67,13 +67,14 @@ data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
 -- 'identityValidationExpression', 'lambdaAuthorizerConfig_identityValidationExpression' - A regular expression for validation of tokens before the Lambda function
 -- is called.
 --
--- 'authorizerUri', 'lambdaAuthorizerConfig_authorizerUri' - The ARN of the Lambda function to be called for authorization. This may
--- be a standard Lambda ARN, a version ARN (@...\/v3@) or alias ARN.
+-- 'authorizerUri', 'lambdaAuthorizerConfig_authorizerUri' - The Amazon Resource Name (ARN) of the Lambda function to be called for
+-- authorization. This can be a standard Lambda ARN, a version ARN
+-- (@...\/v3@), or an alias ARN.
 --
--- /Note/: This Lambda function must have the following resource-based
+-- __Note__: This Lambda function must have the following resource-based
 -- policy assigned to it. When configuring Lambda authorizers in the
--- Console, this is done for you. To do so with the Amazon Web Services
--- CLI, run the following:
+-- console, this is done for you. To use the Command Line Interface (CLI),
+-- run the following:
 --
 -- @aws lambda add-permission --function-name \"arn:aws:lambda:us-east-2:111122223333:function:my-function\" --statement-id \"appsync\" --principal appsync.amazonaws.com --action lambda:InvokeFunction@
 newLambdaAuthorizerConfig ::
@@ -100,13 +101,14 @@ lambdaAuthorizerConfig_authorizerResultTtlInSeconds = Lens.lens (\LambdaAuthoriz
 lambdaAuthorizerConfig_identityValidationExpression :: Lens.Lens' LambdaAuthorizerConfig (Prelude.Maybe Prelude.Text)
 lambdaAuthorizerConfig_identityValidationExpression = Lens.lens (\LambdaAuthorizerConfig' {identityValidationExpression} -> identityValidationExpression) (\s@LambdaAuthorizerConfig' {} a -> s {identityValidationExpression = a} :: LambdaAuthorizerConfig)
 
--- | The ARN of the Lambda function to be called for authorization. This may
--- be a standard Lambda ARN, a version ARN (@...\/v3@) or alias ARN.
+-- | The Amazon Resource Name (ARN) of the Lambda function to be called for
+-- authorization. This can be a standard Lambda ARN, a version ARN
+-- (@...\/v3@), or an alias ARN.
 --
--- /Note/: This Lambda function must have the following resource-based
+-- __Note__: This Lambda function must have the following resource-based
 -- policy assigned to it. When configuring Lambda authorizers in the
--- Console, this is done for you. To do so with the Amazon Web Services
--- CLI, run the following:
+-- console, this is done for you. To use the Command Line Interface (CLI),
+-- run the following:
 --
 -- @aws lambda add-permission --function-name \"arn:aws:lambda:us-east-2:111122223333:function:my-function\" --statement-id \"appsync\" --principal appsync.amazonaws.com --action lambda:InvokeFunction@
 lambdaAuthorizerConfig_authorizerUri :: Lens.Lens' LambdaAuthorizerConfig Prelude.Text

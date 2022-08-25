@@ -24,6 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value used for mapping a specified attribute to an identity source.
+-- For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html Attribute mappings>
+-- in the /Amazon Web Services SSO User Guide/.
 --
 -- /See:/ 'newAccessControlAttributeValue' smart constructor.
 data AccessControlAttributeValue = AccessControlAttributeValue'

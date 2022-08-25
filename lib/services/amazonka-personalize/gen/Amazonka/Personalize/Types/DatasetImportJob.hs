@@ -22,11 +22,12 @@ module Amazonka.Personalize.Types.DatasetImportJob where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Personalize.Types.DataSource
+import Amazonka.Personalize.Types.ImportMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a job that imports training data from a data source (Amazon S3
 -- bucket) to an Amazon Personalize dataset. For more information, see
--- CreateDatasetImportJob.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>.
 --
 -- A dataset import job can be in one of the following states:
 --
@@ -54,6 +55,8 @@ data DatasetImportJob = DatasetImportJob'
     datasetImportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket that contains the training data to import.
     dataSource :: Prelude.Maybe DataSource,
+    -- | The import mode used by the dataset import job to import new records.
+    importMode :: Prelude.Maybe ImportMode,
     -- | The date and time (in Unix time) the dataset was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
     -- | If a dataset import job fails, provides the reason why.
@@ -89,6 +92,8 @@ data DatasetImportJob = DatasetImportJob'
 --
 -- 'dataSource', 'datasetImportJob_dataSource' - The Amazon S3 bucket that contains the training data to import.
 --
+-- 'importMode', 'datasetImportJob_importMode' - The import mode used by the dataset import job to import new records.
+--
 -- 'lastUpdatedDateTime', 'datasetImportJob_lastUpdatedDateTime' - The date and time (in Unix time) the dataset was last updated.
 --
 -- 'failureReason', 'datasetImportJob_failureReason' - If a dataset import job fails, provides the reason why.
@@ -103,6 +108,7 @@ newDatasetImportJob =
       datasetArn = Prelude.Nothing,
       datasetImportJobArn = Prelude.Nothing,
       dataSource = Prelude.Nothing,
+      importMode = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       failureReason = Prelude.Nothing
     }
@@ -141,6 +147,10 @@ datasetImportJob_datasetImportJobArn = Lens.lens (\DatasetImportJob' {datasetImp
 datasetImportJob_dataSource :: Lens.Lens' DatasetImportJob (Prelude.Maybe DataSource)
 datasetImportJob_dataSource = Lens.lens (\DatasetImportJob' {dataSource} -> dataSource) (\s@DatasetImportJob' {} a -> s {dataSource = a} :: DatasetImportJob)
 
+-- | The import mode used by the dataset import job to import new records.
+datasetImportJob_importMode :: Lens.Lens' DatasetImportJob (Prelude.Maybe ImportMode)
+datasetImportJob_importMode = Lens.lens (\DatasetImportJob' {importMode} -> importMode) (\s@DatasetImportJob' {} a -> s {importMode = a} :: DatasetImportJob)
+
 -- | The date and time (in Unix time) the dataset was last updated.
 datasetImportJob_lastUpdatedDateTime :: Lens.Lens' DatasetImportJob (Prelude.Maybe Prelude.UTCTime)
 datasetImportJob_lastUpdatedDateTime = Lens.lens (\DatasetImportJob' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetImportJob' {} a -> s {lastUpdatedDateTime = a} :: DatasetImportJob) Prelude.. Lens.mapping Core._Time
@@ -162,6 +172,7 @@ instance Core.FromJSON DatasetImportJob where
             Prelude.<*> (x Core..:? "datasetArn")
             Prelude.<*> (x Core..:? "datasetImportJobArn")
             Prelude.<*> (x Core..:? "dataSource")
+            Prelude.<*> (x Core..:? "importMode")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
             Prelude.<*> (x Core..:? "failureReason")
       )
@@ -175,6 +186,7 @@ instance Prelude.Hashable DatasetImportJob where
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetImportJobArn
       `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` importMode
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` failureReason
 
@@ -187,5 +199,6 @@ instance Prelude.NFData DatasetImportJob where
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf datasetImportJobArn
       `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf importMode
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf failureReason

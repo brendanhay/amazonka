@@ -22,6 +22,13 @@
 --
 -- Gets information about the provisioned products that meet the specified
 -- criteria.
+--
+-- To ensure a complete list of provisioned products and remove duplicate
+-- products, use @sort-by createdTime@.
+--
+-- Here is a CLI example: @ @
+--
+-- @aws servicecatalog search-provisioned-products --sort-by createdTime @
 module Amazonka.ServiceCatalog.SearchProvisionedProducts
   ( -- * Creating a Request
     SearchProvisionedProducts (..),

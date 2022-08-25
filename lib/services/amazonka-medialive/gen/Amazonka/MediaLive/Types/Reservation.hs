@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaLive.Types.OfferingDurationUnits
 import Amazonka.MediaLive.Types.OfferingType
+import Amazonka.MediaLive.Types.RenewalSettings
 import Amazonka.MediaLive.Types.ReservationResourceSpecification
 import Amazonka.MediaLive.Types.ReservationState
 import qualified Amazonka.Prelude as Prelude
@@ -35,6 +36,8 @@ data Reservation = Reservation'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | User specified reservation name
     name :: Prelude.Maybe Prelude.Text,
+    -- | Renewal settings for the reservation
+    renewalSettings :: Prelude.Maybe RenewalSettings,
     -- | Reservation UTC start date and time in ISO-8601 format, e.g.
     -- \'2018-03-01T00:00:00\'
     start :: Prelude.Maybe Prelude.Text,
@@ -88,6 +91,8 @@ data Reservation = Reservation'
 --
 -- 'name', 'reservation_name' - User specified reservation name
 --
+-- 'renewalSettings', 'reservation_renewalSettings' - Renewal settings for the reservation
+--
 -- 'start', 'reservation_start' - Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
 --
@@ -131,6 +136,7 @@ newReservation =
   Reservation'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      renewalSettings = Prelude.Nothing,
       start = Prelude.Nothing,
       arn = Prelude.Nothing,
       resourceSpecification = Prelude.Nothing,
@@ -156,6 +162,10 @@ reservation_tags = Lens.lens (\Reservation' {tags} -> tags) (\s@Reservation' {} 
 -- | User specified reservation name
 reservation_name :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Text)
 reservation_name = Lens.lens (\Reservation' {name} -> name) (\s@Reservation' {} a -> s {name = a} :: Reservation)
+
+-- | Renewal settings for the reservation
+reservation_renewalSettings :: Lens.Lens' Reservation (Prelude.Maybe RenewalSettings)
+reservation_renewalSettings = Lens.lens (\Reservation' {renewalSettings} -> renewalSettings) (\s@Reservation' {} a -> s {renewalSettings = a} :: Reservation)
 
 -- | Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
@@ -235,6 +245,7 @@ instance Core.FromJSON Reservation where
           Reservation'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "renewalSettings")
             Prelude.<*> (x Core..:? "start")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "resourceSpecification")
@@ -257,6 +268,7 @@ instance Prelude.Hashable Reservation where
   hashWithSalt _salt Reservation' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` renewalSettings
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` resourceSpecification
@@ -278,6 +290,7 @@ instance Prelude.NFData Reservation where
   rnf Reservation' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSettings
       `Prelude.seq` Prelude.rnf start
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf resourceSpecification

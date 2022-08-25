@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AwsApiCallAction where
 
 import qualified Amazonka.Core as Core
 import Amazonka.GuardDuty.Types.DomainDetails
+import Amazonka.GuardDuty.Types.RemoteAccountDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -29,18 +30,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsApiCallAction' smart constructor.
 data AwsApiCallAction = AwsApiCallAction'
-  { -- | The remote IP information of the connection that initiated the AWS API
-    -- call.
+  { -- | The details of the Amazon Web Services account that made the API call.
+    -- This field identifies the resources that were affected by this API call.
+    affectedResources :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The remote IP information of the connection that initiated the Amazon
+    -- Web Services API call.
     remoteIpDetails :: Prelude.Maybe RemoteIpDetails,
-    -- | The domain information for the AWS API call.
+    -- | The details of the Amazon Web Services account that made the API call.
+    -- This field appears if the call was made from outside your account.
+    remoteAccountDetails :: Prelude.Maybe RemoteAccountDetails,
+    -- | The domain information for the Amazon Web Services API call.
     domainDetails :: Prelude.Maybe DomainDetails,
-    -- | The AWS API name.
+    -- | The Amazon Web Services API name.
     api :: Prelude.Maybe Prelude.Text,
-    -- | The error code of the failed AWS API action.
+    -- | The error code of the failed Amazon Web Services API action.
     errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The AWS service name whose API was invoked.
+    -- | The Amazon Web Services service name whose API was invoked.
     serviceName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS API caller type.
+    -- | The agent through which the API request was made.
+    userAgent :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services API caller type.
     callerType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,53 +62,78 @@ data AwsApiCallAction = AwsApiCallAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteIpDetails', 'awsApiCallAction_remoteIpDetails' - The remote IP information of the connection that initiated the AWS API
--- call.
+-- 'affectedResources', 'awsApiCallAction_affectedResources' - The details of the Amazon Web Services account that made the API call.
+-- This field identifies the resources that were affected by this API call.
 --
--- 'domainDetails', 'awsApiCallAction_domainDetails' - The domain information for the AWS API call.
+-- 'remoteIpDetails', 'awsApiCallAction_remoteIpDetails' - The remote IP information of the connection that initiated the Amazon
+-- Web Services API call.
 --
--- 'api', 'awsApiCallAction_api' - The AWS API name.
+-- 'remoteAccountDetails', 'awsApiCallAction_remoteAccountDetails' - The details of the Amazon Web Services account that made the API call.
+-- This field appears if the call was made from outside your account.
 --
--- 'errorCode', 'awsApiCallAction_errorCode' - The error code of the failed AWS API action.
+-- 'domainDetails', 'awsApiCallAction_domainDetails' - The domain information for the Amazon Web Services API call.
 --
--- 'serviceName', 'awsApiCallAction_serviceName' - The AWS service name whose API was invoked.
+-- 'api', 'awsApiCallAction_api' - The Amazon Web Services API name.
 --
--- 'callerType', 'awsApiCallAction_callerType' - The AWS API caller type.
+-- 'errorCode', 'awsApiCallAction_errorCode' - The error code of the failed Amazon Web Services API action.
+--
+-- 'serviceName', 'awsApiCallAction_serviceName' - The Amazon Web Services service name whose API was invoked.
+--
+-- 'userAgent', 'awsApiCallAction_userAgent' - The agent through which the API request was made.
+--
+-- 'callerType', 'awsApiCallAction_callerType' - The Amazon Web Services API caller type.
 newAwsApiCallAction ::
   AwsApiCallAction
 newAwsApiCallAction =
   AwsApiCallAction'
-    { remoteIpDetails =
+    { affectedResources =
         Prelude.Nothing,
+      remoteIpDetails = Prelude.Nothing,
+      remoteAccountDetails = Prelude.Nothing,
       domainDetails = Prelude.Nothing,
       api = Prelude.Nothing,
       errorCode = Prelude.Nothing,
       serviceName = Prelude.Nothing,
+      userAgent = Prelude.Nothing,
       callerType = Prelude.Nothing
     }
 
--- | The remote IP information of the connection that initiated the AWS API
--- call.
+-- | The details of the Amazon Web Services account that made the API call.
+-- This field identifies the resources that were affected by this API call.
+awsApiCallAction_affectedResources :: Lens.Lens' AwsApiCallAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+awsApiCallAction_affectedResources = Lens.lens (\AwsApiCallAction' {affectedResources} -> affectedResources) (\s@AwsApiCallAction' {} a -> s {affectedResources = a} :: AwsApiCallAction) Prelude.. Lens.mapping Lens.coerced
+
+-- | The remote IP information of the connection that initiated the Amazon
+-- Web Services API call.
 awsApiCallAction_remoteIpDetails :: Lens.Lens' AwsApiCallAction (Prelude.Maybe RemoteIpDetails)
 awsApiCallAction_remoteIpDetails = Lens.lens (\AwsApiCallAction' {remoteIpDetails} -> remoteIpDetails) (\s@AwsApiCallAction' {} a -> s {remoteIpDetails = a} :: AwsApiCallAction)
 
--- | The domain information for the AWS API call.
+-- | The details of the Amazon Web Services account that made the API call.
+-- This field appears if the call was made from outside your account.
+awsApiCallAction_remoteAccountDetails :: Lens.Lens' AwsApiCallAction (Prelude.Maybe RemoteAccountDetails)
+awsApiCallAction_remoteAccountDetails = Lens.lens (\AwsApiCallAction' {remoteAccountDetails} -> remoteAccountDetails) (\s@AwsApiCallAction' {} a -> s {remoteAccountDetails = a} :: AwsApiCallAction)
+
+-- | The domain information for the Amazon Web Services API call.
 awsApiCallAction_domainDetails :: Lens.Lens' AwsApiCallAction (Prelude.Maybe DomainDetails)
 awsApiCallAction_domainDetails = Lens.lens (\AwsApiCallAction' {domainDetails} -> domainDetails) (\s@AwsApiCallAction' {} a -> s {domainDetails = a} :: AwsApiCallAction)
 
--- | The AWS API name.
+-- | The Amazon Web Services API name.
 awsApiCallAction_api :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_api = Lens.lens (\AwsApiCallAction' {api} -> api) (\s@AwsApiCallAction' {} a -> s {api = a} :: AwsApiCallAction)
 
--- | The error code of the failed AWS API action.
+-- | The error code of the failed Amazon Web Services API action.
 awsApiCallAction_errorCode :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_errorCode = Lens.lens (\AwsApiCallAction' {errorCode} -> errorCode) (\s@AwsApiCallAction' {} a -> s {errorCode = a} :: AwsApiCallAction)
 
--- | The AWS service name whose API was invoked.
+-- | The Amazon Web Services service name whose API was invoked.
 awsApiCallAction_serviceName :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_serviceName = Lens.lens (\AwsApiCallAction' {serviceName} -> serviceName) (\s@AwsApiCallAction' {} a -> s {serviceName = a} :: AwsApiCallAction)
 
--- | The AWS API caller type.
+-- | The agent through which the API request was made.
+awsApiCallAction_userAgent :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
+awsApiCallAction_userAgent = Lens.lens (\AwsApiCallAction' {userAgent} -> userAgent) (\s@AwsApiCallAction' {} a -> s {userAgent = a} :: AwsApiCallAction)
+
+-- | The Amazon Web Services API caller type.
 awsApiCallAction_callerType :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_callerType = Lens.lens (\AwsApiCallAction' {callerType} -> callerType) (\s@AwsApiCallAction' {} a -> s {callerType = a} :: AwsApiCallAction)
 
@@ -109,28 +143,39 @@ instance Core.FromJSON AwsApiCallAction where
       "AwsApiCallAction"
       ( \x ->
           AwsApiCallAction'
-            Prelude.<$> (x Core..:? "remoteIpDetails")
+            Prelude.<$> ( x Core..:? "affectedResources"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "remoteIpDetails")
+            Prelude.<*> (x Core..:? "remoteAccountDetails")
             Prelude.<*> (x Core..:? "domainDetails")
             Prelude.<*> (x Core..:? "api")
             Prelude.<*> (x Core..:? "errorCode")
             Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<*> (x Core..:? "userAgent")
             Prelude.<*> (x Core..:? "callerType")
       )
 
 instance Prelude.Hashable AwsApiCallAction where
   hashWithSalt _salt AwsApiCallAction' {..} =
-    _salt `Prelude.hashWithSalt` remoteIpDetails
+    _salt `Prelude.hashWithSalt` affectedResources
+      `Prelude.hashWithSalt` remoteIpDetails
+      `Prelude.hashWithSalt` remoteAccountDetails
       `Prelude.hashWithSalt` domainDetails
       `Prelude.hashWithSalt` api
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` userAgent
       `Prelude.hashWithSalt` callerType
 
 instance Prelude.NFData AwsApiCallAction where
   rnf AwsApiCallAction' {..} =
-    Prelude.rnf remoteIpDetails
+    Prelude.rnf affectedResources
+      `Prelude.seq` Prelude.rnf remoteIpDetails
+      `Prelude.seq` Prelude.rnf remoteAccountDetails
       `Prelude.seq` Prelude.rnf domainDetails
       `Prelude.seq` Prelude.rnf api
       `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf userAgent
       `Prelude.seq` Prelude.rnf callerType

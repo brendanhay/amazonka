@@ -24,8 +24,10 @@
 -- dataset is not specified, all the dataset import jobs associated with
 -- the account are listed. The response provides the properties for each
 -- dataset import job, including the Amazon Resource Name (ARN). For more
--- information on dataset import jobs, see CreateDatasetImportJob. For more
--- information on datasets, see CreateDataset.
+-- information on dataset import jobs, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>.
+-- For more information on datasets, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListDatasetImportJobs

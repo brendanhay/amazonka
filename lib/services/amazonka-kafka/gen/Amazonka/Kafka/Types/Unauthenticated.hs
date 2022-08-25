@@ -25,8 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newUnauthenticated' smart constructor.
 data Unauthenticated = Unauthenticated'
-  { -- | Specifies whether you want to enable or disable unauthenticated traffic
-    -- to your cluster.
+  { -- | Specifies whether you want to turn on or turn off unauthenticated
+    -- traffic to your cluster.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,15 +39,15 @@ data Unauthenticated = Unauthenticated'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'unauthenticated_enabled' - Specifies whether you want to enable or disable unauthenticated traffic
--- to your cluster.
+-- 'enabled', 'unauthenticated_enabled' - Specifies whether you want to turn on or turn off unauthenticated
+-- traffic to your cluster.
 newUnauthenticated ::
   Unauthenticated
 newUnauthenticated =
   Unauthenticated' {enabled = Prelude.Nothing}
 
--- | Specifies whether you want to enable or disable unauthenticated traffic
--- to your cluster.
+-- | Specifies whether you want to turn on or turn off unauthenticated
+-- traffic to your cluster.
 unauthenticated_enabled :: Lens.Lens' Unauthenticated (Prelude.Maybe Prelude.Bool)
 unauthenticated_enabled = Lens.lens (\Unauthenticated' {enabled} -> enabled) (\s@Unauthenticated' {} a -> s {enabled = a} :: Unauthenticated)
 

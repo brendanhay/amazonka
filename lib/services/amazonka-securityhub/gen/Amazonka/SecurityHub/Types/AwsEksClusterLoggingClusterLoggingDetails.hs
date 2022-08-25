@@ -27,7 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEksClusterLoggingClusterLoggingDetails' smart constructor.
 data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLoggingDetails'
-  { -- | A list of logging types.
+  { -- | A list of logging types. Valid values are as follows:
+    --
+    -- -   @api@
+    --
+    -- -   @audit@
+    --
+    -- -   @authenticator@
+    --
+    -- -   @controllerManager@
+    --
+    -- -   @scheduler@
     types :: Prelude.Maybe [Prelude.Text],
     -- | Whether the logging types that are listed in @Types@ are enabled.
     enabled :: Prelude.Maybe Prelude.Bool
@@ -42,7 +52,17 @@ data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLogg
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'types', 'awsEksClusterLoggingClusterLoggingDetails_types' - A list of logging types.
+-- 'types', 'awsEksClusterLoggingClusterLoggingDetails_types' - A list of logging types. Valid values are as follows:
+--
+-- -   @api@
+--
+-- -   @audit@
+--
+-- -   @authenticator@
+--
+-- -   @controllerManager@
+--
+-- -   @scheduler@
 --
 -- 'enabled', 'awsEksClusterLoggingClusterLoggingDetails_enabled' - Whether the logging types that are listed in @Types@ are enabled.
 newAwsEksClusterLoggingClusterLoggingDetails ::
@@ -54,7 +74,17 @@ newAwsEksClusterLoggingClusterLoggingDetails =
       enabled = Prelude.Nothing
     }
 
--- | A list of logging types.
+-- | A list of logging types. Valid values are as follows:
+--
+-- -   @api@
+--
+-- -   @audit@
+--
+-- -   @authenticator@
+--
+-- -   @controllerManager@
+--
+-- -   @scheduler@
 awsEksClusterLoggingClusterLoggingDetails_types :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe [Prelude.Text])
 awsEksClusterLoggingClusterLoggingDetails_types = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {types} -> types) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {types = a} :: AwsEksClusterLoggingClusterLoggingDetails) Prelude.. Lens.mapping Lens.coerced
 

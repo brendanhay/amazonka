@@ -40,6 +40,9 @@ module Amazonka.CloudFormation.Types
     _InvalidChangeSetStatusException,
     _StackSetNotFoundException,
 
+    -- * AccountFilterType
+    AccountFilterType (..),
+
     -- * AccountGateStatus
     AccountGateStatus (..),
 
@@ -54,6 +57,9 @@ module Amazonka.CloudFormation.Types
 
     -- * ChangeAction
     ChangeAction (..),
+
+    -- * ChangeSetHooksStatus
+    ChangeSetHooksStatus (..),
 
     -- * ChangeSetStatus
     ChangeSetStatus (..),
@@ -81,6 +87,18 @@ module Amazonka.CloudFormation.Types
 
     -- * HandlerErrorCode
     HandlerErrorCode (..),
+
+    -- * HookFailureMode
+    HookFailureMode (..),
+
+    -- * HookInvocationPoint
+    HookInvocationPoint (..),
+
+    -- * HookStatus
+    HookStatus (..),
+
+    -- * HookTargetType
+    HookTargetType (..),
 
     -- * IdentityProvider
     IdentityProvider (..),
@@ -207,7 +225,31 @@ module Amazonka.CloudFormation.Types
     Change (..),
     newChange,
     change_type,
+    change_hookInvocationCount,
     change_resourceChange,
+
+    -- * ChangeSetHook
+    ChangeSetHook (..),
+    newChangeSetHook,
+    changeSetHook_typeConfigurationVersionId,
+    changeSetHook_invocationPoint,
+    changeSetHook_failureMode,
+    changeSetHook_typeName,
+    changeSetHook_typeVersionId,
+    changeSetHook_targetDetails,
+
+    -- * ChangeSetHookResourceTargetDetails
+    ChangeSetHookResourceTargetDetails (..),
+    newChangeSetHookResourceTargetDetails,
+    changeSetHookResourceTargetDetails_resourceType,
+    changeSetHookResourceTargetDetails_resourceAction,
+    changeSetHookResourceTargetDetails_logicalResourceId,
+
+    -- * ChangeSetHookTargetDetails
+    ChangeSetHookTargetDetails (..),
+    newChangeSetHookTargetDetails,
+    changeSetHookTargetDetails_targetType,
+    changeSetHookTargetDetails_resourceTargetDetails,
 
     -- * ChangeSetSummary
     ChangeSetSummary (..),
@@ -228,6 +270,7 @@ module Amazonka.CloudFormation.Types
     -- * DeploymentTargets
     DeploymentTargets (..),
     newDeploymentTargets,
+    deploymentTargets_accountFilterType,
     deploymentTargets_organizationalUnitIds,
     deploymentTargets_accounts,
     deploymentTargets_accountsUrl,
@@ -244,6 +287,11 @@ module Amazonka.CloudFormation.Types
     newLoggingConfig,
     loggingConfig_logRoleArn,
     loggingConfig_logGroupName,
+
+    -- * ManagedExecution
+    ManagedExecution (..),
+    newManagedExecution,
+    managedExecution_active,
 
     -- * ModuleInfo
     ModuleInfo (..),
@@ -400,9 +448,14 @@ module Amazonka.CloudFormation.Types
     StackEvent (..),
     newStackEvent,
     stackEvent_resourceType,
+    stackEvent_hookInvocationPoint,
     stackEvent_clientRequestToken,
     stackEvent_resourceStatusReason,
+    stackEvent_hookFailureMode,
+    stackEvent_hookStatus,
+    stackEvent_hookStatusReason,
     stackEvent_logicalResourceId,
+    stackEvent_hookType,
     stackEvent_resourceProperties,
     stackEvent_physicalResourceId,
     stackEvent_resourceStatus,
@@ -534,6 +587,7 @@ module Amazonka.CloudFormation.Types
     stackSet_autoDeployment,
     stackSet_organizationalUnitIds,
     stackSet_capabilities,
+    stackSet_managedExecution,
     stackSet_executionRoleName,
     stackSet_administrationRoleARN,
     stackSet_permissionModel,
@@ -558,6 +612,7 @@ module Amazonka.CloudFormation.Types
     stackSetOperation_endTimestamp,
     stackSetOperation_operationPreferences,
     stackSetOperation_stackSetId,
+    stackSetOperation_statusReason,
     stackSetOperation_operationId,
     stackSetOperation_status,
     stackSetOperation_creationTimestamp,
@@ -592,6 +647,7 @@ module Amazonka.CloudFormation.Types
     StackSetOperationSummary (..),
     newStackSetOperationSummary,
     stackSetOperationSummary_endTimestamp,
+    stackSetOperationSummary_statusReason,
     stackSetOperationSummary_operationId,
     stackSetOperationSummary_status,
     stackSetOperationSummary_creationTimestamp,
@@ -606,6 +662,7 @@ module Amazonka.CloudFormation.Types
     stackSetSummary_status,
     stackSetSummary_description,
     stackSetSummary_autoDeployment,
+    stackSetSummary_managedExecution,
     stackSetSummary_permissionModel,
     stackSetSummary_lastDriftCheckTimestamp,
 
@@ -696,6 +753,7 @@ module Amazonka.CloudFormation.Types
   )
 where
 
+import Amazonka.CloudFormation.Types.AccountFilterType
 import Amazonka.CloudFormation.Types.AccountGateResult
 import Amazonka.CloudFormation.Types.AccountGateStatus
 import Amazonka.CloudFormation.Types.AccountLimit
@@ -706,6 +764,10 @@ import Amazonka.CloudFormation.Types.Capability
 import Amazonka.CloudFormation.Types.Category
 import Amazonka.CloudFormation.Types.Change
 import Amazonka.CloudFormation.Types.ChangeAction
+import Amazonka.CloudFormation.Types.ChangeSetHook
+import Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails
+import Amazonka.CloudFormation.Types.ChangeSetHookTargetDetails
+import Amazonka.CloudFormation.Types.ChangeSetHooksStatus
 import Amazonka.CloudFormation.Types.ChangeSetStatus
 import Amazonka.CloudFormation.Types.ChangeSetSummary
 import Amazonka.CloudFormation.Types.ChangeSetType
@@ -718,8 +780,13 @@ import Amazonka.CloudFormation.Types.EvaluationType
 import Amazonka.CloudFormation.Types.ExecutionStatus
 import Amazonka.CloudFormation.Types.Export
 import Amazonka.CloudFormation.Types.HandlerErrorCode
+import Amazonka.CloudFormation.Types.HookFailureMode
+import Amazonka.CloudFormation.Types.HookInvocationPoint
+import Amazonka.CloudFormation.Types.HookStatus
+import Amazonka.CloudFormation.Types.HookTargetType
 import Amazonka.CloudFormation.Types.IdentityProvider
 import Amazonka.CloudFormation.Types.LoggingConfig
+import Amazonka.CloudFormation.Types.ManagedExecution
 import Amazonka.CloudFormation.Types.ModuleInfo
 import Amazonka.CloudFormation.Types.OnFailure
 import Amazonka.CloudFormation.Types.OperationStatus
@@ -908,7 +975,7 @@ _StaleRequestException =
     Prelude.. Core.hasStatus 409
 
 -- | The specified change set name or ID doesn\'t exit. To view valid change
--- sets for a stack, use the @ListChangeSets@ action.
+-- sets for a stack, use the @ListChangeSets@ operation.
 _ChangeSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ChangeSetNotFoundException =
   Core._MatchServiceError
@@ -918,7 +985,7 @@ _ChangeSetNotFoundException =
 
 -- | Error reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
--- CloudFormation does not return this error to users.
+-- CloudFormation doesn\'t return this error to users.
 _OperationStatusCheckFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OperationStatusCheckFailedException =
   Core._MatchServiceError
@@ -961,8 +1028,8 @@ _AlreadyExistsException =
 
 -- | The quota for the resource has already been reached.
 --
--- For information on resource and stack limitations, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html Limits>
+-- For information about resource and stack limitations, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation quotas>
 -- in the /CloudFormation User Guide/.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -979,7 +1046,7 @@ _CFNRegistryException =
     "CFNRegistryException"
     Prelude.. Core.hasStatus 400
 
--- | The specified extension configuration cannot be found.
+-- | The specified extension configuration can\'t be found.
 _TypeConfigurationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TypeConfigurationNotFoundException =
   Core._MatchServiceError
@@ -997,7 +1064,7 @@ _OperationIdAlreadyExistsException =
 
 -- | Error reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
--- CloudFormation does not return this error to users.
+-- CloudFormation doesn\'t return this error to users.
 _InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidStateTransitionException =
   Core._MatchServiceError
@@ -1013,7 +1080,7 @@ _CreatedButModifiedException =
     "CreatedButModifiedException"
     Prelude.. Core.hasStatus 409
 
--- | The specified stack ARN doesn’t exist or stack doesn’t exist
+-- | The specified stack ARN doesn\'t exist or stack doesn\'t exist
 -- corresponding to the ARN in input.
 _StackNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _StackNotFoundException =
@@ -1039,7 +1106,7 @@ _NameAlreadyExistsException =
     "NameAlreadyExistsException"
     Prelude.. Core.hasStatus 409
 
--- | The specified extension does not exist in the CloudFormation registry.
+-- | The specified extension doesn\'t exist in the CloudFormation registry.
 _TypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TypeNotFoundException =
   Core._MatchServiceError

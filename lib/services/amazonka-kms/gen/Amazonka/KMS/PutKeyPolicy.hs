@@ -121,10 +121,23 @@ data PutKeyPolicy = PutKeyPolicy'
     --     in the /Amazon Web Services Identity and Access Management User
     --     Guide/.
     --
-    -- The key policy cannot exceed 32 kilobytes (32768 bytes). For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
-    -- in the /Key Management Service Developer Guide/.
+    -- A key policy document can include only the following characters:
+    --
+    -- -   Printable ASCII characters from the space character (@\\u0020@)
+    --     through the end of the ASCII character range.
+    --
+    -- -   Printable characters in the Basic Latin and Latin-1 Supplement
+    --     character set (through @\\u00FF@).
+    --
+    -- -   The tab (@\\u0009@), line feed (@\\u000A@), and carriage return
+    --     (@\\u000D@) special characters
+    --
+    -- For information about key policies, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key policies in KMS>
+    -- in the /Key Management Service Developer Guide/. For help writing and
+    -- formatting a JSON policy document, see the
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
+    -- in the //Identity and Access Management User Guide// .
     policy :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -192,10 +205,23 @@ data PutKeyPolicy = PutKeyPolicy'
 --     in the /Amazon Web Services Identity and Access Management User
 --     Guide/.
 --
--- The key policy cannot exceed 32 kilobytes (32768 bytes). For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
--- in the /Key Management Service Developer Guide/.
+-- A key policy document can include only the following characters:
+--
+-- -   Printable ASCII characters from the space character (@\\u0020@)
+--     through the end of the ASCII character range.
+--
+-- -   Printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@).
+--
+-- -   The tab (@\\u0009@), line feed (@\\u000A@), and carriage return
+--     (@\\u000D@) special characters
+--
+-- For information about key policies, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key policies in KMS>
+-- in the /Key Management Service Developer Guide/. For help writing and
+-- formatting a JSON policy document, see the
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
+-- in the //Identity and Access Management User Guide// .
 newPutKeyPolicy ::
   -- | 'keyId'
   Prelude.Text ->
@@ -274,10 +300,23 @@ putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) 
 --     in the /Amazon Web Services Identity and Access Management User
 --     Guide/.
 --
--- The key policy cannot exceed 32 kilobytes (32768 bytes). For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
--- in the /Key Management Service Developer Guide/.
+-- A key policy document can include only the following characters:
+--
+-- -   Printable ASCII characters from the space character (@\\u0020@)
+--     through the end of the ASCII character range.
+--
+-- -   Printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@).
+--
+-- -   The tab (@\\u0009@), line feed (@\\u000A@), and carriage return
+--     (@\\u000D@) special characters
+--
+-- For information about key policies, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key policies in KMS>
+-- in the /Key Management Service Developer Guide/. For help writing and
+-- formatting a JSON policy document, see the
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
+-- in the //Identity and Access Management User Guide// .
 putKeyPolicy_policy :: Lens.Lens' PutKeyPolicy Prelude.Text
 putKeyPolicy_policy = Lens.lens (\PutKeyPolicy' {policy} -> policy) (\s@PutKeyPolicy' {} a -> s {policy = a} :: PutKeyPolicy)
 

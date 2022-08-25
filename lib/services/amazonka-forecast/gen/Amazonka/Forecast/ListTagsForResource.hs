@@ -49,9 +49,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name (ARN) that identifies the resource for which to
-    -- list the tags. Currently, the supported resources are Forecast dataset
-    -- groups, datasets, dataset import jobs, predictors, forecasts, and
-    -- forecast export jobs.
+    -- list the tags.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,9 +63,7 @@ data ListTagsForResource = ListTagsForResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Forecast dataset
--- groups, datasets, dataset import jobs, predictors, forecasts, and
--- forecast export jobs.
+-- list the tags.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -76,9 +72,7 @@ newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
 -- | The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Forecast dataset
--- groups, datasets, dataset import jobs, predictors, forecasts, and
--- forecast export jobs.
+-- list the tags.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

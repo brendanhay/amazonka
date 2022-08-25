@@ -105,24 +105,24 @@ instance Core.ToQuery GetMacieSession where
 
 -- | /See:/ 'newGetMacieSessionResponse' smart constructor.
 data GetMacieSessionResponse = GetMacieSessionResponse'
-  { -- | The current status of the Macie account. Possible values are: PAUSED,
-    -- the account is enabled but all Macie activities are suspended (paused)
-    -- for the account; and, ENABLED, the account is enabled and all Macie
-    -- activities are enabled for the account.
+  { -- | The current status of the Amazon Macie account. Possible values are:
+    -- PAUSED, the account is enabled but all Macie activities are suspended
+    -- (paused) for the account; and, ENABLED, the account is enabled and all
+    -- Macie activities are enabled for the account.
     status :: Prelude.Maybe MacieStatus,
     -- | The Amazon Resource Name (ARN) of the service-linked role that allows
-    -- Macie to monitor and analyze data in Amazon Web Services resources for
-    -- the account.
+    -- Amazon Macie to monitor and analyze data in Amazon Web Services
+    -- resources for the account.
     serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | The frequency with which Macie publishes updates to policy findings for
-    -- the account. This includes publishing updates to Security Hub and Amazon
-    -- EventBridge (formerly called Amazon CloudWatch Events).
+    -- | The frequency with which Amazon Macie publishes updates to policy
+    -- findings for the account. This includes publishing updates to Security
+    -- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The date and time, in UTC and extended ISO 8601 format, when the Amazon
     -- Macie account was created.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
-    -- recent change to the status of the Macie account.
+    -- recent change to the status of the Amazon Macie account.
     updatedAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -137,24 +137,24 @@ data GetMacieSessionResponse = GetMacieSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getMacieSessionResponse_status' - The current status of the Macie account. Possible values are: PAUSED,
--- the account is enabled but all Macie activities are suspended (paused)
--- for the account; and, ENABLED, the account is enabled and all Macie
--- activities are enabled for the account.
+-- 'status', 'getMacieSessionResponse_status' - The current status of the Amazon Macie account. Possible values are:
+-- PAUSED, the account is enabled but all Macie activities are suspended
+-- (paused) for the account; and, ENABLED, the account is enabled and all
+-- Macie activities are enabled for the account.
 --
 -- 'serviceRole', 'getMacieSessionResponse_serviceRole' - The Amazon Resource Name (ARN) of the service-linked role that allows
--- Macie to monitor and analyze data in Amazon Web Services resources for
--- the account.
+-- Amazon Macie to monitor and analyze data in Amazon Web Services
+-- resources for the account.
 --
--- 'findingPublishingFrequency', 'getMacieSessionResponse_findingPublishingFrequency' - The frequency with which Macie publishes updates to policy findings for
--- the account. This includes publishing updates to Security Hub and Amazon
--- EventBridge (formerly called Amazon CloudWatch Events).
+-- 'findingPublishingFrequency', 'getMacieSessionResponse_findingPublishingFrequency' - The frequency with which Amazon Macie publishes updates to policy
+-- findings for the account. This includes publishing updates to Security
+-- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
 --
 -- 'createdAt', 'getMacieSessionResponse_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the Amazon
 -- Macie account was created.
 --
 -- 'updatedAt', 'getMacieSessionResponse_updatedAt' - The date and time, in UTC and extended ISO 8601 format, of the most
--- recent change to the status of the Macie account.
+-- recent change to the status of the Amazon Macie account.
 --
 -- 'httpStatus', 'getMacieSessionResponse_httpStatus' - The response's http status code.
 newGetMacieSessionResponse ::
@@ -171,22 +171,22 @@ newGetMacieSessionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The current status of the Macie account. Possible values are: PAUSED,
--- the account is enabled but all Macie activities are suspended (paused)
--- for the account; and, ENABLED, the account is enabled and all Macie
--- activities are enabled for the account.
+-- | The current status of the Amazon Macie account. Possible values are:
+-- PAUSED, the account is enabled but all Macie activities are suspended
+-- (paused) for the account; and, ENABLED, the account is enabled and all
+-- Macie activities are enabled for the account.
 getMacieSessionResponse_status :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe MacieStatus)
 getMacieSessionResponse_status = Lens.lens (\GetMacieSessionResponse' {status} -> status) (\s@GetMacieSessionResponse' {} a -> s {status = a} :: GetMacieSessionResponse)
 
 -- | The Amazon Resource Name (ARN) of the service-linked role that allows
--- Macie to monitor and analyze data in Amazon Web Services resources for
--- the account.
+-- Amazon Macie to monitor and analyze data in Amazon Web Services
+-- resources for the account.
 getMacieSessionResponse_serviceRole :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe Prelude.Text)
 getMacieSessionResponse_serviceRole = Lens.lens (\GetMacieSessionResponse' {serviceRole} -> serviceRole) (\s@GetMacieSessionResponse' {} a -> s {serviceRole = a} :: GetMacieSessionResponse)
 
--- | The frequency with which Macie publishes updates to policy findings for
--- the account. This includes publishing updates to Security Hub and Amazon
--- EventBridge (formerly called Amazon CloudWatch Events).
+-- | The frequency with which Amazon Macie publishes updates to policy
+-- findings for the account. This includes publishing updates to Security
+-- Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
 getMacieSessionResponse_findingPublishingFrequency :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe FindingPublishingFrequency)
 getMacieSessionResponse_findingPublishingFrequency = Lens.lens (\GetMacieSessionResponse' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@GetMacieSessionResponse' {} a -> s {findingPublishingFrequency = a} :: GetMacieSessionResponse)
 
@@ -196,7 +196,7 @@ getMacieSessionResponse_createdAt :: Lens.Lens' GetMacieSessionResponse (Prelude
 getMacieSessionResponse_createdAt = Lens.lens (\GetMacieSessionResponse' {createdAt} -> createdAt) (\s@GetMacieSessionResponse' {} a -> s {createdAt = a} :: GetMacieSessionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time, in UTC and extended ISO 8601 format, of the most
--- recent change to the status of the Macie account.
+-- recent change to the status of the Amazon Macie account.
 getMacieSessionResponse_updatedAt :: Lens.Lens' GetMacieSessionResponse (Prelude.Maybe Prelude.UTCTime)
 getMacieSessionResponse_updatedAt = Lens.lens (\GetMacieSessionResponse' {updatedAt} -> updatedAt) (\s@GetMacieSessionResponse' {} a -> s {updatedAt = a} :: GetMacieSessionResponse) Prelude.. Lens.mapping Core._Time
 

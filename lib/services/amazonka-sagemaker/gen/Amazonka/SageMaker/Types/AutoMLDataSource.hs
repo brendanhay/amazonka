@@ -29,8 +29,6 @@ import Amazonka.SageMaker.Types.AutoMLS3DataSource
 -- /See:/ 'newAutoMLDataSource' smart constructor.
 data AutoMLDataSource = AutoMLDataSource'
   { -- | The Amazon S3 location of the input data.
-    --
-    -- The input data must be in CSV format and contain at least 500 rows.
     s3DataSource :: AutoMLS3DataSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,8 +42,6 @@ data AutoMLDataSource = AutoMLDataSource'
 -- for backwards compatibility:
 --
 -- 's3DataSource', 'autoMLDataSource_s3DataSource' - The Amazon S3 location of the input data.
---
--- The input data must be in CSV format and contain at least 500 rows.
 newAutoMLDataSource ::
   -- | 's3DataSource'
   AutoMLS3DataSource ->
@@ -54,8 +50,6 @@ newAutoMLDataSource pS3DataSource_ =
   AutoMLDataSource' {s3DataSource = pS3DataSource_}
 
 -- | The Amazon S3 location of the input data.
---
--- The input data must be in CSV format and contain at least 500 rows.
 autoMLDataSource_s3DataSource :: Lens.Lens' AutoMLDataSource AutoMLS3DataSource
 autoMLDataSource_s3DataSource = Lens.lens (\AutoMLDataSource' {s3DataSource} -> s3DataSource) (\s@AutoMLDataSource' {} a -> s {s3DataSource = a} :: AutoMLDataSource)
 

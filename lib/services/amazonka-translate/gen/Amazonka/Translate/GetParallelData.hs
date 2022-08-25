@@ -134,18 +134,30 @@ data GetParallelDataResponse = GetParallelDataResponse'
   { -- | The Amazon S3 location of a file that provides any errors or warnings
     -- that were produced by your input file. This file was created when Amazon
     -- Translate attempted to create a parallel data resource. The location is
-    -- returned as a presigned URL to that has a 30 minute expiration.
+    -- returned as a presigned URL to that has a 30-minute expiration.
     auxiliaryDataLocation :: Prelude.Maybe ParallelDataDataLocation,
-    -- | The location of the most recent parallel data input file that was
-    -- successfully imported into Amazon Translate. The location is returned as
-    -- a presigned URL that has a 30 minute expiration.
+    -- | The Amazon S3 location of the most recent parallel data input file that
+    -- was successfully imported into Amazon Translate. The location is
+    -- returned as a presigned URL that has a 30-minute expiration.
+    --
+    -- Amazon Translate doesn\'t scan all input files for the risk of CSV
+    -- injection attacks.
+    --
+    -- CSV injection occurs when a .csv or .tsv file is altered so that a
+    -- record contains malicious code. The record begins with a special
+    -- character, such as =, +, -, or \@. When the file is opened in a
+    -- spreadsheet program, the program might interpret the record as a formula
+    -- and run the code within it.
+    --
+    -- Before you download an input file from Amazon S3, ensure that you
+    -- recognize the file and trust its creator.
     dataLocation :: Prelude.Maybe ParallelDataDataLocation,
     -- | The properties of the parallel data resource that is being retrieved.
     parallelDataProperties :: Prelude.Maybe ParallelDataProperties,
     -- | The Amazon S3 location of a file that provides any errors or warnings
     -- that were produced by your input file. This file was created when Amazon
     -- Translate attempted to update a parallel data resource. The location is
-    -- returned as a presigned URL to that has a 30 minute expiration.
+    -- returned as a presigned URL to that has a 30-minute expiration.
     latestUpdateAttemptAuxiliaryDataLocation :: Prelude.Maybe ParallelDataDataLocation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -163,18 +175,30 @@ data GetParallelDataResponse = GetParallelDataResponse'
 -- 'auxiliaryDataLocation', 'getParallelDataResponse_auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to create a parallel data resource. The location is
--- returned as a presigned URL to that has a 30 minute expiration.
+-- returned as a presigned URL to that has a 30-minute expiration.
 --
--- 'dataLocation', 'getParallelDataResponse_dataLocation' - The location of the most recent parallel data input file that was
--- successfully imported into Amazon Translate. The location is returned as
--- a presigned URL that has a 30 minute expiration.
+-- 'dataLocation', 'getParallelDataResponse_dataLocation' - The Amazon S3 location of the most recent parallel data input file that
+-- was successfully imported into Amazon Translate. The location is
+-- returned as a presigned URL that has a 30-minute expiration.
+--
+-- Amazon Translate doesn\'t scan all input files for the risk of CSV
+-- injection attacks.
+--
+-- CSV injection occurs when a .csv or .tsv file is altered so that a
+-- record contains malicious code. The record begins with a special
+-- character, such as =, +, -, or \@. When the file is opened in a
+-- spreadsheet program, the program might interpret the record as a formula
+-- and run the code within it.
+--
+-- Before you download an input file from Amazon S3, ensure that you
+-- recognize the file and trust its creator.
 --
 -- 'parallelDataProperties', 'getParallelDataResponse_parallelDataProperties' - The properties of the parallel data resource that is being retrieved.
 --
 -- 'latestUpdateAttemptAuxiliaryDataLocation', 'getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to update a parallel data resource. The location is
--- returned as a presigned URL to that has a 30 minute expiration.
+-- returned as a presigned URL to that has a 30-minute expiration.
 --
 -- 'httpStatus', 'getParallelDataResponse_httpStatus' - The response's http status code.
 newGetParallelDataResponse ::
@@ -195,13 +219,25 @@ newGetParallelDataResponse pHttpStatus_ =
 -- | The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to create a parallel data resource. The location is
--- returned as a presigned URL to that has a 30 minute expiration.
+-- returned as a presigned URL to that has a 30-minute expiration.
 getParallelDataResponse_auxiliaryDataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
 getParallelDataResponse_auxiliaryDataLocation = Lens.lens (\GetParallelDataResponse' {auxiliaryDataLocation} -> auxiliaryDataLocation) (\s@GetParallelDataResponse' {} a -> s {auxiliaryDataLocation = a} :: GetParallelDataResponse)
 
--- | The location of the most recent parallel data input file that was
--- successfully imported into Amazon Translate. The location is returned as
--- a presigned URL that has a 30 minute expiration.
+-- | The Amazon S3 location of the most recent parallel data input file that
+-- was successfully imported into Amazon Translate. The location is
+-- returned as a presigned URL that has a 30-minute expiration.
+--
+-- Amazon Translate doesn\'t scan all input files for the risk of CSV
+-- injection attacks.
+--
+-- CSV injection occurs when a .csv or .tsv file is altered so that a
+-- record contains malicious code. The record begins with a special
+-- character, such as =, +, -, or \@. When the file is opened in a
+-- spreadsheet program, the program might interpret the record as a formula
+-- and run the code within it.
+--
+-- Before you download an input file from Amazon S3, ensure that you
+-- recognize the file and trust its creator.
 getParallelDataResponse_dataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
 getParallelDataResponse_dataLocation = Lens.lens (\GetParallelDataResponse' {dataLocation} -> dataLocation) (\s@GetParallelDataResponse' {} a -> s {dataLocation = a} :: GetParallelDataResponse)
 
@@ -212,7 +248,7 @@ getParallelDataResponse_parallelDataProperties = Lens.lens (\GetParallelDataResp
 -- | The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to update a parallel data resource. The location is
--- returned as a presigned URL to that has a 30 minute expiration.
+-- returned as a presigned URL to that has a 30-minute expiration.
 getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
 getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation = Lens.lens (\GetParallelDataResponse' {latestUpdateAttemptAuxiliaryDataLocation} -> latestUpdateAttemptAuxiliaryDataLocation) (\s@GetParallelDataResponse' {} a -> s {latestUpdateAttemptAuxiliaryDataLocation = a} :: GetParallelDataResponse)
 

@@ -25,6 +25,12 @@
 -- You can send requests to a route calculator resource to estimate travel
 -- time, distance, and get directions. A route calculator sources traffic
 -- and road network data from your chosen data provider.
+--
+-- If your application is tracking or routing assets you use in your
+-- business, such as delivery vehicles or employees, you may only use HERE
+-- as your geolocation provider. See section 82 of the
+-- <http://aws.amazon.com/service-terms AWS service terms> for more
+-- details.
 module Amazonka.Location.CreateRouteCalculator
   ( -- * Creating a Request
     CreateRouteCalculator (..),
@@ -33,9 +39,9 @@ module Amazonka.Location.CreateRouteCalculator
     -- * Request Lenses
     createRouteCalculator_tags,
     createRouteCalculator_description,
+    createRouteCalculator_pricingPlan,
     createRouteCalculator_calculatorName,
     createRouteCalculator_dataSource,
-    createRouteCalculator_pricingPlan,
 
     -- * Destructuring the Response
     CreateRouteCalculatorResponse (..),
@@ -78,9 +84,14 @@ data CreateRouteCalculator = CreateRouteCalculator'
     --
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
     --     characters: + - = . _ : \/ \@.
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The optional description for the route calculator resource.
     description :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the route calculator resource.
     --
     -- Requirements:
@@ -116,12 +127,7 @@ data CreateRouteCalculator = CreateRouteCalculator'
     -- For additional information , see
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers>
     -- on the /Amazon Location Service Developer Guide/.
-    dataSource :: Prelude.Text,
-    -- | Specifies the pricing plan for your route calculator resource.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: PricingPlan
+    dataSource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -154,7 +160,12 @@ data CreateRouteCalculator = CreateRouteCalculator'
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
 --
+-- -   Cannot use \"aws:\" as a prefix for a key.
+--
 -- 'description', 'createRouteCalculator_description' - The optional description for the route calculator resource.
+--
+-- 'pricingPlan', 'createRouteCalculator_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'calculatorName', 'createRouteCalculator_calculatorName' - The name of the route calculator resource.
 --
@@ -191,29 +202,21 @@ data CreateRouteCalculator = CreateRouteCalculator'
 -- For additional information , see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers>
 -- on the /Amazon Location Service Developer Guide/.
---
--- 'pricingPlan', 'createRouteCalculator_pricingPlan' - Specifies the pricing plan for your route calculator resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 newCreateRouteCalculator ::
   -- | 'calculatorName'
   Prelude.Text ->
   -- | 'dataSource'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   CreateRouteCalculator
 newCreateRouteCalculator
   pCalculatorName_
-  pDataSource_
-  pPricingPlan_ =
+  pDataSource_ =
     CreateRouteCalculator'
       { tags = Prelude.Nothing,
         description = Prelude.Nothing,
+        pricingPlan = Prelude.Nothing,
         calculatorName = pCalculatorName_,
-        dataSource = pDataSource_,
-        pricingPlan = pPricingPlan_
+        dataSource = pDataSource_
       }
 
 -- | Applies one or more tags to the route calculator resource. A tag is a
@@ -236,12 +239,19 @@ newCreateRouteCalculator
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 createRouteCalculator_tags :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRouteCalculator_tags = Lens.lens (\CreateRouteCalculator' {tags} -> tags) (\s@CreateRouteCalculator' {} a -> s {tags = a} :: CreateRouteCalculator) Prelude.. Lens.mapping Lens.coerced
 
 -- | The optional description for the route calculator resource.
 createRouteCalculator_description :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe Prelude.Text)
 createRouteCalculator_description = Lens.lens (\CreateRouteCalculator' {description} -> description) (\s@CreateRouteCalculator' {} a -> s {description = a} :: CreateRouteCalculator)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createRouteCalculator_pricingPlan :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe PricingPlan)
+createRouteCalculator_pricingPlan = Lens.lens (\CreateRouteCalculator' {pricingPlan} -> pricingPlan) (\s@CreateRouteCalculator' {} a -> s {pricingPlan = a} :: CreateRouteCalculator)
 
 -- | The name of the route calculator resource.
 --
@@ -283,13 +293,6 @@ createRouteCalculator_calculatorName = Lens.lens (\CreateRouteCalculator' {calcu
 createRouteCalculator_dataSource :: Lens.Lens' CreateRouteCalculator Prelude.Text
 createRouteCalculator_dataSource = Lens.lens (\CreateRouteCalculator' {dataSource} -> dataSource) (\s@CreateRouteCalculator' {} a -> s {dataSource = a} :: CreateRouteCalculator)
 
--- | Specifies the pricing plan for your route calculator resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-createRouteCalculator_pricingPlan :: Lens.Lens' CreateRouteCalculator PricingPlan
-createRouteCalculator_pricingPlan = Lens.lens (\CreateRouteCalculator' {pricingPlan} -> pricingPlan) (\s@CreateRouteCalculator' {} a -> s {pricingPlan = a} :: CreateRouteCalculator)
-
 instance Core.AWSRequest CreateRouteCalculator where
   type
     AWSResponse CreateRouteCalculator =
@@ -309,17 +312,17 @@ instance Prelude.Hashable CreateRouteCalculator where
   hashWithSalt _salt CreateRouteCalculator' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` calculatorName
       `Prelude.hashWithSalt` dataSource
-      `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreateRouteCalculator where
   rnf CreateRouteCalculator' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
 
 instance Core.ToHeaders CreateRouteCalculator where
   toHeaders =
@@ -338,10 +341,10 @@ instance Core.ToJSON CreateRouteCalculator where
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
             Prelude.Just
               ("CalculatorName" Core..= calculatorName),
-            Prelude.Just ("DataSource" Core..= dataSource),
-            Prelude.Just ("PricingPlan" Core..= pricingPlan)
+            Prelude.Just ("DataSource" Core..= dataSource)
           ]
       )
 

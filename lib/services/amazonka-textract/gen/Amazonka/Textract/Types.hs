@@ -56,6 +56,16 @@ module Amazonka.Textract.Types
     -- * TextType
     TextType (..),
 
+    -- * ValueType
+    ValueType (..),
+
+    -- * AnalyzeIDDetections
+    AnalyzeIDDetections (..),
+    newAnalyzeIDDetections,
+    analyzeIDDetections_confidence,
+    analyzeIDDetections_normalizedValue,
+    analyzeIDDetections_text,
+
     -- * Block
     Block (..),
     newBlock,
@@ -68,6 +78,7 @@ module Amazonka.Textract.Types
     block_rowIndex,
     block_selectionStatus,
     block_id,
+    block_query,
     block_page,
     block_textType,
     block_relationships,
@@ -151,6 +162,18 @@ module Amazonka.Textract.Types
     newHumanLoopDataAttributes,
     humanLoopDataAttributes_contentClassifiers,
 
+    -- * IdentityDocument
+    IdentityDocument (..),
+    newIdentityDocument,
+    identityDocument_documentIndex,
+    identityDocument_identityDocumentFields,
+
+    -- * IdentityDocumentField
+    IdentityDocumentField (..),
+    newIdentityDocumentField,
+    identityDocumentField_type,
+    identityDocumentField_valueDetection,
+
     -- * LineItemFields
     LineItemFields (..),
     newLineItemFields,
@@ -161,6 +184,12 @@ module Amazonka.Textract.Types
     newLineItemGroup,
     lineItemGroup_lineItems,
     lineItemGroup_lineItemGroupIndex,
+
+    -- * NormalizedValue
+    NormalizedValue (..),
+    newNormalizedValue,
+    normalizedValue_valueType,
+    normalizedValue_value,
 
     -- * NotificationChannel
     NotificationChannel (..),
@@ -179,6 +208,18 @@ module Amazonka.Textract.Types
     newPoint,
     point_x,
     point_y,
+
+    -- * QueriesConfig
+    QueriesConfig (..),
+    newQueriesConfig,
+    queriesConfig_queries,
+
+    -- * Query
+    Query (..),
+    newQuery,
+    query_alias,
+    query_pages,
+    query_text,
 
     -- * Relationship
     Relationship (..),
@@ -205,6 +246,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Textract.Types.AnalyzeIDDetections
 import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.BlockType
 import Amazonka.Textract.Types.BoundingBox
@@ -222,17 +264,23 @@ import Amazonka.Textract.Types.Geometry
 import Amazonka.Textract.Types.HumanLoopActivationOutput
 import Amazonka.Textract.Types.HumanLoopConfig
 import Amazonka.Textract.Types.HumanLoopDataAttributes
+import Amazonka.Textract.Types.IdentityDocument
+import Amazonka.Textract.Types.IdentityDocumentField
 import Amazonka.Textract.Types.JobStatus
 import Amazonka.Textract.Types.LineItemFields
 import Amazonka.Textract.Types.LineItemGroup
+import Amazonka.Textract.Types.NormalizedValue
 import Amazonka.Textract.Types.NotificationChannel
 import Amazonka.Textract.Types.OutputConfig
 import Amazonka.Textract.Types.Point
+import Amazonka.Textract.Types.QueriesConfig
+import Amazonka.Textract.Types.Query
 import Amazonka.Textract.Types.Relationship
 import Amazonka.Textract.Types.RelationshipType
 import Amazonka.Textract.Types.S3Object
 import Amazonka.Textract.Types.SelectionStatus
 import Amazonka.Textract.Types.TextType
+import Amazonka.Textract.Types.ValueType
 import Amazonka.Textract.Types.Warning
 
 -- | API version @2018-06-27@ of the Amazon Textract SDK configuration.
@@ -393,8 +441,7 @@ _InvalidS3ObjectException =
     "InvalidS3ObjectException"
 
 -- | The format of the input document isn\'t supported. Documents for
--- synchronous operations can be in PNG or JPEG format. Documents for
--- asynchronous operations can also be in PDF format.
+-- operations can be in PNG, JPEG, PDF, or TIFF format.
 _UnsupportedDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedDocumentException =
   Core._MatchServiceError

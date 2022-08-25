@@ -21,7 +21,8 @@ module Amazonka.Grafana.Types.Role
   ( Role
       ( ..,
         Role_ADMIN,
-        Role_EDITOR
+        Role_EDITOR,
+        Role_VIEWER
       ),
   )
 where
@@ -60,8 +61,12 @@ pattern Role_ADMIN = Role' "ADMIN"
 pattern Role_EDITOR :: Role
 pattern Role_EDITOR = Role' "EDITOR"
 
+pattern Role_VIEWER :: Role
+pattern Role_VIEWER = Role' "VIEWER"
+
 {-# COMPLETE
   Role_ADMIN,
   Role_EDITOR,
+  Role_VIEWER,
   Role'
   #-}

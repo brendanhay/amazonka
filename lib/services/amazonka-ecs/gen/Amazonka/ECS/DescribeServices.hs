@@ -57,9 +57,9 @@ data DescribeServices = DescribeServices'
     -- services you are describing were launched in any cluster other than the
     -- default cluster.
     cluster :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether you want to see the resource tags for the service. If
+    -- | Determines whether you want to see the resource tags for the service. If
     -- @TAGS@ is specified, the tags are included in the response. If this
-    -- field is omitted, tags are not included in the response.
+    -- field is omitted, tags aren\'t included in the response.
     include :: Prelude.Maybe [ServiceField],
     -- | A list of services to describe. You may specify up to 10 services to
     -- describe in a single operation.
@@ -81,9 +81,9 @@ data DescribeServices = DescribeServices'
 -- services you are describing were launched in any cluster other than the
 -- default cluster.
 --
--- 'include', 'describeServices_include' - Specifies whether you want to see the resource tags for the service. If
+-- 'include', 'describeServices_include' - Determines whether you want to see the resource tags for the service. If
 -- @TAGS@ is specified, the tags are included in the response. If this
--- field is omitted, tags are not included in the response.
+-- field is omitted, tags aren\'t included in the response.
 --
 -- 'services', 'describeServices_services' - A list of services to describe. You may specify up to 10 services to
 -- describe in a single operation.
@@ -104,9 +104,9 @@ newDescribeServices =
 describeServices_cluster :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_cluster = Lens.lens (\DescribeServices' {cluster} -> cluster) (\s@DescribeServices' {} a -> s {cluster = a} :: DescribeServices)
 
--- | Specifies whether you want to see the resource tags for the service. If
+-- | Determines whether you want to see the resource tags for the service. If
 -- @TAGS@ is specified, the tags are included in the response. If this
--- field is omitted, tags are not included in the response.
+-- field is omitted, tags aren\'t included in the response.
 describeServices_include :: Lens.Lens' DescribeServices (Prelude.Maybe [ServiceField])
 describeServices_include = Lens.lens (\DescribeServices' {include} -> include) (\s@DescribeServices' {} a -> s {include = a} :: DescribeServices) Prelude.. Lens.mapping Lens.coerced
 

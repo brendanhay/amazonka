@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateDataset $
+--         [ requestCreateAutoPredictor $
+--             newCreateAutoPredictor
+--
+--         , requestCreateDataset $
 --             newCreateDataset
 --
 --         , requestCreateDatasetGroup $
@@ -36,17 +39,35 @@ import Test.Tasty
 --         , requestCreateDatasetImportJob $
 --             newCreateDatasetImportJob
 --
+--         , requestCreateExplainability $
+--             newCreateExplainability
+--
+--         , requestCreateExplainabilityExport $
+--             newCreateExplainabilityExport
+--
 --         , requestCreateForecast $
 --             newCreateForecast
 --
 --         , requestCreateForecastExportJob $
 --             newCreateForecastExportJob
 --
+--         , requestCreateMonitor $
+--             newCreateMonitor
+--
 --         , requestCreatePredictor $
 --             newCreatePredictor
 --
 --         , requestCreatePredictorBacktestExportJob $
 --             newCreatePredictorBacktestExportJob
+--
+--         , requestCreateWhatIfAnalysis $
+--             newCreateWhatIfAnalysis
+--
+--         , requestCreateWhatIfForecast $
+--             newCreateWhatIfForecast
+--
+--         , requestCreateWhatIfForecastExport $
+--             newCreateWhatIfForecastExport
 --
 --         , requestDeleteDataset $
 --             newDeleteDataset
@@ -57,11 +78,20 @@ import Test.Tasty
 --         , requestDeleteDatasetImportJob $
 --             newDeleteDatasetImportJob
 --
+--         , requestDeleteExplainability $
+--             newDeleteExplainability
+--
+--         , requestDeleteExplainabilityExport $
+--             newDeleteExplainabilityExport
+--
 --         , requestDeleteForecast $
 --             newDeleteForecast
 --
 --         , requestDeleteForecastExportJob $
 --             newDeleteForecastExportJob
+--
+--         , requestDeleteMonitor $
+--             newDeleteMonitor
 --
 --         , requestDeletePredictor $
 --             newDeletePredictor
@@ -72,6 +102,18 @@ import Test.Tasty
 --         , requestDeleteResourceTree $
 --             newDeleteResourceTree
 --
+--         , requestDeleteWhatIfAnalysis $
+--             newDeleteWhatIfAnalysis
+--
+--         , requestDeleteWhatIfForecast $
+--             newDeleteWhatIfForecast
+--
+--         , requestDeleteWhatIfForecastExport $
+--             newDeleteWhatIfForecastExport
+--
+--         , requestDescribeAutoPredictor $
+--             newDescribeAutoPredictor
+--
 --         , requestDescribeDataset $
 --             newDescribeDataset
 --
@@ -81,17 +123,35 @@ import Test.Tasty
 --         , requestDescribeDatasetImportJob $
 --             newDescribeDatasetImportJob
 --
+--         , requestDescribeExplainability $
+--             newDescribeExplainability
+--
+--         , requestDescribeExplainabilityExport $
+--             newDescribeExplainabilityExport
+--
 --         , requestDescribeForecast $
 --             newDescribeForecast
 --
 --         , requestDescribeForecastExportJob $
 --             newDescribeForecastExportJob
 --
+--         , requestDescribeMonitor $
+--             newDescribeMonitor
+--
 --         , requestDescribePredictor $
 --             newDescribePredictor
 --
 --         , requestDescribePredictorBacktestExportJob $
 --             newDescribePredictorBacktestExportJob
+--
+--         , requestDescribeWhatIfAnalysis $
+--             newDescribeWhatIfAnalysis
+--
+--         , requestDescribeWhatIfForecast $
+--             newDescribeWhatIfForecast
+--
+--         , requestDescribeWhatIfForecastExport $
+--             newDescribeWhatIfForecastExport
 --
 --         , requestGetAccuracyMetrics $
 --             newGetAccuracyMetrics
@@ -105,11 +165,23 @@ import Test.Tasty
 --         , requestListDatasets $
 --             newListDatasets
 --
+--         , requestListExplainabilities $
+--             newListExplainabilities
+--
+--         , requestListExplainabilityExports $
+--             newListExplainabilityExports
+--
 --         , requestListForecastExportJobs $
 --             newListForecastExportJobs
 --
 --         , requestListForecasts $
 --             newListForecasts
+--
+--         , requestListMonitorEvaluations $
+--             newListMonitorEvaluations
+--
+--         , requestListMonitors $
+--             newListMonitors
 --
 --         , requestListPredictorBacktestExportJobs $
 --             newListPredictorBacktestExportJobs
@@ -119,6 +191,18 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListWhatIfAnalyses $
+--             newListWhatIfAnalyses
+--
+--         , requestListWhatIfForecastExports $
+--             newListWhatIfForecastExports
+--
+--         , requestListWhatIfForecasts $
+--             newListWhatIfForecasts
+--
+--         , requestResumeResource $
+--             newResumeResource
 --
 --         , requestStopResource $
 --             newStopResource
@@ -135,7 +219,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateDataset $
+--         [ responseCreateAutoPredictor $
+--             newCreateAutoPredictorResponse
+--
+--         , responseCreateDataset $
 --             newCreateDatasetResponse
 --
 --         , responseCreateDatasetGroup $
@@ -144,17 +231,35 @@ import Test.Tasty
 --         , responseCreateDatasetImportJob $
 --             newCreateDatasetImportJobResponse
 --
+--         , responseCreateExplainability $
+--             newCreateExplainabilityResponse
+--
+--         , responseCreateExplainabilityExport $
+--             newCreateExplainabilityExportResponse
+--
 --         , responseCreateForecast $
 --             newCreateForecastResponse
 --
 --         , responseCreateForecastExportJob $
 --             newCreateForecastExportJobResponse
 --
+--         , responseCreateMonitor $
+--             newCreateMonitorResponse
+--
 --         , responseCreatePredictor $
 --             newCreatePredictorResponse
 --
 --         , responseCreatePredictorBacktestExportJob $
 --             newCreatePredictorBacktestExportJobResponse
+--
+--         , responseCreateWhatIfAnalysis $
+--             newCreateWhatIfAnalysisResponse
+--
+--         , responseCreateWhatIfForecast $
+--             newCreateWhatIfForecastResponse
+--
+--         , responseCreateWhatIfForecastExport $
+--             newCreateWhatIfForecastExportResponse
 --
 --         , responseDeleteDataset $
 --             newDeleteDatasetResponse
@@ -165,11 +270,20 @@ import Test.Tasty
 --         , responseDeleteDatasetImportJob $
 --             newDeleteDatasetImportJobResponse
 --
+--         , responseDeleteExplainability $
+--             newDeleteExplainabilityResponse
+--
+--         , responseDeleteExplainabilityExport $
+--             newDeleteExplainabilityExportResponse
+--
 --         , responseDeleteForecast $
 --             newDeleteForecastResponse
 --
 --         , responseDeleteForecastExportJob $
 --             newDeleteForecastExportJobResponse
+--
+--         , responseDeleteMonitor $
+--             newDeleteMonitorResponse
 --
 --         , responseDeletePredictor $
 --             newDeletePredictorResponse
@@ -180,6 +294,18 @@ import Test.Tasty
 --         , responseDeleteResourceTree $
 --             newDeleteResourceTreeResponse
 --
+--         , responseDeleteWhatIfAnalysis $
+--             newDeleteWhatIfAnalysisResponse
+--
+--         , responseDeleteWhatIfForecast $
+--             newDeleteWhatIfForecastResponse
+--
+--         , responseDeleteWhatIfForecastExport $
+--             newDeleteWhatIfForecastExportResponse
+--
+--         , responseDescribeAutoPredictor $
+--             newDescribeAutoPredictorResponse
+--
 --         , responseDescribeDataset $
 --             newDescribeDatasetResponse
 --
@@ -189,17 +315,35 @@ import Test.Tasty
 --         , responseDescribeDatasetImportJob $
 --             newDescribeDatasetImportJobResponse
 --
+--         , responseDescribeExplainability $
+--             newDescribeExplainabilityResponse
+--
+--         , responseDescribeExplainabilityExport $
+--             newDescribeExplainabilityExportResponse
+--
 --         , responseDescribeForecast $
 --             newDescribeForecastResponse
 --
 --         , responseDescribeForecastExportJob $
 --             newDescribeForecastExportJobResponse
 --
+--         , responseDescribeMonitor $
+--             newDescribeMonitorResponse
+--
 --         , responseDescribePredictor $
 --             newDescribePredictorResponse
 --
 --         , responseDescribePredictorBacktestExportJob $
 --             newDescribePredictorBacktestExportJobResponse
+--
+--         , responseDescribeWhatIfAnalysis $
+--             newDescribeWhatIfAnalysisResponse
+--
+--         , responseDescribeWhatIfForecast $
+--             newDescribeWhatIfForecastResponse
+--
+--         , responseDescribeWhatIfForecastExport $
+--             newDescribeWhatIfForecastExportResponse
 --
 --         , responseGetAccuracyMetrics $
 --             newGetAccuracyMetricsResponse
@@ -213,11 +357,23 @@ import Test.Tasty
 --         , responseListDatasets $
 --             newListDatasetsResponse
 --
+--         , responseListExplainabilities $
+--             newListExplainabilitiesResponse
+--
+--         , responseListExplainabilityExports $
+--             newListExplainabilityExportsResponse
+--
 --         , responseListForecastExportJobs $
 --             newListForecastExportJobsResponse
 --
 --         , responseListForecasts $
 --             newListForecastsResponse
+--
+--         , responseListMonitorEvaluations $
+--             newListMonitorEvaluationsResponse
+--
+--         , responseListMonitors $
+--             newListMonitorsResponse
 --
 --         , responseListPredictorBacktestExportJobs $
 --             newListPredictorBacktestExportJobsResponse
@@ -227,6 +383,18 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListWhatIfAnalyses $
+--             newListWhatIfAnalysesResponse
+--
+--         , responseListWhatIfForecastExports $
+--             newListWhatIfForecastExportsResponse
+--
+--         , responseListWhatIfForecasts $
+--             newListWhatIfForecastsResponse
+--
+--         , responseResumeResource $
+--             newResumeResourceResponse
 --
 --         , responseStopResource $
 --             newStopResourceResponse
@@ -244,6 +412,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCreateAutoPredictor :: CreateAutoPredictor -> TestTree
+requestCreateAutoPredictor =
+  req
+    "CreateAutoPredictor"
+    "fixture/CreateAutoPredictor.yaml"
 
 requestCreateDataset :: CreateDataset -> TestTree
 requestCreateDataset =
@@ -263,6 +437,18 @@ requestCreateDatasetImportJob =
     "CreateDatasetImportJob"
     "fixture/CreateDatasetImportJob.yaml"
 
+requestCreateExplainability :: CreateExplainability -> TestTree
+requestCreateExplainability =
+  req
+    "CreateExplainability"
+    "fixture/CreateExplainability.yaml"
+
+requestCreateExplainabilityExport :: CreateExplainabilityExport -> TestTree
+requestCreateExplainabilityExport =
+  req
+    "CreateExplainabilityExport"
+    "fixture/CreateExplainabilityExport.yaml"
+
 requestCreateForecast :: CreateForecast -> TestTree
 requestCreateForecast =
   req
@@ -275,6 +461,12 @@ requestCreateForecastExportJob =
     "CreateForecastExportJob"
     "fixture/CreateForecastExportJob.yaml"
 
+requestCreateMonitor :: CreateMonitor -> TestTree
+requestCreateMonitor =
+  req
+    "CreateMonitor"
+    "fixture/CreateMonitor.yaml"
+
 requestCreatePredictor :: CreatePredictor -> TestTree
 requestCreatePredictor =
   req
@@ -286,6 +478,24 @@ requestCreatePredictorBacktestExportJob =
   req
     "CreatePredictorBacktestExportJob"
     "fixture/CreatePredictorBacktestExportJob.yaml"
+
+requestCreateWhatIfAnalysis :: CreateWhatIfAnalysis -> TestTree
+requestCreateWhatIfAnalysis =
+  req
+    "CreateWhatIfAnalysis"
+    "fixture/CreateWhatIfAnalysis.yaml"
+
+requestCreateWhatIfForecast :: CreateWhatIfForecast -> TestTree
+requestCreateWhatIfForecast =
+  req
+    "CreateWhatIfForecast"
+    "fixture/CreateWhatIfForecast.yaml"
+
+requestCreateWhatIfForecastExport :: CreateWhatIfForecastExport -> TestTree
+requestCreateWhatIfForecastExport =
+  req
+    "CreateWhatIfForecastExport"
+    "fixture/CreateWhatIfForecastExport.yaml"
 
 requestDeleteDataset :: DeleteDataset -> TestTree
 requestDeleteDataset =
@@ -305,6 +515,18 @@ requestDeleteDatasetImportJob =
     "DeleteDatasetImportJob"
     "fixture/DeleteDatasetImportJob.yaml"
 
+requestDeleteExplainability :: DeleteExplainability -> TestTree
+requestDeleteExplainability =
+  req
+    "DeleteExplainability"
+    "fixture/DeleteExplainability.yaml"
+
+requestDeleteExplainabilityExport :: DeleteExplainabilityExport -> TestTree
+requestDeleteExplainabilityExport =
+  req
+    "DeleteExplainabilityExport"
+    "fixture/DeleteExplainabilityExport.yaml"
+
 requestDeleteForecast :: DeleteForecast -> TestTree
 requestDeleteForecast =
   req
@@ -316,6 +538,12 @@ requestDeleteForecastExportJob =
   req
     "DeleteForecastExportJob"
     "fixture/DeleteForecastExportJob.yaml"
+
+requestDeleteMonitor :: DeleteMonitor -> TestTree
+requestDeleteMonitor =
+  req
+    "DeleteMonitor"
+    "fixture/DeleteMonitor.yaml"
 
 requestDeletePredictor :: DeletePredictor -> TestTree
 requestDeletePredictor =
@@ -335,6 +563,30 @@ requestDeleteResourceTree =
     "DeleteResourceTree"
     "fixture/DeleteResourceTree.yaml"
 
+requestDeleteWhatIfAnalysis :: DeleteWhatIfAnalysis -> TestTree
+requestDeleteWhatIfAnalysis =
+  req
+    "DeleteWhatIfAnalysis"
+    "fixture/DeleteWhatIfAnalysis.yaml"
+
+requestDeleteWhatIfForecast :: DeleteWhatIfForecast -> TestTree
+requestDeleteWhatIfForecast =
+  req
+    "DeleteWhatIfForecast"
+    "fixture/DeleteWhatIfForecast.yaml"
+
+requestDeleteWhatIfForecastExport :: DeleteWhatIfForecastExport -> TestTree
+requestDeleteWhatIfForecastExport =
+  req
+    "DeleteWhatIfForecastExport"
+    "fixture/DeleteWhatIfForecastExport.yaml"
+
+requestDescribeAutoPredictor :: DescribeAutoPredictor -> TestTree
+requestDescribeAutoPredictor =
+  req
+    "DescribeAutoPredictor"
+    "fixture/DescribeAutoPredictor.yaml"
+
 requestDescribeDataset :: DescribeDataset -> TestTree
 requestDescribeDataset =
   req
@@ -353,6 +605,18 @@ requestDescribeDatasetImportJob =
     "DescribeDatasetImportJob"
     "fixture/DescribeDatasetImportJob.yaml"
 
+requestDescribeExplainability :: DescribeExplainability -> TestTree
+requestDescribeExplainability =
+  req
+    "DescribeExplainability"
+    "fixture/DescribeExplainability.yaml"
+
+requestDescribeExplainabilityExport :: DescribeExplainabilityExport -> TestTree
+requestDescribeExplainabilityExport =
+  req
+    "DescribeExplainabilityExport"
+    "fixture/DescribeExplainabilityExport.yaml"
+
 requestDescribeForecast :: DescribeForecast -> TestTree
 requestDescribeForecast =
   req
@@ -365,6 +629,12 @@ requestDescribeForecastExportJob =
     "DescribeForecastExportJob"
     "fixture/DescribeForecastExportJob.yaml"
 
+requestDescribeMonitor :: DescribeMonitor -> TestTree
+requestDescribeMonitor =
+  req
+    "DescribeMonitor"
+    "fixture/DescribeMonitor.yaml"
+
 requestDescribePredictor :: DescribePredictor -> TestTree
 requestDescribePredictor =
   req
@@ -376,6 +646,24 @@ requestDescribePredictorBacktestExportJob =
   req
     "DescribePredictorBacktestExportJob"
     "fixture/DescribePredictorBacktestExportJob.yaml"
+
+requestDescribeWhatIfAnalysis :: DescribeWhatIfAnalysis -> TestTree
+requestDescribeWhatIfAnalysis =
+  req
+    "DescribeWhatIfAnalysis"
+    "fixture/DescribeWhatIfAnalysis.yaml"
+
+requestDescribeWhatIfForecast :: DescribeWhatIfForecast -> TestTree
+requestDescribeWhatIfForecast =
+  req
+    "DescribeWhatIfForecast"
+    "fixture/DescribeWhatIfForecast.yaml"
+
+requestDescribeWhatIfForecastExport :: DescribeWhatIfForecastExport -> TestTree
+requestDescribeWhatIfForecastExport =
+  req
+    "DescribeWhatIfForecastExport"
+    "fixture/DescribeWhatIfForecastExport.yaml"
 
 requestGetAccuracyMetrics :: GetAccuracyMetrics -> TestTree
 requestGetAccuracyMetrics =
@@ -401,6 +689,18 @@ requestListDatasets =
     "ListDatasets"
     "fixture/ListDatasets.yaml"
 
+requestListExplainabilities :: ListExplainabilities -> TestTree
+requestListExplainabilities =
+  req
+    "ListExplainabilities"
+    "fixture/ListExplainabilities.yaml"
+
+requestListExplainabilityExports :: ListExplainabilityExports -> TestTree
+requestListExplainabilityExports =
+  req
+    "ListExplainabilityExports"
+    "fixture/ListExplainabilityExports.yaml"
+
 requestListForecastExportJobs :: ListForecastExportJobs -> TestTree
 requestListForecastExportJobs =
   req
@@ -412,6 +712,18 @@ requestListForecasts =
   req
     "ListForecasts"
     "fixture/ListForecasts.yaml"
+
+requestListMonitorEvaluations :: ListMonitorEvaluations -> TestTree
+requestListMonitorEvaluations =
+  req
+    "ListMonitorEvaluations"
+    "fixture/ListMonitorEvaluations.yaml"
+
+requestListMonitors :: ListMonitors -> TestTree
+requestListMonitors =
+  req
+    "ListMonitors"
+    "fixture/ListMonitors.yaml"
 
 requestListPredictorBacktestExportJobs :: ListPredictorBacktestExportJobs -> TestTree
 requestListPredictorBacktestExportJobs =
@@ -430,6 +742,30 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListWhatIfAnalyses :: ListWhatIfAnalyses -> TestTree
+requestListWhatIfAnalyses =
+  req
+    "ListWhatIfAnalyses"
+    "fixture/ListWhatIfAnalyses.yaml"
+
+requestListWhatIfForecastExports :: ListWhatIfForecastExports -> TestTree
+requestListWhatIfForecastExports =
+  req
+    "ListWhatIfForecastExports"
+    "fixture/ListWhatIfForecastExports.yaml"
+
+requestListWhatIfForecasts :: ListWhatIfForecasts -> TestTree
+requestListWhatIfForecasts =
+  req
+    "ListWhatIfForecasts"
+    "fixture/ListWhatIfForecasts.yaml"
+
+requestResumeResource :: ResumeResource -> TestTree
+requestResumeResource =
+  req
+    "ResumeResource"
+    "fixture/ResumeResource.yaml"
 
 requestStopResource :: StopResource -> TestTree
 requestStopResource =
@@ -457,6 +793,14 @@ requestUpdateDatasetGroup =
 
 -- Responses
 
+responseCreateAutoPredictor :: CreateAutoPredictorResponse -> TestTree
+responseCreateAutoPredictor =
+  res
+    "CreateAutoPredictorResponse"
+    "fixture/CreateAutoPredictorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAutoPredictor)
+
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
   res
@@ -481,6 +825,22 @@ responseCreateDatasetImportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDatasetImportJob)
 
+responseCreateExplainability :: CreateExplainabilityResponse -> TestTree
+responseCreateExplainability =
+  res
+    "CreateExplainabilityResponse"
+    "fixture/CreateExplainabilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateExplainability)
+
+responseCreateExplainabilityExport :: CreateExplainabilityExportResponse -> TestTree
+responseCreateExplainabilityExport =
+  res
+    "CreateExplainabilityExportResponse"
+    "fixture/CreateExplainabilityExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateExplainabilityExport)
+
 responseCreateForecast :: CreateForecastResponse -> TestTree
 responseCreateForecast =
   res
@@ -497,6 +857,14 @@ responseCreateForecastExportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateForecastExportJob)
 
+responseCreateMonitor :: CreateMonitorResponse -> TestTree
+responseCreateMonitor =
+  res
+    "CreateMonitorResponse"
+    "fixture/CreateMonitorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMonitor)
+
 responseCreatePredictor :: CreatePredictorResponse -> TestTree
 responseCreatePredictor =
   res
@@ -512,6 +880,30 @@ responseCreatePredictorBacktestExportJob =
     "fixture/CreatePredictorBacktestExportJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreatePredictorBacktestExportJob)
+
+responseCreateWhatIfAnalysis :: CreateWhatIfAnalysisResponse -> TestTree
+responseCreateWhatIfAnalysis =
+  res
+    "CreateWhatIfAnalysisResponse"
+    "fixture/CreateWhatIfAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWhatIfAnalysis)
+
+responseCreateWhatIfForecast :: CreateWhatIfForecastResponse -> TestTree
+responseCreateWhatIfForecast =
+  res
+    "CreateWhatIfForecastResponse"
+    "fixture/CreateWhatIfForecastResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWhatIfForecast)
+
+responseCreateWhatIfForecastExport :: CreateWhatIfForecastExportResponse -> TestTree
+responseCreateWhatIfForecastExport =
+  res
+    "CreateWhatIfForecastExportResponse"
+    "fixture/CreateWhatIfForecastExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWhatIfForecastExport)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -537,6 +929,22 @@ responseDeleteDatasetImportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDatasetImportJob)
 
+responseDeleteExplainability :: DeleteExplainabilityResponse -> TestTree
+responseDeleteExplainability =
+  res
+    "DeleteExplainabilityResponse"
+    "fixture/DeleteExplainabilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteExplainability)
+
+responseDeleteExplainabilityExport :: DeleteExplainabilityExportResponse -> TestTree
+responseDeleteExplainabilityExport =
+  res
+    "DeleteExplainabilityExportResponse"
+    "fixture/DeleteExplainabilityExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteExplainabilityExport)
+
 responseDeleteForecast :: DeleteForecastResponse -> TestTree
 responseDeleteForecast =
   res
@@ -552,6 +960,14 @@ responseDeleteForecastExportJob =
     "fixture/DeleteForecastExportJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteForecastExportJob)
+
+responseDeleteMonitor :: DeleteMonitorResponse -> TestTree
+responseDeleteMonitor =
+  res
+    "DeleteMonitorResponse"
+    "fixture/DeleteMonitorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMonitor)
 
 responseDeletePredictor :: DeletePredictorResponse -> TestTree
 responseDeletePredictor =
@@ -577,6 +993,38 @@ responseDeleteResourceTree =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResourceTree)
 
+responseDeleteWhatIfAnalysis :: DeleteWhatIfAnalysisResponse -> TestTree
+responseDeleteWhatIfAnalysis =
+  res
+    "DeleteWhatIfAnalysisResponse"
+    "fixture/DeleteWhatIfAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWhatIfAnalysis)
+
+responseDeleteWhatIfForecast :: DeleteWhatIfForecastResponse -> TestTree
+responseDeleteWhatIfForecast =
+  res
+    "DeleteWhatIfForecastResponse"
+    "fixture/DeleteWhatIfForecastResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWhatIfForecast)
+
+responseDeleteWhatIfForecastExport :: DeleteWhatIfForecastExportResponse -> TestTree
+responseDeleteWhatIfForecastExport =
+  res
+    "DeleteWhatIfForecastExportResponse"
+    "fixture/DeleteWhatIfForecastExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWhatIfForecastExport)
+
+responseDescribeAutoPredictor :: DescribeAutoPredictorResponse -> TestTree
+responseDescribeAutoPredictor =
+  res
+    "DescribeAutoPredictorResponse"
+    "fixture/DescribeAutoPredictorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAutoPredictor)
+
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
   res
@@ -601,6 +1049,22 @@ responseDescribeDatasetImportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDatasetImportJob)
 
+responseDescribeExplainability :: DescribeExplainabilityResponse -> TestTree
+responseDescribeExplainability =
+  res
+    "DescribeExplainabilityResponse"
+    "fixture/DescribeExplainabilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeExplainability)
+
+responseDescribeExplainabilityExport :: DescribeExplainabilityExportResponse -> TestTree
+responseDescribeExplainabilityExport =
+  res
+    "DescribeExplainabilityExportResponse"
+    "fixture/DescribeExplainabilityExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeExplainabilityExport)
+
 responseDescribeForecast :: DescribeForecastResponse -> TestTree
 responseDescribeForecast =
   res
@@ -617,6 +1081,14 @@ responseDescribeForecastExportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeForecastExportJob)
 
+responseDescribeMonitor :: DescribeMonitorResponse -> TestTree
+responseDescribeMonitor =
+  res
+    "DescribeMonitorResponse"
+    "fixture/DescribeMonitorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMonitor)
+
 responseDescribePredictor :: DescribePredictorResponse -> TestTree
 responseDescribePredictor =
   res
@@ -632,6 +1104,30 @@ responseDescribePredictorBacktestExportJob =
     "fixture/DescribePredictorBacktestExportJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePredictorBacktestExportJob)
+
+responseDescribeWhatIfAnalysis :: DescribeWhatIfAnalysisResponse -> TestTree
+responseDescribeWhatIfAnalysis =
+  res
+    "DescribeWhatIfAnalysisResponse"
+    "fixture/DescribeWhatIfAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWhatIfAnalysis)
+
+responseDescribeWhatIfForecast :: DescribeWhatIfForecastResponse -> TestTree
+responseDescribeWhatIfForecast =
+  res
+    "DescribeWhatIfForecastResponse"
+    "fixture/DescribeWhatIfForecastResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWhatIfForecast)
+
+responseDescribeWhatIfForecastExport :: DescribeWhatIfForecastExportResponse -> TestTree
+responseDescribeWhatIfForecastExport =
+  res
+    "DescribeWhatIfForecastExportResponse"
+    "fixture/DescribeWhatIfForecastExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWhatIfForecastExport)
 
 responseGetAccuracyMetrics :: GetAccuracyMetricsResponse -> TestTree
 responseGetAccuracyMetrics =
@@ -665,6 +1161,22 @@ responseListDatasets =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
+responseListExplainabilities :: ListExplainabilitiesResponse -> TestTree
+responseListExplainabilities =
+  res
+    "ListExplainabilitiesResponse"
+    "fixture/ListExplainabilitiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExplainabilities)
+
+responseListExplainabilityExports :: ListExplainabilityExportsResponse -> TestTree
+responseListExplainabilityExports =
+  res
+    "ListExplainabilityExportsResponse"
+    "fixture/ListExplainabilityExportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExplainabilityExports)
+
 responseListForecastExportJobs :: ListForecastExportJobsResponse -> TestTree
 responseListForecastExportJobs =
   res
@@ -680,6 +1192,22 @@ responseListForecasts =
     "fixture/ListForecastsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListForecasts)
+
+responseListMonitorEvaluations :: ListMonitorEvaluationsResponse -> TestTree
+responseListMonitorEvaluations =
+  res
+    "ListMonitorEvaluationsResponse"
+    "fixture/ListMonitorEvaluationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMonitorEvaluations)
+
+responseListMonitors :: ListMonitorsResponse -> TestTree
+responseListMonitors =
+  res
+    "ListMonitorsResponse"
+    "fixture/ListMonitorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMonitors)
 
 responseListPredictorBacktestExportJobs :: ListPredictorBacktestExportJobsResponse -> TestTree
 responseListPredictorBacktestExportJobs =
@@ -704,6 +1232,38 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWhatIfAnalyses :: ListWhatIfAnalysesResponse -> TestTree
+responseListWhatIfAnalyses =
+  res
+    "ListWhatIfAnalysesResponse"
+    "fixture/ListWhatIfAnalysesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWhatIfAnalyses)
+
+responseListWhatIfForecastExports :: ListWhatIfForecastExportsResponse -> TestTree
+responseListWhatIfForecastExports =
+  res
+    "ListWhatIfForecastExportsResponse"
+    "fixture/ListWhatIfForecastExportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWhatIfForecastExports)
+
+responseListWhatIfForecasts :: ListWhatIfForecastsResponse -> TestTree
+responseListWhatIfForecasts =
+  res
+    "ListWhatIfForecastsResponse"
+    "fixture/ListWhatIfForecastsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWhatIfForecasts)
+
+responseResumeResource :: ResumeResourceResponse -> TestTree
+responseResumeResource =
+  res
+    "ResumeResourceResponse"
+    "fixture/ResumeResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResumeResource)
 
 responseStopResource :: StopResourceResponse -> TestTree
 responseStopResource =

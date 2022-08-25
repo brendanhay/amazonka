@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a fleet provisioning template version.
+-- Returns information about a provisioning template version.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeProvisioningTemplateVersion>
@@ -58,7 +58,7 @@ import qualified Amazonka.Response as Response
 data DescribeProvisioningTemplateVersion = DescribeProvisioningTemplateVersion'
   { -- | The template name.
     templateName :: Prelude.Text,
-    -- | The fleet provisioning template version ID.
+    -- | The provisioning template version ID.
     versionId :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +73,7 @@ data DescribeProvisioningTemplateVersion = DescribeProvisioningTemplateVersion'
 --
 -- 'templateName', 'describeProvisioningTemplateVersion_templateName' - The template name.
 --
--- 'versionId', 'describeProvisioningTemplateVersion_versionId' - The fleet provisioning template version ID.
+-- 'versionId', 'describeProvisioningTemplateVersion_versionId' - The provisioning template version ID.
 newDescribeProvisioningTemplateVersion ::
   -- | 'templateName'
   Prelude.Text ->
@@ -93,7 +93,7 @@ newDescribeProvisioningTemplateVersion
 describeProvisioningTemplateVersion_templateName :: Lens.Lens' DescribeProvisioningTemplateVersion Prelude.Text
 describeProvisioningTemplateVersion_templateName = Lens.lens (\DescribeProvisioningTemplateVersion' {templateName} -> templateName) (\s@DescribeProvisioningTemplateVersion' {} a -> s {templateName = a} :: DescribeProvisioningTemplateVersion)
 
--- | The fleet provisioning template version ID.
+-- | The provisioning template version ID.
 describeProvisioningTemplateVersion_versionId :: Lens.Lens' DescribeProvisioningTemplateVersion Prelude.Int
 describeProvisioningTemplateVersion_versionId = Lens.lens (\DescribeProvisioningTemplateVersion' {versionId} -> versionId) (\s@DescribeProvisioningTemplateVersion' {} a -> s {versionId = a} :: DescribeProvisioningTemplateVersion)
 
@@ -160,13 +160,13 @@ instance
 
 -- | /See:/ 'newDescribeProvisioningTemplateVersionResponse' smart constructor.
 data DescribeProvisioningTemplateVersionResponse = DescribeProvisioningTemplateVersionResponse'
-  { -- | True if the fleet provisioning template version is the default version.
+  { -- | True if the provisioning template version is the default version.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The JSON formatted contents of the fleet provisioning template version.
+    -- | The JSON formatted contents of the provisioning template version.
     templateBody :: Prelude.Maybe Prelude.Text,
-    -- | The date when the fleet provisioning template version was created.
+    -- | The date when the provisioning template version was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The fleet provisioning template version ID.
+    -- | The provisioning template version ID.
     versionId :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,13 +181,13 @@ data DescribeProvisioningTemplateVersionResponse = DescribeProvisioningTemplateV
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isDefaultVersion', 'describeProvisioningTemplateVersionResponse_isDefaultVersion' - True if the fleet provisioning template version is the default version.
+-- 'isDefaultVersion', 'describeProvisioningTemplateVersionResponse_isDefaultVersion' - True if the provisioning template version is the default version.
 --
--- 'templateBody', 'describeProvisioningTemplateVersionResponse_templateBody' - The JSON formatted contents of the fleet provisioning template version.
+-- 'templateBody', 'describeProvisioningTemplateVersionResponse_templateBody' - The JSON formatted contents of the provisioning template version.
 --
--- 'creationDate', 'describeProvisioningTemplateVersionResponse_creationDate' - The date when the fleet provisioning template version was created.
+-- 'creationDate', 'describeProvisioningTemplateVersionResponse_creationDate' - The date when the provisioning template version was created.
 --
--- 'versionId', 'describeProvisioningTemplateVersionResponse_versionId' - The fleet provisioning template version ID.
+-- 'versionId', 'describeProvisioningTemplateVersionResponse_versionId' - The provisioning template version ID.
 --
 -- 'httpStatus', 'describeProvisioningTemplateVersionResponse_httpStatus' - The response's http status code.
 newDescribeProvisioningTemplateVersionResponse ::
@@ -205,19 +205,19 @@ newDescribeProvisioningTemplateVersionResponse
         httpStatus = pHttpStatus_
       }
 
--- | True if the fleet provisioning template version is the default version.
+-- | True if the provisioning template version is the default version.
 describeProvisioningTemplateVersionResponse_isDefaultVersion :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Bool)
 describeProvisioningTemplateVersionResponse_isDefaultVersion = Lens.lens (\DescribeProvisioningTemplateVersionResponse' {isDefaultVersion} -> isDefaultVersion) (\s@DescribeProvisioningTemplateVersionResponse' {} a -> s {isDefaultVersion = a} :: DescribeProvisioningTemplateVersionResponse)
 
--- | The JSON formatted contents of the fleet provisioning template version.
+-- | The JSON formatted contents of the provisioning template version.
 describeProvisioningTemplateVersionResponse_templateBody :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Text)
 describeProvisioningTemplateVersionResponse_templateBody = Lens.lens (\DescribeProvisioningTemplateVersionResponse' {templateBody} -> templateBody) (\s@DescribeProvisioningTemplateVersionResponse' {} a -> s {templateBody = a} :: DescribeProvisioningTemplateVersionResponse)
 
--- | The date when the fleet provisioning template version was created.
+-- | The date when the provisioning template version was created.
 describeProvisioningTemplateVersionResponse_creationDate :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.UTCTime)
 describeProvisioningTemplateVersionResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateVersionResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateVersionResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateVersionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The fleet provisioning template version ID.
+-- | The provisioning template version ID.
 describeProvisioningTemplateVersionResponse_versionId :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Int)
 describeProvisioningTemplateVersionResponse_versionId = Lens.lens (\DescribeProvisioningTemplateVersionResponse' {versionId} -> versionId) (\s@DescribeProvisioningTemplateVersionResponse' {} a -> s {versionId = a} :: DescribeProvisioningTemplateVersionResponse)
 

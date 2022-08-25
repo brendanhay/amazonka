@@ -134,6 +134,12 @@ module Amazonka.ServiceCatalogAppRegistry
     ListAttributeGroupsResponse (ListAttributeGroupsResponse'),
     newListAttributeGroupsResponse,
 
+    -- ** ListAttributeGroupsForApplication (Paginated)
+    ListAttributeGroupsForApplication (ListAttributeGroupsForApplication'),
+    newListAttributeGroupsForApplication,
+    ListAttributeGroupsForApplicationResponse (ListAttributeGroupsForApplicationResponse'),
+    newListAttributeGroupsForApplicationResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -193,6 +199,10 @@ module Amazonka.ServiceCatalogAppRegistry
     AttributeGroup (AttributeGroup'),
     newAttributeGroup,
 
+    -- ** AttributeGroupDetails
+    AttributeGroupDetails (AttributeGroupDetails'),
+    newAttributeGroupDetails,
+
     -- ** AttributeGroupSummary
     AttributeGroupSummary (AttributeGroupSummary'),
     newAttributeGroupSummary,
@@ -235,6 +245,7 @@ import Amazonka.ServiceCatalogAppRegistry.ListApplications
 import Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
 import Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
 import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
+import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
 import Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
 import Amazonka.ServiceCatalogAppRegistry.SyncResource
 import Amazonka.ServiceCatalogAppRegistry.TagResource

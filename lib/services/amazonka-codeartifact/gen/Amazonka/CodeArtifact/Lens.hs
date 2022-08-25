@@ -102,6 +102,16 @@ module Amazonka.CodeArtifact.Lens
     describeDomainResponse_domain,
     describeDomainResponse_httpStatus,
 
+    -- ** DescribePackage
+    describePackage_domainOwner,
+    describePackage_namespace,
+    describePackage_domain,
+    describePackage_repository,
+    describePackage_format,
+    describePackage_package,
+    describePackageResponse_httpStatus,
+    describePackageResponse_package,
+
     -- ** DescribePackageVersion
     describePackageVersion_domainOwner,
     describePackageVersion_namespace,
@@ -249,6 +259,7 @@ module Amazonka.CodeArtifact.Lens
 
     -- ** ListPackageVersions
     listPackageVersions_nextToken,
+    listPackageVersions_originType,
     listPackageVersions_status,
     listPackageVersions_sortBy,
     listPackageVersions_maxResults,
@@ -268,6 +279,8 @@ module Amazonka.CodeArtifact.Lens
 
     -- ** ListPackages
     listPackages_nextToken,
+    listPackages_publish,
+    listPackages_upstream,
     listPackages_format,
     listPackages_maxResults,
     listPackages_domainOwner,
@@ -310,6 +323,17 @@ module Amazonka.CodeArtifact.Lens
     putDomainPermissionsPolicy_policyDocument,
     putDomainPermissionsPolicyResponse_policy,
     putDomainPermissionsPolicyResponse_httpStatus,
+
+    -- ** PutPackageOriginConfiguration
+    putPackageOriginConfiguration_domainOwner,
+    putPackageOriginConfiguration_namespace,
+    putPackageOriginConfiguration_domain,
+    putPackageOriginConfiguration_repository,
+    putPackageOriginConfiguration_format,
+    putPackageOriginConfiguration_package,
+    putPackageOriginConfiguration_restrictions,
+    putPackageOriginConfigurationResponse_originConfiguration,
+    putPackageOriginConfigurationResponse_httpStatus,
 
     -- ** PutRepositoryPermissionsPolicy
     putRepositoryPermissionsPolicy_policyRevision,
@@ -372,6 +396,10 @@ module Amazonka.CodeArtifact.Lens
     domainDescription_s3BucketArn,
     domainDescription_encryptionKey,
 
+    -- ** DomainEntryPoint
+    domainEntryPoint_repositoryName,
+    domainEntryPoint_externalConnectionName,
+
     -- ** DomainSummary
     domainSummary_name,
     domainSummary_createdTime,
@@ -390,9 +418,23 @@ module Amazonka.CodeArtifact.Lens
     packageDependency_dependencyType,
     packageDependency_namespace,
 
+    -- ** PackageDescription
+    packageDescription_name,
+    packageDescription_format,
+    packageDescription_originConfiguration,
+    packageDescription_namespace,
+
+    -- ** PackageOriginConfiguration
+    packageOriginConfiguration_restrictions,
+
+    -- ** PackageOriginRestrictions
+    packageOriginRestrictions_publish,
+    packageOriginRestrictions_upstream,
+
     -- ** PackageSummary
     packageSummary_format,
     packageSummary_package,
+    packageSummary_originConfiguration,
     packageSummary_namespace,
 
     -- ** PackageVersionDescription
@@ -406,6 +448,7 @@ module Amazonka.CodeArtifact.Lens
     packageVersionDescription_status,
     packageVersionDescription_sourceCodeRepository,
     packageVersionDescription_namespace,
+    packageVersionDescription_origin,
     packageVersionDescription_version,
     packageVersionDescription_licenses,
 
@@ -413,8 +456,13 @@ module Amazonka.CodeArtifact.Lens
     packageVersionError_errorMessage,
     packageVersionError_errorCode,
 
+    -- ** PackageVersionOrigin
+    packageVersionOrigin_originType,
+    packageVersionOrigin_domainEntryPoint,
+
     -- ** PackageVersionSummary
     packageVersionSummary_revision,
+    packageVersionSummary_origin,
     packageVersionSummary_version,
     packageVersionSummary_status,
 
@@ -472,6 +520,7 @@ import Amazonka.CodeArtifact.DeletePackageVersions
 import Amazonka.CodeArtifact.DeleteRepository
 import Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
 import Amazonka.CodeArtifact.DescribeDomain
+import Amazonka.CodeArtifact.DescribePackage
 import Amazonka.CodeArtifact.DescribePackageVersion
 import Amazonka.CodeArtifact.DescribeRepository
 import Amazonka.CodeArtifact.DisassociateExternalConnection
@@ -491,16 +540,22 @@ import Amazonka.CodeArtifact.ListRepositories
 import Amazonka.CodeArtifact.ListRepositoriesInDomain
 import Amazonka.CodeArtifact.ListTagsForResource
 import Amazonka.CodeArtifact.PutDomainPermissionsPolicy
+import Amazonka.CodeArtifact.PutPackageOriginConfiguration
 import Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy
 import Amazonka.CodeArtifact.TagResource
 import Amazonka.CodeArtifact.Types.AssetSummary
 import Amazonka.CodeArtifact.Types.DomainDescription
+import Amazonka.CodeArtifact.Types.DomainEntryPoint
 import Amazonka.CodeArtifact.Types.DomainSummary
 import Amazonka.CodeArtifact.Types.LicenseInfo
 import Amazonka.CodeArtifact.Types.PackageDependency
+import Amazonka.CodeArtifact.Types.PackageDescription
+import Amazonka.CodeArtifact.Types.PackageOriginConfiguration
+import Amazonka.CodeArtifact.Types.PackageOriginRestrictions
 import Amazonka.CodeArtifact.Types.PackageSummary
 import Amazonka.CodeArtifact.Types.PackageVersionDescription
 import Amazonka.CodeArtifact.Types.PackageVersionError
+import Amazonka.CodeArtifact.Types.PackageVersionOrigin
 import Amazonka.CodeArtifact.Types.PackageVersionSummary
 import Amazonka.CodeArtifact.Types.RepositoryDescription
 import Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo

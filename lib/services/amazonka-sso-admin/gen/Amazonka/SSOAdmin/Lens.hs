@@ -14,6 +14,12 @@
 module Amazonka.SSOAdmin.Lens
   ( -- * Operations
 
+    -- ** AttachCustomerManagedPolicyReferenceToPermissionSet
+    attachCustomerManagedPolicyReferenceToPermissionSet_instanceArn,
+    attachCustomerManagedPolicyReferenceToPermissionSet_permissionSetArn,
+    attachCustomerManagedPolicyReferenceToPermissionSet_customerManagedPolicyReference,
+    attachCustomerManagedPolicyReferenceToPermissionSetResponse_httpStatus,
+
     -- ** AttachManagedPolicyToPermissionSet
     attachManagedPolicyToPermissionSet_instanceArn,
     attachManagedPolicyToPermissionSet_permissionSetArn,
@@ -69,6 +75,11 @@ module Amazonka.SSOAdmin.Lens
     deletePermissionSet_permissionSetArn,
     deletePermissionSetResponse_httpStatus,
 
+    -- ** DeletePermissionsBoundaryFromPermissionSet
+    deletePermissionsBoundaryFromPermissionSet_instanceArn,
+    deletePermissionsBoundaryFromPermissionSet_permissionSetArn,
+    deletePermissionsBoundaryFromPermissionSetResponse_httpStatus,
+
     -- ** DescribeAccountAssignmentCreationStatus
     describeAccountAssignmentCreationStatus_instanceArn,
     describeAccountAssignmentCreationStatus_accountAssignmentCreationRequestId,
@@ -100,6 +111,12 @@ module Amazonka.SSOAdmin.Lens
     describePermissionSetProvisioningStatusResponse_permissionSetProvisioningStatus,
     describePermissionSetProvisioningStatusResponse_httpStatus,
 
+    -- ** DetachCustomerManagedPolicyReferenceFromPermissionSet
+    detachCustomerManagedPolicyReferenceFromPermissionSet_instanceArn,
+    detachCustomerManagedPolicyReferenceFromPermissionSet_permissionSetArn,
+    detachCustomerManagedPolicyReferenceFromPermissionSet_customerManagedPolicyReference,
+    detachCustomerManagedPolicyReferenceFromPermissionSetResponse_httpStatus,
+
     -- ** DetachManagedPolicyFromPermissionSet
     detachManagedPolicyFromPermissionSet_instanceArn,
     detachManagedPolicyFromPermissionSet_permissionSetArn,
@@ -111,6 +128,12 @@ module Amazonka.SSOAdmin.Lens
     getInlinePolicyForPermissionSet_permissionSetArn,
     getInlinePolicyForPermissionSetResponse_inlinePolicy,
     getInlinePolicyForPermissionSetResponse_httpStatus,
+
+    -- ** GetPermissionsBoundaryForPermissionSet
+    getPermissionsBoundaryForPermissionSet_instanceArn,
+    getPermissionsBoundaryForPermissionSet_permissionSetArn,
+    getPermissionsBoundaryForPermissionSetResponse_permissionsBoundary,
+    getPermissionsBoundaryForPermissionSetResponse_httpStatus,
 
     -- ** ListAccountAssignmentCreationStatus
     listAccountAssignmentCreationStatus_nextToken,
@@ -149,6 +172,15 @@ module Amazonka.SSOAdmin.Lens
     listAccountsForProvisionedPermissionSetResponse_accountIds,
     listAccountsForProvisionedPermissionSetResponse_nextToken,
     listAccountsForProvisionedPermissionSetResponse_httpStatus,
+
+    -- ** ListCustomerManagedPolicyReferencesInPermissionSet
+    listCustomerManagedPolicyReferencesInPermissionSet_nextToken,
+    listCustomerManagedPolicyReferencesInPermissionSet_maxResults,
+    listCustomerManagedPolicyReferencesInPermissionSet_instanceArn,
+    listCustomerManagedPolicyReferencesInPermissionSet_permissionSetArn,
+    listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken,
+    listCustomerManagedPolicyReferencesInPermissionSetResponse_customerManagedPolicyReferences,
+    listCustomerManagedPolicyReferencesInPermissionSetResponse_httpStatus,
 
     -- ** ListInstances
     listInstances_nextToken,
@@ -215,6 +247,12 @@ module Amazonka.SSOAdmin.Lens
     putInlinePolicyToPermissionSet_inlinePolicy,
     putInlinePolicyToPermissionSetResponse_httpStatus,
 
+    -- ** PutPermissionsBoundaryToPermissionSet
+    putPermissionsBoundaryToPermissionSet_instanceArn,
+    putPermissionsBoundaryToPermissionSet_permissionSetArn,
+    putPermissionsBoundaryToPermissionSet_permissionsBoundary,
+    putPermissionsBoundaryToPermissionSetResponse_httpStatus,
+
     -- ** TagResource
     tagResource_instanceArn,
     tagResource_resourceArn,
@@ -275,6 +313,10 @@ module Amazonka.SSOAdmin.Lens
     attachedManagedPolicy_name,
     attachedManagedPolicy_arn,
 
+    -- ** CustomerManagedPolicyReference
+    customerManagedPolicyReference_path,
+    customerManagedPolicyReference_name,
+
     -- ** InstanceAccessControlAttributeConfiguration
     instanceAccessControlAttributeConfiguration_accessControlAttributes,
 
@@ -306,12 +348,17 @@ module Amazonka.SSOAdmin.Lens
     permissionSetProvisioningStatusMetadata_status,
     permissionSetProvisioningStatusMetadata_createdDate,
 
+    -- ** PermissionsBoundary
+    permissionsBoundary_managedPolicyArn,
+    permissionsBoundary_customerManagedPolicyReference,
+
     -- ** Tag
     tag_key,
     tag_value,
   )
 where
 
+import Amazonka.SSOAdmin.AttachCustomerManagedPolicyReferenceToPermissionSet
 import Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
 import Amazonka.SSOAdmin.CreateAccountAssignment
 import Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
@@ -320,17 +367,21 @@ import Amazonka.SSOAdmin.DeleteAccountAssignment
 import Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet
 import Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
 import Amazonka.SSOAdmin.DeletePermissionSet
+import Amazonka.SSOAdmin.DeletePermissionsBoundaryFromPermissionSet
 import Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus
 import Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus
 import Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
 import Amazonka.SSOAdmin.DescribePermissionSet
 import Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus
+import Amazonka.SSOAdmin.DetachCustomerManagedPolicyReferenceFromPermissionSet
 import Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet
 import Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet
+import Amazonka.SSOAdmin.GetPermissionsBoundaryForPermissionSet
 import Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
 import Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
 import Amazonka.SSOAdmin.ListAccountAssignments
 import Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet
+import Amazonka.SSOAdmin.ListCustomerManagedPolicyReferencesInPermissionSet
 import Amazonka.SSOAdmin.ListInstances
 import Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
 import Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
@@ -339,6 +390,7 @@ import Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount
 import Amazonka.SSOAdmin.ListTagsForResource
 import Amazonka.SSOAdmin.ProvisionPermissionSet
 import Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet
+import Amazonka.SSOAdmin.PutPermissionsBoundaryToPermissionSet
 import Amazonka.SSOAdmin.TagResource
 import Amazonka.SSOAdmin.Types.AccessControlAttribute
 import Amazonka.SSOAdmin.Types.AccessControlAttributeValue
@@ -346,12 +398,14 @@ import Amazonka.SSOAdmin.Types.AccountAssignment
 import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
 import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
 import Amazonka.SSOAdmin.Types.AttachedManagedPolicy
+import Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference
 import Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
 import Amazonka.SSOAdmin.Types.InstanceMetadata
 import Amazonka.SSOAdmin.Types.OperationStatusFilter
 import Amazonka.SSOAdmin.Types.PermissionSet
 import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
 import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
+import Amazonka.SSOAdmin.Types.PermissionsBoundary
 import Amazonka.SSOAdmin.Types.Tag
 import Amazonka.SSOAdmin.UntagResource
 import Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration

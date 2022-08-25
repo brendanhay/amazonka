@@ -23,8 +23,8 @@
 -- Returns a list of
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html RepositorySummary>
 -- objects. Each @RepositorySummary@ contains information about a
--- repository in the specified AWS account and that matches the input
--- parameters.
+-- repository in the specified Amazon Web Services account and that matches
+-- the input parameters.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeArtifact.ListRepositories

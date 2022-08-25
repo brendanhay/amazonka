@@ -85,16 +85,16 @@ data ContainerDetail = ContainerDetail'
     -- @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before containers
     -- placed on that instance can use these log configuration options. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     logConfiguration :: Prelude.Maybe LogConfiguration,
     -- | The type and amount of resources to assign to a container. The supported
     -- resources include @GPU@, @MEMORY@, and @VCPU@.
     resourceRequirements :: Prelude.Maybe [ResourceRequirement],
-    -- | For jobs run on EC2 resources that didn\'t specify memory requirements
-    -- using @ResourceRequirement@, the number of MiB of memory reserved for
-    -- the job. For other jobs, including all run on Fargate resources, see
-    -- @resourceRequirements@.
+    -- | For jobs running on EC2 resources that didn\'t specify memory
+    -- requirements using @resourceRequirements@, the number of MiB of memory
+    -- reserved for the job. For other jobs, including all run on Fargate
+    -- resources, see @resourceRequirements@.
     memory :: Prelude.Maybe Prelude.Int,
     -- | The user name to use inside the container. This parameter maps to @User@
     -- in the
@@ -159,7 +159,7 @@ data ContainerDetail = ContainerDetail'
     -- | The number of vCPUs reserved for the container. For jobs that run on EC2
     -- resources, you can specify the vCPU requirement for the job using
     -- @resourceRequirements@, but you can\'t specify the vCPU requirements in
-    -- both the @vcpus@ and @resourceRequirement@ object. This parameter maps
+    -- both the @vcpus@ and @resourceRequirements@ object. This parameter maps
     -- to @CpuShares@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
@@ -253,16 +253,16 @@ data ContainerDetail = ContainerDetail'
 -- @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before containers
 -- placed on that instance can use these log configuration options. For
 -- more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'resourceRequirements', 'containerDetail_resourceRequirements' - The type and amount of resources to assign to a container. The supported
 -- resources include @GPU@, @MEMORY@, and @VCPU@.
 --
--- 'memory', 'containerDetail_memory' - For jobs run on EC2 resources that didn\'t specify memory requirements
--- using @ResourceRequirement@, the number of MiB of memory reserved for
--- the job. For other jobs, including all run on Fargate resources, see
--- @resourceRequirements@.
+-- 'memory', 'containerDetail_memory' - For jobs running on EC2 resources that didn\'t specify memory
+-- requirements using @resourceRequirements@, the number of MiB of memory
+-- reserved for the job. For other jobs, including all run on Fargate
+-- resources, see @resourceRequirements@.
 --
 -- 'user', 'containerDetail_user' - The user name to use inside the container. This parameter maps to @User@
 -- in the
@@ -327,7 +327,7 @@ data ContainerDetail = ContainerDetail'
 -- 'vcpus', 'containerDetail_vcpus' - The number of vCPUs reserved for the container. For jobs that run on EC2
 -- resources, you can specify the vCPU requirement for the job using
 -- @resourceRequirements@, but you can\'t specify the vCPU requirements in
--- both the @vcpus@ and @resourceRequirement@ object. This parameter maps
+-- both the @vcpus@ and @resourceRequirements@ object. This parameter maps
 -- to @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
@@ -446,7 +446,7 @@ containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> envi
 -- @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before containers
 -- placed on that instance can use these log configuration options. For
 -- more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 containerDetail_logConfiguration :: Lens.Lens' ContainerDetail (Prelude.Maybe LogConfiguration)
 containerDetail_logConfiguration = Lens.lens (\ContainerDetail' {logConfiguration} -> logConfiguration) (\s@ContainerDetail' {} a -> s {logConfiguration = a} :: ContainerDetail)
@@ -456,10 +456,10 @@ containerDetail_logConfiguration = Lens.lens (\ContainerDetail' {logConfiguratio
 containerDetail_resourceRequirements :: Lens.Lens' ContainerDetail (Prelude.Maybe [ResourceRequirement])
 containerDetail_resourceRequirements = Lens.lens (\ContainerDetail' {resourceRequirements} -> resourceRequirements) (\s@ContainerDetail' {} a -> s {resourceRequirements = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | For jobs run on EC2 resources that didn\'t specify memory requirements
--- using @ResourceRequirement@, the number of MiB of memory reserved for
--- the job. For other jobs, including all run on Fargate resources, see
--- @resourceRequirements@.
+-- | For jobs running on EC2 resources that didn\'t specify memory
+-- requirements using @resourceRequirements@, the number of MiB of memory
+-- reserved for the job. For other jobs, including all run on Fargate
+-- resources, see @resourceRequirements@.
 containerDetail_memory :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Int)
 containerDetail_memory = Lens.lens (\ContainerDetail' {memory} -> memory) (\s@ContainerDetail' {} a -> s {memory = a} :: ContainerDetail)
 
@@ -552,7 +552,7 @@ containerDetail_containerInstanceArn = Lens.lens (\ContainerDetail' {containerIn
 -- | The number of vCPUs reserved for the container. For jobs that run on EC2
 -- resources, you can specify the vCPU requirement for the job using
 -- @resourceRequirements@, but you can\'t specify the vCPU requirements in
--- both the @vcpus@ and @resourceRequirement@ object. This parameter maps
+-- both the @vcpus@ and @resourceRequirements@ object. This parameter maps
 -- to @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the

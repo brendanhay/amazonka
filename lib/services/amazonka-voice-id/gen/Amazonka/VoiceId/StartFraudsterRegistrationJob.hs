@@ -76,7 +76,7 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
     -- that contains the list of fraudster registration requests.
     inputDataConfig :: InputDataConfig,
     -- | The output data config containing the S3 location where Voice ID writes
-    -- the job output file; you must also include a KMS Key ID to encrypt the
+    -- the job output file; you must also include a KMS key ID to encrypt the
     -- file.
     outputDataConfig :: OutputDataConfig
   }
@@ -112,7 +112,7 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
 -- that contains the list of fraudster registration requests.
 --
 -- 'outputDataConfig', 'startFraudsterRegistrationJob_outputDataConfig' - The output data config containing the S3 location where Voice ID writes
--- the job output file; you must also include a KMS Key ID to encrypt the
+-- the job output file; you must also include a KMS key ID to encrypt the
 -- file.
 newStartFraudsterRegistrationJob ::
   -- | 'dataAccessRoleArn'
@@ -174,7 +174,7 @@ startFraudsterRegistrationJob_inputDataConfig :: Lens.Lens' StartFraudsterRegist
 startFraudsterRegistrationJob_inputDataConfig = Lens.lens (\StartFraudsterRegistrationJob' {inputDataConfig} -> inputDataConfig) (\s@StartFraudsterRegistrationJob' {} a -> s {inputDataConfig = a} :: StartFraudsterRegistrationJob)
 
 -- | The output data config containing the S3 location where Voice ID writes
--- the job output file; you must also include a KMS Key ID to encrypt the
+-- the job output file; you must also include a KMS key ID to encrypt the
 -- file.
 startFraudsterRegistrationJob_outputDataConfig :: Lens.Lens' StartFraudsterRegistrationJob OutputDataConfig
 startFraudsterRegistrationJob_outputDataConfig = Lens.lens (\StartFraudsterRegistrationJob' {outputDataConfig} -> outputDataConfig) (\s@StartFraudsterRegistrationJob' {} a -> s {outputDataConfig = a} :: StartFraudsterRegistrationJob)

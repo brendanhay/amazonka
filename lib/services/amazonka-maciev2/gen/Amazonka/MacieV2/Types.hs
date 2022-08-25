@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types
     _InternalServerException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _UnprocessableEntityException,
     _ConflictException,
     _ThrottlingException,
     _ValidationException,
@@ -31,11 +32,17 @@ module Amazonka.MacieV2.Types
     -- * AllowsUnencryptedObjectUploads
     AllowsUnencryptedObjectUploads (..),
 
+    -- * AvailabilityCode
+    AvailabilityCode (..),
+
     -- * BucketMetadataErrorCode
     BucketMetadataErrorCode (..),
 
     -- * Currency
     Currency (..),
+
+    -- * DataIdentifierSeverity
+    DataIdentifierSeverity (..),
 
     -- * DayOfWeek
     DayOfWeek (..),
@@ -103,8 +110,17 @@ module Amazonka.MacieV2.Types
     -- * OrderBy
     OrderBy (..),
 
+    -- * OriginType
+    OriginType (..),
+
     -- * RelationshipStatus
     RelationshipStatus (..),
+
+    -- * RevealRequestStatus
+    RevealRequestStatus (..),
+
+    -- * RevealStatus
+    RevealStatus (..),
 
     -- * ScopeFilterKey
     ScopeFilterKey (..),
@@ -141,6 +157,9 @@ module Amazonka.MacieV2.Types
 
     -- * Type
     Type (..),
+
+    -- * UnavailabilityReasonCode
+    UnavailabilityReasonCode (..),
 
     -- * Unit
     Unit (..),
@@ -347,6 +366,7 @@ module Amazonka.MacieV2.Types
     -- * ClassificationDetails
     ClassificationDetails (..),
     newClassificationDetails,
+    classificationDetails_originType,
     classificationDetails_jobId,
     classificationDetails_detailedResultsLocation,
     classificationDetails_result,
@@ -428,6 +448,11 @@ module Amazonka.MacieV2.Types
     defaultDetection_occurrences,
     defaultDetection_type,
     defaultDetection_count,
+
+    -- * DetectedDataDetails
+    DetectedDataDetails (..),
+    newDetectedDataDetails,
+    detectedDataDetails_value,
 
     -- * DomainDetails
     DomainDetails (..),
@@ -733,6 +758,12 @@ module Amazonka.MacieV2.Types
     resourcesAffected_s3Bucket,
     resourcesAffected_s3Object,
 
+    -- * RevealConfiguration
+    RevealConfiguration (..),
+    newRevealConfiguration,
+    revealConfiguration_kmsKeyId,
+    revealConfiguration_status,
+
     -- * S3Bucket
     S3Bucket (..),
     newS3Bucket,
@@ -894,6 +925,12 @@ module Amazonka.MacieV2.Types
     severity_score,
     severity_description,
 
+    -- * SeverityLevel
+    SeverityLevel (..),
+    newSeverityLevel,
+    severityLevel_occurrencesThreshold,
+    severityLevel_severity,
+
     -- * SimpleCriterionForJob
     SimpleCriterionForJob (..),
     newSimpleCriterionForJob,
@@ -1030,6 +1067,7 @@ import Amazonka.MacieV2.Types.AdminStatus
 import Amazonka.MacieV2.Types.AllowsUnencryptedObjectUploads
 import Amazonka.MacieV2.Types.ApiCallDetails
 import Amazonka.MacieV2.Types.AssumedRole
+import Amazonka.MacieV2.Types.AvailabilityCode
 import Amazonka.MacieV2.Types.AwsAccount
 import Amazonka.MacieV2.Types.AwsService
 import Amazonka.MacieV2.Types.BatchGetCustomDataIdentifierSummary
@@ -1060,8 +1098,10 @@ import Amazonka.MacieV2.Types.CustomDataIdentifierSummary
 import Amazonka.MacieV2.Types.CustomDataIdentifiers
 import Amazonka.MacieV2.Types.CustomDetection
 import Amazonka.MacieV2.Types.DailySchedule
+import Amazonka.MacieV2.Types.DataIdentifierSeverity
 import Amazonka.MacieV2.Types.DayOfWeek
 import Amazonka.MacieV2.Types.DefaultDetection
+import Amazonka.MacieV2.Types.DetectedDataDetails
 import Amazonka.MacieV2.Types.DomainDetails
 import Amazonka.MacieV2.Types.EffectivePermission
 import Amazonka.MacieV2.Types.EncryptionType
@@ -1117,6 +1157,7 @@ import Amazonka.MacieV2.Types.ObjectCountByEncryptionType
 import Amazonka.MacieV2.Types.ObjectLevelStatistics
 import Amazonka.MacieV2.Types.Occurrences
 import Amazonka.MacieV2.Types.OrderBy
+import Amazonka.MacieV2.Types.OriginType
 import Amazonka.MacieV2.Types.Page
 import Amazonka.MacieV2.Types.PolicyDetails
 import Amazonka.MacieV2.Types.Range
@@ -1124,6 +1165,9 @@ import Amazonka.MacieV2.Types.Record
 import Amazonka.MacieV2.Types.RelationshipStatus
 import Amazonka.MacieV2.Types.ReplicationDetails
 import Amazonka.MacieV2.Types.ResourcesAffected
+import Amazonka.MacieV2.Types.RevealConfiguration
+import Amazonka.MacieV2.Types.RevealRequestStatus
+import Amazonka.MacieV2.Types.RevealStatus
 import Amazonka.MacieV2.Types.S3Bucket
 import Amazonka.MacieV2.Types.S3BucketCriteriaForJob
 import Amazonka.MacieV2.Types.S3BucketDefinitionForJob
@@ -1153,6 +1197,7 @@ import Amazonka.MacieV2.Types.SessionContextAttributes
 import Amazonka.MacieV2.Types.SessionIssuer
 import Amazonka.MacieV2.Types.Severity
 import Amazonka.MacieV2.Types.SeverityDescription
+import Amazonka.MacieV2.Types.SeverityLevel
 import Amazonka.MacieV2.Types.SharedAccess
 import Amazonka.MacieV2.Types.SimpleCriterionForJob
 import Amazonka.MacieV2.Types.SimpleCriterionKeyForJob
@@ -1167,6 +1212,7 @@ import Amazonka.MacieV2.Types.TagTarget
 import Amazonka.MacieV2.Types.TagValuePair
 import Amazonka.MacieV2.Types.TimeRange
 import Amazonka.MacieV2.Types.Type
+import Amazonka.MacieV2.Types.UnavailabilityReasonCode
 import Amazonka.MacieV2.Types.Unit
 import Amazonka.MacieV2.Types.UnprocessedAccount
 import Amazonka.MacieV2.Types.UsageByAccount
@@ -1291,6 +1337,15 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Provides information about an error that occurred due to an
+-- unprocessable entity.
+_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException =
+  Core._MatchServiceError
+    defaultService
+    "UnprocessableEntityException"
+    Prelude.. Core.hasStatus 422
 
 -- | Provides information about an error that occurred due to a versioning
 -- conflict for a specified resource.

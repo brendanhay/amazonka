@@ -88,15 +88,11 @@ data ImportRestApi = ImportRestApi'
     -- For example, the AWS CLI command to exclude documentation from the
     -- imported API is:
     --
-    -- > aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'
-    --
     -- The AWS CLI command to set the regional endpoint on the imported API is:
-    --
-    -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Required] The POST request body containing external API definitions.
-    -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
-    -- maximum size of the API definition file is 6MB.
+    -- | The POST request body containing external API definitions. Currently,
+    -- only OpenAPI definition JSON\/YAML files are supported. The maximum size
+    -- of the API definition file is 6MB.
     body :: Prelude.ByteString
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -132,15 +128,11 @@ data ImportRestApi = ImportRestApi'
 -- For example, the AWS CLI command to exclude documentation from the
 -- imported API is:
 --
--- > aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'
---
 -- The AWS CLI command to set the regional endpoint on the imported API is:
 --
--- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
---
--- 'body', 'importRestApi_body' - [Required] The POST request body containing external API definitions.
--- Currently, only OpenAPI definition JSON\/YAML files are supported. The
--- maximum size of the API definition file is 6MB.
+-- 'body', 'importRestApi_body' - The POST request body containing external API definitions. Currently,
+-- only OpenAPI definition JSON\/YAML files are supported. The maximum size
+-- of the API definition file is 6MB.
 newImportRestApi ::
   -- | 'body'
   Prelude.ByteString ->
@@ -177,17 +169,13 @@ importRestApi_failOnWarnings = Lens.lens (\ImportRestApi' {failOnWarnings} -> fa
 -- For example, the AWS CLI command to exclude documentation from the
 -- imported API is:
 --
--- > aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'
---
 -- The AWS CLI command to set the regional endpoint on the imported API is:
---
--- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
 importRestApi_parameters :: Lens.Lens' ImportRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 importRestApi_parameters = Lens.lens (\ImportRestApi' {parameters} -> parameters) (\s@ImportRestApi' {} a -> s {parameters = a} :: ImportRestApi) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The POST request body containing external API definitions.
--- Currently, only OpenAPI definition JSON\/YAML files are supported. The
--- maximum size of the API definition file is 6MB.
+-- | The POST request body containing external API definitions. Currently,
+-- only OpenAPI definition JSON\/YAML files are supported. The maximum size
+-- of the API definition file is 6MB.
 importRestApi_body :: Lens.Lens' ImportRestApi Prelude.ByteString
 importRestApi_body = Lens.lens (\ImportRestApi' {body} -> body) (\s@ImportRestApi' {} a -> s {body = a} :: ImportRestApi)
 

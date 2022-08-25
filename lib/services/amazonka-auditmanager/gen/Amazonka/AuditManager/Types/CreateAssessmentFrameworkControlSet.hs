@@ -25,14 +25,14 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @controlSet@ entity that represents a collection of controls in Audit
--- Manager. This does not contain the control set ID.
+-- Manager. This doesn\'t contain the control set ID.
 --
 -- /See:/ 'newCreateAssessmentFrameworkControlSet' smart constructor.
 data CreateAssessmentFrameworkControlSet = CreateAssessmentFrameworkControlSet'
-  { -- | The list of controls within the control set. This does not contain the
+  { -- | The list of controls within the control set. This doesn\'t contain the
     -- control set ID.
     controls :: Prelude.Maybe (Prelude.NonEmpty CreateAssessmentFrameworkControl),
-    -- | The name of the specified control set.
+    -- | The name of the control set.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,10 +45,10 @@ data CreateAssessmentFrameworkControlSet = CreateAssessmentFrameworkControlSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controls', 'createAssessmentFrameworkControlSet_controls' - The list of controls within the control set. This does not contain the
+-- 'controls', 'createAssessmentFrameworkControlSet_controls' - The list of controls within the control set. This doesn\'t contain the
 -- control set ID.
 --
--- 'name', 'createAssessmentFrameworkControlSet_name' - The name of the specified control set.
+-- 'name', 'createAssessmentFrameworkControlSet_name' - The name of the control set.
 newCreateAssessmentFrameworkControlSet ::
   -- | 'name'
   Prelude.Text ->
@@ -60,12 +60,12 @@ newCreateAssessmentFrameworkControlSet pName_ =
       name = pName_
     }
 
--- | The list of controls within the control set. This does not contain the
+-- | The list of controls within the control set. This doesn\'t contain the
 -- control set ID.
 createAssessmentFrameworkControlSet_controls :: Lens.Lens' CreateAssessmentFrameworkControlSet (Prelude.Maybe (Prelude.NonEmpty CreateAssessmentFrameworkControl))
 createAssessmentFrameworkControlSet_controls = Lens.lens (\CreateAssessmentFrameworkControlSet' {controls} -> controls) (\s@CreateAssessmentFrameworkControlSet' {} a -> s {controls = a} :: CreateAssessmentFrameworkControlSet) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the specified control set.
+-- | The name of the control set.
 createAssessmentFrameworkControlSet_name :: Lens.Lens' CreateAssessmentFrameworkControlSet Prelude.Text
 createAssessmentFrameworkControlSet_name = Lens.lens (\CreateAssessmentFrameworkControlSet' {name} -> name) (\s@CreateAssessmentFrameworkControlSet' {} a -> s {name = a} :: CreateAssessmentFrameworkControlSet)
 

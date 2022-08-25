@@ -36,6 +36,15 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>
 -- in the /Amazon S3 User Guide/.
 --
+-- If your bucket uses the bucket owner enforced setting for S3 Object
+-- Ownership, ACLs are disabled and no longer affect permissions. You must
+-- use policies to grant access to your bucket and the objects in it.
+-- Requests to set ACLs or update ACLs fail and return the
+-- @AccessControlListNotSupported@ error code. Requests to read ACLs are
+-- still supported. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership>
+-- in the /Amazon S3 User Guide/.
+--
 -- __Access Permissions__
 --
 -- You can set access permissions using one of the following methods:
@@ -165,6 +174,7 @@ module Amazonka.S3.PutObjectAcl
     newPutObjectAcl,
 
     -- * Request Lenses
+    putObjectAcl_checksumAlgorithm,
     putObjectAcl_grantWriteACP,
     putObjectAcl_grantFullControl,
     putObjectAcl_acl,
@@ -198,7 +208,19 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectAcl' smart constructor.
 data PutObjectAcl = PutObjectAcl'
-  { -- | Allows grantee to write the ACL for the applicable bucket.
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | Allows grantee to write the ACL for the applicable bucket.
     --
     -- This action is not supported by Amazon S3 on Outposts.
     grantWriteACP :: Prelude.Maybe Prelude.Text,
@@ -220,8 +242,8 @@ data PutObjectAcl = PutObjectAcl'
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Allows grantee to list the objects in the bucket.
@@ -268,11 +290,11 @@ data PutObjectAcl = PutObjectAcl'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     key :: ObjectKey
   }
@@ -285,6 +307,18 @@ data PutObjectAcl = PutObjectAcl'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'checksumAlgorithm', 'putObjectAcl_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
 --
 -- 'grantWriteACP', 'putObjectAcl_grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
@@ -308,8 +342,8 @@ data PutObjectAcl = PutObjectAcl'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putObjectAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'putObjectAcl_requestPayer' - Undocumented member.
 --
@@ -357,11 +391,11 @@ data PutObjectAcl = PutObjectAcl'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 newPutObjectAcl ::
   -- | 'bucket'
@@ -371,7 +405,8 @@ newPutObjectAcl ::
   PutObjectAcl
 newPutObjectAcl pBucket_ pKey_ =
   PutObjectAcl'
-    { grantWriteACP = Prelude.Nothing,
+    { checksumAlgorithm = Prelude.Nothing,
+      grantWriteACP = Prelude.Nothing,
       grantFullControl = Prelude.Nothing,
       acl = Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
@@ -385,6 +420,20 @@ newPutObjectAcl pBucket_ pKey_ =
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putObjectAcl_checksumAlgorithm :: Lens.Lens' PutObjectAcl (Prelude.Maybe ChecksumAlgorithm)
+putObjectAcl_checksumAlgorithm = Lens.lens (\PutObjectAcl' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutObjectAcl' {} a -> s {checksumAlgorithm = a} :: PutObjectAcl)
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 --
@@ -416,8 +465,8 @@ putObjectAcl_contentMD5 :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_contentMD5 = Lens.lens (\PutObjectAcl' {contentMD5} -> contentMD5) (\s@PutObjectAcl' {} a -> s {contentMD5 = a} :: PutObjectAcl)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putObjectAcl_expectedBucketOwner :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_expectedBucketOwner = Lens.lens (\PutObjectAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectAcl' {} a -> s {expectedBucketOwner = a} :: PutObjectAcl)
 
@@ -481,11 +530,11 @@ putObjectAcl_bucket = Lens.lens (\PutObjectAcl' {bucket} -> bucket) (\s@PutObjec
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 putObjectAcl_key :: Lens.Lens' PutObjectAcl ObjectKey
 putObjectAcl_key = Lens.lens (\PutObjectAcl' {key} -> key) (\s@PutObjectAcl' {} a -> s {key = a} :: PutObjectAcl)
@@ -505,7 +554,8 @@ instance Core.AWSRequest PutObjectAcl where
 
 instance Prelude.Hashable PutObjectAcl where
   hashWithSalt _salt PutObjectAcl' {..} =
-    _salt `Prelude.hashWithSalt` grantWriteACP
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` grantWriteACP
       `Prelude.hashWithSalt` grantFullControl
       `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` contentMD5
@@ -521,7 +571,8 @@ instance Prelude.Hashable PutObjectAcl where
 
 instance Prelude.NFData PutObjectAcl where
   rnf PutObjectAcl' {..} =
-    Prelude.rnf grantWriteACP
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf grantWriteACP
       `Prelude.seq` Prelude.rnf grantFullControl
       `Prelude.seq` Prelude.rnf acl
       `Prelude.seq` Prelude.rnf contentMD5
@@ -544,7 +595,9 @@ instance Core.ToElement PutObjectAcl where
 instance Core.ToHeaders PutObjectAcl where
   toHeaders PutObjectAcl' {..} =
     Prelude.mconcat
-      [ "x-amz-grant-write-acp" Core.=# grantWriteACP,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "x-amz-grant-write-acp" Core.=# grantWriteACP,
         "x-amz-grant-full-control" Core.=# grantFullControl,
         "x-amz-acl" Core.=# acl,
         "Content-MD5" Core.=# contentMD5,

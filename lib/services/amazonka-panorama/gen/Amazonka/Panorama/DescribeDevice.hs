@@ -43,12 +43,15 @@ module Amazonka.Panorama.DescribeDevice
     describeDeviceResponse_latestSoftware,
     describeDeviceResponse_provisioningStatus,
     describeDeviceResponse_deviceId,
+    describeDeviceResponse_alternateSoftwares,
     describeDeviceResponse_networkingConfiguration,
     describeDeviceResponse_arn,
     describeDeviceResponse_description,
+    describeDeviceResponse_brand,
     describeDeviceResponse_deviceConnectionStatus,
     describeDeviceResponse_serialNumber,
     describeDeviceResponse_currentSoftware,
+    describeDeviceResponse_latestAlternateSoftware,
     describeDeviceResponse_httpStatus,
   )
 where
@@ -105,12 +108,17 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Core..?> "LatestSoftware")
             Prelude.<*> (x Core..?> "ProvisioningStatus")
             Prelude.<*> (x Core..?> "DeviceId")
+            Prelude.<*> ( x Core..?> "AlternateSoftwares"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "NetworkingConfiguration")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Brand")
             Prelude.<*> (x Core..?> "DeviceConnectionStatus")
             Prelude.<*> (x Core..?> "SerialNumber")
             Prelude.<*> (x Core..?> "CurrentSoftware")
+            Prelude.<*> (x Core..?> "LatestAlternateSoftware")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,18 +167,24 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     provisioningStatus :: Prelude.Maybe DeviceStatus,
     -- | The device\'s ID.
     deviceId :: Prelude.Maybe Prelude.Text,
+    -- | Beta software releases available for the device.
+    alternateSoftwares :: Prelude.Maybe [AlternateSoftwareMetadata],
     -- | The device\'s networking configuration.
     networkingConfiguration :: Prelude.Maybe NetworkPayload,
     -- | The device\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The device\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s maker.
+    brand :: Prelude.Maybe DeviceBrand,
     -- | The device\'s connection status.
     deviceConnectionStatus :: Prelude.Maybe DeviceConnectionStatus,
     -- | The device\'s serial number.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The device\'s current software version.
     currentSoftware :: Prelude.Maybe Prelude.Text,
+    -- | The most recent beta software release.
+    latestAlternateSoftware :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,17 +216,23 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 --
 -- 'deviceId', 'describeDeviceResponse_deviceId' - The device\'s ID.
 --
+-- 'alternateSoftwares', 'describeDeviceResponse_alternateSoftwares' - Beta software releases available for the device.
+--
 -- 'networkingConfiguration', 'describeDeviceResponse_networkingConfiguration' - The device\'s networking configuration.
 --
 -- 'arn', 'describeDeviceResponse_arn' - The device\'s ARN.
 --
 -- 'description', 'describeDeviceResponse_description' - The device\'s description.
 --
+-- 'brand', 'describeDeviceResponse_brand' - The device\'s maker.
+--
 -- 'deviceConnectionStatus', 'describeDeviceResponse_deviceConnectionStatus' - The device\'s connection status.
 --
 -- 'serialNumber', 'describeDeviceResponse_serialNumber' - The device\'s serial number.
 --
 -- 'currentSoftware', 'describeDeviceResponse_currentSoftware' - The device\'s current software version.
+--
+-- 'latestAlternateSoftware', 'describeDeviceResponse_latestAlternateSoftware' - The most recent beta software release.
 --
 -- 'httpStatus', 'describeDeviceResponse_httpStatus' - The response's http status code.
 newDescribeDeviceResponse ::
@@ -230,12 +250,15 @@ newDescribeDeviceResponse pHttpStatus_ =
       latestSoftware = Prelude.Nothing,
       provisioningStatus = Prelude.Nothing,
       deviceId = Prelude.Nothing,
+      alternateSoftwares = Prelude.Nothing,
       networkingConfiguration = Prelude.Nothing,
       arn = Prelude.Nothing,
       description = Prelude.Nothing,
+      brand = Prelude.Nothing,
       deviceConnectionStatus = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
       currentSoftware = Prelude.Nothing,
+      latestAlternateSoftware = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -275,6 +298,10 @@ describeDeviceResponse_provisioningStatus = Lens.lens (\DescribeDeviceResponse' 
 describeDeviceResponse_deviceId :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_deviceId = Lens.lens (\DescribeDeviceResponse' {deviceId} -> deviceId) (\s@DescribeDeviceResponse' {} a -> s {deviceId = a} :: DescribeDeviceResponse)
 
+-- | Beta software releases available for the device.
+describeDeviceResponse_alternateSoftwares :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe [AlternateSoftwareMetadata])
+describeDeviceResponse_alternateSoftwares = Lens.lens (\DescribeDeviceResponse' {alternateSoftwares} -> alternateSoftwares) (\s@DescribeDeviceResponse' {} a -> s {alternateSoftwares = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The device\'s networking configuration.
 describeDeviceResponse_networkingConfiguration :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe NetworkPayload)
 describeDeviceResponse_networkingConfiguration = Lens.lens (\DescribeDeviceResponse' {networkingConfiguration} -> networkingConfiguration) (\s@DescribeDeviceResponse' {} a -> s {networkingConfiguration = a} :: DescribeDeviceResponse)
@@ -287,6 +314,10 @@ describeDeviceResponse_arn = Lens.lens (\DescribeDeviceResponse' {arn} -> arn) (
 describeDeviceResponse_description :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_description = Lens.lens (\DescribeDeviceResponse' {description} -> description) (\s@DescribeDeviceResponse' {} a -> s {description = a} :: DescribeDeviceResponse)
 
+-- | The device\'s maker.
+describeDeviceResponse_brand :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceBrand)
+describeDeviceResponse_brand = Lens.lens (\DescribeDeviceResponse' {brand} -> brand) (\s@DescribeDeviceResponse' {} a -> s {brand = a} :: DescribeDeviceResponse)
+
 -- | The device\'s connection status.
 describeDeviceResponse_deviceConnectionStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceConnectionStatus)
 describeDeviceResponse_deviceConnectionStatus = Lens.lens (\DescribeDeviceResponse' {deviceConnectionStatus} -> deviceConnectionStatus) (\s@DescribeDeviceResponse' {} a -> s {deviceConnectionStatus = a} :: DescribeDeviceResponse)
@@ -298,6 +329,10 @@ describeDeviceResponse_serialNumber = Lens.lens (\DescribeDeviceResponse' {seria
 -- | The device\'s current software version.
 describeDeviceResponse_currentSoftware :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_currentSoftware = Lens.lens (\DescribeDeviceResponse' {currentSoftware} -> currentSoftware) (\s@DescribeDeviceResponse' {} a -> s {currentSoftware = a} :: DescribeDeviceResponse)
+
+-- | The most recent beta software release.
+describeDeviceResponse_latestAlternateSoftware :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_latestAlternateSoftware = Lens.lens (\DescribeDeviceResponse' {latestAlternateSoftware} -> latestAlternateSoftware) (\s@DescribeDeviceResponse' {} a -> s {latestAlternateSoftware = a} :: DescribeDeviceResponse)
 
 -- | The response's http status code.
 describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Prelude.Int
@@ -314,10 +349,14 @@ instance Prelude.NFData DescribeDeviceResponse where
       `Prelude.seq` Prelude.rnf latestSoftware
       `Prelude.seq` Prelude.rnf provisioningStatus
       `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf alternateSoftwares
       `Prelude.seq` Prelude.rnf networkingConfiguration
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf brand
       `Prelude.seq` Prelude.rnf deviceConnectionStatus
       `Prelude.seq` Prelude.rnf serialNumber
       `Prelude.seq` Prelude.rnf currentSoftware
+      `Prelude.seq` Prelude.rnf
+        latestAlternateSoftware
       `Prelude.seq` Prelude.rnf httpStatus

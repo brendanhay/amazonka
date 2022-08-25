@@ -123,6 +123,14 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     -- -   @ipv6-addresses.ipv6-address@ - An IPv6 address associated with the
     --     network interface.
     --
+    -- -   @interface-type@ - The type of network interface
+    --     (@api_gateway_managed@ | @aws_codestar_connections_managed@ |
+    --     @branch@ | @efa@ | @gateway_load_balancer@ |
+    --     @gateway_load_balancer_endpoint@ | @global_accelerator_managed@ |
+    --     @interface@ | @iot_rules_managed@ | @lambda@ | @load_balancer@ |
+    --     @nat_gateway@ | @network_load_balancer@ | @quicksight@ |
+    --     @transit_gateway@ | @trunk@ | @vpc_endpoint@).
+    --
     -- -   @mac-address@ - The MAC address of the network interface.
     --
     -- -   @network-interface-id@ - The ID of the network interface.
@@ -258,6 +266,14 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 --
 -- -   @ipv6-addresses.ipv6-address@ - An IPv6 address associated with the
 --     network interface.
+--
+-- -   @interface-type@ - The type of network interface
+--     (@api_gateway_managed@ | @aws_codestar_connections_managed@ |
+--     @branch@ | @efa@ | @gateway_load_balancer@ |
+--     @gateway_load_balancer_endpoint@ | @global_accelerator_managed@ |
+--     @interface@ | @iot_rules_managed@ | @lambda@ | @load_balancer@ |
+--     @nat_gateway@ | @network_load_balancer@ | @quicksight@ |
+--     @transit_gateway@ | @trunk@ | @vpc_endpoint@).
 --
 -- -   @mac-address@ - The MAC address of the network interface.
 --
@@ -396,6 +412,14 @@ describeNetworkInterfaces_nextToken = Lens.lens (\DescribeNetworkInterfaces' {ne
 --
 -- -   @ipv6-addresses.ipv6-address@ - An IPv6 address associated with the
 --     network interface.
+--
+-- -   @interface-type@ - The type of network interface
+--     (@api_gateway_managed@ | @aws_codestar_connections_managed@ |
+--     @branch@ | @efa@ | @gateway_load_balancer@ |
+--     @gateway_load_balancer_endpoint@ | @global_accelerator_managed@ |
+--     @interface@ | @iot_rules_managed@ | @lambda@ | @load_balancer@ |
+--     @nat_gateway@ | @network_load_balancer@ | @quicksight@ |
+--     @transit_gateway@ | @trunk@ | @vpc_endpoint@).
 --
 -- -   @mac-address@ - The MAC address of the network interface.
 --

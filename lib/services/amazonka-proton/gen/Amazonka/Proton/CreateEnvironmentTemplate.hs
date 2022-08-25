@@ -20,25 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create an environment template for AWS Proton. For more information, see
+-- Create an environment template for Proton. For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates>
--- in the /AWS Proton Administrator Guide/.
+-- in the /Proton Administrator Guide/.
 --
 -- You can create an environment template in one of the two following ways:
 --
 -- -   Register and publish a /standard/ environment template that
---     instructs AWS Proton to deploy and manage environment
---     infrastructure.
+--     instructs Proton to deploy and manage environment infrastructure.
 --
 -- -   Register and publish a /customer managed/ environment template that
---     connects AWS Proton to your existing provisioned infrastructure that
---     you manage. AWS Proton /doesn\'t/ manage your existing provisioned
+--     connects Proton to your existing provisioned infrastructure that you
+--     manage. Proton /doesn\'t/ manage your existing provisioned
 --     infrastructure. To create an environment template for customer
 --     provisioned and managed infrastructure, include the @provisioning@
 --     parameter and set the value to @CUSTOMER_MANAGED@. For more
 --     information, see
 --     <https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html Register and publish an environment template>
---     in the /AWS Proton Administrator Guide/.
+--     in the /Proton Administrator Guide/.
 module Amazonka.Proton.CreateEnvironmentTemplate
   ( -- * Creating a Request
     CreateEnvironmentTemplate (..),
@@ -71,11 +70,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentTemplate' smart constructor.
 data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
-  { -- | Create tags for your environment template. For more information, see
-    -- /AWS Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+  { -- | An optional list of metadata items that you can associate with the
+    -- Proton environment template. A tag is a key-value pair.
+    --
+    -- For more information, see /Proton resources and tagging/ in the
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
     -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | When included, indicates that the environment template is for customer
     -- provisioned and managed infrastructure.
@@ -84,7 +85,7 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A description of the environment template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A customer provided encryption key that AWS Proton uses to encrypt data.
+    -- | A customer provided encryption key that Proton uses to encrypt data.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment template.
     name :: Prelude.Text
@@ -99,11 +100,13 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEnvironmentTemplate_tags' - Create tags for your environment template. For more information, see
--- /AWS Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- 'tags', 'createEnvironmentTemplate_tags' - An optional list of metadata items that you can associate with the
+-- Proton environment template. A tag is a key-value pair.
+--
+-- For more information, see /Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 --
 -- 'provisioning', 'createEnvironmentTemplate_provisioning' - When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
@@ -112,7 +115,7 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
 --
 -- 'description', 'createEnvironmentTemplate_description' - A description of the environment template.
 --
--- 'encryptionKey', 'createEnvironmentTemplate_encryptionKey' - A customer provided encryption key that AWS Proton uses to encrypt data.
+-- 'encryptionKey', 'createEnvironmentTemplate_encryptionKey' - A customer provided encryption key that Proton uses to encrypt data.
 --
 -- 'name', 'createEnvironmentTemplate_name' - The name of the environment template.
 newCreateEnvironmentTemplate ::
@@ -129,11 +132,13 @@ newCreateEnvironmentTemplate pName_ =
       name = pName_
     }
 
--- | Create tags for your environment template. For more information, see
--- /AWS Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- | An optional list of metadata items that you can associate with the
+-- Proton environment template. A tag is a key-value pair.
+--
+-- For more information, see /Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 createEnvironmentTemplate_tags :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe [Tag])
 createEnvironmentTemplate_tags = Lens.lens (\CreateEnvironmentTemplate' {tags} -> tags) (\s@CreateEnvironmentTemplate' {} a -> s {tags = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Lens.coerced
 
@@ -150,7 +155,7 @@ createEnvironmentTemplate_displayName = Lens.lens (\CreateEnvironmentTemplate' {
 createEnvironmentTemplate_description :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplate_description = Lens.lens (\CreateEnvironmentTemplate' {description} -> description) (\s@CreateEnvironmentTemplate' {} a -> s {description = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
 
--- | A customer provided encryption key that AWS Proton uses to encrypt data.
+-- | A customer provided encryption key that Proton uses to encrypt data.
 createEnvironmentTemplate_encryptionKey :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplate_encryptionKey = Lens.lens (\CreateEnvironmentTemplate' {encryptionKey} -> encryptionKey) (\s@CreateEnvironmentTemplate' {} a -> s {encryptionKey = a} :: CreateEnvironmentTemplate)
 
@@ -227,7 +232,7 @@ instance Core.ToQuery CreateEnvironmentTemplate where
 data CreateEnvironmentTemplateResponse = CreateEnvironmentTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment template detail data that\'s returned by AWS Proton.
+    -- | The environment template detail data that\'s returned by Proton.
     environmentTemplate :: EnvironmentTemplate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -242,7 +247,7 @@ data CreateEnvironmentTemplateResponse = CreateEnvironmentTemplateResponse'
 --
 -- 'httpStatus', 'createEnvironmentTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'environmentTemplate', 'createEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by AWS Proton.
+-- 'environmentTemplate', 'createEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by Proton.
 newCreateEnvironmentTemplateResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -263,7 +268,7 @@ newCreateEnvironmentTemplateResponse
 createEnvironmentTemplateResponse_httpStatus :: Lens.Lens' CreateEnvironmentTemplateResponse Prelude.Int
 createEnvironmentTemplateResponse_httpStatus = Lens.lens (\CreateEnvironmentTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateEnvironmentTemplateResponse' {} a -> s {httpStatus = a} :: CreateEnvironmentTemplateResponse)
 
--- | The environment template detail data that\'s returned by AWS Proton.
+-- | The environment template detail data that\'s returned by Proton.
 createEnvironmentTemplateResponse_environmentTemplate :: Lens.Lens' CreateEnvironmentTemplateResponse EnvironmentTemplate
 createEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\CreateEnvironmentTemplateResponse' {environmentTemplate} -> environmentTemplate) (\s@CreateEnvironmentTemplateResponse' {} a -> s {environmentTemplate = a} :: CreateEnvironmentTemplateResponse)
 

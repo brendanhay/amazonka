@@ -81,14 +81,15 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
   { -- | A list of labels to assign to the new matchmaking rule set resource.
-    -- Tags are developer-defined key-value pairs. Tagging AWS resources are
-    -- useful for resource management, access management and cost allocation.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
+    -- Tags are developer-defined key-value pairs. Tagging Amazon Web Services
+    -- resources are useful for resource management, access management and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use TagResource, UntagResource, and ListTagsForResource
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the matchmaking rule set. A matchmaking
     -- configuration identifies the rule set it uses by this name value. Note
@@ -110,14 +111,15 @@ data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
 -- for backwards compatibility:
 --
 -- 'tags', 'createMatchmakingRuleSet_tags' - A list of labels to assign to the new matchmaking rule set resource.
--- Tags are developer-defined key-value pairs. Tagging AWS resources are
--- useful for resource management, access management and cost allocation.
--- For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- Tags are developer-defined key-value pairs. Tagging Amazon Web Services
+-- resources are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 --
 -- 'name', 'createMatchmakingRuleSet_name' - A unique identifier for the matchmaking rule set. A matchmaking
 -- configuration identifies the rule set it uses by this name value. Note
@@ -140,14 +142,15 @@ newCreateMatchmakingRuleSet pName_ pRuleSetBody_ =
     }
 
 -- | A list of labels to assign to the new matchmaking rule set resource.
--- Tags are developer-defined key-value pairs. Tagging AWS resources are
--- useful for resource management, access management and cost allocation.
--- For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- Tags are developer-defined key-value pairs. Tagging Amazon Web Services
+-- resources are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 createMatchmakingRuleSet_tags :: Lens.Lens' CreateMatchmakingRuleSet (Prelude.Maybe [Tag])
 createMatchmakingRuleSet_tags = Lens.lens (\CreateMatchmakingRuleSet' {tags} -> tags) (\s@CreateMatchmakingRuleSet' {} a -> s {tags = a} :: CreateMatchmakingRuleSet) Prelude.. Lens.mapping Lens.coerced
 

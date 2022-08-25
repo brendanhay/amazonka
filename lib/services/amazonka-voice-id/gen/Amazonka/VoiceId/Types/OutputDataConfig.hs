@@ -30,8 +30,8 @@ data OutputDataConfig = OutputDataConfig'
   { -- | the identifier of the KMS key you want Voice ID to use to encrypt the
     -- output file of the fraudster registration job.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 path of the folder to which Voice ID writes the job output file,
-    -- which has a @*.out@ extension. For example, if the input file name is
+    -- | The S3 path of the folder where Voice ID writes the job output file. It
+    -- has a @*.out@ extension. For example, if the input file name is
     -- @input-file.json@ and the output folder path is
     -- @s3:\/\/output-bucket\/output-folder@, the full output file path is
     -- @s3:\/\/output-bucket\/output-folder\/job-Id\/input-file.json.out@.
@@ -50,8 +50,8 @@ data OutputDataConfig = OutputDataConfig'
 -- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - the identifier of the KMS key you want Voice ID to use to encrypt the
 -- output file of the fraudster registration job.
 --
--- 's3Uri', 'outputDataConfig_s3Uri' - The S3 path of the folder to which Voice ID writes the job output file,
--- which has a @*.out@ extension. For example, if the input file name is
+-- 's3Uri', 'outputDataConfig_s3Uri' - The S3 path of the folder where Voice ID writes the job output file. It
+-- has a @*.out@ extension. For example, if the input file name is
 -- @input-file.json@ and the output folder path is
 -- @s3:\/\/output-bucket\/output-folder@, the full output file path is
 -- @s3:\/\/output-bucket\/output-folder\/job-Id\/input-file.json.out@.
@@ -70,8 +70,8 @@ newOutputDataConfig pS3Uri_ =
 outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Prelude.Maybe Prelude.Text)
 outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@OutputDataConfig' {} a -> s {kmsKeyId = a} :: OutputDataConfig)
 
--- | The S3 path of the folder to which Voice ID writes the job output file,
--- which has a @*.out@ extension. For example, if the input file name is
+-- | The S3 path of the folder where Voice ID writes the job output file. It
+-- has a @*.out@ extension. For example, if the input file name is
 -- @input-file.json@ and the output folder path is
 -- @s3:\/\/output-bucket\/output-folder@, the full output file path is
 -- @s3:\/\/output-bucket\/output-folder\/job-Id\/input-file.json.out@.

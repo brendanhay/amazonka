@@ -31,6 +31,7 @@ import Amazonka.EC2.Types.OnDemandAllocationStrategy
 import Amazonka.EC2.Types.SpotFleetLaunchSpecification
 import Amazonka.EC2.Types.SpotMaintenanceStrategies
 import Amazonka.EC2.Types.TagSpecification
+import Amazonka.EC2.Types.TargetCapacityUnitType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -125,6 +126,10 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- you include On-Demand capacity in your request, you must use
     -- @LaunchTemplateConfigs@.
     launchTemplateConfigs :: Prelude.Maybe [LaunchTemplateConfig],
+    -- | The unit for the target capacity.
+    --
+    -- Default: @units@ (translates to number of instances)
+    targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
@@ -187,7 +192,12 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- the target capacity.
     spotMaxTotalPrice :: Prelude.Maybe Prelude.Text,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
-    -- Instance. The default is the On-Demand price.
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify this parameter.
     spotPrice :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Identity and Access Management
     -- (IAM) role that grants the Spot Fleet the permission to request, launch,
@@ -304,6 +314,10 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- you include On-Demand capacity in your request, you must use
 -- @LaunchTemplateConfigs@.
 --
+-- 'targetCapacityUnitType', 'spotFleetRequestConfigData_targetCapacityUnitType' - The unit for the target capacity.
+--
+-- Default: @units@ (translates to number of instances)
+--
 -- 'instanceInterruptionBehavior', 'spotFleetRequestConfigData_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
 --
@@ -366,7 +380,12 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- the target capacity.
 --
 -- 'spotPrice', 'spotFleetRequestConfigData_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. The default is the On-Demand price.
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 --
 -- 'iamFleetRole', 'spotFleetRequestConfigData_iamFleetRole' - The Amazon Resource Name (ARN) of an Identity and Access Management
 -- (IAM) role that grants the Spot Fleet the permission to request, launch,
@@ -410,6 +429,7 @@ newSpotFleetRequestConfigData
         validFrom = Prelude.Nothing,
         replaceUnhealthyInstances = Prelude.Nothing,
         launchTemplateConfigs = Prelude.Nothing,
+        targetCapacityUnitType = Prelude.Nothing,
         instanceInterruptionBehavior = Prelude.Nothing,
         allocationStrategy = Prelude.Nothing,
         terminateInstancesWithExpiration =
@@ -540,6 +560,12 @@ spotFleetRequestConfigData_replaceUnhealthyInstances = Lens.lens (\SpotFleetRequ
 spotFleetRequestConfigData_launchTemplateConfigs :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [LaunchTemplateConfig])
 spotFleetRequestConfigData_launchTemplateConfigs = Lens.lens (\SpotFleetRequestConfigData' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@SpotFleetRequestConfigData' {} a -> s {launchTemplateConfigs = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens.coerced
 
+-- | The unit for the target capacity.
+--
+-- Default: @units@ (translates to number of instances)
+spotFleetRequestConfigData_targetCapacityUnitType :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe TargetCapacityUnitType)
+spotFleetRequestConfigData_targetCapacityUnitType = Lens.lens (\SpotFleetRequestConfigData' {targetCapacityUnitType} -> targetCapacityUnitType) (\s@SpotFleetRequestConfigData' {} a -> s {targetCapacityUnitType = a} :: SpotFleetRequestConfigData)
+
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
 spotFleetRequestConfigData_instanceInterruptionBehavior :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe InstanceInterruptionBehavior)
@@ -616,7 +642,12 @@ spotFleetRequestConfigData_spotMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfi
 spotFleetRequestConfigData_spotMaxTotalPrice = Lens.lens (\SpotFleetRequestConfigData' {spotMaxTotalPrice} -> spotMaxTotalPrice) (\s@SpotFleetRequestConfigData' {} a -> s {spotMaxTotalPrice = a} :: SpotFleetRequestConfigData)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. The default is the On-Demand price.
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 spotFleetRequestConfigData_spotPrice :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Text)
 spotFleetRequestConfigData_spotPrice = Lens.lens (\SpotFleetRequestConfigData' {spotPrice} -> spotPrice) (\s@SpotFleetRequestConfigData' {} a -> s {spotPrice = a} :: SpotFleetRequestConfigData)
 
@@ -665,6 +696,7 @@ instance Core.FromXML SpotFleetRequestConfigData where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "targetCapacityUnitType")
       Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
       Prelude.<*> (x Core..@? "allocationStrategy")
       Prelude.<*> (x Core..@? "terminateInstancesWithExpiration")
@@ -697,6 +729,7 @@ instance Prelude.Hashable SpotFleetRequestConfigData where
       `Prelude.hashWithSalt` validFrom
       `Prelude.hashWithSalt` replaceUnhealthyInstances
       `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` targetCapacityUnitType
       `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` terminateInstancesWithExpiration
@@ -725,6 +758,7 @@ instance Prelude.NFData SpotFleetRequestConfigData where
       `Prelude.seq` Prelude.rnf validFrom
       `Prelude.seq` Prelude.rnf replaceUnhealthyInstances
       `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf targetCapacityUnitType
       `Prelude.seq` Prelude.rnf
         instanceInterruptionBehavior
       `Prelude.seq` Prelude.rnf allocationStrategy
@@ -774,6 +808,8 @@ instance Core.ToQuery SpotFleetRequestConfigData where
           ( Core.toQueryList "LaunchTemplateConfigs"
               Prelude.<$> launchTemplateConfigs
           ),
+        "TargetCapacityUnitType"
+          Core.=: targetCapacityUnitType,
         "InstanceInterruptionBehavior"
           Core.=: instanceInterruptionBehavior,
         "AllocationStrategy" Core.=: allocationStrategy,

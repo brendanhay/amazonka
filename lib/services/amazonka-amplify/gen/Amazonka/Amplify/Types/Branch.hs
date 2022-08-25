@@ -44,7 +44,9 @@ data Branch = Branch'
     destinationBranch :: Prelude.Maybe Prelude.Text,
     -- | A list of custom resources that are linked to this branch.
     associatedResources :: Prelude.Maybe [Prelude.Text],
-    -- | The basic authorization credentials for a branch of an Amplify app.
+    -- | The basic authorization credentials for a branch of an Amplify app. You
+    -- must base64-encode the authorization credentials and provide them in the
+    -- format @user:password@.
     basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The source branch if the branch is a pull request branch.
     sourceBranch :: Prelude.Maybe Prelude.Text,
@@ -55,7 +57,7 @@ data Branch = Branch'
     backendEnvironmentArn :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) content for the branch of an
     -- Amplify app.
-    buildSpec :: Prelude.Maybe Prelude.Text,
+    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) for a branch that is part of an Amplify
     -- app.
     branchArn :: Prelude.Text,
@@ -119,7 +121,9 @@ data Branch = Branch'
 --
 -- 'associatedResources', 'branch_associatedResources' - A list of custom resources that are linked to this branch.
 --
--- 'basicAuthCredentials', 'branch_basicAuthCredentials' - The basic authorization credentials for a branch of an Amplify app.
+-- 'basicAuthCredentials', 'branch_basicAuthCredentials' - The basic authorization credentials for a branch of an Amplify app. You
+-- must base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 --
 -- 'sourceBranch', 'branch_sourceBranch' - The source branch if the branch is a pull request branch.
 --
@@ -271,7 +275,9 @@ branch_destinationBranch = Lens.lens (\Branch' {destinationBranch} -> destinatio
 branch_associatedResources :: Lens.Lens' Branch (Prelude.Maybe [Prelude.Text])
 branch_associatedResources = Lens.lens (\Branch' {associatedResources} -> associatedResources) (\s@Branch' {} a -> s {associatedResources = a} :: Branch) Prelude.. Lens.mapping Lens.coerced
 
--- | The basic authorization credentials for a branch of an Amplify app.
+-- | The basic authorization credentials for a branch of an Amplify app. You
+-- must base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 branch_basicAuthCredentials :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
 branch_basicAuthCredentials = Lens.lens (\Branch' {basicAuthCredentials} -> basicAuthCredentials) (\s@Branch' {} a -> s {basicAuthCredentials = a} :: Branch) Prelude.. Lens.mapping Core._Sensitive
 
@@ -291,7 +297,7 @@ branch_backendEnvironmentArn = Lens.lens (\Branch' {backendEnvironmentArn} -> ba
 -- | The build specification (build spec) content for the branch of an
 -- Amplify app.
 branch_buildSpec :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_buildSpec = Lens.lens (\Branch' {buildSpec} -> buildSpec) (\s@Branch' {} a -> s {buildSpec = a} :: Branch)
+branch_buildSpec = Lens.lens (\Branch' {buildSpec} -> buildSpec) (\s@Branch' {} a -> s {buildSpec = a} :: Branch) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) for a branch that is part of an Amplify
 -- app.

@@ -62,8 +62,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
-  { -- | A Boolean value indicating whether to include inactive results in your
-    -- request.
+  { -- | A Boolean value that indicates whether to include inactive (unavailable)
+    -- blueprints in the response of your request.
     includeInactive :: Prelude.Maybe Prelude.Bool,
     -- | The token to advance to the next page of results from your request.
     --
@@ -82,8 +82,8 @@ data GetBlueprints = GetBlueprints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeInactive', 'getBlueprints_includeInactive' - A Boolean value indicating whether to include inactive results in your
--- request.
+-- 'includeInactive', 'getBlueprints_includeInactive' - A Boolean value that indicates whether to include inactive (unavailable)
+-- blueprints in the response of your request.
 --
 -- 'pageToken', 'getBlueprints_pageToken' - The token to advance to the next page of results from your request.
 --
@@ -98,8 +98,8 @@ newGetBlueprints =
       pageToken = Prelude.Nothing
     }
 
--- | A Boolean value indicating whether to include inactive results in your
--- request.
+-- | A Boolean value that indicates whether to include inactive (unavailable)
+-- blueprints in the response of your request.
 getBlueprints_includeInactive :: Lens.Lens' GetBlueprints (Prelude.Maybe Prelude.Bool)
 getBlueprints_includeInactive = Lens.lens (\GetBlueprints' {includeInactive} -> includeInactive) (\s@GetBlueprints' {} a -> s {includeInactive = a} :: GetBlueprints)
 

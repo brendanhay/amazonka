@@ -35,7 +35,8 @@ data FrameworkControl = FrameworkControl'
     -- | The scope of a control. The control scope defines what the control will
     -- evaluate. Three examples of control scopes are: a specific backup plan,
     -- all backup plans with a specific tag, or all backup plans. For more
-    -- information, see @ControlScope@.
+    -- information, see
+    -- <aws-backup/latest/devguide/API_ControlScope.html ControlScope.>
     controlScope :: Prelude.Maybe ControlScope,
     -- | The name of a control. This name is between 1 and 256 characters.
     controlName :: Prelude.Text
@@ -55,7 +56,8 @@ data FrameworkControl = FrameworkControl'
 -- 'controlScope', 'frameworkControl_controlScope' - The scope of a control. The control scope defines what the control will
 -- evaluate. Three examples of control scopes are: a specific backup plan,
 -- all backup plans with a specific tag, or all backup plans. For more
--- information, see @ControlScope@.
+-- information, see
+-- <aws-backup/latest/devguide/API_ControlScope.html ControlScope.>
 --
 -- 'controlName', 'frameworkControl_controlName' - The name of a control. This name is between 1 and 256 characters.
 newFrameworkControl ::
@@ -77,7 +79,8 @@ frameworkControl_controlInputParameters = Lens.lens (\FrameworkControl' {control
 -- | The scope of a control. The control scope defines what the control will
 -- evaluate. Three examples of control scopes are: a specific backup plan,
 -- all backup plans with a specific tag, or all backup plans. For more
--- information, see @ControlScope@.
+-- information, see
+-- <aws-backup/latest/devguide/API_ControlScope.html ControlScope.>
 frameworkControl_controlScope :: Lens.Lens' FrameworkControl (Prelude.Maybe ControlScope)
 frameworkControl_controlScope = Lens.lens (\FrameworkControl' {controlScope} -> controlScope) (\s@FrameworkControl' {} a -> s {controlScope = a} :: FrameworkControl)
 

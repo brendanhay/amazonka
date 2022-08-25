@@ -19,7 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ComputeOptimizer.Types.InstanceRecommendation where
 
+import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
+import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types.Finding
+import Amazonka.ComputeOptimizer.Types.InferredWorkloadType
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
 import Amazonka.ComputeOptimizer.Types.RecommendationSource
@@ -159,12 +162,41 @@ data InstanceRecommendation = InstanceRecommendation'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html Amazon CloudWatch metrics for Amazon EBS>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     findingReasonCodes :: Prelude.Maybe [InstanceRecommendationFindingReasonCode],
+    -- | The risk of the current instance not meeting the performance needs of
+    -- its workloads. The higher the risk, the more likely the current instance
+    -- cannot meet the performance requirements of its workload.
+    currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
     -- | The name of the current instance.
     instanceName :: Prelude.Maybe Prelude.Text,
+    -- | The applications that might be running on the instance as inferred by
+    -- Compute Optimizer.
+    --
+    -- Compute Optimizer can infer if one of the following applications might
+    -- be running on the instance:
+    --
+    -- -   @AmazonEmr@ - Infers that Amazon EMR might be running on the
+    --     instance.
+    --
+    -- -   @ApacheCassandra@ - Infers that Apache Cassandra might be running on
+    --     the instance.
+    --
+    -- -   @ApacheHadoop@ - Infers that Apache Hadoop might be running on the
+    --     instance.
+    --
+    -- -   @Memcached@ - Infers that Memcached might be running on the
+    --     instance.
+    --
+    -- -   @NGINX@ - Infers that NGINX might be running on the instance.
+    --
+    -- -   @PostgreSql@ - Infers that PostgreSQL might be running on the
+    --     instance.
+    --
+    -- -   @Redis@ - Infers that Redis might be running on the instance.
+    inferredWorkloadTypes :: Prelude.Maybe [InferredWorkloadType],
     -- | An array of objects that describe the recommendation options for the
     -- instance.
     recommendationOptions :: Prelude.Maybe [InstanceRecommendationOption],
-    -- | The timestamp of when the instance recommendation was last refreshed.
+    -- | The timestamp of when the instance recommendation was last generated.
     lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the current instance.
     instanceArn :: Prelude.Maybe Prelude.Text,
@@ -176,6 +208,9 @@ data InstanceRecommendation = InstanceRecommendation'
     -- | An array of objects that describe the source resource of the
     -- recommendation.
     recommendationSources :: Prelude.Maybe [RecommendationSource],
+    -- | An object that describes the effective recommendation preferences for
+    -- the instance.
+    effectiveRecommendationPreferences :: Prelude.Maybe EffectiveRecommendationPreferences,
     -- | The instance type of the current instance.
     currentInstanceType :: Prelude.Maybe Prelude.Text,
     -- | An array of objects that describe the utilization metrics of the
@@ -342,12 +377,41 @@ data InstanceRecommendation = InstanceRecommendation'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html Amazon CloudWatch metrics for Amazon EBS>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
+-- 'currentPerformanceRisk', 'instanceRecommendation_currentPerformanceRisk' - The risk of the current instance not meeting the performance needs of
+-- its workloads. The higher the risk, the more likely the current instance
+-- cannot meet the performance requirements of its workload.
+--
 -- 'instanceName', 'instanceRecommendation_instanceName' - The name of the current instance.
+--
+-- 'inferredWorkloadTypes', 'instanceRecommendation_inferredWorkloadTypes' - The applications that might be running on the instance as inferred by
+-- Compute Optimizer.
+--
+-- Compute Optimizer can infer if one of the following applications might
+-- be running on the instance:
+--
+-- -   @AmazonEmr@ - Infers that Amazon EMR might be running on the
+--     instance.
+--
+-- -   @ApacheCassandra@ - Infers that Apache Cassandra might be running on
+--     the instance.
+--
+-- -   @ApacheHadoop@ - Infers that Apache Hadoop might be running on the
+--     instance.
+--
+-- -   @Memcached@ - Infers that Memcached might be running on the
+--     instance.
+--
+-- -   @NGINX@ - Infers that NGINX might be running on the instance.
+--
+-- -   @PostgreSql@ - Infers that PostgreSQL might be running on the
+--     instance.
+--
+-- -   @Redis@ - Infers that Redis might be running on the instance.
 --
 -- 'recommendationOptions', 'instanceRecommendation_recommendationOptions' - An array of objects that describe the recommendation options for the
 -- instance.
 --
--- 'lastRefreshTimestamp', 'instanceRecommendation_lastRefreshTimestamp' - The timestamp of when the instance recommendation was last refreshed.
+-- 'lastRefreshTimestamp', 'instanceRecommendation_lastRefreshTimestamp' - The timestamp of when the instance recommendation was last generated.
 --
 -- 'instanceArn', 'instanceRecommendation_instanceArn' - The Amazon Resource Name (ARN) of the current instance.
 --
@@ -358,6 +422,9 @@ data InstanceRecommendation = InstanceRecommendation'
 --
 -- 'recommendationSources', 'instanceRecommendation_recommendationSources' - An array of objects that describe the source resource of the
 -- recommendation.
+--
+-- 'effectiveRecommendationPreferences', 'instanceRecommendation_effectiveRecommendationPreferences' - An object that describes the effective recommendation preferences for
+-- the instance.
 --
 -- 'currentInstanceType', 'instanceRecommendation_currentInstanceType' - The instance type of the current instance.
 --
@@ -392,13 +459,17 @@ newInstanceRecommendation =
   InstanceRecommendation'
     { findingReasonCodes =
         Prelude.Nothing,
+      currentPerformanceRisk = Prelude.Nothing,
       instanceName = Prelude.Nothing,
+      inferredWorkloadTypes = Prelude.Nothing,
       recommendationOptions = Prelude.Nothing,
       lastRefreshTimestamp = Prelude.Nothing,
       instanceArn = Prelude.Nothing,
       lookBackPeriodInDays = Prelude.Nothing,
       accountId = Prelude.Nothing,
       recommendationSources = Prelude.Nothing,
+      effectiveRecommendationPreferences =
+        Prelude.Nothing,
       currentInstanceType = Prelude.Nothing,
       utilizationMetrics = Prelude.Nothing,
       finding = Prelude.Nothing
@@ -533,16 +604,49 @@ newInstanceRecommendation =
 instanceRecommendation_findingReasonCodes :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [InstanceRecommendationFindingReasonCode])
 instanceRecommendation_findingReasonCodes = Lens.lens (\InstanceRecommendation' {findingReasonCodes} -> findingReasonCodes) (\s@InstanceRecommendation' {} a -> s {findingReasonCodes = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The risk of the current instance not meeting the performance needs of
+-- its workloads. The higher the risk, the more likely the current instance
+-- cannot meet the performance requirements of its workload.
+instanceRecommendation_currentPerformanceRisk :: Lens.Lens' InstanceRecommendation (Prelude.Maybe CurrentPerformanceRisk)
+instanceRecommendation_currentPerformanceRisk = Lens.lens (\InstanceRecommendation' {currentPerformanceRisk} -> currentPerformanceRisk) (\s@InstanceRecommendation' {} a -> s {currentPerformanceRisk = a} :: InstanceRecommendation)
+
 -- | The name of the current instance.
 instanceRecommendation_instanceName :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.Text)
 instanceRecommendation_instanceName = Lens.lens (\InstanceRecommendation' {instanceName} -> instanceName) (\s@InstanceRecommendation' {} a -> s {instanceName = a} :: InstanceRecommendation)
+
+-- | The applications that might be running on the instance as inferred by
+-- Compute Optimizer.
+--
+-- Compute Optimizer can infer if one of the following applications might
+-- be running on the instance:
+--
+-- -   @AmazonEmr@ - Infers that Amazon EMR might be running on the
+--     instance.
+--
+-- -   @ApacheCassandra@ - Infers that Apache Cassandra might be running on
+--     the instance.
+--
+-- -   @ApacheHadoop@ - Infers that Apache Hadoop might be running on the
+--     instance.
+--
+-- -   @Memcached@ - Infers that Memcached might be running on the
+--     instance.
+--
+-- -   @NGINX@ - Infers that NGINX might be running on the instance.
+--
+-- -   @PostgreSql@ - Infers that PostgreSQL might be running on the
+--     instance.
+--
+-- -   @Redis@ - Infers that Redis might be running on the instance.
+instanceRecommendation_inferredWorkloadTypes :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [InferredWorkloadType])
+instanceRecommendation_inferredWorkloadTypes = Lens.lens (\InstanceRecommendation' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@InstanceRecommendation' {} a -> s {inferredWorkloadTypes = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects that describe the recommendation options for the
 -- instance.
 instanceRecommendation_recommendationOptions :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [InstanceRecommendationOption])
 instanceRecommendation_recommendationOptions = Lens.lens (\InstanceRecommendation' {recommendationOptions} -> recommendationOptions) (\s@InstanceRecommendation' {} a -> s {recommendationOptions = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
 
--- | The timestamp of when the instance recommendation was last refreshed.
+-- | The timestamp of when the instance recommendation was last generated.
 instanceRecommendation_lastRefreshTimestamp :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.UTCTime)
 instanceRecommendation_lastRefreshTimestamp = Lens.lens (\InstanceRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@InstanceRecommendation' {} a -> s {lastRefreshTimestamp = a} :: InstanceRecommendation) Prelude.. Lens.mapping Core._Time
 
@@ -563,6 +667,11 @@ instanceRecommendation_accountId = Lens.lens (\InstanceRecommendation' {accountI
 -- recommendation.
 instanceRecommendation_recommendationSources :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [RecommendationSource])
 instanceRecommendation_recommendationSources = Lens.lens (\InstanceRecommendation' {recommendationSources} -> recommendationSources) (\s@InstanceRecommendation' {} a -> s {recommendationSources = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that describes the effective recommendation preferences for
+-- the instance.
+instanceRecommendation_effectiveRecommendationPreferences :: Lens.Lens' InstanceRecommendation (Prelude.Maybe EffectiveRecommendationPreferences)
+instanceRecommendation_effectiveRecommendationPreferences = Lens.lens (\InstanceRecommendation' {effectiveRecommendationPreferences} -> effectiveRecommendationPreferences) (\s@InstanceRecommendation' {} a -> s {effectiveRecommendationPreferences = a} :: InstanceRecommendation)
 
 -- | The instance type of the current instance.
 instanceRecommendation_currentInstanceType :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.Text)
@@ -607,7 +716,11 @@ instance Core.FromJSON InstanceRecommendation where
             Prelude.<$> ( x Core..:? "findingReasonCodes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "currentPerformanceRisk")
             Prelude.<*> (x Core..:? "instanceName")
+            Prelude.<*> ( x Core..:? "inferredWorkloadTypes"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "recommendationOptions"
                             Core..!= Prelude.mempty
                         )
@@ -618,6 +731,7 @@ instance Core.FromJSON InstanceRecommendation where
             Prelude.<*> ( x Core..:? "recommendationSources"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "effectiveRecommendationPreferences")
             Prelude.<*> (x Core..:? "currentInstanceType")
             Prelude.<*> ( x Core..:? "utilizationMetrics"
                             Core..!= Prelude.mempty
@@ -628,13 +742,16 @@ instance Core.FromJSON InstanceRecommendation where
 instance Prelude.Hashable InstanceRecommendation where
   hashWithSalt _salt InstanceRecommendation' {..} =
     _salt `Prelude.hashWithSalt` findingReasonCodes
+      `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` inferredWorkloadTypes
       `Prelude.hashWithSalt` recommendationOptions
       `Prelude.hashWithSalt` lastRefreshTimestamp
       `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` lookBackPeriodInDays
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` recommendationSources
+      `Prelude.hashWithSalt` effectiveRecommendationPreferences
       `Prelude.hashWithSalt` currentInstanceType
       `Prelude.hashWithSalt` utilizationMetrics
       `Prelude.hashWithSalt` finding
@@ -642,13 +759,16 @@ instance Prelude.Hashable InstanceRecommendation where
 instance Prelude.NFData InstanceRecommendation where
   rnf InstanceRecommendation' {..} =
     Prelude.rnf findingReasonCodes
+      `Prelude.seq` Prelude.rnf currentPerformanceRisk
       `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
       `Prelude.seq` Prelude.rnf recommendationOptions
       `Prelude.seq` Prelude.rnf lastRefreshTimestamp
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf lookBackPeriodInDays
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf recommendationSources
+      `Prelude.seq` Prelude.rnf effectiveRecommendationPreferences
       `Prelude.seq` Prelude.rnf currentInstanceType
       `Prelude.seq` Prelude.rnf utilizationMetrics
       `Prelude.seq` Prelude.rnf finding

@@ -151,15 +151,7 @@ instance Prelude.NFData ListEffectiveDeployments where
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance Core.ToHeaders ListEffectiveDeployments where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListEffectiveDeployments where
   toPath ListEffectiveDeployments' {..} =

@@ -28,6 +28,7 @@ import Amazonka.EC2.Types.Phase1IntegrityAlgorithmsRequestListValue
 import Amazonka.EC2.Types.Phase2DHGroupNumbersRequestListValue
 import Amazonka.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
 import Amazonka.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue
+import Amazonka.EC2.Types.VpnTunnelLogOptionsSpecification
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,7 +73,7 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
     phase1IntegrityAlgorithms :: Prelude.Maybe [Phase1IntegrityAlgorithmsRequestListValue],
     -- | The number of seconds after which a DPD timeout occurs.
     --
-    -- Constraints: A value between 0 and 30.
+    -- Constraints: A value greater than or equal to 30.
     --
     -- Default: @30@
     dPDTimeoutSeconds :: Prelude.Maybe Prelude.Int,
@@ -94,6 +95,8 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
     --
     -- Default: @clear@
     dPDTimeoutAction :: Prelude.Maybe Prelude.Text,
+    -- | Options for logging VPN tunnel activity.
+    logOptions :: Prelude.Maybe VpnTunnelLogOptionsSpecification,
     -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
     -- tunnel for phase 2 IKE negotiations.
     --
@@ -211,7 +214,7 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
 --
 -- 'dPDTimeoutSeconds', 'modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
 --
--- Constraints: A value between 0 and 30.
+-- Constraints: A value greater than or equal to 30.
 --
 -- Default: @30@
 --
@@ -232,6 +235,8 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
 -- Valid Values: @clear@ | @none@ | @restart@
 --
 -- Default: @clear@
+--
+-- 'logOptions', 'modifyVpnTunnelOptionsSpecification_logOptions' - Options for logging VPN tunnel activity.
 --
 -- 'phase2DHGroupNumbers', 'modifyVpnTunnelOptionsSpecification_phase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN
 -- tunnel for phase 2 IKE negotiations.
@@ -320,6 +325,7 @@ newModifyVpnTunnelOptionsSpecification =
       iKEVersions = Prelude.Nothing,
       preSharedKey = Prelude.Nothing,
       dPDTimeoutAction = Prelude.Nothing,
+      logOptions = Prelude.Nothing,
       phase2DHGroupNumbers = Prelude.Nothing,
       rekeyFuzzPercentage = Prelude.Nothing,
       startupAction = Prelude.Nothing,
@@ -382,7 +388,7 @@ modifyVpnTunnelOptionsSpecification_phase1IntegrityAlgorithms = Lens.lens (\Modi
 
 -- | The number of seconds after which a DPD timeout occurs.
 --
--- Constraints: A value between 0 and 30.
+-- Constraints: A value greater than or equal to 30.
 --
 -- Default: @30@
 modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds :: Lens.Lens' ModifyVpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
@@ -411,6 +417,10 @@ modifyVpnTunnelOptionsSpecification_preSharedKey = Lens.lens (\ModifyVpnTunnelOp
 -- Default: @clear@
 modifyVpnTunnelOptionsSpecification_dPDTimeoutAction :: Lens.Lens' ModifyVpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
 modifyVpnTunnelOptionsSpecification_dPDTimeoutAction = Lens.lens (\ModifyVpnTunnelOptionsSpecification' {dPDTimeoutAction} -> dPDTimeoutAction) (\s@ModifyVpnTunnelOptionsSpecification' {} a -> s {dPDTimeoutAction = a} :: ModifyVpnTunnelOptionsSpecification)
+
+-- | Options for logging VPN tunnel activity.
+modifyVpnTunnelOptionsSpecification_logOptions :: Lens.Lens' ModifyVpnTunnelOptionsSpecification (Prelude.Maybe VpnTunnelLogOptionsSpecification)
+modifyVpnTunnelOptionsSpecification_logOptions = Lens.lens (\ModifyVpnTunnelOptionsSpecification' {logOptions} -> logOptions) (\s@ModifyVpnTunnelOptionsSpecification' {} a -> s {logOptions = a} :: ModifyVpnTunnelOptionsSpecification)
 
 -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
 -- tunnel for phase 2 IKE negotiations.
@@ -514,6 +524,7 @@ instance
         `Prelude.hashWithSalt` iKEVersions
         `Prelude.hashWithSalt` preSharedKey
         `Prelude.hashWithSalt` dPDTimeoutAction
+        `Prelude.hashWithSalt` logOptions
         `Prelude.hashWithSalt` phase2DHGroupNumbers
         `Prelude.hashWithSalt` rekeyFuzzPercentage
         `Prelude.hashWithSalt` startupAction
@@ -538,12 +549,14 @@ instance
       `Prelude.seq` Prelude.rnf iKEVersions
       `Prelude.seq` Prelude.rnf preSharedKey
       `Prelude.seq` Prelude.rnf dPDTimeoutAction
+      `Prelude.seq` Prelude.rnf logOptions
       `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
       `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
       `Prelude.seq` Prelude.rnf startupAction
       `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
       `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+      `Prelude.seq` Prelude.rnf
+        phase1EncryptionAlgorithms
       `Prelude.seq` Prelude.rnf tunnelInsideCidr
       `Prelude.seq` Prelude.rnf replayWindowSize
 
@@ -577,6 +590,7 @@ instance
           ),
         "PreSharedKey" Core.=: preSharedKey,
         "DPDTimeoutAction" Core.=: dPDTimeoutAction,
+        "LogOptions" Core.=: logOptions,
         Core.toQuery
           ( Core.toQueryList "Phase2DHGroupNumber"
               Prelude.<$> phase2DHGroupNumbers

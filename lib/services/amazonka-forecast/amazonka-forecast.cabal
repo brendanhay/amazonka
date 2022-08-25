@@ -44,57 +44,97 @@ library
 
   exposed-modules:
     Amazonka.Forecast
+    Amazonka.Forecast.CreateAutoPredictor
     Amazonka.Forecast.CreateDataset
     Amazonka.Forecast.CreateDatasetGroup
     Amazonka.Forecast.CreateDatasetImportJob
+    Amazonka.Forecast.CreateExplainability
+    Amazonka.Forecast.CreateExplainabilityExport
     Amazonka.Forecast.CreateForecast
     Amazonka.Forecast.CreateForecastExportJob
+    Amazonka.Forecast.CreateMonitor
     Amazonka.Forecast.CreatePredictor
     Amazonka.Forecast.CreatePredictorBacktestExportJob
+    Amazonka.Forecast.CreateWhatIfAnalysis
+    Amazonka.Forecast.CreateWhatIfForecast
+    Amazonka.Forecast.CreateWhatIfForecastExport
     Amazonka.Forecast.DeleteDataset
     Amazonka.Forecast.DeleteDatasetGroup
     Amazonka.Forecast.DeleteDatasetImportJob
+    Amazonka.Forecast.DeleteExplainability
+    Amazonka.Forecast.DeleteExplainabilityExport
     Amazonka.Forecast.DeleteForecast
     Amazonka.Forecast.DeleteForecastExportJob
+    Amazonka.Forecast.DeleteMonitor
     Amazonka.Forecast.DeletePredictor
     Amazonka.Forecast.DeletePredictorBacktestExportJob
     Amazonka.Forecast.DeleteResourceTree
+    Amazonka.Forecast.DeleteWhatIfAnalysis
+    Amazonka.Forecast.DeleteWhatIfForecast
+    Amazonka.Forecast.DeleteWhatIfForecastExport
+    Amazonka.Forecast.DescribeAutoPredictor
     Amazonka.Forecast.DescribeDataset
     Amazonka.Forecast.DescribeDatasetGroup
     Amazonka.Forecast.DescribeDatasetImportJob
+    Amazonka.Forecast.DescribeExplainability
+    Amazonka.Forecast.DescribeExplainabilityExport
     Amazonka.Forecast.DescribeForecast
     Amazonka.Forecast.DescribeForecastExportJob
+    Amazonka.Forecast.DescribeMonitor
     Amazonka.Forecast.DescribePredictor
     Amazonka.Forecast.DescribePredictorBacktestExportJob
+    Amazonka.Forecast.DescribeWhatIfAnalysis
+    Amazonka.Forecast.DescribeWhatIfForecast
+    Amazonka.Forecast.DescribeWhatIfForecastExport
     Amazonka.Forecast.GetAccuracyMetrics
     Amazonka.Forecast.Lens
     Amazonka.Forecast.ListDatasetGroups
     Amazonka.Forecast.ListDatasetImportJobs
     Amazonka.Forecast.ListDatasets
+    Amazonka.Forecast.ListExplainabilities
+    Amazonka.Forecast.ListExplainabilityExports
     Amazonka.Forecast.ListForecastExportJobs
     Amazonka.Forecast.ListForecasts
+    Amazonka.Forecast.ListMonitorEvaluations
+    Amazonka.Forecast.ListMonitors
     Amazonka.Forecast.ListPredictorBacktestExportJobs
     Amazonka.Forecast.ListPredictors
     Amazonka.Forecast.ListTagsForResource
+    Amazonka.Forecast.ListWhatIfAnalyses
+    Amazonka.Forecast.ListWhatIfForecastExports
+    Amazonka.Forecast.ListWhatIfForecasts
+    Amazonka.Forecast.ResumeResource
     Amazonka.Forecast.StopResource
     Amazonka.Forecast.TagResource
     Amazonka.Forecast.Types
+    Amazonka.Forecast.Types.Action
+    Amazonka.Forecast.Types.AdditionalDataset
+    Amazonka.Forecast.Types.AttributeConfig
     Amazonka.Forecast.Types.AttributeType
     Amazonka.Forecast.Types.AutoMLOverrideStrategy
+    Amazonka.Forecast.Types.Baseline
+    Amazonka.Forecast.Types.BaselineMetric
     Amazonka.Forecast.Types.CategoricalParameterRange
+    Amazonka.Forecast.Types.Condition
     Amazonka.Forecast.Types.ContinuousParameterRange
+    Amazonka.Forecast.Types.DataConfig
     Amazonka.Forecast.Types.DataDestination
     Amazonka.Forecast.Types.DatasetGroupSummary
     Amazonka.Forecast.Types.DatasetImportJobSummary
     Amazonka.Forecast.Types.DatasetSummary
     Amazonka.Forecast.Types.DatasetType
     Amazonka.Forecast.Types.DataSource
+    Amazonka.Forecast.Types.DayOfWeek
     Amazonka.Forecast.Types.Domain
     Amazonka.Forecast.Types.EncryptionConfig
     Amazonka.Forecast.Types.ErrorMetric
     Amazonka.Forecast.Types.EvaluationParameters
     Amazonka.Forecast.Types.EvaluationResult
     Amazonka.Forecast.Types.EvaluationType
+    Amazonka.Forecast.Types.ExplainabilityConfig
+    Amazonka.Forecast.Types.ExplainabilityExportSummary
+    Amazonka.Forecast.Types.ExplainabilityInfo
+    Amazonka.Forecast.Types.ExplainabilitySummary
     Amazonka.Forecast.Types.Featurization
     Amazonka.Forecast.Types.FeaturizationConfig
     Amazonka.Forecast.Types.FeaturizationMethod
@@ -106,22 +146,45 @@ library
     Amazonka.Forecast.Types.HyperParameterTuningJobConfig
     Amazonka.Forecast.Types.InputDataConfig
     Amazonka.Forecast.Types.IntegerParameterRange
+    Amazonka.Forecast.Types.MetricResult
     Amazonka.Forecast.Types.Metrics
+    Amazonka.Forecast.Types.MonitorConfig
+    Amazonka.Forecast.Types.MonitorDataSource
+    Amazonka.Forecast.Types.MonitorInfo
+    Amazonka.Forecast.Types.MonitorSummary
+    Amazonka.Forecast.Types.Month
+    Amazonka.Forecast.Types.Operation
     Amazonka.Forecast.Types.OptimizationMetric
     Amazonka.Forecast.Types.ParameterRanges
     Amazonka.Forecast.Types.PredictorBacktestExportJobSummary
+    Amazonka.Forecast.Types.PredictorBaseline
+    Amazonka.Forecast.Types.PredictorEvent
     Amazonka.Forecast.Types.PredictorExecution
     Amazonka.Forecast.Types.PredictorExecutionDetails
+    Amazonka.Forecast.Types.PredictorMonitorEvaluation
     Amazonka.Forecast.Types.PredictorSummary
+    Amazonka.Forecast.Types.ReferencePredictorSummary
     Amazonka.Forecast.Types.S3Config
     Amazonka.Forecast.Types.ScalingType
     Amazonka.Forecast.Types.Schema
     Amazonka.Forecast.Types.SchemaAttribute
+    Amazonka.Forecast.Types.State
     Amazonka.Forecast.Types.Statistics
     Amazonka.Forecast.Types.SupplementaryFeature
     Amazonka.Forecast.Types.Tag
     Amazonka.Forecast.Types.TestWindowSummary
+    Amazonka.Forecast.Types.TimeAlignmentBoundary
+    Amazonka.Forecast.Types.TimePointGranularity
+    Amazonka.Forecast.Types.TimeSeriesCondition
+    Amazonka.Forecast.Types.TimeSeriesGranularity
+    Amazonka.Forecast.Types.TimeSeriesIdentifiers
+    Amazonka.Forecast.Types.TimeSeriesReplacementsDataSource
+    Amazonka.Forecast.Types.TimeSeriesSelector
+    Amazonka.Forecast.Types.TimeSeriesTransformation
     Amazonka.Forecast.Types.WeightedQuantileLoss
+    Amazonka.Forecast.Types.WhatIfAnalysisSummary
+    Amazonka.Forecast.Types.WhatIfForecastExportSummary
+    Amazonka.Forecast.Types.WhatIfForecastSummary
     Amazonka.Forecast.Types.WindowSummary
     Amazonka.Forecast.UntagResource
     Amazonka.Forecast.UpdateDatasetGroup

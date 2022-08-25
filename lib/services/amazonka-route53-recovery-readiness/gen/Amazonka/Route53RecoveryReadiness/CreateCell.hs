@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Cell.
+-- Creates a cell in an account.
 module Amazonka.Route53RecoveryReadiness.CreateCell
   ( -- * Creating a Request
     CreateCell (..),
@@ -52,15 +52,14 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryReadiness.Types
 
--- | The Cell to create
---
--- /See:/ 'newCreateCell' smart constructor.
+-- | /See:/ 'newCreateCell' smart constructor.
 data CreateCell = CreateCell'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of Cell arns contained within this Cell (for use in nested Cells,
-    -- e.g. regions within which AZs)
+    -- | A list of cell Amazon Resource Names (ARNs) contained within this cell,
+    -- for use in nested cells. For example, Availability Zones within specific
+    -- Amazon Web Services Regions.
     cells :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Cell to create
+    -- | The name of the cell to create.
     cellName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,10 +74,11 @@ data CreateCell = CreateCell'
 --
 -- 'tags', 'createCell_tags' - Undocumented member.
 --
--- 'cells', 'createCell_cells' - A list of Cell arns contained within this Cell (for use in nested Cells,
--- e.g. regions within which AZs)
+-- 'cells', 'createCell_cells' - A list of cell Amazon Resource Names (ARNs) contained within this cell,
+-- for use in nested cells. For example, Availability Zones within specific
+-- Amazon Web Services Regions.
 --
--- 'cellName', 'createCell_cellName' - The name of the Cell to create
+-- 'cellName', 'createCell_cellName' - The name of the cell to create.
 newCreateCell ::
   -- | 'cellName'
   Prelude.Text ->
@@ -94,12 +94,13 @@ newCreateCell pCellName_ =
 createCell_tags :: Lens.Lens' CreateCell (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createCell_tags = Lens.lens (\CreateCell' {tags} -> tags) (\s@CreateCell' {} a -> s {tags = a} :: CreateCell) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Cell arns contained within this Cell (for use in nested Cells,
--- e.g. regions within which AZs)
+-- | A list of cell Amazon Resource Names (ARNs) contained within this cell,
+-- for use in nested cells. For example, Availability Zones within specific
+-- Amazon Web Services Regions.
 createCell_cells :: Lens.Lens' CreateCell (Prelude.Maybe [Prelude.Text])
 createCell_cells = Lens.lens (\CreateCell' {cells} -> cells) (\s@CreateCell' {} a -> s {cells = a} :: CreateCell) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the Cell to create
+-- | The name of the cell to create.
 createCell_cellName :: Lens.Lens' CreateCell Prelude.Text
 createCell_cellName = Lens.lens (\CreateCell' {cellName} -> cellName) (\s@CreateCell' {} a -> s {cellName = a} :: CreateCell)
 
@@ -161,14 +162,17 @@ instance Core.ToQuery CreateCell where
 
 -- | /See:/ 'newCreateCellResponse' smart constructor.
 data CreateCellResponse = CreateCellResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of Cell ARNs and\/or RecoveryGroup ARNs
+  { -- | Tags on the resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The readiness scope for the cell, which can be a cell Amazon Resource
+    -- Name (ARN) or a recovery group ARN. This is a list but currently can
+    -- have only one element.
     parentReadinessScopes :: Prelude.Maybe [Prelude.Text],
-    -- | The arn for the Cell
+    -- | The Amazon Resource Name (ARN) for the cell.
     cellArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Cell
+    -- | The name of the cell.
     cellName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Cell arns
+    -- | A list of cell ARNs.
     cells :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -183,15 +187,17 @@ data CreateCellResponse = CreateCellResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCellResponse_tags' - Undocumented member.
+-- 'tags', 'createCellResponse_tags' - Tags on the resources.
 --
--- 'parentReadinessScopes', 'createCellResponse_parentReadinessScopes' - A list of Cell ARNs and\/or RecoveryGroup ARNs
+-- 'parentReadinessScopes', 'createCellResponse_parentReadinessScopes' - The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
 --
--- 'cellArn', 'createCellResponse_cellArn' - The arn for the Cell
+-- 'cellArn', 'createCellResponse_cellArn' - The Amazon Resource Name (ARN) for the cell.
 --
--- 'cellName', 'createCellResponse_cellName' - The name of the Cell
+-- 'cellName', 'createCellResponse_cellName' - The name of the cell.
 --
--- 'cells', 'createCellResponse_cells' - A list of Cell arns
+-- 'cells', 'createCellResponse_cells' - A list of cell ARNs.
 --
 -- 'httpStatus', 'createCellResponse_httpStatus' - The response's http status code.
 newCreateCellResponse ::
@@ -208,23 +214,25 @@ newCreateCellResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Tags on the resources.
 createCellResponse_tags :: Lens.Lens' CreateCellResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createCellResponse_tags = Lens.lens (\CreateCellResponse' {tags} -> tags) (\s@CreateCellResponse' {} a -> s {tags = a} :: CreateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Cell ARNs and\/or RecoveryGroup ARNs
+-- | The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
 createCellResponse_parentReadinessScopes :: Lens.Lens' CreateCellResponse (Prelude.Maybe [Prelude.Text])
 createCellResponse_parentReadinessScopes = Lens.lens (\CreateCellResponse' {parentReadinessScopes} -> parentReadinessScopes) (\s@CreateCellResponse' {} a -> s {parentReadinessScopes = a} :: CreateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The arn for the Cell
+-- | The Amazon Resource Name (ARN) for the cell.
 createCellResponse_cellArn :: Lens.Lens' CreateCellResponse (Prelude.Maybe Prelude.Text)
 createCellResponse_cellArn = Lens.lens (\CreateCellResponse' {cellArn} -> cellArn) (\s@CreateCellResponse' {} a -> s {cellArn = a} :: CreateCellResponse)
 
--- | The name of the Cell
+-- | The name of the cell.
 createCellResponse_cellName :: Lens.Lens' CreateCellResponse (Prelude.Maybe Prelude.Text)
 createCellResponse_cellName = Lens.lens (\CreateCellResponse' {cellName} -> cellName) (\s@CreateCellResponse' {} a -> s {cellName = a} :: CreateCellResponse)
 
--- | A list of Cell arns
+-- | A list of cell ARNs.
 createCellResponse_cells :: Lens.Lens' CreateCellResponse (Prelude.Maybe [Prelude.Text])
 createCellResponse_cells = Lens.lens (\CreateCellResponse' {cells} -> cells) (\s@CreateCellResponse' {} a -> s {cells = a} :: CreateCellResponse) Prelude.. Lens.mapping Lens.coerced
 

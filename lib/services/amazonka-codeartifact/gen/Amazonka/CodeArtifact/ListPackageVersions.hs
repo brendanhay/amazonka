@@ -33,6 +33,7 @@ module Amazonka.CodeArtifact.ListPackageVersions
 
     -- * Request Lenses
     listPackageVersions_nextToken,
+    listPackageVersions_originType,
     listPackageVersions_status,
     listPackageVersions_sortBy,
     listPackageVersions_maxResults,
@@ -71,52 +72,37 @@ data ListPackageVersions = ListPackageVersions'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A string that specifies the status of the package versions to include in
-    -- the returned list. It can be one of the following:
-    --
-    -- -   @Published@
-    --
-    -- -   @Unfinished@
-    --
-    -- -   @Unlisted@
-    --
-    -- -   @Archived@
-    --
-    -- -   @Disposed@
+    -- | The @originType@ used to filter package versions. Only package versions
+    -- with the provided @originType@ will be returned.
+    originType :: Prelude.Maybe PackageVersionOriginType,
+    -- | A string that filters the requested package versions by status.
     status :: Prelude.Maybe PackageVersionStatus,
-    -- | How to sort the returned list of package versions.
+    -- | How to sort the requested list of package versions.
     sortBy :: Prelude.Maybe PackageVersionSortType,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package that contains the requested package
+    -- versions. The package component that specifies its namespace depends on
+    -- its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
     --
     -- -   The namespace of an npm package is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet packages do not contain a corresponding component,
+    --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
-    -- returned package versions.
+    -- requested package versions.
     domain :: Prelude.Text,
-    -- | The name of the repository that contains the package.
+    -- | The name of the repository that contains the requested package versions.
     repository :: Prelude.Text,
-    -- | The format of the returned packages. The valid package types are:
-    --
-    -- -   @npm@: A Node Package Manager (npm) package.
-    --
-    -- -   @pypi@: A Python Package Index (PyPI) package.
-    --
-    -- -   @maven@: A Maven package that contains compiled code in a
-    --     distributable format, such as a JAR file.
+    -- | The format of the returned package versions.
     format :: PackageFormat,
-    -- | The name of the package for which you want to return a list of package
-    -- versions.
+    -- | The name of the package for which you want to request package versions.
     package :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -133,52 +119,37 @@ data ListPackageVersions = ListPackageVersions'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'status', 'listPackageVersions_status' - A string that specifies the status of the package versions to include in
--- the returned list. It can be one of the following:
+-- 'originType', 'listPackageVersions_originType' - The @originType@ used to filter package versions. Only package versions
+-- with the provided @originType@ will be returned.
 --
--- -   @Published@
+-- 'status', 'listPackageVersions_status' - A string that filters the requested package versions by status.
 --
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
---
--- 'sortBy', 'listPackageVersions_sortBy' - How to sort the returned list of package versions.
+-- 'sortBy', 'listPackageVersions_sortBy' - How to sort the requested list of package versions.
 --
 -- 'maxResults', 'listPackageVersions_maxResults' - The maximum number of results to return per page.
 --
--- 'domainOwner', 'listPackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'listPackageVersions_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'listPackageVersions_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'listPackageVersions_namespace' - The namespace of the package that contains the requested package
+-- versions. The package component that specifies its namespace depends on
+-- its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 --
 -- 'domain', 'listPackageVersions_domain' - The name of the domain that contains the repository that contains the
--- returned package versions.
+-- requested package versions.
 --
--- 'repository', 'listPackageVersions_repository' - The name of the repository that contains the package.
+-- 'repository', 'listPackageVersions_repository' - The name of the repository that contains the requested package versions.
 --
--- 'format', 'listPackageVersions_format' - The format of the returned packages. The valid package types are:
+-- 'format', 'listPackageVersions_format' - The format of the returned package versions.
 --
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
---
--- 'package', 'listPackageVersions_package' - The name of the package for which you want to return a list of package
--- versions.
+-- 'package', 'listPackageVersions_package' - The name of the package for which you want to request package versions.
 newListPackageVersions ::
   -- | 'domain'
   Prelude.Text ->
@@ -196,6 +167,7 @@ newListPackageVersions
   pPackage_ =
     ListPackageVersions'
       { nextToken = Prelude.Nothing,
+        originType = Prelude.Nothing,
         status = Prelude.Nothing,
         sortBy = Prelude.Nothing,
         maxResults = Prelude.Nothing,
@@ -213,22 +185,16 @@ newListPackageVersions
 listPackageVersions_nextToken :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
 listPackageVersions_nextToken = Lens.lens (\ListPackageVersions' {nextToken} -> nextToken) (\s@ListPackageVersions' {} a -> s {nextToken = a} :: ListPackageVersions)
 
--- | A string that specifies the status of the package versions to include in
--- the returned list. It can be one of the following:
---
--- -   @Published@
---
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
+-- | The @originType@ used to filter package versions. Only package versions
+-- with the provided @originType@ will be returned.
+listPackageVersions_originType :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionOriginType)
+listPackageVersions_originType = Lens.lens (\ListPackageVersions' {originType} -> originType) (\s@ListPackageVersions' {} a -> s {originType = a} :: ListPackageVersions)
+
+-- | A string that filters the requested package versions by status.
 listPackageVersions_status :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionStatus)
 listPackageVersions_status = Lens.lens (\ListPackageVersions' {status} -> status) (\s@ListPackageVersions' {} a -> s {status = a} :: ListPackageVersions)
 
--- | How to sort the returned list of package versions.
+-- | How to sort the requested list of package versions.
 listPackageVersions_sortBy :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionSortType)
 listPackageVersions_sortBy = Lens.lens (\ListPackageVersions' {sortBy} -> sortBy) (\s@ListPackageVersions' {} a -> s {sortBy = a} :: ListPackageVersions)
 
@@ -236,45 +202,38 @@ listPackageVersions_sortBy = Lens.lens (\ListPackageVersions' {sortBy} -> sortBy
 listPackageVersions_maxResults :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Natural)
 listPackageVersions_maxResults = Lens.lens (\ListPackageVersions' {maxResults} -> maxResults) (\s@ListPackageVersions' {} a -> s {maxResults = a} :: ListPackageVersions)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 listPackageVersions_domainOwner :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
 listPackageVersions_domainOwner = Lens.lens (\ListPackageVersions' {domainOwner} -> domainOwner) (\s@ListPackageVersions' {} a -> s {domainOwner = a} :: ListPackageVersions)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package that contains the requested package
+-- versions. The package component that specifies its namespace depends on
+-- its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 listPackageVersions_namespace :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
 listPackageVersions_namespace = Lens.lens (\ListPackageVersions' {namespace} -> namespace) (\s@ListPackageVersions' {} a -> s {namespace = a} :: ListPackageVersions)
 
 -- | The name of the domain that contains the repository that contains the
--- returned package versions.
+-- requested package versions.
 listPackageVersions_domain :: Lens.Lens' ListPackageVersions Prelude.Text
 listPackageVersions_domain = Lens.lens (\ListPackageVersions' {domain} -> domain) (\s@ListPackageVersions' {} a -> s {domain = a} :: ListPackageVersions)
 
--- | The name of the repository that contains the package.
+-- | The name of the repository that contains the requested package versions.
 listPackageVersions_repository :: Lens.Lens' ListPackageVersions Prelude.Text
 listPackageVersions_repository = Lens.lens (\ListPackageVersions' {repository} -> repository) (\s@ListPackageVersions' {} a -> s {repository = a} :: ListPackageVersions)
 
--- | The format of the returned packages. The valid package types are:
---
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- | The format of the returned package versions.
 listPackageVersions_format :: Lens.Lens' ListPackageVersions PackageFormat
 listPackageVersions_format = Lens.lens (\ListPackageVersions' {format} -> format) (\s@ListPackageVersions' {} a -> s {format = a} :: ListPackageVersions)
 
--- | The name of the package for which you want to return a list of package
--- versions.
+-- | The name of the package for which you want to request package versions.
 listPackageVersions_package :: Lens.Lens' ListPackageVersions Prelude.Text
 listPackageVersions_package = Lens.lens (\ListPackageVersions' {package} -> package) (\s@ListPackageVersions' {} a -> s {package = a} :: ListPackageVersions)
 
@@ -321,6 +280,7 @@ instance Core.AWSRequest ListPackageVersions where
 instance Prelude.Hashable ListPackageVersions where
   hashWithSalt _salt ListPackageVersions' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` originType
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
@@ -334,6 +294,7 @@ instance Prelude.Hashable ListPackageVersions where
 instance Prelude.NFData ListPackageVersions where
   rnf ListPackageVersions' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf originType
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
@@ -365,6 +326,7 @@ instance Core.ToQuery ListPackageVersions where
   toQuery ListPackageVersions' {..} =
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
+        "originType" Core.=: originType,
         "status" Core.=: status,
         "sortBy" Core.=: sortBy,
         "max-results" Core.=: maxResults,
@@ -391,13 +353,7 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
     --     If the @latest@ tag is not set, it\'s the most recently published
     --     package version.
     defaultDisplayVersion :: Prelude.Maybe Prelude.Text,
-    -- | A format of the package. Valid package format values are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- | A format of the package.
     format :: Prelude.Maybe PackageFormat,
     -- | The name of the package.
     package :: Prelude.Maybe Prelude.Text,
@@ -405,15 +361,16 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
     -- objects.
     versions :: Prelude.Maybe [PackageVersionSummary],
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package that contains the requested package
+    -- versions. The package component that specifies its namespace depends on
+    -- its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
     --
     -- -   The namespace of an npm package is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet packages do not contain a corresponding component,
+    --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -441,13 +398,7 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
 --     If the @latest@ tag is not set, it\'s the most recently published
 --     package version.
 --
--- 'format', 'listPackageVersionsResponse_format' - A format of the package. Valid package format values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- 'format', 'listPackageVersionsResponse_format' - A format of the package.
 --
 -- 'package', 'listPackageVersionsResponse_package' - The name of the package.
 --
@@ -455,15 +406,16 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
 -- objects.
 --
--- 'namespace', 'listPackageVersionsResponse_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'listPackageVersionsResponse_namespace' - The namespace of the package that contains the requested package
+-- versions. The package component that specifies its namespace depends on
+-- its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 --
 -- 'httpStatus', 'listPackageVersionsResponse_httpStatus' - The response's http status code.
 newListPackageVersionsResponse ::
@@ -499,13 +451,7 @@ listPackageVersionsResponse_nextToken = Lens.lens (\ListPackageVersionsResponse'
 listPackageVersionsResponse_defaultDisplayVersion :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionsResponse_defaultDisplayVersion = Lens.lens (\ListPackageVersionsResponse' {defaultDisplayVersion} -> defaultDisplayVersion) (\s@ListPackageVersionsResponse' {} a -> s {defaultDisplayVersion = a} :: ListPackageVersionsResponse)
 
--- | A format of the package. Valid package format values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- | A format of the package.
 listPackageVersionsResponse_format :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe PackageFormat)
 listPackageVersionsResponse_format = Lens.lens (\ListPackageVersionsResponse' {format} -> format) (\s@ListPackageVersionsResponse' {} a -> s {format = a} :: ListPackageVersionsResponse)
 
@@ -519,15 +465,16 @@ listPackageVersionsResponse_package = Lens.lens (\ListPackageVersionsResponse' {
 listPackageVersionsResponse_versions :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe [PackageVersionSummary])
 listPackageVersionsResponse_versions = Lens.lens (\ListPackageVersionsResponse' {versions} -> versions) (\s@ListPackageVersionsResponse' {} a -> s {versions = a} :: ListPackageVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package that contains the requested package
+-- versions. The package component that specifies its namespace depends on
+-- its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 listPackageVersionsResponse_namespace :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionsResponse_namespace = Lens.lens (\ListPackageVersionsResponse' {namespace} -> namespace) (\s@ListPackageVersionsResponse' {} a -> s {namespace = a} :: ListPackageVersionsResponse)
 

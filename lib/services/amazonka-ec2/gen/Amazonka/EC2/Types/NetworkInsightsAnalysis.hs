@@ -44,6 +44,8 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
     forwardPathComponents :: Prelude.Maybe [PathComponent],
     -- | The status of the network insights analysis.
     status :: Prelude.Maybe AnalysisStatus,
+    -- | The warning message.
+    warningMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network insights analysis.
     networkInsightsAnalysisId :: Prelude.Maybe Prelude.Text,
     -- | The time the analysis started.
@@ -83,6 +85,8 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
 --
 -- 'status', 'networkInsightsAnalysis_status' - The status of the network insights analysis.
 --
+-- 'warningMessage', 'networkInsightsAnalysis_warningMessage' - The warning message.
+--
 -- 'networkInsightsAnalysisId', 'networkInsightsAnalysis_networkInsightsAnalysisId' - The ID of the network insights analysis.
 --
 -- 'startDate', 'networkInsightsAnalysis_startDate' - The time the analysis started.
@@ -109,6 +113,7 @@ newNetworkInsightsAnalysis =
       networkPathFound = Prelude.Nothing,
       forwardPathComponents = Prelude.Nothing,
       status = Prelude.Nothing,
+      warningMessage = Prelude.Nothing,
       networkInsightsAnalysisId = Prelude.Nothing,
       startDate = Prelude.Nothing,
       explanations = Prelude.Nothing,
@@ -139,6 +144,10 @@ networkInsightsAnalysis_forwardPathComponents = Lens.lens (\NetworkInsightsAnaly
 -- | The status of the network insights analysis.
 networkInsightsAnalysis_status :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe AnalysisStatus)
 networkInsightsAnalysis_status = Lens.lens (\NetworkInsightsAnalysis' {status} -> status) (\s@NetworkInsightsAnalysis' {} a -> s {status = a} :: NetworkInsightsAnalysis)
+
+-- | The warning message.
+networkInsightsAnalysis_warningMessage :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe Prelude.Text)
+networkInsightsAnalysis_warningMessage = Lens.lens (\NetworkInsightsAnalysis' {warningMessage} -> warningMessage) (\s@NetworkInsightsAnalysis' {} a -> s {warningMessage = a} :: NetworkInsightsAnalysis)
 
 -- | The ID of the network insights analysis.
 networkInsightsAnalysis_networkInsightsAnalysisId :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe Prelude.Text)
@@ -188,6 +197,7 @@ instance Core.FromXML NetworkInsightsAnalysis where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "warningMessage")
       Prelude.<*> (x Core..@? "networkInsightsAnalysisId")
       Prelude.<*> (x Core..@? "startDate")
       Prelude.<*> ( x Core..@? "explanationSet" Core..!@ Prelude.mempty
@@ -212,6 +222,7 @@ instance Prelude.Hashable NetworkInsightsAnalysis where
       `Prelude.hashWithSalt` networkPathFound
       `Prelude.hashWithSalt` forwardPathComponents
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` warningMessage
       `Prelude.hashWithSalt` networkInsightsAnalysisId
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` explanations
@@ -228,6 +239,7 @@ instance Prelude.NFData NetworkInsightsAnalysis where
       `Prelude.seq` Prelude.rnf networkPathFound
       `Prelude.seq` Prelude.rnf forwardPathComponents
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf warningMessage
       `Prelude.seq` Prelude.rnf networkInsightsAnalysisId
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf explanations

@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a device certificate with IoT. If you have more than one CA
--- certificate that has the same subject field, you must specify the CA
--- certificate that was used to sign the device certificate being
--- registered.
+-- Registers a device certificate with IoT in the same
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>
+-- as the signing CA. If you have more than one CA certificate that has the
+-- same subject field, you must specify the CA certificate that was used to
+-- sign the device certificate being registered.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RegisterCertificate>
@@ -63,9 +64,12 @@ import qualified Amazonka.Response as Response
 data RegisterCertificate = RegisterCertificate'
   { -- | The CA certificate used to sign the device certificate being registered.
     caCertificatePem :: Prelude.Maybe Prelude.Text,
-    -- | The status of the register certificate request.
+    -- | The status of the register certificate request. Valid values that you
+    -- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
     status :: Prelude.Maybe CertificateStatus,
     -- | A boolean value that specifies if the certificate is set to active.
+    --
+    -- Valid values: @ACTIVE | INACTIVE@
     setAsActive :: Prelude.Maybe Prelude.Bool,
     -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Text
@@ -82,9 +86,12 @@ data RegisterCertificate = RegisterCertificate'
 --
 -- 'caCertificatePem', 'registerCertificate_caCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
--- 'status', 'registerCertificate_status' - The status of the register certificate request.
+-- 'status', 'registerCertificate_status' - The status of the register certificate request. Valid values that you
+-- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
 --
 -- 'setAsActive', 'registerCertificate_setAsActive' - A boolean value that specifies if the certificate is set to active.
+--
+-- Valid values: @ACTIVE | INACTIVE@
 --
 -- 'certificatePem', 'registerCertificate_certificatePem' - The certificate data, in PEM format.
 newRegisterCertificate ::
@@ -104,11 +111,14 @@ newRegisterCertificate pCertificatePem_ =
 registerCertificate_caCertificatePem :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Text)
 registerCertificate_caCertificatePem = Lens.lens (\RegisterCertificate' {caCertificatePem} -> caCertificatePem) (\s@RegisterCertificate' {} a -> s {caCertificatePem = a} :: RegisterCertificate)
 
--- | The status of the register certificate request.
+-- | The status of the register certificate request. Valid values that you
+-- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
 registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
 registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
 
 -- | A boolean value that specifies if the certificate is set to active.
+--
+-- Valid values: @ACTIVE | INACTIVE@
 registerCertificate_setAsActive :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Bool)
 registerCertificate_setAsActive = Lens.lens (\RegisterCertificate' {setAsActive} -> setAsActive) (\s@RegisterCertificate' {} a -> s {setAsActive = a} :: RegisterCertificate)
 

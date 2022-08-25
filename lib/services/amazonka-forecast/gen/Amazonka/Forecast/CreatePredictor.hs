@@ -20,6 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This operation creates a legacy predictor that does not include all the
+-- predictor functionalities provided by Amazon Forecast. To create a
+-- predictor that is compatible with all aspects of Forecast, use
+-- CreateAutoPredictor.
+--
 -- Creates an Amazon Forecast predictor.
 --
 -- In the request, provide a dataset group and either specify an algorithm

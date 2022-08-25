@@ -27,32 +27,48 @@ import Amazonka.Transcribe.Types.ParticipantRole
 import Amazonka.Transcribe.Types.RelativeTimeRange
 import Amazonka.Transcribe.Types.TranscriptFilterType
 
--- | Matches the output of the transcription to either the specific phrases
--- that you specify, or the intent of the phrases that you specify.
+-- | Flag the presence or absence of specific words or phrases detected in
+-- your Call Analytics transcription output.
+--
+-- Rules using @TranscriptFilter@ are designed to match:
+--
+-- -   Custom words or phrases spoken by the agent, the customer, or both
+--
+-- -   Custom words or phrases __not__ spoken by the agent, the customer,
+--     or either
+--
+-- -   Custom words or phrases that occur at a specific time frame
+--
+-- See
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
+-- for examples.
 --
 -- /See:/ 'newTranscriptFilter' smart constructor.
 data TranscriptFilter = TranscriptFilter'
-  { -- | If @TRUE@, the rule that you specify is applied to everything except for
-    -- the phrases that you specify.
+  { -- | Set to @TRUE@ to flag the absence of the phrase you specified in your
+    -- request. Set to @FALSE@ to flag the presence of the phrase you specified
+    -- in your request.
     negate :: Prelude.Maybe Prelude.Bool,
-    -- | A time range, set in seconds, between two points in the call.
+    -- | Allows you to specify a time range (in milliseconds) in your audio,
+    -- during which you want to search for the specified key words or phrases.
+    -- See for more detail.
     absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
-    -- | Determines whether the customer or the agent is speaking the phrases
-    -- that you\'ve specified.
+    -- | Specify the participant you want to flag. Omitting this parameter is
+    -- equivalent to specifying both participants.
     participantRole :: Prelude.Maybe ParticipantRole,
-    -- | An object that allows percentages to specify the proportion of the call
-    -- where you would like to apply a filter. For example, you can specify the
-    -- first half of the call. You can also specify the period of time between
-    -- halfway through to three-quarters of the way through the call. Because
-    -- the length of conversation can vary between calls, you can apply
-    -- relative time ranges across all calls.
+    -- | Allows you to specify a time range (in percentage) in your media file,
+    -- during which you want to search for the specified key words or phrases.
+    -- See for more detail.
     relativeTimeRange :: Prelude.Maybe RelativeTimeRange,
-    -- | Matches the phrase to the transcription output in a word for word
-    -- fashion. For example, if you specify the phrase \"I want to speak to the
-    -- manager.\" Amazon Transcribe attempts to match that specific phrase to
-    -- the transcription.
+    -- | Flag the presence or absence of an exact match to the phrases you
+    -- specify. For example, if you specify the phrase \"speak to a manager\"
+    -- as your @Targets@ value, only that exact phrase is flagged.
+    --
+    -- Note that semantic matching is not supported. For example, if your
+    -- customer says \"speak to /the/ manager\", instead of \"speak to /a/
+    -- manager\", your content is not flagged.
     transcriptFilterType :: TranscriptFilterType,
-    -- | The phrases that you\'re specifying for the transcript filter to match.
+    -- | Specify the phrases you want to flag.
     targets :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,27 +81,30 @@ data TranscriptFilter = TranscriptFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'negate', 'transcriptFilter_negate' - If @TRUE@, the rule that you specify is applied to everything except for
--- the phrases that you specify.
+-- 'negate', 'transcriptFilter_negate' - Set to @TRUE@ to flag the absence of the phrase you specified in your
+-- request. Set to @FALSE@ to flag the presence of the phrase you specified
+-- in your request.
 --
--- 'absoluteTimeRange', 'transcriptFilter_absoluteTimeRange' - A time range, set in seconds, between two points in the call.
+-- 'absoluteTimeRange', 'transcriptFilter_absoluteTimeRange' - Allows you to specify a time range (in milliseconds) in your audio,
+-- during which you want to search for the specified key words or phrases.
+-- See for more detail.
 --
--- 'participantRole', 'transcriptFilter_participantRole' - Determines whether the customer or the agent is speaking the phrases
--- that you\'ve specified.
+-- 'participantRole', 'transcriptFilter_participantRole' - Specify the participant you want to flag. Omitting this parameter is
+-- equivalent to specifying both participants.
 --
--- 'relativeTimeRange', 'transcriptFilter_relativeTimeRange' - An object that allows percentages to specify the proportion of the call
--- where you would like to apply a filter. For example, you can specify the
--- first half of the call. You can also specify the period of time between
--- halfway through to three-quarters of the way through the call. Because
--- the length of conversation can vary between calls, you can apply
--- relative time ranges across all calls.
+-- 'relativeTimeRange', 'transcriptFilter_relativeTimeRange' - Allows you to specify a time range (in percentage) in your media file,
+-- during which you want to search for the specified key words or phrases.
+-- See for more detail.
 --
--- 'transcriptFilterType', 'transcriptFilter_transcriptFilterType' - Matches the phrase to the transcription output in a word for word
--- fashion. For example, if you specify the phrase \"I want to speak to the
--- manager.\" Amazon Transcribe attempts to match that specific phrase to
--- the transcription.
+-- 'transcriptFilterType', 'transcriptFilter_transcriptFilterType' - Flag the presence or absence of an exact match to the phrases you
+-- specify. For example, if you specify the phrase \"speak to a manager\"
+-- as your @Targets@ value, only that exact phrase is flagged.
 --
--- 'targets', 'transcriptFilter_targets' - The phrases that you\'re specifying for the transcript filter to match.
+-- Note that semantic matching is not supported. For example, if your
+-- customer says \"speak to /the/ manager\", instead of \"speak to /a/
+-- manager\", your content is not flagged.
+--
+-- 'targets', 'transcriptFilter_targets' - Specify the phrases you want to flag.
 newTranscriptFilter ::
   -- | 'transcriptFilterType'
   TranscriptFilterType ->
@@ -102,37 +121,40 @@ newTranscriptFilter pTranscriptFilterType_ pTargets_ =
       targets = Lens.coerced Lens.# pTargets_
     }
 
--- | If @TRUE@, the rule that you specify is applied to everything except for
--- the phrases that you specify.
+-- | Set to @TRUE@ to flag the absence of the phrase you specified in your
+-- request. Set to @FALSE@ to flag the presence of the phrase you specified
+-- in your request.
 transcriptFilter_negate :: Lens.Lens' TranscriptFilter (Prelude.Maybe Prelude.Bool)
 transcriptFilter_negate = Lens.lens (\TranscriptFilter' {negate} -> negate) (\s@TranscriptFilter' {} a -> s {negate = a} :: TranscriptFilter)
 
--- | A time range, set in seconds, between two points in the call.
+-- | Allows you to specify a time range (in milliseconds) in your audio,
+-- during which you want to search for the specified key words or phrases.
+-- See for more detail.
 transcriptFilter_absoluteTimeRange :: Lens.Lens' TranscriptFilter (Prelude.Maybe AbsoluteTimeRange)
 transcriptFilter_absoluteTimeRange = Lens.lens (\TranscriptFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@TranscriptFilter' {} a -> s {absoluteTimeRange = a} :: TranscriptFilter)
 
--- | Determines whether the customer or the agent is speaking the phrases
--- that you\'ve specified.
+-- | Specify the participant you want to flag. Omitting this parameter is
+-- equivalent to specifying both participants.
 transcriptFilter_participantRole :: Lens.Lens' TranscriptFilter (Prelude.Maybe ParticipantRole)
 transcriptFilter_participantRole = Lens.lens (\TranscriptFilter' {participantRole} -> participantRole) (\s@TranscriptFilter' {} a -> s {participantRole = a} :: TranscriptFilter)
 
--- | An object that allows percentages to specify the proportion of the call
--- where you would like to apply a filter. For example, you can specify the
--- first half of the call. You can also specify the period of time between
--- halfway through to three-quarters of the way through the call. Because
--- the length of conversation can vary between calls, you can apply
--- relative time ranges across all calls.
+-- | Allows you to specify a time range (in percentage) in your media file,
+-- during which you want to search for the specified key words or phrases.
+-- See for more detail.
 transcriptFilter_relativeTimeRange :: Lens.Lens' TranscriptFilter (Prelude.Maybe RelativeTimeRange)
 transcriptFilter_relativeTimeRange = Lens.lens (\TranscriptFilter' {relativeTimeRange} -> relativeTimeRange) (\s@TranscriptFilter' {} a -> s {relativeTimeRange = a} :: TranscriptFilter)
 
--- | Matches the phrase to the transcription output in a word for word
--- fashion. For example, if you specify the phrase \"I want to speak to the
--- manager.\" Amazon Transcribe attempts to match that specific phrase to
--- the transcription.
+-- | Flag the presence or absence of an exact match to the phrases you
+-- specify. For example, if you specify the phrase \"speak to a manager\"
+-- as your @Targets@ value, only that exact phrase is flagged.
+--
+-- Note that semantic matching is not supported. For example, if your
+-- customer says \"speak to /the/ manager\", instead of \"speak to /a/
+-- manager\", your content is not flagged.
 transcriptFilter_transcriptFilterType :: Lens.Lens' TranscriptFilter TranscriptFilterType
 transcriptFilter_transcriptFilterType = Lens.lens (\TranscriptFilter' {transcriptFilterType} -> transcriptFilterType) (\s@TranscriptFilter' {} a -> s {transcriptFilterType = a} :: TranscriptFilter)
 
--- | The phrases that you\'re specifying for the transcript filter to match.
+-- | Specify the phrases you want to flag.
 transcriptFilter_targets :: Lens.Lens' TranscriptFilter (Prelude.NonEmpty Prelude.Text)
 transcriptFilter_targets = Lens.lens (\TranscriptFilter' {targets} -> targets) (\s@TranscriptFilter' {} a -> s {targets = a} :: TranscriptFilter) Prelude.. Lens.coerced
 

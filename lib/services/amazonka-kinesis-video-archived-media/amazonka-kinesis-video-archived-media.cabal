@@ -47,6 +47,7 @@ library
     Amazonka.KinesisVideoArchivedMedia.GetClip
     Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
     Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+    Amazonka.KinesisVideoArchivedMedia.GetImages
     Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
     Amazonka.KinesisVideoArchivedMedia.Lens
     Amazonka.KinesisVideoArchivedMedia.ListFragments
@@ -61,6 +62,8 @@ library
     Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
     Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
     Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
+    Amazonka.KinesisVideoArchivedMedia.Types.Format
+    Amazonka.KinesisVideoArchivedMedia.Types.FormatConfigKey
     Amazonka.KinesisVideoArchivedMedia.Types.Fragment
     Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
     Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
@@ -70,6 +73,9 @@ library
     Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
     Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
     Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+    Amazonka.KinesisVideoArchivedMedia.Types.Image
+    Amazonka.KinesisVideoArchivedMedia.Types.ImageError
+    Amazonka.KinesisVideoArchivedMedia.Types.ImageSelectorType
     Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
     Amazonka.KinesisVideoArchivedMedia.Waiters
 

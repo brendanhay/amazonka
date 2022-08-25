@@ -72,9 +72,9 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
     filters :: Prelude.Maybe [Filter],
     -- | The names of the Auto Scaling groups. By default, you can only specify
     -- up to 50 names. You can optionally increase this limit using the
-    -- @MaxRecords@ parameter.
+    -- @MaxRecords@ property.
     --
-    -- If you omit this parameter, all Auto Scaling groups are described.
+    -- If you omit this property, all Auto Scaling groups are described.
     autoScalingGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
@@ -97,9 +97,9 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 --
 -- 'autoScalingGroupNames', 'describeAutoScalingGroups_autoScalingGroupNames' - The names of the Auto Scaling groups. By default, you can only specify
 -- up to 50 names. You can optionally increase this limit using the
--- @MaxRecords@ parameter.
+-- @MaxRecords@ property.
 --
--- If you omit this parameter, all Auto Scaling groups are described.
+-- If you omit this property, all Auto Scaling groups are described.
 --
 -- 'maxRecords', 'describeAutoScalingGroups_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -125,9 +125,9 @@ describeAutoScalingGroups_filters = Lens.lens (\DescribeAutoScalingGroups' {filt
 
 -- | The names of the Auto Scaling groups. By default, you can only specify
 -- up to 50 names. You can optionally increase this limit using the
--- @MaxRecords@ parameter.
+-- @MaxRecords@ property.
 --
--- If you omit this parameter, all Auto Scaling groups are described.
+-- If you omit this property, all Auto Scaling groups are described.
 describeAutoScalingGroups_autoScalingGroupNames :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe [Prelude.Text])
 describeAutoScalingGroups_autoScalingGroupNames = Lens.lens (\DescribeAutoScalingGroups' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeAutoScalingGroups' {} a -> s {autoScalingGroupNames = a} :: DescribeAutoScalingGroups) Prelude.. Lens.mapping Lens.coerced
 

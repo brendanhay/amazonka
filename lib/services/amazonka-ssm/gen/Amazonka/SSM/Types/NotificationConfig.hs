@@ -34,8 +34,8 @@ data NotificationConfig = NotificationConfig'
     -- -   @Command@: Receive notification when the status of a command
     --     changes.
     --
-    -- -   @Invocation@: For commands sent to multiple instances, receive
-    --     notification on a per-instance basis when the status of a command
+    -- -   @Invocation@: For commands sent to multiple managed nodes, receive
+    --     notification on a per-node basis when the status of a command
     --     changes.
     notificationType :: Prelude.Maybe NotificationType,
     -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
@@ -63,8 +63,8 @@ data NotificationConfig = NotificationConfig'
 -- -   @Command@: Receive notification when the status of a command
 --     changes.
 --
--- -   @Invocation@: For commands sent to multiple instances, receive
---     notification on a per-instance basis when the status of a command
+-- -   @Invocation@: For commands sent to multiple managed nodes, receive
+--     notification on a per-node basis when the status of a command
 --     changes.
 --
 -- 'notificationArn', 'notificationConfig_notificationArn' - An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
@@ -90,8 +90,8 @@ newNotificationConfig =
 -- -   @Command@: Receive notification when the status of a command
 --     changes.
 --
--- -   @Invocation@: For commands sent to multiple instances, receive
---     notification on a per-instance basis when the status of a command
+-- -   @Invocation@: For commands sent to multiple managed nodes, receive
+--     notification on a per-node basis when the status of a command
 --     changes.
 notificationConfig_notificationType :: Lens.Lens' NotificationConfig (Prelude.Maybe NotificationType)
 notificationConfig_notificationType = Lens.lens (\NotificationConfig' {notificationType} -> notificationType) (\s@NotificationConfig' {} a -> s {notificationType = a} :: NotificationConfig)

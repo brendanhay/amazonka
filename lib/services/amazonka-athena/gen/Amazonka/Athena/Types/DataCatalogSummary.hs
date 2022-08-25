@@ -31,7 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data DataCatalogSummary = DataCatalogSummary'
   { -- | The data catalog type.
     type' :: Prelude.Maybe DataCatalogType,
-    -- | The name of the data catalog.
+    -- | The name of the data catalog. The catalog name is unique for the Amazon
+    -- Web Services account and can use a maximum of 127 alphanumeric,
+    -- underscore, at sign, or hyphen characters. The remainder of the length
+    -- constraint of 256 is reserved for use by Athena.
     catalogName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +49,10 @@ data DataCatalogSummary = DataCatalogSummary'
 --
 -- 'type'', 'dataCatalogSummary_type' - The data catalog type.
 --
--- 'catalogName', 'dataCatalogSummary_catalogName' - The name of the data catalog.
+-- 'catalogName', 'dataCatalogSummary_catalogName' - The name of the data catalog. The catalog name is unique for the Amazon
+-- Web Services account and can use a maximum of 127 alphanumeric,
+-- underscore, at sign, or hyphen characters. The remainder of the length
+-- constraint of 256 is reserved for use by Athena.
 newDataCatalogSummary ::
   DataCatalogSummary
 newDataCatalogSummary =
@@ -59,7 +65,10 @@ newDataCatalogSummary =
 dataCatalogSummary_type :: Lens.Lens' DataCatalogSummary (Prelude.Maybe DataCatalogType)
 dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@DataCatalogSummary' {} a -> s {type' = a} :: DataCatalogSummary)
 
--- | The name of the data catalog.
+-- | The name of the data catalog. The catalog name is unique for the Amazon
+-- Web Services account and can use a maximum of 127 alphanumeric,
+-- underscore, at sign, or hyphen characters. The remainder of the length
+-- constraint of 256 is reserved for use by Athena.
 dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Prelude.Maybe Prelude.Text)
 dataCatalogSummary_catalogName = Lens.lens (\DataCatalogSummary' {catalogName} -> catalogName) (\s@DataCatalogSummary' {} a -> s {catalogName = a} :: DataCatalogSummary)
 

@@ -49,6 +49,7 @@ library
     Amazonka.PersonalizeRuntime.Lens
     Amazonka.PersonalizeRuntime.Types
     Amazonka.PersonalizeRuntime.Types.PredictedItem
+    Amazonka.PersonalizeRuntime.Types.Promotion
     Amazonka.PersonalizeRuntime.Waiters
 
   build-depends:

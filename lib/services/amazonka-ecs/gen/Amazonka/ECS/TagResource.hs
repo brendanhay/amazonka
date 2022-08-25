@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates the specified tags to a resource with the specified
--- @resourceArn@. If existing tags on a resource are not specified in the
--- request parameters, they are not changed. When a resource is deleted,
--- the tags associated with that resource are deleted as well.
+-- @resourceArn@. If existing tags on a resource aren\'t specified in the
+-- request parameters, they aren\'t changed. When a resource is deleted,
+-- the tags that are associated with that resource are deleted as well.
 module Amazonka.ECS.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource to which to add tags.
+  { -- | The Amazon Resource Name (ARN) of the resource to add tags to.
     -- Currently, the supported resources are Amazon ECS capacity providers,
     -- tasks, services, task definitions, clusters, and container instances.
     resourceArn :: Prelude.Text,
@@ -93,7 +93,7 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to which to add tags.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to add tags to.
 -- Currently, the supported resources are Amazon ECS capacity providers,
 -- tasks, services, task definitions, clusters, and container instances.
 --
@@ -133,7 +133,7 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource to which to add tags.
+-- | The Amazon Resource Name (ARN) of the resource to add tags to.
 -- Currently, the supported resources are Amazon ECS capacity providers,
 -- tasks, services, task definitions, clusters, and container instances.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text

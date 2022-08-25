@@ -57,15 +57,18 @@ import qualified Amazonka.Response as Response
 data GetCoipPoolUsage = GetCoipPoolUsage'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters. The following are the possible values:
+    -- | One or more filters.
     --
-    -- -   @coip-address-usage.allocation-id@
+    -- -   @coip-address-usage.allocation-id@ - The allocation ID of the
+    --     address.
     --
-    -- -   @coip-address-usage.aws-account-id@
+    -- -   @coip-address-usage.aws-account-id@ - The ID of the Amazon Web
+    --     Services account that is using the customer-owned IP address.
     --
-    -- -   @coip-address-usage.aws-service@
+    -- -   @coip-address-usage.aws-service@ - The Amazon Web Services service
+    --     that is using the customer-owned IP address.
     --
-    -- -   @coip-address-usage.co-ip@
+    -- -   @coip-address-usage.co-ip@ - The customer-owned IP address.
     filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -91,15 +94,18 @@ data GetCoipPoolUsage = GetCoipPoolUsage'
 --
 -- 'nextToken', 'getCoipPoolUsage_nextToken' - The token for the next page of results.
 --
--- 'filters', 'getCoipPoolUsage_filters' - The filters. The following are the possible values:
+-- 'filters', 'getCoipPoolUsage_filters' - One or more filters.
 --
--- -   @coip-address-usage.allocation-id@
+-- -   @coip-address-usage.allocation-id@ - The allocation ID of the
+--     address.
 --
--- -   @coip-address-usage.aws-account-id@
+-- -   @coip-address-usage.aws-account-id@ - The ID of the Amazon Web
+--     Services account that is using the customer-owned IP address.
 --
--- -   @coip-address-usage.aws-service@
+-- -   @coip-address-usage.aws-service@ - The Amazon Web Services service
+--     that is using the customer-owned IP address.
 --
--- -   @coip-address-usage.co-ip@
+-- -   @coip-address-usage.co-ip@ - The customer-owned IP address.
 --
 -- 'dryRun', 'getCoipPoolUsage_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -128,15 +134,18 @@ newGetCoipPoolUsage pPoolId_ =
 getCoipPoolUsage_nextToken :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Text)
 getCoipPoolUsage_nextToken = Lens.lens (\GetCoipPoolUsage' {nextToken} -> nextToken) (\s@GetCoipPoolUsage' {} a -> s {nextToken = a} :: GetCoipPoolUsage)
 
--- | The filters. The following are the possible values:
+-- | One or more filters.
 --
--- -   @coip-address-usage.allocation-id@
+-- -   @coip-address-usage.allocation-id@ - The allocation ID of the
+--     address.
 --
--- -   @coip-address-usage.aws-account-id@
+-- -   @coip-address-usage.aws-account-id@ - The ID of the Amazon Web
+--     Services account that is using the customer-owned IP address.
 --
--- -   @coip-address-usage.aws-service@
+-- -   @coip-address-usage.aws-service@ - The Amazon Web Services service
+--     that is using the customer-owned IP address.
 --
--- -   @coip-address-usage.co-ip@
+-- -   @coip-address-usage.co-ip@ - The customer-owned IP address.
 getCoipPoolUsage_filters :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe [Filter])
 getCoipPoolUsage_filters = Lens.lens (\GetCoipPoolUsage' {filters} -> filters) (\s@GetCoipPoolUsage' {} a -> s {filters = a} :: GetCoipPoolUsage) Prelude.. Lens.mapping Lens.coerced
 

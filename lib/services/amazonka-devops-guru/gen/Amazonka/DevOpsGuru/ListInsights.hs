@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of insights in your AWS account. You can specify which
--- insights are returned by their start time and status (@ONGOING@,
--- @CLOSED@, or @ANY@).
+-- Returns a list of insights in your Amazon Web Services account. You can
+-- specify which insights are returned by their start time and status
+-- (@ONGOING@, @CLOSED@, or @ANY@).
 --
 -- This operation returns paginated results.
 module Amazonka.DevOpsGuru.ListInsights

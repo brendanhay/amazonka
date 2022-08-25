@@ -268,10 +268,10 @@ data UpdateHealthCheck = UpdateHealthCheck'
     --
     -- -   @Unhealthy@: Route 53 considers the health check to be unhealthy.
     --
-    -- -   @LastKnownStatus@: Route 53 uses the status of the health check from
-    --     the last time CloudWatch had sufficient data to determine the alarm
-    --     state. For new health checks that have no last known status, the
-    --     default status for the health check is healthy.
+    -- -   @LastKnownStatus@: By default, Route 53 uses the status of the
+    --     health check from the last time CloudWatch had sufficient data to
+    --     determine the alarm state. For new health checks that have no last
+    --     known status, the status for the health check is healthy.
     insufficientDataHealthStatus :: Prelude.Maybe InsufficientDataHealthStatus,
     -- | Specify whether you want Amazon Route 53 to send the value of
     -- @FullyQualifiedDomainName@ to the endpoint in the @client_hello@ message
@@ -557,10 +557,10 @@ data UpdateHealthCheck = UpdateHealthCheck'
 --
 -- -   @Unhealthy@: Route 53 considers the health check to be unhealthy.
 --
--- -   @LastKnownStatus@: Route 53 uses the status of the health check from
---     the last time CloudWatch had sufficient data to determine the alarm
---     state. For new health checks that have no last known status, the
---     default status for the health check is healthy.
+-- -   @LastKnownStatus@: By default, Route 53 uses the status of the
+--     health check from the last time CloudWatch had sufficient data to
+--     determine the alarm state. For new health checks that have no last
+--     known status, the status for the health check is healthy.
 --
 -- 'enableSNI', 'updateHealthCheck_enableSNI' - Specify whether you want Amazon Route 53 to send the value of
 -- @FullyQualifiedDomainName@ to the endpoint in the @client_hello@ message
@@ -885,10 +885,10 @@ updateHealthCheck_fullyQualifiedDomainName = Lens.lens (\UpdateHealthCheck' {ful
 --
 -- -   @Unhealthy@: Route 53 considers the health check to be unhealthy.
 --
--- -   @LastKnownStatus@: Route 53 uses the status of the health check from
---     the last time CloudWatch had sufficient data to determine the alarm
---     state. For new health checks that have no last known status, the
---     default status for the health check is healthy.
+-- -   @LastKnownStatus@: By default, Route 53 uses the status of the
+--     health check from the last time CloudWatch had sufficient data to
+--     determine the alarm state. For new health checks that have no last
+--     known status, the status for the health check is healthy.
 updateHealthCheck_insufficientDataHealthStatus :: Lens.Lens' UpdateHealthCheck (Prelude.Maybe InsufficientDataHealthStatus)
 updateHealthCheck_insufficientDataHealthStatus = Lens.lens (\UpdateHealthCheck' {insufficientDataHealthStatus} -> insufficientDataHealthStatus) (\s@UpdateHealthCheck' {} a -> s {insufficientDataHealthStatus = a} :: UpdateHealthCheck)
 

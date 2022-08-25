@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the load balancer target groups for the specified
--- Auto Scaling group.
+-- Gets information about the Elastic Load Balancing target groups for the
+-- specified Auto Scaling group.
 --
--- To determine the availability of registered instances, use the @State@
+-- To determine the attachment status of the target group, use the @State@
 -- element in the response. When you attach a target group to an Auto
 -- Scaling group, the initial @State@ value is @Adding@. The state
 -- transitions to @Added@ after all Auto Scaling instances are registered
@@ -44,7 +44,7 @@
 -- For help with failed health checks, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html Troubleshooting Amazon EC2 Auto Scaling: Health checks>
 -- in the /Amazon EC2 Auto Scaling User Guide/. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- This operation returns paginated results.

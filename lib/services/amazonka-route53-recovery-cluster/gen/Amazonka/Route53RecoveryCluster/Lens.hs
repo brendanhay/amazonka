@@ -16,20 +16,38 @@ module Amazonka.Route53RecoveryCluster.Lens
 
     -- ** GetRoutingControlState
     getRoutingControlState_routingControlArn,
+    getRoutingControlStateResponse_routingControlName,
     getRoutingControlStateResponse_httpStatus,
     getRoutingControlStateResponse_routingControlArn,
     getRoutingControlStateResponse_routingControlState,
 
+    -- ** ListRoutingControls
+    listRoutingControls_nextToken,
+    listRoutingControls_controlPanelArn,
+    listRoutingControls_maxResults,
+    listRoutingControlsResponse_nextToken,
+    listRoutingControlsResponse_httpStatus,
+    listRoutingControlsResponse_routingControls,
+
     -- ** UpdateRoutingControlState
+    updateRoutingControlState_safetyRulesToOverride,
     updateRoutingControlState_routingControlArn,
     updateRoutingControlState_routingControlState,
     updateRoutingControlStateResponse_httpStatus,
 
     -- ** UpdateRoutingControlStates
+    updateRoutingControlStates_safetyRulesToOverride,
     updateRoutingControlStates_updateRoutingControlStateEntries,
     updateRoutingControlStatesResponse_httpStatus,
 
     -- * Types
+
+    -- ** RoutingControl
+    routingControl_controlPanelArn,
+    routingControl_routingControlState,
+    routingControl_controlPanelName,
+    routingControl_routingControlArn,
+    routingControl_routingControlName,
 
     -- ** UpdateRoutingControlStateEntry
     updateRoutingControlStateEntry_routingControlArn,
@@ -38,6 +56,8 @@ module Amazonka.Route53RecoveryCluster.Lens
 where
 
 import Amazonka.Route53RecoveryCluster.GetRoutingControlState
+import Amazonka.Route53RecoveryCluster.ListRoutingControls
+import Amazonka.Route53RecoveryCluster.Types.RoutingControl
 import Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
 import Amazonka.Route53RecoveryCluster.UpdateRoutingControlState
 import Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates

@@ -60,8 +60,9 @@ data DeleteBucketAccessKey = DeleteBucketAccessKey'
     bucketName :: Prelude.Text,
     -- | The ID of the access key to delete.
     --
-    -- Use the GetBucketAccessKeys action to get a list of access key IDs that
-    -- you can specify.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html GetBucketAccessKeys>
+    -- action to get a list of access key IDs that you can specify.
     accessKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,8 +79,9 @@ data DeleteBucketAccessKey = DeleteBucketAccessKey'
 --
 -- 'accessKeyId', 'deleteBucketAccessKey_accessKeyId' - The ID of the access key to delete.
 --
--- Use the GetBucketAccessKeys action to get a list of access key IDs that
--- you can specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html GetBucketAccessKeys>
+-- action to get a list of access key IDs that you can specify.
 newDeleteBucketAccessKey ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -98,8 +100,9 @@ deleteBucketAccessKey_bucketName = Lens.lens (\DeleteBucketAccessKey' {bucketNam
 
 -- | The ID of the access key to delete.
 --
--- Use the GetBucketAccessKeys action to get a list of access key IDs that
--- you can specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html GetBucketAccessKeys>
+-- action to get a list of access key IDs that you can specify.
 deleteBucketAccessKey_accessKeyId :: Lens.Lens' DeleteBucketAccessKey Prelude.Text
 deleteBucketAccessKey_accessKeyId = Lens.lens (\DeleteBucketAccessKey' {accessKeyId} -> accessKeyId) (\s@DeleteBucketAccessKey' {} a -> s {accessKeyId = a} :: DeleteBucketAccessKey)
 

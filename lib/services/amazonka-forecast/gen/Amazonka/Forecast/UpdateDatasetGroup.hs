@@ -23,7 +23,8 @@
 -- Replaces the datasets in a dataset group with the specified datasets.
 --
 -- The @Status@ of the dataset group must be @ACTIVE@ before you can use
--- the dataset group to create a predictor. Use the DescribeDatasetGroup
+-- the dataset group to create a predictor. Use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html DescribeDatasetGroup>
 -- operation to get the status.
 module Amazonka.Forecast.UpdateDatasetGroup
   ( -- * Creating a Request

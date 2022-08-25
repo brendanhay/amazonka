@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Request programmatic credentials to use with Habanero SDK.
+-- Request programmatic credentials to use with FinSpace SDK.
 module Amazonka.FinSpaceData.GetProgrammaticAccessCredentials
   ( -- * Creating a Request
     GetProgrammaticAccessCredentials (..),
@@ -48,11 +48,13 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newGetProgrammaticAccessCredentials' smart constructor.
+-- | Request for GetProgrammaticAccessCredentials operation
+--
+-- /See:/ 'newGetProgrammaticAccessCredentials' smart constructor.
 data GetProgrammaticAccessCredentials = GetProgrammaticAccessCredentials'
   { -- | The time duration in which the credentials remain valid.
     durationInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The habanero environment identifier.
+    -- | The FinSpace environment identifier.
     environmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +69,7 @@ data GetProgrammaticAccessCredentials = GetProgrammaticAccessCredentials'
 --
 -- 'durationInMinutes', 'getProgrammaticAccessCredentials_durationInMinutes' - The time duration in which the credentials remain valid.
 --
--- 'environmentId', 'getProgrammaticAccessCredentials_environmentId' - The habanero environment identifier.
+-- 'environmentId', 'getProgrammaticAccessCredentials_environmentId' - The FinSpace environment identifier.
 newGetProgrammaticAccessCredentials ::
   -- | 'environmentId'
   Prelude.Text ->
@@ -83,7 +85,7 @@ newGetProgrammaticAccessCredentials pEnvironmentId_ =
 getProgrammaticAccessCredentials_durationInMinutes :: Lens.Lens' GetProgrammaticAccessCredentials (Prelude.Maybe Prelude.Natural)
 getProgrammaticAccessCredentials_durationInMinutes = Lens.lens (\GetProgrammaticAccessCredentials' {durationInMinutes} -> durationInMinutes) (\s@GetProgrammaticAccessCredentials' {} a -> s {durationInMinutes = a} :: GetProgrammaticAccessCredentials)
 
--- | The habanero environment identifier.
+-- | The FinSpace environment identifier.
 getProgrammaticAccessCredentials_environmentId :: Lens.Lens' GetProgrammaticAccessCredentials Prelude.Text
 getProgrammaticAccessCredentials_environmentId = Lens.lens (\GetProgrammaticAccessCredentials' {environmentId} -> environmentId) (\s@GetProgrammaticAccessCredentials' {} a -> s {environmentId = a} :: GetProgrammaticAccessCredentials)
 
@@ -149,7 +151,9 @@ instance
         "environmentId" Core.=: environmentId
       ]
 
--- | /See:/ 'newGetProgrammaticAccessCredentialsResponse' smart constructor.
+-- | Response for GetProgrammaticAccessCredentials operation
+--
+-- /See:/ 'newGetProgrammaticAccessCredentialsResponse' smart constructor.
 data GetProgrammaticAccessCredentialsResponse = GetProgrammaticAccessCredentialsResponse'
   { -- | Returns the programmatic credentials.
     credentials :: Prelude.Maybe Credentials,

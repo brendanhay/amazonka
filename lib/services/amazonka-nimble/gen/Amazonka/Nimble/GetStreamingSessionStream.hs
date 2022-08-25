@@ -33,9 +33,9 @@ module Amazonka.Nimble.GetStreamingSessionStream
     newGetStreamingSessionStream,
 
     -- * Request Lenses
-    getStreamingSessionStream_studioId,
-    getStreamingSessionStream_streamId,
     getStreamingSessionStream_sessionId,
+    getStreamingSessionStream_streamId,
+    getStreamingSessionStream_studioId,
 
     -- * Destructuring the Response
     GetStreamingSessionStreamResponse (..),
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetStreamingSessionStream' smart constructor.
 data GetStreamingSessionStream = GetStreamingSessionStream'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The stream ID.
+  { -- | The streaming session ID.
+    sessionId :: Prelude.Text,
+    -- | The streaming session stream ID.
     streamId :: Prelude.Text,
-    -- | The session ID.
-    sessionId :: Prelude.Text
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,40 +73,40 @@ data GetStreamingSessionStream = GetStreamingSessionStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sessionId', 'getStreamingSessionStream_sessionId' - The streaming session ID.
+--
+-- 'streamId', 'getStreamingSessionStream_streamId' - The streaming session stream ID.
+--
 -- 'studioId', 'getStreamingSessionStream_studioId' - The studio ID.
---
--- 'streamId', 'getStreamingSessionStream_streamId' - The stream ID.
---
--- 'sessionId', 'getStreamingSessionStream_sessionId' - The session ID.
 newGetStreamingSessionStream ::
-  -- | 'studioId'
+  -- | 'sessionId'
   Prelude.Text ->
   -- | 'streamId'
   Prelude.Text ->
-  -- | 'sessionId'
+  -- | 'studioId'
   Prelude.Text ->
   GetStreamingSessionStream
 newGetStreamingSessionStream
-  pStudioId_
+  pSessionId_
   pStreamId_
-  pSessionId_ =
+  pStudioId_ =
     GetStreamingSessionStream'
-      { studioId = pStudioId_,
+      { sessionId = pSessionId_,
         streamId = pStreamId_,
-        sessionId = pSessionId_
+        studioId = pStudioId_
       }
+
+-- | The streaming session ID.
+getStreamingSessionStream_sessionId :: Lens.Lens' GetStreamingSessionStream Prelude.Text
+getStreamingSessionStream_sessionId = Lens.lens (\GetStreamingSessionStream' {sessionId} -> sessionId) (\s@GetStreamingSessionStream' {} a -> s {sessionId = a} :: GetStreamingSessionStream)
+
+-- | The streaming session stream ID.
+getStreamingSessionStream_streamId :: Lens.Lens' GetStreamingSessionStream Prelude.Text
+getStreamingSessionStream_streamId = Lens.lens (\GetStreamingSessionStream' {streamId} -> streamId) (\s@GetStreamingSessionStream' {} a -> s {streamId = a} :: GetStreamingSessionStream)
 
 -- | The studio ID.
 getStreamingSessionStream_studioId :: Lens.Lens' GetStreamingSessionStream Prelude.Text
 getStreamingSessionStream_studioId = Lens.lens (\GetStreamingSessionStream' {studioId} -> studioId) (\s@GetStreamingSessionStream' {} a -> s {studioId = a} :: GetStreamingSessionStream)
-
--- | The stream ID.
-getStreamingSessionStream_streamId :: Lens.Lens' GetStreamingSessionStream Prelude.Text
-getStreamingSessionStream_streamId = Lens.lens (\GetStreamingSessionStream' {streamId} -> streamId) (\s@GetStreamingSessionStream' {} a -> s {streamId = a} :: GetStreamingSessionStream)
-
--- | The session ID.
-getStreamingSessionStream_sessionId :: Lens.Lens' GetStreamingSessionStream Prelude.Text
-getStreamingSessionStream_sessionId = Lens.lens (\GetStreamingSessionStream' {sessionId} -> sessionId) (\s@GetStreamingSessionStream' {} a -> s {sessionId = a} :: GetStreamingSessionStream)
 
 instance Core.AWSRequest GetStreamingSessionStream where
   type
@@ -123,15 +123,15 @@ instance Core.AWSRequest GetStreamingSessionStream where
 
 instance Prelude.Hashable GetStreamingSessionStream where
   hashWithSalt _salt GetStreamingSessionStream' {..} =
-    _salt `Prelude.hashWithSalt` studioId
+    _salt `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` streamId
-      `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStreamingSessionStream where
   rnf GetStreamingSessionStream' {..} =
-    Prelude.rnf studioId
+    Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders GetStreamingSessionStream where
   toHeaders =
@@ -165,7 +165,7 @@ data GetStreamingSessionStreamResponse = GetStreamingSessionStreamResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStreamingSessionStreamResponse' with all optional fields omitted.

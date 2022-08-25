@@ -50,7 +50,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterOrganizationAdminAccount' smart constructor.
 data RegisterOrganizationAdminAccount = RegisterOrganizationAdminAccount'
-  { -- | The identifier for the specified delegated administrator account.
+  { -- | The identifier for the delegated administrator account.
     adminAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data RegisterOrganizationAdminAccount = RegisterOrganizationAdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'registerOrganizationAdminAccount_adminAccountId' - The identifier for the specified delegated administrator account.
+-- 'adminAccountId', 'registerOrganizationAdminAccount_adminAccountId' - The identifier for the delegated administrator account.
 newRegisterOrganizationAdminAccount ::
   -- | 'adminAccountId'
   Prelude.Text ->
@@ -74,7 +74,7 @@ newRegisterOrganizationAdminAccount pAdminAccountId_ =
         pAdminAccountId_
     }
 
--- | The identifier for the specified delegated administrator account.
+-- | The identifier for the delegated administrator account.
 registerOrganizationAdminAccount_adminAccountId :: Lens.Lens' RegisterOrganizationAdminAccount Prelude.Text
 registerOrganizationAdminAccount_adminAccountId = Lens.lens (\RegisterOrganizationAdminAccount' {adminAccountId} -> adminAccountId) (\s@RegisterOrganizationAdminAccount' {} a -> s {adminAccountId = a} :: RegisterOrganizationAdminAccount)
 
@@ -147,9 +147,9 @@ instance
 
 -- | /See:/ 'newRegisterOrganizationAdminAccountResponse' smart constructor.
 data RegisterOrganizationAdminAccountResponse = RegisterOrganizationAdminAccountResponse'
-  { -- | The identifier for the specified delegated administrator account.
+  { -- | The identifier for the delegated administrator account.
     adminAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified organization.
+    -- | The identifier for the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -164,9 +164,9 @@ data RegisterOrganizationAdminAccountResponse = RegisterOrganizationAdminAccount
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'registerOrganizationAdminAccountResponse_adminAccountId' - The identifier for the specified delegated administrator account.
+-- 'adminAccountId', 'registerOrganizationAdminAccountResponse_adminAccountId' - The identifier for the delegated administrator account.
 --
--- 'organizationId', 'registerOrganizationAdminAccountResponse_organizationId' - The identifier for the specified organization.
+-- 'organizationId', 'registerOrganizationAdminAccountResponse_organizationId' - The identifier for the organization.
 --
 -- 'httpStatus', 'registerOrganizationAdminAccountResponse_httpStatus' - The response's http status code.
 newRegisterOrganizationAdminAccountResponse ::
@@ -182,11 +182,11 @@ newRegisterOrganizationAdminAccountResponse
         httpStatus = pHttpStatus_
       }
 
--- | The identifier for the specified delegated administrator account.
+-- | The identifier for the delegated administrator account.
 registerOrganizationAdminAccountResponse_adminAccountId :: Lens.Lens' RegisterOrganizationAdminAccountResponse (Prelude.Maybe Prelude.Text)
 registerOrganizationAdminAccountResponse_adminAccountId = Lens.lens (\RegisterOrganizationAdminAccountResponse' {adminAccountId} -> adminAccountId) (\s@RegisterOrganizationAdminAccountResponse' {} a -> s {adminAccountId = a} :: RegisterOrganizationAdminAccountResponse)
 
--- | The identifier for the specified organization.
+-- | The identifier for the organization.
 registerOrganizationAdminAccountResponse_organizationId :: Lens.Lens' RegisterOrganizationAdminAccountResponse (Prelude.Maybe Prelude.Text)
 registerOrganizationAdminAccountResponse_organizationId = Lens.lens (\RegisterOrganizationAdminAccountResponse' {organizationId} -> organizationId) (\s@RegisterOrganizationAdminAccountResponse' {} a -> s {organizationId = a} :: RegisterOrganizationAdminAccountResponse)
 

@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplate where
 
 import qualified Amazonka.Core as Core
 import Amazonka.FIS.Types.ExperimentTemplateAction
+import Amazonka.FIS.Types.ExperimentTemplateLogConfiguration
 import Amazonka.FIS.Types.ExperimentTemplateStopCondition
 import Amazonka.FIS.Types.ExperimentTemplateTarget
 import qualified Amazonka.Lens as Lens
@@ -34,6 +35,8 @@ data ExperimentTemplate = ExperimentTemplate'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The stop conditions for the experiment.
     stopConditions :: Prelude.Maybe [ExperimentTemplateStopCondition],
+    -- | The configuration for experiment logging.
+    logConfiguration :: Prelude.Maybe ExperimentTemplateLogConfiguration,
     -- | The Amazon Resource Name (ARN) of an IAM role.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The targets for the experiment.
@@ -63,6 +66,8 @@ data ExperimentTemplate = ExperimentTemplate'
 --
 -- 'stopConditions', 'experimentTemplate_stopConditions' - The stop conditions for the experiment.
 --
+-- 'logConfiguration', 'experimentTemplate_logConfiguration' - The configuration for experiment logging.
+--
 -- 'roleArn', 'experimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role.
 --
 -- 'targets', 'experimentTemplate_targets' - The targets for the experiment.
@@ -82,6 +87,7 @@ newExperimentTemplate =
   ExperimentTemplate'
     { tags = Prelude.Nothing,
       stopConditions = Prelude.Nothing,
+      logConfiguration = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -98,6 +104,10 @@ experimentTemplate_tags = Lens.lens (\ExperimentTemplate' {tags} -> tags) (\s@Ex
 -- | The stop conditions for the experiment.
 experimentTemplate_stopConditions :: Lens.Lens' ExperimentTemplate (Prelude.Maybe [ExperimentTemplateStopCondition])
 experimentTemplate_stopConditions = Lens.lens (\ExperimentTemplate' {stopConditions} -> stopConditions) (\s@ExperimentTemplate' {} a -> s {stopConditions = a} :: ExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration for experiment logging.
+experimentTemplate_logConfiguration :: Lens.Lens' ExperimentTemplate (Prelude.Maybe ExperimentTemplateLogConfiguration)
+experimentTemplate_logConfiguration = Lens.lens (\ExperimentTemplate' {logConfiguration} -> logConfiguration) (\s@ExperimentTemplate' {} a -> s {logConfiguration = a} :: ExperimentTemplate)
 
 -- | The Amazon Resource Name (ARN) of an IAM role.
 experimentTemplate_roleArn :: Lens.Lens' ExperimentTemplate (Prelude.Maybe Prelude.Text)
@@ -135,6 +145,7 @@ instance Core.FromJSON ExperimentTemplate where
           ExperimentTemplate'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "stopConditions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "logConfiguration")
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
@@ -148,6 +159,7 @@ instance Prelude.Hashable ExperimentTemplate where
   hashWithSalt _salt ExperimentTemplate' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` stopConditions
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
@@ -160,6 +172,7 @@ instance Prelude.NFData ExperimentTemplate where
   rnf ExperimentTemplate' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf stopConditions
+      `Prelude.seq` Prelude.rnf logConfiguration
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description

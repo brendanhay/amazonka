@@ -96,15 +96,7 @@ instance Prelude.NFData CancelDeployment where
   rnf CancelDeployment' {..} = Prelude.rnf deploymentId
 
 instance Core.ToHeaders CancelDeployment where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CancelDeployment where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

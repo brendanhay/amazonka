@@ -35,8 +35,6 @@ data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
     earliestRestorableDateTime :: Prelude.Maybe Core.POSIX,
     -- | The current state of point in time recovery:
     --
-    -- -   @ENABLING@ - Point in time recovery is being enabled.
-    --
     -- -   @ENABLED@ - Point in time recovery is enabled.
     --
     -- -   @DISABLED@ - Point in time recovery is disabled.
@@ -60,8 +58,6 @@ data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
 --
 -- 'pointInTimeRecoveryStatus', 'pointInTimeRecoveryDescription_pointInTimeRecoveryStatus' - The current state of point in time recovery:
 --
--- -   @ENABLING@ - Point in time recovery is being enabled.
---
 -- -   @ENABLED@ - Point in time recovery is enabled.
 --
 -- -   @DISABLED@ - Point in time recovery is disabled.
@@ -84,8 +80,6 @@ pointInTimeRecoveryDescription_earliestRestorableDateTime :: Lens.Lens' PointInT
 pointInTimeRecoveryDescription_earliestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {earliestRestorableDateTime} -> earliestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {earliestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The current state of point in time recovery:
---
--- -   @ENABLING@ - Point in time recovery is being enabled.
 --
 -- -   @ENABLED@ - Point in time recovery is enabled.
 --

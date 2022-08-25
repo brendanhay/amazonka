@@ -24,9 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a metric that the training algorithm writes to @stderr@ or
--- @stdout@. Amazon SageMakerhyperparameter tuning captures all defined
--- metrics. You specify one metric that a hyperparameter tuning job uses as
--- its objective metric to choose the best training job.
+-- @stdout@. SageMakerhyperparameter tuning captures all defined metrics.
+-- You specify one metric that a hyperparameter tuning job uses as its
+-- objective metric to choose the best training job.
 --
 -- /See:/ 'newMetricDefinition' smart constructor.
 data MetricDefinition = MetricDefinition'

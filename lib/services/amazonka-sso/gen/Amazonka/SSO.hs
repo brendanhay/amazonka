@@ -11,23 +11,26 @@
 --
 -- Derived from API version @2019-06-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Single Sign-On Portal is a web service that makes it easy for you to
--- assign user access to AWS SSO resources such as the user portal. Users
--- can get AWS account applications and roles assigned to them and get
--- federated into the application.
+-- Amazon Web Services Single Sign On Portal is a web service that makes it
+-- easy for you to assign user access to Amazon Web Services SSO resources
+-- such as the AWS access portal. Users can get Amazon Web Services account
+-- applications and roles assigned to them and get federated into the
+-- application.
 --
--- For general information about AWS SSO, see
--- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html What is AWS Single Sign-On?>
--- in the /AWS SSO User Guide/.
+-- Although Amazon Web Services Single Sign-On was renamed, the @sso@ and
+-- @identitystore@ API namespaces will continue to retain their original
+-- name for backward compatibility purposes. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed Amazon Web Services SSO rename>.
 --
--- This API reference guide describes the AWS SSO Portal operations that
--- you can call programatically and includes detailed information on data
--- types and errors.
+-- This reference guide describes the Amazon Web Services SSO Portal
+-- operations that you can call programatically and includes detailed
+-- information on data types and errors.
 --
--- AWS provides SDKs that consist of libraries and sample code for various
--- programming languages and platforms, such as Java, Ruby, .Net, iOS, or
--- Android. The SDKs provide a convenient way to create programmatic access
--- to AWS SSO and other AWS services. For more information about the AWS
+-- Amazon Web Services provides SDKs that consist of libraries and sample
+-- code for various programming languages and platforms, such as Java,
+-- Ruby, .Net, iOS, or Android. The SDKs provide a convenient way to create
+-- programmatic access to Amazon Web Services SSO and other Amazon Web
+-- Services services. For more information about the Amazon Web Services
 -- SDKs, including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 module Amazonka.SSO

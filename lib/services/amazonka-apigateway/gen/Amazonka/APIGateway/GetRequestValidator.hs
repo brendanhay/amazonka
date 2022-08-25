@@ -53,9 +53,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetRequestValidator' smart constructor.
 data GetRequestValidator = GetRequestValidator'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the RequestValidator to be retrieved.
+    -- | The identifier of the RequestValidator to be retrieved.
     requestValidatorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +68,9 @@ data GetRequestValidator = GetRequestValidator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getRequestValidator_restApiId' - The string identifier of the associated RestApi.
 --
--- 'requestValidatorId', 'getRequestValidator_requestValidatorId' - [Required] The identifier of the RequestValidator to be retrieved.
+-- 'requestValidatorId', 'getRequestValidator_requestValidatorId' - The identifier of the RequestValidator to be retrieved.
 newGetRequestValidator ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -85,11 +85,11 @@ newGetRequestValidator
         requestValidatorId = pRequestValidatorId_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getRequestValidator_restApiId :: Lens.Lens' GetRequestValidator Prelude.Text
 getRequestValidator_restApiId = Lens.lens (\GetRequestValidator' {restApiId} -> restApiId) (\s@GetRequestValidator' {} a -> s {restApiId = a} :: GetRequestValidator)
 
--- | [Required] The identifier of the RequestValidator to be retrieved.
+-- | The identifier of the RequestValidator to be retrieved.
 getRequestValidator_requestValidatorId :: Lens.Lens' GetRequestValidator Prelude.Text
 getRequestValidator_requestValidatorId = Lens.lens (\GetRequestValidator' {requestValidatorId} -> requestValidatorId) (\s@GetRequestValidator' {} a -> s {requestValidatorId = a} :: GetRequestValidator)
 

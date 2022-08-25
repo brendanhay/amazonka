@@ -31,6 +31,7 @@ module Amazonka.EMR.Lens
     addInstanceGroupsResponse_httpStatus,
 
     -- ** AddJobFlowSteps
+    addJobFlowSteps_executionRoleArn,
     addJobFlowSteps_jobFlowId,
     addJobFlowSteps_steps,
     addJobFlowStepsResponse_stepIds,
@@ -110,6 +111,7 @@ module Amazonka.EMR.Lens
     describeReleaseLabelResponse_nextToken,
     describeReleaseLabelResponse_applications,
     describeReleaseLabelResponse_releaseLabel,
+    describeReleaseLabelResponse_availableOSReleases,
     describeReleaseLabelResponse_httpStatus,
 
     -- ** DescribeSecurityConfiguration
@@ -318,6 +320,7 @@ module Amazonka.EMR.Lens
     runJobFlow_autoTerminationPolicy,
     runJobFlow_serviceRole,
     runJobFlow_configurations,
+    runJobFlow_oSReleaseLabel,
     runJobFlow_stepConcurrencyLevel,
     runJobFlow_newSupportedProducts,
     runJobFlow_logUri,
@@ -446,6 +449,7 @@ module Amazonka.EMR.Lens
     cluster_serviceRole,
     cluster_configurations,
     cluster_autoTerminate,
+    cluster_oSReleaseLabel,
     cluster_stepConcurrencyLevel,
     cluster_logUri,
     cluster_visibleToAllUsers,
@@ -642,6 +646,7 @@ module Amazonka.EMR.Lens
     instanceGroupModifyConfig_eC2InstanceIdsToTerminate,
     instanceGroupModifyConfig_shrinkPolicy,
     instanceGroupModifyConfig_configurations,
+    instanceGroupModifyConfig_reconfigurationType,
     instanceGroupModifyConfig_instanceCount,
     instanceGroupModifyConfig_instanceGroupId,
 
@@ -757,6 +762,9 @@ module Amazonka.EMR.Lens
     notebookExecutionSummary_startTime,
     notebookExecutionSummary_notebookExecutionId,
 
+    -- ** OSRelease
+    oSRelease_label,
+
     -- ** OnDemandCapacityReservationOptions
     onDemandCapacityReservationOptions_capacityReservationPreference,
     onDemandCapacityReservationOptions_capacityReservationResourceGroupArn,
@@ -848,6 +856,7 @@ module Amazonka.EMR.Lens
     step_status,
     step_id,
     step_actionOnFailure,
+    step_executionRoleArn,
     step_config,
 
     -- ** StepConfig
@@ -914,6 +923,7 @@ module Amazonka.EMR.Lens
     tag_value,
 
     -- ** VolumeSpecification
+    volumeSpecification_throughput,
     volumeSpecification_iops,
     volumeSpecification_volumeType,
     volumeSpecification_sizeInGB,
@@ -1024,6 +1034,7 @@ import Amazonka.EMR.Types.ManagedScalingPolicy
 import Amazonka.EMR.Types.MetricDimension
 import Amazonka.EMR.Types.NotebookExecution
 import Amazonka.EMR.Types.NotebookExecutionSummary
+import Amazonka.EMR.Types.OSRelease
 import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 import Amazonka.EMR.Types.OnDemandProvisioningSpecification
 import Amazonka.EMR.Types.PlacementGroupConfig

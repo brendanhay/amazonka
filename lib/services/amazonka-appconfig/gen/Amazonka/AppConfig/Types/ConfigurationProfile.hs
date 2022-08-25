@@ -28,8 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 data ConfigurationProfile = ConfigurationProfile'
   { -- | The name of the configuration profile.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The type of configurations contained in the profile. AppConfig supports
+    -- @feature flags@ and @freeform@ configurations. We recommend you create
+    -- feature flag configurations to enable or disable new features and
+    -- freeform configurations to distribute configurations to an application.
+    -- When calling this API, enter one of the following values for @Type@:
+    --
+    -- @AWS.AppConfig.FeatureFlags@
+    --
+    -- @AWS.Freeform@
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The ARN of an IAM role with permission to access the configuration at
-    -- the specified LocationUri.
+    -- the specified @LocationUri@.
     retrievalRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration profile ID.
     id :: Prelude.Maybe Prelude.Text,
@@ -54,8 +64,18 @@ data ConfigurationProfile = ConfigurationProfile'
 --
 -- 'name', 'configurationProfile_name' - The name of the configuration profile.
 --
+-- 'type'', 'configurationProfile_type' - The type of configurations contained in the profile. AppConfig supports
+-- @feature flags@ and @freeform@ configurations. We recommend you create
+-- feature flag configurations to enable or disable new features and
+-- freeform configurations to distribute configurations to an application.
+-- When calling this API, enter one of the following values for @Type@:
+--
+-- @AWS.AppConfig.FeatureFlags@
+--
+-- @AWS.Freeform@
+--
 -- 'retrievalRoleArn', 'configurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
--- the specified LocationUri.
+-- the specified @LocationUri@.
 --
 -- 'id', 'configurationProfile_id' - The configuration profile ID.
 --
@@ -71,6 +91,7 @@ newConfigurationProfile ::
 newConfigurationProfile =
   ConfigurationProfile'
     { name = Prelude.Nothing,
+      type' = Prelude.Nothing,
       retrievalRoleArn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -83,8 +104,20 @@ newConfigurationProfile =
 configurationProfile_name :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
 configurationProfile_name = Lens.lens (\ConfigurationProfile' {name} -> name) (\s@ConfigurationProfile' {} a -> s {name = a} :: ConfigurationProfile)
 
+-- | The type of configurations contained in the profile. AppConfig supports
+-- @feature flags@ and @freeform@ configurations. We recommend you create
+-- feature flag configurations to enable or disable new features and
+-- freeform configurations to distribute configurations to an application.
+-- When calling this API, enter one of the following values for @Type@:
+--
+-- @AWS.AppConfig.FeatureFlags@
+--
+-- @AWS.Freeform@
+configurationProfile_type :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
+configurationProfile_type = Lens.lens (\ConfigurationProfile' {type'} -> type') (\s@ConfigurationProfile' {} a -> s {type' = a} :: ConfigurationProfile)
+
 -- | The ARN of an IAM role with permission to access the configuration at
--- the specified LocationUri.
+-- the specified @LocationUri@.
 configurationProfile_retrievalRoleArn :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
 configurationProfile_retrievalRoleArn = Lens.lens (\ConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@ConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: ConfigurationProfile)
 
@@ -115,6 +148,7 @@ instance Core.FromJSON ConfigurationProfile where
       ( \x ->
           ConfigurationProfile'
             Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "RetrievalRoleArn")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Description")
@@ -126,6 +160,7 @@ instance Core.FromJSON ConfigurationProfile where
 instance Prelude.Hashable ConfigurationProfile where
   hashWithSalt _salt ConfigurationProfile' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` retrievalRoleArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
@@ -136,6 +171,7 @@ instance Prelude.Hashable ConfigurationProfile where
 instance Prelude.NFData ConfigurationProfile where
   rnf ConfigurationProfile' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf retrievalRoleArn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description

@@ -20,13 +20,15 @@
 module Amazonka.Glue.Types.JobRunState
   ( JobRunState
       ( ..,
+        JobRunState_ERROR,
         JobRunState_FAILED,
         JobRunState_RUNNING,
         JobRunState_STARTING,
         JobRunState_STOPPED,
         JobRunState_STOPPING,
         JobRunState_SUCCEEDED,
-        JobRunState_TIMEOUT
+        JobRunState_TIMEOUT,
+        JobRunState_WAITING
       ),
   )
 where
@@ -62,6 +64,9 @@ newtype JobRunState = JobRunState'
       Core.ToXML
     )
 
+pattern JobRunState_ERROR :: JobRunState
+pattern JobRunState_ERROR = JobRunState' "ERROR"
+
 pattern JobRunState_FAILED :: JobRunState
 pattern JobRunState_FAILED = JobRunState' "FAILED"
 
@@ -83,7 +88,11 @@ pattern JobRunState_SUCCEEDED = JobRunState' "SUCCEEDED"
 pattern JobRunState_TIMEOUT :: JobRunState
 pattern JobRunState_TIMEOUT = JobRunState' "TIMEOUT"
 
+pattern JobRunState_WAITING :: JobRunState
+pattern JobRunState_WAITING = JobRunState' "WAITING"
+
 {-# COMPLETE
+  JobRunState_ERROR,
   JobRunState_FAILED,
   JobRunState_RUNNING,
   JobRunState_STARTING,
@@ -91,5 +100,6 @@ pattern JobRunState_TIMEOUT = JobRunState' "TIMEOUT"
   JobRunState_STOPPING,
   JobRunState_SUCCEEDED,
   JobRunState_TIMEOUT,
+  JobRunState_WAITING,
   JobRunState'
   #-}

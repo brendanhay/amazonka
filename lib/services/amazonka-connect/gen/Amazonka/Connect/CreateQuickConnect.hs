@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQuickConnect' smart constructor.
 data CreateQuickConnect = CreateQuickConnect'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the quick connect.
     description :: Prelude.Maybe Prelude.Text,
@@ -75,7 +76,8 @@ data CreateQuickConnect = CreateQuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createQuickConnect_tags' - One or more tags.
+-- 'tags', 'createQuickConnect_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'description', 'createQuickConnect_description' - The description of the quick connect.
 --
@@ -105,7 +107,8 @@ newCreateQuickConnect
         quickConnectConfig = pQuickConnectConfig_
       }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createQuickConnect_tags :: Lens.Lens' CreateQuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createQuickConnect_tags = Lens.lens (\CreateQuickConnect' {tags} -> tags) (\s@CreateQuickConnect' {} a -> s {tags = a} :: CreateQuickConnect) Prelude.. Lens.mapping Lens.coerced
 

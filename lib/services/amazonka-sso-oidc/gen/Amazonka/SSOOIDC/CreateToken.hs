@@ -22,7 +22,7 @@
 --
 -- Creates and returns an access token for the authorized client. The
 -- access token issued will be used to fetch short-term credentials for the
--- assigned roles in the AWS account.
+-- assigned roles in the Amazon Web Services account.
 module Amazonka.SSOOIDC.CreateToken
   ( -- * Creating a Request
     CreateToken (..),
@@ -71,8 +71,14 @@ data CreateToken = CreateToken'
     -- | The list of scopes that is defined by the client. Upon authorization,
     -- this list is used to restrict permissions when granting an access token.
     scope :: Prelude.Maybe [Prelude.Text],
-    -- | The token used to obtain an access token in the event that the access
-    -- token is invalid or expired. This token is not issued by the service.
+    -- | Currently, @refreshToken@ is not yet implemented and is not supported.
+    -- For more information about the features and limitations of the current
+    -- Amazon Web Services SSO OIDC implementation, see /Considerations for
+    -- Using this Guide/ in the
+    -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+    --
+    -- The token used to obtain an access token in the event that the access
+    -- token is invalid or expired.
     refreshToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier string for each client. This value should come
     -- from the persisted result of the RegisterClient API.
@@ -80,8 +86,14 @@ data CreateToken = CreateToken'
     -- | A secret string generated for the client. This value should come from
     -- the persisted result of the RegisterClient API.
     clientSecret :: Prelude.Text,
-    -- | Supports grant types for authorization code, refresh token, and device
-    -- code request.
+    -- | Supports grant types for the authorization code, refresh token, and
+    -- device code request. For device code requests, specify the following
+    -- value:
+    --
+    -- @urn:ietf:params:oauth:grant-type:device_code @
+    --
+    -- For information about how to obtain the device code, see the
+    -- StartDeviceAuthorization topic.
     grantType :: Prelude.Text,
     -- | Used only when calling this API for the device code grant type. This
     -- short-term code is used to identify this authentication attempt. This
@@ -109,8 +121,14 @@ data CreateToken = CreateToken'
 -- 'scope', 'createToken_scope' - The list of scopes that is defined by the client. Upon authorization,
 -- this list is used to restrict permissions when granting an access token.
 --
--- 'refreshToken', 'createToken_refreshToken' - The token used to obtain an access token in the event that the access
--- token is invalid or expired. This token is not issued by the service.
+-- 'refreshToken', 'createToken_refreshToken' - Currently, @refreshToken@ is not yet implemented and is not supported.
+-- For more information about the features and limitations of the current
+-- Amazon Web Services SSO OIDC implementation, see /Considerations for
+-- Using this Guide/ in the
+-- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+--
+-- The token used to obtain an access token in the event that the access
+-- token is invalid or expired.
 --
 -- 'clientId', 'createToken_clientId' - The unique identifier string for each client. This value should come
 -- from the persisted result of the RegisterClient API.
@@ -118,8 +136,14 @@ data CreateToken = CreateToken'
 -- 'clientSecret', 'createToken_clientSecret' - A secret string generated for the client. This value should come from
 -- the persisted result of the RegisterClient API.
 --
--- 'grantType', 'createToken_grantType' - Supports grant types for authorization code, refresh token, and device
--- code request.
+-- 'grantType', 'createToken_grantType' - Supports grant types for the authorization code, refresh token, and
+-- device code request. For device code requests, specify the following
+-- value:
+--
+-- @urn:ietf:params:oauth:grant-type:device_code @
+--
+-- For information about how to obtain the device code, see the
+-- StartDeviceAuthorization topic.
 --
 -- 'deviceCode', 'createToken_deviceCode' - Used only when calling this API for the device code grant type. This
 -- short-term code is used to identify this authentication attempt. This
@@ -167,8 +191,14 @@ createToken_redirectUri = Lens.lens (\CreateToken' {redirectUri} -> redirectUri)
 createToken_scope :: Lens.Lens' CreateToken (Prelude.Maybe [Prelude.Text])
 createToken_scope = Lens.lens (\CreateToken' {scope} -> scope) (\s@CreateToken' {} a -> s {scope = a} :: CreateToken) Prelude.. Lens.mapping Lens.coerced
 
--- | The token used to obtain an access token in the event that the access
--- token is invalid or expired. This token is not issued by the service.
+-- | Currently, @refreshToken@ is not yet implemented and is not supported.
+-- For more information about the features and limitations of the current
+-- Amazon Web Services SSO OIDC implementation, see /Considerations for
+-- Using this Guide/ in the
+-- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+--
+-- The token used to obtain an access token in the event that the access
+-- token is invalid or expired.
 createToken_refreshToken :: Lens.Lens' CreateToken (Prelude.Maybe Prelude.Text)
 createToken_refreshToken = Lens.lens (\CreateToken' {refreshToken} -> refreshToken) (\s@CreateToken' {} a -> s {refreshToken = a} :: CreateToken)
 
@@ -182,8 +212,14 @@ createToken_clientId = Lens.lens (\CreateToken' {clientId} -> clientId) (\s@Crea
 createToken_clientSecret :: Lens.Lens' CreateToken Prelude.Text
 createToken_clientSecret = Lens.lens (\CreateToken' {clientSecret} -> clientSecret) (\s@CreateToken' {} a -> s {clientSecret = a} :: CreateToken)
 
--- | Supports grant types for authorization code, refresh token, and device
--- code request.
+-- | Supports grant types for the authorization code, refresh token, and
+-- device code request. For device code requests, specify the following
+-- value:
+--
+-- @urn:ietf:params:oauth:grant-type:device_code @
+--
+-- For information about how to obtain the device code, see the
+-- StartDeviceAuthorization topic.
 createToken_grantType :: Lens.Lens' CreateToken Prelude.Text
 createToken_grantType = Lens.lens (\CreateToken' {grantType} -> grantType) (\s@CreateToken' {} a -> s {grantType = a} :: CreateToken)
 
@@ -265,17 +301,30 @@ instance Core.ToQuery CreateToken where
 
 -- | /See:/ 'newCreateTokenResponse' smart constructor.
 data CreateTokenResponse = CreateTokenResponse'
-  { -- | An opaque token to access AWS SSO resources assigned to a user.
+  { -- | An opaque token to access Amazon Web Services SSO resources assigned to
+    -- a user.
     accessToken :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time in seconds when an access token will expire.
     expiresIn :: Prelude.Maybe Prelude.Int,
-    -- | The identifier of the user that associated with the access token, if
+    -- | Currently, @idToken@ is not yet implemented and is not supported. For
+    -- more information about the features and limitations of the current
+    -- Amazon Web Services SSO OIDC implementation, see /Considerations for
+    -- Using this Guide/ in the
+    -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+    --
+    -- The identifier of the user that associated with the access token, if
     -- present.
     idToken :: Prelude.Maybe Prelude.Text,
     -- | Used to notify the client that the returned token is an access token.
     -- The supported type is @BearerToken@.
     tokenType :: Prelude.Maybe Prelude.Text,
-    -- | A token that, if present, can be used to refresh a previously issued
+    -- | Currently, @refreshToken@ is not yet implemented and is not supported.
+    -- For more information about the features and limitations of the current
+    -- Amazon Web Services SSO OIDC implementation, see /Considerations for
+    -- Using this Guide/ in the
+    -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+    --
+    -- A token that, if present, can be used to refresh a previously issued
     -- access token that might have expired.
     refreshToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -291,17 +340,30 @@ data CreateTokenResponse = CreateTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'createTokenResponse_accessToken' - An opaque token to access AWS SSO resources assigned to a user.
+-- 'accessToken', 'createTokenResponse_accessToken' - An opaque token to access Amazon Web Services SSO resources assigned to
+-- a user.
 --
 -- 'expiresIn', 'createTokenResponse_expiresIn' - Indicates the time in seconds when an access token will expire.
 --
--- 'idToken', 'createTokenResponse_idToken' - The identifier of the user that associated with the access token, if
+-- 'idToken', 'createTokenResponse_idToken' - Currently, @idToken@ is not yet implemented and is not supported. For
+-- more information about the features and limitations of the current
+-- Amazon Web Services SSO OIDC implementation, see /Considerations for
+-- Using this Guide/ in the
+-- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+--
+-- The identifier of the user that associated with the access token, if
 -- present.
 --
 -- 'tokenType', 'createTokenResponse_tokenType' - Used to notify the client that the returned token is an access token.
 -- The supported type is @BearerToken@.
 --
--- 'refreshToken', 'createTokenResponse_refreshToken' - A token that, if present, can be used to refresh a previously issued
+-- 'refreshToken', 'createTokenResponse_refreshToken' - Currently, @refreshToken@ is not yet implemented and is not supported.
+-- For more information about the features and limitations of the current
+-- Amazon Web Services SSO OIDC implementation, see /Considerations for
+-- Using this Guide/ in the
+-- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+--
+-- A token that, if present, can be used to refresh a previously issued
 -- access token that might have expired.
 --
 -- 'httpStatus', 'createTokenResponse_httpStatus' - The response's http status code.
@@ -319,7 +381,8 @@ newCreateTokenResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An opaque token to access AWS SSO resources assigned to a user.
+-- | An opaque token to access Amazon Web Services SSO resources assigned to
+-- a user.
 createTokenResponse_accessToken :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
 createTokenResponse_accessToken = Lens.lens (\CreateTokenResponse' {accessToken} -> accessToken) (\s@CreateTokenResponse' {} a -> s {accessToken = a} :: CreateTokenResponse)
 
@@ -327,7 +390,13 @@ createTokenResponse_accessToken = Lens.lens (\CreateTokenResponse' {accessToken}
 createTokenResponse_expiresIn :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Int)
 createTokenResponse_expiresIn = Lens.lens (\CreateTokenResponse' {expiresIn} -> expiresIn) (\s@CreateTokenResponse' {} a -> s {expiresIn = a} :: CreateTokenResponse)
 
--- | The identifier of the user that associated with the access token, if
+-- | Currently, @idToken@ is not yet implemented and is not supported. For
+-- more information about the features and limitations of the current
+-- Amazon Web Services SSO OIDC implementation, see /Considerations for
+-- Using this Guide/ in the
+-- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+--
+-- The identifier of the user that associated with the access token, if
 -- present.
 createTokenResponse_idToken :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
 createTokenResponse_idToken = Lens.lens (\CreateTokenResponse' {idToken} -> idToken) (\s@CreateTokenResponse' {} a -> s {idToken = a} :: CreateTokenResponse)
@@ -337,7 +406,13 @@ createTokenResponse_idToken = Lens.lens (\CreateTokenResponse' {idToken} -> idTo
 createTokenResponse_tokenType :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
 createTokenResponse_tokenType = Lens.lens (\CreateTokenResponse' {tokenType} -> tokenType) (\s@CreateTokenResponse' {} a -> s {tokenType = a} :: CreateTokenResponse)
 
--- | A token that, if present, can be used to refresh a previously issued
+-- | Currently, @refreshToken@ is not yet implemented and is not supported.
+-- For more information about the features and limitations of the current
+-- Amazon Web Services SSO OIDC implementation, see /Considerations for
+-- Using this Guide/ in the
+-- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html Amazon Web Services SSO OIDC API Reference>.
+--
+-- A token that, if present, can be used to refresh a previously issued
 -- access token that might have expired.
 createTokenResponse_refreshToken :: Lens.Lens' CreateTokenResponse (Prelude.Maybe Prelude.Text)
 createTokenResponse_refreshToken = Lens.lens (\CreateTokenResponse' {refreshToken} -> refreshToken) (\s@CreateTokenResponse' {} a -> s {refreshToken = a} :: CreateTokenResponse)

@@ -48,6 +48,7 @@ library
     Amazonka.KafkaConnect.CreateCustomPlugin
     Amazonka.KafkaConnect.CreateWorkerConfiguration
     Amazonka.KafkaConnect.DeleteConnector
+    Amazonka.KafkaConnect.DeleteCustomPlugin
     Amazonka.KafkaConnect.DescribeConnector
     Amazonka.KafkaConnect.DescribeCustomPlugin
     Amazonka.KafkaConnect.DescribeWorkerConfiguration
@@ -104,6 +105,7 @@ library
     Amazonka.KafkaConnect.Types.ScaleOutPolicy
     Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
     Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate
+    Amazonka.KafkaConnect.Types.StateDescription
     Amazonka.KafkaConnect.Types.Vpc
     Amazonka.KafkaConnect.Types.VpcDescription
     Amazonka.KafkaConnect.Types.WorkerConfiguration

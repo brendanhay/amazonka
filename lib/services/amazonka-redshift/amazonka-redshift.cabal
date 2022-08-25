@@ -113,6 +113,7 @@ library
     Amazonka.Redshift.DescribeNodeConfigurationOptions
     Amazonka.Redshift.DescribeOrderableClusterOptions
     Amazonka.Redshift.DescribePartners
+    Amazonka.Redshift.DescribeReservedNodeExchangeStatus
     Amazonka.Redshift.DescribeReservedNodeOfferings
     Amazonka.Redshift.DescribeReservedNodes
     Amazonka.Redshift.DescribeResize
@@ -129,6 +130,8 @@ library
     Amazonka.Redshift.EnableLogging
     Amazonka.Redshift.EnableSnapshotCopy
     Amazonka.Redshift.GetClusterCredentials
+    Amazonka.Redshift.GetClusterCredentialsWithIAM
+    Amazonka.Redshift.GetReservedNodeExchangeConfigurationOptions
     Amazonka.Redshift.GetReservedNodeExchangeOfferings
     Amazonka.Redshift.Internal
     Amazonka.Redshift.Lens
@@ -208,6 +211,7 @@ library
     Amazonka.Redshift.Types.HsmConfiguration
     Amazonka.Redshift.Types.HsmStatus
     Amazonka.Redshift.Types.IPRange
+    Amazonka.Redshift.Types.LogDestinationType
     Amazonka.Redshift.Types.LoggingStatus
     Amazonka.Redshift.Types.MaintenanceTrack
     Amazonka.Redshift.Types.Mode
@@ -227,6 +231,10 @@ library
     Amazonka.Redshift.Types.PendingModifiedValues
     Amazonka.Redshift.Types.RecurringCharge
     Amazonka.Redshift.Types.ReservedNode
+    Amazonka.Redshift.Types.ReservedNodeConfigurationOption
+    Amazonka.Redshift.Types.ReservedNodeExchangeActionType
+    Amazonka.Redshift.Types.ReservedNodeExchangeStatus
+    Amazonka.Redshift.Types.ReservedNodeExchangeStatusType
     Amazonka.Redshift.Types.ReservedNodeOffering
     Amazonka.Redshift.Types.ReservedNodeOfferingType
     Amazonka.Redshift.Types.ResizeClusterMessage

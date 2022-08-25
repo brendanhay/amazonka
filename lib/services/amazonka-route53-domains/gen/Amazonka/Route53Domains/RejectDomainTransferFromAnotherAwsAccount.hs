@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Rejects the transfer of a domain from another AWS account to the current
--- AWS account. You initiate a transfer between AWS accounts using
+-- Rejects the transfer of a domain from another Amazon Web Services
+-- account to the current Amazon Web Services account. You initiate a
+-- transfer betweenAmazon Web Services accounts using
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>.
 --
 -- Use either
@@ -62,8 +63,8 @@ import Amazonka.Route53Domains.Types
 --
 -- /See:/ 'newRejectDomainTransferFromAnotherAwsAccount' smart constructor.
 data RejectDomainTransferFromAnotherAwsAccount = RejectDomainTransferFromAnotherAwsAccount'
-  { -- | The name of the domain that was specified when another AWS account
-    -- submitted a
+  { -- | The name of the domain that was specified when another Amazon Web
+    -- Services account submitted a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
     -- request.
     domainName :: Prelude.Text
@@ -78,8 +79,8 @@ data RejectDomainTransferFromAnotherAwsAccount = RejectDomainTransferFromAnother
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'rejectDomainTransferFromAnotherAwsAccount_domainName' - The name of the domain that was specified when another AWS account
--- submitted a
+-- 'domainName', 'rejectDomainTransferFromAnotherAwsAccount_domainName' - The name of the domain that was specified when another Amazon Web
+-- Services account submitted a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
 newRejectDomainTransferFromAnotherAwsAccount ::
@@ -93,8 +94,8 @@ newRejectDomainTransferFromAnotherAwsAccount
           pDomainName_
       }
 
--- | The name of the domain that was specified when another AWS account
--- submitted a
+-- | The name of the domain that was specified when another Amazon Web
+-- Services account submitted a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
 rejectDomainTransferFromAnotherAwsAccount_domainName :: Lens.Lens' RejectDomainTransferFromAnotherAwsAccount Prelude.Text

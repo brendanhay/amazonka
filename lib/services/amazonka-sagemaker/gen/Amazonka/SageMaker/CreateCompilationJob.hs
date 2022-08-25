@@ -57,9 +57,10 @@ module Amazonka.SageMaker.CreateCompilationJob
     -- * Request Lenses
     createCompilationJob_tags,
     createCompilationJob_vpcConfig,
+    createCompilationJob_inputConfig,
+    createCompilationJob_modelPackageVersionArn,
     createCompilationJob_compilationJobName,
     createCompilationJob_roleArn,
-    createCompilationJob_inputConfig,
     createCompilationJob_outputConfig,
     createCompilationJob_stoppingCondition,
 
@@ -92,6 +93,15 @@ data CreateCompilationJob = CreateCompilationJob'
     -- For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe NeoVpcConfig,
+    -- | Provides information about the location of input model artifacts, the
+    -- name and shape of the expected data inputs, and the framework in which
+    -- the model was trained.
+    inputConfig :: Prelude.Maybe InputConfig,
+    -- | The Amazon Resource Name (ARN) of a versioned model package. Provide
+    -- either a @ModelPackageVersionArn@ or an @InputConfig@ object in the
+    -- request syntax. The presence of both objects in the
+    -- @CreateCompilationJob@ request will return an exception.
+    modelPackageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | A name for the model compilation job. The name must be unique within the
     -- Amazon Web Services Region and within your Amazon Web Services account.
     compilationJobName :: Prelude.Text,
@@ -113,10 +123,6 @@ data CreateCompilationJob = CreateCompilationJob'
     -- @iam:PassRole@ permission. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
     roleArn :: Prelude.Text,
-    -- | Provides information about the location of input model artifacts, the
-    -- name and shape of the expected data inputs, and the framework in which
-    -- the model was trained.
-    inputConfig :: InputConfig,
     -- | Provides information about the output location for the compiled model
     -- and the target device the model runs on.
     outputConfig :: OutputConfig,
@@ -145,6 +151,15 @@ data CreateCompilationJob = CreateCompilationJob'
 -- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
 --
+-- 'inputConfig', 'createCompilationJob_inputConfig' - Provides information about the location of input model artifacts, the
+-- name and shape of the expected data inputs, and the framework in which
+-- the model was trained.
+--
+-- 'modelPackageVersionArn', 'createCompilationJob_modelPackageVersionArn' - The Amazon Resource Name (ARN) of a versioned model package. Provide
+-- either a @ModelPackageVersionArn@ or an @InputConfig@ object in the
+-- request syntax. The presence of both objects in the
+-- @CreateCompilationJob@ request will return an exception.
+--
 -- 'compilationJobName', 'createCompilationJob_compilationJobName' - A name for the model compilation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
 --
@@ -166,10 +181,6 @@ data CreateCompilationJob = CreateCompilationJob'
 -- @iam:PassRole@ permission. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
 --
--- 'inputConfig', 'createCompilationJob_inputConfig' - Provides information about the location of input model artifacts, the
--- name and shape of the expected data inputs, and the framework in which
--- the model was trained.
---
 -- 'outputConfig', 'createCompilationJob_outputConfig' - Provides information about the output location for the compiled model
 -- and the target device the model runs on.
 --
@@ -181,8 +192,6 @@ newCreateCompilationJob ::
   Prelude.Text ->
   -- | 'roleArn'
   Prelude.Text ->
-  -- | 'inputConfig'
-  InputConfig ->
   -- | 'outputConfig'
   OutputConfig ->
   -- | 'stoppingCondition'
@@ -191,15 +200,15 @@ newCreateCompilationJob ::
 newCreateCompilationJob
   pCompilationJobName_
   pRoleArn_
-  pInputConfig_
   pOutputConfig_
   pStoppingCondition_ =
     CreateCompilationJob'
       { tags = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
+        inputConfig = Prelude.Nothing,
+        modelPackageVersionArn = Prelude.Nothing,
         compilationJobName = pCompilationJobName_,
         roleArn = pRoleArn_,
-        inputConfig = pInputConfig_,
         outputConfig = pOutputConfig_,
         stoppingCondition = pStoppingCondition_
       }
@@ -217,6 +226,19 @@ createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
 createCompilationJob_vpcConfig :: Lens.Lens' CreateCompilationJob (Prelude.Maybe NeoVpcConfig)
 createCompilationJob_vpcConfig = Lens.lens (\CreateCompilationJob' {vpcConfig} -> vpcConfig) (\s@CreateCompilationJob' {} a -> s {vpcConfig = a} :: CreateCompilationJob)
+
+-- | Provides information about the location of input model artifacts, the
+-- name and shape of the expected data inputs, and the framework in which
+-- the model was trained.
+createCompilationJob_inputConfig :: Lens.Lens' CreateCompilationJob (Prelude.Maybe InputConfig)
+createCompilationJob_inputConfig = Lens.lens (\CreateCompilationJob' {inputConfig} -> inputConfig) (\s@CreateCompilationJob' {} a -> s {inputConfig = a} :: CreateCompilationJob)
+
+-- | The Amazon Resource Name (ARN) of a versioned model package. Provide
+-- either a @ModelPackageVersionArn@ or an @InputConfig@ object in the
+-- request syntax. The presence of both objects in the
+-- @CreateCompilationJob@ request will return an exception.
+createCompilationJob_modelPackageVersionArn :: Lens.Lens' CreateCompilationJob (Prelude.Maybe Prelude.Text)
+createCompilationJob_modelPackageVersionArn = Lens.lens (\CreateCompilationJob' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@CreateCompilationJob' {} a -> s {modelPackageVersionArn = a} :: CreateCompilationJob)
 
 -- | A name for the model compilation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
@@ -242,12 +264,6 @@ createCompilationJob_compilationJobName = Lens.lens (\CreateCompilationJob' {com
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
 createCompilationJob_roleArn :: Lens.Lens' CreateCompilationJob Prelude.Text
 createCompilationJob_roleArn = Lens.lens (\CreateCompilationJob' {roleArn} -> roleArn) (\s@CreateCompilationJob' {} a -> s {roleArn = a} :: CreateCompilationJob)
-
--- | Provides information about the location of input model artifacts, the
--- name and shape of the expected data inputs, and the framework in which
--- the model was trained.
-createCompilationJob_inputConfig :: Lens.Lens' CreateCompilationJob InputConfig
-createCompilationJob_inputConfig = Lens.lens (\CreateCompilationJob' {inputConfig} -> inputConfig) (\s@CreateCompilationJob' {} a -> s {inputConfig = a} :: CreateCompilationJob)
 
 -- | Provides information about the output location for the compiled model
 -- and the target device the model runs on.
@@ -277,9 +293,10 @@ instance Prelude.Hashable CreateCompilationJob where
   hashWithSalt _salt CreateCompilationJob' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` inputConfig
+      `Prelude.hashWithSalt` modelPackageVersionArn
       `Prelude.hashWithSalt` compilationJobName
       `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` inputConfig
       `Prelude.hashWithSalt` outputConfig
       `Prelude.hashWithSalt` stoppingCondition
 
@@ -287,9 +304,10 @@ instance Prelude.NFData CreateCompilationJob where
   rnf CreateCompilationJob' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf modelPackageVersionArn
       `Prelude.seq` Prelude.rnf compilationJobName
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf inputConfig
       `Prelude.seq` Prelude.rnf outputConfig
       `Prelude.seq` Prelude.rnf stoppingCondition
 
@@ -314,10 +332,12 @@ instance Core.ToJSON CreateCompilationJob where
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("InputConfig" Core..=) Prelude.<$> inputConfig,
+            ("ModelPackageVersionArn" Core..=)
+              Prelude.<$> modelPackageVersionArn,
             Prelude.Just
               ("CompilationJobName" Core..= compilationJobName),
             Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("InputConfig" Core..= inputConfig),
             Prelude.Just ("OutputConfig" Core..= outputConfig),
             Prelude.Just
               ("StoppingCondition" Core..= stoppingCondition)

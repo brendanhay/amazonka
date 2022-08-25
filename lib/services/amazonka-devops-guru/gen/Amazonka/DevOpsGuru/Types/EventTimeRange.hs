@@ -23,9 +23,10 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The time range during which an AWS event occurred. AWS resource events
--- and metrics are analyzed by DevOps Guru to find anomalous behavior and
--- provide recommendations to improve your operational solutions.
+-- | The time range during which an Amazon Web Services event occurred.
+-- Amazon Web Services resource events and metrics are analyzed by DevOps
+-- Guru to find anomalous behavior and provide recommendations to improve
+-- your operational solutions.
 --
 -- /See:/ 'newEventTimeRange' smart constructor.
 data EventTimeRange = EventTimeRange'

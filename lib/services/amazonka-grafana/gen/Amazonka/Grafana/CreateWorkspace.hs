@@ -34,6 +34,7 @@ module Amazonka.Grafana.CreateWorkspace
     newCreateWorkspace,
 
     -- * Request Lenses
+    createWorkspace_tags,
     createWorkspace_clientToken,
     createWorkspace_organizationRoleName,
     createWorkspace_workspaceOrganizationalUnits,
@@ -66,7 +67,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkspace' smart constructor.
 data CreateWorkspace = CreateWorkspace'
-  { -- | A unique, case-sensitive, user-provided identifier to ensure the
+  { -- | The list of tags associated with the workspace.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique, case-sensitive, user-provided identifier to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of an IAM role that already exists to use with Organizations to
@@ -82,10 +85,8 @@ data CreateWorkspace = CreateWorkspace'
     stackSetName :: Prelude.Maybe Prelude.Text,
     -- | The workspace needs an IAM role that grants permissions to the Amazon
     -- Web Services resources that the workspace will view data from. If you
-    -- already have a role that you want to use, specify it here. If you omit
-    -- this field and you specify some Amazon Web Services resources in
-    -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
-    -- role with the necessary permissions is automatically created.
+    -- already have a role that you want to use, specify it here. The
+    -- permission type should be set to @CUSTOMER_MANAGED@.
     workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specify the Amazon Web Services notification channels that you plan to
     -- use in this workspace. Specifying these data sources here enables Amazon
@@ -106,6 +107,8 @@ data CreateWorkspace = CreateWorkspace'
     workspaceName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
+    --
+    -- Pattern: @^[\\\\p{L}\\\\p{Z}\\\\p{N}\\\\p{P}]{0,2048}$@
     workspaceDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies whether the workspace can access Amazon Web Services resources
     -- in this Amazon Web Services account only, or whether it can also access
@@ -119,9 +122,11 @@ data CreateWorkspace = CreateWorkspace'
     -- console within a workspace. For more information, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
     authenticationProviders :: [AuthenticationProviderTypes],
-    -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
-    -- creates the IAM roles and provisions the permissions that the workspace
-    -- needs to use Amazon Web Services data sources and notification channels.
+    -- | If you specify @SERVICE_MANAGED@ on AWS Grafana console, Amazon Managed
+    -- Grafana automatically creates the IAM roles and provisions the
+    -- permissions that the workspace needs to use Amazon Web Services data
+    -- sources and notification channels. In CLI mode, the permissionType
+    -- @SERVICE_MANAGED@ will not create the IAM role for you.
     --
     -- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
     -- permissions yourself. If you are creating this workspace in a member
@@ -131,7 +136,7 @@ data CreateWorkspace = CreateWorkspace'
     -- @CUSTOMER_MANAGED@.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
+    -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>.
     permissionType :: PermissionType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -143,6 +148,8 @@ data CreateWorkspace = CreateWorkspace'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createWorkspace_tags' - The list of tags associated with the workspace.
 --
 -- 'clientToken', 'createWorkspace_clientToken' - A unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
@@ -160,10 +167,8 @@ data CreateWorkspace = CreateWorkspace'
 --
 -- 'workspaceRoleArn', 'createWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon
 -- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. If you omit
--- this field and you specify some Amazon Web Services resources in
--- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
--- role with the necessary permissions is automatically created.
+-- already have a role that you want to use, specify it here. The
+-- permission type should be set to @CUSTOMER_MANAGED@.
 --
 -- 'workspaceNotificationDestinations', 'createWorkspace_workspaceNotificationDestinations' - Specify the Amazon Web Services notification channels that you plan to
 -- use in this workspace. Specifying these data sources here enables Amazon
@@ -185,6 +190,8 @@ data CreateWorkspace = CreateWorkspace'
 -- 'workspaceDescription', 'createWorkspace_workspaceDescription' - A description for the workspace. This is used only to help you identify
 -- this workspace.
 --
+-- Pattern: @^[\\\\p{L}\\\\p{Z}\\\\p{N}\\\\p{P}]{0,2048}$@
+--
 -- 'accountAccessType', 'createWorkspace_accountAccessType' - Specifies whether the workspace can access Amazon Web Services resources
 -- in this Amazon Web Services account only, or whether it can also access
 -- Amazon Web Services resources in other accounts in the same
@@ -197,9 +204,11 @@ data CreateWorkspace = CreateWorkspace'
 -- console within a workspace. For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
 --
--- 'permissionType', 'createWorkspace_permissionType' - If you specify @Service Managed@, Amazon Managed Grafana automatically
--- creates the IAM roles and provisions the permissions that the workspace
--- needs to use Amazon Web Services data sources and notification channels.
+-- 'permissionType', 'createWorkspace_permissionType' - If you specify @SERVICE_MANAGED@ on AWS Grafana console, Amazon Managed
+-- Grafana automatically creates the IAM roles and provisions the
+-- permissions that the workspace needs to use Amazon Web Services data
+-- sources and notification channels. In CLI mode, the permissionType
+-- @SERVICE_MANAGED@ will not create the IAM role for you.
 --
 -- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
 -- permissions yourself. If you are creating this workspace in a member
@@ -209,7 +218,7 @@ data CreateWorkspace = CreateWorkspace'
 -- @CUSTOMER_MANAGED@.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>.
 newCreateWorkspace ::
   -- | 'accountAccessType'
   AccountAccessType ->
@@ -220,7 +229,8 @@ newCreateWorkspace
   pAccountAccessType_
   pPermissionType_ =
     CreateWorkspace'
-      { clientToken = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         organizationRoleName = Prelude.Nothing,
         workspaceOrganizationalUnits = Prelude.Nothing,
         stackSetName = Prelude.Nothing,
@@ -233,6 +243,10 @@ newCreateWorkspace
         authenticationProviders = Prelude.mempty,
         permissionType = pPermissionType_
       }
+
+-- | The list of tags associated with the workspace.
+createWorkspace_tags :: Lens.Lens' CreateWorkspace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWorkspace' {} a -> s {tags = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
@@ -258,10 +272,8 @@ createWorkspace_stackSetName = Lens.lens (\CreateWorkspace' {stackSetName} -> st
 
 -- | The workspace needs an IAM role that grants permissions to the Amazon
 -- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. If you omit
--- this field and you specify some Amazon Web Services resources in
--- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
--- role with the necessary permissions is automatically created.
+-- already have a role that you want to use, specify it here. The
+-- permission type should be set to @CUSTOMER_MANAGED@.
 createWorkspace_workspaceRoleArn :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_workspaceRoleArn = Lens.lens (\CreateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@CreateWorkspace' {} a -> s {workspaceRoleArn = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
 
@@ -290,6 +302,8 @@ createWorkspace_workspaceName = Lens.lens (\CreateWorkspace' {workspaceName} -> 
 
 -- | A description for the workspace. This is used only to help you identify
 -- this workspace.
+--
+-- Pattern: @^[\\\\p{L}\\\\p{Z}\\\\p{N}\\\\p{P}]{0,2048}$@
 createWorkspace_workspaceDescription :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_workspaceDescription = Lens.lens (\CreateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@CreateWorkspace' {} a -> s {workspaceDescription = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
 
@@ -309,9 +323,11 @@ createWorkspace_accountAccessType = Lens.lens (\CreateWorkspace' {accountAccessT
 createWorkspace_authenticationProviders :: Lens.Lens' CreateWorkspace [AuthenticationProviderTypes]
 createWorkspace_authenticationProviders = Lens.lens (\CreateWorkspace' {authenticationProviders} -> authenticationProviders) (\s@CreateWorkspace' {} a -> s {authenticationProviders = a} :: CreateWorkspace) Prelude.. Lens.coerced
 
--- | If you specify @Service Managed@, Amazon Managed Grafana automatically
--- creates the IAM roles and provisions the permissions that the workspace
--- needs to use Amazon Web Services data sources and notification channels.
+-- | If you specify @SERVICE_MANAGED@ on AWS Grafana console, Amazon Managed
+-- Grafana automatically creates the IAM roles and provisions the
+-- permissions that the workspace needs to use Amazon Web Services data
+-- sources and notification channels. In CLI mode, the permissionType
+-- @SERVICE_MANAGED@ will not create the IAM role for you.
 --
 -- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
 -- permissions yourself. If you are creating this workspace in a member
@@ -321,7 +337,7 @@ createWorkspace_authenticationProviders = Lens.lens (\CreateWorkspace' {authenti
 -- @CUSTOMER_MANAGED@.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>.
 createWorkspace_permissionType :: Lens.Lens' CreateWorkspace PermissionType
 createWorkspace_permissionType = Lens.lens (\CreateWorkspace' {permissionType} -> permissionType) (\s@CreateWorkspace' {} a -> s {permissionType = a} :: CreateWorkspace)
 
@@ -340,7 +356,8 @@ instance Core.AWSRequest CreateWorkspace where
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` workspaceOrganizationalUnits
       `Prelude.hashWithSalt` stackSetName
@@ -355,7 +372,8 @@ instance Prelude.Hashable CreateWorkspace where
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
       `Prelude.seq` Prelude.rnf stackSetName
@@ -383,7 +401,8 @@ instance Core.ToJSON CreateWorkspace where
   toJSON CreateWorkspace' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("organizationRoleName" Core..=)
               Prelude.<$> organizationRoleName,
             ("workspaceOrganizationalUnits" Core..=)

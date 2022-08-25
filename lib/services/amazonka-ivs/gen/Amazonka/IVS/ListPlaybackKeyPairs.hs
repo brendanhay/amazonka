@@ -55,10 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlaybackKeyPairs' smart constructor.
 data ListPlaybackKeyPairs = ListPlaybackKeyPairs'
-  { -- | Maximum number of key pairs to return.
+  { -- | The first key pair to retrieve. This is used for pagination; see the
+    -- @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The first key pair to retrieve. This is used for pagination; see the
-    -- @nextToken@ response field. Default: 50.
+    -- | Maximum number of key pairs to return. Default: your service quota or
+    -- 100, whichever is smaller.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,10 +72,11 @@ data ListPlaybackKeyPairs = ListPlaybackKeyPairs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlaybackKeyPairs_nextToken' - Maximum number of key pairs to return.
+-- 'nextToken', 'listPlaybackKeyPairs_nextToken' - The first key pair to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
 --
--- 'maxResults', 'listPlaybackKeyPairs_maxResults' - The first key pair to retrieve. This is used for pagination; see the
--- @nextToken@ response field. Default: 50.
+-- 'maxResults', 'listPlaybackKeyPairs_maxResults' - Maximum number of key pairs to return. Default: your service quota or
+-- 100, whichever is smaller.
 newListPlaybackKeyPairs ::
   ListPlaybackKeyPairs
 newListPlaybackKeyPairs =
@@ -83,12 +85,13 @@ newListPlaybackKeyPairs =
       maxResults = Prelude.Nothing
     }
 
--- | Maximum number of key pairs to return.
+-- | The first key pair to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
 listPlaybackKeyPairs_nextToken :: Lens.Lens' ListPlaybackKeyPairs (Prelude.Maybe Prelude.Text)
 listPlaybackKeyPairs_nextToken = Lens.lens (\ListPlaybackKeyPairs' {nextToken} -> nextToken) (\s@ListPlaybackKeyPairs' {} a -> s {nextToken = a} :: ListPlaybackKeyPairs)
 
--- | The first key pair to retrieve. This is used for pagination; see the
--- @nextToken@ response field. Default: 50.
+-- | Maximum number of key pairs to return. Default: your service quota or
+-- 100, whichever is smaller.
 listPlaybackKeyPairs_maxResults :: Lens.Lens' ListPlaybackKeyPairs (Prelude.Maybe Prelude.Natural)
 listPlaybackKeyPairs_maxResults = Lens.lens (\ListPlaybackKeyPairs' {maxResults} -> maxResults) (\s@ListPlaybackKeyPairs' {} a -> s {maxResults = a} :: ListPlaybackKeyPairs)
 

@@ -11,12 +11,12 @@
 --
 -- Derived from API version @2016-04-18@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Using the Amazon Cognito User Pools API, you can create a user pool to
+-- Using the Amazon Cognito user pools API, you can create a user pool to
 -- manage directories and users. You can authenticate a user to obtain
 -- tokens related to user identity and access policies.
 --
 -- This API reference provides information about user pools in Amazon
--- Cognito User Pools.
+-- Cognito user pools.
 --
 -- For more information, see the
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html Amazon Cognito Documentation>.
@@ -95,6 +95,9 @@ module Amazonka.CognitoIdentityProvider
 
     -- ** AliasExistsException
     _AliasExistsException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
 
     -- ** ScopeDoesNotExistException
     _ScopeDoesNotExistException,
@@ -1080,6 +1083,10 @@ module Amazonka.CognitoIdentityProvider
     -- ** UICustomizationType
     UICustomizationType (UICustomizationType'),
     newUICustomizationType,
+
+    -- ** UserAttributeUpdateSettingsType
+    UserAttributeUpdateSettingsType (UserAttributeUpdateSettingsType'),
+    newUserAttributeUpdateSettingsType,
 
     -- ** UserContextDataType
     UserContextDataType (UserContextDataType'),

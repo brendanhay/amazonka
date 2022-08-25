@@ -56,8 +56,8 @@ data CreateNotification = CreateNotification'
   { -- | The @accountId@ that is associated with the budget that you want to
     -- create a notification for.
     accountId :: Prelude.Text,
-    -- | The name of the budget that you want AWS to notify you about. Budget
-    -- names must be unique within an account.
+    -- | The name of the budget that you want Amazon Web Services to notify you
+    -- about. Budget names must be unique within an account.
     budgetName :: Prelude.Text,
     -- | The notification that you want to create.
     notification :: Notification,
@@ -79,8 +79,8 @@ data CreateNotification = CreateNotification'
 -- 'accountId', 'createNotification_accountId' - The @accountId@ that is associated with the budget that you want to
 -- create a notification for.
 --
--- 'budgetName', 'createNotification_budgetName' - The name of the budget that you want AWS to notify you about. Budget
--- names must be unique within an account.
+-- 'budgetName', 'createNotification_budgetName' - The name of the budget that you want Amazon Web Services to notify you
+-- about. Budget names must be unique within an account.
 --
 -- 'notification', 'createNotification_notification' - The notification that you want to create.
 --
@@ -114,8 +114,8 @@ newCreateNotification
 createNotification_accountId :: Lens.Lens' CreateNotification Prelude.Text
 createNotification_accountId = Lens.lens (\CreateNotification' {accountId} -> accountId) (\s@CreateNotification' {} a -> s {accountId = a} :: CreateNotification)
 
--- | The name of the budget that you want AWS to notify you about. Budget
--- names must be unique within an account.
+-- | The name of the budget that you want Amazon Web Services to notify you
+-- about. Budget names must be unique within an account.
 createNotification_budgetName :: Lens.Lens' CreateNotification Prelude.Text
 createNotification_budgetName = Lens.lens (\CreateNotification' {budgetName} -> budgetName) (\s@CreateNotification' {} a -> s {budgetName = a} :: CreateNotification)
 

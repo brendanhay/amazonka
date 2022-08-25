@@ -25,17 +25,17 @@ import Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a policy used by EFS lifecycle management and EFS intelligent
--- tiering that specifies when to transition files into and out of the file
--- system\'s Infrequent Access (IA) storage class. For more information,
--- see
+-- | Describes a policy used by EFS lifecycle management and EFS
+-- Intelligent-Tiering that specifies when to transition files into and out
+-- of the file system\'s Infrequent Access (IA) storage class. For more
+-- information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html EFS Intelligent‐Tiering and EFS Lifecycle Management>.
 --
 -- When using the @put-lifecycle-configuration@ CLI command or the
 -- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
 -- @LifecyclePolicy@ object have only a single transition. This means that
--- in a request body, @LifecyclePolicies@ needs to be structured as an
--- array of @LifecyclePolicy@ objects, one object for each transition,
+-- in a request body, @LifecyclePolicies@ must be structured as an array of
+-- @LifecyclePolicy@ objects, one object for each transition,
 -- @TransitionToIA@, @TransitionToPrimaryStorageClass@. For more
 -- information, see the request examples in PutLifecycleConfiguration.
 --

@@ -33,7 +33,7 @@ data ModelBiasAppSpecification = ModelBiasAppSpecification'
     imageUri :: Prelude.Text,
     -- | JSON formatted S3 file that defines bias parameters. For more
     -- information on this JSON configuration file, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html Configure bias parameters>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html Configure bias parameters>.
     configUri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,7 +52,7 @@ data ModelBiasAppSpecification = ModelBiasAppSpecification'
 --
 -- 'configUri', 'modelBiasAppSpecification_configUri' - JSON formatted S3 file that defines bias parameters. For more
 -- information on this JSON configuration file, see
--- <https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html Configure bias parameters>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html Configure bias parameters>.
 newModelBiasAppSpecification ::
   -- | 'imageUri'
   Prelude.Text ->
@@ -77,7 +77,7 @@ modelBiasAppSpecification_imageUri = Lens.lens (\ModelBiasAppSpecification' {ima
 
 -- | JSON formatted S3 file that defines bias parameters. For more
 -- information on this JSON configuration file, see
--- <https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html Configure bias parameters>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html Configure bias parameters>.
 modelBiasAppSpecification_configUri :: Lens.Lens' ModelBiasAppSpecification Prelude.Text
 modelBiasAppSpecification_configUri = Lens.lens (\ModelBiasAppSpecification' {configUri} -> configUri) (\s@ModelBiasAppSpecification' {} a -> s {configUri = a} :: ModelBiasAppSpecification)
 

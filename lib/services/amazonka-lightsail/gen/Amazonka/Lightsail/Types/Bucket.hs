@@ -22,6 +22,7 @@ module Amazonka.Lightsail.Types.Bucket where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Lightsail.Types.AccessRules
+import Amazonka.Lightsail.Types.BucketAccessLogConfig
 import Amazonka.Lightsail.Types.BucketState
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceReceivingAccess
@@ -42,13 +43,14 @@ data Bucket = Bucket'
     -- | An array of objects that describe Lightsail instances that have access
     -- to the bucket.
     --
-    -- Use the SetResourceAccessForBucket action to update the instances that
-    -- have access to a bucket.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+    -- action to update the instances that have access to a bucket.
     resourcesReceivingAccess :: Prelude.Maybe [ResourceReceivingAccess],
     -- | The name of the bucket.
     name :: Prelude.Maybe Prelude.Text,
-    -- | An array of strings that specify the AWS account IDs that have read-only
-    -- access to the bucket.
+    -- | An array of strings that specify the Amazon Web Services account IDs
+    -- that have read-only access to the bucket.
     readonlyAccessAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the bucket.
     arn :: Prelude.Maybe Prelude.Text,
@@ -56,21 +58,27 @@ data Bucket = Bucket'
     state :: Prelude.Maybe BucketState,
     -- | The URL of the bucket.
     url :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the location of the bucket, such as the Amazon
+    -- Web Services Region and Availability Zone.
     location :: Prelude.Maybe ResourceLocation,
     -- | Indicates whether the bundle that is currently applied to a bucket can
     -- be changed to another bundle.
     --
-    -- You can update a bucket\'s bundle only one time within a monthly AWS
-    -- billing cycle.
+    -- You can update a bucket\'s bundle only one time within a monthly Amazon
+    -- Web Services billing cycle.
     --
-    -- Use the UpdateBucketBundle action to change a bucket\'s bundle.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+    -- action to change a bucket\'s bundle.
     ableToUpdateBundle :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the bundle currently applied to the bucket.
     --
     -- A bucket bundle specifies the monthly cost, storage space, and data
     -- transfer quota for a bucket.
     --
-    -- Use the UpdateBucketBundle action to change the bundle of a bucket.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+    -- action to change the bundle of a bucket.
     bundleId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether object versioning is enabled for the bucket.
     --
@@ -91,7 +99,9 @@ data Bucket = Bucket'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the distribution was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | An object that describes the access log configuration for the bucket.
+    accessLogConfig :: Prelude.Maybe BucketAccessLogConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,13 +123,14 @@ data Bucket = Bucket'
 -- 'resourcesReceivingAccess', 'bucket_resourcesReceivingAccess' - An array of objects that describe Lightsail instances that have access
 -- to the bucket.
 --
--- Use the SetResourceAccessForBucket action to update the instances that
--- have access to a bucket.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+-- action to update the instances that have access to a bucket.
 --
 -- 'name', 'bucket_name' - The name of the bucket.
 --
--- 'readonlyAccessAccounts', 'bucket_readonlyAccessAccounts' - An array of strings that specify the AWS account IDs that have read-only
--- access to the bucket.
+-- 'readonlyAccessAccounts', 'bucket_readonlyAccessAccounts' - An array of strings that specify the Amazon Web Services account IDs
+-- that have read-only access to the bucket.
 --
 -- 'arn', 'bucket_arn' - The Amazon Resource Name (ARN) of the bucket.
 --
@@ -127,22 +138,27 @@ data Bucket = Bucket'
 --
 -- 'url', 'bucket_url' - The URL of the bucket.
 --
--- 'location', 'bucket_location' - Undocumented member.
+-- 'location', 'bucket_location' - An object that describes the location of the bucket, such as the Amazon
+-- Web Services Region and Availability Zone.
 --
 -- 'ableToUpdateBundle', 'bucket_ableToUpdateBundle' - Indicates whether the bundle that is currently applied to a bucket can
 -- be changed to another bundle.
 --
--- You can update a bucket\'s bundle only one time within a monthly AWS
--- billing cycle.
+-- You can update a bucket\'s bundle only one time within a monthly Amazon
+-- Web Services billing cycle.
 --
--- Use the UpdateBucketBundle action to change a bucket\'s bundle.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to change a bucket\'s bundle.
 --
 -- 'bundleId', 'bucket_bundleId' - The ID of the bundle currently applied to the bucket.
 --
 -- A bucket bundle specifies the monthly cost, storage space, and data
 -- transfer quota for a bucket.
 --
--- Use the UpdateBucketBundle action to change the bundle of a bucket.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to change the bundle of a bucket.
 --
 -- 'objectVersioning', 'bucket_objectVersioning' - Indicates whether object versioning is enabled for the bucket.
 --
@@ -163,6 +179,8 @@ data Bucket = Bucket'
 -- easily.
 --
 -- 'createdAt', 'bucket_createdAt' - The timestamp when the distribution was created.
+--
+-- 'accessLogConfig', 'bucket_accessLogConfig' - An object that describes the access log configuration for the bucket.
 newBucket ::
   Bucket
 newBucket =
@@ -181,7 +199,8 @@ newBucket =
       objectVersioning = Prelude.Nothing,
       accessRules = Prelude.Nothing,
       supportCode = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      accessLogConfig = Prelude.Nothing
     }
 
 -- | The tag keys and optional values for the bucket. For more information,
@@ -198,8 +217,9 @@ bucket_resourceType = Lens.lens (\Bucket' {resourceType} -> resourceType) (\s@Bu
 -- | An array of objects that describe Lightsail instances that have access
 -- to the bucket.
 --
--- Use the SetResourceAccessForBucket action to update the instances that
--- have access to a bucket.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+-- action to update the instances that have access to a bucket.
 bucket_resourcesReceivingAccess :: Lens.Lens' Bucket (Prelude.Maybe [ResourceReceivingAccess])
 bucket_resourcesReceivingAccess = Lens.lens (\Bucket' {resourcesReceivingAccess} -> resourcesReceivingAccess) (\s@Bucket' {} a -> s {resourcesReceivingAccess = a} :: Bucket) Prelude.. Lens.mapping Lens.coerced
 
@@ -207,8 +227,8 @@ bucket_resourcesReceivingAccess = Lens.lens (\Bucket' {resourcesReceivingAccess}
 bucket_name :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
 bucket_name = Lens.lens (\Bucket' {name} -> name) (\s@Bucket' {} a -> s {name = a} :: Bucket)
 
--- | An array of strings that specify the AWS account IDs that have read-only
--- access to the bucket.
+-- | An array of strings that specify the Amazon Web Services account IDs
+-- that have read-only access to the bucket.
 bucket_readonlyAccessAccounts :: Lens.Lens' Bucket (Prelude.Maybe [Prelude.Text])
 bucket_readonlyAccessAccounts = Lens.lens (\Bucket' {readonlyAccessAccounts} -> readonlyAccessAccounts) (\s@Bucket' {} a -> s {readonlyAccessAccounts = a} :: Bucket) Prelude.. Lens.mapping Lens.coerced
 
@@ -224,17 +244,20 @@ bucket_state = Lens.lens (\Bucket' {state} -> state) (\s@Bucket' {} a -> s {stat
 bucket_url :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
 bucket_url = Lens.lens (\Bucket' {url} -> url) (\s@Bucket' {} a -> s {url = a} :: Bucket)
 
--- | Undocumented member.
+-- | An object that describes the location of the bucket, such as the Amazon
+-- Web Services Region and Availability Zone.
 bucket_location :: Lens.Lens' Bucket (Prelude.Maybe ResourceLocation)
 bucket_location = Lens.lens (\Bucket' {location} -> location) (\s@Bucket' {} a -> s {location = a} :: Bucket)
 
 -- | Indicates whether the bundle that is currently applied to a bucket can
 -- be changed to another bundle.
 --
--- You can update a bucket\'s bundle only one time within a monthly AWS
--- billing cycle.
+-- You can update a bucket\'s bundle only one time within a monthly Amazon
+-- Web Services billing cycle.
 --
--- Use the UpdateBucketBundle action to change a bucket\'s bundle.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to change a bucket\'s bundle.
 bucket_ableToUpdateBundle :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Bool)
 bucket_ableToUpdateBundle = Lens.lens (\Bucket' {ableToUpdateBundle} -> ableToUpdateBundle) (\s@Bucket' {} a -> s {ableToUpdateBundle = a} :: Bucket)
 
@@ -243,7 +266,9 @@ bucket_ableToUpdateBundle = Lens.lens (\Bucket' {ableToUpdateBundle} -> ableToUp
 -- A bucket bundle specifies the monthly cost, storage space, and data
 -- transfer quota for a bucket.
 --
--- Use the UpdateBucketBundle action to change the bundle of a bucket.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to change the bundle of a bucket.
 bucket_bundleId :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
 bucket_bundleId = Lens.lens (\Bucket' {bundleId} -> bundleId) (\s@Bucket' {} a -> s {bundleId = a} :: Bucket)
 
@@ -275,6 +300,10 @@ bucket_supportCode = Lens.lens (\Bucket' {supportCode} -> supportCode) (\s@Bucke
 bucket_createdAt :: Lens.Lens' Bucket (Prelude.Maybe Prelude.UTCTime)
 bucket_createdAt = Lens.lens (\Bucket' {createdAt} -> createdAt) (\s@Bucket' {} a -> s {createdAt = a} :: Bucket) Prelude.. Lens.mapping Core._Time
 
+-- | An object that describes the access log configuration for the bucket.
+bucket_accessLogConfig :: Lens.Lens' Bucket (Prelude.Maybe BucketAccessLogConfig)
+bucket_accessLogConfig = Lens.lens (\Bucket' {accessLogConfig} -> accessLogConfig) (\s@Bucket' {} a -> s {accessLogConfig = a} :: Bucket)
+
 instance Core.FromJSON Bucket where
   parseJSON =
     Core.withObject
@@ -300,6 +329,7 @@ instance Core.FromJSON Bucket where
             Prelude.<*> (x Core..:? "accessRules")
             Prelude.<*> (x Core..:? "supportCode")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "accessLogConfig")
       )
 
 instance Prelude.Hashable Bucket where
@@ -319,6 +349,7 @@ instance Prelude.Hashable Bucket where
       `Prelude.hashWithSalt` accessRules
       `Prelude.hashWithSalt` supportCode
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` accessLogConfig
 
 instance Prelude.NFData Bucket where
   rnf Bucket' {..} =
@@ -337,3 +368,4 @@ instance Prelude.NFData Bucket where
       `Prelude.seq` Prelude.rnf accessRules
       `Prelude.seq` Prelude.rnf supportCode
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf accessLogConfig

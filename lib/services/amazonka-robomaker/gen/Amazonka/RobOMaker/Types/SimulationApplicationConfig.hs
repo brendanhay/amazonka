@@ -38,12 +38,16 @@ data SimulationApplicationConfig = SimulationApplicationConfig'
     -- | A Boolean indicating whether to use default simulation application
     -- tools. The default tools are rviz, rqt, terminal and rosbag record. The
     -- default is @False@.
+    --
+    -- This API is no longer supported and will throw an error if used.
     useDefaultTools :: Prelude.Maybe Prelude.Bool,
     -- | A Boolean indicating whether to use default upload configurations. By
     -- default, @.ros@ and @.gazebo@ files are uploaded when the application
     -- terminates and all ROS topics will be recorded.
     --
     -- If you set this value, you must specify an @outputLocation@.
+    --
+    -- This API is no longer supported and will throw an error if used.
     useDefaultUploadConfigurations :: Prelude.Maybe Prelude.Bool,
     -- | Information about upload configurations for the simulation application.
     uploadConfigurations :: Prelude.Maybe [UploadConfiguration],
@@ -72,11 +76,15 @@ data SimulationApplicationConfig = SimulationApplicationConfig'
 -- tools. The default tools are rviz, rqt, terminal and rosbag record. The
 -- default is @False@.
 --
+-- This API is no longer supported and will throw an error if used.
+--
 -- 'useDefaultUploadConfigurations', 'simulationApplicationConfig_useDefaultUploadConfigurations' - A Boolean indicating whether to use default upload configurations. By
 -- default, @.ros@ and @.gazebo@ files are uploaded when the application
 -- terminates and all ROS topics will be recorded.
 --
 -- If you set this value, you must specify an @outputLocation@.
+--
+-- This API is no longer supported and will throw an error if used.
 --
 -- 'uploadConfigurations', 'simulationApplicationConfig_uploadConfigurations' - Information about upload configurations for the simulation application.
 --
@@ -118,6 +126,8 @@ simulationApplicationConfig_tools = Lens.lens (\SimulationApplicationConfig' {to
 -- | A Boolean indicating whether to use default simulation application
 -- tools. The default tools are rviz, rqt, terminal and rosbag record. The
 -- default is @False@.
+--
+-- This API is no longer supported and will throw an error if used.
 simulationApplicationConfig_useDefaultTools :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Bool)
 simulationApplicationConfig_useDefaultTools = Lens.lens (\SimulationApplicationConfig' {useDefaultTools} -> useDefaultTools) (\s@SimulationApplicationConfig' {} a -> s {useDefaultTools = a} :: SimulationApplicationConfig)
 
@@ -126,6 +136,8 @@ simulationApplicationConfig_useDefaultTools = Lens.lens (\SimulationApplicationC
 -- terminates and all ROS topics will be recorded.
 --
 -- If you set this value, you must specify an @outputLocation@.
+--
+-- This API is no longer supported and will throw an error if used.
 simulationApplicationConfig_useDefaultUploadConfigurations :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Bool)
 simulationApplicationConfig_useDefaultUploadConfigurations = Lens.lens (\SimulationApplicationConfig' {useDefaultUploadConfigurations} -> useDefaultUploadConfigurations) (\s@SimulationApplicationConfig' {} a -> s {useDefaultUploadConfigurations = a} :: SimulationApplicationConfig)
 

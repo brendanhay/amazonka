@@ -20,12 +20,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of organization config rules.
+-- Returns a list of organization Config rules.
 --
 -- When you specify the limit and the next token, you receive a paginated
--- response. Limit and next token are not applicable if you specify
--- organization config rule names. It is only applicable, when you request
--- all the organization config rules.
+-- response.
+--
+-- Limit and next token are not applicable if you specify organization
+-- Config rule names. It is only applicable, when you request all the
+-- organization Config rules.
+--
+-- /For accounts within an organzation/
+--
+-- If you deploy an organizational rule or conformance pack in an
+-- organization administrator account, and then establish a delegated
+-- administrator and deploy an organizational rule or conformance pack in
+-- the delegated administrator account, you won\'t be able to see the
+-- organizational rule or conformance pack in the organization
+-- administrator account from the delegated administrator account or see
+-- the organizational rule or conformance pack in the delegated
+-- administrator account from organization administrator account. The
+-- @DescribeOrganizationConfigRules@ and
+-- @DescribeOrganizationConformancePacks@ APIs can only see and interact
+-- with the organization-related resource that were deployed from within
+-- the account calling those APIs.
 --
 -- This operation returns paginated results.
 module Amazonka.Config.DescribeOrganizationConfigRules
@@ -61,13 +78,13 @@ data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of organization config rules returned on each page.
+    -- | The maximum number of organization Config rules returned on each page.
     -- If you do no specify a number, Config uses the default. The default is
     -- 100.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The names of organization config rules for which you want details. If
+    -- | The names of organization Config rules for which you want details. If
     -- you do not specify any names, Config returns details for all your
-    -- organization config rules.
+    -- organization Config rules.
     organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,13 +100,13 @@ data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
 -- 'nextToken', 'describeOrganizationConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
--- 'limit', 'describeOrganizationConfigRules_limit' - The maximum number of organization config rules returned on each page.
+-- 'limit', 'describeOrganizationConfigRules_limit' - The maximum number of organization Config rules returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
 --
--- 'organizationConfigRuleNames', 'describeOrganizationConfigRules_organizationConfigRuleNames' - The names of organization config rules for which you want details. If
+-- 'organizationConfigRuleNames', 'describeOrganizationConfigRules_organizationConfigRuleNames' - The names of organization Config rules for which you want details. If
 -- you do not specify any names, Config returns details for all your
--- organization config rules.
+-- organization Config rules.
 newDescribeOrganizationConfigRules ::
   DescribeOrganizationConfigRules
 newDescribeOrganizationConfigRules =
@@ -106,15 +123,15 @@ newDescribeOrganizationConfigRules =
 describeOrganizationConfigRules_nextToken :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Text)
 describeOrganizationConfigRules_nextToken = Lens.lens (\DescribeOrganizationConfigRules' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRules' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRules)
 
--- | The maximum number of organization config rules returned on each page.
+-- | The maximum number of organization Config rules returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
 describeOrganizationConfigRules_limit :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRules_limit = Lens.lens (\DescribeOrganizationConfigRules' {limit} -> limit) (\s@DescribeOrganizationConfigRules' {} a -> s {limit = a} :: DescribeOrganizationConfigRules)
 
--- | The names of organization config rules for which you want details. If
+-- | The names of organization Config rules for which you want details. If
 -- you do not specify any names, Config returns details for all your
--- organization config rules.
+-- organization Config rules.
 describeOrganizationConfigRules_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe [Prelude.Text])
 describeOrganizationConfigRules_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRules' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRules' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRules) Prelude.. Lens.mapping Lens.coerced
 

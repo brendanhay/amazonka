@@ -24,7 +24,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes preferences for recommendations.
+-- | Describes the recommendation preferences to return in the response of a
+-- GetAutoScalingGroupRecommendations, GetEC2InstanceRecommendations, and
+-- GetEC2RecommendationProjectedMetrics request.
 --
 -- /See:/ 'newRecommendationPreferences' smart constructor.
 data RecommendationPreferences = RecommendationPreferences'

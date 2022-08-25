@@ -93,6 +93,9 @@ import Test.Tasty
 --         , requestDisassociateChannelFlow $
 --             newDisassociateChannelFlow
 --
+--         , requestGetChannelMembershipPreferences $
+--             newGetChannelMembershipPreferences
+--
 --         , requestGetChannelMessage $
 --             newGetChannelMessage
 --
@@ -129,11 +132,20 @@ import Test.Tasty
 --         , requestListChannelsModeratedByAppInstanceUser $
 --             newListChannelsModeratedByAppInstanceUser
 --
+--         , requestListSubChannels $
+--             newListSubChannels
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestPutChannelMembershipPreferences $
+--             newPutChannelMembershipPreferences
+--
 --         , requestRedactChannelMessage $
 --             newRedactChannelMessage
+--
+--         , requestSearchChannels $
+--             newSearchChannels
 --
 --         , requestSendChannelMessage $
 --             newSendChannelMessage
@@ -225,6 +237,9 @@ import Test.Tasty
 --         , responseDisassociateChannelFlow $
 --             newDisassociateChannelFlowResponse
 --
+--         , responseGetChannelMembershipPreferences $
+--             newGetChannelMembershipPreferencesResponse
+--
 --         , responseGetChannelMessage $
 --             newGetChannelMessageResponse
 --
@@ -261,11 +276,20 @@ import Test.Tasty
 --         , responseListChannelsModeratedByAppInstanceUser $
 --             newListChannelsModeratedByAppInstanceUserResponse
 --
+--         , responseListSubChannels $
+--             newListSubChannelsResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responsePutChannelMembershipPreferences $
+--             newPutChannelMembershipPreferencesResponse
+--
 --         , responseRedactChannelMessage $
 --             newRedactChannelMessageResponse
+--
+--         , responseSearchChannels $
+--             newSearchChannelsResponse
 --
 --         , responseSendChannelMessage $
 --             newSendChannelMessageResponse
@@ -425,6 +449,12 @@ requestDisassociateChannelFlow =
     "DisassociateChannelFlow"
     "fixture/DisassociateChannelFlow.yaml"
 
+requestGetChannelMembershipPreferences :: GetChannelMembershipPreferences -> TestTree
+requestGetChannelMembershipPreferences =
+  req
+    "GetChannelMembershipPreferences"
+    "fixture/GetChannelMembershipPreferences.yaml"
+
 requestGetChannelMessage :: GetChannelMessage -> TestTree
 requestGetChannelMessage =
   req
@@ -497,17 +527,35 @@ requestListChannelsModeratedByAppInstanceUser =
     "ListChannelsModeratedByAppInstanceUser"
     "fixture/ListChannelsModeratedByAppInstanceUser.yaml"
 
+requestListSubChannels :: ListSubChannels -> TestTree
+requestListSubChannels =
+  req
+    "ListSubChannels"
+    "fixture/ListSubChannels.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestPutChannelMembershipPreferences :: PutChannelMembershipPreferences -> TestTree
+requestPutChannelMembershipPreferences =
+  req
+    "PutChannelMembershipPreferences"
+    "fixture/PutChannelMembershipPreferences.yaml"
+
 requestRedactChannelMessage :: RedactChannelMessage -> TestTree
 requestRedactChannelMessage =
   req
     "RedactChannelMessage"
     "fixture/RedactChannelMessage.yaml"
+
+requestSearchChannels :: SearchChannels -> TestTree
+requestSearchChannels =
+  req
+    "SearchChannels"
+    "fixture/SearchChannels.yaml"
 
 requestSendChannelMessage :: SendChannelMessage -> TestTree
 requestSendChannelMessage =
@@ -729,6 +777,14 @@ responseDisassociateChannelFlow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateChannelFlow)
 
+responseGetChannelMembershipPreferences :: GetChannelMembershipPreferencesResponse -> TestTree
+responseGetChannelMembershipPreferences =
+  res
+    "GetChannelMembershipPreferencesResponse"
+    "fixture/GetChannelMembershipPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChannelMembershipPreferences)
+
 responseGetChannelMessage :: GetChannelMessageResponse -> TestTree
 responseGetChannelMessage =
   res
@@ -825,6 +881,14 @@ responseListChannelsModeratedByAppInstanceUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListChannelsModeratedByAppInstanceUser)
 
+responseListSubChannels :: ListSubChannelsResponse -> TestTree
+responseListSubChannels =
+  res
+    "ListSubChannelsResponse"
+    "fixture/ListSubChannelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSubChannels)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -833,6 +897,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responsePutChannelMembershipPreferences :: PutChannelMembershipPreferencesResponse -> TestTree
+responsePutChannelMembershipPreferences =
+  res
+    "PutChannelMembershipPreferencesResponse"
+    "fixture/PutChannelMembershipPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutChannelMembershipPreferences)
+
 responseRedactChannelMessage :: RedactChannelMessageResponse -> TestTree
 responseRedactChannelMessage =
   res
@@ -840,6 +912,14 @@ responseRedactChannelMessage =
     "fixture/RedactChannelMessageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RedactChannelMessage)
+
+responseSearchChannels :: SearchChannelsResponse -> TestTree
+responseSearchChannels =
+  res
+    "SearchChannelsResponse"
+    "fixture/SearchChannelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchChannels)
 
 responseSendChannelMessage :: SendChannelMessageResponse -> TestTree
 responseSendChannelMessage =

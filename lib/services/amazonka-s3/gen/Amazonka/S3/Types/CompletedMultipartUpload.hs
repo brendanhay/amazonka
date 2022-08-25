@@ -30,6 +30,9 @@ import Amazonka.S3.Types.CompletedPart
 -- /See:/ 'newCompletedMultipartUpload' smart constructor.
 data CompletedMultipartUpload = CompletedMultipartUpload'
   { -- | Array of CompletedPart data types.
+    --
+    -- If you do not supply a valid @Part@ with your request, the service sends
+    -- back an HTTP 400 response.
     parts :: Prelude.Maybe (Prelude.NonEmpty CompletedPart)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,12 +46,18 @@ data CompletedMultipartUpload = CompletedMultipartUpload'
 -- for backwards compatibility:
 --
 -- 'parts', 'completedMultipartUpload_parts' - Array of CompletedPart data types.
+--
+-- If you do not supply a valid @Part@ with your request, the service sends
+-- back an HTTP 400 response.
 newCompletedMultipartUpload ::
   CompletedMultipartUpload
 newCompletedMultipartUpload =
   CompletedMultipartUpload' {parts = Prelude.Nothing}
 
 -- | Array of CompletedPart data types.
+--
+-- If you do not supply a valid @Part@ with your request, the service sends
+-- back an HTTP 400 response.
 completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Prelude.Maybe (Prelude.NonEmpty CompletedPart))
 completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Prelude.. Lens.mapping Lens.coerced
 

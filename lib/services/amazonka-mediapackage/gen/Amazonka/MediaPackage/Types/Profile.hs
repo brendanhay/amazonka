@@ -20,7 +20,9 @@
 module Amazonka.MediaPackage.Types.Profile
   ( Profile
       ( ..,
+        Profile_DVB_DASH_2014,
         Profile_HBBTV_1_5,
+        Profile_HYBRIDCAST,
         Profile_NONE
       ),
   )
@@ -54,14 +56,22 @@ newtype Profile = Profile' {fromProfile :: Core.Text}
       Core.ToXML
     )
 
+pattern Profile_DVB_DASH_2014 :: Profile
+pattern Profile_DVB_DASH_2014 = Profile' "DVB_DASH_2014"
+
 pattern Profile_HBBTV_1_5 :: Profile
 pattern Profile_HBBTV_1_5 = Profile' "HBBTV_1_5"
+
+pattern Profile_HYBRIDCAST :: Profile
+pattern Profile_HYBRIDCAST = Profile' "HYBRIDCAST"
 
 pattern Profile_NONE :: Profile
 pattern Profile_NONE = Profile' "NONE"
 
 {-# COMPLETE
+  Profile_DVB_DASH_2014,
   Profile_HBBTV_1_5,
+  Profile_HYBRIDCAST,
   Profile_NONE,
   Profile'
   #-}

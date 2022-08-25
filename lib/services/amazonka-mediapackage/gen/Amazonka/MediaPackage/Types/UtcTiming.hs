@@ -22,6 +22,7 @@ module Amazonka.MediaPackage.Types.UtcTiming
       ( ..,
         UtcTiming_HTTP_HEAD,
         UtcTiming_HTTP_ISO,
+        UtcTiming_HTTP_XSDATE,
         UtcTiming_NONE
       ),
   )
@@ -64,12 +65,16 @@ pattern UtcTiming_HTTP_HEAD = UtcTiming' "HTTP-HEAD"
 pattern UtcTiming_HTTP_ISO :: UtcTiming
 pattern UtcTiming_HTTP_ISO = UtcTiming' "HTTP-ISO"
 
+pattern UtcTiming_HTTP_XSDATE :: UtcTiming
+pattern UtcTiming_HTTP_XSDATE = UtcTiming' "HTTP-XSDATE"
+
 pattern UtcTiming_NONE :: UtcTiming
 pattern UtcTiming_NONE = UtcTiming' "NONE"
 
 {-# COMPLETE
   UtcTiming_HTTP_HEAD,
   UtcTiming_HTTP_ISO,
+  UtcTiming_HTTP_XSDATE,
   UtcTiming_NONE,
   UtcTiming'
   #-}

@@ -20,6 +20,7 @@
 module Amazonka.CodeGuruReviewer.Types.CodeReview where
 
 import Amazonka.CodeGuruReviewer.Types.AnalysisType
+import Amazonka.CodeGuruReviewer.Types.ConfigFileState
 import Amazonka.CodeGuruReviewer.Types.JobState
 import Amazonka.CodeGuruReviewer.Types.Metrics
 import Amazonka.CodeGuruReviewer.Types.ProviderType
@@ -83,9 +84,14 @@ data CodeReview = CodeReview'
     -- | The type of repository that contains the reviewed code (for example,
     -- GitHub or Bitbucket).
     providerType :: Prelude.Maybe ProviderType,
+    -- | The state of the @aws-codeguru-reviewer.yml@ configuration file that
+    -- allows the configuration of the CodeGuru Reviewer analysis. The file
+    -- either exists, doesn\'t exist, or exists with errors at the root
+    -- directory of your repository.
+    configFileState :: Prelude.Maybe ConfigFileState,
     -- | The reason for the state of the code review.
     stateReason :: Prelude.Maybe Prelude.Text,
-    -- | They types of analysis performed during a repository analysis or a pull
+    -- | The types of analysis performed during a repository analysis or a pull
     -- request review. You can specify either @Security@, @CodeQuality@, or
     -- both.
     analysisTypes :: Prelude.Maybe [AnalysisType]
@@ -149,9 +155,14 @@ data CodeReview = CodeReview'
 -- 'providerType', 'codeReview_providerType' - The type of repository that contains the reviewed code (for example,
 -- GitHub or Bitbucket).
 --
+-- 'configFileState', 'codeReview_configFileState' - The state of the @aws-codeguru-reviewer.yml@ configuration file that
+-- allows the configuration of the CodeGuru Reviewer analysis. The file
+-- either exists, doesn\'t exist, or exists with errors at the root
+-- directory of your repository.
+--
 -- 'stateReason', 'codeReview_stateReason' - The reason for the state of the code review.
 --
--- 'analysisTypes', 'codeReview_analysisTypes' - They types of analysis performed during a repository analysis or a pull
+-- 'analysisTypes', 'codeReview_analysisTypes' - The types of analysis performed during a repository analysis or a pull
 -- request review. You can specify either @Security@, @CodeQuality@, or
 -- both.
 newCodeReview ::
@@ -171,6 +182,7 @@ newCodeReview =
       owner = Prelude.Nothing,
       metrics = Prelude.Nothing,
       providerType = Prelude.Nothing,
+      configFileState = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       analysisTypes = Prelude.Nothing
     }
@@ -250,11 +262,18 @@ codeReview_metrics = Lens.lens (\CodeReview' {metrics} -> metrics) (\s@CodeRevie
 codeReview_providerType :: Lens.Lens' CodeReview (Prelude.Maybe ProviderType)
 codeReview_providerType = Lens.lens (\CodeReview' {providerType} -> providerType) (\s@CodeReview' {} a -> s {providerType = a} :: CodeReview)
 
+-- | The state of the @aws-codeguru-reviewer.yml@ configuration file that
+-- allows the configuration of the CodeGuru Reviewer analysis. The file
+-- either exists, doesn\'t exist, or exists with errors at the root
+-- directory of your repository.
+codeReview_configFileState :: Lens.Lens' CodeReview (Prelude.Maybe ConfigFileState)
+codeReview_configFileState = Lens.lens (\CodeReview' {configFileState} -> configFileState) (\s@CodeReview' {} a -> s {configFileState = a} :: CodeReview)
+
 -- | The reason for the state of the code review.
 codeReview_stateReason :: Lens.Lens' CodeReview (Prelude.Maybe Prelude.Text)
 codeReview_stateReason = Lens.lens (\CodeReview' {stateReason} -> stateReason) (\s@CodeReview' {} a -> s {stateReason = a} :: CodeReview)
 
--- | They types of analysis performed during a repository analysis or a pull
+-- | The types of analysis performed during a repository analysis or a pull
 -- request review. You can specify either @Security@, @CodeQuality@, or
 -- both.
 codeReview_analysisTypes :: Lens.Lens' CodeReview (Prelude.Maybe [AnalysisType])
@@ -279,6 +298,7 @@ instance Core.FromJSON CodeReview where
             Prelude.<*> (x Core..:? "Owner")
             Prelude.<*> (x Core..:? "Metrics")
             Prelude.<*> (x Core..:? "ProviderType")
+            Prelude.<*> (x Core..:? "ConfigFileState")
             Prelude.<*> (x Core..:? "StateReason")
             Prelude.<*> (x Core..:? "AnalysisTypes" Core..!= Prelude.mempty)
       )
@@ -298,6 +318,7 @@ instance Prelude.Hashable CodeReview where
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` configFileState
       `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` analysisTypes
 
@@ -316,5 +337,6 @@ instance Prelude.NFData CodeReview where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf configFileState
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf analysisTypes

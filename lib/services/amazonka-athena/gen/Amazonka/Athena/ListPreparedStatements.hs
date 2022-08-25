@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the prepared statements in the specfied workgroup.
+-- Lists the prepared statements in the specified workgroup.
 module Amazonka.Athena.ListPreparedStatements
   ( -- * Creating a Request
     ListPreparedStatements (..),

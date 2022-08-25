@@ -63,6 +63,9 @@ import Test.Tasty
 --         , requestListDatasets $
 --             newListDatasets
 --
+--         , requestListInferenceEvents $
+--             newListInferenceEvents
+--
 --         , requestListInferenceExecutions $
 --             newListInferenceExecutions
 --
@@ -71,6 +74,9 @@ import Test.Tasty
 --
 --         , requestListModels $
 --             newListModels
+--
+--         , requestListSensorStatistics $
+--             newListSensorStatistics
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -132,6 +138,9 @@ import Test.Tasty
 --         , responseListDatasets $
 --             newListDatasetsResponse
 --
+--         , responseListInferenceEvents $
+--             newListInferenceEventsResponse
+--
 --         , responseListInferenceExecutions $
 --             newListInferenceExecutionsResponse
 --
@@ -140,6 +149,9 @@ import Test.Tasty
 --
 --         , responseListModels $
 --             newListModelsResponse
+--
+--         , responseListSensorStatistics $
+--             newListSensorStatisticsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -239,6 +251,12 @@ requestListDatasets =
     "ListDatasets"
     "fixture/ListDatasets.yaml"
 
+requestListInferenceEvents :: ListInferenceEvents -> TestTree
+requestListInferenceEvents =
+  req
+    "ListInferenceEvents"
+    "fixture/ListInferenceEvents.yaml"
+
 requestListInferenceExecutions :: ListInferenceExecutions -> TestTree
 requestListInferenceExecutions =
   req
@@ -256,6 +274,12 @@ requestListModels =
   req
     "ListModels"
     "fixture/ListModels.yaml"
+
+requestListSensorStatistics :: ListSensorStatistics -> TestTree
+requestListSensorStatistics =
+  req
+    "ListSensorStatistics"
+    "fixture/ListSensorStatistics.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -397,6 +421,14 @@ responseListDatasets =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
+responseListInferenceEvents :: ListInferenceEventsResponse -> TestTree
+responseListInferenceEvents =
+  res
+    "ListInferenceEventsResponse"
+    "fixture/ListInferenceEventsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceEvents)
+
 responseListInferenceExecutions :: ListInferenceExecutionsResponse -> TestTree
 responseListInferenceExecutions =
   res
@@ -420,6 +452,14 @@ responseListModels =
     "fixture/ListModelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListModels)
+
+responseListSensorStatistics :: ListSensorStatisticsResponse -> TestTree
+responseListSensorStatistics =
+  res
+    "ListSensorStatisticsResponse"
+    "fixture/ListSensorStatisticsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSensorStatistics)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

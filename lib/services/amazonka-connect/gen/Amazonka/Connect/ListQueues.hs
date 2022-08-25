@@ -68,7 +68,8 @@ data ListQueues = ListQueues'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of queue.
     queueTypes :: Prelude.Maybe [QueueType],
@@ -90,7 +91,8 @@ data ListQueues = ListQueues'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
 -- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
 --
@@ -114,7 +116,8 @@ newListQueues pInstanceId_ =
 listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
 listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 

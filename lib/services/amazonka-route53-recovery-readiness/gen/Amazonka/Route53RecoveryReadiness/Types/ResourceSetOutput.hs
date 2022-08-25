@@ -24,18 +24,29 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Resource
 
--- | A collection of resources of the same type
+-- | A collection of resources of the same type.
 --
 -- /See:/ 'newResourceSetOutput' smart constructor.
 data ResourceSetOutput = ResourceSetOutput'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | AWS Resource Type of the resources in the ResourceSet
+    -- | The resource type of the resources in the resource set. Enter one of the
+    -- following values for resource type:
+    --
+    -- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+    -- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+    -- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+    -- AWS::ElasticLoadBalancing::LoadBalancer,
+    -- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+    -- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+    -- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+    -- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+    -- AWS::Route53RecoveryReadiness::DNSTargetResource
     resourceSetType :: Prelude.Text,
-    -- | The name of the ResourceSet
+    -- | The name of the resource set.
     resourceSetName :: Prelude.Text,
-    -- | The arn for the ResourceSet
+    -- | The Amazon Resource Name (ARN) for the resource set.
     resourceSetArn :: Prelude.Text,
-    -- | A list of Resource objects
+    -- | A list of resource objects.
     resources :: [Resource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +61,24 @@ data ResourceSetOutput = ResourceSetOutput'
 --
 -- 'tags', 'resourceSetOutput_tags' - Undocumented member.
 --
--- 'resourceSetType', 'resourceSetOutput_resourceSetType' - AWS Resource Type of the resources in the ResourceSet
+-- 'resourceSetType', 'resourceSetOutput_resourceSetType' - The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
 --
--- 'resourceSetName', 'resourceSetOutput_resourceSetName' - The name of the ResourceSet
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 --
--- 'resourceSetArn', 'resourceSetOutput_resourceSetArn' - The arn for the ResourceSet
+-- 'resourceSetName', 'resourceSetOutput_resourceSetName' - The name of the resource set.
 --
--- 'resources', 'resourceSetOutput_resources' - A list of Resource objects
+-- 'resourceSetArn', 'resourceSetOutput_resourceSetArn' - The Amazon Resource Name (ARN) for the resource set.
+--
+-- 'resources', 'resourceSetOutput_resources' - A list of resource objects.
 newResourceSetOutput ::
   -- | 'resourceSetType'
   Prelude.Text ->
@@ -81,19 +103,30 @@ newResourceSetOutput
 resourceSetOutput_tags :: Lens.Lens' ResourceSetOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 resourceSetOutput_tags = Lens.lens (\ResourceSetOutput' {tags} -> tags) (\s@ResourceSetOutput' {} a -> s {tags = a} :: ResourceSetOutput) Prelude.. Lens.mapping Lens.coerced
 
--- | AWS Resource Type of the resources in the ResourceSet
+-- | The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
+--
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 resourceSetOutput_resourceSetType :: Lens.Lens' ResourceSetOutput Prelude.Text
 resourceSetOutput_resourceSetType = Lens.lens (\ResourceSetOutput' {resourceSetType} -> resourceSetType) (\s@ResourceSetOutput' {} a -> s {resourceSetType = a} :: ResourceSetOutput)
 
--- | The name of the ResourceSet
+-- | The name of the resource set.
 resourceSetOutput_resourceSetName :: Lens.Lens' ResourceSetOutput Prelude.Text
 resourceSetOutput_resourceSetName = Lens.lens (\ResourceSetOutput' {resourceSetName} -> resourceSetName) (\s@ResourceSetOutput' {} a -> s {resourceSetName = a} :: ResourceSetOutput)
 
--- | The arn for the ResourceSet
+-- | The Amazon Resource Name (ARN) for the resource set.
 resourceSetOutput_resourceSetArn :: Lens.Lens' ResourceSetOutput Prelude.Text
 resourceSetOutput_resourceSetArn = Lens.lens (\ResourceSetOutput' {resourceSetArn} -> resourceSetArn) (\s@ResourceSetOutput' {} a -> s {resourceSetArn = a} :: ResourceSetOutput)
 
--- | A list of Resource objects
+-- | A list of resource objects.
 resourceSetOutput_resources :: Lens.Lens' ResourceSetOutput [Resource]
 resourceSetOutput_resources = Lens.lens (\ResourceSetOutput' {resources} -> resources) (\s@ResourceSetOutput' {} a -> s {resources = a} :: ResourceSetOutput) Prelude.. Lens.coerced
 

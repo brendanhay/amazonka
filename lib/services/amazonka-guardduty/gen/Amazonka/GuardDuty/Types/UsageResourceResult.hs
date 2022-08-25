@@ -24,13 +24,14 @@ import Amazonka.GuardDuty.Types.Total
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information on the sum of usage based on an AWS resource.
+-- | Contains information on the sum of usage based on an Amazon Web Services
+-- resource.
 --
 -- /See:/ 'newUsageResourceResult' smart constructor.
 data UsageResourceResult = UsageResourceResult'
   { -- | Represents the sum total of usage for the specified resource type.
     total :: Prelude.Maybe Total,
-    -- | The AWS resource that generated usage.
+    -- | The Amazon Web Services resource that generated usage.
     resource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +46,7 @@ data UsageResourceResult = UsageResourceResult'
 --
 -- 'total', 'usageResourceResult_total' - Represents the sum total of usage for the specified resource type.
 --
--- 'resource', 'usageResourceResult_resource' - The AWS resource that generated usage.
+-- 'resource', 'usageResourceResult_resource' - The Amazon Web Services resource that generated usage.
 newUsageResourceResult ::
   UsageResourceResult
 newUsageResourceResult =
@@ -58,7 +59,7 @@ newUsageResourceResult =
 usageResourceResult_total :: Lens.Lens' UsageResourceResult (Prelude.Maybe Total)
 usageResourceResult_total = Lens.lens (\UsageResourceResult' {total} -> total) (\s@UsageResourceResult' {} a -> s {total = a} :: UsageResourceResult)
 
--- | The AWS resource that generated usage.
+-- | The Amazon Web Services resource that generated usage.
 usageResourceResult_resource :: Lens.Lens' UsageResourceResult (Prelude.Maybe Prelude.Text)
 usageResourceResult_resource = Lens.lens (\UsageResourceResult' {resource} -> resource) (\s@UsageResourceResult' {} a -> s {resource = a} :: UsageResourceResult)
 

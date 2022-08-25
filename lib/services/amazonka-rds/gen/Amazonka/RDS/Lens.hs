@@ -128,18 +128,48 @@ module Amazonka.RDS.Lens
     copyOptionGroupResponse_optionGroup,
     copyOptionGroupResponse_httpStatus,
 
-    -- ** CreateCustomAvailabilityZone
-    createCustomAvailabilityZone_existingVpnId,
-    createCustomAvailabilityZone_newVpnTunnelName,
-    createCustomAvailabilityZone_vpnTunnelOriginatorIP,
-    createCustomAvailabilityZone_customAvailabilityZoneName,
-    createCustomAvailabilityZoneResponse_customAvailabilityZone,
-    createCustomAvailabilityZoneResponse_httpStatus,
+    -- ** CreateCustomDBEngineVersion
+    createCustomDBEngineVersion_tags,
+    createCustomDBEngineVersion_description,
+    createCustomDBEngineVersion_databaseInstallationFilesS3Prefix,
+    createCustomDBEngineVersion_engine,
+    createCustomDBEngineVersion_engineVersion,
+    createCustomDBEngineVersion_databaseInstallationFilesS3BucketName,
+    createCustomDBEngineVersion_kmsKeyId,
+    createCustomDBEngineVersion_manifest,
+    dbEngineVersion_validUpgradeTarget,
+    dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_supportsReadReplica,
+    dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportedCharacterSets,
+    dbEngineVersion_tagList,
+    dbEngineVersion_supportedFeatureNames,
+    dbEngineVersion_dbEngineVersionArn,
+    dbEngineVersion_supportedEngineModes,
+    dbEngineVersion_defaultCharacterSet,
+    dbEngineVersion_status,
+    dbEngineVersion_majorEngineVersion,
+    dbEngineVersion_databaseInstallationFilesS3BucketName,
+    dbEngineVersion_dbEngineVersionDescription,
+    dbEngineVersion_supportsParallelQuery,
+    dbEngineVersion_supportsLogExportsToCloudwatchLogs,
+    dbEngineVersion_kmsKeyId,
+    dbEngineVersion_engine,
+    dbEngineVersion_dbParameterGroupFamily,
+    dbEngineVersion_databaseInstallationFilesS3Prefix,
+    dbEngineVersion_createTime,
+    dbEngineVersion_supportedTimezones,
+    dbEngineVersion_supportsGlobalDatabases,
+    dbEngineVersion_supportedNcharCharacterSets,
+    dbEngineVersion_engineVersion,
+    dbEngineVersion_dbEngineDescription,
 
     -- ** CreateDBCluster
     createDBCluster_tags,
     createDBCluster_port,
+    createDBCluster_serverlessV2ScalingConfiguration,
     createDBCluster_enableGlobalWriteForwarding,
+    createDBCluster_performanceInsightsRetentionPeriod,
     createDBCluster_vpcSecurityGroupIds,
     createDBCluster_preferredBackupWindow,
     createDBCluster_backupRetentionPeriod,
@@ -148,27 +178,38 @@ module Amazonka.RDS.Lens
     createDBCluster_copyTagsToSnapshot,
     createDBCluster_domainIAMRoleName,
     createDBCluster_dbSubnetGroupName,
+    createDBCluster_autoMinorVersionUpgrade,
+    createDBCluster_dbClusterInstanceClass,
     createDBCluster_databaseName,
     createDBCluster_domain,
     createDBCluster_optionGroupName,
     createDBCluster_availabilityZones,
+    createDBCluster_performanceInsightsKMSKeyId,
     createDBCluster_enableIAMDatabaseAuthentication,
+    createDBCluster_monitoringInterval,
     createDBCluster_masterUserPassword,
+    createDBCluster_publiclyAccessible,
+    createDBCluster_storageType,
     createDBCluster_enableCloudwatchLogsExports,
     createDBCluster_enableHttpEndpoint,
     createDBCluster_backtrackWindow,
+    createDBCluster_enablePerformanceInsights,
     createDBCluster_replicationSourceIdentifier,
     createDBCluster_scalingConfiguration,
+    createDBCluster_monitoringRoleArn,
     createDBCluster_engineMode,
     createDBCluster_storageEncrypted,
     createDBCluster_kmsKeyId,
     createDBCluster_globalClusterIdentifier,
+    createDBCluster_allocatedStorage,
     createDBCluster_deletionProtection,
     createDBCluster_preferredMaintenanceWindow,
     createDBCluster_destinationRegion,
     createDBCluster_dbClusterParameterGroupName,
+    createDBCluster_iops,
     createDBCluster_preSignedUrl,
     createDBCluster_engineVersion,
+    createDBCluster_networkType,
     createDBCluster_dbClusterIdentifier,
     createDBCluster_engine,
     createDBClusterResponse_dbCluster,
@@ -214,6 +255,7 @@ module Amazonka.RDS.Lens
     createDBInstance_performanceInsightsRetentionPeriod,
     createDBInstance_vpcSecurityGroupIds,
     createDBInstance_dbParameterGroupName,
+    createDBInstance_backupTarget,
     createDBInstance_preferredBackupWindow,
     createDBInstance_backupRetentionPeriod,
     createDBInstance_characterSetName,
@@ -247,9 +289,11 @@ module Amazonka.RDS.Lens
     createDBInstance_allocatedStorage,
     createDBInstance_deletionProtection,
     createDBInstance_preferredMaintenanceWindow,
+    createDBInstance_customIamInstanceProfile,
     createDBInstance_iops,
     createDBInstance_engineVersion,
     createDBInstance_dbName,
+    createDBInstance_networkType,
     createDBInstance_multiAZ,
     createDBInstance_enableCustomerOwnedIp,
     createDBInstance_licenseModel,
@@ -287,8 +331,10 @@ module Amazonka.RDS.Lens
     createDBInstanceReadReplica_kmsKeyId,
     createDBInstanceReadReplica_deletionProtection,
     createDBInstanceReadReplica_destinationRegion,
+    createDBInstanceReadReplica_customIamInstanceProfile,
     createDBInstanceReadReplica_iops,
     createDBInstanceReadReplica_preSignedUrl,
+    createDBInstanceReadReplica_networkType,
     createDBInstanceReadReplica_multiAZ,
     createDBInstanceReadReplica_useDefaultProcessorFeatures,
     createDBInstanceReadReplica_dbInstanceIdentifier,
@@ -381,10 +427,35 @@ module Amazonka.RDS.Lens
     createOptionGroupResponse_optionGroup,
     createOptionGroupResponse_httpStatus,
 
-    -- ** DeleteCustomAvailabilityZone
-    deleteCustomAvailabilityZone_customAvailabilityZoneId,
-    deleteCustomAvailabilityZoneResponse_customAvailabilityZone,
-    deleteCustomAvailabilityZoneResponse_httpStatus,
+    -- ** DeleteCustomDBEngineVersion
+    deleteCustomDBEngineVersion_engine,
+    deleteCustomDBEngineVersion_engineVersion,
+    dbEngineVersion_validUpgradeTarget,
+    dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_supportsReadReplica,
+    dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportedCharacterSets,
+    dbEngineVersion_tagList,
+    dbEngineVersion_supportedFeatureNames,
+    dbEngineVersion_dbEngineVersionArn,
+    dbEngineVersion_supportedEngineModes,
+    dbEngineVersion_defaultCharacterSet,
+    dbEngineVersion_status,
+    dbEngineVersion_majorEngineVersion,
+    dbEngineVersion_databaseInstallationFilesS3BucketName,
+    dbEngineVersion_dbEngineVersionDescription,
+    dbEngineVersion_supportsParallelQuery,
+    dbEngineVersion_supportsLogExportsToCloudwatchLogs,
+    dbEngineVersion_kmsKeyId,
+    dbEngineVersion_engine,
+    dbEngineVersion_dbParameterGroupFamily,
+    dbEngineVersion_databaseInstallationFilesS3Prefix,
+    dbEngineVersion_createTime,
+    dbEngineVersion_supportedTimezones,
+    dbEngineVersion_supportsGlobalDatabases,
+    dbEngineVersion_supportedNcharCharacterSets,
+    dbEngineVersion_engineVersion,
+    dbEngineVersion_dbEngineDescription,
 
     -- ** DeleteDBCluster
     deleteDBCluster_finalDBSnapshotIdentifier,
@@ -462,17 +533,6 @@ module Amazonka.RDS.Lens
     deleteGlobalClusterResponse_globalCluster,
     deleteGlobalClusterResponse_httpStatus,
 
-    -- ** DeleteInstallationMedia
-    deleteInstallationMedia_installationMediaId,
-    installationMedia_status,
-    installationMedia_customAvailabilityZoneId,
-    installationMedia_engineInstallationMediaPath,
-    installationMedia_engine,
-    installationMedia_failureCause,
-    installationMedia_oSInstallationMediaPath,
-    installationMedia_installationMediaId,
-    installationMedia_engineVersion,
-
     -- ** DeleteOptionGroup
     deleteOptionGroup_optionGroupName,
 
@@ -495,15 +555,6 @@ module Amazonka.RDS.Lens
     describeCertificatesResponse_marker,
     describeCertificatesResponse_certificates,
     describeCertificatesResponse_httpStatus,
-
-    -- ** DescribeCustomAvailabilityZones
-    describeCustomAvailabilityZones_marker,
-    describeCustomAvailabilityZones_filters,
-    describeCustomAvailabilityZones_maxRecords,
-    describeCustomAvailabilityZones_customAvailabilityZoneId,
-    describeCustomAvailabilityZonesResponse_marker,
-    describeCustomAvailabilityZonesResponse_customAvailabilityZones,
-    describeCustomAvailabilityZonesResponse_httpStatus,
 
     -- ** DescribeDBClusterBacktracks
     describeDBClusterBacktracks_marker,
@@ -778,15 +829,6 @@ module Amazonka.RDS.Lens
     describeGlobalClustersResponse_globalClusters,
     describeGlobalClustersResponse_httpStatus,
 
-    -- ** DescribeInstallationMedia
-    describeInstallationMedia_marker,
-    describeInstallationMedia_filters,
-    describeInstallationMedia_maxRecords,
-    describeInstallationMedia_installationMediaId,
-    describeInstallationMediaResponse_marker,
-    describeInstallationMediaResponse_installationMedia,
-    describeInstallationMediaResponse_httpStatus,
-
     -- ** DescribeOptionGroupOptions
     describeOptionGroupOptions_marker,
     describeOptionGroupOptions_filters,
@@ -897,26 +939,22 @@ module Amazonka.RDS.Lens
     failoverGlobalClusterResponse_globalCluster,
     failoverGlobalClusterResponse_httpStatus,
 
-    -- ** ImportInstallationMedia
-    importInstallationMedia_customAvailabilityZoneId,
-    importInstallationMedia_engine,
-    importInstallationMedia_engineVersion,
-    importInstallationMedia_engineInstallationMediaPath,
-    importInstallationMedia_oSInstallationMediaPath,
-    installationMedia_status,
-    installationMedia_customAvailabilityZoneId,
-    installationMedia_engineInstallationMediaPath,
-    installationMedia_engine,
-    installationMedia_failureCause,
-    installationMedia_oSInstallationMediaPath,
-    installationMedia_installationMediaId,
-    installationMedia_engineVersion,
-
     -- ** ListTagsForResource
     listTagsForResource_filters,
     listTagsForResource_resourceName,
     listTagsForResourceResponse_tagList,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ModifyActivityStream
+    modifyActivityStream_resourceArn,
+    modifyActivityStream_auditPolicyState,
+    modifyActivityStreamResponse_status,
+    modifyActivityStreamResponse_policyStatus,
+    modifyActivityStreamResponse_engineNativeAuditFieldsIncluded,
+    modifyActivityStreamResponse_kinesisStreamName,
+    modifyActivityStreamResponse_mode,
+    modifyActivityStreamResponse_kmsKeyId,
+    modifyActivityStreamResponse_httpStatus,
 
     -- ** ModifyCertificates
     modifyCertificates_removeCustomerOverride,
@@ -936,30 +974,74 @@ module Amazonka.RDS.Lens
     modifyCurrentDBClusterCapacityResponse_currentCapacity,
     modifyCurrentDBClusterCapacityResponse_httpStatus,
 
+    -- ** ModifyCustomDBEngineVersion
+    modifyCustomDBEngineVersion_status,
+    modifyCustomDBEngineVersion_description,
+    modifyCustomDBEngineVersion_engine,
+    modifyCustomDBEngineVersion_engineVersion,
+    dbEngineVersion_validUpgradeTarget,
+    dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_supportsReadReplica,
+    dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportedCharacterSets,
+    dbEngineVersion_tagList,
+    dbEngineVersion_supportedFeatureNames,
+    dbEngineVersion_dbEngineVersionArn,
+    dbEngineVersion_supportedEngineModes,
+    dbEngineVersion_defaultCharacterSet,
+    dbEngineVersion_status,
+    dbEngineVersion_majorEngineVersion,
+    dbEngineVersion_databaseInstallationFilesS3BucketName,
+    dbEngineVersion_dbEngineVersionDescription,
+    dbEngineVersion_supportsParallelQuery,
+    dbEngineVersion_supportsLogExportsToCloudwatchLogs,
+    dbEngineVersion_kmsKeyId,
+    dbEngineVersion_engine,
+    dbEngineVersion_dbParameterGroupFamily,
+    dbEngineVersion_databaseInstallationFilesS3Prefix,
+    dbEngineVersion_createTime,
+    dbEngineVersion_supportedTimezones,
+    dbEngineVersion_supportsGlobalDatabases,
+    dbEngineVersion_supportedNcharCharacterSets,
+    dbEngineVersion_engineVersion,
+    dbEngineVersion_dbEngineDescription,
+
     -- ** ModifyDBCluster
     modifyDBCluster_newDBClusterIdentifier,
     modifyDBCluster_port,
+    modifyDBCluster_serverlessV2ScalingConfiguration,
     modifyDBCluster_enableGlobalWriteForwarding,
+    modifyDBCluster_performanceInsightsRetentionPeriod,
     modifyDBCluster_vpcSecurityGroupIds,
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_backupRetentionPeriod,
     modifyDBCluster_copyTagsToSnapshot,
     modifyDBCluster_domainIAMRoleName,
     modifyDBCluster_dbInstanceParameterGroupName,
+    modifyDBCluster_autoMinorVersionUpgrade,
     modifyDBCluster_applyImmediately,
     modifyDBCluster_allowMajorVersionUpgrade,
+    modifyDBCluster_dbClusterInstanceClass,
     modifyDBCluster_domain,
     modifyDBCluster_optionGroupName,
+    modifyDBCluster_performanceInsightsKMSKeyId,
     modifyDBCluster_enableIAMDatabaseAuthentication,
+    modifyDBCluster_monitoringInterval,
     modifyDBCluster_masterUserPassword,
+    modifyDBCluster_storageType,
     modifyDBCluster_enableHttpEndpoint,
     modifyDBCluster_backtrackWindow,
+    modifyDBCluster_enablePerformanceInsights,
     modifyDBCluster_cloudwatchLogsExportConfiguration,
     modifyDBCluster_scalingConfiguration,
+    modifyDBCluster_monitoringRoleArn,
+    modifyDBCluster_allocatedStorage,
     modifyDBCluster_deletionProtection,
     modifyDBCluster_preferredMaintenanceWindow,
     modifyDBCluster_dbClusterParameterGroupName,
+    modifyDBCluster_iops,
     modifyDBCluster_engineVersion,
+    modifyDBCluster_networkType,
     modifyDBCluster_dbClusterIdentifier,
     modifyDBClusterResponse_dbCluster,
     modifyDBClusterResponse_httpStatus,
@@ -1004,11 +1086,13 @@ module Amazonka.RDS.Lens
     modifyDBInstance_copyTagsToSnapshot,
     modifyDBInstance_domainIAMRoleName,
     modifyDBInstance_promotionTier,
+    modifyDBInstance_automationMode,
     modifyDBInstance_dbSubnetGroupName,
     modifyDBInstance_autoMinorVersionUpgrade,
     modifyDBInstance_applyImmediately,
     modifyDBInstance_allowMajorVersionUpgrade,
     modifyDBInstance_dbPortNumber,
+    modifyDBInstance_resumeFullAutomationModeMinutes,
     modifyDBInstance_domain,
     modifyDBInstance_optionGroupName,
     modifyDBInstance_performanceInsightsKMSKeyId,
@@ -1034,6 +1118,7 @@ module Amazonka.RDS.Lens
     modifyDBInstance_preferredMaintenanceWindow,
     modifyDBInstance_iops,
     modifyDBInstance_engineVersion,
+    modifyDBInstance_networkType,
     modifyDBInstance_multiAZ,
     modifyDBInstance_enableCustomerOwnedIp,
     modifyDBInstance_licenseModel,
@@ -1142,6 +1227,11 @@ module Amazonka.RDS.Lens
     purchaseReservedDBInstancesOfferingResponse_reservedDBInstance,
     purchaseReservedDBInstancesOfferingResponse_httpStatus,
 
+    -- ** RebootDBCluster
+    rebootDBCluster_dbClusterIdentifier,
+    rebootDBClusterResponse_dbCluster,
+    rebootDBClusterResponse_httpStatus,
+
     -- ** RebootDBInstance
     rebootDBInstance_forceFailover,
     rebootDBInstance_dbInstanceIdentifier,
@@ -1197,6 +1287,7 @@ module Amazonka.RDS.Lens
     -- ** RestoreDBClusterFromS3
     restoreDBClusterFromS3_tags,
     restoreDBClusterFromS3_port,
+    restoreDBClusterFromS3_serverlessV2ScalingConfiguration,
     restoreDBClusterFromS3_vpcSecurityGroupIds,
     restoreDBClusterFromS3_preferredBackupWindow,
     restoreDBClusterFromS3_backupRetentionPeriod,
@@ -1217,6 +1308,7 @@ module Amazonka.RDS.Lens
     restoreDBClusterFromS3_preferredMaintenanceWindow,
     restoreDBClusterFromS3_dbClusterParameterGroupName,
     restoreDBClusterFromS3_engineVersion,
+    restoreDBClusterFromS3_networkType,
     restoreDBClusterFromS3_s3Prefix,
     restoreDBClusterFromS3_dbClusterIdentifier,
     restoreDBClusterFromS3_engine,
@@ -1232,15 +1324,19 @@ module Amazonka.RDS.Lens
     -- ** RestoreDBClusterFromSnapshot
     restoreDBClusterFromSnapshot_tags,
     restoreDBClusterFromSnapshot_port,
+    restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration,
     restoreDBClusterFromSnapshot_vpcSecurityGroupIds,
     restoreDBClusterFromSnapshot_copyTagsToSnapshot,
     restoreDBClusterFromSnapshot_domainIAMRoleName,
     restoreDBClusterFromSnapshot_dbSubnetGroupName,
+    restoreDBClusterFromSnapshot_dbClusterInstanceClass,
     restoreDBClusterFromSnapshot_databaseName,
     restoreDBClusterFromSnapshot_domain,
     restoreDBClusterFromSnapshot_optionGroupName,
     restoreDBClusterFromSnapshot_availabilityZones,
     restoreDBClusterFromSnapshot_enableIAMDatabaseAuthentication,
+    restoreDBClusterFromSnapshot_publiclyAccessible,
+    restoreDBClusterFromSnapshot_storageType,
     restoreDBClusterFromSnapshot_enableCloudwatchLogsExports,
     restoreDBClusterFromSnapshot_backtrackWindow,
     restoreDBClusterFromSnapshot_scalingConfiguration,
@@ -1248,7 +1344,9 @@ module Amazonka.RDS.Lens
     restoreDBClusterFromSnapshot_kmsKeyId,
     restoreDBClusterFromSnapshot_deletionProtection,
     restoreDBClusterFromSnapshot_dbClusterParameterGroupName,
+    restoreDBClusterFromSnapshot_iops,
     restoreDBClusterFromSnapshot_engineVersion,
+    restoreDBClusterFromSnapshot_networkType,
     restoreDBClusterFromSnapshot_dbClusterIdentifier,
     restoreDBClusterFromSnapshot_snapshotIdentifier,
     restoreDBClusterFromSnapshot_engine,
@@ -1258,14 +1356,18 @@ module Amazonka.RDS.Lens
     -- ** RestoreDBClusterToPointInTime
     restoreDBClusterToPointInTime_tags,
     restoreDBClusterToPointInTime_port,
+    restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration,
     restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_copyTagsToSnapshot,
     restoreDBClusterToPointInTime_domainIAMRoleName,
     restoreDBClusterToPointInTime_dbSubnetGroupName,
+    restoreDBClusterToPointInTime_dbClusterInstanceClass,
     restoreDBClusterToPointInTime_domain,
     restoreDBClusterToPointInTime_optionGroupName,
     restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication,
     restoreDBClusterToPointInTime_restoreType,
+    restoreDBClusterToPointInTime_publiclyAccessible,
+    restoreDBClusterToPointInTime_storageType,
     restoreDBClusterToPointInTime_enableCloudwatchLogsExports,
     restoreDBClusterToPointInTime_restoreToTime,
     restoreDBClusterToPointInTime_backtrackWindow,
@@ -1275,6 +1377,8 @@ module Amazonka.RDS.Lens
     restoreDBClusterToPointInTime_kmsKeyId,
     restoreDBClusterToPointInTime_deletionProtection,
     restoreDBClusterToPointInTime_dbClusterParameterGroupName,
+    restoreDBClusterToPointInTime_iops,
+    restoreDBClusterToPointInTime_networkType,
     restoreDBClusterToPointInTime_dbClusterIdentifier,
     restoreDBClusterToPointInTime_sourceDBClusterIdentifier,
     restoreDBClusterToPointInTimeResponse_dbCluster,
@@ -1285,6 +1389,7 @@ module Amazonka.RDS.Lens
     restoreDBInstanceFromDBSnapshot_port,
     restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds,
     restoreDBInstanceFromDBSnapshot_dbParameterGroupName,
+    restoreDBInstanceFromDBSnapshot_backupTarget,
     restoreDBInstanceFromDBSnapshot_dbInstanceClass,
     restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot,
     restoreDBInstanceFromDBSnapshot_domainIAMRoleName,
@@ -1302,8 +1407,10 @@ module Amazonka.RDS.Lens
     restoreDBInstanceFromDBSnapshot_tdeCredentialArn,
     restoreDBInstanceFromDBSnapshot_engine,
     restoreDBInstanceFromDBSnapshot_deletionProtection,
+    restoreDBInstanceFromDBSnapshot_customIamInstanceProfile,
     restoreDBInstanceFromDBSnapshot_iops,
     restoreDBInstanceFromDBSnapshot_dbName,
+    restoreDBInstanceFromDBSnapshot_networkType,
     restoreDBInstanceFromDBSnapshot_multiAZ,
     restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp,
     restoreDBInstanceFromDBSnapshot_licenseModel,
@@ -1347,6 +1454,7 @@ module Amazonka.RDS.Lens
     restoreDBInstanceFromS3_iops,
     restoreDBInstanceFromS3_engineVersion,
     restoreDBInstanceFromS3_dbName,
+    restoreDBInstanceFromS3_networkType,
     restoreDBInstanceFromS3_multiAZ,
     restoreDBInstanceFromS3_s3Prefix,
     restoreDBInstanceFromS3_licenseModel,
@@ -1368,6 +1476,7 @@ module Amazonka.RDS.Lens
     restoreDBInstanceToPointInTime_vpcSecurityGroupIds,
     restoreDBInstanceToPointInTime_sourceDBInstanceIdentifier,
     restoreDBInstanceToPointInTime_dbParameterGroupName,
+    restoreDBInstanceToPointInTime_backupTarget,
     restoreDBInstanceToPointInTime_dbInstanceClass,
     restoreDBInstanceToPointInTime_restoreTime,
     restoreDBInstanceToPointInTime_sourceDbiResourceId,
@@ -1389,8 +1498,10 @@ module Amazonka.RDS.Lens
     restoreDBInstanceToPointInTime_useLatestRestorableTime,
     restoreDBInstanceToPointInTime_engine,
     restoreDBInstanceToPointInTime_deletionProtection,
+    restoreDBInstanceToPointInTime_customIamInstanceProfile,
     restoreDBInstanceToPointInTime_iops,
     restoreDBInstanceToPointInTime_dbName,
+    restoreDBInstanceToPointInTime_networkType,
     restoreDBInstanceToPointInTime_multiAZ,
     restoreDBInstanceToPointInTime_enableCustomerOwnedIp,
     restoreDBInstanceToPointInTime_licenseModel,
@@ -1489,6 +1600,11 @@ module Amazonka.RDS.Lens
     stopDBInstanceAutomatedBackupsReplicationResponse_dbInstanceAutomatedBackup,
     stopDBInstanceAutomatedBackupsReplicationResponse_httpStatus,
 
+    -- ** SwitchoverReadReplica
+    switchoverReadReplica_dbInstanceIdentifier,
+    switchoverReadReplicaResponse_dbInstance,
+    switchoverReadReplicaResponse_httpStatus,
+
     -- * Types
 
     -- ** AccountQuota
@@ -1543,16 +1659,12 @@ module Amazonka.RDS.Lens
     connectionPoolConfigurationInfo_maxConnectionsPercent,
     connectionPoolConfigurationInfo_sessionPinningFilters,
 
-    -- ** CustomAvailabilityZone
-    customAvailabilityZone_vpnDetails,
-    customAvailabilityZone_customAvailabilityZoneStatus,
-    customAvailabilityZone_customAvailabilityZoneId,
-    customAvailabilityZone_customAvailabilityZoneName,
-
     -- ** DBCluster
     dbCluster_port,
+    dbCluster_serverlessV2ScalingConfiguration,
     dbCluster_cloneGroupId,
     dbCluster_dbClusterArn,
+    dbCluster_performanceInsightsRetentionPeriod,
     dbCluster_hostedZoneId,
     dbCluster_percentProgress,
     dbCluster_globalWriteForwardingRequested,
@@ -1564,9 +1676,11 @@ module Amazonka.RDS.Lens
     dbCluster_activityStreamStatus,
     dbCluster_dbClusterMembers,
     dbCluster_dbClusterParameterGroup,
+    dbCluster_autoMinorVersionUpgrade,
     dbCluster_activityStreamMode,
     dbCluster_tagList,
     dbCluster_latestRestorableTime,
+    dbCluster_dbClusterInstanceClass,
     dbCluster_databaseName,
     dbCluster_dbClusterIdentifier,
     dbCluster_domainMemberships,
@@ -1574,15 +1688,21 @@ module Amazonka.RDS.Lens
     dbCluster_availabilityZones,
     dbCluster_earliestBacktrackTime,
     dbCluster_automaticRestartTime,
+    dbCluster_performanceInsightsKMSKeyId,
     dbCluster_crossAccountClone,
     dbCluster_dbClusterOptionGroupMemberships,
     dbCluster_dbSubnetGroup,
+    dbCluster_monitoringInterval,
+    dbCluster_performanceInsightsEnabled,
     dbCluster_status,
     dbCluster_activityStreamKinesisStreamName,
     dbCluster_httpEndpointEnabled,
+    dbCluster_publiclyAccessible,
+    dbCluster_storageType,
     dbCluster_backtrackWindow,
     dbCluster_customEndpoints,
     dbCluster_replicationSourceIdentifier,
+    dbCluster_monitoringRoleArn,
     dbCluster_backtrackConsumedChangeRecords,
     dbCluster_engineMode,
     dbCluster_storageEncrypted,
@@ -1600,9 +1720,11 @@ module Amazonka.RDS.Lens
     dbCluster_clusterCreateTime,
     dbCluster_readReplicaIdentifiers,
     dbCluster_enabledCloudwatchLogsExports,
+    dbCluster_iops,
     dbCluster_dbClusterResourceId,
     dbCluster_associatedRoles,
     dbCluster_engineVersion,
+    dbCluster_networkType,
     dbCluster_multiAZ,
     dbCluster_activityStreamKmsKeyId,
     dbCluster_globalWriteForwardingStatus,
@@ -1688,16 +1810,24 @@ module Amazonka.RDS.Lens
     dbEngineVersion_validUpgradeTarget,
     dbEngineVersion_exportableLogTypes,
     dbEngineVersion_supportsReadReplica,
+    dbEngineVersion_supportsBabelfish,
     dbEngineVersion_supportedCharacterSets,
+    dbEngineVersion_tagList,
     dbEngineVersion_supportedFeatureNames,
+    dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_defaultCharacterSet,
     dbEngineVersion_status,
+    dbEngineVersion_majorEngineVersion,
+    dbEngineVersion_databaseInstallationFilesS3BucketName,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_supportsParallelQuery,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
+    dbEngineVersion_kmsKeyId,
     dbEngineVersion_engine,
     dbEngineVersion_dbParameterGroupFamily,
+    dbEngineVersion_databaseInstallationFilesS3Prefix,
+    dbEngineVersion_createTime,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportedNcharCharacterSets,
@@ -1711,6 +1841,7 @@ module Amazonka.RDS.Lens
     dbInstance_performanceInsightsRetentionPeriod,
     dbInstance_dbInstanceStatus,
     dbInstance_optionGroupMemberships,
+    dbInstance_backupTarget,
     dbInstance_preferredBackupWindow,
     dbInstance_backupRetentionPeriod,
     dbInstance_dbInstanceClass,
@@ -1720,6 +1851,7 @@ module Amazonka.RDS.Lens
     dbInstance_activityStreamStatus,
     dbInstance_activityStreamEngineNativeAuditFieldsIncluded,
     dbInstance_promotionTier,
+    dbInstance_automationMode,
     dbInstance_secondaryAvailabilityZone,
     dbInstance_autoMinorVersionUpgrade,
     dbInstance_dbInstanceIdentifier,
@@ -1741,6 +1873,7 @@ module Amazonka.RDS.Lens
     dbInstance_instanceCreateTime,
     dbInstance_activityStreamKinesisStreamName,
     dbInstance_availabilityZone,
+    dbInstance_resumeFullAutomationModeTime,
     dbInstance_publiclyAccessible,
     dbInstance_storageType,
     dbInstance_processorFeatures,
@@ -1763,12 +1896,15 @@ module Amazonka.RDS.Lens
     dbInstance_preferredMaintenanceWindow,
     dbInstance_endpoint,
     dbInstance_dbiResourceId,
+    dbInstance_customIamInstanceProfile,
     dbInstance_dbParameterGroups,
     dbInstance_enabledCloudwatchLogsExports,
     dbInstance_iops,
     dbInstance_associatedRoles,
     dbInstance_engineVersion,
     dbInstance_dbName,
+    dbInstance_networkType,
+    dbInstance_activityStreamPolicyStatus,
     dbInstance_multiAZ,
     dbInstance_readReplicaSourceDBInstanceIdentifier,
     dbInstance_activityStreamKmsKeyId,
@@ -1779,6 +1915,7 @@ module Amazonka.RDS.Lens
     -- ** DBInstanceAutomatedBackup
     dbInstanceAutomatedBackup_port,
     dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications,
+    dbInstanceAutomatedBackup_backupTarget,
     dbInstanceAutomatedBackup_backupRetentionPeriod,
     dbInstanceAutomatedBackup_masterUsername,
     dbInstanceAutomatedBackup_dbInstanceIdentifier,
@@ -1910,6 +2047,7 @@ module Amazonka.RDS.Lens
     dbSnapshot_status,
     dbSnapshot_availabilityZone,
     dbSnapshot_snapshotCreateTime,
+    dbSnapshot_snapshotDatabaseTime,
     dbSnapshot_storageType,
     dbSnapshot_processorFeatures,
     dbSnapshot_tdeCredentialArn,
@@ -1920,6 +2058,7 @@ module Amazonka.RDS.Lens
     dbSnapshot_allocatedStorage,
     dbSnapshot_iAMDatabaseAuthenticationEnabled,
     dbSnapshot_vpcId,
+    dbSnapshot_snapshotTarget,
     dbSnapshot_dbiResourceId,
     dbSnapshot_iops,
     dbSnapshot_engineVersion,
@@ -1941,6 +2080,7 @@ module Amazonka.RDS.Lens
     dbSubnetGroup_dbSubnetGroupDescription,
     dbSubnetGroup_dbSubnetGroupArn,
     dbSubnetGroup_vpcId,
+    dbSubnetGroup_supportedNetworkTypes,
 
     -- ** DescribeDBLogFilesDetails
     describeDBLogFilesDetails_lastWritten,
@@ -2046,19 +2186,6 @@ module Amazonka.RDS.Lens
     iPRange_status,
     iPRange_cidrip,
 
-    -- ** InstallationMedia
-    installationMedia_status,
-    installationMedia_customAvailabilityZoneId,
-    installationMedia_engineInstallationMediaPath,
-    installationMedia_engine,
-    installationMedia_failureCause,
-    installationMedia_oSInstallationMediaPath,
-    installationMedia_installationMediaId,
-    installationMedia_engineVersion,
-
-    -- ** InstallationMediaFailureCause
-    installationMediaFailureCause_message,
-
     -- ** MinimumEngineVersionPerAllowedValue
     minimumEngineVersionPerAllowedValue_minimumEngineVersion,
     minimumEngineVersionPerAllowedValue_allowedValue,
@@ -2141,6 +2268,7 @@ module Amazonka.RDS.Lens
 
     -- ** OrderableDBInstanceOption
     orderableDBInstanceOption_supportsStorageEncryption,
+    orderableDBInstanceOption_supportsClusters,
     orderableDBInstanceOption_maxStorageSize,
     orderableDBInstanceOption_multiAZCapable,
     orderableDBInstanceOption_dbInstanceClass,
@@ -2168,6 +2296,7 @@ module Amazonka.RDS.Lens
     orderableDBInstanceOption_supportsKerberosAuthentication,
     orderableDBInstanceOption_minIopsPerGib,
     orderableDBInstanceOption_licenseModel,
+    orderableDBInstanceOption_supportedNetworkTypes,
 
     -- ** Outpost
     outpost_arn,
@@ -2201,9 +2330,11 @@ module Amazonka.RDS.Lens
     pendingModifiedValues_port,
     pendingModifiedValues_backupRetentionPeriod,
     pendingModifiedValues_dbInstanceClass,
+    pendingModifiedValues_automationMode,
     pendingModifiedValues_dbSubnetGroupName,
     pendingModifiedValues_dbInstanceIdentifier,
     pendingModifiedValues_pendingCloudwatchLogsExports,
+    pendingModifiedValues_resumeFullAutomationModeTime,
     pendingModifiedValues_masterUserPassword,
     pendingModifiedValues_storageType,
     pendingModifiedValues_processorFeatures,
@@ -2282,6 +2413,14 @@ module Amazonka.RDS.Lens
     scalingConfigurationInfo_autoPause,
     scalingConfigurationInfo_minCapacity,
 
+    -- ** ServerlessV2ScalingConfiguration
+    serverlessV2ScalingConfiguration_maxCapacity,
+    serverlessV2ScalingConfiguration_minCapacity,
+
+    -- ** ServerlessV2ScalingConfigurationInfo
+    serverlessV2ScalingConfigurationInfo_maxCapacity,
+    serverlessV2ScalingConfigurationInfo_minCapacity,
+
     -- ** SourceRegion
     sourceRegion_status,
     sourceRegion_supportsDBInstanceAutomatedBackupsReplication,
@@ -2307,6 +2446,7 @@ module Amazonka.RDS.Lens
     timezone_timezoneName,
 
     -- ** UpgradeTarget
+    upgradeTarget_supportsBabelfish,
     upgradeTarget_autoUpgrade,
     upgradeTarget_supportedEngineModes,
     upgradeTarget_description,
@@ -2344,14 +2484,6 @@ module Amazonka.RDS.Lens
     -- ** VpcSecurityGroupMembership
     vpcSecurityGroupMembership_status,
     vpcSecurityGroupMembership_vpcSecurityGroupId,
-
-    -- ** VpnDetails
-    vpnDetails_vpnPSK,
-    vpnDetails_vpnId,
-    vpnDetails_vpnTunnelOriginatorIP,
-    vpnDetails_vpnState,
-    vpnDetails_vpnGatewayIp,
-    vpnDetails_vpnName,
   )
 where
 
@@ -2368,7 +2500,7 @@ import Amazonka.RDS.CopyDBClusterSnapshot
 import Amazonka.RDS.CopyDBParameterGroup
 import Amazonka.RDS.CopyDBSnapshot
 import Amazonka.RDS.CopyOptionGroup
-import Amazonka.RDS.CreateCustomAvailabilityZone
+import Amazonka.RDS.CreateCustomDBEngineVersion
 import Amazonka.RDS.CreateDBCluster
 import Amazonka.RDS.CreateDBClusterEndpoint
 import Amazonka.RDS.CreateDBClusterParameterGroup
@@ -2384,7 +2516,7 @@ import Amazonka.RDS.CreateDBSubnetGroup
 import Amazonka.RDS.CreateEventSubscription
 import Amazonka.RDS.CreateGlobalCluster
 import Amazonka.RDS.CreateOptionGroup
-import Amazonka.RDS.DeleteCustomAvailabilityZone
+import Amazonka.RDS.DeleteCustomDBEngineVersion
 import Amazonka.RDS.DeleteDBCluster
 import Amazonka.RDS.DeleteDBClusterEndpoint
 import Amazonka.RDS.DeleteDBClusterParameterGroup
@@ -2399,12 +2531,10 @@ import Amazonka.RDS.DeleteDBSnapshot
 import Amazonka.RDS.DeleteDBSubnetGroup
 import Amazonka.RDS.DeleteEventSubscription
 import Amazonka.RDS.DeleteGlobalCluster
-import Amazonka.RDS.DeleteInstallationMedia
 import Amazonka.RDS.DeleteOptionGroup
 import Amazonka.RDS.DeregisterDBProxyTargets
 import Amazonka.RDS.DescribeAccountAttributes
 import Amazonka.RDS.DescribeCertificates
-import Amazonka.RDS.DescribeCustomAvailabilityZones
 import Amazonka.RDS.DescribeDBClusterBacktracks
 import Amazonka.RDS.DescribeDBClusterEndpoints
 import Amazonka.RDS.DescribeDBClusterParameterGroups
@@ -2433,7 +2563,6 @@ import Amazonka.RDS.DescribeEventSubscriptions
 import Amazonka.RDS.DescribeEvents
 import Amazonka.RDS.DescribeExportTasks
 import Amazonka.RDS.DescribeGlobalClusters
-import Amazonka.RDS.DescribeInstallationMedia
 import Amazonka.RDS.DescribeOptionGroupOptions
 import Amazonka.RDS.DescribeOptionGroups
 import Amazonka.RDS.DescribeOrderableDBInstanceOptions
@@ -2445,10 +2574,11 @@ import Amazonka.RDS.DescribeValidDBInstanceModifications
 import Amazonka.RDS.DownloadDBLogFilePortion
 import Amazonka.RDS.FailoverDBCluster
 import Amazonka.RDS.FailoverGlobalCluster
-import Amazonka.RDS.ImportInstallationMedia
 import Amazonka.RDS.ListTagsForResource
+import Amazonka.RDS.ModifyActivityStream
 import Amazonka.RDS.ModifyCertificates
 import Amazonka.RDS.ModifyCurrentDBClusterCapacity
+import Amazonka.RDS.ModifyCustomDBEngineVersion
 import Amazonka.RDS.ModifyDBCluster
 import Amazonka.RDS.ModifyDBClusterEndpoint
 import Amazonka.RDS.ModifyDBClusterParameterGroup
@@ -2467,6 +2597,7 @@ import Amazonka.RDS.ModifyOptionGroup
 import Amazonka.RDS.PromoteReadReplica
 import Amazonka.RDS.PromoteReadReplicaDBCluster
 import Amazonka.RDS.PurchaseReservedDBInstancesOffering
+import Amazonka.RDS.RebootDBCluster
 import Amazonka.RDS.RebootDBInstance
 import Amazonka.RDS.RegisterDBProxyTargets
 import Amazonka.RDS.RemoveFromGlobalCluster
@@ -2492,6 +2623,7 @@ import Amazonka.RDS.StopActivityStream
 import Amazonka.RDS.StopDBCluster
 import Amazonka.RDS.StopDBInstance
 import Amazonka.RDS.StopDBInstanceAutomatedBackupsReplication
+import Amazonka.RDS.SwitchoverReadReplica
 import Amazonka.RDS.Types.AccountQuota
 import Amazonka.RDS.Types.AvailabilityZone
 import Amazonka.RDS.Types.AvailableProcessorFeature
@@ -2501,7 +2633,6 @@ import Amazonka.RDS.Types.CloudwatchLogsExportConfiguration
 import Amazonka.RDS.Types.ClusterPendingModifiedValues
 import Amazonka.RDS.Types.ConnectionPoolConfiguration
 import Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
-import Amazonka.RDS.Types.CustomAvailabilityZone
 import Amazonka.RDS.Types.DBCluster
 import Amazonka.RDS.Types.DBClusterBacktrack
 import Amazonka.RDS.Types.DBClusterEndpoint
@@ -2547,8 +2678,6 @@ import Amazonka.RDS.Types.Filter
 import Amazonka.RDS.Types.GlobalCluster
 import Amazonka.RDS.Types.GlobalClusterMember
 import Amazonka.RDS.Types.IPRange
-import Amazonka.RDS.Types.InstallationMedia
-import Amazonka.RDS.Types.InstallationMediaFailureCause
 import Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
 import Amazonka.RDS.Types.Option
 import Amazonka.RDS.Types.OptionConfiguration
@@ -2573,6 +2702,8 @@ import Amazonka.RDS.Types.ResourcePendingMaintenanceActions
 import Amazonka.RDS.Types.RestoreWindow
 import Amazonka.RDS.Types.ScalingConfiguration
 import Amazonka.RDS.Types.ScalingConfigurationInfo
+import Amazonka.RDS.Types.ServerlessV2ScalingConfiguration
+import Amazonka.RDS.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.RDS.Types.SourceRegion
 import Amazonka.RDS.Types.Subnet
 import Amazonka.RDS.Types.Tag
@@ -2584,4 +2715,3 @@ import Amazonka.RDS.Types.UserAuthConfigInfo
 import Amazonka.RDS.Types.ValidDBInstanceModificationsMessage
 import Amazonka.RDS.Types.ValidStorageOptions
 import Amazonka.RDS.Types.VpcSecurityGroupMembership
-import Amazonka.RDS.Types.VpnDetails

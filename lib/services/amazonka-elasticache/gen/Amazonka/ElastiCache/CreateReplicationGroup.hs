@@ -69,6 +69,7 @@ module Amazonka.ElastiCache.CreateReplicationGroup
     -- * Request Lenses
     createReplicationGroup_transitEncryptionEnabled,
     createReplicationGroup_tags,
+    createReplicationGroup_dataTieringEnabled,
     createReplicationGroup_port,
     createReplicationGroup_cacheSubnetGroupName,
     createReplicationGroup_snapshotName,
@@ -149,6 +150,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- Key=@mySecondKey@, Value=@mySecondKeyValue@. Tags on replication groups
     -- will be replicated to all nodes.
     tags :: Prelude.Maybe [Tag],
+    -- | Enables data tiering. Data tiering is only supported for replication
+    -- groups using the r6gd node type. This parameter must be set to true when
+    -- using r6gd nodes. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+    dataTieringEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The port number on which each member of the replication group accepts
     -- connections.
     port :: Prelude.Maybe Prelude.Int,
@@ -169,7 +175,9 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- Use this parameter only when you are creating a replication group in an
     -- Amazon Virtual Private Cloud (Amazon VPC).
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | This parameter is currently disabled.
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Maybe Prelude.Text,
@@ -242,8 +250,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --     -   Current generation:
     --
     --         __M6g node types__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward).
-    --
+    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
     --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
     --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
     --         @cache.m6g.16xlarge@
@@ -258,13 +265,19 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
     --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
     --
+    --         __T4g node types__ (available only for Redis engine version
+    --         5.0.6 onward and Memcached engine version 1.5.16 onward):
+    --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+    --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
     --         @cache.t3.medium@
     --
     --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
     --         @cache.t2.medium@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __T1 node types:__ @cache.t1.micro@
     --
@@ -276,9 +289,22 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --
     -- -   Compute optimized:
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
+    --
+    -- -   Memory optimized with data tiering:
+    --
+    --     -   Current generation:
+    --
+    --         __R6gd node types__ (available only for Redis engine version 6.2
+    --         onward).
+    --
+    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+    --         @cache.r6gd.16xlarge@
     --
     -- -   Memory optimized:
     --
@@ -302,7 +328,9 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
     --         @cache.r4.16xlarge@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
     --         @cache.m2.4xlarge@
@@ -520,6 +548,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- Key=@mySecondKey@, Value=@mySecondKeyValue@. Tags on replication groups
 -- will be replicated to all nodes.
 --
+-- 'dataTieringEnabled', 'createReplicationGroup_dataTieringEnabled' - Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+--
 -- 'port', 'createReplicationGroup_port' - The port number on which each member of the replication group accepts
 -- connections.
 --
@@ -540,7 +573,9 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- Use this parameter only when you are creating a replication group in an
 -- Amazon Virtual Private Cloud (Amazon VPC).
 --
--- 'autoMinorVersionUpgrade', 'createReplicationGroup_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'autoMinorVersionUpgrade', 'createReplicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'globalReplicationGroupId', 'createReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
@@ -613,8 +648,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --     -   Current generation:
 --
 --         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -629,13 +663,19 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -647,9 +687,22 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
+--
+-- -   Memory optimized with data tiering:
+--
+--     -   Current generation:
+--
+--         __R6gd node types__ (available only for Redis engine version 6.2
+--         onward).
+--
+--         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+--         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+--         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -673,7 +726,9 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -865,6 +920,7 @@ newCreateReplicationGroup
       { transitEncryptionEnabled =
           Prelude.Nothing,
         tags = Prelude.Nothing,
+        dataTieringEnabled = Prelude.Nothing,
         port = Prelude.Nothing,
         cacheSubnetGroupName = Prelude.Nothing,
         snapshotName = Prelude.Nothing,
@@ -930,6 +986,13 @@ createReplicationGroup_transitEncryptionEnabled = Lens.lens (\CreateReplicationG
 createReplicationGroup_tags :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Tag])
 createReplicationGroup_tags = Lens.lens (\CreateReplicationGroup' {tags} -> tags) (\s@CreateReplicationGroup' {} a -> s {tags = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+createReplicationGroup_dataTieringEnabled :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
+createReplicationGroup_dataTieringEnabled = Lens.lens (\CreateReplicationGroup' {dataTieringEnabled} -> dataTieringEnabled) (\s@CreateReplicationGroup' {} a -> s {dataTieringEnabled = a} :: CreateReplicationGroup)
+
 -- | The port number on which each member of the replication group accepts
 -- connections.
 createReplicationGroup_port :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
@@ -958,7 +1021,9 @@ createReplicationGroup_snapshotName = Lens.lens (\CreateReplicationGroup' {snaps
 createReplicationGroup_securityGroupIds :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Prelude.Text])
 createReplicationGroup_securityGroupIds = Lens.lens (\CreateReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@CreateReplicationGroup' {} a -> s {securityGroupIds = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | This parameter is currently disabled.
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 createReplicationGroup_autoMinorVersionUpgrade :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
 createReplicationGroup_autoMinorVersionUpgrade = Lens.lens (\CreateReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: CreateReplicationGroup)
 
@@ -1045,8 +1110,7 @@ createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup
 --     -   Current generation:
 --
 --         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -1061,13 +1125,19 @@ createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -1079,9 +1149,22 @@ createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
+--
+-- -   Memory optimized with data tiering:
+--
+--     -   Current generation:
+--
+--         __R6gd node types__ (available only for Redis engine version 6.2
+--         onward).
+--
+--         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+--         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+--         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -1105,7 +1188,9 @@ createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -1344,6 +1429,7 @@ instance Prelude.Hashable CreateReplicationGroup where
     _salt
       `Prelude.hashWithSalt` transitEncryptionEnabled
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataTieringEnabled
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` cacheSubnetGroupName
       `Prelude.hashWithSalt` snapshotName
@@ -1380,6 +1466,7 @@ instance Prelude.NFData CreateReplicationGroup where
   rnf CreateReplicationGroup' {..} =
     Prelude.rnf transitEncryptionEnabled
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataTieringEnabled
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf cacheSubnetGroupName
       `Prelude.seq` Prelude.rnf snapshotName
@@ -1441,6 +1528,7 @@ instance Core.ToQuery CreateReplicationGroup where
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "DataTieringEnabled" Core.=: dataTieringEnabled,
         "Port" Core.=: port,
         "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
         "SnapshotName" Core.=: snapshotName,

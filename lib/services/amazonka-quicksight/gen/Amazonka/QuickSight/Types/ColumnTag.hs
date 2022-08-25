@@ -25,8 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnDescription
 import Amazonka.QuickSight.Types.GeoSpatialDataRole
 
--- | A tag for a column in a TagColumnOperation structure. This is a variant
--- type structure. For this structure to be valid, only one of the
+-- | A tag for a column in a @ TagColumnOperation @ structure. This is a
+-- variant type structure. For this structure to be valid, only one of the
 -- attributes can be non-null.
 --
 -- /See:/ 'newColumnTag' smart constructor.

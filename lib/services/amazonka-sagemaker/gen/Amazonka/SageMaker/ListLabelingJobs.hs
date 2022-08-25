@@ -296,9 +296,8 @@ instance Core.ToQuery ListLabelingJobs where
 
 -- | /See:/ 'newListLabelingJobsResponse' smart constructor.
 data ListLabelingJobsResponse = ListLabelingJobsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of labeling jobs, use it in the subsequent
-    -- request.
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of labeling jobs, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @LabelingJobSummary@ objects, each describing a labeling
     -- job.
@@ -316,9 +315,8 @@ data ListLabelingJobsResponse = ListLabelingJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLabelingJobsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of labeling jobs, use it in the subsequent
--- request.
+-- 'nextToken', 'listLabelingJobsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of labeling jobs, use it in the subsequent request.
 --
 -- 'labelingJobSummaryList', 'listLabelingJobsResponse_labelingJobSummaryList' - An array of @LabelingJobSummary@ objects, each describing a labeling
 -- job.
@@ -336,9 +334,8 @@ newListLabelingJobsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of labeling jobs, use it in the subsequent
--- request.
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of labeling jobs, use it in the subsequent request.
 listLabelingJobsResponse_nextToken :: Lens.Lens' ListLabelingJobsResponse (Prelude.Maybe Prelude.Text)
 listLabelingJobsResponse_nextToken = Lens.lens (\ListLabelingJobsResponse' {nextToken} -> nextToken) (\s@ListLabelingJobsResponse' {} a -> s {nextToken = a} :: ListLabelingJobsResponse)
 

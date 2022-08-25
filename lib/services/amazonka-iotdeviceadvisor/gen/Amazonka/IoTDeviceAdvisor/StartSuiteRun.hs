@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts a Device Advisor test suite run.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StartSuiteRun>
+-- action.
 module Amazonka.IoTDeviceAdvisor.StartSuiteRun
   ( -- * Creating a Request
     StartSuiteRun (..),
@@ -59,7 +63,7 @@ data StartSuiteRun = StartSuiteRun'
     suiteRunConfiguration :: Prelude.Maybe SuiteRunConfiguration,
     -- | Suite definition version of the test suite.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Suite definition Id of the test suite.
+    -- | Suite definition ID of the test suite.
     suiteDefinitionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +82,7 @@ data StartSuiteRun = StartSuiteRun'
 --
 -- 'suiteDefinitionVersion', 'startSuiteRun_suiteDefinitionVersion' - Suite definition version of the test suite.
 --
--- 'suiteDefinitionId', 'startSuiteRun_suiteDefinitionId' - Suite definition Id of the test suite.
+-- 'suiteDefinitionId', 'startSuiteRun_suiteDefinitionId' - Suite definition ID of the test suite.
 newStartSuiteRun ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -103,7 +107,7 @@ startSuiteRun_suiteRunConfiguration = Lens.lens (\StartSuiteRun' {suiteRunConfig
 startSuiteRun_suiteDefinitionVersion :: Lens.Lens' StartSuiteRun (Prelude.Maybe Prelude.Text)
 startSuiteRun_suiteDefinitionVersion = Lens.lens (\StartSuiteRun' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@StartSuiteRun' {} a -> s {suiteDefinitionVersion = a} :: StartSuiteRun)
 
--- | Suite definition Id of the test suite.
+-- | Suite definition ID of the test suite.
 startSuiteRun_suiteDefinitionId :: Lens.Lens' StartSuiteRun Prelude.Text
 startSuiteRun_suiteDefinitionId = Lens.lens (\StartSuiteRun' {suiteDefinitionId} -> suiteDefinitionId) (\s@StartSuiteRun' {} a -> s {suiteDefinitionId = a} :: StartSuiteRun)
 
@@ -172,11 +176,11 @@ instance Core.ToQuery StartSuiteRun where
 
 -- | /See:/ 'newStartSuiteRunResponse' smart constructor.
 data StartSuiteRunResponse = StartSuiteRunResponse'
-  { -- | Amazon resource name of the started suite run.
+  { -- | Amazon Resource Name (ARN) of the started suite run.
     suiteRunArn :: Prelude.Maybe Prelude.Text,
-    -- | Date (in Unix epoch time) when the suite run was created.
+    -- | Starts a Device Advisor test suite run based on suite create time.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Suite Run Id of the started suite run.
+    -- | Suite Run ID of the started suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -191,11 +195,11 @@ data StartSuiteRunResponse = StartSuiteRunResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteRunArn', 'startSuiteRunResponse_suiteRunArn' - Amazon resource name of the started suite run.
+-- 'suiteRunArn', 'startSuiteRunResponse_suiteRunArn' - Amazon Resource Name (ARN) of the started suite run.
 --
--- 'createdAt', 'startSuiteRunResponse_createdAt' - Date (in Unix epoch time) when the suite run was created.
+-- 'createdAt', 'startSuiteRunResponse_createdAt' - Starts a Device Advisor test suite run based on suite create time.
 --
--- 'suiteRunId', 'startSuiteRunResponse_suiteRunId' - Suite Run Id of the started suite run.
+-- 'suiteRunId', 'startSuiteRunResponse_suiteRunId' - Suite Run ID of the started suite run.
 --
 -- 'httpStatus', 'startSuiteRunResponse_httpStatus' - The response's http status code.
 newStartSuiteRunResponse ::
@@ -211,15 +215,15 @@ newStartSuiteRunResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Amazon resource name of the started suite run.
+-- | Amazon Resource Name (ARN) of the started suite run.
 startSuiteRunResponse_suiteRunArn :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.Text)
 startSuiteRunResponse_suiteRunArn = Lens.lens (\StartSuiteRunResponse' {suiteRunArn} -> suiteRunArn) (\s@StartSuiteRunResponse' {} a -> s {suiteRunArn = a} :: StartSuiteRunResponse)
 
--- | Date (in Unix epoch time) when the suite run was created.
+-- | Starts a Device Advisor test suite run based on suite create time.
 startSuiteRunResponse_createdAt :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
 startSuiteRunResponse_createdAt = Lens.lens (\StartSuiteRunResponse' {createdAt} -> createdAt) (\s@StartSuiteRunResponse' {} a -> s {createdAt = a} :: StartSuiteRunResponse) Prelude.. Lens.mapping Core._Time
 
--- | Suite Run Id of the started suite run.
+-- | Suite Run ID of the started suite run.
 startSuiteRunResponse_suiteRunId :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.Text)
 startSuiteRunResponse_suiteRunId = Lens.lens (\StartSuiteRunResponse' {suiteRunId} -> suiteRunId) (\s@StartSuiteRunResponse' {} a -> s {suiteRunId = a} :: StartSuiteRunResponse)
 

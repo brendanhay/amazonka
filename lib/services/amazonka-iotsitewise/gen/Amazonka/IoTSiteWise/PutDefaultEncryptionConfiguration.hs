@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutDefaultEncryptionConfiguration' smart constructor.
 data PutDefaultEncryptionConfiguration = PutDefaultEncryptionConfiguration'
-  { -- | The Key ID of the customer managed customer master key (CMK) used for
-    -- KMS encryption. This is required if you use @KMS_BASED_ENCRYPTION@.
+  { -- | The Key ID of the customer managed key used for KMS encryption. This is
+    -- required if you use @KMS_BASED_ENCRYPTION@.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption used for the encryption configuration.
     encryptionType :: EncryptionType
@@ -70,8 +70,8 @@ data PutDefaultEncryptionConfiguration = PutDefaultEncryptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'putDefaultEncryptionConfiguration_kmsKeyId' - The Key ID of the customer managed customer master key (CMK) used for
--- KMS encryption. This is required if you use @KMS_BASED_ENCRYPTION@.
+-- 'kmsKeyId', 'putDefaultEncryptionConfiguration_kmsKeyId' - The Key ID of the customer managed key used for KMS encryption. This is
+-- required if you use @KMS_BASED_ENCRYPTION@.
 --
 -- 'encryptionType', 'putDefaultEncryptionConfiguration_encryptionType' - The type of encryption used for the encryption configuration.
 newPutDefaultEncryptionConfiguration ::
@@ -85,8 +85,8 @@ newPutDefaultEncryptionConfiguration pEncryptionType_ =
       encryptionType = pEncryptionType_
     }
 
--- | The Key ID of the customer managed customer master key (CMK) used for
--- KMS encryption. This is required if you use @KMS_BASED_ENCRYPTION@.
+-- | The Key ID of the customer managed key used for KMS encryption. This is
+-- required if you use @KMS_BASED_ENCRYPTION@.
 putDefaultEncryptionConfiguration_kmsKeyId :: Lens.Lens' PutDefaultEncryptionConfiguration (Prelude.Maybe Prelude.Text)
 putDefaultEncryptionConfiguration_kmsKeyId = Lens.lens (\PutDefaultEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@PutDefaultEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: PutDefaultEncryptionConfiguration)
 
@@ -172,7 +172,7 @@ instance
 
 -- | /See:/ 'newPutDefaultEncryptionConfigurationResponse' smart constructor.
 data PutDefaultEncryptionConfigurationResponse = PutDefaultEncryptionConfigurationResponse'
-  { -- | The Key ARN of the KMS CMK used for KMS encryption if you use
+  { -- | The Key ARN of the KMS key used for KMS encryption if you use
     -- @KMS_BASED_ENCRYPTION@.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -194,7 +194,7 @@ data PutDefaultEncryptionConfigurationResponse = PutDefaultEncryptionConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'putDefaultEncryptionConfigurationResponse_kmsKeyArn' - The Key ARN of the KMS CMK used for KMS encryption if you use
+-- 'kmsKeyArn', 'putDefaultEncryptionConfigurationResponse_kmsKeyArn' - The Key ARN of the KMS key used for KMS encryption if you use
 -- @KMS_BASED_ENCRYPTION@.
 --
 -- 'httpStatus', 'putDefaultEncryptionConfigurationResponse_httpStatus' - The response's http status code.
@@ -226,7 +226,7 @@ newPutDefaultEncryptionConfigurationResponse
           pConfigurationStatus_
       }
 
--- | The Key ARN of the KMS CMK used for KMS encryption if you use
+-- | The Key ARN of the KMS key used for KMS encryption if you use
 -- @KMS_BASED_ENCRYPTION@.
 putDefaultEncryptionConfigurationResponse_kmsKeyArn :: Lens.Lens' PutDefaultEncryptionConfigurationResponse (Prelude.Maybe Prelude.Text)
 putDefaultEncryptionConfigurationResponse_kmsKeyArn = Lens.lens (\PutDefaultEncryptionConfigurationResponse' {kmsKeyArn} -> kmsKeyArn) (\s@PutDefaultEncryptionConfigurationResponse' {} a -> s {kmsKeyArn = a} :: PutDefaultEncryptionConfigurationResponse)

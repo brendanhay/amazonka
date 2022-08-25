@@ -37,7 +37,8 @@ data AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails = AwsEcsTaskDef
     -- | The scope for the Docker volume that determines its lifecycle. Docker
     -- volumes that are scoped to a task are provisioned automatically when the
     -- task starts and destroyed when the task stops. Docker volumes that are
-    -- shared persist after the task stops.
+    -- shared persist after the task stops. Valid values are @shared@ or
+    -- @task@.
     scope :: Prelude.Maybe Prelude.Text,
     -- | The Docker volume driver to use.
     driver :: Prelude.Maybe Prelude.Text
@@ -62,7 +63,8 @@ data AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails = AwsEcsTaskDef
 -- 'scope', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_scope' - The scope for the Docker volume that determines its lifecycle. Docker
 -- volumes that are scoped to a task are provisioned automatically when the
 -- task starts and destroyed when the task stops. Docker volumes that are
--- shared persist after the task stops.
+-- shared persist after the task stops. Valid values are @shared@ or
+-- @task@.
 --
 -- 'driver', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver' - The Docker volume driver to use.
 newAwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails ::
@@ -97,7 +99,8 @@ awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_labels = Lens.lens (
 -- | The scope for the Docker volume that determines its lifecycle. Docker
 -- volumes that are scoped to a task are provisioned automatically when the
 -- task starts and destroyed when the task stops. Docker volumes that are
--- shared persist after the task stops.
+-- shared persist after the task stops. Valid values are @shared@ or
+-- @task@.
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_scope :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_scope = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {scope} -> scope) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {scope = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
 

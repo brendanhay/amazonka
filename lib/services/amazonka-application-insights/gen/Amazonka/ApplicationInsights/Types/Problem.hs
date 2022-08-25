@@ -33,6 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 data Problem = Problem'
   { -- | The resource affected by the problem.
     affectedResource :: Prelude.Maybe Prelude.Text,
+    -- | The number of times that the same problem reoccurred after the first
+    -- time it was resolved.
+    recurringCount :: Prelude.Maybe Prelude.Integer,
     -- | Feedback provided by the user about the problem.
     feedback :: Prelude.Maybe (Prelude.HashMap FeedbackKey FeedbackValue),
     -- | The status of the problem.
@@ -49,6 +52,8 @@ data Problem = Problem'
     title :: Prelude.Maybe Prelude.Text,
     -- | A measure of the level of impact of the problem.
     severityLevel :: Prelude.Maybe SeverityLevel,
+    -- | The last time that the problem reoccurred after its last resolution.
+    lastRecurrenceTime :: Prelude.Maybe Core.POSIX,
     -- | The time when the problem started, in epoch seconds.
     startTime :: Prelude.Maybe Core.POSIX
   }
@@ -63,6 +68,9 @@ data Problem = Problem'
 -- for backwards compatibility:
 --
 -- 'affectedResource', 'problem_affectedResource' - The resource affected by the problem.
+--
+-- 'recurringCount', 'problem_recurringCount' - The number of times that the same problem reoccurred after the first
+-- time it was resolved.
 --
 -- 'feedback', 'problem_feedback' - Feedback provided by the user about the problem.
 --
@@ -80,12 +88,15 @@ data Problem = Problem'
 --
 -- 'severityLevel', 'problem_severityLevel' - A measure of the level of impact of the problem.
 --
+-- 'lastRecurrenceTime', 'problem_lastRecurrenceTime' - The last time that the problem reoccurred after its last resolution.
+--
 -- 'startTime', 'problem_startTime' - The time when the problem started, in epoch seconds.
 newProblem ::
   Problem
 newProblem =
   Problem'
     { affectedResource = Prelude.Nothing,
+      recurringCount = Prelude.Nothing,
       feedback = Prelude.Nothing,
       status = Prelude.Nothing,
       endTime = Prelude.Nothing,
@@ -94,12 +105,18 @@ newProblem =
       resourceGroupName = Prelude.Nothing,
       title = Prelude.Nothing,
       severityLevel = Prelude.Nothing,
+      lastRecurrenceTime = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
 
 -- | The resource affected by the problem.
 problem_affectedResource :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
 problem_affectedResource = Lens.lens (\Problem' {affectedResource} -> affectedResource) (\s@Problem' {} a -> s {affectedResource = a} :: Problem)
+
+-- | The number of times that the same problem reoccurred after the first
+-- time it was resolved.
+problem_recurringCount :: Lens.Lens' Problem (Prelude.Maybe Prelude.Integer)
+problem_recurringCount = Lens.lens (\Problem' {recurringCount} -> recurringCount) (\s@Problem' {} a -> s {recurringCount = a} :: Problem)
 
 -- | Feedback provided by the user about the problem.
 problem_feedback :: Lens.Lens' Problem (Prelude.Maybe (Prelude.HashMap FeedbackKey FeedbackValue))
@@ -133,6 +150,10 @@ problem_title = Lens.lens (\Problem' {title} -> title) (\s@Problem' {} a -> s {t
 problem_severityLevel :: Lens.Lens' Problem (Prelude.Maybe SeverityLevel)
 problem_severityLevel = Lens.lens (\Problem' {severityLevel} -> severityLevel) (\s@Problem' {} a -> s {severityLevel = a} :: Problem)
 
+-- | The last time that the problem reoccurred after its last resolution.
+problem_lastRecurrenceTime :: Lens.Lens' Problem (Prelude.Maybe Prelude.UTCTime)
+problem_lastRecurrenceTime = Lens.lens (\Problem' {lastRecurrenceTime} -> lastRecurrenceTime) (\s@Problem' {} a -> s {lastRecurrenceTime = a} :: Problem) Prelude.. Lens.mapping Core._Time
+
 -- | The time when the problem started, in epoch seconds.
 problem_startTime :: Lens.Lens' Problem (Prelude.Maybe Prelude.UTCTime)
 problem_startTime = Lens.lens (\Problem' {startTime} -> startTime) (\s@Problem' {} a -> s {startTime = a} :: Problem) Prelude.. Lens.mapping Core._Time
@@ -144,6 +165,7 @@ instance Core.FromJSON Problem where
       ( \x ->
           Problem'
             Prelude.<$> (x Core..:? "AffectedResource")
+            Prelude.<*> (x Core..:? "RecurringCount")
             Prelude.<*> (x Core..:? "Feedback" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "EndTime")
@@ -152,12 +174,14 @@ instance Core.FromJSON Problem where
             Prelude.<*> (x Core..:? "ResourceGroupName")
             Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "SeverityLevel")
+            Prelude.<*> (x Core..:? "LastRecurrenceTime")
             Prelude.<*> (x Core..:? "StartTime")
       )
 
 instance Prelude.Hashable Problem where
   hashWithSalt _salt Problem' {..} =
     _salt `Prelude.hashWithSalt` affectedResource
+      `Prelude.hashWithSalt` recurringCount
       `Prelude.hashWithSalt` feedback
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` endTime
@@ -166,11 +190,13 @@ instance Prelude.Hashable Problem where
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` severityLevel
+      `Prelude.hashWithSalt` lastRecurrenceTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData Problem where
   rnf Problem' {..} =
     Prelude.rnf affectedResource
+      `Prelude.seq` Prelude.rnf recurringCount
       `Prelude.seq` Prelude.rnf feedback
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
@@ -179,4 +205,5 @@ instance Prelude.NFData Problem where
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf severityLevel
+      `Prelude.seq` Prelude.rnf lastRecurrenceTime
       `Prelude.seq` Prelude.rnf startTime

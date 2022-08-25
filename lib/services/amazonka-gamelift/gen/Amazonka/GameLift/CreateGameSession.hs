@@ -56,7 +56,7 @@
 -- Game session logs are retained for all active game sessions for 14 days.
 -- To access the logs, call GetGameSessionLogUrl to download the log files.
 --
--- /Available in GameLift Local./
+-- /Available in Amazon GameLift Local./
 --
 -- __Learn more__
 --
@@ -128,7 +128,8 @@ data CreateGameSession = CreateGameSession'
     name :: Prelude.Maybe Prelude.Text,
     -- | A set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
-    -- object with a request to start a new game session.
+    -- object with a request to start a new game session (see
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
     gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the alias associated with the fleet to create a
     -- game session in. You can use either the alias ID or ARN value. Each
@@ -148,12 +149,13 @@ data CreateGameSession = CreateGameSession'
     idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | A fleet\'s remote location to place the new game session in. If this
     -- parameter is not set, the new game session is placed in the fleet\'s
-    -- home Region. Specify a remote location with an AWS Region code such as
-    -- @us-west-2@.
+    -- home Region. Specify a remote location with an Amazon Web Services
+    -- Region code such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process in the
-    -- GameSession object with a request to start a new game session.
+    -- GameSession object with a request to start a new game session (see
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
     gameProperties :: Prelude.Maybe [GameProperty],
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
@@ -190,7 +192,8 @@ data CreateGameSession = CreateGameSession'
 --
 -- 'gameSessionData', 'createGameSession_gameSessionData' - A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
--- object with a request to start a new game session.
+-- object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 --
 -- 'aliasId', 'createGameSession_aliasId' - A unique identifier for the alias associated with the fleet to create a
 -- game session in. You can use either the alias ID or ARN value. Each
@@ -210,12 +213,13 @@ data CreateGameSession = CreateGameSession'
 --
 -- 'location', 'createGameSession_location' - A fleet\'s remote location to place the new game session in. If this
 -- parameter is not set, the new game session is placed in the fleet\'s
--- home Region. Specify a remote location with an AWS Region code such as
--- @us-west-2@.
+-- home Region. Specify a remote location with an Amazon Web Services
+-- Region code such as @us-west-2@.
 --
 -- 'gameProperties', 'createGameSession_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
--- GameSession object with a request to start a new game session.
+-- GameSession object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 --
 -- 'maximumPlayerSessionCount', 'createGameSession_maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to
 -- the game session.
@@ -267,7 +271,8 @@ createGameSession_name = Lens.lens (\CreateGameSession' {name} -> name) (\s@Crea
 
 -- | A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
--- object with a request to start a new game session.
+-- object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 createGameSession_gameSessionData :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
 createGameSession_gameSessionData = Lens.lens (\CreateGameSession' {gameSessionData} -> gameSessionData) (\s@CreateGameSession' {} a -> s {gameSessionData = a} :: CreateGameSession)
 
@@ -293,14 +298,15 @@ createGameSession_idempotencyToken = Lens.lens (\CreateGameSession' {idempotency
 
 -- | A fleet\'s remote location to place the new game session in. If this
 -- parameter is not set, the new game session is placed in the fleet\'s
--- home Region. Specify a remote location with an AWS Region code such as
--- @us-west-2@.
+-- home Region. Specify a remote location with an Amazon Web Services
+-- Region code such as @us-west-2@.
 createGameSession_location :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
 createGameSession_location = Lens.lens (\CreateGameSession' {location} -> location) (\s@CreateGameSession' {} a -> s {location = a} :: CreateGameSession)
 
 -- | A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
--- GameSession object with a request to start a new game session.
+-- GameSession object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 createGameSession_gameProperties :: Lens.Lens' CreateGameSession (Prelude.Maybe [GameProperty])
 createGameSession_gameProperties = Lens.lens (\CreateGameSession' {gameProperties} -> gameProperties) (\s@CreateGameSession' {} a -> s {gameProperties = a} :: CreateGameSession) Prelude.. Lens.mapping Lens.coerced
 

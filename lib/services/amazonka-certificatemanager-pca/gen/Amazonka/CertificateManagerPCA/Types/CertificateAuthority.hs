@@ -41,8 +41,7 @@ import qualified Amazonka.Prelude as Prelude
 -- the CSR with your ACM Private CA-hosted or on-premises root or
 -- subordinate CA certificate. Call the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate>
--- action to import the signed certificate into AWS Certificate Manager
--- (ACM).
+-- action to import the signed certificate into Certificate Manager (ACM).
 --
 -- /See:/ 'newCertificateAuthority' smart constructor.
 data CertificateAuthority = CertificateAuthority'
@@ -53,7 +52,7 @@ data CertificateAuthority = CertificateAuthority'
     --
     -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
     --
-    -- Note: AWS Region ap-northeast-3 supports only
+    -- Note: Amazon Web Services Region ap-northeast-3 supports only
     -- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter
     -- and value when creating a CA in that Region. Specifying a different
     -- value (or no value) results in an @InvalidArgsException@ with the
@@ -77,7 +76,7 @@ data CertificateAuthority = CertificateAuthority'
     certificateAuthorityConfiguration :: Prelude.Maybe CertificateAuthorityConfiguration,
     -- | Date and time before which your private CA certificate is not valid.
     notBefore :: Prelude.Maybe Core.POSIX,
-    -- | The AWS account ID that owns the certificate authority.
+    -- | The Amazon Web Services account ID that owns the certificate authority.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | Date and time after which your private CA certificate is not valid.
     notAfter :: Prelude.Maybe Core.POSIX,
@@ -108,7 +107,7 @@ data CertificateAuthority = CertificateAuthority'
 --
 -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 --
--- Note: AWS Region ap-northeast-3 supports only
+-- Note: Amazon Web Services Region ap-northeast-3 supports only
 -- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter
 -- and value when creating a CA in that Region. Specifying a different
 -- value (or no value) results in an @InvalidArgsException@ with the
@@ -132,7 +131,7 @@ data CertificateAuthority = CertificateAuthority'
 --
 -- 'notBefore', 'certificateAuthority_notBefore' - Date and time before which your private CA certificate is not valid.
 --
--- 'ownerAccount', 'certificateAuthority_ownerAccount' - The AWS account ID that owns the certificate authority.
+-- 'ownerAccount', 'certificateAuthority_ownerAccount' - The Amazon Web Services account ID that owns the certificate authority.
 --
 -- 'notAfter', 'certificateAuthority_notAfter' - Date and time after which your private CA certificate is not valid.
 --
@@ -173,7 +172,7 @@ certificateAuthority_type = Lens.lens (\CertificateAuthority' {type'} -> type') 
 --
 -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 --
--- Note: AWS Region ap-northeast-3 supports only
+-- Note: Amazon Web Services Region ap-northeast-3 supports only
 -- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter
 -- and value when creating a CA in that Region. Specifying a different
 -- value (or no value) results in an @InvalidArgsException@ with the
@@ -213,7 +212,7 @@ certificateAuthority_certificateAuthorityConfiguration = Lens.lens (\Certificate
 certificateAuthority_notBefore :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
 certificateAuthority_notBefore = Lens.lens (\CertificateAuthority' {notBefore} -> notBefore) (\s@CertificateAuthority' {} a -> s {notBefore = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
--- | The AWS account ID that owns the certificate authority.
+-- | The Amazon Web Services account ID that owns the certificate authority.
 certificateAuthority_ownerAccount :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_ownerAccount = Lens.lens (\CertificateAuthority' {ownerAccount} -> ownerAccount) (\s@CertificateAuthority' {} a -> s {ownerAccount = a} :: CertificateAuthority)
 

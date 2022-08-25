@@ -20,6 +20,7 @@
 module Amazonka.Forecast.Types.AutoMLOverrideStrategy
   ( AutoMLOverrideStrategy
       ( ..,
+        AutoMLOverrideStrategy_AccuracyOptimized,
         AutoMLOverrideStrategy_LatencyOptimized
       ),
   )
@@ -56,10 +57,14 @@ newtype AutoMLOverrideStrategy = AutoMLOverrideStrategy'
       Core.ToXML
     )
 
+pattern AutoMLOverrideStrategy_AccuracyOptimized :: AutoMLOverrideStrategy
+pattern AutoMLOverrideStrategy_AccuracyOptimized = AutoMLOverrideStrategy' "AccuracyOptimized"
+
 pattern AutoMLOverrideStrategy_LatencyOptimized :: AutoMLOverrideStrategy
 pattern AutoMLOverrideStrategy_LatencyOptimized = AutoMLOverrideStrategy' "LatencyOptimized"
 
 {-# COMPLETE
+  AutoMLOverrideStrategy_AccuracyOptimized,
   AutoMLOverrideStrategy_LatencyOptimized,
   AutoMLOverrideStrategy'
   #-}

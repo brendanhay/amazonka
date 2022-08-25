@@ -23,8 +23,8 @@
 -- Updates the name and scopes of resource server. All other fields are
 -- read-only.
 --
--- If you don\'t provide a value for an attribute, it will be set to the
--- default value.
+-- If you don\'t provide a value for an attribute, it is set to the default
+-- value.
 module Amazonka.CognitoIdentityProvider.UpdateResourceServer
   ( -- * Creating a Request
     UpdateResourceServer (..),

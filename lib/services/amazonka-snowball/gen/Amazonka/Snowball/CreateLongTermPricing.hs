@@ -22,8 +22,8 @@
 --
 -- Creates a job with the long-term usage option for a device. The
 -- long-term usage is a 1-year or 3-year long-term pricing type for the
--- device. You are billed upfront, and AWS provides discounts for long-term
--- pricing.
+-- device. You are billed upfront, and Amazon Web Services provides
+-- discounts for long-term pricing.
 module Amazonka.Snowball.CreateLongTermPricing
   ( -- * Creating a Request
     CreateLongTermPricing (..),
@@ -56,7 +56,7 @@ data CreateLongTermPricing = CreateLongTermPricing'
   { -- | Specifies whether the current long-term pricing type for the device
     -- should be renewed.
     isLongTermPricingAutoRenew :: Prelude.Maybe Prelude.Bool,
-    -- | The type of AWS Snow Family device to use for the long-term pricing job.
+    -- | The type of Snow Family Devices to use for the long-term pricing job.
     snowballType :: Prelude.Maybe SnowballType,
     -- | The type of long-term pricing option you want for the device, either
     -- 1-year or 3-year long-term pricing.
@@ -75,7 +75,7 @@ data CreateLongTermPricing = CreateLongTermPricing'
 -- 'isLongTermPricingAutoRenew', 'createLongTermPricing_isLongTermPricingAutoRenew' - Specifies whether the current long-term pricing type for the device
 -- should be renewed.
 --
--- 'snowballType', 'createLongTermPricing_snowballType' - The type of AWS Snow Family device to use for the long-term pricing job.
+-- 'snowballType', 'createLongTermPricing_snowballType' - The type of Snow Family Devices to use for the long-term pricing job.
 --
 -- 'longTermPricingType', 'createLongTermPricing_longTermPricingType' - The type of long-term pricing option you want for the device, either
 -- 1-year or 3-year long-term pricing.
@@ -96,7 +96,7 @@ newCreateLongTermPricing pLongTermPricingType_ =
 createLongTermPricing_isLongTermPricingAutoRenew :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe Prelude.Bool)
 createLongTermPricing_isLongTermPricingAutoRenew = Lens.lens (\CreateLongTermPricing' {isLongTermPricingAutoRenew} -> isLongTermPricingAutoRenew) (\s@CreateLongTermPricing' {} a -> s {isLongTermPricingAutoRenew = a} :: CreateLongTermPricing)
 
--- | The type of AWS Snow Family device to use for the long-term pricing job.
+-- | The type of Snow Family Devices to use for the long-term pricing job.
 createLongTermPricing_snowballType :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe SnowballType)
 createLongTermPricing_snowballType = Lens.lens (\CreateLongTermPricing' {snowballType} -> snowballType) (\s@CreateLongTermPricing' {} a -> s {snowballType = a} :: CreateLongTermPricing)
 

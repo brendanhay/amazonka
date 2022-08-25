@@ -336,6 +336,9 @@ import Test.Tasty
 --         , requestGetLoadBalancerTlsCertificates $
 --             newGetLoadBalancerTlsCertificates
 --
+--         , requestGetLoadBalancerTlsPolicies $
+--             newGetLoadBalancerTlsPolicies
+--
 --         , requestGetLoadBalancers $
 --             newGetLoadBalancers
 --
@@ -797,6 +800,9 @@ import Test.Tasty
 --
 --         , responseGetLoadBalancerTlsCertificates $
 --             newGetLoadBalancerTlsCertificatesResponse
+--
+--         , responseGetLoadBalancerTlsPolicies $
+--             newGetLoadBalancerTlsPoliciesResponse
 --
 --         , responseGetLoadBalancers $
 --             newGetLoadBalancersResponse
@@ -1570,6 +1576,12 @@ requestGetLoadBalancerTlsCertificates =
   req
     "GetLoadBalancerTlsCertificates"
     "fixture/GetLoadBalancerTlsCertificates.yaml"
+
+requestGetLoadBalancerTlsPolicies :: GetLoadBalancerTlsPolicies -> TestTree
+requestGetLoadBalancerTlsPolicies =
+  req
+    "GetLoadBalancerTlsPolicies"
+    "fixture/GetLoadBalancerTlsPolicies.yaml"
 
 requestGetLoadBalancers :: GetLoadBalancers -> TestTree
 requestGetLoadBalancers =
@@ -2696,6 +2708,14 @@ responseGetLoadBalancerTlsCertificates =
     "fixture/GetLoadBalancerTlsCertificatesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLoadBalancerTlsCertificates)
+
+responseGetLoadBalancerTlsPolicies :: GetLoadBalancerTlsPoliciesResponse -> TestTree
+responseGetLoadBalancerTlsPolicies =
+  res
+    "GetLoadBalancerTlsPoliciesResponse"
+    "fixture/GetLoadBalancerTlsPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLoadBalancerTlsPolicies)
 
 responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
 responseGetLoadBalancers =

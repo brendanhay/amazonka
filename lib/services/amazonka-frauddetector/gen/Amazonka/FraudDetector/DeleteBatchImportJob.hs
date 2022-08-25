@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes data that was batch imported to Amazon Fraud Detector.
+-- Deletes the specified batch import job ID record. This action does not
+-- delete the data that was batch imported.
 module Amazonka.FraudDetector.DeleteBatchImportJob
   ( -- * Creating a Request
     DeleteBatchImportJob (..),

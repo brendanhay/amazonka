@@ -23,16 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure containing a tag key-value pair.
+-- | A structure containing an LF-tag key-value pair.
 --
 -- /See:/ 'newLFTagPair' smart constructor.
 data LFTagPair = LFTagPair'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The key-name for the tag.
+    -- | The key-name for the LF-tag.
     tagKey :: Prelude.Text,
     -- | A list of possible values an attribute can take.
     tagValues :: Prelude.NonEmpty Prelude.Text
@@ -50,9 +50,9 @@ data LFTagPair = LFTagPair'
 -- 'catalogId', 'lFTagPair_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'tagKey', 'lFTagPair_tagKey' - The key-name for the tag.
+-- 'tagKey', 'lFTagPair_tagKey' - The key-name for the LF-tag.
 --
 -- 'tagValues', 'lFTagPair_tagValues' - A list of possible values an attribute can take.
 newLFTagPair ::
@@ -71,11 +71,11 @@ newLFTagPair pTagKey_ pTagValues_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 lFTagPair_catalogId :: Lens.Lens' LFTagPair (Prelude.Maybe Prelude.Text)
 lFTagPair_catalogId = Lens.lens (\LFTagPair' {catalogId} -> catalogId) (\s@LFTagPair' {} a -> s {catalogId = a} :: LFTagPair)
 
--- | The key-name for the tag.
+-- | The key-name for the LF-tag.
 lFTagPair_tagKey :: Lens.Lens' LFTagPair Prelude.Text
 lFTagPair_tagKey = Lens.lens (\LFTagPair' {tagKey} -> tagKey) (\s@LFTagPair' {} a -> s {tagKey = a} :: LFTagPair)
 

@@ -51,18 +51,24 @@ data CustomRoutingAccelerator = CustomRoutingAccelerator'
     -- | The date and time that the accelerator was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Domain Name System (DNS) name that Global Accelerator creates that
-    -- points to your accelerator\'s static IP addresses.
+    -- points to an accelerator\'s static IPv4 addresses.
     --
     -- The naming convention for the DNS name is the following: A lowercase
     -- letter a, followed by a 16-bit random hex string, followed by
     -- .awsglobalaccelerator.com. For example:
     -- a1234567890abcdef.awsglobalaccelerator.com.
     --
+    -- If you have a dual-stack accelerator, you also have a second DNS name,
+    -- DualStackDnsName, that points to both the A record and the AAAA record
+    -- for all four static addresses for the accelerator (two IPv4 addresses
+    -- and two IPv6 addresses).
+    --
     -- For more information about the default DNS name, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
     dnsName :: Prelude.Maybe Prelude.Text,
-    -- | The value for the address type must be IPv4.
+    -- | The IP address type that an accelerator supports. For a custom routing
+    -- accelerator, the value must be IPV4.
     ipAddressType :: Prelude.Maybe IpAddressType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,18 +102,24 @@ data CustomRoutingAccelerator = CustomRoutingAccelerator'
 -- 'lastModifiedTime', 'customRoutingAccelerator_lastModifiedTime' - The date and time that the accelerator was last modified.
 --
 -- 'dnsName', 'customRoutingAccelerator_dnsName' - The Domain Name System (DNS) name that Global Accelerator creates that
--- points to your accelerator\'s static IP addresses.
+-- points to an accelerator\'s static IPv4 addresses.
 --
 -- The naming convention for the DNS name is the following: A lowercase
 -- letter a, followed by a 16-bit random hex string, followed by
 -- .awsglobalaccelerator.com. For example:
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
--- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- If you have a dual-stack accelerator, you also have a second DNS name,
+-- DualStackDnsName, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator (two IPv4 addresses
+-- and two IPv6 addresses).
 --
--- 'ipAddressType', 'customRoutingAccelerator_ipAddressType' - The value for the address type must be IPv4.
+-- For more information about the default DNS name, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+--
+-- 'ipAddressType', 'customRoutingAccelerator_ipAddressType' - The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 newCustomRoutingAccelerator ::
   CustomRoutingAccelerator
 newCustomRoutingAccelerator =
@@ -158,20 +170,26 @@ customRoutingAccelerator_lastModifiedTime :: Lens.Lens' CustomRoutingAccelerator
 customRoutingAccelerator_lastModifiedTime = Lens.lens (\CustomRoutingAccelerator' {lastModifiedTime} -> lastModifiedTime) (\s@CustomRoutingAccelerator' {} a -> s {lastModifiedTime = a} :: CustomRoutingAccelerator) Prelude.. Lens.mapping Core._Time
 
 -- | The Domain Name System (DNS) name that Global Accelerator creates that
--- points to your accelerator\'s static IP addresses.
+-- points to an accelerator\'s static IPv4 addresses.
 --
 -- The naming convention for the DNS name is the following: A lowercase
 -- letter a, followed by a 16-bit random hex string, followed by
 -- .awsglobalaccelerator.com. For example:
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
+-- If you have a dual-stack accelerator, you also have a second DNS name,
+-- DualStackDnsName, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator (two IPv4 addresses
+-- and two IPv6 addresses).
+--
 -- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 customRoutingAccelerator_dnsName :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe Prelude.Text)
 customRoutingAccelerator_dnsName = Lens.lens (\CustomRoutingAccelerator' {dnsName} -> dnsName) (\s@CustomRoutingAccelerator' {} a -> s {dnsName = a} :: CustomRoutingAccelerator)
 
--- | The value for the address type must be IPv4.
+-- | The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 customRoutingAccelerator_ipAddressType :: Lens.Lens' CustomRoutingAccelerator (Prelude.Maybe IpAddressType)
 customRoutingAccelerator_ipAddressType = Lens.lens (\CustomRoutingAccelerator' {ipAddressType} -> ipAddressType) (\s@CustomRoutingAccelerator' {} a -> s {ipAddressType = a} :: CustomRoutingAccelerator)
 

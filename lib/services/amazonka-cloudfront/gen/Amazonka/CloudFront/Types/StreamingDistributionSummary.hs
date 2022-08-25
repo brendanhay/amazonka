@@ -36,7 +36,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     -- | The ARN (Amazon Resource Name) for the streaming distribution. For
     -- example:
     -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
-    -- where @123456789012@ is your account ID.
+    -- where @123456789012@ is your Amazon Web Services account ID.
     arn :: Prelude.Text,
     -- | Indicates the current status of the distribution. When the status is
     -- @Deployed@, the distribution\'s information is fully propagated
@@ -53,17 +53,17 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     -- | A complex type that contains information about CNAMEs (alternate domain
     -- names), if any, for this streaming distribution.
     aliases :: Aliases,
-    -- | A complex type that specifies the accounts, if any, that you want to
-    -- allow to create signed URLs for private content. If you want to require
-    -- signed URLs in requests for objects in the target origin that match the
-    -- @PathPattern@ for this cache behavior, specify @true@ for @Enabled@, and
-    -- specify the applicable values for @Quantity@ and @Items@.If you don\'t
-    -- want to require signed URLs in requests for objects that match
-    -- @PathPattern@, specify @false@ for @Enabled@ and @0@ for @Quantity@.
-    -- Omit @Items@. To add, change, or remove one or more trusted signers,
-    -- change @Enabled@ to @true@ (if it\'s currently @false@), change
-    -- @Quantity@ as applicable, and specify all of the trusted signers that
-    -- you want to include in the updated distribution.
+    -- | A complex type that specifies the Amazon Web Services accounts, if any,
+    -- that you want to allow to create signed URLs for private content. If you
+    -- want to require signed URLs in requests for objects in the target origin
+    -- that match the @PathPattern@ for this cache behavior, specify @true@ for
+    -- @Enabled@, and specify the applicable values for @Quantity@ and
+    -- @Items@.If you don\'t want to require signed URLs in requests for
+    -- objects that match @PathPattern@, specify @false@ for @Enabled@ and @0@
+    -- for @Quantity@. Omit @Items@. To add, change, or remove one or more
+    -- trusted signers, change @Enabled@ to @true@ (if it\'s currently
+    -- @false@), change @Quantity@ as applicable, and specify all of the
+    -- trusted signers that you want to include in the updated distribution.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
@@ -93,7 +93,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- 'arn', 'streamingDistributionSummary_arn' - The ARN (Amazon Resource Name) for the streaming distribution. For
 -- example:
 -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
--- where @123456789012@ is your account ID.
+-- where @123456789012@ is your Amazon Web Services account ID.
 --
 -- 'status', 'streamingDistributionSummary_status' - Indicates the current status of the distribution. When the status is
 -- @Deployed@, the distribution\'s information is fully propagated
@@ -110,17 +110,17 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- 'aliases', 'streamingDistributionSummary_aliases' - A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
 --
--- 'trustedSigners', 'streamingDistributionSummary_trustedSigners' - A complex type that specifies the accounts, if any, that you want to
--- allow to create signed URLs for private content. If you want to require
--- signed URLs in requests for objects in the target origin that match the
--- @PathPattern@ for this cache behavior, specify @true@ for @Enabled@, and
--- specify the applicable values for @Quantity@ and @Items@.If you don\'t
--- want to require signed URLs in requests for objects that match
--- @PathPattern@, specify @false@ for @Enabled@ and @0@ for @Quantity@.
--- Omit @Items@. To add, change, or remove one or more trusted signers,
--- change @Enabled@ to @true@ (if it\'s currently @false@), change
--- @Quantity@ as applicable, and specify all of the trusted signers that
--- you want to include in the updated distribution.
+-- 'trustedSigners', 'streamingDistributionSummary_trustedSigners' - A complex type that specifies the Amazon Web Services accounts, if any,
+-- that you want to allow to create signed URLs for private content. If you
+-- want to require signed URLs in requests for objects in the target origin
+-- that match the @PathPattern@ for this cache behavior, specify @true@ for
+-- @Enabled@, and specify the applicable values for @Quantity@ and
+-- @Items@.If you don\'t want to require signed URLs in requests for
+-- objects that match @PathPattern@, specify @false@ for @Enabled@ and @0@
+-- for @Quantity@. Omit @Items@. To add, change, or remove one or more
+-- trusted signers, change @Enabled@ to @true@ (if it\'s currently
+-- @false@), change @Quantity@ as applicable, and specify all of the
+-- trusted signers that you want to include in the updated distribution.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
@@ -191,7 +191,7 @@ streamingDistributionSummary_id = Lens.lens (\StreamingDistributionSummary' {id}
 -- | The ARN (Amazon Resource Name) for the streaming distribution. For
 -- example:
 -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
--- where @123456789012@ is your account ID.
+-- where @123456789012@ is your Amazon Web Services account ID.
 streamingDistributionSummary_arn :: Lens.Lens' StreamingDistributionSummary Prelude.Text
 streamingDistributionSummary_arn = Lens.lens (\StreamingDistributionSummary' {arn} -> arn) (\s@StreamingDistributionSummary' {} a -> s {arn = a} :: StreamingDistributionSummary)
 
@@ -220,17 +220,17 @@ streamingDistributionSummary_s3Origin = Lens.lens (\StreamingDistributionSummary
 streamingDistributionSummary_aliases :: Lens.Lens' StreamingDistributionSummary Aliases
 streamingDistributionSummary_aliases = Lens.lens (\StreamingDistributionSummary' {aliases} -> aliases) (\s@StreamingDistributionSummary' {} a -> s {aliases = a} :: StreamingDistributionSummary)
 
--- | A complex type that specifies the accounts, if any, that you want to
--- allow to create signed URLs for private content. If you want to require
--- signed URLs in requests for objects in the target origin that match the
--- @PathPattern@ for this cache behavior, specify @true@ for @Enabled@, and
--- specify the applicable values for @Quantity@ and @Items@.If you don\'t
--- want to require signed URLs in requests for objects that match
--- @PathPattern@, specify @false@ for @Enabled@ and @0@ for @Quantity@.
--- Omit @Items@. To add, change, or remove one or more trusted signers,
--- change @Enabled@ to @true@ (if it\'s currently @false@), change
--- @Quantity@ as applicable, and specify all of the trusted signers that
--- you want to include in the updated distribution.
+-- | A complex type that specifies the Amazon Web Services accounts, if any,
+-- that you want to allow to create signed URLs for private content. If you
+-- want to require signed URLs in requests for objects in the target origin
+-- that match the @PathPattern@ for this cache behavior, specify @true@ for
+-- @Enabled@, and specify the applicable values for @Quantity@ and
+-- @Items@.If you don\'t want to require signed URLs in requests for
+-- objects that match @PathPattern@, specify @false@ for @Enabled@ and @0@
+-- for @Quantity@. Omit @Items@. To add, change, or remove one or more
+-- trusted signers, change @Enabled@ to @true@ (if it\'s currently
+-- @false@), change @Quantity@ as applicable, and specify all of the
+-- trusted signers that you want to include in the updated distribution.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>

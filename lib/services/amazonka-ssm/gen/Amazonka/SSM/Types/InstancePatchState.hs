@@ -25,31 +25,31 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchOperationType
 import Amazonka.SSM.Types.RebootOption
 
--- | Defines the high-level patch compliance state for a managed instance,
+-- | Defines the high-level patch compliance state for a managed node,
 -- providing information about the number of installed, missing, not
 -- applicable, and failed patches along with metadata about the operation
--- when this information was gathered for the instance.
+-- when this information was gathered for the managed node.
 --
 -- /See:/ 'newInstancePatchState' smart constructor.
 data InstancePatchState = InstancePatchState'
   { -- | The number of patches not specified in the patch baseline that are
-    -- installed on the instance.
+    -- installed on the managed node.
     installedOtherCount :: Prelude.Maybe Prelude.Int,
     -- | Indicates the reboot option specified in the patch baseline.
     --
     -- Reboot options apply to @Install@ operations only. Reboots aren\'t
     -- attempted for Patch Manager @Scan@ operations.
     --
-    -- -   @RebootIfNeeded@: Patch Manager tries to reboot the instance if it
-    --     installed any patches, or if any patches are detected with a status
-    --     of @InstalledPendingReboot@.
+    -- -   @RebootIfNeeded@: Patch Manager tries to reboot the managed node if
+    --     it installed any patches, or if any patches are detected with a
+    --     status of @InstalledPendingReboot@.
     --
     -- -   @NoReboot@: Patch Manager attempts to install missing packages
     --     without trying to reboot the system. Patches installed with this
     --     option are assigned a status of @InstalledPendingReboot@. These
     --     patches might not be in effect until a reboot is performed.
     rebootOption :: Prelude.Maybe RebootOption,
-    -- | The time of the last attempt to patch the instance with @NoReboot@
+    -- | The time of the last attempt to patch the managed node with @NoReboot@
     -- specified as the reboot option.
     lastNoRebootInstallOperationTime :: Prelude.Maybe Core.POSIX,
     -- | The number of patches beyond the supported limit of @NotApplicableCount@
@@ -60,13 +60,13 @@ data InstancePatchState = InstancePatchState'
     -- installed during the last patching operation, but failed to install.
     failedCount :: Prelude.Maybe Prelude.Int,
     -- | The number of patches from the patch baseline that are installed on the
-    -- instance.
+    -- managed node.
     installedCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the patch baseline snapshot used during the patching operation
     -- when this compliance data was collected.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The number of patches installed on an instance that are specified in a
-    -- @RejectedPatches@ list. Patches with a status of @InstalledRejected@
+    -- | The number of patches installed on a managed node that are specified in
+    -- a @RejectedPatches@ list. Patches with a status of @InstalledRejected@
     -- were typically installed before they were added to a @RejectedPatches@
     -- list.
     --
@@ -85,10 +85,10 @@ data InstancePatchState = InstancePatchState'
     -- SSM document in the /Amazon Web Services Systems Manager User Guide/.
     installOverrideList :: Prelude.Maybe Prelude.Text,
     -- | The number of patches installed by Patch Manager since the last time the
-    -- instance was rebooted.
+    -- managed node was rebooted.
     installedPendingRebootCount :: Prelude.Maybe Prelude.Int,
     -- | The number of patches from the patch baseline that aren\'t applicable
-    -- for the instance and therefore aren\'t installed on the instance. This
+    -- for the managed node and therefore aren\'t installed on the node. This
     -- number may be truncated if the list of patch names is very large. The
     -- number of patches beyond this limit are reported in
     -- @UnreportedNotApplicableCount@.
@@ -97,34 +97,36 @@ data InstancePatchState = InstancePatchState'
     -- release of the service.
     ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The number of patches from the patch baseline that are applicable for
-    -- the instance but aren\'t currently installed.
+    -- the managed node but aren\'t currently installed.
     missingCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances with patches installed that are specified as
+    -- | The number of managed nodes with patches installed that are specified as
     -- other than @Critical@ or @Security@ but aren\'t compliant with the patch
-    -- baseline. The status of these instances is @NON_COMPLIANT@.
+    -- baseline. The status of these managed nodes is @NON_COMPLIANT@.
     otherNonCompliantCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances where patches that are specified as @Security@
-    -- in a patch advisory aren\'t installed. These patches might be missing,
-    -- have failed installation, were rejected, or were installed but awaiting
-    -- a required instance reboot. The status of these instances is
-    -- @NON_COMPLIANT@.
+    -- | The number of managed nodes where patches that are specified as
+    -- @Security@ in a patch advisory aren\'t installed. These patches might be
+    -- missing, have failed installation, were rejected, or were installed but
+    -- awaiting a required managed node reboot. The status of these managed
+    -- nodes is @NON_COMPLIANT@.
     securityNonCompliantCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances where patches that are specified as @Critical@
-    -- for compliance reporting in the patch baseline aren\'t installed. These
-    -- patches might be missing, have failed installation, were rejected, or
-    -- were installed but awaiting a required instance reboot. The status of
-    -- these instances is @NON_COMPLIANT@.
+    -- | The number of managed nodes where patches that are specified as
+    -- @Critical@ for compliance reporting in the patch baseline aren\'t
+    -- installed. These patches might be missing, have failed installation,
+    -- were rejected, or were installed but awaiting a required managed node
+    -- reboot. The status of these managed nodes is @NON_COMPLIANT@.
     criticalNonCompliantCount :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the managed instance the high-level patch compliance
-    -- information was collected for.
+    -- | The ID of the managed node the high-level patch compliance information
+    -- was collected for.
     instanceId :: Prelude.Text,
-    -- | The name of the patch group the managed instance belongs to.
+    -- | The name of the patch group the managed node belongs to.
     patchGroup :: Prelude.Text,
-    -- | The ID of the patch baseline used to patch the instance.
+    -- | The ID of the patch baseline used to patch the managed node.
     baselineId :: Prelude.Text,
-    -- | The time the most recent patching operation was started on the instance.
+    -- | The time the most recent patching operation was started on the managed
+    -- node.
     operationStartTime :: Core.POSIX,
-    -- | The time the most recent patching operation completed on the instance.
+    -- | The time the most recent patching operation completed on the managed
+    -- node.
     operationEndTime :: Core.POSIX,
     -- | The type of patching operation that was performed: or
     --
@@ -144,23 +146,23 @@ data InstancePatchState = InstancePatchState'
 -- for backwards compatibility:
 --
 -- 'installedOtherCount', 'instancePatchState_installedOtherCount' - The number of patches not specified in the patch baseline that are
--- installed on the instance.
+-- installed on the managed node.
 --
 -- 'rebootOption', 'instancePatchState_rebootOption' - Indicates the reboot option specified in the patch baseline.
 --
 -- Reboot options apply to @Install@ operations only. Reboots aren\'t
 -- attempted for Patch Manager @Scan@ operations.
 --
--- -   @RebootIfNeeded@: Patch Manager tries to reboot the instance if it
---     installed any patches, or if any patches are detected with a status
---     of @InstalledPendingReboot@.
+-- -   @RebootIfNeeded@: Patch Manager tries to reboot the managed node if
+--     it installed any patches, or if any patches are detected with a
+--     status of @InstalledPendingReboot@.
 --
 -- -   @NoReboot@: Patch Manager attempts to install missing packages
 --     without trying to reboot the system. Patches installed with this
 --     option are assigned a status of @InstalledPendingReboot@. These
 --     patches might not be in effect until a reboot is performed.
 --
--- 'lastNoRebootInstallOperationTime', 'instancePatchState_lastNoRebootInstallOperationTime' - The time of the last attempt to patch the instance with @NoReboot@
+-- 'lastNoRebootInstallOperationTime', 'instancePatchState_lastNoRebootInstallOperationTime' - The time of the last attempt to patch the managed node with @NoReboot@
 -- specified as the reboot option.
 --
 -- 'unreportedNotApplicableCount', 'instancePatchState_unreportedNotApplicableCount' - The number of patches beyond the supported limit of @NotApplicableCount@
@@ -171,13 +173,13 @@ data InstancePatchState = InstancePatchState'
 -- installed during the last patching operation, but failed to install.
 --
 -- 'installedCount', 'instancePatchState_installedCount' - The number of patches from the patch baseline that are installed on the
--- instance.
+-- managed node.
 --
 -- 'snapshotId', 'instancePatchState_snapshotId' - The ID of the patch baseline snapshot used during the patching operation
 -- when this compliance data was collected.
 --
--- 'installedRejectedCount', 'instancePatchState_installedRejectedCount' - The number of patches installed on an instance that are specified in a
--- @RejectedPatches@ list. Patches with a status of @InstalledRejected@
+-- 'installedRejectedCount', 'instancePatchState_installedRejectedCount' - The number of patches installed on a managed node that are specified in
+-- a @RejectedPatches@ list. Patches with a status of @InstalledRejected@
 -- were typically installed before they were added to a @RejectedPatches@
 -- list.
 --
@@ -196,10 +198,10 @@ data InstancePatchState = InstancePatchState'
 -- SSM document in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'installedPendingRebootCount', 'instancePatchState_installedPendingRebootCount' - The number of patches installed by Patch Manager since the last time the
--- instance was rebooted.
+-- managed node was rebooted.
 --
 -- 'notApplicableCount', 'instancePatchState_notApplicableCount' - The number of patches from the patch baseline that aren\'t applicable
--- for the instance and therefore aren\'t installed on the instance. This
+-- for the managed node and therefore aren\'t installed on the node. This
 -- number may be truncated if the list of patch names is very large. The
 -- number of patches beyond this limit are reported in
 -- @UnreportedNotApplicableCount@.
@@ -208,34 +210,36 @@ data InstancePatchState = InstancePatchState'
 -- release of the service.
 --
 -- 'missingCount', 'instancePatchState_missingCount' - The number of patches from the patch baseline that are applicable for
--- the instance but aren\'t currently installed.
+-- the managed node but aren\'t currently installed.
 --
--- 'otherNonCompliantCount', 'instancePatchState_otherNonCompliantCount' - The number of instances with patches installed that are specified as
+-- 'otherNonCompliantCount', 'instancePatchState_otherNonCompliantCount' - The number of managed nodes with patches installed that are specified as
 -- other than @Critical@ or @Security@ but aren\'t compliant with the patch
--- baseline. The status of these instances is @NON_COMPLIANT@.
+-- baseline. The status of these managed nodes is @NON_COMPLIANT@.
 --
--- 'securityNonCompliantCount', 'instancePatchState_securityNonCompliantCount' - The number of instances where patches that are specified as @Security@
--- in a patch advisory aren\'t installed. These patches might be missing,
--- have failed installation, were rejected, or were installed but awaiting
--- a required instance reboot. The status of these instances is
--- @NON_COMPLIANT@.
+-- 'securityNonCompliantCount', 'instancePatchState_securityNonCompliantCount' - The number of managed nodes where patches that are specified as
+-- @Security@ in a patch advisory aren\'t installed. These patches might be
+-- missing, have failed installation, were rejected, or were installed but
+-- awaiting a required managed node reboot. The status of these managed
+-- nodes is @NON_COMPLIANT@.
 --
--- 'criticalNonCompliantCount', 'instancePatchState_criticalNonCompliantCount' - The number of instances where patches that are specified as @Critical@
--- for compliance reporting in the patch baseline aren\'t installed. These
--- patches might be missing, have failed installation, were rejected, or
--- were installed but awaiting a required instance reboot. The status of
--- these instances is @NON_COMPLIANT@.
+-- 'criticalNonCompliantCount', 'instancePatchState_criticalNonCompliantCount' - The number of managed nodes where patches that are specified as
+-- @Critical@ for compliance reporting in the patch baseline aren\'t
+-- installed. These patches might be missing, have failed installation,
+-- were rejected, or were installed but awaiting a required managed node
+-- reboot. The status of these managed nodes is @NON_COMPLIANT@.
 --
--- 'instanceId', 'instancePatchState_instanceId' - The ID of the managed instance the high-level patch compliance
--- information was collected for.
+-- 'instanceId', 'instancePatchState_instanceId' - The ID of the managed node the high-level patch compliance information
+-- was collected for.
 --
--- 'patchGroup', 'instancePatchState_patchGroup' - The name of the patch group the managed instance belongs to.
+-- 'patchGroup', 'instancePatchState_patchGroup' - The name of the patch group the managed node belongs to.
 --
--- 'baselineId', 'instancePatchState_baselineId' - The ID of the patch baseline used to patch the instance.
+-- 'baselineId', 'instancePatchState_baselineId' - The ID of the patch baseline used to patch the managed node.
 --
--- 'operationStartTime', 'instancePatchState_operationStartTime' - The time the most recent patching operation was started on the instance.
+-- 'operationStartTime', 'instancePatchState_operationStartTime' - The time the most recent patching operation was started on the managed
+-- node.
 --
--- 'operationEndTime', 'instancePatchState_operationEndTime' - The time the most recent patching operation completed on the instance.
+-- 'operationEndTime', 'instancePatchState_operationEndTime' - The time the most recent patching operation completed on the managed
+-- node.
 --
 -- 'operation', 'instancePatchState_operation' - The type of patching operation that was performed: or
 --
@@ -292,7 +296,7 @@ newInstancePatchState
       }
 
 -- | The number of patches not specified in the patch baseline that are
--- installed on the instance.
+-- installed on the managed node.
 instancePatchState_installedOtherCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedOtherCount = Lens.lens (\InstancePatchState' {installedOtherCount} -> installedOtherCount) (\s@InstancePatchState' {} a -> s {installedOtherCount = a} :: InstancePatchState)
 
@@ -301,9 +305,9 @@ instancePatchState_installedOtherCount = Lens.lens (\InstancePatchState' {instal
 -- Reboot options apply to @Install@ operations only. Reboots aren\'t
 -- attempted for Patch Manager @Scan@ operations.
 --
--- -   @RebootIfNeeded@: Patch Manager tries to reboot the instance if it
---     installed any patches, or if any patches are detected with a status
---     of @InstalledPendingReboot@.
+-- -   @RebootIfNeeded@: Patch Manager tries to reboot the managed node if
+--     it installed any patches, or if any patches are detected with a
+--     status of @InstalledPendingReboot@.
 --
 -- -   @NoReboot@: Patch Manager attempts to install missing packages
 --     without trying to reboot the system. Patches installed with this
@@ -312,7 +316,7 @@ instancePatchState_installedOtherCount = Lens.lens (\InstancePatchState' {instal
 instancePatchState_rebootOption :: Lens.Lens' InstancePatchState (Prelude.Maybe RebootOption)
 instancePatchState_rebootOption = Lens.lens (\InstancePatchState' {rebootOption} -> rebootOption) (\s@InstancePatchState' {} a -> s {rebootOption = a} :: InstancePatchState)
 
--- | The time of the last attempt to patch the instance with @NoReboot@
+-- | The time of the last attempt to patch the managed node with @NoReboot@
 -- specified as the reboot option.
 instancePatchState_lastNoRebootInstallOperationTime :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.UTCTime)
 instancePatchState_lastNoRebootInstallOperationTime = Lens.lens (\InstancePatchState' {lastNoRebootInstallOperationTime} -> lastNoRebootInstallOperationTime) (\s@InstancePatchState' {} a -> s {lastNoRebootInstallOperationTime = a} :: InstancePatchState) Prelude.. Lens.mapping Core._Time
@@ -329,7 +333,7 @@ instancePatchState_failedCount :: Lens.Lens' InstancePatchState (Prelude.Maybe P
 instancePatchState_failedCount = Lens.lens (\InstancePatchState' {failedCount} -> failedCount) (\s@InstancePatchState' {} a -> s {failedCount = a} :: InstancePatchState)
 
 -- | The number of patches from the patch baseline that are installed on the
--- instance.
+-- managed node.
 instancePatchState_installedCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedCount = Lens.lens (\InstancePatchState' {installedCount} -> installedCount) (\s@InstancePatchState' {} a -> s {installedCount = a} :: InstancePatchState)
 
@@ -338,8 +342,8 @@ instancePatchState_installedCount = Lens.lens (\InstancePatchState' {installedCo
 instancePatchState_snapshotId :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Text)
 instancePatchState_snapshotId = Lens.lens (\InstancePatchState' {snapshotId} -> snapshotId) (\s@InstancePatchState' {} a -> s {snapshotId = a} :: InstancePatchState)
 
--- | The number of patches installed on an instance that are specified in a
--- @RejectedPatches@ list. Patches with a status of @InstalledRejected@
+-- | The number of patches installed on a managed node that are specified in
+-- a @RejectedPatches@ list. Patches with a status of @InstalledRejected@
 -- were typically installed before they were added to a @RejectedPatches@
 -- list.
 --
@@ -362,12 +366,12 @@ instancePatchState_installOverrideList :: Lens.Lens' InstancePatchState (Prelude
 instancePatchState_installOverrideList = Lens.lens (\InstancePatchState' {installOverrideList} -> installOverrideList) (\s@InstancePatchState' {} a -> s {installOverrideList = a} :: InstancePatchState)
 
 -- | The number of patches installed by Patch Manager since the last time the
--- instance was rebooted.
+-- managed node was rebooted.
 instancePatchState_installedPendingRebootCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedPendingRebootCount = Lens.lens (\InstancePatchState' {installedPendingRebootCount} -> installedPendingRebootCount) (\s@InstancePatchState' {} a -> s {installedPendingRebootCount = a} :: InstancePatchState)
 
 -- | The number of patches from the patch baseline that aren\'t applicable
--- for the instance and therefore aren\'t installed on the instance. This
+-- for the managed node and therefore aren\'t installed on the node. This
 -- number may be truncated if the list of patch names is very large. The
 -- number of patches beyond this limit are reported in
 -- @UnreportedNotApplicableCount@.
@@ -380,50 +384,52 @@ instancePatchState_ownerInformation :: Lens.Lens' InstancePatchState (Prelude.Ma
 instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInformation} -> ownerInformation) (\s@InstancePatchState' {} a -> s {ownerInformation = a} :: InstancePatchState) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The number of patches from the patch baseline that are applicable for
--- the instance but aren\'t currently installed.
+-- the managed node but aren\'t currently installed.
 instancePatchState_missingCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_missingCount = Lens.lens (\InstancePatchState' {missingCount} -> missingCount) (\s@InstancePatchState' {} a -> s {missingCount = a} :: InstancePatchState)
 
--- | The number of instances with patches installed that are specified as
+-- | The number of managed nodes with patches installed that are specified as
 -- other than @Critical@ or @Security@ but aren\'t compliant with the patch
--- baseline. The status of these instances is @NON_COMPLIANT@.
+-- baseline. The status of these managed nodes is @NON_COMPLIANT@.
 instancePatchState_otherNonCompliantCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_otherNonCompliantCount = Lens.lens (\InstancePatchState' {otherNonCompliantCount} -> otherNonCompliantCount) (\s@InstancePatchState' {} a -> s {otherNonCompliantCount = a} :: InstancePatchState)
 
--- | The number of instances where patches that are specified as @Security@
--- in a patch advisory aren\'t installed. These patches might be missing,
--- have failed installation, were rejected, or were installed but awaiting
--- a required instance reboot. The status of these instances is
--- @NON_COMPLIANT@.
+-- | The number of managed nodes where patches that are specified as
+-- @Security@ in a patch advisory aren\'t installed. These patches might be
+-- missing, have failed installation, were rejected, or were installed but
+-- awaiting a required managed node reboot. The status of these managed
+-- nodes is @NON_COMPLIANT@.
 instancePatchState_securityNonCompliantCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_securityNonCompliantCount = Lens.lens (\InstancePatchState' {securityNonCompliantCount} -> securityNonCompliantCount) (\s@InstancePatchState' {} a -> s {securityNonCompliantCount = a} :: InstancePatchState)
 
--- | The number of instances where patches that are specified as @Critical@
--- for compliance reporting in the patch baseline aren\'t installed. These
--- patches might be missing, have failed installation, were rejected, or
--- were installed but awaiting a required instance reboot. The status of
--- these instances is @NON_COMPLIANT@.
+-- | The number of managed nodes where patches that are specified as
+-- @Critical@ for compliance reporting in the patch baseline aren\'t
+-- installed. These patches might be missing, have failed installation,
+-- were rejected, or were installed but awaiting a required managed node
+-- reboot. The status of these managed nodes is @NON_COMPLIANT@.
 instancePatchState_criticalNonCompliantCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_criticalNonCompliantCount = Lens.lens (\InstancePatchState' {criticalNonCompliantCount} -> criticalNonCompliantCount) (\s@InstancePatchState' {} a -> s {criticalNonCompliantCount = a} :: InstancePatchState)
 
--- | The ID of the managed instance the high-level patch compliance
--- information was collected for.
+-- | The ID of the managed node the high-level patch compliance information
+-- was collected for.
 instancePatchState_instanceId :: Lens.Lens' InstancePatchState Prelude.Text
 instancePatchState_instanceId = Lens.lens (\InstancePatchState' {instanceId} -> instanceId) (\s@InstancePatchState' {} a -> s {instanceId = a} :: InstancePatchState)
 
--- | The name of the patch group the managed instance belongs to.
+-- | The name of the patch group the managed node belongs to.
 instancePatchState_patchGroup :: Lens.Lens' InstancePatchState Prelude.Text
 instancePatchState_patchGroup = Lens.lens (\InstancePatchState' {patchGroup} -> patchGroup) (\s@InstancePatchState' {} a -> s {patchGroup = a} :: InstancePatchState)
 
--- | The ID of the patch baseline used to patch the instance.
+-- | The ID of the patch baseline used to patch the managed node.
 instancePatchState_baselineId :: Lens.Lens' InstancePatchState Prelude.Text
 instancePatchState_baselineId = Lens.lens (\InstancePatchState' {baselineId} -> baselineId) (\s@InstancePatchState' {} a -> s {baselineId = a} :: InstancePatchState)
 
--- | The time the most recent patching operation was started on the instance.
+-- | The time the most recent patching operation was started on the managed
+-- node.
 instancePatchState_operationStartTime :: Lens.Lens' InstancePatchState Prelude.UTCTime
 instancePatchState_operationStartTime = Lens.lens (\InstancePatchState' {operationStartTime} -> operationStartTime) (\s@InstancePatchState' {} a -> s {operationStartTime = a} :: InstancePatchState) Prelude.. Core._Time
 
--- | The time the most recent patching operation completed on the instance.
+-- | The time the most recent patching operation completed on the managed
+-- node.
 instancePatchState_operationEndTime :: Lens.Lens' InstancePatchState Prelude.UTCTime
 instancePatchState_operationEndTime = Lens.lens (\InstancePatchState' {operationEndTime} -> operationEndTime) (\s@InstancePatchState' {} a -> s {operationEndTime = a} :: InstancePatchState) Prelude.. Core._Time
 

@@ -20,8 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists medical transcription jobs with a specified status or substring
--- that matches their names.
+-- Provides a list of medical transcription jobs that match the specified
+-- criteria. If no criteria are specified, all medical transcription jobs
+-- are returned.
+--
+-- To get detailed information about a specific medical transcription job,
+-- use the operation.
 module Amazonka.Transcribe.ListMedicalTranscriptionJobs
   ( -- * Creating a Request
     ListMedicalTranscriptionJobs (..),
@@ -54,22 +58,23 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListMedicalTranscriptionJobs' smart constructor.
 data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
-  { -- | If you a receive a truncated result in the previous request of
-    -- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
-    -- set of jobs.
+  { -- | If your @ListMedicalTranscriptionJobs@ request returns more results than
+    -- can be displayed, @NextToken@ is displayed in the response with an
+    -- associated string. To get the next page of results, copy this string and
+    -- repeat your request, including @NextToken@ with the value of the copied
+    -- string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | When specified, returns only medical transcription jobs with the
-    -- specified status. Jobs are ordered by creation date, with the newest
-    -- jobs returned first. If you don\'t specify a status, Amazon Transcribe
-    -- Medical returns all transcription jobs ordered by creation date.
+    -- | Returns only medical transcription jobs with the specified status. Jobs
+    -- are ordered by creation date, with the newest job first. If you don\'t
+    -- include @Status@, all medical transcription jobs are returned.
     status :: Prelude.Maybe TranscriptionJobStatus,
     -- | The maximum number of medical transcription jobs to return in each page
     -- of results. If there are fewer results than the value you specify, only
-    -- the actual results are returned. If you do not specify a value, the
+    -- the actual results are returned. If you don\'t specify a value, a
     -- default of 5 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | When specified, the jobs returned in the list are limited to jobs whose
-    -- name contains the specified string.
+    -- | Returns only the medical transcription jobs that contain the specified
+    -- string. The search is not case sensitive.
     jobNameContains :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,22 +87,23 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMedicalTranscriptionJobs_nextToken' - If you a receive a truncated result in the previous request of
--- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
--- set of jobs.
+-- 'nextToken', 'listMedicalTranscriptionJobs_nextToken' - If your @ListMedicalTranscriptionJobs@ request returns more results than
+-- can be displayed, @NextToken@ is displayed in the response with an
+-- associated string. To get the next page of results, copy this string and
+-- repeat your request, including @NextToken@ with the value of the copied
+-- string. Repeat as needed to view all your results.
 --
--- 'status', 'listMedicalTranscriptionJobs_status' - When specified, returns only medical transcription jobs with the
--- specified status. Jobs are ordered by creation date, with the newest
--- jobs returned first. If you don\'t specify a status, Amazon Transcribe
--- Medical returns all transcription jobs ordered by creation date.
+-- 'status', 'listMedicalTranscriptionJobs_status' - Returns only medical transcription jobs with the specified status. Jobs
+-- are ordered by creation date, with the newest job first. If you don\'t
+-- include @Status@, all medical transcription jobs are returned.
 --
 -- 'maxResults', 'listMedicalTranscriptionJobs_maxResults' - The maximum number of medical transcription jobs to return in each page
 -- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you do not specify a value, the
+-- the actual results are returned. If you don\'t specify a value, a
 -- default of 5 is used.
 --
--- 'jobNameContains', 'listMedicalTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
+-- 'jobNameContains', 'listMedicalTranscriptionJobs_jobNameContains' - Returns only the medical transcription jobs that contain the specified
+-- string. The search is not case sensitive.
 newListMedicalTranscriptionJobs ::
   ListMedicalTranscriptionJobs
 newListMedicalTranscriptionJobs =
@@ -109,28 +115,29 @@ newListMedicalTranscriptionJobs =
       jobNameContains = Prelude.Nothing
     }
 
--- | If you a receive a truncated result in the previous request of
--- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
--- set of jobs.
+-- | If your @ListMedicalTranscriptionJobs@ request returns more results than
+-- can be displayed, @NextToken@ is displayed in the response with an
+-- associated string. To get the next page of results, copy this string and
+-- repeat your request, including @NextToken@ with the value of the copied
+-- string. Repeat as needed to view all your results.
 listMedicalTranscriptionJobs_nextToken :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
 listMedicalTranscriptionJobs_nextToken = Lens.lens (\ListMedicalTranscriptionJobs' {nextToken} -> nextToken) (\s@ListMedicalTranscriptionJobs' {} a -> s {nextToken = a} :: ListMedicalTranscriptionJobs)
 
--- | When specified, returns only medical transcription jobs with the
--- specified status. Jobs are ordered by creation date, with the newest
--- jobs returned first. If you don\'t specify a status, Amazon Transcribe
--- Medical returns all transcription jobs ordered by creation date.
+-- | Returns only medical transcription jobs with the specified status. Jobs
+-- are ordered by creation date, with the newest job first. If you don\'t
+-- include @Status@, all medical transcription jobs are returned.
 listMedicalTranscriptionJobs_status :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe TranscriptionJobStatus)
 listMedicalTranscriptionJobs_status = Lens.lens (\ListMedicalTranscriptionJobs' {status} -> status) (\s@ListMedicalTranscriptionJobs' {} a -> s {status = a} :: ListMedicalTranscriptionJobs)
 
 -- | The maximum number of medical transcription jobs to return in each page
 -- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you do not specify a value, the
+-- the actual results are returned. If you don\'t specify a value, a
 -- default of 5 is used.
 listMedicalTranscriptionJobs_maxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Natural)
 listMedicalTranscriptionJobs_maxResults = Lens.lens (\ListMedicalTranscriptionJobs' {maxResults} -> maxResults) (\s@ListMedicalTranscriptionJobs' {} a -> s {maxResults = a} :: ListMedicalTranscriptionJobs)
 
--- | When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
+-- | Returns only the medical transcription jobs that contain the specified
+-- string. The search is not case sensitive.
 listMedicalTranscriptionJobs_jobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
 listMedicalTranscriptionJobs_jobNameContains = Lens.lens (\ListMedicalTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListMedicalTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListMedicalTranscriptionJobs)
 
@@ -203,17 +210,17 @@ instance Core.ToQuery ListMedicalTranscriptionJobs where
 
 -- | /See:/ 'newListMedicalTranscriptionJobsResponse' smart constructor.
 data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse'
-  { -- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a
-    -- time. The maximum size of the page is set by the @MaxResults@ parameter.
-    -- If the number of jobs exceeds what can fit on a page, Amazon Transcribe
-    -- Medical returns the @NextPage@ token. Include the token in the next
-    -- request to the @ListMedicalTranscriptionJobs@ operation to return in the
-    -- next page of jobs.
+  { -- | If @NextToken@ is present in your response, it indicates that not all
+    -- results are displayed. To view the next set of results, copy the string
+    -- associated with the @NextToken@ parameter in your results output, then
+    -- run your request again including @NextToken@ with the value of the
+    -- copied string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects containing summary information for a transcription
-    -- job.
+    -- | Provides a summary of information about each result.
     medicalTranscriptionJobSummaries :: Prelude.Maybe [MedicalTranscriptionJobSummary],
-    -- | The requested status of the medical transcription jobs returned.
+    -- | Lists all medical transcription jobs that have the status specified in
+    -- your request. Jobs are ordered by creation date, with the newest job
+    -- first.
     status :: Prelude.Maybe TranscriptionJobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -228,17 +235,17 @@ data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMedicalTranscriptionJobsResponse_nextToken' - The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a
--- time. The maximum size of the page is set by the @MaxResults@ parameter.
--- If the number of jobs exceeds what can fit on a page, Amazon Transcribe
--- Medical returns the @NextPage@ token. Include the token in the next
--- request to the @ListMedicalTranscriptionJobs@ operation to return in the
--- next page of jobs.
+-- 'nextToken', 'listMedicalTranscriptionJobsResponse_nextToken' - If @NextToken@ is present in your response, it indicates that not all
+-- results are displayed. To view the next set of results, copy the string
+-- associated with the @NextToken@ parameter in your results output, then
+-- run your request again including @NextToken@ with the value of the
+-- copied string. Repeat as needed to view all your results.
 --
--- 'medicalTranscriptionJobSummaries', 'listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries' - A list of objects containing summary information for a transcription
--- job.
+-- 'medicalTranscriptionJobSummaries', 'listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries' - Provides a summary of information about each result.
 --
--- 'status', 'listMedicalTranscriptionJobsResponse_status' - The requested status of the medical transcription jobs returned.
+-- 'status', 'listMedicalTranscriptionJobsResponse_status' - Lists all medical transcription jobs that have the status specified in
+-- your request. Jobs are ordered by creation date, with the newest job
+-- first.
 --
 -- 'httpStatus', 'listMedicalTranscriptionJobsResponse_httpStatus' - The response's http status code.
 newListMedicalTranscriptionJobsResponse ::
@@ -255,21 +262,21 @@ newListMedicalTranscriptionJobsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a
--- time. The maximum size of the page is set by the @MaxResults@ parameter.
--- If the number of jobs exceeds what can fit on a page, Amazon Transcribe
--- Medical returns the @NextPage@ token. Include the token in the next
--- request to the @ListMedicalTranscriptionJobs@ operation to return in the
--- next page of jobs.
+-- | If @NextToken@ is present in your response, it indicates that not all
+-- results are displayed. To view the next set of results, copy the string
+-- associated with the @NextToken@ parameter in your results output, then
+-- run your request again including @NextToken@ with the value of the
+-- copied string. Repeat as needed to view all your results.
 listMedicalTranscriptionJobsResponse_nextToken :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe Prelude.Text)
 listMedicalTranscriptionJobsResponse_nextToken = Lens.lens (\ListMedicalTranscriptionJobsResponse' {nextToken} -> nextToken) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {nextToken = a} :: ListMedicalTranscriptionJobsResponse)
 
--- | A list of objects containing summary information for a transcription
--- job.
+-- | Provides a summary of information about each result.
 listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe [MedicalTranscriptionJobSummary])
 listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries = Lens.lens (\ListMedicalTranscriptionJobsResponse' {medicalTranscriptionJobSummaries} -> medicalTranscriptionJobSummaries) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {medicalTranscriptionJobSummaries = a} :: ListMedicalTranscriptionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The requested status of the medical transcription jobs returned.
+-- | Lists all medical transcription jobs that have the status specified in
+-- your request. Jobs are ordered by creation date, with the newest job
+-- first.
 listMedicalTranscriptionJobsResponse_status :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe TranscriptionJobStatus)
 listMedicalTranscriptionJobsResponse_status = Lens.lens (\ListMedicalTranscriptionJobsResponse' {status} -> status) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {status = a} :: ListMedicalTranscriptionJobsResponse)
 

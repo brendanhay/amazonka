@@ -69,7 +69,7 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The value by which you want to sort the data.
+    -- | The value that you want to sort the data by.
     --
     -- The following values are supported for @Key@:
     --
@@ -87,7 +87,7 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
     --
     -- -   @AmortizedUpfrontCommitment@
     --
-    -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+    -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
     sortBy :: Prelude.Maybe SortDefinition,
     -- | Filters Savings Plans utilization coverage data for active Savings Plans
     -- dimensions. You can filter data with the following dimensions:
@@ -132,7 +132,7 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
--- 'sortBy', 'getSavingsPlansUtilizationDetails_sortBy' - The value by which you want to sort the data.
+-- 'sortBy', 'getSavingsPlansUtilizationDetails_sortBy' - The value that you want to sort the data by.
 --
 -- The following values are supported for @Key@:
 --
@@ -150,7 +150,7 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
 --
 -- -   @AmortizedUpfrontCommitment@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 --
 -- 'filter'', 'getSavingsPlansUtilizationDetails_filter' - Filters Savings Plans utilization coverage data for active Savings Plans
 -- dimensions. You can filter data with the following dimensions:
@@ -200,7 +200,7 @@ newGetSavingsPlansUtilizationDetails pTimePeriod_ =
 getSavingsPlansUtilizationDetails_nextToken :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Prelude.Text)
 getSavingsPlansUtilizationDetails_nextToken = Lens.lens (\GetSavingsPlansUtilizationDetails' {nextToken} -> nextToken) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {nextToken = a} :: GetSavingsPlansUtilizationDetails)
 
--- | The value by which you want to sort the data.
+-- | The value that you want to sort the data by.
 --
 -- The following values are supported for @Key@:
 --
@@ -218,7 +218,7 @@ getSavingsPlansUtilizationDetails_nextToken = Lens.lens (\GetSavingsPlansUtiliza
 --
 -- -   @AmortizedUpfrontCommitment@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 getSavingsPlansUtilizationDetails_sortBy :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe SortDefinition)
 getSavingsPlansUtilizationDetails_sortBy = Lens.lens (\GetSavingsPlansUtilizationDetails' {sortBy} -> sortBy) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {sortBy = a} :: GetSavingsPlansUtilizationDetails)
 

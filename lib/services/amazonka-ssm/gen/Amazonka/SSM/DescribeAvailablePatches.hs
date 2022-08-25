@@ -60,7 +60,7 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
     --
     -- __Windows Server__
     --
-    -- Supported keys for Windows Server instance patches include the
+    -- Supported keys for Windows Server managed node patches include the
     -- following:
     --
     -- -   __@PATCH_SET@__
@@ -101,7 +101,7 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
     --
     -- @aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615@
     --
-    -- Supported keys for Linux instance patches include the following:
+    -- Supported keys for Linux managed node patches include the following:
     --
     -- -   __@PRODUCT@__
     --
@@ -167,7 +167,7 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 --
 -- __Windows Server__
 --
--- Supported keys for Windows Server instance patches include the
+-- Supported keys for Windows Server managed node patches include the
 -- following:
 --
 -- -   __@PATCH_SET@__
@@ -208,7 +208,7 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 --
 -- @aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615@
 --
--- Supported keys for Linux instance patches include the following:
+-- Supported keys for Linux managed node patches include the following:
 --
 -- -   __@PRODUCT@__
 --
@@ -274,7 +274,7 @@ describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {next
 --
 -- __Windows Server__
 --
--- Supported keys for Windows Server instance patches include the
+-- Supported keys for Windows Server managed node patches include the
 -- following:
 --
 -- -   __@PATCH_SET@__
@@ -315,7 +315,7 @@ describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {next
 --
 -- @aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615@
 --
--- Supported keys for Linux instance patches include the following:
+-- Supported keys for Linux managed node patches include the following:
 --
 -- -   __@PRODUCT@__
 --

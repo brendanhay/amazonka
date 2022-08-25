@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves all tags that are assigned to a GameLift resource. Resource
--- tags are used to organize AWS resources for a range of purposes. This
--- operation handles the permissions necessary to manage tags for the
--- following GameLift resource types:
+-- tags are used to organize Amazon Web Services resources for a range of
+-- purposes. This operation handles the permissions necessary to manage
+-- tags for the following GameLift resource types:
 --
 -- -   Build
 --
@@ -44,10 +44,10 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/
 --
--- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>
+-- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Amazon Web Services Tagging Strategies>
 --
 -- __Related actions__
 --

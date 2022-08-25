@@ -164,6 +164,7 @@ module Amazonka.CertificateManagerPCA.Lens
     aSN1Subject_pseudonym,
     aSN1Subject_surname,
     aSN1Subject_title,
+    aSN1Subject_customAttributes,
     aSN1Subject_locality,
     aSN1Subject_organization,
     aSN1Subject_serialNumber,
@@ -216,6 +217,15 @@ module Amazonka.CertificateManagerPCA.Lens
     csrExtensions_subjectInformationAccess,
     csrExtensions_keyUsage,
 
+    -- ** CustomAttribute
+    customAttribute_objectIdentifier,
+    customAttribute_value,
+
+    -- ** CustomExtension
+    customExtension_critical,
+    customExtension_objectIdentifier,
+    customExtension_value,
+
     -- ** EdiPartyName
     ediPartyName_nameAssigner,
     ediPartyName_partyName,
@@ -228,6 +238,7 @@ module Amazonka.CertificateManagerPCA.Lens
     extensions_extendedKeyUsage,
     extensions_keyUsage,
     extensions_certificatePolicies,
+    extensions_customExtensions,
     extensions_subjectAlternativeNames,
 
     -- ** GeneralName
@@ -321,6 +332,8 @@ import Amazonka.CertificateManagerPCA.Types.CertificateAuthority
 import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
 import Amazonka.CertificateManagerPCA.Types.CrlConfiguration
 import Amazonka.CertificateManagerPCA.Types.CsrExtensions
+import Amazonka.CertificateManagerPCA.Types.CustomAttribute
+import Amazonka.CertificateManagerPCA.Types.CustomExtension
 import Amazonka.CertificateManagerPCA.Types.EdiPartyName
 import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
 import Amazonka.CertificateManagerPCA.Types.Extensions

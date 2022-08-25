@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing Authorizer resource.
---
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Amazonka.APIGateway.UpdateAuthorizer
   ( -- * Creating a Request
     UpdateAuthorizer (..),
@@ -62,12 +60,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Authorizer resource.
+    -- | The identifier of the Authorizer resource.
     authorizerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,12 +78,12 @@ data UpdateAuthorizer = UpdateAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateAuthorizer_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateAuthorizer_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateAuthorizer_restApiId' - The string identifier of the associated RestApi.
 --
--- 'authorizerId', 'updateAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
+-- 'authorizerId', 'updateAuthorizer_authorizerId' - The identifier of the Authorizer resource.
 newUpdateAuthorizer ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -100,16 +98,16 @@ newUpdateAuthorizer pRestApiId_ pAuthorizerId_ =
       authorizerId = pAuthorizerId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateAuthorizer_patchOperations :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe [PatchOperation])
 updateAuthorizer_patchOperations = Lens.lens (\UpdateAuthorizer' {patchOperations} -> patchOperations) (\s@UpdateAuthorizer' {} a -> s {patchOperations = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateAuthorizer_restApiId :: Lens.Lens' UpdateAuthorizer Prelude.Text
 updateAuthorizer_restApiId = Lens.lens (\UpdateAuthorizer' {restApiId} -> restApiId) (\s@UpdateAuthorizer' {} a -> s {restApiId = a} :: UpdateAuthorizer)
 
--- | [Required] The identifier of the Authorizer resource.
+-- | The identifier of the Authorizer resource.
 updateAuthorizer_authorizerId :: Lens.Lens' UpdateAuthorizer Prelude.Text
 updateAuthorizer_authorizerId = Lens.lens (\UpdateAuthorizer' {authorizerId} -> authorizerId) (\s@UpdateAuthorizer' {} a -> s {authorizerId = a} :: UpdateAuthorizer)
 

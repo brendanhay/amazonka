@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionCacheBehavior
 
--- | Provides information about caching for the distribution.
+-- | Provides information about caching for the CloudFront distribution.
 --
 -- /See:/ 'newAwsCloudFrontDistributionCacheBehaviors' smart constructor.
 data AwsCloudFrontDistributionCacheBehaviors = AwsCloudFrontDistributionCacheBehaviors'

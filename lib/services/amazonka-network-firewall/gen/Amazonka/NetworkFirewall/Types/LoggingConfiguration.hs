@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.NetworkFirewall.Types.LogDestinationConfig
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines how AWS Network Firewall performs logging for a Firewall.
+-- | Defines how Network Firewall performs logging for a Firewall.
 --
 -- /See:/ 'newLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'

@@ -76,7 +76,7 @@ data CreateUsagePlan = CreateUsagePlan'
     throttle :: Prelude.Maybe ThrottleSettings,
     -- | The associated API stages of the usage plan.
     apiStages :: Prelude.Maybe [ApiStage],
-    -- | [Required] The name of the usage plan.
+    -- | The name of the usage plan.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,7 +101,7 @@ data CreateUsagePlan = CreateUsagePlan'
 --
 -- 'apiStages', 'createUsagePlan_apiStages' - The associated API stages of the usage plan.
 --
--- 'name', 'createUsagePlan_name' - [Required] The name of the usage plan.
+-- 'name', 'createUsagePlan_name' - The name of the usage plan.
 newCreateUsagePlan ::
   -- | 'name'
   Prelude.Text ->
@@ -138,7 +138,7 @@ createUsagePlan_throttle = Lens.lens (\CreateUsagePlan' {throttle} -> throttle) 
 createUsagePlan_apiStages :: Lens.Lens' CreateUsagePlan (Prelude.Maybe [ApiStage])
 createUsagePlan_apiStages = Lens.lens (\CreateUsagePlan' {apiStages} -> apiStages) (\s@CreateUsagePlan' {} a -> s {apiStages = a} :: CreateUsagePlan) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The name of the usage plan.
+-- | The name of the usage plan.
 createUsagePlan_name :: Lens.Lens' CreateUsagePlan Prelude.Text
 createUsagePlan_name = Lens.lens (\CreateUsagePlan' {name} -> name) (\s@CreateUsagePlan' {} a -> s {name = a} :: CreateUsagePlan)
 

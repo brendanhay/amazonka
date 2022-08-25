@@ -25,7 +25,7 @@
 -- events like wedding, graduation, and birthday party; and concepts like
 -- landscape, evening, and nature.
 --
--- For an example, see Analyzing Images Stored in an Amazon S3 Bucket in
+-- For an example, see Analyzing images stored in an Amazon S3 bucket in
 -- the Amazon Rekognition Developer Guide.
 --
 -- @DetectLabels@ does not support the detection of activities. However,

@@ -39,12 +39,15 @@ module Amazonka.EC2.DescribeImageAttribute
     -- * Response Lenses
     describeImageAttributeResponse_sriovNetSupport,
     describeImageAttributeResponse_blockDeviceMappings,
+    describeImageAttributeResponse_lastLaunchedTime,
     describeImageAttributeResponse_productCodes,
     describeImageAttributeResponse_description,
+    describeImageAttributeResponse_tpmSupport,
     describeImageAttributeResponse_ramdiskId,
     describeImageAttributeResponse_launchPermissions,
     describeImageAttributeResponse_bootMode,
     describeImageAttributeResponse_kernelId,
+    describeImageAttributeResponse_uefiData,
     describeImageAttributeResponse_imageId,
     describeImageAttributeResponse_httpStatus,
   )
@@ -146,10 +149,12 @@ instance Core.AWSRequest DescribeImageAttribute where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "lastLaunchedTime")
             Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
             Prelude.<*> (x Core..@? "description")
+            Prelude.<*> (x Core..@? "tpmSupport")
             Prelude.<*> (x Core..@? "ramdisk")
             Prelude.<*> ( x Core..@? "launchPermission"
                             Core..!@ Prelude.mempty
@@ -157,6 +162,7 @@ instance Core.AWSRequest DescribeImageAttribute where
                         )
             Prelude.<*> (x Core..@? "bootMode")
             Prelude.<*> (x Core..@? "kernel")
+            Prelude.<*> (x Core..@? "uefiData")
             Prelude.<*> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -200,17 +206,36 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     sriovNetSupport :: Prelude.Maybe AttributeValue,
     -- | The block device mapping entries.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the AMI
+    -- was last used to launch an EC2 instance. When the AMI is used to launch
+    -- an instance, there is a 24-hour delay before that usage is reported.
+    --
+    -- @lastLaunchedTime@ data is available starting April 2017.
+    lastLaunchedTime :: Prelude.Maybe AttributeValue,
     -- | The product codes.
     productCodes :: Prelude.Maybe [ProductCode],
     -- | A description for the AMI.
     description :: Prelude.Maybe AttributeValue,
+    -- | If the image is configured for NitroTPM support, the value is @v2.0@.
+    tpmSupport :: Prelude.Maybe AttributeValue,
     -- | The RAM disk ID.
     ramdiskId :: Prelude.Maybe AttributeValue,
     -- | The launch permissions.
     launchPermissions :: Prelude.Maybe [LaunchPermission],
+    -- | The boot mode.
     bootMode :: Prelude.Maybe AttributeValue,
     -- | The kernel ID.
     kernelId :: Prelude.Maybe AttributeValue,
+    -- | Base64 representation of the non-volatile UEFI variable store. To
+    -- retrieve the UEFI data, use the
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData GetInstanceUefiData>
+    -- command. You can inspect and modify the UEFI data by using the
+    -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
+    -- GitHub. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    uefiData :: Prelude.Maybe AttributeValue,
     -- | The ID of the AMI.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -231,17 +256,35 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- 'blockDeviceMappings', 'describeImageAttributeResponse_blockDeviceMappings' - The block device mapping entries.
 --
+-- 'lastLaunchedTime', 'describeImageAttributeResponse_lastLaunchedTime' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the AMI
+-- was last used to launch an EC2 instance. When the AMI is used to launch
+-- an instance, there is a 24-hour delay before that usage is reported.
+--
+-- @lastLaunchedTime@ data is available starting April 2017.
+--
 -- 'productCodes', 'describeImageAttributeResponse_productCodes' - The product codes.
 --
 -- 'description', 'describeImageAttributeResponse_description' - A description for the AMI.
+--
+-- 'tpmSupport', 'describeImageAttributeResponse_tpmSupport' - If the image is configured for NitroTPM support, the value is @v2.0@.
 --
 -- 'ramdiskId', 'describeImageAttributeResponse_ramdiskId' - The RAM disk ID.
 --
 -- 'launchPermissions', 'describeImageAttributeResponse_launchPermissions' - The launch permissions.
 --
--- 'bootMode', 'describeImageAttributeResponse_bootMode' - Undocumented member.
+-- 'bootMode', 'describeImageAttributeResponse_bootMode' - The boot mode.
 --
 -- 'kernelId', 'describeImageAttributeResponse_kernelId' - The kernel ID.
+--
+-- 'uefiData', 'describeImageAttributeResponse_uefiData' - Base64 representation of the non-volatile UEFI variable store. To
+-- retrieve the UEFI data, use the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData GetInstanceUefiData>
+-- command. You can inspect and modify the UEFI data by using the
+-- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
+-- GitHub. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'imageId', 'describeImageAttributeResponse_imageId' - The ID of the AMI.
 --
@@ -255,12 +298,15 @@ newDescribeImageAttributeResponse pHttpStatus_ =
     { sriovNetSupport =
         Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
+      lastLaunchedTime = Prelude.Nothing,
       productCodes = Prelude.Nothing,
       description = Prelude.Nothing,
+      tpmSupport = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
       launchPermissions = Prelude.Nothing,
       bootMode = Prelude.Nothing,
       kernelId = Prelude.Nothing,
+      uefiData = Prelude.Nothing,
       imageId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -274,6 +320,15 @@ describeImageAttributeResponse_sriovNetSupport = Lens.lens (\DescribeImageAttrib
 describeImageAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [BlockDeviceMapping])
 describeImageAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeImageAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeImageAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the AMI
+-- was last used to launch an EC2 instance. When the AMI is used to launch
+-- an instance, there is a 24-hour delay before that usage is reported.
+--
+-- @lastLaunchedTime@ data is available starting April 2017.
+describeImageAttributeResponse_lastLaunchedTime :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_lastLaunchedTime = Lens.lens (\DescribeImageAttributeResponse' {lastLaunchedTime} -> lastLaunchedTime) (\s@DescribeImageAttributeResponse' {} a -> s {lastLaunchedTime = a} :: DescribeImageAttributeResponse)
+
 -- | The product codes.
 describeImageAttributeResponse_productCodes :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [ProductCode])
 describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttributeResponse' {productCodes} -> productCodes) (\s@DescribeImageAttributeResponse' {} a -> s {productCodes = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens.coerced
@@ -281,6 +336,10 @@ describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttribute
 -- | A description for the AMI.
 describeImageAttributeResponse_description :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_description = Lens.lens (\DescribeImageAttributeResponse' {description} -> description) (\s@DescribeImageAttributeResponse' {} a -> s {description = a} :: DescribeImageAttributeResponse)
+
+-- | If the image is configured for NitroTPM support, the value is @v2.0@.
+describeImageAttributeResponse_tpmSupport :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_tpmSupport = Lens.lens (\DescribeImageAttributeResponse' {tpmSupport} -> tpmSupport) (\s@DescribeImageAttributeResponse' {} a -> s {tpmSupport = a} :: DescribeImageAttributeResponse)
 
 -- | The RAM disk ID.
 describeImageAttributeResponse_ramdiskId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
@@ -290,13 +349,24 @@ describeImageAttributeResponse_ramdiskId = Lens.lens (\DescribeImageAttributeRes
 describeImageAttributeResponse_launchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [LaunchPermission])
 describeImageAttributeResponse_launchPermissions = Lens.lens (\DescribeImageAttributeResponse' {launchPermissions} -> launchPermissions) (\s@DescribeImageAttributeResponse' {} a -> s {launchPermissions = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The boot mode.
 describeImageAttributeResponse_bootMode :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_bootMode = Lens.lens (\DescribeImageAttributeResponse' {bootMode} -> bootMode) (\s@DescribeImageAttributeResponse' {} a -> s {bootMode = a} :: DescribeImageAttributeResponse)
 
 -- | The kernel ID.
 describeImageAttributeResponse_kernelId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_kernelId = Lens.lens (\DescribeImageAttributeResponse' {kernelId} -> kernelId) (\s@DescribeImageAttributeResponse' {} a -> s {kernelId = a} :: DescribeImageAttributeResponse)
+
+-- | Base64 representation of the non-volatile UEFI variable store. To
+-- retrieve the UEFI data, use the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData GetInstanceUefiData>
+-- command. You can inspect and modify the UEFI data by using the
+-- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
+-- GitHub. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+describeImageAttributeResponse_uefiData :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_uefiData = Lens.lens (\DescribeImageAttributeResponse' {uefiData} -> uefiData) (\s@DescribeImageAttributeResponse' {} a -> s {uefiData = a} :: DescribeImageAttributeResponse)
 
 -- | The ID of the AMI.
 describeImageAttributeResponse_imageId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe Prelude.Text)
@@ -313,11 +383,14 @@ instance
   rnf DescribeImageAttributeResponse' {..} =
     Prelude.rnf sriovNetSupport
       `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf lastLaunchedTime
       `Prelude.seq` Prelude.rnf productCodes
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tpmSupport
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf launchPermissions
       `Prelude.seq` Prelude.rnf bootMode
       `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf uefiData
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf httpStatus

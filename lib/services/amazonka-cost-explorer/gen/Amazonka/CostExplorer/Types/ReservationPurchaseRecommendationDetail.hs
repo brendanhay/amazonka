@@ -40,7 +40,7 @@ data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendation
     -- recommended reservation purchases.
     averageNumberOfInstancesUsedPerHour :: Prelude.Maybe Prelude.Text,
     -- | How much Amazon Web Services estimates that this specific recommendation
-    -- could save you in a month.
+    -- might save you in a month.
     estimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
     -- | The minimum number of instances that you used in an hour during the
     -- historical period. Amazon Web Services uses this to calculate your
@@ -65,13 +65,13 @@ data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendation
     -- | The currency code that Amazon Web Services used to calculate the costs
     -- for this instance.
     currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | The account that this RI recommendation is for.
+    -- | The account that this Reserved Instance (RI) recommendation is for.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of normalized units that you used in an hour during
     -- the historical period. Amazon Web Services uses this to calculate your
     -- recommended reservation purchases.
     maximumNormalizedUnitsUsedPerHour :: Prelude.Maybe Prelude.Text,
-    -- | How much Amazon Web Services estimates that you would have spent for all
+    -- | How much Amazon Web Services estimates that you might spend for all
     -- usage during the specified historical period if you had a reservation.
     estimatedReservationCostForLookbackPeriod :: Prelude.Maybe Prelude.Text,
     -- | The average number of normalized units that you used in an hour during
@@ -86,7 +86,7 @@ data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendation
     -- recommended reservation purchases.
     minimumNormalizedUnitsUsedPerHour :: Prelude.Maybe Prelude.Text,
     -- | How much Amazon Web Services estimates that this specific recommendation
-    -- could save you in a month, as a percentage of your overall costs.
+    -- might save you in a month, as a percentage of your overall costs.
     estimatedMonthlySavingsPercentage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,7 +111,7 @@ data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendation
 -- recommended reservation purchases.
 --
 -- 'estimatedMonthlySavingsAmount', 'reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount' - How much Amazon Web Services estimates that this specific recommendation
--- could save you in a month.
+-- might save you in a month.
 --
 -- 'minimumNumberOfInstancesUsedPerHour', 'reservationPurchaseRecommendationDetail_minimumNumberOfInstancesUsedPerHour' - The minimum number of instances that you used in an hour during the
 -- historical period. Amazon Web Services uses this to calculate your
@@ -136,13 +136,13 @@ data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendation
 -- 'currencyCode', 'reservationPurchaseRecommendationDetail_currencyCode' - The currency code that Amazon Web Services used to calculate the costs
 -- for this instance.
 --
--- 'accountId', 'reservationPurchaseRecommendationDetail_accountId' - The account that this RI recommendation is for.
+-- 'accountId', 'reservationPurchaseRecommendationDetail_accountId' - The account that this Reserved Instance (RI) recommendation is for.
 --
 -- 'maximumNormalizedUnitsUsedPerHour', 'reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour' - The maximum number of normalized units that you used in an hour during
 -- the historical period. Amazon Web Services uses this to calculate your
 -- recommended reservation purchases.
 --
--- 'estimatedReservationCostForLookbackPeriod', 'reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod' - How much Amazon Web Services estimates that you would have spent for all
+-- 'estimatedReservationCostForLookbackPeriod', 'reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod' - How much Amazon Web Services estimates that you might spend for all
 -- usage during the specified historical period if you had a reservation.
 --
 -- 'averageNormalizedUnitsUsedPerHour', 'reservationPurchaseRecommendationDetail_averageNormalizedUnitsUsedPerHour' - The average number of normalized units that you used in an hour during
@@ -157,7 +157,7 @@ data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendation
 -- recommended reservation purchases.
 --
 -- 'estimatedMonthlySavingsPercentage', 'reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage' - How much Amazon Web Services estimates that this specific recommendation
--- could save you in a month, as a percentage of your overall costs.
+-- might save you in a month, as a percentage of your overall costs.
 newReservationPurchaseRecommendationDetail ::
   ReservationPurchaseRecommendationDetail
 newReservationPurchaseRecommendationDetail =
@@ -216,7 +216,7 @@ reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour :: L
 reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour = Lens.lens (\ReservationPurchaseRecommendationDetail' {averageNumberOfInstancesUsedPerHour} -> averageNumberOfInstancesUsedPerHour) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {averageNumberOfInstancesUsedPerHour = a} :: ReservationPurchaseRecommendationDetail)
 
 -- | How much Amazon Web Services estimates that this specific recommendation
--- could save you in a month.
+-- might save you in a month.
 reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount :: Lens.Lens' ReservationPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount = Lens.lens (\ReservationPurchaseRecommendationDetail' {estimatedMonthlySavingsAmount} -> estimatedMonthlySavingsAmount) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {estimatedMonthlySavingsAmount = a} :: ReservationPurchaseRecommendationDetail)
 
@@ -259,7 +259,7 @@ reservationPurchaseRecommendationDetail_estimatedBreakEvenInMonths = Lens.lens (
 reservationPurchaseRecommendationDetail_currencyCode :: Lens.Lens' ReservationPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationDetail_currencyCode = Lens.lens (\ReservationPurchaseRecommendationDetail' {currencyCode} -> currencyCode) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {currencyCode = a} :: ReservationPurchaseRecommendationDetail)
 
--- | The account that this RI recommendation is for.
+-- | The account that this Reserved Instance (RI) recommendation is for.
 reservationPurchaseRecommendationDetail_accountId :: Lens.Lens' ReservationPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationDetail_accountId = Lens.lens (\ReservationPurchaseRecommendationDetail' {accountId} -> accountId) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {accountId = a} :: ReservationPurchaseRecommendationDetail)
 
@@ -269,7 +269,7 @@ reservationPurchaseRecommendationDetail_accountId = Lens.lens (\ReservationPurch
 reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour :: Lens.Lens' ReservationPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour = Lens.lens (\ReservationPurchaseRecommendationDetail' {maximumNormalizedUnitsUsedPerHour} -> maximumNormalizedUnitsUsedPerHour) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {maximumNormalizedUnitsUsedPerHour = a} :: ReservationPurchaseRecommendationDetail)
 
--- | How much Amazon Web Services estimates that you would have spent for all
+-- | How much Amazon Web Services estimates that you might spend for all
 -- usage during the specified historical period if you had a reservation.
 reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod :: Lens.Lens' ReservationPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod = Lens.lens (\ReservationPurchaseRecommendationDetail' {estimatedReservationCostForLookbackPeriod} -> estimatedReservationCostForLookbackPeriod) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {estimatedReservationCostForLookbackPeriod = a} :: ReservationPurchaseRecommendationDetail)
@@ -292,7 +292,7 @@ reservationPurchaseRecommendationDetail_minimumNormalizedUnitsUsedPerHour :: Len
 reservationPurchaseRecommendationDetail_minimumNormalizedUnitsUsedPerHour = Lens.lens (\ReservationPurchaseRecommendationDetail' {minimumNormalizedUnitsUsedPerHour} -> minimumNormalizedUnitsUsedPerHour) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {minimumNormalizedUnitsUsedPerHour = a} :: ReservationPurchaseRecommendationDetail)
 
 -- | How much Amazon Web Services estimates that this specific recommendation
--- could save you in a month, as a percentage of your overall costs.
+-- might save you in a month, as a percentage of your overall costs.
 reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage :: Lens.Lens' ReservationPurchaseRecommendationDetail (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage = Lens.lens (\ReservationPurchaseRecommendationDetail' {estimatedMonthlySavingsPercentage} -> estimatedMonthlySavingsPercentage) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {estimatedMonthlySavingsPercentage = a} :: ReservationPurchaseRecommendationDetail)
 

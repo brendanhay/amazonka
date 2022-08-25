@@ -57,7 +57,7 @@ data ComprehendMedicalAsyncJobProperties = ComprehendMedicalAsyncJobProperties'
     -- number looks like X.X.X. You can use this information to track the model
     -- used for a particular batch of documents.
     modelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read
+    -- | The Amazon Resource Name (ARN) that gives Comprehend Medical; read
     -- access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the detection job completed.
@@ -106,7 +106,7 @@ data ComprehendMedicalAsyncJobProperties = ComprehendMedicalAsyncJobProperties'
 -- number looks like X.X.X. You can use this information to track the model
 -- used for a particular batch of documents.
 --
--- 'dataAccessRoleArn', 'comprehendMedicalAsyncJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read
+-- 'dataAccessRoleArn', 'comprehendMedicalAsyncJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Comprehend Medical; read
 -- access to your input data.
 --
 -- 'endTime', 'comprehendMedicalAsyncJobProperties_endTime' - The time that the detection job completed.
@@ -182,7 +182,7 @@ comprehendMedicalAsyncJobProperties_jobId = Lens.lens (\ComprehendMedicalAsyncJo
 comprehendMedicalAsyncJobProperties_modelVersion :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe Prelude.Text)
 comprehendMedicalAsyncJobProperties_modelVersion = Lens.lens (\ComprehendMedicalAsyncJobProperties' {modelVersion} -> modelVersion) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {modelVersion = a} :: ComprehendMedicalAsyncJobProperties)
 
--- | The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read
+-- | The Amazon Resource Name (ARN) that gives Comprehend Medical; read
 -- access to your input data.
 comprehendMedicalAsyncJobProperties_dataAccessRoleArn :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe Prelude.Text)
 comprehendMedicalAsyncJobProperties_dataAccessRoleArn = Lens.lens (\ComprehendMedicalAsyncJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {dataAccessRoleArn = a} :: ComprehendMedicalAsyncJobProperties)

@@ -30,7 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpnConnectionOptionsSpecification' smart constructor.
 data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
-  { -- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
+  { -- | The type of IPv4 address assigned to the outside interface of the
+    -- customer gateway device.
+    --
+    -- Valid values: @PrivateIpv4@ | @PublicIpv4@
+    --
+    -- Default: @PublicIpv4@
+    outsideIpAddressType :: Prelude.Maybe Prelude.Text,
+    -- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
     --
     -- Default: @::\/0@
     remoteIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
@@ -56,6 +63,10 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
     --
     -- Default: @ipv4@
     tunnelInsideIpVersion :: Prelude.Maybe TunnelInsideIpVersion,
+    -- | The transit gateway attachment ID to use for the VPN tunnel.
+    --
+    -- Required if @OutsideIpAddressType@ is set to @PrivateIpv4@.
+    transportTransitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | Indicate whether to enable acceleration for the VPN connection.
     --
     -- Default: @false@
@@ -75,6 +86,13 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'outsideIpAddressType', 'vpnConnectionOptionsSpecification_outsideIpAddressType' - The type of IPv4 address assigned to the outside interface of the
+-- customer gateway device.
+--
+-- Valid values: @PrivateIpv4@ | @PublicIpv4@
+--
+-- Default: @PublicIpv4@
 --
 -- 'remoteIpv6NetworkCidr', 'vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr' - The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 --
@@ -102,6 +120,10 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
 --
 -- Default: @ipv4@
 --
+-- 'transportTransitGatewayAttachmentId', 'vpnConnectionOptionsSpecification_transportTransitGatewayAttachmentId' - The transit gateway attachment ID to use for the VPN tunnel.
+--
+-- Required if @OutsideIpAddressType@ is set to @PrivateIpv4@.
+--
 -- 'enableAcceleration', 'vpnConnectionOptionsSpecification_enableAcceleration' - Indicate whether to enable acceleration for the VPN connection.
 --
 -- Default: @false@
@@ -114,16 +136,28 @@ newVpnConnectionOptionsSpecification ::
   VpnConnectionOptionsSpecification
 newVpnConnectionOptionsSpecification =
   VpnConnectionOptionsSpecification'
-    { remoteIpv6NetworkCidr =
+    { outsideIpAddressType =
         Prelude.Nothing,
+      remoteIpv6NetworkCidr = Prelude.Nothing,
       localIpv4NetworkCidr = Prelude.Nothing,
       tunnelOptions = Prelude.Nothing,
       staticRoutesOnly = Prelude.Nothing,
       remoteIpv4NetworkCidr = Prelude.Nothing,
       tunnelInsideIpVersion = Prelude.Nothing,
+      transportTransitGatewayAttachmentId =
+        Prelude.Nothing,
       enableAcceleration = Prelude.Nothing,
       localIpv6NetworkCidr = Prelude.Nothing
     }
+
+-- | The type of IPv4 address assigned to the outside interface of the
+-- customer gateway device.
+--
+-- Valid values: @PrivateIpv4@ | @PublicIpv4@
+--
+-- Default: @PublicIpv4@
+vpnConnectionOptionsSpecification_outsideIpAddressType :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
+vpnConnectionOptionsSpecification_outsideIpAddressType = Lens.lens (\VpnConnectionOptionsSpecification' {outsideIpAddressType} -> outsideIpAddressType) (\s@VpnConnectionOptionsSpecification' {} a -> s {outsideIpAddressType = a} :: VpnConnectionOptionsSpecification)
 
 -- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 --
@@ -163,6 +197,12 @@ vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr = Lens.lens (\VpnConnect
 vpnConnectionOptionsSpecification_tunnelInsideIpVersion :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe TunnelInsideIpVersion)
 vpnConnectionOptionsSpecification_tunnelInsideIpVersion = Lens.lens (\VpnConnectionOptionsSpecification' {tunnelInsideIpVersion} -> tunnelInsideIpVersion) (\s@VpnConnectionOptionsSpecification' {} a -> s {tunnelInsideIpVersion = a} :: VpnConnectionOptionsSpecification)
 
+-- | The transit gateway attachment ID to use for the VPN tunnel.
+--
+-- Required if @OutsideIpAddressType@ is set to @PrivateIpv4@.
+vpnConnectionOptionsSpecification_transportTransitGatewayAttachmentId :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
+vpnConnectionOptionsSpecification_transportTransitGatewayAttachmentId = Lens.lens (\VpnConnectionOptionsSpecification' {transportTransitGatewayAttachmentId} -> transportTransitGatewayAttachmentId) (\s@VpnConnectionOptionsSpecification' {} a -> s {transportTransitGatewayAttachmentId = a} :: VpnConnectionOptionsSpecification)
+
 -- | Indicate whether to enable acceleration for the VPN connection.
 --
 -- Default: @false@
@@ -183,12 +223,14 @@ instance
   hashWithSalt
     _salt
     VpnConnectionOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` remoteIpv6NetworkCidr
+      _salt `Prelude.hashWithSalt` outsideIpAddressType
+        `Prelude.hashWithSalt` remoteIpv6NetworkCidr
         `Prelude.hashWithSalt` localIpv4NetworkCidr
         `Prelude.hashWithSalt` tunnelOptions
         `Prelude.hashWithSalt` staticRoutesOnly
         `Prelude.hashWithSalt` remoteIpv4NetworkCidr
         `Prelude.hashWithSalt` tunnelInsideIpVersion
+        `Prelude.hashWithSalt` transportTransitGatewayAttachmentId
         `Prelude.hashWithSalt` enableAcceleration
         `Prelude.hashWithSalt` localIpv6NetworkCidr
 
@@ -197,12 +239,14 @@ instance
     VpnConnectionOptionsSpecification
   where
   rnf VpnConnectionOptionsSpecification' {..} =
-    Prelude.rnf remoteIpv6NetworkCidr
+    Prelude.rnf outsideIpAddressType
+      `Prelude.seq` Prelude.rnf remoteIpv6NetworkCidr
       `Prelude.seq` Prelude.rnf localIpv4NetworkCidr
       `Prelude.seq` Prelude.rnf tunnelOptions
       `Prelude.seq` Prelude.rnf staticRoutesOnly
       `Prelude.seq` Prelude.rnf remoteIpv4NetworkCidr
       `Prelude.seq` Prelude.rnf tunnelInsideIpVersion
+      `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
       `Prelude.seq` Prelude.rnf enableAcceleration
       `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
 
@@ -212,7 +256,8 @@ instance
   where
   toQuery VpnConnectionOptionsSpecification' {..} =
     Prelude.mconcat
-      [ "RemoteIpv6NetworkCidr"
+      [ "OutsideIpAddressType" Core.=: outsideIpAddressType,
+        "RemoteIpv6NetworkCidr"
           Core.=: remoteIpv6NetworkCidr,
         "LocalIpv4NetworkCidr" Core.=: localIpv4NetworkCidr,
         Core.toQuery
@@ -224,6 +269,8 @@ instance
           Core.=: remoteIpv4NetworkCidr,
         "TunnelInsideIpVersion"
           Core.=: tunnelInsideIpVersion,
+        "TransportTransitGatewayAttachmentId"
+          Core.=: transportTransitGatewayAttachmentId,
         "EnableAcceleration" Core.=: enableAcceleration,
         "LocalIpv6NetworkCidr" Core.=: localIpv6NetworkCidr
       ]

@@ -23,14 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | (Optional) Custom type consisting of a @Region@ (required) and the
--- @KmsKeyId@ which can be an @ARN@, @Key ID@, or @Alias@.
+-- | A custom type that specifies a @Region@ and the @KmsKeyId@ for a replica
+-- secret.
 --
 -- /See:/ 'newReplicaRegionType' smart constructor.
 data ReplicaRegionType = ReplicaRegionType'
-  { -- | Describes a single instance of Region objects.
+  { -- | A Region code. For a list of Region codes, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints Name and code of Regions>.
     region :: Prelude.Maybe Prelude.Text,
-    -- | Can be an @ARN@, @Key ID@, or @Alias@.
+    -- | The ARN, key ID, or alias of the KMS key to encrypt the secret. If you
+    -- don\'t include this field, Secrets Manager uses @aws\/secretsmanager@.
     kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +45,11 @@ data ReplicaRegionType = ReplicaRegionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'region', 'replicaRegionType_region' - Describes a single instance of Region objects.
+-- 'region', 'replicaRegionType_region' - A Region code. For a list of Region codes, see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints Name and code of Regions>.
 --
--- 'kmsKeyId', 'replicaRegionType_kmsKeyId' - Can be an @ARN@, @Key ID@, or @Alias@.
+-- 'kmsKeyId', 'replicaRegionType_kmsKeyId' - The ARN, key ID, or alias of the KMS key to encrypt the secret. If you
+-- don\'t include this field, Secrets Manager uses @aws\/secretsmanager@.
 newReplicaRegionType ::
   ReplicaRegionType
 newReplicaRegionType =
@@ -54,11 +58,13 @@ newReplicaRegionType =
       kmsKeyId = Prelude.Nothing
     }
 
--- | Describes a single instance of Region objects.
+-- | A Region code. For a list of Region codes, see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints Name and code of Regions>.
 replicaRegionType_region :: Lens.Lens' ReplicaRegionType (Prelude.Maybe Prelude.Text)
 replicaRegionType_region = Lens.lens (\ReplicaRegionType' {region} -> region) (\s@ReplicaRegionType' {} a -> s {region = a} :: ReplicaRegionType)
 
--- | Can be an @ARN@, @Key ID@, or @Alias@.
+-- | The ARN, key ID, or alias of the KMS key to encrypt the secret. If you
+-- don\'t include this field, Secrets Manager uses @aws\/secretsmanager@.
 replicaRegionType_kmsKeyId :: Lens.Lens' ReplicaRegionType (Prelude.Maybe Prelude.Text)
 replicaRegionType_kmsKeyId = Lens.lens (\ReplicaRegionType' {kmsKeyId} -> kmsKeyId) (\s@ReplicaRegionType' {} a -> s {kmsKeyId = a} :: ReplicaRegionType)
 

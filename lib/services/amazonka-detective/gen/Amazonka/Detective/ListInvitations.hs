@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the list of open and accepted behavior graph invitations for
--- the member account. This operation can only be called by a member
--- account.
+-- the member account. This operation can only be called by an invited
+-- member account.
 --
 -- Open invitations are invitations that the member account has not
 -- responded to.

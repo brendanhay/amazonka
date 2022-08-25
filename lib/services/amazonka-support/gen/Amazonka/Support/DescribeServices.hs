@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current list of AWS services and a list of service
--- categories for each service. You then use service names and categories
--- in your CreateCase requests. Each AWS service has its own set of
--- categories.
+-- Returns the current list of Amazon Web Services services and a list of
+-- service categories for each service. You then use service names and
+-- categories in your CreateCase requests. Each Amazon Web Services service
+-- has its own set of categories.
 --
 -- The service codes and category codes correspond to the values that
--- appear in the __Service__ and __Category__ lists on the AWS Support
--- Center
+-- appear in the __Service__ and __Category__ lists on the Amazon Web
+-- Services Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page. The values in those fields don\'t necessarily match the service
 -- codes and categories returned by the @DescribeServices@ operation.
@@ -35,14 +35,14 @@
 -- operation returns, so that you have the most recent set of service and
 -- category codes.
 --
--- -   You must have a Business or Enterprise Support plan to use the AWS
---     Support API.
+-- -   You must have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan to use the Amazon Web Services Support API.
 --
--- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise Support plan, the
---     @SubscriptionRequiredException@ error message appears. For
+-- -   If you call the Amazon Web Services Support API from an account that
+--     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
---     <http://aws.amazon.com/premiumsupport/ AWS Support>.
+--     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
 module Amazonka.Support.DescribeServices
   ( -- * Creating a Request
     DescribeServices (..),
@@ -71,12 +71,13 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { -- | A JSON-formatted list of service codes available for AWS services.
+  { -- | A JSON-formatted list of service codes available for Amazon Web Services
+    -- services.
     serviceCodeList :: Prelude.Maybe [Prelude.Text],
-    -- | The ISO 639-1 code for the language in which AWS provides support. AWS
-    -- Support currently supports English (\"en\") and Japanese (\"ja\").
-    -- Language parameters must be passed explicitly for operations that take
-    -- them.
+    -- | The ISO 639-1 code for the language in which Amazon Web Services
+    -- provides support. Amazon Web Services Support currently supports English
+    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+    -- explicitly for operations that take them.
     language :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,12 +90,13 @@ data DescribeServices = DescribeServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceCodeList', 'describeServices_serviceCodeList' - A JSON-formatted list of service codes available for AWS services.
+-- 'serviceCodeList', 'describeServices_serviceCodeList' - A JSON-formatted list of service codes available for Amazon Web Services
+-- services.
 --
--- 'language', 'describeServices_language' - The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- 'language', 'describeServices_language' - The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 newDescribeServices ::
   DescribeServices
 newDescribeServices =
@@ -104,14 +106,15 @@ newDescribeServices =
       language = Prelude.Nothing
     }
 
--- | A JSON-formatted list of service codes available for AWS services.
+-- | A JSON-formatted list of service codes available for Amazon Web Services
+-- services.
 describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Prelude.Maybe [Prelude.Text])
 describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Prelude.. Lens.mapping Lens.coerced
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 describeServices_language :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_language = Lens.lens (\DescribeServices' {language} -> language) (\s@DescribeServices' {} a -> s {language = a} :: DescribeServices)
 
@@ -169,11 +172,12 @@ instance Core.ToPath DescribeServices where
 instance Core.ToQuery DescribeServices where
   toQuery = Prelude.const Prelude.mempty
 
--- | The list of AWS services returned by the DescribeServices operation.
+-- | The list of Amazon Web Services services returned by the
+-- DescribeServices operation.
 --
 -- /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { -- | A JSON-formatted list of AWS services.
+  { -- | A JSON-formatted list of Amazon Web Services services.
     services :: Prelude.Maybe [SupportService],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,7 +192,7 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'services', 'describeServicesResponse_services' - A JSON-formatted list of AWS services.
+-- 'services', 'describeServicesResponse_services' - A JSON-formatted list of Amazon Web Services services.
 --
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
@@ -202,7 +206,7 @@ newDescribeServicesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A JSON-formatted list of AWS services.
+-- | A JSON-formatted list of Amazon Web Services services.
 describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [SupportService])
 describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens.coerced
 

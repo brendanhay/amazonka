@@ -101,11 +101,7 @@ instance Core.ToHeaders DeregisterResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.DeregisterResource" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -120,7 +116,7 @@ instance Core.ToJSON DeregisterResource where
       )
 
 instance Core.ToPath DeregisterResource where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/DeregisterResource"
 
 instance Core.ToQuery DeregisterResource where
   toQuery = Prelude.const Prelude.mempty

@@ -60,7 +60,7 @@ data GetRequestValidators = GetRequestValidators'
     limit :: Prelude.Maybe Prelude.Int,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetRequestValidators = GetRequestValidators'
 --
 -- 'position', 'getRequestValidators_position' - The current pagination position in the paged result set.
 --
--- 'restApiId', 'getRequestValidators_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getRequestValidators_restApiId' - The string identifier of the associated RestApi.
 newGetRequestValidators ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -99,7 +99,7 @@ getRequestValidators_limit = Lens.lens (\GetRequestValidators' {limit} -> limit)
 getRequestValidators_position :: Lens.Lens' GetRequestValidators (Prelude.Maybe Prelude.Text)
 getRequestValidators_position = Lens.lens (\GetRequestValidators' {position} -> position) (\s@GetRequestValidators' {} a -> s {position = a} :: GetRequestValidators)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getRequestValidators_restApiId :: Lens.Lens' GetRequestValidators Prelude.Text
 getRequestValidators_restApiId = Lens.lens (\GetRequestValidators' {restApiId} -> restApiId) (\s@GetRequestValidators' {} a -> s {restApiId = a} :: GetRequestValidators)
 
@@ -174,12 +174,6 @@ instance Core.ToQuery GetRequestValidators where
       ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | A collection of RequestValidator resources of a given RestApi.
---
--- In OpenAPI, the RequestValidators of an API is defined by the
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html x-amazon-apigateway-request-validators>
--- extension.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html Enable Basic Request Validation in API Gateway>
 --
 -- /See:/ 'newGetRequestValidatorsResponse' smart constructor.
 data GetRequestValidatorsResponse = GetRequestValidatorsResponse'

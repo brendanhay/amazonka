@@ -23,12 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The tax documents required in AWS Regions in India.
+-- | The tax documents required in Amazon Web Services Region in India.
 --
 -- /See:/ 'newINDTaxDocuments' smart constructor.
 data INDTaxDocuments = INDTaxDocuments'
-  { -- | The Goods and Services Tax (GST) documents required in AWS Regions in
-    -- India.
+  { -- | The Goods and Services Tax (GST) documents required in Amazon Web
+    -- Services Region in India.
     gstin :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,15 +41,15 @@ data INDTaxDocuments = INDTaxDocuments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gstin', 'iNDTaxDocuments_gstin' - The Goods and Services Tax (GST) documents required in AWS Regions in
--- India.
+-- 'gstin', 'iNDTaxDocuments_gstin' - The Goods and Services Tax (GST) documents required in Amazon Web
+-- Services Region in India.
 newINDTaxDocuments ::
   INDTaxDocuments
 newINDTaxDocuments =
   INDTaxDocuments' {gstin = Prelude.Nothing}
 
--- | The Goods and Services Tax (GST) documents required in AWS Regions in
--- India.
+-- | The Goods and Services Tax (GST) documents required in Amazon Web
+-- Services Region in India.
 iNDTaxDocuments_gstin :: Lens.Lens' INDTaxDocuments (Prelude.Maybe Prelude.Text)
 iNDTaxDocuments_gstin = Lens.lens (\INDTaxDocuments' {gstin} -> gstin) (\s@INDTaxDocuments' {} a -> s {gstin = a} :: INDTaxDocuments)
 

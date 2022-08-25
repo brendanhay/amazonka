@@ -29,6 +29,7 @@ module Amazonka.CostExplorer.CreateCostCategoryDefinition
     -- * Request Lenses
     createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_defaultValue,
+    createCostCategoryDefinition_resourceTags,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -57,6 +58,32 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
     -- Category values.
     splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
     defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | An optional list of tags to associate with the specified
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html CostCategory>
+    -- . You can use resource tags to control access to your @cost category@
+    -- using IAM policies.
+    --
+    -- Each tag consists of a key and a value, and each key must be unique for
+    -- the resource. The following restrictions apply to resource tags:
+    --
+    -- -   Although the maximum number of array members is 200, you can assign
+    --     a maximum of 50 user-tags to one resource. The remaining are
+    --     reserved for Amazon Web Services use
+    --
+    -- -   The maximum length of a key is 128 characters
+    --
+    -- -   The maximum length of a value is 256 characters
+    --
+    -- -   Keys and values can only contain alphanumeric characters, spaces,
+    --     and any of the following: @_.:\/=+\@-@
+    --
+    -- -   Keys and values are case sensitive
+    --
+    -- -   Keys and values are trimmed for any leading or trailing whitespaces
+    --
+    -- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
+    --     for Amazon Web Services use
+    resourceTags :: Prelude.Maybe [ResourceTag],
     name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | The Cost Category rules used to categorize costs. For more information,
@@ -78,6 +105,32 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
 -- Category values.
 --
 -- 'defaultValue', 'createCostCategoryDefinition_defaultValue' - Undocumented member.
+--
+-- 'resourceTags', 'createCostCategoryDefinition_resourceTags' - An optional list of tags to associate with the specified
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html CostCategory>
+-- . You can use resource tags to control access to your @cost category@
+-- using IAM policies.
+--
+-- Each tag consists of a key and a value, and each key must be unique for
+-- the resource. The following restrictions apply to resource tags:
+--
+-- -   Although the maximum number of array members is 200, you can assign
+--     a maximum of 50 user-tags to one resource. The remaining are
+--     reserved for Amazon Web Services use
+--
+-- -   The maximum length of a key is 128 characters
+--
+-- -   The maximum length of a value is 256 characters
+--
+-- -   Keys and values can only contain alphanumeric characters, spaces,
+--     and any of the following: @_.:\/=+\@-@
+--
+-- -   Keys and values are case sensitive
+--
+-- -   Keys and values are trimmed for any leading or trailing whitespaces
+--
+-- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
+--     for Amazon Web Services use
 --
 -- 'name', 'createCostCategoryDefinition_name' - Undocumented member.
 --
@@ -102,6 +155,7 @@ newCreateCostCategoryDefinition
       { splitChargeRules =
           Prelude.Nothing,
         defaultValue = Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
         name = pName_,
         ruleVersion = pRuleVersion_,
         rules = Lens.coerced Lens.# pRules_
@@ -115,6 +169,34 @@ createCostCategoryDefinition_splitChargeRules = Lens.lens (\CreateCostCategoryDe
 -- | Undocumented member.
 createCostCategoryDefinition_defaultValue :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
 createCostCategoryDefinition_defaultValue = Lens.lens (\CreateCostCategoryDefinition' {defaultValue} -> defaultValue) (\s@CreateCostCategoryDefinition' {} a -> s {defaultValue = a} :: CreateCostCategoryDefinition)
+
+-- | An optional list of tags to associate with the specified
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html CostCategory>
+-- . You can use resource tags to control access to your @cost category@
+-- using IAM policies.
+--
+-- Each tag consists of a key and a value, and each key must be unique for
+-- the resource. The following restrictions apply to resource tags:
+--
+-- -   Although the maximum number of array members is 200, you can assign
+--     a maximum of 50 user-tags to one resource. The remaining are
+--     reserved for Amazon Web Services use
+--
+-- -   The maximum length of a key is 128 characters
+--
+-- -   The maximum length of a value is 256 characters
+--
+-- -   Keys and values can only contain alphanumeric characters, spaces,
+--     and any of the following: @_.:\/=+\@-@
+--
+-- -   Keys and values are case sensitive
+--
+-- -   Keys and values are trimmed for any leading or trailing whitespaces
+--
+-- -   Don’t use @aws:@ as a prefix for your keys. This prefix is reserved
+--     for Amazon Web Services use
+createCostCategoryDefinition_resourceTags :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe [ResourceTag])
+createCostCategoryDefinition_resourceTags = Lens.lens (\CreateCostCategoryDefinition' {resourceTags} -> resourceTags) (\s@CreateCostCategoryDefinition' {} a -> s {resourceTags = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createCostCategoryDefinition_name :: Lens.Lens' CreateCostCategoryDefinition Prelude.Text
@@ -151,6 +233,7 @@ instance
   hashWithSalt _salt CreateCostCategoryDefinition' {..} =
     _salt `Prelude.hashWithSalt` splitChargeRules
       `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleVersion
       `Prelude.hashWithSalt` rules
@@ -159,6 +242,7 @@ instance Prelude.NFData CreateCostCategoryDefinition where
   rnf CreateCostCategoryDefinition' {..} =
     Prelude.rnf splitChargeRules
       `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleVersion
       `Prelude.seq` Prelude.rnf rules
@@ -185,6 +269,7 @@ instance Core.ToJSON CreateCostCategoryDefinition where
           [ ("SplitChargeRules" Core..=)
               Prelude.<$> splitChargeRules,
             ("DefaultValue" Core..=) Prelude.<$> defaultValue,
+            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("RuleVersion" Core..= ruleVersion),
             Prelude.Just ("Rules" Core..= rules)

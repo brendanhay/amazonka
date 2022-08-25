@@ -20,6 +20,8 @@
 module Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption where
 
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
+import Amazonka.ComputeOptimizer.Types.MigrationEffort
+import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -47,8 +49,22 @@ data AutoScalingGroupRecommendationOption = AutoScalingGroupRecommendationOption
     -- whether the recommendation will meet the performance requirements of
     -- your workload before migrating your resource.
     performanceRisk :: Prelude.Maybe Prelude.Double,
+    -- | The level of effort required to migrate from the current instance type
+    -- to the recommended instance type.
+    --
+    -- For example, the migration effort is @Low@ if Amazon EMR is the inferred
+    -- workload type and an Amazon Web Services Graviton instance type is
+    -- recommended. The migration effort is @Medium@ if a workload type
+    -- couldn\'t be inferred but an Amazon Web Services Graviton instance type
+    -- is recommended. The migration effort is @VeryLow@ if both the current
+    -- and recommended instance types are of the same CPU architecture.
+    migrationEffort :: Prelude.Maybe MigrationEffort,
     -- | An array of objects that describe an Auto Scaling group configuration.
     configuration :: Prelude.Maybe AutoScalingGroupConfiguration,
+    -- | An object that describes the savings opportunity for the Auto Scaling
+    -- group recommendation option. Savings opportunity includes the estimated
+    -- monthly savings amount and percentage.
+    savingsOpportunity :: Prelude.Maybe SavingsOpportunity,
     -- | The rank of the Auto Scaling group recommendation option.
     --
     -- The top recommendation option is ranked as @1@.
@@ -91,7 +107,21 @@ data AutoScalingGroupRecommendationOption = AutoScalingGroupRecommendationOption
 -- whether the recommendation will meet the performance requirements of
 -- your workload before migrating your resource.
 --
+-- 'migrationEffort', 'autoScalingGroupRecommendationOption_migrationEffort' - The level of effort required to migrate from the current instance type
+-- to the recommended instance type.
+--
+-- For example, the migration effort is @Low@ if Amazon EMR is the inferred
+-- workload type and an Amazon Web Services Graviton instance type is
+-- recommended. The migration effort is @Medium@ if a workload type
+-- couldn\'t be inferred but an Amazon Web Services Graviton instance type
+-- is recommended. The migration effort is @VeryLow@ if both the current
+-- and recommended instance types are of the same CPU architecture.
+--
 -- 'configuration', 'autoScalingGroupRecommendationOption_configuration' - An array of objects that describe an Auto Scaling group configuration.
+--
+-- 'savingsOpportunity', 'autoScalingGroupRecommendationOption_savingsOpportunity' - An object that describes the savings opportunity for the Auto Scaling
+-- group recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
 --
 -- 'rank', 'autoScalingGroupRecommendationOption_rank' - The rank of the Auto Scaling group recommendation option.
 --
@@ -111,7 +141,9 @@ newAutoScalingGroupRecommendationOption =
   AutoScalingGroupRecommendationOption'
     { performanceRisk =
         Prelude.Nothing,
+      migrationEffort = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      savingsOpportunity = Prelude.Nothing,
       rank = Prelude.Nothing,
       projectedUtilizationMetrics =
         Prelude.Nothing
@@ -137,9 +169,27 @@ newAutoScalingGroupRecommendationOption =
 autoScalingGroupRecommendationOption_performanceRisk :: Lens.Lens' AutoScalingGroupRecommendationOption (Prelude.Maybe Prelude.Double)
 autoScalingGroupRecommendationOption_performanceRisk = Lens.lens (\AutoScalingGroupRecommendationOption' {performanceRisk} -> performanceRisk) (\s@AutoScalingGroupRecommendationOption' {} a -> s {performanceRisk = a} :: AutoScalingGroupRecommendationOption)
 
+-- | The level of effort required to migrate from the current instance type
+-- to the recommended instance type.
+--
+-- For example, the migration effort is @Low@ if Amazon EMR is the inferred
+-- workload type and an Amazon Web Services Graviton instance type is
+-- recommended. The migration effort is @Medium@ if a workload type
+-- couldn\'t be inferred but an Amazon Web Services Graviton instance type
+-- is recommended. The migration effort is @VeryLow@ if both the current
+-- and recommended instance types are of the same CPU architecture.
+autoScalingGroupRecommendationOption_migrationEffort :: Lens.Lens' AutoScalingGroupRecommendationOption (Prelude.Maybe MigrationEffort)
+autoScalingGroupRecommendationOption_migrationEffort = Lens.lens (\AutoScalingGroupRecommendationOption' {migrationEffort} -> migrationEffort) (\s@AutoScalingGroupRecommendationOption' {} a -> s {migrationEffort = a} :: AutoScalingGroupRecommendationOption)
+
 -- | An array of objects that describe an Auto Scaling group configuration.
 autoScalingGroupRecommendationOption_configuration :: Lens.Lens' AutoScalingGroupRecommendationOption (Prelude.Maybe AutoScalingGroupConfiguration)
 autoScalingGroupRecommendationOption_configuration = Lens.lens (\AutoScalingGroupRecommendationOption' {configuration} -> configuration) (\s@AutoScalingGroupRecommendationOption' {} a -> s {configuration = a} :: AutoScalingGroupRecommendationOption)
+
+-- | An object that describes the savings opportunity for the Auto Scaling
+-- group recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+autoScalingGroupRecommendationOption_savingsOpportunity :: Lens.Lens' AutoScalingGroupRecommendationOption (Prelude.Maybe SavingsOpportunity)
+autoScalingGroupRecommendationOption_savingsOpportunity = Lens.lens (\AutoScalingGroupRecommendationOption' {savingsOpportunity} -> savingsOpportunity) (\s@AutoScalingGroupRecommendationOption' {} a -> s {savingsOpportunity = a} :: AutoScalingGroupRecommendationOption)
 
 -- | The rank of the Auto Scaling group recommendation option.
 --
@@ -168,7 +218,9 @@ instance
       ( \x ->
           AutoScalingGroupRecommendationOption'
             Prelude.<$> (x Core..:? "performanceRisk")
+            Prelude.<*> (x Core..:? "migrationEffort")
             Prelude.<*> (x Core..:? "configuration")
+            Prelude.<*> (x Core..:? "savingsOpportunity")
             Prelude.<*> (x Core..:? "rank")
             Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
                             Core..!= Prelude.mempty
@@ -183,7 +235,9 @@ instance
     _salt
     AutoScalingGroupRecommendationOption' {..} =
       _salt `Prelude.hashWithSalt` performanceRisk
+        `Prelude.hashWithSalt` migrationEffort
         `Prelude.hashWithSalt` configuration
+        `Prelude.hashWithSalt` savingsOpportunity
         `Prelude.hashWithSalt` rank
         `Prelude.hashWithSalt` projectedUtilizationMetrics
 
@@ -193,6 +247,8 @@ instance
   where
   rnf AutoScalingGroupRecommendationOption' {..} =
     Prelude.rnf performanceRisk
+      `Prelude.seq` Prelude.rnf migrationEffort
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf savingsOpportunity
       `Prelude.seq` Prelude.rnf rank
       `Prelude.seq` Prelude.rnf projectedUtilizationMetrics

@@ -41,7 +41,12 @@ data AccountSettings = AccountSettings'
     accountName :: Prelude.Maybe Prelude.Text,
     -- | The default Amazon QuickSight namespace for your Amazon Web Services
     -- account.
-    defaultNamespace :: Prelude.Maybe Prelude.Text
+    defaultNamespace :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that indicates whether public sharing is turned on for
+    -- an Amazon QuickSight account. For more information about turning on
+    -- public sharing, see
+    -- <https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html UpdatePublicSharingSettings>.
+    publicSharingEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,6 +70,11 @@ data AccountSettings = AccountSettings'
 --
 -- 'defaultNamespace', 'accountSettings_defaultNamespace' - The default Amazon QuickSight namespace for your Amazon Web Services
 -- account.
+--
+-- 'publicSharingEnabled', 'accountSettings_publicSharingEnabled' - A Boolean value that indicates whether public sharing is turned on for
+-- an Amazon QuickSight account. For more information about turning on
+-- public sharing, see
+-- <https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html UpdatePublicSharingSettings>.
 newAccountSettings ::
   AccountSettings
 newAccountSettings =
@@ -73,7 +83,8 @@ newAccountSettings =
         Prelude.Nothing,
       edition = Prelude.Nothing,
       accountName = Prelude.Nothing,
-      defaultNamespace = Prelude.Nothing
+      defaultNamespace = Prelude.Nothing,
+      publicSharingEnabled = Prelude.Nothing
     }
 
 -- | The main notification email for your Amazon QuickSight subscription.
@@ -97,6 +108,13 @@ accountSettings_accountName = Lens.lens (\AccountSettings' {accountName} -> acco
 accountSettings_defaultNamespace :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
 accountSettings_defaultNamespace = Lens.lens (\AccountSettings' {defaultNamespace} -> defaultNamespace) (\s@AccountSettings' {} a -> s {defaultNamespace = a} :: AccountSettings)
 
+-- | A Boolean value that indicates whether public sharing is turned on for
+-- an Amazon QuickSight account. For more information about turning on
+-- public sharing, see
+-- <https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html UpdatePublicSharingSettings>.
+accountSettings_publicSharingEnabled :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
+accountSettings_publicSharingEnabled = Lens.lens (\AccountSettings' {publicSharingEnabled} -> publicSharingEnabled) (\s@AccountSettings' {} a -> s {publicSharingEnabled = a} :: AccountSettings)
+
 instance Core.FromJSON AccountSettings where
   parseJSON =
     Core.withObject
@@ -107,6 +125,7 @@ instance Core.FromJSON AccountSettings where
             Prelude.<*> (x Core..:? "Edition")
             Prelude.<*> (x Core..:? "AccountName")
             Prelude.<*> (x Core..:? "DefaultNamespace")
+            Prelude.<*> (x Core..:? "PublicSharingEnabled")
       )
 
 instance Prelude.Hashable AccountSettings where
@@ -115,6 +134,7 @@ instance Prelude.Hashable AccountSettings where
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` defaultNamespace
+      `Prelude.hashWithSalt` publicSharingEnabled
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
@@ -122,3 +142,4 @@ instance Prelude.NFData AccountSettings where
       `Prelude.seq` Prelude.rnf edition
       `Prelude.seq` Prelude.rnf accountName
       `Prelude.seq` Prelude.rnf defaultNamespace
+      `Prelude.seq` Prelude.rnf publicSharingEnabled

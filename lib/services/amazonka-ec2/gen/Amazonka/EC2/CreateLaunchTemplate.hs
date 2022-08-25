@@ -20,11 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a launch template. A launch template contains the parameters to
--- launch an instance. When you launch an instance using RunInstances, you
--- can specify a launch template instead of providing the launch parameters
--- in the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an instance from a launch template>
+-- Creates a launch template.
+--
+-- A launch template contains the parameters to launch an instance. When
+-- you launch an instance using RunInstances, you can specify a launch
+-- template instead of providing the launch parameters in the request. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launch an instance from a launch template>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- If you want to clone an existing launch template as the basis for
+-- creating a new launch template, you can use the Amazon EC2 console. The
+-- API, SDKs, and CLI do not support cloning a template. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template Create a launch template from an existing launch template>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.CreateLaunchTemplate
   ( -- * Creating a Request
@@ -61,7 +70,7 @@ import qualified Amazonka.Response as Response
 data CreateLaunchTemplate = CreateLaunchTemplate'
   { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
     --
     -- Constraint: Maximum 128 ASCII characters.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -72,14 +81,20 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A description for the first version of the launch template.
     versionDescription :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the launch template during creation.
+    -- | The tags to apply to the launch template on creation. To tag the launch
+    -- template, the resource type must be @launch-template@.
+    --
+    -- To specify the tags for the resources that are created when an instance
+    -- is launched, you must use the @TagSpecifications@ parameter in the
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html launch template data>
+    -- structure.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A name for the launch template.
     launchTemplateName :: Prelude.Text,
     -- | The information for the launch template.
-    launchTemplateData :: RequestLaunchTemplateData
+    launchTemplateData :: Core.Sensitive RequestLaunchTemplateData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLaunchTemplate' with all optional fields omitted.
@@ -91,7 +106,7 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 --
 -- 'clientToken', 'createLaunchTemplate_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
 --
@@ -102,7 +117,13 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 --
 -- 'versionDescription', 'createLaunchTemplate_versionDescription' - A description for the first version of the launch template.
 --
--- 'tagSpecifications', 'createLaunchTemplate_tagSpecifications' - The tags to apply to the launch template during creation.
+-- 'tagSpecifications', 'createLaunchTemplate_tagSpecifications' - The tags to apply to the launch template on creation. To tag the launch
+-- template, the resource type must be @launch-template@.
+--
+-- To specify the tags for the resources that are created when an instance
+-- is launched, you must use the @TagSpecifications@ parameter in the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html launch template data>
+-- structure.
 --
 -- 'launchTemplateName', 'createLaunchTemplate_launchTemplateName' - A name for the launch template.
 --
@@ -123,12 +144,13 @@ newCreateLaunchTemplate
         versionDescription = Prelude.Nothing,
         tagSpecifications = Prelude.Nothing,
         launchTemplateName = pLaunchTemplateName_,
-        launchTemplateData = pLaunchTemplateData_
+        launchTemplateData =
+          Core._Sensitive Lens.# pLaunchTemplateData_
       }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
 createLaunchTemplate_clientToken :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
@@ -145,7 +167,13 @@ createLaunchTemplate_dryRun = Lens.lens (\CreateLaunchTemplate' {dryRun} -> dryR
 createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
 createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplate' {} a -> s {versionDescription = a} :: CreateLaunchTemplate)
 
--- | The tags to apply to the launch template during creation.
+-- | The tags to apply to the launch template on creation. To tag the launch
+-- template, the resource type must be @launch-template@.
+--
+-- To specify the tags for the resources that are created when an instance
+-- is launched, you must use the @TagSpecifications@ parameter in the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html launch template data>
+-- structure.
 createLaunchTemplate_tagSpecifications :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe [TagSpecification])
 createLaunchTemplate_tagSpecifications = Lens.lens (\CreateLaunchTemplate' {tagSpecifications} -> tagSpecifications) (\s@CreateLaunchTemplate' {} a -> s {tagSpecifications = a} :: CreateLaunchTemplate) Prelude.. Lens.mapping Lens.coerced
 
@@ -155,7 +183,7 @@ createLaunchTemplate_launchTemplateName = Lens.lens (\CreateLaunchTemplate' {lau
 
 -- | The information for the launch template.
 createLaunchTemplate_launchTemplateData :: Lens.Lens' CreateLaunchTemplate RequestLaunchTemplateData
-createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate)
+createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest CreateLaunchTemplate where
   type

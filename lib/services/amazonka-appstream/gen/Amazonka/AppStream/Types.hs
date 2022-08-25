@@ -26,8 +26,10 @@ module Amazonka.AppStream.Types
     _ResourceNotAvailableException,
     _InvalidParameterCombinationException,
     _ResourceInUseException,
+    _EntitlementAlreadyExistsException,
     _LimitExceededException,
     _OperationNotPermittedException,
+    _EntitlementNotFoundException,
     _InvalidAccountStatusException,
 
     -- * AccessEndpointType
@@ -35,6 +37,12 @@ module Amazonka.AppStream.Types
 
     -- * Action
     Action (..),
+
+    -- * AppVisibility
+    AppVisibility (..),
+
+    -- * ApplicationAttribute
+    ApplicationAttribute (..),
 
     -- * AuthenticationType
     AuthenticationType (..),
@@ -72,6 +80,9 @@ module Amazonka.AppStream.Types
     -- * PlatformType
     PlatformType (..),
 
+    -- * PreferredProtocol
+    PreferredProtocol (..),
+
     -- * SessionConnectionState
     SessionConnectionState (..),
 
@@ -108,16 +119,41 @@ module Amazonka.AppStream.Types
     accessEndpoint_vpceId,
     accessEndpoint_endpointType,
 
+    -- * AppBlock
+    AppBlock (..),
+    newAppBlock,
+    appBlock_createdTime,
+    appBlock_displayName,
+    appBlock_description,
+    appBlock_sourceS3Location,
+    appBlock_name,
+    appBlock_arn,
+    appBlock_setupScriptDetails,
+
     -- * Application
     Application (..),
     newApplication,
     application_name,
+    application_createdTime,
     application_launchPath,
     application_metadata,
+    application_arn,
     application_displayName,
+    application_description,
+    application_iconS3Location,
     application_enabled,
     application_iconURL,
+    application_instanceFamilies,
+    application_platforms,
+    application_appBlockArn,
     application_launchParameters,
+    application_workingDirectory,
+
+    -- * ApplicationFleetAssociation
+    ApplicationFleetAssociation (..),
+    newApplicationFleetAssociation,
+    applicationFleetAssociation_fleetName,
+    applicationFleetAssociation_applicationArn,
 
     -- * ApplicationSettings
     ApplicationSettings (..),
@@ -159,19 +195,45 @@ module Amazonka.AppStream.Types
     domainJoinInfo_directoryName,
     domainJoinInfo_organizationalUnitDistinguishedName,
 
+    -- * EntitledApplication
+    EntitledApplication (..),
+    newEntitledApplication,
+    entitledApplication_applicationIdentifier,
+
+    -- * Entitlement
+    Entitlement (..),
+    newEntitlement,
+    entitlement_createdTime,
+    entitlement_description,
+    entitlement_lastModifiedTime,
+    entitlement_name,
+    entitlement_stackName,
+    entitlement_appVisibility,
+    entitlement_attributes,
+
+    -- * EntitlementAttribute
+    EntitlementAttribute (..),
+    newEntitlementAttribute,
+    entitlementAttribute_name,
+    entitlementAttribute_value,
+
     -- * Fleet
     Fleet (..),
     newFleet,
     fleet_createdTime,
+    fleet_sessionScriptS3Location,
+    fleet_maxConcurrentSessions,
     fleet_fleetType,
     fleet_vpcConfig,
     fleet_fleetErrors,
     fleet_displayName,
     fleet_imageArn,
+    fleet_platform,
     fleet_description,
     fleet_disconnectTimeoutInSeconds,
     fleet_idleDisconnectTimeoutInSeconds,
     fleet_iamRoleArn,
+    fleet_usbDeviceFilterStrings,
     fleet_domainJoinInfo,
     fleet_streamView,
     fleet_enableDefaultInternetAccess,
@@ -269,6 +331,20 @@ module Amazonka.AppStream.Types
     resourceError_errorTimestamp,
     resourceError_errorCode,
 
+    -- * S3Location
+    S3Location (..),
+    newS3Location,
+    s3Location_s3Bucket,
+    s3Location_s3Key,
+
+    -- * ScriptDetails
+    ScriptDetails (..),
+    newScriptDetails,
+    scriptDetails_executableParameters,
+    scriptDetails_scriptS3Location,
+    scriptDetails_executablePath,
+    scriptDetails_timeoutInSeconds,
+
     -- * ServiceAccountCredentials
     ServiceAccountCredentials (..),
     newServiceAccountCredentials,
@@ -308,6 +384,7 @@ module Amazonka.AppStream.Types
     stack_accessEndpoints,
     stack_description,
     stack_redirectURL,
+    stack_streamingExperienceSettings,
     stack_feedbackURL,
     stack_userSettings,
     stack_name,
@@ -324,6 +401,11 @@ module Amazonka.AppStream.Types
     storageConnector_domains,
     storageConnector_resourceIdentifier,
     storageConnector_connectorType,
+
+    -- * StreamingExperienceSettings
+    StreamingExperienceSettings (..),
+    newStreamingExperienceSettings,
+    streamingExperienceSettings_preferredProtocol,
 
     -- * UsageReportSubscription
     UsageReportSubscription (..),
@@ -377,7 +459,11 @@ where
 import Amazonka.AppStream.Types.AccessEndpoint
 import Amazonka.AppStream.Types.AccessEndpointType
 import Amazonka.AppStream.Types.Action
+import Amazonka.AppStream.Types.AppBlock
+import Amazonka.AppStream.Types.AppVisibility
 import Amazonka.AppStream.Types.Application
+import Amazonka.AppStream.Types.ApplicationAttribute
+import Amazonka.AppStream.Types.ApplicationFleetAssociation
 import Amazonka.AppStream.Types.ApplicationSettings
 import Amazonka.AppStream.Types.ApplicationSettingsResponse
 import Amazonka.AppStream.Types.AuthenticationType
@@ -385,6 +471,9 @@ import Amazonka.AppStream.Types.ComputeCapacity
 import Amazonka.AppStream.Types.ComputeCapacityStatus
 import Amazonka.AppStream.Types.DirectoryConfig
 import Amazonka.AppStream.Types.DomainJoinInfo
+import Amazonka.AppStream.Types.EntitledApplication
+import Amazonka.AppStream.Types.Entitlement
+import Amazonka.AppStream.Types.EntitlementAttribute
 import Amazonka.AppStream.Types.Fleet
 import Amazonka.AppStream.Types.FleetAttribute
 import Amazonka.AppStream.Types.FleetError
@@ -405,7 +494,10 @@ import Amazonka.AppStream.Types.MessageAction
 import Amazonka.AppStream.Types.NetworkAccessConfiguration
 import Amazonka.AppStream.Types.Permission
 import Amazonka.AppStream.Types.PlatformType
+import Amazonka.AppStream.Types.PreferredProtocol
 import Amazonka.AppStream.Types.ResourceError
+import Amazonka.AppStream.Types.S3Location
+import Amazonka.AppStream.Types.ScriptDetails
 import Amazonka.AppStream.Types.ServiceAccountCredentials
 import Amazonka.AppStream.Types.Session
 import Amazonka.AppStream.Types.SessionConnectionState
@@ -418,6 +510,7 @@ import Amazonka.AppStream.Types.StackErrorCode
 import Amazonka.AppStream.Types.StorageConnector
 import Amazonka.AppStream.Types.StorageConnectorType
 import Amazonka.AppStream.Types.StreamView
+import Amazonka.AppStream.Types.StreamingExperienceSettings
 import Amazonka.AppStream.Types.UsageReportExecutionErrorCode
 import Amazonka.AppStream.Types.UsageReportSchedule
 import Amazonka.AppStream.Types.UsageReportSubscription
@@ -569,6 +662,13 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
 
+-- | The entitlement already exists.
+_EntitlementAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntitlementAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "EntitlementAlreadyExistsException"
+
 -- | The requested limit exceeds the permitted limit for an account.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -582,6 +682,13 @@ _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
     "OperationNotPermittedException"
+
+-- | The entitlement can\'t be found.
+_EntitlementNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntitlementNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EntitlementNotFoundException"
 
 -- | The resource cannot be created because your AWS account is suspended.
 -- For assistance, contact AWS Support.

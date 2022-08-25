@@ -22,6 +22,11 @@
 --
 -- Describes the specified Kinesis data stream.
 --
+-- This API has been revised. It\'s highly recommended that you use the
+-- DescribeStreamSummary API to get a summarized description of the
+-- specified Kinesis data stream and the ListShards API to list the shards
+-- in a specified data stream and obtain information about each shard.
+--
 -- The information returned includes the stream name, Amazon Resource Name
 -- (ARN), creation time, enhanced metric configuration, and shard map. The
 -- shard map is an array of shard objects. For each shard object, there is
@@ -74,10 +79,18 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
   { -- | The shard ID of the shard to start with.
+    --
+    -- Specify this parameter to indicate that you want to describe the stream
+    -- starting with the shard whose ID immediately follows
+    -- @ExclusiveStartShardId@.
+    --
+    -- If you don\'t specify this parameter, the default behavior for
+    -- @DescribeStream@ is to describe the stream starting with the first shard
+    -- in the stream.
     exclusiveStartShardId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of shards to return in a single call. The default
     -- value is 100. If you specify a value greater than 100, at most 100
-    -- shards are returned.
+    -- results are returned.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stream to describe.
     streamName :: Prelude.Text
@@ -94,9 +107,17 @@ data DescribeStream = DescribeStream'
 --
 -- 'exclusiveStartShardId', 'describeStream_exclusiveStartShardId' - The shard ID of the shard to start with.
 --
+-- Specify this parameter to indicate that you want to describe the stream
+-- starting with the shard whose ID immediately follows
+-- @ExclusiveStartShardId@.
+--
+-- If you don\'t specify this parameter, the default behavior for
+-- @DescribeStream@ is to describe the stream starting with the first shard
+-- in the stream.
+--
 -- 'limit', 'describeStream_limit' - The maximum number of shards to return in a single call. The default
 -- value is 100. If you specify a value greater than 100, at most 100
--- shards are returned.
+-- results are returned.
 --
 -- 'streamName', 'describeStream_streamName' - The name of the stream to describe.
 newDescribeStream ::
@@ -112,12 +133,20 @@ newDescribeStream pStreamName_ =
     }
 
 -- | The shard ID of the shard to start with.
+--
+-- Specify this parameter to indicate that you want to describe the stream
+-- starting with the shard whose ID immediately follows
+-- @ExclusiveStartShardId@.
+--
+-- If you don\'t specify this parameter, the default behavior for
+-- @DescribeStream@ is to describe the stream starting with the first shard
+-- in the stream.
 describeStream_exclusiveStartShardId :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Text)
 describeStream_exclusiveStartShardId = Lens.lens (\DescribeStream' {exclusiveStartShardId} -> exclusiveStartShardId) (\s@DescribeStream' {} a -> s {exclusiveStartShardId = a} :: DescribeStream)
 
 -- | The maximum number of shards to return in a single call. The default
 -- value is 100. If you specify a value greater than 100, at most 100
--- shards are returned.
+-- results are returned.
 describeStream_limit :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Natural)
 describeStream_limit = Lens.lens (\DescribeStream' {limit} -> limit) (\s@DescribeStream' {} a -> s {limit = a} :: DescribeStream)
 

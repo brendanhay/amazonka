@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestAssociateTrialComponent $
 --             newAssociateTrialComponent
 --
+--         , requestBatchDescribeModelPackage $
+--             newBatchDescribeModelPackage
+--
 --         , requestCreateAction $
 --             newCreateAction
 --
@@ -72,6 +75,12 @@ import Test.Tasty
 --         , requestCreateDomain $
 --             newCreateDomain
 --
+--         , requestCreateEdgeDeploymentPlan $
+--             newCreateEdgeDeploymentPlan
+--
+--         , requestCreateEdgeDeploymentStage $
+--             newCreateEdgeDeploymentStage
+--
 --         , requestCreateEdgePackagingJob $
 --             newCreateEdgePackagingJob
 --
@@ -101,6 +110,9 @@ import Test.Tasty
 --
 --         , requestCreateImageVersion $
 --             newCreateImageVersion
+--
+--         , requestCreateInferenceRecommendationsJob $
+--             newCreateInferenceRecommendationsJob
 --
 --         , requestCreateLabelingJob $
 --             newCreateLabelingJob
@@ -203,6 +215,12 @@ import Test.Tasty
 --
 --         , requestDeleteDomain $
 --             newDeleteDomain
+--
+--         , requestDeleteEdgeDeploymentPlan $
+--             newDeleteEdgeDeploymentPlan
+--
+--         , requestDeleteEdgeDeploymentStage $
+--             newDeleteEdgeDeploymentStage
 --
 --         , requestDeleteEndpoint $
 --             newDeleteEndpoint
@@ -327,6 +345,9 @@ import Test.Tasty
 --         , requestDescribeDomain $
 --             newDescribeDomain
 --
+--         , requestDescribeEdgeDeploymentPlan $
+--             newDescribeEdgeDeploymentPlan
+--
 --         , requestDescribeEdgePackagingJob $
 --             newDescribeEdgePackagingJob
 --
@@ -341,6 +362,9 @@ import Test.Tasty
 --
 --         , requestDescribeFeatureGroup $
 --             newDescribeFeatureGroup
+--
+--         , requestDescribeFeatureMetadata $
+--             newDescribeFeatureMetadata
 --
 --         , requestDescribeFlowDefinition $
 --             newDescribeFlowDefinition
@@ -357,8 +381,14 @@ import Test.Tasty
 --         , requestDescribeImageVersion $
 --             newDescribeImageVersion
 --
+--         , requestDescribeInferenceRecommendationsJob $
+--             newDescribeInferenceRecommendationsJob
+--
 --         , requestDescribeLabelingJob $
 --             newDescribeLabelingJob
+--
+--         , requestDescribeLineageGroup $
+--             newDescribeLineageGroup
 --
 --         , requestDescribeModel $
 --             newDescribeModel
@@ -441,6 +471,9 @@ import Test.Tasty
 --         , requestGetDeviceFleetReport $
 --             newGetDeviceFleetReport
 --
+--         , requestGetLineageGroupPolicy $
+--             newGetLineageGroupPolicy
+--
 --         , requestGetModelPackageGroupPolicy $
 --             newGetModelPackageGroupPolicy
 --
@@ -495,6 +528,9 @@ import Test.Tasty
 --         , requestListDomains $
 --             newListDomains
 --
+--         , requestListEdgeDeploymentPlans $
+--             newListEdgeDeploymentPlans
+--
 --         , requestListEdgePackagingJobs $
 --             newListEdgePackagingJobs
 --
@@ -525,17 +561,26 @@ import Test.Tasty
 --         , requestListImages $
 --             newListImages
 --
+--         , requestListInferenceRecommendationsJobs $
+--             newListInferenceRecommendationsJobs
+--
 --         , requestListLabelingJobs $
 --             newListLabelingJobs
 --
 --         , requestListLabelingJobsForWorkteam $
 --             newListLabelingJobsForWorkteam
 --
+--         , requestListLineageGroups $
+--             newListLineageGroups
+--
 --         , requestListModelBiasJobDefinitions $
 --             newListModelBiasJobDefinitions
 --
 --         , requestListModelExplainabilityJobDefinitions $
 --             newListModelExplainabilityJobDefinitions
+--
+--         , requestListModelMetadata $
+--             newListModelMetadata
 --
 --         , requestListModelPackageGroups $
 --             newListModelPackageGroups
@@ -579,6 +624,9 @@ import Test.Tasty
 --         , requestListProjects $
 --             newListProjects
 --
+--         , requestListStageDevices $
+--             newListStageDevices
+--
 --         , requestListStudioLifecycleConfigs $
 --             newListStudioLifecycleConfigs
 --
@@ -615,6 +663,9 @@ import Test.Tasty
 --         , requestPutModelPackageGroupPolicy $
 --             newPutModelPackageGroupPolicy
 --
+--         , requestQueryLineage $
+--             newQueryLineage
+--
 --         , requestRegisterDevices $
 --             newRegisterDevices
 --
@@ -633,6 +684,9 @@ import Test.Tasty
 --         , requestSendPipelineExecutionStepSuccess $
 --             newSendPipelineExecutionStepSuccess
 --
+--         , requestStartEdgeDeploymentStage $
+--             newStartEdgeDeploymentStage
+--
 --         , requestStartMonitoringSchedule $
 --             newStartMonitoringSchedule
 --
@@ -648,11 +702,17 @@ import Test.Tasty
 --         , requestStopCompilationJob $
 --             newStopCompilationJob
 --
+--         , requestStopEdgeDeploymentStage $
+--             newStopEdgeDeploymentStage
+--
 --         , requestStopEdgePackagingJob $
 --             newStopEdgePackagingJob
 --
 --         , requestStopHyperParameterTuningJob $
 --             newStopHyperParameterTuningJob
+--
+--         , requestStopInferenceRecommendationsJob $
+--             newStopInferenceRecommendationsJob
 --
 --         , requestStopLabelingJob $
 --             newStopLabelingJob
@@ -708,6 +768,12 @@ import Test.Tasty
 --         , requestUpdateExperiment $
 --             newUpdateExperiment
 --
+--         , requestUpdateFeatureGroup $
+--             newUpdateFeatureGroup
+--
+--         , requestUpdateFeatureMetadata $
+--             newUpdateFeatureMetadata
+--
 --         , requestUpdateImage $
 --             newUpdateImage
 --
@@ -728,6 +794,9 @@ import Test.Tasty
 --
 --         , requestUpdatePipelineExecution $
 --             newUpdatePipelineExecution
+--
+--         , requestUpdateProject $
+--             newUpdateProject
 --
 --         , requestUpdateTrainingJob $
 --             newUpdateTrainingJob
@@ -758,6 +827,9 @@ import Test.Tasty
 --
 --         , responseAssociateTrialComponent $
 --             newAssociateTrialComponentResponse
+--
+--         , responseBatchDescribeModelPackage $
+--             newBatchDescribeModelPackageResponse
 --
 --         , responseCreateAction $
 --             newCreateActionResponse
@@ -795,6 +867,12 @@ import Test.Tasty
 --         , responseCreateDomain $
 --             newCreateDomainResponse
 --
+--         , responseCreateEdgeDeploymentPlan $
+--             newCreateEdgeDeploymentPlanResponse
+--
+--         , responseCreateEdgeDeploymentStage $
+--             newCreateEdgeDeploymentStageResponse
+--
 --         , responseCreateEdgePackagingJob $
 --             newCreateEdgePackagingJobResponse
 --
@@ -824,6 +902,9 @@ import Test.Tasty
 --
 --         , responseCreateImageVersion $
 --             newCreateImageVersionResponse
+--
+--         , responseCreateInferenceRecommendationsJob $
+--             newCreateInferenceRecommendationsJobResponse
 --
 --         , responseCreateLabelingJob $
 --             newCreateLabelingJobResponse
@@ -926,6 +1007,12 @@ import Test.Tasty
 --
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
+--
+--         , responseDeleteEdgeDeploymentPlan $
+--             newDeleteEdgeDeploymentPlanResponse
+--
+--         , responseDeleteEdgeDeploymentStage $
+--             newDeleteEdgeDeploymentStageResponse
 --
 --         , responseDeleteEndpoint $
 --             newDeleteEndpointResponse
@@ -1050,6 +1137,9 @@ import Test.Tasty
 --         , responseDescribeDomain $
 --             newDescribeDomainResponse
 --
+--         , responseDescribeEdgeDeploymentPlan $
+--             newDescribeEdgeDeploymentPlanResponse
+--
 --         , responseDescribeEdgePackagingJob $
 --             newDescribeEdgePackagingJobResponse
 --
@@ -1064,6 +1154,9 @@ import Test.Tasty
 --
 --         , responseDescribeFeatureGroup $
 --             newDescribeFeatureGroupResponse
+--
+--         , responseDescribeFeatureMetadata $
+--             newDescribeFeatureMetadataResponse
 --
 --         , responseDescribeFlowDefinition $
 --             newDescribeFlowDefinitionResponse
@@ -1080,8 +1173,14 @@ import Test.Tasty
 --         , responseDescribeImageVersion $
 --             newDescribeImageVersionResponse
 --
+--         , responseDescribeInferenceRecommendationsJob $
+--             newDescribeInferenceRecommendationsJobResponse
+--
 --         , responseDescribeLabelingJob $
 --             newDescribeLabelingJobResponse
+--
+--         , responseDescribeLineageGroup $
+--             newDescribeLineageGroupResponse
 --
 --         , responseDescribeModel $
 --             newDescribeModelResponse
@@ -1164,6 +1263,9 @@ import Test.Tasty
 --         , responseGetDeviceFleetReport $
 --             newGetDeviceFleetReportResponse
 --
+--         , responseGetLineageGroupPolicy $
+--             newGetLineageGroupPolicyResponse
+--
 --         , responseGetModelPackageGroupPolicy $
 --             newGetModelPackageGroupPolicyResponse
 --
@@ -1218,6 +1320,9 @@ import Test.Tasty
 --         , responseListDomains $
 --             newListDomainsResponse
 --
+--         , responseListEdgeDeploymentPlans $
+--             newListEdgeDeploymentPlansResponse
+--
 --         , responseListEdgePackagingJobs $
 --             newListEdgePackagingJobsResponse
 --
@@ -1248,17 +1353,26 @@ import Test.Tasty
 --         , responseListImages $
 --             newListImagesResponse
 --
+--         , responseListInferenceRecommendationsJobs $
+--             newListInferenceRecommendationsJobsResponse
+--
 --         , responseListLabelingJobs $
 --             newListLabelingJobsResponse
 --
 --         , responseListLabelingJobsForWorkteam $
 --             newListLabelingJobsForWorkteamResponse
 --
+--         , responseListLineageGroups $
+--             newListLineageGroupsResponse
+--
 --         , responseListModelBiasJobDefinitions $
 --             newListModelBiasJobDefinitionsResponse
 --
 --         , responseListModelExplainabilityJobDefinitions $
 --             newListModelExplainabilityJobDefinitionsResponse
+--
+--         , responseListModelMetadata $
+--             newListModelMetadataResponse
 --
 --         , responseListModelPackageGroups $
 --             newListModelPackageGroupsResponse
@@ -1302,6 +1416,9 @@ import Test.Tasty
 --         , responseListProjects $
 --             newListProjectsResponse
 --
+--         , responseListStageDevices $
+--             newListStageDevicesResponse
+--
 --         , responseListStudioLifecycleConfigs $
 --             newListStudioLifecycleConfigsResponse
 --
@@ -1338,6 +1455,9 @@ import Test.Tasty
 --         , responsePutModelPackageGroupPolicy $
 --             newPutModelPackageGroupPolicyResponse
 --
+--         , responseQueryLineage $
+--             newQueryLineageResponse
+--
 --         , responseRegisterDevices $
 --             newRegisterDevicesResponse
 --
@@ -1356,6 +1476,9 @@ import Test.Tasty
 --         , responseSendPipelineExecutionStepSuccess $
 --             newSendPipelineExecutionStepSuccessResponse
 --
+--         , responseStartEdgeDeploymentStage $
+--             newStartEdgeDeploymentStageResponse
+--
 --         , responseStartMonitoringSchedule $
 --             newStartMonitoringScheduleResponse
 --
@@ -1371,11 +1494,17 @@ import Test.Tasty
 --         , responseStopCompilationJob $
 --             newStopCompilationJobResponse
 --
+--         , responseStopEdgeDeploymentStage $
+--             newStopEdgeDeploymentStageResponse
+--
 --         , responseStopEdgePackagingJob $
 --             newStopEdgePackagingJobResponse
 --
 --         , responseStopHyperParameterTuningJob $
 --             newStopHyperParameterTuningJobResponse
+--
+--         , responseStopInferenceRecommendationsJob $
+--             newStopInferenceRecommendationsJobResponse
 --
 --         , responseStopLabelingJob $
 --             newStopLabelingJobResponse
@@ -1431,6 +1560,12 @@ import Test.Tasty
 --         , responseUpdateExperiment $
 --             newUpdateExperimentResponse
 --
+--         , responseUpdateFeatureGroup $
+--             newUpdateFeatureGroupResponse
+--
+--         , responseUpdateFeatureMetadata $
+--             newUpdateFeatureMetadataResponse
+--
 --         , responseUpdateImage $
 --             newUpdateImageResponse
 --
@@ -1451,6 +1586,9 @@ import Test.Tasty
 --
 --         , responseUpdatePipelineExecution $
 --             newUpdatePipelineExecutionResponse
+--
+--         , responseUpdateProject $
+--             newUpdateProjectResponse
 --
 --         , responseUpdateTrainingJob $
 --             newUpdateTrainingJobResponse
@@ -1492,6 +1630,12 @@ requestAssociateTrialComponent =
   req
     "AssociateTrialComponent"
     "fixture/AssociateTrialComponent.yaml"
+
+requestBatchDescribeModelPackage :: BatchDescribeModelPackage -> TestTree
+requestBatchDescribeModelPackage =
+  req
+    "BatchDescribeModelPackage"
+    "fixture/BatchDescribeModelPackage.yaml"
 
 requestCreateAction :: CreateAction -> TestTree
 requestCreateAction =
@@ -1565,6 +1709,18 @@ requestCreateDomain =
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
+requestCreateEdgeDeploymentPlan :: CreateEdgeDeploymentPlan -> TestTree
+requestCreateEdgeDeploymentPlan =
+  req
+    "CreateEdgeDeploymentPlan"
+    "fixture/CreateEdgeDeploymentPlan.yaml"
+
+requestCreateEdgeDeploymentStage :: CreateEdgeDeploymentStage -> TestTree
+requestCreateEdgeDeploymentStage =
+  req
+    "CreateEdgeDeploymentStage"
+    "fixture/CreateEdgeDeploymentStage.yaml"
+
 requestCreateEdgePackagingJob :: CreateEdgePackagingJob -> TestTree
 requestCreateEdgePackagingJob =
   req
@@ -1624,6 +1780,12 @@ requestCreateImageVersion =
   req
     "CreateImageVersion"
     "fixture/CreateImageVersion.yaml"
+
+requestCreateInferenceRecommendationsJob :: CreateInferenceRecommendationsJob -> TestTree
+requestCreateInferenceRecommendationsJob =
+  req
+    "CreateInferenceRecommendationsJob"
+    "fixture/CreateInferenceRecommendationsJob.yaml"
 
 requestCreateLabelingJob :: CreateLabelingJob -> TestTree
 requestCreateLabelingJob =
@@ -1828,6 +1990,18 @@ requestDeleteDomain =
   req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
+
+requestDeleteEdgeDeploymentPlan :: DeleteEdgeDeploymentPlan -> TestTree
+requestDeleteEdgeDeploymentPlan =
+  req
+    "DeleteEdgeDeploymentPlan"
+    "fixture/DeleteEdgeDeploymentPlan.yaml"
+
+requestDeleteEdgeDeploymentStage :: DeleteEdgeDeploymentStage -> TestTree
+requestDeleteEdgeDeploymentStage =
+  req
+    "DeleteEdgeDeploymentStage"
+    "fixture/DeleteEdgeDeploymentStage.yaml"
 
 requestDeleteEndpoint :: DeleteEndpoint -> TestTree
 requestDeleteEndpoint =
@@ -2075,6 +2249,12 @@ requestDescribeDomain =
     "DescribeDomain"
     "fixture/DescribeDomain.yaml"
 
+requestDescribeEdgeDeploymentPlan :: DescribeEdgeDeploymentPlan -> TestTree
+requestDescribeEdgeDeploymentPlan =
+  req
+    "DescribeEdgeDeploymentPlan"
+    "fixture/DescribeEdgeDeploymentPlan.yaml"
+
 requestDescribeEdgePackagingJob :: DescribeEdgePackagingJob -> TestTree
 requestDescribeEdgePackagingJob =
   req
@@ -2104,6 +2284,12 @@ requestDescribeFeatureGroup =
   req
     "DescribeFeatureGroup"
     "fixture/DescribeFeatureGroup.yaml"
+
+requestDescribeFeatureMetadata :: DescribeFeatureMetadata -> TestTree
+requestDescribeFeatureMetadata =
+  req
+    "DescribeFeatureMetadata"
+    "fixture/DescribeFeatureMetadata.yaml"
 
 requestDescribeFlowDefinition :: DescribeFlowDefinition -> TestTree
 requestDescribeFlowDefinition =
@@ -2135,11 +2321,23 @@ requestDescribeImageVersion =
     "DescribeImageVersion"
     "fixture/DescribeImageVersion.yaml"
 
+requestDescribeInferenceRecommendationsJob :: DescribeInferenceRecommendationsJob -> TestTree
+requestDescribeInferenceRecommendationsJob =
+  req
+    "DescribeInferenceRecommendationsJob"
+    "fixture/DescribeInferenceRecommendationsJob.yaml"
+
 requestDescribeLabelingJob :: DescribeLabelingJob -> TestTree
 requestDescribeLabelingJob =
   req
     "DescribeLabelingJob"
     "fixture/DescribeLabelingJob.yaml"
+
+requestDescribeLineageGroup :: DescribeLineageGroup -> TestTree
+requestDescribeLineageGroup =
+  req
+    "DescribeLineageGroup"
+    "fixture/DescribeLineageGroup.yaml"
 
 requestDescribeModel :: DescribeModel -> TestTree
 requestDescribeModel =
@@ -2303,6 +2501,12 @@ requestGetDeviceFleetReport =
     "GetDeviceFleetReport"
     "fixture/GetDeviceFleetReport.yaml"
 
+requestGetLineageGroupPolicy :: GetLineageGroupPolicy -> TestTree
+requestGetLineageGroupPolicy =
+  req
+    "GetLineageGroupPolicy"
+    "fixture/GetLineageGroupPolicy.yaml"
+
 requestGetModelPackageGroupPolicy :: GetModelPackageGroupPolicy -> TestTree
 requestGetModelPackageGroupPolicy =
   req
@@ -2411,6 +2615,12 @@ requestListDomains =
     "ListDomains"
     "fixture/ListDomains.yaml"
 
+requestListEdgeDeploymentPlans :: ListEdgeDeploymentPlans -> TestTree
+requestListEdgeDeploymentPlans =
+  req
+    "ListEdgeDeploymentPlans"
+    "fixture/ListEdgeDeploymentPlans.yaml"
+
 requestListEdgePackagingJobs :: ListEdgePackagingJobs -> TestTree
 requestListEdgePackagingJobs =
   req
@@ -2471,6 +2681,12 @@ requestListImages =
     "ListImages"
     "fixture/ListImages.yaml"
 
+requestListInferenceRecommendationsJobs :: ListInferenceRecommendationsJobs -> TestTree
+requestListInferenceRecommendationsJobs =
+  req
+    "ListInferenceRecommendationsJobs"
+    "fixture/ListInferenceRecommendationsJobs.yaml"
+
 requestListLabelingJobs :: ListLabelingJobs -> TestTree
 requestListLabelingJobs =
   req
@@ -2483,6 +2699,12 @@ requestListLabelingJobsForWorkteam =
     "ListLabelingJobsForWorkteam"
     "fixture/ListLabelingJobsForWorkteam.yaml"
 
+requestListLineageGroups :: ListLineageGroups -> TestTree
+requestListLineageGroups =
+  req
+    "ListLineageGroups"
+    "fixture/ListLineageGroups.yaml"
+
 requestListModelBiasJobDefinitions :: ListModelBiasJobDefinitions -> TestTree
 requestListModelBiasJobDefinitions =
   req
@@ -2494,6 +2716,12 @@ requestListModelExplainabilityJobDefinitions =
   req
     "ListModelExplainabilityJobDefinitions"
     "fixture/ListModelExplainabilityJobDefinitions.yaml"
+
+requestListModelMetadata :: ListModelMetadata -> TestTree
+requestListModelMetadata =
+  req
+    "ListModelMetadata"
+    "fixture/ListModelMetadata.yaml"
 
 requestListModelPackageGroups :: ListModelPackageGroups -> TestTree
 requestListModelPackageGroups =
@@ -2579,6 +2807,12 @@ requestListProjects =
     "ListProjects"
     "fixture/ListProjects.yaml"
 
+requestListStageDevices :: ListStageDevices -> TestTree
+requestListStageDevices =
+  req
+    "ListStageDevices"
+    "fixture/ListStageDevices.yaml"
+
 requestListStudioLifecycleConfigs :: ListStudioLifecycleConfigs -> TestTree
 requestListStudioLifecycleConfigs =
   req
@@ -2651,6 +2885,12 @@ requestPutModelPackageGroupPolicy =
     "PutModelPackageGroupPolicy"
     "fixture/PutModelPackageGroupPolicy.yaml"
 
+requestQueryLineage :: QueryLineage -> TestTree
+requestQueryLineage =
+  req
+    "QueryLineage"
+    "fixture/QueryLineage.yaml"
+
 requestRegisterDevices :: RegisterDevices -> TestTree
 requestRegisterDevices =
   req
@@ -2687,6 +2927,12 @@ requestSendPipelineExecutionStepSuccess =
     "SendPipelineExecutionStepSuccess"
     "fixture/SendPipelineExecutionStepSuccess.yaml"
 
+requestStartEdgeDeploymentStage :: StartEdgeDeploymentStage -> TestTree
+requestStartEdgeDeploymentStage =
+  req
+    "StartEdgeDeploymentStage"
+    "fixture/StartEdgeDeploymentStage.yaml"
+
 requestStartMonitoringSchedule :: StartMonitoringSchedule -> TestTree
 requestStartMonitoringSchedule =
   req
@@ -2717,6 +2963,12 @@ requestStopCompilationJob =
     "StopCompilationJob"
     "fixture/StopCompilationJob.yaml"
 
+requestStopEdgeDeploymentStage :: StopEdgeDeploymentStage -> TestTree
+requestStopEdgeDeploymentStage =
+  req
+    "StopEdgeDeploymentStage"
+    "fixture/StopEdgeDeploymentStage.yaml"
+
 requestStopEdgePackagingJob :: StopEdgePackagingJob -> TestTree
 requestStopEdgePackagingJob =
   req
@@ -2728,6 +2980,12 @@ requestStopHyperParameterTuningJob =
   req
     "StopHyperParameterTuningJob"
     "fixture/StopHyperParameterTuningJob.yaml"
+
+requestStopInferenceRecommendationsJob :: StopInferenceRecommendationsJob -> TestTree
+requestStopInferenceRecommendationsJob =
+  req
+    "StopInferenceRecommendationsJob"
+    "fixture/StopInferenceRecommendationsJob.yaml"
 
 requestStopLabelingJob :: StopLabelingJob -> TestTree
 requestStopLabelingJob =
@@ -2837,6 +3095,18 @@ requestUpdateExperiment =
     "UpdateExperiment"
     "fixture/UpdateExperiment.yaml"
 
+requestUpdateFeatureGroup :: UpdateFeatureGroup -> TestTree
+requestUpdateFeatureGroup =
+  req
+    "UpdateFeatureGroup"
+    "fixture/UpdateFeatureGroup.yaml"
+
+requestUpdateFeatureMetadata :: UpdateFeatureMetadata -> TestTree
+requestUpdateFeatureMetadata =
+  req
+    "UpdateFeatureMetadata"
+    "fixture/UpdateFeatureMetadata.yaml"
+
 requestUpdateImage :: UpdateImage -> TestTree
 requestUpdateImage =
   req
@@ -2878,6 +3148,12 @@ requestUpdatePipelineExecution =
   req
     "UpdatePipelineExecution"
     "fixture/UpdatePipelineExecution.yaml"
+
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject =
+  req
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
 
 requestUpdateTrainingJob :: UpdateTrainingJob -> TestTree
 requestUpdateTrainingJob =
@@ -2940,6 +3216,14 @@ responseAssociateTrialComponent =
     "fixture/AssociateTrialComponentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateTrialComponent)
+
+responseBatchDescribeModelPackage :: BatchDescribeModelPackageResponse -> TestTree
+responseBatchDescribeModelPackage =
+  res
+    "BatchDescribeModelPackageResponse"
+    "fixture/BatchDescribeModelPackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDescribeModelPackage)
 
 responseCreateAction :: CreateActionResponse -> TestTree
 responseCreateAction =
@@ -3037,6 +3321,22 @@ responseCreateDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
+responseCreateEdgeDeploymentPlan :: CreateEdgeDeploymentPlanResponse -> TestTree
+responseCreateEdgeDeploymentPlan =
+  res
+    "CreateEdgeDeploymentPlanResponse"
+    "fixture/CreateEdgeDeploymentPlanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEdgeDeploymentPlan)
+
+responseCreateEdgeDeploymentStage :: CreateEdgeDeploymentStageResponse -> TestTree
+responseCreateEdgeDeploymentStage =
+  res
+    "CreateEdgeDeploymentStageResponse"
+    "fixture/CreateEdgeDeploymentStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEdgeDeploymentStage)
+
 responseCreateEdgePackagingJob :: CreateEdgePackagingJobResponse -> TestTree
 responseCreateEdgePackagingJob =
   res
@@ -3116,6 +3416,14 @@ responseCreateImageVersion =
     "fixture/CreateImageVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateImageVersion)
+
+responseCreateInferenceRecommendationsJob :: CreateInferenceRecommendationsJobResponse -> TestTree
+responseCreateInferenceRecommendationsJob =
+  res
+    "CreateInferenceRecommendationsJobResponse"
+    "fixture/CreateInferenceRecommendationsJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateInferenceRecommendationsJob)
 
 responseCreateLabelingJob :: CreateLabelingJobResponse -> TestTree
 responseCreateLabelingJob =
@@ -3388,6 +3696,22 @@ responseDeleteDomain =
     "fixture/DeleteDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
+
+responseDeleteEdgeDeploymentPlan :: DeleteEdgeDeploymentPlanResponse -> TestTree
+responseDeleteEdgeDeploymentPlan =
+  res
+    "DeleteEdgeDeploymentPlanResponse"
+    "fixture/DeleteEdgeDeploymentPlanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEdgeDeploymentPlan)
+
+responseDeleteEdgeDeploymentStage :: DeleteEdgeDeploymentStageResponse -> TestTree
+responseDeleteEdgeDeploymentStage =
+  res
+    "DeleteEdgeDeploymentStageResponse"
+    "fixture/DeleteEdgeDeploymentStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEdgeDeploymentStage)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint =
@@ -3717,6 +4041,14 @@ responseDescribeDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
+responseDescribeEdgeDeploymentPlan :: DescribeEdgeDeploymentPlanResponse -> TestTree
+responseDescribeEdgeDeploymentPlan =
+  res
+    "DescribeEdgeDeploymentPlanResponse"
+    "fixture/DescribeEdgeDeploymentPlanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEdgeDeploymentPlan)
+
 responseDescribeEdgePackagingJob :: DescribeEdgePackagingJobResponse -> TestTree
 responseDescribeEdgePackagingJob =
   res
@@ -3756,6 +4088,14 @@ responseDescribeFeatureGroup =
     "fixture/DescribeFeatureGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFeatureGroup)
+
+responseDescribeFeatureMetadata :: DescribeFeatureMetadataResponse -> TestTree
+responseDescribeFeatureMetadata =
+  res
+    "DescribeFeatureMetadataResponse"
+    "fixture/DescribeFeatureMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFeatureMetadata)
 
 responseDescribeFlowDefinition :: DescribeFlowDefinitionResponse -> TestTree
 responseDescribeFlowDefinition =
@@ -3797,6 +4137,14 @@ responseDescribeImageVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeImageVersion)
 
+responseDescribeInferenceRecommendationsJob :: DescribeInferenceRecommendationsJobResponse -> TestTree
+responseDescribeInferenceRecommendationsJob =
+  res
+    "DescribeInferenceRecommendationsJobResponse"
+    "fixture/DescribeInferenceRecommendationsJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeInferenceRecommendationsJob)
+
 responseDescribeLabelingJob :: DescribeLabelingJobResponse -> TestTree
 responseDescribeLabelingJob =
   res
@@ -3804,6 +4152,14 @@ responseDescribeLabelingJob =
     "fixture/DescribeLabelingJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeLabelingJob)
+
+responseDescribeLineageGroup :: DescribeLineageGroupResponse -> TestTree
+responseDescribeLineageGroup =
+  res
+    "DescribeLineageGroupResponse"
+    "fixture/DescribeLineageGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLineageGroup)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
 responseDescribeModel =
@@ -4021,6 +4377,14 @@ responseGetDeviceFleetReport =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeviceFleetReport)
 
+responseGetLineageGroupPolicy :: GetLineageGroupPolicyResponse -> TestTree
+responseGetLineageGroupPolicy =
+  res
+    "GetLineageGroupPolicyResponse"
+    "fixture/GetLineageGroupPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLineageGroupPolicy)
+
 responseGetModelPackageGroupPolicy :: GetModelPackageGroupPolicyResponse -> TestTree
 responseGetModelPackageGroupPolicy =
   res
@@ -4165,6 +4529,14 @@ responseListDomains =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDomains)
 
+responseListEdgeDeploymentPlans :: ListEdgeDeploymentPlansResponse -> TestTree
+responseListEdgeDeploymentPlans =
+  res
+    "ListEdgeDeploymentPlansResponse"
+    "fixture/ListEdgeDeploymentPlansResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEdgeDeploymentPlans)
+
 responseListEdgePackagingJobs :: ListEdgePackagingJobsResponse -> TestTree
 responseListEdgePackagingJobs =
   res
@@ -4245,6 +4617,14 @@ responseListImages =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListImages)
 
+responseListInferenceRecommendationsJobs :: ListInferenceRecommendationsJobsResponse -> TestTree
+responseListInferenceRecommendationsJobs =
+  res
+    "ListInferenceRecommendationsJobsResponse"
+    "fixture/ListInferenceRecommendationsJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceRecommendationsJobs)
+
 responseListLabelingJobs :: ListLabelingJobsResponse -> TestTree
 responseListLabelingJobs =
   res
@@ -4261,6 +4641,14 @@ responseListLabelingJobsForWorkteam =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListLabelingJobsForWorkteam)
 
+responseListLineageGroups :: ListLineageGroupsResponse -> TestTree
+responseListLineageGroups =
+  res
+    "ListLineageGroupsResponse"
+    "fixture/ListLineageGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLineageGroups)
+
 responseListModelBiasJobDefinitions :: ListModelBiasJobDefinitionsResponse -> TestTree
 responseListModelBiasJobDefinitions =
   res
@@ -4276,6 +4664,14 @@ responseListModelExplainabilityJobDefinitions =
     "fixture/ListModelExplainabilityJobDefinitionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListModelExplainabilityJobDefinitions)
+
+responseListModelMetadata :: ListModelMetadataResponse -> TestTree
+responseListModelMetadata =
+  res
+    "ListModelMetadataResponse"
+    "fixture/ListModelMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListModelMetadata)
 
 responseListModelPackageGroups :: ListModelPackageGroupsResponse -> TestTree
 responseListModelPackageGroups =
@@ -4389,6 +4785,14 @@ responseListProjects =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
+responseListStageDevices :: ListStageDevicesResponse -> TestTree
+responseListStageDevices =
+  res
+    "ListStageDevicesResponse"
+    "fixture/ListStageDevicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStageDevices)
+
 responseListStudioLifecycleConfigs :: ListStudioLifecycleConfigsResponse -> TestTree
 responseListStudioLifecycleConfigs =
   res
@@ -4485,6 +4889,14 @@ responsePutModelPackageGroupPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutModelPackageGroupPolicy)
 
+responseQueryLineage :: QueryLineageResponse -> TestTree
+responseQueryLineage =
+  res
+    "QueryLineageResponse"
+    "fixture/QueryLineageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy QueryLineage)
+
 responseRegisterDevices :: RegisterDevicesResponse -> TestTree
 responseRegisterDevices =
   res
@@ -4533,6 +4945,14 @@ responseSendPipelineExecutionStepSuccess =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendPipelineExecutionStepSuccess)
 
+responseStartEdgeDeploymentStage :: StartEdgeDeploymentStageResponse -> TestTree
+responseStartEdgeDeploymentStage =
+  res
+    "StartEdgeDeploymentStageResponse"
+    "fixture/StartEdgeDeploymentStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartEdgeDeploymentStage)
+
 responseStartMonitoringSchedule :: StartMonitoringScheduleResponse -> TestTree
 responseStartMonitoringSchedule =
   res
@@ -4573,6 +4993,14 @@ responseStopCompilationJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopCompilationJob)
 
+responseStopEdgeDeploymentStage :: StopEdgeDeploymentStageResponse -> TestTree
+responseStopEdgeDeploymentStage =
+  res
+    "StopEdgeDeploymentStageResponse"
+    "fixture/StopEdgeDeploymentStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopEdgeDeploymentStage)
+
 responseStopEdgePackagingJob :: StopEdgePackagingJobResponse -> TestTree
 responseStopEdgePackagingJob =
   res
@@ -4588,6 +5016,14 @@ responseStopHyperParameterTuningJob =
     "fixture/StopHyperParameterTuningJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopHyperParameterTuningJob)
+
+responseStopInferenceRecommendationsJob :: StopInferenceRecommendationsJobResponse -> TestTree
+responseStopInferenceRecommendationsJob =
+  res
+    "StopInferenceRecommendationsJobResponse"
+    "fixture/StopInferenceRecommendationsJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopInferenceRecommendationsJob)
 
 responseStopLabelingJob :: StopLabelingJobResponse -> TestTree
 responseStopLabelingJob =
@@ -4733,6 +5169,22 @@ responseUpdateExperiment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateExperiment)
 
+responseUpdateFeatureGroup :: UpdateFeatureGroupResponse -> TestTree
+responseUpdateFeatureGroup =
+  res
+    "UpdateFeatureGroupResponse"
+    "fixture/UpdateFeatureGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFeatureGroup)
+
+responseUpdateFeatureMetadata :: UpdateFeatureMetadataResponse -> TestTree
+responseUpdateFeatureMetadata =
+  res
+    "UpdateFeatureMetadataResponse"
+    "fixture/UpdateFeatureMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFeatureMetadata)
+
 responseUpdateImage :: UpdateImageResponse -> TestTree
 responseUpdateImage =
   res
@@ -4788,6 +5240,14 @@ responseUpdatePipelineExecution =
     "fixture/UpdatePipelineExecutionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePipelineExecution)
+
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject =
+  res
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseUpdateTrainingJob :: UpdateTrainingJobResponse -> TestTree
 responseUpdateTrainingJob =

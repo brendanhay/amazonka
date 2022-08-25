@@ -119,11 +119,11 @@
 --         keys used to encrypt data, specify the following headers in the
 --         request.
 --
---         -   x-amz-server-side-encryption
+--         -   @x-amz-server-side-encryption@
 --
---         -   x-amz-server-side-encryption-aws-kms-key-id
+--         -   @x-amz-server-side-encryption-aws-kms-key-id@
 --
---         -   x-amz-server-side-encryption-context
+--         -   @x-amz-server-side-encryption-context@
 --
 --         If you specify @x-amz-server-side-encryption:aws:kms@, but
 --         don\'t provide @x-amz-server-side-encryption-aws-kms-key-id@,
@@ -142,11 +142,11 @@
 --         your own encryption keys, provide all the following headers in
 --         the request.
 --
---         -   x-amz-server-side-encryption-customer-algorithm
+--         -   @x-amz-server-side-encryption-customer-algorithm@
 --
---         -   x-amz-server-side-encryption-customer-key
+--         -   @x-amz-server-side-encryption-customer-key@
 --
---         -   x-amz-server-side-encryption-customer-key-MD5
+--         -   @x-amz-server-side-encryption-customer-key-MD5@
 --
 --         For more information about server-side encryption with KMS keys
 --         (SSE-KMS), see
@@ -179,15 +179,15 @@
 --         In the header, you specify a list of grantees who get the
 --         specific permission. To grant permissions explicitly, use:
 --
---         -   x-amz-grant-read
+--         -   @x-amz-grant-read@
 --
---         -   x-amz-grant-write
+--         -   @x-amz-grant-write@
 --
---         -   x-amz-grant-read-acp
+--         -   @x-amz-grant-read-acp@
 --
---         -   x-amz-grant-write-acp
+--         -   @x-amz-grant-write-acp@
 --
---         -   x-amz-grant-full-control
+--         -   @x-amz-grant-full-control@
 --
 --         You specify each grantee as a type=value pair, where the type is
 --         one of the following:
@@ -249,6 +249,7 @@ module Amazonka.S3.CreateMultipartUpload
 
     -- * Request Lenses
     createMultipartUpload_serverSideEncryption,
+    createMultipartUpload_checksumAlgorithm,
     createMultipartUpload_objectLockMode,
     createMultipartUpload_bucketKeyEnabled,
     createMultipartUpload_websiteRedirectLocation,
@@ -284,6 +285,7 @@ module Amazonka.S3.CreateMultipartUpload
 
     -- * Response Lenses
     createMultipartUploadResponse_serverSideEncryption,
+    createMultipartUploadResponse_checksumAlgorithm,
     createMultipartUploadResponse_key,
     createMultipartUploadResponse_bucketKeyEnabled,
     createMultipartUploadResponse_requestCharged,
@@ -311,6 +313,11 @@ data CreateMultipartUpload = CreateMultipartUpload'
   { -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | Indicates the algorithm you want Amazon S3 to use to create the checksum
+    -- for the object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
     -- | Specifies the Object Lock mode that you want to apply to the uploaded
     -- object.
     objectLockMode :: Prelude.Maybe ObjectLockMode,
@@ -342,8 +349,8 @@ data CreateMultipartUpload = CreateMultipartUpload'
     -- This action is not supported by Amazon S3 on Outposts.
     acl :: Prelude.Maybe ObjectCannedACL,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
@@ -359,7 +366,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies presentational information for the object.
     contentDisposition :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether you want to apply a Legal Hold to the uploaded object.
+    -- | Specifies whether you want to apply a legal hold to the uploaded object.
     objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies the Amazon Web Services KMS Encryption Context to use for
@@ -422,11 +429,11 @@ data CreateMultipartUpload = CreateMultipartUpload'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the multipart upload is to be initiated.
@@ -444,6 +451,11 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- 'serverSideEncryption', 'createMultipartUpload_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
+--
+-- 'checksumAlgorithm', 'createMultipartUpload_checksumAlgorithm' - Indicates the algorithm you want Amazon S3 to use to create the checksum
+-- for the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'objectLockMode', 'createMultipartUpload_objectLockMode' - Specifies the Object Lock mode that you want to apply to the uploaded
 -- object.
@@ -476,8 +488,8 @@ data CreateMultipartUpload = CreateMultipartUpload'
 -- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'expectedBucketOwner', 'createMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'metadata', 'createMultipartUpload_metadata' - A map of metadata to store with the object in S3.
 --
@@ -493,7 +505,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- 'contentDisposition', 'createMultipartUpload_contentDisposition' - Specifies presentational information for the object.
 --
--- 'objectLockLegalHoldStatus', 'createMultipartUpload_objectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the uploaded object.
+-- 'objectLockLegalHoldStatus', 'createMultipartUpload_objectLockLegalHoldStatus' - Specifies whether you want to apply a legal hold to the uploaded object.
 --
 -- 'requestPayer', 'createMultipartUpload_requestPayer' - Undocumented member.
 --
@@ -557,11 +569,11 @@ data CreateMultipartUpload = CreateMultipartUpload'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'createMultipartUpload_key' - Object key for which the multipart upload is to be initiated.
@@ -575,6 +587,7 @@ newCreateMultipartUpload pBucket_ pKey_ =
   CreateMultipartUpload'
     { serverSideEncryption =
         Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       objectLockMode = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
       websiteRedirectLocation = Prelude.Nothing,
@@ -609,6 +622,13 @@ newCreateMultipartUpload pBucket_ pKey_ =
 -- Amazon S3 (for example, AES256, aws:kms).
 createMultipartUpload_serverSideEncryption :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ServerSideEncryption)
 createMultipartUpload_serverSideEncryption = Lens.lens (\CreateMultipartUpload' {serverSideEncryption} -> serverSideEncryption) (\s@CreateMultipartUpload' {} a -> s {serverSideEncryption = a} :: CreateMultipartUpload)
+
+-- | Indicates the algorithm you want Amazon S3 to use to create the checksum
+-- for the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+createMultipartUpload_checksumAlgorithm :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ChecksumAlgorithm)
+createMultipartUpload_checksumAlgorithm = Lens.lens (\CreateMultipartUpload' {checksumAlgorithm} -> checksumAlgorithm) (\s@CreateMultipartUpload' {} a -> s {checksumAlgorithm = a} :: CreateMultipartUpload)
 
 -- | Specifies the Object Lock mode that you want to apply to the uploaded
 -- object.
@@ -655,8 +675,8 @@ createMultipartUpload_acl :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Obj
 createMultipartUpload_acl = Lens.lens (\CreateMultipartUpload' {acl} -> acl) (\s@CreateMultipartUpload' {} a -> s {acl = a} :: CreateMultipartUpload)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 createMultipartUpload_expectedBucketOwner :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
 createMultipartUpload_expectedBucketOwner = Lens.lens (\CreateMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@CreateMultipartUpload' {} a -> s {expectedBucketOwner = a} :: CreateMultipartUpload)
 
@@ -682,7 +702,7 @@ createMultipartUpload_sSEKMSKeyId = Lens.lens (\CreateMultipartUpload' {sSEKMSKe
 createMultipartUpload_contentDisposition :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe Prelude.Text)
 createMultipartUpload_contentDisposition = Lens.lens (\CreateMultipartUpload' {contentDisposition} -> contentDisposition) (\s@CreateMultipartUpload' {} a -> s {contentDisposition = a} :: CreateMultipartUpload)
 
--- | Specifies whether you want to apply a Legal Hold to the uploaded object.
+-- | Specifies whether you want to apply a legal hold to the uploaded object.
 createMultipartUpload_objectLockLegalHoldStatus :: Lens.Lens' CreateMultipartUpload (Prelude.Maybe ObjectLockLegalHoldStatus)
 createMultipartUpload_objectLockLegalHoldStatus = Lens.lens (\CreateMultipartUpload' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@CreateMultipartUpload' {} a -> s {objectLockLegalHoldStatus = a} :: CreateMultipartUpload)
 
@@ -774,11 +794,11 @@ createMultipartUpload_sSECustomerKey = Lens.lens (\CreateMultipartUpload' {sSECu
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 createMultipartUpload_bucket :: Lens.Lens' CreateMultipartUpload BucketName
 createMultipartUpload_bucket = Lens.lens (\CreateMultipartUpload' {bucket} -> bucket) (\s@CreateMultipartUpload' {} a -> s {bucket = a} :: CreateMultipartUpload)
@@ -799,6 +819,7 @@ instance Core.AWSRequest CreateMultipartUpload where
       ( \s h x ->
           CreateMultipartUploadResponse'
             Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Core..#? "x-amz-checksum-algorithm")
             Prelude.<*> (x Core..@? "Key")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
@@ -824,6 +845,7 @@ instance Core.AWSRequest CreateMultipartUpload where
 instance Prelude.Hashable CreateMultipartUpload where
   hashWithSalt _salt CreateMultipartUpload' {..} =
     _salt `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` objectLockMode
       `Prelude.hashWithSalt` bucketKeyEnabled
       `Prelude.hashWithSalt` websiteRedirectLocation
@@ -856,6 +878,7 @@ instance Prelude.Hashable CreateMultipartUpload where
 instance Prelude.NFData CreateMultipartUpload where
   rnf CreateMultipartUpload' {..} =
     Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf objectLockMode
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf websiteRedirectLocation
@@ -897,6 +920,7 @@ instance Core.ToHeaders CreateMultipartUpload where
     Prelude.mconcat
       [ "x-amz-server-side-encryption"
           Core.=# serverSideEncryption,
+        "x-amz-checksum-algorithm" Core.=# checksumAlgorithm,
         "x-amz-object-lock-mode" Core.=# objectLockMode,
         "x-amz-server-side-encryption-bucket-key-enabled"
           Core.=# bucketKeyEnabled,
@@ -948,6 +972,8 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
   { -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
     -- | Object key for which the multipart upload was initiated.
     key :: Prelude.Maybe ObjectKey,
     -- | Indicates whether the multipart upload uses an S3 Bucket Key for
@@ -969,11 +995,11 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: Prelude.Maybe BucketName,
     -- | This header is returned along with the @x-amz-abort-date@ header. It
@@ -1025,6 +1051,8 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- 'serverSideEncryption', 'createMultipartUploadResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
 --
+-- 'checksumAlgorithm', 'createMultipartUploadResponse_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
+--
 -- 'key', 'createMultipartUploadResponse_key' - Object key for which the multipart upload was initiated.
 --
 -- 'bucketKeyEnabled', 'createMultipartUploadResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
@@ -1047,11 +1075,11 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'abortRuleId', 'createMultipartUploadResponse_abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It
@@ -1100,6 +1128,7 @@ newCreateMultipartUploadResponse
     CreateMultipartUploadResponse'
       { serverSideEncryption =
           Prelude.Nothing,
+        checksumAlgorithm = Prelude.Nothing,
         key = Prelude.Nothing,
         bucketKeyEnabled = Prelude.Nothing,
         requestCharged = Prelude.Nothing,
@@ -1118,6 +1147,10 @@ newCreateMultipartUploadResponse
 -- Amazon S3 (for example, AES256, aws:kms).
 createMultipartUploadResponse_serverSideEncryption :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ServerSideEncryption)
 createMultipartUploadResponse_serverSideEncryption = Lens.lens (\CreateMultipartUploadResponse' {serverSideEncryption} -> serverSideEncryption) (\s@CreateMultipartUploadResponse' {} a -> s {serverSideEncryption = a} :: CreateMultipartUploadResponse)
+
+-- | The algorithm that was used to create a checksum of the object.
+createMultipartUploadResponse_checksumAlgorithm :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ChecksumAlgorithm)
+createMultipartUploadResponse_checksumAlgorithm = Lens.lens (\CreateMultipartUploadResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@CreateMultipartUploadResponse' {} a -> s {checksumAlgorithm = a} :: CreateMultipartUploadResponse)
 
 -- | Object key for which the multipart upload was initiated.
 createMultipartUploadResponse_key :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe ObjectKey)
@@ -1147,11 +1180,11 @@ createMultipartUploadResponse_requestCharged = Lens.lens (\CreateMultipartUpload
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 createMultipartUploadResponse_bucket :: Lens.Lens' CreateMultipartUploadResponse (Prelude.Maybe BucketName)
 createMultipartUploadResponse_bucket = Lens.lens (\CreateMultipartUploadResponse' {bucket} -> bucket) (\s@CreateMultipartUploadResponse' {} a -> s {bucket = a} :: CreateMultipartUploadResponse)
@@ -1210,6 +1243,7 @@ createMultipartUploadResponse_uploadId = Lens.lens (\CreateMultipartUploadRespon
 instance Prelude.NFData CreateMultipartUploadResponse where
   rnf CreateMultipartUploadResponse' {..} =
     Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf requestCharged

@@ -29,6 +29,7 @@ module Amazonka.CostExplorer.Types.Dimension
         Dimension_DEPLOYMENT_OPTION,
         Dimension_INSTANCE_TYPE,
         Dimension_INSTANCE_TYPE_FAMILY,
+        Dimension_INVOICING_ENTITY,
         Dimension_LEGAL_ENTITY_NAME,
         Dimension_LINKED_ACCOUNT,
         Dimension_LINKED_ACCOUNT_NAME,
@@ -113,6 +114,9 @@ pattern Dimension_INSTANCE_TYPE = Dimension' "INSTANCE_TYPE"
 pattern Dimension_INSTANCE_TYPE_FAMILY :: Dimension
 pattern Dimension_INSTANCE_TYPE_FAMILY = Dimension' "INSTANCE_TYPE_FAMILY"
 
+pattern Dimension_INVOICING_ENTITY :: Dimension
+pattern Dimension_INVOICING_ENTITY = Dimension' "INVOICING_ENTITY"
+
 pattern Dimension_LEGAL_ENTITY_NAME :: Dimension
 pattern Dimension_LEGAL_ENTITY_NAME = Dimension' "LEGAL_ENTITY_NAME"
 
@@ -189,6 +193,7 @@ pattern Dimension_USAGE_TYPE_GROUP = Dimension' "USAGE_TYPE_GROUP"
   Dimension_DEPLOYMENT_OPTION,
   Dimension_INSTANCE_TYPE,
   Dimension_INSTANCE_TYPE_FAMILY,
+  Dimension_INVOICING_ENTITY,
   Dimension_LEGAL_ENTITY_NAME,
   Dimension_LINKED_ACCOUNT,
   Dimension_LINKED_ACCOUNT_NAME,

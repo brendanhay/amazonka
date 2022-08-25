@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- stack instance can exist without a stack—for example, if the stack
 -- couldn\'t be created for some reason. A stack instance is associated
 -- with only one stack set. Each stack instance contains the ID of its
--- associated stack set, as well as the ID of the actual stack and the
+-- associated stack set, in addition to the ID of the actual stack and the
 -- stack status.
 --
 -- /See:/ 'newStackInstance' smart constructor.
@@ -51,7 +51,7 @@ data StackInstance = StackInstance'
     --     stack instance is considered to have drifted if one or more of the
     --     resources in the associated stack have drifted.
     --
-    -- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+    -- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack instance
     --     differs from its expected stack set configuration.
     --
     -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
@@ -68,7 +68,7 @@ data StackInstance = StackInstance'
     -- | [Self-managed permissions] The name of the Amazon Web Services account
     -- that the stack instance is associated with.
     account :: Prelude.Maybe Prelude.Text,
-    -- | The explanation for the specific status code that is assigned to this
+    -- | The explanation for the specific status code that\'s assigned to this
     -- stack instance.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the stack instance, in terms of its synchronization with
@@ -102,7 +102,7 @@ data StackInstance = StackInstance'
     organizationalUnitId :: Prelude.Maybe Prelude.Text,
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack instance. This value will be @NULL@ for any stack
-    -- instance on which drift detection has not yet been performed.
+    -- instance on which drift detection hasn\'t yet been performed.
     lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -128,7 +128,7 @@ data StackInstance = StackInstance'
 --     stack instance is considered to have drifted if one or more of the
 --     resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack instance
 --     differs from its expected stack set configuration.
 --
 -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
@@ -145,7 +145,7 @@ data StackInstance = StackInstance'
 -- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the Amazon Web Services account
 -- that the stack instance is associated with.
 --
--- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that is assigned to this
+-- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that\'s assigned to this
 -- stack instance.
 --
 -- 'status', 'stackInstance_status' - The status of the stack instance, in terms of its synchronization with
@@ -179,7 +179,7 @@ data StackInstance = StackInstance'
 --
 -- 'lastDriftCheckTimestamp', 'stackInstance_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
 -- operation on the stack instance. This value will be @NULL@ for any stack
--- instance on which drift detection has not yet been performed.
+-- instance on which drift detection hasn\'t yet been performed.
 newStackInstance ::
   StackInstance
 newStackInstance =
@@ -214,7 +214,7 @@ stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceSta
 --     stack instance is considered to have drifted if one or more of the
 --     resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack instance
 --     differs from its expected stack set configuration.
 --
 -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
@@ -239,7 +239,7 @@ stackInstance_parameterOverrides = Lens.lens (\StackInstance' {parameterOverride
 stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
 
--- | The explanation for the specific status code that is assigned to this
+-- | The explanation for the specific status code that\'s assigned to this
 -- stack instance.
 stackInstance_statusReason :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_statusReason = Lens.lens (\StackInstance' {statusReason} -> statusReason) (\s@StackInstance' {} a -> s {statusReason = a} :: StackInstance)
@@ -281,7 +281,7 @@ stackInstance_organizationalUnitId = Lens.lens (\StackInstance' {organizationalU
 
 -- | Most recent time when CloudFormation performed a drift detection
 -- operation on the stack instance. This value will be @NULL@ for any stack
--- instance on which drift detection has not yet been performed.
+-- instance on which drift detection hasn\'t yet been performed.
 stackInstance_lastDriftCheckTimestamp :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.UTCTime)
 stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstance' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstance) Prelude.. Lens.mapping Core._Time
 

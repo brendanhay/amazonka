@@ -37,14 +37,10 @@ data DomainSummary = DomainSummary'
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the domain.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | A string that contains the status of the domain. The valid values are:
-    --
-    -- -   @Active@
-    --
-    -- -   @Deleted@
+    -- | A string that contains the status of the domain.
     status :: Prelude.Maybe DomainStatus,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     owner :: Prelude.Maybe Prelude.Text,
     -- | The key used to encrypt the domain.
     encryptionKey :: Prelude.Maybe Prelude.Text
@@ -65,14 +61,10 @@ data DomainSummary = DomainSummary'
 --
 -- 'arn', 'domainSummary_arn' - The ARN of the domain.
 --
--- 'status', 'domainSummary_status' - A string that contains the status of the domain. The valid values are:
+-- 'status', 'domainSummary_status' - A string that contains the status of the domain.
 --
--- -   @Active@
---
--- -   @Deleted@
---
--- 'owner', 'domainSummary_owner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'owner', 'domainSummary_owner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'encryptionKey', 'domainSummary_encryptionKey' - The key used to encrypt the domain.
 newDomainSummary ::
@@ -99,16 +91,12 @@ domainSummary_createdTime = Lens.lens (\DomainSummary' {createdTime} -> createdT
 domainSummary_arn :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_arn = Lens.lens (\DomainSummary' {arn} -> arn) (\s@DomainSummary' {} a -> s {arn = a} :: DomainSummary)
 
--- | A string that contains the status of the domain. The valid values are:
---
--- -   @Active@
---
--- -   @Deleted@
+-- | A string that contains the status of the domain.
 domainSummary_status :: Lens.Lens' DomainSummary (Prelude.Maybe DomainStatus)
 domainSummary_status = Lens.lens (\DomainSummary' {status} -> status) (\s@DomainSummary' {} a -> s {status = a} :: DomainSummary)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 domainSummary_owner :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_owner = Lens.lens (\DomainSummary' {owner} -> owner) (\s@DomainSummary' {} a -> s {owner = a} :: DomainSummary)
 

@@ -45,7 +45,7 @@ data CalculateRouteSummary = CalculateRouteSummary'
     -- can’t be greater than 400 km. If the route exceeds 400 km, the response
     -- is a @400 RoutesValidationException@ error.
     distance :: Prelude.Double,
-    -- | The unit of measurement for the distance.
+    -- | The unit of measurement for route distances.
     distanceUnit :: DistanceUnit,
     -- | The total travel time for the route measured in seconds. The sum of the
     -- travel time between every stop on the route.
@@ -98,7 +98,7 @@ data CalculateRouteSummary = CalculateRouteSummary'
 -- can’t be greater than 400 km. If the route exceeds 400 km, the response
 -- is a @400 RoutesValidationException@ error.
 --
--- 'distanceUnit', 'calculateRouteSummary_distanceUnit' - The unit of measurement for the distance.
+-- 'distanceUnit', 'calculateRouteSummary_distanceUnit' - The unit of measurement for route distances.
 --
 -- 'durationSeconds', 'calculateRouteSummary_durationSeconds' - The total travel time for the route measured in seconds. The sum of the
 -- travel time between every stop on the route.
@@ -171,7 +171,7 @@ calculateRouteSummary_dataSource = Lens.lens (\CalculateRouteSummary' {dataSourc
 calculateRouteSummary_distance :: Lens.Lens' CalculateRouteSummary Prelude.Double
 calculateRouteSummary_distance = Lens.lens (\CalculateRouteSummary' {distance} -> distance) (\s@CalculateRouteSummary' {} a -> s {distance = a} :: CalculateRouteSummary)
 
--- | The unit of measurement for the distance.
+-- | The unit of measurement for route distances.
 calculateRouteSummary_distanceUnit :: Lens.Lens' CalculateRouteSummary DistanceUnit
 calculateRouteSummary_distanceUnit = Lens.lens (\CalculateRouteSummary' {distanceUnit} -> distanceUnit) (\s@CalculateRouteSummary' {} a -> s {distanceUnit = a} :: CalculateRouteSummary)
 

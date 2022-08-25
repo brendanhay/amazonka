@@ -259,6 +259,9 @@ module Amazonka.Panorama
     -- ** ConnectionType
     ConnectionType (..),
 
+    -- ** DeviceBrand
+    DeviceBrand (..),
+
     -- ** DeviceConnectionStatus
     DeviceConnectionStatus (..),
 
@@ -306,6 +309,10 @@ module Amazonka.Panorama
 
     -- ** UpdateProgress
     UpdateProgress (..),
+
+    -- ** AlternateSoftwareMetadata
+    AlternateSoftwareMetadata (AlternateSoftwareMetadata'),
+    newAlternateSoftwareMetadata,
 
     -- ** ApplicationInstance
     ApplicationInstance (ApplicationInstance'),
@@ -378,6 +385,14 @@ module Amazonka.Panorama
     -- ** NodeOutputPort
     NodeOutputPort (NodeOutputPort'),
     newNodeOutputPort,
+
+    -- ** NtpPayload
+    NtpPayload (NtpPayload'),
+    newNtpPayload,
+
+    -- ** NtpStatus
+    NtpStatus (NtpStatus'),
+    newNtpStatus,
 
     -- ** OTAJobConfig
     OTAJobConfig (OTAJobConfig'),

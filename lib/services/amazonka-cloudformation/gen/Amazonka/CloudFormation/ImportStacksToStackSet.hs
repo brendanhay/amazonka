@@ -35,8 +35,10 @@ module Amazonka.CloudFormation.ImportStacksToStackSet
     importStacksToStackSet_operationPreferences,
     importStacksToStackSet_callAs,
     importStacksToStackSet_operationId,
-    importStacksToStackSet_stackSetName,
+    importStacksToStackSet_stackIdsUrl,
+    importStacksToStackSet_organizationalUnitIds,
     importStacksToStackSet_stackIds,
+    importStacksToStackSet_stackSetName,
 
     -- * Destructuring the Response
     ImportStacksToStackSetResponse (..),
@@ -67,12 +69,21 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
     callAs :: Prelude.Maybe CallAs,
     -- | A unique, user defined, identifier for the stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the stack set. The name must be unique in the Region where
-    -- you create your stack set.
-    stackSetName :: Prelude.Text,
+    -- | The Amazon S3 URL which contains list of stack ids to be inputted.
+    --
+    -- Specify either @StackIds@ or @StackIdsUrl@.
+    stackIdsUrl :: Prelude.Maybe Prelude.Text,
+    -- | The list of OU ID\'s to which the stacks being imported has to be mapped
+    -- as deployment target.
+    organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
     -- | The IDs of the stacks you are importing into a stack set. You import up
     -- to 10 stacks per stack set at a time.
-    stackIds :: [Prelude.Text]
+    --
+    -- Specify either @StackIds@ or @StackIdsUrl@.
+    stackIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the stack set. The name must be unique in the Region where
+    -- you create your stack set.
+    stackSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,11 +106,20 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
 --
 -- 'operationId', 'importStacksToStackSet_operationId' - A unique, user defined, identifier for the stack set operation.
 --
--- 'stackSetName', 'importStacksToStackSet_stackSetName' - The name of the stack set. The name must be unique in the Region where
--- you create your stack set.
+-- 'stackIdsUrl', 'importStacksToStackSet_stackIdsUrl' - The Amazon S3 URL which contains list of stack ids to be inputted.
+--
+-- Specify either @StackIds@ or @StackIdsUrl@.
+--
+-- 'organizationalUnitIds', 'importStacksToStackSet_organizationalUnitIds' - The list of OU ID\'s to which the stacks being imported has to be mapped
+-- as deployment target.
 --
 -- 'stackIds', 'importStacksToStackSet_stackIds' - The IDs of the stacks you are importing into a stack set. You import up
 -- to 10 stacks per stack set at a time.
+--
+-- Specify either @StackIds@ or @StackIdsUrl@.
+--
+-- 'stackSetName', 'importStacksToStackSet_stackSetName' - The name of the stack set. The name must be unique in the Region where
+-- you create your stack set.
 newImportStacksToStackSet ::
   -- | 'stackSetName'
   Prelude.Text ->
@@ -110,8 +130,10 @@ newImportStacksToStackSet pStackSetName_ =
         Prelude.Nothing,
       callAs = Prelude.Nothing,
       operationId = Prelude.Nothing,
-      stackSetName = pStackSetName_,
-      stackIds = Prelude.mempty
+      stackIdsUrl = Prelude.Nothing,
+      organizationalUnitIds = Prelude.Nothing,
+      stackIds = Prelude.Nothing,
+      stackSetName = pStackSetName_
     }
 
 -- | Undocumented member.
@@ -131,15 +153,28 @@ importStacksToStackSet_callAs = Lens.lens (\ImportStacksToStackSet' {callAs} -> 
 importStacksToStackSet_operationId :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe Prelude.Text)
 importStacksToStackSet_operationId = Lens.lens (\ImportStacksToStackSet' {operationId} -> operationId) (\s@ImportStacksToStackSet' {} a -> s {operationId = a} :: ImportStacksToStackSet)
 
+-- | The Amazon S3 URL which contains list of stack ids to be inputted.
+--
+-- Specify either @StackIds@ or @StackIdsUrl@.
+importStacksToStackSet_stackIdsUrl :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe Prelude.Text)
+importStacksToStackSet_stackIdsUrl = Lens.lens (\ImportStacksToStackSet' {stackIdsUrl} -> stackIdsUrl) (\s@ImportStacksToStackSet' {} a -> s {stackIdsUrl = a} :: ImportStacksToStackSet)
+
+-- | The list of OU ID\'s to which the stacks being imported has to be mapped
+-- as deployment target.
+importStacksToStackSet_organizationalUnitIds :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe [Prelude.Text])
+importStacksToStackSet_organizationalUnitIds = Lens.lens (\ImportStacksToStackSet' {organizationalUnitIds} -> organizationalUnitIds) (\s@ImportStacksToStackSet' {} a -> s {organizationalUnitIds = a} :: ImportStacksToStackSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the stacks you are importing into a stack set. You import up
+-- to 10 stacks per stack set at a time.
+--
+-- Specify either @StackIds@ or @StackIdsUrl@.
+importStacksToStackSet_stackIds :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe [Prelude.Text])
+importStacksToStackSet_stackIds = Lens.lens (\ImportStacksToStackSet' {stackIds} -> stackIds) (\s@ImportStacksToStackSet' {} a -> s {stackIds = a} :: ImportStacksToStackSet) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the stack set. The name must be unique in the Region where
 -- you create your stack set.
 importStacksToStackSet_stackSetName :: Lens.Lens' ImportStacksToStackSet Prelude.Text
 importStacksToStackSet_stackSetName = Lens.lens (\ImportStacksToStackSet' {stackSetName} -> stackSetName) (\s@ImportStacksToStackSet' {} a -> s {stackSetName = a} :: ImportStacksToStackSet)
-
--- | The IDs of the stacks you are importing into a stack set. You import up
--- to 10 stacks per stack set at a time.
-importStacksToStackSet_stackIds :: Lens.Lens' ImportStacksToStackSet [Prelude.Text]
-importStacksToStackSet_stackIds = Lens.lens (\ImportStacksToStackSet' {stackIds} -> stackIds) (\s@ImportStacksToStackSet' {} a -> s {stackIds = a} :: ImportStacksToStackSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ImportStacksToStackSet where
   type
@@ -160,16 +195,20 @@ instance Prelude.Hashable ImportStacksToStackSet where
     _salt `Prelude.hashWithSalt` operationPreferences
       `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` operationId
-      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` stackIdsUrl
+      `Prelude.hashWithSalt` organizationalUnitIds
       `Prelude.hashWithSalt` stackIds
+      `Prelude.hashWithSalt` stackSetName
 
 instance Prelude.NFData ImportStacksToStackSet where
   rnf ImportStacksToStackSet' {..} =
     Prelude.rnf operationPreferences
       `Prelude.seq` Prelude.rnf callAs
       `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf stackIdsUrl
+      `Prelude.seq` Prelude.rnf organizationalUnitIds
       `Prelude.seq` Prelude.rnf stackIds
+      `Prelude.seq` Prelude.rnf stackSetName
 
 instance Core.ToHeaders ImportStacksToStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,9 +226,16 @@ instance Core.ToQuery ImportStacksToStackSet where
         "OperationPreferences" Core.=: operationPreferences,
         "CallAs" Core.=: callAs,
         "OperationId" Core.=: operationId,
-        "StackSetName" Core.=: stackSetName,
+        "StackIdsUrl" Core.=: stackIdsUrl,
+        "OrganizationalUnitIds"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> organizationalUnitIds
+            ),
         "StackIds"
-          Core.=: Core.toQueryList "member" stackIds
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> stackIds),
+        "StackSetName" Core.=: stackSetName
       ]
 
 -- | /See:/ 'newImportStacksToStackSetResponse' smart constructor.

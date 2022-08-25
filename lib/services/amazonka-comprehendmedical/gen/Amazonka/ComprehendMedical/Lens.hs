@@ -34,6 +34,11 @@ module Amazonka.ComprehendMedical.Lens
     describeRxNormInferenceJobResponse_comprehendMedicalAsyncJobProperties,
     describeRxNormInferenceJobResponse_httpStatus,
 
+    -- ** DescribeSNOMEDCTInferenceJob
+    describeSNOMEDCTInferenceJob_jobId,
+    describeSNOMEDCTInferenceJobResponse_comprehendMedicalAsyncJobProperties,
+    describeSNOMEDCTInferenceJobResponse_httpStatus,
+
     -- ** DetectEntitiesV2
     detectEntitiesV2_text,
     detectEntitiesV2Response_paginationToken,
@@ -62,6 +67,15 @@ module Amazonka.ComprehendMedical.Lens
     inferRxNormResponse_modelVersion,
     inferRxNormResponse_httpStatus,
     inferRxNormResponse_entities,
+
+    -- ** InferSNOMEDCT
+    inferSNOMEDCT_text,
+    inferSNOMEDCTResponse_paginationToken,
+    inferSNOMEDCTResponse_sNOMEDCTDetails,
+    inferSNOMEDCTResponse_modelVersion,
+    inferSNOMEDCTResponse_characters,
+    inferSNOMEDCTResponse_httpStatus,
+    inferSNOMEDCTResponse_entities,
 
     -- ** ListEntitiesDetectionV2Jobs
     listEntitiesDetectionV2Jobs_nextToken,
@@ -94,6 +108,14 @@ module Amazonka.ComprehendMedical.Lens
     listRxNormInferenceJobsResponse_nextToken,
     listRxNormInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
     listRxNormInferenceJobsResponse_httpStatus,
+
+    -- ** ListSNOMEDCTInferenceJobs
+    listSNOMEDCTInferenceJobs_nextToken,
+    listSNOMEDCTInferenceJobs_filter,
+    listSNOMEDCTInferenceJobs_maxResults,
+    listSNOMEDCTInferenceJobsResponse_nextToken,
+    listSNOMEDCTInferenceJobsResponse_comprehendMedicalAsyncJobPropertiesList,
+    listSNOMEDCTInferenceJobsResponse_httpStatus,
 
     -- ** StartEntitiesDetectionV2Job
     startEntitiesDetectionV2Job_clientRequestToken,
@@ -139,6 +161,17 @@ module Amazonka.ComprehendMedical.Lens
     startRxNormInferenceJobResponse_jobId,
     startRxNormInferenceJobResponse_httpStatus,
 
+    -- ** StartSNOMEDCTInferenceJob
+    startSNOMEDCTInferenceJob_clientRequestToken,
+    startSNOMEDCTInferenceJob_jobName,
+    startSNOMEDCTInferenceJob_kmsKey,
+    startSNOMEDCTInferenceJob_inputDataConfig,
+    startSNOMEDCTInferenceJob_outputDataConfig,
+    startSNOMEDCTInferenceJob_dataAccessRoleArn,
+    startSNOMEDCTInferenceJob_languageCode,
+    startSNOMEDCTInferenceJobResponse_jobId,
+    startSNOMEDCTInferenceJobResponse_httpStatus,
+
     -- ** StopEntitiesDetectionV2Job
     stopEntitiesDetectionV2Job_jobId,
     stopEntitiesDetectionV2JobResponse_jobId,
@@ -159,6 +192,11 @@ module Amazonka.ComprehendMedical.Lens
     stopRxNormInferenceJobResponse_jobId,
     stopRxNormInferenceJobResponse_httpStatus,
 
+    -- ** StopSNOMEDCTInferenceJob
+    stopSNOMEDCTInferenceJob_jobId,
+    stopSNOMEDCTInferenceJobResponse_jobId,
+    stopSNOMEDCTInferenceJobResponse_httpStatus,
+
     -- * Types
 
     -- ** Attribute
@@ -172,6 +210,9 @@ module Amazonka.ComprehendMedical.Lens
     attribute_relationshipType,
     attribute_category,
     attribute_text,
+
+    -- ** Characters
+    characters_originalTextCharacters,
 
     -- ** ComprehendMedicalAsyncJobFilter
     comprehendMedicalAsyncJobFilter_jobStatus,
@@ -278,6 +319,45 @@ module Amazonka.ComprehendMedical.Lens
     rxNormTrait_name,
     rxNormTrait_score,
 
+    -- ** SNOMEDCTAttribute
+    sNOMEDCTAttribute_beginOffset,
+    sNOMEDCTAttribute_relationshipScore,
+    sNOMEDCTAttribute_type,
+    sNOMEDCTAttribute_traits,
+    sNOMEDCTAttribute_score,
+    sNOMEDCTAttribute_id,
+    sNOMEDCTAttribute_endOffset,
+    sNOMEDCTAttribute_relationshipType,
+    sNOMEDCTAttribute_category,
+    sNOMEDCTAttribute_text,
+    sNOMEDCTAttribute_sNOMEDCTConcepts,
+
+    -- ** SNOMEDCTConcept
+    sNOMEDCTConcept_code,
+    sNOMEDCTConcept_score,
+    sNOMEDCTConcept_description,
+
+    -- ** SNOMEDCTDetails
+    sNOMEDCTDetails_edition,
+    sNOMEDCTDetails_versionDate,
+    sNOMEDCTDetails_language,
+
+    -- ** SNOMEDCTEntity
+    sNOMEDCTEntity_beginOffset,
+    sNOMEDCTEntity_type,
+    sNOMEDCTEntity_traits,
+    sNOMEDCTEntity_score,
+    sNOMEDCTEntity_id,
+    sNOMEDCTEntity_endOffset,
+    sNOMEDCTEntity_category,
+    sNOMEDCTEntity_attributes,
+    sNOMEDCTEntity_text,
+    sNOMEDCTEntity_sNOMEDCTConcepts,
+
+    -- ** SNOMEDCTTrait
+    sNOMEDCTTrait_name,
+    sNOMEDCTTrait_score,
+
     -- ** Trait
     trait_name,
     trait_score,
@@ -292,23 +372,29 @@ import Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
 import Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
 import Amazonka.ComprehendMedical.DescribePHIDetectionJob
 import Amazonka.ComprehendMedical.DescribeRxNormInferenceJob
+import Amazonka.ComprehendMedical.DescribeSNOMEDCTInferenceJob
 import Amazonka.ComprehendMedical.DetectEntitiesV2
 import Amazonka.ComprehendMedical.DetectPHI
 import Amazonka.ComprehendMedical.InferICD10CM
 import Amazonka.ComprehendMedical.InferRxNorm
+import Amazonka.ComprehendMedical.InferSNOMEDCT
 import Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs
 import Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
 import Amazonka.ComprehendMedical.ListPHIDetectionJobs
 import Amazonka.ComprehendMedical.ListRxNormInferenceJobs
+import Amazonka.ComprehendMedical.ListSNOMEDCTInferenceJobs
 import Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
 import Amazonka.ComprehendMedical.StartICD10CMInferenceJob
 import Amazonka.ComprehendMedical.StartPHIDetectionJob
 import Amazonka.ComprehendMedical.StartRxNormInferenceJob
+import Amazonka.ComprehendMedical.StartSNOMEDCTInferenceJob
 import Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job
 import Amazonka.ComprehendMedical.StopICD10CMInferenceJob
 import Amazonka.ComprehendMedical.StopPHIDetectionJob
 import Amazonka.ComprehendMedical.StopRxNormInferenceJob
+import Amazonka.ComprehendMedical.StopSNOMEDCTInferenceJob
 import Amazonka.ComprehendMedical.Types.Attribute
+import Amazonka.ComprehendMedical.Types.Characters
 import Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
 import Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
 import Amazonka.ComprehendMedical.Types.Entity
@@ -322,5 +408,10 @@ import Amazonka.ComprehendMedical.Types.RxNormAttribute
 import Amazonka.ComprehendMedical.Types.RxNormConcept
 import Amazonka.ComprehendMedical.Types.RxNormEntity
 import Amazonka.ComprehendMedical.Types.RxNormTrait
+import Amazonka.ComprehendMedical.Types.SNOMEDCTAttribute
+import Amazonka.ComprehendMedical.Types.SNOMEDCTConcept
+import Amazonka.ComprehendMedical.Types.SNOMEDCTDetails
+import Amazonka.ComprehendMedical.Types.SNOMEDCTEntity
+import Amazonka.ComprehendMedical.Types.SNOMEDCTTrait
 import Amazonka.ComprehendMedical.Types.Trait
 import Amazonka.ComprehendMedical.Types.UnmappedAttribute

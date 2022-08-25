@@ -38,9 +38,9 @@ data Cluster = Cluster'
   { -- | The encryption configuration for the cluster.
     encryptionConfig :: Prelude.Maybe [EncryptionConfig],
     -- | The metadata that you apply to the cluster to assist with categorization
-    -- and organization. Each tag consists of a key and an optional value, both
-    -- of which you define. Cluster tags do not propagate to any other
-    -- resources associated with the cluster.
+    -- and organization. Each tag consists of a key and an optional value. You
+    -- define both. Cluster tags do not propagate to any other resources
+    -- associated with the cluster.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster.
     name :: Prelude.Maybe Prelude.Text,
@@ -98,9 +98,9 @@ data Cluster = Cluster'
 -- 'encryptionConfig', 'cluster_encryptionConfig' - The encryption configuration for the cluster.
 --
 -- 'tags', 'cluster_tags' - The metadata that you apply to the cluster to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Cluster tags do not propagate to any other
--- resources associated with the cluster.
+-- and organization. Each tag consists of a key and an optional value. You
+-- define both. Cluster tags do not propagate to any other resources
+-- associated with the cluster.
 --
 -- 'name', 'cluster_name' - The name of the cluster.
 --
@@ -171,9 +171,9 @@ cluster_encryptionConfig :: Lens.Lens' Cluster (Prelude.Maybe [EncryptionConfig]
 cluster_encryptionConfig = Lens.lens (\Cluster' {encryptionConfig} -> encryptionConfig) (\s@Cluster' {} a -> s {encryptionConfig = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata that you apply to the cluster to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Cluster tags do not propagate to any other
--- resources associated with the cluster.
+-- and organization. Each tag consists of a key and an optional value. You
+-- define both. Cluster tags do not propagate to any other resources
+-- associated with the cluster.
 cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 

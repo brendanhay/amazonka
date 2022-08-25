@@ -52,9 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-  { -- | The AWS account ID.
+  { -- | The ID for the Amazon Web Services account that contains the folder to
+    -- update.
     awsAccountId :: Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Text,
     -- | The name of the folder.
     name :: Prelude.Text
@@ -69,9 +70,10 @@ data UpdateFolder = UpdateFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'updateFolder_awsAccountId' - The AWS account ID.
+-- 'awsAccountId', 'updateFolder_awsAccountId' - The ID for the Amazon Web Services account that contains the folder to
+-- update.
 --
--- 'folderId', 'updateFolder_folderId' - The folder ID.
+-- 'folderId', 'updateFolder_folderId' - The ID of the folder.
 --
 -- 'name', 'updateFolder_name' - The name of the folder.
 newUpdateFolder ::
@@ -89,11 +91,12 @@ newUpdateFolder pAwsAccountId_ pFolderId_ pName_ =
       name = pName_
     }
 
--- | The AWS account ID.
+-- | The ID for the Amazon Web Services account that contains the folder to
+-- update.
 updateFolder_awsAccountId :: Lens.Lens' UpdateFolder Prelude.Text
 updateFolder_awsAccountId = Lens.lens (\UpdateFolder' {awsAccountId} -> awsAccountId) (\s@UpdateFolder' {} a -> s {awsAccountId = a} :: UpdateFolder)
 
--- | The folder ID.
+-- | The ID of the folder.
 updateFolder_folderId :: Lens.Lens' UpdateFolder Prelude.Text
 updateFolder_folderId = Lens.lens (\UpdateFolder' {folderId} -> folderId) (\s@UpdateFolder' {} a -> s {folderId = a} :: UpdateFolder)
 
@@ -158,13 +161,13 @@ instance Core.ToQuery UpdateFolder where
 
 -- | /See:/ 'newUpdateFolderResponse' smart constructor.
 data UpdateFolderResponse = UpdateFolderResponse'
-  { -- | The request ID.
+  { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) of the folder.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | The status. If succeeded, the status is @SC_OK@.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -177,13 +180,13 @@ data UpdateFolderResponse = UpdateFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateFolderResponse_requestId' - The request ID.
+-- 'requestId', 'updateFolderResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'arn', 'updateFolderResponse_arn' - The Amazon Resource Name (ARN).
+-- 'arn', 'updateFolderResponse_arn' - The Amazon Resource Name (ARN) of the folder.
 --
--- 'folderId', 'updateFolderResponse_folderId' - The folder ID.
+-- 'folderId', 'updateFolderResponse_folderId' - The ID of the folder.
 --
--- 'status', 'updateFolderResponse_status' - The status. If succeeded, the status is @SC_OK@.
+-- 'status', 'updateFolderResponse_status' - The HTTP status of the request.
 newUpdateFolderResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -196,19 +199,19 @@ newUpdateFolderResponse pStatus_ =
       status = pStatus_
     }
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 updateFolderResponse_requestId :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
 updateFolderResponse_requestId = Lens.lens (\UpdateFolderResponse' {requestId} -> requestId) (\s@UpdateFolderResponse' {} a -> s {requestId = a} :: UpdateFolderResponse)
 
--- | The Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) of the folder.
 updateFolderResponse_arn :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
 updateFolderResponse_arn = Lens.lens (\UpdateFolderResponse' {arn} -> arn) (\s@UpdateFolderResponse' {} a -> s {arn = a} :: UpdateFolderResponse)
 
--- | The folder ID.
+-- | The ID of the folder.
 updateFolderResponse_folderId :: Lens.Lens' UpdateFolderResponse (Prelude.Maybe Prelude.Text)
 updateFolderResponse_folderId = Lens.lens (\UpdateFolderResponse' {folderId} -> folderId) (\s@UpdateFolderResponse' {} a -> s {folderId = a} :: UpdateFolderResponse)
 
--- | The status. If succeeded, the status is @SC_OK@.
+-- | The HTTP status of the request.
 updateFolderResponse_status :: Lens.Lens' UpdateFolderResponse Prelude.Int
 updateFolderResponse_status = Lens.lens (\UpdateFolderResponse' {status} -> status) (\s@UpdateFolderResponse' {} a -> s {status = a} :: UpdateFolderResponse)
 

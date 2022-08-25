@@ -20,7 +20,8 @@
 module Amazonka.CloudTrail.Types.InsightType
   ( InsightType
       ( ..,
-        InsightType_ApiCallRateInsight
+        InsightType_ApiCallRateInsight,
+        InsightType_ApiErrorRateInsight
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype InsightType = InsightType'
 pattern InsightType_ApiCallRateInsight :: InsightType
 pattern InsightType_ApiCallRateInsight = InsightType' "ApiCallRateInsight"
 
+pattern InsightType_ApiErrorRateInsight :: InsightType
+pattern InsightType_ApiErrorRateInsight = InsightType' "ApiErrorRateInsight"
+
 {-# COMPLETE
   InsightType_ApiCallRateInsight,
+  InsightType_ApiErrorRateInsight,
   InsightType'
   #-}

@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | Tags associated with spcific Job.
+  { -- | Tags associated with specific Job.
     tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Job initiated by field.
     initiatedBy :: Prelude.Maybe InitiatedBy,
@@ -60,7 +60,7 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'job_tags' - Tags associated with spcific Job.
+-- 'tags', 'job_tags' - Tags associated with specific Job.
 --
 -- 'initiatedBy', 'job_initiatedBy' - Job initiated by field.
 --
@@ -94,7 +94,7 @@ newJob pJobID_ =
       jobID = pJobID_
     }
 
--- | Tags associated with spcific Job.
+-- | Tags associated with specific Job.
 job_tags :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 job_tags = Lens.lens (\Job' {tags} -> tags) (\s@Job' {} a -> s {tags = a} :: Job) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 

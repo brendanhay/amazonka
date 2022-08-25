@@ -534,6 +534,12 @@ module Amazonka.Config
     GetConformancePackComplianceSummaryResponse (GetConformancePackComplianceSummaryResponse'),
     newGetConformancePackComplianceSummaryResponse,
 
+    -- ** GetCustomRulePolicy
+    GetCustomRulePolicy (GetCustomRulePolicy'),
+    newGetCustomRulePolicy,
+    GetCustomRulePolicyResponse (GetCustomRulePolicyResponse'),
+    newGetCustomRulePolicyResponse,
+
     -- ** GetDiscoveredResourceCounts
     GetDiscoveredResourceCounts (GetDiscoveredResourceCounts'),
     newGetDiscoveredResourceCounts,
@@ -552,6 +558,12 @@ module Amazonka.Config
     GetOrganizationConformancePackDetailedStatusResponse (GetOrganizationConformancePackDetailedStatusResponse'),
     newGetOrganizationConformancePackDetailedStatusResponse,
 
+    -- ** GetOrganizationCustomRulePolicy
+    GetOrganizationCustomRulePolicy (GetOrganizationCustomRulePolicy'),
+    newGetOrganizationCustomRulePolicy,
+    GetOrganizationCustomRulePolicyResponse (GetOrganizationCustomRulePolicyResponse'),
+    newGetOrganizationCustomRulePolicyResponse,
+
     -- ** GetResourceConfigHistory (Paginated)
     GetResourceConfigHistory (GetResourceConfigHistory'),
     newGetResourceConfigHistory,
@@ -569,6 +581,12 @@ module Amazonka.Config
     newListAggregateDiscoveredResources,
     ListAggregateDiscoveredResourcesResponse (ListAggregateDiscoveredResourcesResponse'),
     newListAggregateDiscoveredResourcesResponse,
+
+    -- ** ListConformancePackComplianceScores
+    ListConformancePackComplianceScores (ListConformancePackComplianceScores'),
+    newListConformancePackComplianceScores,
+    ListConformancePackComplianceScoresResponse (ListConformancePackComplianceScoresResponse'),
+    newListConformancePackComplianceScoresResponse,
 
     -- ** ListDiscoveredResources (Paginated)
     ListDiscoveredResources (ListDiscoveredResources'),
@@ -776,6 +794,9 @@ module Amazonka.Config
     -- ** OrganizationConfigRuleTriggerType
     OrganizationConfigRuleTriggerType (..),
 
+    -- ** OrganizationConfigRuleTriggerTypeNoSN
+    OrganizationConfigRuleTriggerTypeNoSN (..),
+
     -- ** OrganizationResourceDetailedStatus
     OrganizationResourceDetailedStatus (..),
 
@@ -808,6 +829,12 @@ module Amazonka.Config
 
     -- ** ResourceValueType
     ResourceValueType (..),
+
+    -- ** SortBy
+    SortBy (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** AccountAggregationSource
     AccountAggregationSource (AccountAggregationSource'),
@@ -937,6 +964,14 @@ module Amazonka.Config
     ConformancePackComplianceFilters (ConformancePackComplianceFilters'),
     newConformancePackComplianceFilters,
 
+    -- ** ConformancePackComplianceScore
+    ConformancePackComplianceScore (ConformancePackComplianceScore'),
+    newConformancePackComplianceScore,
+
+    -- ** ConformancePackComplianceScoresFilters
+    ConformancePackComplianceScoresFilters (ConformancePackComplianceScoresFilters'),
+    newConformancePackComplianceScoresFilters,
+
     -- ** ConformancePackComplianceSummary
     ConformancePackComplianceSummary (ConformancePackComplianceSummary'),
     newConformancePackComplianceSummary,
@@ -964,6 +999,10 @@ module Amazonka.Config
     -- ** ConformancePackStatusDetail
     ConformancePackStatusDetail (ConformancePackStatusDetail'),
     newConformancePackStatusDetail,
+
+    -- ** CustomPolicyDetails
+    CustomPolicyDetails (CustomPolicyDetails'),
+    newCustomPolicyDetails,
 
     -- ** DeliveryChannel
     DeliveryChannel (DeliveryChannel'),
@@ -1044,6 +1083,14 @@ module Amazonka.Config
     -- ** OrganizationConformancePackStatus
     OrganizationConformancePackStatus (OrganizationConformancePackStatus'),
     newOrganizationConformancePackStatus,
+
+    -- ** OrganizationCustomPolicyRuleMetadata
+    OrganizationCustomPolicyRuleMetadata (OrganizationCustomPolicyRuleMetadata'),
+    newOrganizationCustomPolicyRuleMetadata,
+
+    -- ** OrganizationCustomPolicyRuleMetadataNoPolicy
+    OrganizationCustomPolicyRuleMetadataNoPolicy (OrganizationCustomPolicyRuleMetadataNoPolicy'),
+    newOrganizationCustomPolicyRuleMetadataNoPolicy,
 
     -- ** OrganizationCustomRuleMetadata
     OrganizationCustomRuleMetadata (OrganizationCustomRuleMetadata'),
@@ -1217,13 +1264,16 @@ import Amazonka.Config.GetComplianceSummaryByConfigRule
 import Amazonka.Config.GetComplianceSummaryByResourceType
 import Amazonka.Config.GetConformancePackComplianceDetails
 import Amazonka.Config.GetConformancePackComplianceSummary
+import Amazonka.Config.GetCustomRulePolicy
 import Amazonka.Config.GetDiscoveredResourceCounts
 import Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
 import Amazonka.Config.GetOrganizationConformancePackDetailedStatus
+import Amazonka.Config.GetOrganizationCustomRulePolicy
 import Amazonka.Config.GetResourceConfigHistory
 import Amazonka.Config.GetStoredQuery
 import Amazonka.Config.Lens
 import Amazonka.Config.ListAggregateDiscoveredResources
+import Amazonka.Config.ListConformancePackComplianceScores
 import Amazonka.Config.ListDiscoveredResources
 import Amazonka.Config.ListStoredQueries
 import Amazonka.Config.ListTagsForResource

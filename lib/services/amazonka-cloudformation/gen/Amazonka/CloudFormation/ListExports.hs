@@ -27,7 +27,7 @@
 -- function.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html CloudFormation Export Stack Output Values>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html CloudFormation export stack output values>.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudFormation.ListExports

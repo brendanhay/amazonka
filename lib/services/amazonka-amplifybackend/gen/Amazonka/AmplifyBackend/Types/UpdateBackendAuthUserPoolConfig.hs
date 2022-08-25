@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthVerificationMessageConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -39,9 +40,12 @@ data UpdateBackendAuthUserPoolConfig = UpdateBackendAuthUserPoolConfig'
     -- | Describes the password policy for your Amazon Cognito user pool,
     -- configured as a part of your Amplify project.
     passwordPolicy :: Prelude.Maybe UpdateBackendAuthPasswordPolicyConfig,
-    -- | Describes the forgot password policy for your Amazon Cognito user pool,
-    -- configured as a part of your Amplify project.
+    -- | __(DEPRECATED)__ Describes the forgot password policy for your Amazon
+    -- Cognito user pool, configured as a part of your Amplify project.
     forgotPassword :: Prelude.Maybe UpdateBackendAuthForgotPasswordConfig,
+    -- | Describes the email or SMS verification message for your Amazon Cognito
+    -- user pool, configured as a part of your Amplify project.
+    verificationMessage :: Prelude.Maybe UpdateBackendAuthVerificationMessageConfig,
     -- | Describes whether to apply multi-factor authentication policies for your
     -- Amazon Cognito user pool configured as a part of your Amplify project.
     mfa :: Prelude.Maybe UpdateBackendAuthMFAConfig
@@ -62,8 +66,11 @@ data UpdateBackendAuthUserPoolConfig = UpdateBackendAuthUserPoolConfig'
 -- 'passwordPolicy', 'updateBackendAuthUserPoolConfig_passwordPolicy' - Describes the password policy for your Amazon Cognito user pool,
 -- configured as a part of your Amplify project.
 --
--- 'forgotPassword', 'updateBackendAuthUserPoolConfig_forgotPassword' - Describes the forgot password policy for your Amazon Cognito user pool,
--- configured as a part of your Amplify project.
+-- 'forgotPassword', 'updateBackendAuthUserPoolConfig_forgotPassword' - __(DEPRECATED)__ Describes the forgot password policy for your Amazon
+-- Cognito user pool, configured as a part of your Amplify project.
+--
+-- 'verificationMessage', 'updateBackendAuthUserPoolConfig_verificationMessage' - Describes the email or SMS verification message for your Amazon Cognito
+-- user pool, configured as a part of your Amplify project.
 --
 -- 'mfa', 'updateBackendAuthUserPoolConfig_mfa' - Describes whether to apply multi-factor authentication policies for your
 -- Amazon Cognito user pool configured as a part of your Amplify project.
@@ -75,6 +82,7 @@ newUpdateBackendAuthUserPoolConfig =
         Prelude.Nothing,
       passwordPolicy = Prelude.Nothing,
       forgotPassword = Prelude.Nothing,
+      verificationMessage = Prelude.Nothing,
       mfa = Prelude.Nothing
     }
 
@@ -88,10 +96,15 @@ updateBackendAuthUserPoolConfig_oAuth = Lens.lens (\UpdateBackendAuthUserPoolCon
 updateBackendAuthUserPoolConfig_passwordPolicy :: Lens.Lens' UpdateBackendAuthUserPoolConfig (Prelude.Maybe UpdateBackendAuthPasswordPolicyConfig)
 updateBackendAuthUserPoolConfig_passwordPolicy = Lens.lens (\UpdateBackendAuthUserPoolConfig' {passwordPolicy} -> passwordPolicy) (\s@UpdateBackendAuthUserPoolConfig' {} a -> s {passwordPolicy = a} :: UpdateBackendAuthUserPoolConfig)
 
--- | Describes the forgot password policy for your Amazon Cognito user pool,
--- configured as a part of your Amplify project.
+-- | __(DEPRECATED)__ Describes the forgot password policy for your Amazon
+-- Cognito user pool, configured as a part of your Amplify project.
 updateBackendAuthUserPoolConfig_forgotPassword :: Lens.Lens' UpdateBackendAuthUserPoolConfig (Prelude.Maybe UpdateBackendAuthForgotPasswordConfig)
 updateBackendAuthUserPoolConfig_forgotPassword = Lens.lens (\UpdateBackendAuthUserPoolConfig' {forgotPassword} -> forgotPassword) (\s@UpdateBackendAuthUserPoolConfig' {} a -> s {forgotPassword = a} :: UpdateBackendAuthUserPoolConfig)
+
+-- | Describes the email or SMS verification message for your Amazon Cognito
+-- user pool, configured as a part of your Amplify project.
+updateBackendAuthUserPoolConfig_verificationMessage :: Lens.Lens' UpdateBackendAuthUserPoolConfig (Prelude.Maybe UpdateBackendAuthVerificationMessageConfig)
+updateBackendAuthUserPoolConfig_verificationMessage = Lens.lens (\UpdateBackendAuthUserPoolConfig' {verificationMessage} -> verificationMessage) (\s@UpdateBackendAuthUserPoolConfig' {} a -> s {verificationMessage = a} :: UpdateBackendAuthUserPoolConfig)
 
 -- | Describes whether to apply multi-factor authentication policies for your
 -- Amazon Cognito user pool configured as a part of your Amplify project.
@@ -108,6 +121,7 @@ instance
       _salt `Prelude.hashWithSalt` oAuth
         `Prelude.hashWithSalt` passwordPolicy
         `Prelude.hashWithSalt` forgotPassword
+        `Prelude.hashWithSalt` verificationMessage
         `Prelude.hashWithSalt` mfa
 
 instance
@@ -118,6 +132,7 @@ instance
     Prelude.rnf oAuth
       `Prelude.seq` Prelude.rnf passwordPolicy
       `Prelude.seq` Prelude.rnf forgotPassword
+      `Prelude.seq` Prelude.rnf verificationMessage
       `Prelude.seq` Prelude.rnf mfa
 
 instance Core.ToJSON UpdateBackendAuthUserPoolConfig where
@@ -129,6 +144,8 @@ instance Core.ToJSON UpdateBackendAuthUserPoolConfig where
               Prelude.<$> passwordPolicy,
             ("forgotPassword" Core..=)
               Prelude.<$> forgotPassword,
+            ("verificationMessage" Core..=)
+              Prelude.<$> verificationMessage,
             ("mfa" Core..=) Prelude.<$> mfa
           ]
       )

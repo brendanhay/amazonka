@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all the tasks.
+-- Returns a list of the DataSync tasks you created.
 --
 -- This operation returns paginated results.
 module Amazonka.DataSync.ListTasks

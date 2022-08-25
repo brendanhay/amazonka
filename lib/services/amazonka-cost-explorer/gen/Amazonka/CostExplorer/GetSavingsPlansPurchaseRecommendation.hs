@@ -65,14 +65,14 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
     -- | You can filter your recommendations by Account ID with the
     -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
     -- ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated
-    -- Acount ID(s) for which you want to see Savings Plans purchase
-    -- recommendations.
+    -- Acount ID(s) that you want to see Savings Plans purchase recommendations
+    -- for.
     --
-    -- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include
+    -- For GetSavingsPlansPurchaseRecommendation, the @Filter@ doesn\'t include
     -- @CostCategories@ or @Tags@. It only includes @Dimensions@. With
     -- @Dimensions@, @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single
-    -- Account ID or multiple comma-separated Account IDs for which you want to
-    -- see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are
+    -- Account ID or multiple comma-separated Account IDs that you want to see
+    -- Savings Plans Purchase Recommendations for. @AND@ and @OR@ operators are
     -- not supported.
     filter' :: Prelude.Maybe Expression,
     -- | The number of recommendations that you want returned in a single
@@ -84,14 +84,14 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
     -- @LINKED@, recommendations are calculated for individual member accounts
     -- only.
     accountScope :: Prelude.Maybe AccountScope,
-    -- | The Savings Plans recommendation type requested.
+    -- | The Savings Plans recommendation type that\'s requested.
     savingsPlansType :: SupportedSavingsPlansType,
-    -- | The savings plan recommendation term used to generate these
+    -- | The savings plan recommendation term that\'s used to generate these
     -- recommendations.
     termInYears :: TermInYears,
-    -- | The payment option used to generate these recommendations.
+    -- | The payment option that\'s used to generate these recommendations.
     paymentOption :: PaymentOption,
-    -- | The lookback period used to generate the recommendation.
+    -- | The lookback period that\'s used to generate the recommendation.
     lookbackPeriodInDays :: LookbackPeriodInDays
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,14 +111,14 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
 -- 'filter'', 'getSavingsPlansPurchaseRecommendation_filter' - You can filter your recommendations by Account ID with the
 -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
 -- ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated
--- Acount ID(s) for which you want to see Savings Plans purchase
--- recommendations.
+-- Acount ID(s) that you want to see Savings Plans purchase recommendations
+-- for.
 --
--- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include
+-- For GetSavingsPlansPurchaseRecommendation, the @Filter@ doesn\'t include
 -- @CostCategories@ or @Tags@. It only includes @Dimensions@. With
 -- @Dimensions@, @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single
--- Account ID or multiple comma-separated Account IDs for which you want to
--- see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are
+-- Account ID or multiple comma-separated Account IDs that you want to see
+-- Savings Plans Purchase Recommendations for. @AND@ and @OR@ operators are
 -- not supported.
 --
 -- 'pageSize', 'getSavingsPlansPurchaseRecommendation_pageSize' - The number of recommendations that you want returned in a single
@@ -130,14 +130,14 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
 -- @LINKED@, recommendations are calculated for individual member accounts
 -- only.
 --
--- 'savingsPlansType', 'getSavingsPlansPurchaseRecommendation_savingsPlansType' - The Savings Plans recommendation type requested.
+-- 'savingsPlansType', 'getSavingsPlansPurchaseRecommendation_savingsPlansType' - The Savings Plans recommendation type that\'s requested.
 --
--- 'termInYears', 'getSavingsPlansPurchaseRecommendation_termInYears' - The savings plan recommendation term used to generate these
+-- 'termInYears', 'getSavingsPlansPurchaseRecommendation_termInYears' - The savings plan recommendation term that\'s used to generate these
 -- recommendations.
 --
--- 'paymentOption', 'getSavingsPlansPurchaseRecommendation_paymentOption' - The payment option used to generate these recommendations.
+-- 'paymentOption', 'getSavingsPlansPurchaseRecommendation_paymentOption' - The payment option that\'s used to generate these recommendations.
 --
--- 'lookbackPeriodInDays', 'getSavingsPlansPurchaseRecommendation_lookbackPeriodInDays' - The lookback period used to generate the recommendation.
+-- 'lookbackPeriodInDays', 'getSavingsPlansPurchaseRecommendation_lookbackPeriodInDays' - The lookback period that\'s used to generate the recommendation.
 newGetSavingsPlansPurchaseRecommendation ::
   -- | 'savingsPlansType'
   SupportedSavingsPlansType ->
@@ -176,14 +176,14 @@ getSavingsPlansPurchaseRecommendation_nextPageToken = Lens.lens (\GetSavingsPlan
 -- | You can filter your recommendations by Account ID with the
 -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
 -- ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated
--- Acount ID(s) for which you want to see Savings Plans purchase
--- recommendations.
+-- Acount ID(s) that you want to see Savings Plans purchase recommendations
+-- for.
 --
--- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include
+-- For GetSavingsPlansPurchaseRecommendation, the @Filter@ doesn\'t include
 -- @CostCategories@ or @Tags@. It only includes @Dimensions@. With
 -- @Dimensions@, @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single
--- Account ID or multiple comma-separated Account IDs for which you want to
--- see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are
+-- Account ID or multiple comma-separated Account IDs that you want to see
+-- Savings Plans Purchase Recommendations for. @AND@ and @OR@ operators are
 -- not supported.
 getSavingsPlansPurchaseRecommendation_filter :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe Expression)
 getSavingsPlansPurchaseRecommendation_filter = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {filter'} -> filter') (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {filter' = a} :: GetSavingsPlansPurchaseRecommendation)
@@ -201,20 +201,20 @@ getSavingsPlansPurchaseRecommendation_pageSize = Lens.lens (\GetSavingsPlansPurc
 getSavingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe AccountScope)
 getSavingsPlansPurchaseRecommendation_accountScope = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {accountScope} -> accountScope) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {accountScope = a} :: GetSavingsPlansPurchaseRecommendation)
 
--- | The Savings Plans recommendation type requested.
+-- | The Savings Plans recommendation type that\'s requested.
 getSavingsPlansPurchaseRecommendation_savingsPlansType :: Lens.Lens' GetSavingsPlansPurchaseRecommendation SupportedSavingsPlansType
 getSavingsPlansPurchaseRecommendation_savingsPlansType = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {savingsPlansType} -> savingsPlansType) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {savingsPlansType = a} :: GetSavingsPlansPurchaseRecommendation)
 
--- | The savings plan recommendation term used to generate these
+-- | The savings plan recommendation term that\'s used to generate these
 -- recommendations.
 getSavingsPlansPurchaseRecommendation_termInYears :: Lens.Lens' GetSavingsPlansPurchaseRecommendation TermInYears
 getSavingsPlansPurchaseRecommendation_termInYears = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {termInYears} -> termInYears) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {termInYears = a} :: GetSavingsPlansPurchaseRecommendation)
 
--- | The payment option used to generate these recommendations.
+-- | The payment option that\'s used to generate these recommendations.
 getSavingsPlansPurchaseRecommendation_paymentOption :: Lens.Lens' GetSavingsPlansPurchaseRecommendation PaymentOption
 getSavingsPlansPurchaseRecommendation_paymentOption = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {paymentOption} -> paymentOption) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {paymentOption = a} :: GetSavingsPlansPurchaseRecommendation)
 
--- | The lookback period used to generate the recommendation.
+-- | The lookback period that\'s used to generate the recommendation.
 getSavingsPlansPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' GetSavingsPlansPurchaseRecommendation LookbackPeriodInDays
 getSavingsPlansPurchaseRecommendation_lookbackPeriodInDays = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {lookbackPeriodInDays = a} :: GetSavingsPlansPurchaseRecommendation)
 
@@ -328,7 +328,7 @@ data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseReco
     -- | Contains your request parameters, Savings Plan Recommendations Summary,
     -- and Details.
     savingsPlansPurchaseRecommendation :: Prelude.Maybe SavingsPlansPurchaseRecommendation,
-    -- | Information regarding this specific recommendation set.
+    -- | Information that regards this specific recommendation set.
     metadata :: Prelude.Maybe SavingsPlansPurchaseRecommendationMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -350,7 +350,7 @@ data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseReco
 -- 'savingsPlansPurchaseRecommendation', 'getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation' - Contains your request parameters, Savings Plan Recommendations Summary,
 -- and Details.
 --
--- 'metadata', 'getSavingsPlansPurchaseRecommendationResponse_metadata' - Information regarding this specific recommendation set.
+-- 'metadata', 'getSavingsPlansPurchaseRecommendationResponse_metadata' - Information that regards this specific recommendation set.
 --
 -- 'httpStatus', 'getSavingsPlansPurchaseRecommendationResponse_httpStatus' - The response's http status code.
 newGetSavingsPlansPurchaseRecommendationResponse ::
@@ -379,7 +379,7 @@ getSavingsPlansPurchaseRecommendationResponse_nextPageToken = Lens.lens (\GetSav
 getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe SavingsPlansPurchaseRecommendation)
 getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {savingsPlansPurchaseRecommendation} -> savingsPlansPurchaseRecommendation) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {savingsPlansPurchaseRecommendation = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 
--- | Information regarding this specific recommendation set.
+-- | Information that regards this specific recommendation set.
 getSavingsPlansPurchaseRecommendationResponse_metadata :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe SavingsPlansPurchaseRecommendationMetadata)
 getSavingsPlansPurchaseRecommendationResponse_metadata = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {metadata} -> metadata) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {metadata = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 

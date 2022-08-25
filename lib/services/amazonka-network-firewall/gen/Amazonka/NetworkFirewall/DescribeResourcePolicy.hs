@@ -131,7 +131,7 @@ instance Core.ToQuery DescribeResourcePolicy where
 
 -- | /See:/ 'newDescribeResourcePolicyResponse' smart constructor.
 data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
-  { -- | The AWS Identity and Access Management policy for the resource.
+  { -- | The IAM policy for the resource.
     policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -146,7 +146,7 @@ data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'describeResourcePolicyResponse_policy' - The AWS Identity and Access Management policy for the resource.
+-- 'policy', 'describeResourcePolicyResponse_policy' - The IAM policy for the resource.
 --
 -- 'httpStatus', 'describeResourcePolicyResponse_httpStatus' - The response's http status code.
 newDescribeResourcePolicyResponse ::
@@ -160,7 +160,7 @@ newDescribeResourcePolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS Identity and Access Management policy for the resource.
+-- | The IAM policy for the resource.
 describeResourcePolicyResponse_policy :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 describeResourcePolicyResponse_policy = Lens.lens (\DescribeResourcePolicyResponse' {policy} -> policy) (\s@DescribeResourcePolicyResponse' {} a -> s {policy = a} :: DescribeResourcePolicyResponse)
 

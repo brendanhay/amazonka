@@ -25,11 +25,11 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectLockLegalHoldStatus
 
--- | A Legal Hold configuration for an object.
+-- | A legal hold configuration for an object.
 --
 -- /See:/ 'newObjectLockLegalHold' smart constructor.
 data ObjectLockLegalHold = ObjectLockLegalHold'
-  { -- | Indicates whether the specified object has a Legal Hold in place.
+  { -- | Indicates whether the specified object has a legal hold in place.
     status :: Prelude.Maybe ObjectLockLegalHoldStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,13 +42,13 @@ data ObjectLockLegalHold = ObjectLockLegalHold'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'objectLockLegalHold_status' - Indicates whether the specified object has a Legal Hold in place.
+-- 'status', 'objectLockLegalHold_status' - Indicates whether the specified object has a legal hold in place.
 newObjectLockLegalHold ::
   ObjectLockLegalHold
 newObjectLockLegalHold =
   ObjectLockLegalHold' {status = Prelude.Nothing}
 
--- | Indicates whether the specified object has a Legal Hold in place.
+-- | Indicates whether the specified object has a legal hold in place.
 objectLockLegalHold_status :: Lens.Lens' ObjectLockLegalHold (Prelude.Maybe ObjectLockLegalHoldStatus)
 objectLockLegalHold_status = Lens.lens (\ObjectLockLegalHold' {status} -> status) (\s@ObjectLockLegalHold' {} a -> s {status = a} :: ObjectLockLegalHold)
 

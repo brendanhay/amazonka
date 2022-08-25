@@ -58,9 +58,9 @@ data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
     -- | The settings that determine the size and behavior of the connection pool
     -- for the target group.
     connectionPoolConfig :: Prelude.Maybe ConnectionPoolConfiguration,
-    -- | The name of the new target group to assign to the proxy.
+    -- | The name of the target group to modify.
     targetGroupName :: Prelude.Text,
-    -- | The name of the new proxy to which to assign the target group.
+    -- | The name of the proxy.
     dbProxyName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,9 +80,9 @@ data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
 -- 'connectionPoolConfig', 'modifyDBProxyTargetGroup_connectionPoolConfig' - The settings that determine the size and behavior of the connection pool
 -- for the target group.
 --
--- 'targetGroupName', 'modifyDBProxyTargetGroup_targetGroupName' - The name of the new target group to assign to the proxy.
+-- 'targetGroupName', 'modifyDBProxyTargetGroup_targetGroupName' - The name of the target group to modify.
 --
--- 'dbProxyName', 'modifyDBProxyTargetGroup_dbProxyName' - The name of the new proxy to which to assign the target group.
+-- 'dbProxyName', 'modifyDBProxyTargetGroup_dbProxyName' - The name of the proxy.
 newModifyDBProxyTargetGroup ::
   -- | 'targetGroupName'
   Prelude.Text ->
@@ -111,11 +111,11 @@ modifyDBProxyTargetGroup_newName = Lens.lens (\ModifyDBProxyTargetGroup' {newNam
 modifyDBProxyTargetGroup_connectionPoolConfig :: Lens.Lens' ModifyDBProxyTargetGroup (Prelude.Maybe ConnectionPoolConfiguration)
 modifyDBProxyTargetGroup_connectionPoolConfig = Lens.lens (\ModifyDBProxyTargetGroup' {connectionPoolConfig} -> connectionPoolConfig) (\s@ModifyDBProxyTargetGroup' {} a -> s {connectionPoolConfig = a} :: ModifyDBProxyTargetGroup)
 
--- | The name of the new target group to assign to the proxy.
+-- | The name of the target group to modify.
 modifyDBProxyTargetGroup_targetGroupName :: Lens.Lens' ModifyDBProxyTargetGroup Prelude.Text
 modifyDBProxyTargetGroup_targetGroupName = Lens.lens (\ModifyDBProxyTargetGroup' {targetGroupName} -> targetGroupName) (\s@ModifyDBProxyTargetGroup' {} a -> s {targetGroupName = a} :: ModifyDBProxyTargetGroup)
 
--- | The name of the new proxy to which to assign the target group.
+-- | The name of the proxy.
 modifyDBProxyTargetGroup_dbProxyName :: Lens.Lens' ModifyDBProxyTargetGroup Prelude.Text
 modifyDBProxyTargetGroup_dbProxyName = Lens.lens (\ModifyDBProxyTargetGroup' {dbProxyName} -> dbProxyName) (\s@ModifyDBProxyTargetGroup' {} a -> s {dbProxyName = a} :: ModifyDBProxyTargetGroup)
 

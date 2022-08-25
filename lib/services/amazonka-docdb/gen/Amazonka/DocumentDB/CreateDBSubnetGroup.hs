@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new subnet group. subnet groups must contain at least one
--- subnet in at least two Availability Zones in the Region.
+-- subnet in at least two Availability Zones in the Amazon Web Services
+-- Region.
 module Amazonka.DocumentDB.CreateDBSubnetGroup
   ( -- * Creating a Request
     CreateDBSubnetGroup (..),

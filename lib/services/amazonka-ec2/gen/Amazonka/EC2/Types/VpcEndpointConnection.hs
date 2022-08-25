@@ -22,6 +22,7 @@ module Amazonka.EC2.Types.VpcEndpointConnection where
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsEntry
+import Amazonka.EC2.Types.IpAddressType
 import Amazonka.EC2.Types.State
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -44,6 +45,8 @@ data VpcEndpointConnection = VpcEndpointConnection'
     -- | The Amazon Resource Names (ARNs) of the network load balancers for the
     -- service.
     networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    -- | The IP address type for the endpoint.
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The state of the VPC endpoint.
     vpcEndpointState :: Prelude.Maybe State,
     -- | The ID of the service to which the endpoint is connected.
@@ -73,6 +76,8 @@ data VpcEndpointConnection = VpcEndpointConnection'
 -- 'networkLoadBalancerArns', 'vpcEndpointConnection_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of the network load balancers for the
 -- service.
 --
+-- 'ipAddressType', 'vpcEndpointConnection_ipAddressType' - The IP address type for the endpoint.
+--
 -- 'vpcEndpointState', 'vpcEndpointConnection_vpcEndpointState' - The state of the VPC endpoint.
 --
 -- 'serviceId', 'vpcEndpointConnection_serviceId' - The ID of the service to which the endpoint is connected.
@@ -87,6 +92,7 @@ newVpcEndpointConnection =
       creationTimestamp = Prelude.Nothing,
       dnsEntries = Prelude.Nothing,
       networkLoadBalancerArns = Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
       vpcEndpointState = Prelude.Nothing,
       serviceId = Prelude.Nothing
     }
@@ -117,6 +123,10 @@ vpcEndpointConnection_dnsEntries = Lens.lens (\VpcEndpointConnection' {dnsEntrie
 vpcEndpointConnection_networkLoadBalancerArns :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe [Prelude.Text])
 vpcEndpointConnection_networkLoadBalancerArns = Lens.lens (\VpcEndpointConnection' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@VpcEndpointConnection' {} a -> s {networkLoadBalancerArns = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Lens.coerced
 
+-- | The IP address type for the endpoint.
+vpcEndpointConnection_ipAddressType :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe IpAddressType)
+vpcEndpointConnection_ipAddressType = Lens.lens (\VpcEndpointConnection' {ipAddressType} -> ipAddressType) (\s@VpcEndpointConnection' {} a -> s {ipAddressType = a} :: VpcEndpointConnection)
+
 -- | The state of the VPC endpoint.
 vpcEndpointConnection_vpcEndpointState :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe State)
 vpcEndpointConnection_vpcEndpointState = Lens.lens (\VpcEndpointConnection' {vpcEndpointState} -> vpcEndpointState) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointState = a} :: VpcEndpointConnection)
@@ -142,6 +152,7 @@ instance Core.FromXML VpcEndpointConnection where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "ipAddressType")
       Prelude.<*> (x Core..@? "vpcEndpointState")
       Prelude.<*> (x Core..@? "serviceId")
 
@@ -154,6 +165,7 @@ instance Prelude.Hashable VpcEndpointConnection where
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` dnsEntries
       `Prelude.hashWithSalt` networkLoadBalancerArns
+      `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` vpcEndpointState
       `Prelude.hashWithSalt` serviceId
 
@@ -165,5 +177,6 @@ instance Prelude.NFData VpcEndpointConnection where
       `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf dnsEntries
       `Prelude.seq` Prelude.rnf networkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf vpcEndpointState
       `Prelude.seq` Prelude.rnf serviceId

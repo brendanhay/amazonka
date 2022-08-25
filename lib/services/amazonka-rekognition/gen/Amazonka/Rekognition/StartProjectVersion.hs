@@ -30,6 +30,9 @@
 -- You are charged for the amount of time that the model is running. To
 -- stop a running model, call StopProjectVersion.
 --
+-- For more information, see /Running a trained Amazon Rekognition Custom
+-- Labels model/ in the Amazon Rekognition Custom Labels Guide.
+--
 -- This operation requires permissions to perform the
 -- @rekognition:StartProjectVersion@ action.
 module Amazonka.Rekognition.StartProjectVersion
@@ -38,6 +41,7 @@ module Amazonka.Rekognition.StartProjectVersion
     newStartProjectVersion,
 
     -- * Request Lenses
+    startProjectVersion_maxInferenceUnits,
     startProjectVersion_projectVersionArn,
     startProjectVersion_minInferenceUnits,
 
@@ -60,13 +64,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartProjectVersion' smart constructor.
 data StartProjectVersion = StartProjectVersion'
-  { -- | The Amazon Resource Name(ARN) of the model version that you want to
+  { -- | The maximum number of inference units to use for auto-scaling the model.
+    -- If you don\'t specify a value, Amazon Rekognition Custom Labels doesn\'t
+    -- auto-scale the model.
+    maxInferenceUnits :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name(ARN) of the model version that you want to
     -- start.
     projectVersionArn :: Prelude.Text,
     -- | The minimum number of inference units to use. A single inference unit
-    -- represents 1 hour of processing and can support up to 5 Transaction Pers
-    -- Second (TPS). Use a higher number to increase the TPS throughput of your
-    -- model. You are charged for the number of inference units that you use.
+    -- represents 1 hour of processing.
+    --
+    -- For information about the number of transactions per second (TPS) that
+    -- an inference unit can support, see /Running a trained Amazon Rekognition
+    -- Custom Labels model/ in the Amazon Rekognition Custom Labels Guide.
+    --
+    -- Use a higher number to increase the TPS throughput of your model. You
+    -- are charged for the number of inference units that you use.
     minInferenceUnits :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,13 +92,22 @@ data StartProjectVersion = StartProjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxInferenceUnits', 'startProjectVersion_maxInferenceUnits' - The maximum number of inference units to use for auto-scaling the model.
+-- If you don\'t specify a value, Amazon Rekognition Custom Labels doesn\'t
+-- auto-scale the model.
+--
 -- 'projectVersionArn', 'startProjectVersion_projectVersionArn' - The Amazon Resource Name(ARN) of the model version that you want to
 -- start.
 --
 -- 'minInferenceUnits', 'startProjectVersion_minInferenceUnits' - The minimum number of inference units to use. A single inference unit
--- represents 1 hour of processing and can support up to 5 Transaction Pers
--- Second (TPS). Use a higher number to increase the TPS throughput of your
--- model. You are charged for the number of inference units that you use.
+-- represents 1 hour of processing.
+--
+-- For information about the number of transactions per second (TPS) that
+-- an inference unit can support, see /Running a trained Amazon Rekognition
+-- Custom Labels model/ in the Amazon Rekognition Custom Labels Guide.
+--
+-- Use a higher number to increase the TPS throughput of your model. You
+-- are charged for the number of inference units that you use.
 newStartProjectVersion ::
   -- | 'projectVersionArn'
   Prelude.Text ->
@@ -96,10 +118,17 @@ newStartProjectVersion
   pProjectVersionArn_
   pMinInferenceUnits_ =
     StartProjectVersion'
-      { projectVersionArn =
-          pProjectVersionArn_,
+      { maxInferenceUnits =
+          Prelude.Nothing,
+        projectVersionArn = pProjectVersionArn_,
         minInferenceUnits = pMinInferenceUnits_
       }
+
+-- | The maximum number of inference units to use for auto-scaling the model.
+-- If you don\'t specify a value, Amazon Rekognition Custom Labels doesn\'t
+-- auto-scale the model.
+startProjectVersion_maxInferenceUnits :: Lens.Lens' StartProjectVersion (Prelude.Maybe Prelude.Natural)
+startProjectVersion_maxInferenceUnits = Lens.lens (\StartProjectVersion' {maxInferenceUnits} -> maxInferenceUnits) (\s@StartProjectVersion' {} a -> s {maxInferenceUnits = a} :: StartProjectVersion)
 
 -- | The Amazon Resource Name(ARN) of the model version that you want to
 -- start.
@@ -107,9 +136,14 @@ startProjectVersion_projectVersionArn :: Lens.Lens' StartProjectVersion Prelude.
 startProjectVersion_projectVersionArn = Lens.lens (\StartProjectVersion' {projectVersionArn} -> projectVersionArn) (\s@StartProjectVersion' {} a -> s {projectVersionArn = a} :: StartProjectVersion)
 
 -- | The minimum number of inference units to use. A single inference unit
--- represents 1 hour of processing and can support up to 5 Transaction Pers
--- Second (TPS). Use a higher number to increase the TPS throughput of your
--- model. You are charged for the number of inference units that you use.
+-- represents 1 hour of processing.
+--
+-- For information about the number of transactions per second (TPS) that
+-- an inference unit can support, see /Running a trained Amazon Rekognition
+-- Custom Labels model/ in the Amazon Rekognition Custom Labels Guide.
+--
+-- Use a higher number to increase the TPS throughput of your model. You
+-- are charged for the number of inference units that you use.
 startProjectVersion_minInferenceUnits :: Lens.Lens' StartProjectVersion Prelude.Natural
 startProjectVersion_minInferenceUnits = Lens.lens (\StartProjectVersion' {minInferenceUnits} -> minInferenceUnits) (\s@StartProjectVersion' {} a -> s {minInferenceUnits = a} :: StartProjectVersion)
 
@@ -128,12 +162,14 @@ instance Core.AWSRequest StartProjectVersion where
 
 instance Prelude.Hashable StartProjectVersion where
   hashWithSalt _salt StartProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` projectVersionArn
+    _salt `Prelude.hashWithSalt` maxInferenceUnits
+      `Prelude.hashWithSalt` projectVersionArn
       `Prelude.hashWithSalt` minInferenceUnits
 
 instance Prelude.NFData StartProjectVersion where
   rnf StartProjectVersion' {..} =
-    Prelude.rnf projectVersionArn
+    Prelude.rnf maxInferenceUnits
+      `Prelude.seq` Prelude.rnf projectVersionArn
       `Prelude.seq` Prelude.rnf minInferenceUnits
 
 instance Core.ToHeaders StartProjectVersion where
@@ -155,7 +191,9 @@ instance Core.ToJSON StartProjectVersion where
   toJSON StartProjectVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("MaxInferenceUnits" Core..=)
+              Prelude.<$> maxInferenceUnits,
+            Prelude.Just
               ("ProjectVersionArn" Core..= projectVersionArn),
             Prelude.Just
               ("MinInferenceUnits" Core..= minInferenceUnits)

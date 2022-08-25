@@ -111,12 +111,12 @@ data PutAlarm = PutAlarm'
     -- triggered.
     --
     -- A notification is not sent if a contact protocol is not specified, if
-    -- the specified contact protocol is not configured in the AWS Region, or
-    -- if notifications are not enabled for the alarm using the
-    -- @notificationEnabled@ paramater.
+    -- the specified contact protocol is not configured in the Amazon Web
+    -- Services Region, or if notifications are not enabled for the alarm using
+    -- the @notificationEnabled@ paramater.
     --
     -- Use the @CreateContactMethod@ action to configure a contact protocol in
-    -- an AWS Region.
+    -- an Amazon Web Services Region.
     contactProtocols :: Prelude.Maybe [ContactProtocol],
     -- | The alarm states that trigger a notification.
     --
@@ -247,12 +247,12 @@ data PutAlarm = PutAlarm'
 -- triggered.
 --
 -- A notification is not sent if a contact protocol is not specified, if
--- the specified contact protocol is not configured in the AWS Region, or
--- if notifications are not enabled for the alarm using the
--- @notificationEnabled@ paramater.
+-- the specified contact protocol is not configured in the Amazon Web
+-- Services Region, or if notifications are not enabled for the alarm using
+-- the @notificationEnabled@ paramater.
 --
 -- Use the @CreateContactMethod@ action to configure a contact protocol in
--- an AWS Region.
+-- an Amazon Web Services Region.
 --
 -- 'notificationTriggers', 'putAlarm_notificationTriggers' - The alarm states that trigger a notification.
 --
@@ -412,12 +412,12 @@ putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> no
 -- triggered.
 --
 -- A notification is not sent if a contact protocol is not specified, if
--- the specified contact protocol is not configured in the AWS Region, or
--- if notifications are not enabled for the alarm using the
--- @notificationEnabled@ paramater.
+-- the specified contact protocol is not configured in the Amazon Web
+-- Services Region, or if notifications are not enabled for the alarm using
+-- the @notificationEnabled@ paramater.
 --
 -- Use the @CreateContactMethod@ action to configure a contact protocol in
--- an AWS Region.
+-- an Amazon Web Services Region.
 putAlarm_contactProtocols :: Lens.Lens' PutAlarm (Prelude.Maybe [ContactProtocol])
 putAlarm_contactProtocols = Lens.lens (\PutAlarm' {contactProtocols} -> contactProtocols) (\s@PutAlarm' {} a -> s {contactProtocols = a} :: PutAlarm) Prelude.. Lens.mapping Lens.coerced
 

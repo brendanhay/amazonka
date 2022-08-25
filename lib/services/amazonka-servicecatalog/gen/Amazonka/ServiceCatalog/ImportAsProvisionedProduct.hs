@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests the import of a resource as a Service Catalog provisioned
--- product that is associated to a Service Catalog product and provisioning
--- artifact. Once imported, all supported Service Catalog governance
--- actions are supported on the provisioned product.
+-- Requests the import of a resource as a Amazon Web Services Service
+-- Catalog provisioned product that is associated to a Amazon Web Services
+-- Service Catalog product and provisioning artifact. Once imported, all
+-- supported Amazon Web Services Service Catalog governance actions are
+-- supported on the provisioned product.
 --
 -- Resource import only supports CloudFormation stack ARNs. CloudFormation
 -- StackSets and non-root nested stacks are not supported.
@@ -34,7 +35,8 @@
 -- @IMPORT_ROLLBACK_COMPLETE@.
 --
 -- Import of the resource requires that the CloudFormation stack template
--- matches the associated Service Catalog product provisioning artifact.
+-- matches the associated Amazon Web Services Service Catalog product
+-- provisioning artifact.
 --
 -- The user or role that performs this operation must have the
 -- @cloudformation:GetTemplate@ and @cloudformation:DescribeStacks@ IAM
@@ -84,8 +86,8 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
     -- | The identifier of the provisioning artifact.
     provisioningArtifactId :: Prelude.Text,
     -- | The user-friendly name of the provisioned product. The value must be
-    -- unique for the AWS account. The name cannot be updated after the product
-    -- is provisioned.
+    -- unique for the Amazon Web Services account. The name cannot be updated
+    -- after the product is provisioned.
     provisionedProductName :: Prelude.Text,
     -- | The unique identifier of the resource to be imported. It only currently
     -- supports CloudFormation stack IDs.
@@ -118,8 +120,8 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
 -- 'provisioningArtifactId', 'importAsProvisionedProduct_provisioningArtifactId' - The identifier of the provisioning artifact.
 --
 -- 'provisionedProductName', 'importAsProvisionedProduct_provisionedProductName' - The user-friendly name of the provisioned product. The value must be
--- unique for the AWS account. The name cannot be updated after the product
--- is provisioned.
+-- unique for the Amazon Web Services account. The name cannot be updated
+-- after the product is provisioned.
 --
 -- 'physicalId', 'importAsProvisionedProduct_physicalId' - The unique identifier of the resource to be imported. It only currently
 -- supports CloudFormation stack IDs.
@@ -176,8 +178,8 @@ importAsProvisionedProduct_provisioningArtifactId :: Lens.Lens' ImportAsProvisio
 importAsProvisionedProduct_provisioningArtifactId = Lens.lens (\ImportAsProvisionedProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@ImportAsProvisionedProduct' {} a -> s {provisioningArtifactId = a} :: ImportAsProvisionedProduct)
 
 -- | The user-friendly name of the provisioned product. The value must be
--- unique for the AWS account. The name cannot be updated after the product
--- is provisioned.
+-- unique for the Amazon Web Services account. The name cannot be updated
+-- after the product is provisioned.
 importAsProvisionedProduct_provisionedProductName :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
 importAsProvisionedProduct_provisionedProductName = Lens.lens (\ImportAsProvisionedProduct' {provisionedProductName} -> provisionedProductName) (\s@ImportAsProvisionedProduct' {} a -> s {provisionedProductName = a} :: ImportAsProvisionedProduct)
 

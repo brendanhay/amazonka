@@ -60,8 +60,15 @@ module Amazonka.KafkaConnect.Lens
     deleteConnectorResponse_connectorState,
     deleteConnectorResponse_httpStatus,
 
+    -- ** DeleteCustomPlugin
+    deleteCustomPlugin_customPluginArn,
+    deleteCustomPluginResponse_customPluginState,
+    deleteCustomPluginResponse_customPluginArn,
+    deleteCustomPluginResponse_httpStatus,
+
     -- ** DescribeConnector
     describeConnector_connectorArn,
+    describeConnectorResponse_stateDescription,
     describeConnectorResponse_connectorDescription,
     describeConnectorResponse_kafkaClusterEncryptionInTransit,
     describeConnectorResponse_kafkaConnectVersion,
@@ -84,6 +91,7 @@ module Amazonka.KafkaConnect.Lens
     describeCustomPlugin_customPluginArn,
     describeCustomPluginResponse_latestRevision,
     describeCustomPluginResponse_name,
+    describeCustomPluginResponse_stateDescription,
     describeCustomPluginResponse_customPluginState,
     describeCustomPluginResponse_description,
     describeCustomPluginResponse_creationTime,
@@ -319,6 +327,10 @@ module Amazonka.KafkaConnect.Lens
     -- ** ScaleOutPolicyUpdate
     scaleOutPolicyUpdate_cpuUtilizationPercentage,
 
+    -- ** StateDescription
+    stateDescription_message,
+    stateDescription_code,
+
     -- ** Vpc
     vpc_securityGroups,
     vpc_subnets,
@@ -369,6 +381,7 @@ import Amazonka.KafkaConnect.CreateConnector
 import Amazonka.KafkaConnect.CreateCustomPlugin
 import Amazonka.KafkaConnect.CreateWorkerConfiguration
 import Amazonka.KafkaConnect.DeleteConnector
+import Amazonka.KafkaConnect.DeleteCustomPlugin
 import Amazonka.KafkaConnect.DescribeConnector
 import Amazonka.KafkaConnect.DescribeCustomPlugin
 import Amazonka.KafkaConnect.DescribeWorkerConfiguration
@@ -418,6 +431,7 @@ import Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate
 import Amazonka.KafkaConnect.Types.ScaleOutPolicy
 import Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
 import Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate
+import Amazonka.KafkaConnect.Types.StateDescription
 import Amazonka.KafkaConnect.Types.Vpc
 import Amazonka.KafkaConnect.Types.VpcDescription
 import Amazonka.KafkaConnect.Types.WorkerConfiguration

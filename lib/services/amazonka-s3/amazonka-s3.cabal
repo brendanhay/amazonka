@@ -88,6 +88,7 @@ library
     Amazonka.S3.GetBucketWebsite
     Amazonka.S3.GetObject
     Amazonka.S3.GetObjectAcl
+    Amazonka.S3.GetObjectAttributes
     Amazonka.S3.GetObjectLegalHold
     Amazonka.S3.GetObjectLockConfiguration
     Amazonka.S3.GetObjectRetention
@@ -154,6 +155,9 @@ library
     Amazonka.S3.Types.BucketLoggingStatus
     Amazonka.S3.Types.BucketLogsPermission
     Amazonka.S3.Types.BucketVersioningStatus
+    Amazonka.S3.Types.Checksum
+    Amazonka.S3.Types.ChecksumAlgorithm
+    Amazonka.S3.Types.ChecksumMode
     Amazonka.S3.Types.CommonPrefix
     Amazonka.S3.Types.CompletedMultipartUpload
     Amazonka.S3.Types.CompletedPart
@@ -180,6 +184,7 @@ library
     Amazonka.S3.Types.EndEvent
     Amazonka.S3.Types.ErrorDocument
     Amazonka.S3.Types.Event
+    Amazonka.S3.Types.EventBridgeConfiguration
     Amazonka.S3.Types.ExistingObjectReplication
     Amazonka.S3.Types.ExistingObjectReplicationStatus
     Amazonka.S3.Types.ExpirationStatus
@@ -187,6 +192,7 @@ library
     Amazonka.S3.Types.FileHeaderInfo
     Amazonka.S3.Types.FilterRule
     Amazonka.S3.Types.FilterRuleName
+    Amazonka.S3.Types.GetObjectAttributesParts
     Amazonka.S3.Types.GlacierJobParameters
     Amazonka.S3.Types.Grant
     Amazonka.S3.Types.Grantee
@@ -232,6 +238,7 @@ library
     Amazonka.S3.Types.NotificationConfiguration
     Amazonka.S3.Types.NotificationConfigurationFilter
     Amazonka.S3.Types.Object
+    Amazonka.S3.Types.ObjectAttributes
     Amazonka.S3.Types.ObjectCannedACL
     Amazonka.S3.Types.ObjectIdentifier
     Amazonka.S3.Types.ObjectLockConfiguration
@@ -243,6 +250,7 @@ library
     Amazonka.S3.Types.ObjectLockRetentionMode
     Amazonka.S3.Types.ObjectLockRule
     Amazonka.S3.Types.ObjectOwnership
+    Amazonka.S3.Types.ObjectPart
     Amazonka.S3.Types.ObjectStorageClass
     Amazonka.S3.Types.ObjectVersion
     Amazonka.S3.Types.ObjectVersionStorageClass

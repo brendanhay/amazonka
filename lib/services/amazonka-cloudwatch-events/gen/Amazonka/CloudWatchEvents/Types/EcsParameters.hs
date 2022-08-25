@@ -77,7 +77,7 @@ data EcsParameters = EcsParameters'
     -- | Specifies the launch type on which your task is running. The launch type
     -- that you specify here must match one of the launch type
     -- (compatibilities) of the target task. The @FARGATE@ value is supported
-    -- only in the Regions where Fargate witt Amazon ECS is supported. For more
+    -- only in the Regions where Fargate with Amazon ECS is supported. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html Fargate on Amazon ECS>
     -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -158,7 +158,7 @@ data EcsParameters = EcsParameters'
 -- 'launchType', 'ecsParameters_launchType' - Specifies the launch type on which your task is running. The launch type
 -- that you specify here must match one of the launch type
 -- (compatibilities) of the target task. The @FARGATE@ value is supported
--- only in the Regions where Fargate witt Amazon ECS is supported. For more
+-- only in the Regions where Fargate with Amazon ECS is supported. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html Fargate on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -265,7 +265,7 @@ ecsParameters_referenceId = Lens.lens (\EcsParameters' {referenceId} -> referenc
 -- | Specifies the launch type on which your task is running. The launch type
 -- that you specify here must match one of the launch type
 -- (compatibilities) of the target task. The @FARGATE@ value is supported
--- only in the Regions where Fargate witt Amazon ECS is supported. For more
+-- only in the Regions where Fargate with Amazon ECS is supported. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html Fargate on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.

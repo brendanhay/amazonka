@@ -119,6 +119,14 @@ module Amazonka.Budgets.Lens
     describeBudgetActionsForBudgetResponse_httpStatus,
     describeBudgetActionsForBudgetResponse_actions,
 
+    -- ** DescribeBudgetNotificationsForAccount
+    describeBudgetNotificationsForAccount_nextToken,
+    describeBudgetNotificationsForAccount_maxResults,
+    describeBudgetNotificationsForAccount_accountId,
+    describeBudgetNotificationsForAccountResponse_nextToken,
+    describeBudgetNotificationsForAccountResponse_budgetNotificationsForAccount,
+    describeBudgetNotificationsForAccountResponse_httpStatus,
+
     -- ** DescribeBudgetPerformanceHistory
     describeBudgetPerformanceHistory_nextToken,
     describeBudgetPerformanceHistory_maxResults,
@@ -231,7 +239,13 @@ module Amazonka.Budgets.Lens
     actionThreshold_actionThresholdValue,
     actionThreshold_actionThresholdType,
 
+    -- ** AutoAdjustData
+    autoAdjustData_lastAutoAdjustTime,
+    autoAdjustData_historicalOptions,
+    autoAdjustData_autoAdjustType,
+
     -- ** Budget
+    budget_autoAdjustData,
     budget_budgetLimit,
     budget_plannedBudgetLimits,
     budget_costFilters,
@@ -242,6 +256,10 @@ module Amazonka.Budgets.Lens
     budget_budgetName,
     budget_timeUnit,
     budget_budgetType,
+
+    -- ** BudgetNotificationsForAccount
+    budgetNotificationsForAccount_notifications,
+    budgetNotificationsForAccount_budgetName,
 
     -- ** BudgetPerformanceHistory
     budgetPerformanceHistory_timeUnit,
@@ -277,6 +295,10 @@ module Amazonka.Budgets.Lens
     definition_ssmActionDefinition,
     definition_scpActionDefinition,
     definition_iamActionDefinition,
+
+    -- ** HistoricalOptions
+    historicalOptions_lookBackAvailablePeriods,
+    historicalOptions_budgetAdjustmentPeriod,
 
     -- ** IamActionDefinition
     iamActionDefinition_users,
@@ -331,6 +353,7 @@ import Amazonka.Budgets.DescribeBudgetAction
 import Amazonka.Budgets.DescribeBudgetActionHistories
 import Amazonka.Budgets.DescribeBudgetActionsForAccount
 import Amazonka.Budgets.DescribeBudgetActionsForBudget
+import Amazonka.Budgets.DescribeBudgetNotificationsForAccount
 import Amazonka.Budgets.DescribeBudgetPerformanceHistory
 import Amazonka.Budgets.DescribeBudgets
 import Amazonka.Budgets.DescribeNotificationsForBudget
@@ -340,12 +363,15 @@ import Amazonka.Budgets.Types.Action
 import Amazonka.Budgets.Types.ActionHistory
 import Amazonka.Budgets.Types.ActionHistoryDetails
 import Amazonka.Budgets.Types.ActionThreshold
+import Amazonka.Budgets.Types.AutoAdjustData
 import Amazonka.Budgets.Types.Budget
+import Amazonka.Budgets.Types.BudgetNotificationsForAccount
 import Amazonka.Budgets.Types.BudgetPerformanceHistory
 import Amazonka.Budgets.Types.BudgetedAndActualAmounts
 import Amazonka.Budgets.Types.CalculatedSpend
 import Amazonka.Budgets.Types.CostTypes
 import Amazonka.Budgets.Types.Definition
+import Amazonka.Budgets.Types.HistoricalOptions
 import Amazonka.Budgets.Types.IamActionDefinition
 import Amazonka.Budgets.Types.Notification
 import Amazonka.Budgets.Types.NotificationWithSubscribers

@@ -32,7 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The most recent task definition that was specified for the tasks in the
+  { -- | The operating system that your tasks in the service, or tasks are
+    -- running on. A platform family is specified only for tasks using the
+    -- Fargate launch type.
+    --
+    -- All tasks that run as part of this service must use the same
+    -- @platformFamily@ value as the service, for example, @ LINUX.@.
+    platformFamily :: Prelude.Maybe Prelude.Text,
+    -- | The most recent task definition that was specified for the tasks in the
     -- service to use.
     taskDefinition :: Prelude.Maybe Prelude.Text,
     -- | The number of consecutively failed tasks in the deployment. A task is
@@ -47,7 +54,7 @@ data Deployment = Deployment'
     -- their own elastic network interface by using the @awsvpc@ networking
     -- mode.
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The status of the deployment. The following describes each state:
+    -- | The status of the deployment. The following describes each state.
     --
     -- [PRIMARY]
     --     The most recent deployment of a service.
@@ -77,28 +84,29 @@ data Deployment = Deployment'
     launchType :: Prelude.Maybe LaunchType,
     -- | The number of tasks in the deployment that are in the @RUNNING@ status.
     runningCount :: Prelude.Maybe Prelude.Int,
-    -- | The platform version on which your tasks in the service are running. A
-    -- platform version is only specified for tasks using the Fargate launch
-    -- type. If one is not specified, the @LATEST@ platform version is used by
-    -- default. For more information, see
+    -- | The platform version that your tasks in the service run on. A platform
+    -- version is only specified for tasks using the Fargate launch type. If
+    -- one isn\'t specified, the @LATEST@ platform version is used. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The @rolloutState@ of a service is only returned for services that use
-    -- the rolling update (@ECS@) deployment type that are not behind a Classic
+    -- the rolling update (@ECS@) deployment type that aren\'t behind a Classic
     -- Load Balancer.
     --
     -- The rollout state of the deployment. When a service deployment is
     -- started, it begins in an @IN_PROGRESS@ state. When the service reaches a
-    -- steady state, the deployment will transition to a @COMPLETED@ state. If
-    -- the service fails to reach a steady state and circuit breaker is
-    -- enabled, the deployment will transition to a @FAILED@ state. A
-    -- deployment in @FAILED@ state will launch no new tasks. For more
-    -- information, see DeploymentCircuitBreaker.
+    -- steady state, the deployment transitions to a @COMPLETED@ state. If the
+    -- service fails to reach a steady state and circuit breaker is enabled,
+    -- the deployment transitions to a @FAILED@ state. A deployment in @FAILED@
+    -- state doesn\'t launch any new tasks. For more information, see
+    -- DeploymentCircuitBreaker.
     rolloutState :: Prelude.Maybe DeploymentRolloutState,
-    -- | The Unix timestamp for when the service deployment was created.
+    -- | The Unix timestamp for the time when the service deployment was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The Unix timestamp for when the service deployment was last updated.
+    -- | The Unix timestamp for the time when the service deployment was last
+    -- updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -110,6 +118,13 @@ data Deployment = Deployment'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'platformFamily', 'deployment_platformFamily' - The operating system that your tasks in the service, or tasks are
+-- running on. A platform family is specified only for tasks using the
+-- Fargate launch type.
+--
+-- All tasks that run as part of this service must use the same
+-- @platformFamily@ value as the service, for example, @ LINUX.@.
 --
 -- 'taskDefinition', 'deployment_taskDefinition' - The most recent task definition that was specified for the tasks in the
 -- service to use.
@@ -126,7 +141,7 @@ data Deployment = Deployment'
 -- their own elastic network interface by using the @awsvpc@ networking
 -- mode.
 --
--- 'status', 'deployment_status' - The status of the deployment. The following describes each state:
+-- 'status', 'deployment_status' - The status of the deployment. The following describes each state.
 --
 -- [PRIMARY]
 --     The most recent deployment of a service.
@@ -156,33 +171,35 @@ data Deployment = Deployment'
 --
 -- 'runningCount', 'deployment_runningCount' - The number of tasks in the deployment that are in the @RUNNING@ status.
 --
--- 'platformVersion', 'deployment_platformVersion' - The platform version on which your tasks in the service are running. A
--- platform version is only specified for tasks using the Fargate launch
--- type. If one is not specified, the @LATEST@ platform version is used by
--- default. For more information, see
+-- 'platformVersion', 'deployment_platformVersion' - The platform version that your tasks in the service run on. A platform
+-- version is only specified for tasks using the Fargate launch type. If
+-- one isn\'t specified, the @LATEST@ platform version is used. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'rolloutState', 'deployment_rolloutState' - The @rolloutState@ of a service is only returned for services that use
--- the rolling update (@ECS@) deployment type that are not behind a Classic
+-- the rolling update (@ECS@) deployment type that aren\'t behind a Classic
 -- Load Balancer.
 --
 -- The rollout state of the deployment. When a service deployment is
 -- started, it begins in an @IN_PROGRESS@ state. When the service reaches a
--- steady state, the deployment will transition to a @COMPLETED@ state. If
--- the service fails to reach a steady state and circuit breaker is
--- enabled, the deployment will transition to a @FAILED@ state. A
--- deployment in @FAILED@ state will launch no new tasks. For more
--- information, see DeploymentCircuitBreaker.
+-- steady state, the deployment transitions to a @COMPLETED@ state. If the
+-- service fails to reach a steady state and circuit breaker is enabled,
+-- the deployment transitions to a @FAILED@ state. A deployment in @FAILED@
+-- state doesn\'t launch any new tasks. For more information, see
+-- DeploymentCircuitBreaker.
 --
--- 'createdAt', 'deployment_createdAt' - The Unix timestamp for when the service deployment was created.
+-- 'createdAt', 'deployment_createdAt' - The Unix timestamp for the time when the service deployment was created.
 --
--- 'updatedAt', 'deployment_updatedAt' - The Unix timestamp for when the service deployment was last updated.
+-- 'updatedAt', 'deployment_updatedAt' - The Unix timestamp for the time when the service deployment was last
+-- updated.
 newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { taskDefinition = Prelude.Nothing,
+    { platformFamily = Prelude.Nothing,
+      taskDefinition = Prelude.Nothing,
       failedTasks = Prelude.Nothing,
       networkConfiguration = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -198,6 +215,15 @@ newDeployment =
       createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
+
+-- | The operating system that your tasks in the service, or tasks are
+-- running on. A platform family is specified only for tasks using the
+-- Fargate launch type.
+--
+-- All tasks that run as part of this service must use the same
+-- @platformFamily@ value as the service, for example, @ LINUX.@.
+deployment_platformFamily :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_platformFamily = Lens.lens (\Deployment' {platformFamily} -> platformFamily) (\s@Deployment' {} a -> s {platformFamily = a} :: Deployment)
 
 -- | The most recent task definition that was specified for the tasks in the
 -- service to use.
@@ -220,7 +246,7 @@ deployment_failedTasks = Lens.lens (\Deployment' {failedTasks} -> failedTasks) (
 deployment_networkConfiguration :: Lens.Lens' Deployment (Prelude.Maybe NetworkConfiguration)
 deployment_networkConfiguration = Lens.lens (\Deployment' {networkConfiguration} -> networkConfiguration) (\s@Deployment' {} a -> s {networkConfiguration = a} :: Deployment)
 
--- | The status of the deployment. The following describes each state:
+-- | The status of the deployment. The following describes each state.
 --
 -- [PRIMARY]
 --     The most recent deployment of a service.
@@ -266,34 +292,35 @@ deployment_launchType = Lens.lens (\Deployment' {launchType} -> launchType) (\s@
 deployment_runningCount :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
 deployment_runningCount = Lens.lens (\Deployment' {runningCount} -> runningCount) (\s@Deployment' {} a -> s {runningCount = a} :: Deployment)
 
--- | The platform version on which your tasks in the service are running. A
--- platform version is only specified for tasks using the Fargate launch
--- type. If one is not specified, the @LATEST@ platform version is used by
--- default. For more information, see
+-- | The platform version that your tasks in the service run on. A platform
+-- version is only specified for tasks using the Fargate launch type. If
+-- one isn\'t specified, the @LATEST@ platform version is used. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 deployment_platformVersion :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_platformVersion = Lens.lens (\Deployment' {platformVersion} -> platformVersion) (\s@Deployment' {} a -> s {platformVersion = a} :: Deployment)
 
 -- | The @rolloutState@ of a service is only returned for services that use
--- the rolling update (@ECS@) deployment type that are not behind a Classic
+-- the rolling update (@ECS@) deployment type that aren\'t behind a Classic
 -- Load Balancer.
 --
 -- The rollout state of the deployment. When a service deployment is
 -- started, it begins in an @IN_PROGRESS@ state. When the service reaches a
--- steady state, the deployment will transition to a @COMPLETED@ state. If
--- the service fails to reach a steady state and circuit breaker is
--- enabled, the deployment will transition to a @FAILED@ state. A
--- deployment in @FAILED@ state will launch no new tasks. For more
--- information, see DeploymentCircuitBreaker.
+-- steady state, the deployment transitions to a @COMPLETED@ state. If the
+-- service fails to reach a steady state and circuit breaker is enabled,
+-- the deployment transitions to a @FAILED@ state. A deployment in @FAILED@
+-- state doesn\'t launch any new tasks. For more information, see
+-- DeploymentCircuitBreaker.
 deployment_rolloutState :: Lens.Lens' Deployment (Prelude.Maybe DeploymentRolloutState)
 deployment_rolloutState = Lens.lens (\Deployment' {rolloutState} -> rolloutState) (\s@Deployment' {} a -> s {rolloutState = a} :: Deployment)
 
--- | The Unix timestamp for when the service deployment was created.
+-- | The Unix timestamp for the time when the service deployment was created.
 deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
 deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
--- | The Unix timestamp for when the service deployment was last updated.
+-- | The Unix timestamp for the time when the service deployment was last
+-- updated.
 deployment_updatedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
 deployment_updatedAt = Lens.lens (\Deployment' {updatedAt} -> updatedAt) (\s@Deployment' {} a -> s {updatedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
@@ -303,7 +330,8 @@ instance Core.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "taskDefinition")
+            Prelude.<$> (x Core..:? "platformFamily")
+            Prelude.<*> (x Core..:? "taskDefinition")
             Prelude.<*> (x Core..:? "failedTasks")
             Prelude.<*> (x Core..:? "networkConfiguration")
             Prelude.<*> (x Core..:? "status")
@@ -324,7 +352,8 @@ instance Core.FromJSON Deployment where
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` taskDefinition
+    _salt `Prelude.hashWithSalt` platformFamily
+      `Prelude.hashWithSalt` taskDefinition
       `Prelude.hashWithSalt` failedTasks
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` status
@@ -342,7 +371,8 @@ instance Prelude.Hashable Deployment where
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf taskDefinition
+    Prelude.rnf platformFamily
+      `Prelude.seq` Prelude.rnf taskDefinition
       `Prelude.seq` Prelude.rnf failedTasks
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf status

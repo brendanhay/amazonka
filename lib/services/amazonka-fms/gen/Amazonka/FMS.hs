@@ -57,6 +57,12 @@ module Amazonka.FMS
     AssociateAdminAccountResponse (AssociateAdminAccountResponse'),
     newAssociateAdminAccountResponse,
 
+    -- ** AssociateThirdPartyFirewall
+    AssociateThirdPartyFirewall (AssociateThirdPartyFirewall'),
+    newAssociateThirdPartyFirewall,
+    AssociateThirdPartyFirewallResponse (AssociateThirdPartyFirewallResponse'),
+    newAssociateThirdPartyFirewallResponse,
+
     -- ** DeleteAppsList
     DeleteAppsList (DeleteAppsList'),
     newDeleteAppsList,
@@ -86,6 +92,12 @@ module Amazonka.FMS
     newDisassociateAdminAccount,
     DisassociateAdminAccountResponse (DisassociateAdminAccountResponse'),
     newDisassociateAdminAccountResponse,
+
+    -- ** DisassociateThirdPartyFirewall
+    DisassociateThirdPartyFirewall (DisassociateThirdPartyFirewall'),
+    newDisassociateThirdPartyFirewall,
+    DisassociateThirdPartyFirewallResponse (DisassociateThirdPartyFirewallResponse'),
+    newDisassociateThirdPartyFirewallResponse,
 
     -- ** GetAdminAccount
     GetAdminAccount (GetAdminAccount'),
@@ -129,6 +141,12 @@ module Amazonka.FMS
     GetProtocolsListResponse (GetProtocolsListResponse'),
     newGetProtocolsListResponse,
 
+    -- ** GetThirdPartyFirewallAssociationStatus
+    GetThirdPartyFirewallAssociationStatus (GetThirdPartyFirewallAssociationStatus'),
+    newGetThirdPartyFirewallAssociationStatus,
+    GetThirdPartyFirewallAssociationStatusResponse (GetThirdPartyFirewallAssociationStatusResponse'),
+    newGetThirdPartyFirewallAssociationStatusResponse,
+
     -- ** GetViolationDetails
     GetViolationDetails (GetViolationDetails'),
     newGetViolationDetails,
@@ -170,6 +188,12 @@ module Amazonka.FMS
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListThirdPartyFirewallFirewallPolicies (Paginated)
+    ListThirdPartyFirewallFirewallPolicies (ListThirdPartyFirewallFirewallPolicies'),
+    newListThirdPartyFirewallFirewallPolicies,
+    ListThirdPartyFirewallFirewallPoliciesResponse (ListThirdPartyFirewallFirewallPoliciesResponse'),
+    newListThirdPartyFirewallFirewallPoliciesResponse,
 
     -- ** PutAppsList
     PutAppsList (PutAppsList'),
@@ -221,17 +245,32 @@ module Amazonka.FMS
     -- ** DestinationType
     DestinationType (..),
 
+    -- ** FirewallDeploymentModel
+    FirewallDeploymentModel (..),
+
+    -- ** MarketplaceSubscriptionOnboardingStatus
+    MarketplaceSubscriptionOnboardingStatus (..),
+
     -- ** PolicyComplianceStatusType
     PolicyComplianceStatusType (..),
 
     -- ** RemediationActionType
     RemediationActionType (..),
 
+    -- ** RuleOrder
+    RuleOrder (..),
+
     -- ** SecurityServiceType
     SecurityServiceType (..),
 
     -- ** TargetType
     TargetType (..),
+
+    -- ** ThirdPartyFirewall
+    ThirdPartyFirewall (..),
+
+    -- ** ThirdPartyFirewallAssociationStatus
+    ThirdPartyFirewallAssociationStatus (..),
 
     -- ** ViolationReason
     ViolationReason (..),
@@ -316,6 +355,18 @@ module Amazonka.FMS
     ExpectedRoute (ExpectedRoute'),
     newExpectedRoute,
 
+    -- ** FMSPolicyUpdateFirewallCreationConfigAction
+    FMSPolicyUpdateFirewallCreationConfigAction (FMSPolicyUpdateFirewallCreationConfigAction'),
+    newFMSPolicyUpdateFirewallCreationConfigAction,
+
+    -- ** FirewallSubnetIsOutOfScopeViolation
+    FirewallSubnetIsOutOfScopeViolation (FirewallSubnetIsOutOfScopeViolation'),
+    newFirewallSubnetIsOutOfScopeViolation,
+
+    -- ** FirewallSubnetMissingVPCEndpointViolation
+    FirewallSubnetMissingVPCEndpointViolation (FirewallSubnetMissingVPCEndpointViolation'),
+    newFirewallSubnetMissingVPCEndpointViolation,
+
     -- ** NetworkFirewallBlackHoleRouteDetectedViolation
     NetworkFirewallBlackHoleRouteDetectedViolation (NetworkFirewallBlackHoleRouteDetectedViolation'),
     newNetworkFirewallBlackHoleRouteDetectedViolation,
@@ -343,6 +394,10 @@ module Amazonka.FMS
     -- ** NetworkFirewallMissingSubnetViolation
     NetworkFirewallMissingSubnetViolation (NetworkFirewallMissingSubnetViolation'),
     newNetworkFirewallMissingSubnetViolation,
+
+    -- ** NetworkFirewallPolicy
+    NetworkFirewallPolicy (NetworkFirewallPolicy'),
+    newNetworkFirewallPolicy,
 
     -- ** NetworkFirewallPolicyDescription
     NetworkFirewallPolicyDescription (NetworkFirewallPolicyDescription'),
@@ -375,6 +430,10 @@ module Amazonka.FMS
     -- ** PolicyComplianceStatus
     PolicyComplianceStatus (PolicyComplianceStatus'),
     newPolicyComplianceStatus,
+
+    -- ** PolicyOption
+    PolicyOption (PolicyOption'),
+    newPolicyOption,
 
     -- ** PolicySummary
     PolicySummary (PolicySummary'),
@@ -416,6 +475,10 @@ module Amazonka.FMS
     Route (Route'),
     newRoute,
 
+    -- ** RouteHasOutOfScopeEndpointViolation
+    RouteHasOutOfScopeEndpointViolation (RouteHasOutOfScopeEndpointViolation'),
+    newRouteHasOutOfScopeEndpointViolation,
+
     -- ** SecurityGroupRemediationAction
     SecurityGroupRemediationAction (SecurityGroupRemediationAction'),
     newSecurityGroupRemediationAction,
@@ -427,6 +490,10 @@ module Amazonka.FMS
     -- ** SecurityServicePolicyData
     SecurityServicePolicyData (SecurityServicePolicyData'),
     newSecurityServicePolicyData,
+
+    -- ** StatefulEngineOptions
+    StatefulEngineOptions (StatefulEngineOptions'),
+    newStatefulEngineOptions,
 
     -- ** StatefulRuleGroup
     StatefulRuleGroup (StatefulRuleGroup'),
@@ -440,6 +507,26 @@ module Amazonka.FMS
     Tag (Tag'),
     newTag,
 
+    -- ** ThirdPartyFirewallFirewallPolicy
+    ThirdPartyFirewallFirewallPolicy (ThirdPartyFirewallFirewallPolicy'),
+    newThirdPartyFirewallFirewallPolicy,
+
+    -- ** ThirdPartyFirewallMissingExpectedRouteTableViolation
+    ThirdPartyFirewallMissingExpectedRouteTableViolation (ThirdPartyFirewallMissingExpectedRouteTableViolation'),
+    newThirdPartyFirewallMissingExpectedRouteTableViolation,
+
+    -- ** ThirdPartyFirewallMissingFirewallViolation
+    ThirdPartyFirewallMissingFirewallViolation (ThirdPartyFirewallMissingFirewallViolation'),
+    newThirdPartyFirewallMissingFirewallViolation,
+
+    -- ** ThirdPartyFirewallMissingSubnetViolation
+    ThirdPartyFirewallMissingSubnetViolation (ThirdPartyFirewallMissingSubnetViolation'),
+    newThirdPartyFirewallMissingSubnetViolation,
+
+    -- ** ThirdPartyFirewallPolicy
+    ThirdPartyFirewallPolicy (ThirdPartyFirewallPolicy'),
+    newThirdPartyFirewallPolicy,
+
     -- ** ViolationDetail
     ViolationDetail (ViolationDetail'),
     newViolationDetail,
@@ -447,11 +534,13 @@ module Amazonka.FMS
 where
 
 import Amazonka.FMS.AssociateAdminAccount
+import Amazonka.FMS.AssociateThirdPartyFirewall
 import Amazonka.FMS.DeleteAppsList
 import Amazonka.FMS.DeleteNotificationChannel
 import Amazonka.FMS.DeletePolicy
 import Amazonka.FMS.DeleteProtocolsList
 import Amazonka.FMS.DisassociateAdminAccount
+import Amazonka.FMS.DisassociateThirdPartyFirewall
 import Amazonka.FMS.GetAdminAccount
 import Amazonka.FMS.GetAppsList
 import Amazonka.FMS.GetComplianceDetail
@@ -459,6 +548,7 @@ import Amazonka.FMS.GetNotificationChannel
 import Amazonka.FMS.GetPolicy
 import Amazonka.FMS.GetProtectionStatus
 import Amazonka.FMS.GetProtocolsList
+import Amazonka.FMS.GetThirdPartyFirewallAssociationStatus
 import Amazonka.FMS.GetViolationDetails
 import Amazonka.FMS.Lens
 import Amazonka.FMS.ListAppsLists
@@ -467,6 +557,7 @@ import Amazonka.FMS.ListMemberAccounts
 import Amazonka.FMS.ListPolicies
 import Amazonka.FMS.ListProtocolsLists
 import Amazonka.FMS.ListTagsForResource
+import Amazonka.FMS.ListThirdPartyFirewallFirewallPolicies
 import Amazonka.FMS.PutAppsList
 import Amazonka.FMS.PutNotificationChannel
 import Amazonka.FMS.PutPolicy

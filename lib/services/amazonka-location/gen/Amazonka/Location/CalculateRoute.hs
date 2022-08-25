@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html Calculates a route>
--- given the following required parameters: @DeparturePostiton@ and
+-- given the following required parameters: @DeparturePosition@ and
 -- @DestinationPosition@. Requires that you first
--- <https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html create a route calculator resource>
+-- <https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html create a route calculator resource>.
 --
 -- By default, a request that doesn\'t specify a departure time uses the
 -- best time of day to travel with the best traffic conditions when
@@ -31,17 +31,21 @@
 --
 -- Additional options include:
 --
--- -   <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time Specifying a departure time>
---     using either @DepartureTime@ or @DepartureNow@. This calculates a
---     route based on predictive traffic data at the given time.
+-- -   <https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html Specifying a departure time>
+--     using either @DepartureTime@ or @DepartNow@. This calculates a route
+--     based on predictive traffic data at the given time.
 --
---     You can\'t specify both @DepartureTime@ and @DepartureNow@ in a
---     single request. Specifying both parameters returns an error message.
+--     You can\'t specify both @DepartureTime@ and @DepartNow@ in a single
+--     request. Specifying both parameters returns a validation error.
 --
--- -   <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode Specifying a travel mode>
---     using TravelMode. This lets you specify an additional route
---     preference such as @CarModeOptions@ if traveling by @Car@, or
---     @TruckModeOptions@ if traveling by @Truck@.
+-- -   <https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html Specifying a travel mode>
+--     using TravelMode sets the transportation mode used to calculate the
+--     routes. This also lets you specify additional route preferences in
+--     @CarModeOptions@ if traveling by @Car@, or @TruckModeOptions@ if
+--     traveling by @Truck@.
+--
+--     If you specify @walking@ for the travel mode and your data provider
+--     is Esri, the start and destination must be within 40km.
 module Amazonka.Location.CalculateRoute
   ( -- * Creating a Request
     CalculateRoute (..),
@@ -90,9 +94,10 @@ data CalculateRoute = CalculateRoute'
     -- Requirements: @TravelMode@ must be specified as @Car@.
     carModeOptions :: Prelude.Maybe CalculateRouteCarModeOptions,
     -- | Specifies the mode of transport when calculating a route. Used in
-    -- estimating the speed of travel and road compatibility.
+    -- estimating the speed of travel and road compatibility. You can choose
+    -- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
     --
-    -- The @TravelMode@ you specify determines how you specify route
+    -- The @TravelMode@ you specify also determines how you specify route
     -- preferences:
     --
     -- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
@@ -102,7 +107,7 @@ data CalculateRoute = CalculateRoute'
     -- Default Value: @Car@
     travelMode :: Prelude.Maybe TravelMode,
     -- | Specifies the desired time of departure. Uses the given time to
-    -- calculate a route. Otherwise, the best time of day to travel with the
+    -- calculate the route. Otherwise, the best time of day to travel with the
     -- best traffic conditions is used to calculate the route.
     --
     -- Setting a departure time in the past returns a @400 ValidationException@
@@ -127,7 +132,7 @@ data CalculateRoute = CalculateRoute'
     --
     -- If you specify a waypoint position that\'s not located on a road, Amazon
     -- Location
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
     --
     -- Specifying more than 23 waypoints returns a @400 ValidationException@
     -- error.
@@ -154,17 +159,17 @@ data CalculateRoute = CalculateRoute'
     -- Valid Values: @false@ | @true@
     departNow :: Prelude.Maybe Prelude.Bool,
     -- | The name of the route calculator resource that you want to use to
-    -- calculate a route.
+    -- calculate the route.
     calculatorName :: Prelude.Text,
     -- | The start position for the route. Defined in
-    -- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
-    -- @[longitude, latitude]@.
+    -- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
+    -- format: @[longitude, latitude]@.
     --
     -- -   For example, @[-123.115, 49.285]@
     --
     -- If you specify a departure that\'s not located on a road, Amazon
     -- Location
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
     -- If Esri is the provider for your route calculator, specifying a route
     -- that is longer than 400 km returns a @400 RoutesValidationException@
     -- error.
@@ -172,14 +177,14 @@ data CalculateRoute = CalculateRoute'
     -- Valid Values: @[-180 to 180,-90 to 90]@
     departurePosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The finish position for the route. Defined in
-    -- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
-    -- @[longitude, latitude]@.
+    -- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
+    -- format: @[longitude, latitude]@.
     --
     -- -   For example, @[-122.339, 47.615]@
     --
     -- If you specify a destination that\'s not located on a road, Amazon
     -- Location
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
     destinationPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
@@ -204,9 +209,10 @@ data CalculateRoute = CalculateRoute'
 -- Requirements: @TravelMode@ must be specified as @Car@.
 --
 -- 'travelMode', 'calculateRoute_travelMode' - Specifies the mode of transport when calculating a route. Used in
--- estimating the speed of travel and road compatibility.
+-- estimating the speed of travel and road compatibility. You can choose
+-- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
 --
--- The @TravelMode@ you specify determines how you specify route
+-- The @TravelMode@ you specify also determines how you specify route
 -- preferences:
 --
 -- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
@@ -216,7 +222,7 @@ data CalculateRoute = CalculateRoute'
 -- Default Value: @Car@
 --
 -- 'departureTime', 'calculateRoute_departureTime' - Specifies the desired time of departure. Uses the given time to
--- calculate a route. Otherwise, the best time of day to travel with the
+-- calculate the route. Otherwise, the best time of day to travel with the
 -- best traffic conditions is used to calculate the route.
 --
 -- Setting a departure time in the past returns a @400 ValidationException@
@@ -241,7 +247,7 @@ data CalculateRoute = CalculateRoute'
 --
 -- If you specify a waypoint position that\'s not located on a road, Amazon
 -- Location
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
 --
 -- Specifying more than 23 waypoints returns a @400 ValidationException@
 -- error.
@@ -268,17 +274,17 @@ data CalculateRoute = CalculateRoute'
 -- Valid Values: @false@ | @true@
 --
 -- 'calculatorName', 'calculateRoute_calculatorName' - The name of the route calculator resource that you want to use to
--- calculate a route.
+-- calculate the route.
 --
 -- 'departurePosition', 'calculateRoute_departurePosition' - The start position for the route. Defined in
--- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
--- @[longitude, latitude]@.
+-- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
+-- format: @[longitude, latitude]@.
 --
 -- -   For example, @[-123.115, 49.285]@
 --
 -- If you specify a departure that\'s not located on a road, Amazon
 -- Location
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
 -- If Esri is the provider for your route calculator, specifying a route
 -- that is longer than 400 km returns a @400 RoutesValidationException@
 -- error.
@@ -286,14 +292,14 @@ data CalculateRoute = CalculateRoute'
 -- Valid Values: @[-180 to 180,-90 to 90]@
 --
 -- 'destinationPosition', 'calculateRoute_destinationPosition' - The finish position for the route. Defined in
--- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
--- @[longitude, latitude]@.
+-- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
+-- format: @[longitude, latitude]@.
 --
 -- -   For example, @[-122.339, 47.615]@
 --
 -- If you specify a destination that\'s not located on a road, Amazon
 -- Location
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
 --
 -- Valid Values: @[-180 to 180,-90 to 90]@
 newCalculateRoute ::
@@ -340,9 +346,10 @@ calculateRoute_carModeOptions :: Lens.Lens' CalculateRoute (Prelude.Maybe Calcul
 calculateRoute_carModeOptions = Lens.lens (\CalculateRoute' {carModeOptions} -> carModeOptions) (\s@CalculateRoute' {} a -> s {carModeOptions = a} :: CalculateRoute)
 
 -- | Specifies the mode of transport when calculating a route. Used in
--- estimating the speed of travel and road compatibility.
+-- estimating the speed of travel and road compatibility. You can choose
+-- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
 --
--- The @TravelMode@ you specify determines how you specify route
+-- The @TravelMode@ you specify also determines how you specify route
 -- preferences:
 --
 -- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
@@ -354,7 +361,7 @@ calculateRoute_travelMode :: Lens.Lens' CalculateRoute (Prelude.Maybe TravelMode
 calculateRoute_travelMode = Lens.lens (\CalculateRoute' {travelMode} -> travelMode) (\s@CalculateRoute' {} a -> s {travelMode = a} :: CalculateRoute)
 
 -- | Specifies the desired time of departure. Uses the given time to
--- calculate a route. Otherwise, the best time of day to travel with the
+-- calculate the route. Otherwise, the best time of day to travel with the
 -- best traffic conditions is used to calculate the route.
 --
 -- Setting a departure time in the past returns a @400 ValidationException@
@@ -383,7 +390,7 @@ calculateRoute_truckModeOptions = Lens.lens (\CalculateRoute' {truckModeOptions}
 --
 -- If you specify a waypoint position that\'s not located on a road, Amazon
 -- Location
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
 --
 -- Specifying more than 23 waypoints returns a @400 ValidationException@
 -- error.
@@ -416,19 +423,19 @@ calculateRoute_departNow :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.Boo
 calculateRoute_departNow = Lens.lens (\CalculateRoute' {departNow} -> departNow) (\s@CalculateRoute' {} a -> s {departNow = a} :: CalculateRoute)
 
 -- | The name of the route calculator resource that you want to use to
--- calculate a route.
+-- calculate the route.
 calculateRoute_calculatorName :: Lens.Lens' CalculateRoute Prelude.Text
 calculateRoute_calculatorName = Lens.lens (\CalculateRoute' {calculatorName} -> calculatorName) (\s@CalculateRoute' {} a -> s {calculatorName = a} :: CalculateRoute)
 
 -- | The start position for the route. Defined in
--- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
--- @[longitude, latitude]@.
+-- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
+-- format: @[longitude, latitude]@.
 --
 -- -   For example, @[-123.115, 49.285]@
 --
 -- If you specify a departure that\'s not located on a road, Amazon
 -- Location
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
 -- If Esri is the provider for your route calculator, specifying a route
 -- that is longer than 400 km returns a @400 RoutesValidationException@
 -- error.
@@ -438,14 +445,14 @@ calculateRoute_departurePosition :: Lens.Lens' CalculateRoute (Prelude.NonEmpty 
 calculateRoute_departurePosition = Lens.lens (\CalculateRoute' {departurePosition} -> departurePosition) (\s@CalculateRoute' {} a -> s {departurePosition = a} :: CalculateRoute) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The finish position for the route. Defined in
--- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
--- @[longitude, latitude]@.
+-- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
+-- format: @[longitude, latitude]@.
 --
 -- -   For example, @[-122.339, 47.615]@
 --
 -- If you specify a destination that\'s not located on a road, Amazon
 -- Location
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road moves the position to the nearest road>.
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
 --
 -- Valid Values: @[-180 to 180,-90 to 90]@
 calculateRoute_destinationPosition :: Lens.Lens' CalculateRoute (Prelude.NonEmpty Prelude.Double)
@@ -553,7 +560,7 @@ data CalculateRouteResponse = CalculateRouteResponse'
     --
     -- For example, a route with a departure position and destination position
     -- returns one leg with the positions
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>:
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>:
     --
     -- -   The @StartPosition@ is the departure position.
     --
@@ -592,7 +599,7 @@ data CalculateRouteResponse = CalculateRouteResponse'
 --
 -- For example, a route with a departure position and destination position
 -- returns one leg with the positions
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>:
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>:
 --
 -- -   The @StartPosition@ is the departure position.
 --
@@ -634,7 +641,7 @@ calculateRouteResponse_httpStatus = Lens.lens (\CalculateRouteResponse' {httpSta
 --
 -- For example, a route with a departure position and destination position
 -- returns one leg with the positions
--- <https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road>:
+-- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>:
 --
 -- -   The @StartPosition@ is the departure position.
 --

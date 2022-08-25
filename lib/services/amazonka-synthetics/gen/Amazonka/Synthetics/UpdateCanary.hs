@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this operation to change the settings of a canary that has already
--- been created.
+-- Updates the configuration of a canary that has already been created.
 --
 -- You can\'t use this operation to update the tags of an existing canary.
 -- To change the tags of an existing canary, use
@@ -114,6 +113,9 @@ data UpdateCanary = UpdateCanary'
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the timeout value that is used for each
     -- individual run of the canary.
+    --
+    -- The environment variables keys and values are not encrypted. Do not
+    -- store sensitive information in this field.
     runConfig :: Prelude.Maybe CanaryRunConfigInput,
     -- | The location in Amazon S3 where Synthetics stores artifacts from the
     -- test runs of this canary. Artifacts include the log file, screenshots,
@@ -191,6 +193,9 @@ data UpdateCanary = UpdateCanary'
 --
 -- 'runConfig', 'updateCanary_runConfig' - A structure that contains the timeout value that is used for each
 -- individual run of the canary.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
 --
 -- 'artifactS3Location', 'updateCanary_artifactS3Location' - The location in Amazon S3 where Synthetics stores artifacts from the
 -- test runs of this canary. Artifacts include the log file, screenshots,
@@ -292,6 +297,9 @@ updateCanary_executionRoleArn = Lens.lens (\UpdateCanary' {executionRoleArn} -> 
 
 -- | A structure that contains the timeout value that is used for each
 -- individual run of the canary.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
 updateCanary_runConfig :: Lens.Lens' UpdateCanary (Prelude.Maybe CanaryRunConfigInput)
 updateCanary_runConfig = Lens.lens (\UpdateCanary' {runConfig} -> runConfig) (\s@UpdateCanary' {} a -> s {runConfig = a} :: UpdateCanary)
 

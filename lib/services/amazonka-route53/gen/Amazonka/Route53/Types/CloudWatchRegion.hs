@@ -28,6 +28,7 @@ module Amazonka.Route53.Types.CloudWatchRegion
         CloudWatchRegion_Ap_south_1,
         CloudWatchRegion_Ap_southeast_1,
         CloudWatchRegion_Ap_southeast_2,
+        CloudWatchRegion_Ap_southeast_3,
         CloudWatchRegion_Ca_central_1,
         CloudWatchRegion_Cn_north_1,
         CloudWatchRegion_Cn_northwest_1,
@@ -44,6 +45,7 @@ module Amazonka.Route53.Types.CloudWatchRegion
         CloudWatchRegion_Us_gov_east_1,
         CloudWatchRegion_Us_gov_west_1,
         CloudWatchRegion_Us_iso_east_1,
+        CloudWatchRegion_Us_iso_west_1,
         CloudWatchRegion_Us_isob_east_1,
         CloudWatchRegion_Us_west_1,
         CloudWatchRegion_Us_west_2
@@ -107,6 +109,9 @@ pattern CloudWatchRegion_Ap_southeast_1 = CloudWatchRegion' "ap-southeast-1"
 pattern CloudWatchRegion_Ap_southeast_2 :: CloudWatchRegion
 pattern CloudWatchRegion_Ap_southeast_2 = CloudWatchRegion' "ap-southeast-2"
 
+pattern CloudWatchRegion_Ap_southeast_3 :: CloudWatchRegion
+pattern CloudWatchRegion_Ap_southeast_3 = CloudWatchRegion' "ap-southeast-3"
+
 pattern CloudWatchRegion_Ca_central_1 :: CloudWatchRegion
 pattern CloudWatchRegion_Ca_central_1 = CloudWatchRegion' "ca-central-1"
 
@@ -155,6 +160,9 @@ pattern CloudWatchRegion_Us_gov_west_1 = CloudWatchRegion' "us-gov-west-1"
 pattern CloudWatchRegion_Us_iso_east_1 :: CloudWatchRegion
 pattern CloudWatchRegion_Us_iso_east_1 = CloudWatchRegion' "us-iso-east-1"
 
+pattern CloudWatchRegion_Us_iso_west_1 :: CloudWatchRegion
+pattern CloudWatchRegion_Us_iso_west_1 = CloudWatchRegion' "us-iso-west-1"
+
 pattern CloudWatchRegion_Us_isob_east_1 :: CloudWatchRegion
 pattern CloudWatchRegion_Us_isob_east_1 = CloudWatchRegion' "us-isob-east-1"
 
@@ -173,6 +181,7 @@ pattern CloudWatchRegion_Us_west_2 = CloudWatchRegion' "us-west-2"
   CloudWatchRegion_Ap_south_1,
   CloudWatchRegion_Ap_southeast_1,
   CloudWatchRegion_Ap_southeast_2,
+  CloudWatchRegion_Ap_southeast_3,
   CloudWatchRegion_Ca_central_1,
   CloudWatchRegion_Cn_north_1,
   CloudWatchRegion_Cn_northwest_1,
@@ -189,6 +198,7 @@ pattern CloudWatchRegion_Us_west_2 = CloudWatchRegion' "us-west-2"
   CloudWatchRegion_Us_gov_east_1,
   CloudWatchRegion_Us_gov_west_1,
   CloudWatchRegion_Us_iso_east_1,
+  CloudWatchRegion_Us_iso_west_1,
   CloudWatchRegion_Us_isob_east_1,
   CloudWatchRegion_Us_west_1,
   CloudWatchRegion_Us_west_2,

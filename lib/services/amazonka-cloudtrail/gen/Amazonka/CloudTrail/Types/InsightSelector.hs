@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsightSelector' smart constructor.
 data InsightSelector = InsightSelector'
-  { -- | The type of Insights events to log on a trail. The valid Insights type
-    -- in this release is @ApiCallRateInsight@.
+  { -- | The type of insights to log on a trail. @ApiCallRateInsight@ and
+    -- @ApiErrorRateInsight@ are valid insight types.
     insightType :: Prelude.Maybe InsightType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,15 +43,15 @@ data InsightSelector = InsightSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'insightType', 'insightSelector_insightType' - The type of Insights events to log on a trail. The valid Insights type
--- in this release is @ApiCallRateInsight@.
+-- 'insightType', 'insightSelector_insightType' - The type of insights to log on a trail. @ApiCallRateInsight@ and
+-- @ApiErrorRateInsight@ are valid insight types.
 newInsightSelector ::
   InsightSelector
 newInsightSelector =
   InsightSelector' {insightType = Prelude.Nothing}
 
--- | The type of Insights events to log on a trail. The valid Insights type
--- in this release is @ApiCallRateInsight@.
+-- | The type of insights to log on a trail. @ApiCallRateInsight@ and
+-- @ApiErrorRateInsight@ are valid insight types.
 insightSelector_insightType :: Lens.Lens' InsightSelector (Prelude.Maybe InsightType)
 insightSelector_insightType = Lens.lens (\InsightSelector' {insightType} -> insightType) (\s@InsightSelector' {} a -> s {insightType = a} :: InsightSelector)
 

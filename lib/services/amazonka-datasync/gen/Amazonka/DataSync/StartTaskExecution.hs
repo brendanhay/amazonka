@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 data StartTaskExecution = StartTaskExecution'
   { overrideOptions :: Prelude.Maybe Options,
     -- | A list of filter rules that determines which files to exclude from a
-    -- task. The list should contain a single filter string that consists of
-    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
+    -- task. The list contains a single filter string that consists of the
+    -- patterns to exclude. The patterns are delimited by \"|\" (that is, a
     -- pipe), for example, @\"\/folder1|\/folder2\"@.
     excludes :: Prelude.Maybe [FilterRule],
     -- | A list of filter rules that determines which files to include when
     -- running a task. The pattern should contain a single filter string that
     -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe). For example: @\"\/folder1|\/folder2\"@
+    -- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
     includes :: Prelude.Maybe [FilterRule],
     -- | The Amazon Resource Name (ARN) of the task to start.
     taskArn :: Prelude.Text
@@ -88,14 +88,14 @@ data StartTaskExecution = StartTaskExecution'
 -- 'overrideOptions', 'startTaskExecution_overrideOptions' - Undocumented member.
 --
 -- 'excludes', 'startTaskExecution_excludes' - A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
+-- task. The list contains a single filter string that consists of the
+-- patterns to exclude. The patterns are delimited by \"|\" (that is, a
 -- pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'includes', 'startTaskExecution_includes' - A list of filter rules that determines which files to include when
 -- running a task. The pattern should contain a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2\"@
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'taskArn', 'startTaskExecution_taskArn' - The Amazon Resource Name (ARN) of the task to start.
 newStartTaskExecution ::
@@ -116,8 +116,8 @@ startTaskExecution_overrideOptions :: Lens.Lens' StartTaskExecution (Prelude.May
 startTaskExecution_overrideOptions = Lens.lens (\StartTaskExecution' {overrideOptions} -> overrideOptions) (\s@StartTaskExecution' {} a -> s {overrideOptions = a} :: StartTaskExecution)
 
 -- | A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
+-- task. The list contains a single filter string that consists of the
+-- patterns to exclude. The patterns are delimited by \"|\" (that is, a
 -- pipe), for example, @\"\/folder1|\/folder2\"@.
 startTaskExecution_excludes :: Lens.Lens' StartTaskExecution (Prelude.Maybe [FilterRule])
 startTaskExecution_excludes = Lens.lens (\StartTaskExecution' {excludes} -> excludes) (\s@StartTaskExecution' {} a -> s {excludes = a} :: StartTaskExecution) Prelude.. Lens.mapping Lens.coerced
@@ -125,7 +125,7 @@ startTaskExecution_excludes = Lens.lens (\StartTaskExecution' {excludes} -> excl
 -- | A list of filter rules that determines which files to include when
 -- running a task. The pattern should contain a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2\"@
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 startTaskExecution_includes :: Lens.Lens' StartTaskExecution (Prelude.Maybe [FilterRule])
 startTaskExecution_includes = Lens.lens (\StartTaskExecution' {includes} -> includes) (\s@StartTaskExecution' {} a -> s {includes = a} :: StartTaskExecution) Prelude.. Lens.mapping Lens.coerced
 

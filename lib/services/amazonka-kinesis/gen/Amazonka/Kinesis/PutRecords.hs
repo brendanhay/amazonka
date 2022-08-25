@@ -224,18 +224,17 @@ data PutRecordsResponse = PutRecordsResponse'
     -- -   @NONE@: Do not encrypt the records.
     --
     -- -   @KMS@: Use server-side encryption on the records using a
-    --     customer-managed AWS KMS key.
+    --     customer-managed Amazon Web Services KMS key.
     encryptionType :: Prelude.Maybe EncryptionType,
     -- | The number of unsuccessfully processed records in a @PutRecords@
     -- request.
     failedRecordCount :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | An array of successfully and unsuccessfully processed record results,
-    -- correlated with the request by natural ordering. A record that is
-    -- successfully added to a stream includes @SequenceNumber@ and @ShardId@
-    -- in the result. A record that fails to be added to a stream includes
-    -- @ErrorCode@ and @ErrorMessage@ in the result.
+    -- | An array of successfully and unsuccessfully processed record results. A
+    -- record that is successfully added to a stream includes @SequenceNumber@
+    -- and @ShardId@ in the result. A record that fails to be added to a stream
+    -- includes @ErrorCode@ and @ErrorMessage@ in the result.
     records :: Prelude.NonEmpty PutRecordsResultEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -254,18 +253,17 @@ data PutRecordsResponse = PutRecordsResponse'
 -- -   @NONE@: Do not encrypt the records.
 --
 -- -   @KMS@: Use server-side encryption on the records using a
---     customer-managed AWS KMS key.
+--     customer-managed Amazon Web Services KMS key.
 --
 -- 'failedRecordCount', 'putRecordsResponse_failedRecordCount' - The number of unsuccessfully processed records in a @PutRecords@
 -- request.
 --
 -- 'httpStatus', 'putRecordsResponse_httpStatus' - The response's http status code.
 --
--- 'records', 'putRecordsResponse_records' - An array of successfully and unsuccessfully processed record results,
--- correlated with the request by natural ordering. A record that is
--- successfully added to a stream includes @SequenceNumber@ and @ShardId@
--- in the result. A record that fails to be added to a stream includes
--- @ErrorCode@ and @ErrorMessage@ in the result.
+-- 'records', 'putRecordsResponse_records' - An array of successfully and unsuccessfully processed record results. A
+-- record that is successfully added to a stream includes @SequenceNumber@
+-- and @ShardId@ in the result. A record that fails to be added to a stream
+-- includes @ErrorCode@ and @ErrorMessage@ in the result.
 newPutRecordsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -287,7 +285,7 @@ newPutRecordsResponse pHttpStatus_ pRecords_ =
 -- -   @NONE@: Do not encrypt the records.
 --
 -- -   @KMS@: Use server-side encryption on the records using a
---     customer-managed AWS KMS key.
+--     customer-managed Amazon Web Services KMS key.
 putRecordsResponse_encryptionType :: Lens.Lens' PutRecordsResponse (Prelude.Maybe EncryptionType)
 putRecordsResponse_encryptionType = Lens.lens (\PutRecordsResponse' {encryptionType} -> encryptionType) (\s@PutRecordsResponse' {} a -> s {encryptionType = a} :: PutRecordsResponse)
 
@@ -300,11 +298,10 @@ putRecordsResponse_failedRecordCount = Lens.lens (\PutRecordsResponse' {failedRe
 putRecordsResponse_httpStatus :: Lens.Lens' PutRecordsResponse Prelude.Int
 putRecordsResponse_httpStatus = Lens.lens (\PutRecordsResponse' {httpStatus} -> httpStatus) (\s@PutRecordsResponse' {} a -> s {httpStatus = a} :: PutRecordsResponse)
 
--- | An array of successfully and unsuccessfully processed record results,
--- correlated with the request by natural ordering. A record that is
--- successfully added to a stream includes @SequenceNumber@ and @ShardId@
--- in the result. A record that fails to be added to a stream includes
--- @ErrorCode@ and @ErrorMessage@ in the result.
+-- | An array of successfully and unsuccessfully processed record results. A
+-- record that is successfully added to a stream includes @SequenceNumber@
+-- and @ShardId@ in the result. A record that fails to be added to a stream
+-- includes @ErrorCode@ and @ErrorMessage@ in the result.
 putRecordsResponse_records :: Lens.Lens' PutRecordsResponse (Prelude.NonEmpty PutRecordsResultEntry)
 putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> records) (\s@PutRecordsResponse' {} a -> s {records = a} :: PutRecordsResponse) Prelude.. Lens.coerced
 

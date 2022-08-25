@@ -73,8 +73,8 @@ data CreateContent = CreateContent'
     -- templateUri, setting this argument overrides it for this piece of
     -- content.
     overrideLinkOutUri :: Prelude.Maybe Prelude.Text,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text,
     -- | The name of the content. Each piece of content in a knowledge base must
     -- have a unique name. You can retrieve a piece of content using only its
@@ -112,8 +112,8 @@ data CreateContent = CreateContent'
 -- templateUri, setting this argument overrides it for this piece of
 -- content.
 --
--- 'knowledgeBaseId', 'createContent_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'createContent_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 --
 -- 'name', 'createContent_name' - The name of the content. Each piece of content in a knowledge base must
 -- have a unique name. You can retrieve a piece of content using only its
@@ -169,8 +169,8 @@ createContent_title = Lens.lens (\CreateContent' {title} -> title) (\s@CreateCon
 createContent_overrideLinkOutUri :: Lens.Lens' CreateContent (Prelude.Maybe Prelude.Text)
 createContent_overrideLinkOutUri = Lens.lens (\CreateContent' {overrideLinkOutUri} -> overrideLinkOutUri) (\s@CreateContent' {} a -> s {overrideLinkOutUri = a} :: CreateContent)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 createContent_knowledgeBaseId :: Lens.Lens' CreateContent Prelude.Text
 createContent_knowledgeBaseId = Lens.lens (\CreateContent' {knowledgeBaseId} -> knowledgeBaseId) (\s@CreateContent' {} a -> s {knowledgeBaseId = a} :: CreateContent)
 

@@ -46,6 +46,7 @@ library
     Amazonka.ForecastQuery
     Amazonka.ForecastQuery.Lens
     Amazonka.ForecastQuery.QueryForecast
+    Amazonka.ForecastQuery.QueryWhatIfForecast
     Amazonka.ForecastQuery.Types
     Amazonka.ForecastQuery.Types.DataPoint
     Amazonka.ForecastQuery.Types.Forecast

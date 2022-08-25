@@ -36,6 +36,9 @@ module Amazonka.NetworkFirewall.Types
     -- * ConfigurationSyncState
     ConfigurationSyncState (..),
 
+    -- * EncryptionType
+    EncryptionType (..),
+
     -- * FirewallStatusValue
     FirewallStatusValue (..),
 
@@ -48,8 +51,17 @@ module Amazonka.NetworkFirewall.Types
     -- * LogType
     LogType (..),
 
+    -- * OverrideAction
+    OverrideAction (..),
+
     -- * PerObjectSyncStatus
     PerObjectSyncStatus (..),
+
+    -- * ResourceManagedStatus
+    ResourceManagedStatus (..),
+
+    -- * ResourceManagedType
+    ResourceManagedType (..),
 
     -- * ResourceStatus
     ResourceStatus (..),
@@ -92,6 +104,18 @@ module Amazonka.NetworkFirewall.Types
     attachment_subnetId,
     attachment_status,
 
+    -- * CIDRSummary
+    CIDRSummary (..),
+    newCIDRSummary,
+    cIDRSummary_availableCIDRCount,
+    cIDRSummary_utilizedCIDRCount,
+    cIDRSummary_iPSetReferences,
+
+    -- * CapacityUsageSummary
+    CapacityUsageSummary (..),
+    newCapacityUsageSummary,
+    capacityUsageSummary_cIDRs,
+
     -- * CustomAction
     CustomAction (..),
     newCustomAction,
@@ -103,6 +127,12 @@ module Amazonka.NetworkFirewall.Types
     newDimension,
     dimension_value,
 
+    -- * EncryptionConfiguration
+    EncryptionConfiguration (..),
+    newEncryptionConfiguration,
+    encryptionConfiguration_keyId,
+    encryptionConfiguration_type,
+
     -- * Firewall
     Firewall (..),
     newFirewall,
@@ -112,6 +142,7 @@ module Amazonka.NetworkFirewall.Types
     firewall_description,
     firewall_firewallPolicyChangeProtection,
     firewall_firewallArn,
+    firewall_encryptionConfiguration,
     firewall_firewallName,
     firewall_firewallPolicyArn,
     firewall_vpcId,
@@ -148,6 +179,8 @@ module Amazonka.NetworkFirewall.Types
     firewallPolicyResponse_firewallPolicyStatus,
     firewallPolicyResponse_consumedStatefulRuleCapacity,
     firewallPolicyResponse_description,
+    firewallPolicyResponse_lastModifiedTime,
+    firewallPolicyResponse_encryptionConfiguration,
     firewallPolicyResponse_numberOfAssociations,
     firewallPolicyResponse_consumedStatelessRuleCapacity,
     firewallPolicyResponse_firewallPolicyName,
@@ -158,6 +191,7 @@ module Amazonka.NetworkFirewall.Types
     FirewallStatus (..),
     newFirewallStatus,
     firewallStatus_syncStates,
+    firewallStatus_capacityUsageSummary,
     firewallStatus_status,
     firewallStatus_configurationSyncStateSummary,
 
@@ -175,6 +209,16 @@ module Amazonka.NetworkFirewall.Types
     IPSet (..),
     newIPSet,
     iPSet_definition,
+
+    -- * IPSetMetadata
+    IPSetMetadata (..),
+    newIPSetMetadata,
+    iPSetMetadata_resolvedCIDRCount,
+
+    -- * IPSetReference
+    IPSetReference (..),
+    newIPSetReference,
+    iPSetReference_referenceArn,
 
     -- * LogDestinationConfig
     LogDestinationConfig (..),
@@ -220,6 +264,11 @@ module Amazonka.NetworkFirewall.Types
     newPublishMetricAction,
     publishMetricAction_dimensions,
 
+    -- * ReferenceSets
+    ReferenceSets (..),
+    newReferenceSets,
+    referenceSets_iPSetReferences,
+
     -- * RuleDefinition
     RuleDefinition (..),
     newRuleDefinition,
@@ -230,6 +279,7 @@ module Amazonka.NetworkFirewall.Types
     RuleGroup (..),
     newRuleGroup,
     ruleGroup_statefulRuleOptions,
+    ruleGroup_referenceSets,
     ruleGroup_ruleVariables,
     ruleGroup_rulesSource,
 
@@ -244,8 +294,12 @@ module Amazonka.NetworkFirewall.Types
     newRuleGroupResponse,
     ruleGroupResponse_tags,
     ruleGroupResponse_type,
+    ruleGroupResponse_snsTopic,
     ruleGroupResponse_description,
+    ruleGroupResponse_lastModifiedTime,
+    ruleGroupResponse_sourceMetadata,
     ruleGroupResponse_consumedCapacity,
+    ruleGroupResponse_encryptionConfiguration,
     ruleGroupResponse_numberOfAssociations,
     ruleGroupResponse_capacity,
     ruleGroupResponse_ruleGroupStatus,
@@ -280,6 +334,12 @@ module Amazonka.NetworkFirewall.Types
     rulesSourceList_targetTypes,
     rulesSourceList_generatedRulesType,
 
+    -- * SourceMetadata
+    SourceMetadata (..),
+    newSourceMetadata,
+    sourceMetadata_sourceArn,
+    sourceMetadata_sourceUpdateToken,
+
     -- * StatefulEngineOptions
     StatefulEngineOptions (..),
     newStatefulEngineOptions,
@@ -292,9 +352,15 @@ module Amazonka.NetworkFirewall.Types
     statefulRule_header,
     statefulRule_ruleOptions,
 
+    -- * StatefulRuleGroupOverride
+    StatefulRuleGroupOverride (..),
+    newStatefulRuleGroupOverride,
+    statefulRuleGroupOverride_action,
+
     -- * StatefulRuleGroupReference
     StatefulRuleGroupReference (..),
     newStatefulRuleGroupReference,
+    statefulRuleGroupReference_override,
     statefulRuleGroupReference_priority,
     statefulRuleGroupReference_resourceArn,
 
@@ -352,9 +418,13 @@ import Amazonka.NetworkFirewall.Types.ActionDefinition
 import Amazonka.NetworkFirewall.Types.Address
 import Amazonka.NetworkFirewall.Types.Attachment
 import Amazonka.NetworkFirewall.Types.AttachmentStatus
+import Amazonka.NetworkFirewall.Types.CIDRSummary
+import Amazonka.NetworkFirewall.Types.CapacityUsageSummary
 import Amazonka.NetworkFirewall.Types.ConfigurationSyncState
 import Amazonka.NetworkFirewall.Types.CustomAction
 import Amazonka.NetworkFirewall.Types.Dimension
+import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
+import Amazonka.NetworkFirewall.Types.EncryptionType
 import Amazonka.NetworkFirewall.Types.Firewall
 import Amazonka.NetworkFirewall.Types.FirewallMetadata
 import Amazonka.NetworkFirewall.Types.FirewallPolicy
@@ -365,16 +435,22 @@ import Amazonka.NetworkFirewall.Types.FirewallStatusValue
 import Amazonka.NetworkFirewall.Types.GeneratedRulesType
 import Amazonka.NetworkFirewall.Types.Header
 import Amazonka.NetworkFirewall.Types.IPSet
+import Amazonka.NetworkFirewall.Types.IPSetMetadata
+import Amazonka.NetworkFirewall.Types.IPSetReference
 import Amazonka.NetworkFirewall.Types.LogDestinationConfig
 import Amazonka.NetworkFirewall.Types.LogDestinationType
 import Amazonka.NetworkFirewall.Types.LogType
 import Amazonka.NetworkFirewall.Types.LoggingConfiguration
 import Amazonka.NetworkFirewall.Types.MatchAttributes
+import Amazonka.NetworkFirewall.Types.OverrideAction
 import Amazonka.NetworkFirewall.Types.PerObjectStatus
 import Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
 import Amazonka.NetworkFirewall.Types.PortRange
 import Amazonka.NetworkFirewall.Types.PortSet
 import Amazonka.NetworkFirewall.Types.PublishMetricAction
+import Amazonka.NetworkFirewall.Types.ReferenceSets
+import Amazonka.NetworkFirewall.Types.ResourceManagedStatus
+import Amazonka.NetworkFirewall.Types.ResourceManagedType
 import Amazonka.NetworkFirewall.Types.ResourceStatus
 import Amazonka.NetworkFirewall.Types.RuleDefinition
 import Amazonka.NetworkFirewall.Types.RuleGroup
@@ -386,10 +462,12 @@ import Amazonka.NetworkFirewall.Types.RuleOrder
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource
 import Amazonka.NetworkFirewall.Types.RulesSourceList
+import Amazonka.NetworkFirewall.Types.SourceMetadata
 import Amazonka.NetworkFirewall.Types.StatefulAction
 import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
 import Amazonka.NetworkFirewall.Types.StatefulRule
 import Amazonka.NetworkFirewall.Types.StatefulRuleDirection
+import Amazonka.NetworkFirewall.Types.StatefulRuleGroupOverride
 import Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
 import Amazonka.NetworkFirewall.Types.StatefulRuleOptions
 import Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
@@ -521,8 +599,8 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | AWS doesn\'t currently have enough available capacity to fulfill your
--- request. Try your request later.
+-- | Amazon Web Services doesn\'t currently have enough available capacity to
+-- fulfill your request. Try your request later.
 _InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientCapacityException =
   Core._MatchServiceError

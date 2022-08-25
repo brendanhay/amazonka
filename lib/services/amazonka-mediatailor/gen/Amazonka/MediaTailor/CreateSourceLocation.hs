@@ -28,6 +28,7 @@ module Amazonka.MediaTailor.CreateSourceLocation
 
     -- * Request Lenses
     createSourceLocation_tags,
+    createSourceLocation_segmentDeliveryConfigurations,
     createSourceLocation_accessConfiguration,
     createSourceLocation_defaultSegmentDeliveryConfiguration,
     createSourceLocation_sourceLocationName,
@@ -39,6 +40,7 @@ module Amazonka.MediaTailor.CreateSourceLocation
 
     -- * Response Lenses
     createSourceLocationResponse_tags,
+    createSourceLocationResponse_segmentDeliveryConfigurations,
     createSourceLocationResponse_arn,
     createSourceLocationResponse_accessConfiguration,
     createSourceLocationResponse_defaultSegmentDeliveryConfiguration,
@@ -61,6 +63,9 @@ import qualified Amazonka.Response as Response
 data CreateSourceLocation = CreateSourceLocation'
   { -- | The tags to assign to the source location.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of the segment delivery configurations associated with this
+    -- resource.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
     -- | Access configuration parameters. Configures the type of authentication
     -- used to access content from your source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
@@ -83,6 +88,9 @@ data CreateSourceLocation = CreateSourceLocation'
 --
 -- 'tags', 'createSourceLocation_tags' - The tags to assign to the source location.
 --
+-- 'segmentDeliveryConfigurations', 'createSourceLocation_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
+-- resource.
+--
 -- 'accessConfiguration', 'createSourceLocation_accessConfiguration' - Access configuration parameters. Configures the type of authentication
 -- used to access content from your source location.
 --
@@ -102,6 +110,7 @@ newCreateSourceLocation
   pHttpConfiguration_ =
     CreateSourceLocation'
       { tags = Prelude.Nothing,
+        segmentDeliveryConfigurations = Prelude.Nothing,
         accessConfiguration = Prelude.Nothing,
         defaultSegmentDeliveryConfiguration =
           Prelude.Nothing,
@@ -112,6 +121,11 @@ newCreateSourceLocation
 -- | The tags to assign to the source location.
 createSourceLocation_tags :: Lens.Lens' CreateSourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSourceLocation_tags = Lens.lens (\CreateSourceLocation' {tags} -> tags) (\s@CreateSourceLocation' {} a -> s {tags = a} :: CreateSourceLocation) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the segment delivery configurations associated with this
+-- resource.
+createSourceLocation_segmentDeliveryConfigurations :: Lens.Lens' CreateSourceLocation (Prelude.Maybe [SegmentDeliveryConfiguration])
+createSourceLocation_segmentDeliveryConfigurations = Lens.lens (\CreateSourceLocation' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@CreateSourceLocation' {} a -> s {segmentDeliveryConfigurations = a} :: CreateSourceLocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Access configuration parameters. Configures the type of authentication
 -- used to access content from your source location.
@@ -140,6 +154,9 @@ instance Core.AWSRequest CreateSourceLocation where
       ( \s h x ->
           CreateSourceLocationResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "SegmentDeliveryConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "AccessConfiguration")
             Prelude.<*> (x Core..?> "DefaultSegmentDeliveryConfiguration")
@@ -153,6 +170,7 @@ instance Core.AWSRequest CreateSourceLocation where
 instance Prelude.Hashable CreateSourceLocation where
   hashWithSalt _salt CreateSourceLocation' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` segmentDeliveryConfigurations
       `Prelude.hashWithSalt` accessConfiguration
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
       `Prelude.hashWithSalt` sourceLocationName
@@ -161,6 +179,7 @@ instance Prelude.Hashable CreateSourceLocation where
 instance Prelude.NFData CreateSourceLocation where
   rnf CreateSourceLocation' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
       `Prelude.seq` Prelude.rnf sourceLocationName
@@ -182,6 +201,8 @@ instance Core.ToJSON CreateSourceLocation where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
+            ("SegmentDeliveryConfigurations" Core..=)
+              Prelude.<$> segmentDeliveryConfigurations,
             ("AccessConfiguration" Core..=)
               Prelude.<$> accessConfiguration,
             ("DefaultSegmentDeliveryConfiguration" Core..=)
@@ -203,6 +224,9 @@ instance Core.ToQuery CreateSourceLocation where
 data CreateSourceLocationResponse = CreateSourceLocationResponse'
   { -- | The tags assigned to the source location.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of the segment delivery configurations associated with this
+    -- resource.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
     -- | The ARN of the source location.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The access configuration for the source location.
@@ -232,6 +256,9 @@ data CreateSourceLocationResponse = CreateSourceLocationResponse'
 --
 -- 'tags', 'createSourceLocationResponse_tags' - The tags assigned to the source location.
 --
+-- 'segmentDeliveryConfigurations', 'createSourceLocationResponse_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
+-- resource.
+--
 -- 'arn', 'createSourceLocationResponse_arn' - The ARN of the source location.
 --
 -- 'accessConfiguration', 'createSourceLocationResponse_accessConfiguration' - The access configuration for the source location.
@@ -255,6 +282,8 @@ newCreateSourceLocationResponse pHttpStatus_ =
   CreateSourceLocationResponse'
     { tags =
         Prelude.Nothing,
+      segmentDeliveryConfigurations =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
       accessConfiguration = Prelude.Nothing,
       defaultSegmentDeliveryConfiguration =
@@ -269,6 +298,11 @@ newCreateSourceLocationResponse pHttpStatus_ =
 -- | The tags assigned to the source location.
 createSourceLocationResponse_tags :: Lens.Lens' CreateSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSourceLocationResponse_tags = Lens.lens (\CreateSourceLocationResponse' {tags} -> tags) (\s@CreateSourceLocationResponse' {} a -> s {tags = a} :: CreateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the segment delivery configurations associated with this
+-- resource.
+createSourceLocationResponse_segmentDeliveryConfigurations :: Lens.Lens' CreateSourceLocationResponse (Prelude.Maybe [SegmentDeliveryConfiguration])
+createSourceLocationResponse_segmentDeliveryConfigurations = Lens.lens (\CreateSourceLocationResponse' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@CreateSourceLocationResponse' {} a -> s {segmentDeliveryConfigurations = a} :: CreateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the source location.
 createSourceLocationResponse_arn :: Lens.Lens' CreateSourceLocationResponse (Prelude.Maybe Prelude.Text)
@@ -305,6 +339,7 @@ createSourceLocationResponse_httpStatus = Lens.lens (\CreateSourceLocationRespon
 instance Prelude.NFData CreateSourceLocationResponse where
   rnf CreateSourceLocationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration

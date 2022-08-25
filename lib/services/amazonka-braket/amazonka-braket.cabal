@@ -44,23 +44,46 @@ library
 
   exposed-modules:
     Amazonka.Braket
+    Amazonka.Braket.CancelJob
     Amazonka.Braket.CancelQuantumTask
+    Amazonka.Braket.CreateJob
     Amazonka.Braket.CreateQuantumTask
     Amazonka.Braket.GetDevice
+    Amazonka.Braket.GetJob
     Amazonka.Braket.GetQuantumTask
     Amazonka.Braket.Lens
     Amazonka.Braket.ListTagsForResource
     Amazonka.Braket.SearchDevices
+    Amazonka.Braket.SearchJobs
     Amazonka.Braket.SearchQuantumTasks
     Amazonka.Braket.TagResource
     Amazonka.Braket.Types
+    Amazonka.Braket.Types.AlgorithmSpecification
     Amazonka.Braket.Types.CancellationStatus
+    Amazonka.Braket.Types.CompressionType
+    Amazonka.Braket.Types.ContainerImage
+    Amazonka.Braket.Types.DataSource
+    Amazonka.Braket.Types.DeviceConfig
     Amazonka.Braket.Types.DeviceStatus
     Amazonka.Braket.Types.DeviceSummary
     Amazonka.Braket.Types.DeviceType
+    Amazonka.Braket.Types.InputFileConfig
+    Amazonka.Braket.Types.InstanceConfig
+    Amazonka.Braket.Types.InstanceType
+    Amazonka.Braket.Types.JobCheckpointConfig
+    Amazonka.Braket.Types.JobEventDetails
+    Amazonka.Braket.Types.JobEventType
+    Amazonka.Braket.Types.JobOutputDataConfig
+    Amazonka.Braket.Types.JobPrimaryStatus
+    Amazonka.Braket.Types.JobStoppingCondition
+    Amazonka.Braket.Types.JobSummary
     Amazonka.Braket.Types.QuantumTaskStatus
     Amazonka.Braket.Types.QuantumTaskSummary
+    Amazonka.Braket.Types.S3DataSource
+    Amazonka.Braket.Types.ScriptModeConfig
     Amazonka.Braket.Types.SearchDevicesFilter
+    Amazonka.Braket.Types.SearchJobsFilter
+    Amazonka.Braket.Types.SearchJobsFilterOperator
     Amazonka.Braket.Types.SearchQuantumTasksFilter
     Amazonka.Braket.Types.SearchQuantumTasksFilterOperator
     Amazonka.Braket.UntagResource

@@ -46,17 +46,26 @@ library
     Amazonka.Pi
     Amazonka.Pi.DescribeDimensionKeys
     Amazonka.Pi.GetDimensionKeyDetails
+    Amazonka.Pi.GetResourceMetadata
     Amazonka.Pi.GetResourceMetrics
     Amazonka.Pi.Lens
+    Amazonka.Pi.ListAvailableResourceDimensions
+    Amazonka.Pi.ListAvailableResourceMetrics
     Amazonka.Pi.Types
     Amazonka.Pi.Types.DataPoint
     Amazonka.Pi.Types.DetailStatus
+    Amazonka.Pi.Types.DimensionDetail
     Amazonka.Pi.Types.DimensionGroup
+    Amazonka.Pi.Types.DimensionGroupDetail
     Amazonka.Pi.Types.DimensionKeyDescription
     Amazonka.Pi.Types.DimensionKeyDetail
+    Amazonka.Pi.Types.FeatureMetadata
+    Amazonka.Pi.Types.FeatureStatus
+    Amazonka.Pi.Types.MetricDimensionGroups
     Amazonka.Pi.Types.MetricKeyDataPoints
     Amazonka.Pi.Types.MetricQuery
     Amazonka.Pi.Types.ResponsePartitionKey
+    Amazonka.Pi.Types.ResponseResourceMetric
     Amazonka.Pi.Types.ResponseResourceMetricKey
     Amazonka.Pi.Types.ServiceType
     Amazonka.Pi.Waiters

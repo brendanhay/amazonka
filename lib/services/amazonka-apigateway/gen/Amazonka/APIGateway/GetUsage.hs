@@ -68,11 +68,11 @@ data GetUsage = GetUsage'
     keyId :: Prelude.Maybe Prelude.Text,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The Id of the usage plan associated with the usage data.
+    -- | The Id of the usage plan associated with the usage data.
     usagePlanId :: Prelude.Text,
-    -- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
+    -- | The starting date (e.g., 2016-01-01) of the usage data.
     startDate :: Prelude.Text,
-    -- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
+    -- | The ending date (e.g., 2016-12-31) of the usage data.
     endDate :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,11 +92,11 @@ data GetUsage = GetUsage'
 --
 -- 'position', 'getUsage_position' - The current pagination position in the paged result set.
 --
--- 'usagePlanId', 'getUsage_usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
+-- 'usagePlanId', 'getUsage_usagePlanId' - The Id of the usage plan associated with the usage data.
 --
--- 'startDate', 'getUsage_startDate' - [Required] The starting date (e.g., 2016-01-01) of the usage data.
+-- 'startDate', 'getUsage_startDate' - The starting date (e.g., 2016-01-01) of the usage data.
 --
--- 'endDate', 'getUsage_endDate' - [Required] The ending date (e.g., 2016-12-31) of the usage data.
+-- 'endDate', 'getUsage_endDate' - The ending date (e.g., 2016-12-31) of the usage data.
 newGetUsage ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -128,15 +128,15 @@ getUsage_keyId = Lens.lens (\GetUsage' {keyId} -> keyId) (\s@GetUsage' {} a -> s
 getUsage_position :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
 getUsage_position = Lens.lens (\GetUsage' {position} -> position) (\s@GetUsage' {} a -> s {position = a} :: GetUsage)
 
--- | [Required] The Id of the usage plan associated with the usage data.
+-- | The Id of the usage plan associated with the usage data.
 getUsage_usagePlanId :: Lens.Lens' GetUsage Prelude.Text
 getUsage_usagePlanId = Lens.lens (\GetUsage' {usagePlanId} -> usagePlanId) (\s@GetUsage' {} a -> s {usagePlanId = a} :: GetUsage)
 
--- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
+-- | The starting date (e.g., 2016-01-01) of the usage data.
 getUsage_startDate :: Lens.Lens' GetUsage Prelude.Text
 getUsage_startDate = Lens.lens (\GetUsage' {startDate} -> startDate) (\s@GetUsage' {} a -> s {startDate = a} :: GetUsage)
 
--- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
+-- | The ending date (e.g., 2016-12-31) of the usage data.
 getUsage_endDate :: Lens.Lens' GetUsage Prelude.Text
 getUsage_endDate = Lens.lens (\GetUsage' {endDate} -> endDate) (\s@GetUsage' {} a -> s {endDate = a} :: GetUsage)
 

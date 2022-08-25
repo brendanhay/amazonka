@@ -23,20 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The VPC networking components used to secure and enable network traffic
--- between the AWS resources for your environment. To learn more, see
+-- | Describes the VPC networking components used to secure and enable
+-- network traffic between the Amazon Web Services resources for your
+-- environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
 -- /See:/ 'newNetworkConfiguration' smart constructor.
 data NetworkConfiguration = NetworkConfiguration'
-  { -- | A list of 1 or more security group IDs. Accepts up to 5 security group
-    -- IDs. A security group must be attached to the same VPC as the subnets.
-    -- To learn more, see
+  { -- | A list of security group IDs. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
     securityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of 2 subnet IDs. __Required__ to create an environment. Must be
-    -- private subnets in two different availability zones. A subnet must be
-    -- attached to the same VPC as the security group.
+    -- | A list of subnet IDs. To learn more, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
     subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,14 +47,11 @@ data NetworkConfiguration = NetworkConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'networkConfiguration_securityGroupIds' - A list of 1 or more security group IDs. Accepts up to 5 security group
--- IDs. A security group must be attached to the same VPC as the subnets.
--- To learn more, see
+-- 'securityGroupIds', 'networkConfiguration_securityGroupIds' - A list of security group IDs. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 --
--- 'subnetIds', 'networkConfiguration_subnetIds' - A list of 2 subnet IDs. __Required__ to create an environment. Must be
--- private subnets in two different availability zones. A subnet must be
--- attached to the same VPC as the security group.
+-- 'subnetIds', 'networkConfiguration_subnetIds' - A list of subnet IDs. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 newNetworkConfiguration ::
   NetworkConfiguration
 newNetworkConfiguration =
@@ -66,16 +61,13 @@ newNetworkConfiguration =
       subnetIds = Prelude.Nothing
     }
 
--- | A list of 1 or more security group IDs. Accepts up to 5 security group
--- IDs. A security group must be attached to the same VPC as the subnets.
--- To learn more, see
+-- | A list of security group IDs. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 networkConfiguration_securityGroupIds :: Lens.Lens' NetworkConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkConfiguration_securityGroupIds = Lens.lens (\NetworkConfiguration' {securityGroupIds} -> securityGroupIds) (\s@NetworkConfiguration' {} a -> s {securityGroupIds = a} :: NetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of 2 subnet IDs. __Required__ to create an environment. Must be
--- private subnets in two different availability zones. A subnet must be
--- attached to the same VPC as the security group.
+-- | A list of subnet IDs. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 networkConfiguration_subnetIds :: Lens.Lens' NetworkConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkConfiguration_subnetIds = Lens.lens (\NetworkConfiguration' {subnetIds} -> subnetIds) (\s@NetworkConfiguration' {} a -> s {subnetIds = a} :: NetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
 

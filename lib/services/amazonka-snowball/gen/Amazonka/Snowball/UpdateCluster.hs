@@ -61,7 +61,7 @@ data UpdateCluster = UpdateCluster'
   { -- | The new role Amazon Resource Name (ARN) that you want to associate with
     -- this cluster. To create a role ARN, use the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
-    -- API action in AWS Identity and Access Management (IAM).
+    -- API action in Identity and Access Management (IAM).
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | The updated ID for the forwarding address for a cluster. This field is
     -- not supported in most regions.
@@ -79,8 +79,9 @@ data UpdateCluster = UpdateCluster'
     -- object.
     shippingOption :: Prelude.Maybe ShippingOption,
     -- | Specifies the service or services on the Snow Family device that your
-    -- transferred data will be exported from or imported into. AWS Snow Family
-    -- supports Amazon S3 and NFS (Network File System).
+    -- transferred data will be exported from or imported into. Amazon Web
+    -- Services Snow Family device clusters support Amazon S3 and NFS (Network
+    -- File System).
     onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The cluster ID of the cluster that you want to update, for example
     -- @CID123e4567-e89b-12d3-a456-426655440000@.
@@ -99,7 +100,7 @@ data UpdateCluster = UpdateCluster'
 -- 'roleARN', 'updateCluster_roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with
 -- this cluster. To create a role ARN, use the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- API action in AWS Identity and Access Management (IAM).
+-- API action in Identity and Access Management (IAM).
 --
 -- 'forwardingAddressId', 'updateCluster_forwardingAddressId' - The updated ID for the forwarding address for a cluster. This field is
 -- not supported in most regions.
@@ -117,8 +118,9 @@ data UpdateCluster = UpdateCluster'
 -- object.
 --
 -- 'onDeviceServiceConfiguration', 'updateCluster_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family device clusters support Amazon S3 and NFS (Network
+-- File System).
 --
 -- 'clusterId', 'updateCluster_clusterId' - The cluster ID of the cluster that you want to update, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
@@ -142,7 +144,7 @@ newUpdateCluster pClusterId_ =
 -- | The new role Amazon Resource Name (ARN) that you want to associate with
 -- this cluster. To create a role ARN, use the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- API action in AWS Identity and Access Management (IAM).
+-- API action in Identity and Access Management (IAM).
 updateCluster_roleARN :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_roleARN = Lens.lens (\UpdateCluster' {roleARN} -> roleARN) (\s@UpdateCluster' {} a -> s {roleARN = a} :: UpdateCluster)
 
@@ -174,8 +176,9 @@ updateCluster_shippingOption :: Lens.Lens' UpdateCluster (Prelude.Maybe Shipping
 updateCluster_shippingOption = Lens.lens (\UpdateCluster' {shippingOption} -> shippingOption) (\s@UpdateCluster' {} a -> s {shippingOption = a} :: UpdateCluster)
 
 -- | Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family device clusters support Amazon S3 and NFS (Network
+-- File System).
 updateCluster_onDeviceServiceConfiguration :: Lens.Lens' UpdateCluster (Prelude.Maybe OnDeviceServiceConfiguration)
 updateCluster_onDeviceServiceConfiguration = Lens.lens (\UpdateCluster' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@UpdateCluster' {} a -> s {onDeviceServiceConfiguration = a} :: UpdateCluster)
 

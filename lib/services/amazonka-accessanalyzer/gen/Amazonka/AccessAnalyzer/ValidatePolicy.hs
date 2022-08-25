@@ -35,6 +35,7 @@ module Amazonka.AccessAnalyzer.ValidatePolicy
     validatePolicy_nextToken,
     validatePolicy_locale,
     validatePolicy_maxResults,
+    validatePolicy_validatePolicyResourceType,
     validatePolicy_policyDocument,
     validatePolicy_policyType,
 
@@ -64,6 +65,18 @@ data ValidatePolicy = ValidatePolicy'
     locale :: Prelude.Maybe Locale,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The type of resource to attach to your resource policy. Specify a value
+    -- for the policy validation resource type only if the policy type is
+    -- @RESOURCE_POLICY@. For example, to validate a resource policy to attach
+    -- to an Amazon S3 bucket, you can choose @AWS::S3::Bucket@ for the policy
+    -- validation resource type.
+    --
+    -- For resource types not supported as valid values, IAM Access Analyzer
+    -- runs policy checks that apply to all resource policies. For example, to
+    -- validate a resource policy to attach to a KMS key, do not specify a
+    -- value for the policy validation resource type and IAM Access Analyzer
+    -- will run policy checks that apply to all resource policies.
+    validatePolicyResourceType :: Prelude.Maybe ValidatePolicyResourceType,
     -- | The JSON policy document to use as the content for the policy.
     policyDocument :: Prelude.Text,
     -- | The type of policy to validate. Identity policies grant permissions to
@@ -95,6 +108,18 @@ data ValidatePolicy = ValidatePolicy'
 --
 -- 'maxResults', 'validatePolicy_maxResults' - The maximum number of results to return in the response.
 --
+-- 'validatePolicyResourceType', 'validatePolicy_validatePolicyResourceType' - The type of resource to attach to your resource policy. Specify a value
+-- for the policy validation resource type only if the policy type is
+-- @RESOURCE_POLICY@. For example, to validate a resource policy to attach
+-- to an Amazon S3 bucket, you can choose @AWS::S3::Bucket@ for the policy
+-- validation resource type.
+--
+-- For resource types not supported as valid values, IAM Access Analyzer
+-- runs policy checks that apply to all resource policies. For example, to
+-- validate a resource policy to attach to a KMS key, do not specify a
+-- value for the policy validation resource type and IAM Access Analyzer
+-- will run policy checks that apply to all resource policies.
+--
 -- 'policyDocument', 'validatePolicy_policyDocument' - The JSON policy document to use as the content for the policy.
 --
 -- 'policyType', 'validatePolicy_policyType' - The type of policy to validate. Identity policies grant permissions to
@@ -119,6 +144,7 @@ newValidatePolicy pPolicyDocument_ pPolicyType_ =
     { nextToken = Prelude.Nothing,
       locale = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      validatePolicyResourceType = Prelude.Nothing,
       policyDocument = pPolicyDocument_,
       policyType = pPolicyType_
     }
@@ -134,6 +160,20 @@ validatePolicy_locale = Lens.lens (\ValidatePolicy' {locale} -> locale) (\s@Vali
 -- | The maximum number of results to return in the response.
 validatePolicy_maxResults :: Lens.Lens' ValidatePolicy (Prelude.Maybe Prelude.Int)
 validatePolicy_maxResults = Lens.lens (\ValidatePolicy' {maxResults} -> maxResults) (\s@ValidatePolicy' {} a -> s {maxResults = a} :: ValidatePolicy)
+
+-- | The type of resource to attach to your resource policy. Specify a value
+-- for the policy validation resource type only if the policy type is
+-- @RESOURCE_POLICY@. For example, to validate a resource policy to attach
+-- to an Amazon S3 bucket, you can choose @AWS::S3::Bucket@ for the policy
+-- validation resource type.
+--
+-- For resource types not supported as valid values, IAM Access Analyzer
+-- runs policy checks that apply to all resource policies. For example, to
+-- validate a resource policy to attach to a KMS key, do not specify a
+-- value for the policy validation resource type and IAM Access Analyzer
+-- will run policy checks that apply to all resource policies.
+validatePolicy_validatePolicyResourceType :: Lens.Lens' ValidatePolicy (Prelude.Maybe ValidatePolicyResourceType)
+validatePolicy_validatePolicyResourceType = Lens.lens (\ValidatePolicy' {validatePolicyResourceType} -> validatePolicyResourceType) (\s@ValidatePolicy' {} a -> s {validatePolicyResourceType = a} :: ValidatePolicy)
 
 -- | The JSON policy document to use as the content for the policy.
 validatePolicy_policyDocument :: Lens.Lens' ValidatePolicy Prelude.Text
@@ -190,6 +230,7 @@ instance Prelude.Hashable ValidatePolicy where
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` validatePolicyResourceType
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyType
 
@@ -198,6 +239,7 @@ instance Prelude.NFData ValidatePolicy where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf locale
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf validatePolicyResourceType
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf policyType
 
@@ -217,6 +259,8 @@ instance Core.ToJSON ValidatePolicy where
     Core.object
       ( Prelude.catMaybes
           [ ("locale" Core..=) Prelude.<$> locale,
+            ("validatePolicyResourceType" Core..=)
+              Prelude.<$> validatePolicyResourceType,
             Prelude.Just
               ("policyDocument" Core..= policyDocument),
             Prelude.Just ("policyType" Core..= policyType)

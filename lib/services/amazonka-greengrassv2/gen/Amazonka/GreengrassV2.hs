@@ -66,6 +66,12 @@ module Amazonka.GreengrassV2
     -- * Operations
     -- $operations
 
+    -- ** AssociateServiceRoleToAccount
+    AssociateServiceRoleToAccount (AssociateServiceRoleToAccount'),
+    newAssociateServiceRoleToAccount,
+    AssociateServiceRoleToAccountResponse (AssociateServiceRoleToAccountResponse'),
+    newAssociateServiceRoleToAccountResponse,
+
     -- ** BatchAssociateClientDeviceWithCoreDevice
     BatchAssociateClientDeviceWithCoreDevice (BatchAssociateClientDeviceWithCoreDevice'),
     newBatchAssociateClientDeviceWithCoreDevice,
@@ -108,11 +114,23 @@ module Amazonka.GreengrassV2
     DeleteCoreDeviceResponse (DeleteCoreDeviceResponse'),
     newDeleteCoreDeviceResponse,
 
+    -- ** DeleteDeployment
+    DeleteDeployment (DeleteDeployment'),
+    newDeleteDeployment,
+    DeleteDeploymentResponse (DeleteDeploymentResponse'),
+    newDeleteDeploymentResponse,
+
     -- ** DescribeComponent
     DescribeComponent (DescribeComponent'),
     newDescribeComponent,
     DescribeComponentResponse (DescribeComponentResponse'),
     newDescribeComponentResponse,
+
+    -- ** DisassociateServiceRoleFromAccount
+    DisassociateServiceRoleFromAccount (DisassociateServiceRoleFromAccount'),
+    newDisassociateServiceRoleFromAccount,
+    DisassociateServiceRoleFromAccountResponse (DisassociateServiceRoleFromAccountResponse'),
+    newDisassociateServiceRoleFromAccountResponse,
 
     -- ** GetComponent
     GetComponent (GetComponent'),
@@ -126,6 +144,12 @@ module Amazonka.GreengrassV2
     GetComponentVersionArtifactResponse (GetComponentVersionArtifactResponse'),
     newGetComponentVersionArtifactResponse,
 
+    -- ** GetConnectivityInfo
+    GetConnectivityInfo (GetConnectivityInfo'),
+    newGetConnectivityInfo,
+    GetConnectivityInfoResponse (GetConnectivityInfoResponse'),
+    newGetConnectivityInfoResponse,
+
     -- ** GetCoreDevice
     GetCoreDevice (GetCoreDevice'),
     newGetCoreDevice,
@@ -137,6 +161,12 @@ module Amazonka.GreengrassV2
     newGetDeployment,
     GetDeploymentResponse (GetDeploymentResponse'),
     newGetDeploymentResponse,
+
+    -- ** GetServiceRoleForAccount
+    GetServiceRoleForAccount (GetServiceRoleForAccount'),
+    newGetServiceRoleForAccount,
+    GetServiceRoleForAccountResponse (GetServiceRoleForAccountResponse'),
+    newGetServiceRoleForAccountResponse,
 
     -- ** ListClientDevicesAssociatedWithCoreDevice (Paginated)
     ListClientDevicesAssociatedWithCoreDevice (ListClientDevicesAssociatedWithCoreDevice'),
@@ -204,6 +234,12 @@ module Amazonka.GreengrassV2
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateConnectivityInfo
+    UpdateConnectivityInfo (UpdateConnectivityInfo'),
+    newUpdateConnectivityInfo,
+    UpdateConnectivityInfoResponse (UpdateConnectivityInfoResponse'),
+    newUpdateConnectivityInfoResponse,
+
     -- * Types
 
     -- ** CloudComponentState
@@ -257,6 +293,9 @@ module Amazonka.GreengrassV2
     -- ** RecipeOutputFormat
     RecipeOutputFormat (..),
 
+    -- ** VendorGuidance
+    VendorGuidance (..),
+
     -- ** AssociateClientDeviceWithCoreDeviceEntry
     AssociateClientDeviceWithCoreDeviceEntry (AssociateClientDeviceWithCoreDeviceEntry'),
     newAssociateClientDeviceWithCoreDeviceEntry,
@@ -308,6 +347,10 @@ module Amazonka.GreengrassV2
     -- ** ComponentVersionListItem
     ComponentVersionListItem (ComponentVersionListItem'),
     newComponentVersionListItem,
+
+    -- ** ConnectivityInfo
+    ConnectivityInfo (ConnectivityInfo'),
+    newConnectivityInfo,
 
     -- ** CoreDevice
     CoreDevice (CoreDevice'),
@@ -411,6 +454,7 @@ module Amazonka.GreengrassV2
   )
 where
 
+import Amazonka.GreengrassV2.AssociateServiceRoleToAccount
 import Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice
 import Amazonka.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
 import Amazonka.GreengrassV2.CancelDeployment
@@ -418,11 +462,15 @@ import Amazonka.GreengrassV2.CreateComponentVersion
 import Amazonka.GreengrassV2.CreateDeployment
 import Amazonka.GreengrassV2.DeleteComponent
 import Amazonka.GreengrassV2.DeleteCoreDevice
+import Amazonka.GreengrassV2.DeleteDeployment
 import Amazonka.GreengrassV2.DescribeComponent
+import Amazonka.GreengrassV2.DisassociateServiceRoleFromAccount
 import Amazonka.GreengrassV2.GetComponent
 import Amazonka.GreengrassV2.GetComponentVersionArtifact
+import Amazonka.GreengrassV2.GetConnectivityInfo
 import Amazonka.GreengrassV2.GetCoreDevice
 import Amazonka.GreengrassV2.GetDeployment
+import Amazonka.GreengrassV2.GetServiceRoleForAccount
 import Amazonka.GreengrassV2.Lens
 import Amazonka.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
 import Amazonka.GreengrassV2.ListComponentVersions
@@ -436,6 +484,7 @@ import Amazonka.GreengrassV2.ResolveComponentCandidates
 import Amazonka.GreengrassV2.TagResource
 import Amazonka.GreengrassV2.Types
 import Amazonka.GreengrassV2.UntagResource
+import Amazonka.GreengrassV2.UpdateConnectivityInfo
 import Amazonka.GreengrassV2.Waiters
 
 -- $errors

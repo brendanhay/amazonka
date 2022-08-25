@@ -56,6 +56,7 @@ module Amazonka.ElastiCache.Lens
     copySnapshotResponse_httpStatus,
 
     -- ** CreateCacheCluster
+    createCacheCluster_transitEncryptionEnabled,
     createCacheCluster_tags,
     createCacheCluster_port,
     createCacheCluster_preferredAvailabilityZones,
@@ -119,6 +120,7 @@ module Amazonka.ElastiCache.Lens
     -- ** CreateReplicationGroup
     createReplicationGroup_transitEncryptionEnabled,
     createReplicationGroup_tags,
+    createReplicationGroup_dataTieringEnabled,
     createReplicationGroup_port,
     createReplicationGroup_cacheSubnetGroupName,
     createReplicationGroup_snapshotName,
@@ -175,6 +177,7 @@ module Amazonka.ElastiCache.Lens
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,
@@ -189,6 +192,7 @@ module Amazonka.ElastiCache.Lens
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
 
@@ -250,6 +254,7 @@ module Amazonka.ElastiCache.Lens
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,
@@ -261,6 +266,7 @@ module Amazonka.ElastiCache.Lens
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
 
@@ -572,6 +578,7 @@ module Amazonka.ElastiCache.Lens
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,
@@ -585,6 +592,7 @@ module Amazonka.ElastiCache.Lens
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
 
@@ -946,6 +954,7 @@ module Amazonka.ElastiCache.Lens
     replicationGroup_memberClustersOutpostArns,
     replicationGroup_globalReplicationGroupInfo,
     replicationGroup_clusterEnabled,
+    replicationGroup_autoMinorVersionUpgrade,
     replicationGroup_replicationGroupCreateTime,
     replicationGroup_automaticFailover,
     replicationGroup_arn,
@@ -962,6 +971,7 @@ module Amazonka.ElastiCache.Lens
     replicationGroup_userGroupIds,
     replicationGroup_kmsKeyId,
     replicationGroup_pendingModifiedValues,
+    replicationGroup_dataTiering,
     replicationGroup_authTokenLastModifiedDate,
     replicationGroup_replicationGroupId,
     replicationGroup_memberClusters,
@@ -1053,6 +1063,7 @@ module Amazonka.ElastiCache.Lens
     snapshot_engine,
     snapshot_preferredMaintenanceWindow,
     snapshot_vpcId,
+    snapshot_dataTiering,
     snapshot_replicationGroupId,
     snapshot_nodeSnapshots,
     snapshot_numNodeGroups,
@@ -1113,6 +1124,7 @@ module Amazonka.ElastiCache.Lens
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,
@@ -1123,6 +1135,7 @@ module Amazonka.ElastiCache.Lens
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
 

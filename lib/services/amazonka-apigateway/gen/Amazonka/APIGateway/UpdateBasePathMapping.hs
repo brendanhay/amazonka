@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateBasePathMapping' smart constructor.
 data UpdateBasePathMapping = UpdateBasePathMapping'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The domain name of the BasePathMapping resource to change.
+    -- | The domain name of the BasePathMapping resource to change.
     domainName :: Prelude.Text,
-    -- | [Required] The base path of the BasePathMapping resource to change.
+    -- | The base path of the BasePathMapping resource to change.
     --
     -- To specify an empty base path, set this parameter to @\'(none)\'@.
     basePath :: Prelude.Text
@@ -73,12 +73,12 @@ data UpdateBasePathMapping = UpdateBasePathMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateBasePathMapping_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateBasePathMapping_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'domainName', 'updateBasePathMapping_domainName' - [Required] The domain name of the BasePathMapping resource to change.
+-- 'domainName', 'updateBasePathMapping_domainName' - The domain name of the BasePathMapping resource to change.
 --
--- 'basePath', 'updateBasePathMapping_basePath' - [Required] The base path of the BasePathMapping resource to change.
+-- 'basePath', 'updateBasePathMapping_basePath' - The base path of the BasePathMapping resource to change.
 --
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
 newUpdateBasePathMapping ::
@@ -95,16 +95,16 @@ newUpdateBasePathMapping pDomainName_ pBasePath_ =
       basePath = pBasePath_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateBasePathMapping_patchOperations :: Lens.Lens' UpdateBasePathMapping (Prelude.Maybe [PatchOperation])
 updateBasePathMapping_patchOperations = Lens.lens (\UpdateBasePathMapping' {patchOperations} -> patchOperations) (\s@UpdateBasePathMapping' {} a -> s {patchOperations = a} :: UpdateBasePathMapping) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The domain name of the BasePathMapping resource to change.
+-- | The domain name of the BasePathMapping resource to change.
 updateBasePathMapping_domainName :: Lens.Lens' UpdateBasePathMapping Prelude.Text
 updateBasePathMapping_domainName = Lens.lens (\UpdateBasePathMapping' {domainName} -> domainName) (\s@UpdateBasePathMapping' {} a -> s {domainName = a} :: UpdateBasePathMapping)
 
--- | [Required] The base path of the BasePathMapping resource to change.
+-- | The base path of the BasePathMapping resource to change.
 --
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
 updateBasePathMapping_basePath :: Lens.Lens' UpdateBasePathMapping Prelude.Text

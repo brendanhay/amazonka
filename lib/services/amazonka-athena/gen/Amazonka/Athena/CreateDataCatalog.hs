@@ -101,8 +101,9 @@ data CreateDataCatalog = CreateDataCatalog'
     --         error.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog to create. The catalog name must be unique
-    -- for the Amazon Web Services account and can use a maximum of 128
-    -- alphanumeric, underscore, at sign, or hyphen characters.
+    -- for the Amazon Web Services account and can use a maximum of 127
+    -- alphanumeric, underscore, at sign, or hyphen characters. The remainder
+    -- of the length constraint of 256 is reserved for use by Athena.
     name :: Prelude.Text,
     -- | The type of data catalog to create: @LAMBDA@ for a federated catalog,
     -- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
@@ -167,8 +168,9 @@ data CreateDataCatalog = CreateDataCatalog'
 --         error.
 --
 -- 'name', 'createDataCatalog_name' - The name of the data catalog to create. The catalog name must be unique
--- for the Amazon Web Services account and can use a maximum of 128
--- alphanumeric, underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 127
+-- alphanumeric, underscore, at sign, or hyphen characters. The remainder
+-- of the length constraint of 256 is reserved for use by Athena.
 --
 -- 'type'', 'createDataCatalog_type' - The type of data catalog to create: @LAMBDA@ for a federated catalog,
 -- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
@@ -242,8 +244,9 @@ createDataCatalog_parameters :: Lens.Lens' CreateDataCatalog (Prelude.Maybe (Pre
 createDataCatalog_parameters = Lens.lens (\CreateDataCatalog' {parameters} -> parameters) (\s@CreateDataCatalog' {} a -> s {parameters = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the data catalog to create. The catalog name must be unique
--- for the Amazon Web Services account and can use a maximum of 128
--- alphanumeric, underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 127
+-- alphanumeric, underscore, at sign, or hyphen characters. The remainder
+-- of the length constraint of 256 is reserved for use by Athena.
 createDataCatalog_name :: Lens.Lens' CreateDataCatalog Prelude.Text
 createDataCatalog_name = Lens.lens (\CreateDataCatalog' {name} -> name) (\s@CreateDataCatalog' {} a -> s {name = a} :: CreateDataCatalog)
 

@@ -61,8 +61,8 @@ data PutDomainPermissionsPolicy = PutDomainPermissionsPolicy'
     -- used for optimistic locking, which prevents others from overwriting your
     -- changes to the domain\'s resource policy.
     policyRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain on which to set the resource policy.
     domain :: Prelude.Text,
@@ -84,8 +84,8 @@ data PutDomainPermissionsPolicy = PutDomainPermissionsPolicy'
 -- used for optimistic locking, which prevents others from overwriting your
 -- changes to the domain\'s resource policy.
 --
--- 'domainOwner', 'putDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'putDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'putDomainPermissionsPolicy_domain' - The name of the domain on which to set the resource policy.
 --
@@ -114,8 +114,8 @@ newPutDomainPermissionsPolicy
 putDomainPermissionsPolicy_policyRevision :: Lens.Lens' PutDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
 putDomainPermissionsPolicy_policyRevision = Lens.lens (\PutDomainPermissionsPolicy' {policyRevision} -> policyRevision) (\s@PutDomainPermissionsPolicy' {} a -> s {policyRevision = a} :: PutDomainPermissionsPolicy)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 putDomainPermissionsPolicy_domainOwner :: Lens.Lens' PutDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
 putDomainPermissionsPolicy_domainOwner = Lens.lens (\PutDomainPermissionsPolicy' {domainOwner} -> domainOwner) (\s@PutDomainPermissionsPolicy' {} a -> s {domainOwner = a} :: PutDomainPermissionsPolicy)
 

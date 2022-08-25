@@ -48,6 +48,8 @@ library
     Amazonka.KinesisVideo.CreateStream
     Amazonka.KinesisVideo.DeleteSignalingChannel
     Amazonka.KinesisVideo.DeleteStream
+    Amazonka.KinesisVideo.DescribeImageGenerationConfiguration
+    Amazonka.KinesisVideo.DescribeNotificationConfiguration
     Amazonka.KinesisVideo.DescribeSignalingChannel
     Amazonka.KinesisVideo.DescribeStream
     Amazonka.KinesisVideo.GetDataEndpoint
@@ -67,6 +69,14 @@ library
     Amazonka.KinesisVideo.Types.ChannelRole
     Amazonka.KinesisVideo.Types.ChannelType
     Amazonka.KinesisVideo.Types.ComparisonOperator
+    Amazonka.KinesisVideo.Types.ConfigurationStatus
+    Amazonka.KinesisVideo.Types.Format
+    Amazonka.KinesisVideo.Types.FormatConfigKey
+    Amazonka.KinesisVideo.Types.ImageGenerationConfiguration
+    Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
+    Amazonka.KinesisVideo.Types.ImageSelectorType
+    Amazonka.KinesisVideo.Types.NotificationConfiguration
+    Amazonka.KinesisVideo.Types.NotificationDestinationConfig
     Amazonka.KinesisVideo.Types.ResourceEndpointListItem
     Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
     Amazonka.KinesisVideo.Types.SingleMasterConfiguration
@@ -78,6 +88,8 @@ library
     Amazonka.KinesisVideo.UntagResource
     Amazonka.KinesisVideo.UntagStream
     Amazonka.KinesisVideo.UpdateDataRetention
+    Amazonka.KinesisVideo.UpdateImageGenerationConfiguration
+    Amazonka.KinesisVideo.UpdateNotificationConfiguration
     Amazonka.KinesisVideo.UpdateSignalingChannel
     Amazonka.KinesisVideo.UpdateStream
     Amazonka.KinesisVideo.Waiters

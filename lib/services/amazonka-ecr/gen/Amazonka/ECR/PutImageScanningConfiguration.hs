@@ -20,6 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- The @PutImageScanningConfiguration@ API is being deprecated, in favor of
+-- specifying the image scanning configuration at the registry level. For
+-- more information, see PutRegistryScanningConfiguration.
+--
 -- Updates the image scanning configuration for the specified repository.
 module Amazonka.ECR.PutImageScanningConfiguration
   ( -- * Creating a Request

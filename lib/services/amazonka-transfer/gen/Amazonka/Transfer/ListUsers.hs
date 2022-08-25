@@ -22,6 +22,8 @@
 --
 -- Lists the users for a file transfer protocol-enabled server that you
 -- specify by passing the @ServerId@ parameter.
+--
+-- This operation returns paginated results.
 module Amazonka.Transfer.ListUsers
   ( -- * Creating a Request
     ListUsers (..),
@@ -112,6 +114,22 @@ listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@Li
 -- to it.
 listUsers_serverId :: Lens.Lens' ListUsers Prelude.Text
 listUsers_serverId = Lens.lens (\ListUsers' {serverId} -> serverId) (\s@ListUsers' {} a -> s {serverId = a} :: ListUsers)
+
+instance Core.AWSPager ListUsers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listUsersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop (rs Lens.^. listUsersResponse_users) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listUsers_nextToken
+          Lens..~ rs
+          Lens.^? listUsersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse

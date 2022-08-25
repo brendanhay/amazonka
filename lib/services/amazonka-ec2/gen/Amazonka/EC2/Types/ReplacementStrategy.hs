@@ -20,7 +20,8 @@
 module Amazonka.EC2.Types.ReplacementStrategy
   ( ReplacementStrategy
       ( ..,
-        ReplacementStrategy_Launch
+        ReplacementStrategy_Launch,
+        ReplacementStrategy_Launch_before_terminate
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype ReplacementStrategy = ReplacementStrategy'
 pattern ReplacementStrategy_Launch :: ReplacementStrategy
 pattern ReplacementStrategy_Launch = ReplacementStrategy' "launch"
 
+pattern ReplacementStrategy_Launch_before_terminate :: ReplacementStrategy
+pattern ReplacementStrategy_Launch_before_terminate = ReplacementStrategy' "launch-before-terminate"
+
 {-# COMPLETE
   ReplacementStrategy_Launch,
+  ReplacementStrategy_Launch_before_terminate,
   ReplacementStrategy'
   #-}

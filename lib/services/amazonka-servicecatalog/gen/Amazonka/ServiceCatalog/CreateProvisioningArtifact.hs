@@ -216,11 +216,13 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
   { -- | Specify the template source with one of the following options, but not
     -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
     --
-    -- The URL of the CloudFormation template in Amazon S3, in JSON format.
+    -- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+    -- CodeCommit, or GitHub in JSON format.
     --
     -- @LoadTemplateFromURL@
     --
-    -- Use the URL of the CloudFormation template in Amazon S3 in JSON format.
+    -- Use the URL of the CloudFormation template in Amazon S3, Amazon Web
+    -- Services CodeCommit, or GitHub in JSON format.
     --
     -- @ImportFromPhysicalId@
     --
@@ -247,11 +249,13 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
 -- 'info', 'createProvisioningArtifactResponse_info' - Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
 --
--- The URL of the CloudFormation template in Amazon S3, in JSON format.
+-- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format.
 --
 -- @LoadTemplateFromURL@
 --
--- Use the URL of the CloudFormation template in Amazon S3 in JSON format.
+-- Use the URL of the CloudFormation template in Amazon S3, Amazon Web
+-- Services CodeCommit, or GitHub in JSON format.
 --
 -- @ImportFromPhysicalId@
 --
@@ -280,11 +284,13 @@ newCreateProvisioningArtifactResponse pHttpStatus_ =
 -- | Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
 --
--- The URL of the CloudFormation template in Amazon S3, in JSON format.
+-- The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format.
 --
 -- @LoadTemplateFromURL@
 --
--- Use the URL of the CloudFormation template in Amazon S3 in JSON format.
+-- Use the URL of the CloudFormation template in Amazon S3, Amazon Web
+-- Services CodeCommit, or GitHub in JSON format.
 --
 -- @ImportFromPhysicalId@
 --

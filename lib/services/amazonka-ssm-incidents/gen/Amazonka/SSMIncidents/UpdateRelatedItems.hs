@@ -50,11 +50,11 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateRelatedItems' smart constructor.
 data UpdateRelatedItems = UpdateRelatedItems'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident record you are updating
-    -- related items in.
+    -- | The Amazon Resource Name (ARN) of the incident record containing the
+    -- related items you are updating.
     incidentRecordArn :: Prelude.Text,
     -- | Details about the item you are adding or deleting.
     relatedItemsUpdate :: RelatedItemsUpdate
@@ -69,11 +69,11 @@ data UpdateRelatedItems = UpdateRelatedItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateRelatedItems_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'updateRelatedItems_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
--- 'incidentRecordArn', 'updateRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record you are updating
--- related items in.
+-- 'incidentRecordArn', 'updateRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record containing the
+-- related items you are updating.
 --
 -- 'relatedItemsUpdate', 'updateRelatedItems_relatedItemsUpdate' - Details about the item you are adding or deleting.
 newUpdateRelatedItems ::
@@ -91,13 +91,13 @@ newUpdateRelatedItems
         relatedItemsUpdate = pRelatedItemsUpdate_
       }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 updateRelatedItems_clientToken :: Lens.Lens' UpdateRelatedItems (Prelude.Maybe Prelude.Text)
 updateRelatedItems_clientToken = Lens.lens (\UpdateRelatedItems' {clientToken} -> clientToken) (\s@UpdateRelatedItems' {} a -> s {clientToken = a} :: UpdateRelatedItems)
 
--- | The Amazon Resource Name (ARN) of the incident record you are updating
--- related items in.
+-- | The Amazon Resource Name (ARN) of the incident record containing the
+-- related items you are updating.
 updateRelatedItems_incidentRecordArn :: Lens.Lens' UpdateRelatedItems Prelude.Text
 updateRelatedItems_incidentRecordArn = Lens.lens (\UpdateRelatedItems' {incidentRecordArn} -> incidentRecordArn) (\s@UpdateRelatedItems' {} a -> s {incidentRecordArn = a} :: UpdateRelatedItems)
 

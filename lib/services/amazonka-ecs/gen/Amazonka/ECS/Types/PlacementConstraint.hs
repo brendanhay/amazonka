@@ -26,11 +26,11 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a constraint on task placement. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task placement constraints>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- If you are using the Fargate launch type, task placement constraints are
--- not supported.
+-- If you\'re using the Fargate launch type, task placement constraints
+-- aren\'t supported.
 --
 -- /See:/ 'newPlacementConstraint' smart constructor.
 data PlacementConstraint = PlacementConstraint'

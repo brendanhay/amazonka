@@ -153,8 +153,8 @@ data DescribeEntityResponse = DescribeEntityResponse'
     entityType :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the entity, in the format of @EntityId\@RevisionId@.
     entityIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The ARN associated to the unique identifier for the change set
-    -- referenced in this request.
+    -- | The ARN associated to the unique identifier for the entity referenced in
+    -- this request.
     entityArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -178,8 +178,8 @@ data DescribeEntityResponse = DescribeEntityResponse'
 --
 -- 'entityIdentifier', 'describeEntityResponse_entityIdentifier' - The identifier of the entity, in the format of @EntityId\@RevisionId@.
 --
--- 'entityArn', 'describeEntityResponse_entityArn' - The ARN associated to the unique identifier for the change set
--- referenced in this request.
+-- 'entityArn', 'describeEntityResponse_entityArn' - The ARN associated to the unique identifier for the entity referenced in
+-- this request.
 --
 -- 'httpStatus', 'describeEntityResponse_httpStatus' - The response's http status code.
 newDescribeEntityResponse ::
@@ -214,8 +214,8 @@ describeEntityResponse_entityType = Lens.lens (\DescribeEntityResponse' {entityT
 describeEntityResponse_entityIdentifier :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
 describeEntityResponse_entityIdentifier = Lens.lens (\DescribeEntityResponse' {entityIdentifier} -> entityIdentifier) (\s@DescribeEntityResponse' {} a -> s {entityIdentifier = a} :: DescribeEntityResponse)
 
--- | The ARN associated to the unique identifier for the change set
--- referenced in this request.
+-- | The ARN associated to the unique identifier for the entity referenced in
+-- this request.
 describeEntityResponse_entityArn :: Lens.Lens' DescribeEntityResponse (Prelude.Maybe Prelude.Text)
 describeEntityResponse_entityArn = Lens.lens (\DescribeEntityResponse' {entityArn} -> entityArn) (\s@DescribeEntityResponse' {} a -> s {entityArn = a} :: DescribeEntityResponse)
 

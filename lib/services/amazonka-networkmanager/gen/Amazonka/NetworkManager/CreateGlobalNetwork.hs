@@ -53,7 +53,7 @@ data CreateGlobalNetwork = CreateGlobalNetwork'
     tags :: Prelude.Maybe [Tag],
     -- | A description of the global network.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data CreateGlobalNetwork = CreateGlobalNetwork'
 --
 -- 'description', 'createGlobalNetwork_description' - A description of the global network.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 newCreateGlobalNetwork ::
   CreateGlobalNetwork
 newCreateGlobalNetwork =
@@ -85,7 +85,7 @@ createGlobalNetwork_tags = Lens.lens (\CreateGlobalNetwork' {tags} -> tags) (\s@
 
 -- | A description of the global network.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 createGlobalNetwork_description :: Lens.Lens' CreateGlobalNetwork (Prelude.Maybe Prelude.Text)
 createGlobalNetwork_description = Lens.lens (\CreateGlobalNetwork' {description} -> description) (\s@CreateGlobalNetwork' {} a -> s {description = a} :: CreateGlobalNetwork)
 

@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServices' smart constructor.
 data ListServices = ListServices'
-  { -- | A token to indicate the location of the next service in the array of
+  { -- | A token that indicates the location of the next service in the array of
     -- services, after the list of services that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of services to list.
@@ -68,7 +68,7 @@ data ListServices = ListServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServices_nextToken' - A token to indicate the location of the next service in the array of
+-- 'nextToken', 'listServices_nextToken' - A token that indicates the location of the next service in the array of
 -- services, after the list of services that was previously requested.
 --
 -- 'maxResults', 'listServices_maxResults' - The maximum number of services to list.
@@ -80,7 +80,7 @@ newListServices =
       maxResults = Prelude.Nothing
     }
 
--- | A token to indicate the location of the next service in the array of
+-- | A token that indicates the location of the next service in the array of
 -- services, after the list of services that was previously requested.
 listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
 listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
@@ -160,7 +160,7 @@ instance Core.ToQuery ListServices where
 
 -- | /See:/ 'newListServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
-  { -- | A token to indicate the location of the next service in the array of
+  { -- | A token that indicates the location of the next service in the array of
     -- services, after the current requested list of services.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -178,7 +178,7 @@ data ListServicesResponse = ListServicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServicesResponse_nextToken' - A token to indicate the location of the next service in the array of
+-- 'nextToken', 'listServicesResponse_nextToken' - A token that indicates the location of the next service in the array of
 -- services, after the current requested list of services.
 --
 -- 'httpStatus', 'listServicesResponse_httpStatus' - The response's http status code.
@@ -195,7 +195,7 @@ newListServicesResponse pHttpStatus_ =
       services = Prelude.mempty
     }
 
--- | A token to indicate the location of the next service in the array of
+-- | A token that indicates the location of the next service in the array of
 -- services, after the current requested list of services.
 listServicesResponse_nextToken :: Lens.Lens' ListServicesResponse (Prelude.Maybe Prelude.Text)
 listServicesResponse_nextToken = Lens.lens (\ListServicesResponse' {nextToken} -> nextToken) (\s@ListServicesResponse' {} a -> s {nextToken = a} :: ListServicesResponse)

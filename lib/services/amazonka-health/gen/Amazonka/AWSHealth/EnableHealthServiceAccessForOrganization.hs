@@ -20,30 +20,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables AWS Health to work with AWS Organizations. You can use the
--- organizational view feature to aggregate events from all AWS accounts in
--- your organization in a centralized location.
+-- Enables Health to work with Organizations. You can use the
+-- organizational view feature to aggregate events from all Amazon Web
+-- Services accounts in your organization in a centralized location.
 --
 -- This operation also creates a service-linked role for the management
 -- account in the organization.
 --
 -- To call this operation, you must meet the following requirements:
 --
--- -   You must have a Business or Enterprise Support plan from
---     <http://aws.amazon.com/premiumsupport/ AWS Support> to use the AWS
---     Health API. If you call the AWS Health API from an AWS account that
---     doesn\'t have a Business or Enterprise Support plan, you receive a
+-- -   You must have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan from
+--     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>
+--     to use the Health API. If you call the Health API from an Amazon Web
+--     Services account that doesn\'t have a Business, Enterprise On-Ramp,
+--     or Enterprise Support plan, you receive a
 --     @SubscriptionRequiredException@ error.
 --
 -- -   You must have permission to call this operation from the
 --     organization\'s management account. For example IAM policies, see
---     <https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html AWS Health identity-based policy examples>.
+--     <https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html Health identity-based policy examples>.
 --
 -- If you don\'t have the required support plan, you can instead use the
--- AWS Health console to enable the organizational view feature. For more
+-- Health console to enable the organizational view feature. For more
 -- information, see
--- <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating AWS Health events>
--- in the /AWS Health User Guide/.
+-- <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating Health events>
+-- in the /Health User Guide/.
 module Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization
   ( -- * Creating a Request
     EnableHealthServiceAccessForOrganization (..),

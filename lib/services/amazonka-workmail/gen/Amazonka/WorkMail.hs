@@ -143,6 +143,12 @@ module Amazonka.WorkMail
     CreateAliasResponse (CreateAliasResponse'),
     newCreateAliasResponse,
 
+    -- ** CreateAvailabilityConfiguration
+    CreateAvailabilityConfiguration (CreateAvailabilityConfiguration'),
+    newCreateAvailabilityConfiguration,
+    CreateAvailabilityConfigurationResponse (CreateAvailabilityConfigurationResponse'),
+    newCreateAvailabilityConfigurationResponse,
+
     -- ** CreateGroup
     CreateGroup (CreateGroup'),
     newCreateGroup,
@@ -184,6 +190,18 @@ module Amazonka.WorkMail
     newDeleteAlias,
     DeleteAliasResponse (DeleteAliasResponse'),
     newDeleteAliasResponse,
+
+    -- ** DeleteAvailabilityConfiguration
+    DeleteAvailabilityConfiguration (DeleteAvailabilityConfiguration'),
+    newDeleteAvailabilityConfiguration,
+    DeleteAvailabilityConfigurationResponse (DeleteAvailabilityConfigurationResponse'),
+    newDeleteAvailabilityConfigurationResponse,
+
+    -- ** DeleteEmailMonitoringConfiguration
+    DeleteEmailMonitoringConfiguration (DeleteEmailMonitoringConfiguration'),
+    newDeleteEmailMonitoringConfiguration,
+    DeleteEmailMonitoringConfigurationResponse (DeleteEmailMonitoringConfigurationResponse'),
+    newDeleteEmailMonitoringConfigurationResponse,
 
     -- ** DeleteGroup
     DeleteGroup (DeleteGroup'),
@@ -244,6 +262,12 @@ module Amazonka.WorkMail
     newDeregisterMailDomain,
     DeregisterMailDomainResponse (DeregisterMailDomainResponse'),
     newDeregisterMailDomainResponse,
+
+    -- ** DescribeEmailMonitoringConfiguration
+    DescribeEmailMonitoringConfiguration (DescribeEmailMonitoringConfiguration'),
+    newDescribeEmailMonitoringConfiguration,
+    DescribeEmailMonitoringConfigurationResponse (DescribeEmailMonitoringConfigurationResponse'),
+    newDescribeEmailMonitoringConfigurationResponse,
 
     -- ** DescribeGroup
     DescribeGroup (DescribeGroup'),
@@ -341,6 +365,12 @@ module Amazonka.WorkMail
     ListAliasesResponse (ListAliasesResponse'),
     newListAliasesResponse,
 
+    -- ** ListAvailabilityConfigurations (Paginated)
+    ListAvailabilityConfigurations (ListAvailabilityConfigurations'),
+    newListAvailabilityConfigurations,
+    ListAvailabilityConfigurationsResponse (ListAvailabilityConfigurationsResponse'),
+    newListAvailabilityConfigurationsResponse,
+
     -- ** ListGroupMembers (Paginated)
     ListGroupMembers (ListGroupMembers'),
     newListGroupMembers,
@@ -419,6 +449,12 @@ module Amazonka.WorkMail
     PutAccessControlRuleResponse (PutAccessControlRuleResponse'),
     newPutAccessControlRuleResponse,
 
+    -- ** PutEmailMonitoringConfiguration
+    PutEmailMonitoringConfiguration (PutEmailMonitoringConfiguration'),
+    newPutEmailMonitoringConfiguration,
+    PutEmailMonitoringConfigurationResponse (PutEmailMonitoringConfigurationResponse'),
+    newPutEmailMonitoringConfigurationResponse,
+
     -- ** PutInboundDmarcSettings
     PutInboundDmarcSettings (PutInboundDmarcSettings'),
     newPutInboundDmarcSettings,
@@ -473,11 +509,23 @@ module Amazonka.WorkMail
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** TestAvailabilityConfiguration
+    TestAvailabilityConfiguration (TestAvailabilityConfiguration'),
+    newTestAvailabilityConfiguration,
+    TestAvailabilityConfigurationResponse (TestAvailabilityConfigurationResponse'),
+    newTestAvailabilityConfigurationResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** UpdateAvailabilityConfiguration
+    UpdateAvailabilityConfiguration (UpdateAvailabilityConfiguration'),
+    newUpdateAvailabilityConfiguration,
+    UpdateAvailabilityConfigurationResponse (UpdateAvailabilityConfigurationResponse'),
+    newUpdateAvailabilityConfigurationResponse,
 
     -- ** UpdateDefaultMailDomain
     UpdateDefaultMailDomain (UpdateDefaultMailDomain'),
@@ -514,6 +562,9 @@ module Amazonka.WorkMail
     -- ** AccessControlRuleEffect
     AccessControlRuleEffect (..),
 
+    -- ** AvailabilityProviderType
+    AvailabilityProviderType (..),
+
     -- ** DnsRecordVerificationStatus
     DnsRecordVerificationStatus (..),
 
@@ -548,6 +599,10 @@ module Amazonka.WorkMail
     AccessControlRule (AccessControlRule'),
     newAccessControlRule,
 
+    -- ** AvailabilityConfiguration
+    AvailabilityConfiguration (AvailabilityConfiguration'),
+    newAvailabilityConfiguration,
+
     -- ** BookingOptions
     BookingOptions (BookingOptions'),
     newBookingOptions,
@@ -564,6 +619,10 @@ module Amazonka.WorkMail
     Domain (Domain'),
     newDomain,
 
+    -- ** EwsAvailabilityProvider
+    EwsAvailabilityProvider (EwsAvailabilityProvider'),
+    newEwsAvailabilityProvider,
+
     -- ** FolderConfiguration
     FolderConfiguration (FolderConfiguration'),
     newFolderConfiguration,
@@ -571,6 +630,10 @@ module Amazonka.WorkMail
     -- ** Group
     Group (Group'),
     newGroup,
+
+    -- ** LambdaAvailabilityProvider
+    LambdaAvailabilityProvider (LambdaAvailabilityProvider'),
+    newLambdaAvailabilityProvider,
 
     -- ** MailDomainSummary
     MailDomainSummary (MailDomainSummary'),
@@ -604,6 +667,10 @@ module Amazonka.WorkMail
     Permission (Permission'),
     newPermission,
 
+    -- ** RedactedEwsAvailabilityProvider
+    RedactedEwsAvailabilityProvider (RedactedEwsAvailabilityProvider'),
+    newRedactedEwsAvailabilityProvider,
+
     -- ** Resource
     Resource (Resource'),
     newResource,
@@ -622,6 +689,7 @@ import Amazonka.WorkMail.AssociateDelegateToResource
 import Amazonka.WorkMail.AssociateMemberToGroup
 import Amazonka.WorkMail.CancelMailboxExportJob
 import Amazonka.WorkMail.CreateAlias
+import Amazonka.WorkMail.CreateAvailabilityConfiguration
 import Amazonka.WorkMail.CreateGroup
 import Amazonka.WorkMail.CreateMobileDeviceAccessRule
 import Amazonka.WorkMail.CreateOrganization
@@ -629,6 +697,8 @@ import Amazonka.WorkMail.CreateResource
 import Amazonka.WorkMail.CreateUser
 import Amazonka.WorkMail.DeleteAccessControlRule
 import Amazonka.WorkMail.DeleteAlias
+import Amazonka.WorkMail.DeleteAvailabilityConfiguration
+import Amazonka.WorkMail.DeleteEmailMonitoringConfiguration
 import Amazonka.WorkMail.DeleteGroup
 import Amazonka.WorkMail.DeleteMailboxPermissions
 import Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
@@ -639,6 +709,7 @@ import Amazonka.WorkMail.DeleteRetentionPolicy
 import Amazonka.WorkMail.DeleteUser
 import Amazonka.WorkMail.DeregisterFromWorkMail
 import Amazonka.WorkMail.DeregisterMailDomain
+import Amazonka.WorkMail.DescribeEmailMonitoringConfiguration
 import Amazonka.WorkMail.DescribeGroup
 import Amazonka.WorkMail.DescribeInboundDmarcSettings
 import Amazonka.WorkMail.DescribeMailboxExportJob
@@ -656,6 +727,7 @@ import Amazonka.WorkMail.GetMobileDeviceAccessOverride
 import Amazonka.WorkMail.Lens
 import Amazonka.WorkMail.ListAccessControlRules
 import Amazonka.WorkMail.ListAliases
+import Amazonka.WorkMail.ListAvailabilityConfigurations
 import Amazonka.WorkMail.ListGroupMembers
 import Amazonka.WorkMail.ListGroups
 import Amazonka.WorkMail.ListMailDomains
@@ -669,6 +741,7 @@ import Amazonka.WorkMail.ListResources
 import Amazonka.WorkMail.ListTagsForResource
 import Amazonka.WorkMail.ListUsers
 import Amazonka.WorkMail.PutAccessControlRule
+import Amazonka.WorkMail.PutEmailMonitoringConfiguration
 import Amazonka.WorkMail.PutInboundDmarcSettings
 import Amazonka.WorkMail.PutMailboxPermissions
 import Amazonka.WorkMail.PutMobileDeviceAccessOverride
@@ -678,8 +751,10 @@ import Amazonka.WorkMail.RegisterToWorkMail
 import Amazonka.WorkMail.ResetPassword
 import Amazonka.WorkMail.StartMailboxExportJob
 import Amazonka.WorkMail.TagResource
+import Amazonka.WorkMail.TestAvailabilityConfiguration
 import Amazonka.WorkMail.Types
 import Amazonka.WorkMail.UntagResource
+import Amazonka.WorkMail.UpdateAvailabilityConfiguration
 import Amazonka.WorkMail.UpdateDefaultMailDomain
 import Amazonka.WorkMail.UpdateMailboxQuota
 import Amazonka.WorkMail.UpdateMobileDeviceAccessRule

@@ -44,15 +44,15 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
     maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
     -- | The type of the Amazon Web Services resource that was evaluated.
     resourceTypesScope :: Prelude.Maybe [Prelude.Text],
-    -- | A string, in JSON format, that is passed to organization config rule
-    -- Lambda function.
+    -- | A string, in JSON format, that is passed to your organization Config
+    -- rule Lambda function.
     inputParameters :: Prelude.Maybe Prelude.Text,
     -- | The optional part of a key-value pair that make up a tag. A value acts
     -- as a descriptor within a tag category (key).
     tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceIdScope :: Prelude.Maybe Prelude.Text,
-    -- | The description that you provide for organization config rule.
+    -- | The description that you provide for your organization Config rule.
     description :: Prelude.Maybe Prelude.Text,
     -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
@@ -95,15 +95,15 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
 --
 -- 'resourceTypesScope', 'organizationCustomRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
 --
--- 'inputParameters', 'organizationCustomRuleMetadata_inputParameters' - A string, in JSON format, that is passed to organization config rule
--- Lambda function.
+-- 'inputParameters', 'organizationCustomRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
 --
 -- 'tagValueScope', 'organizationCustomRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
 -- as a descriptor within a tag category (key).
 --
 -- 'resourceIdScope', 'organizationCustomRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
 --
--- 'description', 'organizationCustomRuleMetadata_description' - The description that you provide for organization config rule.
+-- 'description', 'organizationCustomRuleMetadata_description' - The description that you provide for your organization Config rule.
 --
 -- 'tagKeyScope', 'organizationCustomRuleMetadata_tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
@@ -157,8 +157,8 @@ organizationCustomRuleMetadata_maximumExecutionFrequency = Lens.lens (\Organizat
 organizationCustomRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe [Prelude.Text])
 organizationCustomRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens.mapping Lens.coerced
 
--- | A string, in JSON format, that is passed to organization config rule
--- Lambda function.
+-- | A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
 organizationCustomRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationCustomRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationCustomRuleMetadata)
 
@@ -171,7 +171,7 @@ organizationCustomRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomRul
 organizationCustomRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_resourceIdScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationCustomRuleMetadata)
 
--- | The description that you provide for organization config rule.
+-- | The description that you provide for your organization Config rule.
 organizationCustomRuleMetadata_description :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_description = Lens.lens (\OrganizationCustomRuleMetadata' {description} -> description) (\s@OrganizationCustomRuleMetadata' {} a -> s {description = a} :: OrganizationCustomRuleMetadata)
 

@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all portfolios for which sharing was accepted by this account.
+-- Lists all imported portfolios for which account-to-account shares were
+-- accepted by this account. By specifying the @PortfolioShareType@, you
+-- can list portfolios for which organizational shares were accepted by
+-- this account.
 --
 -- This operation returns paginated results.
 module Amazonka.ServiceCatalog.ListAcceptedPortfolioShares
@@ -62,12 +65,14 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     -- | The type of shared portfolios to list. The default is to list imported
     -- portfolios.
     --
-    -- -   @AWS_ORGANIZATIONS@ - List portfolios shared by the management
-    --     account of your organization
+    -- -   @AWS_ORGANIZATIONS@ - List portfolios accepted and shared via
+    --     organizational sharing by the management account or delegated
+    --     administrator of your organization.
     --
-    -- -   @AWS_SERVICECATALOG@ - List default portfolios
+    -- -   @AWS_SERVICECATALOG@ - Deprecated type.
     --
-    -- -   @IMPORTED@ - List imported portfolios
+    -- -   @IMPORTED@ - List imported portfolios that have been accepted and
+    --     shared through account-to-account sharing.
     portfolioShareType :: Prelude.Maybe PortfolioShareType,
     -- | The language code.
     --
@@ -96,12 +101,14 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 -- 'portfolioShareType', 'listAcceptedPortfolioShares_portfolioShareType' - The type of shared portfolios to list. The default is to list imported
 -- portfolios.
 --
--- -   @AWS_ORGANIZATIONS@ - List portfolios shared by the management
---     account of your organization
+-- -   @AWS_ORGANIZATIONS@ - List portfolios accepted and shared via
+--     organizational sharing by the management account or delegated
+--     administrator of your organization.
 --
--- -   @AWS_SERVICECATALOG@ - List default portfolios
+-- -   @AWS_SERVICECATALOG@ - Deprecated type.
 --
--- -   @IMPORTED@ - List imported portfolios
+-- -   @IMPORTED@ - List imported portfolios that have been accepted and
+--     shared through account-to-account sharing.
 --
 -- 'acceptLanguage', 'listAcceptedPortfolioShares_acceptLanguage' - The language code.
 --
@@ -133,12 +140,14 @@ listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' 
 -- | The type of shared portfolios to list. The default is to list imported
 -- portfolios.
 --
--- -   @AWS_ORGANIZATIONS@ - List portfolios shared by the management
---     account of your organization
+-- -   @AWS_ORGANIZATIONS@ - List portfolios accepted and shared via
+--     organizational sharing by the management account or delegated
+--     administrator of your organization.
 --
--- -   @AWS_SERVICECATALOG@ - List default portfolios
+-- -   @AWS_SERVICECATALOG@ - Deprecated type.
 --
--- -   @IMPORTED@ - List imported portfolios
+-- -   @IMPORTED@ - List imported portfolios that have been accepted and
+--     shared through account-to-account sharing.
 listAcceptedPortfolioShares_portfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe PortfolioShareType)
 listAcceptedPortfolioShares_portfolioShareType = Lens.lens (\ListAcceptedPortfolioShares' {portfolioShareType} -> portfolioShareType) (\s@ListAcceptedPortfolioShares' {} a -> s {portfolioShareType = a} :: ListAcceptedPortfolioShares)
 

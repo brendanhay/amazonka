@@ -163,6 +163,18 @@ globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -
 globalSecondaryIndex_projection :: Lens.Lens' GlobalSecondaryIndex Projection
 globalSecondaryIndex_projection = Lens.lens (\GlobalSecondaryIndex' {projection} -> projection) (\s@GlobalSecondaryIndex' {} a -> s {projection = a} :: GlobalSecondaryIndex)
 
+instance Core.FromJSON GlobalSecondaryIndex where
+  parseJSON =
+    Core.withObject
+      "GlobalSecondaryIndex"
+      ( \x ->
+          GlobalSecondaryIndex'
+            Prelude.<$> (x Core..:? "ProvisionedThroughput")
+            Prelude.<*> (x Core..: "IndexName")
+            Prelude.<*> (x Core..: "KeySchema")
+            Prelude.<*> (x Core..: "Projection")
+      )
+
 instance Prelude.Hashable GlobalSecondaryIndex where
   hashWithSalt _salt GlobalSecondaryIndex' {..} =
     _salt `Prelude.hashWithSalt` provisionedThroughput

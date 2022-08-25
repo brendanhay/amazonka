@@ -24,6 +24,9 @@ module Amazonka.DataBrew.Types
     _ConflictException,
     _ValidationException,
 
+    -- * AnalyticsMode
+    AnalyticsMode (..),
+
     -- * CompressionFormat
     CompressionFormat (..),
 
@@ -68,6 +71,20 @@ module Amazonka.DataBrew.Types
 
     -- * Source
     Source (..),
+
+    -- * ThresholdType
+    ThresholdType (..),
+
+    -- * ThresholdUnit
+    ThresholdUnit (..),
+
+    -- * ValidationMode
+    ValidationMode (..),
+
+    -- * AllowedStatistics
+    AllowedStatistics (..),
+    newAllowedStatistics,
+    allowedStatistics_statistics,
 
     -- * ColumnSelector
     ColumnSelector (..),
@@ -121,8 +138,9 @@ module Amazonka.DataBrew.Types
     DatabaseInputDefinition (..),
     newDatabaseInputDefinition,
     databaseInputDefinition_tempDirectory,
-    databaseInputDefinition_glueConnectionName,
     databaseInputDefinition_databaseTableName,
+    databaseInputDefinition_queryString,
+    databaseInputDefinition_glueConnectionName,
 
     -- * DatabaseOutput
     DatabaseOutput (..),
@@ -170,6 +188,12 @@ module Amazonka.DataBrew.Types
     datetimeOptions_timezoneOffset,
     datetimeOptions_format,
 
+    -- * EntityDetectorConfiguration
+    EntityDetectorConfiguration (..),
+    newEntityDetectorConfiguration,
+    entityDetectorConfiguration_allowedStatistics,
+    entityDetectorConfiguration_entityTypes,
+
     -- * ExcelOptions
     ExcelOptions (..),
     newExcelOptions,
@@ -200,6 +224,7 @@ module Amazonka.DataBrew.Types
     -- * Input
     Input (..),
     newInput,
+    input_metadata,
     input_s3InputDefinition,
     input_dataCatalogInputDefinition,
     input_databaseInputDefinition,
@@ -229,6 +254,7 @@ module Amazonka.DataBrew.Types
     job_createdBy,
     job_maxCapacity,
     job_encryptionMode,
+    job_validationConfigurations,
     job_name,
 
     -- * JobRun
@@ -251,6 +277,7 @@ module Amazonka.DataBrew.Types
     jobRun_outputs,
     jobRun_runId,
     jobRun_logGroupName,
+    jobRun_validationConfigurations,
 
     -- * JobSample
     JobSample (..),
@@ -263,6 +290,11 @@ module Amazonka.DataBrew.Types
     newJsonOptions,
     jsonOptions_multiLine,
 
+    -- * Metadata
+    Metadata (..),
+    newMetadata,
+    metadata_sourceArn,
+
     -- * Output
     Output (..),
     newOutput,
@@ -271,6 +303,7 @@ module Amazonka.DataBrew.Types
     output_partitionColumns,
     output_formatOptions,
     output_compressionFormat,
+    output_maxOutputFiles,
     output_location,
 
     -- * OutputFormatOptions
@@ -291,6 +324,7 @@ module Amazonka.DataBrew.Types
     profileConfiguration_columnStatisticsConfigurations,
     profileConfiguration_datasetStatisticsConfiguration,
     profileConfiguration_profileColumns,
+    profileConfiguration_entityDetectorConfiguration,
 
     -- * Project
     Project (..),
@@ -352,10 +386,36 @@ module Amazonka.DataBrew.Types
     recipeVersionErrorDetail_errorCode,
     recipeVersionErrorDetail_recipeVersion,
 
+    -- * Rule
+    Rule (..),
+    newRule,
+    rule_substitutionMap,
+    rule_columnSelectors,
+    rule_disabled,
+    rule_threshold,
+    rule_name,
+    rule_checkExpression,
+
+    -- * RulesetItem
+    RulesetItem (..),
+    newRulesetItem,
+    rulesetItem_tags,
+    rulesetItem_lastModifiedDate,
+    rulesetItem_description,
+    rulesetItem_accountId,
+    rulesetItem_createDate,
+    rulesetItem_ruleCount,
+    rulesetItem_lastModifiedBy,
+    rulesetItem_resourceArn,
+    rulesetItem_createdBy,
+    rulesetItem_name,
+    rulesetItem_targetArn,
+
     -- * S3Location
     S3Location (..),
     newS3Location,
     s3Location_key,
+    s3Location_bucketOwner,
     s3Location_bucket,
 
     -- * S3TableOutputOptions
@@ -395,16 +455,34 @@ module Amazonka.DataBrew.Types
     statisticsConfiguration_includedStatistics,
     statisticsConfiguration_overrides,
 
+    -- * Threshold
+    Threshold (..),
+    newThreshold,
+    threshold_type,
+    threshold_unit,
+    threshold_value,
+
+    -- * ValidationConfiguration
+    ValidationConfiguration (..),
+    newValidationConfiguration,
+    validationConfiguration_validationMode,
+    validationConfiguration_rulesetArn,
+
     -- * ViewFrame
     ViewFrame (..),
     newViewFrame,
+    viewFrame_analytics,
+    viewFrame_startRowIndex,
     viewFrame_columnRange,
+    viewFrame_rowRange,
     viewFrame_hiddenColumns,
     viewFrame_startColumnIndex,
   )
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.AllowedStatistics
+import Amazonka.DataBrew.Types.AnalyticsMode
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
 import Amazonka.DataBrew.Types.CompressionFormat
@@ -421,6 +499,7 @@ import Amazonka.DataBrew.Types.Dataset
 import Amazonka.DataBrew.Types.DatasetParameter
 import Amazonka.DataBrew.Types.DatetimeOptions
 import Amazonka.DataBrew.Types.EncryptionMode
+import Amazonka.DataBrew.Types.EntityDetectorConfiguration
 import Amazonka.DataBrew.Types.ExcelOptions
 import Amazonka.DataBrew.Types.FilesLimit
 import Amazonka.DataBrew.Types.FilterExpression
@@ -434,6 +513,7 @@ import Amazonka.DataBrew.Types.JobSample
 import Amazonka.DataBrew.Types.JobType
 import Amazonka.DataBrew.Types.JsonOptions
 import Amazonka.DataBrew.Types.LogSubscription
+import Amazonka.DataBrew.Types.Metadata
 import Amazonka.DataBrew.Types.Order
 import Amazonka.DataBrew.Types.OrderedBy
 import Amazonka.DataBrew.Types.Output
@@ -448,6 +528,8 @@ import Amazonka.DataBrew.Types.RecipeAction
 import Amazonka.DataBrew.Types.RecipeReference
 import Amazonka.DataBrew.Types.RecipeStep
 import Amazonka.DataBrew.Types.RecipeVersionErrorDetail
+import Amazonka.DataBrew.Types.Rule
+import Amazonka.DataBrew.Types.RulesetItem
 import Amazonka.DataBrew.Types.S3Location
 import Amazonka.DataBrew.Types.S3TableOutputOptions
 import Amazonka.DataBrew.Types.Sample
@@ -458,6 +540,11 @@ import Amazonka.DataBrew.Types.SessionStatus
 import Amazonka.DataBrew.Types.Source
 import Amazonka.DataBrew.Types.StatisticOverride
 import Amazonka.DataBrew.Types.StatisticsConfiguration
+import Amazonka.DataBrew.Types.Threshold
+import Amazonka.DataBrew.Types.ThresholdType
+import Amazonka.DataBrew.Types.ThresholdUnit
+import Amazonka.DataBrew.Types.ValidationConfiguration
+import Amazonka.DataBrew.Types.ValidationMode
 import Amazonka.DataBrew.Types.ViewFrame
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

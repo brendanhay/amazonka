@@ -32,8 +32,7 @@
 --
 -- Every deployment has a revision number that indicates how many
 -- deployment revisions you define for a target. Use this operation to
--- create a new revision of an existing deployment. This operation returns
--- the revision number of the new deployment when you create it.
+-- create a new revision of an existing deployment.
 --
 -- For more information, see the
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html Create deployments>
@@ -241,15 +240,7 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToHeaders CreateDeployment where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =

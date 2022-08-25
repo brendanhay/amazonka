@@ -69,6 +69,10 @@ data ListJobs = ListJobs'
     -- change is detected in a target. For example, a job will run on a thing
     -- when the thing is added to a target group, even after the job was
     -- completed by all things originally in the group.
+    --
+    -- We recommend that you use continuous jobs instead of snapshot jobs for
+    -- dynamic thing group targets. By using continuous jobs, devices that join
+    -- the group receive the job execution even after the job has been created.
     targetSelection :: Prelude.Maybe TargetSelection,
     -- | A filter that limits the returned jobs to those for the specified group.
     thingGroupName :: Prelude.Maybe Prelude.Text,
@@ -108,6 +112,10 @@ data ListJobs = ListJobs'
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 --
 -- 'thingGroupName', 'listJobs_thingGroupName' - A filter that limits the returned jobs to those for the specified group.
 --
@@ -150,6 +158,10 @@ listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJob
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 listJobs_targetSelection :: Lens.Lens' ListJobs (Prelude.Maybe TargetSelection)
 listJobs_targetSelection = Lens.lens (\ListJobs' {targetSelection} -> targetSelection) (\s@ListJobs' {} a -> s {targetSelection = a} :: ListJobs)
 

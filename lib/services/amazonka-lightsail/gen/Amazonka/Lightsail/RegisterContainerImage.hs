@@ -236,7 +236,9 @@ instance Core.ToQuery RegisterContainerImage where
 
 -- | /See:/ 'newRegisterContainerImageResponse' smart constructor.
 data RegisterContainerImageResponse = RegisterContainerImageResponse'
-  { containerImage :: Prelude.Maybe ContainerImage,
+  { -- | An object that describes a container image that is registered to a
+    -- Lightsail container service
+    containerImage :: Prelude.Maybe ContainerImage,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,7 +252,8 @@ data RegisterContainerImageResponse = RegisterContainerImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerImage', 'registerContainerImageResponse_containerImage' - Undocumented member.
+-- 'containerImage', 'registerContainerImageResponse_containerImage' - An object that describes a container image that is registered to a
+-- Lightsail container service
 --
 -- 'httpStatus', 'registerContainerImageResponse_httpStatus' - The response's http status code.
 newRegisterContainerImageResponse ::
@@ -264,7 +267,8 @@ newRegisterContainerImageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | An object that describes a container image that is registered to a
+-- Lightsail container service
 registerContainerImageResponse_containerImage :: Lens.Lens' RegisterContainerImageResponse (Prelude.Maybe ContainerImage)
 registerContainerImageResponse_containerImage = Lens.lens (\RegisterContainerImageResponse' {containerImage} -> containerImage) (\s@RegisterContainerImageResponse' {} a -> s {containerImage = a} :: RegisterContainerImageResponse)
 

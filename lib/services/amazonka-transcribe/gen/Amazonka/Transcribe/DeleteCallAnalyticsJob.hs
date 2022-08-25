@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a call analytics job using its name.
+-- Deletes a Call Analytics job. To use this operation, specify the name of
+-- the job you want to delete using @CallAnalyticsJobName@. Job names are
+-- case sensitive.
 module Amazonka.Transcribe.DeleteCallAnalyticsJob
   ( -- * Creating a Request
     DeleteCallAnalyticsJob (..),
@@ -47,7 +49,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteCallAnalyticsJob' smart constructor.
 data DeleteCallAnalyticsJob = DeleteCallAnalyticsJob'
-  { -- | The name of the call analytics job you want to delete.
+  { -- | The name of the Call Analytics job you want to delete. Job names are
+    -- case sensitive.
     callAnalyticsJobName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +63,8 @@ data DeleteCallAnalyticsJob = DeleteCallAnalyticsJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callAnalyticsJobName', 'deleteCallAnalyticsJob_callAnalyticsJobName' - The name of the call analytics job you want to delete.
+-- 'callAnalyticsJobName', 'deleteCallAnalyticsJob_callAnalyticsJobName' - The name of the Call Analytics job you want to delete. Job names are
+-- case sensitive.
 newDeleteCallAnalyticsJob ::
   -- | 'callAnalyticsJobName'
   Prelude.Text ->
@@ -71,7 +75,8 @@ newDeleteCallAnalyticsJob pCallAnalyticsJobName_ =
         pCallAnalyticsJobName_
     }
 
--- | The name of the call analytics job you want to delete.
+-- | The name of the Call Analytics job you want to delete. Job names are
+-- case sensitive.
 deleteCallAnalyticsJob_callAnalyticsJobName :: Lens.Lens' DeleteCallAnalyticsJob Prelude.Text
 deleteCallAnalyticsJob_callAnalyticsJobName = Lens.lens (\DeleteCallAnalyticsJob' {callAnalyticsJobName} -> callAnalyticsJobName) (\s@DeleteCallAnalyticsJob' {} a -> s {callAnalyticsJobName = a} :: DeleteCallAnalyticsJob)
 

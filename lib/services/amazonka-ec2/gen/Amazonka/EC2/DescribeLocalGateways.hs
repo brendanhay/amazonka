@@ -59,23 +59,17 @@ data DescribeLocalGateways = DescribeLocalGateways'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters.
-    filters :: Prelude.Maybe [Filter],
-    -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
-    -- -   @local-gateway-route-table-id@ - The ID of the local gateway route
-    --     table.
-    --
-    -- -   @local-gateway-route-table-virtual-interface-group-association-id@ -
-    --     The ID of the association.
-    --
-    -- -   @local-gateway-route-table-virtual-interface-group-id@ - The ID of
-    --     the virtual interface group.
-    --
     -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
     --
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     local gateway.
+    --
     -- -   @state@ - The state of the association.
+    filters :: Prelude.Maybe [Filter],
+    -- | The IDs of the local gateways.
     localGatewayIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -101,22 +95,16 @@ data DescribeLocalGateways = DescribeLocalGateways'
 --
 -- 'filters', 'describeLocalGateways_filters' - One or more filters.
 --
--- 'localGatewayIds', 'describeLocalGateways_localGatewayIds' - One or more filters.
---
 -- -   @local-gateway-id@ - The ID of a local gateway.
---
--- -   @local-gateway-route-table-id@ - The ID of the local gateway route
---     table.
---
--- -   @local-gateway-route-table-virtual-interface-group-association-id@ -
---     The ID of the association.
---
--- -   @local-gateway-route-table-virtual-interface-group-id@ - The ID of
---     the virtual interface group.
 --
 -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
 --
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway.
+--
 -- -   @state@ - The state of the association.
+--
+-- 'localGatewayIds', 'describeLocalGateways_localGatewayIds' - The IDs of the local gateways.
 --
 -- 'dryRun', 'describeLocalGateways_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -142,25 +130,19 @@ describeLocalGateways_nextToken :: Lens.Lens' DescribeLocalGateways (Prelude.May
 describeLocalGateways_nextToken = Lens.lens (\DescribeLocalGateways' {nextToken} -> nextToken) (\s@DescribeLocalGateways' {} a -> s {nextToken = a} :: DescribeLocalGateways)
 
 -- | One or more filters.
-describeLocalGateways_filters :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Filter])
-describeLocalGateways_filters = Lens.lens (\DescribeLocalGateways' {filters} -> filters) (\s@DescribeLocalGateways' {} a -> s {filters = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more filters.
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
 --
--- -   @local-gateway-route-table-id@ - The ID of the local gateway route
---     table.
---
--- -   @local-gateway-route-table-virtual-interface-group-association-id@ -
---     The ID of the association.
---
--- -   @local-gateway-route-table-virtual-interface-group-id@ - The ID of
---     the virtual interface group.
---
 -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
 --
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway.
+--
 -- -   @state@ - The state of the association.
+describeLocalGateways_filters :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Filter])
+describeLocalGateways_filters = Lens.lens (\DescribeLocalGateways' {filters} -> filters) (\s@DescribeLocalGateways' {} a -> s {filters = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the local gateways.
 describeLocalGateways_localGatewayIds :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Prelude.Text])
 describeLocalGateways_localGatewayIds = Lens.lens (\DescribeLocalGateways' {localGatewayIds} -> localGatewayIds) (\s@DescribeLocalGateways' {} a -> s {localGatewayIds = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
 

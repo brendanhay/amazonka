@@ -42,6 +42,7 @@ module Amazonka.NetworkFirewall.Lens
     createFirewall_subnetChangeProtection,
     createFirewall_description,
     createFirewall_firewallPolicyChangeProtection,
+    createFirewall_encryptionConfiguration,
     createFirewall_firewallName,
     createFirewall_firewallPolicyArn,
     createFirewall_vpcId,
@@ -54,6 +55,7 @@ module Amazonka.NetworkFirewall.Lens
     createFirewallPolicy_tags,
     createFirewallPolicy_description,
     createFirewallPolicy_dryRun,
+    createFirewallPolicy_encryptionConfiguration,
     createFirewallPolicy_firewallPolicyName,
     createFirewallPolicy_firewallPolicy,
     createFirewallPolicyResponse_httpStatus,
@@ -66,6 +68,8 @@ module Amazonka.NetworkFirewall.Lens
     createRuleGroup_rules,
     createRuleGroup_description,
     createRuleGroup_dryRun,
+    createRuleGroup_sourceMetadata,
+    createRuleGroup_encryptionConfiguration,
     createRuleGroup_ruleGroupName,
     createRuleGroup_type,
     createRuleGroup_capacity,
@@ -134,6 +138,19 @@ module Amazonka.NetworkFirewall.Lens
     describeRuleGroupResponse_updateToken,
     describeRuleGroupResponse_ruleGroupResponse,
 
+    -- ** DescribeRuleGroupMetadata
+    describeRuleGroupMetadata_ruleGroupName,
+    describeRuleGroupMetadata_type,
+    describeRuleGroupMetadata_ruleGroupArn,
+    describeRuleGroupMetadataResponse_type,
+    describeRuleGroupMetadataResponse_statefulRuleOptions,
+    describeRuleGroupMetadataResponse_description,
+    describeRuleGroupMetadataResponse_lastModifiedTime,
+    describeRuleGroupMetadataResponse_capacity,
+    describeRuleGroupMetadataResponse_httpStatus,
+    describeRuleGroupMetadataResponse_ruleGroupArn,
+    describeRuleGroupMetadataResponse_ruleGroupName,
+
     -- ** DisassociateSubnets
     disassociateSubnets_updateToken,
     disassociateSubnets_firewallArn,
@@ -162,7 +179,10 @@ module Amazonka.NetworkFirewall.Lens
 
     -- ** ListRuleGroups
     listRuleGroups_nextToken,
+    listRuleGroups_type,
+    listRuleGroups_managedType,
     listRuleGroups_maxResults,
+    listRuleGroups_scope,
     listRuleGroupsResponse_nextToken,
     listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_httpStatus,
@@ -212,10 +232,22 @@ module Amazonka.NetworkFirewall.Lens
     updateFirewallDescriptionResponse_firewallName,
     updateFirewallDescriptionResponse_httpStatus,
 
+    -- ** UpdateFirewallEncryptionConfiguration
+    updateFirewallEncryptionConfiguration_updateToken,
+    updateFirewallEncryptionConfiguration_firewallArn,
+    updateFirewallEncryptionConfiguration_encryptionConfiguration,
+    updateFirewallEncryptionConfiguration_firewallName,
+    updateFirewallEncryptionConfigurationResponse_updateToken,
+    updateFirewallEncryptionConfigurationResponse_firewallArn,
+    updateFirewallEncryptionConfigurationResponse_encryptionConfiguration,
+    updateFirewallEncryptionConfigurationResponse_firewallName,
+    updateFirewallEncryptionConfigurationResponse_httpStatus,
+
     -- ** UpdateFirewallPolicy
     updateFirewallPolicy_firewallPolicyName,
     updateFirewallPolicy_description,
     updateFirewallPolicy_dryRun,
+    updateFirewallPolicy_encryptionConfiguration,
     updateFirewallPolicy_firewallPolicyArn,
     updateFirewallPolicy_updateToken,
     updateFirewallPolicy_firewallPolicy,
@@ -250,6 +282,8 @@ module Amazonka.NetworkFirewall.Lens
     updateRuleGroup_rules,
     updateRuleGroup_description,
     updateRuleGroup_dryRun,
+    updateRuleGroup_sourceMetadata,
+    updateRuleGroup_encryptionConfiguration,
     updateRuleGroup_ruleGroupArn,
     updateRuleGroup_updateToken,
     updateRuleGroupResponse_httpStatus,
@@ -280,12 +314,24 @@ module Amazonka.NetworkFirewall.Lens
     attachment_subnetId,
     attachment_status,
 
+    -- ** CIDRSummary
+    cIDRSummary_availableCIDRCount,
+    cIDRSummary_utilizedCIDRCount,
+    cIDRSummary_iPSetReferences,
+
+    -- ** CapacityUsageSummary
+    capacityUsageSummary_cIDRs,
+
     -- ** CustomAction
     customAction_actionName,
     customAction_actionDefinition,
 
     -- ** Dimension
     dimension_value,
+
+    -- ** EncryptionConfiguration
+    encryptionConfiguration_keyId,
+    encryptionConfiguration_type,
 
     -- ** Firewall
     firewall_tags,
@@ -294,6 +340,7 @@ module Amazonka.NetworkFirewall.Lens
     firewall_description,
     firewall_firewallPolicyChangeProtection,
     firewall_firewallArn,
+    firewall_encryptionConfiguration,
     firewall_firewallName,
     firewall_firewallPolicyArn,
     firewall_vpcId,
@@ -322,6 +369,8 @@ module Amazonka.NetworkFirewall.Lens
     firewallPolicyResponse_firewallPolicyStatus,
     firewallPolicyResponse_consumedStatefulRuleCapacity,
     firewallPolicyResponse_description,
+    firewallPolicyResponse_lastModifiedTime,
+    firewallPolicyResponse_encryptionConfiguration,
     firewallPolicyResponse_numberOfAssociations,
     firewallPolicyResponse_consumedStatelessRuleCapacity,
     firewallPolicyResponse_firewallPolicyName,
@@ -330,6 +379,7 @@ module Amazonka.NetworkFirewall.Lens
 
     -- ** FirewallStatus
     firewallStatus_syncStates,
+    firewallStatus_capacityUsageSummary,
     firewallStatus_status,
     firewallStatus_configurationSyncStateSummary,
 
@@ -343,6 +393,12 @@ module Amazonka.NetworkFirewall.Lens
 
     -- ** IPSet
     iPSet_definition,
+
+    -- ** IPSetMetadata
+    iPSetMetadata_resolvedCIDRCount,
+
+    -- ** IPSetReference
+    iPSetReference_referenceArn,
 
     -- ** LogDestinationConfig
     logDestinationConfig_logType,
@@ -374,12 +430,16 @@ module Amazonka.NetworkFirewall.Lens
     -- ** PublishMetricAction
     publishMetricAction_dimensions,
 
+    -- ** ReferenceSets
+    referenceSets_iPSetReferences,
+
     -- ** RuleDefinition
     ruleDefinition_matchAttributes,
     ruleDefinition_actions,
 
     -- ** RuleGroup
     ruleGroup_statefulRuleOptions,
+    ruleGroup_referenceSets,
     ruleGroup_ruleVariables,
     ruleGroup_rulesSource,
 
@@ -390,8 +450,12 @@ module Amazonka.NetworkFirewall.Lens
     -- ** RuleGroupResponse
     ruleGroupResponse_tags,
     ruleGroupResponse_type,
+    ruleGroupResponse_snsTopic,
     ruleGroupResponse_description,
+    ruleGroupResponse_lastModifiedTime,
+    ruleGroupResponse_sourceMetadata,
     ruleGroupResponse_consumedCapacity,
+    ruleGroupResponse_encryptionConfiguration,
     ruleGroupResponse_numberOfAssociations,
     ruleGroupResponse_capacity,
     ruleGroupResponse_ruleGroupStatus,
@@ -418,6 +482,10 @@ module Amazonka.NetworkFirewall.Lens
     rulesSourceList_targetTypes,
     rulesSourceList_generatedRulesType,
 
+    -- ** SourceMetadata
+    sourceMetadata_sourceArn,
+    sourceMetadata_sourceUpdateToken,
+
     -- ** StatefulEngineOptions
     statefulEngineOptions_ruleOrder,
 
@@ -426,7 +494,11 @@ module Amazonka.NetworkFirewall.Lens
     statefulRule_header,
     statefulRule_ruleOptions,
 
+    -- ** StatefulRuleGroupOverride
+    statefulRuleGroupOverride_action,
+
     -- ** StatefulRuleGroupReference
+    statefulRuleGroupReference_override,
     statefulRuleGroupReference_priority,
     statefulRuleGroupReference_resourceArn,
 
@@ -476,6 +548,7 @@ import Amazonka.NetworkFirewall.DescribeFirewallPolicy
 import Amazonka.NetworkFirewall.DescribeLoggingConfiguration
 import Amazonka.NetworkFirewall.DescribeResourcePolicy
 import Amazonka.NetworkFirewall.DescribeRuleGroup
+import Amazonka.NetworkFirewall.DescribeRuleGroupMetadata
 import Amazonka.NetworkFirewall.DisassociateSubnets
 import Amazonka.NetworkFirewall.ListFirewallPolicies
 import Amazonka.NetworkFirewall.ListFirewalls
@@ -486,8 +559,11 @@ import Amazonka.NetworkFirewall.TagResource
 import Amazonka.NetworkFirewall.Types.ActionDefinition
 import Amazonka.NetworkFirewall.Types.Address
 import Amazonka.NetworkFirewall.Types.Attachment
+import Amazonka.NetworkFirewall.Types.CIDRSummary
+import Amazonka.NetworkFirewall.Types.CapacityUsageSummary
 import Amazonka.NetworkFirewall.Types.CustomAction
 import Amazonka.NetworkFirewall.Types.Dimension
+import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.Firewall
 import Amazonka.NetworkFirewall.Types.FirewallMetadata
 import Amazonka.NetworkFirewall.Types.FirewallPolicy
@@ -496,6 +572,8 @@ import Amazonka.NetworkFirewall.Types.FirewallPolicyResponse
 import Amazonka.NetworkFirewall.Types.FirewallStatus
 import Amazonka.NetworkFirewall.Types.Header
 import Amazonka.NetworkFirewall.Types.IPSet
+import Amazonka.NetworkFirewall.Types.IPSetMetadata
+import Amazonka.NetworkFirewall.Types.IPSetReference
 import Amazonka.NetworkFirewall.Types.LogDestinationConfig
 import Amazonka.NetworkFirewall.Types.LoggingConfiguration
 import Amazonka.NetworkFirewall.Types.MatchAttributes
@@ -503,6 +581,7 @@ import Amazonka.NetworkFirewall.Types.PerObjectStatus
 import Amazonka.NetworkFirewall.Types.PortRange
 import Amazonka.NetworkFirewall.Types.PortSet
 import Amazonka.NetworkFirewall.Types.PublishMetricAction
+import Amazonka.NetworkFirewall.Types.ReferenceSets
 import Amazonka.NetworkFirewall.Types.RuleDefinition
 import Amazonka.NetworkFirewall.Types.RuleGroup
 import Amazonka.NetworkFirewall.Types.RuleGroupMetadata
@@ -511,8 +590,10 @@ import Amazonka.NetworkFirewall.Types.RuleOption
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource
 import Amazonka.NetworkFirewall.Types.RulesSourceList
+import Amazonka.NetworkFirewall.Types.SourceMetadata
 import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
 import Amazonka.NetworkFirewall.Types.StatefulRule
+import Amazonka.NetworkFirewall.Types.StatefulRuleGroupOverride
 import Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
 import Amazonka.NetworkFirewall.Types.StatefulRuleOptions
 import Amazonka.NetworkFirewall.Types.StatelessRule
@@ -525,6 +606,7 @@ import Amazonka.NetworkFirewall.Types.Tag
 import Amazonka.NetworkFirewall.UntagResource
 import Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
 import Amazonka.NetworkFirewall.UpdateFirewallDescription
+import Amazonka.NetworkFirewall.UpdateFirewallEncryptionConfiguration
 import Amazonka.NetworkFirewall.UpdateFirewallPolicy
 import Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
 import Amazonka.NetworkFirewall.UpdateLoggingConfiguration

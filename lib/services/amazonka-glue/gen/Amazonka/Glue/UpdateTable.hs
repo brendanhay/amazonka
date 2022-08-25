@@ -29,6 +29,8 @@ module Amazonka.Glue.UpdateTable
     -- * Request Lenses
     updateTable_skipArchive,
     updateTable_catalogId,
+    updateTable_transactionId,
+    updateTable_versionId,
     updateTable_databaseName,
     updateTable_tableInput,
 
@@ -57,6 +59,10 @@ data UpdateTable = UpdateTable'
     -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The transaction ID at which to update the table contents.
+    transactionId :: Prelude.Maybe Prelude.Text,
+    -- | The version ID at which to update the table contents.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -81,6 +87,10 @@ data UpdateTable = UpdateTable'
 -- 'catalogId', 'updateTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
 -- the Amazon Web Services account ID is used by default.
 --
+-- 'transactionId', 'updateTable_transactionId' - The transaction ID at which to update the table contents.
+--
+-- 'versionId', 'updateTable_versionId' - The version ID at which to update the table contents.
+--
 -- 'databaseName', 'updateTable_databaseName' - The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
 --
@@ -96,6 +106,8 @@ newUpdateTable pDatabaseName_ pTableInput_ =
   UpdateTable'
     { skipArchive = Prelude.Nothing,
       catalogId = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableInput = pTableInput_
     }
@@ -110,6 +122,14 @@ updateTable_skipArchive = Lens.lens (\UpdateTable' {skipArchive} -> skipArchive)
 -- the Amazon Web Services account ID is used by default.
 updateTable_catalogId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
 updateTable_catalogId = Lens.lens (\UpdateTable' {catalogId} -> catalogId) (\s@UpdateTable' {} a -> s {catalogId = a} :: UpdateTable)
+
+-- | The transaction ID at which to update the table contents.
+updateTable_transactionId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
+updateTable_transactionId = Lens.lens (\UpdateTable' {transactionId} -> transactionId) (\s@UpdateTable' {} a -> s {transactionId = a} :: UpdateTable)
+
+-- | The version ID at which to update the table contents.
+updateTable_versionId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
+updateTable_versionId = Lens.lens (\UpdateTable' {versionId} -> versionId) (\s@UpdateTable' {} a -> s {versionId = a} :: UpdateTable)
 
 -- | The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -135,6 +155,8 @@ instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
     _salt `Prelude.hashWithSalt` skipArchive
       `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableInput
 
@@ -142,6 +164,8 @@ instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
     Prelude.rnf skipArchive
       `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableInput
 
@@ -164,6 +188,8 @@ instance Core.ToJSON UpdateTable where
       ( Prelude.catMaybes
           [ ("SkipArchive" Core..=) Prelude.<$> skipArchive,
             ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("TransactionId" Core..=) Prelude.<$> transactionId,
+            ("VersionId" Core..=) Prelude.<$> versionId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableInput" Core..= tableInput)
           ]

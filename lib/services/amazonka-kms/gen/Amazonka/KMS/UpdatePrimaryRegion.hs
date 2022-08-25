@@ -39,7 +39,7 @@
 -- different Amazon Web Services Region without re-encrypting the data or
 -- making a cross-Region call. For more information about multi-Region
 -- keys, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Multi-Region keys in KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- The /primary key/ of a multi-Region key is the source for properties
@@ -75,7 +75,7 @@
 -- cryptographic operations, but you cannot replicate the new primary key
 -- or perform certain management operations, such as enabling or disabling
 -- these keys. For details about the @Updating@ key state, see
--- <kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- This operation does not return any output. To verify that primary key is

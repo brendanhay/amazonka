@@ -69,9 +69,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newResolveComponentCandidates' smart constructor.
 data ResolveComponentCandidates = ResolveComponentCandidates'
   { -- | The platform to use to resolve compatible components.
-    platform :: ComponentPlatform,
+    platform :: Prelude.Maybe ComponentPlatform,
     -- | The list of components to resolve.
-    componentCandidates :: [ComponentCandidate]
+    componentCandidates :: Prelude.Maybe [ComponentCandidate]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,22 +87,21 @@ data ResolveComponentCandidates = ResolveComponentCandidates'
 --
 -- 'componentCandidates', 'resolveComponentCandidates_componentCandidates' - The list of components to resolve.
 newResolveComponentCandidates ::
-  -- | 'platform'
-  ComponentPlatform ->
   ResolveComponentCandidates
-newResolveComponentCandidates pPlatform_ =
+newResolveComponentCandidates =
   ResolveComponentCandidates'
-    { platform = pPlatform_,
-      componentCandidates = Prelude.mempty
+    { platform =
+        Prelude.Nothing,
+      componentCandidates = Prelude.Nothing
     }
 
 -- | The platform to use to resolve compatible components.
-resolveComponentCandidates_platform :: Lens.Lens' ResolveComponentCandidates ComponentPlatform
+resolveComponentCandidates_platform :: Lens.Lens' ResolveComponentCandidates (Prelude.Maybe ComponentPlatform)
 resolveComponentCandidates_platform = Lens.lens (\ResolveComponentCandidates' {platform} -> platform) (\s@ResolveComponentCandidates' {} a -> s {platform = a} :: ResolveComponentCandidates)
 
 -- | The list of components to resolve.
-resolveComponentCandidates_componentCandidates :: Lens.Lens' ResolveComponentCandidates [ComponentCandidate]
-resolveComponentCandidates_componentCandidates = Lens.lens (\ResolveComponentCandidates' {componentCandidates} -> componentCandidates) (\s@ResolveComponentCandidates' {} a -> s {componentCandidates = a} :: ResolveComponentCandidates) Prelude.. Lens.coerced
+resolveComponentCandidates_componentCandidates :: Lens.Lens' ResolveComponentCandidates (Prelude.Maybe [ComponentCandidate])
+resolveComponentCandidates_componentCandidates = Lens.lens (\ResolveComponentCandidates' {componentCandidates} -> componentCandidates) (\s@ResolveComponentCandidates' {} a -> s {componentCandidates = a} :: ResolveComponentCandidates) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ResolveComponentCandidates where
   type
@@ -130,23 +129,15 @@ instance Prelude.NFData ResolveComponentCandidates where
       `Prelude.seq` Prelude.rnf componentCandidates
 
 instance Core.ToHeaders ResolveComponentCandidates where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ResolveComponentCandidates where
   toJSON ResolveComponentCandidates' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("platform" Core..= platform),
-            Prelude.Just
-              ("componentCandidates" Core..= componentCandidates)
+          [ ("platform" Core..=) Prelude.<$> platform,
+            ("componentCandidates" Core..=)
+              Prelude.<$> componentCandidates
           ]
       )
 

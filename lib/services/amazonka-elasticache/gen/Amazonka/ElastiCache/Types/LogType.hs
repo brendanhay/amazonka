@@ -20,6 +20,7 @@
 module Amazonka.ElastiCache.Types.LogType
   ( LogType
       ( ..,
+        LogType_Engine_log,
         LogType_Slow_log
       ),
   )
@@ -53,10 +54,14 @@ newtype LogType = LogType' {fromLogType :: Core.Text}
       Core.ToXML
     )
 
+pattern LogType_Engine_log :: LogType
+pattern LogType_Engine_log = LogType' "engine-log"
+
 pattern LogType_Slow_log :: LogType
 pattern LogType_Slow_log = LogType' "slow-log"
 
 {-# COMPLETE
+  LogType_Engine_log,
   LogType_Slow_log,
   LogType'
   #-}

@@ -30,6 +30,15 @@ import Test.Tasty
 --         [ requestAssociateAwsAccountWithPartnerAccount $
 --             newAssociateAwsAccountWithPartnerAccount
 --
+--         , requestAssociateMulticastGroupWithFuotaTask $
+--             newAssociateMulticastGroupWithFuotaTask
+--
+--         , requestAssociateWirelessDeviceWithFuotaTask $
+--             newAssociateWirelessDeviceWithFuotaTask
+--
+--         , requestAssociateWirelessDeviceWithMulticastGroup $
+--             newAssociateWirelessDeviceWithMulticastGroup
+--
 --         , requestAssociateWirelessDeviceWithThing $
 --             newAssociateWirelessDeviceWithThing
 --
@@ -39,11 +48,23 @@ import Test.Tasty
 --         , requestAssociateWirelessGatewayWithThing $
 --             newAssociateWirelessGatewayWithThing
 --
+--         , requestCancelMulticastGroupSession $
+--             newCancelMulticastGroupSession
+--
 --         , requestCreateDestination $
 --             newCreateDestination
 --
 --         , requestCreateDeviceProfile $
 --             newCreateDeviceProfile
+--
+--         , requestCreateFuotaTask $
+--             newCreateFuotaTask
+--
+--         , requestCreateMulticastGroup $
+--             newCreateMulticastGroup
+--
+--         , requestCreateNetworkAnalyzerConfiguration $
+--             newCreateNetworkAnalyzerConfiguration
 --
 --         , requestCreateServiceProfile $
 --             newCreateServiceProfile
@@ -66,6 +87,18 @@ import Test.Tasty
 --         , requestDeleteDeviceProfile $
 --             newDeleteDeviceProfile
 --
+--         , requestDeleteFuotaTask $
+--             newDeleteFuotaTask
+--
+--         , requestDeleteMulticastGroup $
+--             newDeleteMulticastGroup
+--
+--         , requestDeleteNetworkAnalyzerConfiguration $
+--             newDeleteNetworkAnalyzerConfiguration
+--
+--         , requestDeleteQueuedMessages $
+--             newDeleteQueuedMessages
+--
 --         , requestDeleteServiceProfile $
 --             newDeleteServiceProfile
 --
@@ -84,6 +117,15 @@ import Test.Tasty
 --         , requestDisassociateAwsAccountFromPartnerAccount $
 --             newDisassociateAwsAccountFromPartnerAccount
 --
+--         , requestDisassociateMulticastGroupFromFuotaTask $
+--             newDisassociateMulticastGroupFromFuotaTask
+--
+--         , requestDisassociateWirelessDeviceFromFuotaTask $
+--             newDisassociateWirelessDeviceFromFuotaTask
+--
+--         , requestDisassociateWirelessDeviceFromMulticastGroup $
+--             newDisassociateWirelessDeviceFromMulticastGroup
+--
 --         , requestDisassociateWirelessDeviceFromThing $
 --             newDisassociateWirelessDeviceFromThing
 --
@@ -99,11 +141,35 @@ import Test.Tasty
 --         , requestGetDeviceProfile $
 --             newGetDeviceProfile
 --
+--         , requestGetEventConfigurationByResourceTypes $
+--             newGetEventConfigurationByResourceTypes
+--
+--         , requestGetFuotaTask $
+--             newGetFuotaTask
+--
 --         , requestGetLogLevelsByResourceTypes $
 --             newGetLogLevelsByResourceTypes
 --
+--         , requestGetMulticastGroup $
+--             newGetMulticastGroup
+--
+--         , requestGetMulticastGroupSession $
+--             newGetMulticastGroupSession
+--
+--         , requestGetNetworkAnalyzerConfiguration $
+--             newGetNetworkAnalyzerConfiguration
+--
 --         , requestGetPartnerAccount $
 --             newGetPartnerAccount
+--
+--         , requestGetPosition $
+--             newGetPosition
+--
+--         , requestGetPositionConfiguration $
+--             newGetPositionConfiguration
+--
+--         , requestGetResourceEventConfiguration $
+--             newGetResourceEventConfiguration
 --
 --         , requestGetResourceLogLevel $
 --             newGetResourceLogLevel
@@ -144,8 +210,29 @@ import Test.Tasty
 --         , requestListDeviceProfiles $
 --             newListDeviceProfiles
 --
+--         , requestListEventConfigurations $
+--             newListEventConfigurations
+--
+--         , requestListFuotaTasks $
+--             newListFuotaTasks
+--
+--         , requestListMulticastGroups $
+--             newListMulticastGroups
+--
+--         , requestListMulticastGroupsByFuotaTask $
+--             newListMulticastGroupsByFuotaTask
+--
+--         , requestListNetworkAnalyzerConfigurations $
+--             newListNetworkAnalyzerConfigurations
+--
 --         , requestListPartnerAccounts $
 --             newListPartnerAccounts
+--
+--         , requestListPositionConfigurations $
+--             newListPositionConfigurations
+--
+--         , requestListQueuedMessages $
+--             newListQueuedMessages
 --
 --         , requestListServiceProfiles $
 --             newListServiceProfiles
@@ -162,6 +249,9 @@ import Test.Tasty
 --         , requestListWirelessGateways $
 --             newListWirelessGateways
 --
+--         , requestPutPositionConfiguration $
+--             newPutPositionConfiguration
+--
 --         , requestPutResourceLogLevel $
 --             newPutResourceLogLevel
 --
@@ -171,8 +261,23 @@ import Test.Tasty
 --         , requestResetResourceLogLevel $
 --             newResetResourceLogLevel
 --
+--         , requestSendDataToMulticastGroup $
+--             newSendDataToMulticastGroup
+--
 --         , requestSendDataToWirelessDevice $
 --             newSendDataToWirelessDevice
+--
+--         , requestStartBulkAssociateWirelessDeviceWithMulticastGroup $
+--             newStartBulkAssociateWirelessDeviceWithMulticastGroup
+--
+--         , requestStartBulkDisassociateWirelessDeviceFromMulticastGroup $
+--             newStartBulkDisassociateWirelessDeviceFromMulticastGroup
+--
+--         , requestStartFuotaTask $
+--             newStartFuotaTask
+--
+--         , requestStartMulticastGroupSession $
+--             newStartMulticastGroupSession
 --
 --         , requestTagResource $
 --             newTagResource
@@ -186,11 +291,29 @@ import Test.Tasty
 --         , requestUpdateDestination $
 --             newUpdateDestination
 --
+--         , requestUpdateEventConfigurationByResourceTypes $
+--             newUpdateEventConfigurationByResourceTypes
+--
+--         , requestUpdateFuotaTask $
+--             newUpdateFuotaTask
+--
 --         , requestUpdateLogLevelsByResourceTypes $
 --             newUpdateLogLevelsByResourceTypes
 --
+--         , requestUpdateMulticastGroup $
+--             newUpdateMulticastGroup
+--
+--         , requestUpdateNetworkAnalyzerConfiguration $
+--             newUpdateNetworkAnalyzerConfiguration
+--
 --         , requestUpdatePartnerAccount $
 --             newUpdatePartnerAccount
+--
+--         , requestUpdatePosition $
+--             newUpdatePosition
+--
+--         , requestUpdateResourceEventConfiguration $
+--             newUpdateResourceEventConfiguration
 --
 --         , requestUpdateWirelessDevice $
 --             newUpdateWirelessDevice
@@ -204,6 +327,15 @@ import Test.Tasty
 --         [ responseAssociateAwsAccountWithPartnerAccount $
 --             newAssociateAwsAccountWithPartnerAccountResponse
 --
+--         , responseAssociateMulticastGroupWithFuotaTask $
+--             newAssociateMulticastGroupWithFuotaTaskResponse
+--
+--         , responseAssociateWirelessDeviceWithFuotaTask $
+--             newAssociateWirelessDeviceWithFuotaTaskResponse
+--
+--         , responseAssociateWirelessDeviceWithMulticastGroup $
+--             newAssociateWirelessDeviceWithMulticastGroupResponse
+--
 --         , responseAssociateWirelessDeviceWithThing $
 --             newAssociateWirelessDeviceWithThingResponse
 --
@@ -213,11 +345,23 @@ import Test.Tasty
 --         , responseAssociateWirelessGatewayWithThing $
 --             newAssociateWirelessGatewayWithThingResponse
 --
+--         , responseCancelMulticastGroupSession $
+--             newCancelMulticastGroupSessionResponse
+--
 --         , responseCreateDestination $
 --             newCreateDestinationResponse
 --
 --         , responseCreateDeviceProfile $
 --             newCreateDeviceProfileResponse
+--
+--         , responseCreateFuotaTask $
+--             newCreateFuotaTaskResponse
+--
+--         , responseCreateMulticastGroup $
+--             newCreateMulticastGroupResponse
+--
+--         , responseCreateNetworkAnalyzerConfiguration $
+--             newCreateNetworkAnalyzerConfigurationResponse
 --
 --         , responseCreateServiceProfile $
 --             newCreateServiceProfileResponse
@@ -240,6 +384,18 @@ import Test.Tasty
 --         , responseDeleteDeviceProfile $
 --             newDeleteDeviceProfileResponse
 --
+--         , responseDeleteFuotaTask $
+--             newDeleteFuotaTaskResponse
+--
+--         , responseDeleteMulticastGroup $
+--             newDeleteMulticastGroupResponse
+--
+--         , responseDeleteNetworkAnalyzerConfiguration $
+--             newDeleteNetworkAnalyzerConfigurationResponse
+--
+--         , responseDeleteQueuedMessages $
+--             newDeleteQueuedMessagesResponse
+--
 --         , responseDeleteServiceProfile $
 --             newDeleteServiceProfileResponse
 --
@@ -258,6 +414,15 @@ import Test.Tasty
 --         , responseDisassociateAwsAccountFromPartnerAccount $
 --             newDisassociateAwsAccountFromPartnerAccountResponse
 --
+--         , responseDisassociateMulticastGroupFromFuotaTask $
+--             newDisassociateMulticastGroupFromFuotaTaskResponse
+--
+--         , responseDisassociateWirelessDeviceFromFuotaTask $
+--             newDisassociateWirelessDeviceFromFuotaTaskResponse
+--
+--         , responseDisassociateWirelessDeviceFromMulticastGroup $
+--             newDisassociateWirelessDeviceFromMulticastGroupResponse
+--
 --         , responseDisassociateWirelessDeviceFromThing $
 --             newDisassociateWirelessDeviceFromThingResponse
 --
@@ -273,11 +438,35 @@ import Test.Tasty
 --         , responseGetDeviceProfile $
 --             newGetDeviceProfileResponse
 --
+--         , responseGetEventConfigurationByResourceTypes $
+--             newGetEventConfigurationByResourceTypesResponse
+--
+--         , responseGetFuotaTask $
+--             newGetFuotaTaskResponse
+--
 --         , responseGetLogLevelsByResourceTypes $
 --             newGetLogLevelsByResourceTypesResponse
 --
+--         , responseGetMulticastGroup $
+--             newGetMulticastGroupResponse
+--
+--         , responseGetMulticastGroupSession $
+--             newGetMulticastGroupSessionResponse
+--
+--         , responseGetNetworkAnalyzerConfiguration $
+--             newGetNetworkAnalyzerConfigurationResponse
+--
 --         , responseGetPartnerAccount $
 --             newGetPartnerAccountResponse
+--
+--         , responseGetPosition $
+--             newGetPositionResponse
+--
+--         , responseGetPositionConfiguration $
+--             newGetPositionConfigurationResponse
+--
+--         , responseGetResourceEventConfiguration $
+--             newGetResourceEventConfigurationResponse
 --
 --         , responseGetResourceLogLevel $
 --             newGetResourceLogLevelResponse
@@ -318,8 +507,29 @@ import Test.Tasty
 --         , responseListDeviceProfiles $
 --             newListDeviceProfilesResponse
 --
+--         , responseListEventConfigurations $
+--             newListEventConfigurationsResponse
+--
+--         , responseListFuotaTasks $
+--             newListFuotaTasksResponse
+--
+--         , responseListMulticastGroups $
+--             newListMulticastGroupsResponse
+--
+--         , responseListMulticastGroupsByFuotaTask $
+--             newListMulticastGroupsByFuotaTaskResponse
+--
+--         , responseListNetworkAnalyzerConfigurations $
+--             newListNetworkAnalyzerConfigurationsResponse
+--
 --         , responseListPartnerAccounts $
 --             newListPartnerAccountsResponse
+--
+--         , responseListPositionConfigurations $
+--             newListPositionConfigurationsResponse
+--
+--         , responseListQueuedMessages $
+--             newListQueuedMessagesResponse
 --
 --         , responseListServiceProfiles $
 --             newListServiceProfilesResponse
@@ -336,6 +546,9 @@ import Test.Tasty
 --         , responseListWirelessGateways $
 --             newListWirelessGatewaysResponse
 --
+--         , responsePutPositionConfiguration $
+--             newPutPositionConfigurationResponse
+--
 --         , responsePutResourceLogLevel $
 --             newPutResourceLogLevelResponse
 --
@@ -345,8 +558,23 @@ import Test.Tasty
 --         , responseResetResourceLogLevel $
 --             newResetResourceLogLevelResponse
 --
+--         , responseSendDataToMulticastGroup $
+--             newSendDataToMulticastGroupResponse
+--
 --         , responseSendDataToWirelessDevice $
 --             newSendDataToWirelessDeviceResponse
+--
+--         , responseStartBulkAssociateWirelessDeviceWithMulticastGroup $
+--             newStartBulkAssociateWirelessDeviceWithMulticastGroupResponse
+--
+--         , responseStartBulkDisassociateWirelessDeviceFromMulticastGroup $
+--             newStartBulkDisassociateWirelessDeviceFromMulticastGroupResponse
+--
+--         , responseStartFuotaTask $
+--             newStartFuotaTaskResponse
+--
+--         , responseStartMulticastGroupSession $
+--             newStartMulticastGroupSessionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -360,11 +588,29 @@ import Test.Tasty
 --         , responseUpdateDestination $
 --             newUpdateDestinationResponse
 --
+--         , responseUpdateEventConfigurationByResourceTypes $
+--             newUpdateEventConfigurationByResourceTypesResponse
+--
+--         , responseUpdateFuotaTask $
+--             newUpdateFuotaTaskResponse
+--
 --         , responseUpdateLogLevelsByResourceTypes $
 --             newUpdateLogLevelsByResourceTypesResponse
 --
+--         , responseUpdateMulticastGroup $
+--             newUpdateMulticastGroupResponse
+--
+--         , responseUpdateNetworkAnalyzerConfiguration $
+--             newUpdateNetworkAnalyzerConfigurationResponse
+--
 --         , responseUpdatePartnerAccount $
 --             newUpdatePartnerAccountResponse
+--
+--         , responseUpdatePosition $
+--             newUpdatePositionResponse
+--
+--         , responseUpdateResourceEventConfiguration $
+--             newUpdateResourceEventConfigurationResponse
 --
 --         , responseUpdateWirelessDevice $
 --             newUpdateWirelessDeviceResponse
@@ -382,6 +628,24 @@ requestAssociateAwsAccountWithPartnerAccount =
   req
     "AssociateAwsAccountWithPartnerAccount"
     "fixture/AssociateAwsAccountWithPartnerAccount.yaml"
+
+requestAssociateMulticastGroupWithFuotaTask :: AssociateMulticastGroupWithFuotaTask -> TestTree
+requestAssociateMulticastGroupWithFuotaTask =
+  req
+    "AssociateMulticastGroupWithFuotaTask"
+    "fixture/AssociateMulticastGroupWithFuotaTask.yaml"
+
+requestAssociateWirelessDeviceWithFuotaTask :: AssociateWirelessDeviceWithFuotaTask -> TestTree
+requestAssociateWirelessDeviceWithFuotaTask =
+  req
+    "AssociateWirelessDeviceWithFuotaTask"
+    "fixture/AssociateWirelessDeviceWithFuotaTask.yaml"
+
+requestAssociateWirelessDeviceWithMulticastGroup :: AssociateWirelessDeviceWithMulticastGroup -> TestTree
+requestAssociateWirelessDeviceWithMulticastGroup =
+  req
+    "AssociateWirelessDeviceWithMulticastGroup"
+    "fixture/AssociateWirelessDeviceWithMulticastGroup.yaml"
 
 requestAssociateWirelessDeviceWithThing :: AssociateWirelessDeviceWithThing -> TestTree
 requestAssociateWirelessDeviceWithThing =
@@ -401,6 +665,12 @@ requestAssociateWirelessGatewayWithThing =
     "AssociateWirelessGatewayWithThing"
     "fixture/AssociateWirelessGatewayWithThing.yaml"
 
+requestCancelMulticastGroupSession :: CancelMulticastGroupSession -> TestTree
+requestCancelMulticastGroupSession =
+  req
+    "CancelMulticastGroupSession"
+    "fixture/CancelMulticastGroupSession.yaml"
+
 requestCreateDestination :: CreateDestination -> TestTree
 requestCreateDestination =
   req
@@ -412,6 +682,24 @@ requestCreateDeviceProfile =
   req
     "CreateDeviceProfile"
     "fixture/CreateDeviceProfile.yaml"
+
+requestCreateFuotaTask :: CreateFuotaTask -> TestTree
+requestCreateFuotaTask =
+  req
+    "CreateFuotaTask"
+    "fixture/CreateFuotaTask.yaml"
+
+requestCreateMulticastGroup :: CreateMulticastGroup -> TestTree
+requestCreateMulticastGroup =
+  req
+    "CreateMulticastGroup"
+    "fixture/CreateMulticastGroup.yaml"
+
+requestCreateNetworkAnalyzerConfiguration :: CreateNetworkAnalyzerConfiguration -> TestTree
+requestCreateNetworkAnalyzerConfiguration =
+  req
+    "CreateNetworkAnalyzerConfiguration"
+    "fixture/CreateNetworkAnalyzerConfiguration.yaml"
 
 requestCreateServiceProfile :: CreateServiceProfile -> TestTree
 requestCreateServiceProfile =
@@ -455,6 +743,30 @@ requestDeleteDeviceProfile =
     "DeleteDeviceProfile"
     "fixture/DeleteDeviceProfile.yaml"
 
+requestDeleteFuotaTask :: DeleteFuotaTask -> TestTree
+requestDeleteFuotaTask =
+  req
+    "DeleteFuotaTask"
+    "fixture/DeleteFuotaTask.yaml"
+
+requestDeleteMulticastGroup :: DeleteMulticastGroup -> TestTree
+requestDeleteMulticastGroup =
+  req
+    "DeleteMulticastGroup"
+    "fixture/DeleteMulticastGroup.yaml"
+
+requestDeleteNetworkAnalyzerConfiguration :: DeleteNetworkAnalyzerConfiguration -> TestTree
+requestDeleteNetworkAnalyzerConfiguration =
+  req
+    "DeleteNetworkAnalyzerConfiguration"
+    "fixture/DeleteNetworkAnalyzerConfiguration.yaml"
+
+requestDeleteQueuedMessages :: DeleteQueuedMessages -> TestTree
+requestDeleteQueuedMessages =
+  req
+    "DeleteQueuedMessages"
+    "fixture/DeleteQueuedMessages.yaml"
+
 requestDeleteServiceProfile :: DeleteServiceProfile -> TestTree
 requestDeleteServiceProfile =
   req
@@ -491,6 +803,24 @@ requestDisassociateAwsAccountFromPartnerAccount =
     "DisassociateAwsAccountFromPartnerAccount"
     "fixture/DisassociateAwsAccountFromPartnerAccount.yaml"
 
+requestDisassociateMulticastGroupFromFuotaTask :: DisassociateMulticastGroupFromFuotaTask -> TestTree
+requestDisassociateMulticastGroupFromFuotaTask =
+  req
+    "DisassociateMulticastGroupFromFuotaTask"
+    "fixture/DisassociateMulticastGroupFromFuotaTask.yaml"
+
+requestDisassociateWirelessDeviceFromFuotaTask :: DisassociateWirelessDeviceFromFuotaTask -> TestTree
+requestDisassociateWirelessDeviceFromFuotaTask =
+  req
+    "DisassociateWirelessDeviceFromFuotaTask"
+    "fixture/DisassociateWirelessDeviceFromFuotaTask.yaml"
+
+requestDisassociateWirelessDeviceFromMulticastGroup :: DisassociateWirelessDeviceFromMulticastGroup -> TestTree
+requestDisassociateWirelessDeviceFromMulticastGroup =
+  req
+    "DisassociateWirelessDeviceFromMulticastGroup"
+    "fixture/DisassociateWirelessDeviceFromMulticastGroup.yaml"
+
 requestDisassociateWirelessDeviceFromThing :: DisassociateWirelessDeviceFromThing -> TestTree
 requestDisassociateWirelessDeviceFromThing =
   req
@@ -521,17 +851,65 @@ requestGetDeviceProfile =
     "GetDeviceProfile"
     "fixture/GetDeviceProfile.yaml"
 
+requestGetEventConfigurationByResourceTypes :: GetEventConfigurationByResourceTypes -> TestTree
+requestGetEventConfigurationByResourceTypes =
+  req
+    "GetEventConfigurationByResourceTypes"
+    "fixture/GetEventConfigurationByResourceTypes.yaml"
+
+requestGetFuotaTask :: GetFuotaTask -> TestTree
+requestGetFuotaTask =
+  req
+    "GetFuotaTask"
+    "fixture/GetFuotaTask.yaml"
+
 requestGetLogLevelsByResourceTypes :: GetLogLevelsByResourceTypes -> TestTree
 requestGetLogLevelsByResourceTypes =
   req
     "GetLogLevelsByResourceTypes"
     "fixture/GetLogLevelsByResourceTypes.yaml"
 
+requestGetMulticastGroup :: GetMulticastGroup -> TestTree
+requestGetMulticastGroup =
+  req
+    "GetMulticastGroup"
+    "fixture/GetMulticastGroup.yaml"
+
+requestGetMulticastGroupSession :: GetMulticastGroupSession -> TestTree
+requestGetMulticastGroupSession =
+  req
+    "GetMulticastGroupSession"
+    "fixture/GetMulticastGroupSession.yaml"
+
+requestGetNetworkAnalyzerConfiguration :: GetNetworkAnalyzerConfiguration -> TestTree
+requestGetNetworkAnalyzerConfiguration =
+  req
+    "GetNetworkAnalyzerConfiguration"
+    "fixture/GetNetworkAnalyzerConfiguration.yaml"
+
 requestGetPartnerAccount :: GetPartnerAccount -> TestTree
 requestGetPartnerAccount =
   req
     "GetPartnerAccount"
     "fixture/GetPartnerAccount.yaml"
+
+requestGetPosition :: GetPosition -> TestTree
+requestGetPosition =
+  req
+    "GetPosition"
+    "fixture/GetPosition.yaml"
+
+requestGetPositionConfiguration :: GetPositionConfiguration -> TestTree
+requestGetPositionConfiguration =
+  req
+    "GetPositionConfiguration"
+    "fixture/GetPositionConfiguration.yaml"
+
+requestGetResourceEventConfiguration :: GetResourceEventConfiguration -> TestTree
+requestGetResourceEventConfiguration =
+  req
+    "GetResourceEventConfiguration"
+    "fixture/GetResourceEventConfiguration.yaml"
 
 requestGetResourceLogLevel :: GetResourceLogLevel -> TestTree
 requestGetResourceLogLevel =
@@ -611,11 +989,53 @@ requestListDeviceProfiles =
     "ListDeviceProfiles"
     "fixture/ListDeviceProfiles.yaml"
 
+requestListEventConfigurations :: ListEventConfigurations -> TestTree
+requestListEventConfigurations =
+  req
+    "ListEventConfigurations"
+    "fixture/ListEventConfigurations.yaml"
+
+requestListFuotaTasks :: ListFuotaTasks -> TestTree
+requestListFuotaTasks =
+  req
+    "ListFuotaTasks"
+    "fixture/ListFuotaTasks.yaml"
+
+requestListMulticastGroups :: ListMulticastGroups -> TestTree
+requestListMulticastGroups =
+  req
+    "ListMulticastGroups"
+    "fixture/ListMulticastGroups.yaml"
+
+requestListMulticastGroupsByFuotaTask :: ListMulticastGroupsByFuotaTask -> TestTree
+requestListMulticastGroupsByFuotaTask =
+  req
+    "ListMulticastGroupsByFuotaTask"
+    "fixture/ListMulticastGroupsByFuotaTask.yaml"
+
+requestListNetworkAnalyzerConfigurations :: ListNetworkAnalyzerConfigurations -> TestTree
+requestListNetworkAnalyzerConfigurations =
+  req
+    "ListNetworkAnalyzerConfigurations"
+    "fixture/ListNetworkAnalyzerConfigurations.yaml"
+
 requestListPartnerAccounts :: ListPartnerAccounts -> TestTree
 requestListPartnerAccounts =
   req
     "ListPartnerAccounts"
     "fixture/ListPartnerAccounts.yaml"
+
+requestListPositionConfigurations :: ListPositionConfigurations -> TestTree
+requestListPositionConfigurations =
+  req
+    "ListPositionConfigurations"
+    "fixture/ListPositionConfigurations.yaml"
+
+requestListQueuedMessages :: ListQueuedMessages -> TestTree
+requestListQueuedMessages =
+  req
+    "ListQueuedMessages"
+    "fixture/ListQueuedMessages.yaml"
 
 requestListServiceProfiles :: ListServiceProfiles -> TestTree
 requestListServiceProfiles =
@@ -647,6 +1067,12 @@ requestListWirelessGateways =
     "ListWirelessGateways"
     "fixture/ListWirelessGateways.yaml"
 
+requestPutPositionConfiguration :: PutPositionConfiguration -> TestTree
+requestPutPositionConfiguration =
+  req
+    "PutPositionConfiguration"
+    "fixture/PutPositionConfiguration.yaml"
+
 requestPutResourceLogLevel :: PutResourceLogLevel -> TestTree
 requestPutResourceLogLevel =
   req
@@ -665,11 +1091,41 @@ requestResetResourceLogLevel =
     "ResetResourceLogLevel"
     "fixture/ResetResourceLogLevel.yaml"
 
+requestSendDataToMulticastGroup :: SendDataToMulticastGroup -> TestTree
+requestSendDataToMulticastGroup =
+  req
+    "SendDataToMulticastGroup"
+    "fixture/SendDataToMulticastGroup.yaml"
+
 requestSendDataToWirelessDevice :: SendDataToWirelessDevice -> TestTree
 requestSendDataToWirelessDevice =
   req
     "SendDataToWirelessDevice"
     "fixture/SendDataToWirelessDevice.yaml"
+
+requestStartBulkAssociateWirelessDeviceWithMulticastGroup :: StartBulkAssociateWirelessDeviceWithMulticastGroup -> TestTree
+requestStartBulkAssociateWirelessDeviceWithMulticastGroup =
+  req
+    "StartBulkAssociateWirelessDeviceWithMulticastGroup"
+    "fixture/StartBulkAssociateWirelessDeviceWithMulticastGroup.yaml"
+
+requestStartBulkDisassociateWirelessDeviceFromMulticastGroup :: StartBulkDisassociateWirelessDeviceFromMulticastGroup -> TestTree
+requestStartBulkDisassociateWirelessDeviceFromMulticastGroup =
+  req
+    "StartBulkDisassociateWirelessDeviceFromMulticastGroup"
+    "fixture/StartBulkDisassociateWirelessDeviceFromMulticastGroup.yaml"
+
+requestStartFuotaTask :: StartFuotaTask -> TestTree
+requestStartFuotaTask =
+  req
+    "StartFuotaTask"
+    "fixture/StartFuotaTask.yaml"
+
+requestStartMulticastGroupSession :: StartMulticastGroupSession -> TestTree
+requestStartMulticastGroupSession =
+  req
+    "StartMulticastGroupSession"
+    "fixture/StartMulticastGroupSession.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -695,17 +1151,53 @@ requestUpdateDestination =
     "UpdateDestination"
     "fixture/UpdateDestination.yaml"
 
+requestUpdateEventConfigurationByResourceTypes :: UpdateEventConfigurationByResourceTypes -> TestTree
+requestUpdateEventConfigurationByResourceTypes =
+  req
+    "UpdateEventConfigurationByResourceTypes"
+    "fixture/UpdateEventConfigurationByResourceTypes.yaml"
+
+requestUpdateFuotaTask :: UpdateFuotaTask -> TestTree
+requestUpdateFuotaTask =
+  req
+    "UpdateFuotaTask"
+    "fixture/UpdateFuotaTask.yaml"
+
 requestUpdateLogLevelsByResourceTypes :: UpdateLogLevelsByResourceTypes -> TestTree
 requestUpdateLogLevelsByResourceTypes =
   req
     "UpdateLogLevelsByResourceTypes"
     "fixture/UpdateLogLevelsByResourceTypes.yaml"
 
+requestUpdateMulticastGroup :: UpdateMulticastGroup -> TestTree
+requestUpdateMulticastGroup =
+  req
+    "UpdateMulticastGroup"
+    "fixture/UpdateMulticastGroup.yaml"
+
+requestUpdateNetworkAnalyzerConfiguration :: UpdateNetworkAnalyzerConfiguration -> TestTree
+requestUpdateNetworkAnalyzerConfiguration =
+  req
+    "UpdateNetworkAnalyzerConfiguration"
+    "fixture/UpdateNetworkAnalyzerConfiguration.yaml"
+
 requestUpdatePartnerAccount :: UpdatePartnerAccount -> TestTree
 requestUpdatePartnerAccount =
   req
     "UpdatePartnerAccount"
     "fixture/UpdatePartnerAccount.yaml"
+
+requestUpdatePosition :: UpdatePosition -> TestTree
+requestUpdatePosition =
+  req
+    "UpdatePosition"
+    "fixture/UpdatePosition.yaml"
+
+requestUpdateResourceEventConfiguration :: UpdateResourceEventConfiguration -> TestTree
+requestUpdateResourceEventConfiguration =
+  req
+    "UpdateResourceEventConfiguration"
+    "fixture/UpdateResourceEventConfiguration.yaml"
 
 requestUpdateWirelessDevice :: UpdateWirelessDevice -> TestTree
 requestUpdateWirelessDevice =
@@ -728,6 +1220,30 @@ responseAssociateAwsAccountWithPartnerAccount =
     "fixture/AssociateAwsAccountWithPartnerAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateAwsAccountWithPartnerAccount)
+
+responseAssociateMulticastGroupWithFuotaTask :: AssociateMulticastGroupWithFuotaTaskResponse -> TestTree
+responseAssociateMulticastGroupWithFuotaTask =
+  res
+    "AssociateMulticastGroupWithFuotaTaskResponse"
+    "fixture/AssociateMulticastGroupWithFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateMulticastGroupWithFuotaTask)
+
+responseAssociateWirelessDeviceWithFuotaTask :: AssociateWirelessDeviceWithFuotaTaskResponse -> TestTree
+responseAssociateWirelessDeviceWithFuotaTask =
+  res
+    "AssociateWirelessDeviceWithFuotaTaskResponse"
+    "fixture/AssociateWirelessDeviceWithFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateWirelessDeviceWithFuotaTask)
+
+responseAssociateWirelessDeviceWithMulticastGroup :: AssociateWirelessDeviceWithMulticastGroupResponse -> TestTree
+responseAssociateWirelessDeviceWithMulticastGroup =
+  res
+    "AssociateWirelessDeviceWithMulticastGroupResponse"
+    "fixture/AssociateWirelessDeviceWithMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateWirelessDeviceWithMulticastGroup)
 
 responseAssociateWirelessDeviceWithThing :: AssociateWirelessDeviceWithThingResponse -> TestTree
 responseAssociateWirelessDeviceWithThing =
@@ -753,6 +1269,14 @@ responseAssociateWirelessGatewayWithThing =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateWirelessGatewayWithThing)
 
+responseCancelMulticastGroupSession :: CancelMulticastGroupSessionResponse -> TestTree
+responseCancelMulticastGroupSession =
+  res
+    "CancelMulticastGroupSessionResponse"
+    "fixture/CancelMulticastGroupSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelMulticastGroupSession)
+
 responseCreateDestination :: CreateDestinationResponse -> TestTree
 responseCreateDestination =
   res
@@ -768,6 +1292,30 @@ responseCreateDeviceProfile =
     "fixture/CreateDeviceProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDeviceProfile)
+
+responseCreateFuotaTask :: CreateFuotaTaskResponse -> TestTree
+responseCreateFuotaTask =
+  res
+    "CreateFuotaTaskResponse"
+    "fixture/CreateFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFuotaTask)
+
+responseCreateMulticastGroup :: CreateMulticastGroupResponse -> TestTree
+responseCreateMulticastGroup =
+  res
+    "CreateMulticastGroupResponse"
+    "fixture/CreateMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMulticastGroup)
+
+responseCreateNetworkAnalyzerConfiguration :: CreateNetworkAnalyzerConfigurationResponse -> TestTree
+responseCreateNetworkAnalyzerConfiguration =
+  res
+    "CreateNetworkAnalyzerConfigurationResponse"
+    "fixture/CreateNetworkAnalyzerConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkAnalyzerConfiguration)
 
 responseCreateServiceProfile :: CreateServiceProfileResponse -> TestTree
 responseCreateServiceProfile =
@@ -825,6 +1373,38 @@ responseDeleteDeviceProfile =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDeviceProfile)
 
+responseDeleteFuotaTask :: DeleteFuotaTaskResponse -> TestTree
+responseDeleteFuotaTask =
+  res
+    "DeleteFuotaTaskResponse"
+    "fixture/DeleteFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFuotaTask)
+
+responseDeleteMulticastGroup :: DeleteMulticastGroupResponse -> TestTree
+responseDeleteMulticastGroup =
+  res
+    "DeleteMulticastGroupResponse"
+    "fixture/DeleteMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMulticastGroup)
+
+responseDeleteNetworkAnalyzerConfiguration :: DeleteNetworkAnalyzerConfigurationResponse -> TestTree
+responseDeleteNetworkAnalyzerConfiguration =
+  res
+    "DeleteNetworkAnalyzerConfigurationResponse"
+    "fixture/DeleteNetworkAnalyzerConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkAnalyzerConfiguration)
+
+responseDeleteQueuedMessages :: DeleteQueuedMessagesResponse -> TestTree
+responseDeleteQueuedMessages =
+  res
+    "DeleteQueuedMessagesResponse"
+    "fixture/DeleteQueuedMessagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueuedMessages)
+
 responseDeleteServiceProfile :: DeleteServiceProfileResponse -> TestTree
 responseDeleteServiceProfile =
   res
@@ -873,6 +1453,30 @@ responseDisassociateAwsAccountFromPartnerAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateAwsAccountFromPartnerAccount)
 
+responseDisassociateMulticastGroupFromFuotaTask :: DisassociateMulticastGroupFromFuotaTaskResponse -> TestTree
+responseDisassociateMulticastGroupFromFuotaTask =
+  res
+    "DisassociateMulticastGroupFromFuotaTaskResponse"
+    "fixture/DisassociateMulticastGroupFromFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMulticastGroupFromFuotaTask)
+
+responseDisassociateWirelessDeviceFromFuotaTask :: DisassociateWirelessDeviceFromFuotaTaskResponse -> TestTree
+responseDisassociateWirelessDeviceFromFuotaTask =
+  res
+    "DisassociateWirelessDeviceFromFuotaTaskResponse"
+    "fixture/DisassociateWirelessDeviceFromFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWirelessDeviceFromFuotaTask)
+
+responseDisassociateWirelessDeviceFromMulticastGroup :: DisassociateWirelessDeviceFromMulticastGroupResponse -> TestTree
+responseDisassociateWirelessDeviceFromMulticastGroup =
+  res
+    "DisassociateWirelessDeviceFromMulticastGroupResponse"
+    "fixture/DisassociateWirelessDeviceFromMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWirelessDeviceFromMulticastGroup)
+
 responseDisassociateWirelessDeviceFromThing :: DisassociateWirelessDeviceFromThingResponse -> TestTree
 responseDisassociateWirelessDeviceFromThing =
   res
@@ -913,6 +1517,22 @@ responseGetDeviceProfile =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeviceProfile)
 
+responseGetEventConfigurationByResourceTypes :: GetEventConfigurationByResourceTypesResponse -> TestTree
+responseGetEventConfigurationByResourceTypes =
+  res
+    "GetEventConfigurationByResourceTypesResponse"
+    "fixture/GetEventConfigurationByResourceTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventConfigurationByResourceTypes)
+
+responseGetFuotaTask :: GetFuotaTaskResponse -> TestTree
+responseGetFuotaTask =
+  res
+    "GetFuotaTaskResponse"
+    "fixture/GetFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFuotaTask)
+
 responseGetLogLevelsByResourceTypes :: GetLogLevelsByResourceTypesResponse -> TestTree
 responseGetLogLevelsByResourceTypes =
   res
@@ -921,6 +1541,30 @@ responseGetLogLevelsByResourceTypes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLogLevelsByResourceTypes)
 
+responseGetMulticastGroup :: GetMulticastGroupResponse -> TestTree
+responseGetMulticastGroup =
+  res
+    "GetMulticastGroupResponse"
+    "fixture/GetMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMulticastGroup)
+
+responseGetMulticastGroupSession :: GetMulticastGroupSessionResponse -> TestTree
+responseGetMulticastGroupSession =
+  res
+    "GetMulticastGroupSessionResponse"
+    "fixture/GetMulticastGroupSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMulticastGroupSession)
+
+responseGetNetworkAnalyzerConfiguration :: GetNetworkAnalyzerConfigurationResponse -> TestTree
+responseGetNetworkAnalyzerConfiguration =
+  res
+    "GetNetworkAnalyzerConfigurationResponse"
+    "fixture/GetNetworkAnalyzerConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetNetworkAnalyzerConfiguration)
+
 responseGetPartnerAccount :: GetPartnerAccountResponse -> TestTree
 responseGetPartnerAccount =
   res
@@ -928,6 +1572,30 @@ responseGetPartnerAccount =
     "fixture/GetPartnerAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetPartnerAccount)
+
+responseGetPosition :: GetPositionResponse -> TestTree
+responseGetPosition =
+  res
+    "GetPositionResponse"
+    "fixture/GetPositionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPosition)
+
+responseGetPositionConfiguration :: GetPositionConfigurationResponse -> TestTree
+responseGetPositionConfiguration =
+  res
+    "GetPositionConfigurationResponse"
+    "fixture/GetPositionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPositionConfiguration)
+
+responseGetResourceEventConfiguration :: GetResourceEventConfigurationResponse -> TestTree
+responseGetResourceEventConfiguration =
+  res
+    "GetResourceEventConfigurationResponse"
+    "fixture/GetResourceEventConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceEventConfiguration)
 
 responseGetResourceLogLevel :: GetResourceLogLevelResponse -> TestTree
 responseGetResourceLogLevel =
@@ -1033,6 +1701,46 @@ responseListDeviceProfiles =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDeviceProfiles)
 
+responseListEventConfigurations :: ListEventConfigurationsResponse -> TestTree
+responseListEventConfigurations =
+  res
+    "ListEventConfigurationsResponse"
+    "fixture/ListEventConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventConfigurations)
+
+responseListFuotaTasks :: ListFuotaTasksResponse -> TestTree
+responseListFuotaTasks =
+  res
+    "ListFuotaTasksResponse"
+    "fixture/ListFuotaTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFuotaTasks)
+
+responseListMulticastGroups :: ListMulticastGroupsResponse -> TestTree
+responseListMulticastGroups =
+  res
+    "ListMulticastGroupsResponse"
+    "fixture/ListMulticastGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMulticastGroups)
+
+responseListMulticastGroupsByFuotaTask :: ListMulticastGroupsByFuotaTaskResponse -> TestTree
+responseListMulticastGroupsByFuotaTask =
+  res
+    "ListMulticastGroupsByFuotaTaskResponse"
+    "fixture/ListMulticastGroupsByFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMulticastGroupsByFuotaTask)
+
+responseListNetworkAnalyzerConfigurations :: ListNetworkAnalyzerConfigurationsResponse -> TestTree
+responseListNetworkAnalyzerConfigurations =
+  res
+    "ListNetworkAnalyzerConfigurationsResponse"
+    "fixture/ListNetworkAnalyzerConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNetworkAnalyzerConfigurations)
+
 responseListPartnerAccounts :: ListPartnerAccountsResponse -> TestTree
 responseListPartnerAccounts =
   res
@@ -1040,6 +1748,22 @@ responseListPartnerAccounts =
     "fixture/ListPartnerAccountsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPartnerAccounts)
+
+responseListPositionConfigurations :: ListPositionConfigurationsResponse -> TestTree
+responseListPositionConfigurations =
+  res
+    "ListPositionConfigurationsResponse"
+    "fixture/ListPositionConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPositionConfigurations)
+
+responseListQueuedMessages :: ListQueuedMessagesResponse -> TestTree
+responseListQueuedMessages =
+  res
+    "ListQueuedMessagesResponse"
+    "fixture/ListQueuedMessagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListQueuedMessages)
 
 responseListServiceProfiles :: ListServiceProfilesResponse -> TestTree
 responseListServiceProfiles =
@@ -1081,6 +1805,14 @@ responseListWirelessGateways =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListWirelessGateways)
 
+responsePutPositionConfiguration :: PutPositionConfigurationResponse -> TestTree
+responsePutPositionConfiguration =
+  res
+    "PutPositionConfigurationResponse"
+    "fixture/PutPositionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutPositionConfiguration)
+
 responsePutResourceLogLevel :: PutResourceLogLevelResponse -> TestTree
 responsePutResourceLogLevel =
   res
@@ -1105,6 +1837,14 @@ responseResetResourceLogLevel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ResetResourceLogLevel)
 
+responseSendDataToMulticastGroup :: SendDataToMulticastGroupResponse -> TestTree
+responseSendDataToMulticastGroup =
+  res
+    "SendDataToMulticastGroupResponse"
+    "fixture/SendDataToMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendDataToMulticastGroup)
+
 responseSendDataToWirelessDevice :: SendDataToWirelessDeviceResponse -> TestTree
 responseSendDataToWirelessDevice =
   res
@@ -1112,6 +1852,38 @@ responseSendDataToWirelessDevice =
     "fixture/SendDataToWirelessDeviceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendDataToWirelessDevice)
+
+responseStartBulkAssociateWirelessDeviceWithMulticastGroup :: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse -> TestTree
+responseStartBulkAssociateWirelessDeviceWithMulticastGroup =
+  res
+    "StartBulkAssociateWirelessDeviceWithMulticastGroupResponse"
+    "fixture/StartBulkAssociateWirelessDeviceWithMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartBulkAssociateWirelessDeviceWithMulticastGroup)
+
+responseStartBulkDisassociateWirelessDeviceFromMulticastGroup :: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse -> TestTree
+responseStartBulkDisassociateWirelessDeviceFromMulticastGroup =
+  res
+    "StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse"
+    "fixture/StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartBulkDisassociateWirelessDeviceFromMulticastGroup)
+
+responseStartFuotaTask :: StartFuotaTaskResponse -> TestTree
+responseStartFuotaTask =
+  res
+    "StartFuotaTaskResponse"
+    "fixture/StartFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFuotaTask)
+
+responseStartMulticastGroupSession :: StartMulticastGroupSessionResponse -> TestTree
+responseStartMulticastGroupSession =
+  res
+    "StartMulticastGroupSessionResponse"
+    "fixture/StartMulticastGroupSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMulticastGroupSession)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1145,6 +1917,22 @@ responseUpdateDestination =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDestination)
 
+responseUpdateEventConfigurationByResourceTypes :: UpdateEventConfigurationByResourceTypesResponse -> TestTree
+responseUpdateEventConfigurationByResourceTypes =
+  res
+    "UpdateEventConfigurationByResourceTypesResponse"
+    "fixture/UpdateEventConfigurationByResourceTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventConfigurationByResourceTypes)
+
+responseUpdateFuotaTask :: UpdateFuotaTaskResponse -> TestTree
+responseUpdateFuotaTask =
+  res
+    "UpdateFuotaTaskResponse"
+    "fixture/UpdateFuotaTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFuotaTask)
+
 responseUpdateLogLevelsByResourceTypes :: UpdateLogLevelsByResourceTypesResponse -> TestTree
 responseUpdateLogLevelsByResourceTypes =
   res
@@ -1153,6 +1941,22 @@ responseUpdateLogLevelsByResourceTypes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateLogLevelsByResourceTypes)
 
+responseUpdateMulticastGroup :: UpdateMulticastGroupResponse -> TestTree
+responseUpdateMulticastGroup =
+  res
+    "UpdateMulticastGroupResponse"
+    "fixture/UpdateMulticastGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMulticastGroup)
+
+responseUpdateNetworkAnalyzerConfiguration :: UpdateNetworkAnalyzerConfigurationResponse -> TestTree
+responseUpdateNetworkAnalyzerConfiguration =
+  res
+    "UpdateNetworkAnalyzerConfigurationResponse"
+    "fixture/UpdateNetworkAnalyzerConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNetworkAnalyzerConfiguration)
+
 responseUpdatePartnerAccount :: UpdatePartnerAccountResponse -> TestTree
 responseUpdatePartnerAccount =
   res
@@ -1160,6 +1964,22 @@ responseUpdatePartnerAccount =
     "fixture/UpdatePartnerAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePartnerAccount)
+
+responseUpdatePosition :: UpdatePositionResponse -> TestTree
+responseUpdatePosition =
+  res
+    "UpdatePositionResponse"
+    "fixture/UpdatePositionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePosition)
+
+responseUpdateResourceEventConfiguration :: UpdateResourceEventConfigurationResponse -> TestTree
+responseUpdateResourceEventConfiguration =
+  res
+    "UpdateResourceEventConfigurationResponse"
+    "fixture/UpdateResourceEventConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceEventConfiguration)
 
 responseUpdateWirelessDevice :: UpdateWirelessDeviceResponse -> TestTree
 responseUpdateWirelessDevice =

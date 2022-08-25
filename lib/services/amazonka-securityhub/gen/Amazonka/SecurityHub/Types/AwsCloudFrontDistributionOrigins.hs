@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginItem
 
 -- | A complex type that contains information about origins and origin groups
--- for this distribution.
+-- for this CloudFront distribution.
 --
 -- /See:/ 'newAwsCloudFrontDistributionOrigins' smart constructor.
 data AwsCloudFrontDistributionOrigins = AwsCloudFrontDistributionOrigins'

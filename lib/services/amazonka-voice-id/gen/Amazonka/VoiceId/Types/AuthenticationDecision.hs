@@ -23,6 +23,7 @@ module Amazonka.VoiceId.Types.AuthenticationDecision
         AuthenticationDecision_ACCEPT,
         AuthenticationDecision_NOT_ENOUGH_SPEECH,
         AuthenticationDecision_REJECT,
+        AuthenticationDecision_SPEAKER_EXPIRED,
         AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED,
         AuthenticationDecision_SPEAKER_NOT_ENROLLED,
         AuthenticationDecision_SPEAKER_OPTED_OUT
@@ -70,6 +71,9 @@ pattern AuthenticationDecision_NOT_ENOUGH_SPEECH = AuthenticationDecision' "NOT_
 pattern AuthenticationDecision_REJECT :: AuthenticationDecision
 pattern AuthenticationDecision_REJECT = AuthenticationDecision' "REJECT"
 
+pattern AuthenticationDecision_SPEAKER_EXPIRED :: AuthenticationDecision
+pattern AuthenticationDecision_SPEAKER_EXPIRED = AuthenticationDecision' "SPEAKER_EXPIRED"
+
 pattern AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED :: AuthenticationDecision
 pattern AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED = AuthenticationDecision' "SPEAKER_ID_NOT_PROVIDED"
 
@@ -83,6 +87,7 @@ pattern AuthenticationDecision_SPEAKER_OPTED_OUT = AuthenticationDecision' "SPEA
   AuthenticationDecision_ACCEPT,
   AuthenticationDecision_NOT_ENOUGH_SPEECH,
   AuthenticationDecision_REJECT,
+  AuthenticationDecision_SPEAKER_EXPIRED,
   AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED,
   AuthenticationDecision_SPEAKER_NOT_ENROLLED,
   AuthenticationDecision_SPEAKER_OPTED_OUT,

@@ -62,10 +62,10 @@ data ProtectionGroup = ProtectionGroup'
     aggregation :: ProtectionGroupAggregation,
     -- | The criteria to use to choose the protected resources for inclusion in
     -- the group. You can include all resources that have protections, provide
-    -- a list of resource Amazon Resource Names (ARNs), or include all
+    -- a list of resource ARNs (Amazon Resource Names), or include all
     -- resources of a specified resource type.
     pattern' :: ProtectionGroupPattern,
-    -- | The Amazon Resource Names (ARNs) of the resources to include in the
+    -- | The ARNs (Amazon Resource Names) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
     members :: [Prelude.Text]
@@ -110,10 +110,10 @@ data ProtectionGroup = ProtectionGroup'
 --
 -- 'pattern'', 'protectionGroup_pattern' - The criteria to use to choose the protected resources for inclusion in
 -- the group. You can include all resources that have protections, provide
--- a list of resource Amazon Resource Names (ARNs), or include all
+-- a list of resource ARNs (Amazon Resource Names), or include all
 -- resources of a specified resource type.
 --
--- 'members', 'protectionGroup_members' - The Amazon Resource Names (ARNs) of the resources to include in the
+-- 'members', 'protectionGroup_members' - The ARNs (Amazon Resource Names) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
 newProtectionGroup ::
@@ -175,12 +175,12 @@ protectionGroup_aggregation = Lens.lens (\ProtectionGroup' {aggregation} -> aggr
 
 -- | The criteria to use to choose the protected resources for inclusion in
 -- the group. You can include all resources that have protections, provide
--- a list of resource Amazon Resource Names (ARNs), or include all
+-- a list of resource ARNs (Amazon Resource Names), or include all
 -- resources of a specified resource type.
 protectionGroup_pattern :: Lens.Lens' ProtectionGroup ProtectionGroupPattern
 protectionGroup_pattern = Lens.lens (\ProtectionGroup' {pattern'} -> pattern') (\s@ProtectionGroup' {} a -> s {pattern' = a} :: ProtectionGroup)
 
--- | The Amazon Resource Names (ARNs) of the resources to include in the
+-- | The ARNs (Amazon Resource Names) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
 protectionGroup_members :: Lens.Lens' ProtectionGroup [Prelude.Text]

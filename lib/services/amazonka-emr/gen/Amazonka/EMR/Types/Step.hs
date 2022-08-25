@@ -54,6 +54,14 @@ data Step = Step'
     -- canceled; for a step that fails with this parameter set to
     -- @TERMINATE_CLUSTER@, the cluster does not terminate.
     actionOnFailure :: Prelude.Maybe ActionOnFailure,
+    -- | The Amazon Resource Name (ARN) of the runtime role for a step on the
+    -- cluster. The runtime role can be a cross-account IAM role. The runtime
+    -- role ARN is a combination of account ID, role name, and role type using
+    -- the following format: @arn:partition:service:region:account:resource@.
+    --
+    -- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+    -- formatted runtime role ARN.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Hadoop job configuration of the cluster step.
     config :: Prelude.Maybe HadoopStepConfig
   }
@@ -91,6 +99,14 @@ data Step = Step'
 -- canceled; for a step that fails with this parameter set to
 -- @TERMINATE_CLUSTER@, the cluster does not terminate.
 --
+-- 'executionRoleArn', 'step_executionRoleArn' - The Amazon Resource Name (ARN) of the runtime role for a step on the
+-- cluster. The runtime role can be a cross-account IAM role. The runtime
+-- role ARN is a combination of account ID, role name, and role type using
+-- the following format: @arn:partition:service:region:account:resource@.
+--
+-- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- formatted runtime role ARN.
+--
 -- 'config', 'step_config' - The Hadoop job configuration of the cluster step.
 newStep ::
   Step
@@ -100,6 +116,7 @@ newStep =
       status = Prelude.Nothing,
       id = Prelude.Nothing,
       actionOnFailure = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
       config = Prelude.Nothing
     }
 
@@ -135,6 +152,16 @@ step_id = Lens.lens (\Step' {id} -> id) (\s@Step' {} a -> s {id = a} :: Step)
 step_actionOnFailure :: Lens.Lens' Step (Prelude.Maybe ActionOnFailure)
 step_actionOnFailure = Lens.lens (\Step' {actionOnFailure} -> actionOnFailure) (\s@Step' {} a -> s {actionOnFailure = a} :: Step)
 
+-- | The Amazon Resource Name (ARN) of the runtime role for a step on the
+-- cluster. The runtime role can be a cross-account IAM role. The runtime
+-- role ARN is a combination of account ID, role name, and role type using
+-- the following format: @arn:partition:service:region:account:resource@.
+--
+-- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- formatted runtime role ARN.
+step_executionRoleArn :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
+step_executionRoleArn = Lens.lens (\Step' {executionRoleArn} -> executionRoleArn) (\s@Step' {} a -> s {executionRoleArn = a} :: Step)
+
 -- | The Hadoop job configuration of the cluster step.
 step_config :: Lens.Lens' Step (Prelude.Maybe HadoopStepConfig)
 step_config = Lens.lens (\Step' {config} -> config) (\s@Step' {} a -> s {config = a} :: Step)
@@ -149,6 +176,7 @@ instance Core.FromJSON Step where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ActionOnFailure")
+            Prelude.<*> (x Core..:? "ExecutionRoleArn")
             Prelude.<*> (x Core..:? "Config")
       )
 
@@ -158,6 +186,7 @@ instance Prelude.Hashable Step where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` actionOnFailure
+      `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` config
 
 instance Prelude.NFData Step where
@@ -166,4 +195,5 @@ instance Prelude.NFData Step where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf actionOnFailure
+      `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf config

@@ -89,6 +89,9 @@ module Amazonka.Redshift
     -- ** InvalidSubnet
     _InvalidSubnet,
 
+    -- ** ReservedNodeExchangeNotFoundFault
+    _ReservedNodeExchangeNotFoundFault,
+
     -- ** InvalidAuthenticationProfileRequestFault
     _InvalidAuthenticationProfileRequestFault,
 
@@ -764,19 +767,19 @@ module Amazonka.Redshift
     DescribeClustersResponse (DescribeClustersResponse'),
     newDescribeClustersResponse,
 
-    -- ** DescribeDataShares
+    -- ** DescribeDataShares (Paginated)
     DescribeDataShares (DescribeDataShares'),
     newDescribeDataShares,
     DescribeDataSharesResponse (DescribeDataSharesResponse'),
     newDescribeDataSharesResponse,
 
-    -- ** DescribeDataSharesForConsumer
+    -- ** DescribeDataSharesForConsumer (Paginated)
     DescribeDataSharesForConsumer (DescribeDataSharesForConsumer'),
     newDescribeDataSharesForConsumer,
     DescribeDataSharesForConsumerResponse (DescribeDataSharesForConsumerResponse'),
     newDescribeDataSharesForConsumerResponse,
 
-    -- ** DescribeDataSharesForProducer
+    -- ** DescribeDataSharesForProducer (Paginated)
     DescribeDataSharesForProducer (DescribeDataSharesForProducer'),
     newDescribeDataSharesForProducer,
     DescribeDataSharesForProducerResponse (DescribeDataSharesForProducerResponse'),
@@ -853,6 +856,12 @@ module Amazonka.Redshift
     newDescribePartners,
     DescribePartnersResponse (DescribePartnersResponse'),
     newDescribePartnersResponse,
+
+    -- ** DescribeReservedNodeExchangeStatus (Paginated)
+    DescribeReservedNodeExchangeStatus (DescribeReservedNodeExchangeStatus'),
+    newDescribeReservedNodeExchangeStatus,
+    DescribeReservedNodeExchangeStatusResponse (DescribeReservedNodeExchangeStatusResponse'),
+    newDescribeReservedNodeExchangeStatusResponse,
 
     -- ** DescribeReservedNodeOfferings (Paginated)
     DescribeReservedNodeOfferings (DescribeReservedNodeOfferings'),
@@ -949,6 +958,18 @@ module Amazonka.Redshift
     newGetClusterCredentials,
     GetClusterCredentialsResponse (GetClusterCredentialsResponse'),
     newGetClusterCredentialsResponse,
+
+    -- ** GetClusterCredentialsWithIAM
+    GetClusterCredentialsWithIAM (GetClusterCredentialsWithIAM'),
+    newGetClusterCredentialsWithIAM,
+    GetClusterCredentialsWithIAMResponse (GetClusterCredentialsWithIAMResponse'),
+    newGetClusterCredentialsWithIAMResponse,
+
+    -- ** GetReservedNodeExchangeConfigurationOptions (Paginated)
+    GetReservedNodeExchangeConfigurationOptions (GetReservedNodeExchangeConfigurationOptions'),
+    newGetReservedNodeExchangeConfigurationOptions,
+    GetReservedNodeExchangeConfigurationOptionsResponse (GetReservedNodeExchangeConfigurationOptionsResponse'),
+    newGetReservedNodeExchangeConfigurationOptionsResponse,
 
     -- ** GetReservedNodeExchangeOfferings (Paginated)
     GetReservedNodeExchangeOfferings (GetReservedNodeExchangeOfferings'),
@@ -1162,6 +1183,9 @@ module Amazonka.Redshift
     -- ** DataShareStatusForProducer
     DataShareStatusForProducer (..),
 
+    -- ** LogDestinationType
+    LogDestinationType (..),
+
     -- ** Mode
     Mode (..),
 
@@ -1176,6 +1200,12 @@ module Amazonka.Redshift
 
     -- ** PartnerIntegrationStatus
     PartnerIntegrationStatus (..),
+
+    -- ** ReservedNodeExchangeActionType
+    ReservedNodeExchangeActionType (..),
+
+    -- ** ReservedNodeExchangeStatusType
+    ReservedNodeExchangeStatusType (..),
 
     -- ** ReservedNodeOfferingType
     ReservedNodeOfferingType (..),
@@ -1428,6 +1458,14 @@ module Amazonka.Redshift
     ReservedNode (ReservedNode'),
     newReservedNode,
 
+    -- ** ReservedNodeConfigurationOption
+    ReservedNodeConfigurationOption (ReservedNodeConfigurationOption'),
+    newReservedNodeConfigurationOption,
+
+    -- ** ReservedNodeExchangeStatus
+    ReservedNodeExchangeStatus (ReservedNodeExchangeStatus'),
+    newReservedNodeExchangeStatus,
+
     -- ** ReservedNodeOffering
     ReservedNodeOffering (ReservedNodeOffering'),
     newReservedNodeOffering,
@@ -1599,6 +1637,7 @@ import Amazonka.Redshift.DescribeLoggingStatus
 import Amazonka.Redshift.DescribeNodeConfigurationOptions
 import Amazonka.Redshift.DescribeOrderableClusterOptions
 import Amazonka.Redshift.DescribePartners
+import Amazonka.Redshift.DescribeReservedNodeExchangeStatus
 import Amazonka.Redshift.DescribeReservedNodeOfferings
 import Amazonka.Redshift.DescribeReservedNodes
 import Amazonka.Redshift.DescribeResize
@@ -1615,6 +1654,8 @@ import Amazonka.Redshift.DisassociateDataShareConsumer
 import Amazonka.Redshift.EnableLogging
 import Amazonka.Redshift.EnableSnapshotCopy
 import Amazonka.Redshift.GetClusterCredentials
+import Amazonka.Redshift.GetClusterCredentialsWithIAM
+import Amazonka.Redshift.GetReservedNodeExchangeConfigurationOptions
 import Amazonka.Redshift.GetReservedNodeExchangeOfferings
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Lens

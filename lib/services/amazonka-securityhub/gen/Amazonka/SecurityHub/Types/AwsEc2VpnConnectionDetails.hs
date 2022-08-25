@@ -40,7 +40,15 @@ data AwsEc2VpnConnectionDetails = AwsEc2VpnConnectionDetails'
     customerGatewayConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the VPN connection.
     vpnConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the VPN connection.
+    -- | The current state of the VPN connection. Valid values are as follows:
+    --
+    -- -   @available@
+    --
+    -- -   @deleted@
+    --
+    -- -   @deleting@
+    --
+    -- -   @pending@
     state :: Prelude.Maybe Prelude.Text,
     -- | The VPN connection options.
     options :: Prelude.Maybe AwsEc2VpnConnectionOptionsDetails,
@@ -79,7 +87,15 @@ data AwsEc2VpnConnectionDetails = AwsEc2VpnConnectionDetails'
 --
 -- 'vpnConnectionId', 'awsEc2VpnConnectionDetails_vpnConnectionId' - The identifier of the VPN connection.
 --
--- 'state', 'awsEc2VpnConnectionDetails_state' - The current state of the VPN connection.
+-- 'state', 'awsEc2VpnConnectionDetails_state' - The current state of the VPN connection. Valid values are as follows:
+--
+-- -   @available@
+--
+-- -   @deleted@
+--
+-- -   @deleting@
+--
+-- -   @pending@
 --
 -- 'options', 'awsEc2VpnConnectionDetails_options' - The VPN connection options.
 --
@@ -132,7 +148,15 @@ awsEc2VpnConnectionDetails_customerGatewayConfiguration = Lens.lens (\AwsEc2VpnC
 awsEc2VpnConnectionDetails_vpnConnectionId :: Lens.Lens' AwsEc2VpnConnectionDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpnConnectionDetails_vpnConnectionId = Lens.lens (\AwsEc2VpnConnectionDetails' {vpnConnectionId} -> vpnConnectionId) (\s@AwsEc2VpnConnectionDetails' {} a -> s {vpnConnectionId = a} :: AwsEc2VpnConnectionDetails)
 
--- | The current state of the VPN connection.
+-- | The current state of the VPN connection. Valid values are as follows:
+--
+-- -   @available@
+--
+-- -   @deleted@
+--
+-- -   @deleting@
+--
+-- -   @pending@
 awsEc2VpnConnectionDetails_state :: Lens.Lens' AwsEc2VpnConnectionDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpnConnectionDetails_state = Lens.lens (\AwsEc2VpnConnectionDetails' {state} -> state) (\s@AwsEc2VpnConnectionDetails' {} a -> s {state = a} :: AwsEc2VpnConnectionDetails)
 

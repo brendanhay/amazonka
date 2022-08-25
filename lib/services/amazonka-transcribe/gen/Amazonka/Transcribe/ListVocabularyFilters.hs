@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about vocabulary filters.
+-- Provides a list of custom vocabulary filters that match the specified
+-- criteria. If no criteria are specified, all custom vocabularies are
+-- returned.
+--
+-- To get detailed information about a specific custom vocabulary filter,
+-- use the operation.
 module Amazonka.Transcribe.ListVocabularyFilters
   ( -- * Creating a Request
     ListVocabularyFilters (..),
@@ -51,16 +56,19 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListVocabularyFilters' smart constructor.
 data ListVocabularyFilters = ListVocabularyFilters'
-  { -- | If the result of the previous request to @ListVocabularyFilters@ was
-    -- truncated, include the @NextToken@ to fetch the next set of collections.
+  { -- | If your @ListVocabularyFilters@ request returns more results than can be
+    -- displayed, @NextToken@ is displayed in the response with an associated
+    -- string. To get the next page of results, copy this string and repeat
+    -- your request, including @NextToken@ with the value of the copied string.
+    -- Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the response so that it only contains vocabulary filters whose
-    -- name contains the specified string.
+    -- | Returns only the custom vocabulary filters that contain the specified
+    -- string. The search is not case sensitive.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of filters to return in each page of results. If
-    -- there are fewer results than the value you specify, only the actual
-    -- results are returned. If you do not specify a value, the default of 5 is
-    -- used.
+    -- | The maximum number of custom vocabulary filters to return in each page
+    -- of results. If there are fewer results than the value you specify, only
+    -- the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,16 +81,19 @@ data ListVocabularyFilters = ListVocabularyFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVocabularyFilters_nextToken' - If the result of the previous request to @ListVocabularyFilters@ was
--- truncated, include the @NextToken@ to fetch the next set of collections.
+-- 'nextToken', 'listVocabularyFilters_nextToken' - If your @ListVocabularyFilters@ request returns more results than can be
+-- displayed, @NextToken@ is displayed in the response with an associated
+-- string. To get the next page of results, copy this string and repeat
+-- your request, including @NextToken@ with the value of the copied string.
+-- Repeat as needed to view all your results.
 --
--- 'nameContains', 'listVocabularyFilters_nameContains' - Filters the response so that it only contains vocabulary filters whose
--- name contains the specified string.
+-- 'nameContains', 'listVocabularyFilters_nameContains' - Returns only the custom vocabulary filters that contain the specified
+-- string. The search is not case sensitive.
 --
--- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of filters to return in each page of results. If
--- there are fewer results than the value you specify, only the actual
--- results are returned. If you do not specify a value, the default of 5 is
--- used.
+-- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of custom vocabulary filters to return in each page
+-- of results. If there are fewer results than the value you specify, only
+-- the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
 newListVocabularyFilters ::
   ListVocabularyFilters
 newListVocabularyFilters =
@@ -92,20 +103,23 @@ newListVocabularyFilters =
       maxResults = Prelude.Nothing
     }
 
--- | If the result of the previous request to @ListVocabularyFilters@ was
--- truncated, include the @NextToken@ to fetch the next set of collections.
+-- | If your @ListVocabularyFilters@ request returns more results than can be
+-- displayed, @NextToken@ is displayed in the response with an associated
+-- string. To get the next page of results, copy this string and repeat
+-- your request, including @NextToken@ with the value of the copied string.
+-- Repeat as needed to view all your results.
 listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
 listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken} -> nextToken) (\s@ListVocabularyFilters' {} a -> s {nextToken = a} :: ListVocabularyFilters)
 
--- | Filters the response so that it only contains vocabulary filters whose
--- name contains the specified string.
+-- | Returns only the custom vocabulary filters that contain the specified
+-- string. The search is not case sensitive.
 listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
 listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
 
--- | The maximum number of filters to return in each page of results. If
--- there are fewer results than the value you specify, only the actual
--- results are returned. If you do not specify a value, the default of 5 is
--- used.
+-- | The maximum number of custom vocabulary filters to return in each page
+-- of results. If there are fewer results than the value you specify, only
+-- the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
 listVocabularyFilters_maxResults :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Natural)
 listVocabularyFilters_maxResults = Lens.lens (\ListVocabularyFilters' {maxResults} -> maxResults) (\s@ListVocabularyFilters' {} a -> s {maxResults = a} :: ListVocabularyFilters)
 
@@ -170,17 +184,14 @@ instance Core.ToQuery ListVocabularyFilters where
 
 -- | /See:/ 'newListVocabularyFiltersResponse' smart constructor.
 data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
-  { -- | The @ListVocabularyFilters@ operation returns a page of collections at a
-    -- time. The maximum size of the page is set by the @MaxResults@ parameter.
-    -- If there are more jobs in the list than the page size, Amazon Transcribe
-    -- returns the @NextPage@ token. Include the token in the next request to
-    -- the @ListVocabularyFilters@ operation to return in the next page of
-    -- jobs.
+  { -- | If @NextToken@ is present in your response, it indicates that not all
+    -- results are displayed. To view the next set of results, copy the string
+    -- associated with the @NextToken@ parameter in your results output, then
+    -- run your request again including @NextToken@ with the value of the
+    -- copied string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of vocabulary filters. It contains at most @MaxResults@ number
-    -- of filters. If there are more filters, call the @ListVocabularyFilters@
-    -- operation again with the @NextToken@ parameter in the request set to the
-    -- value of the @NextToken@ field in the response.
+    -- | Provides information about the custom vocabulary filters that match the
+    -- criteria specified in your request.
     vocabularyFilters :: Prelude.Maybe [VocabularyFilterInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -195,17 +206,14 @@ data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVocabularyFiltersResponse_nextToken' - The @ListVocabularyFilters@ operation returns a page of collections at a
--- time. The maximum size of the page is set by the @MaxResults@ parameter.
--- If there are more jobs in the list than the page size, Amazon Transcribe
--- returns the @NextPage@ token. Include the token in the next request to
--- the @ListVocabularyFilters@ operation to return in the next page of
--- jobs.
+-- 'nextToken', 'listVocabularyFiltersResponse_nextToken' - If @NextToken@ is present in your response, it indicates that not all
+-- results are displayed. To view the next set of results, copy the string
+-- associated with the @NextToken@ parameter in your results output, then
+-- run your request again including @NextToken@ with the value of the
+-- copied string. Repeat as needed to view all your results.
 --
--- 'vocabularyFilters', 'listVocabularyFiltersResponse_vocabularyFilters' - The list of vocabulary filters. It contains at most @MaxResults@ number
--- of filters. If there are more filters, call the @ListVocabularyFilters@
--- operation again with the @NextToken@ parameter in the request set to the
--- value of the @NextToken@ field in the response.
+-- 'vocabularyFilters', 'listVocabularyFiltersResponse_vocabularyFilters' - Provides information about the custom vocabulary filters that match the
+-- criteria specified in your request.
 --
 -- 'httpStatus', 'listVocabularyFiltersResponse_httpStatus' - The response's http status code.
 newListVocabularyFiltersResponse ::
@@ -220,19 +228,16 @@ newListVocabularyFiltersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The @ListVocabularyFilters@ operation returns a page of collections at a
--- time. The maximum size of the page is set by the @MaxResults@ parameter.
--- If there are more jobs in the list than the page size, Amazon Transcribe
--- returns the @NextPage@ token. Include the token in the next request to
--- the @ListVocabularyFilters@ operation to return in the next page of
--- jobs.
+-- | If @NextToken@ is present in your response, it indicates that not all
+-- results are displayed. To view the next set of results, copy the string
+-- associated with the @NextToken@ parameter in your results output, then
+-- run your request again including @NextToken@ with the value of the
+-- copied string. Repeat as needed to view all your results.
 listVocabularyFiltersResponse_nextToken :: Lens.Lens' ListVocabularyFiltersResponse (Prelude.Maybe Prelude.Text)
 listVocabularyFiltersResponse_nextToken = Lens.lens (\ListVocabularyFiltersResponse' {nextToken} -> nextToken) (\s@ListVocabularyFiltersResponse' {} a -> s {nextToken = a} :: ListVocabularyFiltersResponse)
 
--- | The list of vocabulary filters. It contains at most @MaxResults@ number
--- of filters. If there are more filters, call the @ListVocabularyFilters@
--- operation again with the @NextToken@ parameter in the request set to the
--- value of the @NextToken@ field in the response.
+-- | Provides information about the custom vocabulary filters that match the
+-- criteria specified in your request.
 listVocabularyFiltersResponse_vocabularyFilters :: Lens.Lens' ListVocabularyFiltersResponse (Prelude.Maybe [VocabularyFilterInfo])
 listVocabularyFiltersResponse_vocabularyFilters = Lens.lens (\ListVocabularyFiltersResponse' {vocabularyFilters} -> vocabularyFilters) (\s@ListVocabularyFiltersResponse' {} a -> s {vocabularyFilters = a} :: ListVocabularyFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 

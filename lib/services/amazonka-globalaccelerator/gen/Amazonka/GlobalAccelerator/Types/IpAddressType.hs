@@ -20,6 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.IpAddressType
   ( IpAddressType
       ( ..,
+        IpAddressType_DUAL_STACK,
         IpAddressType_IPV4
       ),
   )
@@ -56,10 +57,14 @@ newtype IpAddressType = IpAddressType'
       Core.ToXML
     )
 
+pattern IpAddressType_DUAL_STACK :: IpAddressType
+pattern IpAddressType_DUAL_STACK = IpAddressType' "DUAL_STACK"
+
 pattern IpAddressType_IPV4 :: IpAddressType
 pattern IpAddressType_IPV4 = IpAddressType' "IPV4"
 
 {-# COMPLETE
+  IpAddressType_DUAL_STACK,
   IpAddressType_IPV4,
   IpAddressType'
   #-}

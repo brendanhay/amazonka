@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the settings for sending SMS messages from your account.
+-- Returns the settings for sending SMS messages from your Amazon Web
+-- Services account.
 --
 -- These settings are set with the @SetSMSAttributes@ action.
 module Amazonka.SNS.GetSMSAttributes

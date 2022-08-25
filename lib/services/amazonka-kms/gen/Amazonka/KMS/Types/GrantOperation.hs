@@ -28,12 +28,14 @@ module Amazonka.KMS.Types.GrantOperation
         GrantOperation_GenerateDataKeyPair,
         GrantOperation_GenerateDataKeyPairWithoutPlaintext,
         GrantOperation_GenerateDataKeyWithoutPlaintext,
+        GrantOperation_GenerateMac,
         GrantOperation_GetPublicKey,
         GrantOperation_ReEncryptFrom,
         GrantOperation_ReEncryptTo,
         GrantOperation_RetireGrant,
         GrantOperation_Sign,
-        GrantOperation_Verify
+        GrantOperation_Verify,
+        GrantOperation_VerifyMac
       ),
   )
 where
@@ -93,6 +95,9 @@ pattern GrantOperation_GenerateDataKeyPairWithoutPlaintext = GrantOperation' "Ge
 pattern GrantOperation_GenerateDataKeyWithoutPlaintext :: GrantOperation
 pattern GrantOperation_GenerateDataKeyWithoutPlaintext = GrantOperation' "GenerateDataKeyWithoutPlaintext"
 
+pattern GrantOperation_GenerateMac :: GrantOperation
+pattern GrantOperation_GenerateMac = GrantOperation' "GenerateMac"
+
 pattern GrantOperation_GetPublicKey :: GrantOperation
 pattern GrantOperation_GetPublicKey = GrantOperation' "GetPublicKey"
 
@@ -111,6 +116,9 @@ pattern GrantOperation_Sign = GrantOperation' "Sign"
 pattern GrantOperation_Verify :: GrantOperation
 pattern GrantOperation_Verify = GrantOperation' "Verify"
 
+pattern GrantOperation_VerifyMac :: GrantOperation
+pattern GrantOperation_VerifyMac = GrantOperation' "VerifyMac"
+
 {-# COMPLETE
   GrantOperation_CreateGrant,
   GrantOperation_Decrypt,
@@ -120,11 +128,13 @@ pattern GrantOperation_Verify = GrantOperation' "Verify"
   GrantOperation_GenerateDataKeyPair,
   GrantOperation_GenerateDataKeyPairWithoutPlaintext,
   GrantOperation_GenerateDataKeyWithoutPlaintext,
+  GrantOperation_GenerateMac,
   GrantOperation_GetPublicKey,
   GrantOperation_ReEncryptFrom,
   GrantOperation_ReEncryptTo,
   GrantOperation_RetireGrant,
   GrantOperation_Sign,
   GrantOperation_Verify,
+  GrantOperation_VerifyMac,
   GrantOperation'
   #-}

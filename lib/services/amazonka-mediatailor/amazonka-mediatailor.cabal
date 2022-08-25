@@ -46,18 +46,21 @@ library
     Amazonka.MediaTailor
     Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
     Amazonka.MediaTailor.CreateChannel
+    Amazonka.MediaTailor.CreateLiveSource
     Amazonka.MediaTailor.CreatePrefetchSchedule
     Amazonka.MediaTailor.CreateProgram
     Amazonka.MediaTailor.CreateSourceLocation
     Amazonka.MediaTailor.CreateVodSource
     Amazonka.MediaTailor.DeleteChannel
     Amazonka.MediaTailor.DeleteChannelPolicy
+    Amazonka.MediaTailor.DeleteLiveSource
     Amazonka.MediaTailor.DeletePlaybackConfiguration
     Amazonka.MediaTailor.DeletePrefetchSchedule
     Amazonka.MediaTailor.DeleteProgram
     Amazonka.MediaTailor.DeleteSourceLocation
     Amazonka.MediaTailor.DeleteVodSource
     Amazonka.MediaTailor.DescribeChannel
+    Amazonka.MediaTailor.DescribeLiveSource
     Amazonka.MediaTailor.DescribeProgram
     Amazonka.MediaTailor.DescribeSourceLocation
     Amazonka.MediaTailor.DescribeVodSource
@@ -68,6 +71,7 @@ library
     Amazonka.MediaTailor.Lens
     Amazonka.MediaTailor.ListAlerts
     Amazonka.MediaTailor.ListChannels
+    Amazonka.MediaTailor.ListLiveSources
     Amazonka.MediaTailor.ListPlaybackConfigurations
     Amazonka.MediaTailor.ListPrefetchSchedules
     Amazonka.MediaTailor.ListSourceLocations
@@ -99,6 +103,7 @@ library
     Amazonka.MediaTailor.Types.HttpConfiguration
     Amazonka.MediaTailor.Types.HttpPackageConfiguration
     Amazonka.MediaTailor.Types.LivePreRollConfiguration
+    Amazonka.MediaTailor.Types.LiveSource
     Amazonka.MediaTailor.Types.LogConfiguration
     Amazonka.MediaTailor.Types.ManifestProcessingRules
     Amazonka.MediaTailor.Types.MessageType
@@ -118,14 +123,17 @@ library
     Amazonka.MediaTailor.Types.ScheduleEntry
     Amazonka.MediaTailor.Types.ScheduleEntryType
     Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
+    Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
     Amazonka.MediaTailor.Types.SlateSource
     Amazonka.MediaTailor.Types.SourceLocation
     Amazonka.MediaTailor.Types.SpliceInsertMessage
+    Amazonka.MediaTailor.Types.Tier
     Amazonka.MediaTailor.Types.Transition
     Amazonka.MediaTailor.Types.Type
     Amazonka.MediaTailor.Types.VodSource
     Amazonka.MediaTailor.UntagResource
     Amazonka.MediaTailor.UpdateChannel
+    Amazonka.MediaTailor.UpdateLiveSource
     Amazonka.MediaTailor.UpdateSourceLocation
     Amazonka.MediaTailor.UpdateVodSource
     Amazonka.MediaTailor.Waiters

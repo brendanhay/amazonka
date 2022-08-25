@@ -36,6 +36,7 @@ module Amazonka.IoT.UpdateJob
     updateJob_description,
     updateJob_presignedUrlConfig,
     updateJob_namespaceId,
+    updateJob_jobExecutionsRetryConfig,
     updateJob_timeoutConfig,
     updateJob_jobId,
 
@@ -72,6 +73,8 @@ data UpdateJob = UpdateJob'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to create the criteria to retry a job.
+    jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     -- | Specifies the amount of time each device has to finish its execution of
     -- the job. The timer is started when the job execution status is set to
     -- @IN_PROGRESS@. If the job execution status is not set to another
@@ -109,6 +112,8 @@ data UpdateJob = UpdateJob'
 --
 -- The @namespaceId@ feature is in public preview.
 --
+-- 'jobExecutionsRetryConfig', 'updateJob_jobExecutionsRetryConfig' - Allows you to create the criteria to retry a job.
+--
 -- 'timeoutConfig', 'updateJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
 -- the job. The timer is started when the job execution status is set to
 -- @IN_PROGRESS@. If the job execution status is not set to another
@@ -128,6 +133,7 @@ newUpdateJob pJobId_ =
       description = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
+      jobExecutionsRetryConfig = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       jobId = pJobId_
     }
@@ -160,6 +166,10 @@ updateJob_presignedUrlConfig = Lens.lens (\UpdateJob' {presignedUrlConfig} -> pr
 updateJob_namespaceId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_namespaceId = Lens.lens (\UpdateJob' {namespaceId} -> namespaceId) (\s@UpdateJob' {} a -> s {namespaceId = a} :: UpdateJob)
 
+-- | Allows you to create the criteria to retry a job.
+updateJob_jobExecutionsRetryConfig :: Lens.Lens' UpdateJob (Prelude.Maybe JobExecutionsRetryConfig)
+updateJob_jobExecutionsRetryConfig = Lens.lens (\UpdateJob' {jobExecutionsRetryConfig} -> jobExecutionsRetryConfig) (\s@UpdateJob' {} a -> s {jobExecutionsRetryConfig = a} :: UpdateJob)
+
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. The timer is started when the job execution status is set to
 -- @IN_PROGRESS@. If the job execution status is not set to another
@@ -185,6 +195,7 @@ instance Prelude.Hashable UpdateJob where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` jobExecutionsRetryConfig
       `Prelude.hashWithSalt` timeoutConfig
       `Prelude.hashWithSalt` jobId
 
@@ -195,6 +206,7 @@ instance Prelude.NFData UpdateJob where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf jobId
 
@@ -211,6 +223,8 @@ instance Core.ToJSON UpdateJob where
             ("description" Core..=) Prelude.<$> description,
             ("presignedUrlConfig" Core..=)
               Prelude.<$> presignedUrlConfig,
+            ("jobExecutionsRetryConfig" Core..=)
+              Prelude.<$> jobExecutionsRetryConfig,
             ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig
           ]
       )

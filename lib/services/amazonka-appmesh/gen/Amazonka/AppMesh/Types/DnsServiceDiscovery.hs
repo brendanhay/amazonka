@@ -20,6 +20,7 @@
 module Amazonka.AppMesh.Types.DnsServiceDiscovery where
 
 import Amazonka.AppMesh.Types.DnsResponseType
+import Amazonka.AppMesh.Types.IpPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -31,6 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data DnsServiceDiscovery = DnsServiceDiscovery'
   { -- | Specifies the DNS response type for the virtual node.
     responseType :: Prelude.Maybe DnsResponseType,
+    -- | The preferred IP version that this virtual node uses. Setting the IP
+    -- preference on the virtual node only overrides the IP preference set for
+    -- the mesh on this specific node.
+    ipPreference :: Prelude.Maybe IpPreference,
     -- | Specifies the DNS service discovery hostname for the virtual node.
     hostname :: Prelude.Text
   }
@@ -46,6 +51,10 @@ data DnsServiceDiscovery = DnsServiceDiscovery'
 --
 -- 'responseType', 'dnsServiceDiscovery_responseType' - Specifies the DNS response type for the virtual node.
 --
+-- 'ipPreference', 'dnsServiceDiscovery_ipPreference' - The preferred IP version that this virtual node uses. Setting the IP
+-- preference on the virtual node only overrides the IP preference set for
+-- the mesh on this specific node.
+--
 -- 'hostname', 'dnsServiceDiscovery_hostname' - Specifies the DNS service discovery hostname for the virtual node.
 newDnsServiceDiscovery ::
   -- | 'hostname'
@@ -55,12 +64,19 @@ newDnsServiceDiscovery pHostname_ =
   DnsServiceDiscovery'
     { responseType =
         Prelude.Nothing,
+      ipPreference = Prelude.Nothing,
       hostname = pHostname_
     }
 
 -- | Specifies the DNS response type for the virtual node.
 dnsServiceDiscovery_responseType :: Lens.Lens' DnsServiceDiscovery (Prelude.Maybe DnsResponseType)
 dnsServiceDiscovery_responseType = Lens.lens (\DnsServiceDiscovery' {responseType} -> responseType) (\s@DnsServiceDiscovery' {} a -> s {responseType = a} :: DnsServiceDiscovery)
+
+-- | The preferred IP version that this virtual node uses. Setting the IP
+-- preference on the virtual node only overrides the IP preference set for
+-- the mesh on this specific node.
+dnsServiceDiscovery_ipPreference :: Lens.Lens' DnsServiceDiscovery (Prelude.Maybe IpPreference)
+dnsServiceDiscovery_ipPreference = Lens.lens (\DnsServiceDiscovery' {ipPreference} -> ipPreference) (\s@DnsServiceDiscovery' {} a -> s {ipPreference = a} :: DnsServiceDiscovery)
 
 -- | Specifies the DNS service discovery hostname for the virtual node.
 dnsServiceDiscovery_hostname :: Lens.Lens' DnsServiceDiscovery Prelude.Text
@@ -73,17 +89,20 @@ instance Core.FromJSON DnsServiceDiscovery where
       ( \x ->
           DnsServiceDiscovery'
             Prelude.<$> (x Core..:? "responseType")
+            Prelude.<*> (x Core..:? "ipPreference")
             Prelude.<*> (x Core..: "hostname")
       )
 
 instance Prelude.Hashable DnsServiceDiscovery where
   hashWithSalt _salt DnsServiceDiscovery' {..} =
     _salt `Prelude.hashWithSalt` responseType
+      `Prelude.hashWithSalt` ipPreference
       `Prelude.hashWithSalt` hostname
 
 instance Prelude.NFData DnsServiceDiscovery where
   rnf DnsServiceDiscovery' {..} =
     Prelude.rnf responseType
+      `Prelude.seq` Prelude.rnf ipPreference
       `Prelude.seq` Prelude.rnf hostname
 
 instance Core.ToJSON DnsServiceDiscovery where
@@ -91,6 +110,7 @@ instance Core.ToJSON DnsServiceDiscovery where
     Core.object
       ( Prelude.catMaybes
           [ ("responseType" Core..=) Prelude.<$> responseType,
+            ("ipPreference" Core..=) Prelude.<$> ipPreference,
             Prelude.Just ("hostname" Core..= hostname)
           ]
       )

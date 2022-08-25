@@ -38,7 +38,8 @@ data AwsEcrRepositoryDetails = AwsEcrRepositoryDetails'
     repositoryPolicyText :: Prelude.Maybe Prelude.Text,
     -- | Information about the lifecycle policy for the repository.
     lifecyclePolicy :: Prelude.Maybe AwsEcrRepositoryLifecyclePolicyDetails,
-    -- | The tag mutability setting for the repository.
+    -- | The tag mutability setting for the repository. Valid values are
+    -- @IMMUTABLE@ or @MUTABLE@.
     imageTagMutability :: Prelude.Maybe Prelude.Text,
     -- | The image scanning configuration for a repository.
     imageScanningConfiguration :: Prelude.Maybe AwsEcrRepositoryImageScanningConfigurationDetails
@@ -61,7 +62,8 @@ data AwsEcrRepositoryDetails = AwsEcrRepositoryDetails'
 --
 -- 'lifecyclePolicy', 'awsEcrRepositoryDetails_lifecyclePolicy' - Information about the lifecycle policy for the repository.
 --
--- 'imageTagMutability', 'awsEcrRepositoryDetails_imageTagMutability' - The tag mutability setting for the repository.
+-- 'imageTagMutability', 'awsEcrRepositoryDetails_imageTagMutability' - The tag mutability setting for the repository. Valid values are
+-- @IMMUTABLE@ or @MUTABLE@.
 --
 -- 'imageScanningConfiguration', 'awsEcrRepositoryDetails_imageScanningConfiguration' - The image scanning configuration for a repository.
 newAwsEcrRepositoryDetails ::
@@ -93,7 +95,8 @@ awsEcrRepositoryDetails_repositoryPolicyText = Lens.lens (\AwsEcrRepositoryDetai
 awsEcrRepositoryDetails_lifecyclePolicy :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe AwsEcrRepositoryLifecyclePolicyDetails)
 awsEcrRepositoryDetails_lifecyclePolicy = Lens.lens (\AwsEcrRepositoryDetails' {lifecyclePolicy} -> lifecyclePolicy) (\s@AwsEcrRepositoryDetails' {} a -> s {lifecyclePolicy = a} :: AwsEcrRepositoryDetails)
 
--- | The tag mutability setting for the repository.
+-- | The tag mutability setting for the repository. Valid values are
+-- @IMMUTABLE@ or @MUTABLE@.
 awsEcrRepositoryDetails_imageTagMutability :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
 awsEcrRepositoryDetails_imageTagMutability = Lens.lens (\AwsEcrRepositoryDetails' {imageTagMutability} -> imageTagMutability) (\s@AwsEcrRepositoryDetails' {} a -> s {imageTagMutability = a} :: AwsEcrRepositoryDetails)
 

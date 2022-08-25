@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified member account from Amazon Macie Classic.
+-- (Discontinued) Removes the specified member account from Amazon Macie
+-- Classic.
 module Amazonka.Macie.DisassociateMemberAccount
   ( -- * Creating a Request
     DisassociateMemberAccount (..),
@@ -44,8 +45,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateMemberAccount' smart constructor.
 data DisassociateMemberAccount = DisassociateMemberAccount'
-  { -- | The ID of the member account that you want to remove from Amazon Macie
-    -- Classic.
+  { -- | (Discontinued) The ID of the member account that you want to remove from
+    -- Amazon Macie Classic.
     memberAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,8 +59,8 @@ data DisassociateMemberAccount = DisassociateMemberAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberAccountId', 'disassociateMemberAccount_memberAccountId' - The ID of the member account that you want to remove from Amazon Macie
--- Classic.
+-- 'memberAccountId', 'disassociateMemberAccount_memberAccountId' - (Discontinued) The ID of the member account that you want to remove from
+-- Amazon Macie Classic.
 newDisassociateMemberAccount ::
   -- | 'memberAccountId'
   Prelude.Text ->
@@ -70,8 +71,8 @@ newDisassociateMemberAccount pMemberAccountId_ =
         pMemberAccountId_
     }
 
--- | The ID of the member account that you want to remove from Amazon Macie
--- Classic.
+-- | (Discontinued) The ID of the member account that you want to remove from
+-- Amazon Macie Classic.
 disassociateMemberAccount_memberAccountId :: Lens.Lens' DisassociateMemberAccount Prelude.Text
 disassociateMemberAccount_memberAccountId = Lens.lens (\DisassociateMemberAccount' {memberAccountId} -> memberAccountId) (\s@DisassociateMemberAccount' {} a -> s {memberAccountId = a} :: DisassociateMemberAccount)
 

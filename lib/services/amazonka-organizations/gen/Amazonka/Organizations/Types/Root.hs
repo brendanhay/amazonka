@@ -26,7 +26,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a root. A root is a top-level parent node in the
 -- hierarchy of an organization that can contain organizational units (OUs)
--- and accounts. The root contains every AWS account in the organization.
+-- and accounts. The root contains every Amazon Web Services account in the
+-- organization.
 --
 -- /See:/ 'newRoot' smart constructor.
 data Root = Root'
@@ -40,7 +41,7 @@ data Root = Root'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The types of policies that are currently enabled for the root and
     -- therefore can be attached to the root or to its OUs or accounts.
@@ -76,7 +77,7 @@ data Root = Root'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 --
 -- 'policyTypes', 'root_policyTypes' - The types of policies that are currently enabled for the root and
 -- therefore can be attached to the root or to its OUs or accounts.
@@ -112,7 +113,7 @@ root_name = Lens.lens (\Root' {name} -> name) (\s@Root' {} a -> s {name = a} :: 
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 root_arn :: Lens.Lens' Root (Prelude.Maybe Prelude.Text)
 root_arn = Lens.lens (\Root' {arn} -> arn) (\s@Root' {} a -> s {arn = a} :: Root)
 

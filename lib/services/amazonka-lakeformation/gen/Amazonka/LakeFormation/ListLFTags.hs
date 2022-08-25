@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists tags that the requester has permission to view.
+-- Lists LF-tags that the requester has permission to view.
+--
+-- This operation returns paginated results.
 module Amazonka.LakeFormation.ListLFTags
   ( -- * Creating a Request
     ListLFTags (..),
@@ -55,18 +57,18 @@ data ListLFTags = ListLFTags'
   { -- | A continuation token, if this is not the first call to retrieve this
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If resource share type is @ALL@, returns both in-account tags and shared
-    -- tags that the requester has permission to view. If resource share type
-    -- is @FOREIGN@, returns all share tags that the requester can view. If no
-    -- resource share type is passed, lists tags in the given catalog ID that
-    -- the requester has permission to view.
+    -- | If resource share type is @ALL@, returns both in-account LF-tags and
+    -- shared LF-tags that the requester has permission to view. If resource
+    -- share type is @FOREIGN@, returns all share LF-tags that the requester
+    -- can view. If no resource share type is passed, lists LF-tags in the
+    -- given catalog ID that the requester has permission to view.
     resourceShareType :: Prelude.Maybe ResourceShareType,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,18 +84,18 @@ data ListLFTags = ListLFTags'
 -- 'nextToken', 'listLFTags_nextToken' - A continuation token, if this is not the first call to retrieve this
 -- list.
 --
--- 'resourceShareType', 'listLFTags_resourceShareType' - If resource share type is @ALL@, returns both in-account tags and shared
--- tags that the requester has permission to view. If resource share type
--- is @FOREIGN@, returns all share tags that the requester can view. If no
--- resource share type is passed, lists tags in the given catalog ID that
--- the requester has permission to view.
+-- 'resourceShareType', 'listLFTags_resourceShareType' - If resource share type is @ALL@, returns both in-account LF-tags and
+-- shared LF-tags that the requester has permission to view. If resource
+-- share type is @FOREIGN@, returns all share LF-tags that the requester
+-- can view. If no resource share type is passed, lists LF-tags in the
+-- given catalog ID that the requester has permission to view.
 --
 -- 'maxResults', 'listLFTags_maxResults' - The maximum number of results to return.
 --
 -- 'catalogId', 'listLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 newListLFTags ::
   ListLFTags
 newListLFTags =
@@ -109,11 +111,11 @@ newListLFTags =
 listLFTags_nextToken :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Text)
 listLFTags_nextToken = Lens.lens (\ListLFTags' {nextToken} -> nextToken) (\s@ListLFTags' {} a -> s {nextToken = a} :: ListLFTags)
 
--- | If resource share type is @ALL@, returns both in-account tags and shared
--- tags that the requester has permission to view. If resource share type
--- is @FOREIGN@, returns all share tags that the requester can view. If no
--- resource share type is passed, lists tags in the given catalog ID that
--- the requester has permission to view.
+-- | If resource share type is @ALL@, returns both in-account LF-tags and
+-- shared LF-tags that the requester has permission to view. If resource
+-- share type is @FOREIGN@, returns all share LF-tags that the requester
+-- can view. If no resource share type is passed, lists LF-tags in the
+-- given catalog ID that the requester has permission to view.
 listLFTags_resourceShareType :: Lens.Lens' ListLFTags (Prelude.Maybe ResourceShareType)
 listLFTags_resourceShareType = Lens.lens (\ListLFTags' {resourceShareType} -> resourceShareType) (\s@ListLFTags' {} a -> s {resourceShareType = a} :: ListLFTags)
 
@@ -124,9 +126,29 @@ listLFTags_maxResults = Lens.lens (\ListLFTags' {maxResults} -> maxResults) (\s@
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 listLFTags_catalogId :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Text)
 listLFTags_catalogId = Lens.lens (\ListLFTags' {catalogId} -> catalogId) (\s@ListLFTags' {} a -> s {catalogId = a} :: ListLFTags)
+
+instance Core.AWSPager ListLFTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listLFTagsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listLFTagsResponse_lFTags Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listLFTags_nextToken
+          Lens..~ rs
+          Lens.^? listLFTagsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLFTags where
   type AWSResponse ListLFTags = ListLFTagsResponse
@@ -158,11 +180,7 @@ instance Core.ToHeaders ListLFTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.ListLFTags" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -182,7 +200,7 @@ instance Core.ToJSON ListLFTags where
       )
 
 instance Core.ToPath ListLFTags where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/ListLFTags"
 
 instance Core.ToQuery ListLFTags where
   toQuery = Prelude.const Prelude.mempty
@@ -192,7 +210,7 @@ data ListLFTagsResponse = ListLFTagsResponse'
   { -- | A continuation token, present if the current list segment is not the
     -- last.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags that the requested has permission to view.
+    -- | A list of LF-tags that the requested has permission to view.
     lFTags :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -210,7 +228,7 @@ data ListLFTagsResponse = ListLFTagsResponse'
 -- 'nextToken', 'listLFTagsResponse_nextToken' - A continuation token, present if the current list segment is not the
 -- last.
 --
--- 'lFTags', 'listLFTagsResponse_lFTags' - A list of tags that the requested has permission to view.
+-- 'lFTags', 'listLFTagsResponse_lFTags' - A list of LF-tags that the requested has permission to view.
 --
 -- 'httpStatus', 'listLFTagsResponse_httpStatus' - The response's http status code.
 newListLFTagsResponse ::
@@ -229,7 +247,7 @@ newListLFTagsResponse pHttpStatus_ =
 listLFTagsResponse_nextToken :: Lens.Lens' ListLFTagsResponse (Prelude.Maybe Prelude.Text)
 listLFTagsResponse_nextToken = Lens.lens (\ListLFTagsResponse' {nextToken} -> nextToken) (\s@ListLFTagsResponse' {} a -> s {nextToken = a} :: ListLFTagsResponse)
 
--- | A list of tags that the requested has permission to view.
+-- | A list of LF-tags that the requested has permission to view.
 listLFTagsResponse_lFTags :: Lens.Lens' ListLFTagsResponse (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 listLFTagsResponse_lFTags = Lens.lens (\ListLFTagsResponse' {lFTags} -> lFTags) (\s@ListLFTagsResponse' {} a -> s {lFTags = a} :: ListLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 

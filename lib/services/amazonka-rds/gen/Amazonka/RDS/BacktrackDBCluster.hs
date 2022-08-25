@@ -25,9 +25,9 @@
 --
 -- For more information on backtracking, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html Backtracking an Aurora DB Cluster>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora MySQL DB clusters.
+-- This action applies only to Aurora MySQL DB clusters.
 module Amazonka.RDS.BacktrackDBCluster
   ( -- * Creating a Request
     BacktrackDBCluster (..),

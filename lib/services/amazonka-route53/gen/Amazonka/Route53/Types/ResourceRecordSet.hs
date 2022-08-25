@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.AliasTarget
+import Amazonka.Route53.Types.CidrRoutingConfig
 import Amazonka.Route53.Types.GeoLocation
 import Amazonka.Route53.Types.RRType
 import Amazonka.Route53.Types.ResourceRecord
@@ -33,7 +34,8 @@ import Amazonka.Route53.Types.ResourceRecordSetFailover
 --
 -- /See:/ 'newResourceRecordSet' smart constructor.
 data ResourceRecordSet = ResourceRecordSet'
-  { -- | The resource record cache time to live (TTL), in seconds. Note the
+  { cidrRoutingConfig :: Prelude.Maybe CidrRoutingConfig,
+    -- | The resource record cache time to live (TTL), in seconds. Note the
     -- following:
     --
     -- -   If you\'re creating or updating an alias resource record set, omit
@@ -508,6 +510,8 @@ data ResourceRecordSet = ResourceRecordSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrRoutingConfig', 'resourceRecordSet_cidrRoutingConfig' - Undocumented member.
+--
 -- 'ttl', 'resourceRecordSet_ttl' - The resource record cache time to live (TTL), in seconds. Note the
 -- following:
 --
@@ -979,7 +983,9 @@ newResourceRecordSet ::
   ResourceRecordSet
 newResourceRecordSet pName_ pType_ =
   ResourceRecordSet'
-    { ttl = Prelude.Nothing,
+    { cidrRoutingConfig =
+        Prelude.Nothing,
+      ttl = Prelude.Nothing,
       multiValueAnswer = Prelude.Nothing,
       trafficPolicyInstanceId = Prelude.Nothing,
       region = Prelude.Nothing,
@@ -993,6 +999,10 @@ newResourceRecordSet pName_ pType_ =
       name = pName_,
       type' = pType_
     }
+
+-- | Undocumented member.
+resourceRecordSet_cidrRoutingConfig :: Lens.Lens' ResourceRecordSet (Prelude.Maybe CidrRoutingConfig)
+resourceRecordSet_cidrRoutingConfig = Lens.lens (\ResourceRecordSet' {cidrRoutingConfig} -> cidrRoutingConfig) (\s@ResourceRecordSet' {} a -> s {cidrRoutingConfig = a} :: ResourceRecordSet)
 
 -- | The resource record cache time to live (TTL), in seconds. Note the
 -- following:
@@ -1487,7 +1497,8 @@ resourceRecordSet_type = Lens.lens (\ResourceRecordSet' {type'} -> type') (\s@Re
 instance Core.FromXML ResourceRecordSet where
   parseXML x =
     ResourceRecordSet'
-      Prelude.<$> (x Core..@? "TTL")
+      Prelude.<$> (x Core..@? "CidrRoutingConfig")
+      Prelude.<*> (x Core..@? "TTL")
       Prelude.<*> (x Core..@? "MultiValueAnswer")
       Prelude.<*> (x Core..@? "TrafficPolicyInstanceId")
       Prelude.<*> (x Core..@? "Region")
@@ -1505,7 +1516,8 @@ instance Core.FromXML ResourceRecordSet where
 
 instance Prelude.Hashable ResourceRecordSet where
   hashWithSalt _salt ResourceRecordSet' {..} =
-    _salt `Prelude.hashWithSalt` ttl
+    _salt `Prelude.hashWithSalt` cidrRoutingConfig
+      `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` multiValueAnswer
       `Prelude.hashWithSalt` trafficPolicyInstanceId
       `Prelude.hashWithSalt` region
@@ -1521,7 +1533,8 @@ instance Prelude.Hashable ResourceRecordSet where
 
 instance Prelude.NFData ResourceRecordSet where
   rnf ResourceRecordSet' {..} =
-    Prelude.rnf ttl
+    Prelude.rnf cidrRoutingConfig
+      `Prelude.seq` Prelude.rnf ttl
       `Prelude.seq` Prelude.rnf multiValueAnswer
       `Prelude.seq` Prelude.rnf trafficPolicyInstanceId
       `Prelude.seq` Prelude.rnf region
@@ -1538,7 +1551,8 @@ instance Prelude.NFData ResourceRecordSet where
 instance Core.ToXML ResourceRecordSet where
   toXML ResourceRecordSet' {..} =
     Prelude.mconcat
-      [ "TTL" Core.@= ttl,
+      [ "CidrRoutingConfig" Core.@= cidrRoutingConfig,
+        "TTL" Core.@= ttl,
         "MultiValueAnswer" Core.@= multiValueAnswer,
         "TrafficPolicyInstanceId"
           Core.@= trafficPolicyInstanceId,

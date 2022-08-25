@@ -29,11 +29,13 @@ module Amazonka.EC2.ModifyClientVpnEndpoint
 
     -- * Request Lenses
     modifyClientVpnEndpoint_serverCertificateArn,
+    modifyClientVpnEndpoint_sessionTimeoutHours,
     modifyClientVpnEndpoint_securityGroupIds,
     modifyClientVpnEndpoint_dnsServers,
     modifyClientVpnEndpoint_connectionLogOptions,
     modifyClientVpnEndpoint_description,
     modifyClientVpnEndpoint_dryRun,
+    modifyClientVpnEndpoint_clientLoginBannerOptions,
     modifyClientVpnEndpoint_clientConnectOptions,
     modifyClientVpnEndpoint_splitTunnel,
     modifyClientVpnEndpoint_vpcId,
@@ -63,6 +65,12 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
   { -- | The ARN of the server certificate to be used. The server certificate
     -- must be provisioned in Certificate Manager (ACM).
     serverCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum VPN session duration time in hours.
+    --
+    -- Valid values: @8 | 10 | 12 | 24@
+    --
+    -- Default value: @24@
+    sessionTimeoutHours :: Prelude.Maybe Prelude.Int,
     -- | The IDs of one or more security groups to apply to the target network.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Information about the DNS servers to be used by Client VPN connections.
@@ -89,6 +97,10 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Options for enabling a customizable text banner that will be displayed
+    -- on Amazon Web Services provided clients when a VPN session is
+    -- established.
+    clientLoginBannerOptions :: Prelude.Maybe ClientLoginBannerOptions,
     -- | The options for managing connection authorization for new client
     -- connections.
     clientConnectOptions :: Prelude.Maybe ClientConnectOptions,
@@ -126,6 +138,12 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 -- 'serverCertificateArn', 'modifyClientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate to be used. The server certificate
 -- must be provisioned in Certificate Manager (ACM).
 --
+-- 'sessionTimeoutHours', 'modifyClientVpnEndpoint_sessionTimeoutHours' - The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+--
 -- 'securityGroupIds', 'modifyClientVpnEndpoint_securityGroupIds' - The IDs of one or more security groups to apply to the target network.
 --
 -- 'dnsServers', 'modifyClientVpnEndpoint_dnsServers' - Information about the DNS servers to be used by Client VPN connections.
@@ -151,6 +169,10 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'clientLoginBannerOptions', 'modifyClientVpnEndpoint_clientLoginBannerOptions' - Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
 --
 -- 'clientConnectOptions', 'modifyClientVpnEndpoint_clientConnectOptions' - The options for managing connection authorization for new client
 -- connections.
@@ -182,11 +204,13 @@ newModifyClientVpnEndpoint pClientVpnEndpointId_ =
   ModifyClientVpnEndpoint'
     { serverCertificateArn =
         Prelude.Nothing,
+      sessionTimeoutHours = Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
       dnsServers = Prelude.Nothing,
       connectionLogOptions = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      clientLoginBannerOptions = Prelude.Nothing,
       clientConnectOptions = Prelude.Nothing,
       splitTunnel = Prelude.Nothing,
       vpcId = Prelude.Nothing,
@@ -199,6 +223,14 @@ newModifyClientVpnEndpoint pClientVpnEndpointId_ =
 -- must be provisioned in Certificate Manager (ACM).
 modifyClientVpnEndpoint_serverCertificateArn :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Text)
 modifyClientVpnEndpoint_serverCertificateArn = Lens.lens (\ModifyClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@ModifyClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: ModifyClientVpnEndpoint)
+
+-- | The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+modifyClientVpnEndpoint_sessionTimeoutHours :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Int)
+modifyClientVpnEndpoint_sessionTimeoutHours = Lens.lens (\ModifyClientVpnEndpoint' {sessionTimeoutHours} -> sessionTimeoutHours) (\s@ModifyClientVpnEndpoint' {} a -> s {sessionTimeoutHours = a} :: ModifyClientVpnEndpoint)
 
 -- | The IDs of one or more security groups to apply to the target network.
 modifyClientVpnEndpoint_securityGroupIds :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
@@ -235,6 +267,12 @@ modifyClientVpnEndpoint_description = Lens.lens (\ModifyClientVpnEndpoint' {desc
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyClientVpnEndpoint_dryRun :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 modifyClientVpnEndpoint_dryRun = Lens.lens (\ModifyClientVpnEndpoint' {dryRun} -> dryRun) (\s@ModifyClientVpnEndpoint' {} a -> s {dryRun = a} :: ModifyClientVpnEndpoint)
+
+-- | Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
+modifyClientVpnEndpoint_clientLoginBannerOptions :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe ClientLoginBannerOptions)
+modifyClientVpnEndpoint_clientLoginBannerOptions = Lens.lens (\ModifyClientVpnEndpoint' {clientLoginBannerOptions} -> clientLoginBannerOptions) (\s@ModifyClientVpnEndpoint' {} a -> s {clientLoginBannerOptions = a} :: ModifyClientVpnEndpoint)
 
 -- | The options for managing connection authorization for new client
 -- connections.
@@ -287,11 +325,13 @@ instance Core.AWSRequest ModifyClientVpnEndpoint where
 instance Prelude.Hashable ModifyClientVpnEndpoint where
   hashWithSalt _salt ModifyClientVpnEndpoint' {..} =
     _salt `Prelude.hashWithSalt` serverCertificateArn
+      `Prelude.hashWithSalt` sessionTimeoutHours
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` dnsServers
       `Prelude.hashWithSalt` connectionLogOptions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientLoginBannerOptions
       `Prelude.hashWithSalt` clientConnectOptions
       `Prelude.hashWithSalt` splitTunnel
       `Prelude.hashWithSalt` vpcId
@@ -302,11 +342,13 @@ instance Prelude.Hashable ModifyClientVpnEndpoint where
 instance Prelude.NFData ModifyClientVpnEndpoint where
   rnf ModifyClientVpnEndpoint' {..} =
     Prelude.rnf serverCertificateArn
+      `Prelude.seq` Prelude.rnf sessionTimeoutHours
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf dnsServers
       `Prelude.seq` Prelude.rnf connectionLogOptions
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
       `Prelude.seq` Prelude.rnf clientConnectOptions
       `Prelude.seq` Prelude.rnf splitTunnel
       `Prelude.seq` Prelude.rnf vpcId
@@ -328,6 +370,7 @@ instance Core.ToQuery ModifyClientVpnEndpoint where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ServerCertificateArn" Core.=: serverCertificateArn,
+        "SessionTimeoutHours" Core.=: sessionTimeoutHours,
         Core.toQuery
           ( Core.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
@@ -336,6 +379,8 @@ instance Core.ToQuery ModifyClientVpnEndpoint where
         "ConnectionLogOptions" Core.=: connectionLogOptions,
         "Description" Core.=: description,
         "DryRun" Core.=: dryRun,
+        "ClientLoginBannerOptions"
+          Core.=: clientLoginBannerOptions,
         "ClientConnectOptions" Core.=: clientConnectOptions,
         "SplitTunnel" Core.=: splitTunnel,
         "VpcId" Core.=: vpcId,

@@ -24,12 +24,17 @@
 -- value of the campaign\'s @minProvisionedTPS@ parameter.
 --
 -- To update a campaign, the campaign status must be ACTIVE or CREATE
--- FAILED. Check the campaign status using the DescribeCampaign API.
+-- FAILED. Check the campaign status using the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html DescribeCampaign>
+-- operation.
 --
--- You must wait until the @status@ of the updated campaign is @ACTIVE@
--- before asking the campaign for recommendations.
+-- You can still get recommendations from a campaign while an update is in
+-- progress. The campaign will use the previous solution version and
+-- campaign configuration to generate recommendations until the latest
+-- campaign update status is @Active@.
 --
--- For more information on campaigns, see CreateCampaign.
+-- For more information on campaigns, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html CreateCampaign>.
 module Amazonka.Personalize.UpdateCampaign
   ( -- * Creating a Request
     UpdateCampaign (..),

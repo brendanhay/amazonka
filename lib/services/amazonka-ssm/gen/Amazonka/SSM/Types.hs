@@ -139,6 +139,7 @@ module Amazonka.SSM.Types
     _OpsMetadataLimitExceededException,
     _OpsMetadataAlreadyExistsException,
     _UnsupportedOperatingSystem,
+    _InvalidTargetMaps,
 
     -- * AssociationComplianceSeverity
     AssociationComplianceSeverity (..),
@@ -383,6 +384,9 @@ module Amazonka.SSM.Types
     -- * SignalType
     SignalType (..),
 
+    -- * SourceType
+    SourceType (..),
+
     -- * StepExecutionFilterKey
     StepExecutionFilterKey (..),
 
@@ -415,8 +419,10 @@ module Amazonka.SSM.Types
     association_associationName,
     association_name,
     association_associationVersion,
+    association_targetMaps,
     association_targets,
     association_scheduleExpression,
+    association_scheduleOffset,
     association_instanceId,
     association_overview,
     association_lastExecutionDate,
@@ -433,11 +439,13 @@ module Amazonka.SSM.Types
     associationDescription_targetLocations,
     associationDescription_date,
     associationDescription_automationTargetParameterName,
+    associationDescription_targetMaps,
     associationDescription_outputLocation,
     associationDescription_status,
     associationDescription_targets,
     associationDescription_calendarNames,
     associationDescription_scheduleExpression,
+    associationDescription_scheduleOffset,
     associationDescription_instanceId,
     associationDescription_overview,
     associationDescription_lastUpdateAssociationDate,
@@ -517,10 +525,12 @@ module Amazonka.SSM.Types
     associationVersionInfo_name,
     associationVersionInfo_associationVersion,
     associationVersionInfo_targetLocations,
+    associationVersionInfo_targetMaps,
     associationVersionInfo_outputLocation,
     associationVersionInfo_targets,
     associationVersionInfo_calendarNames,
     associationVersionInfo_scheduleExpression,
+    associationVersionInfo_scheduleOffset,
     associationVersionInfo_maxConcurrency,
     associationVersionInfo_applyOnlyAtCronInterval,
     associationVersionInfo_maxErrors,
@@ -769,10 +779,12 @@ module Amazonka.SSM.Types
     createAssociationBatchRequestEntry_associationName,
     createAssociationBatchRequestEntry_targetLocations,
     createAssociationBatchRequestEntry_automationTargetParameterName,
+    createAssociationBatchRequestEntry_targetMaps,
     createAssociationBatchRequestEntry_outputLocation,
     createAssociationBatchRequestEntry_targets,
     createAssociationBatchRequestEntry_calendarNames,
     createAssociationBatchRequestEntry_scheduleExpression,
+    createAssociationBatchRequestEntry_scheduleOffset,
     createAssociationBatchRequestEntry_instanceId,
     createAssociationBatchRequestEntry_maxConcurrency,
     createAssociationBatchRequestEntry_applyOnlyAtCronInterval,
@@ -818,7 +830,9 @@ module Amazonka.SSM.Types
     documentDescription_versionName,
     documentDescription_reviewInformation,
     documentDescription_platformTypes,
+    documentDescription_categoryEnum,
     documentDescription_statusInformation,
+    documentDescription_category,
     documentDescription_schemaVersion,
     documentDescription_createdDate,
     documentDescription_approvedVersion,
@@ -980,6 +994,7 @@ module Amazonka.SSM.Types
     instanceInformation_pingStatus,
     instanceInformation_name,
     instanceInformation_iamRole,
+    instanceInformation_sourceId,
     instanceInformation_registrationDate,
     instanceInformation_lastPingDateTime,
     instanceInformation_platformType,
@@ -987,6 +1002,7 @@ module Amazonka.SSM.Types
     instanceInformation_computerName,
     instanceInformation_lastAssociationExecutionDate,
     instanceInformation_associationStatus,
+    instanceInformation_sourceType,
     instanceInformation_activationId,
     instanceInformation_isLatestVersion,
     instanceInformation_instanceId,
@@ -1626,6 +1642,12 @@ module Amazonka.SSM.Types
     progressCounters_successSteps,
     progressCounters_totalSteps,
 
+    -- * RegistrationMetadataItem
+    RegistrationMetadataItem (..),
+    newRegistrationMetadataItem,
+    registrationMetadataItem_key,
+    registrationMetadataItem_value,
+
     -- * RelatedOpsItem
     RelatedOpsItem (..),
     newRelatedOpsItem,
@@ -1725,6 +1747,7 @@ module Amazonka.SSM.Types
     newRunbook,
     runbook_targetLocations,
     runbook_targetParameterName,
+    runbook_targetMaps,
     runbook_targets,
     runbook_maxConcurrency,
     runbook_maxErrors,
@@ -1773,6 +1796,8 @@ module Amazonka.SSM.Types
     session_startDate,
     session_documentName,
     session_sessionId,
+    session_reason,
+    session_maxSessionDuration,
 
     -- * SessionFilter
     SessionFilter (..),
@@ -2049,6 +2074,7 @@ import Amazonka.SSM.Types.PingStatus
 import Amazonka.SSM.Types.PlatformType
 import Amazonka.SSM.Types.ProgressCounters
 import Amazonka.SSM.Types.RebootOption
+import Amazonka.SSM.Types.RegistrationMetadataItem
 import Amazonka.SSM.Types.RelatedOpsItem
 import Amazonka.SSM.Types.ResolvedTargets
 import Amazonka.SSM.Types.ResourceComplianceSummaryItem
@@ -2078,6 +2104,7 @@ import Amazonka.SSM.Types.SessionState
 import Amazonka.SSM.Types.SessionStatus
 import Amazonka.SSM.Types.SeveritySummary
 import Amazonka.SSM.Types.SignalType
+import Amazonka.SSM.Types.SourceType
 import Amazonka.SSM.Types.StepExecution
 import Amazonka.SSM.Types.StepExecutionFilter
 import Amazonka.SSM.Types.StepExecutionFilterKey
@@ -2174,8 +2201,9 @@ _InvalidAggregatorException =
     defaultService
     "InvalidAggregatorException"
 
--- | The command ID and instance ID you specified didn\'t match any
--- invocations. Verify the command ID and the instance ID and try again.
+-- | The command ID and managed node ID you specified didn\'t match any
+-- invocations. Verify the command ID and the managed node ID and try
+-- again.
 _InvocationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvocationDoesNotExist =
   Core._MatchServiceError
@@ -2328,9 +2356,9 @@ _InvalidPolicyAttributeException =
     defaultService
     "InvalidPolicyAttributeException"
 
--- | The document doesn\'t support the platform type of the given instance
--- ID(s). For example, you sent an document for a Windows instance to a
--- Linux instance.
+-- | The document doesn\'t support the platform type of the given managed
+-- node ID(s). For example, you sent an document for a Windows managed node
+-- to a Linux node.
 _UnsupportedPlatformType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedPlatformType =
   Core._MatchServiceError
@@ -2511,12 +2539,12 @@ _ParameterVersionLabelLimitExceeded =
     defaultService
     "ParameterVersionLabelLimitExceeded"
 
--- | The specified target instance for the session isn\'t fully configured
--- for use with Session Manager. For more information, see
+-- | The specified target managed node for the session isn\'t fully
+-- configured for use with Session Manager. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html Getting started with Session Manager>
 -- in the /Amazon Web Services Systems Manager User Guide/. This error is
--- also returned if you attempt to start a session on an instance that is
--- located in a different account or Region
+-- also returned if you attempt to start a session on a managed node that
+-- is located in a different account or Region
 _TargetNotConnected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TargetNotConnected =
   Core._MatchServiceError
@@ -2762,7 +2790,7 @@ _InvalidSchedule =
 
 -- | The following problems can cause this exception:
 --
--- -   You don\'t have permission to access the instance.
+-- -   You don\'t have permission to access the managed node.
 --
 -- -   Amazon Web Services Systems Manager Agent(SSM Agent) isn\'t running.
 --     Verify that SSM Agent is running.
@@ -2770,7 +2798,7 @@ _InvalidSchedule =
 -- -   SSM Agent isn\'t registered with the SSM endpoint. Try reinstalling
 --     SSM Agent.
 --
--- -   The instance isn\'t in valid state. Valid states are: @Running@,
+-- -   The managed node isn\'t in valid state. Valid states are: @Running@,
 --     @Pending@, @Stopped@, and @Stopping@. Invalid states are:
 --     @Shutting-down@ and @Terminated@.
 _InvalidInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2922,7 +2950,7 @@ _InvalidDocumentOperation =
     defaultService
     "InvalidDocumentOperation"
 
--- | You must disassociate a document from all instances before you can
+-- | You must disassociate a document from all managed nodes before you can
 -- delete it.
 _AssociatedInstances :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AssociatedInstances =
@@ -3077,7 +3105,7 @@ _InvalidActivation =
     defaultService
     "InvalidActivation"
 
--- | You can\'t specify an instance ID in more than one association.
+-- | You can\'t specify a managed node ID in more than one association.
 _DuplicateInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateInstanceId =
   Core._MatchServiceError
@@ -3085,7 +3113,7 @@ _DuplicateInstanceId =
     "DuplicateInstanceId"
 
 -- | The resource type isn\'t valid. For example, if you are attempting to
--- tag an instance, the instance must be a registered, managed instance.
+-- tag an EC2 instance, the instance must be a registered managed node.
 _InvalidResourceType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidResourceType =
   Core._MatchServiceError
@@ -3150,3 +3178,10 @@ _UnsupportedOperatingSystem =
   Core._MatchServiceError
     defaultService
     "UnsupportedOperatingSystem"
+
+-- | TargetMap parameter isn\'t valid.
+_InvalidTargetMaps :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetMaps =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTargetMaps"

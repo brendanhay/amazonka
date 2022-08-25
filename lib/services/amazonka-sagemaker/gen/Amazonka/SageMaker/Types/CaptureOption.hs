@@ -24,11 +24,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureMode
 
--- |
+-- | Specifies data Model Monitor will capture.
 --
 -- /See:/ 'newCaptureOption' smart constructor.
 data CaptureOption = CaptureOption'
-  { captureMode :: CaptureMode
+  { -- | Specify the boundary of data to capture.
+    captureMode :: CaptureMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -40,7 +41,7 @@ data CaptureOption = CaptureOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'captureMode', 'captureOption_captureMode' -
+-- 'captureMode', 'captureOption_captureMode' - Specify the boundary of data to capture.
 newCaptureOption ::
   -- | 'captureMode'
   CaptureMode ->
@@ -48,7 +49,7 @@ newCaptureOption ::
 newCaptureOption pCaptureMode_ =
   CaptureOption' {captureMode = pCaptureMode_}
 
--- |
+-- | Specify the boundary of data to capture.
 captureOption_captureMode :: Lens.Lens' CaptureOption CaptureMode
 captureOption_captureMode = Lens.lens (\CaptureOption' {captureMode} -> captureMode) (\s@CaptureOption' {} a -> s {captureMode = a} :: CaptureOption)
 

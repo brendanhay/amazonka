@@ -29,7 +29,7 @@ import Amazonka.SecurityHub.Types.Ipv6CidrBlockAssociation
 --
 -- /See:/ 'newAwsEc2VpcDetails' smart constructor.
 data AwsEc2VpcDetails = AwsEc2VpcDetails'
-  { -- | The current state of the VPC.
+  { -- | The current state of the VPC. Valid values are @available@ or @pending@.
     state :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the set of Dynamic Host Configuration Protocol (DHCP)
     -- options that are associated with the VPC. If the default options are
@@ -50,7 +50,7 @@ data AwsEc2VpcDetails = AwsEc2VpcDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'awsEc2VpcDetails_state' - The current state of the VPC.
+-- 'state', 'awsEc2VpcDetails_state' - The current state of the VPC. Valid values are @available@ or @pending@.
 --
 -- 'dhcpOptionsId', 'awsEc2VpcDetails_dhcpOptionsId' - The identifier of the set of Dynamic Host Configuration Protocol (DHCP)
 -- options that are associated with the VPC. If the default options are
@@ -69,7 +69,7 @@ newAwsEc2VpcDetails =
       cidrBlockAssociationSet = Prelude.Nothing
     }
 
--- | The current state of the VPC.
+-- | The current state of the VPC. Valid values are @available@ or @pending@.
 awsEc2VpcDetails_state :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpcDetails_state = Lens.lens (\AwsEc2VpcDetails' {state} -> state) (\s@AwsEc2VpcDetails' {} a -> s {state = a} :: AwsEc2VpcDetails)
 

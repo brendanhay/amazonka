@@ -25,7 +25,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings to use when creating a cluster. This parameter is used to
--- enable CloudWatch Container Insights for a cluster.
+-- turn on CloudWatch Container Insights for a cluster.
 --
 -- /See:/ 'newClusterSetting' smart constructor.
 data ClusterSetting = ClusterSetting'

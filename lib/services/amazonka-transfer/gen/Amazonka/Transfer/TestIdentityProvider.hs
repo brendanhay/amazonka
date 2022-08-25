@@ -243,6 +243,9 @@ instance Core.ToQuery TestIdentityProvider where
 -- | /See:/ 'newTestIdentityProviderResponse' smart constructor.
 data TestIdentityProviderResponse = TestIdentityProviderResponse'
   { -- | A message that indicates whether the test was successful or not.
+    --
+    -- If an empty string is returned, the most likely cause is that the
+    -- authentication failed due to an incorrect username or password.
     message :: Prelude.Maybe Prelude.Text,
     -- | The response that is returned from your API Gateway.
     response :: Prelude.Maybe Prelude.Text,
@@ -264,6 +267,9 @@ data TestIdentityProviderResponse = TestIdentityProviderResponse'
 -- for backwards compatibility:
 --
 -- 'message', 'testIdentityProviderResponse_message' - A message that indicates whether the test was successful or not.
+--
+-- If an empty string is returned, the most likely cause is that the
+-- authentication failed due to an incorrect username or password.
 --
 -- 'response', 'testIdentityProviderResponse_response' - The response that is returned from your API Gateway.
 --
@@ -294,6 +300,9 @@ newTestIdentityProviderResponse
       }
 
 -- | A message that indicates whether the test was successful or not.
+--
+-- If an empty string is returned, the most likely cause is that the
+-- authentication failed due to an incorrect username or password.
 testIdentityProviderResponse_message :: Lens.Lens' TestIdentityProviderResponse (Prelude.Maybe Prelude.Text)
 testIdentityProviderResponse_message = Lens.lens (\TestIdentityProviderResponse' {message} -> message) (\s@TestIdentityProviderResponse' {} a -> s {message = a} :: TestIdentityProviderResponse)
 

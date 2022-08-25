@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDeleteChangeSet' smart constructor.
 data DeleteChangeSet = DeleteChangeSet'
   { -- | If you specified the name of a change set to delete, specify the stack
-    -- name or ID (ARN) that is associated with it.
+    -- name or Amazon Resource Name (ARN) that\'s associated with it.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the change set that you want
     -- to delete.
@@ -77,7 +77,7 @@ data DeleteChangeSet = DeleteChangeSet'
 -- for backwards compatibility:
 --
 -- 'stackName', 'deleteChangeSet_stackName' - If you specified the name of a change set to delete, specify the stack
--- name or ID (ARN) that is associated with it.
+-- name or Amazon Resource Name (ARN) that\'s associated with it.
 --
 -- 'changeSetName', 'deleteChangeSet_changeSetName' - The name or Amazon Resource Name (ARN) of the change set that you want
 -- to delete.
@@ -92,7 +92,7 @@ newDeleteChangeSet pChangeSetName_ =
     }
 
 -- | If you specified the name of a change set to delete, specify the stack
--- name or ID (ARN) that is associated with it.
+-- name or Amazon Resource Name (ARN) that\'s associated with it.
 deleteChangeSet_stackName :: Lens.Lens' DeleteChangeSet (Prelude.Maybe Prelude.Text)
 deleteChangeSet_stackName = Lens.lens (\DeleteChangeSet' {stackName} -> stackName) (\s@DeleteChangeSet' {} a -> s {stackName = a} :: DeleteChangeSet)
 

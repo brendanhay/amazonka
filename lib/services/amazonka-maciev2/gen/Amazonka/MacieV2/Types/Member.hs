@@ -44,7 +44,7 @@ data Member = Member'
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
     -- Macie membership invitation was last sent to the account. This value is
-    -- null if a Macie invitation hasn\'t been sent to the account.
+    -- null if an invitation hasn\'t been sent to the account.
     invitedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Web Services account ID for the administrator account.
     administratorAccountId :: Prelude.Maybe Prelude.Text,
@@ -81,7 +81,7 @@ data Member = Member'
 --
 -- 'invitedAt', 'member_invitedAt' - The date and time, in UTC and extended ISO 8601 format, when an Amazon
 -- Macie membership invitation was last sent to the account. This value is
--- null if a Macie invitation hasn\'t been sent to the account.
+-- null if an invitation hasn\'t been sent to the account.
 --
 -- 'administratorAccountId', 'member_administratorAccountId' - The Amazon Web Services account ID for the administrator account.
 --
@@ -131,7 +131,7 @@ member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} 
 
 -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
 -- Macie membership invitation was last sent to the account. This value is
--- null if a Macie invitation hasn\'t been sent to the account.
+-- null if an invitation hasn\'t been sent to the account.
 member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
 member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member) Prelude.. Lens.mapping Core._Time
 

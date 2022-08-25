@@ -41,7 +41,7 @@
 -- so, call GetSegmentDetection and pass the job identifier (@JobId@) from
 -- the initial call to @StartSegmentDetection@.
 --
--- For more information, see Detecting Video Segments in Stored Video in
+-- For more information, see Detecting video segments in stored video in
 -- the Amazon Rekognition Developer Guide.
 module Amazonka.Rekognition.StartSegmentDetection
   ( -- * Creating a Request

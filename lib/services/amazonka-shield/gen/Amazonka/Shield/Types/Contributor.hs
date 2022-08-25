@@ -27,8 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContributor' smart constructor.
 data Contributor = Contributor'
-  { -- | The name of the contributor. This is dependent on the
-    -- @AttackPropertyIdentifier@. For example, if the
+  { -- | The name of the contributor. The type of name that you\'ll find here
+    -- depends on the @AttackPropertyIdentifier@ setting in the
+    -- @AttackProperty@ where this contributor is defined. For example, if the
     -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
     -- @United States@.
     name :: Prelude.Maybe Prelude.Text,
@@ -46,8 +47,9 @@ data Contributor = Contributor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'contributor_name' - The name of the contributor. This is dependent on the
--- @AttackPropertyIdentifier@. For example, if the
+-- 'name', 'contributor_name' - The name of the contributor. The type of name that you\'ll find here
+-- depends on the @AttackPropertyIdentifier@ setting in the
+-- @AttackProperty@ where this contributor is defined. For example, if the
 -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
 -- @United States@.
 --
@@ -61,8 +63,9 @@ newContributor =
       value = Prelude.Nothing
     }
 
--- | The name of the contributor. This is dependent on the
--- @AttackPropertyIdentifier@. For example, if the
+-- | The name of the contributor. The type of name that you\'ll find here
+-- depends on the @AttackPropertyIdentifier@ setting in the
+-- @AttackProperty@ where this contributor is defined. For example, if the
 -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
 -- @United States@.
 contributor_name :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Text)

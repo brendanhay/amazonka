@@ -22,7 +22,7 @@
 --
 -- Creates a @Function@ object.
 --
--- A function is a reusable entity. Multiple functions can be used to
+-- A function is a reusable entity. You can use multiple functions to
 -- compose the resolver logic.
 module Amazonka.AppSync.CreateFunction
   ( -- * Creating a Request
@@ -30,6 +30,7 @@ module Amazonka.AppSync.CreateFunction
     newCreateFunction,
 
     -- * Request Lenses
+    createFunction_maxBatchSize,
     createFunction_description,
     createFunction_responseMappingTemplate,
     createFunction_syncConfig,
@@ -58,7 +59,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { -- | The @Function@ description.
+  { -- | The maximum batching size for a resolver.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | The @Function@ description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ response mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
@@ -72,7 +75,7 @@ data CreateFunction = CreateFunction'
     name :: Prelude.Text,
     -- | The @Function@ @DataSource@ name.
     dataSourceName :: Prelude.Text,
-    -- | The @version@ of the request mapping template. Currently the supported
+    -- | The @version@ of the request mapping template. Currently, the supported
     -- value is 2018-05-29.
     functionVersion :: Prelude.Text
   }
@@ -85,6 +88,8 @@ data CreateFunction = CreateFunction'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxBatchSize', 'createFunction_maxBatchSize' - The maximum batching size for a resolver.
 --
 -- 'description', 'createFunction_description' - The @Function@ description.
 --
@@ -101,7 +106,7 @@ data CreateFunction = CreateFunction'
 --
 -- 'dataSourceName', 'createFunction_dataSourceName' - The @Function@ @DataSource@ name.
 --
--- 'functionVersion', 'createFunction_functionVersion' - The @version@ of the request mapping template. Currently the supported
+-- 'functionVersion', 'createFunction_functionVersion' - The @version@ of the request mapping template. Currently, the supported
 -- value is 2018-05-29.
 newCreateFunction ::
   -- | 'apiId'
@@ -119,7 +124,8 @@ newCreateFunction
   pDataSourceName_
   pFunctionVersion_ =
     CreateFunction'
-      { description = Prelude.Nothing,
+      { maxBatchSize = Prelude.Nothing,
+        description = Prelude.Nothing,
         responseMappingTemplate = Prelude.Nothing,
         syncConfig = Prelude.Nothing,
         requestMappingTemplate = Prelude.Nothing,
@@ -128,6 +134,10 @@ newCreateFunction
         dataSourceName = pDataSourceName_,
         functionVersion = pFunctionVersion_
       }
+
+-- | The maximum batching size for a resolver.
+createFunction_maxBatchSize :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
+createFunction_maxBatchSize = Lens.lens (\CreateFunction' {maxBatchSize} -> maxBatchSize) (\s@CreateFunction' {} a -> s {maxBatchSize = a} :: CreateFunction)
 
 -- | The @Function@ description.
 createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
@@ -158,7 +168,7 @@ createFunction_name = Lens.lens (\CreateFunction' {name} -> name) (\s@CreateFunc
 createFunction_dataSourceName :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_dataSourceName = Lens.lens (\CreateFunction' {dataSourceName} -> dataSourceName) (\s@CreateFunction' {} a -> s {dataSourceName = a} :: CreateFunction)
 
--- | The @version@ of the request mapping template. Currently the supported
+-- | The @version@ of the request mapping template. Currently, the supported
 -- value is 2018-05-29.
 createFunction_functionVersion :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_functionVersion = Lens.lens (\CreateFunction' {functionVersion} -> functionVersion) (\s@CreateFunction' {} a -> s {functionVersion = a} :: CreateFunction)
@@ -178,7 +188,8 @@ instance Core.AWSRequest CreateFunction where
 
 instance Prelude.Hashable CreateFunction where
   hashWithSalt _salt CreateFunction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` maxBatchSize
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` responseMappingTemplate
       `Prelude.hashWithSalt` syncConfig
       `Prelude.hashWithSalt` requestMappingTemplate
@@ -189,7 +200,8 @@ instance Prelude.Hashable CreateFunction where
 
 instance Prelude.NFData CreateFunction where
   rnf CreateFunction' {..} =
-    Prelude.rnf description
+    Prelude.rnf maxBatchSize
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf responseMappingTemplate
       `Prelude.seq` Prelude.rnf syncConfig
       `Prelude.seq` Prelude.rnf requestMappingTemplate
@@ -213,7 +225,8 @@ instance Core.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+            ("description" Core..=) Prelude.<$> description,
             ("responseMappingTemplate" Core..=)
               Prelude.<$> responseMappingTemplate,
             ("syncConfig" Core..=) Prelude.<$> syncConfig,

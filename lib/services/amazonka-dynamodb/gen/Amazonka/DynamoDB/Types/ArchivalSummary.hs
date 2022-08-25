@@ -33,8 +33,8 @@ data ArchivalSummary = ArchivalSummary'
     -- value is:
     --
     -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due
-    --     to the table\'s AWS KMS key being inaccessible for more than seven
-    --     days. An On-Demand backup was created at the archival time.
+    --     to the table\'s KMS key being inaccessible for more than seven days.
+    --     An On-Demand backup was created at the archival time.
     archivalReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time when table archival was initiated by DynamoDB, in UNIX
     -- epoch time format.
@@ -59,8 +59,8 @@ data ArchivalSummary = ArchivalSummary'
 -- value is:
 --
 -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due
---     to the table\'s AWS KMS key being inaccessible for more than seven
---     days. An On-Demand backup was created at the archival time.
+--     to the table\'s KMS key being inaccessible for more than seven days.
+--     An On-Demand backup was created at the archival time.
 --
 -- 'archivalDateTime', 'archivalSummary_archivalDateTime' - The date and time when table archival was initiated by DynamoDB, in UNIX
 -- epoch time format.
@@ -82,8 +82,8 @@ newArchivalSummary =
 -- value is:
 --
 -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due
---     to the table\'s AWS KMS key being inaccessible for more than seven
---     days. An On-Demand backup was created at the archival time.
+--     to the table\'s KMS key being inaccessible for more than seven days.
+--     An On-Demand backup was created at the archival time.
 archivalSummary_archivalReason :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.Text)
 archivalSummary_archivalReason = Lens.lens (\ArchivalSummary' {archivalReason} -> archivalReason) (\s@ArchivalSummary' {} a -> s {archivalReason = a} :: ArchivalSummary)
 

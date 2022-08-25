@@ -125,7 +125,7 @@ instance Core.ToQuery GetResponsePlan where
 
 -- | /See:/ 'newGetResponsePlanResponse' smart constructor.
 data GetResponsePlanResponse = GetResponsePlanResponse'
-  { -- | The AWS Chatbot chat channel used for collaboration during an incident.
+  { -- | The Chatbot chat channel used for collaboration during an incident.
     chatChannel :: Prelude.Maybe ChatChannel,
     -- | The long format name of the response plan. Can contain spaces.
     displayName :: Prelude.Maybe Prelude.Text,
@@ -141,7 +141,8 @@ data GetResponsePlanResponse = GetResponsePlanResponse'
     arn :: Prelude.Text,
     -- | Details used to create the incident when using this response plan.
     incidentTemplate :: IncidentTemplate,
-    -- | The short format name of the response plan. Can\'t contain spaces.
+    -- | The short format name of the response plan. The name can\'t contain
+    -- spaces.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -154,7 +155,7 @@ data GetResponsePlanResponse = GetResponsePlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'chatChannel', 'getResponsePlanResponse_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.
+-- 'chatChannel', 'getResponsePlanResponse_chatChannel' - The Chatbot chat channel used for collaboration during an incident.
 --
 -- 'displayName', 'getResponsePlanResponse_displayName' - The long format name of the response plan. Can contain spaces.
 --
@@ -170,7 +171,8 @@ data GetResponsePlanResponse = GetResponsePlanResponse'
 --
 -- 'incidentTemplate', 'getResponsePlanResponse_incidentTemplate' - Details used to create the incident when using this response plan.
 --
--- 'name', 'getResponsePlanResponse_name' - The short format name of the response plan. Can\'t contain spaces.
+-- 'name', 'getResponsePlanResponse_name' - The short format name of the response plan. The name can\'t contain
+-- spaces.
 newGetResponsePlanResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,7 +200,7 @@ newGetResponsePlanResponse
         name = pName_
       }
 
--- | The AWS Chatbot chat channel used for collaboration during an incident.
+-- | The Chatbot chat channel used for collaboration during an incident.
 getResponsePlanResponse_chatChannel :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe ChatChannel)
 getResponsePlanResponse_chatChannel = Lens.lens (\GetResponsePlanResponse' {chatChannel} -> chatChannel) (\s@GetResponsePlanResponse' {} a -> s {chatChannel = a} :: GetResponsePlanResponse)
 
@@ -228,7 +230,8 @@ getResponsePlanResponse_arn = Lens.lens (\GetResponsePlanResponse' {arn} -> arn)
 getResponsePlanResponse_incidentTemplate :: Lens.Lens' GetResponsePlanResponse IncidentTemplate
 getResponsePlanResponse_incidentTemplate = Lens.lens (\GetResponsePlanResponse' {incidentTemplate} -> incidentTemplate) (\s@GetResponsePlanResponse' {} a -> s {incidentTemplate = a} :: GetResponsePlanResponse)
 
--- | The short format name of the response plan. Can\'t contain spaces.
+-- | The short format name of the response plan. The name can\'t contain
+-- spaces.
 getResponsePlanResponse_name :: Lens.Lens' GetResponsePlanResponse Prelude.Text
 getResponsePlanResponse_name = Lens.lens (\GetResponsePlanResponse' {name} -> name) (\s@GetResponsePlanResponse' {} a -> s {name = a} :: GetResponsePlanResponse)
 

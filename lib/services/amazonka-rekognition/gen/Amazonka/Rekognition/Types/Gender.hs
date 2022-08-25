@@ -40,7 +40,7 @@ import Amazonka.Rekognition.Types.GenderType
 -- platform.
 --
 -- We don\'t recommend using gender binary predictions to make decisions
--- that impact  an individual\'s rights, privacy, or access to services.
+-- that impact an individual\'s rights, privacy, or access to services.
 --
 -- /See:/ 'newGender' smart constructor.
 data Gender = Gender'

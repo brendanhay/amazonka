@@ -43,6 +43,8 @@ data RepositoryExternalConnectionInfo = RepositoryExternalConnectionInfo'
     --
     -- -   @maven@: A Maven package that contains compiled code in a
     --     distributable format, such as a JAR file.
+    --
+    -- -   @nuget@: A NuGet package.
     packageFormat :: Prelude.Maybe PackageFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,6 +71,8 @@ data RepositoryExternalConnectionInfo = RepositoryExternalConnectionInfo'
 --
 -- -   @maven@: A Maven package that contains compiled code in a
 --     distributable format, such as a JAR file.
+--
+-- -   @nuget@: A NuGet package.
 newRepositoryExternalConnectionInfo ::
   RepositoryExternalConnectionInfo
 newRepositoryExternalConnectionInfo =
@@ -97,6 +101,8 @@ repositoryExternalConnectionInfo_externalConnectionName = Lens.lens (\Repository
 --
 -- -   @maven@: A Maven package that contains compiled code in a
 --     distributable format, such as a JAR file.
+--
+-- -   @nuget@: A NuGet package.
 repositoryExternalConnectionInfo_packageFormat :: Lens.Lens' RepositoryExternalConnectionInfo (Prelude.Maybe PackageFormat)
 repositoryExternalConnectionInfo_packageFormat = Lens.lens (\RepositoryExternalConnectionInfo' {packageFormat} -> packageFormat) (\s@RepositoryExternalConnectionInfo' {} a -> s {packageFormat = a} :: RepositoryExternalConnectionInfo)
 

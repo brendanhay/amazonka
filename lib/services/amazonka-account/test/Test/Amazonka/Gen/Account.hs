@@ -33,8 +33,14 @@ import Test.Tasty
 --         , requestGetAlternateContact $
 --             newGetAlternateContact
 --
+--         , requestGetContactInformation $
+--             newGetContactInformation
+--
 --         , requestPutAlternateContact $
 --             newPutAlternateContact
+--
+--         , requestPutContactInformation $
+--             newPutContactInformation
 --
 --           ]
 
@@ -45,8 +51,14 @@ import Test.Tasty
 --         , responseGetAlternateContact $
 --             newGetAlternateContactResponse
 --
+--         , responseGetContactInformation $
+--             newGetContactInformationResponse
+--
 --         , responsePutAlternateContact $
 --             newPutAlternateContactResponse
+--
+--         , responsePutContactInformation $
+--             newPutContactInformationResponse
 --
 --           ]
 --     ]
@@ -65,11 +77,23 @@ requestGetAlternateContact =
     "GetAlternateContact"
     "fixture/GetAlternateContact.yaml"
 
+requestGetContactInformation :: GetContactInformation -> TestTree
+requestGetContactInformation =
+  req
+    "GetContactInformation"
+    "fixture/GetContactInformation.yaml"
+
 requestPutAlternateContact :: PutAlternateContact -> TestTree
 requestPutAlternateContact =
   req
     "PutAlternateContact"
     "fixture/PutAlternateContact.yaml"
+
+requestPutContactInformation :: PutContactInformation -> TestTree
+requestPutContactInformation =
+  req
+    "PutContactInformation"
+    "fixture/PutContactInformation.yaml"
 
 -- Responses
 
@@ -89,6 +113,14 @@ responseGetAlternateContact =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAlternateContact)
 
+responseGetContactInformation :: GetContactInformationResponse -> TestTree
+responseGetContactInformation =
+  res
+    "GetContactInformationResponse"
+    "fixture/GetContactInformationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContactInformation)
+
 responsePutAlternateContact :: PutAlternateContactResponse -> TestTree
 responsePutAlternateContact =
   res
@@ -96,3 +128,11 @@ responsePutAlternateContact =
     "fixture/PutAlternateContactResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutAlternateContact)
+
+responsePutContactInformation :: PutContactInformationResponse -> TestTree
+responsePutContactInformation =
+  res
+    "PutContactInformationResponse"
+    "fixture/PutContactInformationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutContactInformation)

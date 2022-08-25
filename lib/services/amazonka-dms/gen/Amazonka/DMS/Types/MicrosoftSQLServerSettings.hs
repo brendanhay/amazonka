@@ -35,6 +35,9 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- apply_exception, awsdms_apply, awsdms_changes) are created for the
     -- specified file group.
     controlTablesFileGroup :: Prelude.Maybe Prelude.Text,
+    -- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+    -- and NCHAR data types during migration. The default value is @true@.
+    trimSpaceInChar :: Prelude.Maybe Prelude.Bool,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
     -- as the trusted entity and grants the required permissions to access the
     -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
@@ -122,6 +125,9 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 -- apply_exception, awsdms_apply, awsdms_changes) are created for the
 -- specified file group.
 --
+-- 'trimSpaceInChar', 'microsoftSQLServerSettings_trimSpaceInChar' - Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+-- and NCHAR data types during migration. The default value is @true@.
+--
 -- 'secretsManagerAccessRoleArn', 'microsoftSQLServerSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
 -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
@@ -196,6 +202,7 @@ newMicrosoftSQLServerSettings =
   MicrosoftSQLServerSettings'
     { port = Prelude.Nothing,
       controlTablesFileGroup = Prelude.Nothing,
+      trimSpaceInChar = Prelude.Nothing,
       secretsManagerAccessRoleArn = Prelude.Nothing,
       password = Prelude.Nothing,
       serverName = Prelude.Nothing,
@@ -220,6 +227,11 @@ microsoftSQLServerSettings_port = Lens.lens (\MicrosoftSQLServerSettings' {port}
 -- specified file group.
 microsoftSQLServerSettings_controlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
 microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServerSettings' {controlTablesFileGroup} -> controlTablesFileGroup) (\s@MicrosoftSQLServerSettings' {} a -> s {controlTablesFileGroup = a} :: MicrosoftSQLServerSettings)
+
+-- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
+-- and NCHAR data types during migration. The default value is @true@.
+microsoftSQLServerSettings_trimSpaceInChar :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
+microsoftSQLServerSettings_trimSpaceInChar = Lens.lens (\MicrosoftSQLServerSettings' {trimSpaceInChar} -> trimSpaceInChar) (\s@MicrosoftSQLServerSettings' {} a -> s {trimSpaceInChar = a} :: MicrosoftSQLServerSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -322,6 +334,7 @@ instance Core.FromJSON MicrosoftSQLServerSettings where
           MicrosoftSQLServerSettings'
             Prelude.<$> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "ControlTablesFileGroup")
+            Prelude.<*> (x Core..:? "TrimSpaceInChar")
             Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "Password")
             Prelude.<*> (x Core..:? "ServerName")
@@ -340,6 +353,7 @@ instance Prelude.Hashable MicrosoftSQLServerSettings where
   hashWithSalt _salt MicrosoftSQLServerSettings' {..} =
     _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` controlTablesFileGroup
+      `Prelude.hashWithSalt` trimSpaceInChar
       `Prelude.hashWithSalt` secretsManagerAccessRoleArn
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` serverName
@@ -357,6 +371,7 @@ instance Prelude.NFData MicrosoftSQLServerSettings where
   rnf MicrosoftSQLServerSettings' {..} =
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf controlTablesFileGroup
+      `Prelude.seq` Prelude.rnf trimSpaceInChar
       `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf serverName
@@ -377,6 +392,8 @@ instance Core.ToJSON MicrosoftSQLServerSettings where
           [ ("Port" Core..=) Prelude.<$> port,
             ("ControlTablesFileGroup" Core..=)
               Prelude.<$> controlTablesFileGroup,
+            ("TrimSpaceInChar" Core..=)
+              Prelude.<$> trimSpaceInChar,
             ("SecretsManagerAccessRoleArn" Core..=)
               Prelude.<$> secretsManagerAccessRoleArn,
             ("Password" Core..=) Prelude.<$> password,

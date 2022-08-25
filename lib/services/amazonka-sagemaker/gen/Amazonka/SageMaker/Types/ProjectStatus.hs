@@ -26,7 +26,10 @@ module Amazonka.SageMaker.Types.ProjectStatus
         ProjectStatus_DeleteCompleted,
         ProjectStatus_DeleteFailed,
         ProjectStatus_DeleteInProgress,
-        ProjectStatus_Pending
+        ProjectStatus_Pending,
+        ProjectStatus_UpdateCompleted,
+        ProjectStatus_UpdateFailed,
+        ProjectStatus_UpdateInProgress
       ),
   )
 where
@@ -83,6 +86,15 @@ pattern ProjectStatus_DeleteInProgress = ProjectStatus' "DeleteInProgress"
 pattern ProjectStatus_Pending :: ProjectStatus
 pattern ProjectStatus_Pending = ProjectStatus' "Pending"
 
+pattern ProjectStatus_UpdateCompleted :: ProjectStatus
+pattern ProjectStatus_UpdateCompleted = ProjectStatus' "UpdateCompleted"
+
+pattern ProjectStatus_UpdateFailed :: ProjectStatus
+pattern ProjectStatus_UpdateFailed = ProjectStatus' "UpdateFailed"
+
+pattern ProjectStatus_UpdateInProgress :: ProjectStatus
+pattern ProjectStatus_UpdateInProgress = ProjectStatus' "UpdateInProgress"
+
 {-# COMPLETE
   ProjectStatus_CreateCompleted,
   ProjectStatus_CreateFailed,
@@ -91,5 +103,8 @@ pattern ProjectStatus_Pending = ProjectStatus' "Pending"
   ProjectStatus_DeleteFailed,
   ProjectStatus_DeleteInProgress,
   ProjectStatus_Pending,
+  ProjectStatus_UpdateCompleted,
+  ProjectStatus_UpdateFailed,
+  ProjectStatus_UpdateInProgress,
   ProjectStatus'
   #-}

@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the details for all the accesses you have on your server.
+--
+-- This operation returns paginated results.
 module Amazonka.Transfer.ListAccesses
   ( -- * Creating a Request
     ListAccesses (..),
@@ -108,6 +110,23 @@ listAccesses_maxResults = Lens.lens (\ListAccesses' {maxResults} -> maxResults) 
 -- to it.
 listAccesses_serverId :: Lens.Lens' ListAccesses Prelude.Text
 listAccesses_serverId = Lens.lens (\ListAccesses' {serverId} -> serverId) (\s@ListAccesses' {} a -> s {serverId = a} :: ListAccesses)
+
+instance Core.AWSPager ListAccesses where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listAccessesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. listAccessesResponse_accesses) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listAccesses_nextToken
+          Lens..~ rs
+          Lens.^? listAccessesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccesses where
   type AWSResponse ListAccesses = ListAccessesResponse

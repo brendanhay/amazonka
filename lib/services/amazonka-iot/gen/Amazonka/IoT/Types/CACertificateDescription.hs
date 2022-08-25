@@ -22,6 +22,7 @@ module Amazonka.IoT.Types.CACertificateDescription where
 import qualified Amazonka.Core as Core
 import Amazonka.IoT.Types.AutoRegistrationStatus
 import Amazonka.IoT.Types.CACertificateStatus
+import Amazonka.IoT.Types.CertificateMode
 import Amazonka.IoT.Types.CertificateValidity
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -49,6 +50,13 @@ data CACertificateDescription = CACertificateDescription'
     autoRegistrationStatus :: Prelude.Maybe AutoRegistrationStatus,
     -- | The generation ID of the CA certificate.
     generationId :: Prelude.Maybe Prelude.Text,
+    -- | The mode of the CA.
+    --
+    -- All the device certificates that are registered using this CA will be
+    -- registered in the same mode as the CA. For more information about
+    -- certificate mode for device certificates, see
+    -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
+    certificateMode :: Prelude.Maybe CertificateMode,
     -- | The owner of the CA certificate.
     ownedBy :: Prelude.Maybe Prelude.Text,
     -- | When the CA certificate is valid.
@@ -83,6 +91,13 @@ data CACertificateDescription = CACertificateDescription'
 --
 -- 'generationId', 'cACertificateDescription_generationId' - The generation ID of the CA certificate.
 --
+-- 'certificateMode', 'cACertificateDescription_certificateMode' - The mode of the CA.
+--
+-- All the device certificates that are registered using this CA will be
+-- registered in the same mode as the CA. For more information about
+-- certificate mode for device certificates, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
+--
 -- 'ownedBy', 'cACertificateDescription_ownedBy' - The owner of the CA certificate.
 --
 -- 'validity', 'cACertificateDescription_validity' - When the CA certificate is valid.
@@ -100,6 +115,7 @@ newCACertificateDescription =
       certificatePem = Prelude.Nothing,
       autoRegistrationStatus = Prelude.Nothing,
       generationId = Prelude.Nothing,
+      certificateMode = Prelude.Nothing,
       ownedBy = Prelude.Nothing,
       validity = Prelude.Nothing
     }
@@ -141,6 +157,15 @@ cACertificateDescription_autoRegistrationStatus = Lens.lens (\CACertificateDescr
 cACertificateDescription_generationId :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
 cACertificateDescription_generationId = Lens.lens (\CACertificateDescription' {generationId} -> generationId) (\s@CACertificateDescription' {} a -> s {generationId = a} :: CACertificateDescription)
 
+-- | The mode of the CA.
+--
+-- All the device certificates that are registered using this CA will be
+-- registered in the same mode as the CA. For more information about
+-- certificate mode for device certificates, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
+cACertificateDescription_certificateMode :: Lens.Lens' CACertificateDescription (Prelude.Maybe CertificateMode)
+cACertificateDescription_certificateMode = Lens.lens (\CACertificateDescription' {certificateMode} -> certificateMode) (\s@CACertificateDescription' {} a -> s {certificateMode = a} :: CACertificateDescription)
+
 -- | The owner of the CA certificate.
 cACertificateDescription_ownedBy :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
 cACertificateDescription_ownedBy = Lens.lens (\CACertificateDescription' {ownedBy} -> ownedBy) (\s@CACertificateDescription' {} a -> s {ownedBy = a} :: CACertificateDescription)
@@ -164,6 +189,7 @@ instance Core.FromJSON CACertificateDescription where
             Prelude.<*> (x Core..:? "certificatePem")
             Prelude.<*> (x Core..:? "autoRegistrationStatus")
             Prelude.<*> (x Core..:? "generationId")
+            Prelude.<*> (x Core..:? "certificateMode")
             Prelude.<*> (x Core..:? "ownedBy")
             Prelude.<*> (x Core..:? "validity")
       )
@@ -179,6 +205,7 @@ instance Prelude.Hashable CACertificateDescription where
       `Prelude.hashWithSalt` certificatePem
       `Prelude.hashWithSalt` autoRegistrationStatus
       `Prelude.hashWithSalt` generationId
+      `Prelude.hashWithSalt` certificateMode
       `Prelude.hashWithSalt` ownedBy
       `Prelude.hashWithSalt` validity
 
@@ -193,5 +220,6 @@ instance Prelude.NFData CACertificateDescription where
       `Prelude.seq` Prelude.rnf certificatePem
       `Prelude.seq` Prelude.rnf autoRegistrationStatus
       `Prelude.seq` Prelude.rnf generationId
+      `Prelude.seq` Prelude.rnf certificateMode
       `Prelude.seq` Prelude.rnf ownedBy
       `Prelude.seq` Prelude.rnf validity

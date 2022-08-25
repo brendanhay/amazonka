@@ -77,8 +77,8 @@ data UpdateLedger = UpdateLedger'
     --
     -- To specify a customer managed KMS key, you can use its key ID, Amazon
     -- Resource Name (ARN), alias name, or alias ARN. When using an alias name,
-    -- prefix it with @\"alias\/\"@. To specify a key in a different account,
-    -- you must use the key ARN or alias ARN.
+    -- prefix it with @\"alias\/\"@. To specify a key in a different Amazon Web
+    -- Services account, you must use the key ARN or alias ARN.
     --
     -- For example:
     --
@@ -138,8 +138,8 @@ data UpdateLedger = UpdateLedger'
 --
 -- To specify a customer managed KMS key, you can use its key ID, Amazon
 -- Resource Name (ARN), alias name, or alias ARN. When using an alias name,
--- prefix it with @\"alias\/\"@. To specify a key in a different account,
--- you must use the key ARN or alias ARN.
+-- prefix it with @\"alias\/\"@. To specify a key in a different Amazon Web
+-- Services account, you must use the key ARN or alias ARN.
 --
 -- For example:
 --
@@ -198,8 +198,8 @@ newUpdateLedger pName_ =
 --
 -- To specify a customer managed KMS key, you can use its key ID, Amazon
 -- Resource Name (ARN), alias name, or alias ARN. When using an alias name,
--- prefix it with @\"alias\/\"@. To specify a key in a different account,
--- you must use the key ARN or alias ARN.
+-- prefix it with @\"alias\/\"@. To specify a key in a different Amazon Web
+-- Services account, you must use the key ARN or alias ARN.
 --
 -- For example:
 --

@@ -32,7 +32,7 @@ data ImportDataSource = ImportDataSource'
   { -- | The configuration parameters for the data source of the import
     dataSourceConfig :: ImportDataSourceConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportDataSource' with all optional fields omitted.

@@ -26,9 +26,10 @@ import Amazonka.Snowball.Types.Ec2AmiResource
 import Amazonka.Snowball.Types.LambdaResource
 import Amazonka.Snowball.Types.S3Resource
 
--- | Contains an array of AWS resource objects. Each object represents an
--- Amazon S3 bucket, an AWS Lambda function, or an Amazon Machine Image
--- (AMI) based on Amazon EC2 that is associated with a particular job.
+-- | Contains an array of Amazon Web Services resource objects. Each object
+-- represents an Amazon S3 bucket, an Lambda function, or an Amazon Machine
+-- Image (AMI) based on Amazon EC2 that is associated with a particular
+-- job.
 --
 -- /See:/ 'newJobResource' smart constructor.
 data JobResource = JobResource'

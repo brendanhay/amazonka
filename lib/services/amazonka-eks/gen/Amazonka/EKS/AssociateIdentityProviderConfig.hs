@@ -62,8 +62,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newAssociateIdentityProviderConfig' smart constructor.
 data AssociateIdentityProviderConfig = AssociateIdentityProviderConfig'
   { -- | The metadata to apply to the configuration to assist with categorization
-    -- and organization. Each tag consists of a key and an optional value, both
-    -- of which you define.
+    -- and organization. Each tag consists of a key and an optional value. You
+    -- define both.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
@@ -85,8 +85,8 @@ data AssociateIdentityProviderConfig = AssociateIdentityProviderConfig'
 -- for backwards compatibility:
 --
 -- 'tags', 'associateIdentityProviderConfig_tags' - The metadata to apply to the configuration to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define.
+-- and organization. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- 'clientRequestToken', 'associateIdentityProviderConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -113,8 +113,8 @@ newAssociateIdentityProviderConfig
       }
 
 -- | The metadata to apply to the configuration to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define.
+-- and organization. Each tag consists of a key and an optional value. You
+-- define both.
 associateIdentityProviderConfig_tags :: Lens.Lens' AssociateIdentityProviderConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 associateIdentityProviderConfig_tags = Lens.lens (\AssociateIdentityProviderConfig' {tags} -> tags) (\s@AssociateIdentityProviderConfig' {} a -> s {tags = a} :: AssociateIdentityProviderConfig) Prelude.. Lens.mapping Lens.coerced
 

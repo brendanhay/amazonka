@@ -26,14 +26,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a usage plan than can specify who can assess associated API
--- stages with specified request limits and quotas.
---
--- In a usage plan, you associate an API by specifying the API\'s Id and a
--- stage name of the specified API. You add plan customers by adding API
--- keys to the plan.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
+-- | Represents a usage plan used to specify who can assess associated API
+-- stages. Optionally, target request rate and quota limits can be set. In
+-- some cases clients can exceed the targets that you set. Don’t rely on
+-- usage plans to control costs. Consider using
+-- <https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html Amazon Web Services Budgets>
+-- to monitor costs and
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF>
+-- to manage API requests.
 --
 -- /See:/ 'newUsagePlan' smart constructor.
 data UsagePlan = UsagePlan'
@@ -42,7 +42,8 @@ data UsagePlan = UsagePlan'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of a usage plan.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of permitted requests per a given unit time interval.
+    -- | The target maximum number of permitted requests per a given unit time
+    -- interval.
     quota :: Prelude.Maybe QuotaSettings,
     -- | The description of a usage plan.
     description :: Prelude.Maybe Prelude.Text,
@@ -51,7 +52,8 @@ data UsagePlan = UsagePlan'
     productCode :: Prelude.Maybe Prelude.Text,
     -- | The identifier of a UsagePlan resource.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The request throttle limits of a usage plan.
+    -- | A map containing method level throttling information for API stage in a
+    -- usage plan.
     throttle :: Prelude.Maybe ThrottleSettings,
     -- | The associated API stages of a usage plan.
     apiStages :: Prelude.Maybe [ApiStage]
@@ -71,7 +73,8 @@ data UsagePlan = UsagePlan'
 --
 -- 'name', 'usagePlan_name' - The name of a usage plan.
 --
--- 'quota', 'usagePlan_quota' - The maximum number of permitted requests per a given unit time interval.
+-- 'quota', 'usagePlan_quota' - The target maximum number of permitted requests per a given unit time
+-- interval.
 --
 -- 'description', 'usagePlan_description' - The description of a usage plan.
 --
@@ -80,7 +83,8 @@ data UsagePlan = UsagePlan'
 --
 -- 'id', 'usagePlan_id' - The identifier of a UsagePlan resource.
 --
--- 'throttle', 'usagePlan_throttle' - The request throttle limits of a usage plan.
+-- 'throttle', 'usagePlan_throttle' - A map containing method level throttling information for API stage in a
+-- usage plan.
 --
 -- 'apiStages', 'usagePlan_apiStages' - The associated API stages of a usage plan.
 newUsagePlan ::
@@ -106,7 +110,8 @@ usagePlan_tags = Lens.lens (\UsagePlan' {tags} -> tags) (\s@UsagePlan' {} a -> s
 usagePlan_name :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
 usagePlan_name = Lens.lens (\UsagePlan' {name} -> name) (\s@UsagePlan' {} a -> s {name = a} :: UsagePlan)
 
--- | The maximum number of permitted requests per a given unit time interval.
+-- | The target maximum number of permitted requests per a given unit time
+-- interval.
 usagePlan_quota :: Lens.Lens' UsagePlan (Prelude.Maybe QuotaSettings)
 usagePlan_quota = Lens.lens (\UsagePlan' {quota} -> quota) (\s@UsagePlan' {} a -> s {quota = a} :: UsagePlan)
 
@@ -123,7 +128,8 @@ usagePlan_productCode = Lens.lens (\UsagePlan' {productCode} -> productCode) (\s
 usagePlan_id :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
 usagePlan_id = Lens.lens (\UsagePlan' {id} -> id) (\s@UsagePlan' {} a -> s {id = a} :: UsagePlan)
 
--- | The request throttle limits of a usage plan.
+-- | A map containing method level throttling information for API stage in a
+-- usage plan.
 usagePlan_throttle :: Lens.Lens' UsagePlan (Prelude.Maybe ThrottleSettings)
 usagePlan_throttle = Lens.lens (\UsagePlan' {throttle} -> throttle) (\s@UsagePlan' {} a -> s {throttle = a} :: UsagePlan)
 

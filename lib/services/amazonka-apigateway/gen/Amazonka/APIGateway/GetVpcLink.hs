@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetVpcLink' smart constructor.
 data GetVpcLink = GetVpcLink'
-  { -- | [Required] The identifier of the VpcLink. It is used in an Integration
-    -- to reference this VpcLink.
+  { -- | The identifier of the VpcLink. It is used in an Integration to reference
+    -- this VpcLink.
     vpcLinkId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +69,8 @@ data GetVpcLink = GetVpcLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcLinkId', 'getVpcLink_vpcLinkId' - [Required] The identifier of the VpcLink. It is used in an Integration
--- to reference this VpcLink.
+-- 'vpcLinkId', 'getVpcLink_vpcLinkId' - The identifier of the VpcLink. It is used in an Integration to reference
+-- this VpcLink.
 newGetVpcLink ::
   -- | 'vpcLinkId'
   Prelude.Text ->
@@ -78,8 +78,8 @@ newGetVpcLink ::
 newGetVpcLink pVpcLinkId_ =
   GetVpcLink' {vpcLinkId = pVpcLinkId_}
 
--- | [Required] The identifier of the VpcLink. It is used in an Integration
--- to reference this VpcLink.
+-- | The identifier of the VpcLink. It is used in an Integration to reference
+-- this VpcLink.
 getVpcLink_vpcLinkId :: Lens.Lens' GetVpcLink Prelude.Text
 getVpcLink_vpcLinkId = Lens.lens (\GetVpcLink' {vpcLinkId} -> vpcLinkId) (\s@GetVpcLink' {} a -> s {vpcLinkId = a} :: GetVpcLink)
 

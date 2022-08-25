@@ -24,7 +24,8 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.LookoutVision.Types.DatasetStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Sumary information for an Amazon Lookout for Vision dataset.
+-- | Summary information for an Amazon Lookout for Vision dataset. For more
+-- information, see DescribeDataset and ProjectDescription.
 --
 -- /See:/ 'newDatasetMetadata' smart constructor.
 data DatasetMetadata = DatasetMetadata'

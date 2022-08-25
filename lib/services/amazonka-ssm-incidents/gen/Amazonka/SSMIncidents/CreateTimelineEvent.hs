@@ -60,16 +60,15 @@ data CreateTimelineEvent = CreateTimelineEvent'
   { -- | A token ensuring that the action is called only once with the specified
     -- details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A valid JSON string. There is no other schema imposed. A short
-    -- description of the event.
+    -- | A short description of the event.
     eventData :: Prelude.Text,
     -- | The time that the event occurred.
     eventTime :: Core.POSIX,
     -- | The type of the event. You can create timeline events of type
     -- @Custom Event@.
     eventType :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident record you are adding the
-    -- event to.
+    -- | The Amazon Resource Name (ARN) of the incident record to which the event
+    -- will be added.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,16 +84,15 @@ data CreateTimelineEvent = CreateTimelineEvent'
 -- 'clientToken', 'createTimelineEvent_clientToken' - A token ensuring that the action is called only once with the specified
 -- details.
 --
--- 'eventData', 'createTimelineEvent_eventData' - A valid JSON string. There is no other schema imposed. A short
--- description of the event.
+-- 'eventData', 'createTimelineEvent_eventData' - A short description of the event.
 --
 -- 'eventTime', 'createTimelineEvent_eventTime' - The time that the event occurred.
 --
 -- 'eventType', 'createTimelineEvent_eventType' - The type of the event. You can create timeline events of type
 -- @Custom Event@.
 --
--- 'incidentRecordArn', 'createTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record you are adding the
--- event to.
+-- 'incidentRecordArn', 'createTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record to which the event
+-- will be added.
 newCreateTimelineEvent ::
   -- | 'eventData'
   Prelude.Text ->
@@ -123,8 +121,7 @@ newCreateTimelineEvent
 createTimelineEvent_clientToken :: Lens.Lens' CreateTimelineEvent (Prelude.Maybe Prelude.Text)
 createTimelineEvent_clientToken = Lens.lens (\CreateTimelineEvent' {clientToken} -> clientToken) (\s@CreateTimelineEvent' {} a -> s {clientToken = a} :: CreateTimelineEvent)
 
--- | A valid JSON string. There is no other schema imposed. A short
--- description of the event.
+-- | A short description of the event.
 createTimelineEvent_eventData :: Lens.Lens' CreateTimelineEvent Prelude.Text
 createTimelineEvent_eventData = Lens.lens (\CreateTimelineEvent' {eventData} -> eventData) (\s@CreateTimelineEvent' {} a -> s {eventData = a} :: CreateTimelineEvent)
 
@@ -137,8 +134,8 @@ createTimelineEvent_eventTime = Lens.lens (\CreateTimelineEvent' {eventTime} -> 
 createTimelineEvent_eventType :: Lens.Lens' CreateTimelineEvent Prelude.Text
 createTimelineEvent_eventType = Lens.lens (\CreateTimelineEvent' {eventType} -> eventType) (\s@CreateTimelineEvent' {} a -> s {eventType = a} :: CreateTimelineEvent)
 
--- | The Amazon Resource Name (ARN) of the incident record you are adding the
--- event to.
+-- | The Amazon Resource Name (ARN) of the incident record to which the event
+-- will be added.
 createTimelineEvent_incidentRecordArn :: Lens.Lens' CreateTimelineEvent Prelude.Text
 createTimelineEvent_incidentRecordArn = Lens.lens (\CreateTimelineEvent' {incidentRecordArn} -> incidentRecordArn) (\s@CreateTimelineEvent' {} a -> s {incidentRecordArn = a} :: CreateTimelineEvent)
 

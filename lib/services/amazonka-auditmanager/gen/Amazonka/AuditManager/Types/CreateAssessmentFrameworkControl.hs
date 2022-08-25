@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Control entity attributes that uniquely identify an existing control to
--- be added to a framework in Audit Manager.
+-- | The control entity attributes that uniquely identify an existing control
+-- to be added to a framework in Audit Manager.
 --
 -- /See:/ 'newCreateAssessmentFrameworkControl' smart constructor.
 data CreateAssessmentFrameworkControl = CreateAssessmentFrameworkControl'
   { -- | The unique identifier of the control.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,15 +43,14 @@ data CreateAssessmentFrameworkControl = CreateAssessmentFrameworkControl'
 --
 -- 'id', 'createAssessmentFrameworkControl_id' - The unique identifier of the control.
 newCreateAssessmentFrameworkControl ::
+  -- | 'id'
+  Prelude.Text ->
   CreateAssessmentFrameworkControl
-newCreateAssessmentFrameworkControl =
-  CreateAssessmentFrameworkControl'
-    { id =
-        Prelude.Nothing
-    }
+newCreateAssessmentFrameworkControl pId_ =
+  CreateAssessmentFrameworkControl' {id = pId_}
 
 -- | The unique identifier of the control.
-createAssessmentFrameworkControl_id :: Lens.Lens' CreateAssessmentFrameworkControl (Prelude.Maybe Prelude.Text)
+createAssessmentFrameworkControl_id :: Lens.Lens' CreateAssessmentFrameworkControl Prelude.Text
 createAssessmentFrameworkControl_id = Lens.lens (\CreateAssessmentFrameworkControl' {id} -> id) (\s@CreateAssessmentFrameworkControl' {} a -> s {id = a} :: CreateAssessmentFrameworkControl)
 
 instance
@@ -73,4 +72,4 @@ instance
 instance Core.ToJSON CreateAssessmentFrameworkControl where
   toJSON CreateAssessmentFrameworkControl' {..} =
     Core.object
-      (Prelude.catMaybes [("id" Core..=) Prelude.<$> id])
+      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])

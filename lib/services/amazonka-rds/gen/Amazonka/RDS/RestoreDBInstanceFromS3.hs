@@ -27,6 +27,8 @@
 -- running MySQL. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html Importing Data into an Amazon RDS MySQL DB Instance>
 -- in the /Amazon RDS User Guide./
+--
+-- This command doesn\'t apply to RDS Custom.
 module Amazonka.RDS.RestoreDBInstanceFromS3
   ( -- * Creating a Request
     RestoreDBInstanceFromS3 (..),
@@ -66,6 +68,7 @@ module Amazonka.RDS.RestoreDBInstanceFromS3
     restoreDBInstanceFromS3_iops,
     restoreDBInstanceFromS3_engineVersion,
     restoreDBInstanceFromS3_dbName,
+    restoreDBInstanceFromS3_networkType,
     restoreDBInstanceFromS3_multiAZ,
     restoreDBInstanceFromS3_s3Prefix,
     restoreDBInstanceFromS3_licenseModel,
@@ -118,8 +121,27 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     --
     -- Default: @3306@
     port :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time, in days, to retain Performance Insights data. Valid
-    -- values are 7 or 731 (2 years).
+    -- | The number of days to retain Performance Insights data. The default is 7
+    -- days. The following values are valid:
+    --
+    -- -   7
+    --
+    -- -   /month/ * 31, where /month/ is a number of months from 1-23
+    --
+    -- -   731
+    --
+    -- For example, the following values are valid:
+    --
+    -- -   93 (3 months * 31)
+    --
+    -- -   341 (11 months * 31)
+    --
+    -- -   589 (19 months * 31)
+    --
+    -- -   731
+    --
+    -- If you specify a retention period such as 94, which isn\'t a valid
+    -- value, RDS issues an error.
     performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A list of VPC security groups to associate with this DB instance.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
@@ -161,6 +183,11 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     -- snapshots of the DB instance. By default, tags are not copied.
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | A DB subnet group to associate with this DB instance.
+    --
+    -- Constraints: If supplied, must match the name of an existing
+    -- DBSubnetGroup.
+    --
+    -- Example: @mydbsubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether minor engine upgrades are applied
     -- automatically to the DB instance during the maintenance window. By
@@ -174,17 +201,16 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     -- Insights data.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     --
     -- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
-    -- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
-    -- Web Services account. Your Amazon Web Services account has a different
-    -- default CMK for each Amazon Web Services Region.
+    -- Amazon RDS uses your default KMS key. There is a default KMS key for
+    -- your Amazon Web Services account. Your Amazon Web Services account has a
+    -- different default KMS key for each Amazon Web Services Region.
     performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts. By
-    -- default, mapping is disabled.
+    -- default, mapping isn\'t enabled.
     --
     -- For more information about IAM database authentication, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
@@ -227,12 +253,13 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is publicly accessible.
     --
-    -- When the DB instance is publicly accessible, its DNS endpoint resolves
-    -- to the private IP address from within the DB instance\'s VPC, and to the
-    -- public IP address from outside of the DB instance\'s VPC. Access to the
-    -- DB instance is ultimately controlled by the security group it uses, and
-    -- that public access is not permitted if the security group assigned to
-    -- the DB instance doesn\'t permit it.
+    -- When the DB instance is publicly accessible, its Domain Name System
+    -- (DNS) endpoint resolves to the private IP address from within the DB
+    -- instance\'s virtual private cloud (VPC). It resolves to the public IP
+    -- address from outside of the DB instance\'s VPC. Access to the DB
+    -- instance is ultimately controlled by the security group it uses. That
+    -- public access is not permitted if the security group assigned to the DB
+    -- instance doesn\'t permit it.
     --
     -- When the DB instance isn\'t publicly accessible, it is an internal DB
     -- instance with a DNS name that resolves to a private IP address.
@@ -262,7 +289,7 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
-    -- in the /Amazon Relational Database Service User Guide/.
+    -- in the /Amazon RDS User Guide/.
     enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
     -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
     -- metrics to Amazon CloudWatch Logs. For example,
@@ -279,15 +306,14 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     -- | The Amazon Web Services KMS key identifier for an encrypted DB instance.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
-    -- the key ARN or alias ARN.
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
     --
     -- If the @StorageEncrypted@ parameter is enabled, and you do not specify a
     -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
-    -- default CMK. There is a default CMK for your Amazon Web Services
-    -- account. Your Amazon Web Services account has a different default CMK
-    -- for each Amazon Web Services Region.
+    -- default KMS key. There is a default KMS key for your Amazon Web Services
+    -- account. Your Amazon Web Services account has a different default KMS
+    -- key for each Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The amount of storage (in gigabytes) to allocate initially for the DB
     -- instance. Follow the allocation rules specified in @CreateDBInstance@.
@@ -298,7 +324,7 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether the DB instance has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled. For more
+    -- enabled. By default, deletion protection isn\'t enabled. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
@@ -332,6 +358,22 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     -- | The name of the database to create when the DB instance is created.
     -- Follow the naming rules specified in @CreateDBInstance@.
     dbName :: Prelude.Maybe Prelude.Text,
+    -- | The network type of the DB instance.
+    --
+    -- Valid values:
+    --
+    -- -   @IPV4@
+    --
+    -- -   @DUAL@
+    --
+    -- The network type is determined by the @DBSubnetGroup@ specified for the
+    -- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+    -- IPv4 and the IPv6 protocols (@DUAL@).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon RDS User Guide./
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
     -- If the DB instance is a Multi-AZ deployment, you can\'t set the
     -- @AvailabilityZone@ parameter.
@@ -356,10 +398,10 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     --
     -- Example: @mydbinstance@
     dbInstanceIdentifier :: Prelude.Text,
-    -- | The compute and memory capacity of the DB instance, for example,
-    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
-    -- Web Services Regions, or for all database engines. For the full list of
-    -- DB instance classes, and availability for your engine, see
+    -- | The compute and memory capacity of the DB instance, for example
+    -- db.m4.large. Not all DB instance classes are available in all Amazon Web
+    -- Services Regions, or for all database engines. For the full list of DB
+    -- instance classes, and availability for your engine, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
     -- in the /Amazon RDS User Guide./
     --
@@ -418,8 +460,27 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- Default: @3306@
 --
--- 'performanceInsightsRetentionPeriod', 'restoreDBInstanceFromS3_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
--- values are 7 or 731 (2 years).
+-- 'performanceInsightsRetentionPeriod', 'restoreDBInstanceFromS3_performanceInsightsRetentionPeriod' - The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
+--
+-- If you specify a retention period such as 94, which isn\'t a valid
+-- value, RDS issues an error.
 --
 -- 'vpcSecurityGroupIds', 'restoreDBInstanceFromS3_vpcSecurityGroupIds' - A list of VPC security groups to associate with this DB instance.
 --
@@ -462,6 +523,11 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- 'dbSubnetGroupName', 'restoreDBInstanceFromS3_dbSubnetGroupName' - A DB subnet group to associate with this DB instance.
 --
+-- Constraints: If supplied, must match the name of an existing
+-- DBSubnetGroup.
+--
+-- Example: @mydbsubnetgroup@
+--
 -- 'autoMinorVersionUpgrade', 'restoreDBInstanceFromS3_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
 -- automatically to the DB instance during the maintenance window. By
 -- default, minor engine upgrades are not applied automatically.
@@ -474,17 +540,16 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 -- Insights data.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
--- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
--- Web Services account. Your Amazon Web Services account has a different
--- default CMK for each Amazon Web Services Region.
+-- Amazon RDS uses your default KMS key. There is a default KMS key for
+-- your Amazon Web Services account. Your Amazon Web Services account has a
+-- different default KMS key for each Amazon Web Services Region.
 --
 -- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromS3_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
--- default, mapping is disabled.
+-- default, mapping isn\'t enabled.
 --
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
@@ -527,12 +592,13 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- 'publiclyAccessible', 'restoreDBInstanceFromS3_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- When the DB instance is publicly accessible, its Domain Name System
+-- (DNS) endpoint resolves to the private IP address from within the DB
+-- instance\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB instance\'s VPC. Access to the DB
+-- instance is ultimately controlled by the security group it uses. That
+-- public access is not permitted if the security group assigned to the DB
+-- instance doesn\'t permit it.
 --
 -- When the DB instance isn\'t publicly accessible, it is an internal DB
 -- instance with a DNS name that resolves to a private IP address.
@@ -562,7 +628,7 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
--- in the /Amazon Relational Database Service User Guide/.
+-- in the /Amazon RDS User Guide/.
 --
 -- 'monitoringRoleArn', 'restoreDBInstanceFromS3_monitoringRoleArn' - The ARN for the IAM role that permits RDS to send enhanced monitoring
 -- metrics to Amazon CloudWatch Logs. For example,
@@ -579,15 +645,14 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 -- 'kmsKeyId', 'restoreDBInstanceFromS3_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB instance.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK). To use a CMK in a different Amazon Web Services account, specify
--- the key ARN or alias ARN.
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
 --
 -- If the @StorageEncrypted@ parameter is enabled, and you do not specify a
 -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
--- default CMK. There is a default CMK for your Amazon Web Services
--- account. Your Amazon Web Services account has a different default CMK
--- for each Amazon Web Services Region.
+-- default KMS key. There is a default KMS key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default KMS
+-- key for each Amazon Web Services Region.
 --
 -- 'allocatedStorage', 'restoreDBInstanceFromS3_allocatedStorage' - The amount of storage (in gigabytes) to allocate initially for the DB
 -- instance. Follow the allocation rules specified in @CreateDBInstance@.
@@ -598,7 +663,7 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- 'deletionProtection', 'restoreDBInstanceFromS3_deletionProtection' - A value that indicates whether the DB instance has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. For more
+-- enabled. By default, deletion protection isn\'t enabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
 --
@@ -632,6 +697,22 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 -- 'dbName', 'restoreDBInstanceFromS3_dbName' - The name of the database to create when the DB instance is created.
 -- Follow the naming rules specified in @CreateDBInstance@.
 --
+-- 'networkType', 'restoreDBInstanceFromS3_networkType' - The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
+--
 -- 'multiAZ', 'restoreDBInstanceFromS3_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
 -- If the DB instance is a Multi-AZ deployment, you can\'t set the
 -- @AvailabilityZone@ parameter.
@@ -656,10 +737,10 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- Example: @mydbinstance@
 --
--- 'dbInstanceClass', 'restoreDBInstanceFromS3_dbInstanceClass' - The compute and memory capacity of the DB instance, for example,
--- @db.m4.large@. Not all DB instance classes are available in all Amazon
--- Web Services Regions, or for all database engines. For the full list of
--- DB instance classes, and availability for your engine, see
+-- 'dbInstanceClass', 'restoreDBInstanceFromS3_dbInstanceClass' - The compute and memory capacity of the DB instance, for example
+-- db.m4.large. Not all DB instance classes are available in all Amazon Web
+-- Services Regions, or for all database engines. For the full list of DB
+-- instance classes, and availability for your engine, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
 -- in the /Amazon RDS User Guide./
 --
@@ -744,6 +825,7 @@ newRestoreDBInstanceFromS3
         iops = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
         dbName = Prelude.Nothing,
+        networkType = Prelude.Nothing,
         multiAZ = Prelude.Nothing,
         s3Prefix = Prelude.Nothing,
         licenseModel = Prelude.Nothing,
@@ -784,8 +866,27 @@ restoreDBInstanceFromS3_maxAllocatedStorage = Lens.lens (\RestoreDBInstanceFromS
 restoreDBInstanceFromS3_port :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
 restoreDBInstanceFromS3_port = Lens.lens (\RestoreDBInstanceFromS3' {port} -> port) (\s@RestoreDBInstanceFromS3' {} a -> s {port = a} :: RestoreDBInstanceFromS3)
 
--- | The amount of time, in days, to retain Performance Insights data. Valid
--- values are 7 or 731 (2 years).
+-- | The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
+--
+-- If you specify a retention period such as 94, which isn\'t a valid
+-- value, RDS issues an error.
 restoreDBInstanceFromS3_performanceInsightsRetentionPeriod :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
 restoreDBInstanceFromS3_performanceInsightsRetentionPeriod = Lens.lens (\RestoreDBInstanceFromS3' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@RestoreDBInstanceFromS3' {} a -> s {performanceInsightsRetentionPeriod = a} :: RestoreDBInstanceFromS3)
 
@@ -841,6 +942,11 @@ restoreDBInstanceFromS3_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceFromS3
 restoreDBInstanceFromS3_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceFromS3' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceFromS3' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceFromS3)
 
 -- | A DB subnet group to associate with this DB instance.
+--
+-- Constraints: If supplied, must match the name of an existing
+-- DBSubnetGroup.
+--
+-- Example: @mydbsubnetgroup@
 restoreDBInstanceFromS3_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceFromS3' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBInstanceFromS3' {} a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceFromS3)
 
@@ -860,19 +966,18 @@ restoreDBInstanceFromS3_optionGroupName = Lens.lens (\RestoreDBInstanceFromS3' {
 -- Insights data.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
--- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
--- Web Services account. Your Amazon Web Services account has a different
--- default CMK for each Amazon Web Services Region.
+-- Amazon RDS uses your default KMS key. There is a default KMS key for
+-- your Amazon Web Services account. Your Amazon Web Services account has a
+-- different default KMS key for each Amazon Web Services Region.
 restoreDBInstanceFromS3_performanceInsightsKMSKeyId :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_performanceInsightsKMSKeyId = Lens.lens (\RestoreDBInstanceFromS3' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@RestoreDBInstanceFromS3' {} a -> s {performanceInsightsKMSKeyId = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
--- default, mapping is disabled.
+-- default, mapping isn\'t enabled.
 --
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
@@ -925,12 +1030,13 @@ restoreDBInstanceFromS3_masterUserPassword = Lens.lens (\RestoreDBInstanceFromS3
 
 -- | A value that indicates whether the DB instance is publicly accessible.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- When the DB instance is publicly accessible, its Domain Name System
+-- (DNS) endpoint resolves to the private IP address from within the DB
+-- instance\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB instance\'s VPC. Access to the DB
+-- instance is ultimately controlled by the security group it uses. That
+-- public access is not permitted if the security group assigned to the DB
+-- instance doesn\'t permit it.
 --
 -- When the DB instance isn\'t publicly accessible, it is an internal DB
 -- instance with a DNS name that resolves to a private IP address.
@@ -968,7 +1074,7 @@ restoreDBInstanceFromS3_processorFeatures = Lens.lens (\RestoreDBInstanceFromS3'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
--- in the /Amazon Relational Database Service User Guide/.
+-- in the /Amazon RDS User Guide/.
 restoreDBInstanceFromS3_enablePerformanceInsights :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromS3_enablePerformanceInsights = Lens.lens (\RestoreDBInstanceFromS3' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@RestoreDBInstanceFromS3' {} a -> s {enablePerformanceInsights = a} :: RestoreDBInstanceFromS3)
 
@@ -991,15 +1097,14 @@ restoreDBInstanceFromS3_storageEncrypted = Lens.lens (\RestoreDBInstanceFromS3' 
 -- | The Amazon Web Services KMS key identifier for an encrypted DB instance.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK). To use a CMK in a different Amazon Web Services account, specify
--- the key ARN or alias ARN.
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
 --
 -- If the @StorageEncrypted@ parameter is enabled, and you do not specify a
 -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
--- default CMK. There is a default CMK for your Amazon Web Services
--- account. Your Amazon Web Services account has a different default CMK
--- for each Amazon Web Services Region.
+-- default KMS key. There is a default KMS key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default KMS
+-- key for each Amazon Web Services Region.
 restoreDBInstanceFromS3_kmsKeyId :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_kmsKeyId = Lens.lens (\RestoreDBInstanceFromS3' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBInstanceFromS3' {} a -> s {kmsKeyId = a} :: RestoreDBInstanceFromS3)
 
@@ -1014,7 +1119,7 @@ restoreDBInstanceFromS3_allocatedStorage = Lens.lens (\RestoreDBInstanceFromS3' 
 
 -- | A value that indicates whether the DB instance has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. For more
+-- enabled. By default, deletion protection isn\'t enabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
 restoreDBInstanceFromS3_deletionProtection :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
@@ -1058,6 +1163,24 @@ restoreDBInstanceFromS3_engineVersion = Lens.lens (\RestoreDBInstanceFromS3' {en
 restoreDBInstanceFromS3_dbName :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_dbName = Lens.lens (\RestoreDBInstanceFromS3' {dbName} -> dbName) (\s@RestoreDBInstanceFromS3' {} a -> s {dbName = a} :: RestoreDBInstanceFromS3)
 
+-- | The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
+restoreDBInstanceFromS3_networkType :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_networkType = Lens.lens (\RestoreDBInstanceFromS3' {networkType} -> networkType) (\s@RestoreDBInstanceFromS3' {} a -> s {networkType = a} :: RestoreDBInstanceFromS3)
+
 -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
 -- If the DB instance is a Multi-AZ deployment, you can\'t set the
 -- @AvailabilityZone@ parameter.
@@ -1092,10 +1215,10 @@ restoreDBInstanceFromS3_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInsta
 restoreDBInstanceFromS3_dbInstanceIdentifier :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
 restoreDBInstanceFromS3_dbInstanceIdentifier = Lens.lens (\RestoreDBInstanceFromS3' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@RestoreDBInstanceFromS3' {} a -> s {dbInstanceIdentifier = a} :: RestoreDBInstanceFromS3)
 
--- | The compute and memory capacity of the DB instance, for example,
--- @db.m4.large@. Not all DB instance classes are available in all Amazon
--- Web Services Regions, or for all database engines. For the full list of
--- DB instance classes, and availability for your engine, see
+-- | The compute and memory capacity of the DB instance, for example
+-- db.m4.large. Not all DB instance classes are available in all Amazon Web
+-- Services Regions, or for all database engines. For the full list of DB
+-- instance classes, and availability for your engine, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
 -- in the /Amazon RDS User Guide./
 --
@@ -1183,6 +1306,7 @@ instance Prelude.Hashable RestoreDBInstanceFromS3 where
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` licenseModel
@@ -1243,6 +1367,8 @@ instance Prelude.NFData RestoreDBInstanceFromS3 where
         engineVersion
       `Prelude.seq` Prelude.rnf
         dbName
+      `Prelude.seq` Prelude.rnf
+        networkType
       `Prelude.seq` Prelude.rnf
         multiAZ
       `Prelude.seq` Prelude.rnf
@@ -1338,6 +1464,7 @@ instance Core.ToQuery RestoreDBInstanceFromS3 where
         "Iops" Core.=: iops,
         "EngineVersion" Core.=: engineVersion,
         "DBName" Core.=: dbName,
+        "NetworkType" Core.=: networkType,
         "MultiAZ" Core.=: multiAZ,
         "S3Prefix" Core.=: s3Prefix,
         "LicenseModel" Core.=: licenseModel,

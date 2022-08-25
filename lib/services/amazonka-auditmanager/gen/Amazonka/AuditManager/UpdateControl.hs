@@ -54,19 +54,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateControl' smart constructor.
 data UpdateControl = UpdateControl'
-  { -- | The recommended actions to carry out if the control is not fulfilled.
+  { -- | The recommended actions to carry out if the control isn\'t fulfilled.
     actionPlanInstructions :: Prelude.Maybe Prelude.Text,
     -- | The optional description of the control.
     description :: Prelude.Maybe Prelude.Text,
     -- | The title of the action plan for remediating the control.
     actionPlanTitle :: Prelude.Maybe Prelude.Text,
-    -- | The steps that to follow to determine if the control has been satisfied.
+    -- | The steps that you should follow to determine if the control is met.
     testingInformation :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified control.
+    -- | The identifier for the control.
     controlId :: Prelude.Text,
-    -- | The name of the control to be updated.
+    -- | The name of the updated control.
     name :: Prelude.Text,
-    -- | The data mapping sources for the specified control.
+    -- | The data mapping sources for the control.
     controlMappingSources :: Prelude.NonEmpty ControlMappingSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,19 +79,19 @@ data UpdateControl = UpdateControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionPlanInstructions', 'updateControl_actionPlanInstructions' - The recommended actions to carry out if the control is not fulfilled.
+-- 'actionPlanInstructions', 'updateControl_actionPlanInstructions' - The recommended actions to carry out if the control isn\'t fulfilled.
 --
 -- 'description', 'updateControl_description' - The optional description of the control.
 --
 -- 'actionPlanTitle', 'updateControl_actionPlanTitle' - The title of the action plan for remediating the control.
 --
--- 'testingInformation', 'updateControl_testingInformation' - The steps that to follow to determine if the control has been satisfied.
+-- 'testingInformation', 'updateControl_testingInformation' - The steps that you should follow to determine if the control is met.
 --
--- 'controlId', 'updateControl_controlId' - The identifier for the specified control.
+-- 'controlId', 'updateControl_controlId' - The identifier for the control.
 --
--- 'name', 'updateControl_name' - The name of the control to be updated.
+-- 'name', 'updateControl_name' - The name of the updated control.
 --
--- 'controlMappingSources', 'updateControl_controlMappingSources' - The data mapping sources for the specified control.
+-- 'controlMappingSources', 'updateControl_controlMappingSources' - The data mapping sources for the control.
 newUpdateControl ::
   -- | 'controlId'
   Prelude.Text ->
@@ -116,7 +116,7 @@ newUpdateControl
           Lens.coerced Lens.# pControlMappingSources_
       }
 
--- | The recommended actions to carry out if the control is not fulfilled.
+-- | The recommended actions to carry out if the control isn\'t fulfilled.
 updateControl_actionPlanInstructions :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
 updateControl_actionPlanInstructions = Lens.lens (\UpdateControl' {actionPlanInstructions} -> actionPlanInstructions) (\s@UpdateControl' {} a -> s {actionPlanInstructions = a} :: UpdateControl)
 
@@ -128,19 +128,19 @@ updateControl_description = Lens.lens (\UpdateControl' {description} -> descript
 updateControl_actionPlanTitle :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
 updateControl_actionPlanTitle = Lens.lens (\UpdateControl' {actionPlanTitle} -> actionPlanTitle) (\s@UpdateControl' {} a -> s {actionPlanTitle = a} :: UpdateControl)
 
--- | The steps that to follow to determine if the control has been satisfied.
+-- | The steps that you should follow to determine if the control is met.
 updateControl_testingInformation :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
 updateControl_testingInformation = Lens.lens (\UpdateControl' {testingInformation} -> testingInformation) (\s@UpdateControl' {} a -> s {testingInformation = a} :: UpdateControl)
 
--- | The identifier for the specified control.
+-- | The identifier for the control.
 updateControl_controlId :: Lens.Lens' UpdateControl Prelude.Text
 updateControl_controlId = Lens.lens (\UpdateControl' {controlId} -> controlId) (\s@UpdateControl' {} a -> s {controlId = a} :: UpdateControl)
 
--- | The name of the control to be updated.
+-- | The name of the updated control.
 updateControl_name :: Lens.Lens' UpdateControl Prelude.Text
 updateControl_name = Lens.lens (\UpdateControl' {name} -> name) (\s@UpdateControl' {} a -> s {name = a} :: UpdateControl)
 
--- | The data mapping sources for the specified control.
+-- | The data mapping sources for the control.
 updateControl_controlMappingSources :: Lens.Lens' UpdateControl (Prelude.NonEmpty ControlMappingSource)
 updateControl_controlMappingSources = Lens.lens (\UpdateControl' {controlMappingSources} -> controlMappingSources) (\s@UpdateControl' {} a -> s {controlMappingSources = a} :: UpdateControl) Prelude.. Lens.coerced
 
@@ -216,7 +216,8 @@ instance Core.ToQuery UpdateControl where
 
 -- | /See:/ 'newUpdateControlResponse' smart constructor.
 data UpdateControlResponse = UpdateControlResponse'
-  { -- | The name of the updated control set returned by the @UpdateControl@ API.
+  { -- | The name of the updated control set that the @UpdateControl@ API
+    -- returned.
     control :: Prelude.Maybe Control,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -231,7 +232,8 @@ data UpdateControlResponse = UpdateControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'updateControlResponse_control' - The name of the updated control set returned by the @UpdateControl@ API.
+-- 'control', 'updateControlResponse_control' - The name of the updated control set that the @UpdateControl@ API
+-- returned.
 --
 -- 'httpStatus', 'updateControlResponse_httpStatus' - The response's http status code.
 newUpdateControlResponse ::
@@ -244,7 +246,8 @@ newUpdateControlResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the updated control set returned by the @UpdateControl@ API.
+-- | The name of the updated control set that the @UpdateControl@ API
+-- returned.
 updateControlResponse_control :: Lens.Lens' UpdateControlResponse (Prelude.Maybe Control)
 updateControlResponse_control = Lens.lens (\UpdateControlResponse' {control} -> control) (\s@UpdateControlResponse' {} a -> s {control = a} :: UpdateControlResponse)
 

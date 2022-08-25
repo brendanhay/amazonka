@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types.ExportStatus
+import Amazonka.QLDB.Types.OutputFormat
 import Amazonka.QLDB.Types.S3ExportConfiguration
 
 -- | Information about a journal export job, including the ledger name,
@@ -31,7 +32,9 @@ import Amazonka.QLDB.Types.S3ExportConfiguration
 --
 -- /See:/ 'newJournalS3ExportDescription' smart constructor.
 data JournalS3ExportDescription = JournalS3ExportDescription'
-  { -- | The name of the ledger.
+  { -- | The output format of the exported journal data.
+    outputFormat :: Prelude.Maybe OutputFormat,
+    -- | The name of the ledger.
     ledgerName :: Prelude.Text,
     -- | The UUID (represented in Base62-encoded text) of the journal export job.
     exportId :: Prelude.Text,
@@ -42,10 +45,10 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
     -- | The current state of the journal export job.
     status :: ExportStatus,
     -- | The inclusive start date and time for the range of journal contents that
-    -- are specified in the original export request.
+    -- was specified in the original export request.
     inclusiveStartTime :: Core.POSIX,
     -- | The exclusive end date and time for the range of journal contents that
-    -- are specified in the original export request.
+    -- was specified in the original export request.
     exclusiveEndTime :: Core.POSIX,
     s3ExportConfiguration :: S3ExportConfiguration,
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
@@ -54,8 +57,8 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
     -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
     --     bucket.
     --
-    -- -   (Optional) Use your customer master key (CMK) in Key Management
-    --     Service (KMS) for server-side encryption of your exported data.
+    -- -   (Optional) Use your customer managed key in Key Management Service
+    --     (KMS) for server-side encryption of your exported data.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,6 +71,8 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputFormat', 'journalS3ExportDescription_outputFormat' - The output format of the exported journal data.
+--
 -- 'ledgerName', 'journalS3ExportDescription_ledgerName' - The name of the ledger.
 --
 -- 'exportId', 'journalS3ExportDescription_exportId' - The UUID (represented in Base62-encoded text) of the journal export job.
@@ -79,10 +84,10 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
 -- 'status', 'journalS3ExportDescription_status' - The current state of the journal export job.
 --
 -- 'inclusiveStartTime', 'journalS3ExportDescription_inclusiveStartTime' - The inclusive start date and time for the range of journal contents that
--- are specified in the original export request.
+-- was specified in the original export request.
 --
 -- 'exclusiveEndTime', 'journalS3ExportDescription_exclusiveEndTime' - The exclusive end date and time for the range of journal contents that
--- are specified in the original export request.
+-- was specified in the original export request.
 --
 -- 's3ExportConfiguration', 'journalS3ExportDescription_s3ExportConfiguration' - Undocumented member.
 --
@@ -92,8 +97,8 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in Key Management
---     Service (KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer managed key in Key Management Service
+--     (KMS) for server-side encryption of your exported data.
 newJournalS3ExportDescription ::
   -- | 'ledgerName'
   Prelude.Text ->
@@ -122,8 +127,9 @@ newJournalS3ExportDescription
   pS3ExportConfiguration_
   pRoleArn_ =
     JournalS3ExportDescription'
-      { ledgerName =
-          pLedgerName_,
+      { outputFormat =
+          Prelude.Nothing,
+        ledgerName = pLedgerName_,
         exportId = pExportId_,
         exportCreationTime =
           Core._Time Lens.# pExportCreationTime_,
@@ -135,6 +141,10 @@ newJournalS3ExportDescription
         s3ExportConfiguration = pS3ExportConfiguration_,
         roleArn = pRoleArn_
       }
+
+-- | The output format of the exported journal data.
+journalS3ExportDescription_outputFormat :: Lens.Lens' JournalS3ExportDescription (Prelude.Maybe OutputFormat)
+journalS3ExportDescription_outputFormat = Lens.lens (\JournalS3ExportDescription' {outputFormat} -> outputFormat) (\s@JournalS3ExportDescription' {} a -> s {outputFormat = a} :: JournalS3ExportDescription)
 
 -- | The name of the ledger.
 journalS3ExportDescription_ledgerName :: Lens.Lens' JournalS3ExportDescription Prelude.Text
@@ -155,12 +165,12 @@ journalS3ExportDescription_status :: Lens.Lens' JournalS3ExportDescription Expor
 journalS3ExportDescription_status = Lens.lens (\JournalS3ExportDescription' {status} -> status) (\s@JournalS3ExportDescription' {} a -> s {status = a} :: JournalS3ExportDescription)
 
 -- | The inclusive start date and time for the range of journal contents that
--- are specified in the original export request.
+-- was specified in the original export request.
 journalS3ExportDescription_inclusiveStartTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
 journalS3ExportDescription_inclusiveStartTime = Lens.lens (\JournalS3ExportDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalS3ExportDescription' {} a -> s {inclusiveStartTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
 
 -- | The exclusive end date and time for the range of journal contents that
--- are specified in the original export request.
+-- was specified in the original export request.
 journalS3ExportDescription_exclusiveEndTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
 journalS3ExportDescription_exclusiveEndTime = Lens.lens (\JournalS3ExportDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalS3ExportDescription' {} a -> s {exclusiveEndTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
 
@@ -174,8 +184,8 @@ journalS3ExportDescription_s3ExportConfiguration = Lens.lens (\JournalS3ExportDe
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in Key Management
---     Service (KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer managed key in Key Management Service
+--     (KMS) for server-side encryption of your exported data.
 journalS3ExportDescription_roleArn :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_roleArn = Lens.lens (\JournalS3ExportDescription' {roleArn} -> roleArn) (\s@JournalS3ExportDescription' {} a -> s {roleArn = a} :: JournalS3ExportDescription)
 
@@ -185,7 +195,8 @@ instance Core.FromJSON JournalS3ExportDescription where
       "JournalS3ExportDescription"
       ( \x ->
           JournalS3ExportDescription'
-            Prelude.<$> (x Core..: "LedgerName")
+            Prelude.<$> (x Core..:? "OutputFormat")
+            Prelude.<*> (x Core..: "LedgerName")
             Prelude.<*> (x Core..: "ExportId")
             Prelude.<*> (x Core..: "ExportCreationTime")
             Prelude.<*> (x Core..: "Status")
@@ -197,7 +208,8 @@ instance Core.FromJSON JournalS3ExportDescription where
 
 instance Prelude.Hashable JournalS3ExportDescription where
   hashWithSalt _salt JournalS3ExportDescription' {..} =
-    _salt `Prelude.hashWithSalt` ledgerName
+    _salt `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` ledgerName
       `Prelude.hashWithSalt` exportId
       `Prelude.hashWithSalt` exportCreationTime
       `Prelude.hashWithSalt` status
@@ -208,7 +220,8 @@ instance Prelude.Hashable JournalS3ExportDescription where
 
 instance Prelude.NFData JournalS3ExportDescription where
   rnf JournalS3ExportDescription' {..} =
-    Prelude.rnf ledgerName
+    Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf ledgerName
       `Prelude.seq` Prelude.rnf exportId
       `Prelude.seq` Prelude.rnf exportCreationTime
       `Prelude.seq` Prelude.rnf status

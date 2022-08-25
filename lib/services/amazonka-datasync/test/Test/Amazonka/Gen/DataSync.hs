@@ -36,8 +36,20 @@ import Test.Tasty
 --         , requestCreateLocationEfs $
 --             newCreateLocationEfs
 --
+--         , requestCreateLocationFsxLustre $
+--             newCreateLocationFsxLustre
+--
+--         , requestCreateLocationFsxOntap $
+--             newCreateLocationFsxOntap
+--
+--         , requestCreateLocationFsxOpenZfs $
+--             newCreateLocationFsxOpenZfs
+--
 --         , requestCreateLocationFsxWindows $
 --             newCreateLocationFsxWindows
+--
+--         , requestCreateLocationHdfs $
+--             newCreateLocationHdfs
 --
 --         , requestCreateLocationNfs $
 --             newCreateLocationNfs
@@ -69,8 +81,20 @@ import Test.Tasty
 --         , requestDescribeLocationEfs $
 --             newDescribeLocationEfs
 --
+--         , requestDescribeLocationFsxLustre $
+--             newDescribeLocationFsxLustre
+--
+--         , requestDescribeLocationFsxOntap $
+--             newDescribeLocationFsxOntap
+--
+--         , requestDescribeLocationFsxOpenZfs $
+--             newDescribeLocationFsxOpenZfs
+--
 --         , requestDescribeLocationFsxWindows $
 --             newDescribeLocationFsxWindows
+--
+--         , requestDescribeLocationHdfs $
+--             newDescribeLocationHdfs
 --
 --         , requestDescribeLocationNfs $
 --             newDescribeLocationNfs
@@ -117,6 +141,9 @@ import Test.Tasty
 --         , requestUpdateAgent $
 --             newUpdateAgent
 --
+--         , requestUpdateLocationHdfs $
+--             newUpdateLocationHdfs
+--
 --         , requestUpdateLocationNfs $
 --             newUpdateLocationNfs
 --
@@ -144,8 +171,20 @@ import Test.Tasty
 --         , responseCreateLocationEfs $
 --             newCreateLocationEfsResponse
 --
+--         , responseCreateLocationFsxLustre $
+--             newCreateLocationFsxLustreResponse
+--
+--         , responseCreateLocationFsxOntap $
+--             newCreateLocationFsxOntapResponse
+--
+--         , responseCreateLocationFsxOpenZfs $
+--             newCreateLocationFsxOpenZfsResponse
+--
 --         , responseCreateLocationFsxWindows $
 --             newCreateLocationFsxWindowsResponse
+--
+--         , responseCreateLocationHdfs $
+--             newCreateLocationHdfsResponse
 --
 --         , responseCreateLocationNfs $
 --             newCreateLocationNfsResponse
@@ -177,8 +216,20 @@ import Test.Tasty
 --         , responseDescribeLocationEfs $
 --             newDescribeLocationEfsResponse
 --
+--         , responseDescribeLocationFsxLustre $
+--             newDescribeLocationFsxLustreResponse
+--
+--         , responseDescribeLocationFsxOntap $
+--             newDescribeLocationFsxOntapResponse
+--
+--         , responseDescribeLocationFsxOpenZfs $
+--             newDescribeLocationFsxOpenZfsResponse
+--
 --         , responseDescribeLocationFsxWindows $
 --             newDescribeLocationFsxWindowsResponse
+--
+--         , responseDescribeLocationHdfs $
+--             newDescribeLocationHdfsResponse
 --
 --         , responseDescribeLocationNfs $
 --             newDescribeLocationNfsResponse
@@ -225,6 +276,9 @@ import Test.Tasty
 --         , responseUpdateAgent $
 --             newUpdateAgentResponse
 --
+--         , responseUpdateLocationHdfs $
+--             newUpdateLocationHdfsResponse
+--
 --         , responseUpdateLocationNfs $
 --             newUpdateLocationNfsResponse
 --
@@ -263,11 +317,35 @@ requestCreateLocationEfs =
     "CreateLocationEfs"
     "fixture/CreateLocationEfs.yaml"
 
+requestCreateLocationFsxLustre :: CreateLocationFsxLustre -> TestTree
+requestCreateLocationFsxLustre =
+  req
+    "CreateLocationFsxLustre"
+    "fixture/CreateLocationFsxLustre.yaml"
+
+requestCreateLocationFsxOntap :: CreateLocationFsxOntap -> TestTree
+requestCreateLocationFsxOntap =
+  req
+    "CreateLocationFsxOntap"
+    "fixture/CreateLocationFsxOntap.yaml"
+
+requestCreateLocationFsxOpenZfs :: CreateLocationFsxOpenZfs -> TestTree
+requestCreateLocationFsxOpenZfs =
+  req
+    "CreateLocationFsxOpenZfs"
+    "fixture/CreateLocationFsxOpenZfs.yaml"
+
 requestCreateLocationFsxWindows :: CreateLocationFsxWindows -> TestTree
 requestCreateLocationFsxWindows =
   req
     "CreateLocationFsxWindows"
     "fixture/CreateLocationFsxWindows.yaml"
+
+requestCreateLocationHdfs :: CreateLocationHdfs -> TestTree
+requestCreateLocationHdfs =
+  req
+    "CreateLocationHdfs"
+    "fixture/CreateLocationHdfs.yaml"
 
 requestCreateLocationNfs :: CreateLocationNfs -> TestTree
 requestCreateLocationNfs =
@@ -329,11 +407,35 @@ requestDescribeLocationEfs =
     "DescribeLocationEfs"
     "fixture/DescribeLocationEfs.yaml"
 
+requestDescribeLocationFsxLustre :: DescribeLocationFsxLustre -> TestTree
+requestDescribeLocationFsxLustre =
+  req
+    "DescribeLocationFsxLustre"
+    "fixture/DescribeLocationFsxLustre.yaml"
+
+requestDescribeLocationFsxOntap :: DescribeLocationFsxOntap -> TestTree
+requestDescribeLocationFsxOntap =
+  req
+    "DescribeLocationFsxOntap"
+    "fixture/DescribeLocationFsxOntap.yaml"
+
+requestDescribeLocationFsxOpenZfs :: DescribeLocationFsxOpenZfs -> TestTree
+requestDescribeLocationFsxOpenZfs =
+  req
+    "DescribeLocationFsxOpenZfs"
+    "fixture/DescribeLocationFsxOpenZfs.yaml"
+
 requestDescribeLocationFsxWindows :: DescribeLocationFsxWindows -> TestTree
 requestDescribeLocationFsxWindows =
   req
     "DescribeLocationFsxWindows"
     "fixture/DescribeLocationFsxWindows.yaml"
+
+requestDescribeLocationHdfs :: DescribeLocationHdfs -> TestTree
+requestDescribeLocationHdfs =
+  req
+    "DescribeLocationHdfs"
+    "fixture/DescribeLocationHdfs.yaml"
 
 requestDescribeLocationNfs :: DescribeLocationNfs -> TestTree
 requestDescribeLocationNfs =
@@ -425,6 +527,12 @@ requestUpdateAgent =
     "UpdateAgent"
     "fixture/UpdateAgent.yaml"
 
+requestUpdateLocationHdfs :: UpdateLocationHdfs -> TestTree
+requestUpdateLocationHdfs =
+  req
+    "UpdateLocationHdfs"
+    "fixture/UpdateLocationHdfs.yaml"
+
 requestUpdateLocationNfs :: UpdateLocationNfs -> TestTree
 requestUpdateLocationNfs =
   req
@@ -481,6 +589,30 @@ responseCreateLocationEfs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLocationEfs)
 
+responseCreateLocationFsxLustre :: CreateLocationFsxLustreResponse -> TestTree
+responseCreateLocationFsxLustre =
+  res
+    "CreateLocationFsxLustreResponse"
+    "fixture/CreateLocationFsxLustreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxLustre)
+
+responseCreateLocationFsxOntap :: CreateLocationFsxOntapResponse -> TestTree
+responseCreateLocationFsxOntap =
+  res
+    "CreateLocationFsxOntapResponse"
+    "fixture/CreateLocationFsxOntapResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxOntap)
+
+responseCreateLocationFsxOpenZfs :: CreateLocationFsxOpenZfsResponse -> TestTree
+responseCreateLocationFsxOpenZfs =
+  res
+    "CreateLocationFsxOpenZfsResponse"
+    "fixture/CreateLocationFsxOpenZfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxOpenZfs)
+
 responseCreateLocationFsxWindows :: CreateLocationFsxWindowsResponse -> TestTree
 responseCreateLocationFsxWindows =
   res
@@ -488,6 +620,14 @@ responseCreateLocationFsxWindows =
     "fixture/CreateLocationFsxWindowsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxWindows)
+
+responseCreateLocationHdfs :: CreateLocationHdfsResponse -> TestTree
+responseCreateLocationHdfs =
+  res
+    "CreateLocationHdfsResponse"
+    "fixture/CreateLocationHdfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationHdfs)
 
 responseCreateLocationNfs :: CreateLocationNfsResponse -> TestTree
 responseCreateLocationNfs =
@@ -569,6 +709,30 @@ responseDescribeLocationEfs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeLocationEfs)
 
+responseDescribeLocationFsxLustre :: DescribeLocationFsxLustreResponse -> TestTree
+responseDescribeLocationFsxLustre =
+  res
+    "DescribeLocationFsxLustreResponse"
+    "fixture/DescribeLocationFsxLustreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxLustre)
+
+responseDescribeLocationFsxOntap :: DescribeLocationFsxOntapResponse -> TestTree
+responseDescribeLocationFsxOntap =
+  res
+    "DescribeLocationFsxOntapResponse"
+    "fixture/DescribeLocationFsxOntapResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxOntap)
+
+responseDescribeLocationFsxOpenZfs :: DescribeLocationFsxOpenZfsResponse -> TestTree
+responseDescribeLocationFsxOpenZfs =
+  res
+    "DescribeLocationFsxOpenZfsResponse"
+    "fixture/DescribeLocationFsxOpenZfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxOpenZfs)
+
 responseDescribeLocationFsxWindows :: DescribeLocationFsxWindowsResponse -> TestTree
 responseDescribeLocationFsxWindows =
   res
@@ -576,6 +740,14 @@ responseDescribeLocationFsxWindows =
     "fixture/DescribeLocationFsxWindowsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxWindows)
+
+responseDescribeLocationHdfs :: DescribeLocationHdfsResponse -> TestTree
+responseDescribeLocationHdfs =
+  res
+    "DescribeLocationHdfsResponse"
+    "fixture/DescribeLocationHdfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationHdfs)
 
 responseDescribeLocationNfs :: DescribeLocationNfsResponse -> TestTree
 responseDescribeLocationNfs =
@@ -696,6 +868,14 @@ responseUpdateAgent =
     "fixture/UpdateAgentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAgent)
+
+responseUpdateLocationHdfs :: UpdateLocationHdfsResponse -> TestTree
+responseUpdateLocationHdfs =
+  res
+    "UpdateLocationHdfsResponse"
+    "fixture/UpdateLocationHdfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationHdfs)
 
 responseUpdateLocationNfs :: UpdateLocationNfsResponse -> TestTree
 responseUpdateLocationNfs =

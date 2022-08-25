@@ -22,6 +22,8 @@
 --
 -- Returns a list of recovery point storage containers along with
 -- information about them.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListBackupVaults
   ( -- * Creating a Request
     ListBackupVaults (..),
@@ -93,6 +95,28 @@ listBackupVaults_nextToken = Lens.lens (\ListBackupVaults' {nextToken} -> nextTo
 -- | The maximum number of items to be returned.
 listBackupVaults_maxResults :: Lens.Lens' ListBackupVaults (Prelude.Maybe Prelude.Natural)
 listBackupVaults_maxResults = Lens.lens (\ListBackupVaults' {maxResults} -> maxResults) (\s@ListBackupVaults' {} a -> s {maxResults = a} :: ListBackupVaults)
+
+instance Core.AWSPager ListBackupVaults where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBackupVaultsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBackupVaultsResponse_backupVaultList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBackupVaults_nextToken
+          Lens..~ rs
+          Lens.^? listBackupVaultsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupVaults where
   type

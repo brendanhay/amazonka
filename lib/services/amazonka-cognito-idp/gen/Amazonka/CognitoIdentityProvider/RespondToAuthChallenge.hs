@@ -23,23 +23,22 @@
 -- Responds to the authentication challenge.
 --
 -- This action might generate an SMS text message. Starting June 1, 2021,
--- U.S. telecom carriers require that you register an origination phone
--- number before you can send SMS messages to U.S. phone numbers. If you
--- use SMS text messages in Amazon Cognito, you must register a phone
--- number with
--- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
--- will use the the registered number automatically. Otherwise, Cognito
--- users that must receive SMS messages might be unable to sign up,
--- activate their accounts, or sign in.
+-- US telecom carriers require you to register an origination phone number
+-- before you can send SMS messages to US phone numbers. If you use SMS
+-- text messages in Amazon Cognito, you must register a phone number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Amazon
+-- Cognito uses the registered number automatically. Otherwise, Amazon
+-- Cognito users who must receive SMS messages might not be able to sign
+-- up, activate their accounts, or sign in.
 --
 -- If you have never used SMS text messages with Amazon Cognito or any
--- other Amazon Web Service, Amazon SNS might place your account in SMS
--- sandbox. In
+-- other Amazon Web Service, Amazon Simple Notification Service might place
+-- your account in the SMS sandbox. In
 -- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
--- , you’ll have limitations, such as sending messages to only verified
--- phone numbers. After testing in the sandbox environment, you can move
--- out of the SMS sandbox and into production. For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- , you can send messages only to verified phone numbers. After you test
+-- your app while in the sandbox environment, you can move out of the
+-- sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Amazon Cognito user pools>
 -- in the /Amazon Cognito Developer Guide/.
 module Amazonka.CognitoIdentityProvider.RespondToAuthChallenge
   ( -- * Creating a Request
@@ -79,8 +78,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRespondToAuthChallenge' smart constructor.
 data RespondToAuthChallenge = RespondToAuthChallenge'
-  { -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @RespondToAuthChallenge@ calls.
+  { -- | The Amazon Pinpoint analytics metadata that contributes to your metrics
+    -- for @RespondToAuthChallenge@ calls.
     analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
@@ -98,46 +97,61 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     -- to enhance your workflow for your specific needs.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing user pool Workflows with Lambda Triggers>
     -- in the /Amazon Cognito Developer Guide/.
     --
-    -- Take the following limitations into consideration when you use the
-    -- ClientMetadata parameter:
+    -- When you use the ClientMetadata parameter, remember that Amazon Cognito
+    -- won\'t do the following:
     --
-    -- -   Amazon Cognito does not store the ClientMetadata value. This data is
-    --     available only to Lambda triggers that are assigned to a user pool
-    --     to support custom workflows. If your user pool configuration does
-    --     not include triggers, the ClientMetadata parameter serves no
-    --     purpose.
+    -- -   Store the ClientMetadata value. This data is available only to
+    --     Lambda triggers that are assigned to a user pool to support custom
+    --     workflows. If your user pool configuration doesn\'t include
+    --     triggers, the ClientMetadata parameter serves no purpose.
     --
-    -- -   Amazon Cognito does not validate the ClientMetadata value.
+    -- -   Validate the ClientMetadata value.
     --
-    -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
-    --     don\'t use it to provide sensitive information.
+    -- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
+    --     provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The session which should be passed both ways in challenge-response calls
+    -- | The session that should be passed both ways in challenge-response calls
     -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
-    -- determines that the caller needs to go through another challenge, they
-    -- return a session with other challenge parameters. This session should be
-    -- passed as it is to the next @RespondToAuthChallenge@ API call.
+    -- determines that the caller must pass another challenge, they return a
+    -- session with other challenge parameters. This session should be passed
+    -- as it is to the next @RespondToAuthChallenge@ API call.
     session :: Prelude.Maybe Prelude.Text,
-    -- | Contextual data such as the user\'s device fingerprint, IP address, or
-    -- location used for evaluating the risk of an unexpected event by Amazon
-    -- Cognito advanced security.
+    -- | Contextual data about your user session, such as the device fingerprint,
+    -- IP address, or location. Amazon Cognito advanced security evaluates the
+    -- risk of an authentication event based on the context that your app
+    -- generates and passes to Amazon Cognito when it makes API requests.
     userContextData :: Prelude.Maybe UserContextDataType,
     -- | The challenge responses. These are inputs corresponding to the value of
     -- @ChallengeName@, for example:
     --
     -- @SECRET_HASH@ (if app client is configured with client secret) applies
-    -- to all inputs below (including @SOFTWARE_TOKEN_MFA@).
+    -- to all of the inputs that follow (including @SOFTWARE_TOKEN_MFA@).
     --
     -- -   @SMS_MFA@: @SMS_MFA_CODE@, @USERNAME@.
     --
     -- -   @PASSWORD_VERIFIER@: @PASSWORD_CLAIM_SIGNATURE@,
     --     @PASSWORD_CLAIM_SECRET_BLOCK@, @TIMESTAMP@, @USERNAME@.
     --
-    -- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, any other required
-    --     attributes, @USERNAME@.
+    --     @PASSWORD_VERIFIER@ requires @DEVICE_KEY@ when you sign in with a
+    --     remembered device.
+    --
+    -- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, @USERNAME@, @SECRET_HASH@
+    --     (if app client is configured with client secret). To set any
+    --     required attributes that Amazon Cognito returned as
+    --     @requiredAttributes@ in the @InitiateAuth@ response, add a
+    --     @userAttributes.attributename @ parameter. This parameter can also
+    --     set values for writable attributes that aren\'t required by your
+    --     user pool.
+    --
+    --     In a @NEW_PASSWORD_REQUIRED@ challenge response, you can\'t modify a
+    --     required attribute that already has a value. In
+    --     @RespondToAuthChallenge@, set a value for any keys that Amazon
+    --     Cognito returned in the @requiredAttributes@ parameter, then use the
+    --     @UpdateUserAttributes@ API operation to modify the value of any
+    --     additional attributes.
     --
     -- -   @SOFTWARE_TOKEN_MFA@: @USERNAME@ and @SOFTWARE_TOKEN_MFA_CODE@ are
     --     required attributes.
@@ -146,17 +160,17 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     --     @SECRET_HASH@).
     --
     -- -   @DEVICE_PASSWORD_VERIFIER@ requires everything that
-    --     @PASSWORD_VERIFIER@ requires plus @DEVICE_KEY@.
+    --     @PASSWORD_VERIFIER@ requires, plus @DEVICE_KEY@.
     --
-    -- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
-    --     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
+    -- -   @MFA_SETUP@ requires @USERNAME@, plus you must use the session value
+    --     returned by @VerifySoftwareToken@ in the @Session@ parameter.
     challengeResponses :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The app client ID.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The challenge name. For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
     --
-    -- @ADMIN_NO_SRP_AUTH@ is not a valid value.
+    -- @ADMIN_NO_SRP_AUTH@ isn\'t a valid value.
     challengeName :: ChallengeNameType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -169,8 +183,8 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'analyticsMetadata', 'respondToAuthChallenge_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @RespondToAuthChallenge@ calls.
+-- 'analyticsMetadata', 'respondToAuthChallenge_analyticsMetadata' - The Amazon Pinpoint analytics metadata that contributes to your metrics
+-- for @RespondToAuthChallenge@ calls.
 --
 -- 'clientMetadata', 'respondToAuthChallenge_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -188,46 +202,61 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 -- to enhance your workflow for your specific needs.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing user pool Workflows with Lambda Triggers>
 -- in the /Amazon Cognito Developer Guide/.
 --
--- Take the following limitations into consideration when you use the
--- ClientMetadata parameter:
+-- When you use the ClientMetadata parameter, remember that Amazon Cognito
+-- won\'t do the following:
 --
--- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to Lambda triggers that are assigned to a user pool
---     to support custom workflows. If your user pool configuration does
---     not include triggers, the ClientMetadata parameter serves no
---     purpose.
+-- -   Store the ClientMetadata value. This data is available only to
+--     Lambda triggers that are assigned to a user pool to support custom
+--     workflows. If your user pool configuration doesn\'t include
+--     triggers, the ClientMetadata parameter serves no purpose.
 --
--- -   Amazon Cognito does not validate the ClientMetadata value.
+-- -   Validate the ClientMetadata value.
 --
--- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
---     don\'t use it to provide sensitive information.
+-- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
+--     provide sensitive information.
 --
--- 'session', 'respondToAuthChallenge_session' - The session which should be passed both ways in challenge-response calls
+-- 'session', 'respondToAuthChallenge_session' - The session that should be passed both ways in challenge-response calls
 -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
--- determines that the caller needs to go through another challenge, they
--- return a session with other challenge parameters. This session should be
--- passed as it is to the next @RespondToAuthChallenge@ API call.
+-- determines that the caller must pass another challenge, they return a
+-- session with other challenge parameters. This session should be passed
+-- as it is to the next @RespondToAuthChallenge@ API call.
 --
--- 'userContextData', 'respondToAuthChallenge_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
+-- 'userContextData', 'respondToAuthChallenge_userContextData' - Contextual data about your user session, such as the device fingerprint,
+-- IP address, or location. Amazon Cognito advanced security evaluates the
+-- risk of an authentication event based on the context that your app
+-- generates and passes to Amazon Cognito when it makes API requests.
 --
 -- 'challengeResponses', 'respondToAuthChallenge_challengeResponses' - The challenge responses. These are inputs corresponding to the value of
 -- @ChallengeName@, for example:
 --
 -- @SECRET_HASH@ (if app client is configured with client secret) applies
--- to all inputs below (including @SOFTWARE_TOKEN_MFA@).
+-- to all of the inputs that follow (including @SOFTWARE_TOKEN_MFA@).
 --
 -- -   @SMS_MFA@: @SMS_MFA_CODE@, @USERNAME@.
 --
 -- -   @PASSWORD_VERIFIER@: @PASSWORD_CLAIM_SIGNATURE@,
 --     @PASSWORD_CLAIM_SECRET_BLOCK@, @TIMESTAMP@, @USERNAME@.
 --
--- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, any other required
---     attributes, @USERNAME@.
+--     @PASSWORD_VERIFIER@ requires @DEVICE_KEY@ when you sign in with a
+--     remembered device.
+--
+-- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, @USERNAME@, @SECRET_HASH@
+--     (if app client is configured with client secret). To set any
+--     required attributes that Amazon Cognito returned as
+--     @requiredAttributes@ in the @InitiateAuth@ response, add a
+--     @userAttributes.attributename @ parameter. This parameter can also
+--     set values for writable attributes that aren\'t required by your
+--     user pool.
+--
+--     In a @NEW_PASSWORD_REQUIRED@ challenge response, you can\'t modify a
+--     required attribute that already has a value. In
+--     @RespondToAuthChallenge@, set a value for any keys that Amazon
+--     Cognito returned in the @requiredAttributes@ parameter, then use the
+--     @UpdateUserAttributes@ API operation to modify the value of any
+--     additional attributes.
 --
 -- -   @SOFTWARE_TOKEN_MFA@: @USERNAME@ and @SOFTWARE_TOKEN_MFA_CODE@ are
 --     required attributes.
@@ -236,17 +265,17 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --     @SECRET_HASH@).
 --
 -- -   @DEVICE_PASSWORD_VERIFIER@ requires everything that
---     @PASSWORD_VERIFIER@ requires plus @DEVICE_KEY@.
+--     @PASSWORD_VERIFIER@ requires, plus @DEVICE_KEY@.
 --
--- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
---     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
+-- -   @MFA_SETUP@ requires @USERNAME@, plus you must use the session value
+--     returned by @VerifySoftwareToken@ in the @Session@ parameter.
 --
 -- 'clientId', 'respondToAuthChallenge_clientId' - The app client ID.
 --
 -- 'challengeName', 'respondToAuthChallenge_challengeName' - The challenge name. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
 --
--- @ADMIN_NO_SRP_AUTH@ is not a valid value.
+-- @ADMIN_NO_SRP_AUTH@ isn\'t a valid value.
 newRespondToAuthChallenge ::
   -- | 'clientId'
   Prelude.Text ->
@@ -265,8 +294,8 @@ newRespondToAuthChallenge pClientId_ pChallengeName_ =
       challengeName = pChallengeName_
     }
 
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @RespondToAuthChallenge@ calls.
+-- | The Amazon Pinpoint analytics metadata that contributes to your metrics
+-- for @RespondToAuthChallenge@ calls.
 respondToAuthChallenge_analyticsMetadata :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe AnalyticsMetadataType)
 respondToAuthChallenge_analyticsMetadata = Lens.lens (\RespondToAuthChallenge' {analyticsMetadata} -> analyticsMetadata) (\s@RespondToAuthChallenge' {} a -> s {analyticsMetadata = a} :: RespondToAuthChallenge)
 
@@ -286,36 +315,36 @@ respondToAuthChallenge_analyticsMetadata = Lens.lens (\RespondToAuthChallenge' {
 -- to enhance your workflow for your specific needs.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing user pool Workflows with Lambda Triggers>
 -- in the /Amazon Cognito Developer Guide/.
 --
--- Take the following limitations into consideration when you use the
--- ClientMetadata parameter:
+-- When you use the ClientMetadata parameter, remember that Amazon Cognito
+-- won\'t do the following:
 --
--- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to Lambda triggers that are assigned to a user pool
---     to support custom workflows. If your user pool configuration does
---     not include triggers, the ClientMetadata parameter serves no
---     purpose.
+-- -   Store the ClientMetadata value. This data is available only to
+--     Lambda triggers that are assigned to a user pool to support custom
+--     workflows. If your user pool configuration doesn\'t include
+--     triggers, the ClientMetadata parameter serves no purpose.
 --
--- -   Amazon Cognito does not validate the ClientMetadata value.
+-- -   Validate the ClientMetadata value.
 --
--- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
---     don\'t use it to provide sensitive information.
+-- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
+--     provide sensitive information.
 respondToAuthChallenge_clientMetadata :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 respondToAuthChallenge_clientMetadata = Lens.lens (\RespondToAuthChallenge' {clientMetadata} -> clientMetadata) (\s@RespondToAuthChallenge' {} a -> s {clientMetadata = a} :: RespondToAuthChallenge) Prelude.. Lens.mapping Lens.coerced
 
--- | The session which should be passed both ways in challenge-response calls
+-- | The session that should be passed both ways in challenge-response calls
 -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
--- determines that the caller needs to go through another challenge, they
--- return a session with other challenge parameters. This session should be
--- passed as it is to the next @RespondToAuthChallenge@ API call.
+-- determines that the caller must pass another challenge, they return a
+-- session with other challenge parameters. This session should be passed
+-- as it is to the next @RespondToAuthChallenge@ API call.
 respondToAuthChallenge_session :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe Prelude.Text)
 respondToAuthChallenge_session = Lens.lens (\RespondToAuthChallenge' {session} -> session) (\s@RespondToAuthChallenge' {} a -> s {session = a} :: RespondToAuthChallenge)
 
--- | Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
+-- | Contextual data about your user session, such as the device fingerprint,
+-- IP address, or location. Amazon Cognito advanced security evaluates the
+-- risk of an authentication event based on the context that your app
+-- generates and passes to Amazon Cognito when it makes API requests.
 respondToAuthChallenge_userContextData :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe UserContextDataType)
 respondToAuthChallenge_userContextData = Lens.lens (\RespondToAuthChallenge' {userContextData} -> userContextData) (\s@RespondToAuthChallenge' {} a -> s {userContextData = a} :: RespondToAuthChallenge)
 
@@ -323,15 +352,30 @@ respondToAuthChallenge_userContextData = Lens.lens (\RespondToAuthChallenge' {us
 -- @ChallengeName@, for example:
 --
 -- @SECRET_HASH@ (if app client is configured with client secret) applies
--- to all inputs below (including @SOFTWARE_TOKEN_MFA@).
+-- to all of the inputs that follow (including @SOFTWARE_TOKEN_MFA@).
 --
 -- -   @SMS_MFA@: @SMS_MFA_CODE@, @USERNAME@.
 --
 -- -   @PASSWORD_VERIFIER@: @PASSWORD_CLAIM_SIGNATURE@,
 --     @PASSWORD_CLAIM_SECRET_BLOCK@, @TIMESTAMP@, @USERNAME@.
 --
--- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, any other required
---     attributes, @USERNAME@.
+--     @PASSWORD_VERIFIER@ requires @DEVICE_KEY@ when you sign in with a
+--     remembered device.
+--
+-- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, @USERNAME@, @SECRET_HASH@
+--     (if app client is configured with client secret). To set any
+--     required attributes that Amazon Cognito returned as
+--     @requiredAttributes@ in the @InitiateAuth@ response, add a
+--     @userAttributes.attributename @ parameter. This parameter can also
+--     set values for writable attributes that aren\'t required by your
+--     user pool.
+--
+--     In a @NEW_PASSWORD_REQUIRED@ challenge response, you can\'t modify a
+--     required attribute that already has a value. In
+--     @RespondToAuthChallenge@, set a value for any keys that Amazon
+--     Cognito returned in the @requiredAttributes@ parameter, then use the
+--     @UpdateUserAttributes@ API operation to modify the value of any
+--     additional attributes.
 --
 -- -   @SOFTWARE_TOKEN_MFA@: @USERNAME@ and @SOFTWARE_TOKEN_MFA_CODE@ are
 --     required attributes.
@@ -340,10 +384,10 @@ respondToAuthChallenge_userContextData = Lens.lens (\RespondToAuthChallenge' {us
 --     @SECRET_HASH@).
 --
 -- -   @DEVICE_PASSWORD_VERIFIER@ requires everything that
---     @PASSWORD_VERIFIER@ requires plus @DEVICE_KEY@.
+--     @PASSWORD_VERIFIER@ requires, plus @DEVICE_KEY@.
 --
--- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
---     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
+-- -   @MFA_SETUP@ requires @USERNAME@, plus you must use the session value
+--     returned by @VerifySoftwareToken@ in the @Session@ parameter.
 respondToAuthChallenge_challengeResponses :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 respondToAuthChallenge_challengeResponses = Lens.lens (\RespondToAuthChallenge' {challengeResponses} -> challengeResponses) (\s@RespondToAuthChallenge' {} a -> s {challengeResponses = a} :: RespondToAuthChallenge) Prelude.. Lens.mapping Lens.coerced
 
@@ -354,7 +398,7 @@ respondToAuthChallenge_clientId = Lens.lens (\RespondToAuthChallenge' {clientId}
 -- | The challenge name. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
 --
--- @ADMIN_NO_SRP_AUTH@ is not a valid value.
+-- @ADMIN_NO_SRP_AUTH@ isn\'t a valid value.
 respondToAuthChallenge_challengeName :: Lens.Lens' RespondToAuthChallenge ChallengeNameType
 respondToAuthChallenge_challengeName = Lens.lens (\RespondToAuthChallenge' {challengeName} -> challengeName) (\s@RespondToAuthChallenge' {} a -> s {challengeName = a} :: RespondToAuthChallenge)
 
@@ -443,10 +487,10 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
   { -- | The result returned by the server in response to the request to respond
     -- to the authentication challenge.
     authenticationResult :: Prelude.Maybe AuthenticationResultType,
-    -- | The session which should be passed both ways in challenge-response calls
-    -- to the service. If the caller needs to go through another challenge,
-    -- they return a session with other challenge parameters. This session
-    -- should be passed as it is to the next @RespondToAuthChallenge@ API call.
+    -- | The session that should be passed both ways in challenge-response calls
+    -- to the service. If the caller must pass another challenge, they return a
+    -- session with other challenge parameters. This session should be passed
+    -- as it is to the next @RespondToAuthChallenge@ API call.
     session :: Prelude.Maybe Prelude.Text,
     -- | The challenge name. For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
@@ -470,10 +514,10 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 -- 'authenticationResult', 'respondToAuthChallengeResponse_authenticationResult' - The result returned by the server in response to the request to respond
 -- to the authentication challenge.
 --
--- 'session', 'respondToAuthChallengeResponse_session' - The session which should be passed both ways in challenge-response calls
--- to the service. If the caller needs to go through another challenge,
--- they return a session with other challenge parameters. This session
--- should be passed as it is to the next @RespondToAuthChallenge@ API call.
+-- 'session', 'respondToAuthChallengeResponse_session' - The session that should be passed both ways in challenge-response calls
+-- to the service. If the caller must pass another challenge, they return a
+-- session with other challenge parameters. This session should be passed
+-- as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- 'challengeName', 'respondToAuthChallengeResponse_challengeName' - The challenge name. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
@@ -501,10 +545,10 @@ newRespondToAuthChallengeResponse pHttpStatus_ =
 respondToAuthChallengeResponse_authenticationResult :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe AuthenticationResultType)
 respondToAuthChallengeResponse_authenticationResult = Lens.lens (\RespondToAuthChallengeResponse' {authenticationResult} -> authenticationResult) (\s@RespondToAuthChallengeResponse' {} a -> s {authenticationResult = a} :: RespondToAuthChallengeResponse)
 
--- | The session which should be passed both ways in challenge-response calls
--- to the service. If the caller needs to go through another challenge,
--- they return a session with other challenge parameters. This session
--- should be passed as it is to the next @RespondToAuthChallenge@ API call.
+-- | The session that should be passed both ways in challenge-response calls
+-- to the service. If the caller must pass another challenge, they return a
+-- session with other challenge parameters. This session should be passed
+-- as it is to the next @RespondToAuthChallenge@ API call.
 respondToAuthChallengeResponse_session :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe Prelude.Text)
 respondToAuthChallengeResponse_session = Lens.lens (\RespondToAuthChallengeResponse' {session} -> session) (\s@RespondToAuthChallengeResponse' {} a -> s {session = a} :: RespondToAuthChallengeResponse)
 

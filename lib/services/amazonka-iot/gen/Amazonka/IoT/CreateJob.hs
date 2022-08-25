@@ -35,12 +35,14 @@ module Amazonka.IoT.CreateJob
     createJob_jobExecutionsRolloutConfig,
     createJob_documentSource,
     createJob_abortConfig,
+    createJob_documentParameters,
     createJob_jobTemplateArn,
     createJob_targetSelection,
     createJob_description,
     createJob_presignedUrlConfig,
     createJob_document,
     createJob_namespaceId,
+    createJob_jobExecutionsRetryConfig,
     createJob_timeoutConfig,
     createJob_jobId,
     createJob_targets,
@@ -83,8 +85,15 @@ data CreateJob = CreateJob'
     -- where /bucket/ is your bucket name and /key/ is the object in the bucket
     -- to which you are linking.
     documentSource :: Prelude.Maybe Prelude.Text,
-    -- | Allows you to create criteria to abort a job.
+    -- | Allows you to create the criteria to abort a job.
     abortConfig :: Prelude.Maybe AbortConfig,
+    -- | Parameters of an Amazon Web Services managed template that you can
+    -- specify to create the job document.
+    --
+    -- @documentParameters@ can only be used when creating jobs from Amazon Web
+    -- Services managed templates. This parameter can\'t be used with custom
+    -- job templates or to create jobs from them.
+    documentParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the job template used to create the job.
     jobTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
@@ -93,6 +102,10 @@ data CreateJob = CreateJob'
     -- change is detected in a target. For example, a job will run on a thing
     -- when the thing is added to a target group, even after the job was
     -- completed by all things originally in the group.
+    --
+    -- We recommend that you use continuous jobs instead of snapshot jobs for
+    -- dynamic thing group targets. By using continuous jobs, devices that join
+    -- the group receive the job execution even after the job has been created.
     targetSelection :: Prelude.Maybe TargetSelection,
     -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
@@ -111,6 +124,8 @@ data CreateJob = CreateJob'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to create the criteria to retry a job.
+    jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     -- | Specifies the amount of time each device has to finish its execution of
     -- the job. The timer is started when the job execution status is set to
     -- @IN_PROGRESS@. If the job execution status is not set to another
@@ -151,7 +166,14 @@ data CreateJob = CreateJob'
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
 --
--- 'abortConfig', 'createJob_abortConfig' - Allows you to create criteria to abort a job.
+-- 'abortConfig', 'createJob_abortConfig' - Allows you to create the criteria to abort a job.
+--
+-- 'documentParameters', 'createJob_documentParameters' - Parameters of an Amazon Web Services managed template that you can
+-- specify to create the job document.
+--
+-- @documentParameters@ can only be used when creating jobs from Amazon Web
+-- Services managed templates. This parameter can\'t be used with custom
+-- job templates or to create jobs from them.
 --
 -- 'jobTemplateArn', 'createJob_jobTemplateArn' - The ARN of the job template used to create the job.
 --
@@ -161,6 +183,10 @@ data CreateJob = CreateJob'
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 --
 -- 'description', 'createJob_description' - A short text description of the job.
 --
@@ -178,6 +204,8 @@ data CreateJob = CreateJob'
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
+--
+-- 'jobExecutionsRetryConfig', 'createJob_jobExecutionsRetryConfig' - Allows you to create the criteria to retry a job.
 --
 -- 'timeoutConfig', 'createJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
 -- the job. The timer is started when the job execution status is set to
@@ -202,12 +230,14 @@ newCreateJob pJobId_ pTargets_ =
       jobExecutionsRolloutConfig = Prelude.Nothing,
       documentSource = Prelude.Nothing,
       abortConfig = Prelude.Nothing,
+      documentParameters = Prelude.Nothing,
       jobTemplateArn = Prelude.Nothing,
       targetSelection = Prelude.Nothing,
       description = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       document = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
+      jobExecutionsRetryConfig = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       jobId = pJobId_,
       targets = Lens.coerced Lens.# pTargets_
@@ -236,9 +266,18 @@ createJob_jobExecutionsRolloutConfig = Lens.lens (\CreateJob' {jobExecutionsRoll
 createJob_documentSource :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_documentSource = Lens.lens (\CreateJob' {documentSource} -> documentSource) (\s@CreateJob' {} a -> s {documentSource = a} :: CreateJob)
 
--- | Allows you to create criteria to abort a job.
+-- | Allows you to create the criteria to abort a job.
 createJob_abortConfig :: Lens.Lens' CreateJob (Prelude.Maybe AbortConfig)
 createJob_abortConfig = Lens.lens (\CreateJob' {abortConfig} -> abortConfig) (\s@CreateJob' {} a -> s {abortConfig = a} :: CreateJob)
+
+-- | Parameters of an Amazon Web Services managed template that you can
+-- specify to create the job document.
+--
+-- @documentParameters@ can only be used when creating jobs from Amazon Web
+-- Services managed templates. This parameter can\'t be used with custom
+-- job templates or to create jobs from them.
+createJob_documentParameters :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createJob_documentParameters = Lens.lens (\CreateJob' {documentParameters} -> documentParameters) (\s@CreateJob' {} a -> s {documentParameters = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the job template used to create the job.
 createJob_jobTemplateArn :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
@@ -250,6 +289,10 @@ createJob_jobTemplateArn = Lens.lens (\CreateJob' {jobTemplateArn} -> jobTemplat
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 createJob_targetSelection :: Lens.Lens' CreateJob (Prelude.Maybe TargetSelection)
 createJob_targetSelection = Lens.lens (\CreateJob' {targetSelection} -> targetSelection) (\s@CreateJob' {} a -> s {targetSelection = a} :: CreateJob)
 
@@ -277,6 +320,10 @@ createJob_document = Lens.lens (\CreateJob' {document} -> document) (\s@CreateJo
 -- The @namespaceId@ feature is in public preview.
 createJob_namespaceId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_namespaceId = Lens.lens (\CreateJob' {namespaceId} -> namespaceId) (\s@CreateJob' {} a -> s {namespaceId = a} :: CreateJob)
+
+-- | Allows you to create the criteria to retry a job.
+createJob_jobExecutionsRetryConfig :: Lens.Lens' CreateJob (Prelude.Maybe JobExecutionsRetryConfig)
+createJob_jobExecutionsRetryConfig = Lens.lens (\CreateJob' {jobExecutionsRetryConfig} -> jobExecutionsRetryConfig) (\s@CreateJob' {} a -> s {jobExecutionsRetryConfig = a} :: CreateJob)
 
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. The timer is started when the job execution status is set to
@@ -315,12 +362,14 @@ instance Prelude.Hashable CreateJob where
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
       `Prelude.hashWithSalt` documentSource
       `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` documentParameters
       `Prelude.hashWithSalt` jobTemplateArn
       `Prelude.hashWithSalt` targetSelection
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` jobExecutionsRetryConfig
       `Prelude.hashWithSalt` timeoutConfig
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` targets
@@ -331,12 +380,14 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf documentSource
       `Prelude.seq` Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf documentParameters
       `Prelude.seq` Prelude.rnf jobTemplateArn
       `Prelude.seq` Prelude.rnf targetSelection
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf targets
@@ -354,6 +405,8 @@ instance Core.ToJSON CreateJob where
             ("documentSource" Core..=)
               Prelude.<$> documentSource,
             ("abortConfig" Core..=) Prelude.<$> abortConfig,
+            ("documentParameters" Core..=)
+              Prelude.<$> documentParameters,
             ("jobTemplateArn" Core..=)
               Prelude.<$> jobTemplateArn,
             ("targetSelection" Core..=)
@@ -363,6 +416,8 @@ instance Core.ToJSON CreateJob where
               Prelude.<$> presignedUrlConfig,
             ("document" Core..=) Prelude.<$> document,
             ("namespaceId" Core..=) Prelude.<$> namespaceId,
+            ("jobExecutionsRetryConfig" Core..=)
+              Prelude.<$> jobExecutionsRetryConfig,
             ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
             Prelude.Just ("targets" Core..= targets)
           ]

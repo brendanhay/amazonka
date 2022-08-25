@@ -41,11 +41,11 @@ data PolicySummary = PolicySummary'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | A boolean value that indicates whether the specified policy is an AWS
-    -- managed policy. If true, then you can attach the policy to roots, OUs,
-    -- or accounts, but you cannot edit it.
+    -- | A boolean value that indicates whether the specified policy is an Amazon
+    -- Web Services managed policy. If true, then you can attach the policy to
+    -- roots, OUs, or accounts, but you cannot edit it.
     awsManaged :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier (ID) of the policy.
     --
@@ -78,11 +78,11 @@ data PolicySummary = PolicySummary'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 --
--- 'awsManaged', 'policySummary_awsManaged' - A boolean value that indicates whether the specified policy is an AWS
--- managed policy. If true, then you can attach the policy to roots, OUs,
--- or accounts, but you cannot edit it.
+-- 'awsManaged', 'policySummary_awsManaged' - A boolean value that indicates whether the specified policy is an Amazon
+-- Web Services managed policy. If true, then you can attach the policy to
+-- roots, OUs, or accounts, but you cannot edit it.
 --
 -- 'id', 'policySummary_id' - The unique identifier (ID) of the policy.
 --
@@ -119,13 +119,13 @@ policySummary_type = Lens.lens (\PolicySummary' {type'} -> type') (\s@PolicySumm
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 policySummary_arn :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_arn = Lens.lens (\PolicySummary' {arn} -> arn) (\s@PolicySummary' {} a -> s {arn = a} :: PolicySummary)
 
--- | A boolean value that indicates whether the specified policy is an AWS
--- managed policy. If true, then you can attach the policy to roots, OUs,
--- or accounts, but you cannot edit it.
+-- | A boolean value that indicates whether the specified policy is an Amazon
+-- Web Services managed policy. If true, then you can attach the policy to
+-- roots, OUs, or accounts, but you cannot edit it.
 policySummary_awsManaged :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
 policySummary_awsManaged = Lens.lens (\PolicySummary' {awsManaged} -> awsManaged) (\s@PolicySummary' {} a -> s {awsManaged = a} :: PolicySummary)
 

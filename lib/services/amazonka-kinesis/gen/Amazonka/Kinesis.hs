@@ -52,6 +52,9 @@ module Amazonka.Kinesis
     -- ** ExpiredIteratorException
     _ExpiredIteratorException,
 
+    -- ** ValidationException
+    _ValidationException,
+
     -- ** KMSNotFoundException
     _KMSNotFoundException,
 
@@ -244,6 +247,12 @@ module Amazonka.Kinesis
     UpdateShardCountResponse (UpdateShardCountResponse'),
     newUpdateShardCountResponse,
 
+    -- ** UpdateStreamMode
+    UpdateStreamMode (UpdateStreamMode'),
+    newUpdateStreamMode,
+    UpdateStreamModeResponse (UpdateStreamModeResponse'),
+    newUpdateStreamModeResponse,
+
     -- * Types
 
     -- ** ConsumerStatus
@@ -263,6 +272,9 @@ module Amazonka.Kinesis
 
     -- ** ShardIteratorType
     ShardIteratorType (..),
+
+    -- ** StreamMode
+    StreamMode (..),
 
     -- ** StreamStatus
     StreamStatus (..),
@@ -327,6 +339,10 @@ module Amazonka.Kinesis
     StreamDescriptionSummary (StreamDescriptionSummary'),
     newStreamDescriptionSummary,
 
+    -- ** StreamModeDetails
+    StreamModeDetails (StreamModeDetails'),
+    newStreamModeDetails,
+
     -- ** SubscribeToShardEvent
     SubscribeToShardEvent (SubscribeToShardEvent'),
     newSubscribeToShardEvent,
@@ -367,6 +383,7 @@ import Amazonka.Kinesis.StopStreamEncryption
 import Amazonka.Kinesis.SubscribeToShard
 import Amazonka.Kinesis.Types
 import Amazonka.Kinesis.UpdateShardCount
+import Amazonka.Kinesis.UpdateStreamMode
 import Amazonka.Kinesis.Waiters
 
 -- $errors

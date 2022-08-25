@@ -53,9 +53,8 @@ data SetIpAddressType = SetIpAddressType'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerArn :: Prelude.Text,
     -- | The IP address type. The possible values are @ipv4@ (for IPv4 addresses)
-    -- and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers
-    -- must use @ipv4@. You can’t specify @dualstack@ for a load balancer with
-    -- a UDP or TCP_UDP listener.
+    -- and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify
+    -- @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
     ipAddressType :: IpAddressType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,9 +70,8 @@ data SetIpAddressType = SetIpAddressType'
 -- 'loadBalancerArn', 'setIpAddressType_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 --
 -- 'ipAddressType', 'setIpAddressType_ipAddressType' - The IP address type. The possible values are @ipv4@ (for IPv4 addresses)
--- and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers
--- must use @ipv4@. You can’t specify @dualstack@ for a load balancer with
--- a UDP or TCP_UDP listener.
+-- and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify
+-- @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
 newSetIpAddressType ::
   -- | 'loadBalancerArn'
   Prelude.Text ->
@@ -92,9 +90,8 @@ setIpAddressType_loadBalancerArn :: Lens.Lens' SetIpAddressType Prelude.Text
 setIpAddressType_loadBalancerArn = Lens.lens (\SetIpAddressType' {loadBalancerArn} -> loadBalancerArn) (\s@SetIpAddressType' {} a -> s {loadBalancerArn = a} :: SetIpAddressType)
 
 -- | The IP address type. The possible values are @ipv4@ (for IPv4 addresses)
--- and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers
--- must use @ipv4@. You can’t specify @dualstack@ for a load balancer with
--- a UDP or TCP_UDP listener.
+-- and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify
+-- @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
 setIpAddressType_ipAddressType :: Lens.Lens' SetIpAddressType IpAddressType
 setIpAddressType_ipAddressType = Lens.lens (\SetIpAddressType' {ipAddressType} -> ipAddressType) (\s@SetIpAddressType' {} a -> s {ipAddressType = a} :: SetIpAddressType)
 

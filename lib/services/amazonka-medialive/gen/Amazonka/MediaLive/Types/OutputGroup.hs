@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputGroup' smart constructor.
 data OutputGroup = OutputGroup'
-  { -- | Custom output group name optionally defined by the user. Only letters,
-    -- numbers, and the underscore character allowed; only 32 characters
-    -- allowed.
+  { -- | Custom output group name optionally defined by the user.
     name :: Prelude.Maybe Prelude.Text,
     outputs :: [Output],
     -- | Settings associated with the output group.
@@ -48,9 +46,7 @@ data OutputGroup = OutputGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'outputGroup_name' - Custom output group name optionally defined by the user. Only letters,
--- numbers, and the underscore character allowed; only 32 characters
--- allowed.
+-- 'name', 'outputGroup_name' - Custom output group name optionally defined by the user.
 --
 -- 'outputs', 'outputGroup_outputs' - Undocumented member.
 --
@@ -66,9 +62,7 @@ newOutputGroup pOutputGroupSettings_ =
       outputGroupSettings = pOutputGroupSettings_
     }
 
--- | Custom output group name optionally defined by the user. Only letters,
--- numbers, and the underscore character allowed; only 32 characters
--- allowed.
+-- | Custom output group name optionally defined by the user.
 outputGroup_name :: Lens.Lens' OutputGroup (Prelude.Maybe Prelude.Text)
 outputGroup_name = Lens.lens (\OutputGroup' {name} -> name) (\s@OutputGroup' {} a -> s {name = a} :: OutputGroup)
 

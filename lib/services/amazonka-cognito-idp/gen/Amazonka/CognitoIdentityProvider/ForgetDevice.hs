@@ -47,7 +47,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newForgetDevice' smart constructor.
 data ForgetDevice = ForgetDevice'
-  { -- | The access token for the forgotten device request.
+  { -- | A valid access token that Amazon Cognito issued to the user whose
+    -- registered device you want to forget.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The device key.
     deviceKey :: Prelude.Text
@@ -62,7 +63,8 @@ data ForgetDevice = ForgetDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'forgetDevice_accessToken' - The access token for the forgotten device request.
+-- 'accessToken', 'forgetDevice_accessToken' - A valid access token that Amazon Cognito issued to the user whose
+-- registered device you want to forget.
 --
 -- 'deviceKey', 'forgetDevice_deviceKey' - The device key.
 newForgetDevice ::
@@ -75,7 +77,8 @@ newForgetDevice pDeviceKey_ =
       deviceKey = pDeviceKey_
     }
 
--- | The access token for the forgotten device request.
+-- | A valid access token that Amazon Cognito issued to the user whose
+-- registered device you want to forget.
 forgetDevice_accessToken :: Lens.Lens' ForgetDevice (Prelude.Maybe Prelude.Text)
 forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Prelude.. Lens.mapping Core._Sensitive
 

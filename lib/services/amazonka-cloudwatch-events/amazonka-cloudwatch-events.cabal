@@ -49,6 +49,7 @@ library
     Amazonka.CloudWatchEvents.CreateApiDestination
     Amazonka.CloudWatchEvents.CreateArchive
     Amazonka.CloudWatchEvents.CreateConnection
+    Amazonka.CloudWatchEvents.CreateEndpoint
     Amazonka.CloudWatchEvents.CreateEventBus
     Amazonka.CloudWatchEvents.CreatePartnerEventSource
     Amazonka.CloudWatchEvents.DeactivateEventSource
@@ -56,12 +57,14 @@ library
     Amazonka.CloudWatchEvents.DeleteApiDestination
     Amazonka.CloudWatchEvents.DeleteArchive
     Amazonka.CloudWatchEvents.DeleteConnection
+    Amazonka.CloudWatchEvents.DeleteEndpoint
     Amazonka.CloudWatchEvents.DeleteEventBus
     Amazonka.CloudWatchEvents.DeletePartnerEventSource
     Amazonka.CloudWatchEvents.DeleteRule
     Amazonka.CloudWatchEvents.DescribeApiDestination
     Amazonka.CloudWatchEvents.DescribeArchive
     Amazonka.CloudWatchEvents.DescribeConnection
+    Amazonka.CloudWatchEvents.DescribeEndpoint
     Amazonka.CloudWatchEvents.DescribeEventBus
     Amazonka.CloudWatchEvents.DescribeEventSource
     Amazonka.CloudWatchEvents.DescribePartnerEventSource
@@ -73,6 +76,7 @@ library
     Amazonka.CloudWatchEvents.ListApiDestinations
     Amazonka.CloudWatchEvents.ListArchives
     Amazonka.CloudWatchEvents.ListConnections
+    Amazonka.CloudWatchEvents.ListEndpoints
     Amazonka.CloudWatchEvents.ListEventBuses
     Amazonka.CloudWatchEvents.ListEventSources
     Amazonka.CloudWatchEvents.ListPartnerEventSourceAccounts
@@ -125,9 +129,13 @@ library
     Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
     Amazonka.CloudWatchEvents.Types.DeadLetterConfig
     Amazonka.CloudWatchEvents.Types.EcsParameters
+    Amazonka.CloudWatchEvents.Types.Endpoint
+    Amazonka.CloudWatchEvents.Types.EndpointEventBus
+    Amazonka.CloudWatchEvents.Types.EndpointState
     Amazonka.CloudWatchEvents.Types.EventBus
     Amazonka.CloudWatchEvents.Types.EventSource
     Amazonka.CloudWatchEvents.Types.EventSourceState
+    Amazonka.CloudWatchEvents.Types.FailoverConfig
     Amazonka.CloudWatchEvents.Types.HttpParameters
     Amazonka.CloudWatchEvents.Types.InputTransformer
     Amazonka.CloudWatchEvents.Types.KinesisParameters
@@ -139,6 +147,7 @@ library
     Amazonka.CloudWatchEvents.Types.PlacementConstraintType
     Amazonka.CloudWatchEvents.Types.PlacementStrategy
     Amazonka.CloudWatchEvents.Types.PlacementStrategyType
+    Amazonka.CloudWatchEvents.Types.Primary
     Amazonka.CloudWatchEvents.Types.PropagateTags
     Amazonka.CloudWatchEvents.Types.PutEventsRequestEntry
     Amazonka.CloudWatchEvents.Types.PutEventsResultEntry
@@ -150,13 +159,17 @@ library
     Amazonka.CloudWatchEvents.Types.Replay
     Amazonka.CloudWatchEvents.Types.ReplayDestination
     Amazonka.CloudWatchEvents.Types.ReplayState
+    Amazonka.CloudWatchEvents.Types.ReplicationConfig
+    Amazonka.CloudWatchEvents.Types.ReplicationState
     Amazonka.CloudWatchEvents.Types.RetryPolicy
+    Amazonka.CloudWatchEvents.Types.RoutingConfig
     Amazonka.CloudWatchEvents.Types.Rule
     Amazonka.CloudWatchEvents.Types.RuleState
     Amazonka.CloudWatchEvents.Types.RunCommandParameters
     Amazonka.CloudWatchEvents.Types.RunCommandTarget
     Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
     Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
+    Amazonka.CloudWatchEvents.Types.Secondary
     Amazonka.CloudWatchEvents.Types.SqsParameters
     Amazonka.CloudWatchEvents.Types.Tag
     Amazonka.CloudWatchEvents.Types.Target
@@ -169,6 +182,7 @@ library
     Amazonka.CloudWatchEvents.UpdateApiDestination
     Amazonka.CloudWatchEvents.UpdateArchive
     Amazonka.CloudWatchEvents.UpdateConnection
+    Amazonka.CloudWatchEvents.UpdateEndpoint
     Amazonka.CloudWatchEvents.Waiters
 
   build-depends:

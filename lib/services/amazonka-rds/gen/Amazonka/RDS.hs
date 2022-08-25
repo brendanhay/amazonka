@@ -120,9 +120,6 @@ module Amazonka.RDS
     -- ** ReservedDBInstanceNotFoundFault
     _ReservedDBInstanceNotFoundFault,
 
-    -- ** InstallationMediaNotFoundFault
-    _InstallationMediaNotFoundFault,
-
     -- ** DBProxyNotFoundFault
     _DBProxyNotFoundFault,
 
@@ -216,11 +213,17 @@ module Amazonka.RDS
     -- ** GlobalClusterNotFoundFault
     _GlobalClusterNotFoundFault,
 
+    -- ** CustomDBEngineVersionNotFoundFault
+    _CustomDBEngineVersionNotFoundFault,
+
     -- ** BackupPolicyNotFoundFault
     _BackupPolicyNotFoundFault,
 
     -- ** AuthorizationNotFoundFault
     _AuthorizationNotFoundFault,
+
+    -- ** NetworkTypeNotSupported
+    _NetworkTypeNotSupported,
 
     -- ** DBSubnetGroupQuotaExceededFault
     _DBSubnetGroupQuotaExceededFault,
@@ -234,8 +237,8 @@ module Amazonka.RDS
     -- ** SubscriptionCategoryNotFoundFault
     _SubscriptionCategoryNotFoundFault,
 
-    -- ** InstallationMediaAlreadyExistsFault
-    _InstallationMediaAlreadyExistsFault,
+    -- ** CustomDBEngineVersionQuotaExceededFault
+    _CustomDBEngineVersionQuotaExceededFault,
 
     -- ** SNSNoAuthorizationFault
     _SNSNoAuthorizationFault,
@@ -312,6 +315,9 @@ module Amazonka.RDS
     -- ** ResourceNotFoundFault
     _ResourceNotFoundFault,
 
+    -- ** CustomDBEngineVersionAlreadyExistsFault
+    _CustomDBEngineVersionAlreadyExistsFault,
+
     -- ** InsufficientDBClusterCapacityFault
     _InsufficientDBClusterCapacityFault,
 
@@ -348,11 +354,11 @@ module Amazonka.RDS
     -- ** InsufficientAvailableIPsInSubnetFault
     _InsufficientAvailableIPsInSubnetFault,
 
-    -- ** CustomAvailabilityZoneQuotaExceededFault
-    _CustomAvailabilityZoneQuotaExceededFault,
-
     -- ** DBClusterRoleNotFoundFault
     _DBClusterRoleNotFoundFault,
+
+    -- ** InvalidCustomDBEngineVersionStateFault
+    _InvalidCustomDBEngineVersionStateFault,
 
     -- ** ProvisionedIopsNotAvailableInAZFault
     _ProvisionedIopsNotAvailableInAZFault,
@@ -411,9 +417,6 @@ module Amazonka.RDS
     -- ** InvalidDBSnapshotStateFault
     _InvalidDBSnapshotStateFault,
 
-    -- ** CustomAvailabilityZoneAlreadyExistsFault
-    _CustomAvailabilityZoneAlreadyExistsFault,
-
     -- ** ReservedDBInstanceQuotaExceededFault
     _ReservedDBInstanceQuotaExceededFault,
 
@@ -422,6 +425,9 @@ module Amazonka.RDS
 
     -- * Waiters
     -- $waiters
+
+    -- ** DBClusterDeleted
+    newDBClusterDeleted,
 
     -- ** DBClusterSnapshotDeleted
     newDBClusterSnapshotDeleted,
@@ -440,6 +446,9 @@ module Amazonka.RDS
 
     -- ** DBInstanceDeleted
     newDBInstanceDeleted,
+
+    -- ** DBClusterAvailable
+    newDBClusterAvailable,
 
     -- ** DBSnapshotDeleted
     newDBSnapshotDeleted,
@@ -525,11 +534,11 @@ module Amazonka.RDS
     CopyOptionGroupResponse (CopyOptionGroupResponse'),
     newCopyOptionGroupResponse,
 
-    -- ** CreateCustomAvailabilityZone
-    CreateCustomAvailabilityZone (CreateCustomAvailabilityZone'),
-    newCreateCustomAvailabilityZone,
-    CreateCustomAvailabilityZoneResponse (CreateCustomAvailabilityZoneResponse'),
-    newCreateCustomAvailabilityZoneResponse,
+    -- ** CreateCustomDBEngineVersion
+    CreateCustomDBEngineVersion (CreateCustomDBEngineVersion'),
+    newCreateCustomDBEngineVersion,
+    DBEngineVersion (DBEngineVersion'),
+    newDBEngineVersion,
 
     -- ** CreateDBCluster
     CreateDBCluster (CreateDBCluster'),
@@ -621,11 +630,11 @@ module Amazonka.RDS
     CreateOptionGroupResponse (CreateOptionGroupResponse'),
     newCreateOptionGroupResponse,
 
-    -- ** DeleteCustomAvailabilityZone
-    DeleteCustomAvailabilityZone (DeleteCustomAvailabilityZone'),
-    newDeleteCustomAvailabilityZone,
-    DeleteCustomAvailabilityZoneResponse (DeleteCustomAvailabilityZoneResponse'),
-    newDeleteCustomAvailabilityZoneResponse,
+    -- ** DeleteCustomDBEngineVersion
+    DeleteCustomDBEngineVersion (DeleteCustomDBEngineVersion'),
+    newDeleteCustomDBEngineVersion,
+    DBEngineVersion (DBEngineVersion'),
+    newDBEngineVersion,
 
     -- ** DeleteDBCluster
     DeleteDBCluster (DeleteDBCluster'),
@@ -711,12 +720,6 @@ module Amazonka.RDS
     DeleteGlobalClusterResponse (DeleteGlobalClusterResponse'),
     newDeleteGlobalClusterResponse,
 
-    -- ** DeleteInstallationMedia
-    DeleteInstallationMedia (DeleteInstallationMedia'),
-    newDeleteInstallationMedia,
-    InstallationMedia (InstallationMedia'),
-    newInstallationMedia,
-
     -- ** DeleteOptionGroup
     DeleteOptionGroup (DeleteOptionGroup'),
     newDeleteOptionGroup,
@@ -740,12 +743,6 @@ module Amazonka.RDS
     newDescribeCertificates,
     DescribeCertificatesResponse (DescribeCertificatesResponse'),
     newDescribeCertificatesResponse,
-
-    -- ** DescribeCustomAvailabilityZones (Paginated)
-    DescribeCustomAvailabilityZones (DescribeCustomAvailabilityZones'),
-    newDescribeCustomAvailabilityZones,
-    DescribeCustomAvailabilityZonesResponse (DescribeCustomAvailabilityZonesResponse'),
-    newDescribeCustomAvailabilityZonesResponse,
 
     -- ** DescribeDBClusterBacktracks (Paginated)
     DescribeDBClusterBacktracks (DescribeDBClusterBacktracks'),
@@ -915,12 +912,6 @@ module Amazonka.RDS
     DescribeGlobalClustersResponse (DescribeGlobalClustersResponse'),
     newDescribeGlobalClustersResponse,
 
-    -- ** DescribeInstallationMedia (Paginated)
-    DescribeInstallationMedia (DescribeInstallationMedia'),
-    newDescribeInstallationMedia,
-    DescribeInstallationMediaResponse (DescribeInstallationMediaResponse'),
-    newDescribeInstallationMediaResponse,
-
     -- ** DescribeOptionGroupOptions (Paginated)
     DescribeOptionGroupOptions (DescribeOptionGroupOptions'),
     newDescribeOptionGroupOptions,
@@ -987,17 +978,17 @@ module Amazonka.RDS
     FailoverGlobalClusterResponse (FailoverGlobalClusterResponse'),
     newFailoverGlobalClusterResponse,
 
-    -- ** ImportInstallationMedia
-    ImportInstallationMedia (ImportInstallationMedia'),
-    newImportInstallationMedia,
-    InstallationMedia (InstallationMedia'),
-    newInstallationMedia,
-
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ModifyActivityStream
+    ModifyActivityStream (ModifyActivityStream'),
+    newModifyActivityStream,
+    ModifyActivityStreamResponse (ModifyActivityStreamResponse'),
+    newModifyActivityStreamResponse,
 
     -- ** ModifyCertificates
     ModifyCertificates (ModifyCertificates'),
@@ -1010,6 +1001,12 @@ module Amazonka.RDS
     newModifyCurrentDBClusterCapacity,
     ModifyCurrentDBClusterCapacityResponse (ModifyCurrentDBClusterCapacityResponse'),
     newModifyCurrentDBClusterCapacityResponse,
+
+    -- ** ModifyCustomDBEngineVersion
+    ModifyCustomDBEngineVersion (ModifyCustomDBEngineVersion'),
+    newModifyCustomDBEngineVersion,
+    DBEngineVersion (DBEngineVersion'),
+    newDBEngineVersion,
 
     -- ** ModifyDBCluster
     ModifyDBCluster (ModifyDBCluster'),
@@ -1118,6 +1115,12 @@ module Amazonka.RDS
     newPurchaseReservedDBInstancesOffering,
     PurchaseReservedDBInstancesOfferingResponse (PurchaseReservedDBInstancesOfferingResponse'),
     newPurchaseReservedDBInstancesOfferingResponse,
+
+    -- ** RebootDBCluster
+    RebootDBCluster (RebootDBCluster'),
+    newRebootDBCluster,
+    RebootDBClusterResponse (RebootDBClusterResponse'),
+    newRebootDBClusterResponse,
 
     -- ** RebootDBInstance
     RebootDBInstance (RebootDBInstance'),
@@ -1269,10 +1272,19 @@ module Amazonka.RDS
     StopDBInstanceAutomatedBackupsReplicationResponse (StopDBInstanceAutomatedBackupsReplicationResponse'),
     newStopDBInstanceAutomatedBackupsReplicationResponse,
 
+    -- ** SwitchoverReadReplica
+    SwitchoverReadReplica (SwitchoverReadReplica'),
+    newSwitchoverReadReplica,
+    SwitchoverReadReplicaResponse (SwitchoverReadReplicaResponse'),
+    newSwitchoverReadReplicaResponse,
+
     -- * Types
 
     -- ** ActivityStreamMode
     ActivityStreamMode (..),
+
+    -- ** ActivityStreamPolicyStatus
+    ActivityStreamPolicyStatus (..),
 
     -- ** ActivityStreamStatus
     ActivityStreamStatus (..),
@@ -1280,8 +1292,17 @@ module Amazonka.RDS
     -- ** ApplyMethod
     ApplyMethod (..),
 
+    -- ** AuditPolicyState
+    AuditPolicyState (..),
+
     -- ** AuthScheme
     AuthScheme (..),
+
+    -- ** AutomationMode
+    AutomationMode (..),
+
+    -- ** CustomEngineVersionStatus
+    CustomEngineVersionStatus (..),
 
     -- ** DBProxyEndpointStatus
     DBProxyEndpointStatus (..),
@@ -1357,10 +1378,6 @@ module Amazonka.RDS
     -- ** ConnectionPoolConfigurationInfo
     ConnectionPoolConfigurationInfo (ConnectionPoolConfigurationInfo'),
     newConnectionPoolConfigurationInfo,
-
-    -- ** CustomAvailabilityZone
-    CustomAvailabilityZone (CustomAvailabilityZone'),
-    newCustomAvailabilityZone,
 
     -- ** DBCluster
     DBCluster (DBCluster'),
@@ -1542,14 +1559,6 @@ module Amazonka.RDS
     IPRange (IPRange'),
     newIPRange,
 
-    -- ** InstallationMedia
-    InstallationMedia (InstallationMedia'),
-    newInstallationMedia,
-
-    -- ** InstallationMediaFailureCause
-    InstallationMediaFailureCause (InstallationMediaFailureCause'),
-    newInstallationMediaFailureCause,
-
     -- ** MinimumEngineVersionPerAllowedValue
     MinimumEngineVersionPerAllowedValue (MinimumEngineVersionPerAllowedValue'),
     newMinimumEngineVersionPerAllowedValue,
@@ -1646,6 +1655,14 @@ module Amazonka.RDS
     ScalingConfigurationInfo (ScalingConfigurationInfo'),
     newScalingConfigurationInfo,
 
+    -- ** ServerlessV2ScalingConfiguration
+    ServerlessV2ScalingConfiguration (ServerlessV2ScalingConfiguration'),
+    newServerlessV2ScalingConfiguration,
+
+    -- ** ServerlessV2ScalingConfigurationInfo
+    ServerlessV2ScalingConfigurationInfo (ServerlessV2ScalingConfigurationInfo'),
+    newServerlessV2ScalingConfigurationInfo,
+
     -- ** SourceRegion
     SourceRegion (SourceRegion'),
     newSourceRegion,
@@ -1689,10 +1706,6 @@ module Amazonka.RDS
     -- ** VpcSecurityGroupMembership
     VpcSecurityGroupMembership (VpcSecurityGroupMembership'),
     newVpcSecurityGroupMembership,
-
-    -- ** VpnDetails
-    VpnDetails (VpnDetails'),
-    newVpnDetails,
   )
 where
 
@@ -1709,7 +1722,7 @@ import Amazonka.RDS.CopyDBClusterSnapshot
 import Amazonka.RDS.CopyDBParameterGroup
 import Amazonka.RDS.CopyDBSnapshot
 import Amazonka.RDS.CopyOptionGroup
-import Amazonka.RDS.CreateCustomAvailabilityZone
+import Amazonka.RDS.CreateCustomDBEngineVersion
 import Amazonka.RDS.CreateDBCluster
 import Amazonka.RDS.CreateDBClusterEndpoint
 import Amazonka.RDS.CreateDBClusterParameterGroup
@@ -1725,7 +1738,7 @@ import Amazonka.RDS.CreateDBSubnetGroup
 import Amazonka.RDS.CreateEventSubscription
 import Amazonka.RDS.CreateGlobalCluster
 import Amazonka.RDS.CreateOptionGroup
-import Amazonka.RDS.DeleteCustomAvailabilityZone
+import Amazonka.RDS.DeleteCustomDBEngineVersion
 import Amazonka.RDS.DeleteDBCluster
 import Amazonka.RDS.DeleteDBClusterEndpoint
 import Amazonka.RDS.DeleteDBClusterParameterGroup
@@ -1740,12 +1753,10 @@ import Amazonka.RDS.DeleteDBSnapshot
 import Amazonka.RDS.DeleteDBSubnetGroup
 import Amazonka.RDS.DeleteEventSubscription
 import Amazonka.RDS.DeleteGlobalCluster
-import Amazonka.RDS.DeleteInstallationMedia
 import Amazonka.RDS.DeleteOptionGroup
 import Amazonka.RDS.DeregisterDBProxyTargets
 import Amazonka.RDS.DescribeAccountAttributes
 import Amazonka.RDS.DescribeCertificates
-import Amazonka.RDS.DescribeCustomAvailabilityZones
 import Amazonka.RDS.DescribeDBClusterBacktracks
 import Amazonka.RDS.DescribeDBClusterEndpoints
 import Amazonka.RDS.DescribeDBClusterParameterGroups
@@ -1774,7 +1785,6 @@ import Amazonka.RDS.DescribeEventSubscriptions
 import Amazonka.RDS.DescribeEvents
 import Amazonka.RDS.DescribeExportTasks
 import Amazonka.RDS.DescribeGlobalClusters
-import Amazonka.RDS.DescribeInstallationMedia
 import Amazonka.RDS.DescribeOptionGroupOptions
 import Amazonka.RDS.DescribeOptionGroups
 import Amazonka.RDS.DescribeOrderableDBInstanceOptions
@@ -1786,11 +1796,12 @@ import Amazonka.RDS.DescribeValidDBInstanceModifications
 import Amazonka.RDS.DownloadDBLogFilePortion
 import Amazonka.RDS.FailoverDBCluster
 import Amazonka.RDS.FailoverGlobalCluster
-import Amazonka.RDS.ImportInstallationMedia
 import Amazonka.RDS.Lens
 import Amazonka.RDS.ListTagsForResource
+import Amazonka.RDS.ModifyActivityStream
 import Amazonka.RDS.ModifyCertificates
 import Amazonka.RDS.ModifyCurrentDBClusterCapacity
+import Amazonka.RDS.ModifyCustomDBEngineVersion
 import Amazonka.RDS.ModifyDBCluster
 import Amazonka.RDS.ModifyDBClusterEndpoint
 import Amazonka.RDS.ModifyDBClusterParameterGroup
@@ -1809,6 +1820,7 @@ import Amazonka.RDS.ModifyOptionGroup
 import Amazonka.RDS.PromoteReadReplica
 import Amazonka.RDS.PromoteReadReplicaDBCluster
 import Amazonka.RDS.PurchaseReservedDBInstancesOffering
+import Amazonka.RDS.RebootDBCluster
 import Amazonka.RDS.RebootDBInstance
 import Amazonka.RDS.RegisterDBProxyTargets
 import Amazonka.RDS.RemoveFromGlobalCluster
@@ -1834,6 +1846,7 @@ import Amazonka.RDS.StopActivityStream
 import Amazonka.RDS.StopDBCluster
 import Amazonka.RDS.StopDBInstance
 import Amazonka.RDS.StopDBInstanceAutomatedBackupsReplication
+import Amazonka.RDS.SwitchoverReadReplica
 import Amazonka.RDS.Types
 import Amazonka.RDS.Waiters
 

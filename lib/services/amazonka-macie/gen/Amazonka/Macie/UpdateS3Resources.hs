@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the classification types for the specified S3 resources. If
--- memberAccountId isn\'t specified, the action updates the classification
--- types of the S3 resources associated with Amazon Macie Classic for the
--- current Macie Classic administrator account. If memberAccountId is
--- specified, the action updates the classification types of the S3
--- resources associated with Macie Classic for the specified member
--- account.
+-- (Discontinued) Updates the classification types for the specified S3
+-- resources. If @memberAccountId@ isn\'t specified, the action updates the
+-- classification types of the S3 resources associated with Amazon Macie
+-- Classic for the current Macie Classic administrator account. If
+-- @memberAccountId@ is specified, the action updates the classification
+-- types of the S3 resources associated with Macie Classic for the
+-- specified member account.
 module Amazonka.Macie.UpdateS3Resources
   ( -- * Creating a Request
     UpdateS3Resources (..),
@@ -55,10 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateS3Resources' smart constructor.
 data UpdateS3Resources = UpdateS3Resources'
-  { -- | The AWS ID of the Amazon Macie Classic member account whose S3
-    -- resources\' classification types you want to update.
+  { -- | (Discontinued) The Amazon Web Services account ID of the Amazon Macie
+    -- Classic member account whose S3 resources\' classification types you
+    -- want to update.
     memberAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 resources whose classification types you want to update.
+    -- | (Discontinued) The S3 resources whose classification types you want to
+    -- update.
     s3ResourcesUpdate :: [S3ResourceClassificationUpdate]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,10 +73,12 @@ data UpdateS3Resources = UpdateS3Resources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberAccountId', 'updateS3Resources_memberAccountId' - The AWS ID of the Amazon Macie Classic member account whose S3
--- resources\' classification types you want to update.
+-- 'memberAccountId', 'updateS3Resources_memberAccountId' - (Discontinued) The Amazon Web Services account ID of the Amazon Macie
+-- Classic member account whose S3 resources\' classification types you
+-- want to update.
 --
--- 's3ResourcesUpdate', 'updateS3Resources_s3ResourcesUpdate' - The S3 resources whose classification types you want to update.
+-- 's3ResourcesUpdate', 'updateS3Resources_s3ResourcesUpdate' - (Discontinued) The S3 resources whose classification types you want to
+-- update.
 newUpdateS3Resources ::
   UpdateS3Resources
 newUpdateS3Resources =
@@ -84,12 +88,14 @@ newUpdateS3Resources =
       s3ResourcesUpdate = Prelude.mempty
     }
 
--- | The AWS ID of the Amazon Macie Classic member account whose S3
--- resources\' classification types you want to update.
+-- | (Discontinued) The Amazon Web Services account ID of the Amazon Macie
+-- Classic member account whose S3 resources\' classification types you
+-- want to update.
 updateS3Resources_memberAccountId :: Lens.Lens' UpdateS3Resources (Prelude.Maybe Prelude.Text)
 updateS3Resources_memberAccountId = Lens.lens (\UpdateS3Resources' {memberAccountId} -> memberAccountId) (\s@UpdateS3Resources' {} a -> s {memberAccountId = a} :: UpdateS3Resources)
 
--- | The S3 resources whose classification types you want to update.
+-- | (Discontinued) The S3 resources whose classification types you want to
+-- update.
 updateS3Resources_s3ResourcesUpdate :: Lens.Lens' UpdateS3Resources [S3ResourceClassificationUpdate]
 updateS3Resources_s3ResourcesUpdate = Lens.lens (\UpdateS3Resources' {s3ResourcesUpdate} -> s3ResourcesUpdate) (\s@UpdateS3Resources' {} a -> s {s3ResourcesUpdate = a} :: UpdateS3Resources) Prelude.. Lens.coerced
 
@@ -152,8 +158,9 @@ instance Core.ToQuery UpdateS3Resources where
 
 -- | /See:/ 'newUpdateS3ResourcesResponse' smart constructor.
 data UpdateS3ResourcesResponse = UpdateS3ResourcesResponse'
-  { -- | The S3 resources whose classification types can\'t be updated. An error
-    -- code and an error message are provided for each failed item.
+  { -- | (Discontinued) The S3 resources whose classification types can\'t be
+    -- updated. An error code and an error message are provided for each failed
+    -- item.
     failedS3Resources :: Prelude.Maybe [FailedS3Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,8 +175,9 @@ data UpdateS3ResourcesResponse = UpdateS3ResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedS3Resources', 'updateS3ResourcesResponse_failedS3Resources' - The S3 resources whose classification types can\'t be updated. An error
--- code and an error message are provided for each failed item.
+-- 'failedS3Resources', 'updateS3ResourcesResponse_failedS3Resources' - (Discontinued) The S3 resources whose classification types can\'t be
+-- updated. An error code and an error message are provided for each failed
+-- item.
 --
 -- 'httpStatus', 'updateS3ResourcesResponse_httpStatus' - The response's http status code.
 newUpdateS3ResourcesResponse ::
@@ -183,8 +191,9 @@ newUpdateS3ResourcesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The S3 resources whose classification types can\'t be updated. An error
--- code and an error message are provided for each failed item.
+-- | (Discontinued) The S3 resources whose classification types can\'t be
+-- updated. An error code and an error message are provided for each failed
+-- item.
 updateS3ResourcesResponse_failedS3Resources :: Lens.Lens' UpdateS3ResourcesResponse (Prelude.Maybe [FailedS3Resource])
 updateS3ResourcesResponse_failedS3Resources = Lens.lens (\UpdateS3ResourcesResponse' {failedS3Resources} -> failedS3Resources) (\s@UpdateS3ResourcesResponse' {} a -> s {failedS3Resources = a} :: UpdateS3ResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

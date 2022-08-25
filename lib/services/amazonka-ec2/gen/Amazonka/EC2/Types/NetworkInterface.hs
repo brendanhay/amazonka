@@ -47,6 +47,8 @@ data NetworkInterface = NetworkInterface'
     -- | The Amazon Web Services account ID of the owner of the network
     -- interface.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether this is an IPv6 only network interface.
+    ipv6Native :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether source\/destination checking is enabled.
     sourceDestCheck :: Prelude.Maybe Prelude.Bool,
     -- | The private IPv4 addresses associated with the network interface.
@@ -65,10 +67,19 @@ data NetworkInterface = NetworkInterface'
     -- | The association information for an Elastic IP address (IPv4) associated
     -- with the network interface.
     association :: Prelude.Maybe NetworkInterfaceAssociation,
+    -- | The IPv6 globally unique address associated with the network interface.
+    ipv6Address :: Prelude.Maybe Prelude.Text,
     -- | The MAC address.
     macAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether a network interface with an IPv6 address is
+    -- unreachable from the public internet. If the value is @true@, inbound
+    -- traffic from the internet is dropped and you cannot assign an elastic IP
+    -- address to the network interface. The network interface is reachable
+    -- from peered VPCs and resources connected through a transit gateway,
+    -- including on-premises networks.
+    denyAllIgwTraffic :: Prelude.Maybe Prelude.Bool,
     -- | The IPv4 prefixes that are assigned to the network interface.
     ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecification],
     -- | The IPv4 address of the network interface within the subnet.
@@ -108,6 +119,8 @@ data NetworkInterface = NetworkInterface'
 -- 'ownerId', 'networkInterface_ownerId' - The Amazon Web Services account ID of the owner of the network
 -- interface.
 --
+-- 'ipv6Native', 'networkInterface_ipv6Native' - Indicates whether this is an IPv6 only network interface.
+--
 -- 'sourceDestCheck', 'networkInterface_sourceDestCheck' - Indicates whether source\/destination checking is enabled.
 --
 -- 'privateIpAddresses', 'networkInterface_privateIpAddresses' - The private IPv4 addresses associated with the network interface.
@@ -126,9 +139,18 @@ data NetworkInterface = NetworkInterface'
 -- 'association', 'networkInterface_association' - The association information for an Elastic IP address (IPv4) associated
 -- with the network interface.
 --
+-- 'ipv6Address', 'networkInterface_ipv6Address' - The IPv6 globally unique address associated with the network interface.
+--
 -- 'macAddress', 'networkInterface_macAddress' - The MAC address.
 --
 -- 'networkInterfaceId', 'networkInterface_networkInterfaceId' - The ID of the network interface.
+--
+-- 'denyAllIgwTraffic', 'networkInterface_denyAllIgwTraffic' - Indicates whether a network interface with an IPv6 address is
+-- unreachable from the public internet. If the value is @true@, inbound
+-- traffic from the internet is dropped and you cannot assign an elastic IP
+-- address to the network interface. The network interface is reachable
+-- from peered VPCs and resources connected through a transit gateway,
+-- including on-premises networks.
 --
 -- 'ipv4Prefixes', 'networkInterface_ipv4Prefixes' - The IPv4 prefixes that are assigned to the network interface.
 --
@@ -156,6 +178,7 @@ newNetworkInterface =
       attachment = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
+      ipv6Native = Prelude.Nothing,
       sourceDestCheck = Prelude.Nothing,
       privateIpAddresses = Prelude.Nothing,
       subnetId = Prelude.Nothing,
@@ -164,8 +187,10 @@ newNetworkInterface =
       availabilityZone = Prelude.Nothing,
       description = Prelude.Nothing,
       association = Prelude.Nothing,
+      ipv6Address = Prelude.Nothing,
       macAddress = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
+      denyAllIgwTraffic = Prelude.Nothing,
       ipv4Prefixes = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
       privateDnsName = Prelude.Nothing,
@@ -193,6 +218,10 @@ networkInterface_outpostArn = Lens.lens (\NetworkInterface' {outpostArn} -> outp
 -- interface.
 networkInterface_ownerId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_ownerId = Lens.lens (\NetworkInterface' {ownerId} -> ownerId) (\s@NetworkInterface' {} a -> s {ownerId = a} :: NetworkInterface)
+
+-- | Indicates whether this is an IPv6 only network interface.
+networkInterface_ipv6Native :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
+networkInterface_ipv6Native = Lens.lens (\NetworkInterface' {ipv6Native} -> ipv6Native) (\s@NetworkInterface' {} a -> s {ipv6Native = a} :: NetworkInterface)
 
 -- | Indicates whether source\/destination checking is enabled.
 networkInterface_sourceDestCheck :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
@@ -228,6 +257,10 @@ networkInterface_description = Lens.lens (\NetworkInterface' {description} -> de
 networkInterface_association :: Lens.Lens' NetworkInterface (Prelude.Maybe NetworkInterfaceAssociation)
 networkInterface_association = Lens.lens (\NetworkInterface' {association} -> association) (\s@NetworkInterface' {} a -> s {association = a} :: NetworkInterface)
 
+-- | The IPv6 globally unique address associated with the network interface.
+networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ipv6Address) (\s@NetworkInterface' {} a -> s {ipv6Address = a} :: NetworkInterface)
+
 -- | The MAC address.
 networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
@@ -235,6 +268,15 @@ networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macA
 -- | The ID of the network interface.
 networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterface' {} a -> s {networkInterfaceId = a} :: NetworkInterface)
+
+-- | Indicates whether a network interface with an IPv6 address is
+-- unreachable from the public internet. If the value is @true@, inbound
+-- traffic from the internet is dropped and you cannot assign an elastic IP
+-- address to the network interface. The network interface is reachable
+-- from peered VPCs and resources connected through a transit gateway,
+-- including on-premises networks.
+networkInterface_denyAllIgwTraffic :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
+networkInterface_denyAllIgwTraffic = Lens.lens (\NetworkInterface' {denyAllIgwTraffic} -> denyAllIgwTraffic) (\s@NetworkInterface' {} a -> s {denyAllIgwTraffic = a} :: NetworkInterface)
 
 -- | The IPv4 prefixes that are assigned to the network interface.
 networkInterface_ipv4Prefixes :: Lens.Lens' NetworkInterface (Prelude.Maybe [Ipv4PrefixSpecification])
@@ -280,6 +322,7 @@ instance Core.FromXML NetworkInterface where
       Prelude.<*> (x Core..@? "attachment")
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "ipv6Native")
       Prelude.<*> (x Core..@? "sourceDestCheck")
       Prelude.<*> ( x Core..@? "privateIpAddressesSet"
                       Core..!@ Prelude.mempty
@@ -291,8 +334,10 @@ instance Core.FromXML NetworkInterface where
       Prelude.<*> (x Core..@? "availabilityZone")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "association")
+      Prelude.<*> (x Core..@? "ipv6Address")
       Prelude.<*> (x Core..@? "macAddress")
       Prelude.<*> (x Core..@? "networkInterfaceId")
+      Prelude.<*> (x Core..@? "denyAllIgwTraffic")
       Prelude.<*> ( x Core..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
@@ -320,6 +365,7 @@ instance Prelude.Hashable NetworkInterface where
       `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` ipv6Native
       `Prelude.hashWithSalt` sourceDestCheck
       `Prelude.hashWithSalt` privateIpAddresses
       `Prelude.hashWithSalt` subnetId
@@ -328,8 +374,10 @@ instance Prelude.Hashable NetworkInterface where
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` association
+      `Prelude.hashWithSalt` ipv6Address
       `Prelude.hashWithSalt` macAddress
       `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` denyAllIgwTraffic
       `Prelude.hashWithSalt` ipv4Prefixes
       `Prelude.hashWithSalt` privateIpAddress
       `Prelude.hashWithSalt` privateDnsName
@@ -346,6 +394,7 @@ instance Prelude.NFData NetworkInterface where
       `Prelude.seq` Prelude.rnf attachment
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf ipv6Native
       `Prelude.seq` Prelude.rnf sourceDestCheck
       `Prelude.seq` Prelude.rnf privateIpAddresses
       `Prelude.seq` Prelude.rnf subnetId
@@ -354,8 +403,10 @@ instance Prelude.NFData NetworkInterface where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf association
+      `Prelude.seq` Prelude.rnf ipv6Address
       `Prelude.seq` Prelude.rnf macAddress
       `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf denyAllIgwTraffic
       `Prelude.seq` Prelude.rnf ipv4Prefixes
       `Prelude.seq` Prelude.rnf privateIpAddress
       `Prelude.seq` Prelude.rnf privateDnsName
@@ -363,5 +414,7 @@ instance Prelude.NFData NetworkInterface where
       `Prelude.seq` Prelude.rnf ipv6Prefixes
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf requesterId
+      `Prelude.seq` Prelude.rnf
+        ipv6Addresses
+      `Prelude.seq` Prelude.rnf
+        requesterId

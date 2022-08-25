@@ -29,7 +29,7 @@ import Amazonka.SMS.Types.Source
 --
 -- /See:/ 'newSSMValidationParameters' smart constructor.
 data SSMValidationParameters = SSMValidationParameters'
-  { -- | The command to run the validation script
+  { -- | The command to run the validation script.
     command :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance. The instance must have the following tag:
     -- UserForSMSApplicationValidation=true.
@@ -53,7 +53,7 @@ data SSMValidationParameters = SSMValidationParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'command', 'sSMValidationParameters_command' - The command to run the validation script
+-- 'command', 'sSMValidationParameters_command' - The command to run the validation script.
 --
 -- 'instanceId', 'sSMValidationParameters_instanceId' - The ID of the instance. The instance must have the following tag:
 -- UserForSMSApplicationValidation=true.
@@ -77,7 +77,7 @@ newSSMValidationParameters =
       outputS3BucketName = Prelude.Nothing
     }
 
--- | The command to run the validation script
+-- | The command to run the validation script.
 sSMValidationParameters_command :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Text)
 sSMValidationParameters_command = Lens.lens (\SSMValidationParameters' {command} -> command) (\s@SSMValidationParameters' {} a -> s {command = a} :: SSMValidationParameters)
 

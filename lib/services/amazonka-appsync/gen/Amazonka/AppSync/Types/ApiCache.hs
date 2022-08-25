@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApiCache' smart constructor.
 data ApiCache = ApiCache'
-  { -- | Transit encryption flag when connecting to cache. This setting cannot be
-    -- updated after creation.
+  { -- | Transit encryption flag when connecting to cache. You cannot update this
+    -- setting after creation.
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The cache instance type. Valid values are
     --
@@ -81,7 +81,7 @@ data ApiCache = ApiCache'
     apiCachingBehavior :: Prelude.Maybe ApiCachingBehavior,
     -- | TTL in seconds for cache entries.
     --
-    -- Valid values are between 1 and 3600 seconds.
+    -- Valid values are 1–3,600 seconds.
     ttl :: Prelude.Maybe Prelude.Integer,
     -- | The cache instance status.
     --
@@ -95,7 +95,7 @@ data ApiCache = ApiCache'
     --
     -- -   __FAILED__: The instance has failed creation.
     status :: Prelude.Maybe ApiCacheStatus,
-    -- | At rest encryption flag for cache. This setting cannot be updated after
+    -- | At-rest encryption flag for cache. You cannot update this setting after
     -- creation.
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool
   }
@@ -109,8 +109,8 @@ data ApiCache = ApiCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitEncryptionEnabled', 'apiCache_transitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be
--- updated after creation.
+-- 'transitEncryptionEnabled', 'apiCache_transitEncryptionEnabled' - Transit encryption flag when connecting to cache. You cannot update this
+-- setting after creation.
 --
 -- 'type'', 'apiCache_type' - The cache instance type. Valid values are
 --
@@ -160,7 +160,7 @@ data ApiCache = ApiCache'
 --
 -- 'ttl', 'apiCache_ttl' - TTL in seconds for cache entries.
 --
--- Valid values are between 1 and 3600 seconds.
+-- Valid values are 1–3,600 seconds.
 --
 -- 'status', 'apiCache_status' - The cache instance status.
 --
@@ -174,7 +174,7 @@ data ApiCache = ApiCache'
 --
 -- -   __FAILED__: The instance has failed creation.
 --
--- 'atRestEncryptionEnabled', 'apiCache_atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after
+-- 'atRestEncryptionEnabled', 'apiCache_atRestEncryptionEnabled' - At-rest encryption flag for cache. You cannot update this setting after
 -- creation.
 newApiCache ::
   ApiCache
@@ -189,8 +189,8 @@ newApiCache =
       atRestEncryptionEnabled = Prelude.Nothing
     }
 
--- | Transit encryption flag when connecting to cache. This setting cannot be
--- updated after creation.
+-- | Transit encryption flag when connecting to cache. You cannot update this
+-- setting after creation.
 apiCache_transitEncryptionEnabled :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Bool)
 apiCache_transitEncryptionEnabled = Lens.lens (\ApiCache' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@ApiCache' {} a -> s {transitEncryptionEnabled = a} :: ApiCache)
 
@@ -246,7 +246,7 @@ apiCache_apiCachingBehavior = Lens.lens (\ApiCache' {apiCachingBehavior} -> apiC
 
 -- | TTL in seconds for cache entries.
 --
--- Valid values are between 1 and 3600 seconds.
+-- Valid values are 1–3,600 seconds.
 apiCache_ttl :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Integer)
 apiCache_ttl = Lens.lens (\ApiCache' {ttl} -> ttl) (\s@ApiCache' {} a -> s {ttl = a} :: ApiCache)
 
@@ -264,7 +264,7 @@ apiCache_ttl = Lens.lens (\ApiCache' {ttl} -> ttl) (\s@ApiCache' {} a -> s {ttl 
 apiCache_status :: Lens.Lens' ApiCache (Prelude.Maybe ApiCacheStatus)
 apiCache_status = Lens.lens (\ApiCache' {status} -> status) (\s@ApiCache' {} a -> s {status = a} :: ApiCache)
 
--- | At rest encryption flag for cache. This setting cannot be updated after
+-- | At-rest encryption flag for cache. You cannot update this setting after
 -- creation.
 apiCache_atRestEncryptionEnabled :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Bool)
 apiCache_atRestEncryptionEnabled = Lens.lens (\ApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@ApiCache' {} a -> s {atRestEncryptionEnabled = a} :: ApiCache)

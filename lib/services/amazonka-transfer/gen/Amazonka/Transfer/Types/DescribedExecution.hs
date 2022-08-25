@@ -35,7 +35,8 @@ import Amazonka.Transfer.Types.ServiceMetadata
 data DescribedExecution = DescribedExecution'
   { -- | The IAM role associated with the execution.
     executionRole :: Prelude.Maybe Prelude.Text,
-    -- | A container object for the session details associated with a workflow.
+    -- | A container object for the session details that are associated with a
+    -- workflow.
     serviceMetadata :: Prelude.Maybe ServiceMetadata,
     -- | A structure that describes the Amazon S3 or EFS file location. This is
     -- the file location when the execution begins: if the file is being
@@ -66,7 +67,8 @@ data DescribedExecution = DescribedExecution'
 --
 -- 'executionRole', 'describedExecution_executionRole' - The IAM role associated with the execution.
 --
--- 'serviceMetadata', 'describedExecution_serviceMetadata' - A container object for the session details associated with a workflow.
+-- 'serviceMetadata', 'describedExecution_serviceMetadata' - A container object for the session details that are associated with a
+-- workflow.
 --
 -- 'initialFileLocation', 'describedExecution_initialFileLocation' - A structure that describes the Amazon S3 or EFS file location. This is
 -- the file location when the execution begins: if the file is being
@@ -103,7 +105,8 @@ newDescribedExecution =
 describedExecution_executionRole :: Lens.Lens' DescribedExecution (Prelude.Maybe Prelude.Text)
 describedExecution_executionRole = Lens.lens (\DescribedExecution' {executionRole} -> executionRole) (\s@DescribedExecution' {} a -> s {executionRole = a} :: DescribedExecution)
 
--- | A container object for the session details associated with a workflow.
+-- | A container object for the session details that are associated with a
+-- workflow.
 describedExecution_serviceMetadata :: Lens.Lens' DescribedExecution (Prelude.Maybe ServiceMetadata)
 describedExecution_serviceMetadata = Lens.lens (\DescribedExecution' {serviceMetadata} -> serviceMetadata) (\s@DescribedExecution' {} a -> s {serviceMetadata = a} :: DescribedExecution)
 

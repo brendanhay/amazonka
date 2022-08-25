@@ -34,7 +34,6 @@ module Amazonka.RDS.Types
     _AuthorizationAlreadyExistsFault,
     _DBClusterEndpointAlreadyExistsFault,
     _ReservedDBInstanceNotFoundFault,
-    _InstallationMediaNotFoundFault,
     _DBProxyNotFoundFault,
     _SubscriptionAlreadyExistFault,
     _DBInstanceAlreadyExistsFault,
@@ -66,13 +65,15 @@ module Amazonka.RDS.Types
     _InvalidDBInstanceStateFault,
     _DBProxyEndpointAlreadyExistsFault,
     _GlobalClusterNotFoundFault,
+    _CustomDBEngineVersionNotFoundFault,
     _BackupPolicyNotFoundFault,
     _AuthorizationNotFoundFault,
+    _NetworkTypeNotSupported,
     _DBSubnetGroupQuotaExceededFault,
     _DBInstanceAutomatedBackupNotFoundFault,
     _InsufficientStorageClusterCapacityFault,
     _SubscriptionCategoryNotFoundFault,
-    _InstallationMediaAlreadyExistsFault,
+    _CustomDBEngineVersionQuotaExceededFault,
     _SNSNoAuthorizationFault,
     _KMSKeyNotAccessibleFault,
     _SNSTopicArnNotFoundFault,
@@ -98,6 +99,7 @@ module Amazonka.RDS.Types
     _OptionGroupQuotaExceededFault,
     _GlobalClusterAlreadyExistsFault,
     _ResourceNotFoundFault,
+    _CustomDBEngineVersionAlreadyExistsFault,
     _InsufficientDBClusterCapacityFault,
     _SourceNotFoundFault,
     _DBClusterSnapshotAlreadyExistsFault,
@@ -110,8 +112,8 @@ module Amazonka.RDS.Types
     _InvalidDBProxyStateFault,
     _DBClusterNotFoundFault,
     _InsufficientAvailableIPsInSubnetFault,
-    _CustomAvailabilityZoneQuotaExceededFault,
     _DBClusterRoleNotFoundFault,
+    _InvalidCustomDBEngineVersionStateFault,
     _ProvisionedIopsNotAvailableInAZFault,
     _ReservedDBInstanceAlreadyExistsFault,
     _InvalidGlobalClusterStateFault,
@@ -131,12 +133,14 @@ module Amazonka.RDS.Types
     _DBSecurityGroupQuotaExceededFault,
     _DBClusterSnapshotNotFoundFault,
     _InvalidDBSnapshotStateFault,
-    _CustomAvailabilityZoneAlreadyExistsFault,
     _ReservedDBInstanceQuotaExceededFault,
     _DomainNotFoundFault,
 
     -- * ActivityStreamMode
     ActivityStreamMode (..),
+
+    -- * ActivityStreamPolicyStatus
+    ActivityStreamPolicyStatus (..),
 
     -- * ActivityStreamStatus
     ActivityStreamStatus (..),
@@ -144,8 +148,17 @@ module Amazonka.RDS.Types
     -- * ApplyMethod
     ApplyMethod (..),
 
+    -- * AuditPolicyState
+    AuditPolicyState (..),
+
     -- * AuthScheme
     AuthScheme (..),
+
+    -- * AutomationMode
+    AutomationMode (..),
+
+    -- * CustomEngineVersionStatus
+    CustomEngineVersionStatus (..),
 
     -- * DBProxyEndpointStatus
     DBProxyEndpointStatus (..),
@@ -256,20 +269,14 @@ module Amazonka.RDS.Types
     connectionPoolConfigurationInfo_maxConnectionsPercent,
     connectionPoolConfigurationInfo_sessionPinningFilters,
 
-    -- * CustomAvailabilityZone
-    CustomAvailabilityZone (..),
-    newCustomAvailabilityZone,
-    customAvailabilityZone_vpnDetails,
-    customAvailabilityZone_customAvailabilityZoneStatus,
-    customAvailabilityZone_customAvailabilityZoneId,
-    customAvailabilityZone_customAvailabilityZoneName,
-
     -- * DBCluster
     DBCluster (..),
     newDBCluster,
     dbCluster_port,
+    dbCluster_serverlessV2ScalingConfiguration,
     dbCluster_cloneGroupId,
     dbCluster_dbClusterArn,
+    dbCluster_performanceInsightsRetentionPeriod,
     dbCluster_hostedZoneId,
     dbCluster_percentProgress,
     dbCluster_globalWriteForwardingRequested,
@@ -281,9 +288,11 @@ module Amazonka.RDS.Types
     dbCluster_activityStreamStatus,
     dbCluster_dbClusterMembers,
     dbCluster_dbClusterParameterGroup,
+    dbCluster_autoMinorVersionUpgrade,
     dbCluster_activityStreamMode,
     dbCluster_tagList,
     dbCluster_latestRestorableTime,
+    dbCluster_dbClusterInstanceClass,
     dbCluster_databaseName,
     dbCluster_dbClusterIdentifier,
     dbCluster_domainMemberships,
@@ -291,15 +300,21 @@ module Amazonka.RDS.Types
     dbCluster_availabilityZones,
     dbCluster_earliestBacktrackTime,
     dbCluster_automaticRestartTime,
+    dbCluster_performanceInsightsKMSKeyId,
     dbCluster_crossAccountClone,
     dbCluster_dbClusterOptionGroupMemberships,
     dbCluster_dbSubnetGroup,
+    dbCluster_monitoringInterval,
+    dbCluster_performanceInsightsEnabled,
     dbCluster_status,
     dbCluster_activityStreamKinesisStreamName,
     dbCluster_httpEndpointEnabled,
+    dbCluster_publiclyAccessible,
+    dbCluster_storageType,
     dbCluster_backtrackWindow,
     dbCluster_customEndpoints,
     dbCluster_replicationSourceIdentifier,
+    dbCluster_monitoringRoleArn,
     dbCluster_backtrackConsumedChangeRecords,
     dbCluster_engineMode,
     dbCluster_storageEncrypted,
@@ -317,9 +332,11 @@ module Amazonka.RDS.Types
     dbCluster_clusterCreateTime,
     dbCluster_readReplicaIdentifiers,
     dbCluster_enabledCloudwatchLogsExports,
+    dbCluster_iops,
     dbCluster_dbClusterResourceId,
     dbCluster_associatedRoles,
     dbCluster_engineVersion,
+    dbCluster_networkType,
     dbCluster_multiAZ,
     dbCluster_activityStreamKmsKeyId,
     dbCluster_globalWriteForwardingStatus,
@@ -427,16 +444,24 @@ module Amazonka.RDS.Types
     dbEngineVersion_validUpgradeTarget,
     dbEngineVersion_exportableLogTypes,
     dbEngineVersion_supportsReadReplica,
+    dbEngineVersion_supportsBabelfish,
     dbEngineVersion_supportedCharacterSets,
+    dbEngineVersion_tagList,
     dbEngineVersion_supportedFeatureNames,
+    dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_defaultCharacterSet,
     dbEngineVersion_status,
+    dbEngineVersion_majorEngineVersion,
+    dbEngineVersion_databaseInstallationFilesS3BucketName,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_supportsParallelQuery,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
+    dbEngineVersion_kmsKeyId,
     dbEngineVersion_engine,
     dbEngineVersion_dbParameterGroupFamily,
+    dbEngineVersion_databaseInstallationFilesS3Prefix,
+    dbEngineVersion_createTime,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportedNcharCharacterSets,
@@ -452,6 +477,7 @@ module Amazonka.RDS.Types
     dbInstance_performanceInsightsRetentionPeriod,
     dbInstance_dbInstanceStatus,
     dbInstance_optionGroupMemberships,
+    dbInstance_backupTarget,
     dbInstance_preferredBackupWindow,
     dbInstance_backupRetentionPeriod,
     dbInstance_dbInstanceClass,
@@ -461,6 +487,7 @@ module Amazonka.RDS.Types
     dbInstance_activityStreamStatus,
     dbInstance_activityStreamEngineNativeAuditFieldsIncluded,
     dbInstance_promotionTier,
+    dbInstance_automationMode,
     dbInstance_secondaryAvailabilityZone,
     dbInstance_autoMinorVersionUpgrade,
     dbInstance_dbInstanceIdentifier,
@@ -482,6 +509,7 @@ module Amazonka.RDS.Types
     dbInstance_instanceCreateTime,
     dbInstance_activityStreamKinesisStreamName,
     dbInstance_availabilityZone,
+    dbInstance_resumeFullAutomationModeTime,
     dbInstance_publiclyAccessible,
     dbInstance_storageType,
     dbInstance_processorFeatures,
@@ -504,12 +532,15 @@ module Amazonka.RDS.Types
     dbInstance_preferredMaintenanceWindow,
     dbInstance_endpoint,
     dbInstance_dbiResourceId,
+    dbInstance_customIamInstanceProfile,
     dbInstance_dbParameterGroups,
     dbInstance_enabledCloudwatchLogsExports,
     dbInstance_iops,
     dbInstance_associatedRoles,
     dbInstance_engineVersion,
     dbInstance_dbName,
+    dbInstance_networkType,
+    dbInstance_activityStreamPolicyStatus,
     dbInstance_multiAZ,
     dbInstance_readReplicaSourceDBInstanceIdentifier,
     dbInstance_activityStreamKmsKeyId,
@@ -522,6 +553,7 @@ module Amazonka.RDS.Types
     newDBInstanceAutomatedBackup,
     dbInstanceAutomatedBackup_port,
     dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications,
+    dbInstanceAutomatedBackup_backupTarget,
     dbInstanceAutomatedBackup_backupRetentionPeriod,
     dbInstanceAutomatedBackup_masterUsername,
     dbInstanceAutomatedBackup_dbInstanceIdentifier,
@@ -679,6 +711,7 @@ module Amazonka.RDS.Types
     dbSnapshot_status,
     dbSnapshot_availabilityZone,
     dbSnapshot_snapshotCreateTime,
+    dbSnapshot_snapshotDatabaseTime,
     dbSnapshot_storageType,
     dbSnapshot_processorFeatures,
     dbSnapshot_tdeCredentialArn,
@@ -689,6 +722,7 @@ module Amazonka.RDS.Types
     dbSnapshot_allocatedStorage,
     dbSnapshot_iAMDatabaseAuthenticationEnabled,
     dbSnapshot_vpcId,
+    dbSnapshot_snapshotTarget,
     dbSnapshot_dbiResourceId,
     dbSnapshot_iops,
     dbSnapshot_engineVersion,
@@ -716,6 +750,7 @@ module Amazonka.RDS.Types
     dbSubnetGroup_dbSubnetGroupDescription,
     dbSubnetGroup_dbSubnetGroupArn,
     dbSubnetGroup_vpcId,
+    dbSubnetGroup_supportedNetworkTypes,
 
     -- * DescribeDBLogFilesDetails
     DescribeDBLogFilesDetails (..),
@@ -851,23 +886,6 @@ module Amazonka.RDS.Types
     iPRange_status,
     iPRange_cidrip,
 
-    -- * InstallationMedia
-    InstallationMedia (..),
-    newInstallationMedia,
-    installationMedia_status,
-    installationMedia_customAvailabilityZoneId,
-    installationMedia_engineInstallationMediaPath,
-    installationMedia_engine,
-    installationMedia_failureCause,
-    installationMedia_oSInstallationMediaPath,
-    installationMedia_installationMediaId,
-    installationMedia_engineVersion,
-
-    -- * InstallationMediaFailureCause
-    InstallationMediaFailureCause (..),
-    newInstallationMediaFailureCause,
-    installationMediaFailureCause_message,
-
     -- * MinimumEngineVersionPerAllowedValue
     MinimumEngineVersionPerAllowedValue (..),
     newMinimumEngineVersionPerAllowedValue,
@@ -970,6 +988,7 @@ module Amazonka.RDS.Types
     OrderableDBInstanceOption (..),
     newOrderableDBInstanceOption,
     orderableDBInstanceOption_supportsStorageEncryption,
+    orderableDBInstanceOption_supportsClusters,
     orderableDBInstanceOption_maxStorageSize,
     orderableDBInstanceOption_multiAZCapable,
     orderableDBInstanceOption_dbInstanceClass,
@@ -997,6 +1016,7 @@ module Amazonka.RDS.Types
     orderableDBInstanceOption_supportsKerberosAuthentication,
     orderableDBInstanceOption_minIopsPerGib,
     orderableDBInstanceOption_licenseModel,
+    orderableDBInstanceOption_supportedNetworkTypes,
 
     -- * Outpost
     Outpost (..),
@@ -1040,9 +1060,11 @@ module Amazonka.RDS.Types
     pendingModifiedValues_port,
     pendingModifiedValues_backupRetentionPeriod,
     pendingModifiedValues_dbInstanceClass,
+    pendingModifiedValues_automationMode,
     pendingModifiedValues_dbSubnetGroupName,
     pendingModifiedValues_dbInstanceIdentifier,
     pendingModifiedValues_pendingCloudwatchLogsExports,
+    pendingModifiedValues_resumeFullAutomationModeTime,
     pendingModifiedValues_masterUserPassword,
     pendingModifiedValues_storageType,
     pendingModifiedValues_processorFeatures,
@@ -1139,6 +1161,18 @@ module Amazonka.RDS.Types
     scalingConfigurationInfo_autoPause,
     scalingConfigurationInfo_minCapacity,
 
+    -- * ServerlessV2ScalingConfiguration
+    ServerlessV2ScalingConfiguration (..),
+    newServerlessV2ScalingConfiguration,
+    serverlessV2ScalingConfiguration_maxCapacity,
+    serverlessV2ScalingConfiguration_minCapacity,
+
+    -- * ServerlessV2ScalingConfigurationInfo
+    ServerlessV2ScalingConfigurationInfo (..),
+    newServerlessV2ScalingConfigurationInfo,
+    serverlessV2ScalingConfigurationInfo_maxCapacity,
+    serverlessV2ScalingConfigurationInfo_minCapacity,
+
     -- * SourceRegion
     SourceRegion (..),
     newSourceRegion,
@@ -1176,6 +1210,7 @@ module Amazonka.RDS.Types
     -- * UpgradeTarget
     UpgradeTarget (..),
     newUpgradeTarget,
+    upgradeTarget_supportsBabelfish,
     upgradeTarget_autoUpgrade,
     upgradeTarget_supportedEngineModes,
     upgradeTarget_description,
@@ -1223,16 +1258,6 @@ module Amazonka.RDS.Types
     newVpcSecurityGroupMembership,
     vpcSecurityGroupMembership_status,
     vpcSecurityGroupMembership_vpcSecurityGroupId,
-
-    -- * VpnDetails
-    VpnDetails (..),
-    newVpnDetails,
-    vpnDetails_vpnPSK,
-    vpnDetails_vpnId,
-    vpnDetails_vpnTunnelOriginatorIP,
-    vpnDetails_vpnState,
-    vpnDetails_vpnGatewayIp,
-    vpnDetails_vpnName,
   )
 where
 
@@ -1241,9 +1266,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AccountQuota
 import Amazonka.RDS.Types.ActivityStreamMode
+import Amazonka.RDS.Types.ActivityStreamPolicyStatus
 import Amazonka.RDS.Types.ActivityStreamStatus
 import Amazonka.RDS.Types.ApplyMethod
+import Amazonka.RDS.Types.AuditPolicyState
 import Amazonka.RDS.Types.AuthScheme
+import Amazonka.RDS.Types.AutomationMode
 import Amazonka.RDS.Types.AvailabilityZone
 import Amazonka.RDS.Types.AvailableProcessorFeature
 import Amazonka.RDS.Types.Certificate
@@ -1252,7 +1280,7 @@ import Amazonka.RDS.Types.CloudwatchLogsExportConfiguration
 import Amazonka.RDS.Types.ClusterPendingModifiedValues
 import Amazonka.RDS.Types.ConnectionPoolConfiguration
 import Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
-import Amazonka.RDS.Types.CustomAvailabilityZone
+import Amazonka.RDS.Types.CustomEngineVersionStatus
 import Amazonka.RDS.Types.DBCluster
 import Amazonka.RDS.Types.DBClusterBacktrack
 import Amazonka.RDS.Types.DBClusterEndpoint
@@ -1304,8 +1332,6 @@ import Amazonka.RDS.Types.GlobalCluster
 import Amazonka.RDS.Types.GlobalClusterMember
 import Amazonka.RDS.Types.IAMAuthMode
 import Amazonka.RDS.Types.IPRange
-import Amazonka.RDS.Types.InstallationMedia
-import Amazonka.RDS.Types.InstallationMediaFailureCause
 import Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
 import Amazonka.RDS.Types.Option
 import Amazonka.RDS.Types.OptionConfiguration
@@ -1331,6 +1357,8 @@ import Amazonka.RDS.Types.ResourcePendingMaintenanceActions
 import Amazonka.RDS.Types.RestoreWindow
 import Amazonka.RDS.Types.ScalingConfiguration
 import Amazonka.RDS.Types.ScalingConfigurationInfo
+import Amazonka.RDS.Types.ServerlessV2ScalingConfiguration
+import Amazonka.RDS.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.RDS.Types.SourceRegion
 import Amazonka.RDS.Types.SourceType
 import Amazonka.RDS.Types.Subnet
@@ -1347,7 +1375,6 @@ import Amazonka.RDS.Types.UserAuthConfigInfo
 import Amazonka.RDS.Types.ValidDBInstanceModificationsMessage
 import Amazonka.RDS.Types.ValidStorageOptions
 import Amazonka.RDS.Types.VpcSecurityGroupMembership
-import Amazonka.RDS.Types.VpnDetails
 import Amazonka.RDS.Types.WriteForwardingStatus
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -1566,14 +1593,6 @@ _ReservedDBInstanceNotFoundFault =
     "ReservedDBInstanceNotFound"
     Prelude.. Core.hasStatus 404
 
--- | @InstallationMediaID@ doesn\'t refer to an existing installation medium.
-_InstallationMediaNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InstallationMediaNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "InstallationMediaNotFound"
-    Prelude.. Core.hasStatus 404
-
 -- | The specified proxy name doesn\'t correspond to a proxy owned by your
 -- Amazon Web Services account in the specified Amazon Web Services Region.
 _DBProxyNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1607,7 +1626,7 @@ _InvalidDBSubnetGroupStateFault =
     "InvalidDBSubnetGroupStateFault"
     Prelude.. Core.hasStatus 400
 
--- | SNS has responded that there is a problem with the SND topic specified.
+-- | SNS has responded that there is a problem with the SNS topic specified.
 _SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SNSInvalidTopicFault =
   Core._MatchServiceError
@@ -1841,6 +1860,14 @@ _GlobalClusterNotFoundFault =
     "GlobalClusterNotFoundFault"
     Prelude.. Core.hasStatus 404
 
+-- | The specified CEV was not found.
+_CustomDBEngineVersionNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomDBEngineVersionNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "CustomDBEngineVersionNotFoundFault"
+    Prelude.. Core.hasStatus 404
+
 -- | Prism for BackupPolicyNotFoundFault' errors.
 _BackupPolicyNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BackupPolicyNotFoundFault =
@@ -1860,6 +1887,15 @@ _AuthorizationNotFoundFault =
     defaultService
     "AuthorizationNotFound"
     Prelude.. Core.hasStatus 404
+
+-- | The network type is invalid for the DB instance. Valid nework type
+-- values are @IPV4@ and @DUAL@.
+_NetworkTypeNotSupported :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NetworkTypeNotSupported =
+  Core._MatchServiceError
+    defaultService
+    "NetworkTypeNotSupported"
+    Prelude.. Core.hasStatus 400
 
 -- | The request would result in the user exceeding the allowed number of DB
 -- subnet groups.
@@ -1896,12 +1932,12 @@ _SubscriptionCategoryNotFoundFault =
     "SubscriptionCategoryNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The specified installation medium has already been imported.
-_InstallationMediaAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InstallationMediaAlreadyExistsFault =
+-- | You have exceeded your CEV quota.
+_CustomDBEngineVersionQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomDBEngineVersionQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "InstallationMediaAlreadyExists"
+    "CustomDBEngineVersionQuotaExceededFault"
     Prelude.. Core.hasStatus 400
 
 -- | You do not have permission to publish to the SNS topic ARN.
@@ -2117,6 +2153,14 @@ _ResourceNotFoundFault =
     "ResourceNotFoundFault"
     Prelude.. Core.hasStatus 404
 
+-- | A CEV with the specified name already exists.
+_CustomDBEngineVersionAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomDBEngineVersionAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "CustomDBEngineVersionAlreadyExistsFault"
+    Prelude.. Core.hasStatus 400
+
 -- | The DB cluster doesn\'t have enough capacity for the current operation.
 _InsufficientDBClusterCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientDBClusterCapacityFault =
@@ -2220,14 +2264,6 @@ _InsufficientAvailableIPsInSubnetFault =
     "InsufficientAvailableIPsInSubnetFault"
     Prelude.. Core.hasStatus 400
 
--- | You have exceeded the maximum number of custom Availability Zones.
-_CustomAvailabilityZoneQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomAvailabilityZoneQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "CustomAvailabilityZoneQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
 -- | The specified IAM role Amazon Resource Name (ARN) isn\'t associated with
 -- the specified DB cluster.
 _DBClusterRoleNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2236,6 +2272,14 @@ _DBClusterRoleNotFoundFault =
     defaultService
     "DBClusterRoleNotFound"
     Prelude.. Core.hasStatus 404
+
+-- | You can\'t delete the CEV.
+_InvalidCustomDBEngineVersionStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCustomDBEngineVersionStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCustomDBEngineVersionStateFault"
+    Prelude.. Core.hasStatus 400
 
 -- | Provisioned IOPS not available in the specified Availability Zone.
 _ProvisionedIopsNotAvailableInAZFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2400,15 +2444,6 @@ _InvalidDBSnapshotStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidDBSnapshotState"
-    Prelude.. Core.hasStatus 400
-
--- | @CustomAvailabilityZoneName@ is already used by an existing custom
--- Availability Zone.
-_CustomAvailabilityZoneAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomAvailabilityZoneAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "CustomAvailabilityZoneAlreadyExists"
     Prelude.. Core.hasStatus 400
 
 -- | Request would exceed the user\'s DB Instance quota.

@@ -25,8 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.BaseScreenshot
 
 -- | An object that specifies what screenshots to use as a baseline for
--- visual monitoring by this canary, and optionally the parts of the
--- screenshots to ignore during the visual monitoring comparison.
+-- visual monitoring by this canary. It can optionally also specify parts
+-- of the screenshots to ignore during the visual monitoring comparison.
 --
 -- Visual monitoring is supported only on canaries running the
 -- __syn-puppeteer-node-3.2__ runtime or later. For more information, see

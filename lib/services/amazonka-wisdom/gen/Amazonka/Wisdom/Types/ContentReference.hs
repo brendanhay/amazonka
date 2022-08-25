@@ -33,7 +33,7 @@ data ContentReference = ContentReference'
     contentArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the content.
     contentId :: Prelude.Maybe Prelude.Text,
-    -- | The the identifier of the knowledge base.
+    -- | The identifier of the knowledge base.
     knowledgeBaseId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,7 +52,7 @@ data ContentReference = ContentReference'
 --
 -- 'contentId', 'contentReference_contentId' - The identifier of the content.
 --
--- 'knowledgeBaseId', 'contentReference_knowledgeBaseId' - The the identifier of the knowledge base.
+-- 'knowledgeBaseId', 'contentReference_knowledgeBaseId' - The identifier of the knowledge base.
 newContentReference ::
   ContentReference
 newContentReference =
@@ -76,7 +76,7 @@ contentReference_contentArn = Lens.lens (\ContentReference' {contentArn} -> cont
 contentReference_contentId :: Lens.Lens' ContentReference (Prelude.Maybe Prelude.Text)
 contentReference_contentId = Lens.lens (\ContentReference' {contentId} -> contentId) (\s@ContentReference' {} a -> s {contentId = a} :: ContentReference)
 
--- | The the identifier of the knowledge base.
+-- | The identifier of the knowledge base.
 contentReference_knowledgeBaseId :: Lens.Lens' ContentReference (Prelude.Maybe Prelude.Text)
 contentReference_knowledgeBaseId = Lens.lens (\ContentReference' {knowledgeBaseId} -> knowledgeBaseId) (\s@ContentReference' {} a -> s {knowledgeBaseId = a} :: ContentReference)
 

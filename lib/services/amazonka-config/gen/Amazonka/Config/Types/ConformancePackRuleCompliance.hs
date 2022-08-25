@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConformancePackRuleCompliance' smart constructor.
 data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
-  { -- | Name of the config rule.
+  { -- | Name of the Config rule.
     configRuleName :: Prelude.Maybe Prelude.Text,
     -- | Controls for the conformance pack. A control is a process to prevent or
     -- detect problems while meeting objectives. A control can align with a
@@ -52,7 +52,7 @@ data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'conformancePackRuleCompliance_configRuleName' - Name of the config rule.
+-- 'configRuleName', 'conformancePackRuleCompliance_configRuleName' - Name of the Config rule.
 --
 -- 'controls', 'conformancePackRuleCompliance_controls' - Controls for the conformance pack. A control is a process to prevent or
 -- detect problems while meeting objectives. A control can align with a
@@ -73,7 +73,7 @@ newConformancePackRuleCompliance =
       complianceType = Prelude.Nothing
     }
 
--- | Name of the config rule.
+-- | Name of the Config rule.
 conformancePackRuleCompliance_configRuleName :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe Prelude.Text)
 conformancePackRuleCompliance_configRuleName = Lens.lens (\ConformancePackRuleCompliance' {configRuleName} -> configRuleName) (\s@ConformancePackRuleCompliance' {} a -> s {configRuleName = a} :: ConformancePackRuleCompliance)
 

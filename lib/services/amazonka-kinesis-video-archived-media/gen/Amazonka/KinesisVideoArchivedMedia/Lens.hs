@@ -47,6 +47,23 @@ module Amazonka.KinesisVideoArchivedMedia.Lens
     getHLSStreamingSessionURLResponse_hLSStreamingSessionURL,
     getHLSStreamingSessionURLResponse_httpStatus,
 
+    -- ** GetImages
+    getImages_nextToken,
+    getImages_formatConfig,
+    getImages_maxResults,
+    getImages_heightPixels,
+    getImages_streamARN,
+    getImages_widthPixels,
+    getImages_streamName,
+    getImages_imageSelectorType,
+    getImages_startTimestamp,
+    getImages_endTimestamp,
+    getImages_samplingInterval,
+    getImages_format,
+    getImagesResponse_nextToken,
+    getImagesResponse_images,
+    getImagesResponse_httpStatus,
+
     -- ** GetMediaForFragmentList
     getMediaForFragmentList_streamARN,
     getMediaForFragmentList_streamName,
@@ -102,6 +119,11 @@ module Amazonka.KinesisVideoArchivedMedia.Lens
     hLSTimestampRange_endTimestamp,
     hLSTimestampRange_startTimestamp,
 
+    -- ** Image
+    image_timeStamp,
+    image_error,
+    image_imageContent,
+
     -- ** TimestampRange
     timestampRange_startTimestamp,
     timestampRange_endTimestamp,
@@ -111,6 +133,7 @@ where
 import Amazonka.KinesisVideoArchivedMedia.GetClip
 import Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 import Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+import Amazonka.KinesisVideoArchivedMedia.GetImages
 import Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
 import Amazonka.KinesisVideoArchivedMedia.ListFragments
 import Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
@@ -121,4 +144,5 @@ import Amazonka.KinesisVideoArchivedMedia.Types.Fragment
 import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.Image
 import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange

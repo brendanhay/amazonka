@@ -32,7 +32,18 @@ data CustomStepDetails = CustomStepDetails'
     -- | Timeout, in seconds, for the step.
     timeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The ARN for the lambda function that is being called.
-    target :: Prelude.Maybe Prelude.Text
+    target :: Prelude.Maybe Prelude.Text,
+    -- | Specifies which file to use as input to the workflow step: either the
+    -- output from the previous step, or the originally uploaded file for the
+    -- workflow.
+    --
+    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    --     this case, this workflow step uses the output file from the previous
+    --     workflow step as input. This is the default value.
+    --
+    -- -   Enter @${original.file}@ to use the originally-uploaded file
+    --     location as input for this step.
+    sourceFileLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,13 +60,25 @@ data CustomStepDetails = CustomStepDetails'
 -- 'timeoutSeconds', 'customStepDetails_timeoutSeconds' - Timeout, in seconds, for the step.
 --
 -- 'target', 'customStepDetails_target' - The ARN for the lambda function that is being called.
+--
+-- 'sourceFileLocation', 'customStepDetails_sourceFileLocation' - Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   Enter @${previous.file}@ to use the previous file as the input. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   Enter @${original.file}@ to use the originally-uploaded file
+--     location as input for this step.
 newCustomStepDetails ::
   CustomStepDetails
 newCustomStepDetails =
   CustomStepDetails'
     { name = Prelude.Nothing,
       timeoutSeconds = Prelude.Nothing,
-      target = Prelude.Nothing
+      target = Prelude.Nothing,
+      sourceFileLocation = Prelude.Nothing
     }
 
 -- | The name of the step, used as an identifier.
@@ -70,6 +93,19 @@ customStepDetails_timeoutSeconds = Lens.lens (\CustomStepDetails' {timeoutSecond
 customStepDetails_target :: Lens.Lens' CustomStepDetails (Prelude.Maybe Prelude.Text)
 customStepDetails_target = Lens.lens (\CustomStepDetails' {target} -> target) (\s@CustomStepDetails' {} a -> s {target = a} :: CustomStepDetails)
 
+-- | Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   Enter @${previous.file}@ to use the previous file as the input. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   Enter @${original.file}@ to use the originally-uploaded file
+--     location as input for this step.
+customStepDetails_sourceFileLocation :: Lens.Lens' CustomStepDetails (Prelude.Maybe Prelude.Text)
+customStepDetails_sourceFileLocation = Lens.lens (\CustomStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@CustomStepDetails' {} a -> s {sourceFileLocation = a} :: CustomStepDetails)
+
 instance Core.FromJSON CustomStepDetails where
   parseJSON =
     Core.withObject
@@ -79,6 +115,7 @@ instance Core.FromJSON CustomStepDetails where
             Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "TimeoutSeconds")
             Prelude.<*> (x Core..:? "Target")
+            Prelude.<*> (x Core..:? "SourceFileLocation")
       )
 
 instance Prelude.Hashable CustomStepDetails where
@@ -86,12 +123,14 @@ instance Prelude.Hashable CustomStepDetails where
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeoutSeconds
       `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` sourceFileLocation
 
 instance Prelude.NFData CustomStepDetails where
   rnf CustomStepDetails' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf timeoutSeconds
       `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf sourceFileLocation
 
 instance Core.ToJSON CustomStepDetails where
   toJSON CustomStepDetails' {..} =
@@ -100,6 +139,8 @@ instance Core.ToJSON CustomStepDetails where
           [ ("Name" Core..=) Prelude.<$> name,
             ("TimeoutSeconds" Core..=)
               Prelude.<$> timeoutSeconds,
-            ("Target" Core..=) Prelude.<$> target
+            ("Target" Core..=) Prelude.<$> target,
+            ("SourceFileLocation" Core..=)
+              Prelude.<$> sourceFileLocation
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Glue.Types.Crawler where
 import qualified Amazonka.Core as Core
 import Amazonka.Glue.Types.CrawlerState
 import Amazonka.Glue.Types.CrawlerTargets
+import Amazonka.Glue.Types.LakeFormationConfiguration
 import Amazonka.Glue.Types.LastCrawlInfo
 import Amazonka.Glue.Types.LineageConfiguration
 import Amazonka.Glue.Types.RecrawlPolicy
@@ -83,6 +84,9 @@ data Crawler = Crawler'
     -- | The name of the @SecurityConfiguration@ structure to be used by this
     -- crawler.
     crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the crawler should use Lake Formation credentials for
+    -- the crawler instead of the IAM role credentials.
+    lakeFormationConfiguration :: Prelude.Maybe LakeFormationConfiguration,
     -- | The version of the crawler.
     version :: Prelude.Maybe Prelude.Integer
   }
@@ -143,6 +147,9 @@ data Crawler = Crawler'
 -- 'crawlerSecurityConfiguration', 'crawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
 -- crawler.
 --
+-- 'lakeFormationConfiguration', 'crawler_lakeFormationConfiguration' - Specifies whether the crawler should use Lake Formation credentials for
+-- the crawler instead of the IAM role credentials.
+--
 -- 'version', 'crawler_version' - The version of the crawler.
 newCrawler ::
   Crawler
@@ -166,6 +173,7 @@ newCrawler =
       creationTime = Prelude.Nothing,
       lastCrawl = Prelude.Nothing,
       crawlerSecurityConfiguration = Prelude.Nothing,
+      lakeFormationConfiguration = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -252,6 +260,11 @@ crawler_lastCrawl = Lens.lens (\Crawler' {lastCrawl} -> lastCrawl) (\s@Crawler' 
 crawler_crawlerSecurityConfiguration :: Lens.Lens' Crawler (Prelude.Maybe Prelude.Text)
 crawler_crawlerSecurityConfiguration = Lens.lens (\Crawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@Crawler' {} a -> s {crawlerSecurityConfiguration = a} :: Crawler)
 
+-- | Specifies whether the crawler should use Lake Formation credentials for
+-- the crawler instead of the IAM role credentials.
+crawler_lakeFormationConfiguration :: Lens.Lens' Crawler (Prelude.Maybe LakeFormationConfiguration)
+crawler_lakeFormationConfiguration = Lens.lens (\Crawler' {lakeFormationConfiguration} -> lakeFormationConfiguration) (\s@Crawler' {} a -> s {lakeFormationConfiguration = a} :: Crawler)
+
 -- | The version of the crawler.
 crawler_version :: Lens.Lens' Crawler (Prelude.Maybe Prelude.Integer)
 crawler_version = Lens.lens (\Crawler' {version} -> version) (\s@Crawler' {} a -> s {version = a} :: Crawler)
@@ -280,6 +293,7 @@ instance Core.FromJSON Crawler where
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "LastCrawl")
             Prelude.<*> (x Core..:? "CrawlerSecurityConfiguration")
+            Prelude.<*> (x Core..:? "LakeFormationConfiguration")
             Prelude.<*> (x Core..:? "Version")
       )
 
@@ -303,6 +317,7 @@ instance Prelude.Hashable Crawler where
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastCrawl
       `Prelude.hashWithSalt` crawlerSecurityConfiguration
+      `Prelude.hashWithSalt` lakeFormationConfiguration
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Crawler where
@@ -326,4 +341,6 @@ instance Prelude.NFData Crawler where
       `Prelude.seq` Prelude.rnf lastCrawl
       `Prelude.seq` Prelude.rnf
         crawlerSecurityConfiguration
+      `Prelude.seq` Prelude.rnf
+        lakeFormationConfiguration
       `Prelude.seq` Prelude.rnf version

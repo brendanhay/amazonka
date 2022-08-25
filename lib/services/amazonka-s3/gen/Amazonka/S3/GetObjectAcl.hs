@@ -21,7 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the access control list (ACL) of an object. To use this
--- operation, you must have @READ_ACP@ access to the object.
+-- operation, you must have @s3:GetObjectAcl@ permissions or @READ_ACP@
+-- access to the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping Mapping of ACL permissions and access policy permissions>
+-- in the /Amazon S3 User Guide/
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
@@ -31,9 +34,18 @@
 -- object. To return ACL information about a different version, use the
 -- versionId subresource.
 --
+-- If your bucket uses the bucket owner enforced setting for S3 Object
+-- Ownership, requests to read ACLs are still supported and return the
+-- @bucket-owner-full-control@ ACL with the owner being the account that
+-- created the bucket. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership and disabling ACLs>
+-- in the /Amazon S3 User Guide/.
+--
 -- The following operations are related to @GetObjectAcl@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html GetObjectAttributes>
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html DeleteObject>
 --
@@ -72,8 +84,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetObjectAcl' smart constructor.
 data GetObjectAcl = GetObjectAcl'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | VersionId used to reference a specific version of the object.
@@ -104,8 +116,8 @@ data GetObjectAcl = GetObjectAcl'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getObjectAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'getObjectAcl_requestPayer' - Undocumented member.
 --
@@ -141,8 +153,8 @@ newGetObjectAcl pBucket_ pKey_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getObjectAcl_expectedBucketOwner :: Lens.Lens' GetObjectAcl (Prelude.Maybe Prelude.Text)
 getObjectAcl_expectedBucketOwner = Lens.lens (\GetObjectAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectAcl' {} a -> s {expectedBucketOwner = a} :: GetObjectAcl)
 

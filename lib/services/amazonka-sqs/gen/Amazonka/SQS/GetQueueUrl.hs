@@ -59,7 +59,8 @@ import Amazonka.SQS.Types
 --
 -- /See:/ 'newGetQueueUrl' smart constructor.
 data GetQueueUrl = GetQueueUrl'
-  { -- | The account ID of the account that created the queue.
+  { -- | The Amazon Web Services account ID of the account that created the
+    -- queue.
     queueOwnerAWSAccountId :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue whose URL must be fetched. Maximum 80 characters.
     -- Valid values: alphanumeric characters, hyphens (@-@), and underscores
@@ -78,7 +79,8 @@ data GetQueueUrl = GetQueueUrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queueOwnerAWSAccountId', 'getQueueUrl_queueOwnerAWSAccountId' - The account ID of the account that created the queue.
+-- 'queueOwnerAWSAccountId', 'getQueueUrl_queueOwnerAWSAccountId' - The Amazon Web Services account ID of the account that created the
+-- queue.
 --
 -- 'queueName', 'getQueueUrl_queueName' - The name of the queue whose URL must be fetched. Maximum 80 characters.
 -- Valid values: alphanumeric characters, hyphens (@-@), and underscores
@@ -96,7 +98,8 @@ newGetQueueUrl pQueueName_ =
       queueName = pQueueName_
     }
 
--- | The account ID of the account that created the queue.
+-- | The Amazon Web Services account ID of the account that created the
+-- queue.
 getQueueUrl_queueOwnerAWSAccountId :: Lens.Lens' GetQueueUrl (Prelude.Maybe Prelude.Text)
 getQueueUrl_queueOwnerAWSAccountId = Lens.lens (\GetQueueUrl' {queueOwnerAWSAccountId} -> queueOwnerAWSAccountId) (\s@GetQueueUrl' {} a -> s {queueOwnerAWSAccountId = a} :: GetQueueUrl)
 

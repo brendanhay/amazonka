@@ -57,10 +57,26 @@ data TagResource = TagResource'
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:resourcetype\/ExampleResource@
     resourceArn :: Prelude.Text,
-    -- | Tags that have been applied to the specified resource. Tags are mapped
-    -- from the tag key to the tag value: @\"TagKey\" : \"TagValue\"@.
+    -- | Applies one or more tags to specific resource. A tag is a key-value pair
+    -- that helps you manage, identify, search, and filter your resources.
     --
-    -- -   Format example: @{\"tag1\" : \"value1\", \"tag2\" : \"value2\"} @
+    -- Format: @\"key\" : \"value\"@
+    --
+    -- Restrictions:
+    --
+    -- -   Maximum 50 tags per resource.
+    --
+    -- -   Each tag key must be unique and must have exactly one associated
+    --     value.
+    --
+    -- -   Maximum key length: 128 Unicode characters in UTF-8.
+    --
+    -- -   Maximum value length: 256 Unicode characters in UTF-8.
+    --
+    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+    --     characters: + - = . _ : \/ \@
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,10 +95,26 @@ data TagResource = TagResource'
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:resourcetype\/ExampleResource@
 --
--- 'tags', 'tagResource_tags' - Tags that have been applied to the specified resource. Tags are mapped
--- from the tag key to the tag value: @\"TagKey\" : \"TagValue\"@.
+-- 'tags', 'tagResource_tags' - Applies one or more tags to specific resource. A tag is a key-value pair
+-- that helps you manage, identify, search, and filter your resources.
 --
--- -   Format example: @{\"tag1\" : \"value1\", \"tag2\" : \"value2\"} @
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource.
+--
+-- -   Each tag key must be unique and must have exactly one associated
+--     value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8.
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8.
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -101,10 +133,26 @@ newTagResource pResourceArn_ =
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | Tags that have been applied to the specified resource. Tags are mapped
--- from the tag key to the tag value: @\"TagKey\" : \"TagValue\"@.
+-- | Applies one or more tags to specific resource. A tag is a key-value pair
+-- that helps you manage, identify, search, and filter your resources.
 --
--- -   Format example: @{\"tag1\" : \"value1\", \"tag2\" : \"value2\"} @
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource.
+--
+-- -   Each tag key must be unique and must have exactly one associated
+--     value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8.
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8.
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

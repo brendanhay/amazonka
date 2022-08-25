@@ -42,24 +42,26 @@
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
--- To get the status of the event tracker, call DescribeEventTracker.
+-- To get the status of the event tracker, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html DescribeEventTracker>.
 --
 -- The event tracker must be in the ACTIVE state before using the tracking
 -- ID.
 --
 -- __Related APIs__
 --
--- -   ListEventTrackers
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html ListEventTrackers>
 --
--- -   DescribeEventTracker
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html DescribeEventTracker>
 --
--- -   DeleteEventTracker
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html DeleteEventTracker>
 module Amazonka.Personalize.CreateEventTracker
   ( -- * Creating a Request
     CreateEventTracker (..),
     newCreateEventTracker,
 
     -- * Request Lenses
+    createEventTracker_tags,
     createEventTracker_name,
     createEventTracker_datasetGroupArn,
 
@@ -83,7 +85,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEventTracker' smart constructor.
 data CreateEventTracker = CreateEventTracker'
-  { -- | The name for the event tracker.
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the event tracker.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name for the event tracker.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dataset group that receives the
     -- event data.
@@ -99,6 +105,10 @@ data CreateEventTracker = CreateEventTracker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createEventTracker_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the event tracker.
+--
 -- 'name', 'createEventTracker_name' - The name for the event tracker.
 --
 -- 'datasetGroupArn', 'createEventTracker_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that receives the
@@ -111,9 +121,16 @@ newCreateEventTracker ::
   CreateEventTracker
 newCreateEventTracker pName_ pDatasetGroupArn_ =
   CreateEventTracker'
-    { name = pName_,
+    { tags = Prelude.Nothing,
+      name = pName_,
       datasetGroupArn = pDatasetGroupArn_
     }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the event tracker.
+createEventTracker_tags :: Lens.Lens' CreateEventTracker (Prelude.Maybe [Tag])
+createEventTracker_tags = Lens.lens (\CreateEventTracker' {tags} -> tags) (\s@CreateEventTracker' {} a -> s {tags = a} :: CreateEventTracker) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the event tracker.
 createEventTracker_name :: Lens.Lens' CreateEventTracker Prelude.Text
@@ -140,12 +157,14 @@ instance Core.AWSRequest CreateEventTracker where
 
 instance Prelude.Hashable CreateEventTracker where
   hashWithSalt _salt CreateEventTracker' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
 
 instance Prelude.NFData CreateEventTracker where
   rnf CreateEventTracker' {..} =
-    Prelude.rnf name
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders CreateEventTracker where
@@ -167,7 +186,8 @@ instance Core.ToJSON CreateEventTracker where
   toJSON CreateEventTracker' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("datasetGroupArn" Core..= datasetGroupArn)
           ]

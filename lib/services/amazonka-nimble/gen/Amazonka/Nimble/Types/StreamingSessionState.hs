@@ -25,7 +25,12 @@ module Amazonka.Nimble.Types.StreamingSessionState
         StreamingSessionState_DELETED,
         StreamingSessionState_DELETE_FAILED,
         StreamingSessionState_DELETE_IN_PROGRESS,
-        StreamingSessionState_READY
+        StreamingSessionState_READY,
+        StreamingSessionState_START_FAILED,
+        StreamingSessionState_START_IN_PROGRESS,
+        StreamingSessionState_STOPPED,
+        StreamingSessionState_STOP_FAILED,
+        StreamingSessionState_STOP_IN_PROGRESS
       ),
   )
 where
@@ -80,6 +85,21 @@ pattern StreamingSessionState_DELETE_IN_PROGRESS = StreamingSessionState' "DELET
 pattern StreamingSessionState_READY :: StreamingSessionState
 pattern StreamingSessionState_READY = StreamingSessionState' "READY"
 
+pattern StreamingSessionState_START_FAILED :: StreamingSessionState
+pattern StreamingSessionState_START_FAILED = StreamingSessionState' "START_FAILED"
+
+pattern StreamingSessionState_START_IN_PROGRESS :: StreamingSessionState
+pattern StreamingSessionState_START_IN_PROGRESS = StreamingSessionState' "START_IN_PROGRESS"
+
+pattern StreamingSessionState_STOPPED :: StreamingSessionState
+pattern StreamingSessionState_STOPPED = StreamingSessionState' "STOPPED"
+
+pattern StreamingSessionState_STOP_FAILED :: StreamingSessionState
+pattern StreamingSessionState_STOP_FAILED = StreamingSessionState' "STOP_FAILED"
+
+pattern StreamingSessionState_STOP_IN_PROGRESS :: StreamingSessionState
+pattern StreamingSessionState_STOP_IN_PROGRESS = StreamingSessionState' "STOP_IN_PROGRESS"
+
 {-# COMPLETE
   StreamingSessionState_CREATE_FAILED,
   StreamingSessionState_CREATE_IN_PROGRESS,
@@ -87,5 +107,10 @@ pattern StreamingSessionState_READY = StreamingSessionState' "READY"
   StreamingSessionState_DELETE_FAILED,
   StreamingSessionState_DELETE_IN_PROGRESS,
   StreamingSessionState_READY,
+  StreamingSessionState_START_FAILED,
+  StreamingSessionState_START_IN_PROGRESS,
+  StreamingSessionState_STOPPED,
+  StreamingSessionState_STOP_FAILED,
+  StreamingSessionState_STOP_IN_PROGRESS,
   StreamingSessionState'
   #-}

@@ -23,7 +23,7 @@
 -- Creates a new custom endpoint and associates it with an Amazon Aurora DB
 -- cluster.
 --
--- This action only applies to Aurora DB clusters.
+-- This action applies only to Aurora DB clusters.
 module Amazonka.RDS.CreateDBClusterEndpoint
   ( -- * Creating a Request
     CreateDBClusterEndpoint (..),
@@ -71,7 +71,8 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
     staticMembers :: Prelude.Maybe [Prelude.Text],
     -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
-    -- endpoint. Only relevant if the list of static members is empty.
+    -- endpoint. This parameter is relevant only if the list of static members
+    -- is empty.
     excludedMembers :: Prelude.Maybe [Prelude.Text],
     -- | The DB cluster identifier of the DB cluster associated with the
     -- endpoint. This parameter is stored as a lowercase string.
@@ -79,7 +80,7 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
     -- | The identifier to use for the new endpoint. This parameter is stored as
     -- a lowercase string.
     dbClusterEndpointIdentifier :: Prelude.Text,
-    -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
+    -- | The type of the endpoint, one of: @READER@, @WRITER@, @ANY@.
     endpointType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,7 +100,8 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
 --
 -- 'excludedMembers', 'createDBClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
--- endpoint. Only relevant if the list of static members is empty.
+-- endpoint. This parameter is relevant only if the list of static members
+-- is empty.
 --
 -- 'dbClusterIdentifier', 'createDBClusterEndpoint_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -107,7 +109,7 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
 -- 'dbClusterEndpointIdentifier', 'createDBClusterEndpoint_dbClusterEndpointIdentifier' - The identifier to use for the new endpoint. This parameter is stored as
 -- a lowercase string.
 --
--- 'endpointType', 'createDBClusterEndpoint_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
+-- 'endpointType', 'createDBClusterEndpoint_endpointType' - The type of the endpoint, one of: @READER@, @WRITER@, @ANY@.
 newCreateDBClusterEndpoint ::
   -- | 'dbClusterIdentifier'
   Prelude.Text ->
@@ -141,7 +143,8 @@ createDBClusterEndpoint_staticMembers = Lens.lens (\CreateDBClusterEndpoint' {st
 
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
--- endpoint. Only relevant if the list of static members is empty.
+-- endpoint. This parameter is relevant only if the list of static members
+-- is empty.
 createDBClusterEndpoint_excludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
 createDBClusterEndpoint_excludedMembers = Lens.lens (\CreateDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpoint' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -155,7 +158,7 @@ createDBClusterEndpoint_dbClusterIdentifier = Lens.lens (\CreateDBClusterEndpoin
 createDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' CreateDBClusterEndpoint Prelude.Text
 createDBClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\CreateDBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@CreateDBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: CreateDBClusterEndpoint)
 
--- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
+-- | The type of the endpoint, one of: @READER@, @WRITER@, @ANY@.
 createDBClusterEndpoint_endpointType :: Lens.Lens' CreateDBClusterEndpoint Prelude.Text
 createDBClusterEndpoint_endpointType = Lens.lens (\CreateDBClusterEndpoint' {endpointType} -> endpointType) (\s@CreateDBClusterEndpoint' {} a -> s {endpointType = a} :: CreateDBClusterEndpoint)
 

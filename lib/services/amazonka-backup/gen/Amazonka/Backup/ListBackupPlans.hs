@@ -24,6 +24,8 @@
 -- The list contains information such as Amazon Resource Names (ARNs), plan
 -- IDs, creation and deletion dates, version IDs, plan names, and creator
 -- request IDs.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListBackupPlans
   ( -- * Creating a Request
     ListBackupPlans (..),
@@ -108,6 +110,28 @@ listBackupPlans_includeDeleted = Lens.lens (\ListBackupPlans' {includeDeleted} -
 -- | The maximum number of items to be returned.
 listBackupPlans_maxResults :: Lens.Lens' ListBackupPlans (Prelude.Maybe Prelude.Natural)
 listBackupPlans_maxResults = Lens.lens (\ListBackupPlans' {maxResults} -> maxResults) (\s@ListBackupPlans' {} a -> s {maxResults = a} :: ListBackupPlans)
+
+instance Core.AWSPager ListBackupPlans where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBackupPlansResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBackupPlansResponse_backupPlansList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBackupPlans_nextToken
+          Lens..~ rs
+          Lens.^? listBackupPlansResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupPlans where
   type

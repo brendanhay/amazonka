@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve Performance Insights metrics for a set of data sources, over a
+-- Retrieve Performance Insights metrics for a set of data sources over a
 -- time period. You can provide specific dimension groups and dimensions,
 -- and provide aggregation and filtering criteria for each group.
 --
@@ -90,29 +90,38 @@ data GetResourceMetrics = GetResourceMetrics'
     -- choose a value for you, with a goal of returning roughly 100-200 data
     -- points in the response.
     periodInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The AWS service for which Performance Insights returns metrics. The only
-    -- valid value for /ServiceType/ is @RDS@.
+    -- | The Amazon Web Services service for which Performance Insights returns
+    -- metrics. Valid values are as follows:
+    --
+    -- -   @RDS@
+    --
+    -- -   @DOCDB@
     serviceType :: ServiceType,
-    -- | An immutable, AWS Region-unique identifier for a data source.
-    -- Performance Insights gathers metrics from this data source.
+    -- | An immutable identifier for a data source that is unique for an Amazon
+    -- Web Services Region. Performance Insights gathers metrics from this data
+    -- source. In the console, the identifier is shown as /ResourceID/. When
+    -- you call @DescribeDBInstances@, the identifier is returned as
+    -- @DbiResourceId@.
     --
     -- To use a DB instance as a data source, specify its @DbiResourceId@
-    -- value. For example, specify @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.
+    -- value. For example, specify @db-ABCDEFGHIJKLMNOPQRSTU1VW2X@.
     identifier :: Prelude.Text,
     -- | An array of one or more queries to perform. Each query must specify a
     -- Performance Insights metric, and can optionally specify aggregation and
     -- filtering criteria.
     metricQueries :: Prelude.NonEmpty MetricQuery,
     -- | The date and time specifying the beginning of the requested time series
-    -- data. You can\'t specify a @StartTime@ that\'s earlier than 7 days ago.
-    -- The value specified is /inclusive/ - data points equal to or greater
-    -- than @StartTime@ will be returned.
+    -- query range. You can\'t specify a @StartTime@ that is earlier than 7
+    -- days ago. By default, Performance Insights has 7 days of retention, but
+    -- you can extend this range up to 2 years. The value specified is
+    -- /inclusive/. Thus, the command returns data points equal to or greater
+    -- than @StartTime@.
     --
     -- The value for @StartTime@ must be earlier than the value for @EndTime@.
     startTime :: Core.POSIX,
-    -- | The date and time specifying the end of the requested time series data.
-    -- The value specified is /exclusive/ - data points less than (but not
-    -- equal to) @EndTime@ will be returned.
+    -- | The date and time specifying the end of the requested time series query
+    -- range. The value specified is /exclusive/. Thus, the command returns
+    -- data points less than (but not equal to) @EndTime@.
     --
     -- The value for @EndTime@ must be later than the value for @StartTime@.
     endTime :: Core.POSIX
@@ -153,29 +162,38 @@ data GetResourceMetrics = GetResourceMetrics'
 -- choose a value for you, with a goal of returning roughly 100-200 data
 -- points in the response.
 --
--- 'serviceType', 'getResourceMetrics_serviceType' - The AWS service for which Performance Insights returns metrics. The only
--- valid value for /ServiceType/ is @RDS@.
+-- 'serviceType', 'getResourceMetrics_serviceType' - The Amazon Web Services service for which Performance Insights returns
+-- metrics. Valid values are as follows:
 --
--- 'identifier', 'getResourceMetrics_identifier' - An immutable, AWS Region-unique identifier for a data source.
--- Performance Insights gathers metrics from this data source.
+-- -   @RDS@
+--
+-- -   @DOCDB@
+--
+-- 'identifier', 'getResourceMetrics_identifier' - An immutable identifier for a data source that is unique for an Amazon
+-- Web Services Region. Performance Insights gathers metrics from this data
+-- source. In the console, the identifier is shown as /ResourceID/. When
+-- you call @DescribeDBInstances@, the identifier is returned as
+-- @DbiResourceId@.
 --
 -- To use a DB instance as a data source, specify its @DbiResourceId@
--- value. For example, specify @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.
+-- value. For example, specify @db-ABCDEFGHIJKLMNOPQRSTU1VW2X@.
 --
 -- 'metricQueries', 'getResourceMetrics_metricQueries' - An array of one or more queries to perform. Each query must specify a
 -- Performance Insights metric, and can optionally specify aggregation and
 -- filtering criteria.
 --
 -- 'startTime', 'getResourceMetrics_startTime' - The date and time specifying the beginning of the requested time series
--- data. You can\'t specify a @StartTime@ that\'s earlier than 7 days ago.
--- The value specified is /inclusive/ - data points equal to or greater
--- than @StartTime@ will be returned.
+-- query range. You can\'t specify a @StartTime@ that is earlier than 7
+-- days ago. By default, Performance Insights has 7 days of retention, but
+-- you can extend this range up to 2 years. The value specified is
+-- /inclusive/. Thus, the command returns data points equal to or greater
+-- than @StartTime@.
 --
 -- The value for @StartTime@ must be earlier than the value for @EndTime@.
 --
--- 'endTime', 'getResourceMetrics_endTime' - The date and time specifying the end of the requested time series data.
--- The value specified is /exclusive/ - data points less than (but not
--- equal to) @EndTime@ will be returned.
+-- 'endTime', 'getResourceMetrics_endTime' - The date and time specifying the end of the requested time series query
+-- range. The value specified is /exclusive/. Thus, the command returns
+-- data points less than (but not equal to) @EndTime@.
 --
 -- The value for @EndTime@ must be later than the value for @StartTime@.
 newGetResourceMetrics ::
@@ -239,16 +257,23 @@ getResourceMetrics_maxResults = Lens.lens (\GetResourceMetrics' {maxResults} -> 
 getResourceMetrics_periodInSeconds :: Lens.Lens' GetResourceMetrics (Prelude.Maybe Prelude.Int)
 getResourceMetrics_periodInSeconds = Lens.lens (\GetResourceMetrics' {periodInSeconds} -> periodInSeconds) (\s@GetResourceMetrics' {} a -> s {periodInSeconds = a} :: GetResourceMetrics)
 
--- | The AWS service for which Performance Insights returns metrics. The only
--- valid value for /ServiceType/ is @RDS@.
+-- | The Amazon Web Services service for which Performance Insights returns
+-- metrics. Valid values are as follows:
+--
+-- -   @RDS@
+--
+-- -   @DOCDB@
 getResourceMetrics_serviceType :: Lens.Lens' GetResourceMetrics ServiceType
 getResourceMetrics_serviceType = Lens.lens (\GetResourceMetrics' {serviceType} -> serviceType) (\s@GetResourceMetrics' {} a -> s {serviceType = a} :: GetResourceMetrics)
 
--- | An immutable, AWS Region-unique identifier for a data source.
--- Performance Insights gathers metrics from this data source.
+-- | An immutable identifier for a data source that is unique for an Amazon
+-- Web Services Region. Performance Insights gathers metrics from this data
+-- source. In the console, the identifier is shown as /ResourceID/. When
+-- you call @DescribeDBInstances@, the identifier is returned as
+-- @DbiResourceId@.
 --
 -- To use a DB instance as a data source, specify its @DbiResourceId@
--- value. For example, specify @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.
+-- value. For example, specify @db-ABCDEFGHIJKLMNOPQRSTU1VW2X@.
 getResourceMetrics_identifier :: Lens.Lens' GetResourceMetrics Prelude.Text
 getResourceMetrics_identifier = Lens.lens (\GetResourceMetrics' {identifier} -> identifier) (\s@GetResourceMetrics' {} a -> s {identifier = a} :: GetResourceMetrics)
 
@@ -259,17 +284,19 @@ getResourceMetrics_metricQueries :: Lens.Lens' GetResourceMetrics (Prelude.NonEm
 getResourceMetrics_metricQueries = Lens.lens (\GetResourceMetrics' {metricQueries} -> metricQueries) (\s@GetResourceMetrics' {} a -> s {metricQueries = a} :: GetResourceMetrics) Prelude.. Lens.coerced
 
 -- | The date and time specifying the beginning of the requested time series
--- data. You can\'t specify a @StartTime@ that\'s earlier than 7 days ago.
--- The value specified is /inclusive/ - data points equal to or greater
--- than @StartTime@ will be returned.
+-- query range. You can\'t specify a @StartTime@ that is earlier than 7
+-- days ago. By default, Performance Insights has 7 days of retention, but
+-- you can extend this range up to 2 years. The value specified is
+-- /inclusive/. Thus, the command returns data points equal to or greater
+-- than @StartTime@.
 --
 -- The value for @StartTime@ must be earlier than the value for @EndTime@.
 getResourceMetrics_startTime :: Lens.Lens' GetResourceMetrics Prelude.UTCTime
 getResourceMetrics_startTime = Lens.lens (\GetResourceMetrics' {startTime} -> startTime) (\s@GetResourceMetrics' {} a -> s {startTime = a} :: GetResourceMetrics) Prelude.. Core._Time
 
--- | The date and time specifying the end of the requested time series data.
--- The value specified is /exclusive/ - data points less than (but not
--- equal to) @EndTime@ will be returned.
+-- | The date and time specifying the end of the requested time series query
+-- range. The value specified is /exclusive/. Thus, the command returns
+-- data points less than (but not equal to) @EndTime@.
 --
 -- The value for @EndTime@ must be later than the value for @StartTime@.
 getResourceMetrics_endTime :: Lens.Lens' GetResourceMetrics Prelude.UTCTime
@@ -361,14 +388,14 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
     -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
     -- greater than or equal to the value of the user-specified @Endtime@.
     alignedEndTime :: Prelude.Maybe Core.POSIX,
-    -- | An immutable, AWS Region-unique identifier for a data source.
-    -- Performance Insights gathers metrics from this data source.
-    --
-    -- To use a DB instance as a data source, you specify its @DbiResourceId@
-    -- value - for example: @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@
+    -- | An immutable identifier for a data source that is unique for an Amazon
+    -- Web Services Region. Performance Insights gathers metrics from this data
+    -- source. In the console, the identifier is shown as /ResourceID/. When
+    -- you call @DescribeDBInstances@, the identifier is returned as
+    -- @DbiResourceId@.
     identifier :: Prelude.Maybe Prelude.Text,
-    -- | An array of metric results,, where each array element contains all of
-    -- the data points for a particular dimension.
+    -- | An array of metric results, where each array element contains all of the
+    -- data points for a particular dimension.
     metricList :: Prelude.Maybe [MetricKeyDataPoints],
     -- | The start time for the returned metrics, after alignment to a granular
     -- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
@@ -395,14 +422,14 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
 -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
 -- greater than or equal to the value of the user-specified @Endtime@.
 --
--- 'identifier', 'getResourceMetricsResponse_identifier' - An immutable, AWS Region-unique identifier for a data source.
--- Performance Insights gathers metrics from this data source.
+-- 'identifier', 'getResourceMetricsResponse_identifier' - An immutable identifier for a data source that is unique for an Amazon
+-- Web Services Region. Performance Insights gathers metrics from this data
+-- source. In the console, the identifier is shown as /ResourceID/. When
+-- you call @DescribeDBInstances@, the identifier is returned as
+-- @DbiResourceId@.
 --
--- To use a DB instance as a data source, you specify its @DbiResourceId@
--- value - for example: @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@
---
--- 'metricList', 'getResourceMetricsResponse_metricList' - An array of metric results,, where each array element contains all of
--- the data points for a particular dimension.
+-- 'metricList', 'getResourceMetricsResponse_metricList' - An array of metric results, where each array element contains all of the
+-- data points for a particular dimension.
 --
 -- 'alignedStartTime', 'getResourceMetricsResponse_alignedStartTime' - The start time for the returned metrics, after alignment to a granular
 -- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
@@ -436,16 +463,16 @@ getResourceMetricsResponse_nextToken = Lens.lens (\GetResourceMetricsResponse' {
 getResourceMetricsResponse_alignedEndTime :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.UTCTime)
 getResourceMetricsResponse_alignedEndTime = Lens.lens (\GetResourceMetricsResponse' {alignedEndTime} -> alignedEndTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedEndTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Core._Time
 
--- | An immutable, AWS Region-unique identifier for a data source.
--- Performance Insights gathers metrics from this data source.
---
--- To use a DB instance as a data source, you specify its @DbiResourceId@
--- value - for example: @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@
+-- | An immutable identifier for a data source that is unique for an Amazon
+-- Web Services Region. Performance Insights gathers metrics from this data
+-- source. In the console, the identifier is shown as /ResourceID/. When
+-- you call @DescribeDBInstances@, the identifier is returned as
+-- @DbiResourceId@.
 getResourceMetricsResponse_identifier :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.Text)
 getResourceMetricsResponse_identifier = Lens.lens (\GetResourceMetricsResponse' {identifier} -> identifier) (\s@GetResourceMetricsResponse' {} a -> s {identifier = a} :: GetResourceMetricsResponse)
 
--- | An array of metric results,, where each array element contains all of
--- the data points for a particular dimension.
+-- | An array of metric results, where each array element contains all of the
+-- data points for a particular dimension.
 getResourceMetricsResponse_metricList :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe [MetricKeyDataPoints])
 getResourceMetricsResponse_metricList = Lens.lens (\GetResourceMetricsResponse' {metricList} -> metricList) (\s@GetResourceMetricsResponse' {} a -> s {metricList = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 

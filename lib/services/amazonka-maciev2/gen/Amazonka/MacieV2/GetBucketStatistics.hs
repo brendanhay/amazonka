@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves (queries) aggregated statistical data for all the S3 buckets
--- that Amazon Macie monitors and analyzes.
+-- Retrieves (queries) aggregated statistical data about S3 buckets that
+-- Amazon Macie monitors and analyzes.
 module Amazonka.MacieV2.GetBucketStatistics
   ( -- * Creating a Request
     GetBucketStatistics (..),

@@ -16,6 +16,8 @@ module Amazonka.FinSpace.Lens
 
     -- ** CreateEnvironment
     createEnvironment_tags,
+    createEnvironment_dataBundles,
+    createEnvironment_superuserParameters,
     createEnvironment_federationParameters,
     createEnvironment_description,
     createEnvironment_federationMode,
@@ -89,6 +91,11 @@ module Amazonka.FinSpace.Lens
     federationParameters_samlMetadataURL,
     federationParameters_applicationCallBackURL,
     federationParameters_attributeMap,
+
+    -- ** SuperuserParameters
+    superuserParameters_emailAddress,
+    superuserParameters_firstName,
+    superuserParameters_lastName,
   )
 where
 
@@ -100,5 +107,6 @@ import Amazonka.FinSpace.ListTagsForResource
 import Amazonka.FinSpace.TagResource
 import Amazonka.FinSpace.Types.Environment
 import Amazonka.FinSpace.Types.FederationParameters
+import Amazonka.FinSpace.Types.SuperuserParameters
 import Amazonka.FinSpace.UntagResource
 import Amazonka.FinSpace.UpdateEnvironment

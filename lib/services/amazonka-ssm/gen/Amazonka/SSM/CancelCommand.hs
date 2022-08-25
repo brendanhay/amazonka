@@ -52,9 +52,9 @@ import Amazonka.SSM.Types
 --
 -- /See:/ 'newCancelCommand' smart constructor.
 data CancelCommand = CancelCommand'
-  { -- | (Optional) A list of instance IDs on which you want to cancel the
-    -- command. If not provided, the command is canceled on every instance on
-    -- which it was requested.
+  { -- | (Optional) A list of managed node IDs on which you want to cancel the
+    -- command. If not provided, the command is canceled on every node on which
+    -- it was requested.
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the command you want to cancel.
     commandId :: Prelude.Text
@@ -69,9 +69,9 @@ data CancelCommand = CancelCommand'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceIds', 'cancelCommand_instanceIds' - (Optional) A list of instance IDs on which you want to cancel the
--- command. If not provided, the command is canceled on every instance on
--- which it was requested.
+-- 'instanceIds', 'cancelCommand_instanceIds' - (Optional) A list of managed node IDs on which you want to cancel the
+-- command. If not provided, the command is canceled on every node on which
+-- it was requested.
 --
 -- 'commandId', 'cancelCommand_commandId' - The ID of the command you want to cancel.
 newCancelCommand ::
@@ -84,9 +84,9 @@ newCancelCommand pCommandId_ =
       commandId = pCommandId_
     }
 
--- | (Optional) A list of instance IDs on which you want to cancel the
--- command. If not provided, the command is canceled on every instance on
--- which it was requested.
+-- | (Optional) A list of managed node IDs on which you want to cancel the
+-- command. If not provided, the command is canceled on every node on which
+-- it was requested.
 cancelCommand_instanceIds :: Lens.Lens' CancelCommand (Prelude.Maybe [Prelude.Text])
 cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Prelude.. Lens.mapping Lens.coerced
 

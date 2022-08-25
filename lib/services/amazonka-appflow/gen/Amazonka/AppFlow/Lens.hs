@@ -16,6 +16,7 @@ module Amazonka.AppFlow.Lens
 
     -- ** CreateConnectorProfile
     createConnectorProfile_kmsArn,
+    createConnectorProfile_connectorLabel,
     createConnectorProfile_connectorProfileName,
     createConnectorProfile_connectorType,
     createConnectorProfile_connectionMode,
@@ -46,7 +47,14 @@ module Amazonka.AppFlow.Lens
     deleteFlow_flowName,
     deleteFlowResponse_httpStatus,
 
+    -- ** DescribeConnector
+    describeConnector_connectorLabel,
+    describeConnector_connectorType,
+    describeConnectorResponse_connectorConfiguration,
+    describeConnectorResponse_httpStatus,
+
     -- ** DescribeConnectorEntity
+    describeConnectorEntity_apiVersion,
     describeConnectorEntity_connectorProfileName,
     describeConnectorEntity_connectorType,
     describeConnectorEntity_connectorEntityName,
@@ -58,6 +66,7 @@ module Amazonka.AppFlow.Lens
     describeConnectorProfiles_connectorType,
     describeConnectorProfiles_maxResults,
     describeConnectorProfiles_connectorProfileNames,
+    describeConnectorProfiles_connectorLabel,
     describeConnectorProfilesResponse_nextToken,
     describeConnectorProfilesResponse_connectorProfileDetails,
     describeConnectorProfilesResponse_httpStatus,
@@ -65,7 +74,9 @@ module Amazonka.AppFlow.Lens
     -- ** DescribeConnectors
     describeConnectors_nextToken,
     describeConnectors_connectorTypes,
+    describeConnectors_maxResults,
     describeConnectorsResponse_nextToken,
+    describeConnectorsResponse_connectors,
     describeConnectorsResponse_connectorConfigurations,
     describeConnectorsResponse_httpStatus,
 
@@ -99,10 +110,18 @@ module Amazonka.AppFlow.Lens
 
     -- ** ListConnectorEntities
     listConnectorEntities_entitiesPath,
+    listConnectorEntities_apiVersion,
     listConnectorEntities_connectorProfileName,
     listConnectorEntities_connectorType,
     listConnectorEntitiesResponse_httpStatus,
     listConnectorEntitiesResponse_connectorEntityMap,
+
+    -- ** ListConnectors
+    listConnectors_nextToken,
+    listConnectors_maxResults,
+    listConnectorsResponse_nextToken,
+    listConnectorsResponse_connectors,
+    listConnectorsResponse_httpStatus,
 
     -- ** ListFlows
     listFlows_nextToken,
@@ -115,6 +134,14 @@ module Amazonka.AppFlow.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** RegisterConnector
+    registerConnector_connectorProvisioningType,
+    registerConnector_description,
+    registerConnector_connectorProvisioningConfig,
+    registerConnector_connectorLabel,
+    registerConnectorResponse_connectorArn,
+    registerConnectorResponse_httpStatus,
 
     -- ** StartFlow
     startFlow_flowName,
@@ -133,6 +160,11 @@ module Amazonka.AppFlow.Lens
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
+
+    -- ** UnregisterConnector
+    unregisterConnector_forceDelete,
+    unregisterConnector_connectorLabel,
+    unregisterConnectorResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
@@ -172,19 +204,70 @@ module Amazonka.AppFlow.Lens
     -- ** AmplitudeSourceProperties
     amplitudeSourceProperties_object,
 
+    -- ** ApiKeyCredentials
+    apiKeyCredentials_apiSecretKey,
+    apiKeyCredentials_apiKey,
+
+    -- ** AuthParameter
+    authParameter_key,
+    authParameter_connectorSuppliedValues,
+    authParameter_label,
+    authParameter_description,
+    authParameter_isSensitiveField,
+    authParameter_isRequired,
+
+    -- ** AuthenticationConfig
+    authenticationConfig_customAuthConfigs,
+    authenticationConfig_isCustomAuthSupported,
+    authenticationConfig_isApiKeyAuthSupported,
+    authenticationConfig_isBasicAuthSupported,
+    authenticationConfig_isOAuth2Supported,
+    authenticationConfig_oAuth2Defaults,
+
     -- ** BasicAuthCredentials
     basicAuthCredentials_username,
     basicAuthCredentials_password,
 
     -- ** ConnectorConfiguration
+    connectorConfiguration_connectorProvisioningType,
     connectorConfiguration_canUseAsSource,
+    connectorConfiguration_connectorDescription,
+    connectorConfiguration_registeredBy,
+    connectorConfiguration_supportedWriteOperations,
+    connectorConfiguration_logoURL,
     connectorConfiguration_isPrivateLinkEnabled,
+    connectorConfiguration_connectorVersion,
+    connectorConfiguration_connectorArn,
+    connectorConfiguration_connectorRuntimeSettings,
+    connectorConfiguration_connectorType,
     connectorConfiguration_canUseAsDestination,
+    connectorConfiguration_connectorProvisioningConfig,
+    connectorConfiguration_supportedOperators,
+    connectorConfiguration_connectorName,
+    connectorConfiguration_connectorModes,
     connectorConfiguration_supportedTriggerTypes,
+    connectorConfiguration_authenticationConfig,
     connectorConfiguration_isPrivateLinkEndpointUrlRequired,
+    connectorConfiguration_connectorLabel,
+    connectorConfiguration_supportedApiVersions,
     connectorConfiguration_supportedDestinationConnectors,
+    connectorConfiguration_connectorOwner,
     connectorConfiguration_connectorMetadata,
+    connectorConfiguration_registeredAt,
     connectorConfiguration_supportedSchedulingFrequencies,
+
+    -- ** ConnectorDetail
+    connectorDetail_connectorProvisioningType,
+    connectorDetail_connectorDescription,
+    connectorDetail_registeredBy,
+    connectorDetail_connectorVersion,
+    connectorDetail_connectorType,
+    connectorDetail_connectorName,
+    connectorDetail_applicationType,
+    connectorDetail_connectorModes,
+    connectorDetail_connectorLabel,
+    connectorDetail_connectorOwner,
+    connectorDetail_registeredAt,
 
     -- ** ConnectorEntity
     connectorEntity_label,
@@ -192,11 +275,16 @@ module Amazonka.AppFlow.Lens
     connectorEntity_name,
 
     -- ** ConnectorEntityField
+    connectorEntityField_customProperties,
+    connectorEntityField_parentIdentifier,
     connectorEntityField_label,
+    connectorEntityField_defaultValue,
     connectorEntityField_description,
     connectorEntityField_destinationProperties,
     connectorEntityField_supportedFieldTypeDetails,
+    connectorEntityField_isPrimaryKey,
     connectorEntityField_sourceProperties,
+    connectorEntityField_isDeprecated,
     connectorEntityField_identifier,
 
     -- ** ConnectorMetadata
@@ -239,6 +327,7 @@ module Amazonka.AppFlow.Lens
     connectorOperator_inforNexus,
     connectorOperator_serviceNow,
     connectorOperator_datadog,
+    connectorOperator_customConnector,
     connectorOperator_amplitude,
     connectorOperator_dynatrace,
     connectorOperator_googleAnalytics,
@@ -252,6 +341,7 @@ module Amazonka.AppFlow.Lens
     connectorProfile_privateConnectionProvisioningState,
     connectorProfile_connectorType,
     connectorProfile_connectorProfileArn,
+    connectorProfile_connectorLabel,
     connectorProfile_createdAt,
 
     -- ** ConnectorProfileConfig
@@ -273,6 +363,7 @@ module Amazonka.AppFlow.Lens
     connectorProfileCredentials_inforNexus,
     connectorProfileCredentials_serviceNow,
     connectorProfileCredentials_datadog,
+    connectorProfileCredentials_customConnector,
     connectorProfileCredentials_amplitude,
     connectorProfileCredentials_dynatrace,
     connectorProfileCredentials_googleAnalytics,
@@ -292,9 +383,52 @@ module Amazonka.AppFlow.Lens
     connectorProfileProperties_inforNexus,
     connectorProfileProperties_serviceNow,
     connectorProfileProperties_datadog,
+    connectorProfileProperties_customConnector,
     connectorProfileProperties_amplitude,
     connectorProfileProperties_dynatrace,
     connectorProfileProperties_googleAnalytics,
+
+    -- ** ConnectorProvisioningConfig
+    connectorProvisioningConfig_lambda,
+
+    -- ** ConnectorRuntimeSetting
+    connectorRuntimeSetting_key,
+    connectorRuntimeSetting_label,
+    connectorRuntimeSetting_connectorSuppliedValueOptions,
+    connectorRuntimeSetting_description,
+    connectorRuntimeSetting_scope,
+    connectorRuntimeSetting_isRequired,
+    connectorRuntimeSetting_dataType,
+
+    -- ** CustomAuthConfig
+    customAuthConfig_authParameters,
+    customAuthConfig_customAuthenticationType,
+
+    -- ** CustomAuthCredentials
+    customAuthCredentials_credentialsMap,
+    customAuthCredentials_customAuthenticationType,
+
+    -- ** CustomConnectorDestinationProperties
+    customConnectorDestinationProperties_errorHandlingConfig,
+    customConnectorDestinationProperties_customProperties,
+    customConnectorDestinationProperties_idFieldNames,
+    customConnectorDestinationProperties_writeOperationType,
+    customConnectorDestinationProperties_entityName,
+
+    -- ** CustomConnectorProfileCredentials
+    customConnectorProfileCredentials_apiKey,
+    customConnectorProfileCredentials_oauth2,
+    customConnectorProfileCredentials_custom,
+    customConnectorProfileCredentials_basic,
+    customConnectorProfileCredentials_authenticationType,
+
+    -- ** CustomConnectorProfileProperties
+    customConnectorProfileProperties_profileProperties,
+    customConnectorProfileProperties_oAuth2Properties,
+
+    -- ** CustomConnectorSourceProperties
+    customConnectorSourceProperties_customProperties,
+    customConnectorSourceProperties_entityName,
 
     -- ** CustomerProfilesDestinationProperties
     customerProfilesDestinationProperties_objectTypeName,
@@ -320,9 +454,12 @@ module Amazonka.AppFlow.Lens
     destinationConnectorProperties_honeycode,
     destinationConnectorProperties_salesforce,
     destinationConnectorProperties_snowflake,
+    destinationConnectorProperties_sAPOData,
+    destinationConnectorProperties_marketo,
     destinationConnectorProperties_redshift,
     destinationConnectorProperties_customerProfiles,
     destinationConnectorProperties_upsolver,
+    destinationConnectorProperties_customConnector,
     destinationConnectorProperties_eventBridge,
     destinationConnectorProperties_lookoutMetrics,
 
@@ -330,10 +467,12 @@ module Amazonka.AppFlow.Lens
     destinationFieldProperties_isUpdatable,
     destinationFieldProperties_supportedWriteOperations,
     destinationFieldProperties_isNullable,
+    destinationFieldProperties_isDefaultedOnCreate,
     destinationFieldProperties_isUpsertable,
     destinationFieldProperties_isCreatable,
 
     -- ** DestinationFlowConfig
+    destinationFlowConfig_apiVersion,
     destinationFlowConfig_connectorProfileName,
     destinationFlowConfig_connectorType,
     destinationFlowConfig_destinationConnectorProperties,
@@ -385,14 +524,20 @@ module Amazonka.AppFlow.Lens
     executionResult_bytesWritten,
 
     -- ** FieldTypeDetails
+    fieldTypeDetails_fieldValueRange,
+    fieldTypeDetails_fieldLengthRange,
     fieldTypeDetails_supportedValues,
+    fieldTypeDetails_valueRegexPattern,
+    fieldTypeDetails_supportedDateFormat,
     fieldTypeDetails_fieldType,
     fieldTypeDetails_filterOperators,
 
     -- ** FlowDefinition
     flowDefinition_tags,
+    flowDefinition_destinationConnectorLabel,
     flowDefinition_lastUpdatedAt,
     flowDefinition_flowName,
+    flowDefinition_sourceConnectorLabel,
     flowDefinition_description,
     flowDefinition_sourceConnectorType,
     flowDefinition_lastRunExecutionDetails,
@@ -450,6 +595,9 @@ module Amazonka.AppFlow.Lens
     -- ** InforNexusSourceProperties
     inforNexusSourceProperties_object,
 
+    -- ** LambdaConnectorProvisioningConfig
+    lambdaConnectorProvisioningConfig_lambdaArn,
+
     -- ** LookoutMetricsDestinationProperties
 
     -- ** MarketoConnectorProfileCredentials
@@ -461,10 +609,42 @@ module Amazonka.AppFlow.Lens
     -- ** MarketoConnectorProfileProperties
     marketoConnectorProfileProperties_instanceUrl,
 
+    -- ** MarketoDestinationProperties
+    marketoDestinationProperties_errorHandlingConfig,
+    marketoDestinationProperties_object,
+
     -- ** MarketoMetadata
 
     -- ** MarketoSourceProperties
     marketoSourceProperties_object,
+
+    -- ** OAuth2Credentials
+    oAuth2Credentials_accessToken,
+    oAuth2Credentials_clientSecret,
+    oAuth2Credentials_clientId,
+    oAuth2Credentials_oAuthRequest,
+    oAuth2Credentials_refreshToken,
+
+    -- ** OAuth2CustomParameter
+    oAuth2CustomParameter_key,
+    oAuth2CustomParameter_type,
+    oAuth2CustomParameter_connectorSuppliedValues,
+    oAuth2CustomParameter_label,
+    oAuth2CustomParameter_description,
+    oAuth2CustomParameter_isSensitiveField,
+    oAuth2CustomParameter_isRequired,
+
+    -- ** OAuth2Defaults
+    oAuth2Defaults_tokenUrls,
+    oAuth2Defaults_authCodeUrls,
+    oAuth2Defaults_oauth2CustomProperties,
+    oAuth2Defaults_oauth2GrantTypesSupported,
+    oAuth2Defaults_oauthScopes,
+
+    -- ** OAuth2Properties
+    oAuth2Properties_tokenUrlCustomProperties,
+    oAuth2Properties_tokenUrl,
+    oAuth2Properties_oAuth2GrantType,
 
     -- ** OAuthCredentials
     oAuthCredentials_accessToken,
@@ -486,6 +666,10 @@ module Amazonka.AppFlow.Lens
     privateConnectionProvisioningState_status,
     privateConnectionProvisioningState_failureMessage,
     privateConnectionProvisioningState_failureCause,
+
+    -- ** Range
+    range_minimum,
+    range_maximum,
 
     -- ** RedshiftConnectorProfileCredentials
     redshiftConnectorProfileCredentials_username,
@@ -518,6 +702,7 @@ module Amazonka.AppFlow.Lens
     -- ** S3OutputFormatConfig
     s3OutputFormatConfig_prefixConfig,
     s3OutputFormatConfig_aggregationConfig,
+    s3OutputFormatConfig_preserveSourceDataTyping,
     s3OutputFormatConfig_fileType,
 
     -- ** S3SourceProperties
@@ -537,6 +722,13 @@ module Amazonka.AppFlow.Lens
     sAPODataConnectorProfileProperties_applicationServicePath,
     sAPODataConnectorProfileProperties_portNumber,
     sAPODataConnectorProfileProperties_clientNumber,
+
+    -- ** SAPODataDestinationProperties
+    sAPODataDestinationProperties_errorHandlingConfig,
+    sAPODataDestinationProperties_successResponseHandlingConfig,
+    sAPODataDestinationProperties_idFieldNames,
+    sAPODataDestinationProperties_writeOperationType,
+    sAPODataDestinationProperties_objectPath,
 
     -- ** SAPODataMetadata
 
@@ -570,6 +762,7 @@ module Amazonka.AppFlow.Lens
     -- ** ScheduledTriggerProperties
     scheduledTriggerProperties_scheduleEndTime,
     scheduledTriggerProperties_scheduleStartTime,
+    scheduledTriggerProperties_flowErrorDeactivationThreshold,
     scheduledTriggerProperties_timezone,
     scheduledTriggerProperties_scheduleOffset,
     scheduledTriggerProperties_firstExecutionFrom,
@@ -648,19 +841,26 @@ module Amazonka.AppFlow.Lens
     sourceConnectorProperties_inforNexus,
     sourceConnectorProperties_serviceNow,
     sourceConnectorProperties_datadog,
+    sourceConnectorProperties_customConnector,
     sourceConnectorProperties_amplitude,
     sourceConnectorProperties_dynatrace,
     sourceConnectorProperties_googleAnalytics,
 
     -- ** SourceFieldProperties
     sourceFieldProperties_isRetrievable,
+    sourceFieldProperties_isTimestampFieldForIncrementalQueries,
     sourceFieldProperties_isQueryable,
 
     -- ** SourceFlowConfig
+    sourceFlowConfig_apiVersion,
     sourceFlowConfig_connectorProfileName,
     sourceFlowConfig_incrementalPullConfig,
     sourceFlowConfig_connectorType,
     sourceFlowConfig_sourceConnectorProperties,
+
+    -- ** SuccessResponseHandlingConfig
+    successResponseHandlingConfig_bucketPrefix,
+    successResponseHandlingConfig_bucketName,
 
     -- ** SupportedFieldTypeDetails
     supportedFieldTypeDetails_v1,
@@ -744,14 +944,17 @@ import Amazonka.AppFlow.CreateConnectorProfile
 import Amazonka.AppFlow.CreateFlow
 import Amazonka.AppFlow.DeleteConnectorProfile
 import Amazonka.AppFlow.DeleteFlow
+import Amazonka.AppFlow.DescribeConnector
 import Amazonka.AppFlow.DescribeConnectorEntity
 import Amazonka.AppFlow.DescribeConnectorProfiles
 import Amazonka.AppFlow.DescribeConnectors
 import Amazonka.AppFlow.DescribeFlow
 import Amazonka.AppFlow.DescribeFlowExecutionRecords
 import Amazonka.AppFlow.ListConnectorEntities
+import Amazonka.AppFlow.ListConnectors
 import Amazonka.AppFlow.ListFlows
 import Amazonka.AppFlow.ListTagsForResource
+import Amazonka.AppFlow.RegisterConnector
 import Amazonka.AppFlow.StartFlow
 import Amazonka.AppFlow.StopFlow
 import Amazonka.AppFlow.TagResource
@@ -760,8 +963,12 @@ import Amazonka.AppFlow.Types.AmplitudeConnectorProfileCredentials
 import Amazonka.AppFlow.Types.AmplitudeConnectorProfileProperties
 import Amazonka.AppFlow.Types.AmplitudeMetadata
 import Amazonka.AppFlow.Types.AmplitudeSourceProperties
+import Amazonka.AppFlow.Types.ApiKeyCredentials
+import Amazonka.AppFlow.Types.AuthParameter
+import Amazonka.AppFlow.Types.AuthenticationConfig
 import Amazonka.AppFlow.Types.BasicAuthCredentials
 import Amazonka.AppFlow.Types.ConnectorConfiguration
+import Amazonka.AppFlow.Types.ConnectorDetail
 import Amazonka.AppFlow.Types.ConnectorEntity
 import Amazonka.AppFlow.Types.ConnectorEntityField
 import Amazonka.AppFlow.Types.ConnectorMetadata
@@ -771,6 +978,14 @@ import Amazonka.AppFlow.Types.ConnectorProfile
 import Amazonka.AppFlow.Types.ConnectorProfileConfig
 import Amazonka.AppFlow.Types.ConnectorProfileCredentials
 import Amazonka.AppFlow.Types.ConnectorProfileProperties
+import Amazonka.AppFlow.Types.ConnectorProvisioningConfig
+import Amazonka.AppFlow.Types.ConnectorRuntimeSetting
+import Amazonka.AppFlow.Types.CustomAuthConfig
+import Amazonka.AppFlow.Types.CustomAuthCredentials
+import Amazonka.AppFlow.Types.CustomConnectorDestinationProperties
+import Amazonka.AppFlow.Types.CustomConnectorProfileCredentials
+import Amazonka.AppFlow.Types.CustomConnectorProfileProperties
+import Amazonka.AppFlow.Types.CustomConnectorSourceProperties
 import Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties
 import Amazonka.AppFlow.Types.CustomerProfilesMetadata
 import Amazonka.AppFlow.Types.DatadogConnectorProfileCredentials
@@ -806,15 +1021,22 @@ import Amazonka.AppFlow.Types.InforNexusConnectorProfileCredentials
 import Amazonka.AppFlow.Types.InforNexusConnectorProfileProperties
 import Amazonka.AppFlow.Types.InforNexusMetadata
 import Amazonka.AppFlow.Types.InforNexusSourceProperties
+import Amazonka.AppFlow.Types.LambdaConnectorProvisioningConfig
 import Amazonka.AppFlow.Types.LookoutMetricsDestinationProperties
 import Amazonka.AppFlow.Types.MarketoConnectorProfileCredentials
 import Amazonka.AppFlow.Types.MarketoConnectorProfileProperties
+import Amazonka.AppFlow.Types.MarketoDestinationProperties
 import Amazonka.AppFlow.Types.MarketoMetadata
 import Amazonka.AppFlow.Types.MarketoSourceProperties
+import Amazonka.AppFlow.Types.OAuth2Credentials
+import Amazonka.AppFlow.Types.OAuth2CustomParameter
+import Amazonka.AppFlow.Types.OAuth2Defaults
+import Amazonka.AppFlow.Types.OAuth2Properties
 import Amazonka.AppFlow.Types.OAuthCredentials
 import Amazonka.AppFlow.Types.OAuthProperties
 import Amazonka.AppFlow.Types.PrefixConfig
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningState
+import Amazonka.AppFlow.Types.Range
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
 import Amazonka.AppFlow.Types.RedshiftDestinationProperties
@@ -826,6 +1048,7 @@ import Amazonka.AppFlow.Types.S3OutputFormatConfig
 import Amazonka.AppFlow.Types.S3SourceProperties
 import Amazonka.AppFlow.Types.SAPODataConnectorProfileCredentials
 import Amazonka.AppFlow.Types.SAPODataConnectorProfileProperties
+import Amazonka.AppFlow.Types.SAPODataDestinationProperties
 import Amazonka.AppFlow.Types.SAPODataMetadata
 import Amazonka.AppFlow.Types.SAPODataSourceProperties
 import Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials
@@ -853,6 +1076,7 @@ import Amazonka.AppFlow.Types.SnowflakeMetadata
 import Amazonka.AppFlow.Types.SourceConnectorProperties
 import Amazonka.AppFlow.Types.SourceFieldProperties
 import Amazonka.AppFlow.Types.SourceFlowConfig
+import Amazonka.AppFlow.Types.SuccessResponseHandlingConfig
 import Amazonka.AppFlow.Types.SupportedFieldTypeDetails
 import Amazonka.AppFlow.Types.Task
 import Amazonka.AppFlow.Types.TrendmicroConnectorProfileCredentials
@@ -873,6 +1097,7 @@ import Amazonka.AppFlow.Types.ZendeskConnectorProfileProperties
 import Amazonka.AppFlow.Types.ZendeskDestinationProperties
 import Amazonka.AppFlow.Types.ZendeskMetadata
 import Amazonka.AppFlow.Types.ZendeskSourceProperties
+import Amazonka.AppFlow.UnregisterConnector
 import Amazonka.AppFlow.UntagResource
 import Amazonka.AppFlow.UpdateConnectorProfile
 import Amazonka.AppFlow.UpdateFlow

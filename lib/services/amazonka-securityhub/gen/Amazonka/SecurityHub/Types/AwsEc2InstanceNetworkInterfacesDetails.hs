@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Identifies a network interface for the EC2 instance.
+-- | Identifies a network interface for the Amazon EC2 instance.
 --
 -- /See:/ 'newAwsEc2InstanceNetworkInterfacesDetails' smart constructor.
 data AwsEc2InstanceNetworkInterfacesDetails = AwsEc2InstanceNetworkInterfacesDetails'

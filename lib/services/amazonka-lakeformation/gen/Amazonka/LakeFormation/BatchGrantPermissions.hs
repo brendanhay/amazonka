@@ -52,7 +52,7 @@ data BatchGrantPermissions = BatchGrantPermissions'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 20 entries for resource permissions to be granted by
     -- batch operation to the principal.
@@ -71,7 +71,7 @@ data BatchGrantPermissions = BatchGrantPermissions'
 -- 'catalogId', 'batchGrantPermissions_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'entries', 'batchGrantPermissions_entries' - A list of up to 20 entries for resource permissions to be granted by
 -- batch operation to the principal.
@@ -86,7 +86,7 @@ newBatchGrantPermissions =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 batchGrantPermissions_catalogId :: Lens.Lens' BatchGrantPermissions (Prelude.Maybe Prelude.Text)
 batchGrantPermissions_catalogId = Lens.lens (\BatchGrantPermissions' {catalogId} -> catalogId) (\s@BatchGrantPermissions' {} a -> s {catalogId = a} :: BatchGrantPermissions)
 
@@ -122,11 +122,7 @@ instance Core.ToHeaders BatchGrantPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.BatchGrantPermissions" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -143,7 +139,7 @@ instance Core.ToJSON BatchGrantPermissions where
       )
 
 instance Core.ToPath BatchGrantPermissions where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/BatchGrantPermissions"
 
 instance Core.ToQuery BatchGrantPermissions where
   toQuery = Prelude.const Prelude.mempty

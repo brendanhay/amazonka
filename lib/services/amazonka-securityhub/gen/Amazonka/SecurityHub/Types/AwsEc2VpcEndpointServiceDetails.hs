@@ -46,7 +46,17 @@ data AwsEc2VpcEndpointServiceDetails = AwsEc2VpcEndpointServiceDetails'
     networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | The private DNS name for the service.
     privateDnsName :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the service.
+    -- | The current state of the service. Valid values are as follows:
+    --
+    -- -   @Available@
+    --
+    -- -   @Deleted@
+    --
+    -- -   @Deleting@
+    --
+    -- -   @Failed@
+    --
+    -- -   @Pending@
     serviceState :: Prelude.Maybe Prelude.Text,
     -- | The name of the service.
     serviceName :: Prelude.Maybe Prelude.Text,
@@ -80,7 +90,17 @@ data AwsEc2VpcEndpointServiceDetails = AwsEc2VpcEndpointServiceDetails'
 --
 -- 'privateDnsName', 'awsEc2VpcEndpointServiceDetails_privateDnsName' - The private DNS name for the service.
 --
--- 'serviceState', 'awsEc2VpcEndpointServiceDetails_serviceState' - The current state of the service.
+-- 'serviceState', 'awsEc2VpcEndpointServiceDetails_serviceState' - The current state of the service. Valid values are as follows:
+--
+-- -   @Available@
+--
+-- -   @Deleted@
+--
+-- -   @Deleting@
+--
+-- -   @Failed@
+--
+-- -   @Pending@
 --
 -- 'serviceName', 'awsEc2VpcEndpointServiceDetails_serviceName' - The name of the service.
 --
@@ -136,7 +156,17 @@ awsEc2VpcEndpointServiceDetails_networkLoadBalancerArns = Lens.lens (\AwsEc2VpcE
 awsEc2VpcEndpointServiceDetails_privateDnsName :: Lens.Lens' AwsEc2VpcEndpointServiceDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpcEndpointServiceDetails_privateDnsName = Lens.lens (\AwsEc2VpcEndpointServiceDetails' {privateDnsName} -> privateDnsName) (\s@AwsEc2VpcEndpointServiceDetails' {} a -> s {privateDnsName = a} :: AwsEc2VpcEndpointServiceDetails)
 
--- | The current state of the service.
+-- | The current state of the service. Valid values are as follows:
+--
+-- -   @Available@
+--
+-- -   @Deleted@
+--
+-- -   @Deleting@
+--
+-- -   @Failed@
+--
+-- -   @Pending@
 awsEc2VpcEndpointServiceDetails_serviceState :: Lens.Lens' AwsEc2VpcEndpointServiceDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpcEndpointServiceDetails_serviceState = Lens.lens (\AwsEc2VpcEndpointServiceDetails' {serviceState} -> serviceState) (\s@AwsEc2VpcEndpointServiceDetails' {} a -> s {serviceState = a} :: AwsEc2VpcEndpointServiceDetails)
 

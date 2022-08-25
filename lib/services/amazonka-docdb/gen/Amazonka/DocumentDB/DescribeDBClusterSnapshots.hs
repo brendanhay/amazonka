@@ -62,8 +62,9 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeDBClusterSnapshots' smart constructor.
 data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
   { -- | Set to @true@ to include shared manual cluster snapshots from other
-    -- accounts that this account has been given permission to copy or restore,
-    -- and otherwise @false@. The default is @false@.
+    -- Amazon Web Services accounts that this Amazon Web Services account has
+    -- been given permission to copy or restore, and otherwise @false@. The
+    -- default is @false@.
     includeShared :: Prelude.Maybe Prelude.Bool,
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
@@ -101,20 +102,20 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
     -- | Set to @true@ to include manual cluster snapshots that are public and
-    -- can be copied or restored by any account, and otherwise @false@. The
-    -- default is @false@.
+    -- can be copied or restored by any Amazon Web Services account, and
+    -- otherwise @false@. The default is @false@.
     includePublic :: Prelude.Maybe Prelude.Bool,
     -- | The type of cluster snapshots to be returned. You can specify one of the
     -- following values:
     --
     -- -   @automated@ - Return all cluster snapshots that Amazon DocumentDB
-    --     has automatically created for your account.
+    --     has automatically created for your Amazon Web Services account.
     --
     -- -   @manual@ - Return all cluster snapshots that you have manually
-    --     created for your account.
+    --     created for your Amazon Web Services account.
     --
     -- -   @shared@ - Return all manual cluster snapshots that have been shared
-    --     to your account.
+    --     to your Amazon Web Services account.
     --
     -- -   @public@ - Return all cluster snapshots that have been marked as
     --     public.
@@ -143,8 +144,9 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 -- for backwards compatibility:
 --
 -- 'includeShared', 'describeDBClusterSnapshots_includeShared' - Set to @true@ to include shared manual cluster snapshots from other
--- accounts that this account has been given permission to copy or restore,
--- and otherwise @false@. The default is @false@.
+-- Amazon Web Services accounts that this Amazon Web Services account has
+-- been given permission to copy or restore, and otherwise @false@. The
+-- default is @false@.
 --
 -- 'marker', 'describeDBClusterSnapshots_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -182,20 +184,20 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 -- Constraints: Minimum 20, maximum 100.
 --
 -- 'includePublic', 'describeDBClusterSnapshots_includePublic' - Set to @true@ to include manual cluster snapshots that are public and
--- can be copied or restored by any account, and otherwise @false@. The
--- default is @false@.
+-- can be copied or restored by any Amazon Web Services account, and
+-- otherwise @false@. The default is @false@.
 --
 -- 'snapshotType', 'describeDBClusterSnapshots_snapshotType' - The type of cluster snapshots to be returned. You can specify one of the
 -- following values:
 --
 -- -   @automated@ - Return all cluster snapshots that Amazon DocumentDB
---     has automatically created for your account.
+--     has automatically created for your Amazon Web Services account.
 --
 -- -   @manual@ - Return all cluster snapshots that you have manually
---     created for your account.
+--     created for your Amazon Web Services account.
 --
 -- -   @shared@ - Return all manual cluster snapshots that have been shared
---     to your account.
+--     to your Amazon Web Services account.
 --
 -- -   @public@ - Return all cluster snapshots that have been marked as
 --     public.
@@ -227,8 +229,9 @@ newDescribeDBClusterSnapshots =
     }
 
 -- | Set to @true@ to include shared manual cluster snapshots from other
--- accounts that this account has been given permission to copy or restore,
--- and otherwise @false@. The default is @false@.
+-- Amazon Web Services accounts that this Amazon Web Services account has
+-- been given permission to copy or restore, and otherwise @false@. The
+-- default is @false@.
 describeDBClusterSnapshots_includeShared :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBClusterSnapshots_includeShared = Lens.lens (\DescribeDBClusterSnapshots' {includeShared} -> includeShared) (\s@DescribeDBClusterSnapshots' {} a -> s {includeShared = a} :: DescribeDBClusterSnapshots)
 
@@ -278,8 +281,8 @@ describeDBClusterSnapshots_maxRecords :: Lens.Lens' DescribeDBClusterSnapshots (
 describeDBClusterSnapshots_maxRecords = Lens.lens (\DescribeDBClusterSnapshots' {maxRecords} -> maxRecords) (\s@DescribeDBClusterSnapshots' {} a -> s {maxRecords = a} :: DescribeDBClusterSnapshots)
 
 -- | Set to @true@ to include manual cluster snapshots that are public and
--- can be copied or restored by any account, and otherwise @false@. The
--- default is @false@.
+-- can be copied or restored by any Amazon Web Services account, and
+-- otherwise @false@. The default is @false@.
 describeDBClusterSnapshots_includePublic :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBClusterSnapshots_includePublic = Lens.lens (\DescribeDBClusterSnapshots' {includePublic} -> includePublic) (\s@DescribeDBClusterSnapshots' {} a -> s {includePublic = a} :: DescribeDBClusterSnapshots)
 
@@ -287,13 +290,13 @@ describeDBClusterSnapshots_includePublic = Lens.lens (\DescribeDBClusterSnapshot
 -- following values:
 --
 -- -   @automated@ - Return all cluster snapshots that Amazon DocumentDB
---     has automatically created for your account.
+--     has automatically created for your Amazon Web Services account.
 --
 -- -   @manual@ - Return all cluster snapshots that you have manually
---     created for your account.
+--     created for your Amazon Web Services account.
 --
 -- -   @shared@ - Return all manual cluster snapshots that have been shared
---     to your account.
+--     to your Amazon Web Services account.
 --
 -- -   @public@ - Return all cluster snapshots that have been marked as
 --     public.

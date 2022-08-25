@@ -33,7 +33,7 @@
 -- For more information about failing over an Amazon Aurora global
 -- database, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover Managed planned failover for Amazon Aurora global databases>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
 -- This action applies to GlobalCluster (Aurora global databases) only. Use
 -- this action only on healthy Aurora global databases with running Aurora

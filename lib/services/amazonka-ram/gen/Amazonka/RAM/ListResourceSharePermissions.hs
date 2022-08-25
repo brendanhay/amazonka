@@ -51,13 +51,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceSharePermissions' smart constructor.
 data ListResourceSharePermissions = ListResourceSharePermissions'
-  { -- | The token for the next page of results.
+  { -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | Specifies the total number of results that you want included on each
+    -- page of the response. If you do not include this parameter, it defaults
+    -- to a value that is specific to the operation. If additional items exist
+    -- beyond the number you specify, the @NextToken@ response element is
+    -- returned with a value (not null). Include the specified value as the
+    -- @NextToken@ request parameter in the next call to the operation to get
+    -- the next part of the results. Note that the service might return fewer
+    -- results than the maximum even when there are more results available. You
+    -- should check @NextToken@ after every operation to ensure that you
+    -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the resource share.
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share for which you want to retrieve the associated
+    -- permissions.
     resourceShareArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,13 +84,27 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSharePermissions_nextToken' - The token for the next page of results.
+-- 'nextToken', 'listResourceSharePermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 --
--- 'maxResults', 'listResourceSharePermissions_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'listResourceSharePermissions_maxResults' - Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 --
--- 'resourceShareArn', 'listResourceSharePermissions_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'resourceShareArn', 'listResourceSharePermissions_resourceShareArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share for which you want to retrieve the associated
+-- permissions.
 newListResourceSharePermissions ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -89,17 +117,31 @@ newListResourceSharePermissions pResourceShareArn_ =
       resourceShareArn = pResourceShareArn_
     }
 
--- | The token for the next page of results.
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 listResourceSharePermissions_nextToken :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Text)
 listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermissions' {nextToken} -> nextToken) (\s@ListResourceSharePermissions' {} a -> s {nextToken = a} :: ListResourceSharePermissions)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 listResourceSharePermissions_maxResults :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Natural)
 listResourceSharePermissions_maxResults = Lens.lens (\ListResourceSharePermissions' {maxResults} -> maxResults) (\s@ListResourceSharePermissions' {} a -> s {maxResults = a} :: ListResourceSharePermissions)
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share for which you want to retrieve the associated
+-- permissions.
 listResourceSharePermissions_resourceShareArn :: Lens.Lens' ListResourceSharePermissions Prelude.Text
 listResourceSharePermissions_resourceShareArn = Lens.lens (\ListResourceSharePermissions' {resourceShareArn} -> resourceShareArn) (\s@ListResourceSharePermissions' {} a -> s {resourceShareArn = a} :: ListResourceSharePermissions)
 
@@ -163,10 +205,15 @@ instance Core.ToQuery ListResourceSharePermissions where
 
 -- | /See:/ 'newListResourceSharePermissionsResponse' smart constructor.
 data ListResourceSharePermissionsResponse = ListResourceSharePermissionsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | If present, this value indicates that more output is available than is
+    -- included in the current response. Use this value in the @NextToken@
+    -- request parameter in a subsequent call to the operation to get the next
+    -- part of the output. You should repeat this until the @NextToken@
+    -- response element comes back as @null@. This indicates that this is the
+    -- last page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The permissions associated with the resource share.
+    -- | An array of objects that describe the permissions associated with the
+    -- resource share.
     permissions :: Prelude.Maybe [ResourceSharePermissionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,10 +228,15 @@ data ListResourceSharePermissionsResponse = ListResourceSharePermissionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSharePermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'listResourceSharePermissionsResponse_nextToken' - If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 --
--- 'permissions', 'listResourceSharePermissionsResponse_permissions' - The permissions associated with the resource share.
+-- 'permissions', 'listResourceSharePermissionsResponse_permissions' - An array of objects that describe the permissions associated with the
+-- resource share.
 --
 -- 'httpStatus', 'listResourceSharePermissionsResponse_httpStatus' - The response's http status code.
 newListResourceSharePermissionsResponse ::
@@ -199,12 +251,17 @@ newListResourceSharePermissionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 listResourceSharePermissionsResponse_nextToken :: Lens.Lens' ListResourceSharePermissionsResponse (Prelude.Maybe Prelude.Text)
 listResourceSharePermissionsResponse_nextToken = Lens.lens (\ListResourceSharePermissionsResponse' {nextToken} -> nextToken) (\s@ListResourceSharePermissionsResponse' {} a -> s {nextToken = a} :: ListResourceSharePermissionsResponse)
 
--- | The permissions associated with the resource share.
+-- | An array of objects that describe the permissions associated with the
+-- resource share.
 listResourceSharePermissionsResponse_permissions :: Lens.Lens' ListResourceSharePermissionsResponse (Prelude.Maybe [ResourceSharePermissionSummary])
 listResourceSharePermissionsResponse_permissions = Lens.lens (\ListResourceSharePermissionsResponse' {permissions} -> permissions) (\s@ListResourceSharePermissionsResponse' {} a -> s {permissions = a} :: ListResourceSharePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 

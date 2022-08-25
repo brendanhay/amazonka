@@ -15,11 +15,13 @@ module Amazonka.CostExplorer.Lens
   ( -- * Operations
 
     -- ** CreateAnomalyMonitor
+    createAnomalyMonitor_resourceTags,
     createAnomalyMonitor_anomalyMonitor,
     createAnomalyMonitorResponse_httpStatus,
     createAnomalyMonitorResponse_monitorArn,
 
     -- ** CreateAnomalySubscription
+    createAnomalySubscription_resourceTags,
     createAnomalySubscription_anomalySubscription,
     createAnomalySubscriptionResponse_httpStatus,
     createAnomalySubscriptionResponse_subscriptionArn,
@@ -27,6 +29,7 @@ module Amazonka.CostExplorer.Lens
     -- ** CreateCostCategoryDefinition
     createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_defaultValue,
+    createCostCategoryDefinition_resourceTags,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -277,6 +280,16 @@ module Amazonka.CostExplorer.Lens
     getUsageForecastResponse_total,
     getUsageForecastResponse_httpStatus,
 
+    -- ** ListCostAllocationTags
+    listCostAllocationTags_tagKeys,
+    listCostAllocationTags_nextToken,
+    listCostAllocationTags_type,
+    listCostAllocationTags_status,
+    listCostAllocationTags_maxResults,
+    listCostAllocationTagsResponse_nextToken,
+    listCostAllocationTagsResponse_costAllocationTags,
+    listCostAllocationTagsResponse_httpStatus,
+
     -- ** ListCostCategoryDefinitions
     listCostCategoryDefinitions_effectiveOn,
     listCostCategoryDefinitions_nextToken,
@@ -285,11 +298,26 @@ module Amazonka.CostExplorer.Lens
     listCostCategoryDefinitionsResponse_costCategoryReferences,
     listCostCategoryDefinitionsResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_resourceTags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** ProvideAnomalyFeedback
     provideAnomalyFeedback_anomalyId,
     provideAnomalyFeedback_feedback,
     provideAnomalyFeedbackResponse_httpStatus,
     provideAnomalyFeedbackResponse_anomalyId,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_resourceTags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_resourceTagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateAnomalyMonitor
     updateAnomalyMonitor_monitorName,
@@ -306,6 +334,11 @@ module Amazonka.CostExplorer.Lens
     updateAnomalySubscription_subscriptionArn,
     updateAnomalySubscriptionResponse_httpStatus,
     updateAnomalySubscriptionResponse_subscriptionArn,
+
+    -- ** UpdateCostAllocationTagsStatus
+    updateCostAllocationTagsStatus_costAllocationTagsStatus,
+    updateCostAllocationTagsStatusResponse_errors,
+    updateCostAllocationTagsStatusResponse_httpStatus,
 
     -- ** UpdateCostCategoryDefinition
     updateCostCategoryDefinition_splitChargeRules,
@@ -357,6 +390,15 @@ module Amazonka.CostExplorer.Lens
     anomalySubscription_threshold,
     anomalySubscription_frequency,
     anomalySubscription_subscriptionName,
+
+    -- ** CostAllocationTag
+    costAllocationTag_tagKey,
+    costAllocationTag_type,
+    costAllocationTag_status,
+
+    -- ** CostAllocationTagStatusEntry
+    costAllocationTagStatusEntry_tagKey,
+    costAllocationTagStatusEntry_status,
 
     -- ** CostCategory
     costCategory_splitChargeRules,
@@ -653,6 +695,10 @@ module Amazonka.CostExplorer.Lens
     -- ** ResourceDetails
     resourceDetails_eC2ResourceDetails,
 
+    -- ** ResourceTag
+    resourceTag_key,
+    resourceTag_value,
+
     -- ** ResourceUtilization
     resourceUtilization_eC2ResourceUtilization,
 
@@ -821,6 +867,11 @@ module Amazonka.CostExplorer.Lens
     totalImpactFilter_numericOperator,
     totalImpactFilter_startValue,
 
+    -- ** UpdateCostAllocationTagsStatusError
+    updateCostAllocationTagsStatusError_message,
+    updateCostAllocationTagsStatusError_code,
+    updateCostAllocationTagsStatusError_tagKey,
+
     -- ** UtilizationByTime
     utilizationByTime_total,
     utilizationByTime_timePeriod,
@@ -853,13 +904,18 @@ import Amazonka.CostExplorer.GetSavingsPlansUtilization
 import Amazonka.CostExplorer.GetSavingsPlansUtilizationDetails
 import Amazonka.CostExplorer.GetTags
 import Amazonka.CostExplorer.GetUsageForecast
+import Amazonka.CostExplorer.ListCostAllocationTags
 import Amazonka.CostExplorer.ListCostCategoryDefinitions
+import Amazonka.CostExplorer.ListTagsForResource
 import Amazonka.CostExplorer.ProvideAnomalyFeedback
+import Amazonka.CostExplorer.TagResource
 import Amazonka.CostExplorer.Types.Anomaly
 import Amazonka.CostExplorer.Types.AnomalyDateInterval
 import Amazonka.CostExplorer.Types.AnomalyMonitor
 import Amazonka.CostExplorer.Types.AnomalyScore
 import Amazonka.CostExplorer.Types.AnomalySubscription
+import Amazonka.CostExplorer.Types.CostAllocationTag
+import Amazonka.CostExplorer.Types.CostAllocationTagStatusEntry
 import Amazonka.CostExplorer.Types.CostCategory
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension
 import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
@@ -904,6 +960,7 @@ import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
 import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationSummary
 import Amazonka.CostExplorer.Types.ReservationUtilizationGroup
 import Amazonka.CostExplorer.Types.ResourceDetails
+import Amazonka.CostExplorer.Types.ResourceTag
 import Amazonka.CostExplorer.Types.ResourceUtilization
 import Amazonka.CostExplorer.Types.ResultByTime
 import Amazonka.CostExplorer.Types.RightsizingRecommendation
@@ -931,7 +988,10 @@ import Amazonka.CostExplorer.Types.TagValues
 import Amazonka.CostExplorer.Types.TargetInstance
 import Amazonka.CostExplorer.Types.TerminateRecommendationDetail
 import Amazonka.CostExplorer.Types.TotalImpactFilter
+import Amazonka.CostExplorer.Types.UpdateCostAllocationTagsStatusError
 import Amazonka.CostExplorer.Types.UtilizationByTime
+import Amazonka.CostExplorer.UntagResource
 import Amazonka.CostExplorer.UpdateAnomalyMonitor
 import Amazonka.CostExplorer.UpdateAnomalySubscription
+import Amazonka.CostExplorer.UpdateCostAllocationTagsStatus
 import Amazonka.CostExplorer.UpdateCostCategoryDefinition

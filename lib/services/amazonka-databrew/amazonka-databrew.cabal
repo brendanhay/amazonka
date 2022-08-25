@@ -50,17 +50,20 @@ library
     Amazonka.DataBrew.CreateProject
     Amazonka.DataBrew.CreateRecipe
     Amazonka.DataBrew.CreateRecipeJob
+    Amazonka.DataBrew.CreateRuleset
     Amazonka.DataBrew.CreateSchedule
     Amazonka.DataBrew.DeleteDataset
     Amazonka.DataBrew.DeleteJob
     Amazonka.DataBrew.DeleteProject
     Amazonka.DataBrew.DeleteRecipeVersion
+    Amazonka.DataBrew.DeleteRuleset
     Amazonka.DataBrew.DeleteSchedule
     Amazonka.DataBrew.DescribeDataset
     Amazonka.DataBrew.DescribeJob
     Amazonka.DataBrew.DescribeJobRun
     Amazonka.DataBrew.DescribeProject
     Amazonka.DataBrew.DescribeRecipe
+    Amazonka.DataBrew.DescribeRuleset
     Amazonka.DataBrew.DescribeSchedule
     Amazonka.DataBrew.Lens
     Amazonka.DataBrew.ListDatasets
@@ -69,6 +72,7 @@ library
     Amazonka.DataBrew.ListProjects
     Amazonka.DataBrew.ListRecipes
     Amazonka.DataBrew.ListRecipeVersions
+    Amazonka.DataBrew.ListRulesets
     Amazonka.DataBrew.ListSchedules
     Amazonka.DataBrew.ListTagsForResource
     Amazonka.DataBrew.PublishRecipe
@@ -78,6 +82,8 @@ library
     Amazonka.DataBrew.StopJobRun
     Amazonka.DataBrew.TagResource
     Amazonka.DataBrew.Types
+    Amazonka.DataBrew.Types.AllowedStatistics
+    Amazonka.DataBrew.Types.AnalyticsMode
     Amazonka.DataBrew.Types.ColumnSelector
     Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
     Amazonka.DataBrew.Types.CompressionFormat
@@ -94,6 +100,7 @@ library
     Amazonka.DataBrew.Types.DatasetParameter
     Amazonka.DataBrew.Types.DatetimeOptions
     Amazonka.DataBrew.Types.EncryptionMode
+    Amazonka.DataBrew.Types.EntityDetectorConfiguration
     Amazonka.DataBrew.Types.ExcelOptions
     Amazonka.DataBrew.Types.FilesLimit
     Amazonka.DataBrew.Types.FilterExpression
@@ -107,6 +114,7 @@ library
     Amazonka.DataBrew.Types.JobType
     Amazonka.DataBrew.Types.JsonOptions
     Amazonka.DataBrew.Types.LogSubscription
+    Amazonka.DataBrew.Types.Metadata
     Amazonka.DataBrew.Types.Order
     Amazonka.DataBrew.Types.OrderedBy
     Amazonka.DataBrew.Types.Output
@@ -121,6 +129,8 @@ library
     Amazonka.DataBrew.Types.RecipeReference
     Amazonka.DataBrew.Types.RecipeStep
     Amazonka.DataBrew.Types.RecipeVersionErrorDetail
+    Amazonka.DataBrew.Types.Rule
+    Amazonka.DataBrew.Types.RulesetItem
     Amazonka.DataBrew.Types.S3Location
     Amazonka.DataBrew.Types.S3TableOutputOptions
     Amazonka.DataBrew.Types.Sample
@@ -131,6 +141,11 @@ library
     Amazonka.DataBrew.Types.Source
     Amazonka.DataBrew.Types.StatisticOverride
     Amazonka.DataBrew.Types.StatisticsConfiguration
+    Amazonka.DataBrew.Types.Threshold
+    Amazonka.DataBrew.Types.ThresholdType
+    Amazonka.DataBrew.Types.ThresholdUnit
+    Amazonka.DataBrew.Types.ValidationConfiguration
+    Amazonka.DataBrew.Types.ValidationMode
     Amazonka.DataBrew.Types.ViewFrame
     Amazonka.DataBrew.UntagResource
     Amazonka.DataBrew.UpdateDataset
@@ -138,6 +153,7 @@ library
     Amazonka.DataBrew.UpdateProject
     Amazonka.DataBrew.UpdateRecipe
     Amazonka.DataBrew.UpdateRecipeJob
+    Amazonka.DataBrew.UpdateRuleset
     Amazonka.DataBrew.UpdateSchedule
     Amazonka.DataBrew.Waiters
 

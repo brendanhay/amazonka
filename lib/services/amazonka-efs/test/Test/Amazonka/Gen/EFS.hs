@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestCreateMountTarget $
 --             newCreateMountTarget
 --
+--         , requestCreateReplicationConfiguration $
+--             newCreateReplicationConfiguration
+--
 --         , requestDeleteAccessPoint $
 --             newDeleteAccessPoint
 --
@@ -47,6 +50,9 @@ import Test.Tasty
 --
 --         , requestDeleteMountTarget $
 --             newDeleteMountTarget
+--
+--         , requestDeleteReplicationConfiguration $
+--             newDeleteReplicationConfiguration
 --
 --         , requestDescribeAccessPoints $
 --             newDescribeAccessPoints
@@ -71,6 +77,9 @@ import Test.Tasty
 --
 --         , requestDescribeMountTargets $
 --             newDescribeMountTargets
+--
+--         , requestDescribeReplicationConfigurations $
+--             newDescribeReplicationConfigurations
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -111,6 +120,9 @@ import Test.Tasty
 --         , responseCreateMountTarget $
 --             newMountTargetDescription
 --
+--         , responseCreateReplicationConfiguration $
+--             newReplicationConfigurationDescription
+--
 --         , responseDeleteAccessPoint $
 --             newDeleteAccessPointResponse
 --
@@ -122,6 +134,9 @@ import Test.Tasty
 --
 --         , responseDeleteMountTarget $
 --             newDeleteMountTargetResponse
+--
+--         , responseDeleteReplicationConfiguration $
+--             newDeleteReplicationConfigurationResponse
 --
 --         , responseDescribeAccessPoints $
 --             newDescribeAccessPointsResponse
@@ -146,6 +161,9 @@ import Test.Tasty
 --
 --         , responseDescribeMountTargets $
 --             newDescribeMountTargetsResponse
+--
+--         , responseDescribeReplicationConfigurations $
+--             newDescribeReplicationConfigurationsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -197,6 +215,12 @@ requestCreateMountTarget =
     "CreateMountTarget"
     "fixture/CreateMountTarget.yaml"
 
+requestCreateReplicationConfiguration :: CreateReplicationConfiguration -> TestTree
+requestCreateReplicationConfiguration =
+  req
+    "CreateReplicationConfiguration"
+    "fixture/CreateReplicationConfiguration.yaml"
+
 requestDeleteAccessPoint :: DeleteAccessPoint -> TestTree
 requestDeleteAccessPoint =
   req
@@ -220,6 +244,12 @@ requestDeleteMountTarget =
   req
     "DeleteMountTarget"
     "fixture/DeleteMountTarget.yaml"
+
+requestDeleteReplicationConfiguration :: DeleteReplicationConfiguration -> TestTree
+requestDeleteReplicationConfiguration =
+  req
+    "DeleteReplicationConfiguration"
+    "fixture/DeleteReplicationConfiguration.yaml"
 
 requestDescribeAccessPoints :: DescribeAccessPoints -> TestTree
 requestDescribeAccessPoints =
@@ -268,6 +298,12 @@ requestDescribeMountTargets =
   req
     "DescribeMountTargets"
     "fixture/DescribeMountTargets.yaml"
+
+requestDescribeReplicationConfigurations :: DescribeReplicationConfigurations -> TestTree
+requestDescribeReplicationConfigurations =
+  req
+    "DescribeReplicationConfigurations"
+    "fixture/DescribeReplicationConfigurations.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -349,6 +385,14 @@ responseCreateMountTarget =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMountTarget)
 
+responseCreateReplicationConfiguration :: ReplicationConfigurationDescription -> TestTree
+responseCreateReplicationConfiguration =
+  res
+    "CreateReplicationConfigurationResponse"
+    "fixture/CreateReplicationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateReplicationConfiguration)
+
 responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
 responseDeleteAccessPoint =
   res
@@ -380,6 +424,14 @@ responseDeleteMountTarget =
     "fixture/DeleteMountTargetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteMountTarget)
+
+responseDeleteReplicationConfiguration :: DeleteReplicationConfigurationResponse -> TestTree
+responseDeleteReplicationConfiguration =
+  res
+    "DeleteReplicationConfigurationResponse"
+    "fixture/DeleteReplicationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationConfiguration)
 
 responseDescribeAccessPoints :: DescribeAccessPointsResponse -> TestTree
 responseDescribeAccessPoints =
@@ -444,6 +496,14 @@ responseDescribeMountTargets =
     "fixture/DescribeMountTargetsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeMountTargets)
+
+responseDescribeReplicationConfigurations :: DescribeReplicationConfigurationsResponse -> TestTree
+responseDescribeReplicationConfigurations =
+  res
+    "DescribeReplicationConfigurationsResponse"
+    "fixture/DescribeReplicationConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReplicationConfigurations)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

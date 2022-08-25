@@ -170,6 +170,7 @@ module Amazonka.SecretsManager.Lens
     rotateSecret_rotationLambdaARN,
     rotateSecret_clientRequestToken,
     rotateSecret_rotationRules,
+    rotateSecret_rotateImmediately,
     rotateSecret_secretId,
     rotateSecretResponse_name,
     rotateSecretResponse_arn,
@@ -235,6 +236,8 @@ module Amazonka.SecretsManager.Lens
     replicationStatusType_statusMessage,
 
     -- ** RotationRulesType
+    rotationRulesType_scheduleExpression,
+    rotationRulesType_duration,
     rotationRulesType_automaticallyAfterDays,
 
     -- ** SecretListEntry

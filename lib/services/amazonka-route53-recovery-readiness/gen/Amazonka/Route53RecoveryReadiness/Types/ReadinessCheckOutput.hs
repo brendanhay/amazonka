@@ -23,16 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A resource used for checking the readiness of a Resource Set
+-- | A readiness check.
 --
 -- /See:/ 'newReadinessCheckOutput' smart constructor.
 data ReadinessCheckOutput = ReadinessCheckOutput'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name for a ReadinessCheck
+    -- | Name of a readiness check.
     readinessCheckName :: Prelude.Maybe Prelude.Text,
-    -- | Arn associated with ReadinessCheck
+    -- | The Amazon Resource Name (ARN) associated with a readiness check.
     readinessCheckArn :: Prelude.Text,
-    -- | Name of the ResourceSet to be checked
+    -- | Name of the resource set to be checked.
     resourceSet :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,11 +47,11 @@ data ReadinessCheckOutput = ReadinessCheckOutput'
 --
 -- 'tags', 'readinessCheckOutput_tags' - Undocumented member.
 --
--- 'readinessCheckName', 'readinessCheckOutput_readinessCheckName' - Name for a ReadinessCheck
+-- 'readinessCheckName', 'readinessCheckOutput_readinessCheckName' - Name of a readiness check.
 --
--- 'readinessCheckArn', 'readinessCheckOutput_readinessCheckArn' - Arn associated with ReadinessCheck
+-- 'readinessCheckArn', 'readinessCheckOutput_readinessCheckArn' - The Amazon Resource Name (ARN) associated with a readiness check.
 --
--- 'resourceSet', 'readinessCheckOutput_resourceSet' - Name of the ResourceSet to be checked
+-- 'resourceSet', 'readinessCheckOutput_resourceSet' - Name of the resource set to be checked.
 newReadinessCheckOutput ::
   -- | 'readinessCheckArn'
   Prelude.Text ->
@@ -72,15 +72,15 @@ newReadinessCheckOutput
 readinessCheckOutput_tags :: Lens.Lens' ReadinessCheckOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 readinessCheckOutput_tags = Lens.lens (\ReadinessCheckOutput' {tags} -> tags) (\s@ReadinessCheckOutput' {} a -> s {tags = a} :: ReadinessCheckOutput) Prelude.. Lens.mapping Lens.coerced
 
--- | Name for a ReadinessCheck
+-- | Name of a readiness check.
 readinessCheckOutput_readinessCheckName :: Lens.Lens' ReadinessCheckOutput (Prelude.Maybe Prelude.Text)
 readinessCheckOutput_readinessCheckName = Lens.lens (\ReadinessCheckOutput' {readinessCheckName} -> readinessCheckName) (\s@ReadinessCheckOutput' {} a -> s {readinessCheckName = a} :: ReadinessCheckOutput)
 
--- | Arn associated with ReadinessCheck
+-- | The Amazon Resource Name (ARN) associated with a readiness check.
 readinessCheckOutput_readinessCheckArn :: Lens.Lens' ReadinessCheckOutput Prelude.Text
 readinessCheckOutput_readinessCheckArn = Lens.lens (\ReadinessCheckOutput' {readinessCheckArn} -> readinessCheckArn) (\s@ReadinessCheckOutput' {} a -> s {readinessCheckArn = a} :: ReadinessCheckOutput)
 
--- | Name of the ResourceSet to be checked
+-- | Name of the resource set to be checked.
 readinessCheckOutput_resourceSet :: Lens.Lens' ReadinessCheckOutput Prelude.Text
 readinessCheckOutput_resourceSet = Lens.lens (\ReadinessCheckOutput' {resourceSet} -> resourceSet) (\s@ReadinessCheckOutput' {} a -> s {resourceSet = a} :: ReadinessCheckOutput)
 

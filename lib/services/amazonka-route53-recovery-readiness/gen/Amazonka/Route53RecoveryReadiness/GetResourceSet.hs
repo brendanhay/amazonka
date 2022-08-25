@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a Resource Set.
+-- Displays the details about a resource set, including a list of the
+-- resources in the set.
 module Amazonka.Route53RecoveryReadiness.GetResourceSet
   ( -- * Creating a Request
     GetResourceSet (..),
@@ -52,7 +53,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetResourceSet' smart constructor.
 data GetResourceSet = GetResourceSet'
-  { -- | The ResourceSet to get
+  { -- | Name of a resource set.
     resourceSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,7 @@ data GetResourceSet = GetResourceSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceSetName', 'getResourceSet_resourceSetName' - The ResourceSet to get
+-- 'resourceSetName', 'getResourceSet_resourceSetName' - Name of a resource set.
 newGetResourceSet ::
   -- | 'resourceSetName'
   Prelude.Text ->
@@ -76,7 +77,7 @@ newGetResourceSet pResourceSetName_ =
         pResourceSetName_
     }
 
--- | The ResourceSet to get
+-- | Name of a resource set.
 getResourceSet_resourceSetName :: Lens.Lens' GetResourceSet Prelude.Text
 getResourceSet_resourceSetName = Lens.lens (\GetResourceSet' {resourceSetName} -> resourceSetName) (\s@GetResourceSet' {} a -> s {resourceSetName = a} :: GetResourceSet)
 
@@ -126,13 +127,24 @@ instance Core.ToQuery GetResourceSet where
 -- | /See:/ 'newGetResourceSetResponse' smart constructor.
 data GetResourceSetResponse = GetResourceSetResponse'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | AWS Resource Type of the resources in the ResourceSet
+    -- | The resource type of the resources in the resource set. Enter one of the
+    -- following values for resource type:
+    --
+    -- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+    -- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+    -- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+    -- AWS::ElasticLoadBalancing::LoadBalancer,
+    -- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+    -- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+    -- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+    -- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+    -- AWS::Route53RecoveryReadiness::DNSTargetResource
     resourceSetType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the ResourceSet
+    -- | The name of the resource set.
     resourceSetName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Resource objects
+    -- | A list of resource objects.
     resources :: Prelude.Maybe [Resource],
-    -- | The arn for the ResourceSet
+    -- | The Amazon Resource Name (ARN) for the resource set.
     resourceSetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -149,13 +161,24 @@ data GetResourceSetResponse = GetResourceSetResponse'
 --
 -- 'tags', 'getResourceSetResponse_tags' - Undocumented member.
 --
--- 'resourceSetType', 'getResourceSetResponse_resourceSetType' - AWS Resource Type of the resources in the ResourceSet
+-- 'resourceSetType', 'getResourceSetResponse_resourceSetType' - The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
 --
--- 'resourceSetName', 'getResourceSetResponse_resourceSetName' - The name of the ResourceSet
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 --
--- 'resources', 'getResourceSetResponse_resources' - A list of Resource objects
+-- 'resourceSetName', 'getResourceSetResponse_resourceSetName' - The name of the resource set.
 --
--- 'resourceSetArn', 'getResourceSetResponse_resourceSetArn' - The arn for the ResourceSet
+-- 'resources', 'getResourceSetResponse_resources' - A list of resource objects.
+--
+-- 'resourceSetArn', 'getResourceSetResponse_resourceSetArn' - The Amazon Resource Name (ARN) for the resource set.
 --
 -- 'httpStatus', 'getResourceSetResponse_httpStatus' - The response's http status code.
 newGetResourceSetResponse ::
@@ -176,19 +199,30 @@ newGetResourceSetResponse pHttpStatus_ =
 getResourceSetResponse_tags :: Lens.Lens' GetResourceSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getResourceSetResponse_tags = Lens.lens (\GetResourceSetResponse' {tags} -> tags) (\s@GetResourceSetResponse' {} a -> s {tags = a} :: GetResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | AWS Resource Type of the resources in the ResourceSet
+-- | The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
+--
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 getResourceSetResponse_resourceSetType :: Lens.Lens' GetResourceSetResponse (Prelude.Maybe Prelude.Text)
 getResourceSetResponse_resourceSetType = Lens.lens (\GetResourceSetResponse' {resourceSetType} -> resourceSetType) (\s@GetResourceSetResponse' {} a -> s {resourceSetType = a} :: GetResourceSetResponse)
 
--- | The name of the ResourceSet
+-- | The name of the resource set.
 getResourceSetResponse_resourceSetName :: Lens.Lens' GetResourceSetResponse (Prelude.Maybe Prelude.Text)
 getResourceSetResponse_resourceSetName = Lens.lens (\GetResourceSetResponse' {resourceSetName} -> resourceSetName) (\s@GetResourceSetResponse' {} a -> s {resourceSetName = a} :: GetResourceSetResponse)
 
--- | A list of Resource objects
+-- | A list of resource objects.
 getResourceSetResponse_resources :: Lens.Lens' GetResourceSetResponse (Prelude.Maybe [Resource])
 getResourceSetResponse_resources = Lens.lens (\GetResourceSetResponse' {resources} -> resources) (\s@GetResourceSetResponse' {} a -> s {resources = a} :: GetResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The arn for the ResourceSet
+-- | The Amazon Resource Name (ARN) for the resource set.
 getResourceSetResponse_resourceSetArn :: Lens.Lens' GetResourceSetResponse (Prelude.Maybe Prelude.Text)
 getResourceSetResponse_resourceSetArn = Lens.lens (\GetResourceSetResponse' {resourceSetArn} -> resourceSetArn) (\s@GetResourceSetResponse' {} a -> s {resourceSetArn = a} :: GetResourceSetResponse)
 

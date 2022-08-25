@@ -28,13 +28,14 @@ import Amazonka.MwAA.Types.NetworkConfiguration
 import Amazonka.MwAA.Types.WebserverAccessMode
 import qualified Amazonka.Prelude as Prelude
 
--- | The Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+-- | Describes an Amazon Managed Workflows for Apache Airflow (MWAA)
+-- environment.
 --
 -- /See:/ 'newEnvironment' smart constructor.
 data Environment = Environment'
   { -- | The key-value tag pairs associated to your environment. For example,
     -- @\"Environment\": \"Staging\"@. To learn more, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The number of Apache Airflow schedulers that run in your Amazon MWAA
     -- environment.
@@ -54,7 +55,8 @@ data Environment = Environment'
     -- For example, @plugins.zip@. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
     pluginsS3Path :: Prelude.Maybe Prelude.Text,
-    -- | The Apache Airflow version on your environment. For example, @v1.10.12@.
+    -- | The Apache Airflow version on your environment. Valid values: @1.10.12@,
+    -- @2.0.2@, and @2.2.2@.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the service-linked role of the
     -- environment. To learn more, see
@@ -69,15 +71,19 @@ data Environment = Environment'
     -- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
     sourceBucketArn :: Prelude.Maybe Prelude.Text,
-    -- | The Key Management Service (KMS) encryption key used to encrypt the data
-    -- in your environment.
+    -- | The Amazon Web Services Key Management Service (KMS) encryption key used
+    -- to encrypt the data in your environment.
     kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon MWAA environment.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A list of key-value pairs containing the Apache Airflow configuration
     -- options attached to your environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
-    airflowConfigurationOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    airflowConfigurationOptions :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))),
+    -- | Describes the VPC networking components used to secure and enable
+    -- network traffic between the Amazon Web Services resources for your
+    -- environment. To learn more, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The status of the Amazon MWAA environment. Valid values:
     --
@@ -117,17 +123,20 @@ data Environment = Environment'
     -- @mw1.large@. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
     environmentClass :: Prelude.Maybe Prelude.Text,
-    -- | The day and time of the week that weekly maintenance updates are
-    -- scheduled. For example: @TUE:03:30@.
+    -- | The day and time of the week in Coordinated Universal Time (UTC) 24-hour
+    -- standard time that weekly maintenance updates are scheduled. For
+    -- example: @TUE:03:30@.
     weeklyMaintenanceWindowStart :: Prelude.Maybe Prelude.Text,
+    -- | The status of the last update on the environment.
     lastUpdate :: Prelude.Maybe LastUpdate,
     -- | The version of the requirements.txt file on your Amazon S3 bucket. To
     -- learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
     requirementsS3ObjectVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
-    -- MWAA to access AWS resources in your environment. For example,
-    -- @arn:aws:iam::123456789:role\/my-execution-role@. To learn more, see
+    -- MWAA to access Amazon Web Services resources in your environment. For
+    -- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
+    -- more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Apache Airflow /Web server/ access mode. To learn more, see
@@ -142,12 +151,10 @@ data Environment = Environment'
     -- environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html Accessing the Apache Airflow UI>.
     webserverUrl :: Prelude.Maybe Prelude.Text,
-    -- | The Apache Airflow logs being sent to CloudWatch Logs:
-    -- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
-    -- @WorkerLogs@.
+    -- | The Apache Airflow logs published to CloudWatch Logs.
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Environment' with all optional fields omitted.
@@ -159,7 +166,7 @@ data Environment = Environment'
 --
 -- 'tags', 'environment_tags' - The key-value tag pairs associated to your environment. For example,
 -- @\"Environment\": \"Staging\"@. To learn more, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'schedulers', 'environment_schedulers' - The number of Apache Airflow schedulers that run in your Amazon MWAA
 -- environment.
@@ -179,7 +186,8 @@ data Environment = Environment'
 -- For example, @plugins.zip@. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 --
--- 'airflowVersion', 'environment_airflowVersion' - The Apache Airflow version on your environment. For example, @v1.10.12@.
+-- 'airflowVersion', 'environment_airflowVersion' - The Apache Airflow version on your environment. Valid values: @1.10.12@,
+-- @2.0.2@, and @2.2.2@.
 --
 -- 'serviceRoleArn', 'environment_serviceRoleArn' - The Amazon Resource Name (ARN) for the service-linked role of the
 -- environment. To learn more, see
@@ -194,8 +202,8 @@ data Environment = Environment'
 -- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
 --
--- 'kmsKey', 'environment_kmsKey' - The Key Management Service (KMS) encryption key used to encrypt the data
--- in your environment.
+-- 'kmsKey', 'environment_kmsKey' - The Amazon Web Services Key Management Service (KMS) encryption key used
+-- to encrypt the data in your environment.
 --
 -- 'arn', 'environment_arn' - The Amazon Resource Name (ARN) of the Amazon MWAA environment.
 --
@@ -203,7 +211,10 @@ data Environment = Environment'
 -- options attached to your environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 --
--- 'networkConfiguration', 'environment_networkConfiguration' - Undocumented member.
+-- 'networkConfiguration', 'environment_networkConfiguration' - Describes the VPC networking components used to secure and enable
+-- network traffic between the Amazon Web Services resources for your
+-- environment. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
 -- 'status', 'environment_status' - The status of the Amazon MWAA environment. Valid values:
 --
@@ -243,18 +254,20 @@ data Environment = Environment'
 -- @mw1.large@. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
 --
--- 'weeklyMaintenanceWindowStart', 'environment_weeklyMaintenanceWindowStart' - The day and time of the week that weekly maintenance updates are
--- scheduled. For example: @TUE:03:30@.
+-- 'weeklyMaintenanceWindowStart', 'environment_weeklyMaintenanceWindowStart' - The day and time of the week in Coordinated Universal Time (UTC) 24-hour
+-- standard time that weekly maintenance updates are scheduled. For
+-- example: @TUE:03:30@.
 --
--- 'lastUpdate', 'environment_lastUpdate' - Undocumented member.
+-- 'lastUpdate', 'environment_lastUpdate' - The status of the last update on the environment.
 --
 -- 'requirementsS3ObjectVersion', 'environment_requirementsS3ObjectVersion' - The version of the requirements.txt file on your Amazon S3 bucket. To
 -- learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 --
 -- 'executionRoleArn', 'environment_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role in IAM that allows
--- MWAA to access AWS resources in your environment. For example,
--- @arn:aws:iam::123456789:role\/my-execution-role@. To learn more, see
+-- MWAA to access Amazon Web Services resources in your environment. For
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
+-- more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 --
 -- 'webserverAccessMode', 'environment_webserverAccessMode' - The Apache Airflow /Web server/ access mode. To learn more, see
@@ -269,9 +282,7 @@ data Environment = Environment'
 -- environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html Accessing the Apache Airflow UI>.
 --
--- 'loggingConfiguration', 'environment_loggingConfiguration' - The Apache Airflow logs being sent to CloudWatch Logs:
--- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
--- @WorkerLogs@.
+-- 'loggingConfiguration', 'environment_loggingConfiguration' - The Apache Airflow logs published to CloudWatch Logs.
 newEnvironment ::
   Environment
 newEnvironment =
@@ -306,7 +317,7 @@ newEnvironment =
 
 -- | The key-value tag pairs associated to your environment. For example,
 -- @\"Environment\": \"Staging\"@. To learn more, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 environment_tags :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 environment_tags = Lens.lens (\Environment' {tags} -> tags) (\s@Environment' {} a -> s {tags = a} :: Environment) Prelude.. Lens.mapping Lens.coerced
 
@@ -338,7 +349,8 @@ environment_requirementsS3Path = Lens.lens (\Environment' {requirementsS3Path} -
 environment_pluginsS3Path :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_pluginsS3Path = Lens.lens (\Environment' {pluginsS3Path} -> pluginsS3Path) (\s@Environment' {} a -> s {pluginsS3Path = a} :: Environment)
 
--- | The Apache Airflow version on your environment. For example, @v1.10.12@.
+-- | The Apache Airflow version on your environment. Valid values: @1.10.12@,
+-- @2.0.2@, and @2.2.2@.
 environment_airflowVersion :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_airflowVersion = Lens.lens (\Environment' {airflowVersion} -> airflowVersion) (\s@Environment' {} a -> s {airflowVersion = a} :: Environment)
 
@@ -361,8 +373,8 @@ environment_dagS3Path = Lens.lens (\Environment' {dagS3Path} -> dagS3Path) (\s@E
 environment_sourceBucketArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_sourceBucketArn = Lens.lens (\Environment' {sourceBucketArn} -> sourceBucketArn) (\s@Environment' {} a -> s {sourceBucketArn = a} :: Environment)
 
--- | The Key Management Service (KMS) encryption key used to encrypt the data
--- in your environment.
+-- | The Amazon Web Services Key Management Service (KMS) encryption key used
+-- to encrypt the data in your environment.
 environment_kmsKey :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_kmsKey = Lens.lens (\Environment' {kmsKey} -> kmsKey) (\s@Environment' {} a -> s {kmsKey = a} :: Environment)
 
@@ -374,9 +386,12 @@ environment_arn = Lens.lens (\Environment' {arn} -> arn) (\s@Environment' {} a -
 -- options attached to your environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 environment_airflowConfigurationOptions :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environment_airflowConfigurationOptions = Lens.lens (\Environment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@Environment' {} a -> s {airflowConfigurationOptions = a} :: Environment) Prelude.. Lens.mapping Lens.coerced
+environment_airflowConfigurationOptions = Lens.lens (\Environment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@Environment' {} a -> s {airflowConfigurationOptions = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | Undocumented member.
+-- | Describes the VPC networking components used to secure and enable
+-- network traffic between the Amazon Web Services resources for your
+-- environment. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 environment_networkConfiguration :: Lens.Lens' Environment (Prelude.Maybe NetworkConfiguration)
 environment_networkConfiguration = Lens.lens (\Environment' {networkConfiguration} -> networkConfiguration) (\s@Environment' {} a -> s {networkConfiguration = a} :: Environment)
 
@@ -424,12 +439,13 @@ environment_minWorkers = Lens.lens (\Environment' {minWorkers} -> minWorkers) (\
 environment_environmentClass :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_environmentClass = Lens.lens (\Environment' {environmentClass} -> environmentClass) (\s@Environment' {} a -> s {environmentClass = a} :: Environment)
 
--- | The day and time of the week that weekly maintenance updates are
--- scheduled. For example: @TUE:03:30@.
+-- | The day and time of the week in Coordinated Universal Time (UTC) 24-hour
+-- standard time that weekly maintenance updates are scheduled. For
+-- example: @TUE:03:30@.
 environment_weeklyMaintenanceWindowStart :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_weeklyMaintenanceWindowStart = Lens.lens (\Environment' {weeklyMaintenanceWindowStart} -> weeklyMaintenanceWindowStart) (\s@Environment' {} a -> s {weeklyMaintenanceWindowStart = a} :: Environment)
 
--- | Undocumented member.
+-- | The status of the last update on the environment.
 environment_lastUpdate :: Lens.Lens' Environment (Prelude.Maybe LastUpdate)
 environment_lastUpdate = Lens.lens (\Environment' {lastUpdate} -> lastUpdate) (\s@Environment' {} a -> s {lastUpdate = a} :: Environment)
 
@@ -440,8 +456,9 @@ environment_requirementsS3ObjectVersion :: Lens.Lens' Environment (Prelude.Maybe
 environment_requirementsS3ObjectVersion = Lens.lens (\Environment' {requirementsS3ObjectVersion} -> requirementsS3ObjectVersion) (\s@Environment' {} a -> s {requirementsS3ObjectVersion = a} :: Environment)
 
 -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
--- MWAA to access AWS resources in your environment. For example,
--- @arn:aws:iam::123456789:role\/my-execution-role@. To learn more, see
+-- MWAA to access Amazon Web Services resources in your environment. For
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
+-- more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 environment_executionRoleArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_executionRoleArn = Lens.lens (\Environment' {executionRoleArn} -> executionRoleArn) (\s@Environment' {} a -> s {executionRoleArn = a} :: Environment)
@@ -466,9 +483,7 @@ environment_createdAt = Lens.lens (\Environment' {createdAt} -> createdAt) (\s@E
 environment_webserverUrl :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_webserverUrl = Lens.lens (\Environment' {webserverUrl} -> webserverUrl) (\s@Environment' {} a -> s {webserverUrl = a} :: Environment)
 
--- | The Apache Airflow logs being sent to CloudWatch Logs:
--- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
--- @WorkerLogs@.
+-- | The Apache Airflow logs published to CloudWatch Logs.
 environment_loggingConfiguration :: Lens.Lens' Environment (Prelude.Maybe LoggingConfiguration)
 environment_loggingConfiguration = Lens.lens (\Environment' {loggingConfiguration} -> loggingConfiguration) (\s@Environment' {} a -> s {loggingConfiguration = a} :: Environment)
 

@@ -25,13 +25,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a usage plan key to identify a plan customer.
 --
--- To associate an API stage with a selected API key in a usage plan, you
--- must create a UsagePlanKey resource to represent the selected ApiKey.
---
--- \"
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
---
 -- /See:/ 'newUsagePlanKey' smart constructor.
 data UsagePlanKey = UsagePlanKey'
   { -- | The name of a usage plan key.

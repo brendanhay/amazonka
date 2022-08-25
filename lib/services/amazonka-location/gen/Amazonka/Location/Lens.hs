@@ -73,13 +73,29 @@ module Amazonka.Location.Lens
     calculateRouteResponse_legs,
     calculateRouteResponse_summary,
 
+    -- ** CalculateRouteMatrix
+    calculateRouteMatrix_distanceUnit,
+    calculateRouteMatrix_carModeOptions,
+    calculateRouteMatrix_travelMode,
+    calculateRouteMatrix_departureTime,
+    calculateRouteMatrix_truckModeOptions,
+    calculateRouteMatrix_departNow,
+    calculateRouteMatrix_calculatorName,
+    calculateRouteMatrix_departurePositions,
+    calculateRouteMatrix_destinationPositions,
+    calculateRouteMatrixResponse_snappedDeparturePositions,
+    calculateRouteMatrixResponse_snappedDestinationPositions,
+    calculateRouteMatrixResponse_httpStatus,
+    calculateRouteMatrixResponse_routeMatrix,
+    calculateRouteMatrixResponse_summary,
+
     -- ** CreateGeofenceCollection
     createGeofenceCollection_tags,
     createGeofenceCollection_description,
     createGeofenceCollection_pricingPlanDataSource,
+    createGeofenceCollection_pricingPlan,
     createGeofenceCollection_kmsKeyId,
     createGeofenceCollection_collectionName,
-    createGeofenceCollection_pricingPlan,
     createGeofenceCollectionResponse_httpStatus,
     createGeofenceCollectionResponse_collectionArn,
     createGeofenceCollectionResponse_collectionName,
@@ -88,9 +104,9 @@ module Amazonka.Location.Lens
     -- ** CreateMap
     createMap_tags,
     createMap_description,
+    createMap_pricingPlan,
     createMap_configuration,
     createMap_mapName,
-    createMap_pricingPlan,
     createMapResponse_httpStatus,
     createMapResponse_createTime,
     createMapResponse_mapArn,
@@ -100,9 +116,9 @@ module Amazonka.Location.Lens
     createPlaceIndex_tags,
     createPlaceIndex_dataSourceConfiguration,
     createPlaceIndex_description,
+    createPlaceIndex_pricingPlan,
     createPlaceIndex_dataSource,
     createPlaceIndex_indexName,
-    createPlaceIndex_pricingPlan,
     createPlaceIndexResponse_httpStatus,
     createPlaceIndexResponse_createTime,
     createPlaceIndexResponse_indexArn,
@@ -111,9 +127,9 @@ module Amazonka.Location.Lens
     -- ** CreateRouteCalculator
     createRouteCalculator_tags,
     createRouteCalculator_description,
+    createRouteCalculator_pricingPlan,
     createRouteCalculator_calculatorName,
     createRouteCalculator_dataSource,
-    createRouteCalculator_pricingPlan,
     createRouteCalculatorResponse_httpStatus,
     createRouteCalculatorResponse_calculatorArn,
     createRouteCalculatorResponse_calculatorName,
@@ -123,9 +139,9 @@ module Amazonka.Location.Lens
     createTracker_tags,
     createTracker_description,
     createTracker_pricingPlanDataSource,
+    createTracker_pricingPlan,
     createTracker_kmsKeyId,
     createTracker_positionFiltering,
-    createTracker_pricingPlan,
     createTracker_trackerName,
     createTrackerResponse_httpStatus,
     createTrackerResponse_createTime,
@@ -156,18 +172,19 @@ module Amazonka.Location.Lens
     describeGeofenceCollection_collectionName,
     describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_pricingPlanDataSource,
+    describeGeofenceCollectionResponse_pricingPlan,
     describeGeofenceCollectionResponse_kmsKeyId,
     describeGeofenceCollectionResponse_httpStatus,
     describeGeofenceCollectionResponse_collectionArn,
     describeGeofenceCollectionResponse_collectionName,
     describeGeofenceCollectionResponse_createTime,
     describeGeofenceCollectionResponse_description,
-    describeGeofenceCollectionResponse_pricingPlan,
     describeGeofenceCollectionResponse_updateTime,
 
     -- ** DescribeMap
     describeMap_mapName,
     describeMapResponse_tags,
+    describeMapResponse_pricingPlan,
     describeMapResponse_httpStatus,
     describeMapResponse_configuration,
     describeMapResponse_createTime,
@@ -175,12 +192,12 @@ module Amazonka.Location.Lens
     describeMapResponse_description,
     describeMapResponse_mapArn,
     describeMapResponse_mapName,
-    describeMapResponse_pricingPlan,
     describeMapResponse_updateTime,
 
     -- ** DescribePlaceIndex
     describePlaceIndex_indexName,
     describePlaceIndexResponse_tags,
+    describePlaceIndexResponse_pricingPlan,
     describePlaceIndexResponse_httpStatus,
     describePlaceIndexResponse_createTime,
     describePlaceIndexResponse_dataSource,
@@ -188,31 +205,30 @@ module Amazonka.Location.Lens
     describePlaceIndexResponse_description,
     describePlaceIndexResponse_indexArn,
     describePlaceIndexResponse_indexName,
-    describePlaceIndexResponse_pricingPlan,
     describePlaceIndexResponse_updateTime,
 
     -- ** DescribeRouteCalculator
     describeRouteCalculator_calculatorName,
     describeRouteCalculatorResponse_tags,
+    describeRouteCalculatorResponse_pricingPlan,
     describeRouteCalculatorResponse_httpStatus,
     describeRouteCalculatorResponse_calculatorArn,
     describeRouteCalculatorResponse_calculatorName,
     describeRouteCalculatorResponse_createTime,
     describeRouteCalculatorResponse_dataSource,
     describeRouteCalculatorResponse_description,
-    describeRouteCalculatorResponse_pricingPlan,
     describeRouteCalculatorResponse_updateTime,
 
     -- ** DescribeTracker
     describeTracker_trackerName,
     describeTrackerResponse_tags,
     describeTrackerResponse_pricingPlanDataSource,
+    describeTrackerResponse_pricingPlan,
     describeTrackerResponse_kmsKeyId,
     describeTrackerResponse_positionFiltering,
     describeTrackerResponse_httpStatus,
     describeTrackerResponse_createTime,
     describeTrackerResponse_description,
-    describeTrackerResponse_pricingPlan,
     describeTrackerResponse_trackerArn,
     describeTrackerResponse_trackerName,
     describeTrackerResponse_updateTime,
@@ -226,6 +242,8 @@ module Amazonka.Location.Lens
     getDevicePosition_deviceId,
     getDevicePosition_trackerName,
     getDevicePositionResponse_deviceId,
+    getDevicePositionResponse_accuracy,
+    getDevicePositionResponse_positionProperties,
     getDevicePositionResponse_httpStatus,
     getDevicePositionResponse_position,
     getDevicePositionResponse_receivedTime,
@@ -234,6 +252,7 @@ module Amazonka.Location.Lens
     -- ** GetDevicePositionHistory
     getDevicePositionHistory_startTimeInclusive,
     getDevicePositionHistory_nextToken,
+    getDevicePositionHistory_maxResults,
     getDevicePositionHistory_endTimeExclusive,
     getDevicePositionHistory_deviceId,
     getDevicePositionHistory_trackerName,
@@ -298,6 +317,7 @@ module Amazonka.Location.Lens
 
     -- ** ListGeofences
     listGeofences_nextToken,
+    listGeofences_maxResults,
     listGeofences_collectionName,
     listGeofencesResponse_nextToken,
     listGeofencesResponse_httpStatus,
@@ -355,17 +375,31 @@ module Amazonka.Location.Lens
 
     -- ** SearchPlaceIndexForPosition
     searchPlaceIndexForPosition_maxResults,
+    searchPlaceIndexForPosition_language,
     searchPlaceIndexForPosition_indexName,
     searchPlaceIndexForPosition_position,
     searchPlaceIndexForPositionResponse_httpStatus,
     searchPlaceIndexForPositionResponse_results,
     searchPlaceIndexForPositionResponse_summary,
 
+    -- ** SearchPlaceIndexForSuggestions
+    searchPlaceIndexForSuggestions_filterBBox,
+    searchPlaceIndexForSuggestions_biasPosition,
+    searchPlaceIndexForSuggestions_filterCountries,
+    searchPlaceIndexForSuggestions_maxResults,
+    searchPlaceIndexForSuggestions_language,
+    searchPlaceIndexForSuggestions_indexName,
+    searchPlaceIndexForSuggestions_text,
+    searchPlaceIndexForSuggestionsResponse_httpStatus,
+    searchPlaceIndexForSuggestionsResponse_results,
+    searchPlaceIndexForSuggestionsResponse_summary,
+
     -- ** SearchPlaceIndexForText
     searchPlaceIndexForText_filterBBox,
     searchPlaceIndexForText_biasPosition,
     searchPlaceIndexForText_filterCountries,
     searchPlaceIndexForText_maxResults,
+    searchPlaceIndexForText_language,
     searchPlaceIndexForText_indexName,
     searchPlaceIndexForText_text,
     searchPlaceIndexForTextResponse_httpStatus,
@@ -476,6 +510,12 @@ module Amazonka.Location.Lens
     calculateRouteCarModeOptions_avoidFerries,
     calculateRouteCarModeOptions_avoidTolls,
 
+    -- ** CalculateRouteMatrixSummary
+    calculateRouteMatrixSummary_dataSource,
+    calculateRouteMatrixSummary_distanceUnit,
+    calculateRouteMatrixSummary_errorCount,
+    calculateRouteMatrixSummary_routeCount,
+
     -- ** CalculateRouteSummary
     calculateRouteSummary_dataSource,
     calculateRouteSummary_distance,
@@ -489,22 +529,31 @@ module Amazonka.Location.Lens
     calculateRouteTruckModeOptions_avoidTolls,
     calculateRouteTruckModeOptions_weight,
 
+    -- ** Circle
+    circle_center,
+    circle_radius,
+
     -- ** DataSourceConfiguration
     dataSourceConfiguration_intendedUse,
 
     -- ** DevicePosition
     devicePosition_deviceId,
+    devicePosition_accuracy,
+    devicePosition_positionProperties,
     devicePosition_position,
     devicePosition_receivedTime,
     devicePosition_sampleTime,
 
     -- ** DevicePositionUpdate
+    devicePositionUpdate_accuracy,
+    devicePositionUpdate_positionProperties,
     devicePositionUpdate_deviceId,
     devicePositionUpdate_position,
     devicePositionUpdate_sampleTime,
 
     -- ** GeofenceGeometry
     geofenceGeometry_polygon,
+    geofenceGeometry_circle,
 
     -- ** Leg
     leg_geometry,
@@ -518,16 +567,18 @@ module Amazonka.Location.Lens
     legGeometry_lineString,
 
     -- ** ListDevicePositionsResponseEntry
+    listDevicePositionsResponseEntry_accuracy,
+    listDevicePositionsResponseEntry_positionProperties,
     listDevicePositionsResponseEntry_deviceId,
     listDevicePositionsResponseEntry_position,
     listDevicePositionsResponseEntry_sampleTime,
 
     -- ** ListGeofenceCollectionsResponseEntry
     listGeofenceCollectionsResponseEntry_pricingPlanDataSource,
+    listGeofenceCollectionsResponseEntry_pricingPlan,
     listGeofenceCollectionsResponseEntry_collectionName,
     listGeofenceCollectionsResponseEntry_createTime,
     listGeofenceCollectionsResponseEntry_description,
-    listGeofenceCollectionsResponseEntry_pricingPlan,
     listGeofenceCollectionsResponseEntry_updateTime,
 
     -- ** ListGeofenceResponseEntry
@@ -538,34 +589,34 @@ module Amazonka.Location.Lens
     listGeofenceResponseEntry_updateTime,
 
     -- ** ListMapsResponseEntry
+    listMapsResponseEntry_pricingPlan,
     listMapsResponseEntry_createTime,
     listMapsResponseEntry_dataSource,
     listMapsResponseEntry_description,
     listMapsResponseEntry_mapName,
-    listMapsResponseEntry_pricingPlan,
     listMapsResponseEntry_updateTime,
 
     -- ** ListPlaceIndexesResponseEntry
+    listPlaceIndexesResponseEntry_pricingPlan,
     listPlaceIndexesResponseEntry_createTime,
     listPlaceIndexesResponseEntry_dataSource,
     listPlaceIndexesResponseEntry_description,
     listPlaceIndexesResponseEntry_indexName,
-    listPlaceIndexesResponseEntry_pricingPlan,
     listPlaceIndexesResponseEntry_updateTime,
 
     -- ** ListRouteCalculatorsResponseEntry
+    listRouteCalculatorsResponseEntry_pricingPlan,
     listRouteCalculatorsResponseEntry_calculatorName,
     listRouteCalculatorsResponseEntry_createTime,
     listRouteCalculatorsResponseEntry_dataSource,
     listRouteCalculatorsResponseEntry_description,
-    listRouteCalculatorsResponseEntry_pricingPlan,
     listRouteCalculatorsResponseEntry_updateTime,
 
     -- ** ListTrackersResponseEntry
     listTrackersResponseEntry_pricingPlanDataSource,
+    listTrackersResponseEntry_pricingPlan,
     listTrackersResponseEntry_createTime,
     listTrackersResponseEntry_description,
-    listTrackersResponseEntry_pricingPlan,
     listTrackersResponseEntry_trackerName,
     listTrackersResponseEntry_updateTime,
 
@@ -578,8 +629,10 @@ module Amazonka.Location.Lens
     place_neighborhood,
     place_country,
     place_label,
+    place_timeZone,
     place_region,
     place_subRegion,
+    place_interpolated,
     place_street,
     place_municipality,
     place_geometry,
@@ -587,16 +640,44 @@ module Amazonka.Location.Lens
     -- ** PlaceGeometry
     placeGeometry_point,
 
+    -- ** PositionalAccuracy
+    positionalAccuracy_horizontal,
+
+    -- ** RouteMatrixEntry
+    routeMatrixEntry_distance,
+    routeMatrixEntry_durationSeconds,
+    routeMatrixEntry_error,
+
+    -- ** RouteMatrixEntryError
+    routeMatrixEntryError_message,
+    routeMatrixEntryError_code,
+
     -- ** SearchForPositionResult
+    searchForPositionResult_distance,
     searchForPositionResult_place,
 
+    -- ** SearchForSuggestionsResult
+    searchForSuggestionsResult_text,
+
     -- ** SearchForTextResult
+    searchForTextResult_distance,
+    searchForTextResult_relevance,
     searchForTextResult_place,
 
     -- ** SearchPlaceIndexForPositionSummary
     searchPlaceIndexForPositionSummary_maxResults,
+    searchPlaceIndexForPositionSummary_language,
     searchPlaceIndexForPositionSummary_dataSource,
     searchPlaceIndexForPositionSummary_position,
+
+    -- ** SearchPlaceIndexForSuggestionsSummary
+    searchPlaceIndexForSuggestionsSummary_filterBBox,
+    searchPlaceIndexForSuggestionsSummary_biasPosition,
+    searchPlaceIndexForSuggestionsSummary_filterCountries,
+    searchPlaceIndexForSuggestionsSummary_maxResults,
+    searchPlaceIndexForSuggestionsSummary_language,
+    searchPlaceIndexForSuggestionsSummary_dataSource,
+    searchPlaceIndexForSuggestionsSummary_text,
 
     -- ** SearchPlaceIndexForTextSummary
     searchPlaceIndexForTextSummary_filterBBox,
@@ -604,6 +685,7 @@ module Amazonka.Location.Lens
     searchPlaceIndexForTextSummary_biasPosition,
     searchPlaceIndexForTextSummary_filterCountries,
     searchPlaceIndexForTextSummary_maxResults,
+    searchPlaceIndexForTextSummary_language,
     searchPlaceIndexForTextSummary_dataSource,
     searchPlaceIndexForTextSummary_text,
 
@@ -613,6 +695,10 @@ module Amazonka.Location.Lens
     step_durationSeconds,
     step_endPosition,
     step_startPosition,
+
+    -- ** TimeZone
+    timeZone_offset,
+    timeZone_name,
 
     -- ** TruckDimensions
     truckDimensions_length,
@@ -634,6 +720,7 @@ import Amazonka.Location.BatchGetDevicePosition
 import Amazonka.Location.BatchPutGeofence
 import Amazonka.Location.BatchUpdateDevicePosition
 import Amazonka.Location.CalculateRoute
+import Amazonka.Location.CalculateRouteMatrix
 import Amazonka.Location.CreateGeofenceCollection
 import Amazonka.Location.CreateMap
 import Amazonka.Location.CreatePlaceIndex
@@ -668,6 +755,7 @@ import Amazonka.Location.ListTrackerConsumers
 import Amazonka.Location.ListTrackers
 import Amazonka.Location.PutGeofence
 import Amazonka.Location.SearchPlaceIndexForPosition
+import Amazonka.Location.SearchPlaceIndexForSuggestions
 import Amazonka.Location.SearchPlaceIndexForText
 import Amazonka.Location.TagResource
 import Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError
@@ -680,8 +768,10 @@ import Amazonka.Location.Types.BatchPutGeofenceRequestEntry
 import Amazonka.Location.Types.BatchPutGeofenceSuccess
 import Amazonka.Location.Types.BatchUpdateDevicePositionError
 import Amazonka.Location.Types.CalculateRouteCarModeOptions
+import Amazonka.Location.Types.CalculateRouteMatrixSummary
 import Amazonka.Location.Types.CalculateRouteSummary
 import Amazonka.Location.Types.CalculateRouteTruckModeOptions
+import Amazonka.Location.Types.Circle
 import Amazonka.Location.Types.DataSourceConfiguration
 import Amazonka.Location.Types.DevicePosition
 import Amazonka.Location.Types.DevicePositionUpdate
@@ -698,11 +788,17 @@ import Amazonka.Location.Types.ListTrackersResponseEntry
 import Amazonka.Location.Types.MapConfiguration
 import Amazonka.Location.Types.Place
 import Amazonka.Location.Types.PlaceGeometry
+import Amazonka.Location.Types.PositionalAccuracy
+import Amazonka.Location.Types.RouteMatrixEntry
+import Amazonka.Location.Types.RouteMatrixEntryError
 import Amazonka.Location.Types.SearchForPositionResult
+import Amazonka.Location.Types.SearchForSuggestionsResult
 import Amazonka.Location.Types.SearchForTextResult
 import Amazonka.Location.Types.SearchPlaceIndexForPositionSummary
+import Amazonka.Location.Types.SearchPlaceIndexForSuggestionsSummary
 import Amazonka.Location.Types.SearchPlaceIndexForTextSummary
 import Amazonka.Location.Types.Step
+import Amazonka.Location.Types.TimeZone
 import Amazonka.Location.Types.TruckDimensions
 import Amazonka.Location.Types.TruckWeight
 import Amazonka.Location.UntagResource

@@ -24,7 +24,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An error associated with package.
+-- | l An error associated with package.
 --
 -- /See:/ 'newPackageVersionError' smart constructor.
 data PackageVersionError = PackageVersionError'

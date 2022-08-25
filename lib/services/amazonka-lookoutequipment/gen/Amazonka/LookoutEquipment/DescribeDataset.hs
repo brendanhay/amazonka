@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides a JSON description of the data that is in each time series
--- dataset, including names, column names, and data types.
+-- Provides a JSON description of the data in each time series dataset,
+-- including names, column names, and data types.
 module Amazonka.LookoutEquipment.DescribeDataset
   ( -- * Creating a Request
     DescribeDataset (..),
@@ -35,13 +35,18 @@ module Amazonka.LookoutEquipment.DescribeDataset
     newDescribeDatasetResponse,
 
     -- * Response Lenses
+    describeDatasetResponse_dataStartTime,
     describeDatasetResponse_serverSideKmsKeyId,
+    describeDatasetResponse_roleArn,
     describeDatasetResponse_lastUpdatedAt,
+    describeDatasetResponse_dataEndTime,
     describeDatasetResponse_datasetName,
     describeDatasetResponse_status,
     describeDatasetResponse_datasetArn,
     describeDatasetResponse_ingestionInputConfiguration,
+    describeDatasetResponse_ingestedFilesSummary,
     describeDatasetResponse_schema,
+    describeDatasetResponse_dataQualitySummary,
     describeDatasetResponse_createdAt,
     describeDatasetResponse_httpStatus,
   )
@@ -90,13 +95,18 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Core..?> "ServerSideKmsKeyId")
+            Prelude.<$> (x Core..?> "DataStartTime")
+            Prelude.<*> (x Core..?> "ServerSideKmsKeyId")
+            Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "LastUpdatedAt")
+            Prelude.<*> (x Core..?> "DataEndTime")
             Prelude.<*> (x Core..?> "DatasetName")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "DatasetArn")
             Prelude.<*> (x Core..?> "IngestionInputConfiguration")
+            Prelude.<*> (x Core..?> "IngestedFilesSummary")
             Prelude.<*> (x Core..?> "Schema")
+            Prelude.<*> (x Core..?> "DataQualitySummary")
             Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -138,11 +148,22 @@ instance Core.ToQuery DescribeDataset where
 
 -- | /See:/ 'newDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { -- | Provides the identifier of the KMS key used to encrypt dataset data by
+  { -- | Indicates the earliest timestamp corresponding to data that was
+    -- successfully ingested during the most recent ingestion of this
+    -- particular dataset.
+    dataStartTime :: Prelude.Maybe Core.POSIX,
+    -- | Provides the identifier of the KMS key used to encrypt dataset data by
     -- Amazon Lookout for Equipment.
     serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that you are using for
+    -- this the data ingestion job.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time the dataset was last updated, if it was.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | Indicates the latest timestamp corresponding to data that was
+    -- successfully ingested during the most recent ingestion of this
+    -- particular dataset.
+    dataEndTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the dataset being described.
     datasetName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of the dataset.
@@ -152,11 +173,19 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- | Specifies the S3 location configuration for the data input for the data
     -- ingestion job.
     ingestionInputConfiguration :: Prelude.Maybe IngestionInputConfiguration,
+    -- | IngestedFilesSummary associated with the given dataset for the latest
+    -- successful associated ingestion job id.
+    ingestedFilesSummary :: Prelude.Maybe IngestedFilesSummary,
     -- | A JSON description of the data that is in each time series dataset,
     -- including names, column names, and data types.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the time the dataset was created in Amazon Lookout for
-    -- Equipment.
+    -- | Gives statistics associated with the given dataset for the latest
+    -- successful associated ingestion job id. These statistics primarily
+    -- relate to quantifying incorrect data such as MissingCompleteSensorData,
+    -- MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and
+    -- DuplicateTimeStamps.
+    dataQualitySummary :: Prelude.Maybe DataQualitySummary,
+    -- | Specifies the time the dataset was created in Lookout for Equipment.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -171,10 +200,21 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataStartTime', 'describeDatasetResponse_dataStartTime' - Indicates the earliest timestamp corresponding to data that was
+-- successfully ingested during the most recent ingestion of this
+-- particular dataset.
+--
 -- 'serverSideKmsKeyId', 'describeDatasetResponse_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt dataset data by
 -- Amazon Lookout for Equipment.
 --
+-- 'roleArn', 'describeDatasetResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role that you are using for
+-- this the data ingestion job.
+--
 -- 'lastUpdatedAt', 'describeDatasetResponse_lastUpdatedAt' - Specifies the time the dataset was last updated, if it was.
+--
+-- 'dataEndTime', 'describeDatasetResponse_dataEndTime' - Indicates the latest timestamp corresponding to data that was
+-- successfully ingested during the most recent ingestion of this
+-- particular dataset.
 --
 -- 'datasetName', 'describeDatasetResponse_datasetName' - The name of the dataset being described.
 --
@@ -185,11 +225,19 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- 'ingestionInputConfiguration', 'describeDatasetResponse_ingestionInputConfiguration' - Specifies the S3 location configuration for the data input for the data
 -- ingestion job.
 --
+-- 'ingestedFilesSummary', 'describeDatasetResponse_ingestedFilesSummary' - IngestedFilesSummary associated with the given dataset for the latest
+-- successful associated ingestion job id.
+--
 -- 'schema', 'describeDatasetResponse_schema' - A JSON description of the data that is in each time series dataset,
 -- including names, column names, and data types.
 --
--- 'createdAt', 'describeDatasetResponse_createdAt' - Specifies the time the dataset was created in Amazon Lookout for
--- Equipment.
+-- 'dataQualitySummary', 'describeDatasetResponse_dataQualitySummary' - Gives statistics associated with the given dataset for the latest
+-- successful associated ingestion job id. These statistics primarily
+-- relate to quantifying incorrect data such as MissingCompleteSensorData,
+-- MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and
+-- DuplicateTimeStamps.
+--
+-- 'createdAt', 'describeDatasetResponse_createdAt' - Specifies the time the dataset was created in Lookout for Equipment.
 --
 -- 'httpStatus', 'describeDatasetResponse_httpStatus' - The response's http status code.
 newDescribeDatasetResponse ::
@@ -198,26 +246,48 @@ newDescribeDatasetResponse ::
   DescribeDatasetResponse
 newDescribeDatasetResponse pHttpStatus_ =
   DescribeDatasetResponse'
-    { serverSideKmsKeyId =
+    { dataStartTime =
         Prelude.Nothing,
+      serverSideKmsKeyId = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
+      dataEndTime = Prelude.Nothing,
       datasetName = Prelude.Nothing,
       status = Prelude.Nothing,
       datasetArn = Prelude.Nothing,
       ingestionInputConfiguration = Prelude.Nothing,
+      ingestedFilesSummary = Prelude.Nothing,
       schema = Prelude.Nothing,
+      dataQualitySummary = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Indicates the earliest timestamp corresponding to data that was
+-- successfully ingested during the most recent ingestion of this
+-- particular dataset.
+describeDatasetResponse_dataStartTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetResponse_dataStartTime = Lens.lens (\DescribeDatasetResponse' {dataStartTime} -> dataStartTime) (\s@DescribeDatasetResponse' {} a -> s {dataStartTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Provides the identifier of the KMS key used to encrypt dataset data by
 -- Amazon Lookout for Equipment.
 describeDatasetResponse_serverSideKmsKeyId :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
 describeDatasetResponse_serverSideKmsKeyId = Lens.lens (\DescribeDatasetResponse' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@DescribeDatasetResponse' {} a -> s {serverSideKmsKeyId = a} :: DescribeDatasetResponse)
 
+-- | The Amazon Resource Name (ARN) of the IAM role that you are using for
+-- this the data ingestion job.
+describeDatasetResponse_roleArn :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
+describeDatasetResponse_roleArn = Lens.lens (\DescribeDatasetResponse' {roleArn} -> roleArn) (\s@DescribeDatasetResponse' {} a -> s {roleArn = a} :: DescribeDatasetResponse)
+
 -- | Specifies the time the dataset was last updated, if it was.
 describeDatasetResponse_lastUpdatedAt :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
 describeDatasetResponse_lastUpdatedAt = Lens.lens (\DescribeDatasetResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeDatasetResponse' {} a -> s {lastUpdatedAt = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Indicates the latest timestamp corresponding to data that was
+-- successfully ingested during the most recent ingestion of this
+-- particular dataset.
+describeDatasetResponse_dataEndTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetResponse_dataEndTime = Lens.lens (\DescribeDatasetResponse' {dataEndTime} -> dataEndTime) (\s@DescribeDatasetResponse' {} a -> s {dataEndTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the dataset being described.
 describeDatasetResponse_datasetName :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
@@ -236,13 +306,25 @@ describeDatasetResponse_datasetArn = Lens.lens (\DescribeDatasetResponse' {datas
 describeDatasetResponse_ingestionInputConfiguration :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe IngestionInputConfiguration)
 describeDatasetResponse_ingestionInputConfiguration = Lens.lens (\DescribeDatasetResponse' {ingestionInputConfiguration} -> ingestionInputConfiguration) (\s@DescribeDatasetResponse' {} a -> s {ingestionInputConfiguration = a} :: DescribeDatasetResponse)
 
+-- | IngestedFilesSummary associated with the given dataset for the latest
+-- successful associated ingestion job id.
+describeDatasetResponse_ingestedFilesSummary :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe IngestedFilesSummary)
+describeDatasetResponse_ingestedFilesSummary = Lens.lens (\DescribeDatasetResponse' {ingestedFilesSummary} -> ingestedFilesSummary) (\s@DescribeDatasetResponse' {} a -> s {ingestedFilesSummary = a} :: DescribeDatasetResponse)
+
 -- | A JSON description of the data that is in each time series dataset,
 -- including names, column names, and data types.
 describeDatasetResponse_schema :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
 describeDatasetResponse_schema = Lens.lens (\DescribeDatasetResponse' {schema} -> schema) (\s@DescribeDatasetResponse' {} a -> s {schema = a} :: DescribeDatasetResponse)
 
--- | Specifies the time the dataset was created in Amazon Lookout for
--- Equipment.
+-- | Gives statistics associated with the given dataset for the latest
+-- successful associated ingestion job id. These statistics primarily
+-- relate to quantifying incorrect data such as MissingCompleteSensorData,
+-- MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and
+-- DuplicateTimeStamps.
+describeDatasetResponse_dataQualitySummary :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe DataQualitySummary)
+describeDatasetResponse_dataQualitySummary = Lens.lens (\DescribeDatasetResponse' {dataQualitySummary} -> dataQualitySummary) (\s@DescribeDatasetResponse' {} a -> s {dataQualitySummary = a} :: DescribeDatasetResponse)
+
+-- | Specifies the time the dataset was created in Lookout for Equipment.
 describeDatasetResponse_createdAt :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
 describeDatasetResponse_createdAt = Lens.lens (\DescribeDatasetResponse' {createdAt} -> createdAt) (\s@DescribeDatasetResponse' {} a -> s {createdAt = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
 
@@ -252,12 +334,17 @@ describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpS
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf serverSideKmsKeyId
+    Prelude.rnf dataStartTime
+      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf dataEndTime
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf ingestionInputConfiguration
+      `Prelude.seq` Prelude.rnf ingestedFilesSummary
       `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf dataQualitySummary
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

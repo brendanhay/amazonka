@@ -55,15 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStudioComponents' smart constructor.
 data ListStudioComponents = ListStudioComponents'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The types.
-    types :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to be returned per request.
+    -- | Filters the request to studio components that are of one of the given
+    -- types.
+    types :: Prelude.Maybe [StudioComponentType],
+    -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A list of states.
-    states :: Prelude.Maybe [Prelude.Text],
+    -- | Filters the request to studio components that are in one of the given
+    -- states.
+    states :: Prelude.Maybe [StudioComponentState],
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -77,14 +78,15 @@ data ListStudioComponents = ListStudioComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStudioComponents_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listStudioComponents_nextToken' - The token to request the next page of results.
 --
--- 'types', 'listStudioComponents_types' - The types.
+-- 'types', 'listStudioComponents_types' - Filters the request to studio components that are of one of the given
+-- types.
 --
--- 'maxResults', 'listStudioComponents_maxResults' - The maximum number of results to be returned per request.
+-- 'maxResults', 'listStudioComponents_maxResults' - The max number of results to return in the response.
 --
--- 'states', 'listStudioComponents_states' - A list of states.
+-- 'states', 'listStudioComponents_states' - Filters the request to studio components that are in one of the given
+-- states.
 --
 -- 'studioId', 'listStudioComponents_studioId' - The studio ID.
 newListStudioComponents ::
@@ -100,21 +102,22 @@ newListStudioComponents pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listStudioComponents_nextToken :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Text)
 listStudioComponents_nextToken = Lens.lens (\ListStudioComponents' {nextToken} -> nextToken) (\s@ListStudioComponents' {} a -> s {nextToken = a} :: ListStudioComponents)
 
--- | The types.
-listStudioComponents_types :: Lens.Lens' ListStudioComponents (Prelude.Maybe [Prelude.Text])
+-- | Filters the request to studio components that are of one of the given
+-- types.
+listStudioComponents_types :: Lens.Lens' ListStudioComponents (Prelude.Maybe [StudioComponentType])
 listStudioComponents_types = Lens.lens (\ListStudioComponents' {types} -> types) (\s@ListStudioComponents' {} a -> s {types = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to be returned per request.
+-- | The max number of results to return in the response.
 listStudioComponents_maxResults :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Natural)
 listStudioComponents_maxResults = Lens.lens (\ListStudioComponents' {maxResults} -> maxResults) (\s@ListStudioComponents' {} a -> s {maxResults = a} :: ListStudioComponents)
 
--- | A list of states.
-listStudioComponents_states :: Lens.Lens' ListStudioComponents (Prelude.Maybe [Prelude.Text])
+-- | Filters the request to studio components that are in one of the given
+-- states.
+listStudioComponents_states :: Lens.Lens' ListStudioComponents (Prelude.Maybe [StudioComponentState])
 listStudioComponents_states = Lens.lens (\ListStudioComponents' {states} -> states) (\s@ListStudioComponents' {} a -> s {states = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
@@ -217,7 +220,7 @@ data ListStudioComponentsResponse = ListStudioComponentsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStudioComponentsResponse' with all optional fields omitted.

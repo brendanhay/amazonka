@@ -64,6 +64,13 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     attributeGroup_creationTime,
     attributeGroup_lastUpdateTime,
 
+    -- * AttributeGroupDetails
+    AttributeGroupDetails (..),
+    newAttributeGroupDetails,
+    attributeGroupDetails_name,
+    attributeGroupDetails_arn,
+    attributeGroupDetails_id,
+
     -- * AttributeGroupSummary
     AttributeGroupSummary (..),
     newAttributeGroupSummary,
@@ -113,6 +120,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.Application
 import Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
 import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupDetails
 import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
 import Amazonka.ServiceCatalogAppRegistry.Types.Integrations
 import Amazonka.ServiceCatalogAppRegistry.Types.Resource

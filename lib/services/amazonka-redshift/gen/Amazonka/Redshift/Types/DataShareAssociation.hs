@@ -38,7 +38,10 @@ data DataShareAssociation = DataShareAssociation'
     -- | The status of the datashare that is associated.
     status :: Prelude.Maybe DataShareStatus,
     -- | The creation date of the datashare that is associated.
-    createdDate :: Prelude.Maybe Core.ISO8601
+    createdDate :: Prelude.Maybe Core.ISO8601,
+    -- | The Amazon Web Services Region of the consumer accounts that have an
+    -- association with a producer datashare.
+    consumerRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +61,9 @@ data DataShareAssociation = DataShareAssociation'
 -- 'status', 'dataShareAssociation_status' - The status of the datashare that is associated.
 --
 -- 'createdDate', 'dataShareAssociation_createdDate' - The creation date of the datashare that is associated.
+--
+-- 'consumerRegion', 'dataShareAssociation_consumerRegion' - The Amazon Web Services Region of the consumer accounts that have an
+-- association with a producer datashare.
 newDataShareAssociation ::
   DataShareAssociation
 newDataShareAssociation =
@@ -66,7 +72,8 @@ newDataShareAssociation =
         Prelude.Nothing,
       statusChangeDate = Prelude.Nothing,
       status = Prelude.Nothing,
-      createdDate = Prelude.Nothing
+      createdDate = Prelude.Nothing,
+      consumerRegion = Prelude.Nothing
     }
 
 -- | The name of the consumer accounts that have an association with a
@@ -86,6 +93,11 @@ dataShareAssociation_status = Lens.lens (\DataShareAssociation' {status} -> stat
 dataShareAssociation_createdDate :: Lens.Lens' DataShareAssociation (Prelude.Maybe Prelude.UTCTime)
 dataShareAssociation_createdDate = Lens.lens (\DataShareAssociation' {createdDate} -> createdDate) (\s@DataShareAssociation' {} a -> s {createdDate = a} :: DataShareAssociation) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Web Services Region of the consumer accounts that have an
+-- association with a producer datashare.
+dataShareAssociation_consumerRegion :: Lens.Lens' DataShareAssociation (Prelude.Maybe Prelude.Text)
+dataShareAssociation_consumerRegion = Lens.lens (\DataShareAssociation' {consumerRegion} -> consumerRegion) (\s@DataShareAssociation' {} a -> s {consumerRegion = a} :: DataShareAssociation)
+
 instance Core.FromXML DataShareAssociation where
   parseXML x =
     DataShareAssociation'
@@ -93,6 +105,7 @@ instance Core.FromXML DataShareAssociation where
       Prelude.<*> (x Core..@? "StatusChangeDate")
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CreatedDate")
+      Prelude.<*> (x Core..@? "ConsumerRegion")
 
 instance Prelude.Hashable DataShareAssociation where
   hashWithSalt _salt DataShareAssociation' {..} =
@@ -100,6 +113,7 @@ instance Prelude.Hashable DataShareAssociation where
       `Prelude.hashWithSalt` statusChangeDate
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` consumerRegion
 
 instance Prelude.NFData DataShareAssociation where
   rnf DataShareAssociation' {..} =
@@ -107,3 +121,4 @@ instance Prelude.NFData DataShareAssociation where
       `Prelude.seq` Prelude.rnf statusChangeDate
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf consumerRegion

@@ -23,10 +23,10 @@
 -- Returns the template body for a specified stack. You can get the
 -- template for running or deleted stacks.
 --
--- For deleted stacks, GetTemplate returns the template for up to 90 days
+-- For deleted stacks, @GetTemplate@ returns the template for up to 90 days
 -- after the stack has been deleted.
 --
--- If the template does not exist, a @ValidationError@ is returned.
+-- If the template doesn\'t exist, a @ValidationError@ is returned.
 module Amazonka.CloudFormation.GetTemplate
   ( -- * Creating a Request
     GetTemplate (..),
@@ -72,8 +72,8 @@ data GetTemplate = GetTemplate'
     -- CloudFormation returns the associated template. If you specify a name,
     -- you must also specify the @StackName@.
     changeSetName :: Prelude.Maybe Prelude.Text,
-    -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
+    -- | The name or the unique stack ID that\'s associated with the stack, which
+    -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
     --     unique stack ID.
@@ -106,8 +106,8 @@ data GetTemplate = GetTemplate'
 -- CloudFormation returns the associated template. If you specify a name,
 -- you must also specify the @StackName@.
 --
--- 'stackName', 'getTemplate_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- 'stackName', 'getTemplate_stackName' - The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -141,8 +141,8 @@ getTemplate_templateStage = Lens.lens (\GetTemplate' {templateStage} -> template
 getTemplate_changeSetName :: Lens.Lens' GetTemplate (Prelude.Maybe Prelude.Text)
 getTemplate_changeSetName = Lens.lens (\GetTemplate' {changeSetName} -> changeSetName) (\s@GetTemplate' {} a -> s {changeSetName = a} :: GetTemplate)
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.

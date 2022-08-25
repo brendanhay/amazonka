@@ -21,18 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates an activation code and activation ID you can use to register
--- your on-premises server or virtual machine (VM) with Amazon Web Services
--- Systems Manager. Registering these machines with Systems Manager makes
--- it possible to manage them using Systems Manager capabilities. You use
--- the activation code and ID when installing SSM Agent on machines in your
--- hybrid environment. For more information about requirements for managing
--- on-premises instances and VMs using Systems Manager, see
+-- your on-premises servers, edge devices, or virtual machine (VM) with
+-- Amazon Web Services Systems Manager. Registering these machines with
+-- Systems Manager makes it possible to manage them using Systems Manager
+-- capabilities. You use the activation code and ID when installing SSM
+-- Agent on machines in your hybrid environment. For more information about
+-- requirements for managing on-premises machines using Systems Manager,
+-- see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html Setting up Amazon Web Services Systems Manager for hybrid environments>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- On-premises servers or VMs that are registered with Systems Manager and
--- Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage with
--- Systems Manager are all called /managed instances/.
+-- Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and
+-- on-premises servers and VMs that are configured for Systems Manager are
+-- all called /managed nodes/.
 module Amazonka.SSM.CreateActivation
   ( -- * Creating a Request
     CreateActivation (..),
@@ -42,6 +43,7 @@ module Amazonka.SSM.CreateActivation
     createActivation_tags,
     createActivation_defaultInstanceName,
     createActivation_description,
+    createActivation_registrationMetadata,
     createActivation_registrationLimit,
     createActivation_expirationDate,
     createActivation_iamRole,
@@ -83,17 +85,17 @@ data CreateActivation = CreateActivation'
     -- the on-premises servers or VMs.
     --
     -- You can\'t add tags to or delete tags from an existing activation. You
-    -- can tag your on-premises servers and VMs after they connect to Systems
-    -- Manager for the first time and are assigned a managed instance ID. This
-    -- means they are listed in the Amazon Web Services Systems Manager console
-    -- with an ID that is prefixed with \"mi-\". For information about how to
-    -- add tags to your managed instances, see AddTagsToResource. For
-    -- information about how to remove tags from your managed instances, see
-    -- RemoveTagsFromResource.
+    -- can tag your on-premises servers, edge devices, and VMs after they
+    -- connect to Systems Manager for the first time and are assigned a managed
+    -- node ID. This means they are listed in the Amazon Web Services Systems
+    -- Manager console with an ID that is prefixed with \"mi-\". For
+    -- information about how to add tags to your managed nodes, see
+    -- AddTagsToResource. For information about how to remove tags from your
+    -- managed nodes, see RemoveTagsFromResource.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the registered, managed instance as it will appear in the
-    -- Amazon Web Services Systems Manager console or when you use the Amazon
-    -- Web Services command line tools to list Systems Manager resources.
+    -- | The name of the registered, managed node as it will appear in the Amazon
+    -- Web Services Systems Manager console or when you use the Amazon Web
+    -- Services command line tools to list Systems Manager resources.
     --
     -- Don\'t enter personally identifiable information in this field.
     defaultInstanceName :: Prelude.Maybe Prelude.Text,
@@ -102,8 +104,10 @@ data CreateActivation = CreateActivation'
     --
     -- Don\'t enter personally identifiable information in this field.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Specify the maximum number of managed instances you want to register.
-    -- The default value is @1@.
+    -- | Reserved for internal use.
+    registrationMetadata :: Prelude.Maybe [RegistrationMetadataItem],
+    -- | Specify the maximum number of managed nodes you want to register. The
+    -- default value is @1@.
     registrationLimit :: Prelude.Maybe Prelude.Natural,
     -- | The date by which this activation request should expire, in timestamp
     -- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
@@ -111,7 +115,7 @@ data CreateActivation = CreateActivation'
     -- activation code expires in 24 hours.
     expirationDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the Identity and Access Management (IAM) role that you want
-    -- to assign to the managed instance. This IAM role must provide AssumeRole
+    -- to assign to the managed node. This IAM role must provide AssumeRole
     -- permissions for the Amazon Web Services Systems Manager service
     -- principal @ssm.amazonaws.com@. For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
@@ -145,17 +149,17 @@ data CreateActivation = CreateActivation'
 -- the on-premises servers or VMs.
 --
 -- You can\'t add tags to or delete tags from an existing activation. You
--- can tag your on-premises servers and VMs after they connect to Systems
--- Manager for the first time and are assigned a managed instance ID. This
--- means they are listed in the Amazon Web Services Systems Manager console
--- with an ID that is prefixed with \"mi-\". For information about how to
--- add tags to your managed instances, see AddTagsToResource. For
--- information about how to remove tags from your managed instances, see
--- RemoveTagsFromResource.
+-- can tag your on-premises servers, edge devices, and VMs after they
+-- connect to Systems Manager for the first time and are assigned a managed
+-- node ID. This means they are listed in the Amazon Web Services Systems
+-- Manager console with an ID that is prefixed with \"mi-\". For
+-- information about how to add tags to your managed nodes, see
+-- AddTagsToResource. For information about how to remove tags from your
+-- managed nodes, see RemoveTagsFromResource.
 --
--- 'defaultInstanceName', 'createActivation_defaultInstanceName' - The name of the registered, managed instance as it will appear in the
--- Amazon Web Services Systems Manager console or when you use the Amazon
--- Web Services command line tools to list Systems Manager resources.
+-- 'defaultInstanceName', 'createActivation_defaultInstanceName' - The name of the registered, managed node as it will appear in the Amazon
+-- Web Services Systems Manager console or when you use the Amazon Web
+-- Services command line tools to list Systems Manager resources.
 --
 -- Don\'t enter personally identifiable information in this field.
 --
@@ -164,8 +168,10 @@ data CreateActivation = CreateActivation'
 --
 -- Don\'t enter personally identifiable information in this field.
 --
--- 'registrationLimit', 'createActivation_registrationLimit' - Specify the maximum number of managed instances you want to register.
--- The default value is @1@.
+-- 'registrationMetadata', 'createActivation_registrationMetadata' - Reserved for internal use.
+--
+-- 'registrationLimit', 'createActivation_registrationLimit' - Specify the maximum number of managed nodes you want to register. The
+-- default value is @1@.
 --
 -- 'expirationDate', 'createActivation_expirationDate' - The date by which this activation request should expire, in timestamp
 -- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
@@ -173,7 +179,7 @@ data CreateActivation = CreateActivation'
 -- activation code expires in 24 hours.
 --
 -- 'iamRole', 'createActivation_iamRole' - The name of the Identity and Access Management (IAM) role that you want
--- to assign to the managed instance. This IAM role must provide AssumeRole
+-- to assign to the managed node. This IAM role must provide AssumeRole
 -- permissions for the Amazon Web Services Systems Manager service
 -- principal @ssm.amazonaws.com@. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
@@ -187,6 +193,7 @@ newCreateActivation pIamRole_ =
     { tags = Prelude.Nothing,
       defaultInstanceName = Prelude.Nothing,
       description = Prelude.Nothing,
+      registrationMetadata = Prelude.Nothing,
       registrationLimit = Prelude.Nothing,
       expirationDate = Prelude.Nothing,
       iamRole = pIamRole_
@@ -209,19 +216,19 @@ newCreateActivation pIamRole_ =
 -- the on-premises servers or VMs.
 --
 -- You can\'t add tags to or delete tags from an existing activation. You
--- can tag your on-premises servers and VMs after they connect to Systems
--- Manager for the first time and are assigned a managed instance ID. This
--- means they are listed in the Amazon Web Services Systems Manager console
--- with an ID that is prefixed with \"mi-\". For information about how to
--- add tags to your managed instances, see AddTagsToResource. For
--- information about how to remove tags from your managed instances, see
--- RemoveTagsFromResource.
+-- can tag your on-premises servers, edge devices, and VMs after they
+-- connect to Systems Manager for the first time and are assigned a managed
+-- node ID. This means they are listed in the Amazon Web Services Systems
+-- Manager console with an ID that is prefixed with \"mi-\". For
+-- information about how to add tags to your managed nodes, see
+-- AddTagsToResource. For information about how to remove tags from your
+-- managed nodes, see RemoveTagsFromResource.
 createActivation_tags :: Lens.Lens' CreateActivation (Prelude.Maybe [Tag])
 createActivation_tags = Lens.lens (\CreateActivation' {tags} -> tags) (\s@CreateActivation' {} a -> s {tags = a} :: CreateActivation) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the registered, managed instance as it will appear in the
--- Amazon Web Services Systems Manager console or when you use the Amazon
--- Web Services command line tools to list Systems Manager resources.
+-- | The name of the registered, managed node as it will appear in the Amazon
+-- Web Services Systems Manager console or when you use the Amazon Web
+-- Services command line tools to list Systems Manager resources.
 --
 -- Don\'t enter personally identifiable information in this field.
 createActivation_defaultInstanceName :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Text)
@@ -234,8 +241,12 @@ createActivation_defaultInstanceName = Lens.lens (\CreateActivation' {defaultIns
 createActivation_description :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Text)
 createActivation_description = Lens.lens (\CreateActivation' {description} -> description) (\s@CreateActivation' {} a -> s {description = a} :: CreateActivation)
 
--- | Specify the maximum number of managed instances you want to register.
--- The default value is @1@.
+-- | Reserved for internal use.
+createActivation_registrationMetadata :: Lens.Lens' CreateActivation (Prelude.Maybe [RegistrationMetadataItem])
+createActivation_registrationMetadata = Lens.lens (\CreateActivation' {registrationMetadata} -> registrationMetadata) (\s@CreateActivation' {} a -> s {registrationMetadata = a} :: CreateActivation) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify the maximum number of managed nodes you want to register. The
+-- default value is @1@.
 createActivation_registrationLimit :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Natural)
 createActivation_registrationLimit = Lens.lens (\CreateActivation' {registrationLimit} -> registrationLimit) (\s@CreateActivation' {} a -> s {registrationLimit = a} :: CreateActivation)
 
@@ -247,7 +258,7 @@ createActivation_expirationDate :: Lens.Lens' CreateActivation (Prelude.Maybe Pr
 createActivation_expirationDate = Lens.lens (\CreateActivation' {expirationDate} -> expirationDate) (\s@CreateActivation' {} a -> s {expirationDate = a} :: CreateActivation) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the Identity and Access Management (IAM) role that you want
--- to assign to the managed instance. This IAM role must provide AssumeRole
+-- to assign to the managed node. This IAM role must provide AssumeRole
 -- permissions for the Amazon Web Services Systems Manager service
 -- principal @ssm.amazonaws.com@. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment>
@@ -274,6 +285,7 @@ instance Prelude.Hashable CreateActivation where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` defaultInstanceName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` registrationMetadata
       `Prelude.hashWithSalt` registrationLimit
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` iamRole
@@ -283,6 +295,7 @@ instance Prelude.NFData CreateActivation where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf defaultInstanceName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registrationMetadata
       `Prelude.seq` Prelude.rnf registrationLimit
       `Prelude.seq` Prelude.rnf expirationDate
       `Prelude.seq` Prelude.rnf iamRole
@@ -308,6 +321,8 @@ instance Core.ToJSON CreateActivation where
             ("DefaultInstanceName" Core..=)
               Prelude.<$> defaultInstanceName,
             ("Description" Core..=) Prelude.<$> description,
+            ("RegistrationMetadata" Core..=)
+              Prelude.<$> registrationMetadata,
             ("RegistrationLimit" Core..=)
               Prelude.<$> registrationLimit,
             ("ExpirationDate" Core..=)

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
 import Amazonka.Kafka.Types.ClientAuthentication
 import Amazonka.Kafka.Types.ConfigurationInfo
+import Amazonka.Kafka.Types.ConnectivityInfo
 import Amazonka.Kafka.Types.EncryptionInfo
 import Amazonka.Kafka.Types.EnhancedMonitoring
 import Amazonka.Kafka.Types.LoggingInfo
@@ -37,6 +38,8 @@ import qualified Amazonka.Prelude as Prelude
 data MutableClusterInfo = MutableClusterInfo'
   { -- | The settings for open monitoring.
     openMonitoring :: Prelude.Maybe OpenMonitoring,
+    -- | Information about the broker access configuration.
+    connectivityInfo :: Prelude.Maybe ConnectivityInfo,
     -- | Includes all encryption-related information.
     encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | The number of broker nodes in the cluster.
@@ -54,7 +57,7 @@ data MutableClusterInfo = MutableClusterInfo'
     loggingInfo :: Prelude.Maybe LoggingInfo,
     -- | Information about the changes in the configuration of the brokers.
     configurationInfo :: Prelude.Maybe ConfigurationInfo,
-    -- | The Kafka version.
+    -- | The Apache Kafka version.
     kafkaVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
     -- Amazon CloudWatch for this cluster.
@@ -71,6 +74,8 @@ data MutableClusterInfo = MutableClusterInfo'
 -- for backwards compatibility:
 --
 -- 'openMonitoring', 'mutableClusterInfo_openMonitoring' - The settings for open monitoring.
+--
+-- 'connectivityInfo', 'mutableClusterInfo_connectivityInfo' - Information about the broker access configuration.
 --
 -- 'encryptionInfo', 'mutableClusterInfo_encryptionInfo' - Includes all encryption-related information.
 --
@@ -89,7 +94,7 @@ data MutableClusterInfo = MutableClusterInfo'
 --
 -- 'configurationInfo', 'mutableClusterInfo_configurationInfo' - Information about the changes in the configuration of the brokers.
 --
--- 'kafkaVersion', 'mutableClusterInfo_kafkaVersion' - The Kafka version.
+-- 'kafkaVersion', 'mutableClusterInfo_kafkaVersion' - The Apache Kafka version.
 --
 -- 'enhancedMonitoring', 'mutableClusterInfo_enhancedMonitoring' - Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
 -- Amazon CloudWatch for this cluster.
@@ -99,6 +104,7 @@ newMutableClusterInfo =
   MutableClusterInfo'
     { openMonitoring =
         Prelude.Nothing,
+      connectivityInfo = Prelude.Nothing,
       encryptionInfo = Prelude.Nothing,
       numberOfBrokerNodes = Prelude.Nothing,
       clientAuthentication = Prelude.Nothing,
@@ -113,6 +119,10 @@ newMutableClusterInfo =
 -- | The settings for open monitoring.
 mutableClusterInfo_openMonitoring :: Lens.Lens' MutableClusterInfo (Prelude.Maybe OpenMonitoring)
 mutableClusterInfo_openMonitoring = Lens.lens (\MutableClusterInfo' {openMonitoring} -> openMonitoring) (\s@MutableClusterInfo' {} a -> s {openMonitoring = a} :: MutableClusterInfo)
+
+-- | Information about the broker access configuration.
+mutableClusterInfo_connectivityInfo :: Lens.Lens' MutableClusterInfo (Prelude.Maybe ConnectivityInfo)
+mutableClusterInfo_connectivityInfo = Lens.lens (\MutableClusterInfo' {connectivityInfo} -> connectivityInfo) (\s@MutableClusterInfo' {} a -> s {connectivityInfo = a} :: MutableClusterInfo)
 
 -- | Includes all encryption-related information.
 mutableClusterInfo_encryptionInfo :: Lens.Lens' MutableClusterInfo (Prelude.Maybe EncryptionInfo)
@@ -145,7 +155,7 @@ mutableClusterInfo_loggingInfo = Lens.lens (\MutableClusterInfo' {loggingInfo} -
 mutableClusterInfo_configurationInfo :: Lens.Lens' MutableClusterInfo (Prelude.Maybe ConfigurationInfo)
 mutableClusterInfo_configurationInfo = Lens.lens (\MutableClusterInfo' {configurationInfo} -> configurationInfo) (\s@MutableClusterInfo' {} a -> s {configurationInfo = a} :: MutableClusterInfo)
 
--- | The Kafka version.
+-- | The Apache Kafka version.
 mutableClusterInfo_kafkaVersion :: Lens.Lens' MutableClusterInfo (Prelude.Maybe Prelude.Text)
 mutableClusterInfo_kafkaVersion = Lens.lens (\MutableClusterInfo' {kafkaVersion} -> kafkaVersion) (\s@MutableClusterInfo' {} a -> s {kafkaVersion = a} :: MutableClusterInfo)
 
@@ -161,6 +171,7 @@ instance Core.FromJSON MutableClusterInfo where
       ( \x ->
           MutableClusterInfo'
             Prelude.<$> (x Core..:? "openMonitoring")
+            Prelude.<*> (x Core..:? "connectivityInfo")
             Prelude.<*> (x Core..:? "encryptionInfo")
             Prelude.<*> (x Core..:? "numberOfBrokerNodes")
             Prelude.<*> (x Core..:? "clientAuthentication")
@@ -177,6 +188,7 @@ instance Core.FromJSON MutableClusterInfo where
 instance Prelude.Hashable MutableClusterInfo where
   hashWithSalt _salt MutableClusterInfo' {..} =
     _salt `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` connectivityInfo
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` numberOfBrokerNodes
       `Prelude.hashWithSalt` clientAuthentication
@@ -190,6 +202,7 @@ instance Prelude.Hashable MutableClusterInfo where
 instance Prelude.NFData MutableClusterInfo where
   rnf MutableClusterInfo' {..} =
     Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf connectivityInfo
       `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf numberOfBrokerNodes
       `Prelude.seq` Prelude.rnf clientAuthentication

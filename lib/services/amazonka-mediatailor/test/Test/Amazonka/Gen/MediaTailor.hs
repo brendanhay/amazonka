@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestCreateChannel $
 --             newCreateChannel
 --
+--         , requestCreateLiveSource $
+--             newCreateLiveSource
+--
 --         , requestCreatePrefetchSchedule $
 --             newCreatePrefetchSchedule
 --
@@ -51,6 +54,9 @@ import Test.Tasty
 --         , requestDeleteChannelPolicy $
 --             newDeleteChannelPolicy
 --
+--         , requestDeleteLiveSource $
+--             newDeleteLiveSource
+--
 --         , requestDeletePlaybackConfiguration $
 --             newDeletePlaybackConfiguration
 --
@@ -68,6 +74,9 @@ import Test.Tasty
 --
 --         , requestDescribeChannel $
 --             newDescribeChannel
+--
+--         , requestDescribeLiveSource $
+--             newDescribeLiveSource
 --
 --         , requestDescribeProgram $
 --             newDescribeProgram
@@ -95,6 +104,9 @@ import Test.Tasty
 --
 --         , requestListChannels $
 --             newListChannels
+--
+--         , requestListLiveSources $
+--             newListLiveSources
 --
 --         , requestListPlaybackConfigurations $
 --             newListPlaybackConfigurations
@@ -132,6 +144,9 @@ import Test.Tasty
 --         , requestUpdateChannel $
 --             newUpdateChannel
 --
+--         , requestUpdateLiveSource $
+--             newUpdateLiveSource
+--
 --         , requestUpdateSourceLocation $
 --             newUpdateSourceLocation
 --
@@ -146,6 +161,9 @@ import Test.Tasty
 --
 --         , responseCreateChannel $
 --             newCreateChannelResponse
+--
+--         , responseCreateLiveSource $
+--             newCreateLiveSourceResponse
 --
 --         , responseCreatePrefetchSchedule $
 --             newCreatePrefetchScheduleResponse
@@ -165,6 +183,9 @@ import Test.Tasty
 --         , responseDeleteChannelPolicy $
 --             newDeleteChannelPolicyResponse
 --
+--         , responseDeleteLiveSource $
+--             newDeleteLiveSourceResponse
+--
 --         , responseDeletePlaybackConfiguration $
 --             newDeletePlaybackConfigurationResponse
 --
@@ -182,6 +203,9 @@ import Test.Tasty
 --
 --         , responseDescribeChannel $
 --             newDescribeChannelResponse
+--
+--         , responseDescribeLiveSource $
+--             newDescribeLiveSourceResponse
 --
 --         , responseDescribeProgram $
 --             newDescribeProgramResponse
@@ -209,6 +233,9 @@ import Test.Tasty
 --
 --         , responseListChannels $
 --             newListChannelsResponse
+--
+--         , responseListLiveSources $
+--             newListLiveSourcesResponse
 --
 --         , responseListPlaybackConfigurations $
 --             newListPlaybackConfigurationsResponse
@@ -246,6 +273,9 @@ import Test.Tasty
 --         , responseUpdateChannel $
 --             newUpdateChannelResponse
 --
+--         , responseUpdateLiveSource $
+--             newUpdateLiveSourceResponse
+--
 --         , responseUpdateSourceLocation $
 --             newUpdateSourceLocationResponse
 --
@@ -268,6 +298,12 @@ requestCreateChannel =
   req
     "CreateChannel"
     "fixture/CreateChannel.yaml"
+
+requestCreateLiveSource :: CreateLiveSource -> TestTree
+requestCreateLiveSource =
+  req
+    "CreateLiveSource"
+    "fixture/CreateLiveSource.yaml"
 
 requestCreatePrefetchSchedule :: CreatePrefetchSchedule -> TestTree
 requestCreatePrefetchSchedule =
@@ -305,6 +341,12 @@ requestDeleteChannelPolicy =
     "DeleteChannelPolicy"
     "fixture/DeleteChannelPolicy.yaml"
 
+requestDeleteLiveSource :: DeleteLiveSource -> TestTree
+requestDeleteLiveSource =
+  req
+    "DeleteLiveSource"
+    "fixture/DeleteLiveSource.yaml"
+
 requestDeletePlaybackConfiguration :: DeletePlaybackConfiguration -> TestTree
 requestDeletePlaybackConfiguration =
   req
@@ -340,6 +382,12 @@ requestDescribeChannel =
   req
     "DescribeChannel"
     "fixture/DescribeChannel.yaml"
+
+requestDescribeLiveSource :: DescribeLiveSource -> TestTree
+requestDescribeLiveSource =
+  req
+    "DescribeLiveSource"
+    "fixture/DescribeLiveSource.yaml"
 
 requestDescribeProgram :: DescribeProgram -> TestTree
 requestDescribeProgram =
@@ -394,6 +442,12 @@ requestListChannels =
   req
     "ListChannels"
     "fixture/ListChannels.yaml"
+
+requestListLiveSources :: ListLiveSources -> TestTree
+requestListLiveSources =
+  req
+    "ListLiveSources"
+    "fixture/ListLiveSources.yaml"
 
 requestListPlaybackConfigurations :: ListPlaybackConfigurations -> TestTree
 requestListPlaybackConfigurations =
@@ -467,6 +521,12 @@ requestUpdateChannel =
     "UpdateChannel"
     "fixture/UpdateChannel.yaml"
 
+requestUpdateLiveSource :: UpdateLiveSource -> TestTree
+requestUpdateLiveSource =
+  req
+    "UpdateLiveSource"
+    "fixture/UpdateLiveSource.yaml"
+
 requestUpdateSourceLocation :: UpdateSourceLocation -> TestTree
 requestUpdateSourceLocation =
   req
@@ -496,6 +556,14 @@ responseCreateChannel =
     "fixture/CreateChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+
+responseCreateLiveSource :: CreateLiveSourceResponse -> TestTree
+responseCreateLiveSource =
+  res
+    "CreateLiveSourceResponse"
+    "fixture/CreateLiveSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLiveSource)
 
 responseCreatePrefetchSchedule :: CreatePrefetchScheduleResponse -> TestTree
 responseCreatePrefetchSchedule =
@@ -545,6 +613,14 @@ responseDeleteChannelPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteChannelPolicy)
 
+responseDeleteLiveSource :: DeleteLiveSourceResponse -> TestTree
+responseDeleteLiveSource =
+  res
+    "DeleteLiveSourceResponse"
+    "fixture/DeleteLiveSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLiveSource)
+
 responseDeletePlaybackConfiguration :: DeletePlaybackConfigurationResponse -> TestTree
 responseDeletePlaybackConfiguration =
   res
@@ -592,6 +668,14 @@ responseDescribeChannel =
     "fixture/DescribeChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
+
+responseDescribeLiveSource :: DescribeLiveSourceResponse -> TestTree
+responseDescribeLiveSource =
+  res
+    "DescribeLiveSourceResponse"
+    "fixture/DescribeLiveSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLiveSource)
 
 responseDescribeProgram :: DescribeProgramResponse -> TestTree
 responseDescribeProgram =
@@ -664,6 +748,14 @@ responseListChannels =
     "fixture/ListChannelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListChannels)
+
+responseListLiveSources :: ListLiveSourcesResponse -> TestTree
+responseListLiveSources =
+  res
+    "ListLiveSourcesResponse"
+    "fixture/ListLiveSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLiveSources)
 
 responseListPlaybackConfigurations :: ListPlaybackConfigurationsResponse -> TestTree
 responseListPlaybackConfigurations =
@@ -760,6 +852,14 @@ responseUpdateChannel =
     "fixture/UpdateChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
+
+responseUpdateLiveSource :: UpdateLiveSourceResponse -> TestTree
+responseUpdateLiveSource =
+  res
+    "UpdateLiveSourceResponse"
+    "fixture/UpdateLiveSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLiveSource)
 
 responseUpdateSourceLocation :: UpdateSourceLocationResponse -> TestTree
 responseUpdateSourceLocation =

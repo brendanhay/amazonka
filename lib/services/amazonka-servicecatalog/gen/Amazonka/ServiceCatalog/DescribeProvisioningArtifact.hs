@@ -220,7 +220,8 @@ instance Core.ToQuery DescribeProvisioningArtifact where
 
 -- | /See:/ 'newDescribeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-  { -- | The URL of the CloudFormation template in Amazon S3.
+  { -- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+    -- CodeCommit, or GitHub in JSON format.
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The status of the current request.
     status :: Prelude.Maybe RequestStatus,
@@ -239,7 +240,8 @@ data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'info', 'describeProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3.
+-- 'info', 'describeProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format.
 --
 -- 'status', 'describeProvisioningArtifactResponse_status' - The status of the current request.
 --
@@ -260,7 +262,8 @@ newDescribeProvisioningArtifactResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The URL of the CloudFormation template in Amazon S3.
+-- | The URL of the CloudFormation template in Amazon S3, Amazon Web Services
+-- CodeCommit, or GitHub in JSON format.
 describeProvisioningArtifactResponse_info :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeProvisioningArtifactResponse_info = Lens.lens (\DescribeProvisioningArtifactResponse' {info} -> info) (\s@DescribeProvisioningArtifactResponse' {} a -> s {info = a} :: DescribeProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 

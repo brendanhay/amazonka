@@ -16,6 +16,7 @@ module Amazonka.Textract.Lens
 
     -- ** AnalyzeDocument
     analyzeDocument_humanLoopConfig,
+    analyzeDocument_queriesConfig,
     analyzeDocument_document,
     analyzeDocument_featureTypes,
     analyzeDocumentResponse_humanLoopActivationOutput,
@@ -29,6 +30,13 @@ module Amazonka.Textract.Lens
     analyzeExpenseResponse_documentMetadata,
     analyzeExpenseResponse_expenseDocuments,
     analyzeExpenseResponse_httpStatus,
+
+    -- ** AnalyzeID
+    analyzeID_documentPages,
+    analyzeIDResponse_identityDocuments,
+    analyzeIDResponse_documentMetadata,
+    analyzeIDResponse_analyzeIDModelVersion,
+    analyzeIDResponse_httpStatus,
 
     -- ** DetectDocumentText
     detectDocumentText_document,
@@ -63,8 +71,22 @@ module Amazonka.Textract.Lens
     getDocumentTextDetectionResponse_blocks,
     getDocumentTextDetectionResponse_httpStatus,
 
+    -- ** GetExpenseAnalysis
+    getExpenseAnalysis_nextToken,
+    getExpenseAnalysis_maxResults,
+    getExpenseAnalysis_jobId,
+    getExpenseAnalysisResponse_analyzeExpenseModelVersion,
+    getExpenseAnalysisResponse_nextToken,
+    getExpenseAnalysisResponse_jobStatus,
+    getExpenseAnalysisResponse_documentMetadata,
+    getExpenseAnalysisResponse_expenseDocuments,
+    getExpenseAnalysisResponse_warnings,
+    getExpenseAnalysisResponse_statusMessage,
+    getExpenseAnalysisResponse_httpStatus,
+
     -- ** StartDocumentAnalysis
     startDocumentAnalysis_clientRequestToken,
+    startDocumentAnalysis_queriesConfig,
     startDocumentAnalysis_kmsKeyId,
     startDocumentAnalysis_jobTag,
     startDocumentAnalysis_outputConfig,
@@ -84,7 +106,22 @@ module Amazonka.Textract.Lens
     startDocumentTextDetectionResponse_jobId,
     startDocumentTextDetectionResponse_httpStatus,
 
+    -- ** StartExpenseAnalysis
+    startExpenseAnalysis_clientRequestToken,
+    startExpenseAnalysis_kmsKeyId,
+    startExpenseAnalysis_jobTag,
+    startExpenseAnalysis_outputConfig,
+    startExpenseAnalysis_notificationChannel,
+    startExpenseAnalysis_documentLocation,
+    startExpenseAnalysisResponse_jobId,
+    startExpenseAnalysisResponse_httpStatus,
+
     -- * Types
+
+    -- ** AnalyzeIDDetections
+    analyzeIDDetections_confidence,
+    analyzeIDDetections_normalizedValue,
+    analyzeIDDetections_text,
 
     -- ** Block
     block_blockType,
@@ -96,6 +133,7 @@ module Amazonka.Textract.Lens
     block_rowIndex,
     block_selectionStatus,
     block_id,
+    block_query,
     block_page,
     block_textType,
     block_relationships,
@@ -155,12 +193,24 @@ module Amazonka.Textract.Lens
     -- ** HumanLoopDataAttributes
     humanLoopDataAttributes_contentClassifiers,
 
+    -- ** IdentityDocument
+    identityDocument_documentIndex,
+    identityDocument_identityDocumentFields,
+
+    -- ** IdentityDocumentField
+    identityDocumentField_type,
+    identityDocumentField_valueDetection,
+
     -- ** LineItemFields
     lineItemFields_lineItemExpenseFields,
 
     -- ** LineItemGroup
     lineItemGroup_lineItems,
     lineItemGroup_lineItemGroupIndex,
+
+    -- ** NormalizedValue
+    normalizedValue_valueType,
+    normalizedValue_value,
 
     -- ** NotificationChannel
     notificationChannel_sNSTopicArn,
@@ -173,6 +223,14 @@ module Amazonka.Textract.Lens
     -- ** Point
     point_x,
     point_y,
+
+    -- ** QueriesConfig
+    queriesConfig_queries,
+
+    -- ** Query
+    query_alias,
+    query_pages,
+    query_text,
 
     -- ** Relationship
     relationship_type,
@@ -191,11 +249,15 @@ where
 
 import Amazonka.Textract.AnalyzeDocument
 import Amazonka.Textract.AnalyzeExpense
+import Amazonka.Textract.AnalyzeID
 import Amazonka.Textract.DetectDocumentText
 import Amazonka.Textract.GetDocumentAnalysis
 import Amazonka.Textract.GetDocumentTextDetection
+import Amazonka.Textract.GetExpenseAnalysis
 import Amazonka.Textract.StartDocumentAnalysis
 import Amazonka.Textract.StartDocumentTextDetection
+import Amazonka.Textract.StartExpenseAnalysis
+import Amazonka.Textract.Types.AnalyzeIDDetections
 import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.BoundingBox
 import Amazonka.Textract.Types.Document
@@ -209,11 +271,16 @@ import Amazonka.Textract.Types.Geometry
 import Amazonka.Textract.Types.HumanLoopActivationOutput
 import Amazonka.Textract.Types.HumanLoopConfig
 import Amazonka.Textract.Types.HumanLoopDataAttributes
+import Amazonka.Textract.Types.IdentityDocument
+import Amazonka.Textract.Types.IdentityDocumentField
 import Amazonka.Textract.Types.LineItemFields
 import Amazonka.Textract.Types.LineItemGroup
+import Amazonka.Textract.Types.NormalizedValue
 import Amazonka.Textract.Types.NotificationChannel
 import Amazonka.Textract.Types.OutputConfig
 import Amazonka.Textract.Types.Point
+import Amazonka.Textract.Types.QueriesConfig
+import Amazonka.Textract.Types.Query
 import Amazonka.Textract.Types.Relationship
 import Amazonka.Textract.Types.S3Object
 import Amazonka.Textract.Types.Warning

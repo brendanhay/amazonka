@@ -34,11 +34,12 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of provisioning artifact.
     --
-    -- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+    -- -   @CLOUD_FORMATION_TEMPLATE@ - CloudFormation template
     --
-    -- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
+    -- -   @MARKETPLACE_AMI@ - Amazon Web Services Marketplace AMI
     --
-    -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+    -- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
+    --     Amazon Web Services Resources
     type' :: Prelude.Maybe ProvisioningArtifactType,
     -- | The UTC time stamp of the creation time.
     createdTime :: Prelude.Maybe Core.POSIX,
@@ -66,11 +67,12 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
 --
 -- 'type'', 'provisioningArtifactDetail_type' - The type of provisioning artifact.
 --
--- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+-- -   @CLOUD_FORMATION_TEMPLATE@ - CloudFormation template
 --
--- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
+-- -   @MARKETPLACE_AMI@ - Amazon Web Services Marketplace AMI
 --
--- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+-- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
+--     Amazon Web Services Resources
 --
 -- 'createdTime', 'provisioningArtifactDetail_createdTime' - The UTC time stamp of the creation time.
 --
@@ -101,11 +103,12 @@ provisioningArtifactDetail_name = Lens.lens (\ProvisioningArtifactDetail' {name}
 
 -- | The type of provisioning artifact.
 --
--- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+-- -   @CLOUD_FORMATION_TEMPLATE@ - CloudFormation template
 --
--- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
+-- -   @MARKETPLACE_AMI@ - Amazon Web Services Marketplace AMI
 --
--- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+-- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
+--     Amazon Web Services Resources
 provisioningArtifactDetail_type :: Lens.Lens' ProvisioningArtifactDetail (Prelude.Maybe ProvisioningArtifactType)
 provisioningArtifactDetail_type = Lens.lens (\ProvisioningArtifactDetail' {type'} -> type') (\s@ProvisioningArtifactDetail' {} a -> s {type' = a} :: ProvisioningArtifactDetail)
 

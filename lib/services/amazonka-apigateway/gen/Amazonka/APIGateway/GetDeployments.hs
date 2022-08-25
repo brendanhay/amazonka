@@ -60,7 +60,7 @@ data GetDeployments = GetDeployments'
     limit :: Prelude.Maybe Prelude.Int,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetDeployments = GetDeployments'
 --
 -- 'position', 'getDeployments_position' - The current pagination position in the paged result set.
 --
--- 'restApiId', 'getDeployments_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getDeployments_restApiId' - The string identifier of the associated RestApi.
 newGetDeployments ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -99,7 +99,7 @@ getDeployments_limit = Lens.lens (\GetDeployments' {limit} -> limit) (\s@GetDepl
 getDeployments_position :: Lens.Lens' GetDeployments (Prelude.Maybe Prelude.Text)
 getDeployments_position = Lens.lens (\GetDeployments' {position} -> position) (\s@GetDeployments' {} a -> s {position = a} :: GetDeployments)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDeployments_restApiId :: Lens.Lens' GetDeployments Prelude.Text
 getDeployments_restApiId = Lens.lens (\GetDeployments' {restApiId} -> restApiId) (\s@GetDeployments' {} a -> s {restApiId = a} :: GetDeployments)
 
@@ -171,15 +171,6 @@ instance Core.ToQuery GetDeployments where
 -- to your existing deployments, and links that guide you on how to
 -- interact with your collection. The collection offers a paginated view of
 -- the contained deployments.
---
--- To create a new deployment of a RestApi, make a @POST@ request against
--- this resource. To view, update, or delete an existing deployment, make a
--- @GET@, @PATCH@, or @DELETE@ request, respectively, on a specified
--- Deployment resource.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html Deploying an API>,
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html AWS CLI>,
--- <https://aws.amazon.com/tools/ AWS SDKs>
 --
 -- /See:/ 'newGetDeploymentsResponse' smart constructor.
 data GetDeploymentsResponse = GetDeploymentsResponse'

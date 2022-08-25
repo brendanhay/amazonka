@@ -23,16 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about the S3 resource. This data type is used as a
--- request parameter in the DisassociateS3Resources action and can be used
--- as a response parameter in the AssociateS3Resources and
--- UpdateS3Resources actions.
+-- | (Discontinued) Contains information about the S3 resource. This data
+-- type is used as a request parameter in the @DisassociateS3Resources@
+-- action and can be used as a response parameter in the
+-- @AssociateS3Resources@ and @UpdateS3Resources@ actions.
 --
 -- /See:/ 'newS3Resource' smart constructor.
 data S3Resource = S3Resource'
-  { -- | The prefix of the S3 bucket.
+  { -- | (Discontinued) The prefix of the S3 bucket.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket.
+    -- | (Discontinued) The name of the S3 bucket.
     bucketName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,9 +45,9 @@ data S3Resource = S3Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefix', 's3Resource_prefix' - The prefix of the S3 bucket.
+-- 'prefix', 's3Resource_prefix' - (Discontinued) The prefix of the S3 bucket.
 --
--- 'bucketName', 's3Resource_bucketName' - The name of the S3 bucket.
+-- 'bucketName', 's3Resource_bucketName' - (Discontinued) The name of the S3 bucket.
 newS3Resource ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -58,11 +58,11 @@ newS3Resource pBucketName_ =
       bucketName = pBucketName_
     }
 
--- | The prefix of the S3 bucket.
+-- | (Discontinued) The prefix of the S3 bucket.
 s3Resource_prefix :: Lens.Lens' S3Resource (Prelude.Maybe Prelude.Text)
 s3Resource_prefix = Lens.lens (\S3Resource' {prefix} -> prefix) (\s@S3Resource' {} a -> s {prefix = a} :: S3Resource)
 
--- | The name of the S3 bucket.
+-- | (Discontinued) The name of the S3 bucket.
 s3Resource_bucketName :: Lens.Lens' S3Resource Prelude.Text
 s3Resource_bucketName = Lens.lens (\S3Resource' {bucketName} -> bucketName) (\s@S3Resource' {} a -> s {bucketName = a} :: S3Resource)
 

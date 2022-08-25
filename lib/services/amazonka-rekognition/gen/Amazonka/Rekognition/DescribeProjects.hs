@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists and gets information about your Amazon Rekognition Custom Labels
--- projects.
+-- Gets information about your Amazon Rekognition Custom Labels projects.
 --
 -- This operation requires permissions to perform the
 -- @rekognition:DescribeProjects@ action.
@@ -34,6 +33,7 @@ module Amazonka.Rekognition.DescribeProjects
 
     -- * Request Lenses
     describeProjects_nextToken,
+    describeProjects_projectNames,
     describeProjects_maxResults,
 
     -- * Destructuring the Response
@@ -61,6 +61,10 @@ data DescribeProjects = DescribeProjects'
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the projects that you want Amazon Rekognition Custom Labels to
+    -- describe. If you don\'t specify a value, the response includes
+    -- descriptions for all the projects in your AWS account.
+    projectNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of results to return per paginated call. The largest
     -- value you can specify is 100. If you specify a value greater than 100, a
     -- ValidationException error occurs. The default value is 100.
@@ -81,6 +85,10 @@ data DescribeProjects = DescribeProjects'
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
 --
+-- 'projectNames', 'describeProjects_projectNames' - A list of the projects that you want Amazon Rekognition Custom Labels to
+-- describe. If you don\'t specify a value, the response includes
+-- descriptions for all the projects in your AWS account.
+--
 -- 'maxResults', 'describeProjects_maxResults' - The maximum number of results to return per paginated call. The largest
 -- value you can specify is 100. If you specify a value greater than 100, a
 -- ValidationException error occurs. The default value is 100.
@@ -89,6 +97,7 @@ newDescribeProjects ::
 newDescribeProjects =
   DescribeProjects'
     { nextToken = Prelude.Nothing,
+      projectNames = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
@@ -98,6 +107,12 @@ newDescribeProjects =
 -- next set of results.
 describeProjects_nextToken :: Lens.Lens' DescribeProjects (Prelude.Maybe Prelude.Text)
 describeProjects_nextToken = Lens.lens (\DescribeProjects' {nextToken} -> nextToken) (\s@DescribeProjects' {} a -> s {nextToken = a} :: DescribeProjects)
+
+-- | A list of the projects that you want Amazon Rekognition Custom Labels to
+-- describe. If you don\'t specify a value, the response includes
+-- descriptions for all the projects in your AWS account.
+describeProjects_projectNames :: Lens.Lens' DescribeProjects (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeProjects_projectNames = Lens.lens (\DescribeProjects' {projectNames} -> projectNames) (\s@DescribeProjects' {} a -> s {projectNames = a} :: DescribeProjects) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return per paginated call. The largest
 -- value you can specify is 100. If you specify a value greater than 100, a
@@ -146,11 +161,13 @@ instance Core.AWSRequest DescribeProjects where
 instance Prelude.Hashable DescribeProjects where
   hashWithSalt _salt DescribeProjects' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` projectNames
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeProjects where
   rnf DescribeProjects' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projectNames
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeProjects where
@@ -173,6 +190,7 @@ instance Core.ToJSON DescribeProjects where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ProjectNames" Core..=) Prelude.<$> projectNames,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

@@ -11,23 +11,18 @@
 --
 -- Derived from API version @2014-11-06@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services Systems Manager is a collection of capabilities that
--- helps you automate management tasks such as collecting system inventory,
--- applying operating system (OS) patches, automating the creation of
--- Amazon Machine Images (AMIs), and configuring operating systems (OSs)
--- and applications at scale. Systems Manager lets you remotely and
--- securely manage the configuration of your managed instances. A /managed
--- instance/ is any Amazon Elastic Compute Cloud instance (EC2 instance),
--- or any on-premises server or virtual machine (VM) in your hybrid
--- environment that has been configured for Systems Manager.
+-- Amazon Web Services Systems Manager is a collection of capabilities to
+-- help you manage your applications and infrastructure running in the
+-- Amazon Web Services Cloud;. Systems Manager simplifies application and
+-- resource management, shortens the time to detect and resolve operational
+-- problems, and helps you manage your Amazon Web Services resources
+-- securely at scale.
 --
 -- This reference is intended to be used with the
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ Amazon Web Services Systems Manager User Guide>.
 --
--- To get started, verify prerequisites and configure managed instances.
--- For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Setting up Amazon Web Services Systems Manager>
--- in the /Amazon Web Services Systems Manager User Guide/.
+-- To get started, verify prerequisites. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Setting up Amazon Web Services Systems Manager>.
 --
 -- __Related resources__
 --
@@ -421,6 +416,9 @@ module Amazonka.SSM
 
     -- ** UnsupportedOperatingSystem
     _UnsupportedOperatingSystem,
+
+    -- ** InvalidTargetMaps
+    _InvalidTargetMaps,
 
     -- * Waiters
     -- $waiters
@@ -1486,6 +1484,9 @@ module Amazonka.SSM
     -- ** SignalType
     SignalType (..),
 
+    -- ** SourceType
+    SourceType (..),
+
     -- ** StepExecutionFilterKey
     StepExecutionFilterKey (..),
 
@@ -1979,6 +1980,10 @@ module Amazonka.SSM
     -- ** ProgressCounters
     ProgressCounters (ProgressCounters'),
     newProgressCounters,
+
+    -- ** RegistrationMetadataItem
+    RegistrationMetadataItem (RegistrationMetadataItem'),
+    newRegistrationMetadataItem,
 
     -- ** RelatedOpsItem
     RelatedOpsItem (RelatedOpsItem'),

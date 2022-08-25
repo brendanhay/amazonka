@@ -23,8 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a single entry in a list of AWS resource tags. @TagListEntry@
--- returns an array that contains a list of tasks when the
+-- | Represents a single entry in a list of Amazon Web Services resource
+-- tags. @TagListEntry@ returns an array that contains a list of tasks when
+-- the
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTagsForResource.html ListTagsForResource>
 -- operation is called.
 --

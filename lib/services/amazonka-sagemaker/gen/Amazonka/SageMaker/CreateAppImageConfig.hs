@@ -54,7 +54,10 @@ import Amazonka.SageMaker.Types
 data CreateAppImageConfig = CreateAppImageConfig'
   { -- | A list of tags to apply to the AppImageConfig.
     tags :: Prelude.Maybe [Tag],
-    -- | The KernelGatewayImageConfig.
+    -- | The KernelGatewayImageConfig. You can only specify one image kernel in
+    -- the AppImageConfig API. This kernel will be shown to users before the
+    -- image starts. Once the image runs, all kernels are visible in
+    -- JupyterLab.
     kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
     -- | The name of the AppImageConfig. Must be unique to your account.
     appImageConfigName :: Prelude.Text
@@ -71,7 +74,10 @@ data CreateAppImageConfig = CreateAppImageConfig'
 --
 -- 'tags', 'createAppImageConfig_tags' - A list of tags to apply to the AppImageConfig.
 --
--- 'kernelGatewayImageConfig', 'createAppImageConfig_kernelGatewayImageConfig' - The KernelGatewayImageConfig.
+-- 'kernelGatewayImageConfig', 'createAppImageConfig_kernelGatewayImageConfig' - The KernelGatewayImageConfig. You can only specify one image kernel in
+-- the AppImageConfig API. This kernel will be shown to users before the
+-- image starts. Once the image runs, all kernels are visible in
+-- JupyterLab.
 --
 -- 'appImageConfigName', 'createAppImageConfig_appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
 newCreateAppImageConfig ::
@@ -89,7 +95,10 @@ newCreateAppImageConfig pAppImageConfigName_ =
 createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe [Tag])
 createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The KernelGatewayImageConfig.
+-- | The KernelGatewayImageConfig. You can only specify one image kernel in
+-- the AppImageConfig API. This kernel will be shown to users before the
+-- image starts. Once the image runs, all kernels are visible in
+-- JupyterLab.
 createAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
 createAppImageConfig_kernelGatewayImageConfig = Lens.lens (\CreateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@CreateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: CreateAppImageConfig)
 

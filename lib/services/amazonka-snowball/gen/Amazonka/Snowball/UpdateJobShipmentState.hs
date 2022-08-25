@@ -55,7 +55,8 @@ data UpdateJobShipmentState = UpdateJobShipmentState'
     --
     -- Set to @RECEIVED@ when the device arrives at your location.
     --
-    -- Set to @RETURNED@ when you have returned the device to AWS.
+    -- Set to @RETURNED@ when you have returned the device to Amazon Web
+    -- Services.
     shipmentState :: ShipmentState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +76,8 @@ data UpdateJobShipmentState = UpdateJobShipmentState'
 --
 -- Set to @RECEIVED@ when the device arrives at your location.
 --
--- Set to @RETURNED@ when you have returned the device to AWS.
+-- Set to @RETURNED@ when you have returned the device to Amazon Web
+-- Services.
 newUpdateJobShipmentState ::
   -- | 'jobId'
   Prelude.Text ->
@@ -97,7 +99,8 @@ updateJobShipmentState_jobId = Lens.lens (\UpdateJobShipmentState' {jobId} -> jo
 --
 -- Set to @RECEIVED@ when the device arrives at your location.
 --
--- Set to @RETURNED@ when you have returned the device to AWS.
+-- Set to @RETURNED@ when you have returned the device to Amazon Web
+-- Services.
 updateJobShipmentState_shipmentState :: Lens.Lens' UpdateJobShipmentState ShipmentState
 updateJobShipmentState_shipmentState = Lens.lens (\UpdateJobShipmentState' {shipmentState} -> shipmentState) (\s@UpdateJobShipmentState' {} a -> s {shipmentState = a} :: UpdateJobShipmentState)
 

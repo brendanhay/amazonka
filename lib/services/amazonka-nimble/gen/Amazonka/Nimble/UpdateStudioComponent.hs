@@ -34,10 +34,12 @@ module Amazonka.Nimble.UpdateStudioComponent
     updateStudioComponent_initializationScripts,
     updateStudioComponent_configuration,
     updateStudioComponent_description,
+    updateStudioComponent_secureInitializationRoleArn,
     updateStudioComponent_subtype,
+    updateStudioComponent_runtimeRoleArn,
     updateStudioComponent_ec2SecurityGroupIds,
-    updateStudioComponent_studioId,
     updateStudioComponent_studioComponentId,
+    updateStudioComponent_studioId,
 
     -- * Destructuring the Response
     UpdateStudioComponentResponse (..),
@@ -56,22 +58,16 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The studio component ID.
---
--- /See:/ 'newUpdateStudioComponent' smart constructor.
+-- | /See:/ 'newUpdateStudioComponent' smart constructor.
 data UpdateStudioComponent = UpdateStudioComponent'
   { -- | Parameters for the studio component scripts.
-    scriptParameters :: Prelude.Maybe [ScriptParameterKeyValue],
+    scriptParameters :: Prelude.Maybe (Core.Sensitive [ScriptParameterKeyValue]),
     -- | The name for the studio component.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
@@ -80,17 +76,25 @@ data UpdateStudioComponent = UpdateStudioComponent'
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
     -- | The description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | An IAM role attached to Studio Component when the system initialization
+    -- script runs which give the studio component access to AWS resources when
+    -- the system initialization script runs.
+    secureInitializationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
     subtype :: Prelude.Maybe StudioComponentSubtype,
+    -- | An IAM role attached to a Studio Component that gives the studio
+    -- component access to AWS resources at anytime while the instance is
+    -- running.
+    runtimeRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The EC2 security groups that control access to the studio component.
-    ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The studio ID.
-    studioId :: Prelude.Text,
+    ec2SecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The studio component ID.
-    studioComponentId :: Prelude.Text
+    studioComponentId :: Prelude.Text,
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStudioComponent' with all optional fields omitted.
@@ -104,14 +108,10 @@ data UpdateStudioComponent = UpdateStudioComponent'
 --
 -- 'name', 'updateStudioComponent_name' - The name for the studio component.
 --
--- 'clientToken', 'updateStudioComponent_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'updateStudioComponent_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
 -- 'type'', 'updateStudioComponent_type' - The type of the studio component.
 --
@@ -121,22 +121,30 @@ data UpdateStudioComponent = UpdateStudioComponent'
 --
 -- 'description', 'updateStudioComponent_description' - The description.
 --
+-- 'secureInitializationRoleArn', 'updateStudioComponent_secureInitializationRoleArn' - An IAM role attached to Studio Component when the system initialization
+-- script runs which give the studio component access to AWS resources when
+-- the system initialization script runs.
+--
 -- 'subtype', 'updateStudioComponent_subtype' - The specific subtype of a studio component.
+--
+-- 'runtimeRoleArn', 'updateStudioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
+-- component access to AWS resources at anytime while the instance is
+-- running.
 --
 -- 'ec2SecurityGroupIds', 'updateStudioComponent_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
 --
--- 'studioId', 'updateStudioComponent_studioId' - The studio ID.
---
 -- 'studioComponentId', 'updateStudioComponent_studioComponentId' - The studio component ID.
+--
+-- 'studioId', 'updateStudioComponent_studioId' - The studio ID.
 newUpdateStudioComponent ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'studioComponentId'
+  Prelude.Text ->
+  -- | 'studioId'
   Prelude.Text ->
   UpdateStudioComponent
 newUpdateStudioComponent
-  pStudioId_
-  pStudioComponentId_ =
+  pStudioComponentId_
+  pStudioId_ =
     UpdateStudioComponent'
       { scriptParameters =
           Prelude.Nothing,
@@ -146,28 +154,26 @@ newUpdateStudioComponent
         initializationScripts = Prelude.Nothing,
         configuration = Prelude.Nothing,
         description = Prelude.Nothing,
+        secureInitializationRoleArn = Prelude.Nothing,
         subtype = Prelude.Nothing,
+        runtimeRoleArn = Prelude.Nothing,
         ec2SecurityGroupIds = Prelude.Nothing,
-        studioId = pStudioId_,
-        studioComponentId = pStudioComponentId_
+        studioComponentId = pStudioComponentId_,
+        studioId = pStudioId_
       }
 
 -- | Parameters for the studio component scripts.
 updateStudioComponent_scriptParameters :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
-updateStudioComponent_scriptParameters = Lens.lens (\UpdateStudioComponent' {scriptParameters} -> scriptParameters) (\s@UpdateStudioComponent' {} a -> s {scriptParameters = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+updateStudioComponent_scriptParameters = Lens.lens (\UpdateStudioComponent' {scriptParameters} -> scriptParameters) (\s@UpdateStudioComponent' {} a -> s {scriptParameters = a} :: UpdateStudioComponent) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The name for the studio component.
 updateStudioComponent_name :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
-updateStudioComponent_name = Lens.lens (\UpdateStudioComponent' {name} -> name) (\s@UpdateStudioComponent' {} a -> s {name = a} :: UpdateStudioComponent)
+updateStudioComponent_name = Lens.lens (\UpdateStudioComponent' {name} -> name) (\s@UpdateStudioComponent' {} a -> s {name = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Core._Sensitive
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 updateStudioComponent_clientToken :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
 updateStudioComponent_clientToken = Lens.lens (\UpdateStudioComponent' {clientToken} -> clientToken) (\s@UpdateStudioComponent' {} a -> s {clientToken = a} :: UpdateStudioComponent)
 
@@ -185,23 +191,35 @@ updateStudioComponent_configuration = Lens.lens (\UpdateStudioComponent' {config
 
 -- | The description.
 updateStudioComponent_description :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
-updateStudioComponent_description = Lens.lens (\UpdateStudioComponent' {description} -> description) (\s@UpdateStudioComponent' {} a -> s {description = a} :: UpdateStudioComponent)
+updateStudioComponent_description = Lens.lens (\UpdateStudioComponent' {description} -> description) (\s@UpdateStudioComponent' {} a -> s {description = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Core._Sensitive
+
+-- | An IAM role attached to Studio Component when the system initialization
+-- script runs which give the studio component access to AWS resources when
+-- the system initialization script runs.
+updateStudioComponent_secureInitializationRoleArn :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
+updateStudioComponent_secureInitializationRoleArn = Lens.lens (\UpdateStudioComponent' {secureInitializationRoleArn} -> secureInitializationRoleArn) (\s@UpdateStudioComponent' {} a -> s {secureInitializationRoleArn = a} :: UpdateStudioComponent)
 
 -- | The specific subtype of a studio component.
 updateStudioComponent_subtype :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe StudioComponentSubtype)
 updateStudioComponent_subtype = Lens.lens (\UpdateStudioComponent' {subtype} -> subtype) (\s@UpdateStudioComponent' {} a -> s {subtype = a} :: UpdateStudioComponent)
 
--- | The EC2 security groups that control access to the studio component.
-updateStudioComponent_ec2SecurityGroupIds :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateStudioComponent_ec2SecurityGroupIds = Lens.lens (\UpdateStudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@UpdateStudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+-- | An IAM role attached to a Studio Component that gives the studio
+-- component access to AWS resources at anytime while the instance is
+-- running.
+updateStudioComponent_runtimeRoleArn :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
+updateStudioComponent_runtimeRoleArn = Lens.lens (\UpdateStudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@UpdateStudioComponent' {} a -> s {runtimeRoleArn = a} :: UpdateStudioComponent)
 
--- | The studio ID.
-updateStudioComponent_studioId :: Lens.Lens' UpdateStudioComponent Prelude.Text
-updateStudioComponent_studioId = Lens.lens (\UpdateStudioComponent' {studioId} -> studioId) (\s@UpdateStudioComponent' {} a -> s {studioId = a} :: UpdateStudioComponent)
+-- | The EC2 security groups that control access to the studio component.
+updateStudioComponent_ec2SecurityGroupIds :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe [Prelude.Text])
+updateStudioComponent_ec2SecurityGroupIds = Lens.lens (\UpdateStudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@UpdateStudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio component ID.
 updateStudioComponent_studioComponentId :: Lens.Lens' UpdateStudioComponent Prelude.Text
 updateStudioComponent_studioComponentId = Lens.lens (\UpdateStudioComponent' {studioComponentId} -> studioComponentId) (\s@UpdateStudioComponent' {} a -> s {studioComponentId = a} :: UpdateStudioComponent)
+
+-- | The studio ID.
+updateStudioComponent_studioId :: Lens.Lens' UpdateStudioComponent Prelude.Text
+updateStudioComponent_studioId = Lens.lens (\UpdateStudioComponent' {studioId} -> studioId) (\s@UpdateStudioComponent' {} a -> s {studioId = a} :: UpdateStudioComponent)
 
 instance Core.AWSRequest UpdateStudioComponent where
   type
@@ -225,10 +243,12 @@ instance Prelude.Hashable UpdateStudioComponent where
       `Prelude.hashWithSalt` initializationScripts
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` secureInitializationRoleArn
       `Prelude.hashWithSalt` subtype
+      `Prelude.hashWithSalt` runtimeRoleArn
       `Prelude.hashWithSalt` ec2SecurityGroupIds
-      `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` studioComponentId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateStudioComponent where
   rnf UpdateStudioComponent' {..} =
@@ -239,10 +259,12 @@ instance Prelude.NFData UpdateStudioComponent where
       `Prelude.seq` Prelude.rnf initializationScripts
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf secureInitializationRoleArn
       `Prelude.seq` Prelude.rnf subtype
+      `Prelude.seq` Prelude.rnf runtimeRoleArn
       `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
-      `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf studioComponentId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders UpdateStudioComponent where
   toHeaders UpdateStudioComponent' {..} =
@@ -264,7 +286,11 @@ instance Core.ToJSON UpdateStudioComponent where
               Prelude.<$> initializationScripts,
             ("configuration" Core..=) Prelude.<$> configuration,
             ("description" Core..=) Prelude.<$> description,
+            ("secureInitializationRoleArn" Core..=)
+              Prelude.<$> secureInitializationRoleArn,
             ("subtype" Core..=) Prelude.<$> subtype,
+            ("runtimeRoleArn" Core..=)
+              Prelude.<$> runtimeRoleArn,
             ("ec2SecurityGroupIds" Core..=)
               Prelude.<$> ec2SecurityGroupIds
           ]
@@ -289,7 +315,7 @@ data UpdateStudioComponentResponse = UpdateStudioComponentResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStudioComponentResponse' with all optional fields omitted.

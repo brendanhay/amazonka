@@ -29,7 +29,7 @@ import Amazonka.QuickSight.Types.CredentialPair
 --
 -- /See:/ 'newDataSourceCredentials' smart constructor.
 data DataSourceCredentials = DataSourceCredentials'
-  { -- | Credential pair. For more information, see CredentialPair.
+  { -- | Credential pair. For more information, see @ CredentialPair @.
     credentialPair :: Prelude.Maybe CredentialPair,
     -- | The Amazon Resource Name (ARN) of a data source that has the credential
     -- pair that you want to use. When @CopySourceArn@ is not null, the
@@ -47,7 +47,7 @@ data DataSourceCredentials = DataSourceCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'credentialPair', 'dataSourceCredentials_credentialPair' - Credential pair. For more information, see CredentialPair.
+-- 'credentialPair', 'dataSourceCredentials_credentialPair' - Credential pair. For more information, see @ CredentialPair @.
 --
 -- 'copySourceArn', 'dataSourceCredentials_copySourceArn' - The Amazon Resource Name (ARN) of a data source that has the credential
 -- pair that you want to use. When @CopySourceArn@ is not null, the
@@ -62,7 +62,7 @@ newDataSourceCredentials =
       copySourceArn = Prelude.Nothing
     }
 
--- | Credential pair. For more information, see CredentialPair.
+-- | Credential pair. For more information, see @ CredentialPair @.
 dataSourceCredentials_credentialPair :: Lens.Lens' DataSourceCredentials (Prelude.Maybe CredentialPair)
 dataSourceCredentials_credentialPair = Lens.lens (\DataSourceCredentials' {credentialPair} -> credentialPair) (\s@DataSourceCredentials' {} a -> s {credentialPair = a} :: DataSourceCredentials)
 

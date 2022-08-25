@@ -32,7 +32,7 @@
 --
 -- To create canaries, you must have the @CloudWatchSyntheticsFullAccess@
 -- policy. If you are creating a new IAM role for the canary, you also need
--- the the @iam:CreateRole@, @iam:CreatePolicy@ and @iam:AttachRolePolicy@
+-- the @iam:CreateRole@, @iam:CreatePolicy@ and @iam:AttachRolePolicy@
 -- permissions. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles Necessary Roles and Permissions>.
 --
@@ -104,7 +104,10 @@ data CreateCanary = CreateCanary'
     -- is 1 to 455 days.
     successRetentionPeriodInDays :: Prelude.Maybe Prelude.Natural,
     -- | A structure that contains the configuration for individual canary runs,
-    -- such as timeout value.
+    -- such as timeout value and environment variables.
+    --
+    -- The environment variables keys and values are not encrypted. Do not
+    -- store sensitive information in this field.
     runConfig :: Prelude.Maybe CanaryRunConfigInput,
     -- | The name for this canary. Be sure to give it a descriptive name that
     -- distinguishes it from other canaries in your account.
@@ -183,7 +186,10 @@ data CreateCanary = CreateCanary'
 -- is 1 to 455 days.
 --
 -- 'runConfig', 'createCanary_runConfig' - A structure that contains the configuration for individual canary runs,
--- such as timeout value.
+-- such as timeout value and environment variables.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
 --
 -- 'name', 'createCanary_name' - The name for this canary. Be sure to give it a descriptive name that
 -- distinguishes it from other canaries in your account.
@@ -296,7 +302,10 @@ createCanary_successRetentionPeriodInDays :: Lens.Lens' CreateCanary (Prelude.Ma
 createCanary_successRetentionPeriodInDays = Lens.lens (\CreateCanary' {successRetentionPeriodInDays} -> successRetentionPeriodInDays) (\s@CreateCanary' {} a -> s {successRetentionPeriodInDays = a} :: CreateCanary)
 
 -- | A structure that contains the configuration for individual canary runs,
--- such as timeout value.
+-- such as timeout value and environment variables.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
 createCanary_runConfig :: Lens.Lens' CreateCanary (Prelude.Maybe CanaryRunConfigInput)
 createCanary_runConfig = Lens.lens (\CreateCanary' {runConfig} -> runConfig) (\s@CreateCanary' {} a -> s {runConfig = a} :: CreateCanary)
 

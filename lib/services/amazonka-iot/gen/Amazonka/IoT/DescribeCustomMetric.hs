@@ -132,8 +132,11 @@ data DescribeCustomMetricResponse = DescribeCustomMetricResponse'
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The creation date of the custom metric in milliseconds since epoch.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The type of the custom metric. Types include @string-list@,
-    -- @ip-address-list@, @number-list@, and @number@.
+    -- | The type of the custom metric.
+    --
+    -- The type @number@ only takes a single metric value as an input, but
+    -- while submitting the metrics value in the DeviceMetrics report, it must
+    -- be passed as an array with a single value.
     metricType :: Prelude.Maybe CustomMetricType,
     -- | The name of the custom metric.
     metricName :: Prelude.Maybe Prelude.Text,
@@ -161,8 +164,11 @@ data DescribeCustomMetricResponse = DescribeCustomMetricResponse'
 --
 -- 'creationDate', 'describeCustomMetricResponse_creationDate' - The creation date of the custom metric in milliseconds since epoch.
 --
--- 'metricType', 'describeCustomMetricResponse_metricType' - The type of the custom metric. Types include @string-list@,
--- @ip-address-list@, @number-list@, and @number@.
+-- 'metricType', 'describeCustomMetricResponse_metricType' - The type of the custom metric.
+--
+-- The type @number@ only takes a single metric value as an input, but
+-- while submitting the metrics value in the DeviceMetrics report, it must
+-- be passed as an array with a single value.
 --
 -- 'metricName', 'describeCustomMetricResponse_metricName' - The name of the custom metric.
 --
@@ -202,8 +208,11 @@ describeCustomMetricResponse_displayName = Lens.lens (\DescribeCustomMetricRespo
 describeCustomMetricResponse_creationDate :: Lens.Lens' DescribeCustomMetricResponse (Prelude.Maybe Prelude.UTCTime)
 describeCustomMetricResponse_creationDate = Lens.lens (\DescribeCustomMetricResponse' {creationDate} -> creationDate) (\s@DescribeCustomMetricResponse' {} a -> s {creationDate = a} :: DescribeCustomMetricResponse) Prelude.. Lens.mapping Core._Time
 
--- | The type of the custom metric. Types include @string-list@,
--- @ip-address-list@, @number-list@, and @number@.
+-- | The type of the custom metric.
+--
+-- The type @number@ only takes a single metric value as an input, but
+-- while submitting the metrics value in the DeviceMetrics report, it must
+-- be passed as an array with a single value.
 describeCustomMetricResponse_metricType :: Lens.Lens' DescribeCustomMetricResponse (Prelude.Maybe CustomMetricType)
 describeCustomMetricResponse_metricType = Lens.lens (\DescribeCustomMetricResponse' {metricType} -> metricType) (\s@DescribeCustomMetricResponse' {} a -> s {metricType = a} :: DescribeCustomMetricResponse)
 

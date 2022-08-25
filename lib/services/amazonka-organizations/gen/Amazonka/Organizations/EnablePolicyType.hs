@@ -25,9 +25,10 @@
 -- organizational unit (OU), or account in that root. You can undo this by
 -- using the DisablePolicyType operation.
 --
--- This is an asynchronous request that AWS performs in the background. AWS
--- recommends that you first use ListRoots to see the status of policy
--- types for a specified root, and then use this operation.
+-- This is an asynchronous request that Amazon Web Services performs in the
+-- background. Amazon Web Services recommends that you first use ListRoots
+-- to see the status of policy types for a specified root, and then use
+-- this operation.
 --
 -- This operation can be called only from the organization\'s management
 -- account.

@@ -30,8 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotMaintenanceStrategies' smart constructor.
 data SpotMaintenanceStrategies = SpotMaintenanceStrategies'
-  { -- | The strategy to use when Amazon EC2 emits a signal that your Spot
-    -- Instance is at an elevated risk of being interrupted.
+  { -- | The Spot Instance replacement strategy to use when Amazon EC2 emits a
+    -- signal that your Spot Instance is at an elevated risk of being
+    -- interrupted. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html Capacity rebalancing>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
     capacityRebalance :: Prelude.Maybe SpotCapacityRebalance
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,8 +47,11 @@ data SpotMaintenanceStrategies = SpotMaintenanceStrategies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacityRebalance', 'spotMaintenanceStrategies_capacityRebalance' - The strategy to use when Amazon EC2 emits a signal that your Spot
--- Instance is at an elevated risk of being interrupted.
+-- 'capacityRebalance', 'spotMaintenanceStrategies_capacityRebalance' - The Spot Instance replacement strategy to use when Amazon EC2 emits a
+-- signal that your Spot Instance is at an elevated risk of being
+-- interrupted. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html Capacity rebalancing>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 newSpotMaintenanceStrategies ::
   SpotMaintenanceStrategies
 newSpotMaintenanceStrategies =
@@ -54,8 +60,11 @@ newSpotMaintenanceStrategies =
         Prelude.Nothing
     }
 
--- | The strategy to use when Amazon EC2 emits a signal that your Spot
--- Instance is at an elevated risk of being interrupted.
+-- | The Spot Instance replacement strategy to use when Amazon EC2 emits a
+-- signal that your Spot Instance is at an elevated risk of being
+-- interrupted. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html Capacity rebalancing>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 spotMaintenanceStrategies_capacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Prelude.Maybe SpotCapacityRebalance)
 spotMaintenanceStrategies_capacityRebalance = Lens.lens (\SpotMaintenanceStrategies' {capacityRebalance} -> capacityRebalance) (\s@SpotMaintenanceStrategies' {} a -> s {capacityRebalance = a} :: SpotMaintenanceStrategies)
 

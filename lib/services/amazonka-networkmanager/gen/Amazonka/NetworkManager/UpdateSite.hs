@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 data UpdateSite = UpdateSite'
   { -- | A description of your site.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The site location:
     --
@@ -81,7 +81,7 @@ data UpdateSite = UpdateSite'
 --
 -- 'description', 'updateSite_description' - A description of your site.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'location', 'updateSite_location' - The site location:
 --
@@ -110,7 +110,7 @@ newUpdateSite pGlobalNetworkId_ pSiteId_ =
 
 -- | A description of your site.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 updateSite_description :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
 updateSite_description = Lens.lens (\UpdateSite' {description} -> description) (\s@UpdateSite' {} a -> s {description = a} :: UpdateSite)
 

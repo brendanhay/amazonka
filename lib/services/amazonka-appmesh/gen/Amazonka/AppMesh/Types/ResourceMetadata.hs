@@ -34,14 +34,15 @@ data ResourceMetadata = ResourceMetadata'
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
     lastUpdatedAt :: Core.POSIX,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Text,
-    -- | The AWS IAM account ID of the resource owner. If the account ID is not
-    -- your own, then it\'s the ID of the mesh owner or of another account that
-    -- the mesh is shared with. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the resource owner. If the
+    -- account ID is not your own, then it\'s the ID of the mesh owner or of
+    -- another account that the mesh is shared with. For more information about
+    -- mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     resourceOwner :: Prelude.Text,
     -- | The unique identifier for the resource.
@@ -67,14 +68,15 @@ data ResourceMetadata = ResourceMetadata'
 -- 'lastUpdatedAt', 'resourceMetadata_lastUpdatedAt' - The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 --
--- 'meshOwner', 'resourceMetadata_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'resourceMetadata_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
--- 'resourceOwner', 'resourceMetadata_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- 'resourceOwner', 'resourceMetadata_resourceOwner' - The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'uid', 'resourceMetadata_uid' - The unique identifier for the resource.
@@ -128,16 +130,17 @@ resourceMetadata_createdAt = Lens.lens (\ResourceMetadata' {createdAt} -> create
 resourceMetadata_lastUpdatedAt :: Lens.Lens' ResourceMetadata Prelude.UTCTime
 resourceMetadata_lastUpdatedAt = Lens.lens (\ResourceMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@ResourceMetadata' {} a -> s {lastUpdatedAt = a} :: ResourceMetadata) Prelude.. Core._Time
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 resourceMetadata_meshOwner :: Lens.Lens' ResourceMetadata Prelude.Text
 resourceMetadata_meshOwner = Lens.lens (\ResourceMetadata' {meshOwner} -> meshOwner) (\s@ResourceMetadata' {} a -> s {meshOwner = a} :: ResourceMetadata)
 
--- | The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 resourceMetadata_resourceOwner :: Lens.Lens' ResourceMetadata Prelude.Text
 resourceMetadata_resourceOwner = Lens.lens (\ResourceMetadata' {resourceOwner} -> resourceOwner) (\s@ResourceMetadata' {} a -> s {resourceOwner = a} :: ResourceMetadata)

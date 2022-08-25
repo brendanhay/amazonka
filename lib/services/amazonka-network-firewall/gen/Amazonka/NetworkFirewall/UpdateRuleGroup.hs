@@ -39,6 +39,8 @@ module Amazonka.NetworkFirewall.UpdateRuleGroup
     updateRuleGroup_rules,
     updateRuleGroup_description,
     updateRuleGroup_dryRun,
+    updateRuleGroup_sourceMetadata,
+    updateRuleGroup_encryptionConfiguration,
     updateRuleGroup_ruleGroupArn,
     updateRuleGroup_updateToken,
 
@@ -107,6 +109,13 @@ data UpdateRuleGroup = UpdateRuleGroup'
     -- If set to @FALSE@, Network Firewall makes the requested changes to your
     -- resources.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A complex type that contains metadata about the rule group that your own
+    -- rule group is copied from. You can use the metadata to keep track of
+    -- updates made to the originating rule group.
+    sourceMetadata :: Prelude.Maybe SourceMetadata,
+    -- | A complex type that contains settings for encryption of your rule group
+    -- resources.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The Amazon Resource Name (ARN) of the rule group.
     --
     -- You must specify the ARN or the name, and you can specify both.
@@ -179,6 +188,13 @@ data UpdateRuleGroup = UpdateRuleGroup'
 -- If set to @FALSE@, Network Firewall makes the requested changes to your
 -- resources.
 --
+-- 'sourceMetadata', 'updateRuleGroup_sourceMetadata' - A complex type that contains metadata about the rule group that your own
+-- rule group is copied from. You can use the metadata to keep track of
+-- updates made to the originating rule group.
+--
+-- 'encryptionConfiguration', 'updateRuleGroup_encryptionConfiguration' - A complex type that contains settings for encryption of your rule group
+-- resources.
+--
 -- 'ruleGroupArn', 'updateRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
 --
 -- You must specify the ARN or the name, and you can specify both.
@@ -206,6 +222,8 @@ newUpdateRuleGroup pUpdateToken_ =
       rules = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      sourceMetadata = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
       ruleGroupArn = Prelude.Nothing,
       updateToken = pUpdateToken_
     }
@@ -267,6 +285,17 @@ updateRuleGroup_description = Lens.lens (\UpdateRuleGroup' {description} -> desc
 updateRuleGroup_dryRun :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe Prelude.Bool)
 updateRuleGroup_dryRun = Lens.lens (\UpdateRuleGroup' {dryRun} -> dryRun) (\s@UpdateRuleGroup' {} a -> s {dryRun = a} :: UpdateRuleGroup)
 
+-- | A complex type that contains metadata about the rule group that your own
+-- rule group is copied from. You can use the metadata to keep track of
+-- updates made to the originating rule group.
+updateRuleGroup_sourceMetadata :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe SourceMetadata)
+updateRuleGroup_sourceMetadata = Lens.lens (\UpdateRuleGroup' {sourceMetadata} -> sourceMetadata) (\s@UpdateRuleGroup' {} a -> s {sourceMetadata = a} :: UpdateRuleGroup)
+
+-- | A complex type that contains settings for encryption of your rule group
+-- resources.
+updateRuleGroup_encryptionConfiguration :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe EncryptionConfiguration)
+updateRuleGroup_encryptionConfiguration = Lens.lens (\UpdateRuleGroup' {encryptionConfiguration} -> encryptionConfiguration) (\s@UpdateRuleGroup' {} a -> s {encryptionConfiguration = a} :: UpdateRuleGroup)
+
 -- | The Amazon Resource Name (ARN) of the rule group.
 --
 -- You must specify the ARN or the name, and you can specify both.
@@ -309,6 +338,8 @@ instance Prelude.Hashable UpdateRuleGroup where
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` sourceMetadata
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` ruleGroupArn
       `Prelude.hashWithSalt` updateToken
 
@@ -320,6 +351,8 @@ instance Prelude.NFData UpdateRuleGroup where
       `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceMetadata
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf ruleGroupArn
       `Prelude.seq` Prelude.rnf updateToken
 
@@ -348,6 +381,10 @@ instance Core.ToJSON UpdateRuleGroup where
             ("Rules" Core..=) Prelude.<$> rules,
             ("Description" Core..=) Prelude.<$> description,
             ("DryRun" Core..=) Prelude.<$> dryRun,
+            ("SourceMetadata" Core..=)
+              Prelude.<$> sourceMetadata,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration,
             ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn,
             Prelude.Just ("UpdateToken" Core..= updateToken)
           ]

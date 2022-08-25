@@ -47,8 +47,7 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDeleteControlPanel' smart constructor.
 data DeleteControlPanel = DeleteControlPanel'
-  { -- | The Amazon Resource Name (ARN) of the control panel that you\'re
-    -- deleting.
+  { -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +60,7 @@ data DeleteControlPanel = DeleteControlPanel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlPanelArn', 'deleteControlPanel_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that you\'re
--- deleting.
+-- 'controlPanelArn', 'deleteControlPanel_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 newDeleteControlPanel ::
   -- | 'controlPanelArn'
   Prelude.Text ->
@@ -73,8 +71,7 @@ newDeleteControlPanel pControlPanelArn_ =
         pControlPanelArn_
     }
 
--- | The Amazon Resource Name (ARN) of the control panel that you\'re
--- deleting.
+-- | The Amazon Resource Name (ARN) of the control panel.
 deleteControlPanel_controlPanelArn :: Lens.Lens' DeleteControlPanel Prelude.Text
 deleteControlPanel_controlPanelArn = Lens.lens (\DeleteControlPanel' {controlPanelArn} -> controlPanelArn) (\s@DeleteControlPanel' {} a -> s {controlPanelArn = a} :: DeleteControlPanel)
 

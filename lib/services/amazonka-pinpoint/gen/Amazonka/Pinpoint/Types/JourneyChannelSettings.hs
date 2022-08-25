@@ -85,3 +85,14 @@ instance Prelude.NFData JourneyChannelSettings where
   rnf JourneyChannelSettings' {..} =
     Prelude.rnf connectCampaignExecutionRoleArn
       `Prelude.seq` Prelude.rnf connectCampaignArn
+
+instance Core.ToJSON JourneyChannelSettings where
+  toJSON JourneyChannelSettings' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ConnectCampaignExecutionRoleArn" Core..=)
+              Prelude.<$> connectCampaignExecutionRoleArn,
+            ("ConnectCampaignArn" Core..=)
+              Prelude.<$> connectCampaignArn
+          ]
+      )

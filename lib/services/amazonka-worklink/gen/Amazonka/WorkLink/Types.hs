@@ -23,62 +23,6 @@ module Amazonka.WorkLink.Types
     _InternalServerErrorException,
     _TooManyRequestsException,
     _InvalidRequestException,
-
-    -- * AuthorizationProviderType
-    AuthorizationProviderType (..),
-
-    -- * DeviceStatus
-    DeviceStatus (..),
-
-    -- * DomainStatus
-    DomainStatus (..),
-
-    -- * FleetStatus
-    FleetStatus (..),
-
-    -- * IdentityProviderType
-    IdentityProviderType (..),
-
-    -- * DeviceSummary
-    DeviceSummary (..),
-    newDeviceSummary,
-    deviceSummary_deviceId,
-    deviceSummary_deviceStatus,
-
-    -- * DomainSummary
-    DomainSummary (..),
-    newDomainSummary,
-    domainSummary_displayName,
-    domainSummary_domainName,
-    domainSummary_createdTime,
-    domainSummary_domainStatus,
-
-    -- * FleetSummary
-    FleetSummary (..),
-    newFleetSummary,
-    fleetSummary_tags,
-    fleetSummary_companyCode,
-    fleetSummary_createdTime,
-    fleetSummary_displayName,
-    fleetSummary_lastUpdatedTime,
-    fleetSummary_fleetName,
-    fleetSummary_fleetArn,
-    fleetSummary_fleetStatus,
-
-    -- * WebsiteAuthorizationProviderSummary
-    WebsiteAuthorizationProviderSummary (..),
-    newWebsiteAuthorizationProviderSummary,
-    websiteAuthorizationProviderSummary_createdTime,
-    websiteAuthorizationProviderSummary_domainName,
-    websiteAuthorizationProviderSummary_authorizationProviderId,
-    websiteAuthorizationProviderSummary_authorizationProviderType,
-
-    -- * WebsiteCaSummary
-    WebsiteCaSummary (..),
-    newWebsiteCaSummary,
-    websiteCaSummary_createdTime,
-    websiteCaSummary_displayName,
-    websiteCaSummary_websiteCaId,
   )
 where
 
@@ -86,16 +30,6 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
-import Amazonka.WorkLink.Types.AuthorizationProviderType
-import Amazonka.WorkLink.Types.DeviceStatus
-import Amazonka.WorkLink.Types.DeviceSummary
-import Amazonka.WorkLink.Types.DomainStatus
-import Amazonka.WorkLink.Types.DomainSummary
-import Amazonka.WorkLink.Types.FleetStatus
-import Amazonka.WorkLink.Types.FleetSummary
-import Amazonka.WorkLink.Types.IdentityProviderType
-import Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary
-import Amazonka.WorkLink.Types.WebsiteCaSummary
 
 -- | API version @2018-09-25@ of the Amazon WorkLink SDK configuration.
 defaultService :: Core.Service

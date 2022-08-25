@@ -26,23 +26,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A documentation part for a targeted API entity.
 --
--- A documentation part consists of a content map (@properties@) and a
--- target (@location@). The target specifies an API entity to which the
--- documentation content applies. The supported API entity types are @API@,
--- @AUTHORIZER@, @MODEL@, @RESOURCE@, @METHOD@, @PATH_PARAMETER@,
--- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@,
--- @RESPONSE_HEADER@, and @RESPONSE_BODY@. Valid @location@ fields depend
--- on the API entity type. All valid fields are not required.
---
--- The content map is a JSON string of API-specific key-value pairs.
--- Although an API can use any shape for the content map, only the
--- OpenAPI-compliant documentation fields will be injected into the
--- associated API entity definition in the exported OpenAPI definition
--- file.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API>,
--- DocumentationParts
---
 -- /See:/ 'newDocumentationPart' smart constructor.
 data DocumentationPart = DocumentationPart'
   { -- | A content map of API-specific key-value pairs describing the targeted

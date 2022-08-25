@@ -39,8 +39,8 @@ data LinuxParameters = LinuxParameters'
     -- @--device@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- If you are using tasks that use the Fargate launch type, the @devices@
-    -- parameter is not supported.
+    -- If you\'re using tasks that use the Fargate launch type, the @devices@
+    -- parameter isn\'t supported.
     devices :: Prelude.Maybe [Device],
     -- | This allows you to tune a container\'s memory swappiness behavior. A
     -- @swappiness@ value of @0@ will cause swapping to not happen unless
@@ -52,15 +52,15 @@ data LinuxParameters = LinuxParameters'
     -- @--memory-swappiness@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- If you are using tasks that use the Fargate launch type, the
-    -- @swappiness@ parameter is not supported.
+    -- If you\'re using tasks that use the Fargate launch type, the
+    -- @swappiness@ parameter isn\'t supported.
     swappiness :: Prelude.Maybe Prelude.Int,
     -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
     -- This parameter maps to the @--tmpfs@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- If you are using tasks that use the Fargate launch type, the @tmpfs@
-    -- parameter is not supported.
+    -- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
+    -- parameter isn\'t supported.
     tmpfs :: Prelude.Maybe [Tmpfs],
     -- | Run an @init@ process inside the container that forwards signals and
     -- reaps processes. This parameter maps to the @--init@ option to
@@ -83,8 +83,8 @@ data LinuxParameters = LinuxParameters'
     -- the container instance it is running on. A @maxSwap@ value must be set
     -- for the @swappiness@ parameter to be used.
     --
-    -- If you are using tasks that use the Fargate launch type, the @maxSwap@
-    -- parameter is not supported.
+    -- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
+    -- parameter isn\'t supported.
     maxSwap :: Prelude.Maybe Prelude.Int,
     -- | The Linux capabilities for the container that are added to or dropped
     -- from the default configuration provided by Docker.
@@ -119,8 +119,8 @@ data LinuxParameters = LinuxParameters'
 -- @--device@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- If you are using tasks that use the Fargate launch type, the @devices@
--- parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the @devices@
+-- parameter isn\'t supported.
 --
 -- 'swappiness', 'linuxParameters_swappiness' - This allows you to tune a container\'s memory swappiness behavior. A
 -- @swappiness@ value of @0@ will cause swapping to not happen unless
@@ -132,15 +132,15 @@ data LinuxParameters = LinuxParameters'
 -- @--memory-swappiness@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- If you are using tasks that use the Fargate launch type, the
--- @swappiness@ parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the
+-- @swappiness@ parameter isn\'t supported.
 --
 -- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
 -- This parameter maps to the @--tmpfs@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- If you are using tasks that use the Fargate launch type, the @tmpfs@
--- parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
+-- parameter isn\'t supported.
 --
 -- 'initProcessEnabled', 'linuxParameters_initProcessEnabled' - Run an @init@ process inside the container that forwards signals and
 -- reaps processes. This parameter maps to the @--init@ option to
@@ -163,8 +163,8 @@ data LinuxParameters = LinuxParameters'
 -- the container instance it is running on. A @maxSwap@ value must be set
 -- for the @swappiness@ parameter to be used.
 --
--- If you are using tasks that use the Fargate launch type, the @maxSwap@
--- parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
+-- parameter isn\'t supported.
 --
 -- 'capabilities', 'linuxParameters_capabilities' - The Linux capabilities for the container that are added to or dropped
 -- from the default configuration provided by Docker.
@@ -200,8 +200,8 @@ newLinuxParameters =
 -- @--device@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- If you are using tasks that use the Fargate launch type, the @devices@
--- parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the @devices@
+-- parameter isn\'t supported.
 linuxParameters_devices :: Lens.Lens' LinuxParameters (Prelude.Maybe [Device])
 linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
 
@@ -215,8 +215,8 @@ linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s
 -- @--memory-swappiness@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- If you are using tasks that use the Fargate launch type, the
--- @swappiness@ parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the
+-- @swappiness@ parameter isn\'t supported.
 linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
 
@@ -224,8 +224,8 @@ linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappi
 -- This parameter maps to the @--tmpfs@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- If you are using tasks that use the Fargate launch type, the @tmpfs@
--- parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
+-- parameter isn\'t supported.
 linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
 linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
 
@@ -252,8 +252,8 @@ linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEn
 -- the container instance it is running on. A @maxSwap@ value must be set
 -- for the @swappiness@ parameter to be used.
 --
--- If you are using tasks that use the Fargate launch type, the @maxSwap@
--- parameter is not supported.
+-- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
+-- parameter isn\'t supported.
 linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
 

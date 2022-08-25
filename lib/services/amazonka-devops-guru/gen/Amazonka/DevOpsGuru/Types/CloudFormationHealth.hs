@@ -24,15 +24,16 @@ import Amazonka.DevOpsGuru.Types.InsightHealth
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the health of AWS resources in your account that are
--- specified by an AWS CloudFormation stack.
+-- | Information about the health of Amazon Web Services resources in your
+-- account that are specified by an Amazon Web Services CloudFormation
+-- stack.
 --
 -- /See:/ 'newCloudFormationHealth' smart constructor.
 data CloudFormationHealth = CloudFormationHealth'
-  { -- | Information about the health of the AWS resources in your account that
-    -- are specified by an AWS CloudFormation stack, including the number of
-    -- open proactive, open reactive insights, and the Mean Time to Recover
-    -- (MTTR) of closed insights.
+  { -- | Information about the health of the Amazon Web Services resources in
+    -- your account that are specified by an Amazon Web Services CloudFormation
+    -- stack, including the number of open proactive, open reactive insights,
+    -- and the Mean Time to Recover (MTTR) of closed insights.
     insight :: Prelude.Maybe InsightHealth,
     -- | The name of the CloudFormation stack.
     stackName :: Prelude.Maybe Prelude.Text
@@ -47,10 +48,10 @@ data CloudFormationHealth = CloudFormationHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'insight', 'cloudFormationHealth_insight' - Information about the health of the AWS resources in your account that
--- are specified by an AWS CloudFormation stack, including the number of
--- open proactive, open reactive insights, and the Mean Time to Recover
--- (MTTR) of closed insights.
+-- 'insight', 'cloudFormationHealth_insight' - Information about the health of the Amazon Web Services resources in
+-- your account that are specified by an Amazon Web Services CloudFormation
+-- stack, including the number of open proactive, open reactive insights,
+-- and the Mean Time to Recover (MTTR) of closed insights.
 --
 -- 'stackName', 'cloudFormationHealth_stackName' - The name of the CloudFormation stack.
 newCloudFormationHealth ::
@@ -61,10 +62,10 @@ newCloudFormationHealth =
       stackName = Prelude.Nothing
     }
 
--- | Information about the health of the AWS resources in your account that
--- are specified by an AWS CloudFormation stack, including the number of
--- open proactive, open reactive insights, and the Mean Time to Recover
--- (MTTR) of closed insights.
+-- | Information about the health of the Amazon Web Services resources in
+-- your account that are specified by an Amazon Web Services CloudFormation
+-- stack, including the number of open proactive, open reactive insights,
+-- and the Mean Time to Recover (MTTR) of closed insights.
 cloudFormationHealth_insight :: Lens.Lens' CloudFormationHealth (Prelude.Maybe InsightHealth)
 cloudFormationHealth_insight = Lens.lens (\CloudFormationHealth' {insight} -> insight) (\s@CloudFormationHealth' {} a -> s {insight = a} :: CloudFormationHealth)
 

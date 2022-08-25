@@ -34,6 +34,9 @@ module Amazonka.EKS
     -- ** ClientException
     _ClientException,
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
     -- ** NotFoundException
     _NotFoundException,
 
@@ -54,6 +57,9 @@ module Amazonka.EKS
 
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** ResourcePropagationDelayException
+    _ResourcePropagationDelayException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
@@ -326,6 +332,9 @@ module Amazonka.EKS
 
     -- ** FargateProfileStatus
     FargateProfileStatus (..),
+
+    -- ** IpFamily
+    IpFamily (..),
 
     -- ** LogType
     LogType (..),

@@ -31,8 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- __Related actions__
 --
--- DescribeFleetCapacity | DescribeFleetLocationCapacity |
--- UpdateFleetCapacity
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html DescribeFleetCapacity>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html DescribeFleetLocationCapacity>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html UpdateFleetCapacity>
 --
 -- /See:/ 'newFleetCapacity' smart constructor.
 data FleetCapacity = FleetCapacity'
@@ -41,12 +44,12 @@ data FleetCapacity = FleetCapacity'
     -- | The current instance count and capacity settings for the fleet location.
     instanceCounts :: Prelude.Maybe EC2InstanceCounts,
     -- | The fleet location for the instance count information, expressed as an
-    -- AWS Region code, such as @us-west-2@.
+    -- Amazon Web Services Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 instance type that is used for all instances in a fleet. The
-    -- instance type determines the computing resources in use, including CPU,
-    -- memory, storage, and networking capacity. See
-    -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
+    -- | The Amazon EC2 instance type that is used for all instances in a fleet.
+    -- The instance type determines the computing resources in use, including
+    -- CPU, memory, storage, and networking capacity. See
+    -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
     -- for detailed descriptions.
     instanceType :: Prelude.Maybe EC2InstanceType,
     -- | The Amazon Resource Name
@@ -71,12 +74,12 @@ data FleetCapacity = FleetCapacity'
 -- 'instanceCounts', 'fleetCapacity_instanceCounts' - The current instance count and capacity settings for the fleet location.
 --
 -- 'location', 'fleetCapacity_location' - The fleet location for the instance count information, expressed as an
--- AWS Region code, such as @us-west-2@.
+-- Amazon Web Services Region code, such as @us-west-2@.
 --
--- 'instanceType', 'fleetCapacity_instanceType' - The EC2 instance type that is used for all instances in a fleet. The
--- instance type determines the computing resources in use, including CPU,
--- memory, storage, and networking capacity. See
--- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
+-- 'instanceType', 'fleetCapacity_instanceType' - The Amazon EC2 instance type that is used for all instances in a fleet.
+-- The instance type determines the computing resources in use, including
+-- CPU, memory, storage, and networking capacity. See
+-- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions.
 --
 -- 'fleetArn', 'fleetCapacity_fleetArn' - The Amazon Resource Name
@@ -104,14 +107,14 @@ fleetCapacity_instanceCounts :: Lens.Lens' FleetCapacity (Prelude.Maybe EC2Insta
 fleetCapacity_instanceCounts = Lens.lens (\FleetCapacity' {instanceCounts} -> instanceCounts) (\s@FleetCapacity' {} a -> s {instanceCounts = a} :: FleetCapacity)
 
 -- | The fleet location for the instance count information, expressed as an
--- AWS Region code, such as @us-west-2@.
+-- Amazon Web Services Region code, such as @us-west-2@.
 fleetCapacity_location :: Lens.Lens' FleetCapacity (Prelude.Maybe Prelude.Text)
 fleetCapacity_location = Lens.lens (\FleetCapacity' {location} -> location) (\s@FleetCapacity' {} a -> s {location = a} :: FleetCapacity)
 
--- | The EC2 instance type that is used for all instances in a fleet. The
--- instance type determines the computing resources in use, including CPU,
--- memory, storage, and networking capacity. See
--- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
+-- | The Amazon EC2 instance type that is used for all instances in a fleet.
+-- The instance type determines the computing resources in use, including
+-- CPU, memory, storage, and networking capacity. See
+-- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions.
 fleetCapacity_instanceType :: Lens.Lens' FleetCapacity (Prelude.Maybe EC2InstanceType)
 fleetCapacity_instanceType = Lens.lens (\FleetCapacity' {instanceType} -> instanceType) (\s@FleetCapacity' {} a -> s {instanceType = a} :: FleetCapacity)

@@ -31,6 +31,7 @@ module Amazonka.Lightsail.UpdateContainerService
     updateContainerService_power,
     updateContainerService_scale,
     updateContainerService_publicDomainNames,
+    updateContainerService_privateRegistryAccess,
     updateContainerService_isDisabled,
     updateContainerService_serviceName,
 
@@ -91,6 +92,14 @@ data UpdateContainerService = UpdateContainerService'
     -- You can specify public domain names using a string to array map as shown
     -- in the example later on this page.
     publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | An object to describe the configuration for the container service to
+    -- access private container image repositories, such as Amazon Elastic
+    -- Container Registry (Amazon ECR) private repositories.
+    --
+    -- For more information, see
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+    -- in the /Amazon Lightsail Developer Guide/.
+    privateRegistryAccess :: Prelude.Maybe PrivateRegistryAccessRequest,
     -- | A Boolean value to indicate whether the container service is disabled.
     isDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the container service to update.
@@ -144,6 +153,14 @@ data UpdateContainerService = UpdateContainerService'
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
 --
+-- 'privateRegistryAccess', 'updateContainerService_privateRegistryAccess' - An object to describe the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+--
 -- 'isDisabled', 'updateContainerService_isDisabled' - A Boolean value to indicate whether the container service is disabled.
 --
 -- 'serviceName', 'updateContainerService_serviceName' - The name of the container service to update.
@@ -156,6 +173,7 @@ newUpdateContainerService pServiceName_ =
     { power = Prelude.Nothing,
       scale = Prelude.Nothing,
       publicDomainNames = Prelude.Nothing,
+      privateRegistryAccess = Prelude.Nothing,
       isDisabled = Prelude.Nothing,
       serviceName = pServiceName_
     }
@@ -204,6 +222,16 @@ updateContainerService_scale = Lens.lens (\UpdateContainerService' {scale} -> sc
 updateContainerService_publicDomainNames :: Lens.Lens' UpdateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 updateContainerService_publicDomainNames = Lens.lens (\UpdateContainerService' {publicDomainNames} -> publicDomainNames) (\s@UpdateContainerService' {} a -> s {publicDomainNames = a} :: UpdateContainerService) Prelude.. Lens.mapping Lens.coerced
 
+-- | An object to describe the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+updateContainerService_privateRegistryAccess :: Lens.Lens' UpdateContainerService (Prelude.Maybe PrivateRegistryAccessRequest)
+updateContainerService_privateRegistryAccess = Lens.lens (\UpdateContainerService' {privateRegistryAccess} -> privateRegistryAccess) (\s@UpdateContainerService' {} a -> s {privateRegistryAccess = a} :: UpdateContainerService)
+
 -- | A Boolean value to indicate whether the container service is disabled.
 updateContainerService_isDisabled :: Lens.Lens' UpdateContainerService (Prelude.Maybe Prelude.Bool)
 updateContainerService_isDisabled = Lens.lens (\UpdateContainerService' {isDisabled} -> isDisabled) (\s@UpdateContainerService' {} a -> s {isDisabled = a} :: UpdateContainerService)
@@ -230,6 +258,7 @@ instance Prelude.Hashable UpdateContainerService where
     _salt `Prelude.hashWithSalt` power
       `Prelude.hashWithSalt` scale
       `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` privateRegistryAccess
       `Prelude.hashWithSalt` isDisabled
       `Prelude.hashWithSalt` serviceName
 
@@ -238,6 +267,7 @@ instance Prelude.NFData UpdateContainerService where
     Prelude.rnf power
       `Prelude.seq` Prelude.rnf scale
       `Prelude.seq` Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf privateRegistryAccess
       `Prelude.seq` Prelude.rnf isDisabled
       `Prelude.seq` Prelude.rnf serviceName
 
@@ -264,6 +294,8 @@ instance Core.ToJSON UpdateContainerService where
             ("scale" Core..=) Prelude.<$> scale,
             ("publicDomainNames" Core..=)
               Prelude.<$> publicDomainNames,
+            ("privateRegistryAccess" Core..=)
+              Prelude.<$> privateRegistryAccess,
             ("isDisabled" Core..=) Prelude.<$> isDisabled,
             Prelude.Just ("serviceName" Core..= serviceName)
           ]

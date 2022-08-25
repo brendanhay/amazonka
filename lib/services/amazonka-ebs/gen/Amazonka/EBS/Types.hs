@@ -196,7 +196,7 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
-    Prelude.. Core.hasStatus 503
+    Prelude.. Core.hasStatus 409
 
 -- | The input fails to satisfy the constraints of the EBS direct APIs.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

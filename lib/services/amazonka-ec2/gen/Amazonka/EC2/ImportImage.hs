@@ -176,7 +176,7 @@ data ImportImage = ImportImage'
     clientData :: Prelude.Maybe ClientData,
     -- | The architecture of the virtual machine.
     --
-    -- Valid values: @i386@ | @x86_64@ | @arm64@
+    -- Valid values: @i386@ | @x86_64@
     architecture :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -282,7 +282,7 @@ data ImportImage = ImportImage'
 --
 -- 'architecture', 'importImage_architecture' - The architecture of the virtual machine.
 --
--- Valid values: @i386@ | @x86_64@ | @arm64@
+-- Valid values: @i386@ | @x86_64@
 newImportImage ::
   ImportImage
 newImportImage =
@@ -428,7 +428,7 @@ importImage_clientData = Lens.lens (\ImportImage' {clientData} -> clientData) (\
 
 -- | The architecture of the virtual machine.
 --
--- Valid values: @i386@ | @x86_64@ | @arm64@
+-- Valid values: @i386@ | @x86_64@
 importImage_architecture :: Lens.Lens' ImportImage (Prelude.Maybe Prelude.Text)
 importImage_architecture = Lens.lens (\ImportImage' {architecture} -> architecture) (\s@ImportImage' {} a -> s {architecture = a} :: ImportImage)
 

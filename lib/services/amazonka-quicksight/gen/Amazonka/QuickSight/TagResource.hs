@@ -36,13 +36,14 @@
 -- supports tagging on data set, data source, dashboard, and template.
 --
 -- Tagging for Amazon QuickSight works in a similar way to tagging for
--- other AWS services, except for the following:
+-- other Amazon Web Services services, except for the following:
 --
--- -   You can\'t use tags to track AWS costs for Amazon QuickSight. This
---     restriction is because Amazon QuickSight costs are based on users
---     and SPICE capacity, which aren\'t taggable resources.
+-- -   You can\'t use tags to track costs for Amazon QuickSight. This
+--     isn\'t possible because you can\'t tag the resources that Amazon
+--     QuickSight costs are based on, for example Amazon QuickSight storage
+--     capacity (SPICE), number of users, type of users, and usage metrics.
 --
--- -   Amazon QuickSight doesn\'t currently support the Tag Editor for
+-- -   Amazon QuickSight doesn\'t currently support the tag editor for
 --     Resource Groups.
 module Amazonka.QuickSight.TagResource
   ( -- * Creating a Request

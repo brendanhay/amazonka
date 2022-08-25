@@ -65,13 +65,14 @@ data CreateDevice = CreateDevice'
     type' :: Prelude.Maybe Prelude.Text,
     -- | The model of the device.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     model :: Prelude.Maybe Prelude.Text,
-    -- | The AWS location of the device.
+    -- | The Amazon Web Services location of the device, if applicable. For an
+    -- on-premises device, you can omit this parameter.
     aWSLocation :: Prelude.Maybe AWSLocation,
     -- | A description of the device.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
@@ -79,11 +80,11 @@ data CreateDevice = CreateDevice'
     location :: Prelude.Maybe (Core.Sensitive Location),
     -- | The serial number of the device.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The vendor of the device.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     vendor :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
@@ -104,13 +105,14 @@ data CreateDevice = CreateDevice'
 --
 -- 'model', 'createDevice_model' - The model of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
--- 'aWSLocation', 'createDevice_aWSLocation' - The AWS location of the device.
+-- 'aWSLocation', 'createDevice_aWSLocation' - The Amazon Web Services location of the device, if applicable. For an
+-- on-premises device, you can omit this parameter.
 --
 -- 'description', 'createDevice_description' - A description of the device.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'siteId', 'createDevice_siteId' - The ID of the site.
 --
@@ -118,11 +120,11 @@ data CreateDevice = CreateDevice'
 --
 -- 'serialNumber', 'createDevice_serialNumber' - The serial number of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'vendor', 'createDevice_vendor' - The vendor of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'globalNetworkId', 'createDevice_globalNetworkId' - The ID of the global network.
 newCreateDevice ::
@@ -153,17 +155,18 @@ createDevice_type = Lens.lens (\CreateDevice' {type'} -> type') (\s@CreateDevice
 
 -- | The model of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 createDevice_model :: Lens.Lens' CreateDevice (Prelude.Maybe Prelude.Text)
 createDevice_model = Lens.lens (\CreateDevice' {model} -> model) (\s@CreateDevice' {} a -> s {model = a} :: CreateDevice)
 
--- | The AWS location of the device.
+-- | The Amazon Web Services location of the device, if applicable. For an
+-- on-premises device, you can omit this parameter.
 createDevice_aWSLocation :: Lens.Lens' CreateDevice (Prelude.Maybe AWSLocation)
 createDevice_aWSLocation = Lens.lens (\CreateDevice' {aWSLocation} -> aWSLocation) (\s@CreateDevice' {} a -> s {aWSLocation = a} :: CreateDevice)
 
 -- | A description of the device.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 createDevice_description :: Lens.Lens' CreateDevice (Prelude.Maybe Prelude.Text)
 createDevice_description = Lens.lens (\CreateDevice' {description} -> description) (\s@CreateDevice' {} a -> s {description = a} :: CreateDevice)
 
@@ -177,13 +180,13 @@ createDevice_location = Lens.lens (\CreateDevice' {location} -> location) (\s@Cr
 
 -- | The serial number of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 createDevice_serialNumber :: Lens.Lens' CreateDevice (Prelude.Maybe Prelude.Text)
 createDevice_serialNumber = Lens.lens (\CreateDevice' {serialNumber} -> serialNumber) (\s@CreateDevice' {} a -> s {serialNumber = a} :: CreateDevice)
 
 -- | The vendor of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 createDevice_vendor :: Lens.Lens' CreateDevice (Prelude.Maybe Prelude.Text)
 createDevice_vendor = Lens.lens (\CreateDevice' {vendor} -> vendor) (\s@CreateDevice' {} a -> s {vendor = a} :: CreateDevice)
 

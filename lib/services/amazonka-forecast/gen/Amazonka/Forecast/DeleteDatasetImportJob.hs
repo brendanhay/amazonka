@@ -20,10 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a dataset import job created using the CreateDatasetImportJob
+-- Deletes a dataset import job created using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
 -- operation. You can delete only dataset import jobs that have a status of
 -- @ACTIVE@ or @CREATE_FAILED@. To get the status, use the
--- DescribeDatasetImportJob operation.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html DescribeDatasetImportJob>
+-- operation.
 module Amazonka.Forecast.DeleteDatasetImportJob
   ( -- * Creating a Request
     DeleteDatasetImportJob (..),

@@ -93,6 +93,11 @@ data DescribeImages = DescribeImages'
     -- -   @block-device-mapping.encrypted@ - A Boolean that indicates whether
     --     the Amazon EBS volume is encrypted.
     --
+    -- -   @creation-date@ - The time when the image was created, in the ISO
+    --     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for
+    --     example, @2021-09-29T11:04:43.305Z@. You can use a wildcard (@*@),
+    --     for example, @2021-09-29T*@, which matches an entire day.
+    --
     -- -   @description@ - The description of the image (provided during image
     --     creation).
     --
@@ -182,6 +187,18 @@ data DescribeImages = DescribeImages'
     -- | Scopes the images by users with explicit launch permissions. Specify an
     -- Amazon Web Services account ID, @self@ (the sender of the request), or
     -- @all@ (public AMIs).
+    --
+    -- -   If you specify an Amazon Web Services account ID that is not your
+    --     own, only AMIs shared with that specific Amazon Web Services account
+    --     ID are returned. However, AMIs that are shared with the account’s
+    --     organization or organizational unit (OU) are not returned.
+    --
+    -- -   If you specify @self@ or your own Amazon Web Services account ID,
+    --     AMIs shared with your account are returned. In addition, AMIs that
+    --     are shared with the organization or OU of which you are member are
+    --     also returned.
+    --
+    -- -   If you specify @all@, all public AMIs are returned.
     executableUsers :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -222,6 +239,11 @@ data DescribeImages = DescribeImages'
 --
 -- -   @block-device-mapping.encrypted@ - A Boolean that indicates whether
 --     the Amazon EBS volume is encrypted.
+--
+-- -   @creation-date@ - The time when the image was created, in the ISO
+--     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for
+--     example, @2021-09-29T11:04:43.305Z@. You can use a wildcard (@*@),
+--     for example, @2021-09-29T*@, which matches an entire day.
 --
 -- -   @description@ - The description of the image (provided during image
 --     creation).
@@ -312,6 +334,18 @@ data DescribeImages = DescribeImages'
 -- 'executableUsers', 'describeImages_executableUsers' - Scopes the images by users with explicit launch permissions. Specify an
 -- Amazon Web Services account ID, @self@ (the sender of the request), or
 -- @all@ (public AMIs).
+--
+-- -   If you specify an Amazon Web Services account ID that is not your
+--     own, only AMIs shared with that specific Amazon Web Services account
+--     ID are returned. However, AMIs that are shared with the account’s
+--     organization or organizational unit (OU) are not returned.
+--
+-- -   If you specify @self@ or your own Amazon Web Services account ID,
+--     AMIs shared with your account are returned. In addition, AMIs that
+--     are shared with the organization or OU of which you are member are
+--     also returned.
+--
+-- -   If you specify @all@, all public AMIs are returned.
 newDescribeImages ::
   DescribeImages
 newDescribeImages =
@@ -354,6 +388,11 @@ describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\
 --
 -- -   @block-device-mapping.encrypted@ - A Boolean that indicates whether
 --     the Amazon EBS volume is encrypted.
+--
+-- -   @creation-date@ - The time when the image was created, in the ISO
+--     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for
+--     example, @2021-09-29T11:04:43.305Z@. You can use a wildcard (@*@),
+--     for example, @2021-09-29T*@, which matches an entire day.
 --
 -- -   @description@ - The description of the image (provided during image
 --     creation).
@@ -452,6 +491,18 @@ describeImages_includeDeprecated = Lens.lens (\DescribeImages' {includeDeprecate
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- Amazon Web Services account ID, @self@ (the sender of the request), or
 -- @all@ (public AMIs).
+--
+-- -   If you specify an Amazon Web Services account ID that is not your
+--     own, only AMIs shared with that specific Amazon Web Services account
+--     ID are returned. However, AMIs that are shared with the account’s
+--     organization or organizational unit (OU) are not returned.
+--
+-- -   If you specify @self@ or your own Amazon Web Services account ID,
+--     AMIs shared with your account are returned. In addition, AMIs that
+--     are shared with the organization or OU of which you are member are
+--     also returned.
+--
+-- -   If you specify @all@, all public AMIs are returned.
 describeImages_executableUsers :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
 describeImages_executableUsers = Lens.lens (\DescribeImages' {executableUsers} -> executableUsers) (\s@DescribeImages' {} a -> s {executableUsers = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
 

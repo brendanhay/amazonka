@@ -51,7 +51,8 @@ data Build = Build'
     -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
     buildArn :: Prelude.Maybe Prelude.Text,
     -- | File size of the uploaded game build, expressed in bytes. When the build
-    -- status is @INITIALIZED@, this value is 0.
+    -- status is @INITIALIZED@ or when using a custom Amazon S3 storage
+    -- location, this value is 0.
     sizeOnDisk :: Prelude.Maybe Prelude.Natural,
     -- | Current status of the build.
     --
@@ -104,7 +105,8 @@ data Build = Build'
 -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
 --
 -- 'sizeOnDisk', 'build_sizeOnDisk' - File size of the uploaded game build, expressed in bytes. When the build
--- status is @INITIALIZED@, this value is 0.
+-- status is @INITIALIZED@ or when using a custom Amazon S3 storage
+-- location, this value is 0.
 --
 -- 'status', 'build_status' - Current status of the build.
 --
@@ -167,7 +169,8 @@ build_buildArn :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_buildArn = Lens.lens (\Build' {buildArn} -> buildArn) (\s@Build' {} a -> s {buildArn = a} :: Build)
 
 -- | File size of the uploaded game build, expressed in bytes. When the build
--- status is @INITIALIZED@, this value is 0.
+-- status is @INITIALIZED@ or when using a custom Amazon S3 storage
+-- location, this value is 0.
 build_sizeOnDisk :: Lens.Lens' Build (Prelude.Maybe Prelude.Natural)
 build_sizeOnDisk = Lens.lens (\Build' {sizeOnDisk} -> sizeOnDisk) (\s@Build' {} a -> s {sizeOnDisk = a} :: Build)
 

@@ -106,7 +106,21 @@ data ListUsers = ListUsers'
     --
     -- -   @sub@
     --
-    -- Custom attributes are not searchable.
+    -- Custom attributes aren\'t searchable.
+    --
+    -- You can also list users with a client-side filter. The server-side
+    -- filter matches no more than one attribute. For an advanced search, use a
+    -- client-side filter with the @--query@ parameter of the @list-users@
+    -- action in the CLI. When you use a client-side filter, ListUsers returns
+    -- a paginated list of zero or more users. You can receive multiple pages
+    -- in a row with zero results. Repeat the query with each pagination token
+    -- that is returned until you receive a null pagination token value, and
+    -- then review the combined result.
+    --
+    -- For more information about server-side and client-side filtering, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html FilteringCLI output>
+    -- in the
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Command Line Interface User Guide>.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api Searching for Users Using the ListUsers API>
@@ -179,7 +193,21 @@ data ListUsers = ListUsers'
 --
 -- -   @sub@
 --
--- Custom attributes are not searchable.
+-- Custom attributes aren\'t searchable.
+--
+-- You can also list users with a client-side filter. The server-side
+-- filter matches no more than one attribute. For an advanced search, use a
+-- client-side filter with the @--query@ parameter of the @list-users@
+-- action in the CLI. When you use a client-side filter, ListUsers returns
+-- a paginated list of zero or more users. You can receive multiple pages
+-- in a row with zero results. Repeat the query with each pagination token
+-- that is returned until you receive a null pagination token value, and
+-- then review the combined result.
+--
+-- For more information about server-side and client-side filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html FilteringCLI output>
+-- in the
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Command Line Interface User Guide>.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api Searching for Users Using the ListUsers API>
@@ -257,7 +285,21 @@ listUsers_attributesToGet = Lens.lens (\ListUsers' {attributesToGet} -> attribut
 --
 -- -   @sub@
 --
--- Custom attributes are not searchable.
+-- Custom attributes aren\'t searchable.
+--
+-- You can also list users with a client-side filter. The server-side
+-- filter matches no more than one attribute. For an advanced search, use a
+-- client-side filter with the @--query@ parameter of the @list-users@
+-- action in the CLI. When you use a client-side filter, ListUsers returns
+-- a paginated list of zero or more users. You can receive multiple pages
+-- in a row with zero results. Repeat the query with each pagination token
+-- that is returned until you receive a null pagination token value, and
+-- then review the combined result.
+--
+-- For more information about server-side and client-side filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html FilteringCLI output>
+-- in the
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Command Line Interface User Guide>.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api Searching for Users Using the ListUsers API>

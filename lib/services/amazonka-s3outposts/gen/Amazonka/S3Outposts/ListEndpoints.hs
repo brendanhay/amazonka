@@ -20,13 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon S3 on Outposts Access Points simplify managing data access at
--- scale for shared datasets in S3 on Outposts. S3 on Outposts uses
--- endpoints to connect to Outposts buckets so that you can perform actions
--- within your virtual private cloud (VPC). For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html Accessing S3 on Outposts using VPC only access points>.
---
--- This action lists endpoints associated with the Outposts.
+-- Lists endpoints associated with the specified Outpost.
 --
 -- Related actions include:
 --
@@ -64,9 +58,10 @@ import Amazonka.S3Outposts.Types
 
 -- | /See:/ 'newListEndpoints' smart constructor.
 data ListEndpoints = ListEndpoints'
-  { -- | The next endpoint requested in the list.
+  { -- | If a previous response from this operation included a @NextToken@ value,
+    -- provide that value here to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The max number of endpoints that can be returned on the request.
+    -- | The maximum number of endpoints that will be returned in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,9 +74,10 @@ data ListEndpoints = ListEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEndpoints_nextToken' - The next endpoint requested in the list.
+-- 'nextToken', 'listEndpoints_nextToken' - If a previous response from this operation included a @NextToken@ value,
+-- provide that value here to retrieve the next page of results.
 --
--- 'maxResults', 'listEndpoints_maxResults' - The max number of endpoints that can be returned on the request.
+-- 'maxResults', 'listEndpoints_maxResults' - The maximum number of endpoints that will be returned in the response.
 newListEndpoints ::
   ListEndpoints
 newListEndpoints =
@@ -90,11 +86,12 @@ newListEndpoints =
       maxResults = Prelude.Nothing
     }
 
--- | The next endpoint requested in the list.
+-- | If a previous response from this operation included a @NextToken@ value,
+-- provide that value here to retrieve the next page of results.
 listEndpoints_nextToken :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text)
 listEndpoints_nextToken = Lens.lens (\ListEndpoints' {nextToken} -> nextToken) (\s@ListEndpoints' {} a -> s {nextToken = a} :: ListEndpoints)
 
--- | The max number of endpoints that can be returned on the request.
+-- | The maximum number of endpoints that will be returned in the response.
 listEndpoints_maxResults :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Natural)
 listEndpoints_maxResults = Lens.lens (\ListEndpoints' {maxResults} -> maxResults) (\s@ListEndpoints' {} a -> s {maxResults = a} :: ListEndpoints)
 
@@ -164,9 +161,11 @@ instance Core.ToQuery ListEndpoints where
 
 -- | /See:/ 'newListEndpointsResponse' smart constructor.
 data ListEndpointsResponse = ListEndpointsResponse'
-  { -- | The next endpoint returned in the list.
+  { -- | If the number of endpoints associated with the specified Outpost exceeds
+    -- @MaxResults@, you can include this value in subsequent calls to this
+    -- operation to retrieve more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns an array of endpoints associated with AWS Outposts.
+    -- | The list of endpoints associated with the specified Outpost.
     endpoints :: Prelude.Maybe [Endpoint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,9 +180,11 @@ data ListEndpointsResponse = ListEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEndpointsResponse_nextToken' - The next endpoint returned in the list.
+-- 'nextToken', 'listEndpointsResponse_nextToken' - If the number of endpoints associated with the specified Outpost exceeds
+-- @MaxResults@, you can include this value in subsequent calls to this
+-- operation to retrieve more results.
 --
--- 'endpoints', 'listEndpointsResponse_endpoints' - Returns an array of endpoints associated with AWS Outposts.
+-- 'endpoints', 'listEndpointsResponse_endpoints' - The list of endpoints associated with the specified Outpost.
 --
 -- 'httpStatus', 'listEndpointsResponse_httpStatus' - The response's http status code.
 newListEndpointsResponse ::
@@ -197,11 +198,13 @@ newListEndpointsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The next endpoint returned in the list.
+-- | If the number of endpoints associated with the specified Outpost exceeds
+-- @MaxResults@, you can include this value in subsequent calls to this
+-- operation to retrieve more results.
 listEndpointsResponse_nextToken :: Lens.Lens' ListEndpointsResponse (Prelude.Maybe Prelude.Text)
 listEndpointsResponse_nextToken = Lens.lens (\ListEndpointsResponse' {nextToken} -> nextToken) (\s@ListEndpointsResponse' {} a -> s {nextToken = a} :: ListEndpointsResponse)
 
--- | Returns an array of endpoints associated with AWS Outposts.
+-- | The list of endpoints associated with the specified Outpost.
 listEndpointsResponse_endpoints :: Lens.Lens' ListEndpointsResponse (Prelude.Maybe [Endpoint])
 listEndpointsResponse_endpoints = Lens.lens (\ListEndpointsResponse' {endpoints} -> endpoints) (\s@ListEndpointsResponse' {} a -> s {endpoints = a} :: ListEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 

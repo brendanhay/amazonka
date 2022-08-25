@@ -70,6 +70,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     -- You can give an Amazon Web Services account permission to restore a
     -- manual DB snapshot from another Amazon Web Services account by using the
     -- @ModifyDBSnapshotAttribute@ API action.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     includeShared :: Prelude.Maybe Prelude.Bool,
     -- | An optional pagination token provided by a previous
     -- @DescribeDBSnapshots@ request. If this parameter is specified, the
@@ -77,16 +79,14 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The ID of the DB instance to retrieve the list of DB snapshots for. This
-    -- parameter can\'t be used in conjunction with @DBSnapshotIdentifier@.
-    -- This parameter isn\'t case-sensitive.
+    -- parameter isn\'t case-sensitive.
     --
     -- Constraints:
     --
     -- -   If supplied, must match the identifier of an existing DBInstance.
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A specific DB snapshot identifier to describe. This parameter can\'t be
-    -- used in conjunction with @DBInstanceIdentifier@. This value is stored as
-    -- a lowercase string.
+    -- | A specific DB snapshot identifier to describe. This value is stored as a
+    -- lowercase string.
     --
     -- Constraints:
     --
@@ -125,6 +125,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     --
     -- You can share a manual DB snapshot as public by using the
     -- ModifyDBSnapshotAttribute API.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     includePublic :: Prelude.Maybe Prelude.Bool,
     -- | A specific DB resource ID to describe.
     dbiResourceId :: Prelude.Maybe Prelude.Text,
@@ -183,22 +185,22 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 -- manual DB snapshot from another Amazon Web Services account by using the
 -- @ModifyDBSnapshotAttribute@ API action.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'marker', 'describeDBSnapshots_marker' - An optional pagination token provided by a previous
 -- @DescribeDBSnapshots@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
 --
 -- 'dbInstanceIdentifier', 'describeDBSnapshots_dbInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This
--- parameter can\'t be used in conjunction with @DBSnapshotIdentifier@.
--- This parameter isn\'t case-sensitive.
+-- parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --
 -- -   If supplied, must match the identifier of an existing DBInstance.
 --
--- 'dbSnapshotIdentifier', 'describeDBSnapshots_dbSnapshotIdentifier' - A specific DB snapshot identifier to describe. This parameter can\'t be
--- used in conjunction with @DBInstanceIdentifier@. This value is stored as
--- a lowercase string.
+-- 'dbSnapshotIdentifier', 'describeDBSnapshots_dbSnapshotIdentifier' - A specific DB snapshot identifier to describe. This value is stored as a
+-- lowercase string.
 --
 -- Constraints:
 --
@@ -237,6 +239,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- You can share a manual DB snapshot as public by using the
 -- ModifyDBSnapshotAttribute API.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- 'dbiResourceId', 'describeDBSnapshots_dbiResourceId' - A specific DB resource ID to describe.
 --
@@ -298,6 +302,8 @@ newDescribeDBSnapshots =
 -- You can give an Amazon Web Services account permission to restore a
 -- manual DB snapshot from another Amazon Web Services account by using the
 -- @ModifyDBSnapshotAttribute@ API action.
+--
+-- This setting doesn\'t apply to RDS Custom.
 describeDBSnapshots_includeShared :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBSnapshots_includeShared = Lens.lens (\DescribeDBSnapshots' {includeShared} -> includeShared) (\s@DescribeDBSnapshots' {} a -> s {includeShared = a} :: DescribeDBSnapshots)
 
@@ -309,8 +315,7 @@ describeDBSnapshots_marker :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prel
 describeDBSnapshots_marker = Lens.lens (\DescribeDBSnapshots' {marker} -> marker) (\s@DescribeDBSnapshots' {} a -> s {marker = a} :: DescribeDBSnapshots)
 
 -- | The ID of the DB instance to retrieve the list of DB snapshots for. This
--- parameter can\'t be used in conjunction with @DBSnapshotIdentifier@.
--- This parameter isn\'t case-sensitive.
+-- parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --
@@ -318,9 +323,8 @@ describeDBSnapshots_marker = Lens.lens (\DescribeDBSnapshots' {marker} -> marker
 describeDBSnapshots_dbInstanceIdentifier :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Text)
 describeDBSnapshots_dbInstanceIdentifier = Lens.lens (\DescribeDBSnapshots' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeDBSnapshots' {} a -> s {dbInstanceIdentifier = a} :: DescribeDBSnapshots)
 
--- | A specific DB snapshot identifier to describe. This parameter can\'t be
--- used in conjunction with @DBInstanceIdentifier@. This value is stored as
--- a lowercase string.
+-- | A specific DB snapshot identifier to describe. This value is stored as a
+-- lowercase string.
 --
 -- Constraints:
 --
@@ -365,6 +369,8 @@ describeDBSnapshots_maxRecords = Lens.lens (\DescribeDBSnapshots' {maxRecords} -
 --
 -- You can share a manual DB snapshot as public by using the
 -- ModifyDBSnapshotAttribute API.
+--
+-- This setting doesn\'t apply to RDS Custom.
 describeDBSnapshots_includePublic :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBSnapshots_includePublic = Lens.lens (\DescribeDBSnapshots' {includePublic} -> includePublic) (\s@DescribeDBSnapshots' {} a -> s {includePublic = a} :: DescribeDBSnapshots)
 

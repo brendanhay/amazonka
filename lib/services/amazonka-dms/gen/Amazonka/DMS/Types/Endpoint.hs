@@ -25,6 +25,7 @@ import Amazonka.DMS.Types.DmsTransferSettings
 import Amazonka.DMS.Types.DocDbSettings
 import Amazonka.DMS.Types.DynamoDbSettings
 import Amazonka.DMS.Types.ElasticsearchSettings
+import Amazonka.DMS.Types.GcpMySQLSettings
 import Amazonka.DMS.Types.IBMDb2Settings
 import Amazonka.DMS.Types.KafkaSettings
 import Amazonka.DMS.Types.KinesisSettings
@@ -55,8 +56,8 @@ import qualified Amazonka.Prelude as Prelude
 data Endpoint = Endpoint'
   { -- | The port value used to access the endpoint.
     port :: Prelude.Maybe Prelude.Int,
-    -- | The settings for the Elasticsearch source endpoint. For more
-    -- information, see the @ElasticsearchSettings@ structure.
+    -- | The settings for the OpenSearch source endpoint. For more information,
+    -- see the @ElasticsearchSettings@ structure.
     elasticsearchSettings :: Prelude.Maybe ElasticsearchSettings,
     -- | Settings for the Amazon Redshift endpoint.
     redshiftSettings :: Prelude.Maybe RedshiftSettings,
@@ -64,10 +65,10 @@ data Endpoint = Endpoint'
     externalTableDefinition :: Prelude.Maybe Prelude.Text,
     -- | The database engine name. Valid values, depending on the EndpointType,
     -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
-    -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
-    -- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
-    -- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
-    -- @\"sqlserver\"@, and @\"neptune\"@.
+    -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@, @\"redshift\"@,
+    -- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+    -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+    -- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
     engineName :: Prelude.Maybe Prelude.Text,
     -- | The expanded name for the engine name. For example, if the @EngineName@
     -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
@@ -89,6 +90,8 @@ data Endpoint = Endpoint'
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | The user name used to connect to the endpoint.
     username :: Prelude.Maybe Prelude.Text,
+    -- | Settings in JSON format for the source GCP MySQL endpoint.
+    gcpMySQLSettings :: Prelude.Maybe GcpMySQLSettings,
     -- | The Amazon Resource Name (ARN) used by the service to access the IAM
     -- role. The role must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
@@ -138,22 +141,8 @@ data Endpoint = Endpoint'
     -- | The settings for the Apache Kafka target endpoint. For more information,
     -- see the @KafkaSettings@ structure.
     kafkaSettings :: Prelude.Maybe KafkaSettings,
-    -- | The settings in JSON format for the DMS transfer type of source
-    -- endpoint.
-    --
-    -- Possible settings include the following:
-    --
-    -- -   @ServiceAccessRoleArn@ - - The Amazon Resource Name (ARN) used by
-    --     the service access IAM role. The role must allow the @iam:PassRole@
-    --     action.
-    --
-    -- -   @BucketName@ - The name of the S3 bucket to use.
-    --
-    -- Shorthand syntax for these settings is as follows:
-    -- @ServiceAccessRoleArn=string,BucketName=string,@
-    --
-    -- JSON syntax for these settings is as follows:
-    -- @{ \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\"} @
+    -- | The settings for the DMS Transfer type source. For more information, see
+    -- the DmsTransferSettings structure.
     dmsTransferSettings :: Prelude.Maybe DmsTransferSettings,
     -- | The settings for the SAP ASE source and target endpoint. For more
     -- information, see the @SybaseSettings@ structure.
@@ -183,8 +172,8 @@ data Endpoint = Endpoint'
 --
 -- 'port', 'endpoint_port' - The port value used to access the endpoint.
 --
--- 'elasticsearchSettings', 'endpoint_elasticsearchSettings' - The settings for the Elasticsearch source endpoint. For more
--- information, see the @ElasticsearchSettings@ structure.
+-- 'elasticsearchSettings', 'endpoint_elasticsearchSettings' - The settings for the OpenSearch source endpoint. For more information,
+-- see the @ElasticsearchSettings@ structure.
 --
 -- 'redshiftSettings', 'endpoint_redshiftSettings' - Settings for the Amazon Redshift endpoint.
 --
@@ -192,10 +181,10 @@ data Endpoint = Endpoint'
 --
 -- 'engineName', 'endpoint_engineName' - The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
--- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
--- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
--- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
--- @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@, @\"redshift\"@,
+-- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+-- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
 --
 -- 'engineDisplayName', 'endpoint_engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@
 -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
@@ -217,6 +206,8 @@ data Endpoint = Endpoint'
 -- 'databaseName', 'endpoint_databaseName' - The name of the database at the endpoint.
 --
 -- 'username', 'endpoint_username' - The user name used to connect to the endpoint.
+--
+-- 'gcpMySQLSettings', 'endpoint_gcpMySQLSettings' - Settings in JSON format for the source GCP MySQL endpoint.
 --
 -- 'serviceAccessRoleArn', 'endpoint_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service to access the IAM
 -- role. The role must allow the @iam:PassRole@ action.
@@ -267,22 +258,8 @@ data Endpoint = Endpoint'
 -- 'kafkaSettings', 'endpoint_kafkaSettings' - The settings for the Apache Kafka target endpoint. For more information,
 -- see the @KafkaSettings@ structure.
 --
--- 'dmsTransferSettings', 'endpoint_dmsTransferSettings' - The settings in JSON format for the DMS transfer type of source
--- endpoint.
---
--- Possible settings include the following:
---
--- -   @ServiceAccessRoleArn@ - - The Amazon Resource Name (ARN) used by
---     the service access IAM role. The role must allow the @iam:PassRole@
---     action.
---
--- -   @BucketName@ - The name of the S3 bucket to use.
---
--- Shorthand syntax for these settings is as follows:
--- @ServiceAccessRoleArn=string,BucketName=string,@
---
--- JSON syntax for these settings is as follows:
--- @{ \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\"} @
+-- 'dmsTransferSettings', 'endpoint_dmsTransferSettings' - The settings for the DMS Transfer type source. For more information, see
+-- the DmsTransferSettings structure.
 --
 -- 'sybaseSettings', 'endpoint_sybaseSettings' - The settings for the SAP ASE source and target endpoint. For more
 -- information, see the @SybaseSettings@ structure.
@@ -315,6 +292,7 @@ newEndpoint =
       docDbSettings = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       username = Prelude.Nothing,
+      gcpMySQLSettings = Prelude.Nothing,
       serviceAccessRoleArn = Prelude.Nothing,
       extraConnectionAttributes = Prelude.Nothing,
       neptuneSettings = Prelude.Nothing,
@@ -342,8 +320,8 @@ newEndpoint =
 endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
 endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
--- | The settings for the Elasticsearch source endpoint. For more
--- information, see the @ElasticsearchSettings@ structure.
+-- | The settings for the OpenSearch source endpoint. For more information,
+-- see the @ElasticsearchSettings@ structure.
 endpoint_elasticsearchSettings :: Lens.Lens' Endpoint (Prelude.Maybe ElasticsearchSettings)
 endpoint_elasticsearchSettings = Lens.lens (\Endpoint' {elasticsearchSettings} -> elasticsearchSettings) (\s@Endpoint' {} a -> s {elasticsearchSettings = a} :: Endpoint)
 
@@ -357,10 +335,10 @@ endpoint_externalTableDefinition = Lens.lens (\Endpoint' {externalTableDefinitio
 
 -- | The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
--- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
--- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
--- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
--- @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@, @\"redshift\"@,
+-- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
+-- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
+-- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
 endpoint_engineName :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_engineName = Lens.lens (\Endpoint' {engineName} -> engineName) (\s@Endpoint' {} a -> s {engineName = a} :: Endpoint)
 
@@ -400,6 +378,10 @@ endpoint_databaseName = Lens.lens (\Endpoint' {databaseName} -> databaseName) (\
 -- | The user name used to connect to the endpoint.
 endpoint_username :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_username = Lens.lens (\Endpoint' {username} -> username) (\s@Endpoint' {} a -> s {username = a} :: Endpoint)
+
+-- | Settings in JSON format for the source GCP MySQL endpoint.
+endpoint_gcpMySQLSettings :: Lens.Lens' Endpoint (Prelude.Maybe GcpMySQLSettings)
+endpoint_gcpMySQLSettings = Lens.lens (\Endpoint' {gcpMySQLSettings} -> gcpMySQLSettings) (\s@Endpoint' {} a -> s {gcpMySQLSettings = a} :: Endpoint)
 
 -- | The Amazon Resource Name (ARN) used by the service to access the IAM
 -- role. The role must allow the @iam:PassRole@ action.
@@ -480,22 +462,8 @@ endpoint_microsoftSQLServerSettings = Lens.lens (\Endpoint' {microsoftSQLServerS
 endpoint_kafkaSettings :: Lens.Lens' Endpoint (Prelude.Maybe KafkaSettings)
 endpoint_kafkaSettings = Lens.lens (\Endpoint' {kafkaSettings} -> kafkaSettings) (\s@Endpoint' {} a -> s {kafkaSettings = a} :: Endpoint)
 
--- | The settings in JSON format for the DMS transfer type of source
--- endpoint.
---
--- Possible settings include the following:
---
--- -   @ServiceAccessRoleArn@ - - The Amazon Resource Name (ARN) used by
---     the service access IAM role. The role must allow the @iam:PassRole@
---     action.
---
--- -   @BucketName@ - The name of the S3 bucket to use.
---
--- Shorthand syntax for these settings is as follows:
--- @ServiceAccessRoleArn=string,BucketName=string,@
---
--- JSON syntax for these settings is as follows:
--- @{ \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\"} @
+-- | The settings for the DMS Transfer type source. For more information, see
+-- the DmsTransferSettings structure.
 endpoint_dmsTransferSettings :: Lens.Lens' Endpoint (Prelude.Maybe DmsTransferSettings)
 endpoint_dmsTransferSettings = Lens.lens (\Endpoint' {dmsTransferSettings} -> dmsTransferSettings) (\s@Endpoint' {} a -> s {dmsTransferSettings = a} :: Endpoint)
 
@@ -543,6 +511,7 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..:? "DocDbSettings")
             Prelude.<*> (x Core..:? "DatabaseName")
             Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "GcpMySQLSettings")
             Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
             Prelude.<*> (x Core..:? "ExtraConnectionAttributes")
             Prelude.<*> (x Core..:? "NeptuneSettings")
@@ -581,6 +550,7 @@ instance Prelude.Hashable Endpoint where
       `Prelude.hashWithSalt` docDbSettings
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` gcpMySQLSettings
       `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` extraConnectionAttributes
       `Prelude.hashWithSalt` neptuneSettings
@@ -618,6 +588,7 @@ instance Prelude.NFData Endpoint where
       `Prelude.seq` Prelude.rnf docDbSettings
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf gcpMySQLSettings
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf extraConnectionAttributes
       `Prelude.seq` Prelude.rnf neptuneSettings
@@ -626,7 +597,8 @@ instance Prelude.NFData Endpoint where
       `Prelude.seq` Prelude.rnf endpointType
       `Prelude.seq` Prelude.rnf kinesisSettings
       `Prelude.seq` Prelude.rnf oracleSettings
-      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf
+        certificateArn
       `Prelude.seq` Prelude.rnf
         dynamoDbSettings
       `Prelude.seq` Prelude.rnf

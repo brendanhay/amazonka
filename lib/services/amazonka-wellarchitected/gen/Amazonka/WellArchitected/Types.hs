@@ -25,6 +25,9 @@ module Amazonka.WellArchitected.Types
     _ThrottlingException,
     _ValidationException,
 
+    -- * AdditionalResourceType
+    AdditionalResourceType (..),
+
     -- * AnswerReason
     AnswerReason (..),
 
@@ -37,11 +40,23 @@ module Amazonka.WellArchitected.Types
     -- * DifferenceStatus
     DifferenceStatus (..),
 
+    -- * ImportLensStatus
+    ImportLensStatus (..),
+
     -- * LensStatus
     LensStatus (..),
 
+    -- * LensStatusType
+    LensStatusType (..),
+
+    -- * LensType
+    LensType (..),
+
     -- * NotificationType
     NotificationType (..),
+
+    -- * OrganizationSharingStatus
+    OrganizationSharingStatus (..),
 
     -- * PermissionType
     PermissionType (..),
@@ -52,6 +67,9 @@ module Amazonka.WellArchitected.Types
     -- * ShareInvitationAction
     ShareInvitationAction (..),
 
+    -- * ShareResourceType
+    ShareResourceType (..),
+
     -- * ShareStatus
     ShareStatus (..),
 
@@ -61,11 +79,18 @@ module Amazonka.WellArchitected.Types
     -- * WorkloadImprovementStatus
     WorkloadImprovementStatus (..),
 
+    -- * AdditionalResources
+    AdditionalResources (..),
+    newAdditionalResources,
+    additionalResources_type,
+    additionalResources_content,
+
     -- * Answer
     Answer (..),
     newAnswer,
     answer_choices,
     answer_selectedChoices,
+    answer_helpfulResourceDisplayText,
     answer_risk,
     answer_questionId,
     answer_questionDescription,
@@ -97,6 +122,9 @@ module Amazonka.WellArchitected.Types
     choice_description,
     choice_choiceId,
     choice_title,
+    choice_helpfulResource,
+    choice_additionalResources,
+    choice_improvementPlan,
 
     -- * ChoiceAnswer
     ChoiceAnswer (..),
@@ -113,6 +141,19 @@ module Amazonka.WellArchitected.Types
     choiceAnswerSummary_choiceId,
     choiceAnswerSummary_reason,
 
+    -- * ChoiceContent
+    ChoiceContent (..),
+    newChoiceContent,
+    choiceContent_displayText,
+    choiceContent_url,
+
+    -- * ChoiceImprovementPlan
+    ChoiceImprovementPlan (..),
+    newChoiceImprovementPlan,
+    choiceImprovementPlan_displayText,
+    choiceImprovementPlan_improvementPlanUrl,
+    choiceImprovementPlan_choiceId,
+
     -- * ChoiceUpdate
     ChoiceUpdate (..),
     newChoiceUpdate,
@@ -126,13 +167,26 @@ module Amazonka.WellArchitected.Types
     improvementSummary_risk,
     improvementSummary_questionId,
     improvementSummary_improvementPlanUrl,
+    improvementSummary_improvementPlans,
     improvementSummary_questionTitle,
     improvementSummary_pillarId,
+
+    -- * Lens
+    Lens (..),
+    newLens,
+    lens_tags,
+    lens_name,
+    lens_lensArn,
+    lens_shareInvitationId,
+    lens_owner,
+    lens_lensVersion,
+    lens_description,
 
     -- * LensReview
     LensReview (..),
     newLensReview,
     lensReview_nextToken,
+    lensReview_lensArn,
     lensReview_riskCounts,
     lensReview_lensAlias,
     lensReview_lensVersion,
@@ -145,12 +199,14 @@ module Amazonka.WellArchitected.Types
     -- * LensReviewReport
     LensReviewReport (..),
     newLensReviewReport,
+    lensReviewReport_lensArn,
     lensReviewReport_lensAlias,
     lensReviewReport_base64String,
 
     -- * LensReviewSummary
     LensReviewSummary (..),
     newLensReviewSummary,
+    lensReviewSummary_lensArn,
     lensReviewSummary_riskCounts,
     lensReviewSummary_lensAlias,
     lensReviewSummary_lensVersion,
@@ -158,18 +214,33 @@ module Amazonka.WellArchitected.Types
     lensReviewSummary_lensStatus,
     lensReviewSummary_updatedAt,
 
+    -- * LensShareSummary
+    LensShareSummary (..),
+    newLensShareSummary,
+    lensShareSummary_sharedWith,
+    lensShareSummary_status,
+    lensShareSummary_shareId,
+    lensShareSummary_statusMessage,
+
     -- * LensSummary
     LensSummary (..),
     newLensSummary,
+    lensSummary_lensArn,
     lensSummary_lensAlias,
+    lensSummary_owner,
     lensSummary_lensVersion,
     lensSummary_description,
     lensSummary_lensName,
+    lensSummary_lensType,
+    lensSummary_lensStatus,
+    lensSummary_createdAt,
+    lensSummary_updatedAt,
 
     -- * LensUpgradeSummary
     LensUpgradeSummary (..),
     newLensUpgradeSummary,
     lensUpgradeSummary_currentLensVersion,
+    lensUpgradeSummary_lensArn,
     lensUpgradeSummary_lensAlias,
     lensUpgradeSummary_workloadName,
     lensUpgradeSummary_latestLensVersion,
@@ -203,6 +274,7 @@ module Amazonka.WellArchitected.Types
     pillarDifference_differenceStatus,
     pillarDifference_questionDifferences,
     pillarDifference_pillarId,
+    pillarDifference_pillarName,
 
     -- * PillarReviewSummary
     PillarReviewSummary (..),
@@ -222,17 +294,23 @@ module Amazonka.WellArchitected.Types
     -- * ShareInvitation
     ShareInvitation (..),
     newShareInvitation,
+    shareInvitation_lensArn,
+    shareInvitation_lensAlias,
     shareInvitation_shareInvitationId,
+    shareInvitation_shareResourceType,
     shareInvitation_workloadId,
 
     -- * ShareInvitationSummary
     ShareInvitationSummary (..),
     newShareInvitationSummary,
     shareInvitationSummary_permissionType,
+    shareInvitationSummary_lensArn,
     shareInvitationSummary_sharedWith,
     shareInvitationSummary_shareInvitationId,
     shareInvitationSummary_workloadName,
+    shareInvitationSummary_lensName,
     shareInvitationSummary_sharedBy,
+    shareInvitationSummary_shareResourceType,
     shareInvitationSummary_workloadId,
 
     -- * VersionDifferences
@@ -285,6 +363,7 @@ module Amazonka.WellArchitected.Types
     workloadShareSummary_sharedWith,
     workloadShareSummary_status,
     workloadShareSummary_shareId,
+    workloadShareSummary_statusMessage,
 
     -- * WorkloadSummary
     WorkloadSummary (..),
@@ -304,27 +383,37 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WellArchitected.Types.AdditionalResourceType
+import Amazonka.WellArchitected.Types.AdditionalResources
 import Amazonka.WellArchitected.Types.Answer
 import Amazonka.WellArchitected.Types.AnswerReason
 import Amazonka.WellArchitected.Types.AnswerSummary
 import Amazonka.WellArchitected.Types.Choice
 import Amazonka.WellArchitected.Types.ChoiceAnswer
 import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+import Amazonka.WellArchitected.Types.ChoiceContent
+import Amazonka.WellArchitected.Types.ChoiceImprovementPlan
 import Amazonka.WellArchitected.Types.ChoiceReason
 import Amazonka.WellArchitected.Types.ChoiceStatus
 import Amazonka.WellArchitected.Types.ChoiceUpdate
 import Amazonka.WellArchitected.Types.DifferenceStatus
+import Amazonka.WellArchitected.Types.ImportLensStatus
 import Amazonka.WellArchitected.Types.ImprovementSummary
+import Amazonka.WellArchitected.Types.Lens
 import Amazonka.WellArchitected.Types.LensReview
 import Amazonka.WellArchitected.Types.LensReviewReport
 import Amazonka.WellArchitected.Types.LensReviewSummary
+import Amazonka.WellArchitected.Types.LensShareSummary
 import Amazonka.WellArchitected.Types.LensStatus
+import Amazonka.WellArchitected.Types.LensStatusType
 import Amazonka.WellArchitected.Types.LensSummary
+import Amazonka.WellArchitected.Types.LensType
 import Amazonka.WellArchitected.Types.LensUpgradeSummary
 import Amazonka.WellArchitected.Types.Milestone
 import Amazonka.WellArchitected.Types.MilestoneSummary
 import Amazonka.WellArchitected.Types.NotificationSummary
 import Amazonka.WellArchitected.Types.NotificationType
+import Amazonka.WellArchitected.Types.OrganizationSharingStatus
 import Amazonka.WellArchitected.Types.PermissionType
 import Amazonka.WellArchitected.Types.PillarDifference
 import Amazonka.WellArchitected.Types.PillarReviewSummary
@@ -333,6 +422,7 @@ import Amazonka.WellArchitected.Types.Risk
 import Amazonka.WellArchitected.Types.ShareInvitation
 import Amazonka.WellArchitected.Types.ShareInvitationAction
 import Amazonka.WellArchitected.Types.ShareInvitationSummary
+import Amazonka.WellArchitected.Types.ShareResourceType
 import Amazonka.WellArchitected.Types.ShareStatus
 import Amazonka.WellArchitected.Types.VersionDifferences
 import Amazonka.WellArchitected.Types.Workload
@@ -422,7 +512,7 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | There is a problem with the AWS Well-Architected Tool API service.
+-- | There is a problem with the Well-Architected Tool API service.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError

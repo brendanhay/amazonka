@@ -68,7 +68,7 @@ data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
     -- | The ID of the maintenance window to retrieve information about.
     windowId :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID or key-value pair to retrieve information about.
+    -- | The managed node ID or key-value pair to retrieve information about.
     targets :: Prelude.Maybe [Target],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
@@ -97,7 +97,7 @@ data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
 --
 -- 'windowId', 'describeMaintenanceWindowSchedule_windowId' - The ID of the maintenance window to retrieve information about.
 --
--- 'targets', 'describeMaintenanceWindowSchedule_targets' - The instance ID or key-value pair to retrieve information about.
+-- 'targets', 'describeMaintenanceWindowSchedule_targets' - The managed node ID or key-value pair to retrieve information about.
 --
 -- 'maxResults', 'describeMaintenanceWindowSchedule_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -135,7 +135,7 @@ describeMaintenanceWindowSchedule_filters = Lens.lens (\DescribeMaintenanceWindo
 describeMaintenanceWindowSchedule_windowId :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe Prelude.Text)
 describeMaintenanceWindowSchedule_windowId = Lens.lens (\DescribeMaintenanceWindowSchedule' {windowId} -> windowId) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {windowId = a} :: DescribeMaintenanceWindowSchedule)
 
--- | The instance ID or key-value pair to retrieve information about.
+-- | The managed node ID or key-value pair to retrieve information about.
 describeMaintenanceWindowSchedule_targets :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe [Target])
 describeMaintenanceWindowSchedule_targets = Lens.lens (\DescribeMaintenanceWindowSchedule' {targets} -> targets) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {targets = a} :: DescribeMaintenanceWindowSchedule) Prelude.. Lens.mapping Lens.coerced
 

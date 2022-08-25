@@ -21,6 +21,7 @@ module Amazonka.ConnectParticipant.Lens
     completeAttachmentUploadResponse_httpStatus,
 
     -- ** CreateParticipantConnection
+    createParticipantConnection_connectParticipant,
     createParticipantConnection_type,
     createParticipantConnection_participantToken,
     createParticipantConnectionResponse_connectionCredentials,

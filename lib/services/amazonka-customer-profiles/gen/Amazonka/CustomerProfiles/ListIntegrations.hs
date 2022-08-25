@@ -29,6 +29,7 @@ module Amazonka.CustomerProfiles.ListIntegrations
     -- * Request Lenses
     listIntegrations_nextToken,
     listIntegrations_maxResults,
+    listIntegrations_includeHidden,
     listIntegrations_domainName,
 
     -- * Destructuring the Response
@@ -55,6 +56,9 @@ data ListIntegrations = ListIntegrations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects returned per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Boolean to indicate if hidden integration should be returned. Defaults
+    -- to @False@.
+    includeHidden :: Prelude.Maybe Prelude.Bool,
     -- | The unique name of the domain.
     domainName :: Prelude.Text
   }
@@ -72,6 +76,9 @@ data ListIntegrations = ListIntegrations'
 --
 -- 'maxResults', 'listIntegrations_maxResults' - The maximum number of objects returned per page.
 --
+-- 'includeHidden', 'listIntegrations_includeHidden' - Boolean to indicate if hidden integration should be returned. Defaults
+-- to @False@.
+--
 -- 'domainName', 'listIntegrations_domainName' - The unique name of the domain.
 newListIntegrations ::
   -- | 'domainName'
@@ -81,6 +88,7 @@ newListIntegrations pDomainName_ =
   ListIntegrations'
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      includeHidden = Prelude.Nothing,
       domainName = pDomainName_
     }
 
@@ -91,6 +99,11 @@ listIntegrations_nextToken = Lens.lens (\ListIntegrations' {nextToken} -> nextTo
 -- | The maximum number of objects returned per page.
 listIntegrations_maxResults :: Lens.Lens' ListIntegrations (Prelude.Maybe Prelude.Natural)
 listIntegrations_maxResults = Lens.lens (\ListIntegrations' {maxResults} -> maxResults) (\s@ListIntegrations' {} a -> s {maxResults = a} :: ListIntegrations)
+
+-- | Boolean to indicate if hidden integration should be returned. Defaults
+-- to @False@.
+listIntegrations_includeHidden :: Lens.Lens' ListIntegrations (Prelude.Maybe Prelude.Bool)
+listIntegrations_includeHidden = Lens.lens (\ListIntegrations' {includeHidden} -> includeHidden) (\s@ListIntegrations' {} a -> s {includeHidden = a} :: ListIntegrations)
 
 -- | The unique name of the domain.
 listIntegrations_domainName :: Lens.Lens' ListIntegrations Prelude.Text
@@ -114,12 +127,14 @@ instance Prelude.Hashable ListIntegrations where
   hashWithSalt _salt ListIntegrations' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` includeHidden
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData ListIntegrations where
   rnf ListIntegrations' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf includeHidden
       `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders ListIntegrations where
@@ -142,7 +157,8 @@ instance Core.ToQuery ListIntegrations where
   toQuery ListIntegrations' {..} =
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+        "max-results" Core.=: maxResults,
+        "include-hidden" Core.=: includeHidden
       ]
 
 -- | /See:/ 'newListIntegrationsResponse' smart constructor.

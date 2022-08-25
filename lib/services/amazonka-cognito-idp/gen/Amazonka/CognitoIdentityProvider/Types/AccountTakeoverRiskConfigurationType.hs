@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data AccountTakeoverRiskConfigurationType = AccountTakeoverRiskConfigurationType'
   { -- | The notify configuration used to construct email notifications.
     notifyConfiguration :: Prelude.Maybe NotifyConfigurationType,
-    -- | Account takeover risk configuration actions
+    -- | Account takeover risk configuration actions.
     actions :: AccountTakeoverActionsType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data AccountTakeoverRiskConfigurationType = AccountTakeoverRiskConfigurationType
 --
 -- 'notifyConfiguration', 'accountTakeoverRiskConfigurationType_notifyConfiguration' - The notify configuration used to construct email notifications.
 --
--- 'actions', 'accountTakeoverRiskConfigurationType_actions' - Account takeover risk configuration actions
+-- 'actions', 'accountTakeoverRiskConfigurationType_actions' - Account takeover risk configuration actions.
 newAccountTakeoverRiskConfigurationType ::
   -- | 'actions'
   AccountTakeoverActionsType ->
@@ -63,7 +63,7 @@ newAccountTakeoverRiskConfigurationType pActions_ =
 accountTakeoverRiskConfigurationType_notifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Prelude.Maybe NotifyConfigurationType)
 accountTakeoverRiskConfigurationType_notifyConfiguration = Lens.lens (\AccountTakeoverRiskConfigurationType' {notifyConfiguration} -> notifyConfiguration) (\s@AccountTakeoverRiskConfigurationType' {} a -> s {notifyConfiguration = a} :: AccountTakeoverRiskConfigurationType)
 
--- | Account takeover risk configuration actions
+-- | Account takeover risk configuration actions.
 accountTakeoverRiskConfigurationType_actions :: Lens.Lens' AccountTakeoverRiskConfigurationType AccountTakeoverActionsType
 accountTakeoverRiskConfigurationType_actions = Lens.lens (\AccountTakeoverRiskConfigurationType' {actions} -> actions) (\s@AccountTakeoverRiskConfigurationType' {} a -> s {actions = a} :: AccountTakeoverRiskConfigurationType)
 

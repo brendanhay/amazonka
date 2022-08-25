@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a training job. To stop a job, Amazon SageMaker sends the
--- algorithm the @SIGTERM@ signal, which delays job termination for 120
--- seconds. Algorithms might use this 120-second window to save the model
--- artifacts, so the results of the training is not lost.
+-- Stops a training job. To stop a job, SageMaker sends the algorithm the
+-- @SIGTERM@ signal, which delays job termination for 120 seconds.
+-- Algorithms might use this 120-second window to save the model artifacts,
+-- so the results of the training is not lost.
 --
--- When it receives a @StopTrainingJob@ request, Amazon SageMaker changes
--- the status of the job to @Stopping@. After Amazon SageMaker stops the
--- job, it sets the status to @Stopped@.
+-- When it receives a @StopTrainingJob@ request, SageMaker changes the
+-- status of the job to @Stopping@. After SageMaker stops the job, it sets
+-- the status to @Stopped@.
 module Amazonka.SageMaker.StopTrainingJob
   ( -- * Creating a Request
     StopTrainingJob (..),

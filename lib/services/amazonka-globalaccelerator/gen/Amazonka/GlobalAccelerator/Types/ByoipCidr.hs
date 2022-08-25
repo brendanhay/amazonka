@@ -26,55 +26,59 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an IP address range that is provisioned for use with
--- your AWS resources through bring your own IP address (BYOIP).
+-- your Amazon Web Services resources through bring your own IP address
+-- (BYOIP).
 --
 -- The following describes each BYOIP @State@ that your IP address range
 -- can be in.
 --
 -- -   __PENDING_PROVISIONING__ — You’ve submitted a request to provision
---     an IP address range but it is not yet provisioned with AWS Global
+--     an IP address range but it is not yet provisioned with Global
 --     Accelerator.
 --
--- -   __READY__ — The address range is provisioned with AWS Global
---     Accelerator and can be advertised.
+-- -   __READY__ — The address range is provisioned with Global Accelerator
+--     and can be advertised.
 --
--- -   __PENDING_ADVERTISING__ — You’ve submitted a request for AWS Global
+-- -   __PENDING_ADVERTISING__ — You’ve submitted a request for Global
 --     Accelerator to advertise an address range but it is not yet being
 --     advertised.
 --
--- -   __ADVERTISING__ — The address range is being advertised by AWS
---     Global Accelerator.
+-- -   __ADVERTISING__ — The address range is being advertised by Global
+--     Accelerator.
 --
 -- -   __PENDING_WITHDRAWING__ — You’ve submitted a request to withdraw an
 --     address range from being advertised but it is still being advertised
---     by AWS Global Accelerator.
+--     by Global Accelerator.
 --
 -- -   __PENDING_DEPROVISIONING__ — You’ve submitted a request to
---     deprovision an address range from AWS Global Accelerator but it is
---     still provisioned.
+--     deprovision an address range from Global Accelerator but it is still
+--     provisioned.
 --
--- -   __DEPROVISIONED__ — The address range is deprovisioned from AWS
---     Global Accelerator.
+-- -   __DEPROVISIONED__ — The address range is deprovisioned from Global
+--     Accelerator.
 --
 -- -   __FAILED_PROVISION__ — The request to provision the address range
---     from AWS Global Accelerator was not successful. Please make sure
---     that you provide all of the correct information, and try again. If
---     the request fails a second time, contact AWS support.
+--     from Global Accelerator was not successful. Please make sure that
+--     you provide all of the correct information, and try again. If the
+--     request fails a second time, contact Amazon Web Services support.
 --
--- -   __FAILED_ADVERTISING__ — The request for AWS Global Accelerator to
+-- -   __FAILED_ADVERTISING__ — The request for Global Accelerator to
 --     advertise the address range was not successful. Please make sure
 --     that you provide all of the correct information, and try again. If
---     the request fails a second time, contact AWS support.
+--     the request fails a second time, contact Amazon Web Services
+--     support.
 --
 -- -   __FAILED_WITHDRAW__ — The request to withdraw the address range from
---     advertising by AWS Global Accelerator was not successful. Please
---     make sure that you provide all of the correct information, and try
---     again. If the request fails a second time, contact AWS support.
+--     advertising by Global Accelerator was not successful. Please make
+--     sure that you provide all of the correct information, and try again.
+--     If the request fails a second time, contact Amazon Web Services
+--     support.
 --
 -- -   __FAILED_DEPROVISION__ — The request to deprovision the address
---     range from AWS Global Accelerator was not successful. Please make
---     sure that you provide all of the correct information, and try again.
---     If the request fails a second time, contact AWS support.
+--     range from Global Accelerator was not successful. Please make sure
+--     that you provide all of the correct information, and try again. If
+--     the request fails a second time, contact Amazon Web Services
+--     support.
 --
 -- /See:/ 'newByoipCidr' smart constructor.
 data ByoipCidr = ByoipCidr'
@@ -83,7 +87,7 @@ data ByoipCidr = ByoipCidr'
     -- | The state of the address pool.
     state :: Prelude.Maybe ByoipCidrState,
     -- | A history of status changes for an IP address range that you bring to
-    -- AWS Global Accelerator through bring your own IP address (BYOIP).
+    -- Global Accelerator through bring your own IP address (BYOIP).
     events :: Prelude.Maybe [ByoipCidrEvent]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,7 +105,7 @@ data ByoipCidr = ByoipCidr'
 -- 'state', 'byoipCidr_state' - The state of the address pool.
 --
 -- 'events', 'byoipCidr_events' - A history of status changes for an IP address range that you bring to
--- AWS Global Accelerator through bring your own IP address (BYOIP).
+-- Global Accelerator through bring your own IP address (BYOIP).
 newByoipCidr ::
   ByoipCidr
 newByoipCidr =
@@ -120,7 +124,7 @@ byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
 byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
 
 -- | A history of status changes for an IP address range that you bring to
--- AWS Global Accelerator through bring your own IP address (BYOIP).
+-- Global Accelerator through bring your own IP address (BYOIP).
 byoipCidr_events :: Lens.Lens' ByoipCidr (Prelude.Maybe [ByoipCidrEvent])
 byoipCidr_events = Lens.lens (\ByoipCidr' {events} -> events) (\s@ByoipCidr' {} a -> s {events = a} :: ByoipCidr) Prelude.. Lens.mapping Lens.coerced
 

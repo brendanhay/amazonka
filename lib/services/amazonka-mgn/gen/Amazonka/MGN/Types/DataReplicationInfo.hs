@@ -33,12 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 data DataReplicationInfo = DataReplicationInfo'
   { -- | Error in obtaining data replication info.
     dataReplicationError :: Prelude.Maybe DataReplicationError,
-    -- | Request to query data replication lag durating.
+    -- | Request to query data replication lag duration.
     lagDuration :: Prelude.Maybe Prelude.Text,
     -- | Request to query whether data replication has been initiated.
     dataReplicationInitiation :: Prelude.Maybe DataReplicationInitiation,
     -- | Request to query disks replicated.
     replicatedDisks :: Prelude.Maybe [DataReplicationInfoReplicatedDisk],
+    -- | Request to query data replication last snapshot time.
+    lastSnapshotDateTime :: Prelude.Maybe Prelude.Text,
     -- | Request to query the data replication state.
     dataReplicationState :: Prelude.Maybe DataReplicationState,
     -- | Request to query the time when data replication will be complete.
@@ -56,11 +58,13 @@ data DataReplicationInfo = DataReplicationInfo'
 --
 -- 'dataReplicationError', 'dataReplicationInfo_dataReplicationError' - Error in obtaining data replication info.
 --
--- 'lagDuration', 'dataReplicationInfo_lagDuration' - Request to query data replication lag durating.
+-- 'lagDuration', 'dataReplicationInfo_lagDuration' - Request to query data replication lag duration.
 --
 -- 'dataReplicationInitiation', 'dataReplicationInfo_dataReplicationInitiation' - Request to query whether data replication has been initiated.
 --
 -- 'replicatedDisks', 'dataReplicationInfo_replicatedDisks' - Request to query disks replicated.
+--
+-- 'lastSnapshotDateTime', 'dataReplicationInfo_lastSnapshotDateTime' - Request to query data replication last snapshot time.
 --
 -- 'dataReplicationState', 'dataReplicationInfo_dataReplicationState' - Request to query the data replication state.
 --
@@ -74,6 +78,7 @@ newDataReplicationInfo =
       lagDuration = Prelude.Nothing,
       dataReplicationInitiation = Prelude.Nothing,
       replicatedDisks = Prelude.Nothing,
+      lastSnapshotDateTime = Prelude.Nothing,
       dataReplicationState = Prelude.Nothing,
       etaDateTime = Prelude.Nothing
     }
@@ -82,7 +87,7 @@ newDataReplicationInfo =
 dataReplicationInfo_dataReplicationError :: Lens.Lens' DataReplicationInfo (Prelude.Maybe DataReplicationError)
 dataReplicationInfo_dataReplicationError = Lens.lens (\DataReplicationInfo' {dataReplicationError} -> dataReplicationError) (\s@DataReplicationInfo' {} a -> s {dataReplicationError = a} :: DataReplicationInfo)
 
--- | Request to query data replication lag durating.
+-- | Request to query data replication lag duration.
 dataReplicationInfo_lagDuration :: Lens.Lens' DataReplicationInfo (Prelude.Maybe Prelude.Text)
 dataReplicationInfo_lagDuration = Lens.lens (\DataReplicationInfo' {lagDuration} -> lagDuration) (\s@DataReplicationInfo' {} a -> s {lagDuration = a} :: DataReplicationInfo)
 
@@ -93,6 +98,10 @@ dataReplicationInfo_dataReplicationInitiation = Lens.lens (\DataReplicationInfo'
 -- | Request to query disks replicated.
 dataReplicationInfo_replicatedDisks :: Lens.Lens' DataReplicationInfo (Prelude.Maybe [DataReplicationInfoReplicatedDisk])
 dataReplicationInfo_replicatedDisks = Lens.lens (\DataReplicationInfo' {replicatedDisks} -> replicatedDisks) (\s@DataReplicationInfo' {} a -> s {replicatedDisks = a} :: DataReplicationInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | Request to query data replication last snapshot time.
+dataReplicationInfo_lastSnapshotDateTime :: Lens.Lens' DataReplicationInfo (Prelude.Maybe Prelude.Text)
+dataReplicationInfo_lastSnapshotDateTime = Lens.lens (\DataReplicationInfo' {lastSnapshotDateTime} -> lastSnapshotDateTime) (\s@DataReplicationInfo' {} a -> s {lastSnapshotDateTime = a} :: DataReplicationInfo)
 
 -- | Request to query the data replication state.
 dataReplicationInfo_dataReplicationState :: Lens.Lens' DataReplicationInfo (Prelude.Maybe DataReplicationState)
@@ -114,6 +123,7 @@ instance Core.FromJSON DataReplicationInfo where
             Prelude.<*> ( x Core..:? "replicatedDisks"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "lastSnapshotDateTime")
             Prelude.<*> (x Core..:? "dataReplicationState")
             Prelude.<*> (x Core..:? "etaDateTime")
       )
@@ -124,6 +134,7 @@ instance Prelude.Hashable DataReplicationInfo where
       `Prelude.hashWithSalt` lagDuration
       `Prelude.hashWithSalt` dataReplicationInitiation
       `Prelude.hashWithSalt` replicatedDisks
+      `Prelude.hashWithSalt` lastSnapshotDateTime
       `Prelude.hashWithSalt` dataReplicationState
       `Prelude.hashWithSalt` etaDateTime
 
@@ -133,5 +144,6 @@ instance Prelude.NFData DataReplicationInfo where
       `Prelude.seq` Prelude.rnf lagDuration
       `Prelude.seq` Prelude.rnf dataReplicationInitiation
       `Prelude.seq` Prelude.rnf replicatedDisks
+      `Prelude.seq` Prelude.rnf lastSnapshotDateTime
       `Prelude.seq` Prelude.rnf dataReplicationState
       `Prelude.seq` Prelude.rnf etaDateTime

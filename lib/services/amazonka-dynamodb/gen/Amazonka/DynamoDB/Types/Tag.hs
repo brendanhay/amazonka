@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes a tag. A tag is a key-value pair. You can add up to 50 tags to
 -- a single DynamoDB table.
 --
--- AWS-assigned tag names and values are automatically assigned the @aws:@
--- prefix, which the user cannot assign. AWS-assigned tag names do not
--- count towards the tag limit of 50. User-assigned tag names have the
--- prefix @user:@ in the Cost Allocation Report. You cannot backdate the
--- application of a tag.
+-- Amazon Web Services-assigned tag names and values are automatically
+-- assigned the @aws:@ prefix, which the user cannot assign. Amazon Web
+-- Services-assigned tag names do not count towards the tag limit of 50.
+-- User-assigned tag names have the prefix @user:@ in the Cost Allocation
+-- Report. You cannot backdate the application of a tag.
 --
 -- For an overview on tagging DynamoDB resources, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>

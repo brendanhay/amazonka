@@ -56,7 +56,7 @@ data DeleteGroup = DeleteGroup'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace of the group that you want to delete.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data DeleteGroup = DeleteGroup'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'deleteGroup_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'deleteGroup_namespace' - The namespace of the group that you want to delete.
 newDeleteGroup ::
   -- | 'groupName'
   Prelude.Text ->
@@ -101,7 +101,7 @@ deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@D
 deleteGroup_awsAccountId :: Lens.Lens' DeleteGroup Prelude.Text
 deleteGroup_awsAccountId = Lens.lens (\DeleteGroup' {awsAccountId} -> awsAccountId) (\s@DeleteGroup' {} a -> s {awsAccountId = a} :: DeleteGroup)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace of the group that you want to delete.
 deleteGroup_namespace :: Lens.Lens' DeleteGroup Prelude.Text
 deleteGroup_namespace = Lens.lens (\DeleteGroup' {namespace} -> namespace) (\s@DeleteGroup' {} a -> s {namespace = a} :: DeleteGroup)
 

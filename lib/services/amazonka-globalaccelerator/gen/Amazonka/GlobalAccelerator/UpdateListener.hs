@@ -56,15 +56,14 @@ data UpdateListener = UpdateListener'
     -- protocol of the client request. Client affinity gives you control over
     -- whether to always route each client to the same specific endpoint.
     --
-    -- AWS Global Accelerator uses a consistent-flow hashing algorithm to
-    -- choose the optimal endpoint for a connection. If client affinity is
-    -- @NONE@, Global Accelerator uses the \"five-tuple\" (5-tuple)
-    -- properties—source IP address, source port, destination IP address,
-    -- destination port, and protocol—to select the hash value, and then
-    -- chooses the best endpoint. However, with this setting, if someone uses
-    -- different ports to connect to Global Accelerator, their connections
-    -- might not be always routed to the same endpoint because the hash value
-    -- changes.
+    -- Global Accelerator uses a consistent-flow hashing algorithm to choose
+    -- the optimal endpoint for a connection. If client affinity is @NONE@,
+    -- Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source
+    -- IP address, source port, destination IP address, destination port, and
+    -- protocol—to select the hash value, and then chooses the best endpoint.
+    -- However, with this setting, if someone uses different ports to connect
+    -- to Global Accelerator, their connections might not be always routed to
+    -- the same endpoint because the hash value changes.
     --
     -- If you want a given client to always be routed to the same endpoint, set
     -- client affinity to @SOURCE_IP@ instead. When you use the @SOURCE_IP@
@@ -98,15 +97,14 @@ data UpdateListener = UpdateListener'
 -- protocol of the client request. Client affinity gives you control over
 -- whether to always route each client to the same specific endpoint.
 --
--- AWS Global Accelerator uses a consistent-flow hashing algorithm to
--- choose the optimal endpoint for a connection. If client affinity is
--- @NONE@, Global Accelerator uses the \"five-tuple\" (5-tuple)
--- properties—source IP address, source port, destination IP address,
--- destination port, and protocol—to select the hash value, and then
--- chooses the best endpoint. However, with this setting, if someone uses
--- different ports to connect to Global Accelerator, their connections
--- might not be always routed to the same endpoint because the hash value
--- changes.
+-- Global Accelerator uses a consistent-flow hashing algorithm to choose
+-- the optimal endpoint for a connection. If client affinity is @NONE@,
+-- Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source
+-- IP address, source port, destination IP address, destination port, and
+-- protocol—to select the hash value, and then chooses the best endpoint.
+-- However, with this setting, if someone uses different ports to connect
+-- to Global Accelerator, their connections might not be always routed to
+-- the same endpoint because the hash value changes.
 --
 -- If you want a given client to always be routed to the same endpoint, set
 -- client affinity to @SOURCE_IP@ instead. When you use the @SOURCE_IP@
@@ -140,15 +138,14 @@ newUpdateListener pListenerArn_ =
 -- protocol of the client request. Client affinity gives you control over
 -- whether to always route each client to the same specific endpoint.
 --
--- AWS Global Accelerator uses a consistent-flow hashing algorithm to
--- choose the optimal endpoint for a connection. If client affinity is
--- @NONE@, Global Accelerator uses the \"five-tuple\" (5-tuple)
--- properties—source IP address, source port, destination IP address,
--- destination port, and protocol—to select the hash value, and then
--- chooses the best endpoint. However, with this setting, if someone uses
--- different ports to connect to Global Accelerator, their connections
--- might not be always routed to the same endpoint because the hash value
--- changes.
+-- Global Accelerator uses a consistent-flow hashing algorithm to choose
+-- the optimal endpoint for a connection. If client affinity is @NONE@,
+-- Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source
+-- IP address, source port, destination IP address, destination port, and
+-- protocol—to select the hash value, and then chooses the best endpoint.
+-- However, with this setting, if someone uses different ports to connect
+-- to Global Accelerator, their connections might not be always routed to
+-- the same endpoint because the hash value changes.
 --
 -- If you want a given client to always be routed to the same endpoint, set
 -- client affinity to @SOURCE_IP@ instead. When you use the @SOURCE_IP@

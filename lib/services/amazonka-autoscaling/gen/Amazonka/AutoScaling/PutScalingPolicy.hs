@@ -95,14 +95,16 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- -   @PredictiveScaling@
     policyType :: Prelude.Maybe Prelude.Text,
-    -- | The duration of the policy\'s cooldown period, in seconds. When a
-    -- cooldown period is specified here, it overrides the default cooldown
-    -- period defined for the Auto Scaling group.
+    -- | A cooldown period, in seconds, that applies to a specific simple scaling
+    -- policy. When a cooldown period is specified here, it overrides the
+    -- default cooldown.
     --
     -- Valid only if the policy type is @SimpleScaling@. For more information,
     -- see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
+    --
+    -- Default: None
     cooldown :: Prelude.Maybe Prelude.Int,
     -- | Specifies how the scaling adjustment is interpreted (for example, an
     -- absolute number or a percentage). The valid values are
@@ -113,13 +115,20 @@ data PutScalingPolicy = PutScalingPolicy'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     adjustmentType :: Prelude.Maybe Prelude.Text,
-    -- | The estimated time, in seconds, until a newly launched instance can
-    -- contribute to the CloudWatch metrics. If not provided, the default is to
-    -- use the value from the default cooldown period for the Auto Scaling
-    -- group.
+    -- | /Not needed if the default instance warmup is defined for the group./
+    --
+    -- The estimated time, in seconds, until a newly launched instance can
+    -- contribute to the CloudWatch metrics. This warm-up period applies to
+    -- instances launched due to a specific target tracking or step scaling
+    -- policy. When a warm-up period is specified here, it overrides the
+    -- default instance warmup.
     --
     -- Valid only if the policy type is @TargetTrackingScaling@ or
     -- @StepScaling@.
+    --
+    -- The default is to use the value for the default instance warmup defined
+    -- for the group. If default instance warmup is null, then
+    -- @EstimatedInstanceWarmup@ falls back to the value of default cooldown.
     estimatedInstanceWarmup :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether the scaling policy is enabled or disabled. The default
     -- is enabled. For more information, see
@@ -127,7 +136,7 @@ data PutScalingPolicy = PutScalingPolicy'
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | A target tracking scaling policy. Provides support for predefined or
-    -- customized metrics.
+    -- custom metrics.
     --
     -- The following predefined metrics are available:
     --
@@ -140,7 +149,7 @@ data PutScalingPolicy = PutScalingPolicy'
     -- -   @ALBRequestCountPerTarget@
     --
     -- If you specify @ALBRequestCountPerTarget@ for the metric, you must
-    -- specify the @ResourceLabel@ parameter with the
+    -- specify the @ResourceLabel@ property with the
     -- @PredefinedMetricSpecification@.
     --
     -- For more information, see
@@ -166,10 +175,10 @@ data PutScalingPolicy = PutScalingPolicy'
     -- Required if the policy type is @StepScaling@. (Not used with any other
     -- policy type.)
     stepAdjustments :: Prelude.Maybe [StepAdjustment],
-    -- | A predictive scaling policy. Provides support for only predefined
+    -- | A predictive scaling policy. Provides support for predefined and custom
     -- metrics.
     --
-    -- Predictive scaling works with CPU utilization, network in\/out, and the
+    -- Predefined metrics include CPU utilization, network in\/out, and the
     -- Application Load Balancer request count.
     --
     -- For more information, see
@@ -226,14 +235,16 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- -   @PredictiveScaling@
 --
--- 'cooldown', 'putScalingPolicy_cooldown' - The duration of the policy\'s cooldown period, in seconds. When a
--- cooldown period is specified here, it overrides the default cooldown
--- period defined for the Auto Scaling group.
+-- 'cooldown', 'putScalingPolicy_cooldown' - A cooldown period, in seconds, that applies to a specific simple scaling
+-- policy. When a cooldown period is specified here, it overrides the
+-- default cooldown.
 --
 -- Valid only if the policy type is @SimpleScaling@. For more information,
 -- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Default: None
 --
 -- 'adjustmentType', 'putScalingPolicy_adjustmentType' - Specifies how the scaling adjustment is interpreted (for example, an
 -- absolute number or a percentage). The valid values are
@@ -244,13 +255,20 @@ data PutScalingPolicy = PutScalingPolicy'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'estimatedInstanceWarmup', 'putScalingPolicy_estimatedInstanceWarmup' - The estimated time, in seconds, until a newly launched instance can
--- contribute to the CloudWatch metrics. If not provided, the default is to
--- use the value from the default cooldown period for the Auto Scaling
--- group.
+-- 'estimatedInstanceWarmup', 'putScalingPolicy_estimatedInstanceWarmup' - /Not needed if the default instance warmup is defined for the group./
+--
+-- The estimated time, in seconds, until a newly launched instance can
+-- contribute to the CloudWatch metrics. This warm-up period applies to
+-- instances launched due to a specific target tracking or step scaling
+-- policy. When a warm-up period is specified here, it overrides the
+-- default instance warmup.
 --
 -- Valid only if the policy type is @TargetTrackingScaling@ or
 -- @StepScaling@.
+--
+-- The default is to use the value for the default instance warmup defined
+-- for the group. If default instance warmup is null, then
+-- @EstimatedInstanceWarmup@ falls back to the value of default cooldown.
 --
 -- 'enabled', 'putScalingPolicy_enabled' - Indicates whether the scaling policy is enabled or disabled. The default
 -- is enabled. For more information, see
@@ -258,7 +276,7 @@ data PutScalingPolicy = PutScalingPolicy'
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'targetTrackingConfiguration', 'putScalingPolicy_targetTrackingConfiguration' - A target tracking scaling policy. Provides support for predefined or
--- customized metrics.
+-- custom metrics.
 --
 -- The following predefined metrics are available:
 --
@@ -271,7 +289,7 @@ data PutScalingPolicy = PutScalingPolicy'
 -- -   @ALBRequestCountPerTarget@
 --
 -- If you specify @ALBRequestCountPerTarget@ for the metric, you must
--- specify the @ResourceLabel@ parameter with the
+-- specify the @ResourceLabel@ property with the
 -- @PredefinedMetricSpecification@.
 --
 -- For more information, see
@@ -297,10 +315,10 @@ data PutScalingPolicy = PutScalingPolicy'
 -- Required if the policy type is @StepScaling@. (Not used with any other
 -- policy type.)
 --
--- 'predictiveScalingConfiguration', 'putScalingPolicy_predictiveScalingConfiguration' - A predictive scaling policy. Provides support for only predefined
+-- 'predictiveScalingConfiguration', 'putScalingPolicy_predictiveScalingConfiguration' - A predictive scaling policy. Provides support for predefined and custom
 -- metrics.
 --
--- Predictive scaling works with CPU utilization, network in\/out, and the
+-- Predefined metrics include CPU utilization, network in\/out, and the
 -- Application Load Balancer request count.
 --
 -- For more information, see
@@ -376,14 +394,16 @@ putScalingPolicy_metricAggregationType = Lens.lens (\PutScalingPolicy' {metricAg
 putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
 putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
 
--- | The duration of the policy\'s cooldown period, in seconds. When a
--- cooldown period is specified here, it overrides the default cooldown
--- period defined for the Auto Scaling group.
+-- | A cooldown period, in seconds, that applies to a specific simple scaling
+-- policy. When a cooldown period is specified here, it overrides the
+-- default cooldown.
 --
 -- Valid only if the policy type is @SimpleScaling@. For more information,
 -- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Default: None
 putScalingPolicy_cooldown :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
 putScalingPolicy_cooldown = Lens.lens (\PutScalingPolicy' {cooldown} -> cooldown) (\s@PutScalingPolicy' {} a -> s {cooldown = a} :: PutScalingPolicy)
 
@@ -398,13 +418,20 @@ putScalingPolicy_cooldown = Lens.lens (\PutScalingPolicy' {cooldown} -> cooldown
 putScalingPolicy_adjustmentType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
 putScalingPolicy_adjustmentType = Lens.lens (\PutScalingPolicy' {adjustmentType} -> adjustmentType) (\s@PutScalingPolicy' {} a -> s {adjustmentType = a} :: PutScalingPolicy)
 
--- | The estimated time, in seconds, until a newly launched instance can
--- contribute to the CloudWatch metrics. If not provided, the default is to
--- use the value from the default cooldown period for the Auto Scaling
--- group.
+-- | /Not needed if the default instance warmup is defined for the group./
+--
+-- The estimated time, in seconds, until a newly launched instance can
+-- contribute to the CloudWatch metrics. This warm-up period applies to
+-- instances launched due to a specific target tracking or step scaling
+-- policy. When a warm-up period is specified here, it overrides the
+-- default instance warmup.
 --
 -- Valid only if the policy type is @TargetTrackingScaling@ or
 -- @StepScaling@.
+--
+-- The default is to use the value for the default instance warmup defined
+-- for the group. If default instance warmup is null, then
+-- @EstimatedInstanceWarmup@ falls back to the value of default cooldown.
 putScalingPolicy_estimatedInstanceWarmup :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
 putScalingPolicy_estimatedInstanceWarmup = Lens.lens (\PutScalingPolicy' {estimatedInstanceWarmup} -> estimatedInstanceWarmup) (\s@PutScalingPolicy' {} a -> s {estimatedInstanceWarmup = a} :: PutScalingPolicy)
 
@@ -416,7 +443,7 @@ putScalingPolicy_enabled :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.B
 putScalingPolicy_enabled = Lens.lens (\PutScalingPolicy' {enabled} -> enabled) (\s@PutScalingPolicy' {} a -> s {enabled = a} :: PutScalingPolicy)
 
 -- | A target tracking scaling policy. Provides support for predefined or
--- customized metrics.
+-- custom metrics.
 --
 -- The following predefined metrics are available:
 --
@@ -429,7 +456,7 @@ putScalingPolicy_enabled = Lens.lens (\PutScalingPolicy' {enabled} -> enabled) (
 -- -   @ALBRequestCountPerTarget@
 --
 -- If you specify @ALBRequestCountPerTarget@ for the metric, you must
--- specify the @ResourceLabel@ parameter with the
+-- specify the @ResourceLabel@ property with the
 -- @PredefinedMetricSpecification@.
 --
 -- For more information, see
@@ -463,10 +490,10 @@ putScalingPolicy_scalingAdjustment = Lens.lens (\PutScalingPolicy' {scalingAdjus
 putScalingPolicy_stepAdjustments :: Lens.Lens' PutScalingPolicy (Prelude.Maybe [StepAdjustment])
 putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustments} -> stepAdjustments) (\s@PutScalingPolicy' {} a -> s {stepAdjustments = a} :: PutScalingPolicy) Prelude.. Lens.mapping Lens.coerced
 
--- | A predictive scaling policy. Provides support for only predefined
+-- | A predictive scaling policy. Provides support for predefined and custom
 -- metrics.
 --
--- Predictive scaling works with CPU utilization, network in\/out, and the
+-- Predefined metrics include CPU utilization, network in\/out, and the
 -- Application Load Balancer request count.
 --
 -- For more information, see

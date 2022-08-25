@@ -62,12 +62,14 @@ data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
     --
     -- -   Must specify a valid cluster parameter group.
     --
-    -- -   If the source cluster parameter group is in the same Region as the
-    --     copy, specify a valid parameter group identifier; for example,
-    --     @my-db-cluster-param-group@, or a valid ARN.
+    -- -   If the source cluster parameter group is in the same Amazon Web
+    --     Services Region as the copy, specify a valid parameter group
+    --     identifier; for example, @my-db-cluster-param-group@, or a valid
+    --     ARN.
     --
-    -- -   If the source parameter group is in a different Region than the
-    --     copy, specify a valid cluster parameter group ARN; for example,
+    -- -   If the source parameter group is in a different Amazon Web Services
+    --     Region than the copy, specify a valid cluster parameter group ARN;
+    --     for example,
     --     @arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group@.
     sourceDBClusterParameterGroupIdentifier :: Prelude.Text,
     -- | The identifier for the copied cluster parameter group.
@@ -106,12 +108,14 @@ data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
 --
 -- -   Must specify a valid cluster parameter group.
 --
--- -   If the source cluster parameter group is in the same Region as the
---     copy, specify a valid parameter group identifier; for example,
---     @my-db-cluster-param-group@, or a valid ARN.
+-- -   If the source cluster parameter group is in the same Amazon Web
+--     Services Region as the copy, specify a valid parameter group
+--     identifier; for example, @my-db-cluster-param-group@, or a valid
+--     ARN.
 --
--- -   If the source parameter group is in a different Region than the
---     copy, specify a valid cluster parameter group ARN; for example,
+-- -   If the source parameter group is in a different Amazon Web Services
+--     Region than the copy, specify a valid cluster parameter group ARN;
+--     for example,
 --     @arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group@.
 --
 -- 'targetDBClusterParameterGroupIdentifier', 'copyDBClusterParameterGroup_targetDBClusterParameterGroupIdentifier' - The identifier for the copied cluster parameter group.
@@ -163,12 +167,14 @@ copyDBClusterParameterGroup_tags = Lens.lens (\CopyDBClusterParameterGroup' {tag
 --
 -- -   Must specify a valid cluster parameter group.
 --
--- -   If the source cluster parameter group is in the same Region as the
---     copy, specify a valid parameter group identifier; for example,
---     @my-db-cluster-param-group@, or a valid ARN.
+-- -   If the source cluster parameter group is in the same Amazon Web
+--     Services Region as the copy, specify a valid parameter group
+--     identifier; for example, @my-db-cluster-param-group@, or a valid
+--     ARN.
 --
--- -   If the source parameter group is in a different Region than the
---     copy, specify a valid cluster parameter group ARN; for example,
+-- -   If the source parameter group is in a different Amazon Web Services
+--     Region than the copy, specify a valid cluster parameter group ARN;
+--     for example,
 --     @arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group@.
 copyDBClusterParameterGroup_sourceDBClusterParameterGroupIdentifier :: Lens.Lens' CopyDBClusterParameterGroup Prelude.Text
 copyDBClusterParameterGroup_sourceDBClusterParameterGroupIdentifier = Lens.lens (\CopyDBClusterParameterGroup' {sourceDBClusterParameterGroupIdentifier} -> sourceDBClusterParameterGroupIdentifier) (\s@CopyDBClusterParameterGroup' {} a -> s {sourceDBClusterParameterGroupIdentifier = a} :: CopyDBClusterParameterGroup)

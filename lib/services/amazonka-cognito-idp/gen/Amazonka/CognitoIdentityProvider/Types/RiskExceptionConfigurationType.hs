@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRiskExceptionConfigurationType' smart constructor.
 data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
-  { -- | Risk detection is not performed on the IP addresses in the range list.
+  { -- | Risk detection isn\'t performed on the IP addresses in this range list.
     -- The IP range is in CIDR notation.
     skippedIPRangeList :: Prelude.Maybe [Prelude.Text],
     -- | Overrides the risk decision to always block the pre-authentication
-    -- requests. The IP range is in CIDR notation: a compact representation of
-    -- an IP address and its associated routing prefix.
+    -- requests. The IP range is in CIDR notation, a compact representation of
+    -- an IP address and its routing prefix.
     blockedIPRangeList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,12 +45,12 @@ data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skippedIPRangeList', 'riskExceptionConfigurationType_skippedIPRangeList' - Risk detection is not performed on the IP addresses in the range list.
+-- 'skippedIPRangeList', 'riskExceptionConfigurationType_skippedIPRangeList' - Risk detection isn\'t performed on the IP addresses in this range list.
 -- The IP range is in CIDR notation.
 --
 -- 'blockedIPRangeList', 'riskExceptionConfigurationType_blockedIPRangeList' - Overrides the risk decision to always block the pre-authentication
--- requests. The IP range is in CIDR notation: a compact representation of
--- an IP address and its associated routing prefix.
+-- requests. The IP range is in CIDR notation, a compact representation of
+-- an IP address and its routing prefix.
 newRiskExceptionConfigurationType ::
   RiskExceptionConfigurationType
 newRiskExceptionConfigurationType =
@@ -60,14 +60,14 @@ newRiskExceptionConfigurationType =
       blockedIPRangeList = Prelude.Nothing
     }
 
--- | Risk detection is not performed on the IP addresses in the range list.
+-- | Risk detection isn\'t performed on the IP addresses in this range list.
 -- The IP range is in CIDR notation.
 riskExceptionConfigurationType_skippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
 riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
 -- | Overrides the risk decision to always block the pre-authentication
--- requests. The IP range is in CIDR notation: a compact representation of
--- an IP address and its associated routing prefix.
+-- requests. The IP range is in CIDR notation, a compact representation of
+-- an IP address and its routing prefix.
 riskExceptionConfigurationType_blockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
 riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 

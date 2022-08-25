@@ -31,23 +31,23 @@ import qualified Amazonka.Prelude as Prelude
 data Control = Control'
   { -- | The tags associated with the control.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the specified control.
+    -- | The name of the control.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The type of control, such as custom or standard.
+    -- | The type of control, such as a custom control or a standard control.
     type' :: Prelude.Maybe ControlType,
     -- | Specifies when the control was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The recommended actions to carry out if the control is not fulfilled.
+    -- | The recommended actions to carry out if the control isn\'t fulfilled.
     actionPlanInstructions :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the specified control.
+    -- | The Amazon Resource Name (ARN) of the control.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the specified control.
+    -- | The description of the control.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
     -- | The title of the action plan for remediating the control.
     actionPlanTitle :: Prelude.Maybe Prelude.Text,
-    -- | The data mapping sources for the specified control.
+    -- | The data mapping sources for the control.
     controlMappingSources :: Prelude.Maybe (Prelude.NonEmpty ControlMappingSource),
     -- | The IAM user or role that created the control.
     createdBy :: Prelude.Maybe Prelude.Text,
@@ -55,10 +55,11 @@ data Control = Control'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The IAM user or role that most recently updated the control.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
-    -- | The data source that determines from where Audit Manager collects
-    -- evidence for the control.
+    -- | The data source that determines where Audit Manager collects evidence
+    -- from for the control.
     controlSources :: Prelude.Maybe Prelude.Text,
-    -- | The steps to follow to determine if the control has been satisfied.
+    -- | The steps that you should follow to determine if the control has been
+    -- satisfied.
     testingInformation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,23 +74,23 @@ data Control = Control'
 --
 -- 'tags', 'control_tags' - The tags associated with the control.
 --
--- 'name', 'control_name' - The name of the specified control.
+-- 'name', 'control_name' - The name of the control.
 --
--- 'type'', 'control_type' - The type of control, such as custom or standard.
+-- 'type'', 'control_type' - The type of control, such as a custom control or a standard control.
 --
 -- 'lastUpdatedAt', 'control_lastUpdatedAt' - Specifies when the control was most recently updated.
 --
--- 'actionPlanInstructions', 'control_actionPlanInstructions' - The recommended actions to carry out if the control is not fulfilled.
+-- 'actionPlanInstructions', 'control_actionPlanInstructions' - The recommended actions to carry out if the control isn\'t fulfilled.
 --
--- 'arn', 'control_arn' - The Amazon Resource Name (ARN) of the specified control.
+-- 'arn', 'control_arn' - The Amazon Resource Name (ARN) of the control.
 --
--- 'description', 'control_description' - The description of the specified control.
+-- 'description', 'control_description' - The description of the control.
 --
 -- 'id', 'control_id' - The unique identifier for the control.
 --
 -- 'actionPlanTitle', 'control_actionPlanTitle' - The title of the action plan for remediating the control.
 --
--- 'controlMappingSources', 'control_controlMappingSources' - The data mapping sources for the specified control.
+-- 'controlMappingSources', 'control_controlMappingSources' - The data mapping sources for the control.
 --
 -- 'createdBy', 'control_createdBy' - The IAM user or role that created the control.
 --
@@ -97,10 +98,11 @@ data Control = Control'
 --
 -- 'lastUpdatedBy', 'control_lastUpdatedBy' - The IAM user or role that most recently updated the control.
 --
--- 'controlSources', 'control_controlSources' - The data source that determines from where Audit Manager collects
--- evidence for the control.
+-- 'controlSources', 'control_controlSources' - The data source that determines where Audit Manager collects evidence
+-- from for the control.
 --
--- 'testingInformation', 'control_testingInformation' - The steps to follow to determine if the control has been satisfied.
+-- 'testingInformation', 'control_testingInformation' - The steps that you should follow to determine if the control has been
+-- satisfied.
 newControl ::
   Control
 newControl =
@@ -126,11 +128,11 @@ newControl =
 control_tags :: Lens.Lens' Control (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 control_tags = Lens.lens (\Control' {tags} -> tags) (\s@Control' {} a -> s {tags = a} :: Control) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the specified control.
+-- | The name of the control.
 control_name :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_name = Lens.lens (\Control' {name} -> name) (\s@Control' {} a -> s {name = a} :: Control)
 
--- | The type of control, such as custom or standard.
+-- | The type of control, such as a custom control or a standard control.
 control_type :: Lens.Lens' Control (Prelude.Maybe ControlType)
 control_type = Lens.lens (\Control' {type'} -> type') (\s@Control' {} a -> s {type' = a} :: Control)
 
@@ -138,15 +140,15 @@ control_type = Lens.lens (\Control' {type'} -> type') (\s@Control' {} a -> s {ty
 control_lastUpdatedAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
 control_lastUpdatedAt = Lens.lens (\Control' {lastUpdatedAt} -> lastUpdatedAt) (\s@Control' {} a -> s {lastUpdatedAt = a} :: Control) Prelude.. Lens.mapping Core._Time
 
--- | The recommended actions to carry out if the control is not fulfilled.
+-- | The recommended actions to carry out if the control isn\'t fulfilled.
 control_actionPlanInstructions :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_actionPlanInstructions = Lens.lens (\Control' {actionPlanInstructions} -> actionPlanInstructions) (\s@Control' {} a -> s {actionPlanInstructions = a} :: Control)
 
--- | The Amazon Resource Name (ARN) of the specified control.
+-- | The Amazon Resource Name (ARN) of the control.
 control_arn :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_arn = Lens.lens (\Control' {arn} -> arn) (\s@Control' {} a -> s {arn = a} :: Control)
 
--- | The description of the specified control.
+-- | The description of the control.
 control_description :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_description = Lens.lens (\Control' {description} -> description) (\s@Control' {} a -> s {description = a} :: Control)
 
@@ -158,7 +160,7 @@ control_id = Lens.lens (\Control' {id} -> id) (\s@Control' {} a -> s {id = a} ::
 control_actionPlanTitle :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_actionPlanTitle = Lens.lens (\Control' {actionPlanTitle} -> actionPlanTitle) (\s@Control' {} a -> s {actionPlanTitle = a} :: Control)
 
--- | The data mapping sources for the specified control.
+-- | The data mapping sources for the control.
 control_controlMappingSources :: Lens.Lens' Control (Prelude.Maybe (Prelude.NonEmpty ControlMappingSource))
 control_controlMappingSources = Lens.lens (\Control' {controlMappingSources} -> controlMappingSources) (\s@Control' {} a -> s {controlMappingSources = a} :: Control) Prelude.. Lens.mapping Lens.coerced
 
@@ -174,12 +176,13 @@ control_createdAt = Lens.lens (\Control' {createdAt} -> createdAt) (\s@Control' 
 control_lastUpdatedBy :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_lastUpdatedBy = Lens.lens (\Control' {lastUpdatedBy} -> lastUpdatedBy) (\s@Control' {} a -> s {lastUpdatedBy = a} :: Control)
 
--- | The data source that determines from where Audit Manager collects
--- evidence for the control.
+-- | The data source that determines where Audit Manager collects evidence
+-- from for the control.
 control_controlSources :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_controlSources = Lens.lens (\Control' {controlSources} -> controlSources) (\s@Control' {} a -> s {controlSources = a} :: Control)
 
--- | The steps to follow to determine if the control has been satisfied.
+-- | The steps that you should follow to determine if the control has been
+-- satisfied.
 control_testingInformation :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_testingInformation = Lens.lens (\Control' {testingInformation} -> testingInformation) (\s@Control' {} a -> s {testingInformation = a} :: Control)
 

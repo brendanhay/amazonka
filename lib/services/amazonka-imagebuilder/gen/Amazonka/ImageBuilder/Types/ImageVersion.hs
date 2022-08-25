@@ -20,6 +20,7 @@
 module Amazonka.ImageBuilder.Types.ImageVersion where
 
 import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.Platform
 import qualified Amazonka.Lens as Lens
@@ -60,6 +61,17 @@ data ImageVersion = ImageVersion'
     -- | The date on which this specific version of the Image Builder image was
     -- created.
     dateCreated :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the type of build that created this image. The build can be
+    -- initiated in the following ways:
+    --
+    -- -   __USER_INITIATED__ – A manual pipeline build request.
+    --
+    -- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+    --     the Image Builder pipeline, or from EventBridge.
+    --
+    -- -   __IMPORT__ – A VM import created the image to use as the base image
+    --     for the recipe.
+    buildType :: Prelude.Maybe BuildType,
     -- | Details for a specific version of an Image Builder image. This version
     -- follows the semantic version syntax.
     --
@@ -124,6 +136,17 @@ data ImageVersion = ImageVersion'
 -- 'dateCreated', 'imageVersion_dateCreated' - The date on which this specific version of the Image Builder image was
 -- created.
 --
+-- 'buildType', 'imageVersion_buildType' - Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+--
 -- 'version', 'imageVersion_version' - Details for a specific version of an Image Builder image. This version
 -- follows the semantic version syntax.
 --
@@ -157,6 +180,7 @@ newImageVersion =
       owner = Prelude.Nothing,
       platform = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
+      buildType = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -204,6 +228,19 @@ imageVersion_platform = Lens.lens (\ImageVersion' {platform} -> platform) (\s@Im
 imageVersion_dateCreated :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_dateCreated = Lens.lens (\ImageVersion' {dateCreated} -> dateCreated) (\s@ImageVersion' {} a -> s {dateCreated = a} :: ImageVersion)
 
+-- | Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+imageVersion_buildType :: Lens.Lens' ImageVersion (Prelude.Maybe BuildType)
+imageVersion_buildType = Lens.lens (\ImageVersion' {buildType} -> buildType) (\s@ImageVersion' {} a -> s {buildType = a} :: ImageVersion)
+
 -- | Details for a specific version of an Image Builder image. This version
 -- follows the semantic version syntax.
 --
@@ -242,6 +279,7 @@ instance Core.FromJSON ImageVersion where
             Prelude.<*> (x Core..:? "owner")
             Prelude.<*> (x Core..:? "platform")
             Prelude.<*> (x Core..:? "dateCreated")
+            Prelude.<*> (x Core..:? "buildType")
             Prelude.<*> (x Core..:? "version")
       )
 
@@ -254,6 +292,7 @@ instance Prelude.Hashable ImageVersion where
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData ImageVersion where
@@ -265,4 +304,5 @@ instance Prelude.NFData ImageVersion where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf buildType
       `Prelude.seq` Prelude.rnf version

@@ -23,6 +23,18 @@
 -- Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that
 -- is either running or stopped.
 --
+-- By default, when Amazon EC2 creates the new AMI, it reboots the instance
+-- so that it can take snapshots of the attached volumes while data is at
+-- rest, in order to ensure a consistent state. You can set the @NoReboot@
+-- parameter to @true@ in the API request, or use the @--no-reboot@ option
+-- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+-- instance.
+--
+-- If you choose to bypass the shutdown and reboot process by setting the
+-- @NoReboot@ parameter to @true@ in the API request, or by using the
+-- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+-- integrity of the created image.
+--
 -- If you customized your instance with instance store volumes or Amazon
 -- EBS volumes in addition to the root device volume, the new AMI contains
 -- block device mapping information for those volumes. When you launch an
@@ -91,13 +103,19 @@ data CreateImage = CreateImage'
     -- To tag an AMI or snapshot after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | By default, Amazon EC2 attempts to shut down and reboot the instance
-    -- before creating the image. If the @No Reboot@ option is set, Amazon EC2
-    -- doesn\'t shut down the instance before creating the image. Without a
-    -- reboot, the AMI will be crash consistent (all the volumes are
-    -- snapshotted at the same time), but not application consistent (all the
-    -- operating system buffers are not flushed to disk before the snapshots
-    -- are created).
+    -- | By default, when Amazon EC2 creates the new AMI, it reboots the instance
+    -- so that it can take snapshots of the attached volumes while data is at
+    -- rest, in order to ensure a consistent state. You can set the @NoReboot@
+    -- parameter to @true@ in the API request, or use the @--no-reboot@ option
+    -- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+    -- instance.
+    --
+    -- If you choose to bypass the shutdown and reboot process by setting the
+    -- @NoReboot@ parameter to @true@ in the API request, or by using the
+    -- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+    -- integrity of the created image.
+    --
+    -- Default: @false@ (follow standard reboot process)
     noReboot :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text,
@@ -144,13 +162,19 @@ data CreateImage = CreateImage'
 -- To tag an AMI or snapshot after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
 --
--- 'noReboot', 'createImage_noReboot' - By default, Amazon EC2 attempts to shut down and reboot the instance
--- before creating the image. If the @No Reboot@ option is set, Amazon EC2
--- doesn\'t shut down the instance before creating the image. Without a
--- reboot, the AMI will be crash consistent (all the volumes are
--- snapshotted at the same time), but not application consistent (all the
--- operating system buffers are not flushed to disk before the snapshots
--- are created).
+-- 'noReboot', 'createImage_noReboot' - By default, when Amazon EC2 creates the new AMI, it reboots the instance
+-- so that it can take snapshots of the attached volumes while data is at
+-- rest, in order to ensure a consistent state. You can set the @NoReboot@
+-- parameter to @true@ in the API request, or use the @--no-reboot@ option
+-- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+-- instance.
+--
+-- If you choose to bypass the shutdown and reboot process by setting the
+-- @NoReboot@ parameter to @true@ in the API request, or by using the
+-- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+-- integrity of the created image.
+--
+-- Default: @false@ (follow standard reboot process)
 --
 -- 'instanceId', 'createImage_instanceId' - The ID of the instance.
 --
@@ -210,13 +234,19 @@ createImage_dryRun = Lens.lens (\CreateImage' {dryRun} -> dryRun) (\s@CreateImag
 createImage_tagSpecifications :: Lens.Lens' CreateImage (Prelude.Maybe [TagSpecification])
 createImage_tagSpecifications = Lens.lens (\CreateImage' {tagSpecifications} -> tagSpecifications) (\s@CreateImage' {} a -> s {tagSpecifications = a} :: CreateImage) Prelude.. Lens.mapping Lens.coerced
 
--- | By default, Amazon EC2 attempts to shut down and reboot the instance
--- before creating the image. If the @No Reboot@ option is set, Amazon EC2
--- doesn\'t shut down the instance before creating the image. Without a
--- reboot, the AMI will be crash consistent (all the volumes are
--- snapshotted at the same time), but not application consistent (all the
--- operating system buffers are not flushed to disk before the snapshots
--- are created).
+-- | By default, when Amazon EC2 creates the new AMI, it reboots the instance
+-- so that it can take snapshots of the attached volumes while data is at
+-- rest, in order to ensure a consistent state. You can set the @NoReboot@
+-- parameter to @true@ in the API request, or use the @--no-reboot@ option
+-- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+-- instance.
+--
+-- If you choose to bypass the shutdown and reboot process by setting the
+-- @NoReboot@ parameter to @true@ in the API request, or by using the
+-- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+-- integrity of the created image.
+--
+-- Default: @false@ (follow standard reboot process)
 createImage_noReboot :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
 createImage_noReboot = Lens.lens (\CreateImage' {noReboot} -> noReboot) (\s@CreateImage' {} a -> s {noReboot = a} :: CreateImage)
 

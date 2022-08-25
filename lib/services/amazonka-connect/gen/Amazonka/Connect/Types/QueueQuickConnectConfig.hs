@@ -23,14 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about a queue for a quick connect. The contact flow
--- must be of type Transfer to Queue.
+-- | Contains information about a queue for a quick connect. The flow must be
+-- of type Transfer to Queue.
 --
 -- /See:/ 'newQueueQuickConnectConfig' smart constructor.
 data QueueQuickConnectConfig = QueueQuickConnectConfig'
   { -- | The identifier for the queue.
     queueId :: Prelude.Text,
-    -- | The identifier of the contact flow.
+    -- | The identifier of the flow.
     contactFlowId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data QueueQuickConnectConfig = QueueQuickConnectConfig'
 --
 -- 'queueId', 'queueQuickConnectConfig_queueId' - The identifier for the queue.
 --
--- 'contactFlowId', 'queueQuickConnectConfig_contactFlowId' - The identifier of the contact flow.
+-- 'contactFlowId', 'queueQuickConnectConfig_contactFlowId' - The identifier of the flow.
 newQueueQuickConnectConfig ::
   -- | 'queueId'
   Prelude.Text ->
@@ -62,7 +62,7 @@ newQueueQuickConnectConfig pQueueId_ pContactFlowId_ =
 queueQuickConnectConfig_queueId :: Lens.Lens' QueueQuickConnectConfig Prelude.Text
 queueQuickConnectConfig_queueId = Lens.lens (\QueueQuickConnectConfig' {queueId} -> queueId) (\s@QueueQuickConnectConfig' {} a -> s {queueId = a} :: QueueQuickConnectConfig)
 
--- | The identifier of the contact flow.
+-- | The identifier of the flow.
 queueQuickConnectConfig_contactFlowId :: Lens.Lens' QueueQuickConnectConfig Prelude.Text
 queueQuickConnectConfig_contactFlowId = Lens.lens (\QueueQuickConnectConfig' {contactFlowId} -> contactFlowId) (\s@QueueQuickConnectConfig' {} a -> s {contactFlowId = a} :: QueueQuickConnectConfig)
 

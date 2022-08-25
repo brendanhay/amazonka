@@ -58,12 +58,12 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- entity\'s @statusCode@ attribute must match that of the parent entity
     -- exactly.
     statusCode :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The type of API entity to which the documentation content
-    -- applies. Valid values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@,
-    -- @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
-    -- @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@.
-    -- Content inheritance does not apply to any entity of the @API@,
-    -- @AUTHORIZER@, @METHOD@, @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
+    -- | The type of API entity to which the documentation content applies. Valid
+    -- values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@, @METHOD@,
+    -- @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@,
+    -- @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. Content inheritance
+    -- does not apply to any entity of the @API@, @AUTHORIZER@, @METHOD@,
+    -- @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
     type' :: DocumentationPartType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,12 +106,12 @@ data DocumentationPartLocation = DocumentationPartLocation'
 -- entity\'s @statusCode@ attribute must match that of the parent entity
 -- exactly.
 --
--- 'type'', 'documentationPartLocation_type' - [Required] The type of API entity to which the documentation content
--- applies. Valid values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@,
--- @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
--- @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@.
--- Content inheritance does not apply to any entity of the @API@,
--- @AUTHORIZER@, @METHOD@, @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
+-- 'type'', 'documentationPartLocation_type' - The type of API entity to which the documentation content applies. Valid
+-- values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@, @METHOD@,
+-- @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@,
+-- @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. Content inheritance
+-- does not apply to any entity of the @API@, @AUTHORIZER@, @METHOD@,
+-- @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
 newDocumentationPartLocation ::
   -- | 'type''
   DocumentationPartType ->
@@ -163,12 +163,12 @@ documentationPartLocation_path = Lens.lens (\DocumentationPartLocation' {path} -
 documentationPartLocation_statusCode :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_statusCode = Lens.lens (\DocumentationPartLocation' {statusCode} -> statusCode) (\s@DocumentationPartLocation' {} a -> s {statusCode = a} :: DocumentationPartLocation)
 
--- | [Required] The type of API entity to which the documentation content
--- applies. Valid values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@,
--- @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
--- @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@.
--- Content inheritance does not apply to any entity of the @API@,
--- @AUTHORIZER@, @METHOD@, @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
+-- | The type of API entity to which the documentation content applies. Valid
+-- values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@, @METHOD@,
+-- @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@,
+-- @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. Content inheritance
+-- does not apply to any entity of the @API@, @AUTHORIZER@, @METHOD@,
+-- @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
 documentationPartLocation_type :: Lens.Lens' DocumentationPartLocation DocumentationPartType
 documentationPartLocation_type = Lens.lens (\DocumentationPartLocation' {type'} -> type') (\s@DocumentationPartLocation' {} a -> s {type' = a} :: DocumentationPartLocation)
 

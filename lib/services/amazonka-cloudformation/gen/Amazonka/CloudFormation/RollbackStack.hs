@@ -22,7 +22,7 @@
 --
 -- When specifying @RollbackStack@, you preserve the state of previously
 -- provisioned resources when an operation fails. You can check the status
--- of the stack through the DescribeStacks API.
+-- of the stack through the DescribeStacks operation.
 --
 -- Rolls back the specified stack to the last known stable state from
 -- @CREATE_FAILED@ or @UPDATE_FAILED@ stack statuses.
@@ -74,7 +74,7 @@ data RollbackStack = RollbackStack'
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this @RollbackStack@ request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The name that is associated with the stack.
+    -- | The name that\'s associated with the stack.
     stackName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,7 +92,7 @@ data RollbackStack = RollbackStack'
 --
 -- 'clientRequestToken', 'rollbackStack_clientRequestToken' - A unique identifier for this @RollbackStack@ request.
 --
--- 'stackName', 'rollbackStack_stackName' - The name that is associated with the stack.
+-- 'stackName', 'rollbackStack_stackName' - The name that\'s associated with the stack.
 newRollbackStack ::
   -- | 'stackName'
   Prelude.Text ->
@@ -113,7 +113,7 @@ rollbackStack_roleARN = Lens.lens (\RollbackStack' {roleARN} -> roleARN) (\s@Rol
 rollbackStack_clientRequestToken :: Lens.Lens' RollbackStack (Prelude.Maybe Prelude.Text)
 rollbackStack_clientRequestToken = Lens.lens (\RollbackStack' {clientRequestToken} -> clientRequestToken) (\s@RollbackStack' {} a -> s {clientRequestToken = a} :: RollbackStack)
 
--- | The name that is associated with the stack.
+-- | The name that\'s associated with the stack.
 rollbackStack_stackName :: Lens.Lens' RollbackStack Prelude.Text
 rollbackStack_stackName = Lens.lens (\RollbackStack' {stackName} -> stackName) (\s@RollbackStack' {} a -> s {stackName = a} :: RollbackStack)
 

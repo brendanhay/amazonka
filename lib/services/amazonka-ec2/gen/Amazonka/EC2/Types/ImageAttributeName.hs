@@ -24,10 +24,13 @@ module Amazonka.EC2.Types.ImageAttributeName
         ImageAttributeName_BootMode,
         ImageAttributeName_Description,
         ImageAttributeName_Kernel,
+        ImageAttributeName_LastLaunchedTime,
         ImageAttributeName_LaunchPermission,
         ImageAttributeName_ProductCodes,
         ImageAttributeName_Ramdisk,
-        ImageAttributeName_SriovNetSupport
+        ImageAttributeName_SriovNetSupport,
+        ImageAttributeName_TpmSupport,
+        ImageAttributeName_UefiData
       ),
   )
 where
@@ -76,6 +79,9 @@ pattern ImageAttributeName_Description = ImageAttributeName' "description"
 pattern ImageAttributeName_Kernel :: ImageAttributeName
 pattern ImageAttributeName_Kernel = ImageAttributeName' "kernel"
 
+pattern ImageAttributeName_LastLaunchedTime :: ImageAttributeName
+pattern ImageAttributeName_LastLaunchedTime = ImageAttributeName' "lastLaunchedTime"
+
 pattern ImageAttributeName_LaunchPermission :: ImageAttributeName
 pattern ImageAttributeName_LaunchPermission = ImageAttributeName' "launchPermission"
 
@@ -88,14 +94,23 @@ pattern ImageAttributeName_Ramdisk = ImageAttributeName' "ramdisk"
 pattern ImageAttributeName_SriovNetSupport :: ImageAttributeName
 pattern ImageAttributeName_SriovNetSupport = ImageAttributeName' "sriovNetSupport"
 
+pattern ImageAttributeName_TpmSupport :: ImageAttributeName
+pattern ImageAttributeName_TpmSupport = ImageAttributeName' "tpmSupport"
+
+pattern ImageAttributeName_UefiData :: ImageAttributeName
+pattern ImageAttributeName_UefiData = ImageAttributeName' "uefiData"
+
 {-# COMPLETE
   ImageAttributeName_BlockDeviceMapping,
   ImageAttributeName_BootMode,
   ImageAttributeName_Description,
   ImageAttributeName_Kernel,
+  ImageAttributeName_LastLaunchedTime,
   ImageAttributeName_LaunchPermission,
   ImageAttributeName_ProductCodes,
   ImageAttributeName_Ramdisk,
   ImageAttributeName_SriovNetSupport,
+  ImageAttributeName_TpmSupport,
+  ImageAttributeName_UefiData,
   ImageAttributeName'
   #-}

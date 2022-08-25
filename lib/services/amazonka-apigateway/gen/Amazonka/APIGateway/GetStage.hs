@@ -66,9 +66,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetStage' smart constructor.
 data GetStage = GetStage'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the Stage resource to get information about.
+    -- | The name of the Stage resource to get information about.
     stageName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,9 +81,9 @@ data GetStage = GetStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getStage_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getStage_restApiId' - The string identifier of the associated RestApi.
 --
--- 'stageName', 'getStage_stageName' - [Required] The name of the Stage resource to get information about.
+-- 'stageName', 'getStage_stageName' - The name of the Stage resource to get information about.
 newGetStage ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -96,11 +96,11 @@ newGetStage pRestApiId_ pStageName_ =
       stageName = pStageName_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getStage_restApiId :: Lens.Lens' GetStage Prelude.Text
 getStage_restApiId = Lens.lens (\GetStage' {restApiId} -> restApiId) (\s@GetStage' {} a -> s {restApiId = a} :: GetStage)
 
--- | [Required] The name of the Stage resource to get information about.
+-- | The name of the Stage resource to get information about.
 getStage_stageName :: Lens.Lens' GetStage Prelude.Text
 getStage_stageName = Lens.lens (\GetStage' {stageName} -> stageName) (\s@GetStage' {} a -> s {stageName = a} :: GetStage)
 

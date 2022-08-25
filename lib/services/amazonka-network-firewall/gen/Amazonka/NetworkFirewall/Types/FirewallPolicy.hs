@@ -53,7 +53,22 @@ data FirewallPolicy = FirewallPolicy'
     -- These define the matching criteria in stateless rules.
     statelessRuleGroupReferences :: Prelude.Maybe [StatelessRuleGroupReference],
     -- | The default actions to take on a packet that doesn\'t match any stateful
-    -- rules.
+    -- rules. The stateful default action is optional, and is only valid when
+    -- using the strict rule order.
+    --
+    -- Valid values of the stateful default action:
+    --
+    -- -   aws:drop_strict
+    --
+    -- -   aws:drop_established
+    --
+    -- -   aws:alert_strict
+    --
+    -- -   aws:alert_established
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html Strict evaluation order>
+    -- in the /Network Firewall Developer Guide/.
     statefulDefaultActions :: Prelude.Maybe [Prelude.Text],
     -- | The actions to take on a packet if it doesn\'t match any of the
     -- stateless rules in the policy. If you want non-matching packets to be
@@ -108,7 +123,22 @@ data FirewallPolicy = FirewallPolicy'
 -- These define the matching criteria in stateless rules.
 --
 -- 'statefulDefaultActions', 'firewallPolicy_statefulDefaultActions' - The default actions to take on a packet that doesn\'t match any stateful
--- rules.
+-- rules. The stateful default action is optional, and is only valid when
+-- using the strict rule order.
+--
+-- Valid values of the stateful default action:
+--
+-- -   aws:drop_strict
+--
+-- -   aws:drop_established
+--
+-- -   aws:alert_strict
+--
+-- -   aws:alert_established
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html Strict evaluation order>
+-- in the /Network Firewall Developer Guide/.
 --
 -- 'statelessDefaultActions', 'firewallPolicy_statelessDefaultActions' - The actions to take on a packet if it doesn\'t match any of the
 -- stateless rules in the policy. If you want non-matching packets to be
@@ -173,7 +203,22 @@ firewallPolicy_statelessRuleGroupReferences :: Lens.Lens' FirewallPolicy (Prelud
 firewallPolicy_statelessRuleGroupReferences = Lens.lens (\FirewallPolicy' {statelessRuleGroupReferences} -> statelessRuleGroupReferences) (\s@FirewallPolicy' {} a -> s {statelessRuleGroupReferences = a} :: FirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default actions to take on a packet that doesn\'t match any stateful
--- rules.
+-- rules. The stateful default action is optional, and is only valid when
+-- using the strict rule order.
+--
+-- Valid values of the stateful default action:
+--
+-- -   aws:drop_strict
+--
+-- -   aws:drop_established
+--
+-- -   aws:alert_strict
+--
+-- -   aws:alert_established
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html Strict evaluation order>
+-- in the /Network Firewall Developer Guide/.
 firewallPolicy_statefulDefaultActions :: Lens.Lens' FirewallPolicy (Prelude.Maybe [Prelude.Text])
 firewallPolicy_statefulDefaultActions = Lens.lens (\FirewallPolicy' {statefulDefaultActions} -> statefulDefaultActions) (\s@FirewallPolicy' {} a -> s {statefulDefaultActions = a} :: FirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 

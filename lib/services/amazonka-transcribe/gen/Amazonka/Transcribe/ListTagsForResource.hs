@@ -20,8 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all tags associated with a given transcription job, vocabulary, or
--- resource.
+-- Lists all tags associated with the specified transcription job,
+-- vocabulary, model, or resource.
+--
+-- To learn more about using tags with Amazon Transcribe, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
 module Amazonka.Transcribe.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -50,7 +53,16 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | Lists all tags associated with a given Amazon Resource Name (ARN).
+  { -- | Returns a list of all tags associated with the specified Amazon Resource
+    -- Name (ARN). ARNs have the format
+    -- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+    --
+    -- For example,
+    -- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+    --
+    -- Valid values for @resource-type@ are: @transcription-job@,
+    -- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+    -- @vocabulary-filter@, and @language-model@.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +75,16 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - Lists all tags associated with a given Amazon Resource Name (ARN).
+-- 'resourceArn', 'listTagsForResource_resourceArn' - Returns a list of all tags associated with the specified Amazon Resource
+-- Name (ARN). ARNs have the format
+-- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+--
+-- For example,
+-- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+--
+-- Valid values for @resource-type@ are: @transcription-job@,
+-- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+-- @vocabulary-filter@, and @language-model@.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -71,7 +92,16 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | Lists all tags associated with a given Amazon Resource Name (ARN).
+-- | Returns a list of all tags associated with the specified Amazon Resource
+-- Name (ARN). ARNs have the format
+-- @arn:partition:service:region:account-id:resource-type\/resource-id@.
+--
+-- For example,
+-- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+--
+-- Valid values for @resource-type@ are: @transcription-job@,
+-- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
+-- @vocabulary-filter@, and @language-model@.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -128,9 +158,9 @@ instance Core.ToQuery ListTagsForResource where
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | Lists all tags associated with the given transcription job, vocabulary,
-    -- or resource.
+    -- model, or resource.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | Lists all tags associated with the given Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) specified in your request.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -146,9 +176,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- for backwards compatibility:
 --
 -- 'tags', 'listTagsForResourceResponse_tags' - Lists all tags associated with the given transcription job, vocabulary,
--- or resource.
+-- model, or resource.
 --
--- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - Lists all tags associated with the given Amazon Resource Name (ARN).
+-- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - The Amazon Resource Name (ARN) specified in your request.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -164,11 +194,11 @@ newListTagsForResourceResponse pHttpStatus_ =
     }
 
 -- | Lists all tags associated with the given transcription job, vocabulary,
--- or resource.
+-- model, or resource.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Lists all tags associated with the given Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) specified in your request.
 listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 

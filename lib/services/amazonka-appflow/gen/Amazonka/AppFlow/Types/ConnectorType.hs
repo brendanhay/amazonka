@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ConnectorType
   ( ConnectorType
       ( ..,
         ConnectorType_Amplitude,
+        ConnectorType_CustomConnector,
         ConnectorType_CustomerProfiles,
         ConnectorType_Datadog,
         ConnectorType_Dynatrace,
@@ -79,6 +80,9 @@ newtype ConnectorType = ConnectorType'
 
 pattern ConnectorType_Amplitude :: ConnectorType
 pattern ConnectorType_Amplitude = ConnectorType' "Amplitude"
+
+pattern ConnectorType_CustomConnector :: ConnectorType
+pattern ConnectorType_CustomConnector = ConnectorType' "CustomConnector"
 
 pattern ConnectorType_CustomerProfiles :: ConnectorType
 pattern ConnectorType_CustomerProfiles = ConnectorType' "CustomerProfiles"
@@ -145,6 +149,7 @@ pattern ConnectorType_Zendesk = ConnectorType' "Zendesk"
 
 {-# COMPLETE
   ConnectorType_Amplitude,
+  ConnectorType_CustomConnector,
   ConnectorType_CustomerProfiles,
   ConnectorType_Datadog,
   ConnectorType_Dynatrace,

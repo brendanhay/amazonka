@@ -24,15 +24,20 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the definition for a Contributor Insights rule.
+-- For more information about this rule, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html Using Constributor Insights to analyze high-cardinality data>
+-- in the /Amazon CloudWatch User Guide/.
 --
 -- /See:/ 'newInsightRule' smart constructor.
 data InsightRule = InsightRule'
-  { -- | The name of the rule.
+  { -- | An optional built-in rule that Amazon Web Services manages.
+    managedRule :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the rule.
     name :: Prelude.Text,
     -- | Indicates whether the rule is enabled or disabled.
     state :: Prelude.Text,
     -- | For rules that you create, this is always
-    -- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For built-in rules,
+    -- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For managed rules,
     -- this is @{\"Name\": \"ServiceLogRule\", \"Version\": 1}@
     schema :: Prelude.Text,
     -- | The definition of the rule, as a JSON object. The definition contains
@@ -52,12 +57,14 @@ data InsightRule = InsightRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'managedRule', 'insightRule_managedRule' - An optional built-in rule that Amazon Web Services manages.
+--
 -- 'name', 'insightRule_name' - The name of the rule.
 --
 -- 'state', 'insightRule_state' - Indicates whether the rule is enabled or disabled.
 --
 -- 'schema', 'insightRule_schema' - For rules that you create, this is always
--- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For built-in rules,
+-- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For managed rules,
 -- this is @{\"Name\": \"ServiceLogRule\", \"Version\": 1}@
 --
 -- 'definition', 'insightRule_definition' - The definition of the rule, as a JSON object. The definition contains
@@ -77,11 +84,16 @@ newInsightRule ::
   InsightRule
 newInsightRule pName_ pState_ pSchema_ pDefinition_ =
   InsightRule'
-    { name = pName_,
+    { managedRule = Prelude.Nothing,
+      name = pName_,
       state = pState_,
       schema = pSchema_,
       definition = pDefinition_
     }
+
+-- | An optional built-in rule that Amazon Web Services manages.
+insightRule_managedRule :: Lens.Lens' InsightRule (Prelude.Maybe Prelude.Bool)
+insightRule_managedRule = Lens.lens (\InsightRule' {managedRule} -> managedRule) (\s@InsightRule' {} a -> s {managedRule = a} :: InsightRule)
 
 -- | The name of the rule.
 insightRule_name :: Lens.Lens' InsightRule Prelude.Text
@@ -92,7 +104,7 @@ insightRule_state :: Lens.Lens' InsightRule Prelude.Text
 insightRule_state = Lens.lens (\InsightRule' {state} -> state) (\s@InsightRule' {} a -> s {state = a} :: InsightRule)
 
 -- | For rules that you create, this is always
--- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For built-in rules,
+-- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For managed rules,
 -- this is @{\"Name\": \"ServiceLogRule\", \"Version\": 1}@
 insightRule_schema :: Lens.Lens' InsightRule Prelude.Text
 insightRule_schema = Lens.lens (\InsightRule' {schema} -> schema) (\s@InsightRule' {} a -> s {schema = a} :: InsightRule)
@@ -108,21 +120,24 @@ insightRule_definition = Lens.lens (\InsightRule' {definition} -> definition) (\
 instance Core.FromXML InsightRule where
   parseXML x =
     InsightRule'
-      Prelude.<$> (x Core..@ "Name")
+      Prelude.<$> (x Core..@? "ManagedRule")
+      Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "State")
       Prelude.<*> (x Core..@ "Schema")
       Prelude.<*> (x Core..@ "Definition")
 
 instance Prelude.Hashable InsightRule where
   hashWithSalt _salt InsightRule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` managedRule
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` definition
 
 instance Prelude.NFData InsightRule where
   rnf InsightRule' {..} =
-    Prelude.rnf name
+    Prelude.rnf managedRule
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf definition

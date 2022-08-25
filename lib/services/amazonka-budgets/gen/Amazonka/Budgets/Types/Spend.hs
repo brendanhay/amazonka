@@ -23,9 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The amount of cost or usage that is measured for a budget.
+-- | The amount of cost or usage that\'s measured for a budget.
 --
--- For example, a @Spend@ for @3 GB@ of S3 usage would have the following
+-- For example, a @Spend@ for @3 GB@ of S3 usage has the following
 -- parameters:
 --
 -- -   An @Amount@ of @3@
@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpend' smart constructor.
 data Spend = Spend'
-  { -- | The cost or usage amount that is associated with a budget forecast,
+  { -- | The cost or usage amount that\'s associated with a budget forecast,
     -- actual spend, or budget threshold.
     amount :: Prelude.Text,
-    -- | The unit of measurement that is used for the budget forecast, actual
-    -- spend, or budget threshold, such as dollars or GB.
+    -- | The unit of measurement that\'s used for the budget forecast, actual
+    -- spend, or budget threshold, such as USD or GBP.
     unit :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,11 +51,11 @@ data Spend = Spend'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amount', 'spend_amount' - The cost or usage amount that is associated with a budget forecast,
+-- 'amount', 'spend_amount' - The cost or usage amount that\'s associated with a budget forecast,
 -- actual spend, or budget threshold.
 --
--- 'unit', 'spend_unit' - The unit of measurement that is used for the budget forecast, actual
--- spend, or budget threshold, such as dollars or GB.
+-- 'unit', 'spend_unit' - The unit of measurement that\'s used for the budget forecast, actual
+-- spend, or budget threshold, such as USD or GBP.
 newSpend ::
   -- | 'amount'
   Prelude.Text ->
@@ -65,13 +65,13 @@ newSpend ::
 newSpend pAmount_ pUnit_ =
   Spend' {amount = pAmount_, unit = pUnit_}
 
--- | The cost or usage amount that is associated with a budget forecast,
+-- | The cost or usage amount that\'s associated with a budget forecast,
 -- actual spend, or budget threshold.
 spend_amount :: Lens.Lens' Spend Prelude.Text
 spend_amount = Lens.lens (\Spend' {amount} -> amount) (\s@Spend' {} a -> s {amount = a} :: Spend)
 
--- | The unit of measurement that is used for the budget forecast, actual
--- spend, or budget threshold, such as dollars or GB.
+-- | The unit of measurement that\'s used for the budget forecast, actual
+-- spend, or budget threshold, such as USD or GBP.
 spend_unit :: Lens.Lens' Spend Prelude.Text
 spend_unit = Lens.lens (\Spend' {unit} -> unit) (\s@Spend' {} a -> s {unit = a} :: Spend)
 

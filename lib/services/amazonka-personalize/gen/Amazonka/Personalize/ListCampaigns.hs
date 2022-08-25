@@ -24,7 +24,8 @@
 -- is not specified, all the campaigns associated with the account are
 -- listed. The response provides the properties for each campaign,
 -- including the Amazon Resource Name (ARN). For more information on
--- campaigns, see CreateCampaign.
+-- campaigns, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html CreateCampaign>.
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListCampaigns
@@ -61,8 +62,9 @@ data ListCampaigns = ListCampaigns'
     -- for. When a solution is not specified, all the campaigns associated with
     -- the account are listed.
     solutionArn :: Prelude.Maybe Prelude.Text,
-    -- | A token returned from the previous call to @ListCampaigns@ for getting
-    -- the next set of campaigns (if they exist).
+    -- | A token returned from the previous call to
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
+    -- for getting the next set of campaigns (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of campaigns to return.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -81,8 +83,9 @@ data ListCampaigns = ListCampaigns'
 -- for. When a solution is not specified, all the campaigns associated with
 -- the account are listed.
 --
--- 'nextToken', 'listCampaigns_nextToken' - A token returned from the previous call to @ListCampaigns@ for getting
--- the next set of campaigns (if they exist).
+-- 'nextToken', 'listCampaigns_nextToken' - A token returned from the previous call to
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
+-- for getting the next set of campaigns (if they exist).
 --
 -- 'maxResults', 'listCampaigns_maxResults' - The maximum number of campaigns to return.
 newListCampaigns ::
@@ -100,8 +103,9 @@ newListCampaigns =
 listCampaigns_solutionArn :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
 listCampaigns_solutionArn = Lens.lens (\ListCampaigns' {solutionArn} -> solutionArn) (\s@ListCampaigns' {} a -> s {solutionArn = a} :: ListCampaigns)
 
--- | A token returned from the previous call to @ListCampaigns@ for getting
--- the next set of campaigns (if they exist).
+-- | A token returned from the previous call to
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
+-- for getting the next set of campaigns (if they exist).
 listCampaigns_nextToken :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
 listCampaigns_nextToken = Lens.lens (\ListCampaigns' {nextToken} -> nextToken) (\s@ListCampaigns' {} a -> s {nextToken = a} :: ListCampaigns)
 

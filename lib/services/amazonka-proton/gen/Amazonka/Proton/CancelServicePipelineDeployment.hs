@@ -23,9 +23,9 @@
 -- Attempts to cancel a service pipeline deployment on an
 -- UpdateServicePipeline action, if the deployment is @IN_PROGRESS@. For
 -- more information, see /Update a service pipeline/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html AWS Proton Administrator guide>
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html Proton Administrator guide>
 -- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html AWS Proton User guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html Proton User guide>.
 --
 -- The following list includes potential cancellation scenarios.
 --
@@ -160,7 +160,7 @@ instance Core.ToQuery CancelServicePipelineDeployment where
 data CancelServicePipelineDeploymentResponse = CancelServicePipelineDeploymentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service pipeline detail data that\'s returned by AWS Proton.
+    -- | The service pipeline detail data that\'s returned by Proton.
     pipeline :: ServicePipeline
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -175,7 +175,7 @@ data CancelServicePipelineDeploymentResponse = CancelServicePipelineDeploymentRe
 --
 -- 'httpStatus', 'cancelServicePipelineDeploymentResponse_httpStatus' - The response's http status code.
 --
--- 'pipeline', 'cancelServicePipelineDeploymentResponse_pipeline' - The service pipeline detail data that\'s returned by AWS Proton.
+-- 'pipeline', 'cancelServicePipelineDeploymentResponse_pipeline' - The service pipeline detail data that\'s returned by Proton.
 newCancelServicePipelineDeploymentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -195,7 +195,7 @@ newCancelServicePipelineDeploymentResponse
 cancelServicePipelineDeploymentResponse_httpStatus :: Lens.Lens' CancelServicePipelineDeploymentResponse Prelude.Int
 cancelServicePipelineDeploymentResponse_httpStatus = Lens.lens (\CancelServicePipelineDeploymentResponse' {httpStatus} -> httpStatus) (\s@CancelServicePipelineDeploymentResponse' {} a -> s {httpStatus = a} :: CancelServicePipelineDeploymentResponse)
 
--- | The service pipeline detail data that\'s returned by AWS Proton.
+-- | The service pipeline detail data that\'s returned by Proton.
 cancelServicePipelineDeploymentResponse_pipeline :: Lens.Lens' CancelServicePipelineDeploymentResponse ServicePipeline
 cancelServicePipelineDeploymentResponse_pipeline = Lens.lens (\CancelServicePipelineDeploymentResponse' {pipeline} -> pipeline) (\s@CancelServicePipelineDeploymentResponse' {} a -> s {pipeline = a} :: CancelServicePipelineDeploymentResponse)
 

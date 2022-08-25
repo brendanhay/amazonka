@@ -173,7 +173,7 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- | A list of filter rules that determines which files to exclude from a
     -- task. The list should contain a single filter string that consists of
     -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
-    -- pipe), for example: @\"\/folder1|\/folder2\"@
+    -- pipe), for example, @\"\/folder1|\/folder2\"@.
     excludes :: Prelude.Maybe [FilterRule],
     -- | The Amazon Resource Name (ARN) of the source file system\'s location.
     sourceLocationArn :: Prelude.Maybe Prelude.Text,
@@ -193,8 +193,8 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
     -- operation.
     options :: Prelude.Maybe Options,
-    -- | The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network
-    -- Interface) that was created for your subnet.
+    -- | The Amazon Resource Names (ARNs) of the destination elastic network
+    -- interfaces (ENIs) that were created for your subnet.
     destinationNetworkInterfaceArns :: Prelude.Maybe [Prelude.Text],
     -- | Errors that DataSync encountered during execution of the task. You can
     -- use this error code to help troubleshoot issues.
@@ -203,17 +203,17 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- resource\'s location.
     destinationLocationArn :: Prelude.Maybe Prelude.Text,
     -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern should contain a single filter string that
+    -- running a task. The pattern contains a single filter string that
     -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+    -- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
     includes :: Prelude.Maybe [FilterRule],
     -- | The time that the task was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the task execution that is syncing
     -- files.
     currentTaskExecutionArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the source ENIs (Elastic Network
-    -- Interface) that was created for your subnet.
+    -- | The Amazon Resource Names (ARNs) of the source elastic network
+    -- interfaces (ENIs) that were created for your subnet.
     sourceNetworkInterfaceArns :: Prelude.Maybe [Prelude.Text],
     -- | Detailed description of an error that was encountered during the task
     -- execution. You can use this information to help troubleshoot issues.
@@ -247,7 +247,7 @@ data DescribeTaskResponse = DescribeTaskResponse'
 -- 'excludes', 'describeTaskResponse_excludes' - A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
 -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'sourceLocationArn', 'describeTaskResponse_sourceLocationArn' - The Amazon Resource Name (ARN) of the source file system\'s location.
 --
@@ -267,8 +267,8 @@ data DescribeTaskResponse = DescribeTaskResponse'
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
 -- operation.
 --
--- 'destinationNetworkInterfaceArns', 'describeTaskResponse_destinationNetworkInterfaceArns' - The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network
--- Interface) that was created for your subnet.
+-- 'destinationNetworkInterfaceArns', 'describeTaskResponse_destinationNetworkInterfaceArns' - The Amazon Resource Names (ARNs) of the destination elastic network
+-- interfaces (ENIs) that were created for your subnet.
 --
 -- 'errorCode', 'describeTaskResponse_errorCode' - Errors that DataSync encountered during execution of the task. You can
 -- use this error code to help troubleshoot issues.
@@ -277,17 +277,17 @@ data DescribeTaskResponse = DescribeTaskResponse'
 -- resource\'s location.
 --
 -- 'includes', 'describeTaskResponse_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
+-- running a task. The pattern contains a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
 --
 -- 'creationTime', 'describeTaskResponse_creationTime' - The time that the task was created.
 --
 -- 'currentTaskExecutionArn', 'describeTaskResponse_currentTaskExecutionArn' - The Amazon Resource Name (ARN) of the task execution that is syncing
 -- files.
 --
--- 'sourceNetworkInterfaceArns', 'describeTaskResponse_sourceNetworkInterfaceArns' - The Amazon Resource Name (ARN) of the source ENIs (Elastic Network
--- Interface) that was created for your subnet.
+-- 'sourceNetworkInterfaceArns', 'describeTaskResponse_sourceNetworkInterfaceArns' - The Amazon Resource Names (ARNs) of the source elastic network
+-- interfaces (ENIs) that were created for your subnet.
 --
 -- 'errorDetail', 'describeTaskResponse_errorDetail' - Detailed description of an error that was encountered during the task
 -- execution. You can use this information to help troubleshoot issues.
@@ -342,7 +342,7 @@ describeTaskResponse_cloudWatchLogGroupArn = Lens.lens (\DescribeTaskResponse' {
 -- | A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
 -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- pipe), for example, @\"\/folder1|\/folder2\"@.
 describeTaskResponse_excludes :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [FilterRule])
 describeTaskResponse_excludes = Lens.lens (\DescribeTaskResponse' {excludes} -> excludes) (\s@DescribeTaskResponse' {} a -> s {excludes = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -370,8 +370,8 @@ describeTaskResponse_status = Lens.lens (\DescribeTaskResponse' {status} -> stat
 describeTaskResponse_options :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Options)
 describeTaskResponse_options = Lens.lens (\DescribeTaskResponse' {options} -> options) (\s@DescribeTaskResponse' {} a -> s {options = a} :: DescribeTaskResponse)
 
--- | The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network
--- Interface) that was created for your subnet.
+-- | The Amazon Resource Names (ARNs) of the destination elastic network
+-- interfaces (ENIs) that were created for your subnet.
 describeTaskResponse_destinationNetworkInterfaceArns :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [Prelude.Text])
 describeTaskResponse_destinationNetworkInterfaceArns = Lens.lens (\DescribeTaskResponse' {destinationNetworkInterfaceArns} -> destinationNetworkInterfaceArns) (\s@DescribeTaskResponse' {} a -> s {destinationNetworkInterfaceArns = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -386,9 +386,9 @@ describeTaskResponse_destinationLocationArn :: Lens.Lens' DescribeTaskResponse (
 describeTaskResponse_destinationLocationArn = Lens.lens (\DescribeTaskResponse' {destinationLocationArn} -> destinationLocationArn) (\s@DescribeTaskResponse' {} a -> s {destinationLocationArn = a} :: DescribeTaskResponse)
 
 -- | A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
+-- running a task. The pattern contains a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
 describeTaskResponse_includes :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [FilterRule])
 describeTaskResponse_includes = Lens.lens (\DescribeTaskResponse' {includes} -> includes) (\s@DescribeTaskResponse' {} a -> s {includes = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -401,8 +401,8 @@ describeTaskResponse_creationTime = Lens.lens (\DescribeTaskResponse' {creationT
 describeTaskResponse_currentTaskExecutionArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
 describeTaskResponse_currentTaskExecutionArn = Lens.lens (\DescribeTaskResponse' {currentTaskExecutionArn} -> currentTaskExecutionArn) (\s@DescribeTaskResponse' {} a -> s {currentTaskExecutionArn = a} :: DescribeTaskResponse)
 
--- | The Amazon Resource Name (ARN) of the source ENIs (Elastic Network
--- Interface) that was created for your subnet.
+-- | The Amazon Resource Names (ARNs) of the source elastic network
+-- interfaces (ENIs) that were created for your subnet.
 describeTaskResponse_sourceNetworkInterfaceArns :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [Prelude.Text])
 describeTaskResponse_sourceNetworkInterfaceArns = Lens.lens (\DescribeTaskResponse' {sourceNetworkInterfaceArns} -> sourceNetworkInterfaceArns) (\s@DescribeTaskResponse' {} a -> s {sourceNetworkInterfaceArns = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 

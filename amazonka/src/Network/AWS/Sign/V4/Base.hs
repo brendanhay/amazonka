@@ -29,6 +29,7 @@ data V4 = V4
     metaPath :: Path,
     metaEndpoint :: Endpoint,
     metaCredential :: Credential,
+    metaCanonicalPath :: CanonicalPath,
     metaCanonicalQuery :: CanonicalQuery,
     metaCanonicalRequest :: CanonicalRequest,
     metaCanonicalHeaders :: CanonicalHeaders,
@@ -124,6 +125,8 @@ type NormalisedHeaders = Tag "normalised-headers" [(ByteString, ByteString)]
 
 type Method = Tag "method" ByteString
 
+type CanonicalPath = Tag "canonical-path" ByteString
+
 type Path = Tag "path" ByteString
 
 type Signature = Tag "signature" ByteString
@@ -178,6 +181,7 @@ signMetadata a r ts presign digest rq =
       metaPath = path,
       metaEndpoint = end,
       metaCredential = cred,
+      metaCanonicalPath = cpath,
       metaCanonicalQuery = query,
       metaCanonicalRequest = crq,
       metaCanonicalHeaders = chs,
@@ -193,7 +197,7 @@ signMetadata a r ts presign digest rq =
     sts = stringToSign ts scope crq
     cred = credential (_authAccessKeyId a) scope
     scope = credentialScope svc end ts
-    crq = canonicalRequest method path digest query chs shs
+    crq = canonicalRequest method cpath digest query chs shs
 
     chs = canonicalHeaders headers
     shs = signedHeaders headers
@@ -201,7 +205,7 @@ signMetadata a r ts presign digest rq =
 
     end = _serviceEndpoint svc r
     method = Tag . toBS $ _requestMethod rq
-    path = escapedPath rq
+    (path, cpath) = escapedPaths rq
 
     svc = _requestService rq
 
@@ -240,7 +244,7 @@ credentialScope s e t =
 
 canonicalRequest ::
   Method ->
-  Path ->
+  CanonicalPath ->
   Hash ->
   CanonicalQuery ->
   CanonicalHeaders ->
@@ -258,11 +262,15 @@ canonicalRequest meth path digest query chs shs =
         toBS digest
       ]
 
-escapedPath :: Request a -> Path
-escapedPath r = Tag . toBS . escapePath $
-  case _serviceAbbrev (_requestService r) of
-    "S3" -> _requestPath r
-    _ -> collapsePath (_requestPath r)
+escapedPaths :: Request a -> (Path, CanonicalPath)
+escapedPaths r = case _serviceAbbrev (_requestService r) of
+  "S3" -> (Tag escapedPath, Tag escapedPath)
+  _ -> (Tag (toBS escapedCollapsed), Tag (toBS canonicalPath))
+  where
+    path = _requestPath r
+    escapedPath = toBS (escapePath path)
+    escapedCollapsed = escapePath (collapsePath path)
+    canonicalPath = escapePathTwice escapedCollapsed
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

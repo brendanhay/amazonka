@@ -28,6 +28,8 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 
 ### Fixed
 
+- Fix sigv4 canonical uri/path encoding issue
+[\#811](https://github.com/brendanhay/amazonka/pull/811)
 - Fix trailing slash bug in gen model
 [\#528](https://github.com/brendanhay/amazonka/pull/528)
 - Close connections immediately (when we know that we can)

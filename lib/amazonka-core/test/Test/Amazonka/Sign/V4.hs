@@ -7,6 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Sign.V4 (tests) where
 
+import qualified Test.Amazonka.Sign.V4.Base as Base
 import qualified Test.Amazonka.Sign.V4.Chunked as Chunked
 import Test.Tasty (TestTree, testGroup)
 
@@ -25,6 +26,10 @@ tests =
   testGroup
     "v4"
     [ testGroup
+        "base"
+        [ Base.tests
+        ],
+      testGroup
         "chunked"
         [ Chunked.tests
         ]

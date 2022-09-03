@@ -97,7 +97,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
-- `amazonka-core`: Fixed sigv4 canonical uri/path encoding issue
+- `amazonka-core`: Correctly double-url-encode request paths when computing V4 signatures
 [\#812](https://github.com/brendanhay/amazonka/pull/812)
 - `amazonka-core`: Correctly compute body length for `hashedFileRange`
 [\#794](https://github.com/brendanhay/amazonka/pull/794)

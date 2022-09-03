@@ -61,6 +61,7 @@ type RawPath = Path 'NoEncoding
 
 type EscapedPath = Path 'Percent
 
+-- | Used in SigV4
 newtype TwiceEscapedPath = TwiceEscapedPath (Path 'Percent)
   deriving newtype (Eq, Show, ToByteString)
 

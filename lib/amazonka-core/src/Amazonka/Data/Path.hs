@@ -79,7 +79,7 @@ escapePath :: Path a -> EscapedPath
 escapePath (Raw xs) = Encoded (map (URI.urlEncode True) xs)
 escapePath (Encoded xs) = Encoded xs
 
--- | Escape a path twice for rare occasions like computing the sigv4 canonical path.
+-- | Escape a path twice. Used when computing the SigV4 canonical path.
 escapePathTwice :: Path a -> TwiceEscapedPath
 escapePathTwice p = TwiceEscapedPath $
   Encoded $ case p of

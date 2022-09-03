@@ -108,6 +108,6 @@ mkV4Paths p genPath = do
   pure (aPath, metaPath meta, metaCanonicalPath meta)
 
 mkNormalizedPath :: Gen RawPath
-mkNormalizedPath = suchThat arbitrary noDots
+mkNormalizedPath = arbitrary `suchThat` noDots
   where
     noDots (Raw xs :: RawPath) = isNothing $ Fold.find (\x -> x == "." || x == "..") xs

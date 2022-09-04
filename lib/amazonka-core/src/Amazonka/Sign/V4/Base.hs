@@ -275,12 +275,10 @@ escapedPath r = Tag . toBS . escapePath $
 escapedCanonicalPath :: Request a -> CanonicalPath
 escapedCanonicalPath r = Tag $
   case _serviceAbbrev (_requestService r) of
-    "S3" -> toBS escaped
-    _ -> toBS canonical
+    "S3" -> toBS (escapePath path)
+    _ -> toBS (escapePathTwice (collapsePath path))
   where
     path = _requestPath r
-    escaped = escapePath path
-    canonical = escapePathTwice (collapsePath path)
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

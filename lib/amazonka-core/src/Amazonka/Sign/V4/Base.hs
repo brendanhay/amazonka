@@ -208,7 +208,8 @@ signMetadata a r ts presign digest rq =
 
     end = _serviceEndpoint svc r
     method = Tag . toBS $ _requestMethod rq
-    (path, cpath) = escapedPaths rq
+    path = escapedPath rq
+    cpath = escapedCanonicalPath rq
 
     svc = _requestService rq
 
@@ -265,15 +266,21 @@ canonicalRequest meth path digest query chs shs =
         toBS digest
       ]
 
-escapedPaths :: Request a -> (Path, CanonicalPath)
-escapedPaths r = case _serviceAbbrev (_requestService r) of
-  "S3" -> (Tag escapedPath, Tag escapedPath)
-  _ -> (Tag (toBS escapedCollapsed), Tag (toBS canonicalPath))
+escapedPath :: Request a -> Path
+escapedPath r = Tag . toBS . escapePath $
+  case _serviceAbbrev (_requestService r) of
+    "S3" -> _requestPath r
+    _ -> collapsePath (_requestPath r)
+
+escapedCanonicalPath :: Request a -> CanonicalPath
+escapedCanonicalPath r = Tag $
+  case _serviceAbbrev (_requestService r) of
+    "S3" -> toBS escapedPath
+    _ -> toBS canonicalPath
   where
     path = _requestPath r
-    escapedPath = toBS (escapePath path)
-    escapedCollapsed = escapePath (collapsePath path)
-    canonicalPath = escapePathTwice escapedCollapsed
+    escapedPath = escapePath path
+    canonicalPath = escapePathTwice (collapsePath path)
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

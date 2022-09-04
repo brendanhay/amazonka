@@ -104,8 +104,7 @@ mkV4Paths genAbbrev genPath = do
           & requestService .~ svc
           & requestBody .~ Hashed aBody
 
-  (meta, _) <- base (Tag (sha256Base16 aBody)) req <$> arbitrary <*> arbitrary <*> arbitrary
-  pure (aPath, metaPath meta, metaCanonicalPath meta)
+  pure (aPath, escapedPath req, canonicalPath req)
 
 mkNormalizedPath :: Gen RawPath
 mkNormalizedPath = arbitrary `suchThat` noDots

@@ -30,7 +30,6 @@ data V4 = V4
     metaPath :: Path,
     metaEndpoint :: Endpoint,
     metaCredential :: Credential,
-    metaCanonicalPath :: CanonicalPath,
     metaCanonicalQuery :: CanonicalQuery,
     metaCanonicalRequest :: CanonicalRequest,
     metaCanonicalHeaders :: CanonicalHeaders,
@@ -184,7 +183,6 @@ signMetadata a r ts presign digest rq =
       metaPath = path,
       metaEndpoint = end,
       metaCredential = cred,
-      metaCanonicalPath = cpath,
       metaCanonicalQuery = query,
       metaCanonicalRequest = crq,
       metaCanonicalHeaders = chs,
@@ -209,7 +207,7 @@ signMetadata a r ts presign digest rq =
     end = _serviceEndpoint svc r
     method = Tag . toBS $ _requestMethod rq
     path = escapedPath rq
-    cpath = escapedCanonicalPath rq
+    cpath = canonicalPath rq
 
     svc = _requestService rq
 
@@ -272,8 +270,8 @@ escapedPath r = Tag . toBS . escapePath $
     "S3" -> _requestPath r
     _ -> collapsePath (_requestPath r)
 
-escapedCanonicalPath :: Request a -> CanonicalPath
-escapedCanonicalPath r = Tag $
+canonicalPath :: Request a -> CanonicalPath
+canonicalPath r = Tag $
   case _serviceAbbrev (_requestService r) of
     "S3" -> toBS (escapePath path)
     _ -> toBS (escapePathTwice (collapsePath path))

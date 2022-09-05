@@ -1,5 +1,5 @@
 -- |
--- Module      : Test.AWS.Sign.V$
+-- Module      : Test.AWS.Sign.V4
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>

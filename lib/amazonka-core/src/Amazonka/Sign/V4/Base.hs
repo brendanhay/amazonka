@@ -125,6 +125,8 @@ type NormalisedHeaders = Tag "normalised-headers" [(ByteString, ByteString)]
 
 type Method = Tag "method" ByteString
 
+type CanonicalPath = Tag "canonical-path" ByteString
+
 type Path = Tag "path" ByteString
 
 type Signature = Tag "signature" ByteString
@@ -196,7 +198,7 @@ signMetadata a r ts presign digest rq =
     sts = stringToSign ts scope crq
     cred = credential (_authAccessKeyId a) scope
     scope = credentialScope svc end ts
-    crq = canonicalRequest method path digest query chs shs
+    crq = canonicalRequest method cpath digest query chs shs
 
     chs = canonicalHeaders headers
     shs = signedHeaders headers
@@ -205,6 +207,7 @@ signMetadata a r ts presign digest rq =
     end = _serviceEndpoint svc r
     method = Tag . toBS $ _requestMethod rq
     path = escapedPath rq
+    cpath = canonicalPath rq
 
     svc = _requestService rq
 
@@ -243,7 +246,7 @@ credentialScope s e t =
 
 canonicalRequest ::
   Method ->
-  Path ->
+  CanonicalPath ->
   Hash ->
   CanonicalQuery ->
   CanonicalHeaders ->
@@ -266,6 +269,14 @@ escapedPath r = Tag . toBS . escapePath $
   case _serviceAbbrev (_requestService r) of
     "S3" -> _requestPath r
     _ -> collapsePath (_requestPath r)
+
+canonicalPath :: Request a -> CanonicalPath
+canonicalPath r = Tag $
+  case _serviceAbbrev (_requestService r) of
+    "S3" -> toBS (escapePath path)
+    _ -> toBS (escapePathTwice (collapsePath path))
+  where
+    path = _requestPath r
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

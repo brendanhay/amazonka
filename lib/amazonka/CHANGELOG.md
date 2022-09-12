@@ -68,7 +68,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
-- `amazonka-dynamodb`: Provide a sum type for `WriteRequuest`
+- `amazonka-dynamodb`: Provide a sum type for `WriteRequest`
 [\#799](https://github.com/brendanhay/amazonka/pull/799)
 - `amazonka-sso`: replace `SessionTokenType` with `Core.SessionToken`
 [\#792](https://github.com/brendanhay/amazonka/pull/792)

@@ -360,6 +360,18 @@ notationE' withLensIso = \case
       TMaybe x -> var "Lens._Just" : lensIso x
       _other -> []
 
+serviceInstD ::
+  HasMetadata a Identity =>
+  a ->
+  Ref ->
+  Decl
+serviceInstD m a =
+  instD
+    "Core.AWSService"
+    (identifier a)
+    [ funArgsD "service" ["_proxy"] (var (m ^. serviceConfig))
+    ]
+
 requestD ::
   HasMetadata a Identity =>
   Config ->
@@ -374,7 +386,7 @@ requestD c m h (a, as) (b, bs) =
     (identifier a)
     $ Just
       [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-        funD "request" (requestF c m h a as),
+        funArgsD "request" ["srv"] (requestF c m h a as),
         funD "response" (responseE (m ^. protocol) b bs)
       ]
 
@@ -813,7 +825,7 @@ requestF c meta h r is =
       HashMap.lookup (identifier r) (c ^. operationPlugins)
         <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
 
-    e = Exts.app v (var n)
+    e = Exts.app v (var "srv")
 
     v =
       var
@@ -838,7 +850,6 @@ requestF c meta h r is =
 
     m = h ^. method
     p = meta ^. protocol
-    n = meta ^. serviceConfig
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.

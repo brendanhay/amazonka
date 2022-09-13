@@ -52,7 +52,7 @@ res n f s p e =
       >>= assertDiff f e
 
 req ::
-  (AWSRequest a, Eq a, Show a) =>
+  forall a. (AWSRequest a, Eq a, Show a) =>
   TestName ->
   FilePath ->
   a ->
@@ -63,7 +63,8 @@ req n f e = testCase n $ do
   assertDiff f e' (first show a)
   where
     expected = do
-      let x = signedRequest (requestSign (request e) auth NorthVirginia time)
+      let srv = service (Proxy :: Proxy a)
+          x = signedRequest (requestSign (request srv e) auth NorthVirginia time)
       b <- sink (Client.requestBody x)
       return
         $! mkReq

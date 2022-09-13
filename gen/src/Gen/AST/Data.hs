@@ -41,13 +41,15 @@ operationData cfg m o = do
 
   xis <- addInstances xa xs <$> requestInsts m (_opName o) h xr xs
 
-  cls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
+  reqCls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
+  srvCls <- pp Print $ serviceInstD m xr
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)
   xis' <-
     maybe id (HashMap.insert "AWSPager") mpage
-      . HashMap.insert "AWSRequest" cls
+      . HashMap.insert "AWSRequest" reqCls
+      . HashMap.insert "AWSService" srvCls
       <$> renderInsts p xn xis
 
   pure

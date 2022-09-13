@@ -84,7 +84,7 @@ defaultHeaders = filter ((/= hExpect) . fst)
 -- | A variant of 'presign' that allows modifying the default 'Headers'
 -- and the default 'Service' definition used to configure the request.
 presignWithHeaders ::
-  (MonadIO m, AWSRequest a) =>
+  forall a m. (MonadIO m, AWSRequest a) =>
   -- | Modify the default headers.
   ([Header] -> [Header]) ->
   -- | Modify the default service configuration.
@@ -101,4 +101,6 @@ presignWithHeaders ::
 presignWithHeaders f g a r ts ex x =
   withAuth a $ \ae ->
     pure $! signedRequest $
-      requestPresign ex (request x & requestHeaders %~ f & requestService %~ g) ae r ts
+      requestPresign ex (request srv x & requestHeaders %~ f) ae r ts
+  where
+    srv = g (service (Proxy :: Proxy a))

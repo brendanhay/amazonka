@@ -34,6 +34,7 @@ module Amazonka.Types
 
     -- * Service
     Abbrev,
+    AWSService (..),
     Service (..),
     serviceSigner,
     serviceEndpoint,
@@ -471,6 +472,9 @@ serviceCheck = Lens.lens _serviceCheck (\s a -> s {_serviceCheck = a})
 serviceRetry :: Lens' Service Retry
 serviceRetry = Lens.lens _serviceRetry (\s a -> s {_serviceRetry = a})
 
+class AWSService a where
+  service :: Proxy a -> Service
+
 -- | An unsigned request.
 data Request a = Request
   { _requestService :: Service,
@@ -521,11 +525,11 @@ requestUnsigned Request {..} r =
     Service {..} = _requestService
 
 -- | Specify how a request can be de/serialised.
-class AWSRequest a where
+class AWSService a => AWSRequest a where
   -- | The successful, expected response associated with a request.
   type AWSResponse a :: *
 
-  request :: a -> Request a
+  request :: Service -> a -> Request a
   response ::
     MonadResource m =>
     Logger ->

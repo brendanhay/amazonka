@@ -255,9 +255,9 @@ data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
 -- This looks in in the @HOME@ directory as determined by the
 -- <http://hackage.haskell.org/package/directory directory> library.
 --
--- * Not Windows: @$HOME/.aws/credentials@
+-- * Not Windows: @$HOME\/.aws\/credentials@
 --
--- * Windows: @%USERPROFILE%\.aws\credentials@
+-- * Windows: @%USERPROFILE%\\.aws\\credentials@
 fromFileEnv ::
   (MonadIO m, Foldable withAuth) => Env' withAuth -> m Env
 fromFileEnv env = liftIO $ do

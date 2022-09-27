@@ -1,0 +1,174 @@
+cabal-version:      2.2
+name:               amazonka-resiliencehub
+version:            2.0
+synopsis:           Amazon Resilience Hub SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-04-30@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.ResilienceHub.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.ResilienceHub" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-resiliencehub
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.ResilienceHub
+    Amazonka.ResilienceHub.AddDraftAppVersionResourceMappings
+    Amazonka.ResilienceHub.CreateApp
+    Amazonka.ResilienceHub.CreateRecommendationTemplate
+    Amazonka.ResilienceHub.CreateResiliencyPolicy
+    Amazonka.ResilienceHub.DeleteApp
+    Amazonka.ResilienceHub.DeleteAppAssessment
+    Amazonka.ResilienceHub.DeleteRecommendationTemplate
+    Amazonka.ResilienceHub.DeleteResiliencyPolicy
+    Amazonka.ResilienceHub.DescribeApp
+    Amazonka.ResilienceHub.DescribeAppAssessment
+    Amazonka.ResilienceHub.DescribeAppVersionResourcesResolutionStatus
+    Amazonka.ResilienceHub.DescribeAppVersionTemplate
+    Amazonka.ResilienceHub.DescribeDraftAppVersionResourcesImportStatus
+    Amazonka.ResilienceHub.DescribeResiliencyPolicy
+    Amazonka.ResilienceHub.ImportResourcesToDraftAppVersion
+    Amazonka.ResilienceHub.Lens
+    Amazonka.ResilienceHub.ListAlarmRecommendations
+    Amazonka.ResilienceHub.ListAppAssessments
+    Amazonka.ResilienceHub.ListAppComponentCompliances
+    Amazonka.ResilienceHub.ListAppComponentRecommendations
+    Amazonka.ResilienceHub.ListApps
+    Amazonka.ResilienceHub.ListAppVersionResourceMappings
+    Amazonka.ResilienceHub.ListAppVersionResources
+    Amazonka.ResilienceHub.ListAppVersions
+    Amazonka.ResilienceHub.ListRecommendationTemplates
+    Amazonka.ResilienceHub.ListResiliencyPolicies
+    Amazonka.ResilienceHub.ListSopRecommendations
+    Amazonka.ResilienceHub.ListSuggestedResiliencyPolicies
+    Amazonka.ResilienceHub.ListTagsForResource
+    Amazonka.ResilienceHub.ListTestRecommendations
+    Amazonka.ResilienceHub.ListUnsupportedAppVersionResources
+    Amazonka.ResilienceHub.PublishAppVersion
+    Amazonka.ResilienceHub.PutDraftAppVersionTemplate
+    Amazonka.ResilienceHub.RemoveDraftAppVersionResourceMappings
+    Amazonka.ResilienceHub.ResolveAppVersionResources
+    Amazonka.ResilienceHub.StartAppAssessment
+    Amazonka.ResilienceHub.TagResource
+    Amazonka.ResilienceHub.Types
+    Amazonka.ResilienceHub.Types.AlarmRecommendation
+    Amazonka.ResilienceHub.Types.AlarmType
+    Amazonka.ResilienceHub.Types.App
+    Amazonka.ResilienceHub.Types.AppAssessment
+    Amazonka.ResilienceHub.Types.AppAssessmentScheduleType
+    Amazonka.ResilienceHub.Types.AppAssessmentSummary
+    Amazonka.ResilienceHub.Types.AppComplianceStatusType
+    Amazonka.ResilienceHub.Types.AppComponent
+    Amazonka.ResilienceHub.Types.AppComponentCompliance
+    Amazonka.ResilienceHub.Types.AppStatusType
+    Amazonka.ResilienceHub.Types.AppSummary
+    Amazonka.ResilienceHub.Types.AppVersionSummary
+    Amazonka.ResilienceHub.Types.AssessmentInvoker
+    Amazonka.ResilienceHub.Types.AssessmentStatus
+    Amazonka.ResilienceHub.Types.ComplianceStatus
+    Amazonka.ResilienceHub.Types.ComponentRecommendation
+    Amazonka.ResilienceHub.Types.ConfigRecommendation
+    Amazonka.ResilienceHub.Types.ConfigRecommendationOptimizationType
+    Amazonka.ResilienceHub.Types.Cost
+    Amazonka.ResilienceHub.Types.CostFrequency
+    Amazonka.ResilienceHub.Types.DataLocationConstraint
+    Amazonka.ResilienceHub.Types.DisruptionCompliance
+    Amazonka.ResilienceHub.Types.DisruptionType
+    Amazonka.ResilienceHub.Types.EstimatedCostTier
+    Amazonka.ResilienceHub.Types.FailurePolicy
+    Amazonka.ResilienceHub.Types.HaArchitecture
+    Amazonka.ResilienceHub.Types.LogicalResourceId
+    Amazonka.ResilienceHub.Types.PhysicalIdentifierType
+    Amazonka.ResilienceHub.Types.PhysicalResource
+    Amazonka.ResilienceHub.Types.PhysicalResourceId
+    Amazonka.ResilienceHub.Types.RecommendationComplianceStatus
+    Amazonka.ResilienceHub.Types.RecommendationDisruptionCompliance
+    Amazonka.ResilienceHub.Types.RecommendationItem
+    Amazonka.ResilienceHub.Types.RecommendationTemplate
+    Amazonka.ResilienceHub.Types.RecommendationTemplateStatus
+    Amazonka.ResilienceHub.Types.RenderRecommendationType
+    Amazonka.ResilienceHub.Types.ResiliencyPolicy
+    Amazonka.ResilienceHub.Types.ResiliencyPolicyTier
+    Amazonka.ResilienceHub.Types.ResiliencyScore
+    Amazonka.ResilienceHub.Types.ResourceError
+    Amazonka.ResilienceHub.Types.ResourceErrorsDetails
+    Amazonka.ResilienceHub.Types.ResourceImportStatusType
+    Amazonka.ResilienceHub.Types.ResourceMapping
+    Amazonka.ResilienceHub.Types.ResourceMappingType
+    Amazonka.ResilienceHub.Types.ResourceResolutionStatusType
+    Amazonka.ResilienceHub.Types.S3Location
+    Amazonka.ResilienceHub.Types.SopRecommendation
+    Amazonka.ResilienceHub.Types.SopServiceType
+    Amazonka.ResilienceHub.Types.TemplateFormat
+    Amazonka.ResilienceHub.Types.TerraformSource
+    Amazonka.ResilienceHub.Types.TestRecommendation
+    Amazonka.ResilienceHub.Types.TestRisk
+    Amazonka.ResilienceHub.Types.TestType
+    Amazonka.ResilienceHub.Types.UnsupportedResource
+    Amazonka.ResilienceHub.UntagResource
+    Amazonka.ResilienceHub.UpdateApp
+    Amazonka.ResilienceHub.UpdateResiliencyPolicy
+    Amazonka.ResilienceHub.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-resiliencehub-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.ResilienceHub
+    Test.Amazonka.ResilienceHub
+    Test.Amazonka.ResilienceHub.Internal
+
+  build-depends:
+    , amazonka-core           ^>=2.0
+    , amazonka-resiliencehub
+    , amazonka-test           ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

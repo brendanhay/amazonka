@@ -1,0 +1,269 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.DrS.DescribeReplicationConfigurationTemplates
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists all ReplicationConfigurationTemplates, filtered by Source Server
+-- IDs.
+--
+-- This operation returns paginated results.
+module Amazonka.DrS.DescribeReplicationConfigurationTemplates
+  ( -- * Creating a Request
+    DescribeReplicationConfigurationTemplates (..),
+    newDescribeReplicationConfigurationTemplates,
+
+    -- * Request Lenses
+    describeReplicationConfigurationTemplates_nextToken,
+    describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs,
+    describeReplicationConfigurationTemplates_maxResults,
+
+    -- * Destructuring the Response
+    DescribeReplicationConfigurationTemplatesResponse (..),
+    newDescribeReplicationConfigurationTemplatesResponse,
+
+    -- * Response Lenses
+    describeReplicationConfigurationTemplatesResponse_items,
+    describeReplicationConfigurationTemplatesResponse_nextToken,
+    describeReplicationConfigurationTemplatesResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import Amazonka.DrS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newDescribeReplicationConfigurationTemplates' smart constructor.
+data DescribeReplicationConfigurationTemplates = DescribeReplicationConfigurationTemplates'
+  { -- | The token of the next Replication Configuration Template to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the Replication Configuration Templates to retrieve. An empty
+    -- list means all Replication Configuration Templates.
+    replicationConfigurationTemplateIDs :: Prelude.Maybe [Prelude.Text],
+    -- | Maximum number of Replication Configuration Templates to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeReplicationConfigurationTemplates' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeReplicationConfigurationTemplates_nextToken' - The token of the next Replication Configuration Template to retrieve.
+--
+-- 'replicationConfigurationTemplateIDs', 'describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs' - The IDs of the Replication Configuration Templates to retrieve. An empty
+-- list means all Replication Configuration Templates.
+--
+-- 'maxResults', 'describeReplicationConfigurationTemplates_maxResults' - Maximum number of Replication Configuration Templates to retrieve.
+newDescribeReplicationConfigurationTemplates ::
+  DescribeReplicationConfigurationTemplates
+newDescribeReplicationConfigurationTemplates =
+  DescribeReplicationConfigurationTemplates'
+    { nextToken =
+        Prelude.Nothing,
+      replicationConfigurationTemplateIDs =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | The token of the next Replication Configuration Template to retrieve.
+describeReplicationConfigurationTemplates_nextToken :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Text)
+describeReplicationConfigurationTemplates_nextToken = Lens.lens (\DescribeReplicationConfigurationTemplates' {nextToken} -> nextToken) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {nextToken = a} :: DescribeReplicationConfigurationTemplates)
+
+-- | The IDs of the Replication Configuration Templates to retrieve. An empty
+-- list means all Replication Configuration Templates.
+describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe [Prelude.Text])
+describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs = Lens.lens (\DescribeReplicationConfigurationTemplates' {replicationConfigurationTemplateIDs} -> replicationConfigurationTemplateIDs) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {replicationConfigurationTemplateIDs = a} :: DescribeReplicationConfigurationTemplates) Prelude.. Lens.mapping Lens.coerced
+
+-- | Maximum number of Replication Configuration Templates to retrieve.
+describeReplicationConfigurationTemplates_maxResults :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Natural)
+describeReplicationConfigurationTemplates_maxResults = Lens.lens (\DescribeReplicationConfigurationTemplates' {maxResults} -> maxResults) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {maxResults = a} :: DescribeReplicationConfigurationTemplates)
+
+instance
+  Core.AWSPager
+    DescribeReplicationConfigurationTemplates
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeReplicationConfigurationTemplatesResponse_items
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeReplicationConfigurationTemplates_nextToken
+          Lens..~ rs
+            Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
+              Prelude.. Lens._Just
+
+instance
+  Core.AWSRequest
+    DescribeReplicationConfigurationTemplates
+  where
+  type
+    AWSResponse
+      DescribeReplicationConfigurationTemplates =
+      DescribeReplicationConfigurationTemplatesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeReplicationConfigurationTemplatesResponse'
+            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "nextToken")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeReplicationConfigurationTemplates
+  where
+  hashWithSalt
+    _salt
+    DescribeReplicationConfigurationTemplates' {..} =
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` replicationConfigurationTemplateIDs
+        `Prelude.hashWithSalt` maxResults
+
+instance
+  Prelude.NFData
+    DescribeReplicationConfigurationTemplates
+  where
+  rnf DescribeReplicationConfigurationTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replicationConfigurationTemplateIDs
+      `Prelude.seq` Prelude.rnf maxResults
+
+instance
+  Core.ToHeaders
+    DescribeReplicationConfigurationTemplates
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToJSON
+    DescribeReplicationConfigurationTemplates
+  where
+  toJSON DescribeReplicationConfigurationTemplates' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("replicationConfigurationTemplateIDs" Core..=)
+              Prelude.<$> replicationConfigurationTemplateIDs,
+            ("maxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance
+  Core.ToPath
+    DescribeReplicationConfigurationTemplates
+  where
+  toPath =
+    Prelude.const
+      "/DescribeReplicationConfigurationTemplates"
+
+instance
+  Core.ToQuery
+    DescribeReplicationConfigurationTemplates
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeReplicationConfigurationTemplatesResponse' smart constructor.
+data DescribeReplicationConfigurationTemplatesResponse = DescribeReplicationConfigurationTemplatesResponse'
+  { -- | An array of Replication Configuration Templates.
+    items :: Prelude.Maybe [ReplicationConfigurationTemplate],
+    -- | The token of the next Replication Configuration Template to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeReplicationConfigurationTemplatesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'items', 'describeReplicationConfigurationTemplatesResponse_items' - An array of Replication Configuration Templates.
+--
+-- 'nextToken', 'describeReplicationConfigurationTemplatesResponse_nextToken' - The token of the next Replication Configuration Template to retrieve.
+--
+-- 'httpStatus', 'describeReplicationConfigurationTemplatesResponse_httpStatus' - The response's http status code.
+newDescribeReplicationConfigurationTemplatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeReplicationConfigurationTemplatesResponse
+newDescribeReplicationConfigurationTemplatesResponse
+  pHttpStatus_ =
+    DescribeReplicationConfigurationTemplatesResponse'
+      { items =
+          Prelude.Nothing,
+        nextToken =
+          Prelude.Nothing,
+        httpStatus =
+          pHttpStatus_
+      }
+
+-- | An array of Replication Configuration Templates.
+describeReplicationConfigurationTemplatesResponse_items :: Lens.Lens' DescribeReplicationConfigurationTemplatesResponse (Prelude.Maybe [ReplicationConfigurationTemplate])
+describeReplicationConfigurationTemplatesResponse_items = Lens.lens (\DescribeReplicationConfigurationTemplatesResponse' {items} -> items) (\s@DescribeReplicationConfigurationTemplatesResponse' {} a -> s {items = a} :: DescribeReplicationConfigurationTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token of the next Replication Configuration Template to retrieve.
+describeReplicationConfigurationTemplatesResponse_nextToken :: Lens.Lens' DescribeReplicationConfigurationTemplatesResponse (Prelude.Maybe Prelude.Text)
+describeReplicationConfigurationTemplatesResponse_nextToken = Lens.lens (\DescribeReplicationConfigurationTemplatesResponse' {nextToken} -> nextToken) (\s@DescribeReplicationConfigurationTemplatesResponse' {} a -> s {nextToken = a} :: DescribeReplicationConfigurationTemplatesResponse)
+
+-- | The response's http status code.
+describeReplicationConfigurationTemplatesResponse_httpStatus :: Lens.Lens' DescribeReplicationConfigurationTemplatesResponse Prelude.Int
+describeReplicationConfigurationTemplatesResponse_httpStatus = Lens.lens (\DescribeReplicationConfigurationTemplatesResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationConfigurationTemplatesResponse' {} a -> s {httpStatus = a} :: DescribeReplicationConfigurationTemplatesResponse)
+
+instance
+  Prelude.NFData
+    DescribeReplicationConfigurationTemplatesResponse
+  where
+  rnf
+    DescribeReplicationConfigurationTemplatesResponse' {..} =
+      Prelude.rnf items
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -1,0 +1,183 @@
+cabal-version:      2.2
+name:               amazonka-drs
+version:            2.0
+synopsis:           Amazon Elastic Disaster Recovery Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-02-26@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.DrS.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.DrS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-drs
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.DrS
+    Amazonka.DrS.CreateExtendedSourceServer
+    Amazonka.DrS.CreateReplicationConfigurationTemplate
+    Amazonka.DrS.DeleteJob
+    Amazonka.DrS.DeleteRecoveryInstance
+    Amazonka.DrS.DeleteReplicationConfigurationTemplate
+    Amazonka.DrS.DeleteSourceServer
+    Amazonka.DrS.DescribeJobLogItems
+    Amazonka.DrS.DescribeJobs
+    Amazonka.DrS.DescribeRecoveryInstances
+    Amazonka.DrS.DescribeRecoverySnapshots
+    Amazonka.DrS.DescribeReplicationConfigurationTemplates
+    Amazonka.DrS.DescribeSourceServers
+    Amazonka.DrS.DisconnectRecoveryInstance
+    Amazonka.DrS.DisconnectSourceServer
+    Amazonka.DrS.GetFailbackReplicationConfiguration
+    Amazonka.DrS.GetLaunchConfiguration
+    Amazonka.DrS.GetReplicationConfiguration
+    Amazonka.DrS.InitializeService
+    Amazonka.DrS.Lens
+    Amazonka.DrS.ListExtensibleSourceServers
+    Amazonka.DrS.ListStagingAccounts
+    Amazonka.DrS.ListTagsForResource
+    Amazonka.DrS.RetryDataReplication
+    Amazonka.DrS.StartFailbackLaunch
+    Amazonka.DrS.StartRecovery
+    Amazonka.DrS.StopFailback
+    Amazonka.DrS.TagResource
+    Amazonka.DrS.TerminateRecoveryInstances
+    Amazonka.DrS.Types
+    Amazonka.DrS.Types.Account
+    Amazonka.DrS.Types.ConversionProperties
+    Amazonka.DrS.Types.CPU
+    Amazonka.DrS.Types.DataReplicationError
+    Amazonka.DrS.Types.DataReplicationErrorString
+    Amazonka.DrS.Types.DataReplicationInfo
+    Amazonka.DrS.Types.DataReplicationInfoReplicatedDisk
+    Amazonka.DrS.Types.DataReplicationInitiation
+    Amazonka.DrS.Types.DataReplicationInitiationStep
+    Amazonka.DrS.Types.DataReplicationInitiationStepName
+    Amazonka.DrS.Types.DataReplicationInitiationStepStatus
+    Amazonka.DrS.Types.DataReplicationState
+    Amazonka.DrS.Types.DescribeJobsRequestFilters
+    Amazonka.DrS.Types.DescribeRecoveryInstancesRequestFilters
+    Amazonka.DrS.Types.DescribeRecoverySnapshotsRequestFilters
+    Amazonka.DrS.Types.DescribeSourceServersRequestFilters
+    Amazonka.DrS.Types.Disk
+    Amazonka.DrS.Types.EC2InstanceState
+    Amazonka.DrS.Types.ExtensionStatus
+    Amazonka.DrS.Types.FailbackReplicationError
+    Amazonka.DrS.Types.FailbackState
+    Amazonka.DrS.Types.IdentificationHints
+    Amazonka.DrS.Types.InitiatedBy
+    Amazonka.DrS.Types.Job
+    Amazonka.DrS.Types.JobLog
+    Amazonka.DrS.Types.JobLogEvent
+    Amazonka.DrS.Types.JobLogEventData
+    Amazonka.DrS.Types.JobStatus
+    Amazonka.DrS.Types.JobType
+    Amazonka.DrS.Types.LastLaunchResult
+    Amazonka.DrS.Types.LastLaunchType
+    Amazonka.DrS.Types.LaunchConfiguration
+    Amazonka.DrS.Types.LaunchDisposition
+    Amazonka.DrS.Types.LaunchStatus
+    Amazonka.DrS.Types.Licensing
+    Amazonka.DrS.Types.LifeCycle
+    Amazonka.DrS.Types.LifeCycleLastLaunch
+    Amazonka.DrS.Types.LifeCycleLastLaunchInitiated
+    Amazonka.DrS.Types.NetworkInterface
+    Amazonka.DrS.Types.OS
+    Amazonka.DrS.Types.ParticipatingServer
+    Amazonka.DrS.Types.PITPolicyRule
+    Amazonka.DrS.Types.PITPolicyRuleUnits
+    Amazonka.DrS.Types.RecoveryInstance
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationError
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationInfo
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationInfoReplicatedDisk
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationInitiation
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationInitiationStep
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationInitiationStepName
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationInitiationStepStatus
+    Amazonka.DrS.Types.RecoveryInstanceDataReplicationState
+    Amazonka.DrS.Types.RecoveryInstanceDisk
+    Amazonka.DrS.Types.RecoveryInstanceFailback
+    Amazonka.DrS.Types.RecoveryInstanceProperties
+    Amazonka.DrS.Types.RecoverySnapshot
+    Amazonka.DrS.Types.RecoverySnapshotsOrder
+    Amazonka.DrS.Types.ReplicationConfiguration
+    Amazonka.DrS.Types.ReplicationConfigurationDataPlaneRouting
+    Amazonka.DrS.Types.ReplicationConfigurationDefaultLargeStagingDiskType
+    Amazonka.DrS.Types.ReplicationConfigurationEbsEncryption
+    Amazonka.DrS.Types.ReplicationConfigurationReplicatedDisk
+    Amazonka.DrS.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
+    Amazonka.DrS.Types.ReplicationConfigurationTemplate
+    Amazonka.DrS.Types.SourceProperties
+    Amazonka.DrS.Types.SourceServer
+    Amazonka.DrS.Types.StagingArea
+    Amazonka.DrS.Types.StagingSourceServer
+    Amazonka.DrS.Types.StartRecoveryRequestSourceServer
+    Amazonka.DrS.Types.TargetInstanceTypeRightSizingMethod
+    Amazonka.DrS.UntagResource
+    Amazonka.DrS.UpdateFailbackReplicationConfiguration
+    Amazonka.DrS.UpdateLaunchConfiguration
+    Amazonka.DrS.UpdateReplicationConfiguration
+    Amazonka.DrS.UpdateReplicationConfigurationTemplate
+    Amazonka.DrS.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-drs-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.DrS
+    Test.Amazonka.DrS.Internal
+    Test.Amazonka.Gen.DrS
+
+  build-depends:
+    , amazonka-core         ^>=2.0
+    , amazonka-drs
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

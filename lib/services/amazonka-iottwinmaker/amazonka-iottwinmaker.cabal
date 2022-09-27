@@ -1,0 +1,149 @@
+cabal-version:      2.2
+name:               amazonka-iottwinmaker
+version:            2.0
+synopsis:           Amazon IoT TwinMaker SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-11-29@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.IotTwinMaker.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.IotTwinMaker" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-iottwinmaker
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.IotTwinMaker
+    Amazonka.IotTwinMaker.BatchPutPropertyValues
+    Amazonka.IotTwinMaker.CreateComponentType
+    Amazonka.IotTwinMaker.CreateEntity
+    Amazonka.IotTwinMaker.CreateScene
+    Amazonka.IotTwinMaker.CreateWorkspace
+    Amazonka.IotTwinMaker.DeleteComponentType
+    Amazonka.IotTwinMaker.DeleteEntity
+    Amazonka.IotTwinMaker.DeleteScene
+    Amazonka.IotTwinMaker.DeleteWorkspace
+    Amazonka.IotTwinMaker.GetComponentType
+    Amazonka.IotTwinMaker.GetEntity
+    Amazonka.IotTwinMaker.GetPropertyValue
+    Amazonka.IotTwinMaker.GetPropertyValueHistory
+    Amazonka.IotTwinMaker.GetScene
+    Amazonka.IotTwinMaker.GetWorkspace
+    Amazonka.IotTwinMaker.Lens
+    Amazonka.IotTwinMaker.ListComponentTypes
+    Amazonka.IotTwinMaker.ListEntities
+    Amazonka.IotTwinMaker.ListScenes
+    Amazonka.IotTwinMaker.ListTagsForResource
+    Amazonka.IotTwinMaker.ListWorkspaces
+    Amazonka.IotTwinMaker.TagResource
+    Amazonka.IotTwinMaker.Types
+    Amazonka.IotTwinMaker.Types.BatchPutPropertyError
+    Amazonka.IotTwinMaker.Types.BatchPutPropertyErrorEntry
+    Amazonka.IotTwinMaker.Types.ComponentRequest
+    Amazonka.IotTwinMaker.Types.ComponentResponse
+    Amazonka.IotTwinMaker.Types.ComponentTypeSummary
+    Amazonka.IotTwinMaker.Types.ComponentUpdateRequest
+    Amazonka.IotTwinMaker.Types.ComponentUpdateType
+    Amazonka.IotTwinMaker.Types.DataConnector
+    Amazonka.IotTwinMaker.Types.DataType
+    Amazonka.IotTwinMaker.Types.DataValue
+    Amazonka.IotTwinMaker.Types.EntityPropertyReference
+    Amazonka.IotTwinMaker.Types.EntitySummary
+    Amazonka.IotTwinMaker.Types.ErrorCode
+    Amazonka.IotTwinMaker.Types.ErrorDetails
+    Amazonka.IotTwinMaker.Types.FunctionRequest
+    Amazonka.IotTwinMaker.Types.FunctionResponse
+    Amazonka.IotTwinMaker.Types.InterpolationParameters
+    Amazonka.IotTwinMaker.Types.InterpolationType
+    Amazonka.IotTwinMaker.Types.LambdaFunction
+    Amazonka.IotTwinMaker.Types.ListComponentTypesFilter
+    Amazonka.IotTwinMaker.Types.ListEntitiesFilter
+    Amazonka.IotTwinMaker.Types.OrderByTime
+    Amazonka.IotTwinMaker.Types.ParentEntityUpdateRequest
+    Amazonka.IotTwinMaker.Types.ParentEntityUpdateType
+    Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest
+    Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse
+    Amazonka.IotTwinMaker.Types.PropertyFilter
+    Amazonka.IotTwinMaker.Types.PropertyLatestValue
+    Amazonka.IotTwinMaker.Types.PropertyRequest
+    Amazonka.IotTwinMaker.Types.PropertyResponse
+    Amazonka.IotTwinMaker.Types.PropertyUpdateType
+    Amazonka.IotTwinMaker.Types.PropertyValue
+    Amazonka.IotTwinMaker.Types.PropertyValueEntry
+    Amazonka.IotTwinMaker.Types.PropertyValueHistory
+    Amazonka.IotTwinMaker.Types.Relationship
+    Amazonka.IotTwinMaker.Types.RelationshipValue
+    Amazonka.IotTwinMaker.Types.SceneSummary
+    Amazonka.IotTwinMaker.Types.Scope
+    Amazonka.IotTwinMaker.Types.State
+    Amazonka.IotTwinMaker.Types.Status
+    Amazonka.IotTwinMaker.Types.Type
+    Amazonka.IotTwinMaker.Types.WorkspaceSummary
+    Amazonka.IotTwinMaker.UntagResource
+    Amazonka.IotTwinMaker.UpdateComponentType
+    Amazonka.IotTwinMaker.UpdateEntity
+    Amazonka.IotTwinMaker.UpdateScene
+    Amazonka.IotTwinMaker.UpdateWorkspace
+    Amazonka.IotTwinMaker.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-iottwinmaker-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.IotTwinMaker
+    Test.Amazonka.IotTwinMaker
+    Test.Amazonka.IotTwinMaker.Internal
+
+  build-depends:
+    , amazonka-core          ^>=2.0
+    , amazonka-iottwinmaker
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

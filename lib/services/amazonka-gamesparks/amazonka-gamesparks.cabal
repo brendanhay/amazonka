@@ -1,0 +1,140 @@
+cabal-version:      2.2
+name:               amazonka-gamesparks
+version:            2.0
+synopsis:           Amazon GameSparks SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-08-17@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.GamesParks.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.GamesParks" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-gamesparks
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.GamesParks
+    Amazonka.GamesParks.CreateGame
+    Amazonka.GamesParks.CreateSnapshot
+    Amazonka.GamesParks.CreateStage
+    Amazonka.GamesParks.DeleteGame
+    Amazonka.GamesParks.DeleteStage
+    Amazonka.GamesParks.DisconnectPlayer
+    Amazonka.GamesParks.ExportSnapshot
+    Amazonka.GamesParks.GetExtension
+    Amazonka.GamesParks.GetExtensionVersion
+    Amazonka.GamesParks.GetGame
+    Amazonka.GamesParks.GetGameConfiguration
+    Amazonka.GamesParks.GetGeneratedCodeJob
+    Amazonka.GamesParks.GetPlayerConnectionStatus
+    Amazonka.GamesParks.GetSnapshot
+    Amazonka.GamesParks.GetStage
+    Amazonka.GamesParks.GetStageDeployment
+    Amazonka.GamesParks.ImportGameConfiguration
+    Amazonka.GamesParks.Lens
+    Amazonka.GamesParks.ListExtensions
+    Amazonka.GamesParks.ListExtensionVersions
+    Amazonka.GamesParks.ListGames
+    Amazonka.GamesParks.ListGeneratedCodeJobs
+    Amazonka.GamesParks.ListSnapshots
+    Amazonka.GamesParks.ListStageDeployments
+    Amazonka.GamesParks.ListStages
+    Amazonka.GamesParks.ListTagsForResource
+    Amazonka.GamesParks.StartGeneratedCodeJob
+    Amazonka.GamesParks.StartStageDeployment
+    Amazonka.GamesParks.TagResource
+    Amazonka.GamesParks.Types
+    Amazonka.GamesParks.Types.Connection
+    Amazonka.GamesParks.Types.DeploymentAction
+    Amazonka.GamesParks.Types.DeploymentResult
+    Amazonka.GamesParks.Types.DeploymentState
+    Amazonka.GamesParks.Types.Document
+    Amazonka.GamesParks.Types.ExtensionDetails
+    Amazonka.GamesParks.Types.ExtensionVersionDetails
+    Amazonka.GamesParks.Types.GameConfigurationDetails
+    Amazonka.GamesParks.Types.GameDetails
+    Amazonka.GamesParks.Types.GameState
+    Amazonka.GamesParks.Types.GameSummary
+    Amazonka.GamesParks.Types.GeneratedCodeJobDetails
+    Amazonka.GamesParks.Types.GeneratedCodeJobState
+    Amazonka.GamesParks.Types.Generator
+    Amazonka.GamesParks.Types.ImportGameConfigurationSource
+    Amazonka.GamesParks.Types.Operation
+    Amazonka.GamesParks.Types.ResultCode
+    Amazonka.GamesParks.Types.Section
+    Amazonka.GamesParks.Types.SectionModification
+    Amazonka.GamesParks.Types.SnapshotDetails
+    Amazonka.GamesParks.Types.SnapshotSummary
+    Amazonka.GamesParks.Types.StageDeploymentDetails
+    Amazonka.GamesParks.Types.StageDeploymentSummary
+    Amazonka.GamesParks.Types.StageDetails
+    Amazonka.GamesParks.Types.StageState
+    Amazonka.GamesParks.Types.StageSummary
+    Amazonka.GamesParks.UntagResource
+    Amazonka.GamesParks.UpdateGame
+    Amazonka.GamesParks.UpdateGameConfiguration
+    Amazonka.GamesParks.UpdateSnapshot
+    Amazonka.GamesParks.UpdateStage
+    Amazonka.GamesParks.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-gamesparks-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.GamesParks
+    Test.Amazonka.GamesParks.Internal
+    Test.Amazonka.Gen.GamesParks
+
+  build-depends:
+    , amazonka-core         ^>=2.0
+    , amazonka-gamesparks
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

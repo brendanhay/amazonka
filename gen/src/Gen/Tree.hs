@@ -87,6 +87,7 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
             ],
           Dir "fixture" (concatMap fixture (l ^.. operations . Lens.each)),
           file (lib <.> "cabal") cabalTemplate,
+          file "LICENSE" licenseTemplate,
           file "README.md" readmeTemplate
         ]
 

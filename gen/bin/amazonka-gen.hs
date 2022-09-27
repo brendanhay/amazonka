@@ -134,6 +134,7 @@ main = do
     tocTemplate <- load "toc.ede"
     waitersTemplate <- load "waiters.ede"
     readmeTemplate <- load "readme.ede"
+    licenseTemplate <- load "license.ede"
     operationTemplate <- load "operation.ede"
     typesTemplate <- load "types.ede"
     lensTemplate <- load "lens.ede"

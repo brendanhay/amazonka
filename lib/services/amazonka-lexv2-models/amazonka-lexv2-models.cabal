@@ -1,0 +1,324 @@
+cabal-version:      2.2
+name:               amazonka-lexv2-models
+version:            2.0
+synopsis:           Amazon Lex Model Building V2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-08-07@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.LexV2Models.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.LexV2Models" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-lexv2-models
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.LexV2Models
+    Amazonka.LexV2Models.BuildBotLocale
+    Amazonka.LexV2Models.CreateBot
+    Amazonka.LexV2Models.CreateBotAlias
+    Amazonka.LexV2Models.CreateBotLocale
+    Amazonka.LexV2Models.CreateBotVersion
+    Amazonka.LexV2Models.CreateExport
+    Amazonka.LexV2Models.CreateIntent
+    Amazonka.LexV2Models.CreateResourcePolicy
+    Amazonka.LexV2Models.CreateResourcePolicyStatement
+    Amazonka.LexV2Models.CreateSlot
+    Amazonka.LexV2Models.CreateSlotType
+    Amazonka.LexV2Models.CreateUploadUrl
+    Amazonka.LexV2Models.DeleteBot
+    Amazonka.LexV2Models.DeleteBotAlias
+    Amazonka.LexV2Models.DeleteBotLocale
+    Amazonka.LexV2Models.DeleteBotVersion
+    Amazonka.LexV2Models.DeleteCustomVocabulary
+    Amazonka.LexV2Models.DeleteExport
+    Amazonka.LexV2Models.DeleteImport
+    Amazonka.LexV2Models.DeleteIntent
+    Amazonka.LexV2Models.DeleteResourcePolicy
+    Amazonka.LexV2Models.DeleteResourcePolicyStatement
+    Amazonka.LexV2Models.DeleteSlot
+    Amazonka.LexV2Models.DeleteSlotType
+    Amazonka.LexV2Models.DeleteUtterances
+    Amazonka.LexV2Models.DescribeBot
+    Amazonka.LexV2Models.DescribeBotAlias
+    Amazonka.LexV2Models.DescribeBotLocale
+    Amazonka.LexV2Models.DescribeBotRecommendation
+    Amazonka.LexV2Models.DescribeBotVersion
+    Amazonka.LexV2Models.DescribeCustomVocabularyMetadata
+    Amazonka.LexV2Models.DescribeExport
+    Amazonka.LexV2Models.DescribeImport
+    Amazonka.LexV2Models.DescribeIntent
+    Amazonka.LexV2Models.DescribeResourcePolicy
+    Amazonka.LexV2Models.DescribeSlot
+    Amazonka.LexV2Models.DescribeSlotType
+    Amazonka.LexV2Models.Lens
+    Amazonka.LexV2Models.ListAggregatedUtterances
+    Amazonka.LexV2Models.ListBotAliases
+    Amazonka.LexV2Models.ListBotLocales
+    Amazonka.LexV2Models.ListBotRecommendations
+    Amazonka.LexV2Models.ListBots
+    Amazonka.LexV2Models.ListBotVersions
+    Amazonka.LexV2Models.ListBuiltInIntents
+    Amazonka.LexV2Models.ListBuiltInSlotTypes
+    Amazonka.LexV2Models.ListExports
+    Amazonka.LexV2Models.ListImports
+    Amazonka.LexV2Models.ListIntents
+    Amazonka.LexV2Models.ListRecommendedIntents
+    Amazonka.LexV2Models.ListSlots
+    Amazonka.LexV2Models.ListSlotTypes
+    Amazonka.LexV2Models.ListTagsForResource
+    Amazonka.LexV2Models.SearchAssociatedTranscripts
+    Amazonka.LexV2Models.StartBotRecommendation
+    Amazonka.LexV2Models.StartImport
+    Amazonka.LexV2Models.StopBotRecommendation
+    Amazonka.LexV2Models.TagResource
+    Amazonka.LexV2Models.Types
+    Amazonka.LexV2Models.Types.AdvancedRecognitionSetting
+    Amazonka.LexV2Models.Types.AggregatedUtterancesFilter
+    Amazonka.LexV2Models.Types.AggregatedUtterancesFilterName
+    Amazonka.LexV2Models.Types.AggregatedUtterancesFilterOperator
+    Amazonka.LexV2Models.Types.AggregatedUtterancesSortAttribute
+    Amazonka.LexV2Models.Types.AggregatedUtterancesSortBy
+    Amazonka.LexV2Models.Types.AggregatedUtterancesSummary
+    Amazonka.LexV2Models.Types.AssociatedTranscript
+    Amazonka.LexV2Models.Types.AssociatedTranscriptFilter
+    Amazonka.LexV2Models.Types.AssociatedTranscriptFilterName
+    Amazonka.LexV2Models.Types.AudioLogDestination
+    Amazonka.LexV2Models.Types.AudioLogSetting
+    Amazonka.LexV2Models.Types.AudioRecognitionStrategy
+    Amazonka.LexV2Models.Types.BotAliasHistoryEvent
+    Amazonka.LexV2Models.Types.BotAliasLocaleSettings
+    Amazonka.LexV2Models.Types.BotAliasStatus
+    Amazonka.LexV2Models.Types.BotAliasSummary
+    Amazonka.LexV2Models.Types.BotExportSpecification
+    Amazonka.LexV2Models.Types.BotFilter
+    Amazonka.LexV2Models.Types.BotFilterName
+    Amazonka.LexV2Models.Types.BotFilterOperator
+    Amazonka.LexV2Models.Types.BotImportSpecification
+    Amazonka.LexV2Models.Types.BotLocaleExportSpecification
+    Amazonka.LexV2Models.Types.BotLocaleFilter
+    Amazonka.LexV2Models.Types.BotLocaleFilterName
+    Amazonka.LexV2Models.Types.BotLocaleFilterOperator
+    Amazonka.LexV2Models.Types.BotLocaleHistoryEvent
+    Amazonka.LexV2Models.Types.BotLocaleImportSpecification
+    Amazonka.LexV2Models.Types.BotLocaleSortAttribute
+    Amazonka.LexV2Models.Types.BotLocaleSortBy
+    Amazonka.LexV2Models.Types.BotLocaleStatus
+    Amazonka.LexV2Models.Types.BotLocaleSummary
+    Amazonka.LexV2Models.Types.BotRecommendationResults
+    Amazonka.LexV2Models.Types.BotRecommendationResultStatistics
+    Amazonka.LexV2Models.Types.BotRecommendationStatus
+    Amazonka.LexV2Models.Types.BotRecommendationSummary
+    Amazonka.LexV2Models.Types.BotSortAttribute
+    Amazonka.LexV2Models.Types.BotSortBy
+    Amazonka.LexV2Models.Types.BotStatus
+    Amazonka.LexV2Models.Types.BotSummary
+    Amazonka.LexV2Models.Types.BotVersionLocaleDetails
+    Amazonka.LexV2Models.Types.BotVersionSortAttribute
+    Amazonka.LexV2Models.Types.BotVersionSortBy
+    Amazonka.LexV2Models.Types.BotVersionSummary
+    Amazonka.LexV2Models.Types.BuiltInIntentSortAttribute
+    Amazonka.LexV2Models.Types.BuiltInIntentSortBy
+    Amazonka.LexV2Models.Types.BuiltInIntentSummary
+    Amazonka.LexV2Models.Types.BuiltInSlotTypeSortAttribute
+    Amazonka.LexV2Models.Types.BuiltInSlotTypeSortBy
+    Amazonka.LexV2Models.Types.BuiltInSlotTypeSummary
+    Amazonka.LexV2Models.Types.Button
+    Amazonka.LexV2Models.Types.CloudWatchLogGroupLogDestination
+    Amazonka.LexV2Models.Types.CodeHookSpecification
+    Amazonka.LexV2Models.Types.Condition
+    Amazonka.LexV2Models.Types.ConditionalBranch
+    Amazonka.LexV2Models.Types.ConditionalSpecification
+    Amazonka.LexV2Models.Types.ConversationLogSettings
+    Amazonka.LexV2Models.Types.CustomPayload
+    Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
+    Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
+    Amazonka.LexV2Models.Types.CustomVocabularyStatus
+    Amazonka.LexV2Models.Types.DataPrivacy
+    Amazonka.LexV2Models.Types.DateRangeFilter
+    Amazonka.LexV2Models.Types.DefaultConditionalBranch
+    Amazonka.LexV2Models.Types.DialogAction
+    Amazonka.LexV2Models.Types.DialogActionType
+    Amazonka.LexV2Models.Types.DialogCodeHookInvocationSetting
+    Amazonka.LexV2Models.Types.DialogCodeHookSettings
+    Amazonka.LexV2Models.Types.DialogState
+    Amazonka.LexV2Models.Types.Effect
+    Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
+    Amazonka.LexV2Models.Types.EncryptionSetting
+    Amazonka.LexV2Models.Types.ExportFilter
+    Amazonka.LexV2Models.Types.ExportFilterName
+    Amazonka.LexV2Models.Types.ExportFilterOperator
+    Amazonka.LexV2Models.Types.ExportResourceSpecification
+    Amazonka.LexV2Models.Types.ExportSortAttribute
+    Amazonka.LexV2Models.Types.ExportSortBy
+    Amazonka.LexV2Models.Types.ExportStatus
+    Amazonka.LexV2Models.Types.ExportSummary
+    Amazonka.LexV2Models.Types.ExternalSourceSetting
+    Amazonka.LexV2Models.Types.FulfillmentCodeHookSettings
+    Amazonka.LexV2Models.Types.FulfillmentStartResponseSpecification
+    Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification
+    Amazonka.LexV2Models.Types.FulfillmentUpdatesSpecification
+    Amazonka.LexV2Models.Types.GrammarSlotTypeSetting
+    Amazonka.LexV2Models.Types.GrammarSlotTypeSource
+    Amazonka.LexV2Models.Types.ImageResponseCard
+    Amazonka.LexV2Models.Types.ImportExportFileFormat
+    Amazonka.LexV2Models.Types.ImportFilter
+    Amazonka.LexV2Models.Types.ImportFilterName
+    Amazonka.LexV2Models.Types.ImportFilterOperator
+    Amazonka.LexV2Models.Types.ImportResourceSpecification
+    Amazonka.LexV2Models.Types.ImportResourceType
+    Amazonka.LexV2Models.Types.ImportSortAttribute
+    Amazonka.LexV2Models.Types.ImportSortBy
+    Amazonka.LexV2Models.Types.ImportStatus
+    Amazonka.LexV2Models.Types.ImportSummary
+    Amazonka.LexV2Models.Types.InitialResponseSetting
+    Amazonka.LexV2Models.Types.InputContext
+    Amazonka.LexV2Models.Types.IntentClosingSetting
+    Amazonka.LexV2Models.Types.IntentConfirmationSetting
+    Amazonka.LexV2Models.Types.IntentFilter
+    Amazonka.LexV2Models.Types.IntentFilterName
+    Amazonka.LexV2Models.Types.IntentFilterOperator
+    Amazonka.LexV2Models.Types.IntentOverride
+    Amazonka.LexV2Models.Types.IntentSortAttribute
+    Amazonka.LexV2Models.Types.IntentSortBy
+    Amazonka.LexV2Models.Types.IntentStatistics
+    Amazonka.LexV2Models.Types.IntentSummary
+    Amazonka.LexV2Models.Types.KendraConfiguration
+    Amazonka.LexV2Models.Types.LambdaCodeHook
+    Amazonka.LexV2Models.Types.LexTranscriptFilter
+    Amazonka.LexV2Models.Types.MergeStrategy
+    Amazonka.LexV2Models.Types.Message
+    Amazonka.LexV2Models.Types.MessageGroup
+    Amazonka.LexV2Models.Types.MessageSelectionStrategy
+    Amazonka.LexV2Models.Types.MultipleValuesSetting
+    Amazonka.LexV2Models.Types.ObfuscationSetting
+    Amazonka.LexV2Models.Types.ObfuscationSettingType
+    Amazonka.LexV2Models.Types.OutputContext
+    Amazonka.LexV2Models.Types.PathFormat
+    Amazonka.LexV2Models.Types.PlainTextMessage
+    Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
+    Amazonka.LexV2Models.Types.PostFulfillmentStatusSpecification
+    Amazonka.LexV2Models.Types.Principal
+    Amazonka.LexV2Models.Types.PromptSpecification
+    Amazonka.LexV2Models.Types.RecommendedIntentSummary
+    Amazonka.LexV2Models.Types.RelativeAggregationDuration
+    Amazonka.LexV2Models.Types.ResponseSpecification
+    Amazonka.LexV2Models.Types.S3BucketLogDestination
+    Amazonka.LexV2Models.Types.S3BucketTranscriptSource
+    Amazonka.LexV2Models.Types.SampleUtterance
+    Amazonka.LexV2Models.Types.SampleValue
+    Amazonka.LexV2Models.Types.SearchOrder
+    Amazonka.LexV2Models.Types.SentimentAnalysisSettings
+    Amazonka.LexV2Models.Types.SlotCaptureSetting
+    Amazonka.LexV2Models.Types.SlotConstraint
+    Amazonka.LexV2Models.Types.SlotDefaultValue
+    Amazonka.LexV2Models.Types.SlotDefaultValueSpecification
+    Amazonka.LexV2Models.Types.SlotFilter
+    Amazonka.LexV2Models.Types.SlotFilterName
+    Amazonka.LexV2Models.Types.SlotFilterOperator
+    Amazonka.LexV2Models.Types.SlotPriority
+    Amazonka.LexV2Models.Types.SlotShape
+    Amazonka.LexV2Models.Types.SlotSortAttribute
+    Amazonka.LexV2Models.Types.SlotSortBy
+    Amazonka.LexV2Models.Types.SlotSummary
+    Amazonka.LexV2Models.Types.SlotTypeCategory
+    Amazonka.LexV2Models.Types.SlotTypeFilter
+    Amazonka.LexV2Models.Types.SlotTypeFilterName
+    Amazonka.LexV2Models.Types.SlotTypeFilterOperator
+    Amazonka.LexV2Models.Types.SlotTypeSortAttribute
+    Amazonka.LexV2Models.Types.SlotTypeSortBy
+    Amazonka.LexV2Models.Types.SlotTypeStatistics
+    Amazonka.LexV2Models.Types.SlotTypeSummary
+    Amazonka.LexV2Models.Types.SlotTypeValue
+    Amazonka.LexV2Models.Types.SlotValue
+    Amazonka.LexV2Models.Types.SlotValueElicitationSetting
+    Amazonka.LexV2Models.Types.SlotValueOverride
+    Amazonka.LexV2Models.Types.SlotValueRegexFilter
+    Amazonka.LexV2Models.Types.SlotValueResolutionStrategy
+    Amazonka.LexV2Models.Types.SlotValueSelectionSetting
+    Amazonka.LexV2Models.Types.SortOrder
+    Amazonka.LexV2Models.Types.SSMLMessage
+    Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
+    Amazonka.LexV2Models.Types.TextLogDestination
+    Amazonka.LexV2Models.Types.TextLogSetting
+    Amazonka.LexV2Models.Types.TimeDimension
+    Amazonka.LexV2Models.Types.TranscriptFilter
+    Amazonka.LexV2Models.Types.TranscriptFormat
+    Amazonka.LexV2Models.Types.TranscriptSourceSetting
+    Amazonka.LexV2Models.Types.UtteranceAggregationDuration
+    Amazonka.LexV2Models.Types.VoiceEngine
+    Amazonka.LexV2Models.Types.VoiceSettings
+    Amazonka.LexV2Models.Types.WaitAndContinueSpecification
+    Amazonka.LexV2Models.UntagResource
+    Amazonka.LexV2Models.UpdateBot
+    Amazonka.LexV2Models.UpdateBotAlias
+    Amazonka.LexV2Models.UpdateBotLocale
+    Amazonka.LexV2Models.UpdateBotRecommendation
+    Amazonka.LexV2Models.UpdateExport
+    Amazonka.LexV2Models.UpdateIntent
+    Amazonka.LexV2Models.UpdateResourcePolicy
+    Amazonka.LexV2Models.UpdateSlot
+    Amazonka.LexV2Models.UpdateSlotType
+    Amazonka.LexV2Models.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-lexv2-models-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.LexV2Models
+    Test.Amazonka.LexV2Models
+    Test.Amazonka.LexV2Models.Internal
+
+  build-depends:
+    , amazonka-core          ^>=2.0
+    , amazonka-lexv2-models
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

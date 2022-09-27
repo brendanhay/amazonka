@@ -206,6 +206,7 @@ data Templates = Templates
   { cabalTemplate :: Template,
     tocTemplate :: Template,
     waitersTemplate :: Template,
+    licenseTemplate :: Template,
     readmeTemplate :: Template,
     operationTemplate :: Template,
     typesTemplate :: Template,

@@ -1,0 +1,159 @@
+cabal-version:      2.2
+name:               amazonka-m2
+version:            2.0
+synopsis:           Amazon MainframeModernization SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-04-28@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.M2.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.M2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-m2
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.M2
+    Amazonka.M2.CancelBatchJobExecution
+    Amazonka.M2.CreateApplication
+    Amazonka.M2.CreateDataSetImportTask
+    Amazonka.M2.CreateDeployment
+    Amazonka.M2.CreateEnvironment
+    Amazonka.M2.DeleteApplication
+    Amazonka.M2.DeleteApplicationFromEnvironment
+    Amazonka.M2.DeleteEnvironment
+    Amazonka.M2.GetApplication
+    Amazonka.M2.GetApplicationVersion
+    Amazonka.M2.GetBatchJobExecution
+    Amazonka.M2.GetDataSetDetails
+    Amazonka.M2.GetDataSetImportTask
+    Amazonka.M2.GetDeployment
+    Amazonka.M2.GetEnvironment
+    Amazonka.M2.Lens
+    Amazonka.M2.ListApplications
+    Amazonka.M2.ListApplicationVersions
+    Amazonka.M2.ListBatchJobDefinitions
+    Amazonka.M2.ListBatchJobExecutions
+    Amazonka.M2.ListDataSetImportHistory
+    Amazonka.M2.ListDataSets
+    Amazonka.M2.ListDeployments
+    Amazonka.M2.ListEngineVersions
+    Amazonka.M2.ListEnvironments
+    Amazonka.M2.ListTagsForResource
+    Amazonka.M2.StartApplication
+    Amazonka.M2.StartBatchJob
+    Amazonka.M2.StopApplication
+    Amazonka.M2.TagResource
+    Amazonka.M2.Types
+    Amazonka.M2.Types.AlternateKey
+    Amazonka.M2.Types.ApplicationDeploymentLifecycle
+    Amazonka.M2.Types.ApplicationLifecycle
+    Amazonka.M2.Types.ApplicationSummary
+    Amazonka.M2.Types.ApplicationVersionLifecycle
+    Amazonka.M2.Types.ApplicationVersionSummary
+    Amazonka.M2.Types.BatchJobDefinition
+    Amazonka.M2.Types.BatchJobExecutionStatus
+    Amazonka.M2.Types.BatchJobExecutionSummary
+    Amazonka.M2.Types.BatchJobIdentifier
+    Amazonka.M2.Types.BatchJobType
+    Amazonka.M2.Types.DataSet
+    Amazonka.M2.Types.DatasetDetailOrgAttributes
+    Amazonka.M2.Types.DataSetImportConfig
+    Amazonka.M2.Types.DataSetImportItem
+    Amazonka.M2.Types.DataSetImportSummary
+    Amazonka.M2.Types.DataSetImportTask
+    Amazonka.M2.Types.DatasetOrgAttributes
+    Amazonka.M2.Types.DataSetSummary
+    Amazonka.M2.Types.DataSetTaskLifecycle
+    Amazonka.M2.Types.Definition
+    Amazonka.M2.Types.DeployedVersionSummary
+    Amazonka.M2.Types.DeploymentLifecycle
+    Amazonka.M2.Types.DeploymentSummary
+    Amazonka.M2.Types.EfsStorageConfiguration
+    Amazonka.M2.Types.EngineType
+    Amazonka.M2.Types.EngineVersionsSummary
+    Amazonka.M2.Types.EnvironmentLifecycle
+    Amazonka.M2.Types.EnvironmentSummary
+    Amazonka.M2.Types.ExternalLocation
+    Amazonka.M2.Types.FileBatchJobDefinition
+    Amazonka.M2.Types.FileBatchJobIdentifier
+    Amazonka.M2.Types.FsxStorageConfiguration
+    Amazonka.M2.Types.GdgAttributes
+    Amazonka.M2.Types.GdgDetailAttributes
+    Amazonka.M2.Types.HighAvailabilityConfig
+    Amazonka.M2.Types.LogGroupSummary
+    Amazonka.M2.Types.MaintenanceSchedule
+    Amazonka.M2.Types.PendingMaintenance
+    Amazonka.M2.Types.PrimaryKey
+    Amazonka.M2.Types.RecordLength
+    Amazonka.M2.Types.ScriptBatchJobDefinition
+    Amazonka.M2.Types.ScriptBatchJobIdentifier
+    Amazonka.M2.Types.StorageConfiguration
+    Amazonka.M2.Types.VsamAttributes
+    Amazonka.M2.Types.VsamDetailAttributes
+    Amazonka.M2.UntagResource
+    Amazonka.M2.UpdateApplication
+    Amazonka.M2.UpdateEnvironment
+    Amazonka.M2.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-m2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.M2
+    Test.Amazonka.M2
+    Test.Amazonka.M2.Internal
+
+  build-depends:
+    , amazonka-core         ^>=2.0
+    , amazonka-m2
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

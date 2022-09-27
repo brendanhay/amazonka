@@ -1,0 +1,169 @@
+cabal-version:      2.2
+name:               amazonka-migrationhubstrategy
+version:            2.0
+synopsis:           Amazon Migration Hub Strategy Recommendations SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-02-19@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.MigrationHubStrategy.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.MigrationHubStrategy" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-migrationhubstrategy
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.MigrationHubStrategy
+    Amazonka.MigrationHubStrategy.GetApplicationComponentDetails
+    Amazonka.MigrationHubStrategy.GetApplicationComponentStrategies
+    Amazonka.MigrationHubStrategy.GetAssessment
+    Amazonka.MigrationHubStrategy.GetImportFileTask
+    Amazonka.MigrationHubStrategy.GetPortfolioPreferences
+    Amazonka.MigrationHubStrategy.GetPortfolioSummary
+    Amazonka.MigrationHubStrategy.GetRecommendationReportDetails
+    Amazonka.MigrationHubStrategy.GetServerDetails
+    Amazonka.MigrationHubStrategy.GetServerStrategies
+    Amazonka.MigrationHubStrategy.Lens
+    Amazonka.MigrationHubStrategy.ListApplicationComponents
+    Amazonka.MigrationHubStrategy.ListCollectors
+    Amazonka.MigrationHubStrategy.ListImportFileTask
+    Amazonka.MigrationHubStrategy.ListServers
+    Amazonka.MigrationHubStrategy.PutPortfolioPreferences
+    Amazonka.MigrationHubStrategy.StartAssessment
+    Amazonka.MigrationHubStrategy.StartImportFileTask
+    Amazonka.MigrationHubStrategy.StartRecommendationReportGeneration
+    Amazonka.MigrationHubStrategy.StopAssessment
+    Amazonka.MigrationHubStrategy.Types
+    Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
+    Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
+    Amazonka.MigrationHubStrategy.Types.ApplicationComponentCriteria
+    Amazonka.MigrationHubStrategy.Types.ApplicationComponentDetail
+    Amazonka.MigrationHubStrategy.Types.ApplicationComponentStrategy
+    Amazonka.MigrationHubStrategy.Types.ApplicationComponentSummary
+    Amazonka.MigrationHubStrategy.Types.ApplicationPreferences
+    Amazonka.MigrationHubStrategy.Types.AppType
+    Amazonka.MigrationHubStrategy.Types.AssessmentStatus
+    Amazonka.MigrationHubStrategy.Types.AssessmentSummary
+    Amazonka.MigrationHubStrategy.Types.AssociatedApplication
+    Amazonka.MigrationHubStrategy.Types.AwsManagedResources
+    Amazonka.MigrationHubStrategy.Types.AwsManagedTargetDestination
+    Amazonka.MigrationHubStrategy.Types.BusinessGoals
+    Amazonka.MigrationHubStrategy.Types.Collector
+    Amazonka.MigrationHubStrategy.Types.CollectorHealth
+    Amazonka.MigrationHubStrategy.Types.DatabaseConfigDetail
+    Amazonka.MigrationHubStrategy.Types.DatabaseManagementPreference
+    Amazonka.MigrationHubStrategy.Types.DatabaseMigrationPreference
+    Amazonka.MigrationHubStrategy.Types.DatabasePreferences
+    Amazonka.MigrationHubStrategy.Types.DataCollectionDetails
+    Amazonka.MigrationHubStrategy.Types.DataSourceType
+    Amazonka.MigrationHubStrategy.Types.Group
+    Amazonka.MigrationHubStrategy.Types.GroupName
+    Amazonka.MigrationHubStrategy.Types.Heterogeneous
+    Amazonka.MigrationHubStrategy.Types.HeterogeneousTargetDatabaseEngine
+    Amazonka.MigrationHubStrategy.Types.Homogeneous
+    Amazonka.MigrationHubStrategy.Types.HomogeneousTargetDatabaseEngine
+    Amazonka.MigrationHubStrategy.Types.ImportFileTaskInformation
+    Amazonka.MigrationHubStrategy.Types.ImportFileTaskStatus
+    Amazonka.MigrationHubStrategy.Types.InclusionStatus
+    Amazonka.MigrationHubStrategy.Types.ManagementPreference
+    Amazonka.MigrationHubStrategy.Types.NetworkInfo
+    Amazonka.MigrationHubStrategy.Types.NoDatabaseMigrationPreference
+    Amazonka.MigrationHubStrategy.Types.NoManagementPreference
+    Amazonka.MigrationHubStrategy.Types.NoPreferenceTargetDestination
+    Amazonka.MigrationHubStrategy.Types.OSInfo
+    Amazonka.MigrationHubStrategy.Types.OSType
+    Amazonka.MigrationHubStrategy.Types.OutputFormat
+    Amazonka.MigrationHubStrategy.Types.PrioritizeBusinessGoals
+    Amazonka.MigrationHubStrategy.Types.RecommendationReportDetails
+    Amazonka.MigrationHubStrategy.Types.RecommendationReportStatus
+    Amazonka.MigrationHubStrategy.Types.RecommendationSet
+    Amazonka.MigrationHubStrategy.Types.ResourceSubType
+    Amazonka.MigrationHubStrategy.Types.RunTimeAssessmentStatus
+    Amazonka.MigrationHubStrategy.Types.S3Object
+    Amazonka.MigrationHubStrategy.Types.SelfManageResources
+    Amazonka.MigrationHubStrategy.Types.SelfManageTargetDestination
+    Amazonka.MigrationHubStrategy.Types.ServerCriteria
+    Amazonka.MigrationHubStrategy.Types.ServerDetail
+    Amazonka.MigrationHubStrategy.Types.ServerOsType
+    Amazonka.MigrationHubStrategy.Types.ServerStrategy
+    Amazonka.MigrationHubStrategy.Types.ServerSummary
+    Amazonka.MigrationHubStrategy.Types.Severity
+    Amazonka.MigrationHubStrategy.Types.SortOrder
+    Amazonka.MigrationHubStrategy.Types.SourceCode
+    Amazonka.MigrationHubStrategy.Types.SourceCodeRepository
+    Amazonka.MigrationHubStrategy.Types.SrcCodeOrDbAnalysisStatus
+    Amazonka.MigrationHubStrategy.Types.Strategy
+    Amazonka.MigrationHubStrategy.Types.StrategyOption
+    Amazonka.MigrationHubStrategy.Types.StrategyRecommendation
+    Amazonka.MigrationHubStrategy.Types.StrategySummary
+    Amazonka.MigrationHubStrategy.Types.SystemInfo
+    Amazonka.MigrationHubStrategy.Types.TargetDatabaseEngine
+    Amazonka.MigrationHubStrategy.Types.TargetDestination
+    Amazonka.MigrationHubStrategy.Types.TransformationTool
+    Amazonka.MigrationHubStrategy.Types.TransformationToolName
+    Amazonka.MigrationHubStrategy.Types.VersionControl
+    Amazonka.MigrationHubStrategy.UpdateApplicationComponentConfig
+    Amazonka.MigrationHubStrategy.UpdateServerConfig
+    Amazonka.MigrationHubStrategy.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-migrationhubstrategy-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.MigrationHubStrategy
+    Test.Amazonka.MigrationHubStrategy
+    Test.Amazonka.MigrationHubStrategy.Internal
+
+  build-depends:
+    , amazonka-core                  ^>=2.0
+    , amazonka-migrationhubstrategy
+    , amazonka-test                  ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

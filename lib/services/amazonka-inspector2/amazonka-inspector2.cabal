@@ -1,0 +1,239 @@
+cabal-version:      2.2
+name:               amazonka-inspector2
+version:            2.0
+synopsis:           Amazon Inspector2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-06-08@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.Inspector2.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.Inspector2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-inspector2
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.Inspector2
+    Amazonka.Inspector2.AssociateMember
+    Amazonka.Inspector2.BatchGetAccountStatus
+    Amazonka.Inspector2.BatchGetFreeTrialInfo
+    Amazonka.Inspector2.CancelFindingsReport
+    Amazonka.Inspector2.CreateFilter
+    Amazonka.Inspector2.CreateFindingsReport
+    Amazonka.Inspector2.DeleteFilter
+    Amazonka.Inspector2.DescribeOrganizationConfiguration
+    Amazonka.Inspector2.Disable
+    Amazonka.Inspector2.DisableDelegatedAdminAccount
+    Amazonka.Inspector2.DisassociateMember
+    Amazonka.Inspector2.Enable
+    Amazonka.Inspector2.EnableDelegatedAdminAccount
+    Amazonka.Inspector2.GetConfiguration
+    Amazonka.Inspector2.GetDelegatedAdminAccount
+    Amazonka.Inspector2.GetFindingsReportStatus
+    Amazonka.Inspector2.GetMember
+    Amazonka.Inspector2.Lens
+    Amazonka.Inspector2.ListAccountPermissions
+    Amazonka.Inspector2.ListCoverage
+    Amazonka.Inspector2.ListCoverageStatistics
+    Amazonka.Inspector2.ListDelegatedAdminAccounts
+    Amazonka.Inspector2.ListFilters
+    Amazonka.Inspector2.ListFindingAggregations
+    Amazonka.Inspector2.ListFindings
+    Amazonka.Inspector2.ListMembers
+    Amazonka.Inspector2.ListTagsForResource
+    Amazonka.Inspector2.ListUsageTotals
+    Amazonka.Inspector2.TagResource
+    Amazonka.Inspector2.Types
+    Amazonka.Inspector2.Types.Account
+    Amazonka.Inspector2.Types.AccountAggregation
+    Amazonka.Inspector2.Types.AccountAggregationResponse
+    Amazonka.Inspector2.Types.AccountSortBy
+    Amazonka.Inspector2.Types.AccountState
+    Amazonka.Inspector2.Types.AggregationFindingType
+    Amazonka.Inspector2.Types.AggregationRequest
+    Amazonka.Inspector2.Types.AggregationResourceType
+    Amazonka.Inspector2.Types.AggregationResponse
+    Amazonka.Inspector2.Types.AggregationType
+    Amazonka.Inspector2.Types.AmiAggregation
+    Amazonka.Inspector2.Types.AmiAggregationResponse
+    Amazonka.Inspector2.Types.AmiSortBy
+    Amazonka.Inspector2.Types.AutoEnable
+    Amazonka.Inspector2.Types.AwsEc2InstanceDetails
+    Amazonka.Inspector2.Types.AwsEcrContainerAggregation
+    Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse
+    Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
+    Amazonka.Inspector2.Types.AwsEcrContainerSortBy
+    Amazonka.Inspector2.Types.Counts
+    Amazonka.Inspector2.Types.CoverageFilterCriteria
+    Amazonka.Inspector2.Types.CoverageMapComparison
+    Amazonka.Inspector2.Types.CoverageMapFilter
+    Amazonka.Inspector2.Types.CoverageResourceType
+    Amazonka.Inspector2.Types.CoverageStringComparison
+    Amazonka.Inspector2.Types.CoverageStringFilter
+    Amazonka.Inspector2.Types.CoveredResource
+    Amazonka.Inspector2.Types.Currency
+    Amazonka.Inspector2.Types.CvssScore
+    Amazonka.Inspector2.Types.CvssScoreAdjustment
+    Amazonka.Inspector2.Types.CvssScoreDetails
+    Amazonka.Inspector2.Types.DateFilter
+    Amazonka.Inspector2.Types.DelegatedAdmin
+    Amazonka.Inspector2.Types.DelegatedAdminAccount
+    Amazonka.Inspector2.Types.DelegatedAdminStatus
+    Amazonka.Inspector2.Types.Destination
+    Amazonka.Inspector2.Types.Ec2InstanceAggregation
+    Amazonka.Inspector2.Types.Ec2InstanceAggregationResponse
+    Amazonka.Inspector2.Types.Ec2InstanceSortBy
+    Amazonka.Inspector2.Types.Ec2Metadata
+    Amazonka.Inspector2.Types.Ec2Platform
+    Amazonka.Inspector2.Types.EcrConfiguration
+    Amazonka.Inspector2.Types.EcrConfigurationState
+    Amazonka.Inspector2.Types.EcrContainerImageMetadata
+    Amazonka.Inspector2.Types.EcrRepositoryMetadata
+    Amazonka.Inspector2.Types.EcrRescanDuration
+    Amazonka.Inspector2.Types.EcrRescanDurationState
+    Amazonka.Inspector2.Types.EcrRescanDurationStatus
+    Amazonka.Inspector2.Types.EcrScanFrequency
+    Amazonka.Inspector2.Types.ErrorCode
+    Amazonka.Inspector2.Types.ExternalReportStatus
+    Amazonka.Inspector2.Types.FailedAccount
+    Amazonka.Inspector2.Types.Filter
+    Amazonka.Inspector2.Types.FilterAction
+    Amazonka.Inspector2.Types.FilterCriteria
+    Amazonka.Inspector2.Types.Finding
+    Amazonka.Inspector2.Types.FindingStatus
+    Amazonka.Inspector2.Types.FindingType
+    Amazonka.Inspector2.Types.FindingTypeAggregation
+    Amazonka.Inspector2.Types.FindingTypeAggregationResponse
+    Amazonka.Inspector2.Types.FindingTypeSortBy
+    Amazonka.Inspector2.Types.FreeTrialAccountInfo
+    Amazonka.Inspector2.Types.FreeTrialInfo
+    Amazonka.Inspector2.Types.FreeTrialInfoError
+    Amazonka.Inspector2.Types.FreeTrialInfoErrorCode
+    Amazonka.Inspector2.Types.FreeTrialStatus
+    Amazonka.Inspector2.Types.FreeTrialType
+    Amazonka.Inspector2.Types.GroupKey
+    Amazonka.Inspector2.Types.ImageLayerAggregation
+    Amazonka.Inspector2.Types.ImageLayerAggregationResponse
+    Amazonka.Inspector2.Types.ImageLayerSortBy
+    Amazonka.Inspector2.Types.InspectorScoreDetails
+    Amazonka.Inspector2.Types.MapComparison
+    Amazonka.Inspector2.Types.MapFilter
+    Amazonka.Inspector2.Types.Member
+    Amazonka.Inspector2.Types.NetworkPath
+    Amazonka.Inspector2.Types.NetworkProtocol
+    Amazonka.Inspector2.Types.NetworkReachabilityDetails
+    Amazonka.Inspector2.Types.NumberFilter
+    Amazonka.Inspector2.Types.Operation
+    Amazonka.Inspector2.Types.PackageAggregation
+    Amazonka.Inspector2.Types.PackageAggregationResponse
+    Amazonka.Inspector2.Types.PackageFilter
+    Amazonka.Inspector2.Types.PackageManager
+    Amazonka.Inspector2.Types.PackageSortBy
+    Amazonka.Inspector2.Types.PackageVulnerabilityDetails
+    Amazonka.Inspector2.Types.Permission
+    Amazonka.Inspector2.Types.PortRange
+    Amazonka.Inspector2.Types.PortRangeFilter
+    Amazonka.Inspector2.Types.Recommendation
+    Amazonka.Inspector2.Types.RelationshipStatus
+    Amazonka.Inspector2.Types.Remediation
+    Amazonka.Inspector2.Types.ReportFormat
+    Amazonka.Inspector2.Types.ReportingErrorCode
+    Amazonka.Inspector2.Types.RepositoryAggregation
+    Amazonka.Inspector2.Types.RepositoryAggregationResponse
+    Amazonka.Inspector2.Types.RepositorySortBy
+    Amazonka.Inspector2.Types.Resource
+    Amazonka.Inspector2.Types.ResourceDetails
+    Amazonka.Inspector2.Types.ResourceScanMetadata
+    Amazonka.Inspector2.Types.ResourceScanType
+    Amazonka.Inspector2.Types.ResourceState
+    Amazonka.Inspector2.Types.ResourceStatus
+    Amazonka.Inspector2.Types.ResourceType
+    Amazonka.Inspector2.Types.ScanStatus
+    Amazonka.Inspector2.Types.ScanStatusCode
+    Amazonka.Inspector2.Types.ScanStatusReason
+    Amazonka.Inspector2.Types.ScanType
+    Amazonka.Inspector2.Types.Service
+    Amazonka.Inspector2.Types.Severity
+    Amazonka.Inspector2.Types.SeverityCounts
+    Amazonka.Inspector2.Types.SortCriteria
+    Amazonka.Inspector2.Types.SortField
+    Amazonka.Inspector2.Types.SortOrder
+    Amazonka.Inspector2.Types.State
+    Amazonka.Inspector2.Types.Status
+    Amazonka.Inspector2.Types.Step
+    Amazonka.Inspector2.Types.StringComparison
+    Amazonka.Inspector2.Types.StringFilter
+    Amazonka.Inspector2.Types.TitleAggregation
+    Amazonka.Inspector2.Types.TitleAggregationResponse
+    Amazonka.Inspector2.Types.TitleSortBy
+    Amazonka.Inspector2.Types.Usage
+    Amazonka.Inspector2.Types.UsageTotal
+    Amazonka.Inspector2.Types.UsageType
+    Amazonka.Inspector2.Types.VulnerablePackage
+    Amazonka.Inspector2.UntagResource
+    Amazonka.Inspector2.UpdateConfiguration
+    Amazonka.Inspector2.UpdateFilter
+    Amazonka.Inspector2.UpdateOrganizationConfiguration
+    Amazonka.Inspector2.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-inspector2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.Inspector2
+    Test.Amazonka.Inspector2
+    Test.Amazonka.Inspector2.Internal
+
+  build-depends:
+    , amazonka-core         ^>=2.0
+    , amazonka-inspector2
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

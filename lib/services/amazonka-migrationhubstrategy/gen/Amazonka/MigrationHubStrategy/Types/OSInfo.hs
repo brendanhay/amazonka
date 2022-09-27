@@ -1,0 +1,82 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.MigrationHubStrategy.Types.OSInfo
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.MigrationHubStrategy.Types.OSInfo where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MigrationHubStrategy.Types.OSType
+import qualified Amazonka.Prelude as Prelude
+
+-- | Information about the operating system.
+--
+-- /See:/ 'newOSInfo' smart constructor.
+data OSInfo = OSInfo'
+  { -- | Information about the type of operating system.
+    type' :: Prelude.Maybe OSType,
+    -- | Information about the version of operating system.
+    version :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'OSInfo' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'type'', 'oSInfo_type' - Information about the type of operating system.
+--
+-- 'version', 'oSInfo_version' - Information about the version of operating system.
+newOSInfo ::
+  OSInfo
+newOSInfo =
+  OSInfo'
+    { type' = Prelude.Nothing,
+      version = Prelude.Nothing
+    }
+
+-- | Information about the type of operating system.
+oSInfo_type :: Lens.Lens' OSInfo (Prelude.Maybe OSType)
+oSInfo_type = Lens.lens (\OSInfo' {type'} -> type') (\s@OSInfo' {} a -> s {type' = a} :: OSInfo)
+
+-- | Information about the version of operating system.
+oSInfo_version :: Lens.Lens' OSInfo (Prelude.Maybe Prelude.Text)
+oSInfo_version = Lens.lens (\OSInfo' {version} -> version) (\s@OSInfo' {} a -> s {version = a} :: OSInfo)
+
+instance Core.FromJSON OSInfo where
+  parseJSON =
+    Core.withObject
+      "OSInfo"
+      ( \x ->
+          OSInfo'
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "version")
+      )
+
+instance Prelude.Hashable OSInfo where
+  hashWithSalt _salt OSInfo' {..} =
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` version
+
+instance Prelude.NFData OSInfo where
+  rnf OSInfo' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf version

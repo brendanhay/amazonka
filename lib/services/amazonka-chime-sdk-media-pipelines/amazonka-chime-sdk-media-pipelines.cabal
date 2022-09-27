@@ -1,0 +1,146 @@
+cabal-version:      2.2
+name:               amazonka-chime-sdk-media-pipelines
+version:            2.0
+synopsis:           Amazon Chime SDK Media Pipelines SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-07-15@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.ChimeSdkMediaPipelines.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.ChimeSdkMediaPipelines" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-chime-sdk-media-pipelines
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.ChimeSdkMediaPipelines
+    Amazonka.ChimeSdkMediaPipelines.CreateMediaCapturePipeline
+    Amazonka.ChimeSdkMediaPipelines.CreateMediaConcatenationPipeline
+    Amazonka.ChimeSdkMediaPipelines.CreateMediaLiveConnectorPipeline
+    Amazonka.ChimeSdkMediaPipelines.DeleteMediaCapturePipeline
+    Amazonka.ChimeSdkMediaPipelines.DeleteMediaPipeline
+    Amazonka.ChimeSdkMediaPipelines.GetMediaCapturePipeline
+    Amazonka.ChimeSdkMediaPipelines.GetMediaPipeline
+    Amazonka.ChimeSdkMediaPipelines.Lens
+    Amazonka.ChimeSdkMediaPipelines.ListMediaCapturePipelines
+    Amazonka.ChimeSdkMediaPipelines.ListMediaPipelines
+    Amazonka.ChimeSdkMediaPipelines.ListTagsForResource
+    Amazonka.ChimeSdkMediaPipelines.TagResource
+    Amazonka.ChimeSdkMediaPipelines.Types
+    Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
+    Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsState
+    Amazonka.ChimeSdkMediaPipelines.Types.AudioArtifactsConcatenationState
+    Amazonka.ChimeSdkMediaPipelines.Types.AudioArtifactsConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.AudioChannelsOption
+    Amazonka.ChimeSdkMediaPipelines.Types.AudioConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.AudioMuxType
+    Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingLiveConnectorConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.CompositedVideoArtifactsConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.CompositedVideoConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSink
+    Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSinkType
+    Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSource
+    Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSourceType
+    Amazonka.ChimeSdkMediaPipelines.Types.ContentArtifactsConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ContentConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.ContentMuxType
+    Amazonka.ChimeSdkMediaPipelines.Types.ContentShareLayoutOption
+    Amazonka.ChimeSdkMediaPipelines.Types.DataChannelConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.GridViewConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.LayoutOption
+    Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorMuxType
+    Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSinkConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSinkType
+    Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSourceConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSourceType
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipeline
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSourceConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSummary
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaConcatenationPipeline
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaLiveConnectorPipeline
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaPipeline
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSinkType
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSourceType
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSummary
+    Amazonka.ChimeSdkMediaPipelines.Types.MeetingEventsConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.PresenterPosition
+    Amazonka.ChimeSdkMediaPipelines.Types.ResolutionOption
+    Amazonka.ChimeSdkMediaPipelines.Types.S3BucketSinkConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.SelectedVideoStreams
+    Amazonka.ChimeSdkMediaPipelines.Types.SourceConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.Tag
+    Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.VideoArtifactsConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.VideoConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.VideoMuxType
+    Amazonka.ChimeSdkMediaPipelines.UntagResource
+    Amazonka.ChimeSdkMediaPipelines.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-chime-sdk-media-pipelines-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.ChimeSdkMediaPipelines
+    Test.Amazonka.ChimeSdkMediaPipelines.Internal
+    Test.Amazonka.Gen.ChimeSdkMediaPipelines
+
+  build-depends:
+    , amazonka-chime-sdk-media-pipelines
+    , amazonka-core                       ^>=2.0
+    , amazonka-test                       ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

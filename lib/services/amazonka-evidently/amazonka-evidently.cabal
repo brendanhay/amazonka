@@ -1,0 +1,180 @@
+cabal-version:      2.2
+name:               amazonka-evidently
+version:            2.0
+synopsis:           Amazon CloudWatch Evidently SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-02-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.Evidently.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.Evidently" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-evidently
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.Evidently
+    Amazonka.Evidently.BatchEvaluateFeature
+    Amazonka.Evidently.CreateExperiment
+    Amazonka.Evidently.CreateFeature
+    Amazonka.Evidently.CreateLaunch
+    Amazonka.Evidently.CreateProject
+    Amazonka.Evidently.CreateSegment
+    Amazonka.Evidently.DeleteExperiment
+    Amazonka.Evidently.DeleteFeature
+    Amazonka.Evidently.DeleteLaunch
+    Amazonka.Evidently.DeleteProject
+    Amazonka.Evidently.DeleteSegment
+    Amazonka.Evidently.EvaluateFeature
+    Amazonka.Evidently.GetExperiment
+    Amazonka.Evidently.GetExperimentResults
+    Amazonka.Evidently.GetFeature
+    Amazonka.Evidently.GetLaunch
+    Amazonka.Evidently.GetProject
+    Amazonka.Evidently.GetSegment
+    Amazonka.Evidently.Lens
+    Amazonka.Evidently.ListExperiments
+    Amazonka.Evidently.ListFeatures
+    Amazonka.Evidently.ListLaunches
+    Amazonka.Evidently.ListProjects
+    Amazonka.Evidently.ListSegmentReferences
+    Amazonka.Evidently.ListSegments
+    Amazonka.Evidently.ListTagsForResource
+    Amazonka.Evidently.PutProjectEvents
+    Amazonka.Evidently.StartExperiment
+    Amazonka.Evidently.StartLaunch
+    Amazonka.Evidently.StopExperiment
+    Amazonka.Evidently.StopLaunch
+    Amazonka.Evidently.TagResource
+    Amazonka.Evidently.TestSegmentPattern
+    Amazonka.Evidently.Types
+    Amazonka.Evidently.Types.ChangeDirectionEnum
+    Amazonka.Evidently.Types.CloudWatchLogsDestination
+    Amazonka.Evidently.Types.CloudWatchLogsDestinationConfig
+    Amazonka.Evidently.Types.EvaluationRequest
+    Amazonka.Evidently.Types.EvaluationResult
+    Amazonka.Evidently.Types.EvaluationRule
+    Amazonka.Evidently.Types.Event
+    Amazonka.Evidently.Types.EventType
+    Amazonka.Evidently.Types.Experiment
+    Amazonka.Evidently.Types.ExperimentBaseStat
+    Amazonka.Evidently.Types.ExperimentExecution
+    Amazonka.Evidently.Types.ExperimentReport
+    Amazonka.Evidently.Types.ExperimentReportName
+    Amazonka.Evidently.Types.ExperimentResultRequestType
+    Amazonka.Evidently.Types.ExperimentResultResponseType
+    Amazonka.Evidently.Types.ExperimentResultsData
+    Amazonka.Evidently.Types.ExperimentSchedule
+    Amazonka.Evidently.Types.ExperimentStatus
+    Amazonka.Evidently.Types.ExperimentStopDesiredState
+    Amazonka.Evidently.Types.ExperimentType
+    Amazonka.Evidently.Types.Feature
+    Amazonka.Evidently.Types.FeatureEvaluationStrategy
+    Amazonka.Evidently.Types.FeatureStatus
+    Amazonka.Evidently.Types.FeatureSummary
+    Amazonka.Evidently.Types.Launch
+    Amazonka.Evidently.Types.LaunchExecution
+    Amazonka.Evidently.Types.LaunchGroup
+    Amazonka.Evidently.Types.LaunchGroupConfig
+    Amazonka.Evidently.Types.LaunchStatus
+    Amazonka.Evidently.Types.LaunchStopDesiredState
+    Amazonka.Evidently.Types.LaunchType
+    Amazonka.Evidently.Types.MetricDefinition
+    Amazonka.Evidently.Types.MetricDefinitionConfig
+    Amazonka.Evidently.Types.MetricGoal
+    Amazonka.Evidently.Types.MetricGoalConfig
+    Amazonka.Evidently.Types.MetricMonitor
+    Amazonka.Evidently.Types.MetricMonitorConfig
+    Amazonka.Evidently.Types.OnlineAbConfig
+    Amazonka.Evidently.Types.OnlineAbDefinition
+    Amazonka.Evidently.Types.Project
+    Amazonka.Evidently.Types.ProjectDataDelivery
+    Amazonka.Evidently.Types.ProjectDataDeliveryConfig
+    Amazonka.Evidently.Types.ProjectStatus
+    Amazonka.Evidently.Types.ProjectSummary
+    Amazonka.Evidently.Types.PutProjectEventsResultEntry
+    Amazonka.Evidently.Types.RefResource
+    Amazonka.Evidently.Types.S3Destination
+    Amazonka.Evidently.Types.S3DestinationConfig
+    Amazonka.Evidently.Types.ScheduledSplit
+    Amazonka.Evidently.Types.ScheduledSplitConfig
+    Amazonka.Evidently.Types.ScheduledSplitsLaunchConfig
+    Amazonka.Evidently.Types.ScheduledSplitsLaunchDefinition
+    Amazonka.Evidently.Types.Segment
+    Amazonka.Evidently.Types.SegmentOverride
+    Amazonka.Evidently.Types.SegmentReferenceResourceType
+    Amazonka.Evidently.Types.Treatment
+    Amazonka.Evidently.Types.TreatmentConfig
+    Amazonka.Evidently.Types.VariableValue
+    Amazonka.Evidently.Types.Variation
+    Amazonka.Evidently.Types.VariationConfig
+    Amazonka.Evidently.Types.VariationValueType
+    Amazonka.Evidently.UntagResource
+    Amazonka.Evidently.UpdateExperiment
+    Amazonka.Evidently.UpdateFeature
+    Amazonka.Evidently.UpdateLaunch
+    Amazonka.Evidently.UpdateProject
+    Amazonka.Evidently.UpdateProjectDataDelivery
+    Amazonka.Evidently.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-evidently-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Evidently
+    Test.Amazonka.Evidently.Internal
+    Test.Amazonka.Gen.Evidently
+
+  build-depends:
+    , amazonka-core         ^>=2.0
+    , amazonka-evidently
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

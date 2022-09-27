@@ -1,0 +1,169 @@
+cabal-version:      2.2
+name:               amazonka-pinpoint-sms-voice-v2
+version:            2.0
+synopsis:           Amazon Pinpoint SMS Voice V2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2022-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.PinpointSmsVoiceV2.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.PinpointSmsVoiceV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-pinpoint-sms-voice-v2
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.PinpointSmsVoiceV2
+    Amazonka.PinpointSmsVoiceV2.AssociateOriginationIdentity
+    Amazonka.PinpointSmsVoiceV2.CreateConfigurationSet
+    Amazonka.PinpointSmsVoiceV2.CreateEventDestination
+    Amazonka.PinpointSmsVoiceV2.CreateOptOutList
+    Amazonka.PinpointSmsVoiceV2.CreatePool
+    Amazonka.PinpointSmsVoiceV2.DeleteConfigurationSet
+    Amazonka.PinpointSmsVoiceV2.DeleteDefaultMessageType
+    Amazonka.PinpointSmsVoiceV2.DeleteDefaultSenderId
+    Amazonka.PinpointSmsVoiceV2.DeleteEventDestination
+    Amazonka.PinpointSmsVoiceV2.DeleteKeyword
+    Amazonka.PinpointSmsVoiceV2.DeleteOptedOutNumber
+    Amazonka.PinpointSmsVoiceV2.DeleteOptOutList
+    Amazonka.PinpointSmsVoiceV2.DeletePool
+    Amazonka.PinpointSmsVoiceV2.DeleteTextMessageSpendLimitOverride
+    Amazonka.PinpointSmsVoiceV2.DeleteVoiceMessageSpendLimitOverride
+    Amazonka.PinpointSmsVoiceV2.DescribeAccountAttributes
+    Amazonka.PinpointSmsVoiceV2.DescribeAccountLimits
+    Amazonka.PinpointSmsVoiceV2.DescribeConfigurationSets
+    Amazonka.PinpointSmsVoiceV2.DescribeKeywords
+    Amazonka.PinpointSmsVoiceV2.DescribeOptedOutNumbers
+    Amazonka.PinpointSmsVoiceV2.DescribeOptOutLists
+    Amazonka.PinpointSmsVoiceV2.DescribePhoneNumbers
+    Amazonka.PinpointSmsVoiceV2.DescribePools
+    Amazonka.PinpointSmsVoiceV2.DescribeSenderIds
+    Amazonka.PinpointSmsVoiceV2.DescribeSpendLimits
+    Amazonka.PinpointSmsVoiceV2.DisassociateOriginationIdentity
+    Amazonka.PinpointSmsVoiceV2.Lens
+    Amazonka.PinpointSmsVoiceV2.ListPoolOriginationIdentities
+    Amazonka.PinpointSmsVoiceV2.ListTagsForResource
+    Amazonka.PinpointSmsVoiceV2.PutKeyword
+    Amazonka.PinpointSmsVoiceV2.PutOptedOutNumber
+    Amazonka.PinpointSmsVoiceV2.ReleasePhoneNumber
+    Amazonka.PinpointSmsVoiceV2.RequestPhoneNumber
+    Amazonka.PinpointSmsVoiceV2.SendTextMessage
+    Amazonka.PinpointSmsVoiceV2.SendVoiceMessage
+    Amazonka.PinpointSmsVoiceV2.SetDefaultMessageType
+    Amazonka.PinpointSmsVoiceV2.SetDefaultSenderId
+    Amazonka.PinpointSmsVoiceV2.SetTextMessageSpendLimitOverride
+    Amazonka.PinpointSmsVoiceV2.SetVoiceMessageSpendLimitOverride
+    Amazonka.PinpointSmsVoiceV2.TagResource
+    Amazonka.PinpointSmsVoiceV2.Types
+    Amazonka.PinpointSmsVoiceV2.Types.AccountAttribute
+    Amazonka.PinpointSmsVoiceV2.Types.AccountAttributeName
+    Amazonka.PinpointSmsVoiceV2.Types.AccountLimit
+    Amazonka.PinpointSmsVoiceV2.Types.AccountLimitName
+    Amazonka.PinpointSmsVoiceV2.Types.CloudWatchLogsDestination
+    Amazonka.PinpointSmsVoiceV2.Types.ConfigurationSetFilter
+    Amazonka.PinpointSmsVoiceV2.Types.ConfigurationSetFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.ConfigurationSetInformation
+    Amazonka.PinpointSmsVoiceV2.Types.DestinationCountryParameterKey
+    Amazonka.PinpointSmsVoiceV2.Types.EventDestination
+    Amazonka.PinpointSmsVoiceV2.Types.EventType
+    Amazonka.PinpointSmsVoiceV2.Types.KeywordAction
+    Amazonka.PinpointSmsVoiceV2.Types.KeywordFilter
+    Amazonka.PinpointSmsVoiceV2.Types.KeywordFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.KeywordInformation
+    Amazonka.PinpointSmsVoiceV2.Types.KinesisFirehoseDestination
+    Amazonka.PinpointSmsVoiceV2.Types.MessageType
+    Amazonka.PinpointSmsVoiceV2.Types.NumberCapability
+    Amazonka.PinpointSmsVoiceV2.Types.NumberStatus
+    Amazonka.PinpointSmsVoiceV2.Types.NumberType
+    Amazonka.PinpointSmsVoiceV2.Types.OptedOutFilter
+    Amazonka.PinpointSmsVoiceV2.Types.OptedOutFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.OptedOutNumberInformation
+    Amazonka.PinpointSmsVoiceV2.Types.OptOutListInformation
+    Amazonka.PinpointSmsVoiceV2.Types.OriginationIdentityMetadata
+    Amazonka.PinpointSmsVoiceV2.Types.PhoneNumberFilter
+    Amazonka.PinpointSmsVoiceV2.Types.PhoneNumberFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.PhoneNumberInformation
+    Amazonka.PinpointSmsVoiceV2.Types.PoolFilter
+    Amazonka.PinpointSmsVoiceV2.Types.PoolFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.PoolInformation
+    Amazonka.PinpointSmsVoiceV2.Types.PoolOriginationIdentitiesFilter
+    Amazonka.PinpointSmsVoiceV2.Types.PoolOriginationIdentitiesFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.PoolStatus
+    Amazonka.PinpointSmsVoiceV2.Types.RequestableNumberType
+    Amazonka.PinpointSmsVoiceV2.Types.SenderIdAndCountry
+    Amazonka.PinpointSmsVoiceV2.Types.SenderIdFilter
+    Amazonka.PinpointSmsVoiceV2.Types.SenderIdFilterName
+    Amazonka.PinpointSmsVoiceV2.Types.SenderIdInformation
+    Amazonka.PinpointSmsVoiceV2.Types.SnsDestination
+    Amazonka.PinpointSmsVoiceV2.Types.SpendLimit
+    Amazonka.PinpointSmsVoiceV2.Types.SpendLimitName
+    Amazonka.PinpointSmsVoiceV2.Types.Tag
+    Amazonka.PinpointSmsVoiceV2.Types.VoiceId
+    Amazonka.PinpointSmsVoiceV2.Types.VoiceMessageBodyTextType
+    Amazonka.PinpointSmsVoiceV2.UntagResource
+    Amazonka.PinpointSmsVoiceV2.UpdateEventDestination
+    Amazonka.PinpointSmsVoiceV2.UpdatePhoneNumber
+    Amazonka.PinpointSmsVoiceV2.UpdatePool
+    Amazonka.PinpointSmsVoiceV2.Waiters
+
+  build-depends:
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
+
+test-suite amazonka-pinpoint-sms-voice-v2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.PinpointSmsVoiceV2
+    Test.Amazonka.PinpointSmsVoiceV2
+    Test.Amazonka.PinpointSmsVoiceV2.Internal
+
+  build-depends:
+    , amazonka-core                   ^>=2.0
+    , amazonka-pinpoint-sms-voice-v2
+    , amazonka-test                   ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

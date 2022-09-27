@@ -1,0 +1,79 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-rum/amazonka-rum.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-rum",
+    srcs = [
+        "gen/Amazonka/Rum.hs",
+        "gen/Amazonka/Rum/CreateAppMonitor.hs",
+        "gen/Amazonka/Rum/DeleteAppMonitor.hs",
+        "gen/Amazonka/Rum/GetAppMonitor.hs",
+        "gen/Amazonka/Rum/GetAppMonitorData.hs",
+        "gen/Amazonka/Rum/Lens.hs",
+        "gen/Amazonka/Rum/ListAppMonitors.hs",
+        "gen/Amazonka/Rum/ListTagsForResource.hs",
+        "gen/Amazonka/Rum/PutRumEvents.hs",
+        "gen/Amazonka/Rum/TagResource.hs",
+        "gen/Amazonka/Rum/Types.hs",
+        "gen/Amazonka/Rum/Types/AppMonitor.hs",
+        "gen/Amazonka/Rum/Types/AppMonitorConfiguration.hs",
+        "gen/Amazonka/Rum/Types/AppMonitorDetails.hs",
+        "gen/Amazonka/Rum/Types/AppMonitorSummary.hs",
+        "gen/Amazonka/Rum/Types/CwLog.hs",
+        "gen/Amazonka/Rum/Types/DataStorage.hs",
+        "gen/Amazonka/Rum/Types/QueryFilter.hs",
+        "gen/Amazonka/Rum/Types/RumEvent.hs",
+        "gen/Amazonka/Rum/Types/StateEnum.hs",
+        "gen/Amazonka/Rum/Types/Telemetry.hs",
+        "gen/Amazonka/Rum/Types/TimeRange.hs",
+        "gen/Amazonka/Rum/Types/UserDetails.hs",
+        "gen/Amazonka/Rum/UntagResource.hs",
+        "gen/Amazonka/Rum/UpdateAppMonitor.hs",
+        "gen/Amazonka/Rum/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_rum=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka-core",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-rum/amazonka-rum.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-rum-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/Amazonka/Gen/Rum.hs",
+        "test/Test/Amazonka/Rum.hs",
+        "test/Test/Amazonka/Rum/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_rum=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-rum",
+        "//lib/amazonka-core",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

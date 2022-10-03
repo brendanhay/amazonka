@@ -3,9 +3,11 @@ module Gen.AST where
 import Control.Arrow ((&&&))
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
+import Control.Monad.State.Strict (execState, modify)
 import qualified Control.Monad.State.Strict as State
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.HashSet as HashSet
+import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.AST.Cofree
 import Gen.AST.Data
@@ -22,9 +24,19 @@ rewrite ::
   Config ->
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
   Either String Library
-rewrite v cfg s' = do
-  s <- rewriteService cfg (ignore cfg (deprecate s')) >>= renderShapes cfg
-  Library v cfg s <$> serviceData (s ^. metadata) (s ^. retry)
+rewrite _versions' _config' s' = do
+  rewrittenService <- rewriteService _config' (ignore _config' (deprecate s'))
+  _service' <- renderShapes _config' rewrittenService
+  let _cuts' = breakLoops edges nodes
+  _instance' <- serviceData (_service' ^. metadata) (_service' ^. retry)
+  pure $ Library {_versions', _config', _service', _cuts', _instance'}
+
+  where
+    edges :: Id -> [Id]
+    edges i = s' ^.. shapes . Lens.at i . traverse . references . refShape
+
+    nodes :: [Id]
+    nodes = HashMap.keys $ s' ^. shapes
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)
@@ -204,3 +216,22 @@ separate os = State.runStateT (traverse go os)
             State.modify' (HashMap.delete n)
 
           pure x
+
+breakLoops ::
+  forall node.
+  Ord node =>
+  -- | Edge relation
+  (node -> [node]) ->
+  -- | Set of nodes to explore from
+  [node] ->
+  Set (node, node)
+breakLoops edgesFrom = (`execState` mempty) . traverse (exploreNode mempty)
+  where
+    exploreNode :: Set node -> node -> State (Set (node, node)) ()
+    exploreNode history node = for_ (edgesFrom node) $ \n ->
+      if n `elem` history
+        then do
+          -- We've seen this node before. Record a loop-breaker and
+          -- do not recurse further.
+          modify (Set.insert (node, n))
+        else exploreNode (Set.insert node history) n

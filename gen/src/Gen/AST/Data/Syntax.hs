@@ -267,12 +267,11 @@ policyE = \case
 
 pagerD :: Id -> Pager Field -> Decl
 pagerD n p =
-  instD
-    "Core.AWSPager"
-    n
-    [ Exts.InsDecl () $
-        Exts.sfun (ident "page") [ident "rq", ident "rs"] (rhs p) Exts.noBinds
-    ]
+  instD "Core.AWSPager" n $
+    Just
+      [ Exts.InsDecl () $
+          Exts.sfun (ident "page") [ident "rq", ident "rs"] (rhs p) Exts.noBinds
+      ]
   where
     rhs = \case
       Only t ->
@@ -373,10 +372,11 @@ requestD c m h (a, as) (b, bs) =
   instD
     "Core.AWSRequest"
     (identifier a)
-    [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-      funD "request" (requestF c m h a as),
-      funD "response" (responseE (m ^. protocol) b bs)
-    ]
+    $ Just
+      [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
+        funD "request" (requestF c m h a as),
+        funD "response" (responseE (m ^. protocol) b bs)
+      ]
 
 responseE :: Protocol -> Ref -> [Field] -> Exp
 responseE p r fs = Exts.app (responseF p r fs) bdy
@@ -585,10 +585,10 @@ wildcardD n f enc xs = \case
     prec = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
 
 instD1 :: Text -> Id -> InstDecl -> Decl
-instD1 c n = instD c n . (: [])
+instD1 c n = instD c n . Just . (: [])
 
-instD :: Text -> Id -> [InstDecl] -> Decl
-instD c n = Exts.InstDecl () Nothing rule . Just
+instD :: Text -> Id -> Maybe [InstDecl] -> Decl
+instD c n = Exts.InstDecl () Nothing rule
   where
     rule =
       Exts.IRule () Nothing Nothing $

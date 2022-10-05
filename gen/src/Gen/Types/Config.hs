@@ -217,6 +217,7 @@ data Templates = Templates
     lensTemplate :: Template,
     sumTemplate :: Template,
     productTemplate :: Template,
+    bootProductTemplate :: Template,
     testMainTemplate :: Template,
     testNamespaceTemplate :: Template,
     testInternalTemplate :: Template,

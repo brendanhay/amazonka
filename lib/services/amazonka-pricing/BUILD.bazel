@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-pricing/amazonka-pricing.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-pricing/amazonka-pricing.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-pricing",
     srcs = [
@@ -16,14 +16,13 @@ haskell_library(
         "gen/Amazonka/Pricing/Types/PricingService.hs",
         "gen/Amazonka/Pricing/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_pricing=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_pricing=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -32,7 +31,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-pricing/amazonka-pricing.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-pricing/amazonka-pricing.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-pricing-test",
     srcs = [
@@ -41,11 +40,12 @@ haskell_test(
         "test/Test/Amazonka/Pricing.hs",
         "test/Test/Amazonka/Pricing/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_pricing=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_pricing=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

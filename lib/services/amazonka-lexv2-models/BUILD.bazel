@@ -252,14 +252,13 @@ haskell_library(
         "gen/Amazonka/LexV2Models/UpdateSlotType.hs",
         "gen/Amazonka/LexV2Models/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_lexv2_models=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -277,11 +276,12 @@ haskell_test(
         "test/Test/Amazonka/LexV2Models.hs",
         "test/Test/Amazonka/LexV2Models/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_lexv2_models=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

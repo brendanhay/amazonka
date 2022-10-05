@@ -6,7 +6,7 @@ load("//tools:repo.bzl", "versioned_http_archive")
 # Botocore service definitions
 #
 
-# This can be auto-updated via ./bin/update-botocore.
+# This can be auto-updated via ./scripts/update-botocore.
 versioned_http_archive(
     name = "botocore",
     build_file_content = """
@@ -14,7 +14,7 @@ exports_files(glob(["**/*.json"]))
 """,
     strip_prefix = "botocore-{version}/botocore/data",
     url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
-    version = "ccb5ef9ac0dcb3fd8b9223dabdc7d7f857294bb7",
+    version = "7d42013f82986aac706003c3daaddb8da3465b85",
 )
 
 #
@@ -56,10 +56,10 @@ versioned_http_archive(
     name = "rules_haskell",
     patch_args = ["-p1"],
     patches = ["//:third_party/rules_haskell/haddock_index.patch"],
-    sha256 = "73941c142bf37df115817083c0834fbc3269c963c7049bfbc345a9c76162e918",
+    sha256 = "aba3c16015a2363b16e2f867bdc5c792fa71c68cb97d8fe95fddc41e409d6ba8",
     strip_prefix = "rules_haskell-{version}",
-    url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
-    version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
+    url = "https://github.com/tweag/rules_haskell/archive/refs/tags/v{version}.tar.gz",
+    version = "0.15",
 )
 
 versioned_http_archive(
@@ -82,12 +82,12 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "bazel_gazelle",
-    sha256 = "62ca106be173579c0a167deb23358fdfe71ffa1e4cfdddf5582af26520f1c66f",
+    sha256 = "efbbba6ac1a4fd342d5122cbdfdb82aeb2cf2862e35022c752eaddffada7c3f3",
     urls = [
         "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v{version}/bazel-gazelle-v{version}.tar.gz",
         "https://github.com/bazelbuild/bazel-gazelle/releases/download/v{version}/bazel-gazelle-v{version}.tar.gz",
     ],
-    version = "0.23.0",
+    version = "0.27.0",
 )
 
 versioned_http_archive(
@@ -100,10 +100,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_gazelle_cabal",
-    sha256 = "65712e680ebb9214b7fecec1c5e4a380df1c4840b508866a0f5a37a82f87a687",
+    sha256 = "7a4f321a7634839cbdbd99ab09fd987cd6e5868a1b55388595fcb5f127221615",
     strip_prefix = "gazelle_cabal-{version}",
     url = "https://github.com/tweag/gazelle_cabal/archive/{version}.tar.gz",
-    version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
+    version = "a9ee2c26de58055c4ab9d97ea9d7e420445b1488",
 )
 
 #
@@ -324,6 +324,7 @@ stack_snapshot(
         "http-conduit",
         "http-types",
         "ini",
+        "json",  # keep
         "lens",  # keep
         "memory",
         "mtl",  # keep

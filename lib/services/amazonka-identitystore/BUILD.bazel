@@ -16,14 +16,13 @@ haskell_library(
         "gen/Amazonka/IdentityStore/Types/User.hs",
         "gen/Amazonka/IdentityStore/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_identitystore=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -41,11 +40,12 @@ haskell_test(
         "test/Test/Amazonka/IdentityStore.hs",
         "test/Test/Amazonka/IdentityStore/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_identitystore=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

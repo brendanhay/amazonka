@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-elasticache/amazonka-elasticache.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-elasticache/amazonka-elasticache.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-elasticache",
     srcs = [
@@ -162,14 +162,13 @@ haskell_library(
         "gen/Amazonka/ElastiCache/Types/UserGroupsUpdateStatus.hs",
         "gen/Amazonka/ElastiCache/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_elasticache=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_elasticache=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -178,7 +177,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-elasticache/amazonka-elasticache.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-elasticache/amazonka-elasticache.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-elasticache-test",
     srcs = [
@@ -187,11 +186,12 @@ haskell_test(
         "test/Test/Amazonka/ElastiCache/Internal.hs",
         "test/Test/Amazonka/Gen/ElastiCache.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_elasticache=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_elasticache=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

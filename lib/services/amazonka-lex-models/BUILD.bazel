@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-lex-models/amazonka-lex-models.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-lex-models/amazonka-lex-models.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-lex-models",
     srcs = [
@@ -107,14 +107,13 @@ haskell_library(
         "gen/Amazonka/LexModels/UntagResource.hs",
         "gen/Amazonka/LexModels/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_lex_models=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_lex_models=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -123,7 +122,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-lex-models/amazonka-lex-models.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-lex-models/amazonka-lex-models.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-lex-models-test",
     srcs = [
@@ -132,11 +131,12 @@ haskell_test(
         "test/Test/Amazonka/LexModels.hs",
         "test/Test/Amazonka/LexModels/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_lex_models=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_lex_models=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

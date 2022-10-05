@@ -13,14 +13,13 @@ haskell_library(
         "gen/Amazonka/PersonalizeRuntime/Types/Promotion.hs",
         "gen/Amazonka/PersonalizeRuntime/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_personalize_runtime=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -38,11 +37,12 @@ haskell_test(
         "test/Test/Amazonka/PersonalizeRuntime.hs",
         "test/Test/Amazonka/PersonalizeRuntime/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_personalize_runtime=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

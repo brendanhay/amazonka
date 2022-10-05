@@ -63,14 +63,13 @@ haskell_library(
         "gen/Amazonka/MigrationHubReFactorSpaces/UpdateRoute.hs",
         "gen/Amazonka/MigrationHubReFactorSpaces/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_migration_hub_refactor_spaces=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -88,11 +87,12 @@ haskell_test(
         "test/Test/Amazonka/MigrationHubReFactorSpaces.hs",
         "test/Test/Amazonka/MigrationHubReFactorSpaces/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_migration_hub_refactor_spaces=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

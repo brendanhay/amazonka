@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-cognito-idp/amazonka-cognito-idp.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-cognito-idp/amazonka-cognito-idp.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-cognito-idp",
     srcs = [
@@ -211,14 +211,13 @@ haskell_library(
         "gen/Amazonka/CognitoIdentityProvider/VerifyUserAttribute.hs",
         "gen/Amazonka/CognitoIdentityProvider/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_cognito_idp=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_cognito_idp=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -227,7 +226,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-cognito-idp/amazonka-cognito-idp.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-cognito-idp/amazonka-cognito-idp.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-cognito-idp-test",
     srcs = [
@@ -236,11 +235,12 @@ haskell_test(
         "test/Test/Amazonka/CognitoIdentityProvider/Internal.hs",
         "test/Test/Amazonka/Gen/CognitoIdentityProvider.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_cognito_idp=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_cognito_idp=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

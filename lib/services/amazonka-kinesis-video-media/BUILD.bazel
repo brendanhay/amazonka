@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-kinesis-video-media/amazonka-kinesis-video-media.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-kinesis-video-media/amazonka-kinesis-video-media.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-kinesis-video-media",
     srcs = [
@@ -12,14 +12,13 @@ haskell_library(
         "gen/Amazonka/KinesisVideoMedia/Types/StartSelectorType.hs",
         "gen/Amazonka/KinesisVideoMedia/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_kinesis_video_media=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_kinesis_video_media=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -28,7 +27,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-kinesis-video-media/amazonka-kinesis-video-media.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-kinesis-video-media/amazonka-kinesis-video-media.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-kinesis-video-media-test",
     srcs = [
@@ -37,11 +36,12 @@ haskell_test(
         "test/Test/Amazonka/KinesisVideoMedia.hs",
         "test/Test/Amazonka/KinesisVideoMedia/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_kinesis_video_media=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_kinesis_video_media=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

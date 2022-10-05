@@ -167,14 +167,13 @@ haskell_library(
         "gen/Amazonka/Inspector2/UpdateOrganizationConfiguration.hs",
         "gen/Amazonka/Inspector2/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_inspector2=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -192,11 +191,12 @@ haskell_test(
         "test/Test/Amazonka/Inspector2.hs",
         "test/Test/Amazonka/Inspector2/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_inspector2=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

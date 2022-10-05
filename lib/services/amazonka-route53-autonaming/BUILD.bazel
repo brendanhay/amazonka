@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-route53-autonaming/amazonka-route53-autonaming.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-route53-autonaming/amazonka-route53-autonaming.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-route53-autonaming",
     srcs = [
@@ -86,14 +86,13 @@ haskell_library(
         "gen/Amazonka/Route53AutoNaming/UpdateService.hs",
         "gen/Amazonka/Route53AutoNaming/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_route53_autonaming=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_route53_autonaming=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -102,7 +101,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-route53-autonaming/amazonka-route53-autonaming.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-route53-autonaming/amazonka-route53-autonaming.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-route53-autonaming-test",
     srcs = [
@@ -111,11 +110,12 @@ haskell_test(
         "test/Test/Amazonka/Route53AutoNaming.hs",
         "test/Test/Amazonka/Route53AutoNaming/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_route53_autonaming=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_route53_autonaming=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

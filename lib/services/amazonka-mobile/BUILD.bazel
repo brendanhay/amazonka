@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-mobile/amazonka-mobile.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-mobile/amazonka-mobile.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-mobile",
     srcs = [
@@ -24,14 +24,13 @@ haskell_library(
         "gen/Amazonka/Mobile/UpdateProject.hs",
         "gen/Amazonka/Mobile/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_mobile=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_mobile=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -40,7 +39,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-mobile/amazonka-mobile.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-mobile/amazonka-mobile.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-mobile-test",
     srcs = [
@@ -49,11 +48,12 @@ haskell_test(
         "test/Test/Amazonka/Mobile.hs",
         "test/Test/Amazonka/Mobile/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_mobile=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_mobile=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

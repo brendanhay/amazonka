@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library")
 
-# rule generated from amazonka/amazonka.cabal by gazelle_cabal
+# rule generated from lib/amazonka/amazonka.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka",
     srcs = [
@@ -21,7 +21,8 @@ haskell_library(
         "src/Amazonka/Presign.hs",
         "src/Amazonka/Send.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka=\"2.0\"",
         "-XNoImplicitPrelude",
         "-XConstraintKinds",
         "-XDataKinds",
@@ -57,30 +58,7 @@ haskell_library(
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-fwarn-missing-deriving-strategies",
-        "-DVERSION_amazonka=\"2.0\"",
         "-fwarn-unused-packages",
-    ],
-    hidden_modules = [
-        "Amazonka.Bytes",
-        "Amazonka.Crypto",
-        "Amazonka.Data",
-        "Amazonka.Data.Base64",
-        "Amazonka.Data.Body",
-        "Amazonka.Data.ByteString",
-        "Amazonka.Data.Headers",
-        "Amazonka.Data.JSON",
-        "Amazonka.Data.Log",
-        "Amazonka.Data.Path",
-        "Amazonka.Data.Query",
-        "Amazonka.Data.Sensitive",
-        "Amazonka.Data.Text",
-        "Amazonka.Data.Time",
-        "Amazonka.Data.XML",
-        "Amazonka.Endpoint",
-        "Amazonka.Error",
-        "Amazonka.Pager",
-        "Amazonka.Types",
-        "Amazonka.Waiter",
     ],
     version = "2.0",
     visibility = ["//visibility:public"],

@@ -18,14 +18,13 @@ haskell_library(
         "gen/Amazonka/ConnectContactLens/Types/Transcript.hs",
         "gen/Amazonka/ConnectContactLens/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_connect_contact_lens=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -43,11 +42,12 @@ haskell_test(
         "test/Test/Amazonka/ConnectContactLens/Internal.hs",
         "test/Test/Amazonka/Gen/ConnectContactLens.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_connect_contact_lens=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

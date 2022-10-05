@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-s3-encryption/amazonka-s3-encryption.cabal by gazelle_cabal
+# rule generated from lib/amazonka-s3-encryption/amazonka-s3-encryption.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-s3-encryption",
     srcs = [
@@ -12,7 +12,8 @@ haskell_library(
         "src/Amazonka/S3/Encryption/Instructions.hs",
         "src/Amazonka/S3/Encryption/Types.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_s3_encryption=\"2.0\"",
         "-XNoImplicitPrelude",
         "-XDataKinds",
         "-XDeriveAnyClass",
@@ -42,10 +43,8 @@ haskell_library(
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-fwarn-missing-deriving-strategies",
-        "-DVERSION_amazonka_s3_encryption=\"2.0\"",
         "-fwarn-unused-packages",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -69,18 +68,19 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-s3-encryption/amazonka-s3-encryption.cabal by gazelle_cabal
+# rule generated from lib/amazonka-s3-encryption/amazonka-s3-encryption.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-s3-encryption-test",
     srcs = [
         "test/Main.hs",
         "test/Test/Amazonka/S3/Encryption/Envelope.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_s3_encryption=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_s3_encryption=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

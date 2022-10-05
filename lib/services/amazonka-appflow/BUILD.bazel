@@ -208,14 +208,13 @@ haskell_library(
         "gen/Amazonka/AppFlow/UpdateFlow.hs",
         "gen/Amazonka/AppFlow/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_appflow=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -233,11 +232,12 @@ haskell_test(
         "test/Test/Amazonka/AppFlow/Internal.hs",
         "test/Test/Amazonka/Gen/AppFlow.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_appflow=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

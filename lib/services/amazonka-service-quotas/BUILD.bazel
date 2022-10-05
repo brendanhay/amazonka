@@ -40,14 +40,13 @@ haskell_library(
         "gen/Amazonka/ServiceQuotas/UntagResource.hs",
         "gen/Amazonka/ServiceQuotas/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_service_quotas=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -65,11 +64,12 @@ haskell_test(
         "test/Test/Amazonka/ServiceQuotas.hs",
         "test/Test/Amazonka/ServiceQuotas/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_service_quotas=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

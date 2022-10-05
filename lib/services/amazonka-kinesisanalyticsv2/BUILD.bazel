@@ -172,14 +172,13 @@ haskell_library(
         "gen/Amazonka/KinesisAnalyticsV2/UpdateApplicationMaintenanceConfiguration.hs",
         "gen/Amazonka/KinesisAnalyticsV2/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_kinesisanalyticsv2=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -197,11 +196,12 @@ haskell_test(
         "test/Test/Amazonka/KinesisAnalyticsV2.hs",
         "test/Test/Amazonka/KinesisAnalyticsV2/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_kinesisanalyticsv2=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

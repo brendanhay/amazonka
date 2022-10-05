@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-xray/amazonka-xray.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-xray/amazonka-xray.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-xray",
     srcs = [
@@ -96,14 +96,13 @@ haskell_library(
         "gen/Amazonka/XRay/UpdateSamplingRule.hs",
         "gen/Amazonka/XRay/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_xray=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_xray=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -112,7 +111,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-xray/amazonka-xray.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-xray/amazonka-xray.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-xray-test",
     srcs = [
@@ -121,11 +120,12 @@ haskell_test(
         "test/Test/Amazonka/XRay.hs",
         "test/Test/Amazonka/XRay/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_xray=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_xray=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

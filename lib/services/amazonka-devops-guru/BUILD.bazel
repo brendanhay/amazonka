@@ -150,14 +150,13 @@ haskell_library(
         "gen/Amazonka/DevOpsGuru/UpdateServiceIntegration.hs",
         "gen/Amazonka/DevOpsGuru/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_devops_guru=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -175,11 +174,12 @@ haskell_test(
         "test/Test/Amazonka/DevOpsGuru/Internal.hs",
         "test/Test/Amazonka/Gen/DevOpsGuru.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_devops_guru=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

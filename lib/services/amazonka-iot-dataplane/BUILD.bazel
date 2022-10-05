@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-iot-dataplane/amazonka-iot-dataplane.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-iot-dataplane/amazonka-iot-dataplane.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-iot-dataplane",
     srcs = [
@@ -17,14 +17,13 @@ haskell_library(
         "gen/Amazonka/IoTData/UpdateThingShadow.hs",
         "gen/Amazonka/IoTData/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_iot_dataplane=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_iot_dataplane=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -33,7 +32,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-iot-dataplane/amazonka-iot-dataplane.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-iot-dataplane/amazonka-iot-dataplane.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-iot-dataplane-test",
     srcs = [
@@ -42,11 +41,12 @@ haskell_test(
         "test/Test/Amazonka/IoTData.hs",
         "test/Test/Amazonka/IoTData/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_iot_dataplane=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_iot_dataplane=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -28,14 +28,13 @@ haskell_library(
         "gen/Amazonka/QLDBSession/Types/ValueHolder.hs",
         "gen/Amazonka/QLDBSession/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_qldb_session=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -53,11 +52,12 @@ haskell_test(
         "test/Test/Amazonka/QLDBSession.hs",
         "test/Test/Amazonka/QLDBSession/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_qldb_session=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -104,14 +104,13 @@ haskell_library(
         "gen/Amazonka/AccessAnalyzer/ValidatePolicy.hs",
         "gen/Amazonka/AccessAnalyzer/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_accessanalyzer=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -129,11 +128,12 @@ haskell_test(
         "test/Test/Amazonka/AccessAnalyzer/Internal.hs",
         "test/Test/Amazonka/Gen/AccessAnalyzer.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_accessanalyzer=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

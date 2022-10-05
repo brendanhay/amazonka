@@ -20,8 +20,8 @@ load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary")
 
 # gazelle:exclude dist-newstyle
 # gazelle:exclude tmp*
-# gazelle:cabal_extra_libraries z=@zlib.dev//:zlib
 # gazelle:cabal_haskell_package_repo stackage
+# gazelle:resolve gazelle_cabal z @zlib//:zlib
 
 gazelle(
     name = "gazelle",

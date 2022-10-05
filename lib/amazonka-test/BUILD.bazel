@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library")
 
-# rule generated from test/amazonka-test.cabal by gazelle_cabal
+# rule generated from lib/amazonka-test/amazonka-test.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-test",
     srcs = [
@@ -11,13 +11,12 @@ haskell_library(
         "src/Test/Amazonka/Prelude.hs",
         "src/Test/Amazonka/TH.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_test=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
-        "-DVERSION_amazonka_test=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

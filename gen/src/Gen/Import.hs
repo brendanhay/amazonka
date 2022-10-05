@@ -1,5 +1,8 @@
+{-# LANGUAGE LambdaCase #-}
+
 module Gen.Import where
 
+import Control.Arrow ((***))
 import qualified Control.Lens as Lens
 import qualified Data.List as List
 import qualified Data.Set as Set
@@ -43,20 +46,29 @@ productImports l p =
     "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Prelude as Prelude" :
-    l ^. typeModules
-      ++ productDependencies l p
+    l ^. typeModules ++ productDependencies l p
 
 productDependencies :: Library -> Prod -> [NS]
 productDependencies l p =
-  Set.toList (Set.map (l ^. typesNS <>) moduleDependencies)
+  Set.toList (Set.map buildImport moduleDependencies)
   where
-    moduleDependencies = Set.intersection dependencies (moduleShapes l)
-    dependencies = Set.map mkNS (_prodDeps p)
+    buildImport t
+      | (_prodName p, t) `elem` cuts = addSource t'
+      | otherwise = t'
+      where
+        t' = l ^. typesNS <> mkNS t
+        addSource = \case
+          NS (n : ns) -> NS $ "{-# SOURCE #-} " <> n : ns
+          NS [] -> NS []
 
-moduleShapes :: Library -> Set.Set NS
-moduleShapes l =
-  Set.fromList $
-    map (mkNS . typeId . identifier) (l ^.. shapes . Lens.each)
+    cuts = Set.map (typeId *** typeId) $ l ^. cuts'
+
+    moduleDependencies =
+      Set.intersection dependencies (Set.map typeId moduleShapes)
+    dependencies = _prodDeps p
+
+    moduleShapes =
+      Set.fromList $ l ^.. shapes . traverse . Lens.to identifier
 
 waiterImports :: Library -> [NS]
 waiterImports l =

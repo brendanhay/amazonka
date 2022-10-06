@@ -2,7 +2,6 @@
 
 module Gen.Import where
 
-import Control.Arrow ((***))
 import qualified Control.Lens as Lens
 import qualified Data.List as List
 import qualified Data.Set as Set
@@ -53,15 +52,13 @@ productDependencies l p =
   Set.toList (Set.map buildImport moduleDependencies)
   where
     buildImport t
-      | (_prodName p, t) `elem` cuts = addSource t'
+      | (_prodName p, t) `elem` (l ^. cuts') = addSource t'
       | otherwise = t'
       where
         t' = l ^. typesNS <> mkNS t
         addSource = \case
           NS (n : ns) -> NS $ "{-# SOURCE #-} " <> n : ns
           NS [] -> NS []
-
-    cuts = Set.map (typeId *** typeId) $ l ^. cuts'
 
     moduleDependencies =
       Set.intersection dependencies (Set.map typeId moduleShapes)

@@ -27,16 +27,46 @@ rewrite ::
 rewrite _versions' _config' s' = do
   rewrittenService <- rewriteService _config' (ignore _config' (deprecate s'))
   _service' <- renderShapes _config' rewrittenService
-  let _cuts' = breakLoops edges nodes
+  let nodes :: [Text]
+      nodes =
+        -- Select the type names from the rewritten service, so we
+        -- skip over shape definitions that have no corresponding
+        -- module (e.g., shapes which are mere lists of other shapes).
+        rewrittenService ^.. shapes . traverse . importedTypes
+
+      edges :: Text -> [Text]
+      edges ty =
+        case rewrittenService ^? shapes . Lens.at (mkId ty) . traverse of
+          Nothing -> []
+          Just (_ :< shape) -> case shape of
+            Ptr {} -> [] -- A top-level lookup should never be a Ptr
+            Struct StructF {_members} -> _members ^.. traverse . importedTypes
+            List ListF {_listItem} -> _listItem ^.. importedTypes
+            Map MapF {_mapKey, _mapValue} -> [_mapKey, _mapValue] ^.. traverse . importedTypes
+            Enum {} -> []
+            Lit {} -> []
+
+      -- A 'Lens.Fold' over any type names that 't' will have to import.
+      importedTypes :: TypeOf t => Lens.Fold t Text
+      importedTypes = Lens.to (typeNames . typeOf) . traverse
+        where
+          typeNames = \case
+            TType t _ -> [t]
+            TLit {} -> []
+            TNatural {} -> []
+            TStream {} -> []
+            TMaybe t -> typeNames t
+            TSensitive t -> typeNames t
+            TList t -> typeNames t
+            TList1 t -> typeNames t
+            TMap k v -> typeNames k ++ typeNames v
+
+      -- Compute cuts that we will need to turn into @{-# SOURCE #-}@ imports.
+      -- Ignore cuts from a type to itself; they don't cause circular imports.
+      _cuts' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
+
   _instance' <- serviceData (_service' ^. metadata) (_service' ^. retry)
   pure $ Library {_versions', _config', _service', _cuts', _instance'}
-
-  where
-    edges :: Id -> [Id]
-    edges i = s' ^.. shapes . Lens.at i . traverse . references . refShape
-
-    nodes :: [Id]
-    nodes = HashMap.keys $ s' ^. shapes
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)

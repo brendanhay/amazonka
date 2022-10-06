@@ -129,7 +129,7 @@ data Library = Library
     -- | @(x, y)@ in cuts' means that:
     -- * The module for @x@ should @import {-# SOURCE #-} y@, and
     -- * We should generate a @.hs-boot@ for @y@.
-    _cuts' :: Set (Id, Id),
+    _cuts' :: Set (Text, Text),
     _instance' :: Fun
   }
 

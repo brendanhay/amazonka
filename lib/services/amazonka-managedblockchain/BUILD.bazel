@@ -77,14 +77,13 @@ haskell_library(
         "gen/Amazonka/ManagedBlockChain/VoteOnProposal.hs",
         "gen/Amazonka/ManagedBlockChain/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_managedblockchain=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -102,11 +101,12 @@ haskell_test(
         "test/Test/Amazonka/ManagedBlockChain.hs",
         "test/Test/Amazonka/ManagedBlockChain/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_managedblockchain=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-codebuild/amazonka-codebuild.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-codebuild/amazonka-codebuild.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-codebuild",
     srcs = [
@@ -145,14 +145,13 @@ haskell_library(
         "gen/Amazonka/CodeBuild/UpdateWebhook.hs",
         "gen/Amazonka/CodeBuild/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_codebuild=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_codebuild=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -161,7 +160,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-codebuild/amazonka-codebuild.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-codebuild/amazonka-codebuild.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-codebuild-test",
     srcs = [
@@ -170,11 +169,12 @@ haskell_test(
         "test/Test/Amazonka/CodeBuild/Internal.hs",
         "test/Test/Amazonka/Gen/CodeBuild.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_codebuild=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_codebuild=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

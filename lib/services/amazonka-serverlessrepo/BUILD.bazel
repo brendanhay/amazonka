@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-serverlessrepo/amazonka-serverlessrepo.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-serverlessrepo/amazonka-serverlessrepo.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-serverlessrepo",
     srcs = [
@@ -35,14 +35,13 @@ haskell_library(
         "gen/Amazonka/ServerlessApplicationRepository/UpdateApplication.hs",
         "gen/Amazonka/ServerlessApplicationRepository/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_serverlessrepo=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_serverlessrepo=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -51,7 +50,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-serverlessrepo/amazonka-serverlessrepo.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-serverlessrepo/amazonka-serverlessrepo.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-serverlessrepo-test",
     srcs = [
@@ -60,11 +59,12 @@ haskell_test(
         "test/Test/Amazonka/ServerlessApplicationRepository.hs",
         "test/Test/Amazonka/ServerlessApplicationRepository/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_serverlessrepo=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_serverlessrepo=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

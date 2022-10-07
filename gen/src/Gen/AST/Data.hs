@@ -1,3 +1,5 @@
+{-# LANGUAGE ApplicativeDo #-}
+
 module Gen.AST.Data
   ( serviceData,
     operationData,
@@ -168,12 +170,17 @@ prodData ::
   Either String (Prod, [Field])
 prodData m s st = (,fields) <$> mk
   where
-    mk =
-      Prod' (typeId n) (st ^. infoDocumentation)
-        <$> declaration
-        <*> mkCtor
-        <*> traverse mkLens fields
-        <*> pure dependencies
+    mk = do
+      _prodDecl <- declaration
+      _prodBootDecl <- bootDeclaration
+      _prodCtor <- mkCtor
+      _prodLenses <- traverse mkLens fields
+
+      pure $ Prod' {..}
+      where
+        _prodName = typeId n
+        _prodDoc = st ^. infoDocumentation
+        _prodDeps = dependencies
 
     declaration = do
       decl <- datatype
@@ -181,13 +188,48 @@ prodData m s st = (,fields) <$> mk
       derv <- derivings
 
       pure $
-        Text.Lazy.intercalate
-          "\n"
+        Text.Lazy.unlines
           [ decl,
             "    {",
-            Text.Lazy.intercalate "\n" sels,
+            Text.Lazy.unlines sels,
             "    } " <> derv
           ]
+
+    bootDeclaration = do
+      decl <-
+        pp None $
+          Exts.DataDecl
+            ()
+            (Exts.DataType ())
+            Nothing
+            (Exts.DHead () (ident (typeId n)))
+            []
+            []
+      -- Instance declarations for instances we derive in the real .hs file.
+      let derives = derivingOf s
+      derivedInsts <- for (mapMaybe deriveInstHead derives) $ \h ->
+        pp None $
+          Exts.InstDecl
+            ()
+            Nothing
+            ( Exts.IRule () Nothing Nothing $
+                Exts.IHApp () h (Exts.TyCon () . unqual $ typeId n)
+            )
+            Nothing
+
+      -- Instance declarations which are generated from the Inst data type
+      let insts =
+            concat
+              [ shapeInsts (m ^. protocol) (s ^. relMode) []
+              -- Handle the two oddballs that switch from Derive to
+              -- Inst halfway through generation.
+              , [ IsNFData [] | DNFData <- derives ]
+              , [ IsHashable [] | DHashable <- derives]
+              ]
+      instInsts <- for insts $ \inst ->
+        pp None $ instD (instToQualifiedText inst) n Nothing
+
+      pure . Text.Lazy.unlines $ [decl] ++ derivedInsts ++ instInsts
 
     datatype =
       pp None $
@@ -215,12 +257,13 @@ prodData m s st = (,fields) <$> mk
     derivings =
       pp None $
         Exts.Deriving () Nothing $
-          flip map (mapMaybe derivingName (derivingOf s)) $
-            Exts.IRule () Nothing Nothing
-              . Exts.IHCon ()
-              . unqual
-              . mappend "Prelude."
-              . Text.pack
+          map (Exts.IRule () Nothing Nothing) $
+            mapMaybe deriveInstHead $ derivingOf s
+
+    deriveInstHead :: Derive -> Maybe (Exts.InstHead ())
+    deriveInstHead d = do
+      name <- derivingName d
+      pure $ Exts.IHCon () $ unqual $ ("Prelude." <>) $ Text.pack name
 
     fields :: [Field]
     fields = mkFields m s st

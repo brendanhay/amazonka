@@ -139,14 +139,13 @@ haskell_library(
         "gen/Amazonka/Proton/UpdateTemplateSyncConfig.hs",
         "gen/Amazonka/Proton/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_proton=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -164,11 +163,12 @@ haskell_test(
         "test/Test/Amazonka/Proton.hs",
         "test/Test/Amazonka/Proton/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_proton=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-sagemaker-runtime/amazonka-sagemaker-runtime.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-sagemaker-runtime/amazonka-sagemaker-runtime.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-sagemaker-runtime",
     srcs = [
@@ -11,14 +11,13 @@ haskell_library(
         "gen/Amazonka/SageMakerRuntime/Types.hs",
         "gen/Amazonka/SageMakerRuntime/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_sagemaker_runtime=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_sagemaker_runtime=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -27,7 +26,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-sagemaker-runtime/amazonka-sagemaker-runtime.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-sagemaker-runtime/amazonka-sagemaker-runtime.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-sagemaker-runtime-test",
     srcs = [
@@ -36,11 +35,12 @@ haskell_test(
         "test/Test/Amazonka/SageMakerRuntime.hs",
         "test/Test/Amazonka/SageMakerRuntime/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_sagemaker_runtime=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_sagemaker_runtime=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

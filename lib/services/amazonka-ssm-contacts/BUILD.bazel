@@ -55,14 +55,13 @@ haskell_library(
         "gen/Amazonka/SSMContacts/UpdateContactChannel.hs",
         "gen/Amazonka/SSMContacts/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_ssm_contacts=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -80,11 +79,12 @@ haskell_test(
         "test/Test/Amazonka/SSMContacts.hs",
         "test/Test/Amazonka/SSMContacts/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_ssm_contacts=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

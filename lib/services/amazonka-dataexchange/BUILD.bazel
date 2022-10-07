@@ -86,14 +86,13 @@ haskell_library(
         "gen/Amazonka/DataExchange/UpdateRevision.hs",
         "gen/Amazonka/DataExchange/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_dataexchange=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -111,11 +110,12 @@ haskell_test(
         "test/Test/Amazonka/DataExchange/Internal.hs",
         "test/Test/Amazonka/Gen/DataExchange.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_dataexchange=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

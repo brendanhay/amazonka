@@ -29,14 +29,13 @@ haskell_library(
         "gen/Amazonka/ConnectParticipant/Types/Websocket.hs",
         "gen/Amazonka/ConnectParticipant/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_connectparticipant=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -54,11 +53,12 @@ haskell_test(
         "test/Test/Amazonka/ConnectParticipant/Internal.hs",
         "test/Test/Amazonka/Gen/ConnectParticipant.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_connectparticipant=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

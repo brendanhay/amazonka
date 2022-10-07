@@ -25,14 +25,13 @@ haskell_library(
         "gen/Amazonka/IVSChat/UpdateRoom.hs",
         "gen/Amazonka/IVSChat/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_ivschat=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -50,11 +49,12 @@ haskell_test(
         "test/Test/Amazonka/IVSChat.hs",
         "test/Test/Amazonka/IVSChat/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_ivschat=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

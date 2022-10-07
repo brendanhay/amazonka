@@ -85,14 +85,13 @@ haskell_library(
         "gen/Amazonka/Wisdom/UpdateKnowledgeBaseTemplateUri.hs",
         "gen/Amazonka/Wisdom/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_wisdom=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -110,11 +109,12 @@ haskell_test(
         "test/Test/Amazonka/Wisdom.hs",
         "test/Test/Amazonka/Wisdom/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_wisdom=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

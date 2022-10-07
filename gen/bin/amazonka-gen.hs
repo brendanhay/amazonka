@@ -140,6 +140,7 @@ main = do
     lensTemplate <- load "lens.ede"
     sumTemplate <- load "sum.ede"
     productTemplate <- load "product.ede"
+    bootProductTemplate <- load "bootProduct.ede"
     testMainTemplate <- load "test/main.ede"
     testNamespaceTemplate <- load "test/namespace.ede"
     testInternalTemplate <- load "test/internal.ede"

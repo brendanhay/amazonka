@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-medialive/amazonka-medialive.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-medialive/amazonka-medialive.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-medialive",
     srcs = [
@@ -553,14 +553,13 @@ haskell_library(
         "gen/Amazonka/MediaLive/UpdateReservation.hs",
         "gen/Amazonka/MediaLive/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_medialive=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_medialive=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -569,7 +568,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-medialive/amazonka-medialive.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-medialive/amazonka-medialive.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-medialive-test",
     srcs = [
@@ -578,11 +577,12 @@ haskell_test(
         "test/Test/Amazonka/MediaLive.hs",
         "test/Test/Amazonka/MediaLive/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_medialive=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_medialive=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-lightsail/amazonka-lightsail.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-lightsail/amazonka-lightsail.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-lightsail",
     srcs = [
@@ -330,14 +330,13 @@ haskell_library(
         "gen/Amazonka/Lightsail/UpdateRelationalDatabaseParameters.hs",
         "gen/Amazonka/Lightsail/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_lightsail=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_lightsail=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -346,7 +345,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-lightsail/amazonka-lightsail.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-lightsail/amazonka-lightsail.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-lightsail-test",
     srcs = [
@@ -355,11 +354,12 @@ haskell_test(
         "test/Test/Amazonka/Lightsail.hs",
         "test/Test/Amazonka/Lightsail/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_lightsail=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_lightsail=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

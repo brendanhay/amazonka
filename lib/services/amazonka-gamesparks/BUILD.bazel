@@ -68,14 +68,13 @@ haskell_library(
         "gen/Amazonka/GamesParks/UpdateStage.hs",
         "gen/Amazonka/GamesParks/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_gamesparks=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -93,11 +92,12 @@ haskell_test(
         "test/Test/Amazonka/GamesParks/Internal.hs",
         "test/Test/Amazonka/Gen/GamesParks.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_gamesparks=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

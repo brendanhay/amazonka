@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-textract/amazonka-textract.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-textract/amazonka-textract.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-textract",
     srcs = [
@@ -55,14 +55,13 @@ haskell_library(
         "gen/Amazonka/Textract/Types/Warning.hs",
         "gen/Amazonka/Textract/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_textract=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_textract=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -71,7 +70,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-textract/amazonka-textract.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-textract/amazonka-textract.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-textract-test",
     srcs = [
@@ -80,11 +79,12 @@ haskell_test(
         "test/Test/Amazonka/Textract.hs",
         "test/Test/Amazonka/Textract/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_textract=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_textract=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -8,12 +8,16 @@ import qualified Control.Lens as Lens
 import Data.Aeson ((.=))
 import qualified Data.Aeson as Aeson
 import qualified Data.List as List
+import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.Import
 import qualified Gen.JSON as JSON
 import Gen.Prelude hiding (mod)
 import Gen.Types
-import System.Directory.Tree (AnchoredDirTree ((:/)), DirTree (..))
+import System.Directory.Tree
+  ( AnchoredDirTree ((:/)),
+    DirTree (Dir, Failed, File),
+  )
 import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 import qualified Text.EDE as EDE
@@ -49,12 +53,17 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
       traverse sequenceA $
         [ Dir "src" $
             -- Supress cabal warnings about directories listed that don't exist.
-            [ touch ".gitkeep" blankTemplate mempty
-            ],
+            [touch ".gitkeep" blankTemplate mempty],
           Dir "gen" $
             [ Dir "Amazonka" $
                 [ Dir svc $
-                    [ Dir "Types" (mapMaybe shape (l ^.. shapes . Lens.each)),
+                    [ Dir
+                        "Types"
+                        ( concat
+                            [ mapMaybe shape $ l ^.. shapes . traverse,
+                              mapMaybe bootShape $ l ^.. shapes . traverse
+                            ]
+                        ),
                       mod (l ^. typesNS) (typeImports l) typesTemplate,
                       mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
                       mod (l ^. lensNS) (lensImports l) lensTemplate
@@ -99,11 +108,21 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
     op = write . operation' l operationTemplate
 
     shape :: SData -> Maybe (DirTree (Either String Touch))
-    shape s = (\t -> (write . shape' l t) s) <$> template s
+    shape s = (\t -> write $ shape' l t s) <$> template
       where
-        template (Prod _ _ _) = Just productTemplate
-        template (Sum _ _ _) = Just sumTemplate
-        template (Fun _) = Nothing
+        template = case s of
+          Prod _ _ _ -> Just productTemplate
+          Sum _ _ _ -> Just sumTemplate
+          Fun _ -> Nothing
+
+    bootShape :: SData -> Maybe (DirTree (Either String Touch))
+    bootShape s = (\t -> write $ bootShape' l t s) <$> template
+      where
+        template = case s of
+          Prod _ p _
+            | _prodName p `elem` Set.map snd (l ^. cuts') ->
+              Just bootProductTemplate
+          _ -> Nothing
 
     fixture :: Operation Identity SData a -> [DirTree (Either String Touch)]
     fixture o =
@@ -118,59 +137,102 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
         n = typeId (_opName o)
 
     mod :: NS -> [NS] -> Template -> DirTree (Either String Touch)
-    mod n is t = write $ module' n is t (pure env)
+    mod name imports template = write $ module' Module {..}
 
     file :: FilePath -> Template -> DirTree (Either String Touch)
-    file p t = write $ render p t (pure env)
+    file p t = write $ render p t env
 
-    env :: Aeson.Value
-    env = Aeson.toJSON l
+    env :: Either String Aeson.Value
+    env = pure $ Aeson.toJSON l
 
 operation' ::
   Library ->
   Template ->
   Operation Identity SData a ->
   DirTree (Either String Rendered)
-operation' l t o = module' n is t $ do
-  x <- JSON.objectErr (show n) o
-  y <- JSON.objectErr "metadata" (Aeson.toJSON m)
-  pure $! y <> x
+operation' l template o =
+  module'
+    Module
+      { name,
+        imports = operationImports l o,
+        template,
+        env = do
+          x <- JSON.objectErr (show name) o
+          y <- JSON.objectErr "metadata" (Aeson.toJSON $ l ^. metadata)
+          pure $! y <> x
+      }
   where
-    n = operationNS (l ^. libraryNS) (o ^. opName)
-    m = l ^. metadata
-
-    is = operationImports l o
+    name = operationNS (l ^. libraryNS) (o ^. opName)
 
 shape' ::
   Library ->
   Template ->
   SData ->
   DirTree (Either String Rendered)
-shape' l t s = module' n (is s) t $ pure env
+shape' l template s =
+  module'
+    Module
+      { name = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s),
+        imports = imports s,
+        template,
+        env
+      }
   where
-    n = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+    imports (Prod _ prod _) = productImports l prod
+    imports (Sum _ _ _) = sumImports l
+    imports _ = []
 
-    is (Prod _ prod _) = productImports l prod
-    is (Sum _ _ _) = sumImports l
-    is _ = []
+    env = pure $! Aeson.object ["shape" .= s]
 
-    env = Aeson.object ["shape" .= s]
-
-module' ::
-  ToJSON a =>
-  NS ->
-  [NS] ->
+bootShape' ::
+  Library ->
   Template ->
-  Either String a ->
+  SData ->
   DirTree (Either String Rendered)
-module' ns is tmpl f =
-  render (FilePath.takeFileName (nsToPath ns)) tmpl $ do
-    x <- f >>= JSON.objectErr (show ns)
+bootShape' l template s =
+  bootModule'
+    Module
+      { name = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s),
+        imports =
+          [ "qualified Amazonka.Core as Core",
+            "qualified Amazonka.Prelude as Prelude"
+          ],
+        template,
+        env
+      }
+  where
+    env = pure $! Aeson.object ["shape" .= s]
+
+-- | Substitutions for a module.
+data Module a = Module
+  { name :: NS,
+    imports :: [NS],
+    template :: Template,
+    env :: Either String a
+  }
+
+module' :: ToJSON a => Module a -> DirTree (Either String Rendered)
+module' Module {..} =
+  render (FilePath.takeFileName (nsToPath name)) template $ do
+    x <- env >>= JSON.objectErr (show name)
     pure $! x
       <> EDE.fromPairs
-        [ "moduleName" .= ns,
-          "moduleImports" .= is,
-          "templateName" .= (templateName ns)
+        [ "moduleName" .= name,
+          "moduleImports" .= imports,
+          "templateName" .= templateName name
+        ]
+  where
+    templateName (NS xs) = List.last xs
+
+bootModule' :: ToJSON a => Module a -> DirTree (Either String Rendered)
+bootModule' Module {..} =
+  render (FilePath.takeFileName (nsToPath name) <> "-boot") template $ do
+    x <- env >>= JSON.objectErr (show name)
+    pure $! x
+      <> EDE.fromPairs
+        [ "moduleName" .= name,
+          "moduleImports" .= imports,
+          "templateName" .= templateName name
         ]
   where
     templateName (NS xs) = List.last xs
@@ -181,8 +243,8 @@ render ::
   Template ->
   Either String a ->
   DirTree (Either String Rendered)
-render p tmpl f =
-  File p (f >>= JSON.objectErr p >>= EDE.eitherRender tmpl)
+render p tmpl a =
+  File p (a >>= JSON.objectErr p >>= EDE.eitherRender tmpl)
 
 touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =

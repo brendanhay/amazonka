@@ -35,6 +35,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 ### New libraries
 
 - `amazonka-appconfigdata`: The data plane APIs your application uses to retrieve configuration data. [Overview](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/Welcome.html#Welcome_AWS_AppConfig_Data)
+- `amazonka-amplifyuibuilder`: A programmatic interface for creating and configuring user interface (UI) component libraries and themes for use in your Amplify applications. [Overview](https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/Welcome.html)
 - `amazonka-backupgateway`: Backup gateway is downloadable AWS Backup software that you deploy to your VMware infrastructure to connect your VMware VMs to AWS Backup.
 - `amazonka-backup-storage`
 - `amazonka-billingconductor`: The AWS Billing Conductor is a customizable billing service, allowing you to customize your billing data to match your desired business structure. [Overview](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/)
@@ -44,10 +45,12 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-drs`: AWS Elastic Disaster Recovery (AWS DRS) minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery. [Overview](https://aws.amazon.com/disaster-recovery/)
 - `amazonka-emr-serverless`: Amazon EMR Serverless is a serverless option in Amazon EMR that makes it easy for data analysts and engineers to run open-source big data analytics frameworks without configuring, managing, and scaling clusters or servers. [Overview](https://aws.amazon.com/emr/serverless/)
 - `amazonka-evidently`: Amazon CloudWatch Evidently lets application developers conduct experiments and identify unintended consequences of new features before rolling them out for general use, thereby reducing risk related to new feature roll-out. [Overview](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/Welcome.html)
+- `amazonka-fsx`: Launch, run, and scale feature-rich, high-performance file systems in the cloud. [Overview](https://aws.amazon.com/fsx/)
 - `amazonka-gamesparks`: Build game backends without worrying about server infrastructure. [Overview](https://aws.amazon.com/gamesparks/)
 - `amazonka-inspector2`: Amazon Inspector is an automated vulnerability management service that continually scans AWS workloads for software vulnerabilities and unintended network exposure. [Overview](https://aws.amazon.com/inspector/)
 - `amazonka-iottwinmaker`: AWS IoT TwinMaker makes it easier for developers to create digital twins of real-world systems such as buildings, factories, industrial equipment, and production lines. [Overview](https://aws.amazon.com/iot-twinmaker/)
 - `amazonka-ivschat`: Amazon IVS Chat is a scalable stream chat feature with a built-in moderation option designed to accompany live streaming video. [Overview](https://aws.amazon.com/ivs/features/chat/)
+- `amazonka-kendra`: An intelligent search service powered by machine learning (ML) for your websites and applications. [Overview](https://aws.amazon.com/kendra/)
 - `amazonka-keyspaces`: Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra–compatible database service. [Overview](https://aws.amazon.com/keyspaces/)
 - `amazonka-lexv2-models`: Amazon Lex V2 is an AWS service for building conversational interfaces for applications using voice and text. This is the model building API. [Overview](https://docs.aws.amazon.com/lexv2/latest/dg/API_Types_Amazon_Lex_Model_Building_V2.html)
 - `amazonka-license-manager-user-subscriptions`: With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances. [Overview](https://docs.aws.amazon.com/license-manager/latest/userguide/user-based-subscriptions.html)
@@ -63,7 +66,9 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-rum`: With CloudWatch RUM (Real User Monitoring), you can perform real user monitoring to collect and view client-side data about your web application performance from actual user sessions in near real time. [Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html)
 - `amazonka-sms-voice`: Looks like an alternate binding to the Pinpoint SMS and Voice API. Maybe stick with `amazonka-pinpoint-sms-voice-v2`? [Overview](https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html)
 - `amazonka-support-app`: You can use the AWS Support App to manage your AWS support cases in Slack. You can invite your team members to chat channels, respond to case updates, and chat directly with support agents. [Overview](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html)
+- `amazonka-timestream-query`: Amazon Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications. (Write API) [Overview](https://aws.amazon.com/timestream/)
 - `amazonka-timestream-write`: Amazon Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications. (Write API) [Overview](https://aws.amazon.com/timestream/)
+- `amazonka-wafv2`: AWS WAF is a web application firewall that helps protect your web applications or APIs against common web exploits and bots that may affect availability, compromise security, or consume excessive resources (V2 API). [Overview](https://aws.amazon.com/waf/)
 - `amazonka-workspaces-web`: Amazon WorkSpaces Web is a low-cost, fully managed workspace built specifically to facilitate secure access to internal websites and software-as-a-service (SaaS) applications from existing web browsers. [Overview](https://aws.amazon.com/workspaces/web/)
 
 ### Changed

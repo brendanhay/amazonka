@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-health/amazonka-health.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-health/amazonka-health.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-health",
     srcs = [
@@ -45,14 +45,13 @@ haskell_library(
         "gen/Amazonka/AWSHealth/Types/OrganizationEventFilter.hs",
         "gen/Amazonka/AWSHealth/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_health=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_health=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -61,7 +60,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-health/amazonka-health.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-health/amazonka-health.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-health-test",
     srcs = [
@@ -70,11 +69,12 @@ haskell_test(
         "test/Test/Amazonka/AWSHealth/Internal.hs",
         "test/Test/Amazonka/Gen/AWSHealth.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_health=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_health=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

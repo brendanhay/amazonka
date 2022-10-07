@@ -11,11 +11,11 @@ haskell_library(
         "src/S3.hs",
         "src/SQS.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_examples=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
-        "-DVERSION_examples=\"2.0\"",
     ],
     hidden_modules = [],
     version = "2.0",

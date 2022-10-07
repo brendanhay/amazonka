@@ -6,7 +6,7 @@ load("//tools:repo.bzl", "versioned_http_archive")
 # Botocore service definitions
 #
 
-# This can be auto-updated via ./bin/update-botocore.
+# This can be auto-updated via ./scripts/update-botocore.
 versioned_http_archive(
     name = "botocore",
     build_file_content = """
@@ -14,7 +14,7 @@ exports_files(glob(["**/*.json"]))
 """,
     strip_prefix = "botocore-{version}/botocore/data",
     url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
-    version = "ccb5ef9ac0dcb3fd8b9223dabdc7d7f857294bb7",
+    version = "7d42013f82986aac706003c3daaddb8da3465b85",
 )
 
 #
@@ -23,17 +23,27 @@ exports_files(glob(["**/*.json"]))
 
 versioned_http_archive(
     name = "bazel_skylib",
-    sha256 = "1dde365491125a3db70731e25658dfdd3bc5dbdfd11b840b3e987ecf043c7ca0",
-    url = "https://github.com/bazelbuild/bazel-skylib/releases/download/{version}/bazel_skylib-{version}.tar.gz",
-    version = "0.9.0",
+    sha256 = "74d544d96f4a5bb630d465ca8bbcfe231e3594e5aae57e1edbf17a6eb3ca2506",
+    url = "https://github.com/bazelbuild/bazel-skylib/releases/download/{version}/bazel-skylib-{version}.tar.gz",
+    version = "1.3.0",
 )
 
 versioned_http_archive(
     name = "rules_pkg",
-    sha256 = "dd13c5581146da6abdee49a1a2605cd1dd8fb39bea9a870e0089aa4066b260b6",
-    strip_prefix = "rules_pkg-{version}/pkg",
-    url = "https://github.com/bazelbuild/rules_pkg/archive/{version}.tar.gz",
-    version = "8d542763a3959db79175404758f46c7f3f385fa5",
+    sha256 = "8a298e832762eda1830597d64fe7db58178aa84cd5926d76d5b744d6558941c2",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_pkg/releases/download/{version}/rules_pkg-{version}.tar.gz",
+        "https://github.com/bazelbuild/rules_pkg/releases/download/{version}/rules_pkg-{version}.tar.gz",
+    ],
+    version = "0.7.0",
+)
+
+versioned_http_archive(
+    name = "rules_cc",
+    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.4/rules_cc-0.0.4.tar.gz"],
+    sha256 = "af6cc82d87db94585bceeda2561cb8a9d55ad435318ccb4ddfee18a43580fb5d",
+    strip_prefix = "rules_cc-0.0.4",
+    version = "0.0.4"
 )
 
 versioned_http_archive(
@@ -46,20 +56,20 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_rules_nixpkgs",
-    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
+    sha256 = "b01f170580f646ee3cde1ea4c117d00e561afaf3c59eda604cf09194a824ff10",
     strip_prefix = "rules_nixpkgs-{version}",
-    url = "https://github.com/tweag/rules_nixpkgs/archive/{version}.tar.gz",
-    version = "81f61c4b5afcf50665b7073f7fce4c1755b4b9a3",
+    url = "https://github.com/tweag/rules_nixpkgs/archive/refs/tags/v{version}.tar.gz",
+    version = "0.9.0",
 )
 
 versioned_http_archive(
     name = "rules_haskell",
     patch_args = ["-p1"],
     patches = ["//:third_party/rules_haskell/haddock_index.patch"],
-    sha256 = "73941c142bf37df115817083c0834fbc3269c963c7049bfbc345a9c76162e918",
+    sha256 = "aba3c16015a2363b16e2f867bdc5c792fa71c68cb97d8fe95fddc41e409d6ba8",
     strip_prefix = "rules_haskell-{version}",
-    url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
-    version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
+    url = "https://github.com/tweag/rules_haskell/archive/refs/tags/v{version}.tar.gz",
+    version = "0.15",
 )
 
 versioned_http_archive(
@@ -72,22 +82,22 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "69de5c704a05ff37862f7e0f5534d4f479418afc21806c887db544a316f3cb6b",
+    sha256 = "099a9fb96a376ccbbb7d291ed4ecbdfd42f6bc822ab77ae6f1b5cb9e914e94fa",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v{version}/rules_go-v{version}.tar.gz",
-        "https://github.com/bazelbuild/rules_go/releases/download/v{version}/rules_go-v{version}.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v{version}/rules_go-v{version}.zip",
+        "https://github.com/bazelbuild/rules_go/releases/download/v{version}/rules_go-v{version}.zip",
     ],
-    version = "0.27.0",
+    version = "0.35.0",
 )
 
 versioned_http_archive(
     name = "bazel_gazelle",
-    sha256 = "62ca106be173579c0a167deb23358fdfe71ffa1e4cfdddf5582af26520f1c66f",
+    sha256 = "efbbba6ac1a4fd342d5122cbdfdb82aeb2cf2862e35022c752eaddffada7c3f3",
     urls = [
         "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v{version}/bazel-gazelle-v{version}.tar.gz",
         "https://github.com/bazelbuild/bazel-gazelle/releases/download/v{version}/bazel-gazelle-v{version}.tar.gz",
     ],
-    version = "0.23.0",
+    version = "0.27.0",
 )
 
 versioned_http_archive(
@@ -100,24 +110,36 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_gazelle_cabal",
-    sha256 = "65712e680ebb9214b7fecec1c5e4a380df1c4840b508866a0f5a37a82f87a687",
+    sha256 = "7a4f321a7634839cbdbd99ab09fd987cd6e5868a1b55388595fcb5f127221615",
     strip_prefix = "gazelle_cabal-{version}",
     url = "https://github.com/tweag/gazelle_cabal/archive/{version}.tar.gz",
-    version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
+    version = "a9ee2c26de58055c4ab9d97ea9d7e420445b1488",
 )
+
+#
+# rules_pkg
+#
+
+load("@rules_pkg//pkg:deps.bzl", "rules_pkg_dependencies")
+
+rules_pkg_dependencies()
 
 #
 # Nixpkgs
 #
 
 load(
-    "@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl",
-    "nixpkgs_local_repository",
-    "nixpkgs_package",
+    "@io_tweag_rules_nixpkgs//nixpkgs:repositories.bzl",
+    "rules_nixpkgs_dependencies",
 )
+
+rules_nixpkgs_dependencies()
+
 load(
     "@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl",
     "nixpkgs_cc_configure",
+    "nixpkgs_local_repository",
+    "nixpkgs_package",
     "nixpkgs_python_configure",
 )
 
@@ -193,6 +215,10 @@ nixpkgs_package(
 #
 # System/C dependencies
 #
+
+load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
+
+rules_cc_dependencies()
 
 nixpkgs_package(
     name = "zlib.dev",
@@ -324,6 +350,7 @@ stack_snapshot(
         "http-conduit",
         "http-types",
         "ini",
+        "json",  # keep
         "lens",  # keep
         "memory",
         "mtl",  # keep

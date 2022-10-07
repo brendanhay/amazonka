@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-cost-explorer/amazonka-cost-explorer.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-cost-explorer/amazonka-cost-explorer.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-cost-explorer",
     srcs = [
@@ -159,14 +159,13 @@ haskell_library(
         "gen/Amazonka/CostExplorer/UpdateCostCategoryDefinition.hs",
         "gen/Amazonka/CostExplorer/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_cost_explorer=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_cost_explorer=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -175,7 +174,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-cost-explorer/amazonka-cost-explorer.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-cost-explorer/amazonka-cost-explorer.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-cost-explorer-test",
     srcs = [
@@ -184,11 +183,12 @@ haskell_test(
         "test/Test/Amazonka/CostExplorer/Internal.hs",
         "test/Test/Amazonka/Gen/CostExplorer.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_cost_explorer=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_cost_explorer=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

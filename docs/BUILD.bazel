@@ -1,7 +1,7 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_doc")
 load("@rules_python//python:defs.bzl", "py_binary")
-load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
-load("@rules_pkg//:pkg.bzl", "pkg_tar")
+load("@rules_pkg//pkg:mappings.bzl", "pkg_files", "strip_prefix")
+load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 
 haskell_doc(
     name = "docs",

@@ -46,14 +46,13 @@ haskell_library(
         "gen/Amazonka/Route53RecoveryControlConfig/UpdateSafetyRule.hs",
         "gen/Amazonka/Route53RecoveryControlConfig/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_route53_recovery_control_config=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -71,11 +70,12 @@ haskell_test(
         "test/Test/Amazonka/Route53RecoveryControlConfig.hs",
         "test/Test/Amazonka/Route53RecoveryControlConfig/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_route53_recovery_control_config=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -92,14 +92,13 @@ haskell_library(
         "gen/Amazonka/GlobalAccelerator/Waiters.hs",
         "gen/Amazonka/GlobalAccelerator/WithdrawByoipCidr.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_globalaccelerator=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -117,11 +116,12 @@ haskell_test(
         "test/Test/Amazonka/GlobalAccelerator.hs",
         "test/Test/Amazonka/GlobalAccelerator/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_globalaccelerator=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -19,7 +19,7 @@ let
   bazel = pkgs.writeScriptBin "bazel" ''
     #!${pkgs.stdenvNoCC.shell}
     export JAVA_HOME="${pkgs.jdk11_headless.home}"
-    exec ${pkgs.bazel_4}/bin/bazel --bazelrc="${bazelrc}" "$@"
+    exec ${pkgs.bazel_5}/bin/bazel --bazelrc="${bazelrc}" "$@"
   '';
 
   # Ensure zlib and friends are locatable if you use cabal in the nix-shell.
@@ -41,4 +41,3 @@ in pkgs.mkShell {
     pkgs.parallel
   ];
 }
-

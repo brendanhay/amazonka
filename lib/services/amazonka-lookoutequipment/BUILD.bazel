@@ -76,14 +76,13 @@ haskell_library(
         "gen/Amazonka/LookoutEquipment/UpdateInferenceScheduler.hs",
         "gen/Amazonka/LookoutEquipment/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_lookoutequipment=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -101,11 +100,12 @@ haskell_test(
         "test/Test/Amazonka/LookoutEquipment.hs",
         "test/Test/Amazonka/LookoutEquipment/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_lookoutequipment=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

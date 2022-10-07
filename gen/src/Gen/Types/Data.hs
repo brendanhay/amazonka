@@ -41,6 +41,8 @@ data Prod = Prod'
   { _prodName :: Text,
     _prodDoc :: Maybe Help,
     _prodDecl :: Rendered,
+    -- | Minimal declaration for a @.hs-boot@ file, if required.
+    _prodBootDecl :: Rendered,
     _prodCtor :: Fun,
     _prodLenses :: [Fun],
     _prodDeps :: Set.Set Text
@@ -54,6 +56,7 @@ prodToJSON s Prod' {..} is =
     "constructor" .= _prodCtor,
     "documentation" .= _prodDoc,
     "declaration" .= _prodDecl,
+    "bootDeclaration" .= _prodBootDecl,
     "lenses" .= _prodLenses,
     "instances" .= is,
     "shared" .= isShared s,

@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-polly/amazonka-polly.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-polly/amazonka-polly.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-polly",
     srcs = [
@@ -31,14 +31,13 @@ haskell_library(
         "gen/Amazonka/Polly/Types/VoiceId.hs",
         "gen/Amazonka/Polly/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_polly=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_polly=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -47,7 +46,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-polly/amazonka-polly.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-polly/amazonka-polly.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-polly-test",
     srcs = [
@@ -56,11 +55,12 @@ haskell_test(
         "test/Test/Amazonka/Polly.hs",
         "test/Test/Amazonka/Polly/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_polly=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_polly=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

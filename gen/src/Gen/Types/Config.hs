@@ -126,6 +126,10 @@ data Library = Library
   { _versions' :: Versions,
     _config' :: Config,
     _service' :: Service Identity SData SData WData,
+    -- | @(x, y)@ in cuts' means that:
+    -- * The module for @x@ should @import {-# SOURCE #-} y@, and
+    -- * We should generate a @.hs-boot@ for @y@.
+    _cuts' :: Set (Text, Text),
     _instance' :: Fun
   }
 
@@ -213,6 +217,7 @@ data Templates = Templates
     lensTemplate :: Template,
     sumTemplate :: Template,
     productTemplate :: Template,
+    bootProductTemplate :: Template,
     testMainTemplate :: Template,
     testNamespaceTemplate :: Template,
     testInternalTemplate :: Template,

@@ -3,9 +3,11 @@ module Gen.AST where
 import Control.Arrow ((&&&))
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
+import Control.Monad.State.Strict (execState, modify)
 import qualified Control.Monad.State.Strict as State
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.HashSet as HashSet
+import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.AST.Cofree
 import Gen.AST.Data
@@ -22,9 +24,49 @@ rewrite ::
   Config ->
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
   Either String Library
-rewrite v cfg s' = do
-  s <- rewriteService cfg (ignore cfg (deprecate s')) >>= renderShapes cfg
-  Library v cfg s <$> serviceData (s ^. metadata) (s ^. retry)
+rewrite _versions' _config' s' = do
+  rewrittenService <- rewriteService _config' (ignore _config' (deprecate s'))
+  _service' <- renderShapes _config' rewrittenService
+  let nodes :: [Text]
+      nodes =
+        -- Select the type names from the rewritten service, so we
+        -- skip over shape definitions that have no corresponding
+        -- module (e.g., shapes which are mere lists of other shapes).
+        rewrittenService ^.. shapes . traverse . importedTypes
+
+      edges :: Text -> [Text]
+      edges ty =
+        case rewrittenService ^? shapes . Lens.at (mkId ty) . traverse of
+          Nothing -> []
+          Just (_ :< shape) -> case shape of
+            Ptr {} -> [] -- A top-level lookup should never be a Ptr
+            Struct StructF {_members} -> _members ^.. traverse . importedTypes
+            List ListF {_listItem} -> _listItem ^.. importedTypes
+            Map MapF {_mapKey, _mapValue} -> [_mapKey, _mapValue] ^.. traverse . importedTypes
+            Enum {} -> []
+            Lit {} -> []
+
+      -- A 'Lens.Fold' over any type names that 't' will have to import.
+      importedTypes :: TypeOf t => Lens.Fold t Text
+      importedTypes = Lens.to (typeNames . typeOf) . traverse
+        where
+          typeNames = \case
+            TType t _ -> [t]
+            TLit {} -> []
+            TNatural {} -> []
+            TStream {} -> []
+            TMaybe t -> typeNames t
+            TSensitive t -> typeNames t
+            TList t -> typeNames t
+            TList1 t -> typeNames t
+            TMap k v -> typeNames k ++ typeNames v
+
+      -- Compute cuts that we will need to turn into @{-# SOURCE #-}@ imports.
+      -- Ignore cuts from a type to itself; they don't cause circular imports.
+      _cuts' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
+
+  _instance' <- serviceData (_service' ^. metadata) (_service' ^. retry)
+  pure $ Library {_versions', _config', _service', _cuts', _instance'}
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)
@@ -204,3 +246,22 @@ separate os = State.runStateT (traverse go os)
             State.modify' (HashMap.delete n)
 
           pure x
+
+breakLoops ::
+  forall node.
+  Ord node =>
+  -- | Edge relation
+  (node -> [node]) ->
+  -- | Set of nodes to explore from
+  [node] ->
+  Set (node, node)
+breakLoops edgesFrom = (`execState` mempty) . traverse (exploreNode mempty)
+  where
+    exploreNode :: Set node -> node -> State (Set (node, node)) ()
+    exploreNode history node = for_ (edgesFrom node) $ \n ->
+      if n `elem` history
+        then do
+          -- We've seen this node before. Record a loop-breaker and
+          -- do not recurse further.
+          modify (Set.insert (node, n))
+        else exploreNode (Set.insert node history) n

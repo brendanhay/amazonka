@@ -89,7 +89,6 @@ renameReserved x
           "hiding",
           "if",
           "import",
-          "import",
           "in",
           "infix",
           "infixl",

@@ -19,14 +19,13 @@ haskell_library(
         "gen/Amazonka/IoTFleetHub/UpdateApplication.hs",
         "gen/Amazonka/IoTFleetHub/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_iotfleethub=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -44,11 +43,12 @@ haskell_test(
         "test/Test/Amazonka/IoTFleetHub.hs",
         "test/Test/Amazonka/IoTFleetHub/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
         "-DVERSION_amazonka_iotfleethub=\"2.0\"",
         "-Wall",
         "-threaded",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

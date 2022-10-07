@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-cloud9/amazonka-cloud9.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-cloud9/amazonka-cloud9.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-cloud9",
     srcs = [
@@ -34,14 +34,13 @@ haskell_library(
         "gen/Amazonka/Cloud9/UpdateEnvironmentMembership.hs",
         "gen/Amazonka/Cloud9/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_cloud9=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_cloud9=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -50,7 +49,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-cloud9/amazonka-cloud9.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-cloud9/amazonka-cloud9.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-cloud9-test",
     srcs = [
@@ -59,11 +58,12 @@ haskell_test(
         "test/Test/Amazonka/Cloud9/Internal.hs",
         "test/Test/Amazonka/Gen/Cloud9.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_cloud9=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_cloud9=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

@@ -1,6 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
-# rule generated from amazonka-waf-regional/amazonka-waf-regional.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-waf-regional/amazonka-waf-regional.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-waf-regional",
     srcs = [
@@ -160,14 +160,13 @@ haskell_library(
         "gen/Amazonka/WAFRegional/UpdateXssMatchSet.hs",
         "gen/Amazonka/WAFRegional/Waiters.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_waf_regional=\"2.0\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
-        "-DVERSION_amazonka_waf_regional=\"2.0\"",
     ],
-    hidden_modules = [],
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
@@ -176,7 +175,7 @@ haskell_library(
     ],
 )
 
-# rule generated from amazonka-waf-regional/amazonka-waf-regional.cabal by gazelle_cabal
+# rule generated from lib/services/amazonka-waf-regional/amazonka-waf-regional.cabal by gazelle_cabal
 haskell_test(
     name = "amazonka-waf-regional-test",
     srcs = [
@@ -185,11 +184,12 @@ haskell_test(
         "test/Test/Amazonka/WAFRegional.hs",
         "test/Test/Amazonka/WAFRegional/Internal.hs",
     ],
-    compiler_flags = [
+    ghcopts = [
+        "-DVERSION_amazonka_waf_regional=\"2.0\"",
         "-Wall",
         "-threaded",
-        "-DVERSION_amazonka_waf_regional=\"2.0\"",
     ],
+    main_file = "test/Main.hs",
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [

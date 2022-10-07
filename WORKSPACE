@@ -102,10 +102,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "com_github_bazelbuild_buildtools",
-    sha256 = "143ef233b81286470a14d77e57352cec682a642831423af883e5744e110af642",
+    sha256 = "e3bb0dc8b0274ea1aca75f1f8c0c835adbe589708ea89bf698069d0790701ea3",
     strip_prefix = "buildtools-{version}",
-    url = "https://github.com/bazelbuild/buildtools/archive/{version}.tar.gz",
-    version = "d6daef01a1a2f41a4143a314bf1996bf351caa30",
+    url = "https://github.com/bazelbuild/buildtools/archive/refs/tags/{version}.tar.gz",
+    version = "5.1.0",
 )
 
 versioned_http_archive(

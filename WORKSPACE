@@ -40,10 +40,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "rules_cc",
-    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.4/rules_cc-0.0.4.tar.gz"],
     sha256 = "af6cc82d87db94585bceeda2561cb8a9d55ad435318ccb4ddfee18a43580fb5d",
-    strip_prefix = "rules_cc-0.0.4",
-    version = "0.0.4"
+    strip_prefix = "rules_cc-{version}",
+    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/{version}/rules_cc-{version}.tar.gz"],
+    version = "0.0.4",
 )
 
 versioned_http_archive(

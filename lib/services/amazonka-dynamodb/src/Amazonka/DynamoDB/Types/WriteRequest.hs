@@ -59,20 +59,21 @@ data WriteRequest
 instance FromJSON WriteRequest where
   parseJSON = withObject "WriteRequest" $ \o ->
     case KeyMap.toList o of
-      [("DeleteRequest", v)] -> DeleteRequest <$> item v
+      [("DeleteRequest", v)] -> DeleteRequest <$> key v
       [("PutRequest", v)] -> PutRequest <$> item v
       [] -> fail "No keys"
       _ -> fail $ "Multiple or unrecognized keys: " ++ show (KeyMap.keys o)
     where
       item = withObject "Item" (.: "Item")
+      key = withObject "Key" (.: "Key")
 
 instance ToJSON WriteRequest where
   toJSON =
     object . pure . \case
-      DeleteRequest item -> "DeleteRequest" .= object ["Item" .= item]
+      DeleteRequest key -> "DeleteRequest" .= object ["Key" .= key]
       PutRequest item -> "PutRequest" .= object ["Item" .= item]
 
   toEncoding =
     pairs . \case
-      DeleteRequest item -> "DeleteRequest" .= (object ["Item" .= item])
+      DeleteRequest key -> "DeleteRequest" .= (object ["Key" .= key])
       PutRequest item -> "PutRequest" .= (object ["Item" .= item])

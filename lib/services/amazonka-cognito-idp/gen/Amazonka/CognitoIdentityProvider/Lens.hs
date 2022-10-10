@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentityProvider.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -317,6 +317,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     createUserPoolResponse_httpStatus,
 
     -- ** CreateUserPoolClient
+    createUserPoolClient_authSessionValidity,
     createUserPoolClient_defaultRedirectURI,
     createUserPoolClient_accessTokenValidity,
     createUserPoolClient_explicitAuthFlows,
@@ -762,6 +763,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     updateUserPoolResponse_httpStatus,
 
     -- ** UpdateUserPoolClient
+    updateUserPoolClient_authSessionValidity,
     updateUserPoolClient_defaultRedirectURI,
     updateUserPoolClient_accessTokenValidity,
     updateUserPoolClient_explicitAuthFlows,
@@ -1137,6 +1139,7 @@ module Amazonka.CognitoIdentityProvider.Lens
     userPoolClientDescription_userPoolId,
 
     -- ** UserPoolClientType
+    userPoolClientType_authSessionValidity,
     userPoolClientType_defaultRedirectURI,
     userPoolClientType_clientSecret,
     userPoolClientType_accessTokenValidity,

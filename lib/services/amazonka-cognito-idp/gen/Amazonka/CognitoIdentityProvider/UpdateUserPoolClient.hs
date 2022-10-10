@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentityProvider.UpdateUserPoolClient
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,7 @@ module Amazonka.CognitoIdentityProvider.UpdateUserPoolClient
     newUpdateUserPoolClient,
 
     -- * Request Lenses
+    updateUserPoolClient_authSessionValidity,
     updateUserPoolClient_defaultRedirectURI,
     updateUserPoolClient_accessTokenValidity,
     updateUserPoolClient_explicitAuthFlows,
@@ -80,7 +81,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateUserPoolClient' smart constructor.
 data UpdateUserPoolClient = UpdateUserPoolClient'
-  { -- | The default redirect URI. Must be in the @CallbackURLs@ list.
+  { -- | Amazon Cognito creates a session token for each API request in an
+    -- authentication flow. @AuthSessionValidity@ is the duration, in minutes,
+    -- of that session token. Your user pool native user must respond to each
+    -- authentication challenge before the session expires.
+    authSessionValidity :: Prelude.Maybe Prelude.Natural,
+    -- | The default redirect URI. Must be in the @CallbackURLs@ list.
     --
     -- A redirect URI must:
     --
@@ -274,6 +280,11 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authSessionValidity', 'updateUserPoolClient_authSessionValidity' - Amazon Cognito creates a session token for each API request in an
+-- authentication flow. @AuthSessionValidity@ is the duration, in minutes,
+-- of that session token. Your user pool native user must respond to each
+-- authentication challenge before the session expires.
+--
 -- 'defaultRedirectURI', 'updateUserPoolClient_defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
 --
 -- A redirect URI must:
@@ -464,8 +475,9 @@ newUpdateUserPoolClient ::
   UpdateUserPoolClient
 newUpdateUserPoolClient pUserPoolId_ pClientId_ =
   UpdateUserPoolClient'
-    { defaultRedirectURI =
+    { authSessionValidity =
         Prelude.Nothing,
+      defaultRedirectURI = Prelude.Nothing,
       accessTokenValidity = Prelude.Nothing,
       explicitAuthFlows = Prelude.Nothing,
       callbackURLs = Prelude.Nothing,
@@ -488,6 +500,13 @@ newUpdateUserPoolClient pUserPoolId_ pClientId_ =
       userPoolId = pUserPoolId_,
       clientId = Core._Sensitive Lens.# pClientId_
     }
+
+-- | Amazon Cognito creates a session token for each API request in an
+-- authentication flow. @AuthSessionValidity@ is the duration, in minutes,
+-- of that session token. Your user pool native user must respond to each
+-- authentication challenge before the session expires.
+updateUserPoolClient_authSessionValidity :: Lens.Lens' UpdateUserPoolClient (Prelude.Maybe Prelude.Natural)
+updateUserPoolClient_authSessionValidity = Lens.lens (\UpdateUserPoolClient' {authSessionValidity} -> authSessionValidity) (\s@UpdateUserPoolClient' {} a -> s {authSessionValidity = a} :: UpdateUserPoolClient)
 
 -- | The default redirect URI. Must be in the @CallbackURLs@ list.
 --
@@ -729,7 +748,8 @@ instance Core.AWSRequest UpdateUserPoolClient where
 
 instance Prelude.Hashable UpdateUserPoolClient where
   hashWithSalt _salt UpdateUserPoolClient' {..} =
-    _salt `Prelude.hashWithSalt` defaultRedirectURI
+    _salt `Prelude.hashWithSalt` authSessionValidity
+      `Prelude.hashWithSalt` defaultRedirectURI
       `Prelude.hashWithSalt` accessTokenValidity
       `Prelude.hashWithSalt` explicitAuthFlows
       `Prelude.hashWithSalt` callbackURLs
@@ -753,7 +773,8 @@ instance Prelude.Hashable UpdateUserPoolClient where
 
 instance Prelude.NFData UpdateUserPoolClient where
   rnf UpdateUserPoolClient' {..} =
-    Prelude.rnf defaultRedirectURI
+    Prelude.rnf authSessionValidity
+      `Prelude.seq` Prelude.rnf defaultRedirectURI
       `Prelude.seq` Prelude.rnf accessTokenValidity
       `Prelude.seq` Prelude.rnf explicitAuthFlows
       `Prelude.seq` Prelude.rnf callbackURLs
@@ -796,7 +817,9 @@ instance Core.ToJSON UpdateUserPoolClient where
   toJSON UpdateUserPoolClient' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultRedirectURI" Core..=)
+          [ ("AuthSessionValidity" Core..=)
+              Prelude.<$> authSessionValidity,
+            ("DefaultRedirectURI" Core..=)
               Prelude.<$> defaultRedirectURI,
             ("AccessTokenValidity" Core..=)
               Prelude.<$> accessTokenValidity,

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentityProvider.Types.DeviceConfigurationType
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,29 +23,53 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The device-remembering configuration for a user pool. A null value
--- indicates that you have deactivated device remembering in your user
--- pool.
+-- | The device-remembering configuration for a user pool. A
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html DescribeUserPool>
+-- request returns a null value for this object when the user pool isn\'t
+-- configured to remember devices. When device remembering is active, you
+-- can remember a user\'s device with a
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html ConfirmDevice>
+-- API request. Additionally. when the property
+-- @DeviceOnlyRememberedOnUserPrompt@ is @true@, you must follow
+-- @ConfirmDevice@ with an
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html UpdateDeviceStatus>
+-- API request that sets the user\'s device to @remembered@ or
+-- @not_remembered@.
 --
--- When you provide a value for any @DeviceConfiguration@ field, you
--- activate the Amazon Cognito device-remembering feature.
+-- To sign in with a remembered device, include @DEVICE_KEY@ in the
+-- authentication parameters in your user\'s
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>
+-- request. If your app doesn\'t include a @DEVICE_KEY@ parameter, the
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax response>
+-- from Amazon Cognito includes newly-generated @DEVICE_KEY@ and
+-- @DEVICE_GROUP_KEY@ values under @NewDeviceMetadata@. Store these values
+-- to use in future device-authentication requests.
+--
+-- When you provide a value for any property of @DeviceConfiguration@, you
+-- activate the device remembering for the user pool.
 --
 -- /See:/ 'newDeviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
-  { -- | When true, Amazon Cognito doesn\'t remember newly-confirmed devices.
-    -- Users who want to authenticate with their device can instead opt in to
-    -- remembering their device. To collect a choice from your user, create an
-    -- input prompt in your app and return the value that the user chooses in
+  { -- | When true, Amazon Cognito doesn\'t automatically remember a user\'s
+    -- device when your app sends a
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html ConfirmDevice>
+    -- API request. In your app, create a prompt for your user to choose
+    -- whether they want to remember their device. Return the user\'s choice in
     -- an
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html UpdateDeviceStatus>
     -- API request.
-    deviceOnlyRememberedOnUserPrompt :: Prelude.Maybe Prelude.Bool,
-    -- | When true, device authentication can replace SMS and time-based one-time
-    -- password (TOTP) factors for multi-factor authentication (MFA).
     --
-    -- Regardless of the value of this field, users that sign in with new
-    -- devices that have not been confirmed or remembered must provide a second
-    -- factor if your user pool requires MFA.
+    -- When @DeviceOnlyRememberedOnUserPrompt@ is @false@, Amazon Cognito
+    -- immediately remembers devices that you register in a @ConfirmDevice@ API
+    -- request.
+    deviceOnlyRememberedOnUserPrompt :: Prelude.Maybe Prelude.Bool,
+    -- | When true, a remembered device can sign in with device authentication
+    -- instead of SMS and time-based one-time password (TOTP) factors for
+    -- multi-factor authentication (MFA).
+    --
+    -- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
+    -- with devices that have not been confirmed or remembered must still
+    -- provide a second factor in a user pool that requires MFA.
     challengeRequiredOnNewDevice :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,20 +82,26 @@ data DeviceConfigurationType = DeviceConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceOnlyRememberedOnUserPrompt', 'deviceConfigurationType_deviceOnlyRememberedOnUserPrompt' - When true, Amazon Cognito doesn\'t remember newly-confirmed devices.
--- Users who want to authenticate with their device can instead opt in to
--- remembering their device. To collect a choice from your user, create an
--- input prompt in your app and return the value that the user chooses in
+-- 'deviceOnlyRememberedOnUserPrompt', 'deviceConfigurationType_deviceOnlyRememberedOnUserPrompt' - When true, Amazon Cognito doesn\'t automatically remember a user\'s
+-- device when your app sends a
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html ConfirmDevice>
+-- API request. In your app, create a prompt for your user to choose
+-- whether they want to remember their device. Return the user\'s choice in
 -- an
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html UpdateDeviceStatus>
 -- API request.
 --
--- 'challengeRequiredOnNewDevice', 'deviceConfigurationType_challengeRequiredOnNewDevice' - When true, device authentication can replace SMS and time-based one-time
--- password (TOTP) factors for multi-factor authentication (MFA).
+-- When @DeviceOnlyRememberedOnUserPrompt@ is @false@, Amazon Cognito
+-- immediately remembers devices that you register in a @ConfirmDevice@ API
+-- request.
 --
--- Regardless of the value of this field, users that sign in with new
--- devices that have not been confirmed or remembered must provide a second
--- factor if your user pool requires MFA.
+-- 'challengeRequiredOnNewDevice', 'deviceConfigurationType_challengeRequiredOnNewDevice' - When true, a remembered device can sign in with device authentication
+-- instead of SMS and time-based one-time password (TOTP) factors for
+-- multi-factor authentication (MFA).
+--
+-- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
+-- with devices that have not been confirmed or remembered must still
+-- provide a second factor in a user pool that requires MFA.
 newDeviceConfigurationType ::
   DeviceConfigurationType
 newDeviceConfigurationType =
@@ -81,22 +111,28 @@ newDeviceConfigurationType =
       challengeRequiredOnNewDevice = Prelude.Nothing
     }
 
--- | When true, Amazon Cognito doesn\'t remember newly-confirmed devices.
--- Users who want to authenticate with their device can instead opt in to
--- remembering their device. To collect a choice from your user, create an
--- input prompt in your app and return the value that the user chooses in
+-- | When true, Amazon Cognito doesn\'t automatically remember a user\'s
+-- device when your app sends a
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html ConfirmDevice>
+-- API request. In your app, create a prompt for your user to choose
+-- whether they want to remember their device. Return the user\'s choice in
 -- an
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html UpdateDeviceStatus>
 -- API request.
+--
+-- When @DeviceOnlyRememberedOnUserPrompt@ is @false@, Amazon Cognito
+-- immediately remembers devices that you register in a @ConfirmDevice@ API
+-- request.
 deviceConfigurationType_deviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
 deviceConfigurationType_deviceOnlyRememberedOnUserPrompt = Lens.lens (\DeviceConfigurationType' {deviceOnlyRememberedOnUserPrompt} -> deviceOnlyRememberedOnUserPrompt) (\s@DeviceConfigurationType' {} a -> s {deviceOnlyRememberedOnUserPrompt = a} :: DeviceConfigurationType)
 
--- | When true, device authentication can replace SMS and time-based one-time
--- password (TOTP) factors for multi-factor authentication (MFA).
+-- | When true, a remembered device can sign in with device authentication
+-- instead of SMS and time-based one-time password (TOTP) factors for
+-- multi-factor authentication (MFA).
 --
--- Regardless of the value of this field, users that sign in with new
--- devices that have not been confirmed or remembered must provide a second
--- factor if your user pool requires MFA.
+-- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
+-- with devices that have not been confirmed or remembered must still
+-- provide a second factor in a user pool that requires MFA.
 deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
 deviceConfigurationType_challengeRequiredOnNewDevice = Lens.lens (\DeviceConfigurationType' {challengeRequiredOnNewDevice} -> challengeRequiredOnNewDevice) (\s@DeviceConfigurationType' {} a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
 

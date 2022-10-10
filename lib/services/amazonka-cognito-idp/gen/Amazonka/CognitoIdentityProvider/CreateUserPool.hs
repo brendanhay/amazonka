@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentityProvider.CreateUserPool
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -130,12 +130,11 @@ data CreateUserPool = CreateUserPool'
     smsConfiguration :: Prelude.Maybe SmsConfigurationType,
     -- | The policies associated with the new user pool.
     policies :: Prelude.Maybe UserPoolPolicyType,
-    -- | A string representing the SMS verification message.
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     smsVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | A string representing the email verification subject.
-    -- @EmailVerificationSubject@ is allowed only if
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is DEVELOPER.
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     emailVerificationSubject :: Prelude.Maybe Prelude.Text,
     -- | The available verified method a user can use to recover their password
     -- when they call @ForgotPassword@. You can use this setting to define a
@@ -160,10 +159,8 @@ data CreateUserPool = CreateUserPool'
     -- that you can use to categorize and manage user pools in different ways,
     -- such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A string representing the email verification message.
-    -- @EmailVerificationMessage@ is allowed only if
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is DEVELOPER.
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     emailVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | A string representing the SMS authentication message.
     smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
@@ -240,12 +237,11 @@ data CreateUserPool = CreateUserPool'
 --
 -- 'policies', 'createUserPool_policies' - The policies associated with the new user pool.
 --
--- 'smsVerificationMessage', 'createUserPool_smsVerificationMessage' - A string representing the SMS verification message.
+-- 'smsVerificationMessage', 'createUserPool_smsVerificationMessage' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
--- 'emailVerificationSubject', 'createUserPool_emailVerificationSubject' - A string representing the email verification subject.
--- @EmailVerificationSubject@ is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
+-- 'emailVerificationSubject', 'createUserPool_emailVerificationSubject' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
 -- 'accountRecoverySetting', 'createUserPool_accountRecoverySetting' - The available verified method a user can use to recover their password
 -- when they call @ForgotPassword@. You can use this setting to define a
@@ -270,10 +266,8 @@ data CreateUserPool = CreateUserPool'
 -- that you can use to categorize and manage user pools in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 --
--- 'emailVerificationMessage', 'createUserPool_emailVerificationMessage' - A string representing the email verification message.
--- @EmailVerificationMessage@ is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
+-- 'emailVerificationMessage', 'createUserPool_emailVerificationMessage' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 --
 -- 'smsAuthenticationMessage', 'createUserPool_smsAuthenticationMessage' - A string representing the SMS authentication message.
 --
@@ -389,14 +383,13 @@ createUserPool_smsConfiguration = Lens.lens (\CreateUserPool' {smsConfiguration}
 createUserPool_policies :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolPolicyType)
 createUserPool_policies = Lens.lens (\CreateUserPool' {policies} -> policies) (\s@CreateUserPool' {} a -> s {policies = a} :: CreateUserPool)
 
--- | A string representing the SMS verification message.
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 createUserPool_smsVerificationMessage :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
 createUserPool_smsVerificationMessage = Lens.lens (\CreateUserPool' {smsVerificationMessage} -> smsVerificationMessage) (\s@CreateUserPool' {} a -> s {smsVerificationMessage = a} :: CreateUserPool)
 
--- | A string representing the email verification subject.
--- @EmailVerificationSubject@ is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 createUserPool_emailVerificationSubject :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
 createUserPool_emailVerificationSubject = Lens.lens (\CreateUserPool' {emailVerificationSubject} -> emailVerificationSubject) (\s@CreateUserPool' {} a -> s {emailVerificationSubject = a} :: CreateUserPool)
 
@@ -431,10 +424,8 @@ createUserPool_userAttributeUpdateSettings = Lens.lens (\CreateUserPool' {userAt
 createUserPool_userPoolTags :: Lens.Lens' CreateUserPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createUserPool_userPoolTags = Lens.lens (\CreateUserPool' {userPoolTags} -> userPoolTags) (\s@CreateUserPool' {} a -> s {userPoolTags = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
 
--- | A string representing the email verification message.
--- @EmailVerificationMessage@ is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 createUserPool_emailVerificationMessage :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
 createUserPool_emailVerificationMessage = Lens.lens (\CreateUserPool' {emailVerificationMessage} -> emailVerificationMessage) (\s@CreateUserPool' {} a -> s {emailVerificationMessage = a} :: CreateUserPool)
 

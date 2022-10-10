@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -25,10 +25,10 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses can be found in "Amazonka.EMrServerLess.Lens" and are
+  Generated lenses can be found in "Amazonka.EMRServerless.Lens" and are
   suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  See "Amazonka.EMrServerLess" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.EMRServerless" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -43,48 +43,49 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Amazonka.EMrServerLess
-    Amazonka.EMrServerLess.CancelJobRun
-    Amazonka.EMrServerLess.CreateApplication
-    Amazonka.EMrServerLess.DeleteApplication
-    Amazonka.EMrServerLess.GetApplication
-    Amazonka.EMrServerLess.GetJobRun
-    Amazonka.EMrServerLess.Lens
-    Amazonka.EMrServerLess.ListApplications
-    Amazonka.EMrServerLess.ListJobRuns
-    Amazonka.EMrServerLess.ListTagsForResource
-    Amazonka.EMrServerLess.StartApplication
-    Amazonka.EMrServerLess.StartJobRun
-    Amazonka.EMrServerLess.StopApplication
-    Amazonka.EMrServerLess.TagResource
-    Amazonka.EMrServerLess.Types
-    Amazonka.EMrServerLess.Types.Application
-    Amazonka.EMrServerLess.Types.ApplicationState
-    Amazonka.EMrServerLess.Types.ApplicationSummary
-    Amazonka.EMrServerLess.Types.AutoStartConfig
-    Amazonka.EMrServerLess.Types.AutoStopConfig
-    Amazonka.EMrServerLess.Types.Configuration
-    Amazonka.EMrServerLess.Types.ConfigurationOverrides
-    Amazonka.EMrServerLess.Types.Hive
-    Amazonka.EMrServerLess.Types.InitialCapacityConfig
-    Amazonka.EMrServerLess.Types.JobDriver
-    Amazonka.EMrServerLess.Types.JobRun
-    Amazonka.EMrServerLess.Types.JobRunState
-    Amazonka.EMrServerLess.Types.JobRunSummary
-    Amazonka.EMrServerLess.Types.ManagedPersistenceMonitoringConfiguration
-    Amazonka.EMrServerLess.Types.MaximumAllowedResources
-    Amazonka.EMrServerLess.Types.MonitoringConfiguration
-    Amazonka.EMrServerLess.Types.NetworkConfiguration
-    Amazonka.EMrServerLess.Types.S3MonitoringConfiguration
-    Amazonka.EMrServerLess.Types.SparkSubmit
-    Amazonka.EMrServerLess.Types.TotalResourceUtilization
-    Amazonka.EMrServerLess.Types.WorkerResourceConfig
-    Amazonka.EMrServerLess.UntagResource
-    Amazonka.EMrServerLess.UpdateApplication
-    Amazonka.EMrServerLess.Waiters
+    Amazonka.EMRServerless
+    Amazonka.EMRServerless.CancelJobRun
+    Amazonka.EMRServerless.CreateApplication
+    Amazonka.EMRServerless.DeleteApplication
+    Amazonka.EMRServerless.GetApplication
+    Amazonka.EMRServerless.GetDashboardForJobRun
+    Amazonka.EMRServerless.GetJobRun
+    Amazonka.EMRServerless.Lens
+    Amazonka.EMRServerless.ListApplications
+    Amazonka.EMRServerless.ListJobRuns
+    Amazonka.EMRServerless.ListTagsForResource
+    Amazonka.EMRServerless.StartApplication
+    Amazonka.EMRServerless.StartJobRun
+    Amazonka.EMRServerless.StopApplication
+    Amazonka.EMRServerless.TagResource
+    Amazonka.EMRServerless.Types
+    Amazonka.EMRServerless.Types.Application
+    Amazonka.EMRServerless.Types.ApplicationState
+    Amazonka.EMRServerless.Types.ApplicationSummary
+    Amazonka.EMRServerless.Types.AutoStartConfig
+    Amazonka.EMRServerless.Types.AutoStopConfig
+    Amazonka.EMRServerless.Types.Configuration
+    Amazonka.EMRServerless.Types.ConfigurationOverrides
+    Amazonka.EMRServerless.Types.Hive
+    Amazonka.EMRServerless.Types.InitialCapacityConfig
+    Amazonka.EMRServerless.Types.JobDriver
+    Amazonka.EMRServerless.Types.JobRun
+    Amazonka.EMRServerless.Types.JobRunState
+    Amazonka.EMRServerless.Types.JobRunSummary
+    Amazonka.EMRServerless.Types.ManagedPersistenceMonitoringConfiguration
+    Amazonka.EMRServerless.Types.MaximumAllowedResources
+    Amazonka.EMRServerless.Types.MonitoringConfiguration
+    Amazonka.EMRServerless.Types.NetworkConfiguration
+    Amazonka.EMRServerless.Types.S3MonitoringConfiguration
+    Amazonka.EMRServerless.Types.SparkSubmit
+    Amazonka.EMRServerless.Types.TotalResourceUtilization
+    Amazonka.EMRServerless.Types.WorkerResourceConfig
+    Amazonka.EMRServerless.UntagResource
+    Amazonka.EMRServerless.UpdateApplication
+    Amazonka.EMRServerless.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-emr-serverless-test
@@ -98,14 +99,14 @@ test-suite amazonka-emr-serverless-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.Amazonka.EMrServerLess
-    Test.Amazonka.EMrServerLess.Internal
-    Test.Amazonka.Gen.EMrServerLess
+    Test.Amazonka.EMRServerless
+    Test.Amazonka.EMRServerless.Internal
+    Test.Amazonka.Gen.EMRServerless
 
   build-depends:
-    , amazonka-core            ^>=2.0
+    , amazonka-core            >=2.0 && <2.1
     , amazonka-emr-serverless
-    , amazonka-test            ^>=2.0
+    , amazonka-test            >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

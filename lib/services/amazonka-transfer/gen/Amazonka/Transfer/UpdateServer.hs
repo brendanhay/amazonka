@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.UpdateServer
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -142,27 +142,34 @@ data UpdateServer = UpdateServer'
     -- transfer protocol client can connect to your server\'s endpoint. The
     -- available protocols are:
     --
-    -- -   Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over
-    --     SSH
+    -- -   @SFTP@ (Secure Shell (SSH) File Transfer Protocol): File transfer
+    --     over SSH
     --
-    -- -   File Transfer Protocol Secure (FTPS): File transfer with TLS
+    -- -   @FTPS@ (File Transfer Protocol Secure): File transfer with TLS
     --     encryption
     --
-    -- -   File Transfer Protocol (FTP): Unencrypted file transfer
+    -- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
     --
-    -- If you select @FTPS@, you must choose a certificate stored in Amazon Web
-    -- ServicesCertificate Manager (ACM) which will be used to identify your
-    -- server when clients connect to it over FTPS.
+    -- -   @AS2@ (Applicability Statement 2): used for transporting structured
+    --     business-to-business data
     --
-    -- If @Protocol@ includes either @FTP@ or @FTPS@, then the @EndpointType@
-    -- must be @VPC@ and the @IdentityProviderType@ must be
-    -- @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+    -- -   If you select @FTPS@, you must choose a certificate stored in
+    --     Certificate Manager (ACM) which is used to identify your server when
+    --     clients connect to it over FTPS.
     --
-    -- If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
-    -- associated.
+    -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
+    --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
+    --     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
     --
-    -- If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set to
-    -- @PUBLIC@ and the @IdentityProviderType@ can be set to @SERVICE_MANAGED@.
+    -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
+    --     associated.
+    --
+    -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
+    --     to @PUBLIC@ and the @IdentityProviderType@ can be set to
+    --     @SERVICE_MANAGED@.
+    --
+    -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
+    --     and domain must be Amazon S3.
     protocols :: Prelude.Maybe (Prelude.NonEmpty Protocol),
     -- | The type of endpoint that you want your server to use. You can choose to
     -- make your server\'s endpoint publicly accessible (PUBLIC) or host it
@@ -330,27 +337,34 @@ data UpdateServer = UpdateServer'
 -- transfer protocol client can connect to your server\'s endpoint. The
 -- available protocols are:
 --
--- -   Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over
---     SSH
+-- -   @SFTP@ (Secure Shell (SSH) File Transfer Protocol): File transfer
+--     over SSH
 --
--- -   File Transfer Protocol Secure (FTPS): File transfer with TLS
+-- -   @FTPS@ (File Transfer Protocol Secure): File transfer with TLS
 --     encryption
 --
--- -   File Transfer Protocol (FTP): Unencrypted file transfer
+-- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
 --
--- If you select @FTPS@, you must choose a certificate stored in Amazon Web
--- ServicesCertificate Manager (ACM) which will be used to identify your
--- server when clients connect to it over FTPS.
+-- -   @AS2@ (Applicability Statement 2): used for transporting structured
+--     business-to-business data
 --
--- If @Protocol@ includes either @FTP@ or @FTPS@, then the @EndpointType@
--- must be @VPC@ and the @IdentityProviderType@ must be
--- @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+-- -   If you select @FTPS@, you must choose a certificate stored in
+--     Certificate Manager (ACM) which is used to identify your server when
+--     clients connect to it over FTPS.
 --
--- If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
--- associated.
+-- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
+--     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
+--     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
 --
--- If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set to
--- @PUBLIC@ and the @IdentityProviderType@ can be set to @SERVICE_MANAGED@.
+-- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
+--     associated.
+--
+-- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set to
+--     @SERVICE_MANAGED@.
+--
+-- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
+--     and domain must be Amazon S3.
 --
 -- 'endpointType', 'updateServer_endpointType' - The type of endpoint that you want your server to use. You can choose to
 -- make your server\'s endpoint publicly accessible (PUBLIC) or host it
@@ -540,27 +554,34 @@ updateServer_certificate = Lens.lens (\UpdateServer' {certificate} -> certificat
 -- transfer protocol client can connect to your server\'s endpoint. The
 -- available protocols are:
 --
--- -   Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over
---     SSH
+-- -   @SFTP@ (Secure Shell (SSH) File Transfer Protocol): File transfer
+--     over SSH
 --
--- -   File Transfer Protocol Secure (FTPS): File transfer with TLS
+-- -   @FTPS@ (File Transfer Protocol Secure): File transfer with TLS
 --     encryption
 --
--- -   File Transfer Protocol (FTP): Unencrypted file transfer
+-- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
 --
--- If you select @FTPS@, you must choose a certificate stored in Amazon Web
--- ServicesCertificate Manager (ACM) which will be used to identify your
--- server when clients connect to it over FTPS.
+-- -   @AS2@ (Applicability Statement 2): used for transporting structured
+--     business-to-business data
 --
--- If @Protocol@ includes either @FTP@ or @FTPS@, then the @EndpointType@
--- must be @VPC@ and the @IdentityProviderType@ must be
--- @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+-- -   If you select @FTPS@, you must choose a certificate stored in
+--     Certificate Manager (ACM) which is used to identify your server when
+--     clients connect to it over FTPS.
 --
--- If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
--- associated.
+-- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
+--     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
+--     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
 --
--- If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set to
--- @PUBLIC@ and the @IdentityProviderType@ can be set to @SERVICE_MANAGED@.
+-- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
+--     associated.
+--
+-- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set to
+--     @SERVICE_MANAGED@.
+--
+-- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
+--     and domain must be Amazon S3.
 updateServer_protocols :: Lens.Lens' UpdateServer (Prelude.Maybe (Prelude.NonEmpty Protocol))
 updateServer_protocols = Lens.lens (\UpdateServer' {protocols} -> protocols) (\s@UpdateServer' {} a -> s {protocols = a} :: UpdateServer) Prelude.. Lens.mapping Lens.coerced
 

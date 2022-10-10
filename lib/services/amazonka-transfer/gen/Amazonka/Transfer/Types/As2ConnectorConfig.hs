@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.As2ConnectorConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,11 @@ data As2ConnectorConfig = As2ConnectorConfig'
     -- | Specifies whether the AS2 file is compressed.
     compression :: Prelude.Maybe CompressionEnum,
     -- | The signing algorithm for the MDN response.
+    --
+    -- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+    -- is used.
     mdnSigningAlgorithm :: Prelude.Maybe MdnSigningAlg,
-    -- | A unique identifier for the AS2 process.
+    -- | A unique identifier for the AS2 local profile.
     localProfileId :: Prelude.Maybe Prelude.Text,
     -- | Used for outbound requests (from an Transfer Family server to a partner
     -- AS2 server) to determine whether the partner response for transfers is
@@ -51,12 +54,13 @@ data As2ConnectorConfig = As2ConnectorConfig'
     --
     -- -   @NONE@: Specifies that no MDN response is required.
     mdnResponse :: Prelude.Maybe MdnResponse,
-    -- | A short description to help identify the connector.
+    -- | Used as the @Subject@ HTTP header attribute in AS2 messages that are
+    -- being sent with the connector.
     messageSubject :: Prelude.Maybe Prelude.Text,
-    -- | The algorithm that is used to sign the AS2 transfers for this partner
-    -- profile.
+    -- | The algorithm that is used to sign the AS2 messages sent with the
+    -- connector.
     signingAlgorithm :: Prelude.Maybe SigningAlg,
-    -- | A unique identifier for the partner for the connector.
+    -- | A unique identifier for the partner profile for the connector.
     partnerProfileId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +79,10 @@ data As2ConnectorConfig = As2ConnectorConfig'
 --
 -- 'mdnSigningAlgorithm', 'as2ConnectorConfig_mdnSigningAlgorithm' - The signing algorithm for the MDN response.
 --
--- 'localProfileId', 'as2ConnectorConfig_localProfileId' - A unique identifier for the AS2 process.
+-- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+-- is used.
+--
+-- 'localProfileId', 'as2ConnectorConfig_localProfileId' - A unique identifier for the AS2 local profile.
 --
 -- 'mdnResponse', 'as2ConnectorConfig_mdnResponse' - Used for outbound requests (from an Transfer Family server to a partner
 -- AS2 server) to determine whether the partner response for transfers is
@@ -86,12 +93,13 @@ data As2ConnectorConfig = As2ConnectorConfig'
 --
 -- -   @NONE@: Specifies that no MDN response is required.
 --
--- 'messageSubject', 'as2ConnectorConfig_messageSubject' - A short description to help identify the connector.
+-- 'messageSubject', 'as2ConnectorConfig_messageSubject' - Used as the @Subject@ HTTP header attribute in AS2 messages that are
+-- being sent with the connector.
 --
--- 'signingAlgorithm', 'as2ConnectorConfig_signingAlgorithm' - The algorithm that is used to sign the AS2 transfers for this partner
--- profile.
+-- 'signingAlgorithm', 'as2ConnectorConfig_signingAlgorithm' - The algorithm that is used to sign the AS2 messages sent with the
+-- connector.
 --
--- 'partnerProfileId', 'as2ConnectorConfig_partnerProfileId' - A unique identifier for the partner for the connector.
+-- 'partnerProfileId', 'as2ConnectorConfig_partnerProfileId' - A unique identifier for the partner profile for the connector.
 newAs2ConnectorConfig ::
   As2ConnectorConfig
 newAs2ConnectorConfig =
@@ -116,10 +124,13 @@ as2ConnectorConfig_compression :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe C
 as2ConnectorConfig_compression = Lens.lens (\As2ConnectorConfig' {compression} -> compression) (\s@As2ConnectorConfig' {} a -> s {compression = a} :: As2ConnectorConfig)
 
 -- | The signing algorithm for the MDN response.
+--
+-- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+-- is used.
 as2ConnectorConfig_mdnSigningAlgorithm :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe MdnSigningAlg)
 as2ConnectorConfig_mdnSigningAlgorithm = Lens.lens (\As2ConnectorConfig' {mdnSigningAlgorithm} -> mdnSigningAlgorithm) (\s@As2ConnectorConfig' {} a -> s {mdnSigningAlgorithm = a} :: As2ConnectorConfig)
 
--- | A unique identifier for the AS2 process.
+-- | A unique identifier for the AS2 local profile.
 as2ConnectorConfig_localProfileId :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe Prelude.Text)
 as2ConnectorConfig_localProfileId = Lens.lens (\As2ConnectorConfig' {localProfileId} -> localProfileId) (\s@As2ConnectorConfig' {} a -> s {localProfileId = a} :: As2ConnectorConfig)
 
@@ -134,16 +145,17 @@ as2ConnectorConfig_localProfileId = Lens.lens (\As2ConnectorConfig' {localProfil
 as2ConnectorConfig_mdnResponse :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe MdnResponse)
 as2ConnectorConfig_mdnResponse = Lens.lens (\As2ConnectorConfig' {mdnResponse} -> mdnResponse) (\s@As2ConnectorConfig' {} a -> s {mdnResponse = a} :: As2ConnectorConfig)
 
--- | A short description to help identify the connector.
+-- | Used as the @Subject@ HTTP header attribute in AS2 messages that are
+-- being sent with the connector.
 as2ConnectorConfig_messageSubject :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe Prelude.Text)
 as2ConnectorConfig_messageSubject = Lens.lens (\As2ConnectorConfig' {messageSubject} -> messageSubject) (\s@As2ConnectorConfig' {} a -> s {messageSubject = a} :: As2ConnectorConfig)
 
--- | The algorithm that is used to sign the AS2 transfers for this partner
--- profile.
+-- | The algorithm that is used to sign the AS2 messages sent with the
+-- connector.
 as2ConnectorConfig_signingAlgorithm :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe SigningAlg)
 as2ConnectorConfig_signingAlgorithm = Lens.lens (\As2ConnectorConfig' {signingAlgorithm} -> signingAlgorithm) (\s@As2ConnectorConfig' {} a -> s {signingAlgorithm = a} :: As2ConnectorConfig)
 
--- | A unique identifier for the partner for the connector.
+-- | A unique identifier for the partner profile for the connector.
 as2ConnectorConfig_partnerProfileId :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe Prelude.Text)
 as2ConnectorConfig_partnerProfileId = Lens.lens (\As2ConnectorConfig' {partnerProfileId} -> partnerProfileId) (\s@As2ConnectorConfig' {} a -> s {partnerProfileId = a} :: As2ConnectorConfig)
 

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -112,6 +112,10 @@ module Amazonka.Transfer.Lens
     -- ** DeleteConnector
     deleteConnector_connectorId,
 
+    -- ** DeleteHostKey
+    deleteHostKey_serverId,
+    deleteHostKey_hostKeyId,
+
     -- ** DeleteProfile
     deleteProfile_profileId,
 
@@ -160,6 +164,12 @@ module Amazonka.Transfer.Lens
     describeExecutionResponse_workflowId,
     describeExecutionResponse_execution,
 
+    -- ** DescribeHostKey
+    describeHostKey_serverId,
+    describeHostKey_hostKeyId,
+    describeHostKeyResponse_httpStatus,
+    describeHostKeyResponse_hostKey,
+
     -- ** DescribeProfile
     describeProfile_profileId,
     describeProfileResponse_httpStatus,
@@ -198,6 +208,15 @@ module Amazonka.Transfer.Lens
     importCertificate_certificate,
     importCertificateResponse_httpStatus,
     importCertificateResponse_certificateId,
+
+    -- ** ImportHostKey
+    importHostKey_tags,
+    importHostKey_description,
+    importHostKey_serverId,
+    importHostKey_hostKeyBody,
+    importHostKeyResponse_httpStatus,
+    importHostKeyResponse_serverId,
+    importHostKeyResponse_hostKeyId,
 
     -- ** ImportSshPublicKey
     importSshPublicKey_serverId,
@@ -247,6 +266,15 @@ module Amazonka.Transfer.Lens
     listExecutionsResponse_httpStatus,
     listExecutionsResponse_workflowId,
     listExecutionsResponse_executions,
+
+    -- ** ListHostKeys
+    listHostKeys_nextToken,
+    listHostKeys_maxResults,
+    listHostKeys_serverId,
+    listHostKeysResponse_nextToken,
+    listHostKeysResponse_httpStatus,
+    listHostKeysResponse_serverId,
+    listHostKeysResponse_hostKeys,
 
     -- ** ListProfiles
     listProfiles_nextToken,
@@ -376,6 +404,14 @@ module Amazonka.Transfer.Lens
     updateConnectorResponse_httpStatus,
     updateConnectorResponse_connectorId,
 
+    -- ** UpdateHostKey
+    updateHostKey_serverId,
+    updateHostKey_hostKeyId,
+    updateHostKey_description,
+    updateHostKeyResponse_httpStatus,
+    updateHostKeyResponse_serverId,
+    updateHostKeyResponse_hostKeyId,
+
     -- ** UpdateProfile
     updateProfile_certificateIds,
     updateProfile_profileId,
@@ -495,6 +531,15 @@ module Amazonka.Transfer.Lens
     describedExecution_executionId,
     describedExecution_results,
     describedExecution_loggingConfiguration,
+
+    -- ** DescribedHostKey
+    describedHostKey_tags,
+    describedHostKey_hostKeyId,
+    describedHostKey_type,
+    describedHostKey_description,
+    describedHostKey_hostKeyFingerprint,
+    describedHostKey_dateImported,
+    describedHostKey_arn,
 
     -- ** DescribedProfile
     describedProfile_tags,
@@ -631,6 +676,14 @@ module Amazonka.Transfer.Lens
     listedExecution_status,
     listedExecution_executionId,
 
+    -- ** ListedHostKey
+    listedHostKey_hostKeyId,
+    listedHostKey_type,
+    listedHostKey_description,
+    listedHostKey_fingerprint,
+    listedHostKey_dateImported,
+    listedHostKey_arn,
+
     -- ** ListedProfile
     listedProfile_profileId,
     listedProfile_as2Id,
@@ -738,6 +791,7 @@ import Amazonka.Transfer.DeleteAccess
 import Amazonka.Transfer.DeleteAgreement
 import Amazonka.Transfer.DeleteCertificate
 import Amazonka.Transfer.DeleteConnector
+import Amazonka.Transfer.DeleteHostKey
 import Amazonka.Transfer.DeleteProfile
 import Amazonka.Transfer.DeleteServer
 import Amazonka.Transfer.DeleteSshPublicKey
@@ -748,18 +802,21 @@ import Amazonka.Transfer.DescribeAgreement
 import Amazonka.Transfer.DescribeCertificate
 import Amazonka.Transfer.DescribeConnector
 import Amazonka.Transfer.DescribeExecution
+import Amazonka.Transfer.DescribeHostKey
 import Amazonka.Transfer.DescribeProfile
 import Amazonka.Transfer.DescribeSecurityPolicy
 import Amazonka.Transfer.DescribeServer
 import Amazonka.Transfer.DescribeUser
 import Amazonka.Transfer.DescribeWorkflow
 import Amazonka.Transfer.ImportCertificate
+import Amazonka.Transfer.ImportHostKey
 import Amazonka.Transfer.ImportSshPublicKey
 import Amazonka.Transfer.ListAccesses
 import Amazonka.Transfer.ListAgreements
 import Amazonka.Transfer.ListCertificates
 import Amazonka.Transfer.ListConnectors
 import Amazonka.Transfer.ListExecutions
+import Amazonka.Transfer.ListHostKeys
 import Amazonka.Transfer.ListProfiles
 import Amazonka.Transfer.ListSecurityPolicies
 import Amazonka.Transfer.ListServers
@@ -781,6 +838,7 @@ import Amazonka.Transfer.Types.DescribedAgreement
 import Amazonka.Transfer.Types.DescribedCertificate
 import Amazonka.Transfer.Types.DescribedConnector
 import Amazonka.Transfer.Types.DescribedExecution
+import Amazonka.Transfer.Types.DescribedHostKey
 import Amazonka.Transfer.Types.DescribedProfile
 import Amazonka.Transfer.Types.DescribedSecurityPolicy
 import Amazonka.Transfer.Types.DescribedServer
@@ -800,6 +858,7 @@ import Amazonka.Transfer.Types.ListedAgreement
 import Amazonka.Transfer.Types.ListedCertificate
 import Amazonka.Transfer.Types.ListedConnector
 import Amazonka.Transfer.Types.ListedExecution
+import Amazonka.Transfer.Types.ListedHostKey
 import Amazonka.Transfer.Types.ListedProfile
 import Amazonka.Transfer.Types.ListedServer
 import Amazonka.Transfer.Types.ListedUser
@@ -823,6 +882,7 @@ import Amazonka.Transfer.UpdateAccess
 import Amazonka.Transfer.UpdateAgreement
 import Amazonka.Transfer.UpdateCertificate
 import Amazonka.Transfer.UpdateConnector
+import Amazonka.Transfer.UpdateHostKey
 import Amazonka.Transfer.UpdateProfile
 import Amazonka.Transfer.UpdateServer
 import Amazonka.Transfer.UpdateUser

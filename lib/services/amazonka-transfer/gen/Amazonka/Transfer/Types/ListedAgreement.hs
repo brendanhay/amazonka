@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.ListedAgreement
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,14 +35,14 @@ data ListedAgreement = ListedAgreement'
     -- | The current description for the agreement. You can change it by calling
     -- the @UpdateAgreement@ operation and providing a new description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the AS2 process.
+    -- | A unique identifier for the AS2 local profile.
     localProfileId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the agreement. This identifier is returned when
     -- you create an agreement.
     agreementId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the agreement.
     serverId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the partner process.
+    -- | A unique identifier for the partner profile.
     partnerProfileId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,14 +62,14 @@ data ListedAgreement = ListedAgreement'
 -- 'description', 'listedAgreement_description' - The current description for the agreement. You can change it by calling
 -- the @UpdateAgreement@ operation and providing a new description.
 --
--- 'localProfileId', 'listedAgreement_localProfileId' - A unique identifier for the AS2 process.
+-- 'localProfileId', 'listedAgreement_localProfileId' - A unique identifier for the AS2 local profile.
 --
 -- 'agreementId', 'listedAgreement_agreementId' - A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
 --
 -- 'serverId', 'listedAgreement_serverId' - The unique identifier for the agreement.
 --
--- 'partnerProfileId', 'listedAgreement_partnerProfileId' - A unique identifier for the partner process.
+-- 'partnerProfileId', 'listedAgreement_partnerProfileId' - A unique identifier for the partner profile.
 newListedAgreement ::
   ListedAgreement
 newListedAgreement =
@@ -96,7 +96,7 @@ listedAgreement_status = Lens.lens (\ListedAgreement' {status} -> status) (\s@Li
 listedAgreement_description :: Lens.Lens' ListedAgreement (Prelude.Maybe Prelude.Text)
 listedAgreement_description = Lens.lens (\ListedAgreement' {description} -> description) (\s@ListedAgreement' {} a -> s {description = a} :: ListedAgreement)
 
--- | A unique identifier for the AS2 process.
+-- | A unique identifier for the AS2 local profile.
 listedAgreement_localProfileId :: Lens.Lens' ListedAgreement (Prelude.Maybe Prelude.Text)
 listedAgreement_localProfileId = Lens.lens (\ListedAgreement' {localProfileId} -> localProfileId) (\s@ListedAgreement' {} a -> s {localProfileId = a} :: ListedAgreement)
 
@@ -109,7 +109,7 @@ listedAgreement_agreementId = Lens.lens (\ListedAgreement' {agreementId} -> agre
 listedAgreement_serverId :: Lens.Lens' ListedAgreement (Prelude.Maybe Prelude.Text)
 listedAgreement_serverId = Lens.lens (\ListedAgreement' {serverId} -> serverId) (\s@ListedAgreement' {} a -> s {serverId = a} :: ListedAgreement)
 
--- | A unique identifier for the partner process.
+-- | A unique identifier for the partner profile.
 listedAgreement_partnerProfileId :: Lens.Lens' ListedAgreement (Prelude.Maybe Prelude.Text)
 listedAgreement_partnerProfileId = Lens.lens (\ListedAgreement' {partnerProfileId} -> partnerProfileId) (\s@ListedAgreement' {} a -> s {partnerProfileId = a} :: ListedAgreement)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.ListedProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,12 @@ import Amazonka.Transfer.Types.ProfileType
 data ListedProfile = ListedProfile'
   { -- | A unique identifier for the local or partner AS2 profile.
     profileId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the AS2 process.
+    -- | The @As2Id@ is the /AS2-name/, as defined in the
+    -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
+    -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
+    -- the partner. For outbound connectors, this is the @AS2-To@ header for
+    -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
+    -- operation. This ID cannot include spaces.
     as2Id :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the specified profile.
     arn :: Prelude.Maybe Prelude.Text,
@@ -51,7 +56,12 @@ data ListedProfile = ListedProfile'
 --
 -- 'profileId', 'listedProfile_profileId' - A unique identifier for the local or partner AS2 profile.
 --
--- 'as2Id', 'listedProfile_as2Id' - The unique identifier for the AS2 process.
+-- 'as2Id', 'listedProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the
+-- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
+-- transfers, this is the @AS2-From@ header for the AS2 messages sent from
+-- the partner. For outbound connectors, this is the @AS2-To@ header for
+-- the AS2 messages sent to the partner using the @StartFileTransfer@ API
+-- operation. This ID cannot include spaces.
 --
 -- 'arn', 'listedProfile_arn' - The Amazon Resource Name (ARN) of the specified profile.
 --
@@ -72,7 +82,12 @@ newListedProfile =
 listedProfile_profileId :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
 listedProfile_profileId = Lens.lens (\ListedProfile' {profileId} -> profileId) (\s@ListedProfile' {} a -> s {profileId = a} :: ListedProfile)
 
--- | The unique identifier for the AS2 process.
+-- | The @As2Id@ is the /AS2-name/, as defined in the
+-- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
+-- transfers, this is the @AS2-From@ header for the AS2 messages sent from
+-- the partner. For outbound connectors, this is the @AS2-To@ header for
+-- the AS2 messages sent to the partner using the @StartFileTransfer@ API
+-- operation. This ID cannot include spaces.
 listedProfile_as2Id :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
 listedProfile_as2Id = Lens.lens (\ListedProfile' {as2Id} -> as2Id) (\s@ListedProfile' {} a -> s {as2Id = a} :: ListedProfile)
 

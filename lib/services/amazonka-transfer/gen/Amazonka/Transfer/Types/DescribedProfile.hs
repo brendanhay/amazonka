@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.DescribedProfile
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,12 @@ data DescribedProfile = DescribedProfile'
     -- | An array of identifiers for the imported certificates. You use this
     -- identifier for working with profiles and partner profiles.
     certificateIds :: Prelude.Maybe [Prelude.Text],
-    -- | The unique identifier for the AS2 process.
+    -- | The @As2Id@ is the /AS2-name/, as defined in the
+    -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
+    -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
+    -- the partner. For outbound connectors, this is the @AS2-To@ header for
+    -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
+    -- operation. This ID cannot include spaces.
     as2Id :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
     -- type profiles. If not supplied in the request, the command lists all
@@ -62,7 +67,12 @@ data DescribedProfile = DescribedProfile'
 -- 'certificateIds', 'describedProfile_certificateIds' - An array of identifiers for the imported certificates. You use this
 -- identifier for working with profiles and partner profiles.
 --
--- 'as2Id', 'describedProfile_as2Id' - The unique identifier for the AS2 process.
+-- 'as2Id', 'describedProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the
+-- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
+-- transfers, this is the @AS2-From@ header for the AS2 messages sent from
+-- the partner. For outbound connectors, this is the @AS2-To@ header for
+-- the AS2 messages sent to the partner using the @StartFileTransfer@ API
+-- operation. This ID cannot include spaces.
 --
 -- 'profileType', 'describedProfile_profileType' - Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
@@ -96,7 +106,12 @@ describedProfile_profileId = Lens.lens (\DescribedProfile' {profileId} -> profil
 describedProfile_certificateIds :: Lens.Lens' DescribedProfile (Prelude.Maybe [Prelude.Text])
 describedProfile_certificateIds = Lens.lens (\DescribedProfile' {certificateIds} -> certificateIds) (\s@DescribedProfile' {} a -> s {certificateIds = a} :: DescribedProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique identifier for the AS2 process.
+-- | The @As2Id@ is the /AS2-name/, as defined in the
+-- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
+-- transfers, this is the @AS2-From@ header for the AS2 messages sent from
+-- the partner. For outbound connectors, this is the @AS2-To@ header for
+-- the AS2 messages sent to the partner using the @StartFileTransfer@ API
+-- operation. This ID cannot include spaces.
 describedProfile_as2Id :: Lens.Lens' DescribedProfile (Prelude.Maybe Prelude.Text)
 describedProfile_as2Id = Lens.lens (\DescribedProfile' {as2Id} -> as2Id) (\s@DescribedProfile' {} a -> s {as2Id = a} :: DescribedProfile)
 

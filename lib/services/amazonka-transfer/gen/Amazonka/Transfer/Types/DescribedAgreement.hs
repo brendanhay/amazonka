@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.DescribedAgreement
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,9 +31,17 @@ import Amazonka.Transfer.Types.Tag
 data DescribedAgreement = DescribedAgreement'
   { -- | Key-value pairs that can be used to group and search for agreements.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) role that grants access to at least the @HomeDirectory@ of your
-    -- users\' Amazon S3 buckets.
+    -- | With AS2, you can send files by calling @StartFileTransfer@ and
+    -- specifying the file paths in the request parameter, @SendFilePaths@. We
+    -- use the file’s parent directory (for example, for
+    -- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
+    -- @\/bucket\/dir\/@) to temporarily store a processed AS2 message file,
+    -- store the MDN when we receive them from the partner, and write a final
+    -- JSON file containing relevant metadata of the transmission. So, the
+    -- @AccessRole@ needs to provide read and write access to the parent
+    -- directory of the file location used in the @StartFileTransfer@ request.
+    -- Additionally, you need to provide read and write access to the parent
+    -- directory of the files that you intend to send with @StartFileTransfer@.
     accessRole :: Prelude.Maybe Prelude.Text,
     -- | The current status of the agreement, either @ACTIVE@ or @INACTIVE@.
     status :: Prelude.Maybe AgreementStatusType,
@@ -42,7 +50,7 @@ data DescribedAgreement = DescribedAgreement'
     baseDirectory :: Prelude.Maybe Prelude.Text,
     -- | The name or short description that\'s used to identify the agreement.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the AS2 process.
+    -- | A unique identifier for the AS2 local profile.
     localProfileId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the agreement. This identifier is returned when
     -- you create an agreement.
@@ -50,7 +58,7 @@ data DescribedAgreement = DescribedAgreement'
     -- | A system-assigned unique identifier for a server instance. This
     -- identifier indicates the specific server that the agreement uses.
     serverId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the partner in the agreement.
+    -- | A unique identifier for the partner profile used in the agreement.
     partnerProfileId :: Prelude.Maybe Prelude.Text,
     -- | The unique Amazon Resource Name (ARN) for the agreement.
     arn :: Prelude.Text
@@ -67,9 +75,17 @@ data DescribedAgreement = DescribedAgreement'
 --
 -- 'tags', 'describedAgreement_tags' - Key-value pairs that can be used to group and search for agreements.
 --
--- 'accessRole', 'describedAgreement_accessRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role that grants access to at least the @HomeDirectory@ of your
--- users\' Amazon S3 buckets.
+-- 'accessRole', 'describedAgreement_accessRole' - With AS2, you can send files by calling @StartFileTransfer@ and
+-- specifying the file paths in the request parameter, @SendFilePaths@. We
+-- use the file’s parent directory (for example, for
+-- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
+-- @\/bucket\/dir\/@) to temporarily store a processed AS2 message file,
+-- store the MDN when we receive them from the partner, and write a final
+-- JSON file containing relevant metadata of the transmission. So, the
+-- @AccessRole@ needs to provide read and write access to the parent
+-- directory of the file location used in the @StartFileTransfer@ request.
+-- Additionally, you need to provide read and write access to the parent
+-- directory of the files that you intend to send with @StartFileTransfer@.
 --
 -- 'status', 'describedAgreement_status' - The current status of the agreement, either @ACTIVE@ or @INACTIVE@.
 --
@@ -78,7 +94,7 @@ data DescribedAgreement = DescribedAgreement'
 --
 -- 'description', 'describedAgreement_description' - The name or short description that\'s used to identify the agreement.
 --
--- 'localProfileId', 'describedAgreement_localProfileId' - A unique identifier for the AS2 process.
+-- 'localProfileId', 'describedAgreement_localProfileId' - A unique identifier for the AS2 local profile.
 --
 -- 'agreementId', 'describedAgreement_agreementId' - A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
@@ -86,7 +102,7 @@ data DescribedAgreement = DescribedAgreement'
 -- 'serverId', 'describedAgreement_serverId' - A system-assigned unique identifier for a server instance. This
 -- identifier indicates the specific server that the agreement uses.
 --
--- 'partnerProfileId', 'describedAgreement_partnerProfileId' - A unique identifier for the partner in the agreement.
+-- 'partnerProfileId', 'describedAgreement_partnerProfileId' - A unique identifier for the partner profile used in the agreement.
 --
 -- 'arn', 'describedAgreement_arn' - The unique Amazon Resource Name (ARN) for the agreement.
 newDescribedAgreement ::
@@ -111,9 +127,17 @@ newDescribedAgreement pArn_ =
 describedAgreement_tags :: Lens.Lens' DescribedAgreement (Prelude.Maybe (Prelude.NonEmpty Tag))
 describedAgreement_tags = Lens.lens (\DescribedAgreement' {tags} -> tags) (\s@DescribedAgreement' {} a -> s {tags = a} :: DescribedAgreement) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role that grants access to at least the @HomeDirectory@ of your
--- users\' Amazon S3 buckets.
+-- | With AS2, you can send files by calling @StartFileTransfer@ and
+-- specifying the file paths in the request parameter, @SendFilePaths@. We
+-- use the file’s parent directory (for example, for
+-- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
+-- @\/bucket\/dir\/@) to temporarily store a processed AS2 message file,
+-- store the MDN when we receive them from the partner, and write a final
+-- JSON file containing relevant metadata of the transmission. So, the
+-- @AccessRole@ needs to provide read and write access to the parent
+-- directory of the file location used in the @StartFileTransfer@ request.
+-- Additionally, you need to provide read and write access to the parent
+-- directory of the files that you intend to send with @StartFileTransfer@.
 describedAgreement_accessRole :: Lens.Lens' DescribedAgreement (Prelude.Maybe Prelude.Text)
 describedAgreement_accessRole = Lens.lens (\DescribedAgreement' {accessRole} -> accessRole) (\s@DescribedAgreement' {} a -> s {accessRole = a} :: DescribedAgreement)
 
@@ -130,7 +154,7 @@ describedAgreement_baseDirectory = Lens.lens (\DescribedAgreement' {baseDirector
 describedAgreement_description :: Lens.Lens' DescribedAgreement (Prelude.Maybe Prelude.Text)
 describedAgreement_description = Lens.lens (\DescribedAgreement' {description} -> description) (\s@DescribedAgreement' {} a -> s {description = a} :: DescribedAgreement)
 
--- | A unique identifier for the AS2 process.
+-- | A unique identifier for the AS2 local profile.
 describedAgreement_localProfileId :: Lens.Lens' DescribedAgreement (Prelude.Maybe Prelude.Text)
 describedAgreement_localProfileId = Lens.lens (\DescribedAgreement' {localProfileId} -> localProfileId) (\s@DescribedAgreement' {} a -> s {localProfileId = a} :: DescribedAgreement)
 
@@ -144,7 +168,7 @@ describedAgreement_agreementId = Lens.lens (\DescribedAgreement' {agreementId} -
 describedAgreement_serverId :: Lens.Lens' DescribedAgreement (Prelude.Maybe Prelude.Text)
 describedAgreement_serverId = Lens.lens (\DescribedAgreement' {serverId} -> serverId) (\s@DescribedAgreement' {} a -> s {serverId = a} :: DescribedAgreement)
 
--- | A unique identifier for the partner in the agreement.
+-- | A unique identifier for the partner profile used in the agreement.
 describedAgreement_partnerProfileId :: Lens.Lens' DescribedAgreement (Prelude.Maybe Prelude.Text)
 describedAgreement_partnerProfileId = Lens.lens (\DescribedAgreement' {partnerProfileId} -> partnerProfileId) (\s@DescribedAgreement' {} a -> s {partnerProfileId = a} :: DescribedAgreement)
 

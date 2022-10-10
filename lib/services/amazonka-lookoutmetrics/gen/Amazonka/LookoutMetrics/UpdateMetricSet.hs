@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutMetrics.UpdateMetricSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,7 @@ module Amazonka.LookoutMetrics.UpdateMetricSet
     updateMetricSet_metricSetDescription,
     updateMetricSet_offset,
     updateMetricSet_metricSource,
+    updateMetricSet_dimensionFilterList,
     updateMetricSet_dimensionList,
     updateMetricSet_metricSetFrequency,
     updateMetricSet_metricList,
@@ -64,6 +65,12 @@ data UpdateMetricSet = UpdateMetricSet'
     -- and datasources.
     offset :: Prelude.Maybe Prelude.Natural,
     metricSource :: Prelude.Maybe MetricSource,
+    -- | Describes a list of filters for choosing specific dimensions and
+    -- specific values. Each filter consists of the dimension and one of its
+    -- values that you want to include. When multiple dimensions or values are
+    -- specified, the dimensions are joined with an AND operation and the
+    -- values are joined with an OR operation.
+    dimensionFilterList :: Prelude.Maybe [MetricSetDimensionFilter],
     -- | The dimension list.
     dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The dataset\'s interval.
@@ -93,6 +100,12 @@ data UpdateMetricSet = UpdateMetricSet'
 --
 -- 'metricSource', 'updateMetricSet_metricSource' - Undocumented member.
 --
+-- 'dimensionFilterList', 'updateMetricSet_dimensionFilterList' - Describes a list of filters for choosing specific dimensions and
+-- specific values. Each filter consists of the dimension and one of its
+-- values that you want to include. When multiple dimensions or values are
+-- specified, the dimensions are joined with an AND operation and the
+-- values are joined with an OR operation.
+--
 -- 'dimensionList', 'updateMetricSet_dimensionList' - The dimension list.
 --
 -- 'metricSetFrequency', 'updateMetricSet_metricSetFrequency' - The dataset\'s interval.
@@ -110,6 +123,7 @@ newUpdateMetricSet pMetricSetArn_ =
       metricSetDescription = Prelude.Nothing,
       offset = Prelude.Nothing,
       metricSource = Prelude.Nothing,
+      dimensionFilterList = Prelude.Nothing,
       dimensionList = Prelude.Nothing,
       metricSetFrequency = Prelude.Nothing,
       metricList = Prelude.Nothing,
@@ -133,6 +147,14 @@ updateMetricSet_offset = Lens.lens (\UpdateMetricSet' {offset} -> offset) (\s@Up
 -- | Undocumented member.
 updateMetricSet_metricSource :: Lens.Lens' UpdateMetricSet (Prelude.Maybe MetricSource)
 updateMetricSet_metricSource = Lens.lens (\UpdateMetricSet' {metricSource} -> metricSource) (\s@UpdateMetricSet' {} a -> s {metricSource = a} :: UpdateMetricSet)
+
+-- | Describes a list of filters for choosing specific dimensions and
+-- specific values. Each filter consists of the dimension and one of its
+-- values that you want to include. When multiple dimensions or values are
+-- specified, the dimensions are joined with an AND operation and the
+-- values are joined with an OR operation.
+updateMetricSet_dimensionFilterList :: Lens.Lens' UpdateMetricSet (Prelude.Maybe [MetricSetDimensionFilter])
+updateMetricSet_dimensionFilterList = Lens.lens (\UpdateMetricSet' {dimensionFilterList} -> dimensionFilterList) (\s@UpdateMetricSet' {} a -> s {dimensionFilterList = a} :: UpdateMetricSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The dimension list.
 updateMetricSet_dimensionList :: Lens.Lens' UpdateMetricSet (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -169,6 +191,7 @@ instance Prelude.Hashable UpdateMetricSet where
       `Prelude.hashWithSalt` metricSetDescription
       `Prelude.hashWithSalt` offset
       `Prelude.hashWithSalt` metricSource
+      `Prelude.hashWithSalt` dimensionFilterList
       `Prelude.hashWithSalt` dimensionList
       `Prelude.hashWithSalt` metricSetFrequency
       `Prelude.hashWithSalt` metricList
@@ -180,6 +203,7 @@ instance Prelude.NFData UpdateMetricSet where
       `Prelude.seq` Prelude.rnf metricSetDescription
       `Prelude.seq` Prelude.rnf offset
       `Prelude.seq` Prelude.rnf metricSource
+      `Prelude.seq` Prelude.rnf dimensionFilterList
       `Prelude.seq` Prelude.rnf dimensionList
       `Prelude.seq` Prelude.rnf metricSetFrequency
       `Prelude.seq` Prelude.rnf metricList
@@ -206,6 +230,8 @@ instance Core.ToJSON UpdateMetricSet where
               Prelude.<$> metricSetDescription,
             ("Offset" Core..=) Prelude.<$> offset,
             ("MetricSource" Core..=) Prelude.<$> metricSource,
+            ("DimensionFilterList" Core..=)
+              Prelude.<$> dimensionFilterList,
             ("DimensionList" Core..=) Prelude.<$> dimensionList,
             ("MetricSetFrequency" Core..=)
               Prelude.<$> metricSetFrequency,

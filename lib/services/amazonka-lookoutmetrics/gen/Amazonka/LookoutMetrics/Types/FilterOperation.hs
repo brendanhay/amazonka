@@ -11,17 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.LookoutMetrics.Types.JsonFileCompression
+-- Module      : Amazonka.LookoutMetrics.Types.FilterOperation
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.LookoutMetrics.Types.JsonFileCompression
-  ( JsonFileCompression
+module Amazonka.LookoutMetrics.Types.FilterOperation
+  ( FilterOperation
       ( ..,
-        JsonFileCompression_GZIP,
-        JsonFileCompression_NONE
+        FilterOperation_EQUALS
       ),
   )
 where
@@ -29,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype JsonFileCompression = JsonFileCompression'
-  { fromJsonFileCompression ::
+newtype FilterOperation = FilterOperation'
+  { fromFilterOperation ::
       Core.Text
   }
   deriving stock
@@ -57,14 +56,10 @@ newtype JsonFileCompression = JsonFileCompression'
       Core.ToXML
     )
 
-pattern JsonFileCompression_GZIP :: JsonFileCompression
-pattern JsonFileCompression_GZIP = JsonFileCompression' "GZIP"
-
-pattern JsonFileCompression_NONE :: JsonFileCompression
-pattern JsonFileCompression_NONE = JsonFileCompression' "NONE"
+pattern FilterOperation_EQUALS :: FilterOperation
+pattern FilterOperation_EQUALS = FilterOperation' "EQUALS"
 
 {-# COMPLETE
-  JsonFileCompression_GZIP,
-  JsonFileCompression_NONE,
-  JsonFileCompression'
+  FilterOperation_EQUALS,
+  FilterOperation'
   #-}

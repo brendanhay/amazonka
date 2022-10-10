@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostAndUsageReport.Types.AWSRegion
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,15 +28,18 @@ module Amazonka.CostAndUsageReport.Types.AWSRegion
         AWSRegion_Ap_south_1,
         AWSRegion_Ap_southeast_1,
         AWSRegion_Ap_southeast_2,
+        AWSRegion_Ap_southeast_3,
         AWSRegion_Ca_central_1,
         AWSRegion_Cn_north_1,
         AWSRegion_Cn_northwest_1,
         AWSRegion_Eu_central_1,
         AWSRegion_Eu_north_1,
         AWSRegion_Eu_south_1,
+        AWSRegion_Eu_south_2,
         AWSRegion_Eu_west_1,
         AWSRegion_Eu_west_2,
         AWSRegion_Eu_west_3,
+        AWSRegion_Me_central_1,
         AWSRegion_Me_south_1,
         AWSRegion_Sa_east_1,
         AWSRegion_Us_east_1,
@@ -103,6 +106,9 @@ pattern AWSRegion_Ap_southeast_1 = AWSRegion' "ap-southeast-1"
 pattern AWSRegion_Ap_southeast_2 :: AWSRegion
 pattern AWSRegion_Ap_southeast_2 = AWSRegion' "ap-southeast-2"
 
+pattern AWSRegion_Ap_southeast_3 :: AWSRegion
+pattern AWSRegion_Ap_southeast_3 = AWSRegion' "ap-southeast-3"
+
 pattern AWSRegion_Ca_central_1 :: AWSRegion
 pattern AWSRegion_Ca_central_1 = AWSRegion' "ca-central-1"
 
@@ -121,6 +127,9 @@ pattern AWSRegion_Eu_north_1 = AWSRegion' "eu-north-1"
 pattern AWSRegion_Eu_south_1 :: AWSRegion
 pattern AWSRegion_Eu_south_1 = AWSRegion' "eu-south-1"
 
+pattern AWSRegion_Eu_south_2 :: AWSRegion
+pattern AWSRegion_Eu_south_2 = AWSRegion' "eu-south-2"
+
 pattern AWSRegion_Eu_west_1 :: AWSRegion
 pattern AWSRegion_Eu_west_1 = AWSRegion' "eu-west-1"
 
@@ -129,6 +138,9 @@ pattern AWSRegion_Eu_west_2 = AWSRegion' "eu-west-2"
 
 pattern AWSRegion_Eu_west_3 :: AWSRegion
 pattern AWSRegion_Eu_west_3 = AWSRegion' "eu-west-3"
+
+pattern AWSRegion_Me_central_1 :: AWSRegion
+pattern AWSRegion_Me_central_1 = AWSRegion' "me-central-1"
 
 pattern AWSRegion_Me_south_1 :: AWSRegion
 pattern AWSRegion_Me_south_1 = AWSRegion' "me-south-1"
@@ -157,15 +169,18 @@ pattern AWSRegion_Us_west_2 = AWSRegion' "us-west-2"
   AWSRegion_Ap_south_1,
   AWSRegion_Ap_southeast_1,
   AWSRegion_Ap_southeast_2,
+  AWSRegion_Ap_southeast_3,
   AWSRegion_Ca_central_1,
   AWSRegion_Cn_north_1,
   AWSRegion_Cn_northwest_1,
   AWSRegion_Eu_central_1,
   AWSRegion_Eu_north_1,
   AWSRegion_Eu_south_1,
+  AWSRegion_Eu_south_2,
   AWSRegion_Eu_west_1,
   AWSRegion_Eu_west_2,
   AWSRegion_Eu_west_3,
+  AWSRegion_Me_central_1,
   AWSRegion_Me_south_1,
   AWSRegion_Sa_east_1,
   AWSRegion_Us_east_1,

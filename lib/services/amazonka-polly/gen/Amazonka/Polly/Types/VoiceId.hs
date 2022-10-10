@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Polly.Types.VoiceId
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,6 +48,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Gwyneth,
         VoiceId_Hannah,
         VoiceId_Hans,
+        VoiceId_Hiujin,
         VoiceId_Ines,
         VoiceId_Ivy,
         VoiceId_Jacek,
@@ -207,6 +208,9 @@ pattern VoiceId_Hannah = VoiceId' "Hannah"
 
 pattern VoiceId_Hans :: VoiceId
 pattern VoiceId_Hans = VoiceId' "Hans"
+
+pattern VoiceId_Hiujin :: VoiceId
+pattern VoiceId_Hiujin = VoiceId' "Hiujin"
 
 pattern VoiceId_Ines :: VoiceId
 pattern VoiceId_Ines = VoiceId' "Ines"
@@ -369,6 +373,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Gwyneth,
   VoiceId_Hannah,
   VoiceId_Hans,
+  VoiceId_Hiujin,
   VoiceId_Ines,
   VoiceId_Ivy,
   VoiceId_Jacek,

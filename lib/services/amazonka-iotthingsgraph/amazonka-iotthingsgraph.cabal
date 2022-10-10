@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -44,78 +44,12 @@ library
 
   exposed-modules:
     Amazonka.IoTThingsGraph
-    Amazonka.IoTThingsGraph.AssociateEntityToThing
-    Amazonka.IoTThingsGraph.CreateFlowTemplate
-    Amazonka.IoTThingsGraph.CreateSystemInstance
-    Amazonka.IoTThingsGraph.CreateSystemTemplate
-    Amazonka.IoTThingsGraph.DeleteFlowTemplate
-    Amazonka.IoTThingsGraph.DeleteNamespace
-    Amazonka.IoTThingsGraph.DeleteSystemInstance
-    Amazonka.IoTThingsGraph.DeleteSystemTemplate
-    Amazonka.IoTThingsGraph.DeploySystemInstance
-    Amazonka.IoTThingsGraph.DeprecateFlowTemplate
-    Amazonka.IoTThingsGraph.DeprecateSystemTemplate
-    Amazonka.IoTThingsGraph.DescribeNamespace
-    Amazonka.IoTThingsGraph.DissociateEntityFromThing
-    Amazonka.IoTThingsGraph.GetEntities
-    Amazonka.IoTThingsGraph.GetFlowTemplate
-    Amazonka.IoTThingsGraph.GetFlowTemplateRevisions
-    Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus
-    Amazonka.IoTThingsGraph.GetSystemInstance
-    Amazonka.IoTThingsGraph.GetSystemTemplate
-    Amazonka.IoTThingsGraph.GetSystemTemplateRevisions
-    Amazonka.IoTThingsGraph.GetUploadStatus
     Amazonka.IoTThingsGraph.Lens
-    Amazonka.IoTThingsGraph.ListFlowExecutionMessages
-    Amazonka.IoTThingsGraph.ListTagsForResource
-    Amazonka.IoTThingsGraph.SearchEntities
-    Amazonka.IoTThingsGraph.SearchFlowExecutions
-    Amazonka.IoTThingsGraph.SearchFlowTemplates
-    Amazonka.IoTThingsGraph.SearchSystemInstances
-    Amazonka.IoTThingsGraph.SearchSystemTemplates
-    Amazonka.IoTThingsGraph.SearchThings
-    Amazonka.IoTThingsGraph.TagResource
     Amazonka.IoTThingsGraph.Types
-    Amazonka.IoTThingsGraph.Types.DefinitionDocument
-    Amazonka.IoTThingsGraph.Types.DefinitionLanguage
-    Amazonka.IoTThingsGraph.Types.DependencyRevision
-    Amazonka.IoTThingsGraph.Types.DeploymentTarget
-    Amazonka.IoTThingsGraph.Types.EntityDescription
-    Amazonka.IoTThingsGraph.Types.EntityFilter
-    Amazonka.IoTThingsGraph.Types.EntityFilterName
-    Amazonka.IoTThingsGraph.Types.EntityType
-    Amazonka.IoTThingsGraph.Types.FlowExecutionEventType
-    Amazonka.IoTThingsGraph.Types.FlowExecutionMessage
-    Amazonka.IoTThingsGraph.Types.FlowExecutionStatus
-    Amazonka.IoTThingsGraph.Types.FlowExecutionSummary
-    Amazonka.IoTThingsGraph.Types.FlowTemplateDescription
-    Amazonka.IoTThingsGraph.Types.FlowTemplateFilter
-    Amazonka.IoTThingsGraph.Types.FlowTemplateFilterName
-    Amazonka.IoTThingsGraph.Types.FlowTemplateSummary
-    Amazonka.IoTThingsGraph.Types.MetricsConfiguration
-    Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatus
-    Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes
-    Amazonka.IoTThingsGraph.Types.SystemInstanceDeploymentStatus
-    Amazonka.IoTThingsGraph.Types.SystemInstanceDescription
-    Amazonka.IoTThingsGraph.Types.SystemInstanceFilter
-    Amazonka.IoTThingsGraph.Types.SystemInstanceFilterName
-    Amazonka.IoTThingsGraph.Types.SystemInstanceSummary
-    Amazonka.IoTThingsGraph.Types.SystemTemplateDescription
-    Amazonka.IoTThingsGraph.Types.SystemTemplateFilter
-    Amazonka.IoTThingsGraph.Types.SystemTemplateFilterName
-    Amazonka.IoTThingsGraph.Types.SystemTemplateSummary
-    Amazonka.IoTThingsGraph.Types.Tag
-    Amazonka.IoTThingsGraph.Types.Thing
-    Amazonka.IoTThingsGraph.Types.UploadStatus
-    Amazonka.IoTThingsGraph.UndeploySystemInstance
-    Amazonka.IoTThingsGraph.UntagResource
-    Amazonka.IoTThingsGraph.UpdateFlowTemplate
-    Amazonka.IoTThingsGraph.UpdateSystemTemplate
-    Amazonka.IoTThingsGraph.UploadEntityDefinitions
     Amazonka.IoTThingsGraph.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-iotthingsgraph-test
@@ -134,9 +68,9 @@ test-suite amazonka-iotthingsgraph-test
     Test.Amazonka.IoTThingsGraph.Internal
 
   build-depends:
-    , amazonka-core            ^>=2.0
+    , amazonka-core            >=2.0 && <2.1
     , amazonka-iotthingsgraph
-    , amazonka-test            ^>=2.0
+    , amazonka-test            >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Config.Types.ConformancePackDetail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.Config.Types.ConformancePackDetail where
 
 import Amazonka.Config.Types.ConformancePackInputParameter
+import Amazonka.Config.Types.TemplateSSMDocumentDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConformancePackDetail' smart constructor.
 data ConformancePackDetail = ConformancePackDetail'
-  { -- | Last time when conformation pack update was requested.
+  { -- | The last time a conformation pack update was requested.
     lastUpdateRequestedTime :: Prelude.Maybe Core.POSIX,
     -- | A list of @ConformancePackInputParameter@ objects.
     conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
@@ -39,7 +40,11 @@ data ConformancePackDetail = ConformancePackDetail'
     --
     -- This field is optional.
     deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services service that created the conformance pack.
+    -- | An object that contains the name or Amazon Resource Name (ARN) of the
+    -- Amazon Web Services Systems Manager document (SSM document) and the
+    -- version of the SSM document that is used to create a conformance pack.
+    templateSSMDocumentDetails :: Prelude.Maybe TemplateSSMDocumentDetails,
+    -- | The Amazon Web Services service that created the conformance pack.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the Amazon S3 bucket.
     --
@@ -62,7 +67,7 @@ data ConformancePackDetail = ConformancePackDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateRequestedTime', 'conformancePackDetail_lastUpdateRequestedTime' - Last time when conformation pack update was requested.
+-- 'lastUpdateRequestedTime', 'conformancePackDetail_lastUpdateRequestedTime' - The last time a conformation pack update was requested.
 --
 -- 'conformancePackInputParameters', 'conformancePackDetail_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
 --
@@ -71,7 +76,11 @@ data ConformancePackDetail = ConformancePackDetail'
 --
 -- This field is optional.
 --
--- 'createdBy', 'conformancePackDetail_createdBy' - Amazon Web Services service that created the conformance pack.
+-- 'templateSSMDocumentDetails', 'conformancePackDetail_templateSSMDocumentDetails' - An object that contains the name or Amazon Resource Name (ARN) of the
+-- Amazon Web Services Systems Manager document (SSM document) and the
+-- version of the SSM document that is used to create a conformance pack.
+--
+-- 'createdBy', 'conformancePackDetail_createdBy' - The Amazon Web Services service that created the conformance pack.
 --
 -- 'deliveryS3KeyPrefix', 'conformancePackDetail_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
 --
@@ -99,6 +108,7 @@ newConformancePackDetail
           Prelude.Nothing,
         conformancePackInputParameters = Prelude.Nothing,
         deliveryS3Bucket = Prelude.Nothing,
+        templateSSMDocumentDetails = Prelude.Nothing,
         createdBy = Prelude.Nothing,
         deliveryS3KeyPrefix = Prelude.Nothing,
         conformancePackName = pConformancePackName_,
@@ -106,7 +116,7 @@ newConformancePackDetail
         conformancePackId = pConformancePackId_
       }
 
--- | Last time when conformation pack update was requested.
+-- | The last time a conformation pack update was requested.
 conformancePackDetail_lastUpdateRequestedTime :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.UTCTime)
 conformancePackDetail_lastUpdateRequestedTime = Lens.lens (\ConformancePackDetail' {lastUpdateRequestedTime} -> lastUpdateRequestedTime) (\s@ConformancePackDetail' {} a -> s {lastUpdateRequestedTime = a} :: ConformancePackDetail) Prelude.. Lens.mapping Core._Time
 
@@ -121,7 +131,13 @@ conformancePackDetail_conformancePackInputParameters = Lens.lens (\ConformancePa
 conformancePackDetail_deliveryS3Bucket :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.Text)
 conformancePackDetail_deliveryS3Bucket = Lens.lens (\ConformancePackDetail' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@ConformancePackDetail' {} a -> s {deliveryS3Bucket = a} :: ConformancePackDetail)
 
--- | Amazon Web Services service that created the conformance pack.
+-- | An object that contains the name or Amazon Resource Name (ARN) of the
+-- Amazon Web Services Systems Manager document (SSM document) and the
+-- version of the SSM document that is used to create a conformance pack.
+conformancePackDetail_templateSSMDocumentDetails :: Lens.Lens' ConformancePackDetail (Prelude.Maybe TemplateSSMDocumentDetails)
+conformancePackDetail_templateSSMDocumentDetails = Lens.lens (\ConformancePackDetail' {templateSSMDocumentDetails} -> templateSSMDocumentDetails) (\s@ConformancePackDetail' {} a -> s {templateSSMDocumentDetails = a} :: ConformancePackDetail)
+
+-- | The Amazon Web Services service that created the conformance pack.
 conformancePackDetail_createdBy :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.Text)
 conformancePackDetail_createdBy = Lens.lens (\ConformancePackDetail' {createdBy} -> createdBy) (\s@ConformancePackDetail' {} a -> s {createdBy = a} :: ConformancePackDetail)
 
@@ -154,6 +170,7 @@ instance Core.FromJSON ConformancePackDetail where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "DeliveryS3Bucket")
+            Prelude.<*> (x Core..:? "TemplateSSMDocumentDetails")
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
             Prelude.<*> (x Core..: "ConformancePackName")
@@ -167,6 +184,7 @@ instance Prelude.Hashable ConformancePackDetail where
       `Prelude.hashWithSalt` lastUpdateRequestedTime
       `Prelude.hashWithSalt` conformancePackInputParameters
       `Prelude.hashWithSalt` deliveryS3Bucket
+      `Prelude.hashWithSalt` templateSSMDocumentDetails
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` deliveryS3KeyPrefix
       `Prelude.hashWithSalt` conformancePackName
@@ -178,6 +196,7 @@ instance Prelude.NFData ConformancePackDetail where
     Prelude.rnf lastUpdateRequestedTime
       `Prelude.seq` Prelude.rnf conformancePackInputParameters
       `Prelude.seq` Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf templateSSMDocumentDetails
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
       `Prelude.seq` Prelude.rnf conformancePackName

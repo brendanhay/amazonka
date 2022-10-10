@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Config.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -501,6 +501,7 @@ module Amazonka.Config.Lens
     putConformancePack_conformancePackInputParameters,
     putConformancePack_templateBody,
     putConformancePack_deliveryS3Bucket,
+    putConformancePack_templateSSMDocumentDetails,
     putConformancePack_deliveryS3KeyPrefix,
     putConformancePack_conformancePackName,
     putConformancePackResponse_conformancePackArn,
@@ -858,6 +859,7 @@ module Amazonka.Config.Lens
     conformancePackDetail_lastUpdateRequestedTime,
     conformancePackDetail_conformancePackInputParameters,
     conformancePackDetail_deliveryS3Bucket,
+    conformancePackDetail_templateSSMDocumentDetails,
     conformancePackDetail_createdBy,
     conformancePackDetail_deliveryS3KeyPrefix,
     conformancePackDetail_conformancePackName,
@@ -1208,6 +1210,10 @@ module Amazonka.Config.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** TemplateSSMDocumentDetails
+    templateSSMDocumentDetails_documentVersion,
+    templateSSMDocumentDetails_documentName,
   )
 where
 
@@ -1392,4 +1398,5 @@ import Amazonka.Config.Types.StatusDetailFilters
 import Amazonka.Config.Types.StoredQuery
 import Amazonka.Config.Types.StoredQueryMetadata
 import Amazonka.Config.Types.Tag
+import Amazonka.Config.Types.TemplateSSMDocumentDetails
 import Amazonka.Config.UntagResource

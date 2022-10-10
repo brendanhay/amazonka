@@ -37,6 +37,7 @@ haskell_library(
         "gen/Amazonka/Location/GetMapSprites.hs",
         "gen/Amazonka/Location/GetMapStyleDescriptor.hs",
         "gen/Amazonka/Location/GetMapTile.hs",
+        "gen/Amazonka/Location/GetPlace.hs",
         "gen/Amazonka/Location/Lens.hs",
         "gen/Amazonka/Location/ListDevicePositions.hs",
         "gen/Amazonka/Location/ListGeofenceCollections.hs",

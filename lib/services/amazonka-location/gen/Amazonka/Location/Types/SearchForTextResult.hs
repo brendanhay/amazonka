@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types.SearchForTextResult
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,6 +43,12 @@ data SearchForTextResult = SearchForTextResult'
     --
     -- Returned only when the partner selected is Esri.
     relevance :: Prelude.Maybe Prelude.Double,
+    -- | The unique identifier of the place. You can use this with the @GetPlace@
+    -- operation to find the place again later.
+    --
+    -- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
+    -- by place indexes that use HERE as a data provider.
+    placeId :: Prelude.Maybe Prelude.Text,
     -- | Details about the search result, such as its address and position.
     place :: Place
   }
@@ -70,6 +76,12 @@ data SearchForTextResult = SearchForTextResult'
 --
 -- Returned only when the partner selected is Esri.
 --
+-- 'placeId', 'searchForTextResult_placeId' - The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
+-- by place indexes that use HERE as a data provider.
+--
 -- 'place', 'searchForTextResult_place' - Details about the search result, such as its address and position.
 newSearchForTextResult ::
   -- | 'place'
@@ -79,6 +91,7 @@ newSearchForTextResult pPlace_ =
   SearchForTextResult'
     { distance = Prelude.Nothing,
       relevance = Prelude.Nothing,
+      placeId = Prelude.Nothing,
       place = pPlace_
     }
 
@@ -100,6 +113,14 @@ searchForTextResult_distance = Lens.lens (\SearchForTextResult' {distance} -> di
 searchForTextResult_relevance :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Double)
 searchForTextResult_relevance = Lens.lens (\SearchForTextResult' {relevance} -> relevance) (\s@SearchForTextResult' {} a -> s {relevance = a} :: SearchForTextResult)
 
+-- | The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
+-- by place indexes that use HERE as a data provider.
+searchForTextResult_placeId :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Text)
+searchForTextResult_placeId = Lens.lens (\SearchForTextResult' {placeId} -> placeId) (\s@SearchForTextResult' {} a -> s {placeId = a} :: SearchForTextResult)
+
 -- | Details about the search result, such as its address and position.
 searchForTextResult_place :: Lens.Lens' SearchForTextResult Place
 searchForTextResult_place = Lens.lens (\SearchForTextResult' {place} -> place) (\s@SearchForTextResult' {} a -> s {place = a} :: SearchForTextResult)
@@ -112,6 +133,7 @@ instance Core.FromJSON SearchForTextResult where
           SearchForTextResult'
             Prelude.<$> (x Core..:? "Distance")
             Prelude.<*> (x Core..:? "Relevance")
+            Prelude.<*> (x Core..:? "PlaceId")
             Prelude.<*> (x Core..: "Place")
       )
 
@@ -119,10 +141,12 @@ instance Prelude.Hashable SearchForTextResult where
   hashWithSalt _salt SearchForTextResult' {..} =
     _salt `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` relevance
+      `Prelude.hashWithSalt` placeId
       `Prelude.hashWithSalt` place
 
 instance Prelude.NFData SearchForTextResult where
   rnf SearchForTextResult' {..} =
     Prelude.rnf distance
       `Prelude.seq` Prelude.rnf relevance
+      `Prelude.seq` Prelude.rnf placeId
       `Prelude.seq` Prelude.rnf place

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Location
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -122,6 +122,9 @@ import Test.Tasty
 --
 --         , requestGetMapTile $
 --             newGetMapTile
+--
+--         , requestGetPlace $
+--             newGetPlace
 --
 --         , requestListDevicePositions $
 --             newListDevicePositions
@@ -281,6 +284,9 @@ import Test.Tasty
 --
 --         , responseGetMapTile $
 --             newGetMapTileResponse
+--
+--         , responseGetPlace $
+--             newGetPlaceResponse
 --
 --         , responseListDevicePositions $
 --             newListDevicePositionsResponse
@@ -538,6 +544,12 @@ requestGetMapTile =
   req
     "GetMapTile"
     "fixture/GetMapTile.yaml"
+
+requestGetPlace :: GetPlace -> TestTree
+requestGetPlace =
+  req
+    "GetPlace"
+    "fixture/GetPlace.yaml"
 
 requestListDevicePositions :: ListDevicePositions -> TestTree
 requestListDevicePositions =
@@ -916,6 +928,14 @@ responseGetMapTile =
     "fixture/GetMapTileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMapTile)
+
+responseGetPlace :: GetPlaceResponse -> TestTree
+responseGetPlace =
+  res
+    "GetPlaceResponse"
+    "fixture/GetPlaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPlace)
 
 responseListDevicePositions :: ListDevicePositionsResponse -> TestTree
 responseListDevicePositions =

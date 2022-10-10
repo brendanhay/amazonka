@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types.Place
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,6 +40,12 @@ data Place = Place'
     postalCode :: Prelude.Maybe Prelude.Text,
     -- | The name of a community district. For example, @Downtown@.
     neighborhood :: Prelude.Maybe Prelude.Text,
+    -- | For addresses with multiple units, the unit identifier. Can include
+    -- numbers and letters, for example @3B@ or @Unit 123@.
+    --
+    -- Returned only for a place index that uses Esri as a data provider. Is
+    -- not returned for @SearchPlaceIndexForPosition@.
+    unitNumber :: Prelude.Maybe Prelude.Text,
     -- | A country\/region specified using
     -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
     -- country\/region code. For example, @CAN@.
@@ -47,6 +53,9 @@ data Place = Place'
     -- | The full name and address of the point of interest such as a city,
     -- region, or country. For example, @123 Any Street, Any Town, USA@.
     label :: Prelude.Maybe Prelude.Text,
+    -- | For addresses with a @UnitNumber@, the type of unit. For example,
+    -- @Apartment@.
+    unitType :: Prelude.Maybe Prelude.Text,
     -- | The time zone in which the @Place@ is located. Returned only when using
     -- Here as the selected partner.
     timeZone :: Prelude.Maybe TimeZone,
@@ -92,12 +101,21 @@ data Place = Place'
 --
 -- 'neighborhood', 'place_neighborhood' - The name of a community district. For example, @Downtown@.
 --
+-- 'unitNumber', 'place_unitNumber' - For addresses with multiple units, the unit identifier. Can include
+-- numbers and letters, for example @3B@ or @Unit 123@.
+--
+-- Returned only for a place index that uses Esri as a data provider. Is
+-- not returned for @SearchPlaceIndexForPosition@.
+--
 -- 'country', 'place_country' - A country\/region specified using
 -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
 -- country\/region code. For example, @CAN@.
 --
 -- 'label', 'place_label' - The full name and address of the point of interest such as a city,
 -- region, or country. For example, @123 Any Street, Any Town, USA@.
+--
+-- 'unitType', 'place_unitType' - For addresses with a @UnitNumber@, the type of unit. For example,
+-- @Apartment@.
 --
 -- 'timeZone', 'place_timeZone' - The time zone in which the @Place@ is located. Returned only when using
 -- Here as the selected partner.
@@ -135,8 +153,10 @@ newPlace pGeometry_ =
     { addressNumber = Prelude.Nothing,
       postalCode = Prelude.Nothing,
       neighborhood = Prelude.Nothing,
+      unitNumber = Prelude.Nothing,
       country = Prelude.Nothing,
       label = Prelude.Nothing,
+      unitType = Prelude.Nothing,
       timeZone = Prelude.Nothing,
       region = Prelude.Nothing,
       subRegion = Prelude.Nothing,
@@ -159,6 +179,14 @@ place_postalCode = Lens.lens (\Place' {postalCode} -> postalCode) (\s@Place' {} 
 place_neighborhood :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_neighborhood = Lens.lens (\Place' {neighborhood} -> neighborhood) (\s@Place' {} a -> s {neighborhood = a} :: Place)
 
+-- | For addresses with multiple units, the unit identifier. Can include
+-- numbers and letters, for example @3B@ or @Unit 123@.
+--
+-- Returned only for a place index that uses Esri as a data provider. Is
+-- not returned for @SearchPlaceIndexForPosition@.
+place_unitNumber :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_unitNumber = Lens.lens (\Place' {unitNumber} -> unitNumber) (\s@Place' {} a -> s {unitNumber = a} :: Place)
+
 -- | A country\/region specified using
 -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
 -- country\/region code. For example, @CAN@.
@@ -169,6 +197,11 @@ place_country = Lens.lens (\Place' {country} -> country) (\s@Place' {} a -> s {c
 -- region, or country. For example, @123 Any Street, Any Town, USA@.
 place_label :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_label = Lens.lens (\Place' {label} -> label) (\s@Place' {} a -> s {label = a} :: Place)
+
+-- | For addresses with a @UnitNumber@, the type of unit. For example,
+-- @Apartment@.
+place_unitType :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_unitType = Lens.lens (\Place' {unitType} -> unitType) (\s@Place' {} a -> s {unitType = a} :: Place)
 
 -- | The time zone in which the @Place@ is located. Returned only when using
 -- Here as the selected partner.
@@ -221,8 +254,10 @@ instance Core.FromJSON Place where
             Prelude.<$> (x Core..:? "AddressNumber")
             Prelude.<*> (x Core..:? "PostalCode")
             Prelude.<*> (x Core..:? "Neighborhood")
+            Prelude.<*> (x Core..:? "UnitNumber")
             Prelude.<*> (x Core..:? "Country")
             Prelude.<*> (x Core..:? "Label")
+            Prelude.<*> (x Core..:? "UnitType")
             Prelude.<*> (x Core..:? "TimeZone")
             Prelude.<*> (x Core..:? "Region")
             Prelude.<*> (x Core..:? "SubRegion")
@@ -237,8 +272,10 @@ instance Prelude.Hashable Place where
     _salt `Prelude.hashWithSalt` addressNumber
       `Prelude.hashWithSalt` postalCode
       `Prelude.hashWithSalt` neighborhood
+      `Prelude.hashWithSalt` unitNumber
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` unitType
       `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` subRegion
@@ -252,8 +289,10 @@ instance Prelude.NFData Place where
     Prelude.rnf addressNumber
       `Prelude.seq` Prelude.rnf postalCode
       `Prelude.seq` Prelude.rnf neighborhood
+      `Prelude.seq` Prelude.rnf unitNumber
       `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf unitType
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf subRegion

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Location.GetMapSprites
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,7 +59,7 @@ data GetMapSprites = GetMapSprites'
     --
     -- -   @sprites\@2x.png@ for high pixel density displays
     --
-    -- For the JSON document contain image offsets. Use the following ﬁle
+    -- For the JSON document containing image offsets. Use the following ﬁle
     -- names:
     --
     -- -   @sprites.json@
@@ -86,7 +86,7 @@ data GetMapSprites = GetMapSprites'
 --
 -- -   @sprites\@2x.png@ for high pixel density displays
 --
--- For the JSON document contain image offsets. Use the following ﬁle
+-- For the JSON document containing image offsets. Use the following ﬁle
 -- names:
 --
 -- -   @sprites.json@
@@ -113,7 +113,7 @@ newGetMapSprites pFileName_ pMapName_ =
 --
 -- -   @sprites\@2x.png@ for high pixel density displays
 --
--- For the JSON document contain image offsets. Use the following ﬁle
+-- For the JSON document containing image offsets. Use the following ﬁle
 -- names:
 --
 -- -   @sprites.json@

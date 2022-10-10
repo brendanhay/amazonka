@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.GetJobManifest
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,12 @@
 -- another call to the @GetJobManifest@ action.
 --
 -- The manifest is an encrypted file that you can download after your job
--- enters the @WithCustomer@ status. The manifest is decrypted by using the
--- @UnlockCode@ code value, when you pass both values to the Snow device
--- through the Snowball client when the client is started for the first
--- time.
+-- enters the @WithCustomer@ status. This is the only valid status for
+-- calling this API as the manifest and @UnlockCode@ code value are used
+-- for securing your device and should only be used when you have the
+-- device. The manifest is decrypted by using the @UnlockCode@ code value,
+-- when you pass both values to the Snow device through the Snowball client
+-- when the client is started for the first time.
 --
 -- As a best practice, we recommend that you don\'t save a copy of an
 -- @UnlockCode@ value in the same location as the manifest file for that

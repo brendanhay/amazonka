@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Snowball.ListLongTermPricing
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all long-term pricing types.
+--
+-- This operation returns paginated results.
 module Amazonka.Snowball.ListLongTermPricing
   ( -- * Creating a Request
     ListLongTermPricing (..),
@@ -86,6 +88,28 @@ listLongTermPricing_nextToken = Lens.lens (\ListLongTermPricing' {nextToken} -> 
 -- | The maximum number of @ListLongTermPricing@ objects to return.
 listLongTermPricing_maxResults :: Lens.Lens' ListLongTermPricing (Prelude.Maybe Prelude.Natural)
 listLongTermPricing_maxResults = Lens.lens (\ListLongTermPricing' {maxResults} -> maxResults) (\s@ListLongTermPricing' {} a -> s {maxResults = a} :: ListLongTermPricing)
+
+instance Core.AWSPager ListLongTermPricing where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listLongTermPricingResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listLongTermPricingResponse_longTermPricingEntries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listLongTermPricing_nextToken
+          Lens..~ rs
+          Lens.^? listLongTermPricingResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLongTermPricing where
   type

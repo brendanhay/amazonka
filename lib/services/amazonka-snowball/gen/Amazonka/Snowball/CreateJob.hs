@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.CreateJob
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@
 -- more information about Region availability, see
 -- <https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4 Amazon Web Services Regional Services>.
 --
--- __Snow Family Devices and their capacities.__
+-- __Snow Family devices and their capacities.__
 --
 -- -   Snow Family device type: __SNC1_SSD__
 --
@@ -74,6 +74,12 @@
 --     -   Capacity: T100
 --
 --     -   Description: Snowball Edge Storage Optimized with EC2 Compute
+--
+-- -   Device type: __V3_5C__
+--
+--     -   Capacity: T32
+--
+--     -   Description: Snowball Edge Compute Optimized without GPU
 --
 -- -   Device type: __STANDARD__
 --
@@ -200,7 +206,7 @@ data CreateJob = CreateJob'
     snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
     -- | The ID for the address that you want the Snow device shipped to.
     addressId :: Prelude.Maybe Prelude.Text,
-    -- | The type of Snow Family Devices to use for this job.
+    -- | The type of Snow Family devices to use for this job.
     --
     -- For cluster jobs, Amazon Web Services Snow Family currently supports
     -- only the @EDGE@ device type.
@@ -318,7 +324,7 @@ data CreateJob = CreateJob'
 --
 -- 'addressId', 'createJob_addressId' - The ID for the address that you want the Snow device shipped to.
 --
--- 'snowballType', 'createJob_snowballType' - The type of Snow Family Devices to use for this job.
+-- 'snowballType', 'createJob_snowballType' - The type of Snow Family devices to use for this job.
 --
 -- For cluster jobs, Amazon Web Services Snow Family currently supports
 -- only the @EDGE@ device type.
@@ -473,7 +479,7 @@ createJob_snowballCapacityPreference = Lens.lens (\CreateJob' {snowballCapacityP
 createJob_addressId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_addressId = Lens.lens (\CreateJob' {addressId} -> addressId) (\s@CreateJob' {} a -> s {addressId = a} :: CreateJob)
 
--- | The type of Snow Family Devices to use for this job.
+-- | The type of Snow Family devices to use for this job.
 --
 -- For cluster jobs, Amazon Web Services Snow Family currently supports
 -- only the @EDGE@ device type.

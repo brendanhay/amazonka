@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.CreateLongTermPricing
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,10 +53,12 @@ import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateLongTermPricing' smart constructor.
 data CreateLongTermPricing = CreateLongTermPricing'
-  { -- | Specifies whether the current long-term pricing type for the device
+  { -- | snowballty
+    --
+    -- Specifies whether the current long-term pricing type for the device
     -- should be renewed.
     isLongTermPricingAutoRenew :: Prelude.Maybe Prelude.Bool,
-    -- | The type of Snow Family Devices to use for the long-term pricing job.
+    -- | The type of Snow Family devices to use for the long-term pricing job.
     snowballType :: Prelude.Maybe SnowballType,
     -- | The type of long-term pricing option you want for the device, either
     -- 1-year or 3-year long-term pricing.
@@ -72,10 +74,12 @@ data CreateLongTermPricing = CreateLongTermPricing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isLongTermPricingAutoRenew', 'createLongTermPricing_isLongTermPricingAutoRenew' - Specifies whether the current long-term pricing type for the device
+-- 'isLongTermPricingAutoRenew', 'createLongTermPricing_isLongTermPricingAutoRenew' - snowballty
+--
+-- Specifies whether the current long-term pricing type for the device
 -- should be renewed.
 --
--- 'snowballType', 'createLongTermPricing_snowballType' - The type of Snow Family Devices to use for the long-term pricing job.
+-- 'snowballType', 'createLongTermPricing_snowballType' - The type of Snow Family devices to use for the long-term pricing job.
 --
 -- 'longTermPricingType', 'createLongTermPricing_longTermPricingType' - The type of long-term pricing option you want for the device, either
 -- 1-year or 3-year long-term pricing.
@@ -91,12 +95,14 @@ newCreateLongTermPricing pLongTermPricingType_ =
       longTermPricingType = pLongTermPricingType_
     }
 
--- | Specifies whether the current long-term pricing type for the device
+-- | snowballty
+--
+-- Specifies whether the current long-term pricing type for the device
 -- should be renewed.
 createLongTermPricing_isLongTermPricingAutoRenew :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe Prelude.Bool)
 createLongTermPricing_isLongTermPricingAutoRenew = Lens.lens (\CreateLongTermPricing' {isLongTermPricingAutoRenew} -> isLongTermPricingAutoRenew) (\s@CreateLongTermPricing' {} a -> s {isLongTermPricingAutoRenew = a} :: CreateLongTermPricing)
 
--- | The type of Snow Family Devices to use for the long-term pricing job.
+-- | The type of Snow Family devices to use for the long-term pricing job.
 createLongTermPricing_snowballType :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe SnowballType)
 createLongTermPricing_snowballType = Lens.lens (\CreateLongTermPricing' {snowballType} -> snowballType) (\s@CreateLongTermPricing' {} a -> s {snowballType = a} :: CreateLongTermPricing)
 

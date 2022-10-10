@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Snowball.GetJobUnlockCode
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,10 @@
 -- The @UnlockCode@ value is a 29-character code with 25 alphanumeric
 -- characters and 4 hyphens. This code is used to decrypt the manifest file
 -- when it is passed along with the manifest to the Snow device through the
--- Snowball client when the client is started for the first time.
+-- Snowball client when the client is started for the first time. The only
+-- valid status for calling this API is @WithCustomer@ as the manifest and
+-- @Unlock@ code values are used for securing your device and should only
+-- be used when you have the device.
 --
 -- As a best practice, we recommend that you don\'t save a copy of the
 -- @UnlockCode@ in the same location as the manifest file for that job.

@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -106,6 +106,7 @@ module Amazonka.EMRContainers.Types
     -- * JobDriver
     JobDriver (..),
     newJobDriver,
+    jobDriver_sparkSqlJobDriver,
     jobDriver_sparkSubmitJobDriver,
 
     -- * JobRun
@@ -139,6 +140,12 @@ module Amazonka.EMRContainers.Types
     S3MonitoringConfiguration (..),
     newS3MonitoringConfiguration,
     s3MonitoringConfiguration_logUri,
+
+    -- * SparkSqlJobDriver
+    SparkSqlJobDriver (..),
+    newSparkSqlJobDriver,
+    sparkSqlJobDriver_entryPoint,
+    sparkSqlJobDriver_sparkSqlParameters,
 
     -- * SparkSubmitJobDriver
     SparkSubmitJobDriver (..),
@@ -178,6 +185,7 @@ import Amazonka.EMRContainers.Types.JobRunState
 import Amazonka.EMRContainers.Types.MonitoringConfiguration
 import Amazonka.EMRContainers.Types.PersistentAppUI
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
+import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
 import Amazonka.EMRContainers.Types.VirtualCluster
 import Amazonka.EMRContainers.Types.VirtualClusterState

@@ -38,6 +38,7 @@ haskell_library(
         "gen/Amazonka/EMRContainers/Types/MonitoringConfiguration.hs",
         "gen/Amazonka/EMRContainers/Types/PersistentAppUI.hs",
         "gen/Amazonka/EMRContainers/Types/S3MonitoringConfiguration.hs",
+        "gen/Amazonka/EMRContainers/Types/SparkSqlJobDriver.hs",
         "gen/Amazonka/EMRContainers/Types/SparkSubmitJobDriver.hs",
         "gen/Amazonka/EMRContainers/Types/VirtualCluster.hs",
         "gen/Amazonka/EMRContainers/Types/VirtualClusterState.hs",

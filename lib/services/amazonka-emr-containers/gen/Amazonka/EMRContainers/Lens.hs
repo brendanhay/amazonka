@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -193,6 +193,7 @@ module Amazonka.EMRContainers.Lens
     endpoint_failureReason,
 
     -- ** JobDriver
+    jobDriver_sparkSqlJobDriver,
     jobDriver_sparkSubmitJobDriver,
 
     -- ** JobRun
@@ -220,6 +221,10 @@ module Amazonka.EMRContainers.Lens
 
     -- ** S3MonitoringConfiguration
     s3MonitoringConfiguration_logUri,
+
+    -- ** SparkSqlJobDriver
+    sparkSqlJobDriver_entryPoint,
+    sparkSqlJobDriver_sparkSqlParameters,
 
     -- ** SparkSubmitJobDriver
     sparkSubmitJobDriver_entryPointArguments,
@@ -263,6 +268,7 @@ import Amazonka.EMRContainers.Types.JobDriver
 import Amazonka.EMRContainers.Types.JobRun
 import Amazonka.EMRContainers.Types.MonitoringConfiguration
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
+import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
 import Amazonka.EMRContainers.Types.VirtualCluster
 import Amazonka.EMRContainers.UntagResource

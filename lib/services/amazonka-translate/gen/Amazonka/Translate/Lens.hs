@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -15,6 +15,7 @@ module Amazonka.Translate.Lens
   ( -- * Operations
 
     -- ** CreateParallelData
+    createParallelData_tags,
     createParallelData_description,
     createParallelData_encryptionKey,
     createParallelData_name,
@@ -55,6 +56,7 @@ module Amazonka.Translate.Lens
     getTerminologyResponse_httpStatus,
 
     -- ** ImportTerminology
+    importTerminology_tags,
     importTerminology_description,
     importTerminology_encryptionKey,
     importTerminology_name,
@@ -79,6 +81,11 @@ module Amazonka.Translate.Lens
     listParallelDataResponse_nextToken,
     listParallelDataResponse_parallelDataPropertiesList,
     listParallelDataResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** ListTerminologies
     listTerminologies_nextToken,
@@ -116,6 +123,11 @@ module Amazonka.Translate.Lens
     stopTextTranslationJobResponse_jobId,
     stopTextTranslationJobResponse_httpStatus,
 
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** TranslateText
     translateText_terminologyNames,
     translateText_settings,
@@ -128,6 +140,11 @@ module Amazonka.Translate.Lens
     translateTextResponse_translatedText,
     translateTextResponse_sourceLanguageCode,
     translateTextResponse_targetLanguageCode,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateParallelData
     updateParallelData_description,
@@ -193,6 +210,10 @@ module Amazonka.Translate.Lens
     parallelDataProperties_encryptionKey,
     parallelDataProperties_importedDataSize,
     parallelDataProperties_createdAt,
+
+    -- ** Tag
+    tag_key,
+    tag_value,
 
     -- ** Term
     term_targetText,
@@ -261,10 +282,12 @@ import Amazonka.Translate.GetTerminology
 import Amazonka.Translate.ImportTerminology
 import Amazonka.Translate.ListLanguages
 import Amazonka.Translate.ListParallelData
+import Amazonka.Translate.ListTagsForResource
 import Amazonka.Translate.ListTerminologies
 import Amazonka.Translate.ListTextTranslationJobs
 import Amazonka.Translate.StartTextTranslationJob
 import Amazonka.Translate.StopTextTranslationJob
+import Amazonka.Translate.TagResource
 import Amazonka.Translate.TranslateText
 import Amazonka.Translate.Types.AppliedTerminology
 import Amazonka.Translate.Types.EncryptionKey
@@ -275,6 +298,7 @@ import Amazonka.Translate.Types.OutputDataConfig
 import Amazonka.Translate.Types.ParallelDataConfig
 import Amazonka.Translate.Types.ParallelDataDataLocation
 import Amazonka.Translate.Types.ParallelDataProperties
+import Amazonka.Translate.Types.Tag
 import Amazonka.Translate.Types.Term
 import Amazonka.Translate.Types.TerminologyData
 import Amazonka.Translate.Types.TerminologyDataLocation
@@ -282,4 +306,5 @@ import Amazonka.Translate.Types.TerminologyProperties
 import Amazonka.Translate.Types.TextTranslationJobFilter
 import Amazonka.Translate.Types.TextTranslationJobProperties
 import Amazonka.Translate.Types.TranslationSettings
+import Amazonka.Translate.UntagResource
 import Amazonka.Translate.UpdateParallelData

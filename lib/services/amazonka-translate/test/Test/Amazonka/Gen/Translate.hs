@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Translate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,6 +54,9 @@ import Test.Tasty
 --         , requestListParallelData $
 --             newListParallelData
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestListTerminologies $
 --             newListTerminologies
 --
@@ -66,8 +69,14 @@ import Test.Tasty
 --         , requestStopTextTranslationJob $
 --             newStopTextTranslationJob
 --
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestTranslateText $
 --             newTranslateText
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdateParallelData $
 --             newUpdateParallelData
@@ -102,6 +111,9 @@ import Test.Tasty
 --         , responseListParallelData $
 --             newListParallelDataResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseListTerminologies $
 --             newListTerminologiesResponse
 --
@@ -114,8 +126,14 @@ import Test.Tasty
 --         , responseStopTextTranslationJob $
 --             newStopTextTranslationJobResponse
 --
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseTranslateText $
 --             newTranslateTextResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateParallelData $
 --             newUpdateParallelDataResponse
@@ -179,6 +197,12 @@ requestListParallelData =
     "ListParallelData"
     "fixture/ListParallelData.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestListTerminologies :: ListTerminologies -> TestTree
 requestListTerminologies =
   req
@@ -203,11 +227,23 @@ requestStopTextTranslationJob =
     "StopTextTranslationJob"
     "fixture/StopTextTranslationJob.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestTranslateText :: TranslateText -> TestTree
 requestTranslateText =
   req
     "TranslateText"
     "fixture/TranslateText.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateParallelData :: UpdateParallelData -> TestTree
 requestUpdateParallelData =
@@ -289,6 +325,14 @@ responseListParallelData =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListParallelData)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responseListTerminologies :: ListTerminologiesResponse -> TestTree
 responseListTerminologies =
   res
@@ -321,6 +365,14 @@ responseStopTextTranslationJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopTextTranslationJob)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseTranslateText :: TranslateTextResponse -> TestTree
 responseTranslateText =
   res
@@ -328,6 +380,14 @@ responseTranslateText =
     "fixture/TranslateTextResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TranslateText)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateParallelData :: UpdateParallelDataResponse -> TestTree
 responseUpdateParallelData =

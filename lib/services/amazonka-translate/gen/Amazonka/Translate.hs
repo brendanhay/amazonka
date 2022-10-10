@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Translate
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,9 @@ module Amazonka.Translate
 
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** DetectedLanguageLowConfidenceException
     _DetectedLanguageLowConfidenceException,
@@ -122,6 +125,12 @@ module Amazonka.Translate
     ListParallelDataResponse (ListParallelDataResponse'),
     newListParallelDataResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** ListTerminologies (Paginated)
     ListTerminologies (ListTerminologies'),
     newListTerminologies,
@@ -146,11 +155,23 @@ module Amazonka.Translate
     StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
     newStopTextTranslationJobResponse,
 
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** TranslateText
     TranslateText (TranslateText'),
     newTranslateText,
     TranslateTextResponse (TranslateTextResponse'),
     newTranslateTextResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateParallelData
     UpdateParallelData (UpdateParallelData'),
@@ -226,6 +247,10 @@ module Amazonka.Translate
     ParallelDataProperties (ParallelDataProperties'),
     newParallelDataProperties,
 
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+
     -- ** Term
     Term (Term'),
     newTerm,
@@ -266,12 +291,15 @@ import Amazonka.Translate.ImportTerminology
 import Amazonka.Translate.Lens
 import Amazonka.Translate.ListLanguages
 import Amazonka.Translate.ListParallelData
+import Amazonka.Translate.ListTagsForResource
 import Amazonka.Translate.ListTerminologies
 import Amazonka.Translate.ListTextTranslationJobs
 import Amazonka.Translate.StartTextTranslationJob
 import Amazonka.Translate.StopTextTranslationJob
+import Amazonka.Translate.TagResource
 import Amazonka.Translate.TranslateText
 import Amazonka.Translate.Types
+import Amazonka.Translate.UntagResource
 import Amazonka.Translate.UpdateParallelData
 import Amazonka.Translate.Waiters
 

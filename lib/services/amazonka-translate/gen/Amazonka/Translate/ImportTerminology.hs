@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.ImportTerminology
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,7 @@ module Amazonka.Translate.ImportTerminology
     newImportTerminology,
 
     -- * Request Lenses
+    importTerminology_tags,
     importTerminology_description,
     importTerminology_encryptionKey,
     importTerminology_name,
@@ -62,7 +63,8 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'
-  { -- | The description of the custom terminology being imported.
+  { tags :: Prelude.Maybe [Tag],
+    -- | The description of the custom terminology being imported.
     description :: Prelude.Maybe Prelude.Text,
     -- | The encryption key for the custom terminology being imported.
     encryptionKey :: Prelude.Maybe EncryptionKey,
@@ -85,6 +87,8 @@ data ImportTerminology = ImportTerminology'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'importTerminology_tags' - Undocumented member.
 --
 -- 'description', 'importTerminology_description' - The description of the custom terminology being imported.
 --
@@ -111,12 +115,17 @@ newImportTerminology
   pMergeStrategy_
   pTerminologyData_ =
     ImportTerminology'
-      { description = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         name = pName_,
         mergeStrategy = pMergeStrategy_,
         terminologyData = pTerminologyData_
       }
+
+-- | Undocumented member.
+importTerminology_tags :: Lens.Lens' ImportTerminology (Prelude.Maybe [Tag])
+importTerminology_tags = Lens.lens (\ImportTerminology' {tags} -> tags) (\s@ImportTerminology' {} a -> s {tags = a} :: ImportTerminology) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the custom terminology being imported.
 importTerminology_description :: Lens.Lens' ImportTerminology (Prelude.Maybe Prelude.Text)
@@ -157,7 +166,8 @@ instance Core.AWSRequest ImportTerminology where
 
 instance Prelude.Hashable ImportTerminology where
   hashWithSalt _salt ImportTerminology' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` mergeStrategy
@@ -165,7 +175,8 @@ instance Prelude.Hashable ImportTerminology where
 
 instance Prelude.NFData ImportTerminology where
   rnf ImportTerminology' {..} =
-    Prelude.rnf description
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf mergeStrategy
@@ -190,7 +201,8 @@ instance Core.ToJSON ImportTerminology where
   toJSON ImportTerminology' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("MergeStrategy" Core..= mergeStrategy),

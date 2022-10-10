@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Inspector2.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,6 +91,9 @@ module Amazonka.Inspector2.Types
 
     -- * FindingTypeSortBy
     FindingTypeSortBy (..),
+
+    -- * FixAvailable
+    FixAvailable (..),
 
     -- * FreeTrialInfoErrorCode
     FreeTrialInfoErrorCode (..),
@@ -497,6 +500,7 @@ module Amazonka.Inspector2.Types
     filterCriteria_findingType,
     filterCriteria_componentType,
     filterCriteria_vulnerabilityId,
+    filterCriteria_fixAvailable,
     filterCriteria_findingArn,
     filterCriteria_ec2InstanceSubnetId,
     filterCriteria_updatedAt,
@@ -509,6 +513,7 @@ module Amazonka.Inspector2.Types
     finding_title,
     finding_inspectorScoreDetails,
     finding_networkReachabilityDetails,
+    finding_fixAvailable,
     finding_updatedAt,
     finding_awsAccountId,
     finding_description,
@@ -639,6 +644,7 @@ module Amazonka.Inspector2.Types
     -- * PackageVulnerabilityDetails
     PackageVulnerabilityDetails (..),
     newPackageVulnerabilityDetails,
+    packageVulnerabilityDetails_vulnerablePackages,
     packageVulnerabilityDetails_referenceUrls,
     packageVulnerabilityDetails_vendorUpdatedAt,
     packageVulnerabilityDetails_vendorCreatedAt,
@@ -648,7 +654,6 @@ module Amazonka.Inspector2.Types
     packageVulnerabilityDetails_sourceUrl,
     packageVulnerabilityDetails_source,
     packageVulnerabilityDetails_vulnerabilityId,
-    packageVulnerabilityDetails_vulnerablePackages,
 
     -- * Permission
     Permission (..),
@@ -804,6 +809,7 @@ module Amazonka.Inspector2.Types
     newVulnerablePackage,
     vulnerablePackage_filePath,
     vulnerablePackage_fixedInVersion,
+    vulnerablePackage_remediation,
     vulnerablePackage_arch,
     vulnerablePackage_epoch,
     vulnerablePackage_packageManager,
@@ -876,6 +882,7 @@ import Amazonka.Inspector2.Types.FindingType
 import Amazonka.Inspector2.Types.FindingTypeAggregation
 import Amazonka.Inspector2.Types.FindingTypeAggregationResponse
 import Amazonka.Inspector2.Types.FindingTypeSortBy
+import Amazonka.Inspector2.Types.FixAvailable
 import Amazonka.Inspector2.Types.FreeTrialAccountInfo
 import Amazonka.Inspector2.Types.FreeTrialInfo
 import Amazonka.Inspector2.Types.FreeTrialInfoError

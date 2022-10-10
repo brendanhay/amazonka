@@ -96,6 +96,7 @@ haskell_library(
         "gen/Amazonka/Inspector2/Types/FindingTypeAggregation.hs",
         "gen/Amazonka/Inspector2/Types/FindingTypeAggregationResponse.hs",
         "gen/Amazonka/Inspector2/Types/FindingTypeSortBy.hs",
+        "gen/Amazonka/Inspector2/Types/FixAvailable.hs",
         "gen/Amazonka/Inspector2/Types/FreeTrialAccountInfo.hs",
         "gen/Amazonka/Inspector2/Types/FreeTrialInfo.hs",
         "gen/Amazonka/Inspector2/Types/FreeTrialInfoError.hs",

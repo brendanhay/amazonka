@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Inspector2.Types.SortOrder
+-- Module      : Amazonka.Inspector2.Types.FixAvailable
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Inspector2.Types.SortOrder
-  ( SortOrder
+module Amazonka.Inspector2.Types.FixAvailable
+  ( FixAvailable
       ( ..,
-        SortOrder_ASC,
-        SortOrder_DESC
+        FixAvailable_NO,
+        FixAvailable_PARTIAL,
+        FixAvailable_YES
       ),
   )
 where
@@ -29,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype SortOrder = SortOrder'
-  { fromSortOrder ::
+newtype FixAvailable = FixAvailable'
+  { fromFixAvailable ::
       Core.Text
   }
   deriving stock
@@ -57,14 +58,18 @@ newtype SortOrder = SortOrder'
       Core.ToXML
     )
 
-pattern SortOrder_ASC :: SortOrder
-pattern SortOrder_ASC = SortOrder' "ASC"
+pattern FixAvailable_NO :: FixAvailable
+pattern FixAvailable_NO = FixAvailable' "NO"
 
-pattern SortOrder_DESC :: SortOrder
-pattern SortOrder_DESC = SortOrder' "DESC"
+pattern FixAvailable_PARTIAL :: FixAvailable
+pattern FixAvailable_PARTIAL = FixAvailable' "PARTIAL"
+
+pattern FixAvailable_YES :: FixAvailable
+pattern FixAvailable_YES = FixAvailable' "YES"
 
 {-# COMPLETE
-  SortOrder_ASC,
-  SortOrder_DESC,
-  SortOrder'
+  FixAvailable_NO,
+  FixAvailable_PARTIAL,
+  FixAvailable_YES,
+  FixAvailable'
   #-}

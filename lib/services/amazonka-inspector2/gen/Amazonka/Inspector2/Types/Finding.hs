@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Inspector2.Types.Finding
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.Inspector2.Types.Finding where
 import qualified Amazonka.Core as Core
 import Amazonka.Inspector2.Types.FindingStatus
 import Amazonka.Inspector2.Types.FindingType
+import Amazonka.Inspector2.Types.FixAvailable
 import Amazonka.Inspector2.Types.InspectorScoreDetails
 import Amazonka.Inspector2.Types.NetworkReachabilityDetails
 import Amazonka.Inspector2.Types.PackageVulnerabilityDetails
@@ -45,6 +46,11 @@ data Finding = Finding'
     inspectorScoreDetails :: Prelude.Maybe InspectorScoreDetails,
     -- | An object that contains the details of a network reachability finding.
     networkReachabilityDetails :: Prelude.Maybe NetworkReachabilityDetails,
+    -- | Details on whether a fix is available through a version update. This
+    -- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+    -- but not all, of the packages identified in the finding have fixes
+    -- available through updated versions.
+    fixAvailable :: Prelude.Maybe FixAvailable,
     -- | The date and time the finding was last updated at.
     updatedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Web Services account ID associated with the finding.
@@ -87,6 +93,11 @@ data Finding = Finding'
 -- 'inspectorScoreDetails', 'finding_inspectorScoreDetails' - An object that contains details of the Amazon Inspector score.
 --
 -- 'networkReachabilityDetails', 'finding_networkReachabilityDetails' - An object that contains the details of a network reachability finding.
+--
+-- 'fixAvailable', 'finding_fixAvailable' - Details on whether a fix is available through a version update. This
+-- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+-- but not all, of the packages identified in the finding have fixes
+-- available through updated versions.
 --
 -- 'updatedAt', 'finding_updatedAt' - The date and time the finding was last updated at.
 --
@@ -148,6 +159,7 @@ newFinding
         title = Prelude.Nothing,
         inspectorScoreDetails = Prelude.Nothing,
         networkReachabilityDetails = Prelude.Nothing,
+        fixAvailable = Prelude.Nothing,
         updatedAt = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         description = pDescription_,
@@ -181,6 +193,13 @@ finding_inspectorScoreDetails = Lens.lens (\Finding' {inspectorScoreDetails} -> 
 -- | An object that contains the details of a network reachability finding.
 finding_networkReachabilityDetails :: Lens.Lens' Finding (Prelude.Maybe NetworkReachabilityDetails)
 finding_networkReachabilityDetails = Lens.lens (\Finding' {networkReachabilityDetails} -> networkReachabilityDetails) (\s@Finding' {} a -> s {networkReachabilityDetails = a} :: Finding)
+
+-- | Details on whether a fix is available through a version update. This
+-- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+-- but not all, of the packages identified in the finding have fixes
+-- available through updated versions.
+finding_fixAvailable :: Lens.Lens' Finding (Prelude.Maybe FixAvailable)
+finding_fixAvailable = Lens.lens (\Finding' {fixAvailable} -> fixAvailable) (\s@Finding' {} a -> s {fixAvailable = a} :: Finding)
 
 -- | The date and time the finding was last updated at.
 finding_updatedAt :: Lens.Lens' Finding (Prelude.Maybe Prelude.UTCTime)
@@ -237,6 +256,7 @@ instance Core.FromJSON Finding where
             Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "inspectorScoreDetails")
             Prelude.<*> (x Core..:? "networkReachabilityDetails")
+            Prelude.<*> (x Core..:? "fixAvailable")
             Prelude.<*> (x Core..:? "updatedAt")
             Prelude.<*> (x Core..: "awsAccountId")
             Prelude.<*> (x Core..: "description")
@@ -257,6 +277,7 @@ instance Prelude.Hashable Finding where
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` inspectorScoreDetails
       `Prelude.hashWithSalt` networkReachabilityDetails
+      `Prelude.hashWithSalt` fixAvailable
       `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` description
@@ -276,6 +297,7 @@ instance Prelude.NFData Finding where
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf inspectorScoreDetails
       `Prelude.seq` Prelude.rnf networkReachabilityDetails
+      `Prelude.seq` Prelude.rnf fixAvailable
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf description

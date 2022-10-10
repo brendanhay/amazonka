@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Panorama.Types.PackageImportJobType
+-- Module      : Amazonka.Panorama.Types.SortOrder
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Panorama.Types.PackageImportJobType
-  ( PackageImportJobType
+module Amazonka.Panorama.Types.SortOrder
+  ( SortOrder
       ( ..,
-        PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION,
-        PackageImportJobType_NODE_PACKAGE_VERSION
+        SortOrder_ASCENDING,
+        SortOrder_DESCENDING
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype PackageImportJobType = PackageImportJobType'
-  { fromPackageImportJobType ::
+newtype SortOrder = SortOrder'
+  { fromSortOrder ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype PackageImportJobType = PackageImportJobType'
       Core.ToXML
     )
 
-pattern PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION :: PackageImportJobType
-pattern PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION = PackageImportJobType' "MARKETPLACE_NODE_PACKAGE_VERSION"
+pattern SortOrder_ASCENDING :: SortOrder
+pattern SortOrder_ASCENDING = SortOrder' "ASCENDING"
 
-pattern PackageImportJobType_NODE_PACKAGE_VERSION :: PackageImportJobType
-pattern PackageImportJobType_NODE_PACKAGE_VERSION = PackageImportJobType' "NODE_PACKAGE_VERSION"
+pattern SortOrder_DESCENDING :: SortOrder
+pattern SortOrder_DESCENDING = SortOrder' "DESCENDING"
 
 {-# COMPLETE
-  PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION,
-  PackageImportJobType_NODE_PACKAGE_VERSION,
-  PackageImportJobType'
+  SortOrder_ASCENDING,
+  SortOrder_DESCENDING,
+  SortOrder'
   #-}

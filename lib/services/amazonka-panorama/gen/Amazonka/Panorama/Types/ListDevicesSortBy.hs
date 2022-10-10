@@ -11,17 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Panorama.Types.PackageImportJobType
+-- Module      : Amazonka.Panorama.Types.ListDevicesSortBy
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Panorama.Types.PackageImportJobType
-  ( PackageImportJobType
+module Amazonka.Panorama.Types.ListDevicesSortBy
+  ( ListDevicesSortBy
       ( ..,
-        PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION,
-        PackageImportJobType_NODE_PACKAGE_VERSION
+        ListDevicesSortBy_CREATED_TIME,
+        ListDevicesSortBy_DEVICE_AGGREGATED_STATUS,
+        ListDevicesSortBy_DEVICE_ID,
+        ListDevicesSortBy_NAME
       ),
   )
 where
@@ -29,8 +31,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype PackageImportJobType = PackageImportJobType'
-  { fromPackageImportJobType ::
+newtype ListDevicesSortBy = ListDevicesSortBy'
+  { fromListDevicesSortBy ::
       Core.Text
   }
   deriving stock
@@ -57,14 +59,22 @@ newtype PackageImportJobType = PackageImportJobType'
       Core.ToXML
     )
 
-pattern PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION :: PackageImportJobType
-pattern PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION = PackageImportJobType' "MARKETPLACE_NODE_PACKAGE_VERSION"
+pattern ListDevicesSortBy_CREATED_TIME :: ListDevicesSortBy
+pattern ListDevicesSortBy_CREATED_TIME = ListDevicesSortBy' "CREATED_TIME"
 
-pattern PackageImportJobType_NODE_PACKAGE_VERSION :: PackageImportJobType
-pattern PackageImportJobType_NODE_PACKAGE_VERSION = PackageImportJobType' "NODE_PACKAGE_VERSION"
+pattern ListDevicesSortBy_DEVICE_AGGREGATED_STATUS :: ListDevicesSortBy
+pattern ListDevicesSortBy_DEVICE_AGGREGATED_STATUS = ListDevicesSortBy' "DEVICE_AGGREGATED_STATUS"
+
+pattern ListDevicesSortBy_DEVICE_ID :: ListDevicesSortBy
+pattern ListDevicesSortBy_DEVICE_ID = ListDevicesSortBy' "DEVICE_ID"
+
+pattern ListDevicesSortBy_NAME :: ListDevicesSortBy
+pattern ListDevicesSortBy_NAME = ListDevicesSortBy' "NAME"
 
 {-# COMPLETE
-  PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION,
-  PackageImportJobType_NODE_PACKAGE_VERSION,
-  PackageImportJobType'
+  ListDevicesSortBy_CREATED_TIME,
+  ListDevicesSortBy_DEVICE_AGGREGATED_STATUS,
+  ListDevicesSortBy_DEVICE_ID,
+  ListDevicesSortBy_NAME,
+  ListDevicesSortBy'
   #-}

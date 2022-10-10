@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Panorama.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -123,9 +123,11 @@ module Amazonka.Panorama.Lens
     describeDeviceResponse_alternateSoftwares,
     describeDeviceResponse_networkingConfiguration,
     describeDeviceResponse_arn,
+    describeDeviceResponse_latestDeviceJob,
     describeDeviceResponse_description,
     describeDeviceResponse_brand,
     describeDeviceResponse_deviceConnectionStatus,
+    describeDeviceResponse_deviceAggregatedStatus,
     describeDeviceResponse_serialNumber,
     describeDeviceResponse_currentSoftware,
     describeDeviceResponse_latestAlternateSoftware,
@@ -248,8 +250,12 @@ module Amazonka.Panorama.Lens
     listApplicationInstancesResponse_httpStatus,
 
     -- ** ListDevices
+    listDevices_nameFilter,
+    listDevices_sortOrder,
     listDevices_nextToken,
+    listDevices_sortBy,
     listDevices_maxResults,
+    listDevices_deviceAggregatedStatusFilter,
     listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
     listDevicesResponse_devices,
@@ -359,13 +365,19 @@ module Amazonka.Panorama.Lens
     applicationInstance_defaultRuntimeContextDeviceName,
 
     -- ** Device
+    device_tags,
     device_name,
+    device_type,
     device_createdTime,
     device_leaseExpirationTime,
     device_provisioningStatus,
     device_deviceId,
+    device_latestDeviceJob,
     device_lastUpdatedTime,
+    device_description,
     device_brand,
+    device_deviceAggregatedStatus,
+    device_currentSoftware,
 
     -- ** DeviceJob
     deviceJob_createdTime,
@@ -392,6 +404,10 @@ module Amazonka.Panorama.Lens
     -- ** JobResourceTags
     jobResourceTags_resourceType,
     jobResourceTags_tags,
+
+    -- ** LatestDeviceJob
+    latestDeviceJob_status,
+    latestDeviceJob_imageVersion,
 
     -- ** ManifestOverridesPayload
     manifestOverridesPayload_payloadData,
@@ -571,6 +587,7 @@ import Amazonka.Panorama.Types.EthernetPayload
 import Amazonka.Panorama.Types.EthernetStatus
 import Amazonka.Panorama.Types.Job
 import Amazonka.Panorama.Types.JobResourceTags
+import Amazonka.Panorama.Types.LatestDeviceJob
 import Amazonka.Panorama.Types.ManifestOverridesPayload
 import Amazonka.Panorama.Types.ManifestPayload
 import Amazonka.Panorama.Types.NetworkPayload

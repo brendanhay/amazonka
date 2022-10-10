@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Panorama
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -259,6 +259,9 @@ module Amazonka.Panorama
     -- ** ConnectionType
     ConnectionType (..),
 
+    -- ** DeviceAggregatedStatus
+    DeviceAggregatedStatus (..),
+
     -- ** DeviceBrand
     DeviceBrand (..),
 
@@ -276,6 +279,9 @@ module Amazonka.Panorama
 
     -- ** JobType
     JobType (..),
+
+    -- ** ListDevicesSortBy
+    ListDevicesSortBy (..),
 
     -- ** NetworkConnectionStatus
     NetworkConnectionStatus (..),
@@ -300,6 +306,9 @@ module Amazonka.Panorama
 
     -- ** PortType
     PortType (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** StatusFilter
     StatusFilter (..),
@@ -345,6 +354,10 @@ module Amazonka.Panorama
     -- ** JobResourceTags
     JobResourceTags (JobResourceTags'),
     newJobResourceTags,
+
+    -- ** LatestDeviceJob
+    LatestDeviceJob (LatestDeviceJob'),
+    newLatestDeviceJob,
 
     -- ** ManifestOverridesPayload
     ManifestOverridesPayload (ManifestOverridesPayload'),

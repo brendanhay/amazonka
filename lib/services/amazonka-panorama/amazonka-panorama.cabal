@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -83,6 +83,7 @@ library
     Amazonka.Panorama.Types.ApplicationInstanceStatus
     Amazonka.Panorama.Types.ConnectionType
     Amazonka.Panorama.Types.Device
+    Amazonka.Panorama.Types.DeviceAggregatedStatus
     Amazonka.Panorama.Types.DeviceBrand
     Amazonka.Panorama.Types.DeviceConnectionStatus
     Amazonka.Panorama.Types.DeviceJob
@@ -95,6 +96,8 @@ library
     Amazonka.Panorama.Types.JobResourceTags
     Amazonka.Panorama.Types.JobResourceType
     Amazonka.Panorama.Types.JobType
+    Amazonka.Panorama.Types.LatestDeviceJob
+    Amazonka.Panorama.Types.ListDevicesSortBy
     Amazonka.Panorama.Types.ManifestOverridesPayload
     Amazonka.Panorama.Types.ManifestPayload
     Amazonka.Panorama.Types.NetworkConnectionStatus
@@ -126,6 +129,7 @@ library
     Amazonka.Panorama.Types.PackageVersionStatus
     Amazonka.Panorama.Types.PortType
     Amazonka.Panorama.Types.S3Location
+    Amazonka.Panorama.Types.SortOrder
     Amazonka.Panorama.Types.StaticIpConnectionInfo
     Amazonka.Panorama.Types.StatusFilter
     Amazonka.Panorama.Types.StorageLocation
@@ -136,7 +140,7 @@ library
     Amazonka.Panorama.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-panorama-test
@@ -155,9 +159,9 @@ test-suite amazonka-panorama-test
     Test.Amazonka.Panorama.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
     , amazonka-panorama
-    , amazonka-test         ^>=2.0
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

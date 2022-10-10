@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.Panorama.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,9 @@ module Amazonka.Panorama.Types
     -- * ConnectionType
     ConnectionType (..),
 
+    -- * DeviceAggregatedStatus
+    DeviceAggregatedStatus (..),
+
     -- * DeviceBrand
     DeviceBrand (..),
 
@@ -50,6 +53,9 @@ module Amazonka.Panorama.Types
 
     -- * JobType
     JobType (..),
+
+    -- * ListDevicesSortBy
+    ListDevicesSortBy (..),
 
     -- * NetworkConnectionStatus
     NetworkConnectionStatus (..),
@@ -74,6 +80,9 @@ module Amazonka.Panorama.Types
 
     -- * PortType
     PortType (..),
+
+    -- * SortOrder
+    SortOrder (..),
 
     -- * StatusFilter
     StatusFilter (..),
@@ -107,13 +116,19 @@ module Amazonka.Panorama.Types
     -- * Device
     Device (..),
     newDevice,
+    device_tags,
     device_name,
+    device_type,
     device_createdTime,
     device_leaseExpirationTime,
     device_provisioningStatus,
     device_deviceId,
+    device_latestDeviceJob,
     device_lastUpdatedTime,
+    device_description,
     device_brand,
+    device_deviceAggregatedStatus,
+    device_currentSoftware,
 
     -- * DeviceJob
     DeviceJob (..),
@@ -152,6 +167,12 @@ module Amazonka.Panorama.Types
     newJobResourceTags,
     jobResourceTags_resourceType,
     jobResourceTags_tags,
+
+    -- * LatestDeviceJob
+    LatestDeviceJob (..),
+    newLatestDeviceJob,
+    latestDeviceJob_status,
+    latestDeviceJob_imageVersion,
 
     -- * ManifestOverridesPayload
     ManifestOverridesPayload (..),
@@ -349,6 +370,7 @@ import Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
 import Amazonka.Panorama.Types.ApplicationInstanceStatus
 import Amazonka.Panorama.Types.ConnectionType
 import Amazonka.Panorama.Types.Device
+import Amazonka.Panorama.Types.DeviceAggregatedStatus
 import Amazonka.Panorama.Types.DeviceBrand
 import Amazonka.Panorama.Types.DeviceConnectionStatus
 import Amazonka.Panorama.Types.DeviceJob
@@ -361,6 +383,8 @@ import Amazonka.Panorama.Types.Job
 import Amazonka.Panorama.Types.JobResourceTags
 import Amazonka.Panorama.Types.JobResourceType
 import Amazonka.Panorama.Types.JobType
+import Amazonka.Panorama.Types.LatestDeviceJob
+import Amazonka.Panorama.Types.ListDevicesSortBy
 import Amazonka.Panorama.Types.ManifestOverridesPayload
 import Amazonka.Panorama.Types.ManifestPayload
 import Amazonka.Panorama.Types.NetworkConnectionStatus
@@ -392,6 +416,7 @@ import Amazonka.Panorama.Types.PackageVersionOutputConfig
 import Amazonka.Panorama.Types.PackageVersionStatus
 import Amazonka.Panorama.Types.PortType
 import Amazonka.Panorama.Types.S3Location
+import Amazonka.Panorama.Types.SortOrder
 import Amazonka.Panorama.Types.StaticIpConnectionInfo
 import Amazonka.Panorama.Types.StatusFilter
 import Amazonka.Panorama.Types.StorageLocation

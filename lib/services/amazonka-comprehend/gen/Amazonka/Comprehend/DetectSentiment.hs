@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.DetectSentiment
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,8 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectSentiment' smart constructor.
 data DetectSentiment = DetectSentiment'
-  { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
-    -- UTF-8 encoded characters.
+  { -- | A UTF-8 text string. The maximum string size is 5 KB.
+    --
+    -- Amazon Comprehend performs real-time sentiment analysis on the first 500
+    -- characters of the input text and ignores any additional text in the
+    -- input.
     text :: Core.Sensitive Prelude.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -69,8 +72,11 @@ data DetectSentiment = DetectSentiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'detectSentiment_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- 'text', 'detectSentiment_text' - A UTF-8 text string. The maximum string size is 5 KB.
+--
+-- Amazon Comprehend performs real-time sentiment analysis on the first 500
+-- characters of the input text and ignores any additional text in the
+-- input.
 --
 -- 'languageCode', 'detectSentiment_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -88,8 +94,11 @@ newDetectSentiment pText_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- | A UTF-8 text string. The maximum string size is 5 KB.
+--
+-- Amazon Comprehend performs real-time sentiment analysis on the first 500
+-- characters of the input text and ignores any additional text in the
+-- input.
 detectSentiment_text :: Lens.Lens' DetectSentiment Prelude.Text
 detectSentiment_text = Lens.lens (\DetectSentiment' {text} -> text) (\s@DetectSentiment' {} a -> s {text = a} :: DetectSentiment) Prelude.. Core._Sensitive
 

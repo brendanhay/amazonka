@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,6 +105,12 @@ module Amazonka.Comprehend
     newBatchDetectSyntax,
     BatchDetectSyntaxResponse (BatchDetectSyntaxResponse'),
     newBatchDetectSyntaxResponse,
+
+    -- ** BatchDetectTargetedSentiment
+    BatchDetectTargetedSentiment (BatchDetectTargetedSentiment'),
+    newBatchDetectTargetedSentiment,
+    BatchDetectTargetedSentimentResponse (BatchDetectTargetedSentimentResponse'),
+    newBatchDetectTargetedSentimentResponse,
 
     -- ** ClassifyDocument
     ClassifyDocument (ClassifyDocument'),
@@ -273,6 +279,12 @@ module Amazonka.Comprehend
     newDetectSyntax,
     DetectSyntaxResponse (DetectSyntaxResponse'),
     newDetectSyntaxResponse,
+
+    -- ** DetectTargetedSentiment
+    DetectTargetedSentiment (DetectTargetedSentiment'),
+    newDetectTargetedSentiment,
+    DetectTargetedSentimentResponse (DetectTargetedSentimentResponse'),
+    newDetectTargetedSentimentResponse,
 
     -- ** ImportModel
     ImportModel (ImportModel'),
@@ -564,6 +576,9 @@ module Amazonka.Comprehend
     -- ** SyntaxLanguageCode
     SyntaxLanguageCode (..),
 
+    -- ** TargetedSentimentEntityType
+    TargetedSentimentEntityType (..),
+
     -- ** AugmentedManifestsListItem
     AugmentedManifestsListItem (AugmentedManifestsListItem'),
     newAugmentedManifestsListItem,
@@ -587,6 +602,10 @@ module Amazonka.Comprehend
     -- ** BatchDetectSyntaxItemResult
     BatchDetectSyntaxItemResult (BatchDetectSyntaxItemResult'),
     newBatchDetectSyntaxItemResult,
+
+    -- ** BatchDetectTargetedSentimentItemResult
+    BatchDetectTargetedSentimentItemResult (BatchDetectTargetedSentimentItemResult'),
+    newBatchDetectTargetedSentimentItemResult,
 
     -- ** BatchItemError
     BatchItemError (BatchItemError'),
@@ -748,6 +767,10 @@ module Amazonka.Comprehend
     KeyPhrasesDetectionJobProperties (KeyPhrasesDetectionJobProperties'),
     newKeyPhrasesDetectionJobProperties,
 
+    -- ** MentionSentiment
+    MentionSentiment (MentionSentiment'),
+    newMentionSentiment,
+
     -- ** OutputDataConfig
     OutputDataConfig (OutputDataConfig'),
     newOutputDataConfig,
@@ -804,6 +827,14 @@ module Amazonka.Comprehend
     TargetedSentimentDetectionJobProperties (TargetedSentimentDetectionJobProperties'),
     newTargetedSentimentDetectionJobProperties,
 
+    -- ** TargetedSentimentEntity
+    TargetedSentimentEntity (TargetedSentimentEntity'),
+    newTargetedSentimentEntity,
+
+    -- ** TargetedSentimentMention
+    TargetedSentimentMention (TargetedSentimentMention'),
+    newTargetedSentimentMention,
+
     -- ** TopicsDetectionJobFilter
     TopicsDetectionJobFilter (TopicsDetectionJobFilter'),
     newTopicsDetectionJobFilter,
@@ -823,6 +854,7 @@ import Amazonka.Comprehend.BatchDetectEntities
 import Amazonka.Comprehend.BatchDetectKeyPhrases
 import Amazonka.Comprehend.BatchDetectSentiment
 import Amazonka.Comprehend.BatchDetectSyntax
+import Amazonka.Comprehend.BatchDetectTargetedSentiment
 import Amazonka.Comprehend.ClassifyDocument
 import Amazonka.Comprehend.ContainsPiiEntities
 import Amazonka.Comprehend.CreateDocumentClassifier
@@ -851,6 +883,7 @@ import Amazonka.Comprehend.DetectKeyPhrases
 import Amazonka.Comprehend.DetectPiiEntities
 import Amazonka.Comprehend.DetectSentiment
 import Amazonka.Comprehend.DetectSyntax
+import Amazonka.Comprehend.DetectTargetedSentiment
 import Amazonka.Comprehend.ImportModel
 import Amazonka.Comprehend.Lens
 import Amazonka.Comprehend.ListDocumentClassificationJobs

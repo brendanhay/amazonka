@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Types.SyntaxToken
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,9 @@ data SyntaxToken = SyntaxToken'
     beginOffset :: Prelude.Maybe Prelude.Int,
     -- | Provides the part of speech label and the confidence level that Amazon
     -- Comprehend has that the part of speech was correctly identified. For
-    -- more information, see how-syntax.
+    -- more information, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html Syntax>
+    -- in the Comprehend Developer Guide.
     partOfSpeech :: Prelude.Maybe PartOfSpeechTag,
     -- | The zero-based offset from the beginning of the source text to the last
     -- character in the word.
@@ -60,7 +62,9 @@ data SyntaxToken = SyntaxToken'
 --
 -- 'partOfSpeech', 'syntaxToken_partOfSpeech' - Provides the part of speech label and the confidence level that Amazon
 -- Comprehend has that the part of speech was correctly identified. For
--- more information, see how-syntax.
+-- more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html Syntax>
+-- in the Comprehend Developer Guide.
 --
 -- 'endOffset', 'syntaxToken_endOffset' - The zero-based offset from the beginning of the source text to the last
 -- character in the word.
@@ -86,7 +90,9 @@ syntaxToken_beginOffset = Lens.lens (\SyntaxToken' {beginOffset} -> beginOffset)
 
 -- | Provides the part of speech label and the confidence level that Amazon
 -- Comprehend has that the part of speech was correctly identified. For
--- more information, see how-syntax.
+-- more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html Syntax>
+-- in the Comprehend Developer Guide.
 syntaxToken_partOfSpeech :: Lens.Lens' SyntaxToken (Prelude.Maybe PartOfSpeechTag)
 syntaxToken_partOfSpeech = Lens.lens (\SyntaxToken' {partOfSpeech} -> partOfSpeech) (\s@SyntaxToken' {} a -> s {partOfSpeech = a} :: SyntaxToken)
 

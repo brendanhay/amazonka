@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,6 +47,13 @@ module Amazonka.Comprehend.Lens
     batchDetectSyntaxResponse_httpStatus,
     batchDetectSyntaxResponse_resultList,
     batchDetectSyntaxResponse_errorList,
+
+    -- ** BatchDetectTargetedSentiment
+    batchDetectTargetedSentiment_textList,
+    batchDetectTargetedSentiment_languageCode,
+    batchDetectTargetedSentimentResponse_httpStatus,
+    batchDetectTargetedSentimentResponse_resultList,
+    batchDetectTargetedSentimentResponse_errorList,
 
     -- ** ClassifyDocument
     classifyDocument_text,
@@ -224,6 +231,12 @@ module Amazonka.Comprehend.Lens
     detectSyntax_languageCode,
     detectSyntaxResponse_syntaxTokens,
     detectSyntaxResponse_httpStatus,
+
+    -- ** DetectTargetedSentiment
+    detectTargetedSentiment_text,
+    detectTargetedSentiment_languageCode,
+    detectTargetedSentimentResponse_entities,
+    detectTargetedSentimentResponse_httpStatus,
 
     -- ** ImportModel
     importModel_tags,
@@ -590,6 +603,10 @@ module Amazonka.Comprehend.Lens
     batchDetectSyntaxItemResult_index,
     batchDetectSyntaxItemResult_syntaxTokens,
 
+    -- ** BatchDetectTargetedSentimentItemResult
+    batchDetectTargetedSentimentItemResult_entities,
+    batchDetectTargetedSentimentItemResult_index,
+
     -- ** BatchItemError
     batchItemError_errorMessage,
     batchItemError_index,
@@ -892,6 +909,10 @@ module Amazonka.Comprehend.Lens
     keyPhrasesDetectionJobProperties_jobArn,
     keyPhrasesDetectionJobProperties_inputDataConfig,
 
+    -- ** MentionSentiment
+    mentionSentiment_sentimentScore,
+    mentionSentiment_sentiment,
+
     -- ** OutputDataConfig
     outputDataConfig_kmsKeyId,
     outputDataConfig_s3Uri,
@@ -995,6 +1016,19 @@ module Amazonka.Comprehend.Lens
     targetedSentimentDetectionJobProperties_jobArn,
     targetedSentimentDetectionJobProperties_inputDataConfig,
 
+    -- ** TargetedSentimentEntity
+    targetedSentimentEntity_descriptiveMentionIndex,
+    targetedSentimentEntity_mentions,
+
+    -- ** TargetedSentimentMention
+    targetedSentimentMention_beginOffset,
+    targetedSentimentMention_type,
+    targetedSentimentMention_score,
+    targetedSentimentMention_endOffset,
+    targetedSentimentMention_mentionSentiment,
+    targetedSentimentMention_groupScore,
+    targetedSentimentMention_text,
+
     -- ** TopicsDetectionJobFilter
     topicsDetectionJobFilter_jobStatus,
     topicsDetectionJobFilter_jobName,
@@ -1027,6 +1061,7 @@ import Amazonka.Comprehend.BatchDetectEntities
 import Amazonka.Comprehend.BatchDetectKeyPhrases
 import Amazonka.Comprehend.BatchDetectSentiment
 import Amazonka.Comprehend.BatchDetectSyntax
+import Amazonka.Comprehend.BatchDetectTargetedSentiment
 import Amazonka.Comprehend.ClassifyDocument
 import Amazonka.Comprehend.ContainsPiiEntities
 import Amazonka.Comprehend.CreateDocumentClassifier
@@ -1055,6 +1090,7 @@ import Amazonka.Comprehend.DetectKeyPhrases
 import Amazonka.Comprehend.DetectPiiEntities
 import Amazonka.Comprehend.DetectSentiment
 import Amazonka.Comprehend.DetectSyntax
+import Amazonka.Comprehend.DetectTargetedSentiment
 import Amazonka.Comprehend.ImportModel
 import Amazonka.Comprehend.ListDocumentClassificationJobs
 import Amazonka.Comprehend.ListDocumentClassifierSummaries
@@ -1097,6 +1133,7 @@ import Amazonka.Comprehend.Types.BatchDetectEntitiesItemResult
 import Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult
 import Amazonka.Comprehend.Types.BatchDetectSentimentItemResult
 import Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
+import Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult
 import Amazonka.Comprehend.Types.BatchItemError
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import Amazonka.Comprehend.Types.ClassifierMetadata
@@ -1137,6 +1174,7 @@ import Amazonka.Comprehend.Types.InputDataConfig
 import Amazonka.Comprehend.Types.KeyPhrase
 import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobFilter
 import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobProperties
+import Amazonka.Comprehend.Types.MentionSentiment
 import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.PartOfSpeechTag
 import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
@@ -1151,6 +1189,8 @@ import Amazonka.Comprehend.Types.SyntaxToken
 import Amazonka.Comprehend.Types.Tag
 import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
 import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
+import Amazonka.Comprehend.Types.TargetedSentimentEntity
+import Amazonka.Comprehend.Types.TargetedSentimentMention
 import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
 import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
 import Amazonka.Comprehend.Types.VpcConfig

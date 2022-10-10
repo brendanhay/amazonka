@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.DetectDominantLanguage
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectDominantLanguage' smart constructor.
 data DetectDominantLanguage = DetectDominantLanguage'
-  { -- | A UTF-8 text string. Each string should contain at least 20 characters
-    -- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+  { -- | A UTF-8 text string. The string must contain at least 20 characters. The
+    -- maximum string size is 100 KB.
     text :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -64,8 +64,8 @@ data DetectDominantLanguage = DetectDominantLanguage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'detectDominantLanguage_text' - A UTF-8 text string. Each string should contain at least 20 characters
--- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- 'text', 'detectDominantLanguage_text' - A UTF-8 text string. The string must contain at least 20 characters. The
+-- maximum string size is 100 KB.
 newDetectDominantLanguage ::
   -- | 'text'
   Prelude.Text ->
@@ -76,8 +76,8 @@ newDetectDominantLanguage pText_ =
         Core._Sensitive Lens.# pText_
     }
 
--- | A UTF-8 text string. Each string should contain at least 20 characters
--- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- | A UTF-8 text string. The string must contain at least 20 characters. The
+-- maximum string size is 100 KB.
 detectDominantLanguage_text :: Lens.Lens' DetectDominantLanguage Prelude.Text
 detectDominantLanguage_text = Lens.lens (\DetectDominantLanguage' {text} -> text) (\s@DetectDominantLanguage' {} a -> s {text = a} :: DetectDominantLanguage) Prelude.. Core._Sensitive
 

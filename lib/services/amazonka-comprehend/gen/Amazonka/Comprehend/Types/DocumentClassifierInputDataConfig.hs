@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 -- | The input properties for training a document classifier.
 --
 -- For more information on how the input file is formatted, see
--- prep-classifier-data.
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html Preparing training data>
+-- in the Comprehend Developer Guide.
 --
 -- /See:/ 'newDocumentClassifierInputDataConfig' smart constructor.
 data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
@@ -50,10 +51,9 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
     -- as the default.
     dataFormat :: Prelude.Maybe DocumentClassifierDataFormat,
-    -- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
-    -- the same AWS Region as the API endpoint that you are calling. The URI
-    -- can point to a single input file or it can provide the prefix for a
-    -- collection of input files.
+    -- | This specifies the Amazon S3 location where the test annotations for an
+    -- entity recognizer are located. The URI must be in the same AWS Region as
+    -- the API endpoint that you are calling.
     testS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URI for the input data. The S3 bucket must be in the same
     -- region as the API endpoint that you are calling. The URI can point to a
@@ -111,10 +111,9 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
 -- as the default.
 --
--- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
--- the same AWS Region as the API endpoint that you are calling. The URI
--- can point to a single input file or it can provide the prefix for a
--- collection of input files.
+-- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - This specifies the Amazon S3 location where the test annotations for an
+-- entity recognizer are located. The URI must be in the same AWS Region as
+-- the API endpoint that you are calling.
 --
 -- 's3Uri', 'documentClassifierInputDataConfig_s3Uri' - The Amazon S3 URI for the input data. The S3 bucket must be in the same
 -- region as the API endpoint that you are calling. The URI can point to a
@@ -174,10 +173,9 @@ newDocumentClassifierInputDataConfig =
 documentClassifierInputDataConfig_dataFormat :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDataFormat)
 documentClassifierInputDataConfig_dataFormat = Lens.lens (\DocumentClassifierInputDataConfig' {dataFormat} -> dataFormat) (\s@DocumentClassifierInputDataConfig' {} a -> s {dataFormat = a} :: DocumentClassifierInputDataConfig)
 
--- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
--- the same AWS Region as the API endpoint that you are calling. The URI
--- can point to a single input file or it can provide the prefix for a
--- collection of input files.
+-- | This specifies the Amazon S3 location where the test annotations for an
+-- entity recognizer are located. The URI must be in the same AWS Region as
+-- the API endpoint that you are calling.
 documentClassifierInputDataConfig_testS3Uri :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
 documentClassifierInputDataConfig_testS3Uri = Lens.lens (\DocumentClassifierInputDataConfig' {testS3Uri} -> testS3Uri) (\s@DocumentClassifierInputDataConfig' {} a -> s {testS3Uri = a} :: DocumentClassifierInputDataConfig)
 

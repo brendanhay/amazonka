@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -49,6 +49,7 @@ library
     Amazonka.Comprehend.BatchDetectKeyPhrases
     Amazonka.Comprehend.BatchDetectSentiment
     Amazonka.Comprehend.BatchDetectSyntax
+    Amazonka.Comprehend.BatchDetectTargetedSentiment
     Amazonka.Comprehend.ClassifyDocument
     Amazonka.Comprehend.ContainsPiiEntities
     Amazonka.Comprehend.CreateDocumentClassifier
@@ -77,6 +78,7 @@ library
     Amazonka.Comprehend.DetectPiiEntities
     Amazonka.Comprehend.DetectSentiment
     Amazonka.Comprehend.DetectSyntax
+    Amazonka.Comprehend.DetectTargetedSentiment
     Amazonka.Comprehend.ImportModel
     Amazonka.Comprehend.Lens
     Amazonka.Comprehend.ListDocumentClassificationJobs
@@ -122,6 +124,7 @@ library
     Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult
     Amazonka.Comprehend.Types.BatchDetectSentimentItemResult
     Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
+    Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult
     Amazonka.Comprehend.Types.BatchItemError
     Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
     Amazonka.Comprehend.Types.ClassifierMetadata
@@ -173,6 +176,7 @@ library
     Amazonka.Comprehend.Types.KeyPhrasesDetectionJobFilter
     Amazonka.Comprehend.Types.KeyPhrasesDetectionJobProperties
     Amazonka.Comprehend.Types.LanguageCode
+    Amazonka.Comprehend.Types.MentionSentiment
     Amazonka.Comprehend.Types.ModelStatus
     Amazonka.Comprehend.Types.OutputDataConfig
     Amazonka.Comprehend.Types.PartOfSpeechTag
@@ -195,6 +199,9 @@ library
     Amazonka.Comprehend.Types.Tag
     Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
     Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
+    Amazonka.Comprehend.Types.TargetedSentimentEntity
+    Amazonka.Comprehend.Types.TargetedSentimentEntityType
+    Amazonka.Comprehend.Types.TargetedSentimentMention
     Amazonka.Comprehend.Types.TopicsDetectionJobFilter
     Amazonka.Comprehend.Types.TopicsDetectionJobProperties
     Amazonka.Comprehend.Types.VpcConfig
@@ -203,7 +210,7 @@ library
     Amazonka.Comprehend.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-comprehend-test
@@ -223,8 +230,8 @@ test-suite amazonka-comprehend-test
 
   build-depends:
     , amazonka-comprehend
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , base
     , bytestring
     , case-insensitive

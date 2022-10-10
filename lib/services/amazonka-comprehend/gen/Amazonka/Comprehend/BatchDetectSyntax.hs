@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.BatchDetectSyntax
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,9 @@
 --
 -- Inspects the text of a batch of documents for the syntax and part of
 -- speech of the words in the document and returns information about them.
--- For more information, see how-syntax.
+-- For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html Syntax>
+-- in the Comprehend Developer Guide.
 module Amazonka.Comprehend.BatchDetectSyntax
   ( -- * Creating a Request
     BatchDetectSyntax (..),
@@ -52,9 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDetectSyntax' smart constructor.
 data BatchDetectSyntax = BatchDetectSyntax'
-  { -- | A list containing the text of the input documents. The list can contain
-    -- a maximum of 25 documents. Each document must contain fewer that 5,000
-    -- bytes of UTF-8 encoded characters.
+  { -- | A list containing the UTF-8 encoded text of the input documents. The
+    -- list can contain a maximum of 25 documents. The maximum size for each
+    -- document is 5 KB.
     textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the
     -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -72,9 +74,9 @@ data BatchDetectSyntax = BatchDetectSyntax'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textList', 'batchDetectSyntax_textList' - A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer that 5,000
--- bytes of UTF-8 encoded characters.
+-- 'textList', 'batchDetectSyntax_textList' - A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size for each
+-- document is 5 KB.
 --
 -- 'languageCode', 'batchDetectSyntax_languageCode' - The language of the input documents. You can specify any of the
 -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -94,9 +96,9 @@ newBatchDetectSyntax pTextList_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer that 5,000
--- bytes of UTF-8 encoded characters.
+-- | A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size for each
+-- document is 5 KB.
 batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax (Prelude.NonEmpty Prelude.Text)
 batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

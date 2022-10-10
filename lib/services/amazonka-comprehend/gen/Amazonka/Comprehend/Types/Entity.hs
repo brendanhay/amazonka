@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Types.Entity
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,22 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntity' smart constructor.
 data Entity = Entity'
-  { -- | A character offset in the input text that shows where the entity begins
-    -- (the first character is at position 0). The offset returns the position
-    -- of each UTF-8 code point in the string. A /code point/ is the abstract
-    -- character from a particular graphical representation. For example, a
-    -- multi-byte UTF-8 character maps to a single code point.
+  { -- | The zero-based offset from the beginning of the source text to the first
+    -- character in the entity.
     beginOffset :: Prelude.Maybe Prelude.Int,
     -- | The entity\'s type.
     type' :: Prelude.Maybe EntityType,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
     score :: Prelude.Maybe Prelude.Double,
-    -- | A character offset in the input text that shows where the entity ends.
-    -- The offset returns the position of each UTF-8 code point in the string.
-    -- A /code point/ is the abstract character from a particular graphical
-    -- representation. For example, a multi-byte UTF-8 character maps to a
-    -- single code point.
+    -- | The zero-based offset from the beginning of the source text to the last
+    -- character in the entity.
     endOffset :: Prelude.Maybe Prelude.Int,
     -- | The text of the entity.
     text :: Prelude.Maybe Prelude.Text
@@ -58,22 +52,16 @@ data Entity = Entity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'beginOffset', 'entity_beginOffset' - A character offset in the input text that shows where the entity begins
--- (the first character is at position 0). The offset returns the position
--- of each UTF-8 code point in the string. A /code point/ is the abstract
--- character from a particular graphical representation. For example, a
--- multi-byte UTF-8 character maps to a single code point.
+-- 'beginOffset', 'entity_beginOffset' - The zero-based offset from the beginning of the source text to the first
+-- character in the entity.
 --
 -- 'type'', 'entity_type' - The entity\'s type.
 --
 -- 'score', 'entity_score' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
 --
--- 'endOffset', 'entity_endOffset' - A character offset in the input text that shows where the entity ends.
--- The offset returns the position of each UTF-8 code point in the string.
--- A /code point/ is the abstract character from a particular graphical
--- representation. For example, a multi-byte UTF-8 character maps to a
--- single code point.
+-- 'endOffset', 'entity_endOffset' - The zero-based offset from the beginning of the source text to the last
+-- character in the entity.
 --
 -- 'text', 'entity_text' - The text of the entity.
 newEntity ::
@@ -87,11 +75,8 @@ newEntity =
       text = Prelude.Nothing
     }
 
--- | A character offset in the input text that shows where the entity begins
--- (the first character is at position 0). The offset returns the position
--- of each UTF-8 code point in the string. A /code point/ is the abstract
--- character from a particular graphical representation. For example, a
--- multi-byte UTF-8 character maps to a single code point.
+-- | The zero-based offset from the beginning of the source text to the first
+-- character in the entity.
 entity_beginOffset :: Lens.Lens' Entity (Prelude.Maybe Prelude.Int)
 entity_beginOffset = Lens.lens (\Entity' {beginOffset} -> beginOffset) (\s@Entity' {} a -> s {beginOffset = a} :: Entity)
 
@@ -104,11 +89,8 @@ entity_type = Lens.lens (\Entity' {type'} -> type') (\s@Entity' {} a -> s {type'
 entity_score :: Lens.Lens' Entity (Prelude.Maybe Prelude.Double)
 entity_score = Lens.lens (\Entity' {score} -> score) (\s@Entity' {} a -> s {score = a} :: Entity)
 
--- | A character offset in the input text that shows where the entity ends.
--- The offset returns the position of each UTF-8 code point in the string.
--- A /code point/ is the abstract character from a particular graphical
--- representation. For example, a multi-byte UTF-8 character maps to a
--- single code point.
+-- | The zero-based offset from the beginning of the source text to the last
+-- character in the entity.
 entity_endOffset :: Lens.Lens' Entity (Prelude.Maybe Prelude.Int)
 entity_endOffset = Lens.lens (\Entity' {endOffset} -> endOffset) (\s@Entity' {} a -> s {endOffset = a} :: Entity)
 

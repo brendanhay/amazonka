@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Comprehend
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,9 @@ import Test.Tasty
 --
 --         , requestBatchDetectSyntax $
 --             newBatchDetectSyntax
+--
+--         , requestBatchDetectTargetedSentiment $
+--             newBatchDetectTargetedSentiment
 --
 --         , requestClassifyDocument $
 --             newClassifyDocument
@@ -125,6 +128,9 @@ import Test.Tasty
 --
 --         , requestDetectSyntax $
 --             newDetectSyntax
+--
+--         , requestDetectTargetedSentiment $
+--             newDetectTargetedSentiment
 --
 --         , requestImportModel $
 --             newImportModel
@@ -258,6 +264,9 @@ import Test.Tasty
 --         , responseBatchDetectSyntax $
 --             newBatchDetectSyntaxResponse
 --
+--         , responseBatchDetectTargetedSentiment $
+--             newBatchDetectTargetedSentimentResponse
+--
 --         , responseClassifyDocument $
 --             newClassifyDocumentResponse
 --
@@ -341,6 +350,9 @@ import Test.Tasty
 --
 --         , responseDetectSyntax $
 --             newDetectSyntaxResponse
+--
+--         , responseDetectTargetedSentiment $
+--             newDetectTargetedSentimentResponse
 --
 --         , responseImportModel $
 --             newImportModelResponse
@@ -490,6 +502,12 @@ requestBatchDetectSyntax =
   req
     "BatchDetectSyntax"
     "fixture/BatchDetectSyntax.yaml"
+
+requestBatchDetectTargetedSentiment :: BatchDetectTargetedSentiment -> TestTree
+requestBatchDetectTargetedSentiment =
+  req
+    "BatchDetectTargetedSentiment"
+    "fixture/BatchDetectTargetedSentiment.yaml"
 
 requestClassifyDocument :: ClassifyDocument -> TestTree
 requestClassifyDocument =
@@ -658,6 +676,12 @@ requestDetectSyntax =
   req
     "DetectSyntax"
     "fixture/DetectSyntax.yaml"
+
+requestDetectTargetedSentiment :: DetectTargetedSentiment -> TestTree
+requestDetectTargetedSentiment =
+  req
+    "DetectTargetedSentiment"
+    "fixture/DetectTargetedSentiment.yaml"
 
 requestImportModel :: ImportModel -> TestTree
 requestImportModel =
@@ -929,6 +953,14 @@ responseBatchDetectSyntax =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDetectSyntax)
 
+responseBatchDetectTargetedSentiment :: BatchDetectTargetedSentimentResponse -> TestTree
+responseBatchDetectTargetedSentiment =
+  res
+    "BatchDetectTargetedSentimentResponse"
+    "fixture/BatchDetectTargetedSentimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectTargetedSentiment)
+
 responseClassifyDocument :: ClassifyDocumentResponse -> TestTree
 responseClassifyDocument =
   res
@@ -1152,6 +1184,14 @@ responseDetectSyntax =
     "fixture/DetectSyntaxResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetectSyntax)
+
+responseDetectTargetedSentiment :: DetectTargetedSentimentResponse -> TestTree
+responseDetectTargetedSentiment =
+  res
+    "DetectTargetedSentimentResponse"
+    "fixture/DetectTargetedSentimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetectTargetedSentiment)
 
 responseImportModel :: ImportModelResponse -> TestTree
 responseImportModel =

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.BatchDetectKeyPhrases
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,9 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDetectKeyPhrases' smart constructor.
 data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
-  { -- | A list containing the text of the input documents. The list can contain
-    -- a maximum of 25 documents. Each document must contain fewer than 5,000
-    -- bytes of UTF-8 encoded characters.
+  { -- | A list containing the UTF-8 encoded text of the input documents. The
+    -- list can contain a maximum of 25 documents. The maximum size of each
+    -- document is 5 KB.
     textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -69,9 +69,9 @@ data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textList', 'batchDetectKeyPhrases_textList' - A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer than 5,000
--- bytes of UTF-8 encoded characters.
+-- 'textList', 'batchDetectKeyPhrases_textList' - A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size of each
+-- document is 5 KB.
 --
 -- 'languageCode', 'batchDetectKeyPhrases_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -90,9 +90,9 @@ newBatchDetectKeyPhrases pTextList_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer than 5,000
--- bytes of UTF-8 encoded characters.
+-- | A list containing the UTF-8 encoded text of the input documents. The
+-- list can contain a maximum of 25 documents. The maximum size of each
+-- document is 5 KB.
 batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases (Prelude.NonEmpty Prelude.Text)
 batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

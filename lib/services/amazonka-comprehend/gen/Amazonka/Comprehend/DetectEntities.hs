@@ -14,14 +14,16 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.DetectEntities
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Inspects text for named entities, and returns information about them.
--- For more information, about named entities, see how-entities.
+-- For more information, about named entities, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html Entities>
+-- in the Comprehend Developer Guide.
 module Amazonka.Comprehend.DetectEntities
   ( -- * Creating a Request
     DetectEntities (..),
@@ -71,8 +73,7 @@ data DetectEntities = DetectEntities'
     -- For information about endpoints, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
     endpointArn :: Prelude.Maybe Prelude.Text,
-    -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
-    -- UTF-8 encoded characters.
+    -- | A UTF-8 text string. The maximum string size is 100 KB.
     text :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -105,8 +106,7 @@ data DetectEntities = DetectEntities'
 -- For information about endpoints, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 --
--- 'text', 'detectEntities_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- 'text', 'detectEntities_text' - A UTF-8 text string. The maximum string size is 100 KB.
 newDetectEntities ::
   -- | 'text'
   Prelude.Text ->
@@ -142,8 +142,7 @@ detectEntities_languageCode = Lens.lens (\DetectEntities' {languageCode} -> lang
 detectEntities_endpointArn :: Lens.Lens' DetectEntities (Prelude.Maybe Prelude.Text)
 detectEntities_endpointArn = Lens.lens (\DetectEntities' {endpointArn} -> endpointArn) (\s@DetectEntities' {} a -> s {endpointArn = a} :: DetectEntities)
 
--- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- | A UTF-8 text string. The maximum string size is 100 KB.
 detectEntities_text :: Lens.Lens' DetectEntities Prelude.Text
 detectEntities_text = Lens.lens (\DetectEntities' {text} -> text) (\s@DetectEntities' {} a -> s {text = a} :: DetectEntities) Prelude.. Core._Sensitive
 
@@ -213,7 +212,9 @@ data DetectEntitiesResponse = DetectEntitiesResponse'
     -- If your request uses a custom entity recognition model, Amazon
     -- Comprehend detects the entities that the model is trained to recognize.
     -- Otherwise, it detects the default entity types. For a list of default
-    -- entity types, see how-entities.
+    -- entity types, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html Entities>
+    -- in the Comprehend Developer Guide.
     entities :: Prelude.Maybe [Entity],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -236,7 +237,9 @@ data DetectEntitiesResponse = DetectEntitiesResponse'
 -- If your request uses a custom entity recognition model, Amazon
 -- Comprehend detects the entities that the model is trained to recognize.
 -- Otherwise, it detects the default entity types. For a list of default
--- entity types, see how-entities.
+-- entity types, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html Entities>
+-- in the Comprehend Developer Guide.
 --
 -- 'httpStatus', 'detectEntitiesResponse_httpStatus' - The response's http status code.
 newDetectEntitiesResponse ::
@@ -257,7 +260,9 @@ newDetectEntitiesResponse pHttpStatus_ =
 -- If your request uses a custom entity recognition model, Amazon
 -- Comprehend detects the entities that the model is trained to recognize.
 -- Otherwise, it detects the default entity types. For a list of default
--- entity types, see how-entities.
+-- entity types, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html Entities>
+-- in the Comprehend Developer Guide.
 detectEntitiesResponse_entities :: Lens.Lens' DetectEntitiesResponse (Prelude.Maybe [Entity])
 detectEntitiesResponse_entities = Lens.lens (\DetectEntitiesResponse' {entities} -> entities) (\s@DetectEntitiesResponse' {} a -> s {entities = a} :: DetectEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 

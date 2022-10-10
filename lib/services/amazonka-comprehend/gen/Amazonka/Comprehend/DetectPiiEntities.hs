@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.DetectPiiEntities
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,8 +50,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectPiiEntities' smart constructor.
 data DetectPiiEntities = DetectPiiEntities'
-  { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
-    -- UTF-8 encoded characters.
+  { -- | A UTF-8 text string. The maximum string size is 100 KB.
     text :: Prelude.Text,
     -- | The language of the input documents. Currently, English is the only
     -- valid language.
@@ -67,8 +66,7 @@ data DetectPiiEntities = DetectPiiEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'detectPiiEntities_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- 'text', 'detectPiiEntities_text' - A UTF-8 text string. The maximum string size is 100 KB.
 --
 -- 'languageCode', 'detectPiiEntities_languageCode' - The language of the input documents. Currently, English is the only
 -- valid language.
@@ -84,8 +82,7 @@ newDetectPiiEntities pText_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
--- UTF-8 encoded characters.
+-- | A UTF-8 text string. The maximum string size is 100 KB.
 detectPiiEntities_text :: Lens.Lens' DetectPiiEntities Prelude.Text
 detectPiiEntities_text = Lens.lens (\DetectPiiEntities' {text} -> text) (\s@DetectPiiEntities' {} a -> s {text = a} :: DetectPiiEntities)
 

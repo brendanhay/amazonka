@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.CreateDocumentClassifier
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,8 @@
 -- documents that labeled with the categories that you want to use. After
 -- the classifier is trained you can use it to categorize a set of labeled
 -- documents into the categories. For more information, see
--- how-document-classification.
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html Document Classification>
+-- in the Comprehend Developer Guide.
 module Amazonka.Comprehend.CreateDocumentClassifier
   ( -- * Creating a Request
     CreateDocumentClassifier (..),

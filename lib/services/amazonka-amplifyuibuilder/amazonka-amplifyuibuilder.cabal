@@ -1,0 +1,153 @@
+cabal-version:      2.2
+name:               amazonka-amplifyuibuilder
+version:            2.0
+synopsis:           Amazon Amplify UI Builder SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-08-11@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.AmplifyUiBuilder.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.AmplifyUiBuilder" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-amplifyuibuilder
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.AmplifyUiBuilder
+    Amazonka.AmplifyUiBuilder.CreateComponent
+    Amazonka.AmplifyUiBuilder.CreateForm
+    Amazonka.AmplifyUiBuilder.CreateTheme
+    Amazonka.AmplifyUiBuilder.DeleteComponent
+    Amazonka.AmplifyUiBuilder.DeleteForm
+    Amazonka.AmplifyUiBuilder.DeleteTheme
+    Amazonka.AmplifyUiBuilder.ExchangeCodeForToken
+    Amazonka.AmplifyUiBuilder.ExportComponents
+    Amazonka.AmplifyUiBuilder.ExportForms
+    Amazonka.AmplifyUiBuilder.ExportThemes
+    Amazonka.AmplifyUiBuilder.GetComponent
+    Amazonka.AmplifyUiBuilder.GetForm
+    Amazonka.AmplifyUiBuilder.GetMetadata
+    Amazonka.AmplifyUiBuilder.GetTheme
+    Amazonka.AmplifyUiBuilder.Lens
+    Amazonka.AmplifyUiBuilder.ListComponents
+    Amazonka.AmplifyUiBuilder.ListForms
+    Amazonka.AmplifyUiBuilder.ListThemes
+    Amazonka.AmplifyUiBuilder.PutMetadataFlag
+    Amazonka.AmplifyUiBuilder.RefreshToken
+    Amazonka.AmplifyUiBuilder.Types
+    Amazonka.AmplifyUiBuilder.Types.ActionParameters
+    Amazonka.AmplifyUiBuilder.Types.Component
+    Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValue
+    Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
+    Amazonka.AmplifyUiBuilder.Types.ComponentChild
+    Amazonka.AmplifyUiBuilder.Types.ComponentConditionProperty
+    Amazonka.AmplifyUiBuilder.Types.ComponentDataConfiguration
+    Amazonka.AmplifyUiBuilder.Types.ComponentEvent
+    Amazonka.AmplifyUiBuilder.Types.ComponentProperty
+    Amazonka.AmplifyUiBuilder.Types.ComponentPropertyBindingProperties
+    Amazonka.AmplifyUiBuilder.Types.ComponentSummary
+    Amazonka.AmplifyUiBuilder.Types.ComponentVariant
+    Amazonka.AmplifyUiBuilder.Types.CreateComponentData
+    Amazonka.AmplifyUiBuilder.Types.CreateFormData
+    Amazonka.AmplifyUiBuilder.Types.CreateThemeData
+    Amazonka.AmplifyUiBuilder.Types.ExchangeCodeForTokenRequestBody
+    Amazonka.AmplifyUiBuilder.Types.FieldConfig
+    Amazonka.AmplifyUiBuilder.Types.FieldInputConfig
+    Amazonka.AmplifyUiBuilder.Types.FieldPosition
+    Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration
+    Amazonka.AmplifyUiBuilder.Types.FixedPosition
+    Amazonka.AmplifyUiBuilder.Types.Form
+    Amazonka.AmplifyUiBuilder.Types.FormActionType
+    Amazonka.AmplifyUiBuilder.Types.FormBindingElement
+    Amazonka.AmplifyUiBuilder.Types.FormButton
+    Amazonka.AmplifyUiBuilder.Types.FormButtonsPosition
+    Amazonka.AmplifyUiBuilder.Types.FormCTA
+    Amazonka.AmplifyUiBuilder.Types.FormDataSourceType
+    Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
+    Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty
+    Amazonka.AmplifyUiBuilder.Types.FormStyle
+    Amazonka.AmplifyUiBuilder.Types.FormStyleConfig
+    Amazonka.AmplifyUiBuilder.Types.FormSummary
+    Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter
+    Amazonka.AmplifyUiBuilder.Types.Predicate
+    Amazonka.AmplifyUiBuilder.Types.PutMetadataFlagBody
+    Amazonka.AmplifyUiBuilder.Types.RefreshTokenRequestBody
+    Amazonka.AmplifyUiBuilder.Types.SectionalElement
+    Amazonka.AmplifyUiBuilder.Types.SortDirection
+    Amazonka.AmplifyUiBuilder.Types.SortProperty
+    Amazonka.AmplifyUiBuilder.Types.Theme
+    Amazonka.AmplifyUiBuilder.Types.ThemeSummary
+    Amazonka.AmplifyUiBuilder.Types.ThemeValue
+    Amazonka.AmplifyUiBuilder.Types.ThemeValues
+    Amazonka.AmplifyUiBuilder.Types.TokenProviders
+    Amazonka.AmplifyUiBuilder.Types.UpdateComponentData
+    Amazonka.AmplifyUiBuilder.Types.UpdateFormData
+    Amazonka.AmplifyUiBuilder.Types.UpdateThemeData
+    Amazonka.AmplifyUiBuilder.Types.ValueMapping
+    Amazonka.AmplifyUiBuilder.Types.ValueMappings
+    Amazonka.AmplifyUiBuilder.UpdateComponent
+    Amazonka.AmplifyUiBuilder.UpdateForm
+    Amazonka.AmplifyUiBuilder.UpdateTheme
+    Amazonka.AmplifyUiBuilder.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-amplifyuibuilder-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.AmplifyUiBuilder
+    Test.Amazonka.AmplifyUiBuilder.Internal
+    Test.Amazonka.Gen.AmplifyUiBuilder
+
+  build-depends:
+    , amazonka-amplifyuibuilder
+    , amazonka-core              >=2.0 && <2.1
+    , amazonka-test              >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetsFromRedshiftDataSharesRequestDetails' smart constructor.
 data ImportAssetsFromRedshiftDataSharesRequestDetails = ImportAssetsFromRedshiftDataSharesRequestDetails'
-  { -- | The unique identifier for the data set associated with this import job.
-    dataSetId :: Prelude.Text,
-    -- | A list of Amazon Redshift datashare assets.
+  { -- | A list of Amazon Redshift datashare assets.
     assetSources :: [RedshiftDataShareAssetSourceEntry],
+    -- | The unique identifier for the data set associated with this import job.
+    dataSetId :: Prelude.Text,
     -- | The unique identifier for the revision associated with this import job.
     revisionId :: Prelude.Text
   }
@@ -45,9 +45,9 @@ data ImportAssetsFromRedshiftDataSharesRequestDetails = ImportAssetsFromRedshift
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSetId', 'importAssetsFromRedshiftDataSharesRequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
---
 -- 'assetSources', 'importAssetsFromRedshiftDataSharesRequestDetails_assetSources' - A list of Amazon Redshift datashare assets.
+--
+-- 'dataSetId', 'importAssetsFromRedshiftDataSharesRequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
 --
 -- 'revisionId', 'importAssetsFromRedshiftDataSharesRequestDetails_revisionId' - The unique identifier for the revision associated with this import job.
 newImportAssetsFromRedshiftDataSharesRequestDetails ::
@@ -60,20 +60,19 @@ newImportAssetsFromRedshiftDataSharesRequestDetails
   pDataSetId_
   pRevisionId_ =
     ImportAssetsFromRedshiftDataSharesRequestDetails'
-      { dataSetId =
-          pDataSetId_,
-        assetSources =
+      { assetSources =
           Prelude.mempty,
+        dataSetId = pDataSetId_,
         revisionId = pRevisionId_
       }
-
--- | The unique identifier for the data set associated with this import job.
-importAssetsFromRedshiftDataSharesRequestDetails_dataSetId :: Lens.Lens' ImportAssetsFromRedshiftDataSharesRequestDetails Prelude.Text
-importAssetsFromRedshiftDataSharesRequestDetails_dataSetId = Lens.lens (\ImportAssetsFromRedshiftDataSharesRequestDetails' {dataSetId} -> dataSetId) (\s@ImportAssetsFromRedshiftDataSharesRequestDetails' {} a -> s {dataSetId = a} :: ImportAssetsFromRedshiftDataSharesRequestDetails)
 
 -- | A list of Amazon Redshift datashare assets.
 importAssetsFromRedshiftDataSharesRequestDetails_assetSources :: Lens.Lens' ImportAssetsFromRedshiftDataSharesRequestDetails [RedshiftDataShareAssetSourceEntry]
 importAssetsFromRedshiftDataSharesRequestDetails_assetSources = Lens.lens (\ImportAssetsFromRedshiftDataSharesRequestDetails' {assetSources} -> assetSources) (\s@ImportAssetsFromRedshiftDataSharesRequestDetails' {} a -> s {assetSources = a} :: ImportAssetsFromRedshiftDataSharesRequestDetails) Prelude.. Lens.coerced
+
+-- | The unique identifier for the data set associated with this import job.
+importAssetsFromRedshiftDataSharesRequestDetails_dataSetId :: Lens.Lens' ImportAssetsFromRedshiftDataSharesRequestDetails Prelude.Text
+importAssetsFromRedshiftDataSharesRequestDetails_dataSetId = Lens.lens (\ImportAssetsFromRedshiftDataSharesRequestDetails' {dataSetId} -> dataSetId) (\s@ImportAssetsFromRedshiftDataSharesRequestDetails' {} a -> s {dataSetId = a} :: ImportAssetsFromRedshiftDataSharesRequestDetails)
 
 -- | The unique identifier for the revision associated with this import job.
 importAssetsFromRedshiftDataSharesRequestDetails_revisionId :: Lens.Lens' ImportAssetsFromRedshiftDataSharesRequestDetails Prelude.Text
@@ -86,8 +85,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` dataSetId
-        `Prelude.hashWithSalt` assetSources
+      _salt `Prelude.hashWithSalt` assetSources
+        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 
 instance
@@ -96,8 +95,8 @@ instance
   where
   rnf
     ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
-      Prelude.rnf dataSetId
-        `Prelude.seq` Prelude.rnf assetSources
+      Prelude.rnf assetSources
+        `Prelude.seq` Prelude.rnf dataSetId
         `Prelude.seq` Prelude.rnf revisionId
 
 instance
@@ -108,8 +107,8 @@ instance
     ImportAssetsFromRedshiftDataSharesRequestDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ Prelude.Just ("DataSetId" Core..= dataSetId),
-              Prelude.Just ("AssetSources" Core..= assetSources),
+            [ Prelude.Just ("AssetSources" Core..= assetSources),
+              Prelude.Just ("DataSetId" Core..= dataSetId),
               Prelude.Just ("RevisionId" Core..= revisionId)
             ]
         )

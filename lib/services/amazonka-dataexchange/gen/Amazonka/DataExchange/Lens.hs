@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,8 +47,8 @@ module Amazonka.DataExchange.Lens
     createEventActionResponse_httpStatus,
 
     -- ** CreateJob
-    createJob_type,
     createJob_details,
+    createJob_type,
     createJobResponse_type,
     createJobResponse_arn,
     createJobResponse_state,
@@ -78,9 +78,9 @@ module Amazonka.DataExchange.Lens
     createRevisionResponse_httpStatus,
 
     -- ** DeleteAsset
-    deleteAsset_revisionId,
     deleteAsset_assetId,
     deleteAsset_dataSetId,
+    deleteAsset_revisionId,
 
     -- ** DeleteDataSet
     deleteDataSet_dataSetId,
@@ -89,13 +89,13 @@ module Amazonka.DataExchange.Lens
     deleteEventAction_eventActionId,
 
     -- ** DeleteRevision
-    deleteRevision_revisionId,
     deleteRevision_dataSetId,
+    deleteRevision_revisionId,
 
     -- ** GetAsset
-    getAsset_revisionId,
     getAsset_assetId,
     getAsset_dataSetId,
+    getAsset_revisionId,
     getAssetResponse_name,
     getAssetResponse_sourceId,
     getAssetResponse_assetDetails,
@@ -146,8 +146,8 @@ module Amazonka.DataExchange.Lens
     getJobResponse_httpStatus,
 
     -- ** GetRevision
-    getRevision_revisionId,
     getRevision_dataSetId,
+    getRevision_revisionId,
     getRevisionResponse_tags,
     getRevisionResponse_sourceId,
     getRevisionResponse_revocationComment,
@@ -198,8 +198,8 @@ module Amazonka.DataExchange.Lens
     -- ** ListRevisionAssets
     listRevisionAssets_nextToken,
     listRevisionAssets_maxResults,
-    listRevisionAssets_revisionId,
     listRevisionAssets_dataSetId,
+    listRevisionAssets_revisionId,
     listRevisionAssetsResponse_nextToken,
     listRevisionAssetsResponse_assets,
     listRevisionAssetsResponse_httpStatus,
@@ -210,8 +210,8 @@ module Amazonka.DataExchange.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** RevokeRevision
-    revokeRevision_revisionId,
     revokeRevision_dataSetId,
+    revokeRevision_revisionId,
     revokeRevision_revocationComment,
     revokeRevisionResponse_sourceId,
     revokeRevisionResponse_revocationComment,
@@ -232,9 +232,9 @@ module Amazonka.DataExchange.Lens
     sendApiAsset_requestHeaders,
     sendApiAsset_body,
     sendApiAsset_path,
+    sendApiAsset_assetId,
     sendApiAsset_dataSetId,
     sendApiAsset_revisionId,
-    sendApiAsset_assetId,
     sendApiAssetResponse_responseHeaders,
     sendApiAssetResponse_body,
     sendApiAssetResponse_httpStatus,
@@ -248,14 +248,14 @@ module Amazonka.DataExchange.Lens
     tagResource_tags,
 
     -- ** UntagResource
-    untagResource_tagKeys,
     untagResource_resourceArn,
+    untagResource_tagKeys,
 
     -- ** UpdateAsset
-    updateAsset_revisionId,
     updateAsset_assetId,
     updateAsset_dataSetId,
     updateAsset_name,
+    updateAsset_revisionId,
     updateAssetResponse_name,
     updateAssetResponse_sourceId,
     updateAssetResponse_assetDetails,
@@ -298,8 +298,8 @@ module Amazonka.DataExchange.Lens
     -- ** UpdateRevision
     updateRevision_comment,
     updateRevision_finalized,
-    updateRevision_revisionId,
     updateRevision_dataSetId,
+    updateRevision_revisionId,
     updateRevisionResponse_sourceId,
     updateRevisionResponse_revocationComment,
     updateRevisionResponse_arn,
@@ -331,8 +331,8 @@ module Amazonka.DataExchange.Lens
 
     -- ** AssetDestinationEntry
     assetDestinationEntry_key,
-    assetDestinationEntry_bucket,
     assetDestinationEntry_assetId,
+    assetDestinationEntry_bucket,
 
     -- ** AssetDetails
     assetDetails_s3SnapshotAsset,
@@ -341,15 +341,15 @@ module Amazonka.DataExchange.Lens
 
     -- ** AssetEntry
     assetEntry_sourceId,
+    assetEntry_arn,
+    assetEntry_assetDetails,
     assetEntry_assetType,
     assetEntry_createdAt,
     assetEntry_dataSetId,
     assetEntry_id,
-    assetEntry_arn,
-    assetEntry_assetDetails,
-    assetEntry_updatedAt,
-    assetEntry_revisionId,
     assetEntry_name,
+    assetEntry_revisionId,
+    assetEntry_updatedAt,
 
     -- ** AssetSourceEntry
     assetSourceEntry_bucket,
@@ -366,14 +366,14 @@ module Amazonka.DataExchange.Lens
     -- ** DataSetEntry
     dataSetEntry_sourceId,
     dataSetEntry_originDetails,
-    dataSetEntry_origin,
-    dataSetEntry_assetType,
-    dataSetEntry_description,
-    dataSetEntry_createdAt,
-    dataSetEntry_id,
     dataSetEntry_arn,
-    dataSetEntry_updatedAt,
+    dataSetEntry_assetType,
+    dataSetEntry_createdAt,
+    dataSetEntry_description,
+    dataSetEntry_id,
     dataSetEntry_name,
+    dataSetEntry_origin,
+    dataSetEntry_updatedAt,
 
     -- ** Details
     details_importAssetsFromS3JobErrorDetails,
@@ -384,22 +384,22 @@ module Amazonka.DataExchange.Lens
 
     -- ** EventActionEntry
     eventActionEntry_action,
+    eventActionEntry_arn,
     eventActionEntry_createdAt,
     eventActionEntry_event,
     eventActionEntry_id,
-    eventActionEntry_arn,
     eventActionEntry_updatedAt,
 
     -- ** ExportAssetToSignedUrlRequestDetails
-    exportAssetToSignedUrlRequestDetails_dataSetId,
     exportAssetToSignedUrlRequestDetails_assetId,
+    exportAssetToSignedUrlRequestDetails_dataSetId,
     exportAssetToSignedUrlRequestDetails_revisionId,
 
     -- ** ExportAssetToSignedUrlResponseDetails
     exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt,
     exportAssetToSignedUrlResponseDetails_signedUrl,
-    exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_assetId,
+    exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_revisionId,
 
     -- ** ExportAssetsToS3RequestDetails
@@ -416,14 +416,14 @@ module Amazonka.DataExchange.Lens
 
     -- ** ExportRevisionsToS3RequestDetails
     exportRevisionsToS3RequestDetails_encryption,
-    exportRevisionsToS3RequestDetails_revisionDestinations,
     exportRevisionsToS3RequestDetails_dataSetId,
+    exportRevisionsToS3RequestDetails_revisionDestinations,
 
     -- ** ExportRevisionsToS3ResponseDetails
     exportRevisionsToS3ResponseDetails_eventActionArn,
     exportRevisionsToS3ResponseDetails_encryption,
-    exportRevisionsToS3ResponseDetails_revisionDestinations,
     exportRevisionsToS3ResponseDetails_dataSetId,
+    exportRevisionsToS3ResponseDetails_revisionDestinations,
 
     -- ** ExportServerSideEncryption
     exportServerSideEncryption_kmsKeyArn,
@@ -432,72 +432,72 @@ module Amazonka.DataExchange.Lens
     -- ** ImportAssetFromApiGatewayApiRequestDetails
     importAssetFromApiGatewayApiRequestDetails_apiKey,
     importAssetFromApiGatewayApiRequestDetails_apiDescription,
-    importAssetFromApiGatewayApiRequestDetails_apiName,
-    importAssetFromApiGatewayApiRequestDetails_protocolType,
-    importAssetFromApiGatewayApiRequestDetails_apiSpecificationMd5Hash,
-    importAssetFromApiGatewayApiRequestDetails_stage,
-    importAssetFromApiGatewayApiRequestDetails_dataSetId,
     importAssetFromApiGatewayApiRequestDetails_apiId,
+    importAssetFromApiGatewayApiRequestDetails_apiName,
+    importAssetFromApiGatewayApiRequestDetails_apiSpecificationMd5Hash,
+    importAssetFromApiGatewayApiRequestDetails_dataSetId,
+    importAssetFromApiGatewayApiRequestDetails_protocolType,
     importAssetFromApiGatewayApiRequestDetails_revisionId,
+    importAssetFromApiGatewayApiRequestDetails_stage,
 
     -- ** ImportAssetFromApiGatewayApiResponseDetails
     importAssetFromApiGatewayApiResponseDetails_apiKey,
     importAssetFromApiGatewayApiResponseDetails_apiDescription,
-    importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt,
-    importAssetFromApiGatewayApiResponseDetails_apiName,
-    importAssetFromApiGatewayApiResponseDetails_protocolType,
-    importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash,
-    importAssetFromApiGatewayApiResponseDetails_stage,
-    importAssetFromApiGatewayApiResponseDetails_dataSetId,
     importAssetFromApiGatewayApiResponseDetails_apiId,
-    importAssetFromApiGatewayApiResponseDetails_revisionId,
+    importAssetFromApiGatewayApiResponseDetails_apiName,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash,
     importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt,
+    importAssetFromApiGatewayApiResponseDetails_dataSetId,
+    importAssetFromApiGatewayApiResponseDetails_protocolType,
+    importAssetFromApiGatewayApiResponseDetails_revisionId,
+    importAssetFromApiGatewayApiResponseDetails_stage,
 
     -- ** ImportAssetFromSignedUrlJobErrorDetails
     importAssetFromSignedUrlJobErrorDetails_assetName,
 
     -- ** ImportAssetFromSignedUrlRequestDetails
+    importAssetFromSignedUrlRequestDetails_assetName,
     importAssetFromSignedUrlRequestDetails_dataSetId,
     importAssetFromSignedUrlRequestDetails_md5Hash,
-    importAssetFromSignedUrlRequestDetails_assetName,
     importAssetFromSignedUrlRequestDetails_revisionId,
 
     -- ** ImportAssetFromSignedUrlResponseDetails
     importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt,
     importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_md5Hash,
-    importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_assetName,
+    importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_revisionId,
 
     -- ** ImportAssetsFromRedshiftDataSharesRequestDetails
-    importAssetsFromRedshiftDataSharesRequestDetails_dataSetId,
     importAssetsFromRedshiftDataSharesRequestDetails_assetSources,
+    importAssetsFromRedshiftDataSharesRequestDetails_dataSetId,
     importAssetsFromRedshiftDataSharesRequestDetails_revisionId,
 
     -- ** ImportAssetsFromRedshiftDataSharesResponseDetails
-    importAssetsFromRedshiftDataSharesResponseDetails_dataSetId,
     importAssetsFromRedshiftDataSharesResponseDetails_assetSources,
+    importAssetsFromRedshiftDataSharesResponseDetails_dataSetId,
     importAssetsFromRedshiftDataSharesResponseDetails_revisionId,
 
     -- ** ImportAssetsFromS3RequestDetails
-    importAssetsFromS3RequestDetails_dataSetId,
     importAssetsFromS3RequestDetails_assetSources,
+    importAssetsFromS3RequestDetails_dataSetId,
     importAssetsFromS3RequestDetails_revisionId,
 
     -- ** ImportAssetsFromS3ResponseDetails
-    importAssetsFromS3ResponseDetails_dataSetId,
     importAssetsFromS3ResponseDetails_assetSources,
+    importAssetsFromS3ResponseDetails_dataSetId,
     importAssetsFromS3ResponseDetails_revisionId,
 
     -- ** JobEntry
     jobEntry_errors,
-    jobEntry_type,
-    jobEntry_details,
-    jobEntry_state,
-    jobEntry_createdAt,
-    jobEntry_id,
     jobEntry_arn,
+    jobEntry_createdAt,
+    jobEntry_details,
+    jobEntry_id,
+    jobEntry_state,
+    jobEntry_type,
     jobEntry_updatedAt,
 
     -- ** JobError
@@ -506,8 +506,8 @@ module Amazonka.DataExchange.Lens
     jobError_limitValue,
     jobError_limitName,
     jobError_details,
-    jobError_message,
     jobError_code,
+    jobError_message,
 
     -- ** OriginDetails
     originDetails_productId,
@@ -548,10 +548,10 @@ module Amazonka.DataExchange.Lens
     revisionEntry_finalized,
     revisionEntry_revokedAt,
     revisionEntry_revoked,
+    revisionEntry_arn,
     revisionEntry_createdAt,
     revisionEntry_dataSetId,
     revisionEntry_id,
-    revisionEntry_arn,
     revisionEntry_updatedAt,
 
     -- ** RevisionPublished

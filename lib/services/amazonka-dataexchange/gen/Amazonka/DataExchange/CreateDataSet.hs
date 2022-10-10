@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.CreateDataSet
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,9 +59,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for CreateDataSet.
---
--- /See:/ 'newCreateDataSet' smart constructor.
+-- | /See:/ 'newCreateDataSet' smart constructor.
 data CreateDataSet = CreateDataSet'
   { -- | A data set tag is an optional label that you can assign to a data set
     -- when you create it. Each tag consists of a key and an optional value,

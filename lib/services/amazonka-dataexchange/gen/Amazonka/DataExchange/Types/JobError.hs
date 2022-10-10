@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.JobError
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,10 +41,10 @@ data JobError = JobError'
     limitName :: Prelude.Maybe JobErrorLimitName,
     -- | The details about the job error.
     details :: Prelude.Maybe Details,
-    -- | The message related to the job error.
-    message :: Prelude.Text,
     -- | The code for the job error.
-    code :: Code
+    code :: Code,
+    -- | The message related to the job error.
+    message :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,24 @@ data JobError = JobError'
 --
 -- 'details', 'jobError_details' - The details about the job error.
 --
--- 'message', 'jobError_message' - The message related to the job error.
---
 -- 'code', 'jobError_code' - The code for the job error.
+--
+-- 'message', 'jobError_message' - The message related to the job error.
 newJobError ::
-  -- | 'message'
-  Prelude.Text ->
   -- | 'code'
   Code ->
+  -- | 'message'
+  Prelude.Text ->
   JobError
-newJobError pMessage_ pCode_ =
+newJobError pCode_ pMessage_ =
   JobError'
     { resourceId = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       limitValue = Prelude.Nothing,
       limitName = Prelude.Nothing,
       details = Prelude.Nothing,
-      message = pMessage_,
-      code = pCode_
+      code = pCode_,
+      message = pMessage_
     }
 
 -- | The unique identifier for the resource related to the error.
@@ -106,13 +106,13 @@ jobError_limitName = Lens.lens (\JobError' {limitName} -> limitName) (\s@JobErro
 jobError_details :: Lens.Lens' JobError (Prelude.Maybe Details)
 jobError_details = Lens.lens (\JobError' {details} -> details) (\s@JobError' {} a -> s {details = a} :: JobError)
 
--- | The message related to the job error.
-jobError_message :: Lens.Lens' JobError Prelude.Text
-jobError_message = Lens.lens (\JobError' {message} -> message) (\s@JobError' {} a -> s {message = a} :: JobError)
-
 -- | The code for the job error.
 jobError_code :: Lens.Lens' JobError Code
 jobError_code = Lens.lens (\JobError' {code} -> code) (\s@JobError' {} a -> s {code = a} :: JobError)
+
+-- | The message related to the job error.
+jobError_message :: Lens.Lens' JobError Prelude.Text
+jobError_message = Lens.lens (\JobError' {message} -> message) (\s@JobError' {} a -> s {message = a} :: JobError)
 
 instance Core.FromJSON JobError where
   parseJSON =
@@ -125,8 +125,8 @@ instance Core.FromJSON JobError where
             Prelude.<*> (x Core..:? "LimitValue")
             Prelude.<*> (x Core..:? "LimitName")
             Prelude.<*> (x Core..:? "Details")
-            Prelude.<*> (x Core..: "Message")
             Prelude.<*> (x Core..: "Code")
+            Prelude.<*> (x Core..: "Message")
       )
 
 instance Prelude.Hashable JobError where
@@ -136,8 +136,8 @@ instance Prelude.Hashable JobError where
       `Prelude.hashWithSalt` limitValue
       `Prelude.hashWithSalt` limitName
       `Prelude.hashWithSalt` details
-      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData JobError where
   rnf JobError' {..} =
@@ -146,5 +146,5 @@ instance Prelude.NFData JobError where
       `Prelude.seq` Prelude.rnf limitValue
       `Prelude.seq` Prelude.rnf limitName
       `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message

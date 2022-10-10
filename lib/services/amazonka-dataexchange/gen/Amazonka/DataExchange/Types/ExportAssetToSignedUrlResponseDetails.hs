@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,10 +31,10 @@ data ExportAssetToSignedUrlResponseDetails = ExportAssetToSignedUrlResponseDetai
     signedUrlExpiresAt :: Prelude.Maybe Core.POSIX,
     -- | The signed URL for the export request.
     signedUrl :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the data set associated with this export job.
-    dataSetId :: Prelude.Text,
     -- | The unique identifier for the asset associated with this export job.
     assetId :: Prelude.Text,
+    -- | The unique identifier for the data set associated with this export job.
+    dataSetId :: Prelude.Text,
     -- | The unique identifier for the revision associated with this export
     -- response.
     revisionId :: Prelude.Text
@@ -53,30 +53,30 @@ data ExportAssetToSignedUrlResponseDetails = ExportAssetToSignedUrlResponseDetai
 --
 -- 'signedUrl', 'exportAssetToSignedUrlResponseDetails_signedUrl' - The signed URL for the export request.
 --
--- 'dataSetId', 'exportAssetToSignedUrlResponseDetails_dataSetId' - The unique identifier for the data set associated with this export job.
---
 -- 'assetId', 'exportAssetToSignedUrlResponseDetails_assetId' - The unique identifier for the asset associated with this export job.
+--
+-- 'dataSetId', 'exportAssetToSignedUrlResponseDetails_dataSetId' - The unique identifier for the data set associated with this export job.
 --
 -- 'revisionId', 'exportAssetToSignedUrlResponseDetails_revisionId' - The unique identifier for the revision associated with this export
 -- response.
 newExportAssetToSignedUrlResponseDetails ::
-  -- | 'dataSetId'
-  Prelude.Text ->
   -- | 'assetId'
+  Prelude.Text ->
+  -- | 'dataSetId'
   Prelude.Text ->
   -- | 'revisionId'
   Prelude.Text ->
   ExportAssetToSignedUrlResponseDetails
 newExportAssetToSignedUrlResponseDetails
-  pDataSetId_
   pAssetId_
+  pDataSetId_
   pRevisionId_ =
     ExportAssetToSignedUrlResponseDetails'
       { signedUrlExpiresAt =
           Prelude.Nothing,
         signedUrl = Prelude.Nothing,
-        dataSetId = pDataSetId_,
         assetId = pAssetId_,
+        dataSetId = pDataSetId_,
         revisionId = pRevisionId_
       }
 
@@ -88,13 +88,13 @@ exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ExportAss
 exportAssetToSignedUrlResponseDetails_signedUrl :: Lens.Lens' ExportAssetToSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
 exportAssetToSignedUrlResponseDetails_signedUrl = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {signedUrl} -> signedUrl) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {signedUrl = a} :: ExportAssetToSignedUrlResponseDetails)
 
--- | The unique identifier for the data set associated with this export job.
-exportAssetToSignedUrlResponseDetails_dataSetId :: Lens.Lens' ExportAssetToSignedUrlResponseDetails Prelude.Text
-exportAssetToSignedUrlResponseDetails_dataSetId = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {dataSetId} -> dataSetId) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {dataSetId = a} :: ExportAssetToSignedUrlResponseDetails)
-
 -- | The unique identifier for the asset associated with this export job.
 exportAssetToSignedUrlResponseDetails_assetId :: Lens.Lens' ExportAssetToSignedUrlResponseDetails Prelude.Text
 exportAssetToSignedUrlResponseDetails_assetId = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {assetId} -> assetId) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {assetId = a} :: ExportAssetToSignedUrlResponseDetails)
+
+-- | The unique identifier for the data set associated with this export job.
+exportAssetToSignedUrlResponseDetails_dataSetId :: Lens.Lens' ExportAssetToSignedUrlResponseDetails Prelude.Text
+exportAssetToSignedUrlResponseDetails_dataSetId = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {dataSetId} -> dataSetId) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {dataSetId = a} :: ExportAssetToSignedUrlResponseDetails)
 
 -- | The unique identifier for the revision associated with this export
 -- response.
@@ -112,8 +112,8 @@ instance
           ExportAssetToSignedUrlResponseDetails'
             Prelude.<$> (x Core..:? "SignedUrlExpiresAt")
             Prelude.<*> (x Core..:? "SignedUrl")
-            Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "AssetId")
+            Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "RevisionId")
       )
 
@@ -126,8 +126,8 @@ instance
     ExportAssetToSignedUrlResponseDetails' {..} =
       _salt `Prelude.hashWithSalt` signedUrlExpiresAt
         `Prelude.hashWithSalt` signedUrl
-        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 
 instance
@@ -137,6 +137,6 @@ instance
   rnf ExportAssetToSignedUrlResponseDetails' {..} =
     Prelude.rnf signedUrlExpiresAt
       `Prelude.seq` Prelude.rnf signedUrl
-      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId

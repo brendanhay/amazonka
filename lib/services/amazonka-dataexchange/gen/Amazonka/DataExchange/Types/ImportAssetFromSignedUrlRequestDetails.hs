@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetFromSignedUrlRequestDetails' smart constructor.
 data ImportAssetFromSignedUrlRequestDetails = ImportAssetFromSignedUrlRequestDetails'
-  { -- | The unique identifier for the data set associated with this import job.
+  { -- | The name of the asset. When importing from Amazon S3, the S3 object key
+    -- is used as the asset name.
+    assetName :: Prelude.Text,
+    -- | The unique identifier for the data set associated with this import job.
     dataSetId :: Prelude.Text,
     -- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
     -- of the file at that location.
     md5Hash :: Prelude.Text,
-    -- | The name of the asset. When importing from Amazon S3, the S3 object key
-    -- is used as the asset name.
-    assetName :: Prelude.Text,
     -- | The unique identifier for the revision associated with this import
     -- request.
     revisionId :: Prelude.Text
@@ -49,38 +49,43 @@ data ImportAssetFromSignedUrlRequestDetails = ImportAssetFromSignedUrlRequestDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetName', 'importAssetFromSignedUrlRequestDetails_assetName' - The name of the asset. When importing from Amazon S3, the S3 object key
+-- is used as the asset name.
+--
 -- 'dataSetId', 'importAssetFromSignedUrlRequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
 --
 -- 'md5Hash', 'importAssetFromSignedUrlRequestDetails_md5Hash' - The Base64-encoded Md5 hash for the asset, used to ensure the integrity
 -- of the file at that location.
 --
--- 'assetName', 'importAssetFromSignedUrlRequestDetails_assetName' - The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name.
---
 -- 'revisionId', 'importAssetFromSignedUrlRequestDetails_revisionId' - The unique identifier for the revision associated with this import
 -- request.
 newImportAssetFromSignedUrlRequestDetails ::
+  -- | 'assetName'
+  Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
   -- | 'md5Hash'
-  Prelude.Text ->
-  -- | 'assetName'
   Prelude.Text ->
   -- | 'revisionId'
   Prelude.Text ->
   ImportAssetFromSignedUrlRequestDetails
 newImportAssetFromSignedUrlRequestDetails
+  pAssetName_
   pDataSetId_
   pMd5Hash_
-  pAssetName_
   pRevisionId_ =
     ImportAssetFromSignedUrlRequestDetails'
-      { dataSetId =
-          pDataSetId_,
+      { assetName =
+          pAssetName_,
+        dataSetId = pDataSetId_,
         md5Hash = pMd5Hash_,
-        assetName = pAssetName_,
         revisionId = pRevisionId_
       }
+
+-- | The name of the asset. When importing from Amazon S3, the S3 object key
+-- is used as the asset name.
+importAssetFromSignedUrlRequestDetails_assetName :: Lens.Lens' ImportAssetFromSignedUrlRequestDetails Prelude.Text
+importAssetFromSignedUrlRequestDetails_assetName = Lens.lens (\ImportAssetFromSignedUrlRequestDetails' {assetName} -> assetName) (\s@ImportAssetFromSignedUrlRequestDetails' {} a -> s {assetName = a} :: ImportAssetFromSignedUrlRequestDetails)
 
 -- | The unique identifier for the data set associated with this import job.
 importAssetFromSignedUrlRequestDetails_dataSetId :: Lens.Lens' ImportAssetFromSignedUrlRequestDetails Prelude.Text
@@ -90,11 +95,6 @@ importAssetFromSignedUrlRequestDetails_dataSetId = Lens.lens (\ImportAssetFromSi
 -- of the file at that location.
 importAssetFromSignedUrlRequestDetails_md5Hash :: Lens.Lens' ImportAssetFromSignedUrlRequestDetails Prelude.Text
 importAssetFromSignedUrlRequestDetails_md5Hash = Lens.lens (\ImportAssetFromSignedUrlRequestDetails' {md5Hash} -> md5Hash) (\s@ImportAssetFromSignedUrlRequestDetails' {} a -> s {md5Hash = a} :: ImportAssetFromSignedUrlRequestDetails)
-
--- | The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name.
-importAssetFromSignedUrlRequestDetails_assetName :: Lens.Lens' ImportAssetFromSignedUrlRequestDetails Prelude.Text
-importAssetFromSignedUrlRequestDetails_assetName = Lens.lens (\ImportAssetFromSignedUrlRequestDetails' {assetName} -> assetName) (\s@ImportAssetFromSignedUrlRequestDetails' {} a -> s {assetName = a} :: ImportAssetFromSignedUrlRequestDetails)
 
 -- | The unique identifier for the revision associated with this import
 -- request.
@@ -108,9 +108,9 @@ instance
   hashWithSalt
     _salt
     ImportAssetFromSignedUrlRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` dataSetId
+      _salt `Prelude.hashWithSalt` assetName
+        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` md5Hash
-        `Prelude.hashWithSalt` assetName
         `Prelude.hashWithSalt` revisionId
 
 instance
@@ -118,9 +118,9 @@ instance
     ImportAssetFromSignedUrlRequestDetails
   where
   rnf ImportAssetFromSignedUrlRequestDetails' {..} =
-    Prelude.rnf dataSetId
+    Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf md5Hash
-      `Prelude.seq` Prelude.rnf assetName
       `Prelude.seq` Prelude.rnf revisionId
 
 instance
@@ -130,9 +130,9 @@ instance
   toJSON ImportAssetFromSignedUrlRequestDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DataSetId" Core..= dataSetId),
+          [ Prelude.Just ("AssetName" Core..= assetName),
+            Prelude.Just ("DataSetId" Core..= dataSetId),
             Prelude.Just ("Md5Hash" Core..= md5Hash),
-            Prelude.Just ("AssetName" Core..= assetName),
             Prelude.Just ("RevisionId" Core..= revisionId)
           ]
       )

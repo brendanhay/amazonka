@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.CreateRevision
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,9 +59,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for CreateRevision.
---
--- /See:/ 'newCreateRevision' smart constructor.
+-- | /See:/ 'newCreateRevision' smart constructor.
 data CreateRevision = CreateRevision'
   { -- | A revision tag is an optional label that you can assign to a revision
     -- when you create it. Each tag consists of a key and an optional value,
@@ -205,7 +203,6 @@ data CreateRevisionResponse = CreateRevisionResponse'
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- your changes to the assets in the revision are complete. After it\'s in
     -- this read-only state, you can publish the revision to your products.
-    --
     -- Finalized revisions can be published through the AWS Data Exchange
     -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
     -- Marketplace Catalog API action. When using the API, revisions are
@@ -255,7 +252,6 @@ data CreateRevisionResponse = CreateRevisionResponse'
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
 -- this read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
@@ -326,7 +322,6 @@ createRevisionResponse_comment = Lens.lens (\CreateRevisionResponse' {comment} -
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
 -- this read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are

@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -74,8 +74,8 @@ module Amazonka.DataExchange.Types
     AssetDestinationEntry (..),
     newAssetDestinationEntry,
     assetDestinationEntry_key,
-    assetDestinationEntry_bucket,
     assetDestinationEntry_assetId,
+    assetDestinationEntry_bucket,
 
     -- * AssetDetails
     AssetDetails (..),
@@ -88,15 +88,15 @@ module Amazonka.DataExchange.Types
     AssetEntry (..),
     newAssetEntry,
     assetEntry_sourceId,
+    assetEntry_arn,
+    assetEntry_assetDetails,
     assetEntry_assetType,
     assetEntry_createdAt,
     assetEntry_dataSetId,
     assetEntry_id,
-    assetEntry_arn,
-    assetEntry_assetDetails,
-    assetEntry_updatedAt,
-    assetEntry_revisionId,
     assetEntry_name,
+    assetEntry_revisionId,
+    assetEntry_updatedAt,
 
     -- * AssetSourceEntry
     AssetSourceEntry (..),
@@ -121,14 +121,14 @@ module Amazonka.DataExchange.Types
     newDataSetEntry,
     dataSetEntry_sourceId,
     dataSetEntry_originDetails,
-    dataSetEntry_origin,
-    dataSetEntry_assetType,
-    dataSetEntry_description,
-    dataSetEntry_createdAt,
-    dataSetEntry_id,
     dataSetEntry_arn,
-    dataSetEntry_updatedAt,
+    dataSetEntry_assetType,
+    dataSetEntry_createdAt,
+    dataSetEntry_description,
+    dataSetEntry_id,
     dataSetEntry_name,
+    dataSetEntry_origin,
+    dataSetEntry_updatedAt,
 
     -- * Details
     Details (..),
@@ -145,17 +145,17 @@ module Amazonka.DataExchange.Types
     EventActionEntry (..),
     newEventActionEntry,
     eventActionEntry_action,
+    eventActionEntry_arn,
     eventActionEntry_createdAt,
     eventActionEntry_event,
     eventActionEntry_id,
-    eventActionEntry_arn,
     eventActionEntry_updatedAt,
 
     -- * ExportAssetToSignedUrlRequestDetails
     ExportAssetToSignedUrlRequestDetails (..),
     newExportAssetToSignedUrlRequestDetails,
-    exportAssetToSignedUrlRequestDetails_dataSetId,
     exportAssetToSignedUrlRequestDetails_assetId,
+    exportAssetToSignedUrlRequestDetails_dataSetId,
     exportAssetToSignedUrlRequestDetails_revisionId,
 
     -- * ExportAssetToSignedUrlResponseDetails
@@ -163,8 +163,8 @@ module Amazonka.DataExchange.Types
     newExportAssetToSignedUrlResponseDetails,
     exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt,
     exportAssetToSignedUrlResponseDetails_signedUrl,
-    exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_assetId,
+    exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_revisionId,
 
     -- * ExportAssetsToS3RequestDetails
@@ -187,16 +187,16 @@ module Amazonka.DataExchange.Types
     ExportRevisionsToS3RequestDetails (..),
     newExportRevisionsToS3RequestDetails,
     exportRevisionsToS3RequestDetails_encryption,
-    exportRevisionsToS3RequestDetails_revisionDestinations,
     exportRevisionsToS3RequestDetails_dataSetId,
+    exportRevisionsToS3RequestDetails_revisionDestinations,
 
     -- * ExportRevisionsToS3ResponseDetails
     ExportRevisionsToS3ResponseDetails (..),
     newExportRevisionsToS3ResponseDetails,
     exportRevisionsToS3ResponseDetails_eventActionArn,
     exportRevisionsToS3ResponseDetails_encryption,
-    exportRevisionsToS3ResponseDetails_revisionDestinations,
     exportRevisionsToS3ResponseDetails_dataSetId,
+    exportRevisionsToS3ResponseDetails_revisionDestinations,
 
     -- * ExportServerSideEncryption
     ExportServerSideEncryption (..),
@@ -209,28 +209,28 @@ module Amazonka.DataExchange.Types
     newImportAssetFromApiGatewayApiRequestDetails,
     importAssetFromApiGatewayApiRequestDetails_apiKey,
     importAssetFromApiGatewayApiRequestDetails_apiDescription,
-    importAssetFromApiGatewayApiRequestDetails_apiName,
-    importAssetFromApiGatewayApiRequestDetails_protocolType,
-    importAssetFromApiGatewayApiRequestDetails_apiSpecificationMd5Hash,
-    importAssetFromApiGatewayApiRequestDetails_stage,
-    importAssetFromApiGatewayApiRequestDetails_dataSetId,
     importAssetFromApiGatewayApiRequestDetails_apiId,
+    importAssetFromApiGatewayApiRequestDetails_apiName,
+    importAssetFromApiGatewayApiRequestDetails_apiSpecificationMd5Hash,
+    importAssetFromApiGatewayApiRequestDetails_dataSetId,
+    importAssetFromApiGatewayApiRequestDetails_protocolType,
     importAssetFromApiGatewayApiRequestDetails_revisionId,
+    importAssetFromApiGatewayApiRequestDetails_stage,
 
     -- * ImportAssetFromApiGatewayApiResponseDetails
     ImportAssetFromApiGatewayApiResponseDetails (..),
     newImportAssetFromApiGatewayApiResponseDetails,
     importAssetFromApiGatewayApiResponseDetails_apiKey,
     importAssetFromApiGatewayApiResponseDetails_apiDescription,
-    importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt,
-    importAssetFromApiGatewayApiResponseDetails_apiName,
-    importAssetFromApiGatewayApiResponseDetails_protocolType,
-    importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash,
-    importAssetFromApiGatewayApiResponseDetails_stage,
-    importAssetFromApiGatewayApiResponseDetails_dataSetId,
     importAssetFromApiGatewayApiResponseDetails_apiId,
-    importAssetFromApiGatewayApiResponseDetails_revisionId,
+    importAssetFromApiGatewayApiResponseDetails_apiName,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash,
     importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt,
+    importAssetFromApiGatewayApiResponseDetails_dataSetId,
+    importAssetFromApiGatewayApiResponseDetails_protocolType,
+    importAssetFromApiGatewayApiResponseDetails_revisionId,
+    importAssetFromApiGatewayApiResponseDetails_stage,
 
     -- * ImportAssetFromSignedUrlJobErrorDetails
     ImportAssetFromSignedUrlJobErrorDetails (..),
@@ -240,9 +240,9 @@ module Amazonka.DataExchange.Types
     -- * ImportAssetFromSignedUrlRequestDetails
     ImportAssetFromSignedUrlRequestDetails (..),
     newImportAssetFromSignedUrlRequestDetails,
+    importAssetFromSignedUrlRequestDetails_assetName,
     importAssetFromSignedUrlRequestDetails_dataSetId,
     importAssetFromSignedUrlRequestDetails_md5Hash,
-    importAssetFromSignedUrlRequestDetails_assetName,
     importAssetFromSignedUrlRequestDetails_revisionId,
 
     -- * ImportAssetFromSignedUrlResponseDetails
@@ -251,48 +251,48 @@ module Amazonka.DataExchange.Types
     importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt,
     importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_md5Hash,
-    importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_assetName,
+    importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_revisionId,
 
     -- * ImportAssetsFromRedshiftDataSharesRequestDetails
     ImportAssetsFromRedshiftDataSharesRequestDetails (..),
     newImportAssetsFromRedshiftDataSharesRequestDetails,
-    importAssetsFromRedshiftDataSharesRequestDetails_dataSetId,
     importAssetsFromRedshiftDataSharesRequestDetails_assetSources,
+    importAssetsFromRedshiftDataSharesRequestDetails_dataSetId,
     importAssetsFromRedshiftDataSharesRequestDetails_revisionId,
 
     -- * ImportAssetsFromRedshiftDataSharesResponseDetails
     ImportAssetsFromRedshiftDataSharesResponseDetails (..),
     newImportAssetsFromRedshiftDataSharesResponseDetails,
-    importAssetsFromRedshiftDataSharesResponseDetails_dataSetId,
     importAssetsFromRedshiftDataSharesResponseDetails_assetSources,
+    importAssetsFromRedshiftDataSharesResponseDetails_dataSetId,
     importAssetsFromRedshiftDataSharesResponseDetails_revisionId,
 
     -- * ImportAssetsFromS3RequestDetails
     ImportAssetsFromS3RequestDetails (..),
     newImportAssetsFromS3RequestDetails,
-    importAssetsFromS3RequestDetails_dataSetId,
     importAssetsFromS3RequestDetails_assetSources,
+    importAssetsFromS3RequestDetails_dataSetId,
     importAssetsFromS3RequestDetails_revisionId,
 
     -- * ImportAssetsFromS3ResponseDetails
     ImportAssetsFromS3ResponseDetails (..),
     newImportAssetsFromS3ResponseDetails,
-    importAssetsFromS3ResponseDetails_dataSetId,
     importAssetsFromS3ResponseDetails_assetSources,
+    importAssetsFromS3ResponseDetails_dataSetId,
     importAssetsFromS3ResponseDetails_revisionId,
 
     -- * JobEntry
     JobEntry (..),
     newJobEntry,
     jobEntry_errors,
-    jobEntry_type,
-    jobEntry_details,
-    jobEntry_state,
-    jobEntry_createdAt,
-    jobEntry_id,
     jobEntry_arn,
+    jobEntry_createdAt,
+    jobEntry_details,
+    jobEntry_id,
+    jobEntry_state,
+    jobEntry_type,
     jobEntry_updatedAt,
 
     -- * JobError
@@ -303,8 +303,8 @@ module Amazonka.DataExchange.Types
     jobError_limitValue,
     jobError_limitName,
     jobError_details,
-    jobError_message,
     jobError_code,
+    jobError_message,
 
     -- * OriginDetails
     OriginDetails (..),
@@ -359,10 +359,10 @@ module Amazonka.DataExchange.Types
     revisionEntry_finalized,
     revisionEntry_revokedAt,
     revisionEntry_revoked,
+    revisionEntry_arn,
     revisionEntry_createdAt,
     revisionEntry_dataSetId,
     revisionEntry_id,
-    revisionEntry_arn,
     revisionEntry_updatedAt,
 
     -- * RevisionPublished

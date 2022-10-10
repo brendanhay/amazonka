@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ExportServerSideEncryption
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Encryption configuration of the export job. Includes the encryption type
 -- in addition to the AWS KMS key. The KMS key is only necessary if you
--- chose the KMS encryption. type.
+-- chose the KMS encryption type.
 --
 -- /See:/ 'newExportServerSideEncryption' smart constructor.
 data ExportServerSideEncryption = ExportServerSideEncryption'

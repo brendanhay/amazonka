@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,25 +32,25 @@ data ImportAssetFromApiGatewayApiResponseDetails = ImportAssetFromApiGatewayApiR
     apiKey :: Prelude.Maybe Prelude.Text,
     -- | The API description.
     apiDescription :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the upload URL expires, in ISO 8601 format.
-    apiSpecificationUploadUrlExpiresAt :: Core.POSIX,
+    -- | The API ID.
+    apiId :: Prelude.Text,
     -- | The API name.
     apiName :: Prelude.Text,
-    -- | The protocol type.
-    protocolType :: ProtocolType,
     -- | The Base64-encoded Md5 hash for the API asset, used to ensure the
     -- integrity of the API at that location.
     apiSpecificationMd5Hash :: Prelude.Text,
-    -- | The API stage.
-    stage :: Prelude.Text,
+    -- | The upload URL of the API specification.
+    apiSpecificationUploadUrl :: Prelude.Text,
+    -- | The date and time that the upload URL expires, in ISO 8601 format.
+    apiSpecificationUploadUrlExpiresAt :: Core.POSIX,
     -- | The data set ID.
     dataSetId :: Prelude.Text,
-    -- | The API ID.
-    apiId :: Prelude.Text,
+    -- | The protocol type.
+    protocolType :: ProtocolType,
     -- | The revision ID.
     revisionId :: Prelude.Text,
-    -- | The upload URL of the API specification.
-    apiSpecificationUploadUrl :: Prelude.Text
+    -- | The API stage.
+    stage :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,72 +66,72 @@ data ImportAssetFromApiGatewayApiResponseDetails = ImportAssetFromApiGatewayApiR
 --
 -- 'apiDescription', 'importAssetFromApiGatewayApiResponseDetails_apiDescription' - The API description.
 --
--- 'apiSpecificationUploadUrlExpiresAt', 'importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt' - The date and time that the upload URL expires, in ISO 8601 format.
+-- 'apiId', 'importAssetFromApiGatewayApiResponseDetails_apiId' - The API ID.
 --
 -- 'apiName', 'importAssetFromApiGatewayApiResponseDetails_apiName' - The API name.
---
--- 'protocolType', 'importAssetFromApiGatewayApiResponseDetails_protocolType' - The protocol type.
 --
 -- 'apiSpecificationMd5Hash', 'importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash' - The Base64-encoded Md5 hash for the API asset, used to ensure the
 -- integrity of the API at that location.
 --
--- 'stage', 'importAssetFromApiGatewayApiResponseDetails_stage' - The API stage.
+-- 'apiSpecificationUploadUrl', 'importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl' - The upload URL of the API specification.
+--
+-- 'apiSpecificationUploadUrlExpiresAt', 'importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt' - The date and time that the upload URL expires, in ISO 8601 format.
 --
 -- 'dataSetId', 'importAssetFromApiGatewayApiResponseDetails_dataSetId' - The data set ID.
 --
--- 'apiId', 'importAssetFromApiGatewayApiResponseDetails_apiId' - The API ID.
+-- 'protocolType', 'importAssetFromApiGatewayApiResponseDetails_protocolType' - The protocol type.
 --
 -- 'revisionId', 'importAssetFromApiGatewayApiResponseDetails_revisionId' - The revision ID.
 --
--- 'apiSpecificationUploadUrl', 'importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl' - The upload URL of the API specification.
+-- 'stage', 'importAssetFromApiGatewayApiResponseDetails_stage' - The API stage.
 newImportAssetFromApiGatewayApiResponseDetails ::
-  -- | 'apiSpecificationUploadUrlExpiresAt'
-  Prelude.UTCTime ->
-  -- | 'apiName'
-  Prelude.Text ->
-  -- | 'protocolType'
-  ProtocolType ->
-  -- | 'apiSpecificationMd5Hash'
-  Prelude.Text ->
-  -- | 'stage'
-  Prelude.Text ->
-  -- | 'dataSetId'
-  Prelude.Text ->
   -- | 'apiId'
   Prelude.Text ->
-  -- | 'revisionId'
+  -- | 'apiName'
+  Prelude.Text ->
+  -- | 'apiSpecificationMd5Hash'
   Prelude.Text ->
   -- | 'apiSpecificationUploadUrl'
   Prelude.Text ->
+  -- | 'apiSpecificationUploadUrlExpiresAt'
+  Prelude.UTCTime ->
+  -- | 'dataSetId'
+  Prelude.Text ->
+  -- | 'protocolType'
+  ProtocolType ->
+  -- | 'revisionId'
+  Prelude.Text ->
+  -- | 'stage'
+  Prelude.Text ->
   ImportAssetFromApiGatewayApiResponseDetails
 newImportAssetFromApiGatewayApiResponseDetails
-  pApiSpecificationUploadUrlExpiresAt_
-  pApiName_
-  pProtocolType_
-  pApiSpecificationMd5Hash_
-  pStage_
-  pDataSetId_
   pApiId_
+  pApiName_
+  pApiSpecificationMd5Hash_
+  pApiSpecificationUploadUrl_
+  pApiSpecificationUploadUrlExpiresAt_
+  pDataSetId_
+  pProtocolType_
   pRevisionId_
-  pApiSpecificationUploadUrl_ =
+  pStage_ =
     ImportAssetFromApiGatewayApiResponseDetails'
       { apiKey =
           Prelude.Nothing,
         apiDescription =
           Prelude.Nothing,
+        apiId = pApiId_,
+        apiName = pApiName_,
+        apiSpecificationMd5Hash =
+          pApiSpecificationMd5Hash_,
+        apiSpecificationUploadUrl =
+          pApiSpecificationUploadUrl_,
         apiSpecificationUploadUrlExpiresAt =
           Core._Time
             Lens.# pApiSpecificationUploadUrlExpiresAt_,
-        apiName = pApiName_,
-        protocolType = pProtocolType_,
-        apiSpecificationMd5Hash =
-          pApiSpecificationMd5Hash_,
-        stage = pStage_,
         dataSetId = pDataSetId_,
-        apiId = pApiId_,
+        protocolType = pProtocolType_,
         revisionId = pRevisionId_,
-        apiSpecificationUploadUrl =
-          pApiSpecificationUploadUrl_
+        stage = pStage_
       }
 
 -- | The API key.
@@ -142,42 +142,42 @@ importAssetFromApiGatewayApiResponseDetails_apiKey = Lens.lens (\ImportAssetFrom
 importAssetFromApiGatewayApiResponseDetails_apiDescription :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails (Prelude.Maybe Prelude.Text)
 importAssetFromApiGatewayApiResponseDetails_apiDescription = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiDescription} -> apiDescription) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiDescription = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
--- | The date and time that the upload URL expires, in ISO 8601 format.
-importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.UTCTime
-importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationUploadUrlExpiresAt} -> apiSpecificationUploadUrlExpiresAt) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationUploadUrlExpiresAt = a} :: ImportAssetFromApiGatewayApiResponseDetails) Prelude.. Core._Time
+-- | The API ID.
+importAssetFromApiGatewayApiResponseDetails_apiId :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
+importAssetFromApiGatewayApiResponseDetails_apiId = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiId} -> apiId) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiId = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
 -- | The API name.
 importAssetFromApiGatewayApiResponseDetails_apiName :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
 importAssetFromApiGatewayApiResponseDetails_apiName = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiName} -> apiName) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiName = a} :: ImportAssetFromApiGatewayApiResponseDetails)
-
--- | The protocol type.
-importAssetFromApiGatewayApiResponseDetails_protocolType :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails ProtocolType
-importAssetFromApiGatewayApiResponseDetails_protocolType = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {protocolType} -> protocolType) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {protocolType = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
 -- | The Base64-encoded Md5 hash for the API asset, used to ensure the
 -- integrity of the API at that location.
 importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
 importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationMd5Hash} -> apiSpecificationMd5Hash) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationMd5Hash = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
--- | The API stage.
-importAssetFromApiGatewayApiResponseDetails_stage :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
-importAssetFromApiGatewayApiResponseDetails_stage = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {stage} -> stage) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {stage = a} :: ImportAssetFromApiGatewayApiResponseDetails)
+-- | The upload URL of the API specification.
+importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
+importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationUploadUrl} -> apiSpecificationUploadUrl) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationUploadUrl = a} :: ImportAssetFromApiGatewayApiResponseDetails)
+
+-- | The date and time that the upload URL expires, in ISO 8601 format.
+importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.UTCTime
+importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationUploadUrlExpiresAt} -> apiSpecificationUploadUrlExpiresAt) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationUploadUrlExpiresAt = a} :: ImportAssetFromApiGatewayApiResponseDetails) Prelude.. Core._Time
 
 -- | The data set ID.
 importAssetFromApiGatewayApiResponseDetails_dataSetId :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
 importAssetFromApiGatewayApiResponseDetails_dataSetId = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {dataSetId} -> dataSetId) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {dataSetId = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
--- | The API ID.
-importAssetFromApiGatewayApiResponseDetails_apiId :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
-importAssetFromApiGatewayApiResponseDetails_apiId = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiId} -> apiId) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiId = a} :: ImportAssetFromApiGatewayApiResponseDetails)
+-- | The protocol type.
+importAssetFromApiGatewayApiResponseDetails_protocolType :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails ProtocolType
+importAssetFromApiGatewayApiResponseDetails_protocolType = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {protocolType} -> protocolType) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {protocolType = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
 -- | The revision ID.
 importAssetFromApiGatewayApiResponseDetails_revisionId :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
 importAssetFromApiGatewayApiResponseDetails_revisionId = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {revisionId} -> revisionId) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {revisionId = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
--- | The upload URL of the API specification.
-importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
-importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiSpecificationUploadUrl} -> apiSpecificationUploadUrl) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiSpecificationUploadUrl = a} :: ImportAssetFromApiGatewayApiResponseDetails)
+-- | The API stage.
+importAssetFromApiGatewayApiResponseDetails_stage :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
+importAssetFromApiGatewayApiResponseDetails_stage = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {stage} -> stage) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {stage = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
 instance
   Core.FromJSON
@@ -190,15 +190,15 @@ instance
           ImportAssetFromApiGatewayApiResponseDetails'
             Prelude.<$> (x Core..:? "ApiKey")
               Prelude.<*> (x Core..:? "ApiDescription")
-              Prelude.<*> (x Core..: "ApiSpecificationUploadUrlExpiresAt")
-              Prelude.<*> (x Core..: "ApiName")
-              Prelude.<*> (x Core..: "ProtocolType")
-              Prelude.<*> (x Core..: "ApiSpecificationMd5Hash")
-              Prelude.<*> (x Core..: "Stage")
-              Prelude.<*> (x Core..: "DataSetId")
               Prelude.<*> (x Core..: "ApiId")
-              Prelude.<*> (x Core..: "RevisionId")
+              Prelude.<*> (x Core..: "ApiName")
+              Prelude.<*> (x Core..: "ApiSpecificationMd5Hash")
               Prelude.<*> (x Core..: "ApiSpecificationUploadUrl")
+              Prelude.<*> (x Core..: "ApiSpecificationUploadUrlExpiresAt")
+              Prelude.<*> (x Core..: "DataSetId")
+              Prelude.<*> (x Core..: "ProtocolType")
+              Prelude.<*> (x Core..: "RevisionId")
+              Prelude.<*> (x Core..: "Stage")
       )
 
 instance
@@ -210,15 +210,15 @@ instance
     ImportAssetFromApiGatewayApiResponseDetails' {..} =
       _salt `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` apiDescription
-        `Prelude.hashWithSalt` apiSpecificationUploadUrlExpiresAt
-        `Prelude.hashWithSalt` apiName
-        `Prelude.hashWithSalt` protocolType
-        `Prelude.hashWithSalt` apiSpecificationMd5Hash
-        `Prelude.hashWithSalt` stage
-        `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` apiId
-        `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` apiName
+        `Prelude.hashWithSalt` apiSpecificationMd5Hash
         `Prelude.hashWithSalt` apiSpecificationUploadUrl
+        `Prelude.hashWithSalt` apiSpecificationUploadUrlExpiresAt
+        `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` protocolType
+        `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` stage
 
 instance
   Prelude.NFData
@@ -227,12 +227,12 @@ instance
   rnf ImportAssetFromApiGatewayApiResponseDetails' {..} =
     Prelude.rnf apiKey
       `Prelude.seq` Prelude.rnf apiDescription
-      `Prelude.seq` Prelude.rnf apiSpecificationUploadUrlExpiresAt
-      `Prelude.seq` Prelude.rnf apiName
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf apiSpecificationMd5Hash
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf apiName
+      `Prelude.seq` Prelude.rnf apiSpecificationMd5Hash
       `Prelude.seq` Prelude.rnf apiSpecificationUploadUrl
+      `Prelude.seq` Prelude.rnf apiSpecificationUploadUrlExpiresAt
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf stage

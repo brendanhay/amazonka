@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.RevisionEntry
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,6 @@ data RevisionEntry = RevisionEntry'
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- your changes to the assets in the revision are complete. After it\'s in
     -- this read-only state, you can publish the revision to your products.
-    --
     -- Finalized revisions can be published through the AWS Data Exchange
     -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
     -- Marketplace Catalog API action. When using the API, revisions are
@@ -51,14 +50,14 @@ data RevisionEntry = RevisionEntry'
     -- | A status indicating that subscribers\' access to the revision was
     -- revoked.
     revoked :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN for the revision.
+    arn :: Prelude.Text,
     -- | The date and time that the revision was created, in ISO 8601 format.
     createdAt :: Core.POSIX,
     -- | The unique identifier for the data set associated with this revision.
     dataSetId :: Prelude.Text,
     -- | The unique identifier for the revision.
     id :: Prelude.Text,
-    -- | The ARN for the revision.
-    arn :: Prelude.Text,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
     updatedAt :: Core.POSIX
@@ -86,7 +85,6 @@ data RevisionEntry = RevisionEntry'
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
 -- this read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
@@ -97,33 +95,33 @@ data RevisionEntry = RevisionEntry'
 -- 'revoked', 'revisionEntry_revoked' - A status indicating that subscribers\' access to the revision was
 -- revoked.
 --
+-- 'arn', 'revisionEntry_arn' - The ARN for the revision.
+--
 -- 'createdAt', 'revisionEntry_createdAt' - The date and time that the revision was created, in ISO 8601 format.
 --
 -- 'dataSetId', 'revisionEntry_dataSetId' - The unique identifier for the data set associated with this revision.
 --
 -- 'id', 'revisionEntry_id' - The unique identifier for the revision.
 --
--- 'arn', 'revisionEntry_arn' - The ARN for the revision.
---
 -- 'updatedAt', 'revisionEntry_updatedAt' - The date and time that the revision was last updated, in ISO 8601
 -- format.
 newRevisionEntry ::
+  -- | 'arn'
+  Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
   -- | 'dataSetId'
   Prelude.Text ->
   -- | 'id'
   Prelude.Text ->
-  -- | 'arn'
-  Prelude.Text ->
   -- | 'updatedAt'
   Prelude.UTCTime ->
   RevisionEntry
 newRevisionEntry
+  pArn_
   pCreatedAt_
   pDataSetId_
   pId_
-  pArn_
   pUpdatedAt_ =
     RevisionEntry'
       { sourceId = Prelude.Nothing,
@@ -132,10 +130,10 @@ newRevisionEntry
         finalized = Prelude.Nothing,
         revokedAt = Prelude.Nothing,
         revoked = Prelude.Nothing,
+        arn = pArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         dataSetId = pDataSetId_,
         id = pId_,
-        arn = pArn_,
         updatedAt = Core._Time Lens.# pUpdatedAt_
       }
 
@@ -158,7 +156,6 @@ revisionEntry_comment = Lens.lens (\RevisionEntry' {comment} -> comment) (\s@Rev
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
 -- this read-only state, you can publish the revision to your products.
---
 -- Finalized revisions can be published through the AWS Data Exchange
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
@@ -175,6 +172,10 @@ revisionEntry_revokedAt = Lens.lens (\RevisionEntry' {revokedAt} -> revokedAt) (
 revisionEntry_revoked :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Bool)
 revisionEntry_revoked = Lens.lens (\RevisionEntry' {revoked} -> revoked) (\s@RevisionEntry' {} a -> s {revoked = a} :: RevisionEntry)
 
+-- | The ARN for the revision.
+revisionEntry_arn :: Lens.Lens' RevisionEntry Prelude.Text
+revisionEntry_arn = Lens.lens (\RevisionEntry' {arn} -> arn) (\s@RevisionEntry' {} a -> s {arn = a} :: RevisionEntry)
+
 -- | The date and time that the revision was created, in ISO 8601 format.
 revisionEntry_createdAt :: Lens.Lens' RevisionEntry Prelude.UTCTime
 revisionEntry_createdAt = Lens.lens (\RevisionEntry' {createdAt} -> createdAt) (\s@RevisionEntry' {} a -> s {createdAt = a} :: RevisionEntry) Prelude.. Core._Time
@@ -186,10 +187,6 @@ revisionEntry_dataSetId = Lens.lens (\RevisionEntry' {dataSetId} -> dataSetId) (
 -- | The unique identifier for the revision.
 revisionEntry_id :: Lens.Lens' RevisionEntry Prelude.Text
 revisionEntry_id = Lens.lens (\RevisionEntry' {id} -> id) (\s@RevisionEntry' {} a -> s {id = a} :: RevisionEntry)
-
--- | The ARN for the revision.
-revisionEntry_arn :: Lens.Lens' RevisionEntry Prelude.Text
-revisionEntry_arn = Lens.lens (\RevisionEntry' {arn} -> arn) (\s@RevisionEntry' {} a -> s {arn = a} :: RevisionEntry)
 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
@@ -208,10 +205,10 @@ instance Core.FromJSON RevisionEntry where
             Prelude.<*> (x Core..:? "Finalized")
             Prelude.<*> (x Core..:? "RevokedAt")
             Prelude.<*> (x Core..:? "Revoked")
+            Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "CreatedAt")
             Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "UpdatedAt")
       )
 
@@ -223,10 +220,10 @@ instance Prelude.Hashable RevisionEntry where
       `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` revokedAt
       `Prelude.hashWithSalt` revoked
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData RevisionEntry where
@@ -237,8 +234,8 @@ instance Prelude.NFData RevisionEntry where
       `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf revokedAt
       `Prelude.seq` Prelude.rnf revoked
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf updatedAt

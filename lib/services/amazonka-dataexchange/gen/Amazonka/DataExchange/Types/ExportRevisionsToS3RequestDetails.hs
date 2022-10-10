@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data ExportRevisionsToS3RequestDetails = ExportRevisionsToS3RequestDetails'
   { -- | Encryption configuration for the export job.
     encryption :: Prelude.Maybe ExportServerSideEncryption,
-    -- | The destination for the revision.
-    revisionDestinations :: [RevisionDestinationEntry],
     -- | The unique identifier for the data set associated with this export job.
-    dataSetId :: Prelude.Text
+    dataSetId :: Prelude.Text,
+    -- | The destination for the revision.
+    revisionDestinations :: [RevisionDestinationEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,9 +48,9 @@ data ExportRevisionsToS3RequestDetails = ExportRevisionsToS3RequestDetails'
 --
 -- 'encryption', 'exportRevisionsToS3RequestDetails_encryption' - Encryption configuration for the export job.
 --
--- 'revisionDestinations', 'exportRevisionsToS3RequestDetails_revisionDestinations' - The destination for the revision.
---
 -- 'dataSetId', 'exportRevisionsToS3RequestDetails_dataSetId' - The unique identifier for the data set associated with this export job.
+--
+-- 'revisionDestinations', 'exportRevisionsToS3RequestDetails_revisionDestinations' - The destination for the revision.
 newExportRevisionsToS3RequestDetails ::
   -- | 'dataSetId'
   Prelude.Text ->
@@ -59,21 +59,21 @@ newExportRevisionsToS3RequestDetails pDataSetId_ =
   ExportRevisionsToS3RequestDetails'
     { encryption =
         Prelude.Nothing,
-      revisionDestinations = Prelude.mempty,
-      dataSetId = pDataSetId_
+      dataSetId = pDataSetId_,
+      revisionDestinations = Prelude.mempty
     }
 
 -- | Encryption configuration for the export job.
 exportRevisionsToS3RequestDetails_encryption :: Lens.Lens' ExportRevisionsToS3RequestDetails (Prelude.Maybe ExportServerSideEncryption)
 exportRevisionsToS3RequestDetails_encryption = Lens.lens (\ExportRevisionsToS3RequestDetails' {encryption} -> encryption) (\s@ExportRevisionsToS3RequestDetails' {} a -> s {encryption = a} :: ExportRevisionsToS3RequestDetails)
 
--- | The destination for the revision.
-exportRevisionsToS3RequestDetails_revisionDestinations :: Lens.Lens' ExportRevisionsToS3RequestDetails [RevisionDestinationEntry]
-exportRevisionsToS3RequestDetails_revisionDestinations = Lens.lens (\ExportRevisionsToS3RequestDetails' {revisionDestinations} -> revisionDestinations) (\s@ExportRevisionsToS3RequestDetails' {} a -> s {revisionDestinations = a} :: ExportRevisionsToS3RequestDetails) Prelude.. Lens.coerced
-
 -- | The unique identifier for the data set associated with this export job.
 exportRevisionsToS3RequestDetails_dataSetId :: Lens.Lens' ExportRevisionsToS3RequestDetails Prelude.Text
 exportRevisionsToS3RequestDetails_dataSetId = Lens.lens (\ExportRevisionsToS3RequestDetails' {dataSetId} -> dataSetId) (\s@ExportRevisionsToS3RequestDetails' {} a -> s {dataSetId = a} :: ExportRevisionsToS3RequestDetails)
+
+-- | The destination for the revision.
+exportRevisionsToS3RequestDetails_revisionDestinations :: Lens.Lens' ExportRevisionsToS3RequestDetails [RevisionDestinationEntry]
+exportRevisionsToS3RequestDetails_revisionDestinations = Lens.lens (\ExportRevisionsToS3RequestDetails' {revisionDestinations} -> revisionDestinations) (\s@ExportRevisionsToS3RequestDetails' {} a -> s {revisionDestinations = a} :: ExportRevisionsToS3RequestDetails) Prelude.. Lens.coerced
 
 instance
   Prelude.Hashable
@@ -83,8 +83,8 @@ instance
     _salt
     ExportRevisionsToS3RequestDetails' {..} =
       _salt `Prelude.hashWithSalt` encryption
-        `Prelude.hashWithSalt` revisionDestinations
         `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` revisionDestinations
 
 instance
   Prelude.NFData
@@ -92,8 +92,8 @@ instance
   where
   rnf ExportRevisionsToS3RequestDetails' {..} =
     Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf revisionDestinations
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionDestinations
 
 instance
   Core.ToJSON
@@ -103,10 +103,10 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("Encryption" Core..=) Prelude.<$> encryption,
+            Prelude.Just ("DataSetId" Core..= dataSetId),
             Prelude.Just
               ( "RevisionDestinations"
                   Core..= revisionDestinations
-              ),
-            Prelude.Just ("DataSetId" Core..= dataSetId)
+              )
           ]
       )

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.SendApiAsset
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,9 +33,9 @@ module Amazonka.DataExchange.SendApiAsset
     sendApiAsset_requestHeaders,
     sendApiAsset_body,
     sendApiAsset_path,
+    sendApiAsset_assetId,
     sendApiAsset_dataSetId,
     sendApiAsset_revisionId,
-    sendApiAsset_assetId,
 
     -- * Destructuring the Response
     SendApiAssetResponse (..),
@@ -55,9 +55,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The request body for SendApiAsset.
---
--- /See:/ 'newSendApiAsset' smart constructor.
+-- | /See:/ 'newSendApiAsset' smart constructor.
 data SendApiAsset = SendApiAsset'
   { -- | HTTP method value for the API request. Alternatively, you can use the
     -- appropriate verb in your request.
@@ -73,14 +71,14 @@ data SendApiAsset = SendApiAsset'
     -- | The request body.
     body :: Prelude.Maybe Prelude.ByteString,
     -- | URI path value for the API request. Alternatively, you can set the URI
-    -- path directly by invoking \/v1\/{pathValue}
+    -- path directly by invoking \/v1\/{pathValue}.
     path :: Prelude.Maybe Prelude.Text,
+    -- | Asset ID value for the API request.
+    assetId :: Prelude.Text,
     -- | Data set ID value for the API request.
     dataSetId :: Prelude.Text,
     -- | Revision ID value for the API request.
-    revisionId :: Prelude.Text,
-    -- | Asset ID value for the API request.
-    assetId :: Prelude.Text
+    revisionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,31 +104,31 @@ data SendApiAsset = SendApiAsset'
 -- 'body', 'sendApiAsset_body' - The request body.
 --
 -- 'path', 'sendApiAsset_path' - URI path value for the API request. Alternatively, you can set the URI
--- path directly by invoking \/v1\/{pathValue}
+-- path directly by invoking \/v1\/{pathValue}.
+--
+-- 'assetId', 'sendApiAsset_assetId' - Asset ID value for the API request.
 --
 -- 'dataSetId', 'sendApiAsset_dataSetId' - Data set ID value for the API request.
 --
 -- 'revisionId', 'sendApiAsset_revisionId' - Revision ID value for the API request.
---
--- 'assetId', 'sendApiAsset_assetId' - Asset ID value for the API request.
 newSendApiAsset ::
+  -- | 'assetId'
+  Prelude.Text ->
   -- | 'dataSetId'
   Prelude.Text ->
   -- | 'revisionId'
   Prelude.Text ->
-  -- | 'assetId'
-  Prelude.Text ->
   SendApiAsset
-newSendApiAsset pDataSetId_ pRevisionId_ pAssetId_ =
+newSendApiAsset pAssetId_ pDataSetId_ pRevisionId_ =
   SendApiAsset'
     { method = Prelude.Nothing,
       queryStringParameters = Prelude.Nothing,
       requestHeaders = Prelude.mempty,
       body = Prelude.Nothing,
       path = Prelude.Nothing,
+      assetId = pAssetId_,
       dataSetId = pDataSetId_,
-      revisionId = pRevisionId_,
-      assetId = pAssetId_
+      revisionId = pRevisionId_
     }
 
 -- | HTTP method value for the API request. Alternatively, you can use the
@@ -155,9 +153,13 @@ sendApiAsset_body :: Lens.Lens' SendApiAsset (Prelude.Maybe Prelude.ByteString)
 sendApiAsset_body = Lens.lens (\SendApiAsset' {body} -> body) (\s@SendApiAsset' {} a -> s {body = a} :: SendApiAsset)
 
 -- | URI path value for the API request. Alternatively, you can set the URI
--- path directly by invoking \/v1\/{pathValue}
+-- path directly by invoking \/v1\/{pathValue}.
 sendApiAsset_path :: Lens.Lens' SendApiAsset (Prelude.Maybe Prelude.Text)
 sendApiAsset_path = Lens.lens (\SendApiAsset' {path} -> path) (\s@SendApiAsset' {} a -> s {path = a} :: SendApiAsset)
+
+-- | Asset ID value for the API request.
+sendApiAsset_assetId :: Lens.Lens' SendApiAsset Prelude.Text
+sendApiAsset_assetId = Lens.lens (\SendApiAsset' {assetId} -> assetId) (\s@SendApiAsset' {} a -> s {assetId = a} :: SendApiAsset)
 
 -- | Data set ID value for the API request.
 sendApiAsset_dataSetId :: Lens.Lens' SendApiAsset Prelude.Text
@@ -166,10 +168,6 @@ sendApiAsset_dataSetId = Lens.lens (\SendApiAsset' {dataSetId} -> dataSetId) (\s
 -- | Revision ID value for the API request.
 sendApiAsset_revisionId :: Lens.Lens' SendApiAsset Prelude.Text
 sendApiAsset_revisionId = Lens.lens (\SendApiAsset' {revisionId} -> revisionId) (\s@SendApiAsset' {} a -> s {revisionId = a} :: SendApiAsset)
-
--- | Asset ID value for the API request.
-sendApiAsset_assetId :: Lens.Lens' SendApiAsset Prelude.Text
-sendApiAsset_assetId = Lens.lens (\SendApiAsset' {assetId} -> assetId) (\s@SendApiAsset' {} a -> s {assetId = a} :: SendApiAsset)
 
 instance Core.AWSRequest SendApiAsset where
   type AWSResponse SendApiAsset = SendApiAssetResponse
@@ -190,9 +188,9 @@ instance Prelude.Hashable SendApiAsset where
       `Prelude.hashWithSalt` requestHeaders
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` assetId
 
 instance Prelude.NFData SendApiAsset where
   rnf SendApiAsset' {..} =
@@ -201,9 +199,9 @@ instance Prelude.NFData SendApiAsset where
       `Prelude.seq` Prelude.rnf requestHeaders
       `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToBody SendApiAsset where
   toBody SendApiAsset' {..} = Core.toBody body
@@ -214,9 +212,9 @@ instance Core.ToHeaders SendApiAsset where
       [ "x-amzn-dataexchange-http-method" Core.=# method,
         "x-amzn-dataexchange-header-" Core.=# requestHeaders,
         "x-amzn-dataexchange-path" Core.=# path,
+        "x-amzn-dataexchange-asset-id" Core.=# assetId,
         "x-amzn-dataexchange-data-set-id" Core.=# dataSetId,
         "x-amzn-dataexchange-revision-id" Core.=# revisionId,
-        "x-amzn-dataexchange-asset-id" Core.=# assetId,
         "Content-Type"
           Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]

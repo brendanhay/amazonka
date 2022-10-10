@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,10 +33,10 @@ data ExportRevisionsToS3ResponseDetails = ExportRevisionsToS3ResponseDetails'
     eventActionArn :: Prelude.Maybe Prelude.Text,
     -- | Encryption configuration of the export job.
     encryption :: Prelude.Maybe ExportServerSideEncryption,
-    -- | The destination in Amazon S3 where the revision is exported.
-    revisionDestinations :: [RevisionDestinationEntry],
     -- | The unique identifier for the data set associated with this export job.
-    dataSetId :: Prelude.Text
+    dataSetId :: Prelude.Text,
+    -- | The destination in Amazon S3 where the revision is exported.
+    revisionDestinations :: [RevisionDestinationEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,9 @@ data ExportRevisionsToS3ResponseDetails = ExportRevisionsToS3ResponseDetails'
 --
 -- 'encryption', 'exportRevisionsToS3ResponseDetails_encryption' - Encryption configuration of the export job.
 --
--- 'revisionDestinations', 'exportRevisionsToS3ResponseDetails_revisionDestinations' - The destination in Amazon S3 where the revision is exported.
---
 -- 'dataSetId', 'exportRevisionsToS3ResponseDetails_dataSetId' - The unique identifier for the data set associated with this export job.
+--
+-- 'revisionDestinations', 'exportRevisionsToS3ResponseDetails_revisionDestinations' - The destination in Amazon S3 where the revision is exported.
 newExportRevisionsToS3ResponseDetails ::
   -- | 'dataSetId'
   Prelude.Text ->
@@ -64,8 +64,8 @@ newExportRevisionsToS3ResponseDetails pDataSetId_ =
     { eventActionArn =
         Prelude.Nothing,
       encryption = Prelude.Nothing,
-      revisionDestinations = Prelude.mempty,
-      dataSetId = pDataSetId_
+      dataSetId = pDataSetId_,
+      revisionDestinations = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the event action.
@@ -76,13 +76,13 @@ exportRevisionsToS3ResponseDetails_eventActionArn = Lens.lens (\ExportRevisionsT
 exportRevisionsToS3ResponseDetails_encryption :: Lens.Lens' ExportRevisionsToS3ResponseDetails (Prelude.Maybe ExportServerSideEncryption)
 exportRevisionsToS3ResponseDetails_encryption = Lens.lens (\ExportRevisionsToS3ResponseDetails' {encryption} -> encryption) (\s@ExportRevisionsToS3ResponseDetails' {} a -> s {encryption = a} :: ExportRevisionsToS3ResponseDetails)
 
--- | The destination in Amazon S3 where the revision is exported.
-exportRevisionsToS3ResponseDetails_revisionDestinations :: Lens.Lens' ExportRevisionsToS3ResponseDetails [RevisionDestinationEntry]
-exportRevisionsToS3ResponseDetails_revisionDestinations = Lens.lens (\ExportRevisionsToS3ResponseDetails' {revisionDestinations} -> revisionDestinations) (\s@ExportRevisionsToS3ResponseDetails' {} a -> s {revisionDestinations = a} :: ExportRevisionsToS3ResponseDetails) Prelude.. Lens.coerced
-
 -- | The unique identifier for the data set associated with this export job.
 exportRevisionsToS3ResponseDetails_dataSetId :: Lens.Lens' ExportRevisionsToS3ResponseDetails Prelude.Text
 exportRevisionsToS3ResponseDetails_dataSetId = Lens.lens (\ExportRevisionsToS3ResponseDetails' {dataSetId} -> dataSetId) (\s@ExportRevisionsToS3ResponseDetails' {} a -> s {dataSetId = a} :: ExportRevisionsToS3ResponseDetails)
+
+-- | The destination in Amazon S3 where the revision is exported.
+exportRevisionsToS3ResponseDetails_revisionDestinations :: Lens.Lens' ExportRevisionsToS3ResponseDetails [RevisionDestinationEntry]
+exportRevisionsToS3ResponseDetails_revisionDestinations = Lens.lens (\ExportRevisionsToS3ResponseDetails' {revisionDestinations} -> revisionDestinations) (\s@ExportRevisionsToS3ResponseDetails' {} a -> s {revisionDestinations = a} :: ExportRevisionsToS3ResponseDetails) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON
@@ -95,10 +95,10 @@ instance
           ExportRevisionsToS3ResponseDetails'
             Prelude.<$> (x Core..:? "EventActionArn")
             Prelude.<*> (x Core..:? "Encryption")
+            Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> ( x Core..:? "RevisionDestinations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "DataSetId")
       )
 
 instance
@@ -110,8 +110,8 @@ instance
     ExportRevisionsToS3ResponseDetails' {..} =
       _salt `Prelude.hashWithSalt` eventActionArn
         `Prelude.hashWithSalt` encryption
-        `Prelude.hashWithSalt` revisionDestinations
         `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` revisionDestinations
 
 instance
   Prelude.NFData
@@ -120,5 +120,5 @@ instance
   rnf ExportRevisionsToS3ResponseDetails' {..} =
     Prelude.rnf eventActionArn
       `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf revisionDestinations
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionDestinations

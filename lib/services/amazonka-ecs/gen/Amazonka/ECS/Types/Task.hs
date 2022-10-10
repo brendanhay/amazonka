@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.Task
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,6 +109,16 @@ data Task = Task'
     --
     -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
     --     Available @cpu@ values: 4096 (4 vCPU)
+    --
+    -- -   Between 16 GB and 60 GB in 4 GB increments - Available @cpu@ values:
+    --     8192 (8 vCPU)
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
+    --
+    -- -   Between 32GB and 120 GB in 8 GB increments - Available @cpu@ values:
+    --     16384 (16 vCPU)
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
     memory :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU units used by the task as expressed in a task
     -- definition. It can be expressed as an integer using CPU units (for
@@ -137,11 +147,21 @@ data Task = Task'
     -- -   1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB),
     --     4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
     --
-    -- -   2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and
-    --     16384 (16 GB) in increments of 1024 (1 GB)
+    -- -   2048 (2 vCPU) - Available @memory@ values: 4096 (4 GB) and 16384 (16
+    --     GB) in increments of 1024 (1 GB)
     --
-    -- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
-    --     30720 (30 GB) in increments of 1024 (1 GB)
+    -- -   4096 (4 vCPU) - Available @memory@ values: 8192 (8 GB) and 30720 (30
+    --     GB) in increments of 1024 (1 GB)
+    --
+    -- -   8192 (8 vCPU) - Available @memory@ values: 16 GB and 60 GB in 4 GB
+    --     increments
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
+    --
+    -- -   16384 (16vCPU) - Available @memory@ values: 32GB and 120 GB in 8 GB
+    --     increments
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
     cpu :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the task.
     taskArn :: Prelude.Maybe Prelude.Text,
@@ -336,6 +356,16 @@ data Task = Task'
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
 --
+-- -   Between 16 GB and 60 GB in 4 GB increments - Available @cpu@ values:
+--     8192 (8 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   Between 32GB and 120 GB in 8 GB increments - Available @cpu@ values:
+--     16384 (16 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
 -- 'cpu', 'task_cpu' - The number of CPU units used by the task as expressed in a task
 -- definition. It can be expressed as an integer using CPU units (for
 -- example, @1024@). It can also be expressed as a string using vCPUs (for
@@ -363,11 +393,21 @@ data Task = Task'
 -- -   1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB),
 --     4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 --
--- -   2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and
---     16384 (16 GB) in increments of 1024 (1 GB)
+-- -   2048 (2 vCPU) - Available @memory@ values: 4096 (4 GB) and 16384 (16
+--     GB) in increments of 1024 (1 GB)
 --
--- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
---     30720 (30 GB) in increments of 1024 (1 GB)
+-- -   4096 (4 vCPU) - Available @memory@ values: 8192 (8 GB) and 30720 (30
+--     GB) in increments of 1024 (1 GB)
+--
+-- -   8192 (8 vCPU) - Available @memory@ values: 16 GB and 60 GB in 4 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   16384 (16vCPU) - Available @memory@ values: 32GB and 120 GB in 8 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
 --
 -- 'taskArn', 'task_taskArn' - The Amazon Resource Name (ARN) of the task.
 --
@@ -605,6 +645,16 @@ task_platformFamily = Lens.lens (\Task' {platformFamily} -> platformFamily) (\s@
 --
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
+--
+-- -   Between 16 GB and 60 GB in 4 GB increments - Available @cpu@ values:
+--     8192 (8 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   Between 32GB and 120 GB in 8 GB increments - Available @cpu@ values:
+--     16384 (16 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
 task_memory :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
 task_memory = Lens.lens (\Task' {memory} -> memory) (\s@Task' {} a -> s {memory = a} :: Task)
 
@@ -635,11 +685,21 @@ task_memory = Lens.lens (\Task' {memory} -> memory) (\s@Task' {} a -> s {memory 
 -- -   1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB),
 --     4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 --
--- -   2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and
---     16384 (16 GB) in increments of 1024 (1 GB)
+-- -   2048 (2 vCPU) - Available @memory@ values: 4096 (4 GB) and 16384 (16
+--     GB) in increments of 1024 (1 GB)
 --
--- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
---     30720 (30 GB) in increments of 1024 (1 GB)
+-- -   4096 (4 vCPU) - Available @memory@ values: 8192 (8 GB) and 30720 (30
+--     GB) in increments of 1024 (1 GB)
+--
+-- -   8192 (8 vCPU) - Available @memory@ values: 16 GB and 60 GB in 4 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   16384 (16vCPU) - Available @memory@ values: 32GB and 120 GB in 8 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
 task_cpu :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
 task_cpu = Lens.lens (\Task' {cpu} -> cpu) (\s@Task' {} a -> s {cpu = a} :: Task)
 

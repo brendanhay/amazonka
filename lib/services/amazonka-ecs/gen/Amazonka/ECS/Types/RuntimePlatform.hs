@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.RuntimePlatform
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the platform for the Amazon ECS service or task.
 --
--- For more informataion about @RuntimePlatform@, see
+-- For more information about @RuntimePlatform@, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform RuntimePlatform>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --

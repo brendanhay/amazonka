@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.RegisterTaskDefinition
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -129,8 +129,6 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- following platform versions:
     --
     -- -   Linux platform version @1.4.0@ or later.
-    --
-    -- -   Windows platform version @1.0.0@ or later.
     ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The operating system that your tasks definitions run on. A platform
     -- family is specified only for tasks using the Fargate launch type.
@@ -200,6 +198,16 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --
     -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
     --     Available @cpu@ values: 4096 (4 vCPU)
+    --
+    -- -   Between 16 GB and 60 GB in 4 GB increments - Available @cpu@ values:
+    --     8192 (8 vCPU)
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
+    --
+    -- -   Between 32GB and 120 GB in 8 GB increments - Available @cpu@ values:
+    --     16384 (16 vCPU)
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
     memory :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU units used by the task. It can be expressed as an
     -- integer using CPU units (for example, @1024@) or as a string using vCPUs
@@ -213,7 +221,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --
     -- If you\'re using the EC2 launch type, this field is optional. Supported
     -- values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units
-    -- (@10@ vCPUs).
+    -- (@10@ vCPUs). If you do not specify a value, the parameter is ignored.
     --
     -- If you\'re using the Fargate launch type, this field is required and you
     -- must use one of the following values, which determines your range of
@@ -231,11 +239,21 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- -   1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB),
     --     4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
     --
-    -- -   2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and
-    --     16384 (16 GB) in increments of 1024 (1 GB)
+    -- -   2048 (2 vCPU) - Available @memory@ values: 4096 (4 GB) and 16384 (16
+    --     GB) in increments of 1024 (1 GB)
     --
-    -- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
-    --     30720 (30 GB) in increments of 1024 (1 GB)
+    -- -   4096 (4 vCPU) - Available @memory@ values: 8192 (8 GB) and 30720 (30
+    --     GB) in increments of 1024 (1 GB)
+    --
+    -- -   8192 (8 vCPU) - Available @memory@ values: 16 GB and 60 GB in 4 GB
+    --     increments
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
+    --
+    -- -   16384 (16vCPU) - Available @memory@ values: 32GB and 120 GB in 8 GB
+    --     increments
+    --
+    --     This option requires Linux platform @1.4.0@ or later.
     cpu :: Prelude.Maybe Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the IAM role that
     -- containers in this task can assume. All containers in this task are
@@ -398,8 +416,6 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --
 -- -   Linux platform version @1.4.0@ or later.
 --
--- -   Windows platform version @1.0.0@ or later.
---
 -- 'runtimePlatform', 'registerTaskDefinition_runtimePlatform' - The operating system that your tasks definitions run on. A platform
 -- family is specified only for tasks using the Fargate launch type.
 --
@@ -469,6 +485,16 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
 --
+-- -   Between 16 GB and 60 GB in 4 GB increments - Available @cpu@ values:
+--     8192 (8 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   Between 32GB and 120 GB in 8 GB increments - Available @cpu@ values:
+--     16384 (16 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
 -- 'cpu', 'registerTaskDefinition_cpu' - The number of CPU units used by the task. It can be expressed as an
 -- integer using CPU units (for example, @1024@) or as a string using vCPUs
 -- (for example, @1 vCPU@ or @1 vcpu@) in a task definition. String values
@@ -481,7 +507,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --
 -- If you\'re using the EC2 launch type, this field is optional. Supported
 -- values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units
--- (@10@ vCPUs).
+-- (@10@ vCPUs). If you do not specify a value, the parameter is ignored.
 --
 -- If you\'re using the Fargate launch type, this field is required and you
 -- must use one of the following values, which determines your range of
@@ -499,11 +525,21 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- -   1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB),
 --     4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 --
--- -   2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and
---     16384 (16 GB) in increments of 1024 (1 GB)
+-- -   2048 (2 vCPU) - Available @memory@ values: 4096 (4 GB) and 16384 (16
+--     GB) in increments of 1024 (1 GB)
 --
--- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
---     30720 (30 GB) in increments of 1024 (1 GB)
+-- -   4096 (4 vCPU) - Available @memory@ values: 8192 (8 GB) and 30720 (30
+--     GB) in increments of 1024 (1 GB)
+--
+-- -   8192 (8 vCPU) - Available @memory@ values: 16 GB and 60 GB in 4 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   16384 (16vCPU) - Available @memory@ values: 32GB and 120 GB in 8 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
 --
 -- 'taskRoleArn', 'registerTaskDefinition_taskRoleArn' - The short name or full Amazon Resource Name (ARN) of the IAM role that
 -- containers in this task can assume. All containers in this task are
@@ -680,8 +716,6 @@ registerTaskDefinition_tags = Lens.lens (\RegisterTaskDefinition' {tags} -> tags
 -- following platform versions:
 --
 -- -   Linux platform version @1.4.0@ or later.
---
--- -   Windows platform version @1.0.0@ or later.
 registerTaskDefinition_ephemeralStorage :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe EphemeralStorage)
 registerTaskDefinition_ephemeralStorage = Lens.lens (\RegisterTaskDefinition' {ephemeralStorage} -> ephemeralStorage) (\s@RegisterTaskDefinition' {} a -> s {ephemeralStorage = a} :: RegisterTaskDefinition)
 
@@ -759,6 +793,16 @@ registerTaskDefinition_pidMode = Lens.lens (\RegisterTaskDefinition' {pidMode} -
 --
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
+--
+-- -   Between 16 GB and 60 GB in 4 GB increments - Available @cpu@ values:
+--     8192 (8 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   Between 32GB and 120 GB in 8 GB increments - Available @cpu@ values:
+--     16384 (16 vCPU)
+--
+--     This option requires Linux platform @1.4.0@ or later.
 registerTaskDefinition_memory :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
 registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> memory) (\s@RegisterTaskDefinition' {} a -> s {memory = a} :: RegisterTaskDefinition)
 
@@ -774,7 +818,7 @@ registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> 
 --
 -- If you\'re using the EC2 launch type, this field is optional. Supported
 -- values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units
--- (@10@ vCPUs).
+-- (@10@ vCPUs). If you do not specify a value, the parameter is ignored.
 --
 -- If you\'re using the Fargate launch type, this field is required and you
 -- must use one of the following values, which determines your range of
@@ -792,11 +836,21 @@ registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> 
 -- -   1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB),
 --     4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 --
--- -   2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and
---     16384 (16 GB) in increments of 1024 (1 GB)
+-- -   2048 (2 vCPU) - Available @memory@ values: 4096 (4 GB) and 16384 (16
+--     GB) in increments of 1024 (1 GB)
 --
--- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
---     30720 (30 GB) in increments of 1024 (1 GB)
+-- -   4096 (4 vCPU) - Available @memory@ values: 8192 (8 GB) and 30720 (30
+--     GB) in increments of 1024 (1 GB)
+--
+-- -   8192 (8 vCPU) - Available @memory@ values: 16 GB and 60 GB in 4 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
+--
+-- -   16384 (16vCPU) - Available @memory@ values: 32GB and 120 GB in 8 GB
+--     increments
+--
+--     This option requires Linux platform @1.4.0@ or later.
 registerTaskDefinition_cpu :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
 registerTaskDefinition_cpu = Lens.lens (\RegisterTaskDefinition' {cpu} -> cpu) (\s@RegisterTaskDefinition' {} a -> s {cpu = a} :: RegisterTaskDefinition)
 

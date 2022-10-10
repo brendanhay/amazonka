@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.CreateService
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -115,28 +115,10 @@
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- When the service scheduler launches new tasks, it determines task
--- placement in your cluster using the following logic:
---
--- -   Determine which of the container instances in your cluster can
---     support the task definition of your service. For example, they have
---     the required CPU, memory, ports, and container instance attributes.
---
--- -   By default, the service scheduler attempts to balance tasks across
---     Availability Zones in this manner. This is the case even if you can
---     choose a different placement strategy with the @placementStrategy@
---     parameter.
---
---     -   Sort the valid container instances, giving priority to instances
---         that have the fewest number of running tasks for this service in
---         their respective Availability Zone. For example, if zone A has
---         one running service task and zones B and C each have zero, valid
---         container instances in either zone B or C are considered optimal
---         for placement.
---
---     -   Place the new service task on a valid container instance in an
---         optimal Availability Zone based on the previous steps, favoring
---         container instances with the fewest number of running tasks for
---         this service.
+-- placement. For information about task placement and task placement
+-- strategies, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html Amazon ECS task placement>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 module Amazonka.ECS.CreateService
   ( -- * Creating a Request
     CreateService (..),

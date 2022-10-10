@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.PutAccessControlRule
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,9 @@
 --
 -- Adds a new access control rule for the specified organization. The rule
 -- allows or denies access to the organization for the specified IPv4
--- addresses, access protocol actions, and user IDs. Adding a new rule with
--- the same name as an existing rule replaces the older rule.
+-- addresses, access protocol actions, user IDs and impersonation IDs.
+-- Adding a new rule with the same name as an existing rule replaces the
+-- older rule.
 module Amazonka.WorkMail.PutAccessControlRule
   ( -- * Creating a Request
     PutAccessControlRule (..),
@@ -33,7 +34,9 @@ module Amazonka.WorkMail.PutAccessControlRule
     putAccessControlRule_notIpRanges,
     putAccessControlRule_notActions,
     putAccessControlRule_ipRanges,
+    putAccessControlRule_notImpersonationRoleIds,
     putAccessControlRule_userIds,
+    putAccessControlRule_impersonationRoleIds,
     putAccessControlRule_notUserIds,
     putAccessControlRule_actions,
     putAccessControlRule_name,
@@ -67,8 +70,12 @@ data PutAccessControlRule = PutAccessControlRule'
     notActions :: Prelude.Maybe [Prelude.Text],
     -- | IPv4 CIDR ranges to include in the rule.
     ipRanges :: Prelude.Maybe [Prelude.Text],
+    -- | Impersonation role IDs to exclude from the rule.
+    notImpersonationRoleIds :: Prelude.Maybe [Prelude.Text],
     -- | User IDs to include in the rule.
     userIds :: Prelude.Maybe [Prelude.Text],
+    -- | Impersonation role IDs to include in the rule.
+    impersonationRoleIds :: Prelude.Maybe [Prelude.Text],
     -- | User IDs to exclude from the rule.
     notUserIds :: Prelude.Maybe [Prelude.Text],
     -- | Access protocol actions to include in the rule. Valid values include
@@ -102,7 +109,11 @@ data PutAccessControlRule = PutAccessControlRule'
 --
 -- 'ipRanges', 'putAccessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.
 --
+-- 'notImpersonationRoleIds', 'putAccessControlRule_notImpersonationRoleIds' - Impersonation role IDs to exclude from the rule.
+--
 -- 'userIds', 'putAccessControlRule_userIds' - User IDs to include in the rule.
+--
+-- 'impersonationRoleIds', 'putAccessControlRule_impersonationRoleIds' - Impersonation role IDs to include in the rule.
 --
 -- 'notUserIds', 'putAccessControlRule_notUserIds' - User IDs to exclude from the rule.
 --
@@ -137,7 +148,9 @@ newPutAccessControlRule
           Prelude.Nothing,
         notActions = Prelude.Nothing,
         ipRanges = Prelude.Nothing,
+        notImpersonationRoleIds = Prelude.Nothing,
         userIds = Prelude.Nothing,
+        impersonationRoleIds = Prelude.Nothing,
         notUserIds = Prelude.Nothing,
         actions = Prelude.Nothing,
         name = pName_,
@@ -160,9 +173,17 @@ putAccessControlRule_notActions = Lens.lens (\PutAccessControlRule' {notActions}
 putAccessControlRule_ipRanges :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
 putAccessControlRule_ipRanges = Lens.lens (\PutAccessControlRule' {ipRanges} -> ipRanges) (\s@PutAccessControlRule' {} a -> s {ipRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
+-- | Impersonation role IDs to exclude from the rule.
+putAccessControlRule_notImpersonationRoleIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
+putAccessControlRule_notImpersonationRoleIds = Lens.lens (\PutAccessControlRule' {notImpersonationRoleIds} -> notImpersonationRoleIds) (\s@PutAccessControlRule' {} a -> s {notImpersonationRoleIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
 -- | User IDs to include in the rule.
 putAccessControlRule_userIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
 putAccessControlRule_userIds = Lens.lens (\PutAccessControlRule' {userIds} -> userIds) (\s@PutAccessControlRule' {} a -> s {userIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Impersonation role IDs to include in the rule.
+putAccessControlRule_impersonationRoleIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
+putAccessControlRule_impersonationRoleIds = Lens.lens (\PutAccessControlRule' {impersonationRoleIds} -> impersonationRoleIds) (\s@PutAccessControlRule' {} a -> s {impersonationRoleIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | User IDs to exclude from the rule.
 putAccessControlRule_notUserIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
@@ -207,7 +228,9 @@ instance Prelude.Hashable PutAccessControlRule where
     _salt `Prelude.hashWithSalt` notIpRanges
       `Prelude.hashWithSalt` notActions
       `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` notImpersonationRoleIds
       `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` impersonationRoleIds
       `Prelude.hashWithSalt` notUserIds
       `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` name
@@ -220,7 +243,9 @@ instance Prelude.NFData PutAccessControlRule where
     Prelude.rnf notIpRanges
       `Prelude.seq` Prelude.rnf notActions
       `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf notImpersonationRoleIds
       `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf impersonationRoleIds
       `Prelude.seq` Prelude.rnf notUserIds
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf name
@@ -250,7 +275,11 @@ instance Core.ToJSON PutAccessControlRule where
           [ ("NotIpRanges" Core..=) Prelude.<$> notIpRanges,
             ("NotActions" Core..=) Prelude.<$> notActions,
             ("IpRanges" Core..=) Prelude.<$> ipRanges,
+            ("NotImpersonationRoleIds" Core..=)
+              Prelude.<$> notImpersonationRoleIds,
             ("UserIds" Core..=) Prelude.<$> userIds,
+            ("ImpersonationRoleIds" Core..=)
+              Prelude.<$> impersonationRoleIds,
             ("NotUserIds" Core..=) Prelude.<$> notUserIds,
             ("Actions" Core..=) Prelude.<$> actions,
             Prelude.Just ("Name" Core..= name),

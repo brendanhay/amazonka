@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeleteAvailabilityConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,8 +49,8 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDeleteAvailabilityConfiguration' smart constructor.
 data DeleteAvailabilityConfiguration = DeleteAvailabilityConfiguration'
-  { -- | The Amazon WorkMail organization for which the
-    -- @AvailabilityConfiguration@ will be deleted.
+  { -- | The WorkMail organization for which the @AvailabilityConfiguration@ will
+    -- be deleted.
     organizationId :: Prelude.Text,
     -- | The domain for which the @AvailabilityConfiguration@ will be deleted.
     domainName :: Prelude.Text
@@ -65,8 +65,8 @@ data DeleteAvailabilityConfiguration = DeleteAvailabilityConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'deleteAvailabilityConfiguration_organizationId' - The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@ will be deleted.
+-- 'organizationId', 'deleteAvailabilityConfiguration_organizationId' - The WorkMail organization for which the @AvailabilityConfiguration@ will
+-- be deleted.
 --
 -- 'domainName', 'deleteAvailabilityConfiguration_domainName' - The domain for which the @AvailabilityConfiguration@ will be deleted.
 newDeleteAvailabilityConfiguration ::
@@ -84,8 +84,8 @@ newDeleteAvailabilityConfiguration
         domainName = pDomainName_
       }
 
--- | The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@ will be deleted.
+-- | The WorkMail organization for which the @AvailabilityConfiguration@ will
+-- be deleted.
 deleteAvailabilityConfiguration_organizationId :: Lens.Lens' DeleteAvailabilityConfiguration Prelude.Text
 deleteAvailabilityConfiguration_organizationId = Lens.lens (\DeleteAvailabilityConfiguration' {organizationId} -> organizationId) (\s@DeleteAvailabilityConfiguration' {} a -> s {organizationId = a} :: DeleteAvailabilityConfiguration)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DescribeOrganization
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -148,7 +148,7 @@ instance Core.ToQuery DescribeOrganization where
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
   { -- | The alias for an organization.
     alias :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the directory associated with an Amazon WorkMail
+    -- | The identifier for the directory associated with an WorkMail
     -- organization.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The type of directory associated with the WorkMail organization.
@@ -182,7 +182,7 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
 --
 -- 'alias', 'describeOrganizationResponse_alias' - The alias for an organization.
 --
--- 'directoryId', 'describeOrganizationResponse_directoryId' - The identifier for the directory associated with an Amazon WorkMail
+-- 'directoryId', 'describeOrganizationResponse_directoryId' - The identifier for the directory associated with an WorkMail
 -- organization.
 --
 -- 'directoryType', 'describeOrganizationResponse_directoryType' - The type of directory associated with the WorkMail organization.
@@ -225,7 +225,7 @@ newDescribeOrganizationResponse pHttpStatus_ =
 describeOrganizationResponse_alias :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_alias = Lens.lens (\DescribeOrganizationResponse' {alias} -> alias) (\s@DescribeOrganizationResponse' {} a -> s {alias = a} :: DescribeOrganizationResponse)
 
--- | The identifier for the directory associated with an Amazon WorkMail
+-- | The identifier for the directory associated with an WorkMail
 -- organization.
 describeOrganizationResponse_directoryId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_directoryId = Lens.lens (\DescribeOrganizationResponse' {directoryId} -> directoryId) (\s@DescribeOrganizationResponse' {} a -> s {directoryId = a} :: DescribeOrganizationResponse)

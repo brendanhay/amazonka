@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DescribeGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -157,8 +157,8 @@ data DescribeGroupResponse = DescribeGroupResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The email of the described group.
     email :: Prelude.Maybe Prelude.Text,
-    -- | The state of the user: enabled (registered to Amazon WorkMail) or
-    -- disabled (deregistered or never registered to WorkMail).
+    -- | The state of the user: enabled (registered to WorkMail) or disabled
+    -- (deregistered or never registered to WorkMail).
     state :: Prelude.Maybe EntityState,
     -- | The identifier of the described group.
     groupId :: Prelude.Maybe Prelude.Text,
@@ -185,8 +185,8 @@ data DescribeGroupResponse = DescribeGroupResponse'
 --
 -- 'email', 'describeGroupResponse_email' - The email of the described group.
 --
--- 'state', 'describeGroupResponse_state' - The state of the user: enabled (registered to Amazon WorkMail) or
--- disabled (deregistered or never registered to WorkMail).
+-- 'state', 'describeGroupResponse_state' - The state of the user: enabled (registered to WorkMail) or disabled
+-- (deregistered or never registered to WorkMail).
 --
 -- 'groupId', 'describeGroupResponse_groupId' - The identifier of the described group.
 --
@@ -220,8 +220,8 @@ describeGroupResponse_name = Lens.lens (\DescribeGroupResponse' {name} -> name) 
 describeGroupResponse_email :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
 describeGroupResponse_email = Lens.lens (\DescribeGroupResponse' {email} -> email) (\s@DescribeGroupResponse' {} a -> s {email = a} :: DescribeGroupResponse)
 
--- | The state of the user: enabled (registered to Amazon WorkMail) or
--- disabled (deregistered or never registered to WorkMail).
+-- | The state of the user: enabled (registered to WorkMail) or disabled
+-- (deregistered or never registered to WorkMail).
 describeGroupResponse_state :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe EntityState)
 describeGroupResponse_state = Lens.lens (\DescribeGroupResponse' {state} -> state) (\s@DescribeGroupResponse' {} a -> s {state = a} :: DescribeGroupResponse)
 

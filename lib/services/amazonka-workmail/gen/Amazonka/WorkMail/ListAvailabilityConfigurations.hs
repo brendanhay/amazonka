@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.ListAvailabilityConfigurations
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,8 +59,8 @@ data ListAvailabilityConfigurations = ListAvailabilityConfigurations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon WorkMail organization for which the
-    -- @AvailabilityConfiguration@\'s will be listed.
+    -- | The WorkMail organization for which the @AvailabilityConfiguration@\'s
+    -- will be listed.
     organizationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,8 +78,8 @@ data ListAvailabilityConfigurations = ListAvailabilityConfigurations'
 --
 -- 'maxResults', 'listAvailabilityConfigurations_maxResults' - The maximum number of results to return in a single call.
 --
--- 'organizationId', 'listAvailabilityConfigurations_organizationId' - The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@\'s will be listed.
+-- 'organizationId', 'listAvailabilityConfigurations_organizationId' - The WorkMail organization for which the @AvailabilityConfiguration@\'s
+-- will be listed.
 newListAvailabilityConfigurations ::
   -- | 'organizationId'
   Prelude.Text ->
@@ -101,8 +101,8 @@ listAvailabilityConfigurations_nextToken = Lens.lens (\ListAvailabilityConfigura
 listAvailabilityConfigurations_maxResults :: Lens.Lens' ListAvailabilityConfigurations (Prelude.Maybe Prelude.Natural)
 listAvailabilityConfigurations_maxResults = Lens.lens (\ListAvailabilityConfigurations' {maxResults} -> maxResults) (\s@ListAvailabilityConfigurations' {} a -> s {maxResults = a} :: ListAvailabilityConfigurations)
 
--- | The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@\'s will be listed.
+-- | The WorkMail organization for which the @AvailabilityConfiguration@\'s
+-- will be listed.
 listAvailabilityConfigurations_organizationId :: Lens.Lens' ListAvailabilityConfigurations Prelude.Text
 listAvailabilityConfigurations_organizationId = Lens.lens (\ListAvailabilityConfigurations' {organizationId} -> organizationId) (\s@ListAvailabilityConfigurations' {} a -> s {organizationId = a} :: ListAvailabilityConfigurations)
 
@@ -208,7 +208,7 @@ data ListAvailabilityConfigurationsResponse = ListAvailabilityConfigurationsResp
     -- @null@ when there are no further results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of @AvailabilityConfiguration@\'s that exist for the specified
-    -- Amazon WorkMail organization.
+    -- WorkMail organization.
     availabilityConfigurations :: Prelude.Maybe [AvailabilityConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -227,7 +227,7 @@ data ListAvailabilityConfigurationsResponse = ListAvailabilityConfigurationsResp
 -- @null@ when there are no further results to return.
 --
 -- 'availabilityConfigurations', 'listAvailabilityConfigurationsResponse_availabilityConfigurations' - The list of @AvailabilityConfiguration@\'s that exist for the specified
--- Amazon WorkMail organization.
+-- WorkMail organization.
 --
 -- 'httpStatus', 'listAvailabilityConfigurationsResponse_httpStatus' - The response's http status code.
 newListAvailabilityConfigurationsResponse ::
@@ -250,7 +250,7 @@ listAvailabilityConfigurationsResponse_nextToken :: Lens.Lens' ListAvailabilityC
 listAvailabilityConfigurationsResponse_nextToken = Lens.lens (\ListAvailabilityConfigurationsResponse' {nextToken} -> nextToken) (\s@ListAvailabilityConfigurationsResponse' {} a -> s {nextToken = a} :: ListAvailabilityConfigurationsResponse)
 
 -- | The list of @AvailabilityConfiguration@\'s that exist for the specified
--- Amazon WorkMail organization.
+-- WorkMail organization.
 listAvailabilityConfigurationsResponse_availabilityConfigurations :: Lens.Lens' ListAvailabilityConfigurationsResponse (Prelude.Maybe [AvailabilityConfiguration])
 listAvailabilityConfigurationsResponse_availabilityConfigurations = Lens.lens (\ListAvailabilityConfigurationsResponse' {availabilityConfigurations} -> availabilityConfigurations) (\s@ListAvailabilityConfigurationsResponse' {} a -> s {availabilityConfigurations = a} :: ListAvailabilityConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 

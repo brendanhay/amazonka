@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.ListMailDomains
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the mail domains in a given Amazon WorkMail organization.
+-- Lists the mail domains in a given WorkMail organization.
 module Amazonka.WorkMail.ListMailDomains
   ( -- * Creating a Request
     ListMailDomains (..),
@@ -56,7 +56,7 @@ data ListMailDomains = ListMailDomains'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon WorkMail organization for which to list domains.
+    -- | The WorkMail organization for which to list domains.
     organizationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data ListMailDomains = ListMailDomains'
 --
 -- 'maxResults', 'listMailDomains_maxResults' - The maximum number of results to return in a single call.
 --
--- 'organizationId', 'listMailDomains_organizationId' - The Amazon WorkMail organization for which to list domains.
+-- 'organizationId', 'listMailDomains_organizationId' - The WorkMail organization for which to list domains.
 newListMailDomains ::
   -- | 'organizationId'
   Prelude.Text ->
@@ -95,7 +95,7 @@ listMailDomains_nextToken = Lens.lens (\ListMailDomains' {nextToken} -> nextToke
 listMailDomains_maxResults :: Lens.Lens' ListMailDomains (Prelude.Maybe Prelude.Natural)
 listMailDomains_maxResults = Lens.lens (\ListMailDomains' {maxResults} -> maxResults) (\s@ListMailDomains' {} a -> s {maxResults = a} :: ListMailDomains)
 
--- | The Amazon WorkMail organization for which to list domains.
+-- | The WorkMail organization for which to list domains.
 listMailDomains_organizationId :: Lens.Lens' ListMailDomains Prelude.Text
 listMailDomains_organizationId = Lens.lens (\ListMailDomains' {organizationId} -> organizationId) (\s@ListMailDomains' {} a -> s {organizationId = a} :: ListMailDomains)
 
@@ -163,7 +163,7 @@ data ListMailDomainsResponse = ListMailDomainsResponse'
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of mail domain summaries, specifying domains that exist in the
-    -- specified Amazon WorkMail organization, along with the information about
+    -- specified WorkMail organization, along with the information about
     -- whether the domain is or isn\'t the default.
     mailDomains :: Prelude.Maybe [MailDomainSummary],
     -- | The response's http status code.
@@ -183,7 +183,7 @@ data ListMailDomainsResponse = ListMailDomainsResponse'
 -- @null@ when there are no more results to return.
 --
 -- 'mailDomains', 'listMailDomainsResponse_mailDomains' - The list of mail domain summaries, specifying domains that exist in the
--- specified Amazon WorkMail organization, along with the information about
+-- specified WorkMail organization, along with the information about
 -- whether the domain is or isn\'t the default.
 --
 -- 'httpStatus', 'listMailDomainsResponse_httpStatus' - The response's http status code.
@@ -205,7 +205,7 @@ listMailDomainsResponse_nextToken :: Lens.Lens' ListMailDomainsResponse (Prelude
 listMailDomainsResponse_nextToken = Lens.lens (\ListMailDomainsResponse' {nextToken} -> nextToken) (\s@ListMailDomainsResponse' {} a -> s {nextToken = a} :: ListMailDomainsResponse)
 
 -- | The list of mail domain summaries, specifying domains that exist in the
--- specified Amazon WorkMail organization, along with the information about
+-- specified WorkMail organization, along with the information about
 -- whether the domain is or isn\'t the default.
 listMailDomainsResponse_mailDomains :: Lens.Lens' ListMailDomainsResponse (Prelude.Maybe [MailDomainSummary])
 listMailDomainsResponse_mailDomains = Lens.lens (\ListMailDomainsResponse' {mailDomains} -> mailDomains) (\s@ListMailDomainsResponse' {} a -> s {mailDomains = a} :: ListMailDomainsResponse) Prelude.. Lens.mapping Lens.coerced

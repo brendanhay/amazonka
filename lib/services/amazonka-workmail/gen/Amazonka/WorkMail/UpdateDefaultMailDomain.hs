@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.UpdateDefaultMailDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newUpdateDefaultMailDomain' smart constructor.
 data UpdateDefaultMailDomain = UpdateDefaultMailDomain'
-  { -- | The Amazon WorkMail organization for which to list domains.
+  { -- | The WorkMail organization for which to list domains.
     organizationId :: Prelude.Text,
     -- | The domain name that will become the default domain.
     domainName :: Prelude.Text
@@ -65,7 +65,7 @@ data UpdateDefaultMailDomain = UpdateDefaultMailDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'updateDefaultMailDomain_organizationId' - The Amazon WorkMail organization for which to list domains.
+-- 'organizationId', 'updateDefaultMailDomain_organizationId' - The WorkMail organization for which to list domains.
 --
 -- 'domainName', 'updateDefaultMailDomain_domainName' - The domain name that will become the default domain.
 newUpdateDefaultMailDomain ::
@@ -83,7 +83,7 @@ newUpdateDefaultMailDomain
         domainName = pDomainName_
       }
 
--- | The Amazon WorkMail organization for which to list domains.
+-- | The WorkMail organization for which to list domains.
 updateDefaultMailDomain_organizationId :: Lens.Lens' UpdateDefaultMailDomain Prelude.Text
 updateDefaultMailDomain_organizationId = Lens.lens (\UpdateDefaultMailDomain' {organizationId} -> organizationId) (\s@UpdateDefaultMailDomain' {} a -> s {organizationId = a} :: UpdateDefaultMailDomain)
 

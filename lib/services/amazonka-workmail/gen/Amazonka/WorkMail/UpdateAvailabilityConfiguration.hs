@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.UpdateAvailabilityConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,8 +61,8 @@ data UpdateAvailabilityConfiguration = UpdateAvailabilityConfiguration'
     -- @LambdaProvider@. The previously stored provider will be overridden by
     -- the one provided.
     lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
-    -- | The Amazon WorkMail organization for which the
-    -- @AvailabilityConfiguration@ will be updated.
+    -- | The WorkMail organization for which the @AvailabilityConfiguration@ will
+    -- be updated.
     organizationId :: Prelude.Text,
     -- | The domain to which the provider applies the availability configuration.
     domainName :: Prelude.Text
@@ -87,8 +87,8 @@ data UpdateAvailabilityConfiguration = UpdateAvailabilityConfiguration'
 -- @LambdaProvider@. The previously stored provider will be overridden by
 -- the one provided.
 --
--- 'organizationId', 'updateAvailabilityConfiguration_organizationId' - The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@ will be updated.
+-- 'organizationId', 'updateAvailabilityConfiguration_organizationId' - The WorkMail organization for which the @AvailabilityConfiguration@ will
+-- be updated.
 --
 -- 'domainName', 'updateAvailabilityConfiguration_domainName' - The domain to which the provider applies the availability configuration.
 newUpdateAvailabilityConfiguration ::
@@ -122,8 +122,8 @@ updateAvailabilityConfiguration_ewsProvider = Lens.lens (\UpdateAvailabilityConf
 updateAvailabilityConfiguration_lambdaProvider :: Lens.Lens' UpdateAvailabilityConfiguration (Prelude.Maybe LambdaAvailabilityProvider)
 updateAvailabilityConfiguration_lambdaProvider = Lens.lens (\UpdateAvailabilityConfiguration' {lambdaProvider} -> lambdaProvider) (\s@UpdateAvailabilityConfiguration' {} a -> s {lambdaProvider = a} :: UpdateAvailabilityConfiguration)
 
--- | The Amazon WorkMail organization for which the
--- @AvailabilityConfiguration@ will be updated.
+-- | The WorkMail organization for which the @AvailabilityConfiguration@ will
+-- be updated.
 updateAvailabilityConfiguration_organizationId :: Lens.Lens' UpdateAvailabilityConfiguration Prelude.Text
 updateAvailabilityConfiguration_organizationId = Lens.lens (\UpdateAvailabilityConfiguration' {organizationId} -> organizationId) (\s@UpdateAvailabilityConfiguration' {} a -> s {organizationId = a} :: UpdateAvailabilityConfiguration)
 

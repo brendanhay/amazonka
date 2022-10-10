@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeleteGroup
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a group from Amazon WorkMail.
+-- Deletes a group from WorkMail.
 module Amazonka.WorkMail.DeleteGroup
   ( -- * Creating a Request
     DeleteGroup (..),

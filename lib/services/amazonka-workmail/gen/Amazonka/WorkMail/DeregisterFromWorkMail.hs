@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeregisterFromWorkMail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Mark a user, group, or resource as no longer used in Amazon WorkMail.
--- This action disassociates the mailbox and schedules it for clean-up.
--- WorkMail keeps mailboxes for 30 days before they are permanently
--- removed. The functionality in the console is /Disable/.
+-- Mark a user, group, or resource as no longer used in WorkMail. This
+-- action disassociates the mailbox and schedules it for clean-up. WorkMail
+-- keeps mailboxes for 30 days before they are permanently removed. The
+-- functionality in the console is /Disable/.
 module Amazonka.WorkMail.DeregisterFromWorkMail
   ( -- * Creating a Request
     DeregisterFromWorkMail (..),
@@ -51,8 +51,8 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDeregisterFromWorkMail' smart constructor.
 data DeregisterFromWorkMail = DeregisterFromWorkMail'
-  { -- | The identifier for the organization under which the Amazon WorkMail
-    -- entity exists.
+  { -- | The identifier for the organization under which the WorkMail entity
+    -- exists.
     organizationId :: Prelude.Text,
     -- | The identifier for the member (user or group) to be updated.
     entityId :: Prelude.Text
@@ -67,8 +67,8 @@ data DeregisterFromWorkMail = DeregisterFromWorkMail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'deregisterFromWorkMail_organizationId' - The identifier for the organization under which the Amazon WorkMail
--- entity exists.
+-- 'organizationId', 'deregisterFromWorkMail_organizationId' - The identifier for the organization under which the WorkMail entity
+-- exists.
 --
 -- 'entityId', 'deregisterFromWorkMail_entityId' - The identifier for the member (user or group) to be updated.
 newDeregisterFromWorkMail ::
@@ -84,8 +84,8 @@ newDeregisterFromWorkMail pOrganizationId_ pEntityId_ =
       entityId = pEntityId_
     }
 
--- | The identifier for the organization under which the Amazon WorkMail
--- entity exists.
+-- | The identifier for the organization under which the WorkMail entity
+-- exists.
 deregisterFromWorkMail_organizationId :: Lens.Lens' DeregisterFromWorkMail Prelude.Text
 deregisterFromWorkMail_organizationId = Lens.lens (\DeregisterFromWorkMail' {organizationId} -> organizationId) (\s@DeregisterFromWorkMail' {} a -> s {organizationId = a} :: DeregisterFromWorkMail)
 

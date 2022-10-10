@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.Group
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.EntityState
 
--- | The representation of an Amazon WorkMail group.
+-- | The representation of an WorkMail group.
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
@@ -36,10 +36,9 @@ data Group = Group'
     state :: Prelude.Maybe EntityState,
     -- | The identifier of the group.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date indicating when the group was enabled for Amazon WorkMail use.
+    -- | The date indicating when the group was enabled for WorkMail use.
     enabledDate :: Prelude.Maybe Core.POSIX,
-    -- | The date indicating when the group was disabled from Amazon WorkMail
-    -- use.
+    -- | The date indicating when the group was disabled from WorkMail use.
     disabledDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,10 +59,9 @@ data Group = Group'
 --
 -- 'id', 'group_id' - The identifier of the group.
 --
--- 'enabledDate', 'group_enabledDate' - The date indicating when the group was enabled for Amazon WorkMail use.
+-- 'enabledDate', 'group_enabledDate' - The date indicating when the group was enabled for WorkMail use.
 --
--- 'disabledDate', 'group_disabledDate' - The date indicating when the group was disabled from Amazon WorkMail
--- use.
+-- 'disabledDate', 'group_disabledDate' - The date indicating when the group was disabled from WorkMail use.
 newGroup ::
   Group
 newGroup =
@@ -92,12 +90,11 @@ group_state = Lens.lens (\Group' {state} -> state) (\s@Group' {} a -> s {state =
 group_id :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_id = Lens.lens (\Group' {id} -> id) (\s@Group' {} a -> s {id = a} :: Group)
 
--- | The date indicating when the group was enabled for Amazon WorkMail use.
+-- | The date indicating when the group was enabled for WorkMail use.
 group_enabledDate :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
 group_enabledDate = Lens.lens (\Group' {enabledDate} -> enabledDate) (\s@Group' {} a -> s {enabledDate = a} :: Group) Prelude.. Lens.mapping Core._Time
 
--- | The date indicating when the group was disabled from Amazon WorkMail
--- use.
+-- | The date indicating when the group was disabled from WorkMail use.
 group_disabledDate :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
 group_disabledDate = Lens.lens (\Group' {disabledDate} -> disabledDate) (\s@Group' {} a -> s {disabledDate = a} :: Group) Prelude.. Lens.mapping Core._Time
 

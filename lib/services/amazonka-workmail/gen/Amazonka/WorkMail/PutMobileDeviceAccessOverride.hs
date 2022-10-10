@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.PutMobileDeviceAccessOverride
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,7 @@ import Amazonka.WorkMail.Types
 data PutMobileDeviceAccessOverride = PutMobileDeviceAccessOverride'
   { -- | A description of the override.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the Amazon WorkMail organization for which you create the
-    -- override.
+    -- | Identifies the WorkMail organization for which you create the override.
     organizationId :: Prelude.Text,
     -- | The WorkMail user for which you create the override. Accepts the
     -- following types of user identities:
@@ -85,8 +84,7 @@ data PutMobileDeviceAccessOverride = PutMobileDeviceAccessOverride'
 --
 -- 'description', 'putMobileDeviceAccessOverride_description' - A description of the override.
 --
--- 'organizationId', 'putMobileDeviceAccessOverride_organizationId' - Identifies the Amazon WorkMail organization for which you create the
--- override.
+-- 'organizationId', 'putMobileDeviceAccessOverride_organizationId' - Identifies the WorkMail organization for which you create the override.
 --
 -- 'userId', 'putMobileDeviceAccessOverride_userId' - The WorkMail user for which you create the override. Accepts the
 -- following types of user identities:
@@ -130,8 +128,7 @@ newPutMobileDeviceAccessOverride
 putMobileDeviceAccessOverride_description :: Lens.Lens' PutMobileDeviceAccessOverride (Prelude.Maybe Prelude.Text)
 putMobileDeviceAccessOverride_description = Lens.lens (\PutMobileDeviceAccessOverride' {description} -> description) (\s@PutMobileDeviceAccessOverride' {} a -> s {description = a} :: PutMobileDeviceAccessOverride)
 
--- | Identifies the Amazon WorkMail organization for which you create the
--- override.
+-- | Identifies the WorkMail organization for which you create the override.
 putMobileDeviceAccessOverride_organizationId :: Lens.Lens' PutMobileDeviceAccessOverride Prelude.Text
 putMobileDeviceAccessOverride_organizationId = Lens.lens (\PutMobileDeviceAccessOverride' {organizationId} -> organizationId) (\s@PutMobileDeviceAccessOverride' {} a -> s {organizationId = a} :: PutMobileDeviceAccessOverride)
 

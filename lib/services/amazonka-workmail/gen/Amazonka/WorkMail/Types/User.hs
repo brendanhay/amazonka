@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.User
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.EntityState
 import Amazonka.WorkMail.Types.UserRole
 
--- | The representation of an Amazon WorkMail user.
+-- | The representation of an WorkMail user.
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
@@ -41,9 +41,9 @@ data User = User'
     id :: Prelude.Maybe Prelude.Text,
     -- | The role of the user.
     userRole :: Prelude.Maybe UserRole,
-    -- | The date indicating when the user was enabled for Amazon WorkMail use.
+    -- | The date indicating when the user was enabled for WorkMail use.
     enabledDate :: Prelude.Maybe Core.POSIX,
-    -- | The date indicating when the user was disabled from Amazon WorkMail use.
+    -- | The date indicating when the user was disabled from WorkMail use.
     disabledDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +68,9 @@ data User = User'
 --
 -- 'userRole', 'user_userRole' - The role of the user.
 --
--- 'enabledDate', 'user_enabledDate' - The date indicating when the user was enabled for Amazon WorkMail use.
+-- 'enabledDate', 'user_enabledDate' - The date indicating when the user was enabled for WorkMail use.
 --
--- 'disabledDate', 'user_disabledDate' - The date indicating when the user was disabled from Amazon WorkMail use.
+-- 'disabledDate', 'user_disabledDate' - The date indicating when the user was disabled from WorkMail use.
 newUser ::
   User
 newUser =
@@ -109,11 +109,11 @@ user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
 user_userRole :: Lens.Lens' User (Prelude.Maybe UserRole)
 user_userRole = Lens.lens (\User' {userRole} -> userRole) (\s@User' {} a -> s {userRole = a} :: User)
 
--- | The date indicating when the user was enabled for Amazon WorkMail use.
+-- | The date indicating when the user was enabled for WorkMail use.
 user_enabledDate :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
 user_enabledDate = Lens.lens (\User' {enabledDate} -> enabledDate) (\s@User' {} a -> s {enabledDate = a} :: User) Prelude.. Lens.mapping Core._Time
 
--- | The date indicating when the user was disabled from Amazon WorkMail use.
+-- | The date indicating when the user was disabled from WorkMail use.
 user_disabledDate :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
 user_disabledDate = Lens.lens (\User' {disabledDate} -> disabledDate) (\s@User' {} a -> s {disabledDate = a} :: User) Prelude.. Lens.mapping Core._Time
 

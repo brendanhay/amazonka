@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.TestAvailabilityConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,7 +68,7 @@ data TestAvailabilityConfiguration = TestAvailabilityConfiguration'
     -- tested.
     domainName :: Prelude.Maybe Prelude.Text,
     lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
-    -- | The Amazon WorkMail organization where the availability provider will be
+    -- | The WorkMail organization where the availability provider will be
     -- tested.
     organizationId :: Prelude.Text
   }
@@ -90,7 +90,7 @@ data TestAvailabilityConfiguration = TestAvailabilityConfiguration'
 --
 -- 'lambdaProvider', 'testAvailabilityConfiguration_lambdaProvider' - Undocumented member.
 --
--- 'organizationId', 'testAvailabilityConfiguration_organizationId' - The Amazon WorkMail organization where the availability provider will be
+-- 'organizationId', 'testAvailabilityConfiguration_organizationId' - The WorkMail organization where the availability provider will be
 -- tested.
 newTestAvailabilityConfiguration ::
   -- | 'organizationId'
@@ -119,7 +119,7 @@ testAvailabilityConfiguration_domainName = Lens.lens (\TestAvailabilityConfigura
 testAvailabilityConfiguration_lambdaProvider :: Lens.Lens' TestAvailabilityConfiguration (Prelude.Maybe LambdaAvailabilityProvider)
 testAvailabilityConfiguration_lambdaProvider = Lens.lens (\TestAvailabilityConfiguration' {lambdaProvider} -> lambdaProvider) (\s@TestAvailabilityConfiguration' {} a -> s {lambdaProvider = a} :: TestAvailabilityConfiguration)
 
--- | The Amazon WorkMail organization where the availability provider will be
+-- | The WorkMail organization where the availability provider will be
 -- tested.
 testAvailabilityConfiguration_organizationId :: Lens.Lens' TestAvailabilityConfiguration Prelude.Text
 testAvailabilityConfiguration_organizationId = Lens.lens (\TestAvailabilityConfiguration' {organizationId} -> organizationId) (\s@TestAvailabilityConfiguration' {} a -> s {organizationId = a} :: TestAvailabilityConfiguration)

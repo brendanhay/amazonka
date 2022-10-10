@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.ListMobileDeviceAccessOverrides
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,8 +71,8 @@ data ListMobileDeviceAccessOverrides = ListMobileDeviceAccessOverrides'
     --
     -- -   User name: @user@
     userId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon WorkMail organization under which to list mobile device
-    -- access overrides.
+    -- | The WorkMail organization under which to list mobile device access
+    -- overrides.
     organizationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,8 +102,8 @@ data ListMobileDeviceAccessOverrides = ListMobileDeviceAccessOverrides'
 --
 -- -   User name: @user@
 --
--- 'organizationId', 'listMobileDeviceAccessOverrides_organizationId' - The Amazon WorkMail organization under which to list mobile device
--- access overrides.
+-- 'organizationId', 'listMobileDeviceAccessOverrides_organizationId' - The WorkMail organization under which to list mobile device access
+-- overrides.
 newListMobileDeviceAccessOverrides ::
   -- | 'organizationId'
   Prelude.Text ->
@@ -143,8 +143,8 @@ listMobileDeviceAccessOverrides_maxResults = Lens.lens (\ListMobileDeviceAccessO
 listMobileDeviceAccessOverrides_userId :: Lens.Lens' ListMobileDeviceAccessOverrides (Prelude.Maybe Prelude.Text)
 listMobileDeviceAccessOverrides_userId = Lens.lens (\ListMobileDeviceAccessOverrides' {userId} -> userId) (\s@ListMobileDeviceAccessOverrides' {} a -> s {userId = a} :: ListMobileDeviceAccessOverrides)
 
--- | The Amazon WorkMail organization under which to list mobile device
--- access overrides.
+-- | The WorkMail organization under which to list mobile device access
+-- overrides.
 listMobileDeviceAccessOverrides_organizationId :: Lens.Lens' ListMobileDeviceAccessOverrides Prelude.Text
 listMobileDeviceAccessOverrides_organizationId = Lens.lens (\ListMobileDeviceAccessOverrides' {organizationId} -> organizationId) (\s@ListMobileDeviceAccessOverrides' {} a -> s {organizationId = a} :: ListMobileDeviceAccessOverrides)
 
@@ -232,7 +232,7 @@ data ListMobileDeviceAccessOverridesResponse = ListMobileDeviceAccessOverridesRe
     -- “null” when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of mobile device access overrides that exist for the specified
-    -- Amazon WorkMail organization and user.
+    -- WorkMail organization and user.
     overrides :: Prelude.Maybe [MobileDeviceAccessOverride],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -251,7 +251,7 @@ data ListMobileDeviceAccessOverridesResponse = ListMobileDeviceAccessOverridesRe
 -- “null” when there are no more results to return.
 --
 -- 'overrides', 'listMobileDeviceAccessOverridesResponse_overrides' - The list of mobile device access overrides that exist for the specified
--- Amazon WorkMail organization and user.
+-- WorkMail organization and user.
 --
 -- 'httpStatus', 'listMobileDeviceAccessOverridesResponse_httpStatus' - The response's http status code.
 newListMobileDeviceAccessOverridesResponse ::
@@ -273,7 +273,7 @@ listMobileDeviceAccessOverridesResponse_nextToken :: Lens.Lens' ListMobileDevice
 listMobileDeviceAccessOverridesResponse_nextToken = Lens.lens (\ListMobileDeviceAccessOverridesResponse' {nextToken} -> nextToken) (\s@ListMobileDeviceAccessOverridesResponse' {} a -> s {nextToken = a} :: ListMobileDeviceAccessOverridesResponse)
 
 -- | The list of mobile device access overrides that exist for the specified
--- Amazon WorkMail organization and user.
+-- WorkMail organization and user.
 listMobileDeviceAccessOverridesResponse_overrides :: Lens.Lens' ListMobileDeviceAccessOverridesResponse (Prelude.Maybe [MobileDeviceAccessOverride])
 listMobileDeviceAccessOverridesResponse_overrides = Lens.lens (\ListMobileDeviceAccessOverridesResponse' {overrides} -> overrides) (\s@ListMobileDeviceAccessOverridesResponse' {} a -> s {overrides = a} :: ListMobileDeviceAccessOverridesResponse) Prelude.. Lens.mapping Lens.coerced
 

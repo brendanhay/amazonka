@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeregisterMailDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a domain from Amazon WorkMail, stops email routing to WorkMail,
--- and removes the authorization allowing WorkMail use. SES keeps the
--- domain because other applications may use it. You must first remove any
--- email address used by WorkMail entities before you remove the domain.
+-- Removes a domain from WorkMail, stops email routing to WorkMail, and
+-- removes the authorization allowing WorkMail use. SES keeps the domain
+-- because other applications may use it. You must first remove any email
+-- address used by WorkMail entities before you remove the domain.
 module Amazonka.WorkMail.DeregisterMailDomain
   ( -- * Creating a Request
     DeregisterMailDomain (..),
@@ -51,8 +51,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDeregisterMailDomain' smart constructor.
 data DeregisterMailDomain = DeregisterMailDomain'
-  { -- | The Amazon WorkMail organization for which the domain will be
-    -- deregistered.
+  { -- | The WorkMail organization for which the domain will be deregistered.
     organizationId :: Prelude.Text,
     -- | The domain to deregister in WorkMail and SES.
     domainName :: Prelude.Text
@@ -67,8 +66,7 @@ data DeregisterMailDomain = DeregisterMailDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'deregisterMailDomain_organizationId' - The Amazon WorkMail organization for which the domain will be
--- deregistered.
+-- 'organizationId', 'deregisterMailDomain_organizationId' - The WorkMail organization for which the domain will be deregistered.
 --
 -- 'domainName', 'deregisterMailDomain_domainName' - The domain to deregister in WorkMail and SES.
 newDeregisterMailDomain ::
@@ -84,8 +82,7 @@ newDeregisterMailDomain pOrganizationId_ pDomainName_ =
       domainName = pDomainName_
     }
 
--- | The Amazon WorkMail organization for which the domain will be
--- deregistered.
+-- | The WorkMail organization for which the domain will be deregistered.
 deregisterMailDomain_organizationId :: Lens.Lens' DeregisterMailDomain Prelude.Text
 deregisterMailDomain_organizationId = Lens.lens (\DeregisterMailDomain' {organizationId} -> organizationId) (\s@DeregisterMailDomain' {} a -> s {organizationId = a} :: DeregisterMailDomain)
 

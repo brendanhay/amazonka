@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DescribeResource
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -171,8 +171,8 @@ data DescribeResourceResponse = DescribeResourceResponse'
     email :: Prelude.Maybe Prelude.Text,
     -- | The booking options for the described resource.
     bookingOptions :: Prelude.Maybe BookingOptions,
-    -- | The state of the resource: enabled (registered to Amazon WorkMail),
-    -- disabled (deregistered or never registered to WorkMail), or deleted.
+    -- | The state of the resource: enabled (registered to WorkMail), disabled
+    -- (deregistered or never registered to WorkMail), or deleted.
     state :: Prelude.Maybe EntityState,
     -- | The date and time when a resource was enabled for WorkMail, in UNIX
     -- epoch time format.
@@ -203,8 +203,8 @@ data DescribeResourceResponse = DescribeResourceResponse'
 --
 -- 'bookingOptions', 'describeResourceResponse_bookingOptions' - The booking options for the described resource.
 --
--- 'state', 'describeResourceResponse_state' - The state of the resource: enabled (registered to Amazon WorkMail),
--- disabled (deregistered or never registered to WorkMail), or deleted.
+-- 'state', 'describeResourceResponse_state' - The state of the resource: enabled (registered to WorkMail), disabled
+-- (deregistered or never registered to WorkMail), or deleted.
 --
 -- 'enabledDate', 'describeResourceResponse_enabledDate' - The date and time when a resource was enabled for WorkMail, in UNIX
 -- epoch time format.
@@ -251,8 +251,8 @@ describeResourceResponse_email = Lens.lens (\DescribeResourceResponse' {email} -
 describeResourceResponse_bookingOptions :: Lens.Lens' DescribeResourceResponse (Prelude.Maybe BookingOptions)
 describeResourceResponse_bookingOptions = Lens.lens (\DescribeResourceResponse' {bookingOptions} -> bookingOptions) (\s@DescribeResourceResponse' {} a -> s {bookingOptions = a} :: DescribeResourceResponse)
 
--- | The state of the resource: enabled (registered to Amazon WorkMail),
--- disabled (deregistered or never registered to WorkMail), or deleted.
+-- | The state of the resource: enabled (registered to WorkMail), disabled
+-- (deregistered or never registered to WorkMail), or deleted.
 describeResourceResponse_state :: Lens.Lens' DescribeResourceResponse (Prelude.Maybe EntityState)
 describeResourceResponse_state = Lens.lens (\DescribeResourceResponse' {state} -> state) (\s@DescribeResourceResponse' {} a -> s {state = a} :: DescribeResourceResponse)
 

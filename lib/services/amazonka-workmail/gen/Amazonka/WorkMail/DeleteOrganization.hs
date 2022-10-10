@@ -14,17 +14,17 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.DeleteOrganization
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Amazon WorkMail organization and all underlying AWS resources
--- managed by Amazon WorkMail as part of the organization. You can choose
--- whether to delete the associated directory. For more information, see
+-- Deletes an WorkMail organization and all underlying AWS resources
+-- managed by WorkMail as part of the organization. You can choose whether
+-- to delete the associated directory. For more information, see
 -- <https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html Removing an organization>
--- in the /Amazon WorkMail Administrator Guide/.
+-- in the /WorkMail Administrator Guide/.
 module Amazonka.WorkMail.DeleteOrganization
   ( -- * Creating a Request
     DeleteOrganization (..),

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.Types.AvailabilityConfiguration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import Amazonka.WorkMail.Types.RedactedEwsAvailabilityProvider
 -- /See:/ 'newAvailabilityConfiguration' smart constructor.
 data AvailabilityConfiguration = AvailabilityConfiguration'
   { -- | If @ProviderType@ is @EWS@, then this field contains
-    -- @RedactedEwsAvailabilityProvider@. Otherwise, it is not requried.
+    -- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
     ewsProvider :: Prelude.Maybe RedactedEwsAvailabilityProvider,
     -- | Displays the domain to which the provider applies.
     domainName :: Prelude.Maybe Prelude.Text,
@@ -58,7 +58,7 @@ data AvailabilityConfiguration = AvailabilityConfiguration'
 -- for backwards compatibility:
 --
 -- 'ewsProvider', 'availabilityConfiguration_ewsProvider' - If @ProviderType@ is @EWS@, then this field contains
--- @RedactedEwsAvailabilityProvider@. Otherwise, it is not requried.
+-- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
 --
 -- 'domainName', 'availabilityConfiguration_domainName' - Displays the domain to which the provider applies.
 --
@@ -85,7 +85,7 @@ newAvailabilityConfiguration =
     }
 
 -- | If @ProviderType@ is @EWS@, then this field contains
--- @RedactedEwsAvailabilityProvider@. Otherwise, it is not requried.
+-- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
 availabilityConfiguration_ewsProvider :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe RedactedEwsAvailabilityProvider)
 availabilityConfiguration_ewsProvider = Lens.lens (\AvailabilityConfiguration' {ewsProvider} -> ewsProvider) (\s@AvailabilityConfiguration' {} a -> s {ewsProvider = a} :: AvailabilityConfiguration)
 

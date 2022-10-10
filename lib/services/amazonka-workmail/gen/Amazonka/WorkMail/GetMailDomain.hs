@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMail.GetMailDomain
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,7 +54,7 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newGetMailDomain' smart constructor.
 data GetMailDomain = GetMailDomain'
-  { -- | The Amazon WorkMail organization for which the domain is retrieved.
+  { -- | The WorkMail organization for which the domain is retrieved.
     organizationId :: Prelude.Text,
     -- | The domain from which you want to retrieve details.
     domainName :: Prelude.Text
@@ -69,7 +69,7 @@ data GetMailDomain = GetMailDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'getMailDomain_organizationId' - The Amazon WorkMail organization for which the domain is retrieved.
+-- 'organizationId', 'getMailDomain_organizationId' - The WorkMail organization for which the domain is retrieved.
 --
 -- 'domainName', 'getMailDomain_domainName' - The domain from which you want to retrieve details.
 newGetMailDomain ::
@@ -84,7 +84,7 @@ newGetMailDomain pOrganizationId_ pDomainName_ =
       domainName = pDomainName_
     }
 
--- | The Amazon WorkMail organization for which the domain is retrieved.
+-- | The WorkMail organization for which the domain is retrieved.
 getMailDomain_organizationId :: Lens.Lens' GetMailDomain Prelude.Text
 getMailDomain_organizationId = Lens.lens (\GetMailDomain' {organizationId} -> organizationId) (\s@GetMailDomain' {} a -> s {organizationId = a} :: GetMailDomain)
 
@@ -152,10 +152,10 @@ instance Core.ToQuery GetMailDomain where
 
 -- | /See:/ 'newGetMailDomainResponse' smart constructor.
 data GetMailDomainResponse = GetMailDomainResponse'
-  { -- | A list of the DNS records that Amazon WorkMail recommends adding in your
-    -- DNS provider for the best user experience. The records configure your
-    -- domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES.
-    -- See admin guide for more details.
+  { -- | A list of the DNS records that WorkMail recommends adding in your DNS
+    -- provider for the best user experience. The records configure your domain
+    -- with DMARC, SPF, DKIM, and direct incoming email traffic to SES. See
+    -- admin guide for more details.
     records :: Prelude.Maybe [DnsRecord],
     -- | Specifies whether the domain is a test domain provided by WorkMail, or a
     -- custom domain.
@@ -180,10 +180,10 @@ data GetMailDomainResponse = GetMailDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'records', 'getMailDomainResponse_records' - A list of the DNS records that Amazon WorkMail recommends adding in your
--- DNS provider for the best user experience. The records configure your
--- domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES.
--- See admin guide for more details.
+-- 'records', 'getMailDomainResponse_records' - A list of the DNS records that WorkMail recommends adding in your DNS
+-- provider for the best user experience. The records configure your domain
+-- with DMARC, SPF, DKIM, and direct incoming email traffic to SES. See
+-- admin guide for more details.
 --
 -- 'isTestDomain', 'getMailDomainResponse_isTestDomain' - Specifies whether the domain is a test domain provided by WorkMail, or a
 -- custom domain.
@@ -210,10 +210,10 @@ newGetMailDomainResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of the DNS records that Amazon WorkMail recommends adding in your
--- DNS provider for the best user experience. The records configure your
--- domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES.
--- See admin guide for more details.
+-- | A list of the DNS records that WorkMail recommends adding in your DNS
+-- provider for the best user experience. The records configure your domain
+-- with DMARC, SPF, DKIM, and direct incoming email traffic to SES. See
+-- admin guide for more details.
 getMailDomainResponse_records :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe [DnsRecord])
 getMailDomainResponse_records = Lens.lens (\GetMailDomainResponse' {records} -> records) (\s@GetMailDomainResponse' {} a -> s {records = a} :: GetMailDomainResponse) Prelude.. Lens.mapping Lens.coerced
 

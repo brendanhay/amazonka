@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.WorkMail
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestAssociateMemberToGroup $
 --             newAssociateMemberToGroup
 --
+--         , requestAssumeImpersonationRole $
+--             newAssumeImpersonationRole
+--
 --         , requestCancelMailboxExportJob $
 --             newCancelMailboxExportJob
 --
@@ -44,6 +47,9 @@ import Test.Tasty
 --
 --         , requestCreateGroup $
 --             newCreateGroup
+--
+--         , requestCreateImpersonationRole $
+--             newCreateImpersonationRole
 --
 --         , requestCreateMobileDeviceAccessRule $
 --             newCreateMobileDeviceAccessRule
@@ -71,6 +77,9 @@ import Test.Tasty
 --
 --         , requestDeleteGroup $
 --             newDeleteGroup
+--
+--         , requestDeleteImpersonationRole $
+--             newDeleteImpersonationRole
 --
 --         , requestDeleteMailboxPermissions $
 --             newDeleteMailboxPermissions
@@ -132,6 +141,12 @@ import Test.Tasty
 --         , requestGetDefaultRetentionPolicy $
 --             newGetDefaultRetentionPolicy
 --
+--         , requestGetImpersonationRole $
+--             newGetImpersonationRole
+--
+--         , requestGetImpersonationRoleEffect $
+--             newGetImpersonationRoleEffect
+--
 --         , requestGetMailDomain $
 --             newGetMailDomain
 --
@@ -158,6 +173,9 @@ import Test.Tasty
 --
 --         , requestListGroups $
 --             newListGroups
+--
+--         , requestListImpersonationRoles $
+--             newListImpersonationRoles
 --
 --         , requestListMailDomains $
 --             newListMailDomains
@@ -234,6 +252,9 @@ import Test.Tasty
 --         , requestUpdateDefaultMailDomain $
 --             newUpdateDefaultMailDomain
 --
+--         , requestUpdateImpersonationRole $
+--             newUpdateImpersonationRole
+--
 --         , requestUpdateMailboxQuota $
 --             newUpdateMailboxQuota
 --
@@ -255,6 +276,9 @@ import Test.Tasty
 --         , responseAssociateMemberToGroup $
 --             newAssociateMemberToGroupResponse
 --
+--         , responseAssumeImpersonationRole $
+--             newAssumeImpersonationRoleResponse
+--
 --         , responseCancelMailboxExportJob $
 --             newCancelMailboxExportJobResponse
 --
@@ -266,6 +290,9 @@ import Test.Tasty
 --
 --         , responseCreateGroup $
 --             newCreateGroupResponse
+--
+--         , responseCreateImpersonationRole $
+--             newCreateImpersonationRoleResponse
 --
 --         , responseCreateMobileDeviceAccessRule $
 --             newCreateMobileDeviceAccessRuleResponse
@@ -293,6 +320,9 @@ import Test.Tasty
 --
 --         , responseDeleteGroup $
 --             newDeleteGroupResponse
+--
+--         , responseDeleteImpersonationRole $
+--             newDeleteImpersonationRoleResponse
 --
 --         , responseDeleteMailboxPermissions $
 --             newDeleteMailboxPermissionsResponse
@@ -354,6 +384,12 @@ import Test.Tasty
 --         , responseGetDefaultRetentionPolicy $
 --             newGetDefaultRetentionPolicyResponse
 --
+--         , responseGetImpersonationRole $
+--             newGetImpersonationRoleResponse
+--
+--         , responseGetImpersonationRoleEffect $
+--             newGetImpersonationRoleEffectResponse
+--
 --         , responseGetMailDomain $
 --             newGetMailDomainResponse
 --
@@ -380,6 +416,9 @@ import Test.Tasty
 --
 --         , responseListGroups $
 --             newListGroupsResponse
+--
+--         , responseListImpersonationRoles $
+--             newListImpersonationRolesResponse
 --
 --         , responseListMailDomains $
 --             newListMailDomainsResponse
@@ -456,6 +495,9 @@ import Test.Tasty
 --         , responseUpdateDefaultMailDomain $
 --             newUpdateDefaultMailDomainResponse
 --
+--         , responseUpdateImpersonationRole $
+--             newUpdateImpersonationRoleResponse
+--
 --         , responseUpdateMailboxQuota $
 --             newUpdateMailboxQuotaResponse
 --
@@ -485,6 +527,12 @@ requestAssociateMemberToGroup =
     "AssociateMemberToGroup"
     "fixture/AssociateMemberToGroup.yaml"
 
+requestAssumeImpersonationRole :: AssumeImpersonationRole -> TestTree
+requestAssumeImpersonationRole =
+  req
+    "AssumeImpersonationRole"
+    "fixture/AssumeImpersonationRole.yaml"
+
 requestCancelMailboxExportJob :: CancelMailboxExportJob -> TestTree
 requestCancelMailboxExportJob =
   req
@@ -508,6 +556,12 @@ requestCreateGroup =
   req
     "CreateGroup"
     "fixture/CreateGroup.yaml"
+
+requestCreateImpersonationRole :: CreateImpersonationRole -> TestTree
+requestCreateImpersonationRole =
+  req
+    "CreateImpersonationRole"
+    "fixture/CreateImpersonationRole.yaml"
 
 requestCreateMobileDeviceAccessRule :: CreateMobileDeviceAccessRule -> TestTree
 requestCreateMobileDeviceAccessRule =
@@ -562,6 +616,12 @@ requestDeleteGroup =
   req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
+
+requestDeleteImpersonationRole :: DeleteImpersonationRole -> TestTree
+requestDeleteImpersonationRole =
+  req
+    "DeleteImpersonationRole"
+    "fixture/DeleteImpersonationRole.yaml"
 
 requestDeleteMailboxPermissions :: DeleteMailboxPermissions -> TestTree
 requestDeleteMailboxPermissions =
@@ -683,6 +743,18 @@ requestGetDefaultRetentionPolicy =
     "GetDefaultRetentionPolicy"
     "fixture/GetDefaultRetentionPolicy.yaml"
 
+requestGetImpersonationRole :: GetImpersonationRole -> TestTree
+requestGetImpersonationRole =
+  req
+    "GetImpersonationRole"
+    "fixture/GetImpersonationRole.yaml"
+
+requestGetImpersonationRoleEffect :: GetImpersonationRoleEffect -> TestTree
+requestGetImpersonationRoleEffect =
+  req
+    "GetImpersonationRoleEffect"
+    "fixture/GetImpersonationRoleEffect.yaml"
+
 requestGetMailDomain :: GetMailDomain -> TestTree
 requestGetMailDomain =
   req
@@ -736,6 +808,12 @@ requestListGroups =
   req
     "ListGroups"
     "fixture/ListGroups.yaml"
+
+requestListImpersonationRoles :: ListImpersonationRoles -> TestTree
+requestListImpersonationRoles =
+  req
+    "ListImpersonationRoles"
+    "fixture/ListImpersonationRoles.yaml"
 
 requestListMailDomains :: ListMailDomains -> TestTree
 requestListMailDomains =
@@ -887,6 +965,12 @@ requestUpdateDefaultMailDomain =
     "UpdateDefaultMailDomain"
     "fixture/UpdateDefaultMailDomain.yaml"
 
+requestUpdateImpersonationRole :: UpdateImpersonationRole -> TestTree
+requestUpdateImpersonationRole =
+  req
+    "UpdateImpersonationRole"
+    "fixture/UpdateImpersonationRole.yaml"
+
 requestUpdateMailboxQuota :: UpdateMailboxQuota -> TestTree
 requestUpdateMailboxQuota =
   req
@@ -929,6 +1013,14 @@ responseAssociateMemberToGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateMemberToGroup)
 
+responseAssumeImpersonationRole :: AssumeImpersonationRoleResponse -> TestTree
+responseAssumeImpersonationRole =
+  res
+    "AssumeImpersonationRoleResponse"
+    "fixture/AssumeImpersonationRoleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssumeImpersonationRole)
+
 responseCancelMailboxExportJob :: CancelMailboxExportJobResponse -> TestTree
 responseCancelMailboxExportJob =
   res
@@ -960,6 +1052,14 @@ responseCreateGroup =
     "fixture/CreateGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateGroup)
+
+responseCreateImpersonationRole :: CreateImpersonationRoleResponse -> TestTree
+responseCreateImpersonationRole =
+  res
+    "CreateImpersonationRoleResponse"
+    "fixture/CreateImpersonationRoleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateImpersonationRole)
 
 responseCreateMobileDeviceAccessRule :: CreateMobileDeviceAccessRuleResponse -> TestTree
 responseCreateMobileDeviceAccessRule =
@@ -1032,6 +1132,14 @@ responseDeleteGroup =
     "fixture/DeleteGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
+
+responseDeleteImpersonationRole :: DeleteImpersonationRoleResponse -> TestTree
+responseDeleteImpersonationRole =
+  res
+    "DeleteImpersonationRoleResponse"
+    "fixture/DeleteImpersonationRoleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteImpersonationRole)
 
 responseDeleteMailboxPermissions :: DeleteMailboxPermissionsResponse -> TestTree
 responseDeleteMailboxPermissions =
@@ -1193,6 +1301,22 @@ responseGetDefaultRetentionPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDefaultRetentionPolicy)
 
+responseGetImpersonationRole :: GetImpersonationRoleResponse -> TestTree
+responseGetImpersonationRole =
+  res
+    "GetImpersonationRoleResponse"
+    "fixture/GetImpersonationRoleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImpersonationRole)
+
+responseGetImpersonationRoleEffect :: GetImpersonationRoleEffectResponse -> TestTree
+responseGetImpersonationRoleEffect =
+  res
+    "GetImpersonationRoleEffectResponse"
+    "fixture/GetImpersonationRoleEffectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImpersonationRoleEffect)
+
 responseGetMailDomain :: GetMailDomainResponse -> TestTree
 responseGetMailDomain =
   res
@@ -1264,6 +1388,14 @@ responseListGroups =
     "fixture/ListGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGroups)
+
+responseListImpersonationRoles :: ListImpersonationRolesResponse -> TestTree
+responseListImpersonationRoles =
+  res
+    "ListImpersonationRolesResponse"
+    "fixture/ListImpersonationRolesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImpersonationRoles)
 
 responseListMailDomains :: ListMailDomainsResponse -> TestTree
 responseListMailDomains =
@@ -1464,6 +1596,14 @@ responseUpdateDefaultMailDomain =
     "fixture/UpdateDefaultMailDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDefaultMailDomain)
+
+responseUpdateImpersonationRole :: UpdateImpersonationRoleResponse -> TestTree
+responseUpdateImpersonationRole =
+  res
+    "UpdateImpersonationRoleResponse"
+    "fixture/UpdateImpersonationRoleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateImpersonationRole)
 
 responseUpdateMailboxQuota :: UpdateMailboxQuotaResponse -> TestTree
 responseUpdateMailboxQuota =

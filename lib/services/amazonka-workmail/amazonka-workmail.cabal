@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2021 Brendan Hay
+copyright:          Copyright (c) 2013-2022 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -46,10 +46,12 @@ library
     Amazonka.WorkMail
     Amazonka.WorkMail.AssociateDelegateToResource
     Amazonka.WorkMail.AssociateMemberToGroup
+    Amazonka.WorkMail.AssumeImpersonationRole
     Amazonka.WorkMail.CancelMailboxExportJob
     Amazonka.WorkMail.CreateAlias
     Amazonka.WorkMail.CreateAvailabilityConfiguration
     Amazonka.WorkMail.CreateGroup
+    Amazonka.WorkMail.CreateImpersonationRole
     Amazonka.WorkMail.CreateMobileDeviceAccessRule
     Amazonka.WorkMail.CreateOrganization
     Amazonka.WorkMail.CreateResource
@@ -59,6 +61,7 @@ library
     Amazonka.WorkMail.DeleteAvailabilityConfiguration
     Amazonka.WorkMail.DeleteEmailMonitoringConfiguration
     Amazonka.WorkMail.DeleteGroup
+    Amazonka.WorkMail.DeleteImpersonationRole
     Amazonka.WorkMail.DeleteMailboxPermissions
     Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
     Amazonka.WorkMail.DeleteMobileDeviceAccessRule
@@ -79,6 +82,8 @@ library
     Amazonka.WorkMail.DisassociateMemberFromGroup
     Amazonka.WorkMail.GetAccessControlEffect
     Amazonka.WorkMail.GetDefaultRetentionPolicy
+    Amazonka.WorkMail.GetImpersonationRole
+    Amazonka.WorkMail.GetImpersonationRoleEffect
     Amazonka.WorkMail.GetMailboxDetails
     Amazonka.WorkMail.GetMailDomain
     Amazonka.WorkMail.GetMobileDeviceAccessEffect
@@ -89,6 +94,7 @@ library
     Amazonka.WorkMail.ListAvailabilityConfigurations
     Amazonka.WorkMail.ListGroupMembers
     Amazonka.WorkMail.ListGroups
+    Amazonka.WorkMail.ListImpersonationRoles
     Amazonka.WorkMail.ListMailboxExportJobs
     Amazonka.WorkMail.ListMailboxPermissions
     Amazonka.WorkMail.ListMailDomains
@@ -114,6 +120,7 @@ library
     Amazonka.WorkMail.Types
     Amazonka.WorkMail.Types.AccessControlRule
     Amazonka.WorkMail.Types.AccessControlRuleEffect
+    Amazonka.WorkMail.Types.AccessEffect
     Amazonka.WorkMail.Types.AvailabilityConfiguration
     Amazonka.WorkMail.Types.AvailabilityProviderType
     Amazonka.WorkMail.Types.BookingOptions
@@ -126,6 +133,10 @@ library
     Amazonka.WorkMail.Types.FolderConfiguration
     Amazonka.WorkMail.Types.FolderName
     Amazonka.WorkMail.Types.Group
+    Amazonka.WorkMail.Types.ImpersonationMatchedRule
+    Amazonka.WorkMail.Types.ImpersonationRole
+    Amazonka.WorkMail.Types.ImpersonationRoleType
+    Amazonka.WorkMail.Types.ImpersonationRule
     Amazonka.WorkMail.Types.LambdaAvailabilityProvider
     Amazonka.WorkMail.Types.MailboxExportJob
     Amazonka.WorkMail.Types.MailboxExportJobState
@@ -149,6 +160,7 @@ library
     Amazonka.WorkMail.UntagResource
     Amazonka.WorkMail.UpdateAvailabilityConfiguration
     Amazonka.WorkMail.UpdateDefaultMailDomain
+    Amazonka.WorkMail.UpdateImpersonationRole
     Amazonka.WorkMail.UpdateMailboxQuota
     Amazonka.WorkMail.UpdateMobileDeviceAccessRule
     Amazonka.WorkMail.UpdatePrimaryEmailAddress
@@ -156,7 +168,7 @@ library
     Amazonka.WorkMail.Waiters
 
   build-depends:
-    , amazonka-core  ^>=2.0
+    , amazonka-core  >=2.0  && <2.1
     , base           >=4.12 && <5
 
 test-suite amazonka-workmail-test
@@ -175,8 +187,8 @@ test-suite amazonka-workmail-test
     Test.Amazonka.WorkMail.Internal
 
   build-depends:
-    , amazonka-core         ^>=2.0
-    , amazonka-test         ^>=2.0
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
     , amazonka-workmail
     , base
     , bytestring

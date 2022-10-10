@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.PutIntegration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,11 @@
 -- includes Amazon AppFlow and Amazon Connect.
 --
 -- An integration can belong to only one domain.
+--
+-- To add or remove tags on an existing Integration, see
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html TagResource>
+-- \/
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html UntagResource>.
 module Amazonka.CustomerProfiles.PutIntegration
   ( -- * Creating a Request
     PutIntegration (..),
@@ -43,6 +48,7 @@ module Amazonka.CustomerProfiles.PutIntegration
 
     -- * Response Lenses
     putIntegrationResponse_tags,
+    putIntegrationResponse_isUnstructured,
     putIntegrationResponse_objectTypeNames,
     putIntegrationResponse_workflowId,
     putIntegrationResponse_objectTypeName,
@@ -166,6 +172,7 @@ instance Core.AWSRequest PutIntegration where
       ( \s h x ->
           PutIntegrationResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "IsUnstructured")
             Prelude.<*> ( x Core..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
@@ -234,6 +241,10 @@ instance Core.ToQuery PutIntegration where
 data PutIntegrationResponse = PutIntegrationResponse'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Boolean to indicate if the Flow associated with the Integration is
+    -- created via Appflow console or with ObjectTypeName equals _unstructured
+    -- via API\/CLI in flowDefinition
+    isUnstructured :: Prelude.Maybe Prelude.Bool,
     -- | A map in which each key is an event type from an external application
     -- such as Segment or Shopify, and each value is an @ObjectTypeName@
     -- (template) used to ingest the event. It supports the following event
@@ -268,6 +279,10 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- for backwards compatibility:
 --
 -- 'tags', 'putIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'isUnstructured', 'putIntegrationResponse_isUnstructured' - Boolean to indicate if the Flow associated with the Integration is
+-- created via Appflow console or with ObjectTypeName equals _unstructured
+-- via API\/CLI in flowDefinition
 --
 -- 'objectTypeNames', 'putIntegrationResponse_objectTypeNames' - A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -310,6 +325,7 @@ newPutIntegrationResponse
   pLastUpdatedAt_ =
     PutIntegrationResponse'
       { tags = Prelude.Nothing,
+        isUnstructured = Prelude.Nothing,
         objectTypeNames = Prelude.Nothing,
         workflowId = Prelude.Nothing,
         objectTypeName = Prelude.Nothing,
@@ -323,6 +339,12 @@ newPutIntegrationResponse
 -- | The tags used to organize, track, or control access for this resource.
 putIntegrationResponse_tags :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putIntegrationResponse_tags = Lens.lens (\PutIntegrationResponse' {tags} -> tags) (\s@PutIntegrationResponse' {} a -> s {tags = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Boolean to indicate if the Flow associated with the Integration is
+-- created via Appflow console or with ObjectTypeName equals _unstructured
+-- via API\/CLI in flowDefinition
+putIntegrationResponse_isUnstructured :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Bool)
+putIntegrationResponse_isUnstructured = Lens.lens (\PutIntegrationResponse' {isUnstructured} -> isUnstructured) (\s@PutIntegrationResponse' {} a -> s {isUnstructured = a} :: PutIntegrationResponse)
 
 -- | A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -365,6 +387,7 @@ putIntegrationResponse_lastUpdatedAt = Lens.lens (\PutIntegrationResponse' {last
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf isUnstructured
       `Prelude.seq` Prelude.rnf objectTypeNames
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf objectTypeName

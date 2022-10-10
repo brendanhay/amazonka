@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.GetIntegration
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,7 @@ module Amazonka.CustomerProfiles.GetIntegration
 
     -- * Response Lenses
     getIntegrationResponse_tags,
+    getIntegrationResponse_isUnstructured,
     getIntegrationResponse_objectTypeNames,
     getIntegrationResponse_workflowId,
     getIntegrationResponse_objectTypeName,
@@ -104,6 +105,7 @@ instance Core.AWSRequest GetIntegration where
       ( \s h x ->
           GetIntegrationResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "IsUnstructured")
             Prelude.<*> ( x Core..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
@@ -156,6 +158,10 @@ instance Core.ToQuery GetIntegration where
 data GetIntegrationResponse = GetIntegrationResponse'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Boolean to indicate if the Flow associated with the Integration is
+    -- created via Appflow console or with ObjectTypeName equals _unstructured
+    -- via API\/CLI in flowDefinition
+    isUnstructured :: Prelude.Maybe Prelude.Bool,
     -- | A map in which each key is an event type from an external application
     -- such as Segment or Shopify, and each value is an @ObjectTypeName@
     -- (template) used to ingest the event. It supports the following event
@@ -190,6 +196,10 @@ data GetIntegrationResponse = GetIntegrationResponse'
 -- for backwards compatibility:
 --
 -- 'tags', 'getIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'isUnstructured', 'getIntegrationResponse_isUnstructured' - Boolean to indicate if the Flow associated with the Integration is
+-- created via Appflow console or with ObjectTypeName equals _unstructured
+-- via API\/CLI in flowDefinition
 --
 -- 'objectTypeNames', 'getIntegrationResponse_objectTypeNames' - A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -232,6 +242,7 @@ newGetIntegrationResponse
   pLastUpdatedAt_ =
     GetIntegrationResponse'
       { tags = Prelude.Nothing,
+        isUnstructured = Prelude.Nothing,
         objectTypeNames = Prelude.Nothing,
         workflowId = Prelude.Nothing,
         objectTypeName = Prelude.Nothing,
@@ -245,6 +256,12 @@ newGetIntegrationResponse
 -- | The tags used to organize, track, or control access for this resource.
 getIntegrationResponse_tags :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getIntegrationResponse_tags = Lens.lens (\GetIntegrationResponse' {tags} -> tags) (\s@GetIntegrationResponse' {} a -> s {tags = a} :: GetIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Boolean to indicate if the Flow associated with the Integration is
+-- created via Appflow console or with ObjectTypeName equals _unstructured
+-- via API\/CLI in flowDefinition
+getIntegrationResponse_isUnstructured :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Bool)
+getIntegrationResponse_isUnstructured = Lens.lens (\GetIntegrationResponse' {isUnstructured} -> isUnstructured) (\s@GetIntegrationResponse' {} a -> s {isUnstructured = a} :: GetIntegrationResponse)
 
 -- | A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -287,6 +304,7 @@ getIntegrationResponse_lastUpdatedAt = Lens.lens (\GetIntegrationResponse' {last
 instance Prelude.NFData GetIntegrationResponse where
   rnf GetIntegrationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf isUnstructured
       `Prelude.seq` Prelude.rnf objectTypeNames
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf objectTypeName

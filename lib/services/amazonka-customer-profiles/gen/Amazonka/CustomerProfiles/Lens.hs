@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.Lens
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -165,6 +165,7 @@ module Amazonka.CustomerProfiles.Lens
     getIntegration_domainName,
     getIntegration_uri,
     getIntegrationResponse_tags,
+    getIntegrationResponse_isUnstructured,
     getIntegrationResponse_objectTypeNames,
     getIntegrationResponse_workflowId,
     getIntegrationResponse_objectTypeName,
@@ -328,6 +329,7 @@ module Amazonka.CustomerProfiles.Lens
     putIntegration_objectTypeName,
     putIntegration_domainName,
     putIntegrationResponse_tags,
+    putIntegrationResponse_isUnstructured,
     putIntegrationResponse_objectTypeNames,
     putIntegrationResponse_workflowId,
     putIntegrationResponse_objectTypeName,
@@ -572,6 +574,7 @@ module Amazonka.CustomerProfiles.Lens
 
     -- ** ListIntegrationItem
     listIntegrationItem_tags,
+    listIntegrationItem_isUnstructured,
     listIntegrationItem_objectTypeNames,
     listIntegrationItem_workflowId,
     listIntegrationItem_objectTypeName,

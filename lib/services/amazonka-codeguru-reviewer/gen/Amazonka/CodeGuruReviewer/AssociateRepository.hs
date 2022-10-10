@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.AssociateRepository
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Use to associate an Amazon Web Services CodeCommit repository or a
--- repostory managed by Amazon Web Services CodeStar Connections with
+-- repository managed by Amazon Web Services CodeStar Connections with
 -- Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru
 -- Reviewer reviews source code changes in the repository\'s pull requests
 -- and provides automatic recommendations. You can view recommendations
@@ -98,7 +98,7 @@ data AssociateRepository = AssociateRepository'
     --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
     --
     -- -   The ID of the Amazon Web Services KMS key that is associated with
-    --     this respository association.
+    --     this repository association.
     kmsKeyDetails :: Prelude.Maybe KMSKeyDetails,
     -- | The repository to associate.
     repository :: Repository
@@ -135,7 +135,7 @@ data AssociateRepository = AssociateRepository'
 --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
 --
 -- -   The ID of the Amazon Web Services KMS key that is associated with
---     this respository association.
+--     this repository association.
 --
 -- 'repository', 'associateRepository_repository' - The repository to associate.
 newAssociateRepository ::
@@ -176,7 +176,7 @@ associateRepository_clientRequestToken = Lens.lens (\AssociateRepository' {clien
 --     (@AWS_OWNED_CMK@) or customer managed (@CUSTOMER_MANAGED_CMK@).
 --
 -- -   The ID of the Amazon Web Services KMS key that is associated with
---     this respository association.
+--     this repository association.
 associateRepository_kmsKeyDetails :: Lens.Lens' AssociateRepository (Prelude.Maybe KMSKeyDetails)
 associateRepository_kmsKeyDetails = Lens.lens (\AssociateRepository' {kmsKeyDetails} -> kmsKeyDetails) (\s@AssociateRepository' {} a -> s {kmsKeyDetails = a} :: AssociateRepository)
 

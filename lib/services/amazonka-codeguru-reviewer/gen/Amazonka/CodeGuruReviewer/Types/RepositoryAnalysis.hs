@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | A code review type that analyzes all code under a specified branch in an
 -- associated repository. The associated repository is specified using its
 -- ARN when you call
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview CreateCodeReview>
--- .
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview CreateCodeReview>.
 --
 -- /See:/ 'newRepositoryAnalysis' smart constructor.
 data RepositoryAnalysis = RepositoryAnalysis'

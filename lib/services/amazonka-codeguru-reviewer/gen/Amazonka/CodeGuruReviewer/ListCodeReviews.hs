@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.ListCodeReviews
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCodeReviews' smart constructor.
 data ListCodeReviews = ListCodeReviews'
-  { -- | If nextToken is returned, there are more results available. The value of
-    -- nextToken is a unique pagination token for each page. Make the call
+  { -- | If @nextToken@ is returned, there are more results available. The value
+    -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -97,8 +97,8 @@ data ListCodeReviews = ListCodeReviews'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCodeReviews_nextToken' - If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
+-- 'nextToken', 'listCodeReviews_nextToken' - If @nextToken@ is returned, there are more results available. The value
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 --
@@ -141,8 +141,8 @@ newListCodeReviews pType_ =
       type' = pType_
     }
 
--- | If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
+-- | If @nextToken@ is returned, there are more results available. The value
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 listCodeReviews_nextToken :: Lens.Lens' ListCodeReviews (Prelude.Maybe Prelude.Text)

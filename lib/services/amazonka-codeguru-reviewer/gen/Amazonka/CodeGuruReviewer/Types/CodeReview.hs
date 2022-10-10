@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruReviewer.Types.CodeReview
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,8 +48,7 @@ data CodeReview = CodeReview'
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
     -- that contains the reviewed source code. You can retrieve associated
     -- repository ARNs by calling
-    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>
-    -- .
+    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
     associationArn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the code review was
     -- created.
@@ -119,8 +118,7 @@ data CodeReview = CodeReview'
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
 -- that contains the reviewed source code. You can retrieve associated
 -- repository ARNs by calling
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>
--- .
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
 --
 -- 'createdTimeStamp', 'codeReview_createdTimeStamp' - The time, in milliseconds since the epoch, when the code review was
 -- created.
@@ -208,8 +206,7 @@ codeReview_pullRequestId = Lens.lens (\CodeReview' {pullRequestId} -> pullReques
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
 -- that contains the reviewed source code. You can retrieve associated
 -- repository ARNs by calling
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>
--- .
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
 codeReview_associationArn :: Lens.Lens' CodeReview (Prelude.Maybe Prelude.Text)
 codeReview_associationArn = Lens.lens (\CodeReview' {associationArn} -> associationArn) (\s@CodeReview' {} a -> s {associationArn = a} :: CodeReview)
 
